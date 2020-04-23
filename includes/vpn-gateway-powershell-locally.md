@@ -15,4 +15,4 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660516"
 ---
-Du kan också installera och köra Azure PowerShell-cmdlets lokalt på din dator. PowerShell-cmdlets uppdateras ofta. Om du inte har installerat den senaste versionen kan de värden som anges i instruktionerna misslyckas. Om du vill hitta versionerna av Azure `Get-Module -ListAvailable Az` PowerShell som är installerade på datorn använder du cmdleten. Information om hur du installerar eller uppdaterar finns [i Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
+Du kan också installera och köra Azure PowerShell-cmdlets lokalt på datorn. PowerShell-cmdletar uppdateras ofta. Om du inte har installerat den senaste versionen kan de värden som anges i instruktionerna Miss lyckas. Använd `Get-Module -ListAvailable Az` cmdleten för att hitta de versioner av Azure PowerShell som är installerade på datorn. Information om hur du installerar eller uppdaterar finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).

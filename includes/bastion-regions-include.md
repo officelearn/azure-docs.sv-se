@@ -16,10 +16,10 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "78669185"
 ---
 >[!NOTE]
->Vi arbetar hårt för att lägga till ytterligare regioner. När en region läggs till lägger vi till den i den här listan.
+>Vi arbetar hårt för att lägga till ytterligare regioner. När en region läggs till läggs den till i listan.
 >
 
-**Americas**
+**Amerika**
 * Brasilien, södra
 * Kanada, centrala
 * USA, centrala
@@ -34,7 +34,7 @@ ms.locfileid: "78669185"
 **Europa**
 * Frankrike, centrala
 * Europa, norra
-* Norge Öst
+* Östra Norge
 * Storbritannien, södra
 * Storbritannien, västra
 * Europa, västra
@@ -52,8 +52,8 @@ ms.locfileid: "78669185"
 * Indien, västra
 
 **Mellanöstern och Afrika**
-* Sydafrika North
-* Centrala Förenade Arabemiraten
+* Sydafrika, norra
+* Förenade Arabemiraten Central
 
 **Azure Government**
 * USA DoD, centrala

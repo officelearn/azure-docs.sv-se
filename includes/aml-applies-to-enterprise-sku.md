@@ -16,4 +16,4 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "75527305"
 ---
-**GÄLLER:** ![ingen](media/aml-applies-to-skus/no.png)Basic ![](media/aml-applies-to-skus/yes.png)edition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ja Enterprise &nbsp; edition &nbsp;[(Uppgradera till Enterprise)](../articles/machine-learning/how-to-manage-workspace.md#upgrade)
+**Gäller för:** ![ingen](media/aml-applies-to-skus/no.png)Basic Edition ![ja](media/aml-applies-to-skus/yes.png)Enterprise Edition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Upgrade to Enterprise](../articles/machine-learning/how-to-manage-workspace.md#upgrade)(uppgradera till Enterprise) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;

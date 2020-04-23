@@ -11,9 +11,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "68639117"
 ---
-Det enklaste sättet att installera bindningstillägg är att aktivera [tilläggspaket](../articles/azure-functions/functions-bindings-register.md#extension-bundles). När du aktiverar paket installeras automatiskt en fördefinierad uppsättning tilläggspaket.
+Det enklaste sättet att installera bindnings tillägg är att aktivera [paket för tillägg](../articles/azure-functions/functions-bindings-register.md#extension-bundles). När du aktiverar paket installeras en fördefinierad uppsättning tilläggs paket automatiskt.
 
-Om du vill aktivera tilläggspaket öppnar du filen host.json och uppdaterar innehållet så att det matchar följande kod:
+Om du vill aktivera tilläggs paket öppnar du Host. JSON-filen och uppdaterar innehållet så att det matchar följande kod:
 
 ```json
 {

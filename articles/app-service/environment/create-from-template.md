@@ -1,6 +1,6 @@
 ---
 title: Skapa en ASE med ARM
-description: Lär dig hur du skapar en extern tjänst eller ILB App Service-miljö med hjälp av en Azure Resource Manager-mall.
+description: Lär dig hur du skapar en extern eller ILB App Service miljö genom att använda en Azure Resource Manager mall.
 author: ccompy
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
@@ -14,43 +14,43 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2020
 ms.locfileid: "80478319"
 ---
-# <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Skapa en ASE med hjälp av en Azure Resource Manager-mall
+# <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Skapa en ASE med hjälp av en Azure Resource Manager mall
 
 ## <a name="overview"></a>Översikt
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure App Service-miljöer (ASE) kan skapas med en internettillgänglig slutpunkt eller en slutpunkt på en intern adress i ett virtuellt Azure-nätverk (VNet). När den skapas med en intern slutpunkt tillhandahålls slutpunkten av en Azure-komponent som kallas en intern belastningsutjämnare (ILB). ASE på en intern IP-adress kallas en ILB ASE. ASE med en offentlig slutpunkt kallas en extern ASE. 
+Azure App Service miljöer (ASE) kan skapas med en tillgänglig slut punkt på Internet eller en slut punkt på en intern adress i ett virtuellt Azure-nätverk (VNet). När den skapas med en intern slut punkt tillhandahålls den slut punkten av en Azure-komponent som kallas intern belastningsutjämnare (ILB). ASE på en intern IP-adress kallas för en ILB-ASE. ASE med en offentlig slut punkt kallas för en extern ASE. 
 
-En ASE kan skapas med hjälp av Azure-portalen eller en Azure Resource Manager-mall. Den här artikeln går igenom de steg och den syntax du behöver för att skapa en extern ASE- eller ILB ASE med Resource Manager-mallar. Mer information om hur du skapar en ASE i Azure-portalen finns i [Skapa en extern ASE][MakeExternalASE] eller [Skapa en ILB ASE][MakeILBASE].
+Du kan skapa en ASE med hjälp av Azure Portal eller en Azure Resource Manager mall. Den här artikeln beskriver de steg och den syntax du behöver för att skapa en extern ASE-eller ILB-ASE med Resource Manager-mallar. Information om hur du skapar en ASE i Azure Portal finns i [skapa en extern ASE][MakeExternalASE] eller [göra en ILB ASE][MakeILBASE].
 
-När du skapar en ASE i Azure-portalen kan du skapa ditt virtuella nätverk samtidigt eller välja ett befintligt virtuella nätverk att distribuera till. När du skapar en ASE från en mall måste du börja med: 
+När du skapar en ASE i Azure Portal kan du skapa ditt VNet på samma gång eller välja ett befintligt VNet att distribuera till. När du skapar en ASE från en mall måste du börja med: 
 
-* Ett resurshanterarens virtuella nätverk.
-* Ett undernät i det virtuella nätverket. Vi rekommenderar en ASE-undernätsstorlek `/24` med 256 adresser för att tillgodose framtida tillväxt- och skalningsbehov. När ASE har skapats kan du inte ändra storleken.
-* Resurs-ID:t från ditt virtuella nätverk. Du kan hämta den här informationen från Azure-portalen under dina virtuella nätverksegenskaper.
-* Prenumerationen som du vill distribuera till.
+* Ett virtuellt Resource Manager-nätverk.
+* Ett undernät i det virtuella nätverket. Vi rekommenderar en ASE-undernätets storlek på `/24` med 256 adresser för framtida tillväxt-och skalnings behov. När ASE har skapats kan du inte ändra storleken.
+* Resurs-ID från ditt VNet. Du kan hämta den här informationen från Azure Portal under egenskaperna för ditt virtuella nätverk.
+* Den prenumeration som du vill distribuera till.
 * Den plats som du vill distribuera till.
 
-Så här automatiserar du din ASE-skapande:
+Så här automatiserar du skapandet av ASE:
 
-1. Skapa ASE från en mall. Om du skapar en extern ASE är du klar efter det här steget. Om du skapar en ILB ASE, det finns några fler saker att göra.
+1. Skapa ASE från en mall. Om du skapar en extern ASE är du klar efter det här steget. Om du skapar en ILB-ASE finns det några fler saker att göra.
 
-2. När din ILB ASE har skapats överförs ett TLS/SSL-certifikat som matchar din ILB ASE-domän.
+2. När din ILB-ASE har skapats laddas ett TLS/SSL-certifikat som matchar din ILB ASE-domän.
 
-3. Det uppladdade TLS/SSL-certifikatet tilldelas ILB ASE som standard-TLS/SSL-certifikat.  Det här certifikatet används för TLS/SSL-trafik till appar på ILB ASE när de använder den `https://someapp.mycustomrootdomain.com`gemensamma rotdomän som har tilldelats ASE (till exempel ).
+3. Det uppladdade TLS/SSL-certifikatet tilldelas till ILB-ASE som "standard" TLS/SSL-certifikat.  Det här certifikatet används för TLS/SSL-trafik till appar på ILB-ASE när de använder den gemensamma rot domänen som är tilldelad till ASE (till `https://someapp.mycustomrootdomain.com`exempel).
 
 
 ## <a name="create-the-ase"></a>Skapa ASE
-En Resource Manager-mall som skapar en ASE- och dess associerade parameterfil är tillgänglig [i ett exempel][quickstartasev2create] på GitHub.
+En Resource Manager-mall som skapar en ASE och dess tillhör ande parameter fil är tillgänglig [i ett exempel][quickstartasev2create] på GitHub.
 
-Om du vill göra en ILB ASE använder du dessa [exempel på][quickstartilbasecreate]Resource Manager-mall . De tillgodoser det användningsfallet. De flesta parametrarna i *filen azuredeploy.parameters.json* är gemensamma för skapandet av ILB ASEs och externa ASE.Most of the parameters in the azuredeploy.parameters.json file are common to the creation of ILB ASEs and External ASEs. Följande lista ropar ut parametrar för särskild anteckning, eller som är unika, när du skapar en ILB ASE:
+Om du vill skapa en ILB-ASE använder du dessa [exempel][quickstartilbasecreate]för Resource Manager-mallar. De är i användnings fall. De flesta av parametrarna i filen *azuredeploy. Parameters. JSON* är vanliga för att skapa ILB-ASE och externa ASE. I följande lista anropas parametrar för särskild anteckning eller som är unika när du skapar en ILB-ASE:
 
-* *internalLoadBalancingMode*: I de flesta fall ställer du in detta på 3, vilket innebär att både HTTP/HTTPS-trafik på portar 80/443 och de kontroll-/datakanalportar som ftp-tjänsten lyssnar på på ASE, kommer att vara bundna till en intern ILB-allokerad intern adress för virtuellt nätverk. Om den här egenskapen är inställd på 2 är endast FTP-tjänstrelaterade portar (både kontroll- och datakanaler) bundna till en ILB-adress. HTTP/HTTPS-trafiken finns kvar på den offentliga VIP-webbplatsen.
-* *dnsSuffix*: Den här parametern definierar standardrotdomänen som har tilldelats ASE. I den offentliga varianten av Azure App Service är standardrotdomänen för alla webbappar *azurewebsites.net*. Eftersom en ILB ASE är intern i en kunds virtuella nätverk är det inte meningsfullt att använda den offentliga tjänstens standardrotdomän. I stället bör en ILB ASE ha en standardrotdomän som är meningsfull för användning inom ett företags interna virtuella nätverk. Contoso Corporation kan till exempel använda en standardrotdomän för *internal-contoso.com* för appar som är avsedda att vara resolvable och endast tillgängliga i Contosos virtuella nätverk. 
-* *ipSslAddressCount*: Den här parametern standards automatiskt till ett värde av 0 i *filen azuredeploy.json* eftersom ILB ASEs bara har en enda ILB-adress. Det finns inga explicita IP-SSL-adresser för en ILB ASE. Därför måste IP-SSL-adresspoolen för en ILB ASE anges till noll. Annars uppstår ett etableringsfel. 
+* *internalLoadBalancingMode*: i de flesta fall ska du ange detta till 3, vilket innebär både http/https-trafik på portarna 80/443 och kontroll-/data kanals portarna som har avlyssnats av FTP-tjänsten på ASE, binds till en ILB-allokerad virtuell nätverks adress. Om den här egenskapen anges till 2, är bara FTP-tjänstens relaterade portar (både kontroll-och data kanaler) bundna till en ILB-adress. HTTP/HTTPS-trafiken finns kvar på den offentliga VIP: en.
+* *dnsSuffix*: den här parametern definierar den standard rot domän som är kopplad till ASE. I den offentliga variationen av Azure App Service, är standard rot domänen för alla webbappar *azurewebsites.net*. Eftersom en ILB-ASE är intern för kundens virtuella nätverk är det inte klokt att använda den offentliga tjänstens standard rot domän. I stället bör en ILB-ASE ha en standard rot domän som är bra att använda i företagets interna virtuella nätverk. Contoso Corporation kan till exempel använda en standard rot domän för *Internal-contoso.com* för appar som är avsedda att matchas och endast nås i Contosos virtuella nätverk. 
+* *ipSslAddressCount*: den här parametern använder automatiskt värdet 0 i *azuredeploy. JSON* -filen eftersom ILB ASE bara har en enda ILB-adress. Det finns inga explicita IP-SSL-adresser för en ILB-ASE. Därför måste IP-SSL-adresspoolen för en ILB-ASE anges till noll. Annars inträffar ett etablerings fel. 
 
-När *filen azuredeploy.parameters.json* har fyllts i skapar du ASE med hjälp av PowerShell-kodavsnittet. Ändra filsökvägarna så att de matchar Resource Manager-mall-filplatserna på datorn. Kom ihåg att ange dina egna värden för Resurshanterarens distributionsnamn och resursgruppsnamnet:
+När filen *azuredeploy. Parameters. JSON* har fyllts i skapar du ASE med hjälp av PowerShell-kodfragmentet. Ändra fil Sök vägarna så att de matchar Resource Manager-mallens fil platser på din dator. Kom ihåg att ange dina egna värden för Resource Manager-distributionens namn och resurs gruppens namn:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -59,28 +59,28 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-Det tar ungefär en timme för ASE att skapas. Sedan visas ASE i portalen i listan över ASE för prenumerationen som utlöste distributionen.
+Det tar ungefär en timme innan ASE skapas. Sedan visas ASE i portalen i listan över ASE för den prenumeration som utlöste distributionen.
 
-## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>Ladda upp och konfigurera TLS/SSL-certifikatet "standard"
-Ett TLS/SSL-certifikat måste associeras med ASE som det "standard"-TLS/SSL-certifikat som används för att upprätta TLS-anslutningar till appar. Om ASE:s standard-DNS-suffix *är internal-contoso.com* `https://some-random-app.internal-contoso.com` kräver en anslutning till ett TLS/SSL-certifikat som är giltigt för **.internal-contoso.com*. 
+## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>Ladda upp och konfigurera "standard" TLS/SSL-certifikatet
+Ett TLS/SSL-certifikat måste vara associerat med ASE som standard TLS/SSL-certifikat som används för att upprätta TLS-anslutningar till appar. Om ASE standard-DNS-suffixet är *Internal-contoso.com*, så kräver `https://some-random-app.internal-contoso.com` en anslutning till ett TLS/SSL-certifikat som är giltigt för **. Internal-contoso.com*. 
 
-Skaffa ett giltigt TLS/SSL-certifikat med hjälp av interna certifikatutfärdare, köpa ett certifikat från en extern utfärdare eller använda ett självsignerat certifikat. Oavsett källan till TLS/SSL-certifikatet måste följande certifikatattribut konfigureras korrekt:
+Skaffa ett giltigt TLS/SSL-certifikat genom att använda interna certifikat utfärdare, köpa ett certifikat från en extern utfärdare eller använda ett självsignerat certifikat. Oberoende av källan till TLS/SSL-certifikatet måste följande attribut för certifikaten vara korrekt konfigurerade:
 
-* **Ämne**: Det här attributet måste anges till **.your-root-domain-here.com*.
-* **Ämnesalternativnamn:** Det här attributet måste innehålla både **.your-root-domain-here.com* och **.scm.your-root-domain-here.com*. TLS-anslutningar till SCM/Kudu-webbplatsen som är associerad med varje app använder en adress till formuläret *your-app-name.scm.your-root-domain-here.com*.
+* **Subject**: det här attributet måste anges till **. your-Root-Domain-here.com*.
+* **Alternativt namn för certifikat mottagare**: det här attributet måste innehålla både **. your-Root-Domain-here.com* och **. scm.your-Root-Domain-here.com*. TLS-anslutningar till den SCM/kudu-plats som är associerad med varje app använder en adress i formatet *Your-App-Name.scm.your-Root-Domain-here.com*.
 
-Med ett giltigt TLS/SSL-certifikat i handen krävs ytterligare två förberedande steg. Konvertera/spara TLS/SSL-certifikatet som en PFX-fil. Kom ihåg att PFX-filen måste innehålla alla mellanliggande certifikat och rotcertifikat. Skydda den med ett lösenord.
+Med ett giltigt TLS/SSL-certifikat i handen krävs ytterligare två förberedande steg. Konvertera/Spara TLS/SSL-certifikatet som en PFX-fil. Kom ihåg att. pfx-filen måste innehålla alla mellanliggande och rot certifikat. Skydda den med ett lösenord.
 
-PFX-filen måste konverteras till en base64-sträng eftersom TLS/SSL-certifikatet överförs med hjälp av en Resource Manager-mall. Eftersom Resource Manager-mallar är textfiler måste PFX-filen konverteras till en base64-sträng. På så sätt kan det inkluderas som en parameter i mallen.
+. Pfx-filen måste konverteras till en Base64-sträng eftersom TLS/SSL-certifikatet laddas upp med hjälp av en Resource Manager-mall. Eftersom Resource Manager-mallar är Textfiler måste PFX-filen konverteras till en Base64-sträng. På så sätt kan den inkluderas som en parameter för mallen.
 
-Använd följande PowerShell-kodavsnitt för att:
+Använd följande PowerShell-kodfragment för att:
 
 * Generera ett självsignerat certifikat.
 * Exportera certifikatet som en PFX-fil.
-* Konvertera PFX-filen till en base64-kodad sträng.
+* Konvertera. pfx-filen till en Base64-kodad sträng.
 * Spara den base64-kodade strängen i en separat fil. 
 
-Denna PowerShell-kod för base64 kodning har anpassats från [PowerShell skript blogg:][examplebase64encoding]
+Den här PowerShell-koden för base64-kodning har anpassats från [PowerShell-skriptets blogg][examplebase64encoding]:
 
 ```powershell
 $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
@@ -96,18 +96,18 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-När TLS/SSL-certifikatet har genererats och konverterats till en base64-kodad sträng använder du exempelmallen Resource Manager [Konfigurera standard-SSL-certifikatet][quickstartconfiguressl] på GitHub. 
+När TLS/SSL-certifikatet har genererats och konverterats till en Base64-kodad sträng använder du exempel Resource Manager-mallen [Konfigurera SSL-standardcertifikatet][quickstartconfiguressl] på GitHub. 
 
-Parametrarna i filen *azuredeploy.parameters.json* visas här:
+Parametrarna i filen *azuredeploy. Parameters. JSON* visas här:
 
-* *appServiceEnvironmentName*: Namnet på den ILB ASE som konfigureras.
-* *existingAseLocation*: Textsträng som innehåller Azure-regionen där ILB ASE har distribuerats.  Till exempel: "Södra centrala USA".
-* *pfxBlobString*: Den based64-kodade strängrepresentationen av PFX-filen. Använd kodavsnittet som visas tidigare och kopiera strängen i "exportedcert.pfx.b64". Klistra in den som värdet på *attributet pfxBlobString.*
-* *lösenord*: Lösenordet som används för att skydda PFX-filen.
-* *certifikatDumbprint*: Certifikatets tumavtryck. Om du hämtar det här värdet från PowerShell (till exempel *$certificate. Tumavtryck* från det tidigare kodavsnittet) kan du använda värdet som det är. Om du kopierar värdet från dialogrutan Windows-certifikat bör du komma ihåg att ta bort de främmande utrymmena. *CertifikatetThumbprint* ska se ut ungefär som AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName*: En egen strängidentifierare som du själv väljer används för att identifiera certifikatet. Namnet används som en del av den unika Resurshanteraren-identifieraren för *entiteten Microsoft.Web/certificates* som representerar TLS/SSL-certifikatet. Namnet *måste* sluta med följande suffix: \_yourASENameHere_InternalLoadBalancingASE. Azure-portalen använder det här suffixet som en indikator på att certifikatet används för att skydda en ILB-aktiverad ASE.
+* *appServiceEnvironmentName*: namnet på den ILB ASE som konfigureras.
+* *existingAseLocation*: text sträng som innehåller den Azure-region där ILB-ASE har distribuerats.  Till exempel: "södra centrala USA".
+* *pfxBlobString*: den based64-kodade sträng representationen för. pfx-filen. Använd kodfragmentet som visas tidigare och kopiera strängen som finns i "exportedcert. pfx. B64". Klistra in det som värdet för attributet *pfxBlobString* .
+* *lösen ord*: lösen ordet som används för att skydda. pfx-filen.
+* *certificateThumbprint*: certifikatets tumavtryck. Om du hämtar det här värdet från PowerShell (till exempel *$Certificate. Tumavtryck* från det tidigare kodfragmentet) kan du använda värdet som är. Om du kopierar värdet från dialog rutan Windows-certifikat, kom ihåg att ta bort de extra blank stegen. *CertificateThumbprint* bör se ut ungefär som AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *certificateName*: ett eget sträng-ID som du väljer används för att identifiera certifikatet. Namnet används som en del av den unika Resource Manager-identifieraren för *Microsoft. Web/certificates-* enheten som representerar TLS/SSL-certifikatet. Namnet *måste* sluta med följande suffix: \_yourASENameHere_InternalLoadBalancingASE. Azure Portal använder det här suffixet som en indikator att certifikatet används för att skydda ett ILB-aktiverat ASE.
 
-Ett förkortat exempel *på azuredeploy.parameters.json* visas här:
+Ett förkortat exempel på *azuredeploy. Parameters. JSON* visas här:
 
 ```json
 {
@@ -136,7 +136,7 @@ Ett förkortat exempel *på azuredeploy.parameters.json* visas här:
 }
 ```
 
-När *filen azuredeploy.parameters.json* har fyllts i konfigurerar du standard-TLS/SSL-certifikatet med hjälp av PowerShell-kodavsnittet. Ändra filsökvägarna så att de matchar var Resource Manager-mallfilerna finns på datorn. Kom ihåg att ange dina egna värden för Resurshanterarens distributionsnamn och resursgruppsnamnet:
+När filen *azuredeploy. Parameters. JSON* är ifylld konfigurerar du standard TLS/SSL-certifikatet med hjälp av PowerShell-kodfragmentet. Ändra fil Sök vägarna så att de matchar där Resource Manager-mallfilerna finns på datorn. Kom ihåg att ange dina egna värden för Resource Manager-distributionens namn och resurs gruppens namn:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -145,20 +145,20 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-Det tar ungefär 40 minuter per ASE-front för att tillämpa ändringen. För en ASE-standardstorlek som använder två främre ändar tar mallen till exempel cirka en timme och 20 minuter att slutföra. När mallen körs kan ASE inte skalas.  
+Det tar ungefär 40 minuter per ASE-klient att tillämpa ändringen. Till exempel, för en ASE som använder två klient delar, tar mallen runt en timme och 20 minuter att slutföra. När mallen körs kan ASE inte skalas.  
 
-När mallen är klar kan appar på ILB ASE nås via HTTPS. Anslutningarna skyddas med hjälp av standard-TLS/SSL-certifikatet. Standard-TLS/SSL-certifikatet används när appar på ILB ASE adresseras med hjälp av en kombination av programnamnet plus standardvärdens namn. Till exempel `https://mycustomapp.internal-contoso.com` använder standard-TLS/SSL-certifikat för **.internal-contoso.com*.
+När mallen har slutförts kan appar på ILB-ASE nås via HTTPS. Anslutningarna skyddas med hjälp av standard TLS/SSL-certifikatet. TLS/SSL-standardcertifikatet används när appar på ILB-ASE adresseras med hjälp av en kombination av program namnet plus standard värd namnet. `https://mycustomapp.internal-contoso.com` Använder till exempel standard TLS/SSL-certifikat för **. Internal-contoso.com*.
 
-Men precis som appar som körs på den offentliga tjänsten med flera innehavare kan utvecklare konfigurera anpassade värdnamn för enskilda appar. De kan också konfigurera unika SNI TLS/SSL-certifikatbindningar för enskilda appar.
+Men precis som appar som körs på den offentliga tjänsten för flera innehavare kan utvecklare konfigurera anpassade värdnamn för enskilda appar. De kan också konfigurera unika SNI TLS/SSL-certifikat bindningar för enskilda appar.
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
 App Service Environment finns i två versioner: ASEv1 och ASEv2. Informationen ovan baserades på ASEv2. Det här avsnittet visar skillnaderna mellan ASEv1 och ASEv2.
 
-I ASEv1 hanterar du alla resurser manuellt. Det omfattar klientdelar, arbetare och IP-adresser som används för IP-baserad SSL. Innan du kan skala ut apptjänstplanen måste du skala ut den arbetarpool som du vill vara värd för den.
+I ASEv1 hanterar du alla resurser manuellt. Det omfattar klientdelar, arbetare och IP-adresser som används för IP-baserad SSL. Innan du kan skala ut App Service plan måste du skala ut den arbets grupp som du vill använda som värd för den.
 
-ASEv1 använder en annan prissättningsmodell än ASEv2. I ASEv1 betalar du för varje allokerad vCPU. Det inkluderar virtuella processorer som används för klientdelar eller arbetare som inte är värdar för några arbetsbelastningar. I ASEv1 är den högsta skalstorleken för en ASE-miljö totalt 55 värdar. Det omfattar arbetare och klientdelar. En fördel med ASEv1 är att det går att distribuera i ett klassiskt virtuellt nätverk och ett virtuellt Resource Manager-nätverk. Mer information om ASEv1 finns i [App Service Environment v1 introduction][ASEv1Intro] (Introduktion till App Service Environment v1).
+ASEv1 använder en annan prissättningsmodell än ASEv2. I ASEv1 betalar du för varje allokerad vCPU. Innehåller virtuella processorer som används för klient delar eller arbetare som inte är värdar för några arbets belastningar. I ASEv1 är den högsta skalstorleken för en ASE-miljö totalt 55 värdar. Det omfattar arbetare och klientdelar. En fördel med ASEv1 är att det går att distribuera i ett klassiskt virtuellt nätverk och ett virtuellt Resource Manager-nätverk. Mer information om ASEv1 finns i [App Service Environment v1 introduction][ASEv1Intro] (Introduktion till App Service Environment v1).
 
-Information om hur du skapar en ASEv1 med hjälp av en Resource Manager-mall finns i [Skapa en ILB ASE v1 med en Resource Manager-mall][ILBASEv1Template].
+Om du vill skapa en ASEv1 med hjälp av en Resource Manager-mall, se [skapa en ILB ASE v1 med en Resource Manager-mall][ILBASEv1Template].
 
 
 <!--Links-->

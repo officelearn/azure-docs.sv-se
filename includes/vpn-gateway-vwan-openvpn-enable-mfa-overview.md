@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471572"
 ---
-Om du vill att användare ska uppmanas att ange en andra autentiseringsfaktor innan du beviljar åtkomst kan du konfigurera Azure Multi-Factor Authentication (MFA). Du kan konfigurera MFA per användare eller använda MFA via [villkorlig åtkomst](../articles/active-directory/conditional-access/overview.md).
+Om du vill att användarna ska uppmanas att ange en andra faktor innan de beviljas åtkomst, kan du konfigurera Azure Multi-Factor Authentication (MFA). Du kan konfigurera MFA per användare eller använda MFA via [villkorlig åtkomst](../articles/active-directory/conditional-access/overview.md).
 
-* MFA per användare kan aktiveras utan extra kostnad. När du aktiverar MFA per användare uppmanas användaren att ange andra faktorautentisering mot alla program som är kopplade till Azure AD-klienten. Se [alternativ 1](#peruser) för steg.
-* Villkorlig åtkomst möjliggör finare kontroll över hur en andra faktor bör främjas. Det kan tillåta tilldelning av MFA till endast VPN och utesluta andra program som är kopplade till Azure AD-klienten. Se [Alternativ 2](#conditional) för steg.
+* MFA per användare kan aktive ras utan ytterligare kostnad. När du aktiverar MFA per användare uppmanas användaren att ange en andra Factor Authentication mot alla program som är kopplade till Azure AD-klienten. Se [alternativ 1](#peruser) för steg.
+* Villkorlig åtkomst ger en detaljerad kontroll över hur en andra faktor ska höjas. Den kan tillåta tilldelning av MFA till endast VPN och utesluta andra program som är kopplade till Azure AD-klienten. Se [Alternativ 2](#conditional) för steg.

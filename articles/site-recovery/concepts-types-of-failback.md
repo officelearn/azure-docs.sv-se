@@ -1,6 +1,6 @@
 ---
-title: Återställning efter fel under haveriberedskap med Azure Site Recovery | Microsoft-dokument
-description: Den här artikeln innehåller en översikt över olika typer av återställnings- och förbehåll som ska beaktas samtidigt som den inte går tillbaka till lokala under haveriberedskap med Azure Site Recovery-tjänsten.
+title: Återställning efter fel vid haveri beredskap med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över olika typer av återställnings fel och varningar som ska övervägas och som inte kan återgå till lokalt under haveri beredskap med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -16,39 +16,39 @@ ms.locfileid: "79281839"
 ---
 # <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Återställning efter fel för virtuella VMware-datorer efter haveriberedskap till Azure
 
-När du har misslyckats med att azure som en del av din haveriberedskapsprocess kan du växla tillbaka till din lokala webbplats. Det finns två olika typer av återställning efter fel som är möjliga med Azure Site Recovery: 
+När du har redundansväxlats till Azure som en del av din haveri beredskaps process kan du växla tillbaka till din lokala plats. Det finns två olika typer av återställning efter fel som kan uppstå i Azure Site Recovery: 
 
 - Växla tillbaka till den ursprungliga platsen 
 - Växla tillbaka till en alternativ plats
 
-Om du misslyckades över en virtuell VMware-dator kan du växla tillbaka till samma lokala källa om den fortfarande finns. I det här fallet replikeras endast ändringarna tillbaka. Det här scenariot kallas **ursprunglig platsåterställning**. Om den lokala virtuella datorn inte finns är scenariot en **alternativ platsåterställning**.
+Om du har växlat över en virtuell VMware-dator kan du växla tillbaka till samma lokala lokala virtuella dator om den fortfarande finns. I det här scenariot replikeras bara ändringarna tillbaka. Det här scenariot kallas för den **ursprungliga plats återställningen**. Om den lokala virtuella datorn inte finns är scenariot en **alternativ plats återställning**.
 
 > [!NOTE]
-> Du kan bara växla tillbaka till den ursprungliga vCenter- och konfigurationsservern. Du kan inte distribuera en ny konfigurationsserver och växla tillbaka med den. Du kan inte heller lägga till ett nytt vCenter på den befintliga konfigurationsservern och återställa återställningen i det nya virtuellacentret.
+> Du kan bara växla tillbaka till den ursprungliga vCenter-servern och konfigurations servern. Du kan inte distribuera en ny konfigurations Server och återställa den med den. Du kan inte heller lägga till en ny vCenter till den befintliga konfigurations servern och återställning efter fel till nya vCenter.
 
-## <a name="original-location-recovery-olr"></a>Ursprunglig platsåterställning (OLR)
+## <a name="original-location-recovery-olr"></a>Återställning av ursprunglig plats (OLR)
 Om du väljer att växla tillbaka till den ursprungliga virtuella datorn måste följande villkor uppfyllas:
 
-* Om den virtuella datorn hanteras av en vCenter-server bör huvudmålets ESX-värd ha åtkomst till den virtuella datorns datalager.
-* Om den virtuella datorn finns på en ESX-värd men inte hanteras av vCenter måste hårddisken på den virtuella datorn finnas i ett datalager som huvudmålets värd kan komma åt.
-* Om din virtuella dator finns på en ESX-värd och inte använder vCenter bör du slutföra identifieringen av ESX-värden för huvudmålet innan du roterar igen. Detta gäller om du misslyckas tillbaka fysiska servrar också.
-* Du kan växla tillbaka till ett virtuellt lagringsnätverk (vSAN) eller en disk som baseras på fjärrenhetsmappning (RDM) om diskarna redan finns och är anslutna till den lokala virtuella datorn.
+* Om den virtuella datorn hanteras av en vCenter-Server borde huvud målets ESX-värd ha åtkomst till den virtuella datorns data lager.
+* Om den virtuella datorn finns på en ESX-värd men inte hanteras av vCenter måste den virtuella datorns hård disk finnas i ett data lager som huvud målets värd har åtkomst till.
+* Om den virtuella datorn finns på en ESX-värd och inte använder vCenter, bör du slutföra identifieringen av ESX-värden på huvud mål servern innan du återaktiverar skyddet. Detta gäller även om du inte återställer fysiska servrar.
+* Du kan växla tillbaka till en virtuell storage area network (virtuellt SAN) eller en disk som baseras på mappning av rå enheter (RDM) om diskarna redan finns och är anslutna till den lokala virtuella datorn.
 
 > [!IMPORTANT]
-> Det är viktigt att aktivera disk.enableUUID= SANT så att Azure Site Recovery-tjänsten under återställning av återställning av återställning av återställning av den är klar kan identifiera den ursprungliga VMDK på den virtuella datorn som de väntande ändringarna skrivs till. Om det här värdet inte är sant försöker tjänsten identifiera motsvarande lokala VMDK på bästa sätt. Om rätt VMDK inte hittas skapas en extra disk och data skrivs vidare till det.
+> Det är viktigt att aktivera disk. Enableuuid är = TRUE, så att Azure Site Recoverys tjänsten kan identifiera den ursprungliga VMDK på den virtuella datorn som de väntande ändringarna kommer att skrivas under återställning efter fel. Om det här värdet inte anges till TRUE försöker tjänsten identifiera motsvarande lokala VMDK på bästa möjliga sätt. Om rätt VMDK inte hittas skapas en extra disk och data skrivs till den.
 
-## <a name="alternate-location-recovery-alr"></a>Alternativ platsåterställning (ALR)
-Om den lokala virtuella datorn inte finns innan den virtuella datorn återbeskyddas, kallas scenariot för en alternativ platsåterställning. Arbetsflödet för reprotect skapar den lokala virtuella datorn igen. Detta kommer också att orsaka en fullständig datahämtning.
+## <a name="alternate-location-recovery-alr"></a>Återställning av alternativ plats (återställning till)
+Om den lokala virtuella datorn inte finns innan du återskapar den virtuella datorn, kallas scenariot en alternativ plats återställning. Arbets flödet för att skydda på nytt skapar den lokala virtuella datorn igen. Detta leder också till en fullständig data hämtning.
 
-* När du växlar tillbaka till en alternativ plats återställs den virtuella datorn till samma ESX-värd där huvudmålservern distribueras. Datalagret som används för att skapa disken kommer att vara samma datalager som valdes när den virtuella datorn återbeskyddades.
-* Du kan bara växla tillbaka till ett VMFS-system (Virtual Machine File System) eller vSAN.You can fail back only to a virtual machine file system (VMFS) or vSAN datastore. Om du har en RDM fungerar inte reprotect och failback.
-* Reprotect innebär en stor inledande dataöverföring som följs av ändringarna. Den här processen finns eftersom den virtuella datorn inte finns lokalt. Fullständiga data måste replikeras tillbaka. Den här reprotecten tar också mer tid än en ursprunglig platsåterställning.
-* Du kan inte växla tillbaka till RDM-baserade diskar. Endast nya virtuella datordiskar (VMDK: er) kan skapas på ett VMFS/vSAN-datacenter.
+* När du växlar tillbaka till en annan plats återställs den virtuella datorn till samma ESX-värd som huvud mål servern har distribuerats till. Data lagret som används för att skapa disken är samma data lager som valdes när den virtuella datorn skulle skyddas.
+* Du kan bara växla tillbaka till ett fil system för virtuell dator (VMFS) eller virtuellt San data lager. Om du har en RDM-åtgärd fungerar inte skydd och återställning efter fel.
+* Skydd innebär en stor inledande data överföring som följs av ändringarna. Den här processen finns eftersom den virtuella datorn inte finns på plats. Fullständiga data måste replikeras tillbaka. Den här skyddet tar också längre tid än en ursprunglig plats återställning.
+* Det går inte att växla tillbaka till RDM-baserade diskar. Det går bara att skapa nya virtuella dator diskar (VMDK: er) i ett VMFS/virtuellt San-datalager.
 
 > [!NOTE]
-> En fysisk dator, när det misslyckades över till Azure, kan endast skickas tillbaka som en virtuell VMware-dator. Detta följer samma arbetsflöde som den alternativa platsåterställning. Se till att du upptäcker minst en huvudmålserver och de nödvändiga ESX/ESXi-värdar som du behöver för att växla tillbaka.
+> En fysisk dator, vid växling till Azure, kan inte återställas bara som en virtuell VMware-dator. Detta följer samma arbets flöde som den alternativa plats återställningen. Se till att du identifierar minst en huvud mål server och de ESX/ESXi-värdar som du behöver för att återställa.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ stegen för att utföra [återställningsåtgärden](vmware-azure-failback.md).
+Följ stegen för att utföra [återställnings åtgärden](vmware-azure-failback.md).
 

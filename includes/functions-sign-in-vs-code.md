@@ -15,12 +15,12 @@ ms.locfileid: "76964028"
 
 Innan du kan publicera appen måste du logga in på Azure. 
 
-1. Om du inte redan är inloggad väljer du Azure-ikonen i aktivitetsfältet och väljer sedan **Logga in på Azure:** Functions i området **Azure: Functions...** . Om du inte redan har ett kan du **skapa ett kostnadsfritt Azure-konto**. 
+1. Om du inte redan är inloggad väljer du Azure-ikonen i aktivitets fältet och väljer sedan **Logga in på Azure**i avsnittet **Azure: Functions** . Om du inte redan har en, kan du **skapa ett kostnads fritt Azure-konto**. 
 
     ![Svar för funktion-localhost i webbläsaren](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 
     Om du redan är inloggad går du till nästa avsnitt.
 
-1. När du uppmanas att göra det i webbläsaren väljer du ditt Azure-konto och loggar in med dina Azure-kontouppgifter. 
+1. När du uppmanas till webbläsaren väljer du ditt Azure-konto och loggar in med dina autentiseringsuppgifter för Azure-kontot. 
 
-1. När du har loggat in kan du stänga det nya webbläsarfönstret. Prenumerationerna som tillhör ditt Azure-konto visas i sidofältet.
+1. När du har loggat in kan du stänga det nya webbläsarfönstret. De prenumerationer som tillhör ditt Azure-konto visas i sido fältet.

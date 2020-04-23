@@ -1,6 +1,6 @@
 ---
-title: Kostnadsanalys och budget - Azure Batch
-description: Lär dig hur du får en kostnadsanalys och anger en budget för underliggande beräkningsresurser och programvarulicenser som används för att köra dina batcharbetsbelastningar.
+title: Kostnads analys och budget Azure Batch
+description: Lär dig hur du kan få en kostnads analys och ange en budget för de underliggande beräknings resurserna och program varu licenser som används för att köra batch-arbetsbelastningar.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -17,80 +17,80 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022723"
 ---
-# <a name="cost-analysis-and-budgets-for-azure-batch"></a>Kostnadsanalys och budgetar för Azure Batch
+# <a name="cost-analysis-and-budgets-for-azure-batch"></a>Kostnads analys och budgetar för Azure Batch
 
-Det finns ingen avgift för Azure Batch själv, bara de underliggande beräkningsresurser och programvarulicenser som används för att köra Batch-arbetsbelastningar. På en hög nivå uppstår kostnader från virtuella datorer (VMs) i en pool, dataöverföring från den virtuella datorn eller indata eller utdata som lagras i molnet. Låt oss ta en titt på några viktiga komponenter i Batch för att förstå var kostnaderna kommer ifrån, hur du ställer in en budget för en pool eller ett konto och några tekniker för att göra dina batcharbetsbelastningar mer kostnadseffektiva.
+Det kostar inget att Azure Batch sig själv, bara de underliggande beräknings resurserna och program varu licenserna som används för att köra batch-arbetsbelastningar. På en hög nivå uppstår kostnader från Virtual Machines (VM) i en pool, data överföring från den virtuella datorn eller indata eller utdata som lagras i molnet. Låt oss ta en titt på några viktiga komponenter i batch för att förstå var kostnader kommer från, hur man ställer in en budget för en pool eller ett konto och vissa tekniker för att göra batch-arbetsbelastningar mer kostnads effektivt.
 
-## <a name="batch-resources"></a>Batchresurser
+## <a name="batch-resources"></a>Batch-resurser
 
-Virtuella datorer är den viktigaste resursen som används för batchbearbetning. Kostnaden för att använda virtuella datorer för batch beräknas baserat på typ, kvantitet och användningstid. Alternativ för [vm-fakturering](https://azure.microsoft.com/offers/ms-azr-0003p/) inkluderar betalning per du kör eller [bokning](../cost-management-billing/reservations/save-compute-costs-reservations.md) (betala i förväg). Båda betalningsalternativen har olika fördelar beroende på din beräkningsarbetsbelastning, och båda betalningsmodellerna påverkar din faktura på olika sätt.
+Virtuella datorer är den viktigaste resursen som används för batchbearbetning. Kostnaden för att använda virtuella datorer för batch beräknas utifrån typ, kvantitet och användnings tid. Fakturerings alternativ för virtuella datorer omfattar [betala per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning eller [reservation](../cost-management-billing/reservations/save-compute-costs-reservations.md) (betala i förväg). Båda betalnings alternativen har olika fördelar beroende på din beräknings belastning och båda betalnings modellerna kommer att påverka din faktura på ett annat sätt.
 
-När program distribueras till batchnoder (VMs) med hjälp av [programpaket](batch-application-packages.md)debiteras du för de Azure Storage-resurser som programpaketen använder. Du debiteras också för lagring av indata- eller utdatafiler, till exempel resursfiler och andra loggdata. I allmänhet är kostnaden för lagringsdata som är associerade med Batch mycket lägre än kostnaden för beräkningsresurser. Varje virtuell dator i en pool som skapats med **VirtualMachineConfiguration** har en associerad OS-disk som använder Azure-hanterade diskar. Azure-hanterade diskar har en extra kostnad och andra diskprestandanivåer har också olika kostnader.
+När program distribueras till batch-noder (VM: ar) med hjälp av [programpaket](batch-application-packages.md)debiteras du för de Azure Storage-resurser som dina program paket använder. Du debiteras också för lagring av indata-eller utdatafiler, till exempel resursfiler och andra loggdata. I allmänhet är kostnaden för lagrings data som är kopplade till batch mycket lägre än kostnaden för beräknings resurser. Varje virtuell dator i en pool som skapats med **VirtualMachineConfiguration** har en tillhör ande OS-disk som använder Azure-hanterade diskar. Azure-hanterade diskar har ytterligare kostnader och andra disk prestanda nivåer har också olika kostnader.
 
-Batchpooler använder nätverksresurser. I synnerhet för **VirtualMachineConfiguration** pooler standard belastningsutjämnare används, som kräver statiska IP-adresser. De belastningsutjämnare som används av Batch visas för användarkonton för **användarprenumeration,** men visas inte för **batchtjänstkonton.** Standardbelastningsutjämnare medför avgifter för alla data som skickas till och från virtuella batchpool-datorer. Välj Batch-API:er som hämtar data från poolnoder (till exempel Hämta uppgifts-/nodfil), aktivitetsprogrampaket, resurs-/utdatafiler och behållaravbildningar medför avgifter.
+Batch-pooler använder nätverks resurser. I synnerhet används **VirtualMachineConfiguration** -pooler för standard belastnings utjämning, vilket kräver statiska IP-adresser. De belastnings utjämningar som används av batch är synliga för **användar prenumerations** konton, men är inte synliga för **batch service-** konton. Standard belastnings utjämning debiteras för alla data som skickas till och från virtuella batch-pooler. Välj batch-API: er som hämtar data från pool-noder (till exempel hämta aktivitet/Node-fil), uppgiftens programpaket, resurs/utdatafiler och behållar avbildningar debiteras.
 
 ### <a name="additional-services"></a>Ytterligare tjänster
 
-Tjänster som inte inkluderar virtuella datorer och lagring kan ta hänsyn till kostnaden för ditt Batch-konto.
+Tjänster som inte omfattar virtuella datorer och lagrings enheter kan vara till för kostnaden för ditt batch-konto.
 
-Andra tjänster som vanligen används med Batch kan vara:
+Andra tjänster som används ofta med batch kan innehålla:
 
 - Application Insights
 - Data Factory
 - Azure Monitor
 - Virtual Network
-- Virtuella datorer med grafikprogram
+- Virtuella datorer med grafik program
 
-Beroende på vilka tjänster du använder med din Batch-lösning kan du ådra dig extra avgifter. Se [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att fastställa kostnaden för varje tilläggstjänst.
+Beroende på vilka tjänster du använder med din batch-lösning kan du debiteras ytterligare avgifter. Se [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att fastställa kostnaden för varje ytterligare tjänst.
 
-## <a name="cost-analysis-and-budget-for-a-pool"></a>Kostnadsanalys och budget för en pool
+## <a name="cost-analysis-and-budget-for-a-pool"></a>Kostnads analys och budget för en pool
 
-Via Azure-portalen kan du skapa budgetar och utgiftsaviseringar för dina batch-pooler eller batchkonto. Budgetar och varningar är användbara för att meddela berörda parter om eventuella risker för överutnyttjande. Det är möjligt att det blir en fördröjning i utgiftsvarningar och att något överstiga en budget. I det här exemplet visar vi kostnadsanalys av en enskild batchpool.
+Du kan skapa budgetar och utgifts aviseringar för dina batch-pooler eller batch-konton via Azure Portal. Budgetar och aviseringar är användbara för att meddela intressenter om eventuella risker med överförbrukning. Det är möjligt att det finns en fördröjning i utgifts aviseringar och att det är något som är något som kan överstiga en budget. I det här exemplet ska vi visa en kostnads analys av en enskild batch-pool.
 
-1. I Azure-portalen väljer du **Kostnadshantering + Fakturering** i det vänstra navigeringsfältet.
+1. I Azure Portal väljer du **Cost Management + fakturering** i det vänstra navigerings fältet.
 1. Välj din prenumeration i avsnittet **Mina prenumerationer**
-1. Gå till **Kostnadsanalys** under avsnittet **Kostnadshantering** i det vänstra navigeringsfältet, som visar en vy som denna:
-1. Välj **Lägg till filter**. I den första listrutan väljer du **Resursval** ![resursfiltret](./media/batch-budget/resource-filter.png)
-1. I den andra listrutan väljer du batchpoolen. När poolen är markerad ser kostnadsanalysen ut ungefär som följande analys.
-    ![Kostnadsanalys av en pool](./media/batch-budget/pool-cost-analysis.png)
+1. Gå till **kostnads analys** under **Cost Management** avsnittet i det vänstra navigerings fältet, som visar en vy så här:
+1. Välj **Lägg till filter**. I den första List rutan väljer du **resurs** ![och väljer resurs filtret](./media/batch-budget/resource-filter.png)
+1. I den andra List rutan väljer du batch-poolen. När du väljer poolen kommer kostnads analysen att se ut ungefär som i följande analys.
+    ![Kostnads analys av en pool](./media/batch-budget/pool-cost-analysis.png)
 
-Den resulterande kostnadsanalysen visar kostnaden för poolen samt de resurser som bidrar till den här kostnaden. I det här exemplet är de virtuella datorer som används i poolen den mest kostsamma resursen.
+Den resulterande kostnads analysen visar kostnaden för poolen och de resurser som bidrar till den här kostnaden. I det här exemplet är de virtuella datorer som används i poolen den mest dyra resursen.
 
-Om du vill skapa en budget för poolen väljer du **Budget: ingen**och väljer sedan **Skapa ny budget >**. Använd nu fönstret för att konfigurera en budget specifikt för din pool.
+Om du vill skapa en budget för poolen väljer du **Budget: ingen**och väljer sedan **skapa ny budget >**. Använd nu fönstret för att konfigurera en budget som är specifik för din pool.
 
-Mer information om hur du konfigurerar en budget finns i [Skapa och hantera Azure-budgetar](../cost-management-billing/costs/tutorial-acm-create-budgets.md).
+Mer information om hur du konfigurerar en budget finns i [skapa och hantera Azure-budgetar](../cost-management-billing/costs/tutorial-acm-create-budgets.md).
 
 > [!NOTE]
-> Azure Batch bygger på Azure Cloud Services och Azure Virtual Machines-teknik. När du väljer **Cloud Services-konfiguration**debiteras du baserat på molntjänsternas prisstruktur. När du väljer **Konfiguration för virtuella**datorer debiteras du baserat på prisstrukturen för virtuella datorer. I exemplet på den här sidan används **konfigurationen för den virtuella datorn**.
+> Azure Batch bygger på Azure Cloud Services-och Azure Virtual Machines-teknik. När du väljer **Cloud Services konfiguration**debiteras du baserat på Cloud Services prissättnings struktur. När du väljer **konfiguration för virtuell dator**debiteras du baserat på Virtual Machines pris strukturen. Exemplet på den här sidan använder konfigurationen för den **virtuella datorn**.
 
-## <a name="minimize-cost"></a>Minimera kostnaden
+## <a name="minimize-cost"></a>Minimera kostnader
 
-Det kan vara dyrt att använda flera virtuella datorer och Azure-tjänster under längre tidsperioder. Lyckligtvis finns det tjänster tillgängliga för att minska dina utgifter, samt strategier för att maximera effektiviteten i din arbetsbelastning.
+Det kan vara dyrt att använda flera virtuella datorer och Azure-tjänster för längre tids perioder. Lyckligt vis finns det tillgängliga tjänster som hjälper dig att minska dina utgifter, samt strategier för att maximera arbets Belastningens effektivitet.
 
 ### <a name="low-priority-virtual-machines"></a>Virtuella datorer med låg prioritet
 
-Virtuella datorer med låg prioritet minskar kostnaden för batcharbetsbelastningar genom att dra nytta av överskottsdatorkapacitet i Azure. När du anger virtuella datorer med låg prioritet i poolerna använder Batch det här överskottet för att köra din arbetsbelastning. Det finns en betydande kostnadsbesparing genom att använda lågprioriterade virtuella datorer i stället för dedikerade virtuella datorer.
+Virtuella datorer med låg prioritet minskar kostnaden för batch-arbetsbelastningar genom att dra nytta av överskotts data behandling i Azure. När du anger virtuella datorer med låg prioritet i dina pooler använder batch detta överskott för att köra arbets belastningen. Det finns betydande besparingar genom att använda virtuella datorer med låg prioritet i stället för dedikerade virtuella datorer.
 
-Läs mer om hur du konfigurerar virtuella datorer med låg prioritet för din arbetsbelastning vid [Använd virtuella datorer med låg prioritet med Batch](batch-low-pri-vms.md).
+Läs mer om hur du konfigurerar virtuella datorer med låg prioritet för din arbets belastning vid [användning av virtuella datorer med låg prioritet med batch](batch-low-pri-vms.md).
 
-### <a name="virtual-machine-os-disk-type"></a>Disktyp för virtuell dator
+### <a name="virtual-machine-os-disk-type"></a>Typ av operativ system disk för virtuell dator
 
-Det finns flera [VM OS-disktyper](../virtual-machines/windows/disks-types.md). De flesta VM-serier har storlekar som stöder både premium- och standardlagring. När en VM-storlek har valts för en pool konfigurerar Batch premium-SSD OS-diskar. När den "icke-s" VM-storleken väljs används den billigare, vanliga hårddisktypen. Till exempel används premium SSD OS-diskar för `Standard_D2s_v3` och vanliga `Standard_D2_v3`HDD OS-diskar används för .
+Det finns flera [typer av virtuella dator diskar](../virtual-machines/windows/disks-types.md). De flesta VM-serier har storlekar som stöder både Premium-och standard-lagring. När ens VM-storlek har valts för en pool konfigurerar batch att Premium SSD OS-diskar. När den virtuella datorns icke-s-storlek väljs används den billigare, standard hård disk typen. Till exempel används Premium SSD OS-diskar för `Standard_D2s_v3` och standard diskar för HDD-operativsystem används för `Standard_D2_v3`.
 
-Premium SSD OS-diskar är dyrare, men har högre prestanda och virtuella datorer med premiumdiskar kan starta något snabbare än virtuella datorer med vanliga HDD OS-diskar. Med Batch används OS-disken ofta inte mycket eftersom programmen och uppgiftsfilerna finns på de virtuella datorernas tillfälliga SSD-disk. Därför finns det i många fall ingen anledning att betala den ökade kostnaden för premium SSD som etableras när en 's' VM-storlek anges.
+Premium SSD OS-diskar är dyrare, men har högre prestanda och virtuella datorer med Premium diskar kan starta något snabbare än virtuella datorer med standard diskar för HDD-operativsystem. Med batch är operativ system disken ofta inte så mycket som program-och aktivitets filerna finns på de virtuella datorernas temporära SSD-diskar. Därför behöver du i många fall inte betala den ökade kostnaden för Premium SSD som tillhandahålls när storleken på en virtuell dator har angetts.
 
 ### <a name="reserved-virtual-machine-instances"></a>Reserverade instanser av virtuella datorer
 
-Om du tänker använda Batch under en längre tid kan du spara på kostnaden för virtuella datorer genom att använda [Azure-reservationer](../cost-management-billing/reservations/save-compute-costs-reservations.md) för dina arbetsbelastningar. En bokningsgrad är betydligt lägre än en betaltaxa för er.A reservation rate is considerably lower than a pay-as-you-go rate. Instanser av virtuella datorer som används utan reservation debiteras enligt användningsbaserad betalning. Om du köper en bokning gäller reservationsrabatten och du debiteras inte längre till priserna för betalning per dun.
+Om du avser att använda batch under en lång tids period kan du spara pengar på virtuella datorer genom att använda [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) för dina arbets belastningar. En reservations taxa är betydligt lägre än en taxa enligt principen betala per användning. Virtuella dator instanser som används utan reservationer debiteras enligt priset betala per användning. Om du köper en reservation tillämpas reservations rabatten och du debiteras inte längre enligt priserna för betala per användning.
 
 ### <a name="automatic-scaling"></a>Automatisk skalning
 
-[Automatisk skalning](batch-automatic-scaling.md) skalar dynamiskt antalet virtuella datorer i batchpoolen baserat på krav för det aktuella jobbet. Genom att skala poolen baserat på livslängden för ett jobb säkerställer automatisk skalning att virtuella datorer skalas upp och används endast när det finns ett jobb att utföra. När jobbet är slutfört, eller om det inte finns några jobb, skalas de virtuella datorerna automatiskt ned för att spara beräkningsresurser. Med skalning kan du sänka den totala kostnaden för batch-lösningen genom att bara använda de resurser du behöver.
+Med [automatisk skalning](batch-automatic-scaling.md) skalas antalet virtuella datorer dynamiskt i batch-poolen baserat på kraven för det aktuella jobbet. Genom att skala poolen baserat på ett jobbs livs längd säkerställer automatisk skalning att virtuella datorer skalas upp och används endast när det finns ett jobb att utföra. När jobbet har slutförts, eller om det inte finns några jobb, skalas de virtuella datorerna automatiskt ned för att spara beräknings resurser. Med skalning kan du sänka den totala kostnaden för din batch-lösning genom att bara använda de resurser du behöver.
 
-Mer information om automatisk skalning finns i [Skala automatiskt beräkningsnoder i en Azure Batch-pool](batch-automatic-scaling.md).
+Mer information om automatisk skalning finns i [automatisk skalning av Compute-noder i en Azure Batch pool](batch-automatic-scaling.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [batch-API:erna och verktygen](batch-apis-tools.md) för att skapa och övervaka batchlösningar.  
+- Lär dig mer om [batch-API: er och verktyg](batch-apis-tools.md) som är tillgängliga för att skapa och övervaka batch-lösningar.  
 
-- Lär dig mer om [virtuella datorer med låg prioritet med Batch](batch-low-pri-vms.md).
+- Läs mer om [virtuella datorer med låg prioritet med batch](batch-low-pri-vms.md).

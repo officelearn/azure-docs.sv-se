@@ -11,17 +11,17 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187296"
 ---
-Det är viktigt att inse att det finns två sätt att konfigurera en tillgänglighetsgruppavlyssnare i Azure. Hur skiljer sig i vilken typ av Azure belastningsutjämnare du använder när du skapar lyssnaren. I följande tabell beskrivs skillnaderna:
+Det är viktigt att du inser att det finns två sätt att konfigurera en tillgänglighets grupps lyssnare i Azure. Olika sätt skiljer sig åt i vilken typ av Azure-belastningsutjämnare du använder när du skapar lyssnaren. I följande tabell beskrivs skillnaderna:
 
-| Typ av belastningsutjämning | Implementering | Använd när: |
+| Belastnings Utjämnings typ | Implementering | Använd när: |
 | --- | --- | --- |
-| **Externa** |Använder den *offentliga virtuella IP-adressen* för molntjänsten som är värd för virtuella datorer.Uses the public virtual IP address of the cloud service that hosts the virtual machines (VMs). |Du måste komma åt lyssnaren utanför det virtuella nätverket, inklusive från Internet. |
-| **Intern** |Använder en *intern belastningsutjämnare* med en privat adress för lyssnaren. |Du kan bara komma åt lyssnaren från samma virtuella nätverk. Den här åtkomsten inkluderar VPN från plats till plats i hybridscenarier. |
+| **5,25** |Använder den *offentliga virtuella IP-adressen* för den moln tjänst som är värd för de virtuella datorerna (VM). |Du måste komma åt lyssnaren utanför det virtuella nätverket, inklusive från Internet. |
+| **Intern** |Använder en *intern belastningsutjämnare* med en privat adress för lyssnaren. |Du kan bara komma åt lyssnaren i samma virtuella nätverk. Den här åtkomsten inkluderar plats-till-plats-VPN i hybrid scenarier. |
 
 > [!IMPORTANT]
-> För en lyssnare som använder molntjänstens offentliga VIP (extern belastningsutjämnare), så länge klienten, lyssnaren och databaserna finns i samma Azure-region, ådrar du dig inte utgående avgifter. Annars betraktas alla data som returneras via lyssnaren som utgående och debiteras vid normala dataöverföringshastigheter. 
+> För en lyssnare som använder moln tjänstens offentliga VIP (extern belastningsutjämnare), så länge klienten, lyssnaren och databaserna finns i samma Azure-region debiteras du inte utgående kostnader. Annars betraktas alla data som returneras via lyssnaren ut och de debiteras enligt normala priser för data överföring. 
 > 
 > 
 
-En ILB kan bara konfigureras i virtuella nätverk med ett regionalt scope. Befintliga virtuella nätverk som har konfigurerats för en tillhörighetsgrupp kan inte använda en ILB. Mer information finns i [Översikt över intern belastningsutjämnare](../articles/load-balancer/load-balancer-internal-overview.md).
+En ILB kan bara konfigureras på virtuella nätverk med ett regionalt omfång. Befintliga virtuella nätverk som har kon figurer ATS för en tillhörighets grupp kan inte använda en ILB. Mer information finns i [Översikt över intern belastnings utjämning](../articles/load-balancer/load-balancer-internal-overview.md).
 

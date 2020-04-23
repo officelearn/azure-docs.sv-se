@@ -11,4 +11,4 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "74786901"
 ---
-När du använder en utlösare eller åtgärd som använder en tjänst för första gången uppmanas du att skapa en *anslutning* till den tjänsten. Du kan sedan ange nödvändig anslutningsinformation direkt från logikappen i designern.
+När du använder en utlösare eller åtgärd som har åtkomst till en tjänst för första gången uppmanas du att skapa en *anslutning* till tjänsten i Logic Apps designer. Du kan sedan ange nödvändig anslutnings information direkt från din Logic app i designern.

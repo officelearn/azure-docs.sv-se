@@ -1,6 +1,6 @@
 ---
-title: Visualisera klustret med Hjälp av Azure Service Fabric Explorer
-description: Service Fabric Explorer är ett program för att inspektera och hantera molnprogram och noder i ett Microsoft Azure Service Fabric-kluster.
+title: Visualisera klustret med Azure Service Fabric Explorer
+description: Service Fabric Explorer är ett program för att inspektera och hantera moln program och noder i ett Microsoft Azure Service Fabric kluster.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
@@ -14,11 +14,11 @@ ms.locfileid: "79258192"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
-Service Fabric Explorer (SFX) är ett verktyg med öppen källkod för att inspektera och hantera Azure Service Fabric-kluster. Service Fabric Explorer är ett skrivbordsprogram för Windows, macOS och Linux.
+Service Fabric Explorer (SFX) är ett verktyg med öppen källkod för att inspektera och hantera Azure Service Fabric-kluster. Service Fabric Explorer är ett Skriv bords program för Windows, macOS och Linux.
 
-## <a name="service-fabric-explorer-download"></a>Hämta Hämtning av Service Fabric Explorer
+## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer Ladda ned
 
-Använd följande länkar för att hämta Service Fabric Explorer som ett skrivbordsprogram:
+Använd följande länkar för att ladda ned Service Fabric Explorer som ett Skriv bords program:
 
 - Windows
   - https://aka.ms/sfx-windows
@@ -31,111 +31,111 @@ Använd följande länkar för att hämta Service Fabric Explorer som ett skrivb
   - https://aka.ms/sfx-macos
 
 > [!NOTE]
-> Skrivbordsversionen av Service Fabric Explorer kan ha fler eller färre funktioner än klusterstödet. Du kan återgå till den Version av Service Fabric Explorer som distribueras till klustret för att säkerställa fullständig funktionskompatibilitet.
+> Skriv bords versionen av Service Fabric Explorer kan ha mer eller färre funktioner än kluster stödet. Du kan återgå till den Service Fabric Explorer-version som distribuerats till klustret för att säkerställa fullständig kompatibilitet.
 >
 >
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Köra Service Fabric Explorer från klustret
 
-Service Fabric Explorer finns också i ett service fabric-klusters HTTP-hanteringsslutpunkt. Om du vill starta SFX i en webbläsare bläddrar du till klustrets HTTP-hanteringsslutpunkt från valfri webbläsare , till exempel https:\//clusterFQDN:19080.
+Service Fabric Explorer finns också i ett Service Fabric klustrets HTTP Management-slutpunkt. För att starta SFX i en webbläsare, bläddra till klustrets HTTP-hanterings slut punkt från valfri webbläsare – till exempel\/https:/clusterFQDN: 19080.
 
-För installation av utvecklararbetsstation kan du starta Service Fabric https://localhost:19080/ExplorerExplorer i det lokala klustret genom att navigera till . Titta på den här artikeln för att [förbereda din utvecklingsmiljö](service-fabric-get-started.md).
+Du kan starta Service Fabric Explorer på ditt lokala kluster genom att gå till https://localhost:19080/Explorerför installation av arbets station för utvecklare. Titta på den här artikeln för att [förbereda din utvecklings miljö](service-fabric-get-started.md).
 
 > [!NOTE]
-> Om ditt kluster skyddas av ett självsignerat certifikat får du ett felmeddelande från webbläsaren "Den här webbplatsen är inte säker". Du kan helt enkelt gå igenom de flesta moderna webbläsare genom att åsidosätta varningen. I en produktionsmiljö bör klustret skyddas med vanligt namn och ett certifikatutfärdarcertifikat. 
+> Om klustret skyddas av ett självsignerat certifikat visas ett fel meddelande från webbläsaren "den här webbplatsen är inte säker". Du kan helt enkelt gå igenom de flesta moderna webbläsare genom att åsidosätta varningen. I en produktions miljö bör klustret skyddas med ett eget namn och ett certifikat som utfärdats av en certifikat utfärdare. 
 >
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
-Om du vill ansluta till ett Service Fabric-kluster behöver du slutpunkten för klusterhantering (FQDN/IP) och HTTP-hanteringsslutpunktsporten (19080 som standard). Till exempel\:https //mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan Anslut till localhost för att ansluta till ett lokalt kluster på din arbetsstation.
+Om du vill ansluta till ett Service Fabric-kluster måste du ha slut punkten för kluster hantering (FQDN/IP) och HTTP-hanteringens slut punkts port (19080 som standard). Till exempel https\://mysfcluster.westus.cloudapp.Azure.com:19080. Använd kryss rutan Anslut till localhost för att ansluta till ett lokalt kluster på din arbets Station.
 
 ### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
-Du kan styra klientåtkomsten till ditt Service Fabric-kluster antingen med certifikat eller med Azure Active Directory (AAD).
+Du kan styra klient åtkomsten till ditt Service Fabric-kluster antingen med certifikat eller med Azure Active Directory (AAD).
 
-Om du försöker ansluta till ett säkert kluster måste du, beroende på klustrets konfiguration, visa upp ett klientcertifikat eller logga in med AAD.
+Om du försöker ansluta till ett säkert kluster måste du, beroende på klustrets konfiguration, Visa ett klient certifikat eller logga in med AAD.
 
-## <a name="understand-the-service-fabric-explorer-layout"></a>Förstå layouten Service Fabric Explorer
-Du kan navigera genom Service Fabric Explorer med hjälp av trädet till vänster. Vid trädets rot ger klusterinstrumentpanelen en översikt över klustret, inklusive en sammanfattning av programmets och nodhälsan.
+## <a name="understand-the-service-fabric-explorer-layout"></a>Förstå Service Fabric Explorer layout
+Du kan navigera genom Service Fabric Explorer med hjälp av trädet till vänster. I träd strukturen ger kluster instrument panelen en översikt över klustret, inklusive en sammanfattning av program-och nodens hälsa.
 
-![Instrumentpanelen för Klusterinstrumentpanel för Service Fabric Explorer][sfx-cluster-dashboard]
+![Service Fabric Explorer kluster instrument panel][sfx-cluster-dashboard]
 
 ### <a name="view-the-clusters-layout"></a>Visa klustrets layout
-Noder i ett Service Fabric-kluster placeras över ett tvådimensionellt rutnät av feldomäner och uppgraderingsdomäner. Den här placeringen säkerställer att dina program förblir tillgängliga i närvaro av maskinvarufel och programuppgraderingar. Du kan visa hur det aktuella klustret är utformat med hjälp av klusterkartan.
+Noder i ett Service Fabric kluster placeras i ett tvådimensionellt rutnät av fel domäner och uppgraderings domäner. Den här placeringen säkerställer att dina program är tillgängliga i närvaro av maskin varu problem och program uppgraderingar. Du kan se hur det aktuella klustret fastställs med hjälp av kluster kartan.
 
-![Klusterkarta för Service Fabric Explorer][sfx-cluster-map]
+![Service Fabric Explorer kluster mappning][sfx-cluster-map]
 
 ### <a name="view-applications-and-services"></a>Visa program och tjänster
-Klustret innehåller två underträd: en för program och en annan för noder.
+Klustret innehåller två under träd: ett för program och ett annat för noder.
 
-Du kan använda programvyn för att navigera genom Service Fabric:s logiska hierarki: program, tjänster, partitioner och repliker.
+Du kan använda vyn program för att navigera genom Service Fabricens logiska hierarki: program, tjänster, partitioner och repliker.
 
-I exemplet nedan består programmet **MyApp** av två tjänster, **MyStatefulService** och **WebService**. Eftersom **MyStatefulService** är tillståndskänsligt innehåller den en partition med en primär och två sekundära repliker. WebSvcService är däremot tillståndslöst och innehåller en enda instans.
+I exemplet nedan består programmet **MyApp** av två tjänster, **MyStatefulService** och **WebService**. Eftersom **MyStatefulService** är tillstånds känsligt, innehåller den en partition med en primär och två sekundära repliker. Däremot är WebSvcService tillstånds lös och innehåller en enda instans.
 
-![Programvy för Service Fabric Explorer][sfx-application-tree]
+![Service Fabric Explorer programvy][sfx-application-tree]
 
-På varje nivå i trädet visar huvudfönstret relevant information om objektet. Du kan till exempel se hälsostatus och version för en viss tjänst.
+På varje nivå i trädet visar huvud fönstret relevant information om objektet. Du kan till exempel se hälso status och version för en viss tjänst.
 
-![Essentials-fönstret För service fabric Explorer][sfx-service-essentials]
+![Fönstret Service Fabric Explorer Essentials][sfx-service-essentials]
 
 ### <a name="view-the-clusters-nodes"></a>Visa klustrets noder
 Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka program som har kod distribuerad på noden. Mer specifikt kan du se vilka repliker som körs där.
 
 ## <a name="actions"></a>Åtgärder
-Service Fabric Explorer erbjuder ett snabbt sätt att anropa åtgärder för noder, program och tjänster i klustret.
+Service Fabric Explorer erbjuder ett snabbt sätt att anropa åtgärder på noder, program och tjänster i klustret.
 
-Om du till exempel vill ta bort en programinstans väljer du programmet från trädet till vänster och väljer sedan **Åtgärder** > **Ta bort program**.
+Om du till exempel vill ta bort en program instans väljer du programmet i trädet till vänster och väljer sedan **åtgärder** > **ta bort program**.
 
 ![Ta bort ett program i Service Fabric Explorer][sfx-delete-application]
 
 > [!TIP]
 > Du kan utföra samma åtgärder genom att klicka på ellipsen bredvid varje element.
 >
-> Varje åtgärd som kan utföras via Service Fabric Explorer kan också utföras via PowerShell eller ett REST API, för att möjliggöra automatisering.
+> Varje åtgärd som kan utföras via Service Fabric Explorer kan också utföras via PowerShell eller en REST API för att aktivera automatisering.
 >
 >
 
-Du kan också använda Service Fabric Explorer för att skapa programinstanser för en viss programtyp och version. Välj programtypen i trädvyn och klicka sedan på länken **Skapa appförekomst** bredvid den version du vill använda i den högra rutan.
+Du kan också använda Service Fabric Explorer för att skapa program instanser för en specifik program typ och version. Välj program typ i trädvyn och klicka sedan på länken **Skapa App-instans** bredvid den version som du vill ha i den högra rutan.
 
-![Skapa en programinstans i Service Fabric Explorer][sfx-create-app-instance]
+![Skapa en program instans i Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> Service Fabric Explorer stöder inte parametrar när programinstanser skapas. Programinstanser använder standardparametervärden.
+> Service Fabric Explorer stöder inte parametrar när program instanser skapas. Program instanser använder standard parameter värden.
 >
 >
 
-## <a name="event-store"></a>Händelsebutik
-EventStore är en funktion som erbjuds av plattformen som tillhandahåller Plattformshändelser för Service Fabric som är tillgängliga i Service Fabric Explorer och via REST API. Du kan se en ögonblicksbildvy av vad som händer i klustret för varje entitet, t.ex. Du kan också läsa mer om EventStore på [EventStore Översikt](service-fabric-diagnostics-eventstore.md).   
+## <a name="event-store"></a>Händelse lager
+EventStore är en funktion som erbjuds av plattformen som tillhandahåller Service Fabric plattforms händelser som är tillgängliga i Service Fabric Explorer och via REST API. Du kan se en Snapshot-vy över vad som händer i ditt kluster för varje entitet, t. ex. Node, service, program och fråga baserat på händelsens tidpunkt. Du kan också läsa mer om EventStore i EventStore- [översikten](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore (På plats)][sfx-eventstore]
-
->[!NOTE]
->Från och med Service Fabric version 6.4. EventStore är inte aktiverat som standard och måste vara aktiverat i resurshanterarens mall
+![EventStore][sfx-eventstore]
 
 >[!NOTE]
->Från och med Service Fabric version 6.4. EventStore-API:erna är endast tillgängliga för Windows-kluster som bara körs på Azure. Vi arbetar med att portera den här funktionen till Linux samt våra fristående kluster.
+>Från och med Service Fabric version 6,4. EventStore är inte aktiverat som standard och måste aktive ras i Resource Manager-mallen
 
-## <a name="image-store-viewer"></a>Bild store Viewer
-Bildlagsvisaren är en funktion som erbjuds om du använder Native Image Store som gör det möjligt att visa det aktuella innehållet i Bildarkivet och hämta fil- och mappinformation, tillsammans med att ta bort filer/mappar.
+>[!NOTE]
+>Från och med Service Fabric version 6,4. EventStore-API: er är bara tillgängliga för Windows-kluster som körs på Azure. Vi arbetar på att hamna på den här funktionaliteten både i Linux och i våra fristående kluster.
 
-![Klusterkarta för Service Fabric Explorer][sfx-imagestore]
+## <a name="image-store-viewer"></a>Avbildningsarkiv Viewer
+Image Store Viewer är en funktion som erbjuds om du använder interna Avbildningsarkiv som gör det möjligt att visa det aktuella innehållet i avbildnings arkivet och Hämta fil-och resursinformation, tillsammans med att ta bort filer/mappar.
+
+![Service Fabric Explorer kluster mappning][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
-Service Fabric Explorer erbjuder möjligheten att samverka med [Backup och Restore](./service-fabric-reliable-services-backup-restore.md). För att kunna se funktionerna för säkerhetskopiering och återställning i SFX måste avancerat läge vara aktiverat.
+Service Fabric Explorer ger möjlighet att gränssnitt för [säkerhets kopiering och återställning](./service-fabric-reliable-services-backup-restore.md). För att kunna se säkerhets kopierings-och återställnings funktioner i SFX måste du aktivera avancerat läge.
 
 ![Aktivera avancerat läge][0]
  
 Följande åtgärder är möjliga:
 
-* Skapa, redigera och ta bort en princip för säkerhetskopiering.
-* Aktivera och inaktivera Säkerhetskopiering för ett program, en tjänst eller en partition.
-* Pausa och återuppta säkerhetskopiering för ett program, en tjänst eller en partition.
-* Utlösare och spåra Säkerhetskopiering av en partition.
-* Utlösare och spåra Återställning för en partition.
+* Skapa, redigera och ta bort en säkerhets kopierings princip.
+* Aktivera och inaktivera säkerhets kopiering för ett program, en tjänst eller en partition.
+* Pausa och återuppta säkerhets kopiering för ett program, en tjänst eller en partition.
+* Utlös och spåra säkerhets kopiering av en partition.
+* Utlös och spåra återställning för en partition.
 
-Mer information om tjänsten Säkerhetskopiering och återställning finns i [REST API-referensen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Mer information om säkerhets kopierings-och återställnings tjänsten finns i [REST API referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-* [Distribution av Tjänst Fabric-program med PowerShell](service-fabric-deploy-remove-applications.md)
+* [Service Fabric program distribution med PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png

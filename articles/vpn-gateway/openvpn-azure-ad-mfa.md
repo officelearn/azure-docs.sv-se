@@ -1,6 +1,6 @@
 ---
 title: 'Aktivera MFA för VPN-användare: Azure AD-autentisering'
-description: Aktivera multifaktorautentisering för VPN-användare
+description: Aktivera Multi-Factor Authentication för VPN-användare
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -14,7 +14,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472357"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Aktivera MFA (Azure Multi Factor Authentication) för VPN-användare
+# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Aktivera Azure Multi-Factor Authentication (MFA) för VPN-användare
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
@@ -22,18 +22,18 @@ ms.locfileid: "77472357"
 
 [!INCLUDE [enable authentication](../../includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
 
-## <a name="configure-sign-in-settings"></a><a name="enablesign"></a>Konfigurera inloggningsinställningar
+## <a name="configure-sign-in-settings"></a><a name="enablesign"></a>Konfigurera inloggnings inställningar
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
-## <a name="option-1---per-user-access"></a><a name="peruser"></a>Alternativ 1 - Åtkomst per användare
+## <a name="option-1---per-user-access"></a><a name="peruser"></a>Alternativ 1 – åtkomst per användare
 
 [!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
-## <a name="option-2---conditional-access"></a><a name="conditional"></a>Alternativ 2 - Villkorlig åtkomst
+## <a name="option-2---conditional-access"></a><a name="conditional"></a>Alternativ 2 – villkorlig åtkomst
 
 [!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill ansluta till det virtuella nätverket måste du skapa och konfigurera en VPN-klientprofil. Se [Konfigurera en VPN-klient för P2S VPN-anslutningar](openvpn-azure-ad-client.md).
+För att ansluta till ditt virtuella nätverk måste du skapa och konfigurera en profil för VPN-klienter. Se [Konfigurera en VPN-klient för P2s VPN-anslutningar](openvpn-azure-ad-client.md).

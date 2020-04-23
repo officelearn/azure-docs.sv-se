@@ -15,11 +15,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "75371792"
 ---
-Med en SAS -signatur (Shared Access Signature) kan du bevilja begränsad åtkomst till behållare och blobbar i ditt lagringskonto. När du skapar en SAS anger du dess begränsningar, inklusive vilka Azure Storage-resurser en klient får åtkomst till, vilka behörigheter de har för dessa resurser och hur länge SAS är giltigt.
+Med en signatur för delad åtkomst (SAS) kan du ge begränsad åtkomst till behållare och blobbar i ditt lagrings konto. När du skapar en SAS anger du dess begränsningar, inklusive vilka Azure Storage resurser som en klient har åtkomst till, vilka behörigheter de har på dessa resurser och hur länge SAS är giltig.
 
-Varje SAS är signerad med en nyckel. Du kan signera en SAS på två sätt:
+Varje SAS signeras med en nyckel. Du kan signera en SAS på ett av två sätt:
 
-- Med en nyckel som skapats med Azure Active Directory (Azure AD) autentiseringsuppgifter. En SAS som är signerad med Azure AD-autentiseringsuppgifter är en *SAS-användardelegation.*
-- Med lagringskontonyckeln. Både en *service-SAS* och ett *konto SAS* är signerade med lagringskontonyckeln.
+- Med en nyckel som skapats med hjälp av Azure Active Directory (autentiseringsuppgifter för Azure AD). En SAS som är signerad med Azure AD-autentiseringsuppgifter är en *användar Delegerings* -SAS.
+- Med lagrings konto nyckeln. Både en *tjänst-SAS* och ett *konto säkerhets associationer* signeras med lagrings konto nyckeln.
 
-En SAS för användardelegation erbjuder överlägsen säkerhet till en SAS som är signerad med lagringskontonyckeln. Microsoft rekommenderar att du använder en SAS-användardelegation när det är möjligt. Mer information finns i [Bevilja begränsad åtkomst till data med SIGNATURER för delad åtkomst (SAS)](../articles/storage/common/storage-sas-overview.md).
+En användar delegering SAS ger överlägsen säkerhet till en SAS som är signerad med lagrings konto nyckeln. Microsoft rekommenderar att du använder en användar Delegerings-SAS när det är möjligt. Mer information finns i [bevilja begränsad åtkomst till data med signaturer för delad åtkomst (SAS)](../articles/storage/common/storage-sas-overview.md).

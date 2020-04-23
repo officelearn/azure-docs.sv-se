@@ -1,6 +1,6 @@
 ---
-title: Geokatastrofåterställning av Azure Spring Cloud | Microsoft-dokument
-description: Lär dig hur du skyddar ditt Spring Cloud-program från regionala avbrott
+title: Azure våren Cloud geo-Disaster Recovery | Microsoft Docs
+description: Lär dig hur du skyddar ditt våren Cloud-program från regionala avbrott
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -13,22 +13,22 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279143"
 ---
-# <a name="azure-spring-cloud-disaster-recovery"></a>Azure Spring Cloud haveriberedskap
+# <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
 
-I den här artikeln beskrivs några strategier som du kan använda för att skydda dina Azure Spring Cloud-program från att uppleva driftstopp.  Alla regioner eller datacenter kan drabbas av driftstopp som orsakas av regionala katastrofer, men noggrann planering kan minska påverkan på dina kunder.
+I den här artikeln beskrivs några strategier som du kan använda för att skydda dina Azure våren Cloud-program från att drabbas av drift stopp.  En region eller ett Data Center kan drabbas av drift stopp som orsakas av regionala katastrofer, men noggrann planering kan minimera påverkan på dina kunder.
 
-## <a name="plan-your-application-deployment"></a>Planera programdistributionen
+## <a name="plan-your-application-deployment"></a>Planera program distributionen
 
-Azure Spring Cloud-program körs i en viss region.  Azure körs i ett antal geografier över hela världen. En Azure-geografi är ett definierat område i världen som innehåller minst en Azure-region. En Azure-region är ett område inom en geografi som innehåller ett eller flera datacenter.  Varje Azure-region paras ihop med en annan region inom samma geografi, vilket tillsammans gör ett regionalt par. Azure serialiserar plattformsuppdateringar (planerat underhåll) över regionala par, vilket säkerställer att endast en region i varje par uppdateras åt gången. I händelse av ett avbrott som påverkar flera regioner prioriteras minst en region i varje par för återställning.
+Azure våren Cloud-program körs i en angiven region.  Azure körs i ett antal geografier över hela världen. En Azure-geografi är ett definierat område i världen som innehåller minst en Azure-region. En Azure-region är ett område inom ett geografiskt område som innehåller ett eller flera data Center.  Varje Azure-region är kopplad till en annan region inom samma geografi, tillsammans med ett regionalt par. Azure serialiserar plattforms uppdateringar (planerat underhåll) över regionala par, vilket säkerställer att endast en region i varje par uppdateras i taget. I händelse av ett avbrott som påverkar flera regioner prioriteras minst en region i varje par för återställning.
 
-För att säkerställa hög tillgänglighet och skydd mot katastrofer krävs att du distribuerar dina Spring Cloud-program till flera regioner.  Azure innehåller en lista över [parade regioner](../best-practices-availability-paired-regions.md) så att du kan planera dina Spring Cloud-distributioner till regionala par.  Vi rekommenderar att du överväger tre viktiga faktorer när du utformar din mikrotjänstarkitektur: regiontillgänglighet, Azure-parade regioner och tjänsttillgänglighet.
+Att säkerställa hög tillgänglighet och skydd från katastrofer kräver att du distribuerar dina moln program till flera regioner.  Azure tillhandahåller en lista över [kopplade regioner](../best-practices-availability-paired-regions.md) så att du kan planera dina våren-moln distributioner till regionala par.  Vi rekommenderar att du beaktar tre viktiga faktorer när du utformar en mikrotjänsts arkitektur: regions tillgänglighet, Azure-kopplade regioner och tjänst tillgänglighet.
 
-*  Regiontillgänglighet: Välj ett geografiskt område nära användarna för att minimera nätverksfördröjning och överföringstid.
-*  Azure-parade regioner: Välj parade regioner inom ditt valda geografiska område för att säkerställa samordnade plattformsuppdateringar och prioriterade återställningsinsatser om det behövs.
-*  Tjänstens tillgänglighet: Bestäm om dina parade områden ska köras varmt/varmt, varmt/varmt eller varmt/kallt.
+*  Region tillgänglighet: Välj ett geografiskt område nära användarna för att minimera nätverks fördröjningen och överförings tiden.
+*  Azure-kopplade regioner: Välj kopplade regioner inom det valda geografiska utrymmet för att säkerställa koordinerade plattforms uppdateringar och prioriterad återställning vid behov.
+*  Tjänst tillgänglighet: Bestäm om dina kopplade regioner ska köra frekvent/varm, varm/varm eller varm/kall.
 
-## <a name="use-azure-traffic-manager-to-route-traffic"></a>Använda Azure Traffic Manager för att dirigera trafik
+## <a name="use-azure-traffic-manager-to-route-traffic"></a>Använd Azure Traffic Manager för att dirigera trafik
 
-[Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) tillhandahåller DNS-baserad trafikbelastningsutjämning och kan distribuera nätverkstrafik mellan flera regioner.  Använd Azure Traffic Manager för att dirigera kunder till närmaste Azure Spring Cloud-tjänstinstans till dem.  För bästa prestanda och redundans kan du styra all programtrafik via Azure Traffic Manager innan du skickar den till din Azure Spring Cloud-tjänst.
+[Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) tillhandahåller DNS-baserad belastnings utjämning för trafiken och kan distribuera nätverks trafik över flera regioner.  Använd Azure Traffic Manager för att dirigera kunder till den närmaste Azure våren Cloud Service-instansen till dem.  För bästa prestanda och redundans ska du dirigera all program trafik via Azure Traffic Manager innan du skickar den till din Azure våren Cloud-tjänst.
 
-Om du har Azure Spring Cloud-program i flera regioner använder du Azure Traffic Manager för att styra trafikflödet till dina program i varje region.  Definiera en Slutpunkt för Azure Traffic Manager för varje tjänst med hjälp av tjänst-IP.Define an Azure Traffic Manager endpoint for each service using the service IP. Kunder bör ansluta till ett DNS-namn för Azure Traffic Manager som pekar på Azure Spring Cloud-tjänsten.  Azure Traffic Manager belastning balanserar trafik över de definierade slutpunkterna.  Om en katastrof träffar ett datacenter dirigerar Azure Traffic Manager trafik från den regionen till dess par, vilket säkerställer tjänstens kontinuitet.
+Om du har Azure våren Cloud-program i flera regioner använder du Azure-Traffic Manager för att styra trafik flödet till dina program i varje region.  Definiera en Azure Traffic Manager-slutpunkt för varje tjänst som använder tjänstens IP-adress. Kunder bör ansluta till ett Azure Traffic Manager DNS-namn som pekar på moln tjänsten Azure våren.  Azure Traffic Manager belastnings Utjämnings trafik mellan de definierade slut punkterna.  Om en katastrof träffar ett Data Center dirigerar Azure Traffic Manager trafiken från den regionen till dess par, vilket garanterar tjänste kontinuiteten.

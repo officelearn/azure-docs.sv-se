@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "75978833"
 ---
 > [!NOTE]
-> Azure har två olika distributionsmodeller som du kan använda för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../articles/azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver användningen av resurshanterarens distributionsmodell. Vi rekommenderar Resurshanterarens distributionsmodell för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributions modeller som du kan använda för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../articles/azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager. Vi rekommenderar distributions modellen för Resource Manager för nya distributioner i stället för den klassiska distributions modellen.

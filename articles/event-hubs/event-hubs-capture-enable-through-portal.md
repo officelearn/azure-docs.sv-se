@@ -1,5 +1,5 @@
 ---
-title: Event Hubs – Samla in direktuppspelningshändelser med Azure-portal
+title: Event Hubs samla in strömmande händelser med Azure Portal
 description: Den här artikeln beskriver hur du aktiverar avbildning av händelser som strömmas via Azure Event Hubs med hjälp av Azure-portalen.
 services: event-hubs
 documentationcenter: ''
@@ -23,9 +23,9 @@ ms.locfileid: "77187420"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Aktivera avbildning av händelser som strömmas via Azure Event Hubs
 
-Med Azure [Event Hubs Capture][capture-overview] kan du automatiskt leverera strömmande data i eventhubbar till ett [Azure Blob-lagrings-](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage Gen1- eller Gen 2-konto](https://azure.microsoft.com/services/data-lake-store/) som du väljer.
+Med Azure [Event Hubs Capture][capture-overview] kan du automatiskt leverera strömmande data i Event Hubs till ett [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) -eller [Azure Data Lake Storage gen1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto som du väljer.
 
-Du kan konfigurera avbildningsfunktionen med [Azure Portal](https://portal.azure.com) när du skapar händelsehubben. Du kan antingen samla in data till en Azure [Blob-lagringsbehållare](https://azure.microsoft.com/services/storage/blobs/) eller till ett [Azure Data Lake Storage Gen 1- eller Gen 2-konto.](https://azure.microsoft.com/services/data-lake-store/)
+Du kan konfigurera avbildningsfunktionen med [Azure Portal](https://portal.azure.com) när du skapar händelsehubben. Du kan antingen samla in data till en Azure [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) -behållare eller till ett [Azure Data Lake Storage gen 1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto.
 
 Mer information finns i [Översikt över Event Hubs Capture][capture-overview].
 
@@ -40,45 +40,45 @@ Standardvärdet för Tidsperiod är 5 minuter. Lägsta värde är 1 och högsta 
 > [!NOTE]
 > Du kan aktivera eller inaktivera tomma filer om inga händelser inträffar i fönstret Hämta. 
 
-## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Samla in data till Azure Data Lake Storage Gen 2 
+## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Samla in data till Azure Data Lake Storage gen 2 
 
-1. Följ [Skapa en lagringskontoartikel](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) för att skapa ett Azure Storage-konto. Ange **hierarkiskt namnområde** aktiverat på fliken **Avancerat** för att göra det till ett Azure Data Lake Storage Gen 2-konto. **Advanced**
-2. När du skapar en händelsehubb gör du följande: 
+1. Följ avsnittet [skapa en lagrings konto](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) för att skapa ett Azure Storage-konto. Ange **hierarkiskt namn område** till **aktiverat** på fliken **Avancerat** för att göra det till ett Azure Data Lake Storage gen 2-konto.
+2. Utför följande steg när du skapar en Event Hub: 
 
-    1. Välj **På** för **hämtning**. 
-    2. Välj **Azure Storage** som insamlingsprovider. Alternativet **Azure Data Lake Store** som du ser för **capture-providern** är för gen 1 i Azure Data Lake Storage. Om du vill använda en gen 2 i Azure Data Lake Storage väljer du **Azure Storage**.
-    2. Välj knappen **Välj behållare.** 
+    1. Välj **på** för **avbildning**. 
+    2. Välj **Azure Storage** som avbildnings leverantör. **Azure Data Lake Store** alternativ som du ser för **inspelnings leverantören** är för gen 1 i Azure Data Lake Storage. Om du vill använda en gen 2 Azure Data Lake Storage väljer du **Azure Storage**.
+    2. Välj knappen **Välj behållare** . 
 
-        ![Aktivera insamling till Data Lake Storage Gen 2](./media/event-hubs-capture-enable-through-portal/data-lake-storage-gen2.png)
-3. Välj **Azure Data Lake Storage Gen 2-kontot** i listan. 
+        ![Aktivera avbildning till Data Lake Storage gen 2](./media/event-hubs-capture-enable-through-portal/data-lake-storage-gen2.png)
+3. Välj kontot **Azure Data Lake Storage gen 2** i listan. 
 
-    ![Välj Lagringsgenom 2 för datasjö](./media/event-hubs-capture-enable-through-portal/select-data-lake-storage-gen2.png)
-4. Markera **behållaren** (filsystemet i Data Lake Storage Gen 2).
+    ![Välj Data Lake Storage gen 2](./media/event-hubs-capture-enable-through-portal/select-data-lake-storage-gen2.png)
+4. Välj **behållare** (fil system i data Lake Storage gen 2).
 
-    ![Välj filsystem i lagringen](./media/event-hubs-capture-enable-through-portal/select-file-system-data-lake-storage.png)
-5. På sidan **Skapa händelsehubb** väljer du **Skapa**. 
+    ![Välj fil system i lagringen](./media/event-hubs-capture-enable-through-portal/select-file-system-data-lake-storage.png)
+5. På sidan **skapa händelsehubben** väljer du **skapa**. 
 
-    ![Knappen Välj Skapa](./media/event-hubs-capture-enable-through-portal/create-event-hub-data-lake-storage.png)
+    ![Välj knappen Skapa](./media/event-hubs-capture-enable-through-portal/create-event-hub-data-lake-storage.png)
 
     > [!NOTE]
-    > Behållaren som du skapar i en Azure Data Lake Storage Gen 2 med det här användargränssnittet visas under **Filsystem** i **Storage Explorer**. På samma sätt visas det filsystem som du skapar i ett Data Lake Storage Gen 2-konto som en behållare i det här användargränssnittet. 
+    > Den behållare som du skapar i ett Azure Data Lake Storage gen 2 med hjälp av det här användar gränssnittet (UI) visas under **fil system** i **Storage Explorer**. På samma sätt visas fil systemet som du skapar i ett Data Lake Storage gen 2-konto som en behållare i det här användar gränssnittet. 
 
 
-## <a name="capture-data-to-azure-data-lake-storage-gen-1"></a>Samla in data till Azure Data Lake Storage Gen 1 
+## <a name="capture-data-to-azure-data-lake-storage-gen-1"></a>Samla in data till Azure Data Lake Storage gen 1 
 
-Om du vill samla in data till Azure Data Lake Storage Gen 1 skapar du ett Data Lake Storage Gen 1-konto och en händelsehubb:
+Om du vill samla in data till Azure Data Lake Storage gen 1 skapar du ett Data Lake Storage gen 1-konto och en Event Hub:
 
-### <a name="create-an-azure-data-lake-storage-gen-1-account-and-folders"></a>Skapa ett Azure Data Lake Storage Gen 1-konto och mappar
+### <a name="create-an-azure-data-lake-storage-gen-1-account-and-folders"></a>Skapa ett Azure Data Lake Storage gen 1-konto och mappar
 
-1. Skapa ett DataSjölagringskonto enligt instruktionerna i [Komma igång med Azure Data Lake Storage Gen 1 med Azure-portalen](../data-lake-store/data-lake-store-get-started-portal.md).
-2. Följ instruktionerna i avsnittet [Tilldela behörigheter till händelsehubbar](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) för att skapa en mapp i kontot DataSjölagring gen 1 där du vill samla in data från Event Hubs och tilldela behörigheter till eventhubbar så att den kan skriva data till ditt Data Lake Storage Gen 1-konto.  
+1. Skapa ett Data Lake Storage konto genom att följa anvisningarna i [Kom igång med Azure Data Lake Storage gen 1 med hjälp av Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Följ instruktionerna i avsnittet [tilldela behörigheter till Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) för att skapa en mapp i data Lake Storage gen 1-konto där du vill samla in data från Event Hubs och tilldela behörigheter till Event Hubs så att den kan skriva data till ditt data Lake Storage gen 1-konto.  
 
 
 ### <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-1. Händelsehubben måste finnas i samma Azure-prenumeration som Azure Data Lake Storage Gen 1-konto som du skapade. Skapa en händelsehubb genom att klicka på knappen **På** under **Capture** (Avbilda) på portalsidan **Skapa händelsehubb**. 
+1. Händelsehubben måste finnas i samma Azure-prenumeration som Azure Data Lake Storage gen 1-konto som du skapade. Skapa en händelsehubb genom att klicka på knappen **På** under **Capture** (Avbilda) på portalsidan **Skapa händelsehubb**. 
 2. Välj **Azure Data Lake Store** i rutan **Capture Provider** (Avbildningsprovider) på portalsidan **Skapa händelsehubb**.
-3. I **Välj butik** bredvid listrutan **Datasjölagring** anger du det DataSjölagringsgend 1-konto som du skapade tidigare och anger sökvägen till den datamapp som du skapade i fältet **Datasjösökväg.**
+3. I **Välj Arkiv** bredvid list rutan **data Lake Store** anger du det data Lake Storage gen 1-konto som du skapade tidigare och i fältet **data Lake sökväg** anger du sökvägen till den datamapp som du skapade.
 
     ![Välja Data Lake Storage-konto][3]
 
@@ -93,9 +93,9 @@ Du kan konfigurera avbildningsfunktionen i befintliga händelsehubbar som finns 
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
 
-![Konfigurera Azure Data Lake Storage Gen 2](./media/event-hubs-capture-enable-through-portal/configure-data-lake-storage-gen2.png)
+![Konfigurera Azure Data Lake Storage gen 2](./media/event-hubs-capture-enable-through-portal/configure-data-lake-storage-gen2.png)
 
-### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1 
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage gen 1 
 
 ![Konfigurera Azure Data Lake Storage][4]
 
@@ -109,6 +109,6 @@ Du kan konfigurera avbildningsfunktionen i befintliga händelsehubbar som finns 
 - Läs mer om Event Hubs Capture i [Översikt över Event Hubs Capture][capture-overview].
 - Du kan också konfigurera avbildningsfunktionen i Event Hubs med hjälp av Azure Resource Manager-mallar. Mer information finns i [Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
 - [Lär dig hur du skapar en Azure Event Grid-prenumeration med en Event Hubs-namnrymd som dess källa](store-captured-data-data-warehouse.md)
-- [Komma igång med Azure Data Lake Store med Azure-portalen](../data-lake-store/data-lake-store-get-started-portal.md)
+- [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

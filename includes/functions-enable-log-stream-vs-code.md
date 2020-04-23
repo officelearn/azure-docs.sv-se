@@ -11,12 +11,12 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "68669843"
 ---
-Så här aktiverar du streamingloggarna för din funktionsapp i Azure:
+Så här aktiverar du strömmande loggar för din Function-app i Azure:
 
-1. Välj F1 för att öppna kommandopaletten och sök sedan efter och kör kommandot **Azure Functions: Starta strömmande loggar**.
+1. Välj F1 för att öppna kommando-paletten och Sök sedan efter och kör kommandot **Azure Functions: starta strömmande loggar**.
 
-1. Välj din funktionsapp i Azure och välj sedan **Ja** för att aktivera programloggning för funktionsappen.
+1. Välj din Function-app i Azure och välj sedan **Ja** för att aktivera program loggning för Function-appen.
 
-1. Utlösa dina funktioner i Azure. Observera att loggdata visas i utdatafönstret i Visual Studio-kod.
+1. Utlös dina funktioner i Azure. Observera att loggdata visas i fönstret utdata i Visual Studio Code.
 
-1. När du är klar, kom ihåg att köra kommandot **Azure Functions: Stoppa strömmande loggar** för att inaktivera loggning för funktionsappen.
+1. Kom ihåg att köra kommandot Azure Functions när du är klar **: stoppa strömmande loggar** för att inaktivera loggning för Function-appen.

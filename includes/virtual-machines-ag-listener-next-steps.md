@@ -11,12 +11,12 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187295"
 ---
-Förutom att automatiskt ansluta klienter till den primära repliken kan en lyssnare användas för att omdirigera skrivskyddade arbetsbelastningar till sekundärerna. Den här användningen kan förbättra prestanda och skalbarhet för din övergripande lösning. Mer information finns i [Använda ReadIntent-routning med Azure Always On availability group listener](https://go.microsoft.com/fwlink/?LinkId=522515).
+Förutom att automatiskt ansluta klienter till den primära repliken kan en lyssnare användas för att omdirigera skrivskyddade arbets belastningar till sekundärerna. Den här användningen kan förbättra prestanda och skalbarhet för den övergripande lösningen. Mer information finns i [använda ReadIntent routing with Azure Always on tillgänglighet Group Listener](https://go.microsoft.com/fwlink/?LinkId=522515).
 
 > [!NOTE]
-> Felsökningstips för Azure-lyssnare finns [i Felsöka tillgänglighetsgrupplyssnare i Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) i AlwaysOn Support [Team-bloggen](https://blogs.msdn.com/b/alwaysonpro/).
+> Fel söknings tips för Azure-lyssnare finns i [Felsöka tillgänglighets gruppens lyssnare i Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) i team [bloggen](https://blogs.msdn.com/b/alwaysonpro/)för AlwaysOn-supporten.
 > 
 > 
 
-Mer information om hur du använder SQL Server i Azure finns i [SQL Server på virtuella Azure-datorer](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du använder SQL Server i Azure finns [SQL Server på Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

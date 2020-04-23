@@ -1,6 +1,6 @@
 ---
-title: Aliasservernamn för Azure Analysis Services | Microsoft-dokument
-description: Lär dig hur du skapar Azure Analysis Services-servernamnsalias. Användare kan sedan ansluta till servern med ett kortare aliasnamn i stället för servernamnet.
+title: Namn på Azure Analysis Services Ali Aset Server | Microsoft Docs
+description: Lär dig hur du skapar Azure Analysis Services server namn-alias. Användarna kan sedan ansluta till servern med ett kortare aliasnamn i stället för Server namnet.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -14,36 +14,36 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572281"
 ---
-# <a name="alias-server-names"></a>Namn på aliasserver
+# <a name="alias-server-names"></a>Ali Aset Server namn
 
-Genom att använda ett servernamnsalias kan användare ansluta till din Azure Analysis Services-server med ett kortare *alias* i stället för servernamnet. När du ansluter från ett klientprogram anges aliaset som **link://** en slutpunkt med hjälp av link://-protokollformatet. Slutpunkten returnerar sedan det verkliga servernamnet för att kunna ansluta.
+Genom att använda ett server namn alias kan användarna ansluta till din Azure Analysis Services-server med ett kortare *alias* i stället för Server namnet. När du ansluter från ett klient program, anges aliaset som en slut punkt med hjälp av protokoll formatet **Link://** . Slut punkten returnerar sedan det riktiga Server namnet för att ansluta.
 
-Alias server namn är bra för:
+Ali Asets Server namn är lämpliga för:
 
-- Migrera modeller mellan servrar utan att påverka användarna. 
-- Vänliga servernamn är lättare för användarna att komma ihåg. 
+- Migrera modeller mellan servrar utan att påverka användare. 
+- Användarvänliga Server namn är enklare för användare att komma ihåg. 
 - Dirigera användare till olika servrar vid olika tidpunkter på dagen. 
-- Dirigera användare i olika regioner till instanser som är geografiskt närmare, till exempel när du använder Azure Traffic Manager. 
+- Dirigera användare i olika regioner till instanser som är geografiskt närmare, som när du använder Azure Traffic Manager. 
 
-Alla HTTPS-slutpunkter som returnerar ett giltigt Azure Analysis Services-servernamn kan fungera som ett alias. The endpoint must support HTTPS over port 443 and the port must not be specified in the URI.
+En HTTPS-slutpunkt som returnerar ett giltigt Azure Analysis Services server namn kan fungera som ett alias. Slut punkten måste ha stöd för HTTPS via port 443 och porten får inte anges i URI: n.
 
-![Alias med hjälp av länkformat](media/analysis-services-alias/aas-alias-browser.png)
+![Alias med länk format](media/analysis-services-alias/aas-alias-browser.png)
 
-När du ansluter från en klient anges aliasserverns namn med **link://** protokollformat. Till exempel i Power BI Desktop:
+När du ansluter från en klient anges Ali Aset serverns namn med hjälp av protokoll formatet **Link://** . I Power BI Desktop till exempel:
 
-![Power BI-skrivbordsanslutning](media/analysis-services-alias/aas-alias-connect-pbid.png)
+![Power BI Desktop anslutning](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
 ## <a name="create-an-alias"></a>Skapa ett alias
 
-Om du vill skapa en aliasslutpunkt kan du använda vilken metod som helst som returnerar ett giltigt Azure Analysis Services-servernamn. En referens till en fil i Azure Blob Storage som innehåller det verkliga servernamnet eller skapa och publicera ett ASP.NET webbformulärprogram.
+Om du vill skapa en alias-slutpunkt kan du använda valfri metod som returnerar ett giltigt Azure Analysis Services server namn. Till exempel en referens till en fil i Azure Blob Storage som innehåller det riktiga Server namnet eller skapa och publicera ett ASP.NET webb formulär program.
 
-I det här exemplet skapas ett ASP.NET webbformulärprogram i Visual Studio. Huvudsidesreferensen och användarkontrollen tas bort från sidan Default.aspx. Innehållet i Default.aspx är helt enkelt följande siddirektiv:
+I det här exemplet skapas ett ASP.NET webb formulär program i Visual Studio. Huvud sid referensen och användar kontrollen tas bort från default. aspx-sidan. Innehållet i default. aspx är bara följande sid direktiv:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
 ```
 
-Händelsen Page_Load i Default.aspx.cs använder metoden Response.Write() för att returnera Azure Analysis Services-servernamnet.
+Händelsen Page_Load i Default.aspx.cs använder metoden Response. write () för att returnera namnet på Azure Analysis Services servern.
 
 ```
 protected void Page_Load(object sender, EventArgs e)
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Se även
 
-[Klientbibliotek](analysis-services-data-providers.md)   
+[Klient bibliotek](analysis-services-data-providers.md)   
 [Anslut från Power BI Desktop](analysis-services-connect-pbi.md)

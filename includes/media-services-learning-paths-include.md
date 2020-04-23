@@ -25,4 +25,4 @@ Kolla in den senaste versionen av Azure Media Services!
 * [Översikt](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
 * [Skapa ett konto](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
 * [Leverera på begäran](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
-* [Leverera live](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)
+* [Leverera Live](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

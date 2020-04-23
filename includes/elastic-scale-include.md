@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187420"
 ---
 ## <a name="additional-resources"></a>Ytterligare resurser
-Använder du inte elastiska databasverktyg än? Kolla in vår [Komma igång Guide](../articles/sql-database/sql-database-elastic-scale-get-started.md).  För frågor, vänligen kontakta oss på [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktionsförfrågningar, lägg till dem i SQL Database feedback [forum](https://feedback.azure.com/forums/217321-sql-database/).
+Använder du inte Elastic Database-verktyg ännu? Kolla i vår [komma igång-guide](../articles/sql-database/sql-database-elastic-scale-get-started.md).  För frågor kan du kontakta oss i [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktions förfrågningar, lägga till dem i [forumen för SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).

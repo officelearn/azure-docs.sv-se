@@ -1,6 +1,6 @@
 ---
-title: Skapa Azure Cosmos-behållare och databaser i autopilotläge.
-description: Lär dig mer om fördelarna, användningsfallen och hur du etablerar Azure Cosmos-databaser och behållare i autopilotläge.
+title: Skapa Azure Cosmos-behållare och databaser i autopilot-läge.
+description: Lär dig mer om fördelar, användnings fall och hur du etablerar Azure Cosmos-databaser och behållare i autopilot-läge.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
@@ -18,75 +18,75 @@ ms.locfileid: "79246661"
 Med Azure Cosmos DB kan du etablera dataflöde i containrar i antingen manuellt läge eller Autopilot-läge. I den här artikeln beskrivs fördelarna och användningsfallen i Autopilot-läge.
 
 > [!NOTE]
-> Autopilotläget är för närvarande tillgängligt i offentlig förhandsversion. Du kan bara [aktivera autopilot för nya databaser och behållare.](#create-a-database-or-a-container-with-autopilot-mode) Den är inte tillgänglig för befintliga behållare och databaser.
+> Autopilot-läget är för närvarande tillgängligt i en offentlig för hands version. Du kan bara [Aktivera autopilot för nya databaser och behållare](#create-a-database-or-a-container-with-autopilot-mode) . Den är inte tillgänglig för befintliga behållare och databaser.
 
-Förutom manuell etablering av dataflöde kan du nu konfigurera Azure Cosmos-behållare i autopilotläge. Behållare och databaser som konfigurerats i autopilotläge **skalas automatiskt och omedelbart det etablerade dataflödet baserat på dina programbehov utan att påverka tillgängligheten, svarstiden, dataflödet eller prestanda för arbetsbelastningen globalt.**
+Förutom manuell etablering av data flöde kan du nu konfigurera Azure Cosmos-behållare i autopilot-läge. Behållare och databaser som kon figurer ATS i autopilot-läge kommer **automatiskt att skala det etablerade data flödet baserat på dina program behov utan att påverka tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen globalt.**
 
-När du konfigurerar behållare och databaser i autopilotläge måste `Tmax` du ange det maximala dataflödet som inte ska överskridas. Behållare kan sedan skala sitt `0.1*Tmax < T < Tmax`dataflöde så att . . Med andra ord skalas behållare och databaser direkt baserat på arbetsbelastningsbehoven, från så lågt som 10 % av det maximala dataflödesvärdet som du har konfigurerat upp till det konfigurerade maximala dataflödesvärdet. Du kan ändra inställningen`Tmax`för maximalt dataflöde ( ) på en autopilotdatabas eller behållare när som helst. Med autopilotalternativet är 400 RU/s minsta dataflöde per behållare eller databas inte längre tillämpligt.
+När du konfigurerar behållare och databaser i autopilot-läge måste du ange det maximala data `Tmax` flödet som inte överskrids. Behållare kan sedan skala sitt genomflöde så att `0.1*Tmax < T < Tmax`. Med andra ord skalar behållare och databaser direkt utifrån arbets belastnings behoven, från så lågt som 10% av det maximala data flöde svärdet som du har konfigurerat till det konfigurerade maximala data flöde svärdet. Du kan ändra inställningen för maximalt data`Tmax`flöde () för en autopilot-databas eller-behållare vid varje tidpunkt. Med alternativet autopilot är 400 RU/s minsta data flöde per behållare eller databas inte längre tillämpligt.
 
-Under förhandsgranskningen av autopiloten, för det angivna maximala dataflödet på behållaren eller databasen, tillåter systemet att arbeta inom den beräknade lagringsgränsen. Om lagringsgränsen överskrids justeras det maximala dataflödet automatiskt till ett högre värde. När du använder dataflöde på databasnivå med autopilotläge beräknas antalet `0.001*TMax`behållare som tillåts i en databas som: . Om du till exempel etablerar 20 000 autopilot-RU/s kan databasen ha 20 behållare.
+Under för hands versionen av autopilot, för det angivna maximala data flödet i behållaren eller databasen, tillåter systemet drift inom den beräknade lagrings gränsen. Om lagrings gränsen överskrids justeras det maximala data flödet automatiskt till ett högre värde. När du använder data flöde på databas nivå med autopilot-läge, beräknas antalet behållare som tillåts i en databas `0.001*TMax`som:. Om du till exempel etablerar 20 000 autopiloten RU/s kan databasen ha 20 behållare.
 
-## <a name="benefits-of-autopilot-mode"></a>Fördelar med autopilotläge
+## <a name="benefits-of-autopilot-mode"></a>Fördelar med autopilot-läge
 
-Azure Cosmos-behållare som är konfigurerade i autopilotläge har följande fördelar:
+Azure Cosmos-behållare som kon figurer ATS i autopilot-läge har följande fördelar:
 
-* **Enkelt:** Behållare i autopilotläge tar bort komplexiteten för att hantera etablerat dataflöde (RU: er) och kapacitet manuellt för olika behållare.
+* **Enkel:** Behållare i autopilot-läge tar bort komplexiteten för att hantera etablerade data flöden (ru: er) och kapacitet manuellt för olika behållare.
 
-* **Skalbar:** Behållare i autopilotläge skalar sömlöst den etablerade dataflödeskapaciteten efter behov. Det finns inga störningar i klientanslutningar, program och de påverkar inte några befintliga SLA.There is no disruption to client connections, applications and they don't impact any existing SLAs.
+* **Skalbarhet:** Behållare i autopilot-läge skalar sömlöst den allokerade data flödes kapaciteten vid behov. Det uppstår inget avbrott i klient anslutningar, program och de påverkar inte några befintliga service avtal.
 
-* **Kostnadseffektivt:** När du använder behållare som konfigurerats i autopilotläge betalar du bara för de resurser som dina arbetsbelastningar behöver per timme.
+* **Kostnads effektiv:** När du använder behållare som kon figurer ATS i autopilot-läge betalar du bara för de resurser som dina arbets belastningar behöver per timme.
 
-* **Mycket tillgänglig:** Behållare i autopilotläge använder samma globalt distribuerade, feltoleranta, mycket tillgängliga backend för att säkerställa datahållbarhet och hög tillgänglighet.
+* **Hög tillgänglighet:** Behållare i autopilot-läge använder samma globalt distribuerade, feltoleranta och hög tillgängliga Server del för att säkerställa data hållbarhet och hög tillgänglighet.
 
-## <a name="use-cases-of-autopilot-mode"></a>Användningsfall i autopilotläge
+## <a name="use-cases-of-autopilot-mode"></a>Användnings fall i autopilot-läge
 
-Användningsfallen för Azure Cosmos-behållare som konfigurerats i autopilotläge är:
+Användnings fall för Azure Cosmos-behållare som kon figurer ATS i autopilot-läge är:
 
-* **Variabla arbetsbelastningar:** När du kör ett lättanvänt program med maximal användning på 1 timme till flera timmar några gånger varje dag eller flera gånger per år. Exempel på detta är ansökningar om personal, budgetering och operativ rapportering. För sådana scenarier kan behållare som konfigurerats i autopilotläge användas, och du behöver inte längre manuellt etablera för antingen topp- eller medelkapacitet.
+* **Variabla arbets belastningar:** När du kör ett program med hög användning med en högsta användning på 1 timme till flera timmar varje dag eller flera gånger per år. Exempel är program för personal, budgetering och drift rapportering. För sådana scenarier kan behållare som kon figurer ATS i autopilot-läge användas, och du behöver inte längre etablera manuellt för antingen hög kapacitet eller genomsnitts kapacitet.
 
-* **Oförutsägbara arbetsbelastningar:** När du kör arbetsbelastningar där det finns databasanvändning hela dagen, men också toppar av aktivitet som är svåra att förutsäga. Ett exempel är en trafikplats som ser en ökning av aktiviteten när väderprognosen ändras. Behållare som konfigurerats i autopilotläge justerar kapaciteten för att uppfylla behoven hos programmets toppbelastning och skalar ned när aktiviteten är över.
+* **Oförutsägbara arbets belastningar:** När du kör arbets belastningar där det finns en databas användning under dagen, men även toppar av aktiviteter som är svåra att förutsäga. Ett exempel är en trafik plats som ser en överspänning av aktivitet när väder prognoser ändras. Behållare som kon figurer ATS i autopilot-läge justera kapaciteten för att uppfylla behoven för programmets högsta belastning och skala ned när aktivitetens överbelastning är över.
 
-* **Nya applikationer:** Om du distribuerar ett nytt program och är osäker på hur mycket etablerat dataflöde (dvs. hur många ru: er) du behöver. Med behållare konfigurerade i autopilotläge kan du automatiskt skala till programmets kapacitetsbehov och krav.
+* **Nya program:** Om du distribuerar ett nytt program och är osäker på hur mycket allokerat data flöde (t. ex. hur många ru: er) du behöver. Med behållare som kon figurer ATS i autopilot-läge kan du automatiskt skala till kapacitets behoven och kraven för ditt program.
 
-* **Sällan använda program:** Om du har ett program som bara används för ett par timmar flera gånger per dag eller vecka eller månad, till exempel en låg volym program / webb / blogg webbplats.
+* **Program som används sällan:** Om du har ett program som bara används för några timmar flera gånger per dag eller vecka eller månad, till exempel en program-/webb-/blogg webbplats med låg volym.
 
-* **Utvecklings- och testdatabaser:** Om du har utvecklare som använder behållare under arbetstid men inte behöver dem på nätter eller helger. Med behållare konfigurerade i autopilotläge skalas de ned till ett minimum när de inte används.
+* **Utvecklings-och test databaser:** Om du har utvecklare som använder behållare under arbets tid, men inte behöver dem på nätter eller helger. Med behållare som kon figurer ATS i autopilot-läge, skalar de ned till ett minimum när de inte används.
 
-* **Schemalagda produktionsarbetsbelastningar/frågor:** När du har en serie schemalagda begäranden/åtgärder/frågor på en enda behållare, och om det finns inaktiva perioder där du vill köra med ett absolut lågt dataflöde, kan du nu göra det enkelt. När en schemalagd fråga/begäran skickas till en behållare som konfigurerats i autopilotläge skalas den automatiskt upp så mycket som behövs och kör åtgärden.
+* **Schemalagda produktions arbets belastningar/frågor:** När du har en serie med schemalagda begär Anden/åtgärder/frågor på en enda behållare, och om det finns inaktiva perioder där du vill köra med ett absolut lågt data flöde, kan du nu enkelt göra det. När en schemalagd fråga/begäran skickas till en behållare som kon figurer ATS i autopilot-läge, skalas den automatiskt upp så mycket som behövs och åtgärden körs.
 
-Lösningar på tidigare problem kräver inte bara en enorm tid i genomförandet, men de introducerar också komplexitet i konfigurationen eller din kod, och kräver ofta manuella åtgärder för att hantera dem. Autopilotläge gör det möjligt för ovanstående scenarier att gå ut ur lådan, så att du inte behöver oroa dig för dessa problem längre.
+Lösningar på tidigare problem kräver inte bara en enorma del av tiden i implementeringen, men de introducerar också komplexitet i konfigurationen eller din kod och kräver ofta manuella åtgärder för att åtgärda dem. Med autopilot-läget kan du använda ovanstående scenarier i rutan så att du inte behöver oroa dig för dessa problem längre.
 
-## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Jämförelse – Behållare konfigurerade i manuellt läge jämfört med autopilotläge
+## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Jämförelse – behållare som kon figurer ATS i manuellt läge kontra autopilot-läge
 
-|  | Behållare som konfigurerats i manuellt läge  | Behållare som konfigurerats i autopilotläge |
+|  | Behållare som kon figurer ATS i manuellt läge  | Behållare som kon figurer ATS i autopilot-läge |
 |---------|---------|---------|
-| **Etablerat dataflöde** | Etableras manuellt. | Skalas automatiskt och omedelbart baserat på arbetsbelastningsanvändningsmönstren. |
-| **Hastighetsbegränsning av begäranden/åtgärder (429)**  | Kan inträffa om förbrukningen överstiger etablerad kapacitet. | Kommer inte att ske om det dataflöde som förbrukas ligger inom det maximala dataflöde som du väljer med autopilotläge.   |
-| **Kapacitetsplanering** |  Du måste göra en inledande kapacitetsplanering och tillhandahållande av dataflödet du behöver. |    Du behöver inte oroa dig för kapacitetsplanering. Systemet tar automatiskt hand om kapacitetsplanering och kapacitetshantering. |
-| **Prissättning** | Manuellt etablerade RU/s per timme. | För konton i enstaka skrivregion betalar du för det dataflöde som används per timme genom att använda autopilot-RU/s per timtaxa. <br/><br/>För konton med flera skrivregioner tillkommer ingen extra kostnad för autopilot. Du betalar för det dataflöde som används per timme med samma multi-master RU/s per timtaxa. |
-| **Passar bäst för arbetsbelastningstyper** |  Förutsägbara och stabila arbetsbelastningar|   Oförutsägbara och variabla arbetsbelastningar  |
+| **Etablerat dataflöde** | Manuellt etablerad. | Automatiskt och automatiskt skalas baserat på användnings mönster för arbets belastning. |
+| **Hastighets begränsning av begär Anden/åtgärder (429)**  | Kan inträffa om förbrukningen överskrider den etablerade kapaciteten. | Sker inte om det data flöde som förbrukas är inom det maximala data flöde som du väljer med autopilot-läge.   |
+| **Kapacitetsplanering** |  Du måste utföra en första kapacitets planering och tillhandahålla det data flöde du behöver. |    Du behöver inte bekymra dig om kapacitets planering. Systemet tar automatiskt hand om kapacitets planering och kapacitets hantering. |
+| **Prissättning** | Manuellt etablerade RU/s per timme. | För enstaka Skriv regions konton betalar du för det data flöde som används per timme med hjälp av den autopiloten RU/s per tim pris. <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autopilot. Du betalar för det data flöde som används per timme med samma taxa för flera huvud-RU/s per timme. |
+| **Passar bäst för arbets belastnings typer** |  Förutsägbara och stabila arbets belastningar|   Oförutsedda och varierande arbets belastningar  |
 
-## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Skapa en databas eller en behållare med autopilotläge
+## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Skapa en databas eller en behållare med autopilot-läge
 
-Du kan konfigurera autopilot för nya databaser eller behållare när du skapar dem via Azure-portalen. Använd följande steg för att skapa en ny databas eller behållare, aktivera autopilot och ange maximalt dataflöde (RU/s).
+Du kan konfigurera autopilot för nya databaser eller behållare när du skapar dem via Azure Portal. Använd följande steg för att skapa en ny databas eller behållare, aktivera autopilot och ange maximalt data flöde (RU/s).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) eller [Azure Cosmos DB explorer.](https://cosmos.azure.com/)
+1. Logga in på [Azure Portal](https://portal.azure.com) eller [Azure Cosmos DB Explorer.](https://cosmos.azure.com/)
 
-1. Navigera till ditt Azure Cosmos DB-konto och öppna fliken **Data Explorer.**
+1. Gå till ditt Azure Cosmos DB-konto och öppna fliken **datautforskaren** .
 
-1. Välj **Ny behållare.** Ange ett namn på databasen, behållaren och en partitionsnyckel. Under **Dataflöde**väljer du **autopilotalternativet** och väljer det maximala dataflöde (RU/s) som databasen eller behållaren inte kan överskrida när autopilotalternativet används.
+1. Välj **ny behållare.** Ange ett namn för din databas, behållare och en partitionsnyckel. Under **data flöde**väljer du alternativet **autopilot** och väljer det maximala data flöde (ru/s) som databasen eller behållaren inte får överskrida när du använder alternativet autopilot.
 
-   ![Skapa en behållare och konfigurera Autopilot-dataflöde](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
+   ![Skapa en behållare och konfigurera autopilot-dataflöde](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. Välj **OK**.
 
-Du kan skapa en delad dataflödesdatabas med autopilotläge genom att välja alternativet **Etablera databasdataflöde.**
+Du kan skapa en delad data flödes databas med autopilot-läge genom att välja **data flödes alternativet etablera databas** .
 
-## <a name="throughput-and-storage-limits-for-autopilot"></a><a id="autopilot-limits"></a>Genomströmnings- och lagringsgränser för autopilot
+## <a name="throughput-and-storage-limits-for-autopilot"></a><a id="autopilot-limits"></a>Data flödes-och lagrings gränser för autopilot
 
-Följande tabell visar den maximala genom- och lagringsgränserna för olika alternativ i autopilotläge:
+I följande tabell visas de maximala gränserna för alla och lagrings gränser för olika alternativ i autopilot-läge:
 
-|Maximal gräns för dataflöde  |Maximal lagringsgräns  |
+|Maximal data flödes gräns  |Maximal lagrings gräns  |
 |---------|---------|
 |4000 RU/s  |   50 GB    |
 |20 000 RU/s  |  200 GB  |
@@ -95,7 +95,7 @@ Följande tabell visar den maximala genom- och lagringsgränserna för olika alt
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [autopilot faq](autopilot-faq.md).
+* Läs [vanliga frågor och svar om autopilot](autopilot-faq.md).
 * Läs mer om [logiska partitioner](partition-data.md).
-* Lär dig hur du [etablerar dataflöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
-* Lär dig hur du [etablerar dataflöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+* Lär dig hur du [etablerar data flöde i en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
+* Lär dig hur du [etablerar data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).

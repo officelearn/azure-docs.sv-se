@@ -11,11 +11,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "75436993"
 ---
-|  | **Privat peering** | **Microsoft-peering** |  **Offentlig peering** (föråldrad för nya kretsar) |
+|  | **Privat peering** | **Microsoft-peering** |  **Offentlig peering** (inaktuell för nya kretsar) |
 | --- | --- | --- | --- |
-| **Max. # prefix som stöds per peering** |4000 som standard, 10 000 med ExpressRoute Premium |200 |200 |
-| **IP-adressintervall som stöds** |En giltig IP-adress i WAN.Any valid IP address within your WAN. |Offentliga IP-adresser som ägs av dig eller din anslutningsleverantör. |Offentliga IP-adresser som ägs av dig eller din anslutningsleverantör. |
-| **KRAV FÖR AS-nummer** |Privata och offentliga AS-nummer. Du måste äga det offentliga AS-numret om du väljer att använda ett. |Privata och offentliga AS-nummer. Du måste dock bevisa äganderätten till offentliga IP-adresser. |Privata och offentliga AS-nummer. Du måste dock bevisa äganderätten till offentliga IP-adresser. |
+| **Bekräftat. antal prefix som stöds per peering** |4000 som standard 10 000 med ExpressRoute Premium |200 |200 |
+| **IP-adressintervall som stöds** |En giltig IP-adress i WAN-nätverket. |Offentliga IP-adresser som ägs av dig eller anslutnings leverantören. |Offentliga IP-adresser som ägs av dig eller anslutnings leverantören. |
+| **SOM nummer krav** |Privat och offentlig som tal. Du måste äga det offentliga AS-numret om du väljer att använda en. |Privat och offentlig som tal. Du måste dock bevisa ägarskap för offentliga IP-adresser. |Privat och offentlig som tal. Du måste dock bevisa ägarskap för offentliga IP-adresser. |
 | **IP-protokoll som stöds**| IPv4 |  IPv4, IPv6 | IPv4 |
-| **IP-adresser för routningsgränssnitt** |RFC1918 och offentliga IP-adresser |Offentliga IP-adresser som registrerats för dig i routningsregister. |Offentliga IP-adresser som registrerats för dig i routningsregister. |
-| **Support för MD5 Hash** |Ja |Ja |Ja |
+| **IP-adresser för routningsgränssnitt** |RFC1918 och offentliga IP-adresser |Offentliga IP-adresser som registrerats för dig i vägvals register. |Offentliga IP-adresser som registrerats för dig i vägvals register. |
+| **Stöd för MD5-hash** |Ja |Ja |Ja |

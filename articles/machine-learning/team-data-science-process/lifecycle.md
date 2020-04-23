@@ -1,6 +1,6 @@
 ---
-title: Livscykeln för teamdatavetenskapsprocessen
-description: Team Data Science Process (TDSP) ger en rekommenderad livscykel som du kan använda för att strukturera dina datavetenskapliga projekt.
+title: Livs cykeln för team data science process
+description: TDSP (Team data science process) tillhandahåller en rekommenderad livs cykel som du kan använda för att strukturera data vetenskaps projekt.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -18,15 +18,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720460"
 ---
-# <a name="the-team-data-science-process-lifecycle"></a>Livscykeln för teamdatavetenskapsprocessen
+# <a name="the-team-data-science-process-lifecycle"></a>Livs cykeln för team data science process
 
-Team Data Science Process (TDSP) ger en rekommenderad livscykel som du kan använda för att strukturera dina datavetenskapliga projekt. Livscykeln beskriver de fullständiga steg som framgångsrika projekt följer. Om du använder en annan livscykel för datavetenskap, till exempel Crisp-DM (Cross Industry Standard Process for Data Mining), Knowledge Discovery in Databases (KDD) eller organisationens egen anpassade process, kan du fortfarande använda den uppgiftsbaserade TDSP.If you use another data-science lifecycle, such as the Cross Industry Standard Process for Data Mining [(CRISP-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), Knowledge Discovery in Databases [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), or your organization's own custom process, you can still use the task-based TDSP. 
+TDSP (Team data science process) tillhandahåller en rekommenderad livs cykel som du kan använda för att strukturera data vetenskaps projekt. Livs cykeln beskriver de fullständiga stegen som slutfört projekt. Om du använder en annan data vetenskaps livs cykel, till exempel en process som bygger på flera bransch standarder för Data utvinning [(skarp DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), kunskaps identifiering i databaser [(KDD)](https://wikipedia.org/wiki/Data_mining#Process)eller din organisations egen anpassade process, kan du fortfarande använda den uppgiftsbaserade TDSP. 
 
-Den här livscykeln är utformad för datavetenskapliga projekt som är avsedda att levereras som en del av intelligenta program. Dessa program distribuerar maskininlärning eller artificiell intelligens modeller för prediktiv analys. Förberedande datavetenskapliga projekt och improviserade analysprojekt kan också dra nytta av användningen av denna process. Men för dessa projekt kanske några av de steg som beskrivs här inte behövs. 
+Den här livs cykeln är utformad för data vetenskaps projekt som är avsedda att levereras som en del av intelligenta program. Dessa program distribuerar Machine Learning-eller artificiell Intelligence-modeller för förutsägelse analys. Undersökande data – vetenskaps projekt och Improvised analys projekt kan också dra nytta av användningen av den här processen. Men för dessa projekt kanske vissa av stegen som beskrivs här inte behövs. 
 
-## <a name="five-lifecycle-stages"></a>Fem livscykelstadier
+## <a name="five-lifecycle-stages"></a>Fem livs cykel steg
 
-TDSP-livscykeln består av fem huvudsteg som körs iterativt. Dessa steg inkluderar:
+TDSP-livscykeln består av fem huvud steg som körs iterativt. Dessa steg omfattar:
 
    1. [Förståelse för verksamheten](lifecycle-business-understanding.md)
    2. [Förvärv och förståelse av data](lifecycle-data.md)
@@ -34,21 +34,21 @@ TDSP-livscykeln består av fem huvudsteg som körs iterativt. Dessa steg inklude
    4. [Distribution](lifecycle-deployment.md)
    5. [Kundgodkännande](lifecycle-acceptance.md)
 
-Här är en visuell representation av TDSP livscykel: 
+Här är en visuell representation av TDSP-livs cykeln: 
 
 ![TDSP-livscykel](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-TDSP-livscykeln modelleras som en sekvens av itererade steg som ger vägledning om de uppgifter som behövs för att använda prediktiva modeller. Du distribuerar de prediktiva modeller i produktionsmiljön som du planerar att använda för att skapa intelligenta program. Målet med den här processlivscykeln är att fortsätta att flytta ett datavetenskapligt projekt mot en tydlig slutpunkt för engagemang. Datavetenskap är en övning i forskning och upptäckt. Möjligheten att kommunicera uppgifter till ditt team och dina kunder med hjälp av en väldefinierad uppsättning artefakter som använder standardiserade mallar hjälper till att undvika missförstånd. Om du använder dessa mallar ökar också risken för att ett komplext datavetenskapsprojekt slutförs.
+TDSP-livscykeln modelleras som en sekvens av upprepade steg som ger vägledning om de uppgifter som behövs för att använda förutsägande modeller. Du distribuerar de förutsägelse modeller i produktions miljön som du planerar att använda för att bygga smarta program. Målet med den här process livs cykeln är att fortsätta att flytta ett data vetenskaps projekt till en klar slut punkt för engagemang. Data vetenskap är en övning för forskning och identifiering. Möjligheten att kommunicera uppgifter till ditt team och dina kunder genom att använda en väldefinierad uppsättning artefakter som använder standardiserade mallar hjälper till att undvika fel. Med hjälp av dessa mallar ökar risken för att ett komplext data vetenskaps projekt slutförs.
 
 För varje steg tillhandahåller vi följande information:
 
-   * **Mål**: De specifika målen.
-   * **Hur man gör det:** En översikt över de specifika uppgifter och vägledning om hur du fyller i dem.
-   * **Artefakter:** Slutprodukter och stöd för att producera dem.
+   * **Mål**: de speciella målen.
+   * **Gör så här**: en översikt över de olika aktiviteterna och rikt linjerna för hur du utför dem.
+   * **Artefakter**: slut produkter och support för att skapa dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi tillhandahåller fullständiga genomgångar från slutpunkt till slutpunkt som visar alla steg i processen för specifika scenarier. I artikeln [Exempelgenomgångar](walkthroughs.md) finns en lista över scenarier med länkar och miniatyrbeskrivningar. Genomgångarna illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbetsflöde eller en pipeline för att skapa ett intelligent program. 
+Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för särskilda scenarier. [Exempel](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genom gången illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
 
-Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [Använda TDSP med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

@@ -7,4 +7,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "77201533"
 ---
 > [!NOTE]
-> Det kan ta cirka 10 minuter innan eventuella behörighetsändringar börjar gälla för nyckelvalvet. Detta inkluderar att återkalla åtkomstbehörigheter till TDE-skydd i AKV, och användare inom den här tidsramen kan fortfarande ha åtkomstbehörighet.
+> Det kan ta cirka 10 minuter innan alla behörighets ändringar börjar gälla för nyckel valvet. Detta inkluderar återkallandet av åtkomst behörigheter till TDE-skyddskomponenten i AKV, och användare inom denna tidsram kan fortfarande ha åtkomst behörighet.

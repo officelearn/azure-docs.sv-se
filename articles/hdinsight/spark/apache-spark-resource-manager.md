@@ -1,5 +1,5 @@
 ---
-title: Hantera resurser för Apache Spark-kluster i Azure HDInsight
+title: Hantera resurser för Apache Spark kluster i Azure HDInsight
 description: Lär dig hur du hanterar resurser för Spark-kluster på Azure HDInsight för bättre prestanda.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -15,149 +15,149 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75932095"
 ---
-# <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark-kluster i Azure HDInsight
+# <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark kluster i Azure HDInsight
 
-Lär dig hur du kommer åt gränssnitten som [Apache Ambari](https://ambari.apache.org/) UI, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI och Spark History [Server](./apache-azure-spark-history-server.md) som är associerade med [Apache Spark-klustret](https://spark.apache.org/) och hur du justerar klusterkonfigurationen för optimal prestanda.
+Lär dig hur du kommer åt gränssnitten som [Apache Ambari](https://ambari.apache.org/) ui, [Apache Hadoop garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI och [Spark historik servern](./apache-azure-spark-history-server.md) som är kopplad till ditt [Apache Spark](https://spark.apache.org/) -kluster och hur du finjusterar kluster konfigurationen för optimala prestanda.
 
-## <a name="open-the-spark-history-server"></a>Öppna Spark History Server
+## <a name="open-the-spark-history-server"></a>Öppna Spark-historik servern
 
-Spark History Server är webbgränssnittet för färdiga och köra Spark-program. Det är ett tillägg av Spark's Web UI. Fullständig information finns i [Spark History Server](./apache-azure-spark-history-server.md).
+Spark-historik Server är webb gränssnittet för slutförd och körning av Spark-program. Det är en utökning av Spark: s webb gränssnitt. Fullständig information finns i [Spark historik Server](./apache-azure-spark-history-server.md).
 
-## <a name="open-the-yarn-ui"></a>Öppna garngränssnittet
+## <a name="open-the-yarn-ui"></a>Öppna garn gränssnittet
 
-Du kan använda YARN-användargränssnittet för att övervaka program som körs på Spark-klustret.
+Du kan använda garn gränssnittet för att övervaka program som för närvarande körs i Spark-klustret.
 
-1. Öppna Spark-klustret från [Azure-portalen.](https://portal.azure.com/) Mer information finns i [Lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
+1. Öppna Spark-klustret från [Azure Portal](https://portal.azure.com/). Mer information finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 
-2. Välj **Garn** **från klusterinstrumentpaneler**. Ange administratörsautentiseringsuppgifterna för Spark-klustret när du uppmanas att göra det.
+2. Välj **garn**från **kluster instrument paneler**. När du uppmanas till det anger du administratörs behörighet för Spark-klustret.
 
-    ![Starta YARN UI](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
+    ![Starta garn gränssnitt](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
    > [!TIP]  
-   > Alternativt kan du också starta YARN UI från Ambari UI. Från Ambari UI navigerar du till **YARN** > **Quick Links** > **Active** > **Resource Manager UI**.
+   > Du kan också starta garn gränssnittet från Ambari-ANVÄNDARGRÄNSSNITTET. I Ambari-användargränssnittet navigerar du till**snabb länkar** > till **garn** > länkar**Active** > **Resource Manager UI**.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Optimera kluster för Spark-program
 
-De tre nyckelparametrar som kan användas för `spark.executor.instances` `spark.executor.cores`Spark-konfiguration beroende på programkrav är , och `spark.executor.memory`. En Executor är en process som startas för ett Spark-program. Den körs på arbetarnoden och är ansvarig för att utföra uppgifterna för programmet. Standardantalet köror och körorstorlekar för varje kluster beräknas baserat på antalet arbetsnoder och arbetarnodstorleken. Den här informationen `spark-defaults.conf` lagras i på klusterhuvudnoderna.
+De tre nyckel parametrarna som kan användas för Spark-konfiguration `spark.executor.instances`, beroende på program krav, `spark.executor.cores`, och. `spark.executor.memory` En utförar är en process som startas för ett Spark-program. Den körs på Worker-noden och ansvarar för att utföra uppgifterna för programmet. Standard antalet körningar och utförar storlekarna för varje kluster beräknas baserat på antalet arbetsnoder och storleken på arbets noden. Den här informationen lagras i `spark-defaults.conf` kluster huvudnoderna.
 
-De tre konfigurationsparametrarna kan konfigureras på klusternivå (för alla program som körs i klustret) eller kan också anges för varje enskilt program.
+De tre konfigurations parametrarna kan konfigureras på kluster nivå (för alla program som körs i klustret) eller också kan de anges för varje enskilt program.
 
-### <a name="change-the-parameters-using-ambari-ui"></a>Ändra parametrarna med hjälp av Ambari UI
+### <a name="change-the-parameters-using-ambari-ui"></a>Ändra parametrarna med Ambari-ANVÄNDARGRÄNSSNITTET
 
-1. Från Ambari UI navigera till **Spark2** > **Configs** > **Custom spark2-standardvärden**.
+1. Från Ambari-användargränssnittet navigerar du till **Spark2** > **configs** > **anpassade Spark2-defaults**.
 
-    ![Ange parametrar med Ambari custom](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Ange parametrar med Ambari custom")
+    ![Ange parametrar med anpassad Ambari](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Ange parametrar med anpassad Ambari")
 
-1. Standardvärdena är bra att fyra Spark-program körs samtidigt i klustret. Du kan ändra dessa värden från användargränssnittet, vilket visas i följande skärmbild:
+1. Standardvärdena är lämpliga för att köra fyra Spark-program samtidigt i klustret. Du kan ändra dessa värden från användar gränssnittet, som visas på följande skärm bild:
 
     ![Ange parametrar med Ambari](./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png "Ange parametrar med Ambari")
 
-1. Välj **Spara** om du vill spara konfigurationsändringarna. Högst upp på sidan uppmanas du att starta om alla berörda tjänster. Välj **Starta om**.
+1. Välj **Spara** för att spara konfigurations ändringarna. Längst upp på sidan uppmanas du att starta om alla berörda tjänster. Välj **starta om**.
 
     ![Starta om tjänster](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
-### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Ändra parametrarna för ett program som körs i Jupyter-anteckningsbok
+### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Ändra parametrarna för ett program som körs i Jupyter Notebook
 
-För program som körs i den bärbara `%%configure` Jupyter-anteckningsboken kan du använda magin för att göra konfigurationsändringarna. Helst måste du göra sådana ändringar i början av programmet innan du kör din första kodcell. Detta säkerställer att konfigurationen tillämpas på Livy-sessionen när den skapas. Om du vill ändra konfigurationen i ett senare skede `-f` i programmet måste du använda parametern. Genom att göra detta går dock alla framsteg i programmet förlorade.
+För program som körs i Jupyter Notebook kan du använda `%%configure` Magic för att göra konfigurationen ändringar. Vi rekommenderar att du gör sådana ändringar i början av programmet innan du kör den första kod cellen. Detta säkerställer att konfigurationen tillämpas på livy-sessionen när den skapas. Om du vill ändra konfigurationen i ett senare skede i programmet måste du använda- `-f` parametern. Men genom att göra detta går all status i programmet förlorade.
 
-Följande kodavsnitt visar hur du ändrar konfigurationen för ett program som körs i Jupyter.
+Följande fragment visar hur du ändrar konfigurationen för ett program som körs i Jupyter.
 
     %%configure
     {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
-Konfigurationsparametrar måste skickas in som en JSON-sträng och måste finnas på nästa rad efter magin, som visas i exempelkolumnen.
+Konfigurations parametrar måste skickas in som en JSON-sträng och måste finnas på nästa rad efter Magic, som visas i kolumnen exempel.
 
-### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>Ändra parametrarna för en ansökan som skickas in med hjälp av spark-submit
+### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>Ändra parametrarna för ett program som har skickats med Spark-Submit
 
-Följande kommando är ett exempel på hur du ändrar konfigurationsparametrarna för ett batchprogram som skickas med `spark-submit`.
+Följande kommando är ett exempel på hur du ändrar konfigurations parametrar för ett batch-program som skickas med `spark-submit`.
 
     spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
-### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>Ändra parametrarna för en ansökan som skickas in med hjälp av cURL
+### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>Ändra parametrarna för ett program som skickas med hjälp av sväng
 
-Följande kommando är ett exempel på hur du ändrar konfigurationsparametrarna för ett batchprogram som skickas med cURL.
+Följande kommando är ett exempel på hur du ändrar konfigurations parametrar för ett batch-program som skickas med hjälp av sväng.
 
     curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
-### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Ändra dessa parametrar på en Spark Thrift Server
+### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Ändra dessa parametrar på en spark Thrift-Server
 
-Spark Thrift Server ger JDBC/ODBC åtkomst till ett Spark-kluster och används för att betjäna Spark SQL-frågor. Verktyg som Power BI, Tableau och så vidare använder ODBC-protokollet för att kommunicera med Spark Thrift Server för att köra Spark SQL-frågor som ett Spark-program. När ett Spark-kluster skapas startas två instanser av Spark Thrift Server, en på varje huvudnod. Varje Spark Sparsamhet server visas som ett Spark-program i YARN-användargränssnittet.
+Spark Thrift-servern ger JDBC/ODBC-åtkomst till ett Spark-kluster och används för att betjäna Spark SQL-frågor. Verktyg som Power BI, Tableau och så vidare använder du ODBC-protokoll för att kommunicera med Spark Thrift-servern för att köra Spark SQL-frågor som ett Spark-program. När ett Spark-kluster skapas startas två instanser av Spark Thrift-servern, en på varje Head-nod. Varje Spark Thrift-Server visas som ett Spark-program i garn gränssnittet.
 
-Spark Thrift Server använder Spark dynamisk `spark.executor.instances` executor allokering och därmed inte används. Spark Thrift Server `spark.dynamicAllocation.maxExecutors` använder `spark.dynamicAllocation.minExecutors` och anger i stället antalet köror. Konfigurationsparametrarna `spark.executor.cores`och `spark.executor.memory` används för att ändra körordningsstorleken. Du kan ändra dessa parametrar enligt följande steg:
+Spark Thrift-servern använder Spark Dynamic utförar-allokering och `spark.executor.instances` därför används den inte. I stället använder `spark.dynamicAllocation.maxExecutors` Spark Thrift-servern `spark.dynamicAllocation.minExecutors` och för att ange antalet utförar. Konfigurations parametrarna `spark.executor.cores`och `spark.executor.memory` används för att ändra storleken på utförar. Du kan ändra dessa parametrar så som visas i följande steg:
 
-* Expandera kategorin **Avancerad spark2-sparsamhet-sparkconf** för `spark.dynamicAllocation.maxExecutors`att `spark.dynamicAllocation.minExecutors`uppdatera parametrarna och .
+* Expandera kategorin **Advanced spark2-Thrift-sparkconf** för att uppdatera parametrarna `spark.dynamicAllocation.maxExecutors`och. `spark.dynamicAllocation.minExecutors`
 
-    ![Konfigurera Spark-sparsamhetsserver](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Konfigurera Spark-sparsamhetsserver")
+    ![Konfigurera Spark Thrift-Server](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Konfigurera Spark Thrift-Server")
 
-* Expandera kategorin **Anpassad spark2-sparsamhet-sparkconf** för `spark.executor.cores`att `spark.executor.memory`uppdatera parametrarna och .
+* Expandera kategorin **Custom spark2-Thrift-sparkconf** för att uppdatera parametrarna `spark.executor.cores`och. `spark.executor.memory`
 
-    ![Konfigurera parametern För spark-sparsamhetserver](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Konfigurera parametern För spark-sparsamhetserver")
+    ![Konfigurera Spark Thrift Server parameter](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Konfigurera Spark Thrift Server parameter")
 
-### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Ändra drivrutinsminnet för Spark Thrift Server
+### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Ändra driv rutins minnet för Spark Thrift-servern
 
-Spark Thrift Server-drivrutinsminnet är konfigurerat till 25 % av huvudnodens RAM-storlek, förutsatt att den totala RAM-storleken på huvudnoden är större än 14 GB. Du kan använda användargränssnittet i Ambari för att ändra drivrutinens minneskonfiguration, som visas i följande skärmbild:
+Spark Thrift-serverns driv rutins minne har kon figurer ATS till 25% av Head-nodens RAM-storlek, förutsatt att Head-nodens totala RAM-storlek är större än 14 GB. Du kan använda Ambari-ANVÄNDARGRÄNSSNITTET för att ändra driv Rutinens minnes konfiguration, som visas på följande skärm bild:
 
-Från Ambari UI navigerar du till **Spark2** > **Configs** > **Advanced spark2-env**. Ange sedan värdet för **spark_thrift_cmd_opts**.
+I Ambari-användargränssnittet navigerar du till **Spark2** > **configs** > **Advanced Spark2-kuvert**. Ange sedan värdet för **spark_thrift_cmd_opts**.
 
-## <a name="reclaim-spark-cluster-resources"></a>Återta Spark-klusterresurser
+## <a name="reclaim-spark-cluster-resources"></a>Frigör Spark kluster resurser
 
-På grund av den dynamiska sparkallokeringen är de enda resurser som förbrukas av sparsamhetsservern resurserna för de två programmallarna. Om du vill återkräva dessa resurser måste du stoppa sparsamhetsservertjänsterna som körs i klustret.
+På grund av Spark Dynamic Allocation är de enda resurserna som används av Thrift-servern resurserna för de två program huvuden. Om du vill frigöra resurserna måste du stoppa de Thrift-Server tjänster som körs i klustret.
 
-1. Välj **Spark2**från Ambari-användargränssnittet i den vänstra rutan .
+1. I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Spark2**i det vänstra fönstret.
 
 2. På nästa sida väljer du **Spark2 Thrift-servrar**.
 
-    ![Starta om sparsamhetsserver1](./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png "Starta om sparsamhetsserver1")
+    ![Starta om Thrift server1](./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png "Starta om Thrift server1")
 
-3. Du bör se de två headnodes som Spark2 Thrift Server körs på. Välj en av headnodes.
+3. Du bör se de två huvudnoderna som Spark2 Thrift-servern körs på. Välj en av huvudnoderna.
 
-    ![Starta om sparsamhetsserver2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Starta om sparsamhetsserver2")
+    ![Starta om Thrift server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Starta om Thrift server2")
 
-4. På nästa sida visas alla tjänster som körs på den headnoden. Välj listrutan bredvid Spark2 Thrift Server i listan och välj sedan **Stoppa**.
+4. Nästa sida visar en lista över alla tjänster som körs på den huvudnoden. Välj den nedrullningsbara knappen bredvid Spark2 Thrift server i listan och välj sedan **stoppa**.
 
-    ![Starta om sparsamhetsserver3](./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png "Starta om sparsamhetsserver3")
-5. Upprepa dessa steg på den andra headnode också.
+    ![Starta om Thrift Server3](./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png "Starta om Thrift Server3")
+5. Upprepa de här stegen även på andra huvudnoden.
 
-## <a name="restart-the-jupyter-service"></a>Starta om Tjänsten Jupyter
+## <a name="restart-the-jupyter-service"></a>Starta om Jupyter-tjänsten
 
-Starta Ambari Web UI som visas i början av artikeln. Välj **Jupyter**i det vänstra navigeringsfönstret , välj **Serviceåtgärder**och välj sedan **Starta om alla**. Detta startar Jupyter tjänsten på alla headnodes.
+Starta Ambari-webbgränssnittet som visas i början av artikeln. Välj **Jupyter**i det vänstra navigerings fönstret, Välj **tjänst åtgärder**och välj sedan **starta om alla**. Detta startar Jupyter-tjänsten på alla huvudnoderna.
 
 ![Starta om Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Starta om Jupyter")
 
 ## <a name="monitor-resources"></a>Övervaka resurser
 
-Starta Garngränssnittet som visas i början av artikeln. I tabellen Klustermått överst på skärmen kontrollerar du värdena **för kolumnerna Minne som används** och Totalt **minne.** Om de två värdena är nära kanske det inte finns tillräckligt med resurser för att starta nästa program. Detsamma gäller för **kolumnerna VCores Used** och **VCores Total.** Dessutom, i huvudvyn, om det finns ett program stannade i **accepterat** tillstånd och inte övergår till **kör** eller **misslyckades** tillstånd, kan detta också vara en indikation på att det inte får tillräckligt med resurser för att starta.
+Starta det garn användar gränssnitt som visas i början av artikeln. I tabellen kluster mått överst på skärmen, kontrol lera värdena för **använt minne** och kolumner i **Total** mängd minne. Om de två värdena stängs kanske det inte finns tillräckligt med resurser för att starta nästa program. Detsamma gäller för de **virtuella kärnor som används** och **virtuella kärnor totala** kolumner. I huvudvyn kan det också vara en indikation på att det inte finns tillräckligt med resurser för att starta, om ett program finns i ett **godkänt** tillstånd och inte går över till att **köras** eller inte är i **fel** tillstånd.
 
-![Resursgräns](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Resursgräns")
+![Resurs gräns](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Resurs gräns")
 
-## <a name="kill-running-applications"></a>Döda program som körs
+## <a name="kill-running-applications"></a>Avsluta program som körs
 
-1. Välj **Kör**från den vänstra panelen i garngränssnittet . I listan över program som körs bestämmer du vilket program som ska dödas och väljer **ID.**
+1. Välj **Kör**i den vänstra panelen i garn gränssnittet. I listan över program som körs anger du vilket program som ska avlivas och väljer **ID**.
 
-    ![Döda App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Döda App1")
+    ![Kill-APP1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill-APP1")
 
-2. Välj **Döda program** längst upp till höger och välj sedan **OK**.
+2. Välj **Avsluta program** i det övre högra hörnet och välj sedan **OK**.
 
-    ![Döda App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Döda App2")
+    ![Kill-APP2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill-APP2")
 
 ## <a name="see-also"></a>Se även
 
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)
 
-### <a name="for-data-analysts"></a>För dataanalytiker
+### <a name="for-data-analysts"></a>För data analyser
 
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att förutsäga resultat för livsmedelsinspektion](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Program Insight telemetri dataanalys med Apache Spark i HDInsight](apache-spark-analyze-application-insight-logs.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Program insiktering telemetri data analys med Apache Spark i HDInsight](apache-spark-analyze-application-insight-logs.md)
 
-### <a name="for-apache-spark-developers"></a>För Apache Spark-utvecklare
+### <a name="for-apache-spark-developers"></a>För Apache Spark utvecklare
 
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
 * [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använd HDInsight Tools Plugin för IntelliJ IDEA för att felsöka Apache Spark-program på distans](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kärnor tillgängliga för Jupyter-anteckningsbok i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använd HDInsight tools-plugin för IntelliJ-idé för att felsöka Apache Spark program via fjärr anslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels tillgängliga för Jupyter Notebook i Apache Spark kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)

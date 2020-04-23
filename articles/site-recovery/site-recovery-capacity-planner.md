@@ -1,6 +1,6 @@
 ---
-title: Planera kapacitet för Hyper-V-haveriberedskap med Azure Site Recovery
-description: Använd den här artikeln för att uppskatta kapaciteten när du konfigurerar haveriberedskap med Azure Site Recovery-tjänsten.
+title: Planera kapacitet för haveri beredskap för Hyper-V med Azure Site Recovery
+description: Använd den här artikeln för att uppskatta kapaciteten när du konfigurerar haveri beredskap med Azure Site Recoverys tjänsten.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
@@ -15,136 +15,136 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "73936052"
 ---
-# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för haveriberedskap för virtuella datorer med flera virtuella datorer 
+# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för haveri beredskap för Hyper-V-VM 
 
-[Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md) för Hyper-V till Azure-distribution innehåller följande:
+[Distributionshanteraren för Azure Site Recovery] (site-recovery-hyper-v-deployment-planner.md) för Hyper-V till Azure-distribution ger följande:
 
-* Bedömning av vm-berättigande, baserat på antalet diskar, diskstorlek, IOPS, omsättning och några VM-egenskaper
+* Utvärdering av VM-berättigande, baserat på antalet diskar, disk storlek, IOPS, omsättning och några egenskaper för virtuella datorer
 * Nätverkets bandbreddsbehov kontra utvärdering av återställningspunktmål
 * Krav på infrastruktur för Azure
 * Krav på lokal infrastruktur
 * Inledande vägledning till batchreplikering
-* Beräknad total kostnad för katastrofåterställning till Azure
+* Uppskattad total kostnad för haveri beredskap till Azure
 
 
-Azure Site Recovery Capacity Planner hjälper dig att fastställa dina kapacitetskrav när du replikerar virtuella hyper-virtuella datorer med Azure Site Recovery.
+Azure Site Recovery Capacity Planner hjälper dig att fastställa dina kapacitets krav när du replikerar virtuella Hyper-V-datorer med Azure Site Recovery.
 
-Använd Site Recovery Capacity Planner för att analysera källmiljön och arbetsbelastningarna. Det hjälper dig att uppskatta bandbreddsbehov, de serverresurser du behöver för källplatsen och de resurser (till exempel virtuella datorer och lagring) som du behöver på målplatsen.
+Använd Site Recovery Capacity Planner för att analysera din käll miljö och dina arbets belastningar. Det hjälper dig att beräkna bandbredds behov, de server resurser du behöver för käll platsen och de resurser (t. ex. virtuella datorer och lagrings enheter) som du behöver på mål platsen.
 
 Du kan köra verktyget i två lägen:
 
-* **Snabb planering**: Tillhandahåller nätverks- och serverprojektioner baserat på ett genomsnittligt antal virtuella datorer, diskar, lagring och ändringshastighet.
-* **Detaljerad planering**: Innehåller information om varje arbetsbelastning på VM-nivå. Analysera VM-kompatibilitet och hämta nätverks- och serverprojektioner.
+* **Snabb planering**: tillhandahåller nätverks-och Server projektioner baserat på ett genomsnittligt antal virtuella datorer, diskar, lagring och ändrings takt.
+* **Detaljerad planering**: innehåller information om varje arbets belastning på VM-nivå. Analysera VM-kompatibilitet och hämta nätverks-och Server projektioner.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 * Samla in information om din miljö, inklusive virtuella datorer, diskar per virtuell dator, lagring per disk.
-* Identifiera din dagliga förändringsfrekvens (churn)för replikerade data. Hämta [hyper-V-kapacitetsplaneringsverktyget](https://www.microsoft.com/download/details.aspx?id=39057) för att få ändringshastigheten. [Läs mer](site-recovery-capacity-planning-for-hyper-v-replication.md) om det här verktyget. Vi rekommenderar att du kör det här verktyget under en vecka för att fånga genomsnitt.
+* Identifiera din dagliga ändrings takt (omsättning) för replikerade data. Hämta [verktyget för kapacitets planering för Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) för att hämta ändrings takten. [Läs mer](site-recovery-capacity-planning-for-hyper-v-replication.md) om det här verktyget. Vi rekommenderar att du kör verktyget över en vecka för att samla in genomsnitt.
 
 
-## <a name="run-the-quick-planner"></a>Kör snabbplaneraren
-1. Ladda ner och öppna [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas att göra val för att aktivera redigering och innehåll.
+## <a name="run-the-quick-planner"></a>Kör snabb planeraren
+1. Ladda ned och öppna [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas att göra det väljer du alternativ för att aktivera redigering och innehåll.
 
-2. Välj **Snabbplanerare**i listrutan **Välj en planerare.**
+2. I list rutan **Välj en planerings typ** väljer du **snabb planering**.
 
-   ![Komma igång](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Kom igång](./media/site-recovery-capacity-planner/getting-started.png)
 
-3. Ange den information som krävs i kalkylbladet **Kapacitetsplanerare.** Fyll i alla fält inringade i rött i följande skärmdump:
+3. Ange den information som krävs i kalkyl bladet **Capacity Planner** . Fyll i alla fält som är inringade i rött i följande skärm bild:
 
-   a. I **Välj scenario**väljer du **Hyper-V till Azure** eller **VMware/Physical till Azure**.
+   a. I **Välj ditt scenario**väljer du **Hyper-V till Azure** eller **VMware/fysisk till Azure**.
 
-   b. I **Genomsnittlig daglig dataändringshastighet (%)** anger du den information du samlar in med hjälp av [hyper-V-kapacitetsplaneringsverktyget](site-recovery-capacity-planning-for-hyper-v-replication.md) eller [site recovery deployment planner](./site-recovery-deployment-planner.md).
+   b. I **genomsnittlig daglig data ändrings hastighet (%)** anger du den information som du samlar in med hjälp av [verktyget för kapacitets planering för Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) eller [Site Recovery distributions](./site-recovery-deployment-planner.md)hanteraren.
 
-   c. **Komprimeringsinställningen** används inte när du replikerar virtuella hyper-v-datorer till Azure. För komprimering, använd en apparat från tredje part, till exempel Riverbed.
+   c. **Komprimerings** inställningen används inte när du replikerar virtuella Hyper-V-datorer till Azure. För komprimering använder du en tredjepartsprogram, till exempel Riverbed.
 
-   d. I **Kvarhållning i dagar**anger du i dagar hur länge replikerna ska behållas.
+   d. Under **kvarhållning i dagar**anger du i dagar hur länge repliker ska sparas.
 
-   e. I **Antal timmar då den första replikeringen för batchen virtuella datorer ska slutföras** och Antal virtuella datorer per inledande **replikeringsbatch**anger du inställningar som används för att beräkna initiala replikeringskrav. När Site Recovery distribueras överförs hela den ursprungliga datauppsättningen.
+   e. I **antal timmar där inledande replikering för batchen av virtuella datorer ska slutföras** och **antalet virtuella datorer per inledande replikering**, anger du inställningar som används för att beräkna inledande replikerings krav. När Site Recovery distribueras överförs hela den ursprungliga data uppsättningen.
 
    ![Indata](./media/site-recovery-capacity-planner/inputs.png)
 
-4. När du har angett värdena för källmiljön innehåller utdata:
+4. När du har angett värden för käll miljön innehåller utdata som visas:
 
-   * **Bandbredd som krävs för deltareplikering (i Megabit/sek):** Nätverksbandbredd för deltareplikering beräknas på den genomsnittliga dagliga dataförändringshastigheten.
-   * **Bandbredd som krävs för inledande replikering (i Megabit/sek):** Nätverksbandbredd för inledande replikering beräknas på de ursprungliga replikeringsvärdena som du anger.
-   * **Lagring krävs (i GB):** Den totala Azure-lagring som krävs.
-   * **Totalt IOPS på standardlagring:** Antalet beräknas baserat på storleken på 8K IOPS-enheten på de totala standardlagringskontona. För Snabbplaneraren beräknas numret baserat på alla vm-källdiskar och den dagliga dataändringshastigheten. För den detaljerade planeraren beräknas antalet baserat på det totala antalet virtuella datorer som mappas till vanliga virtuella Azure-datorer och dataändringshastigheten på dessa virtuella datorer.
-   * **Antal standardlagringskonton som krävs:** Det totala antalet standardlagringskonton som behövs för att skydda de virtuella datorerna. Ett standardlagringskonto kan innehålla upp till 20 000 IOPS i alla virtuella datorer i standardlagring. Maximalt 500 IOPS stöds per disk.
-   * **Antal Blob-diskar som krävs:** Antalet diskar som skapas på Azure-lagring.
-   * **Antal premiumkonton som krävs:** Det totala antalet premiumlagringskonton som behövs för att skydda de virtuella datorerna. En käll-VM med hög IOPS (större än 20 000) behöver ett premiumlagringskonto. Ett premiumlagringskonto kan innehålla upp till 80 000 IOPS.
-   * **Totalt IOPS på Premium Storage:** Antalet beräknas baserat på 256K IOPS-enhetsstorleken på de totala premiumlagringskontona. För Snabbplaneraren beräknas numret baserat på alla vm-källdiskar och den dagliga dataändringshastigheten. För den detaljerade planeraren beräknas antalet baserat på det totala antalet virtuella datorer som mappas till premium-virtuella Azure-datorer (DS- och GS-serie) och dataändringshastigheten på dessa virtuella datorer.
-   * **Antal konfigurationsservrar som krävs:** Visar hur många konfigurationsservrar som krävs för distributionen.
-   * **Antal ytterligare processservrar som krävs:** Visar om ytterligare processservrar krävs, utöver den processserver som körs på konfigurationsservern som standard.
-   * **100 % extra lagringsutrymme på källan**: Visar om ytterligare lagringsutrymme krävs på källplatsen.
+   * **Bandbredd som krävs för delta-replikering (i megabit per sekund)**: nätverks bandbredden för delta-replikering beräknas enligt den genomsnittliga dagliga data ändrings hastigheten.
+   * **Bandbredd som krävs för inledande replikering (i megabit per sekund)**: nätverks bandbredden för inledande replikering beräknas för de inledande replikeringsinställningar som du anger.
+   * **Lagring krävs (i GB)**: den totala Azure-lagring som krävs.
+   * **Totalt antal IOPS på standard lagring**: antalet beräknas baserat på 8K IOPS-enhetens storlek på de totala standard lagrings kontona. För snabb planeraren beräknas antalet baserat på alla virtuella käll diskar och den dagliga data ändrings hastigheten. För den detaljerade planeraren beräknas antalet baserat på det totala antalet virtuella datorer som har mappats till virtuella Azure-datorer och data ändrings takten för dessa virtuella datorer.
+   * **Antal standard lagrings konton som krävs**: det totala antalet standard lagrings konton som behövs för att skydda de virtuella datorerna. Ett standard lagrings konto kan innehålla upp till 20 000 IOPS över alla virtuella datorer i standard lagring. Högst 500 IOPS stöds per disk.
+   * **Antal BLOB-diskar som krävs**: antalet diskar som skapas i Azure Storage.
+   * **Antal nödvändiga Premium konton**: det totala antalet Premium Storage-konton som behövs för att skydda de virtuella datorerna. En virtuell käll dator med hög IOPS (större än 20 000) behöver ett Premium Storage-konto. Ett Premium Storage-konto kan innehålla upp till 80 000 IOPS.
+   * **Totalt antal IOPS på Premium Storage**: antalet beräknas baserat på den extra 256 IOPS-enhetens storlek på de totala Premium Storage-kontona. För snabb planeraren beräknas antalet baserat på alla virtuella käll diskar och den dagliga data ändrings hastigheten. För den detaljerade planeraren beräknas antalet baserat på det totala antalet virtuella datorer som är mappade till Premium virtuella Azure-datorer (DS och GS-serien) och data ändrings takten för dessa virtuella datorer.
+   * **Antal konfigurations servrar som krävs**: visar hur många konfigurations servrar som krävs för distributionen.
+   * **Antal ytterligare processerver som krävs**: visar om det krävs ytterligare process servrar, utöver den processerver som körs på konfigurations servern som standard.
+   * **100% ytterligare lagrings utrymme på källan**: visar om ytterligare lagrings utrymme krävs på käll platsen.
 
       ![Resultat](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Kör den detaljerade planeraren
 
-1. Ladda ner och öppna [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas att göra val för att aktivera redigering och innehåll.
+1. Ladda ned och öppna [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas att göra det väljer du alternativ för att aktivera redigering och innehåll.
 
-2. Välj Detaljerad planerare i listrutan i **Välj en planeraretyp.** **Detailed Planner**
+2. I **Välj en planerings typ**väljer du **detaljerad Planner** i list rutan.
 
    ![Guide för att komma igång](./media/site-recovery-capacity-planner/getting-started-2.png)
 
-3. Ange den information som krävs i kalkylbladet **Arbetsbelastningsbehörighet.** Du måste fylla i alla markerade fält.
+3. Ange den information som krävs i kalkyl bladet för **arbets belastnings kvalificering** . Du måste fylla i alla markerade fält.
 
-   a. I **Processorkärnor**anger du det totala antalet kärnor på en källserver.
+   a. I **processor kärnor**anger du det totala antalet kärnor på en käll Server.
 
-   b. I **Minnesallokering (i MBs)** anger du RAM-storleken på en källserver.
+   b. I **minnes tilldelning (i MB)** anger du ram-storleken för en käll Server.
 
-   c. I **Antal nätverkskort**anger du antalet nätverkskort på en källserver.
+   c. I **antal nätverkskort**anger du antalet nätverkskort på en käll Server.
 
-   d. I **Total lagring (i GB)** anger du den totala storleken på vm-lagringen. Om källservern till exempel har tre diskar med 500 GB vardera, är den totala lagringsstorleken 1 500 GB.
+   d. I **totalt lagrings utrymme (i GB)** anger du den totala storleken för VM-lagringen. Om käll servern till exempel har tre diskar med 500 GB vardera, är den totala lagrings storleken 1 500 GB.
 
-   e. Ange det totala antalet diskar på en källserver i **Antal anslutna**diskar.
+   e. I **Antal diskar anslutna**anger du det totala antalet diskar på en käll Server.
 
-   f. Ange genomsnittligt utnyttjande av **diskkapacitet (%)**
+   f. I **disk kapacitets användning (%)** anger du den genomsnittliga användningen.
 
-   g. I **Daglig dataändringshastighet (%)** anger du den dagliga dataändringshastigheten för en källserver.
+   g. I **daglig data ändrings hastighet (%)** anger du den dagliga data ändrings hastigheten för en käll Server.
 
-   h. I **Mappa Azure VM-storlek**anger du den Azure VM-storlek som du vill mappa. Om du inte vill göra detta manuellt väljer du **Virtuella IaaS-datorer**för Beräkning . Om du anger en manuell inställning och sedan väljer **Virtuella IaaS-datorer**kan den manuella inställningen skrivas över. Beräkningsprocessen identifierar automatiskt den bästa matchningen på Azure VM-storlek.
+   h. I **avbilda storlek på virtuell Azure-dator**anger du storleken på den virtuella Azure-datorn som du vill mappa. Om du inte vill göra detta manuellt väljer du **Compute IaaS VM**. Om du anger en manuell inställning och sedan väljer **Compute IaaS VM**: ar, kan den manuella inställningen skrivas över. Beräknings processen identifierar automatiskt den bästa matchningen på storleken på den virtuella Azure-datorn.
 
-   ![Kalkylblad för arbetsbelastningsbehörighet](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![Kalkyl blad för arbets belastnings kvalificering](./media/site-recovery-capacity-planner/workload-qualification.png)
 
-4. Om du väljer **Virtuella IAAS-datorer för Compute IaaS**gör du så här:
+4. Gör så här om du väljer **Compute IaaS VM**: ar:
 
-   * Validerar obligatoriska indata.
-   * Beräknar IOPS och föreslår den bästa Azure VM-storleksmatchningen för varje virtuell dator som är berättigad till replikering till Azure. Om en lämplig storlek Azure VM inte kan identifieras, visas ett fel. Om till exempel antalet anslutna diskar är 65 visas ett fel eftersom den högsta storleken för en Azure VM är 64.
-   * Föreslår ett lagringskonto som kan användas för en Virtuell Azure.Suggests a storage account that can be used for an Azure VM.
-   * Beräknar det totala antalet standardlagringskonton och premiumlagringskonton som krävs för arbetsbelastningen. Bläddra nedåt för att visa Azure-lagringstypen och lagringskontot som kan användas för en källserver.
-   * Slutför och sorterar resten av tabellen baserat på den lagringstyp som krävs (standard eller premium) som tilldelats för en virtuell dator och antalet anslutna diskar. För alla virtuella datorer som uppfyller kraven för Azure visas **virtuell**dator kvalificerad för virtuella **datorer?** Om en virtuell dator inte kan säkerhetskopieras till Azure visas ett fel.
+   * Validerar de obligatoriska indata.
+   * Beräknar IOPS och föreslår den bästa storleken för virtuella Azure-datorer för varje virtuell dator som är tillgänglig för replikering till Azure. Om en lämplig storlek på en virtuell Azure-dator inte kan identifieras visas ett fel meddelande. Om till exempel antalet anslutna diskar är 65 visas ett fel eftersom den högsta storleken för en virtuell Azure-dator är 64.
+   * Föreslår ett lagrings konto som kan användas för en virtuell Azure-dator.
+   * Beräknar det totala antalet standard lagrings konton och Premium Storage-konton som krävs för arbets belastningen. Rulla nedåt för att Visa typen av Azure-lagring och det lagrings konto som kan användas för en käll Server.
+   * Slutför och sorterar resten av tabellen baserat på den nödvändiga lagrings typen (standard eller Premium) som är tilldelad en virtuell dator och antalet diskar som är anslutna. För alla virtuella datorer som uppfyller kraven för Azure **är kolumnen VM-kvalificerad?** visar **Ja**. Om en virtuell dator inte kan säkerhets kopie ras till Azure visas ett fel meddelande.
 
-Kolumner AA till AE är utdata och ger information för varje virtuell dator.
+Kolumner AA to AE är utdata och ger information för varje virtuell dator.
 
 ![Utdatakolumner AA till AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>Exempel
-Som ett exempel, för sex virtuella datorer med de värden som visas i tabellen, beräknar och tilldelar verktyget den bästa Azure VM-matchningen och Azure-lagringskraven.
+Som exempel, för sex virtuella datorer med värdena som visas i tabellen, beräknar verktyget och tilldelar den bästa matchningen av virtuella Azure-datorer och Azure Storage-kraven.
 
-![Tilldelningar för arbetsbelastningskvalificering](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![Tilldelningar av arbets belastning](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
-* I exempelutdata bör du tänka på följande:
+* Tänk på följande i exemplet på utdata:
 
-  * Den första kolumnen är en valideringskolumn för virtuella datorer, diskar och omsättning.
-  * Två standardlagringskonton och ett premiumlagringskonto behövs för fem virtuella datorer.
-  * VM3 kvalificerar sig inte för skydd eftersom en eller flera diskar är mer än 1 TB.
-  * VM1 och VM2 kan använda det första standardlagringskontot
-  * VM4 kan använda det andra standardlagringskontot.
-  * VM5 och VM6 behöver ett premiumlagringskonto och båda kan använda ett enda konto.
+  * Den första kolumnen är en validerings kolumn för de virtuella datorerna, diskarna och omsättningen.
+  * Det krävs två standard lagrings konton och ett Premium Storage-konto för fem virtuella datorer.
+  * VM3 är inte kvalificerat för skydd eftersom en eller flera diskar är större än 1 TB.
+  * VM1 och VM2 kan använda det första standard lagrings kontot
+  * VM4 kan använda det andra standard lagrings kontot.
+  * VM5 och VM6 behöver ett Premium Storage-konto och båda kan använda ett enda konto.
 
     > [!NOTE]
-    > IOPS på standard- och premiumlagring beräknas på VM-nivå och inte på disknivå. En virtuell standard kan hantera upp till 500 IOPS per disk. Om IOPS för en disk är större än 500 behöver du premiumlagring. Om IOPS för en disk är mer än 500 men IOPS för den totala VM-diskarna ligger inom stödstandarden Azure VM gränser, väljer planeraren en vanlig virtuell dator och inte DS eller GS-serien. (Azure VM-gränserna är VM-storlek, antal diskar, antal kort, CPU och minne.) Du måste uppdatera mappningscellen för mappning av Azure med lämplig virtuell dator för DS- eller GS-serien.
+    > IOPS på standard-och Premium-lagring beräknas på VM-nivå och inte på disk nivå. En virtuell standard dator kan hantera upp till 500 IOPS per disk. Om IOPS för en disk är större än 500 behöver du Premium Storage. Om IOPS för en disk är mer än 500 men IOPS för de totala virtuella dator diskarna finns inom support standarderna för virtuella Azure-datorer, väljer Planner en standard-VM och inte DS-eller GS-serien. (De virtuella Azure-gränserna är VM-storlek, antal diskar, antal kort, CPU och minne.) Du måste uppdatera mappningen av Azure size-cellen manuellt med lämplig VM för DS eller GS-serien.
 
 
-När all information har angetts väljer du **Skicka data till planerareverktyget** för att öppna Kapacitetsplaneraren. Arbetsbelastningar markeras för att visa om de är berättigade till skydd.
+När all information har angetts väljer du **skicka data till Planner-verktyget** för att öppna Capacity Planner. Arbets belastningar markeras för att visa om de är berättigade till skydd.
 
-### <a name="submit-data-in-capacity-planner"></a>Skicka data i kapacitetsplaneraren
-1. När du öppnar kalkylbladet **Kapacitetsplanerare** fylls det i baserat på de inställningar du har angett. Ordet "Arbetsbelastning" visas i **källcellen Infra-indata** för att visa att indata är kalkylbladet **Arbetsbelastningsbehörighet.**
+### <a name="submit-data-in-capacity-planner"></a>Skicka data i Capacity Planner
+1. När du öppnar **Capacity Planner** kalkyl bladet fylls det i baserat på de inställningar du har angett. Ordet "arbets belastning" visas i käll cellen för **infraröda indata** för att visa att indata är kalkyl bladet för **arbets belastnings kvalificering** .
 
-2. Om du vill göra ändringar måste du ändra kalkylbladet **Arbetsbelastningsbekvalificering.** Välj sedan **Skicka data till planeringsverktyget** igen.
+2. Om du vill göra ändringar måste du ändra kalkyl bladet **arbets belastnings kvalificering** . Välj sedan **skicka data till Planner-verktyget** igen.
 
-   ![Kapacitetsplanerare](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs om hur du kör](site-recovery-capacity-planning-for-hyper-v-replication.md) kapacitetsplaneringsverktyget.
+[Lär dig hur du kör](site-recovery-capacity-planning-for-hyper-v-replication.md) kapacitets planerings verktyget.

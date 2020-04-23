@@ -1,9 +1,9 @@
 ---
-title: Komma igång med att ansluta fysiska enheter till Azure IoT Hub | Microsoft-dokument
-description: Lär dig hur du ansluter fysiska enheter och anslagstavlor till Azure IoT Hub. Dina enheter kan skicka telemetri till IoT Hub och IoT Hub kan övervaka och hantera dina enheter.
+title: Kom igång med att ansluta fysiska enheter till Azure IoT Hub | Microsoft Docs
+description: Lär dig hur du ansluter fysiska enheter och kort till Azure IoT Hub. Dina enheter kan skicka telemetri till IoT Hub och IoT Hub kan övervaka och hantera dina enheter.
 author: wesmc7777
 manager: timlt
-keywords: azure iot hub tutorial azure iot hub tutorial azure iot hub tutorial azure i
+keywords: Självstudie om Azure IoT Hub
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -16,13 +16,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "69638240"
 ---
-# <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT Hub komma igång med fysiska enheter självstudier
+# <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT Hub kom igång med självstudier för fysiska enheter
 
-Dessa självstudier introducerar dig till Azure IoT Hub och enhetenSDK:er. Självstudierna täcker vanliga IoT-scenarier för att demonstrera funktionerna i IoT Hub. Självstudierna illustrerar också hur du kombinerar IoT Hub med andra Azure-tjänster och verktyg för att skapa mer kraftfulla IoT-lösningar. Självstudierna i följande tabell visar hur du skapar fysiska IoT-enheter.
+I de här självstudierna introducerar du Azure IoT Hub och enhets-SDK: er. Självstudierna beskriver vanliga IoT-scenarier för att demonstrera funktionerna i IoT Hub. Självstudierna illustrerar också hur du kombinerar IoT Hub med andra Azure-tjänster och-verktyg för att bygga mer kraftfulla IoT-lösningar. I självstudierna som visas i följande tabell visas hur du skapar fysiska IoT-enheter.
 
 | IoT-enhet                       | Programmeringsspråk |
 |---------------------------------|----------------------|
-| Hallon Pi                    | [Nod.js](iot-hub-raspberry-pi-kit-node-get-started.md), [C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
-| IoT DevKit                      | [Arduino i VSCode](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
+| Raspberry Pi                    | [Node. js](iot-hub-raspberry-pi-kit-node-get-started.md), [C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
+| IoT-DevKit                      | [Arduino i VSCode](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]

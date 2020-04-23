@@ -16,4 +16,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "67608379"
 ---
 >[!IMPORTANT]  
-> Blanda inte lokal utveckling med portalutveckling i samma funktionsapp. När du skapar och publicerar funktioner från ett lokalt projekt bör du inte försöka underhålla eller ändra projektkod i portalen.
+> Blanda inte lokal utveckling med Portal utveckling i samma Function-app. När du skapar och publicerar funktioner från ett lokalt projekt bör du inte försöka att underhålla eller ändra projekt koden i portalen.

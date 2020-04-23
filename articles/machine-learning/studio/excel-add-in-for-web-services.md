@@ -1,7 +1,7 @@
 ---
-title: Excel-tillägg för webbtjänster
+title: Excel-tillägg för webb tjänster
 titleSuffix: ML Studio (classic) - Azure
-description: Så här använder du Azure Machine Learning Web-tjänster direkt i Excel utan att skriva någon kod.
+description: Använda Azure Machine Learning webb tjänster direkt i Excel utan att skriva någon kod.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -17,71 +17,71 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204383"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel-tillägg för Azure Machine Learning Studio (klassiska) webbtjänster
+# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel-tillägg för Azure Machine Learning Studio (klassiska) webb tjänster
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-Excel gör det enkelt att ringa webbtjänster direkt utan att behöva skriva någon kod.
+Excel gör det enkelt att anropa webb tjänster direkt utan att behöva skriva någon kod.
 
-## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Steg för att använda en befintlig webbtjänst i arbetsboken
+## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Steg för att använda en befintlig webb tjänst i arbets boken
 
-1. Öppna [exempelet Excel-fil](https://aka.ms/amlexcel-sample-2), som innehåller Excel-tillägget och data om passagerare på Titanic. 
+1. Öppna [exempel Excel-filen](https://aka.ms/amlexcel-sample-2)som innehåller Excel-tillägget och data om passagerare på Titanic. 
  
     > [!NOTE]
-    > Du kommer att se listan över de webbtjänster som är relaterade till filen och längst ner en kryssruta för "Auto-predict". Om du aktiverar automatisk förutsägelser av **alla** dina tjänster kommer att uppdateras varje gång det finns en förändring på indata. Om avmarkerad måste du klicka på "Förutsäga alla" för uppdatering. För att aktivera automatisk förutsägelse på en servicenivå gå till steg 6.
+    > Du ser listan över webb tjänster som är relaterade till filen och längst ned i en kryss ruta för "automatisk förutsägelse". Om du aktiverar automatisk förutsägelse kommer förutsägelserna för **alla** dina tjänster att uppdateras varje gång en ändring görs av indata. Om alternativet är avmarkerat måste du klicka på "förutse alla" för att uppdatera. För att aktivera automatisk förutsägelse på en service nivå går du till steg 6.
 
-2. Välj webbtjänsten genom att klicka på den - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" i det här exemplet.
+2. Välj webb tjänsten genom att klicka på den – "Titanic efterlevandepension-förväntare (Excel-tillägg) [score]" i det här exemplet.
    
-    ![Välj webbtjänst](./media/excel-add-in-for-web-services/image1.png)
-3. Detta tar dig till avsnittet **Förutsäga.**  Arbetsboken innehåller redan exempeldata, men för en tom arbetsbok kan du markera en cell i Excel och klicka på **Använd exempeldata**.
-4. Markera data med rubriker och klicka på ikonen för indataområde.  Kontrollera att rutan "Mina data har rubriker" är markerad.
-5. Under **Utdata**anger du det cellnummer där du vill att utdata ska vara, till exempel "H1" här.
-6. Klicka på **Förutsäga**. Om du markerar kryssrutan "automatisk förutsägelse" utlöser någon ändring på de markerade områdena (de som anges som indata) en begäran och en uppdatering av utdatacellerna utan att du behöver trycka på försanningsknappen.
+    ![Välj webb tjänst](./media/excel-add-in-for-web-services/image1.png)
+3. Det tar dig till **predict** -avsnittet.  Den här arbets boken innehåller redan exempel data, men för en tom arbets bok kan du välja en cell i Excel och klicka på **Använd exempel data**.
+4. Välj data med rubriker och klicka på ikonen för indata-området.  Kontrol lera att rutan mina data har rubriker är markerad.
+5. Under **utdata**anger du det cell nummer där du vill att utdata ska vara, till exempel "H1" här.
+6. Klicka på **predict**. Om du markerar kryss rutan "Auto-predict" för alla ändringar på de valda områdena (de som anges som indata) utlöser en begäran och en uppdatering av utdata-cellerna utan att du behöver trycka på predict-knappen.
    
-    ![Förutsäga avsnitt](./media/excel-add-in-for-web-services/image1.png)
+    ![Förutsägelse avsnitt](./media/excel-add-in-for-web-services/image1.png)
 
-Distribuera en webbtjänst eller använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [självstudiekurs 3: Distribuera kreditriskmodell](tutorial-part3-credit-risk-deploy.md).
+Distribuera en webb tjänst eller Använd en befintlig webb tjänst. Mer information om hur du distribuerar en webb tjänst finns i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md).
 
-Hämta API-nyckeln för din webbtjänst. Var du utför den här åtgärden beror på om du har publicerat en webbtjänst för klassisk maskininlärning i en ny machine learning-webbtjänst.
+Hämta API-nyckeln för webb tjänsten. Var du utför den här åtgärden beror på om du har publicerat en klassisk Machine Learning-webbtjänst för en ny Machine Learning-webbtjänst.
 
-**Använda en klassisk webbtjänst** 
+**Använda en klassisk webb tjänst** 
 
-1. I Machine Learning Studio (klassisk) klickar du på avsnittet **WEBBTJÄNSTER** i den vänstra rutan och väljer sedan webbtjänsten.
+1. I Machine Learning Studio (klassisk) klickar du på avsnittet **webb tjänster** i den vänstra rutan och väljer sedan webb tjänsten.
    
-    ![Studio välja en webbtjänst](./media/excel-add-in-for-web-services/image4.png)
-2. Kopiera API-nyckeln för webbtjänsten.
+    ![Studio Välj en webb tjänst](./media/excel-add-in-for-web-services/image4.png)
+2. Kopiera API-nyckeln för webb tjänsten.
    
-    ![Api-nyckel för studio](./media/excel-add-in-for-web-services/image5.png)
-3. Klicka på länken **BEGÄR/SVAR** på fliken **INSTRUMENTPANEL** för webbtjänsten.
-4. Leta efter avsnittet **Begär URI.**  Kopiera och spara webbadressen.
+    ![API-nyckel för Studio](./media/excel-add-in-for-web-services/image5.png)
+3. På fliken **instrument panel** för webb tjänsten klickar du på länken **begär ande/svar** .
+4. Sök efter URI-avsnittet för **begäran** .  Kopiera och spara URL: en.
 
 > [!NOTE]
-> Det är nu möjligt att logga in på [Azure Machine Learning Web Services-portalen](https://services.azureml.net) för att hämta API-nyckeln för en klassisk machine learning-webbtjänst.
+> Nu kan du logga in på [Azure Machine Learning Web Services-](https://services.azureml.net) portalen för att hämta API-nyckeln för en klassisk Machine Learning-webb tjänst.
 > 
 > 
 
-**Använda en ny webbtjänst**
+**Använd en ny webb tjänst**
 
-1. Klicka på **Webbtjänster**i portalen [för Azure Machine Learning Web Services](https://services.azureml.net) och välj sedan din webbtjänst. 
-2. Klicka på **Förbruka**.
-3. Leta efter avsnittet **Grundläggande förbrukningsinformation.** Kopiera och spara **primärnyckeln** och **URL:en för begäran.Copy** and save the Primary Key and the Request-Response URL.
+1. I [Azure Machine Learning Web Services-](https://services.azureml.net) portalen klickar du på **webb tjänster**och väljer sedan din webb tjänst. 
+2. Klicka på **förbruka**.
+3. Leta upp avsnittet **grundläggande förbruknings information** . Kopiera och spara **primär nyckeln** och URL: en för **begäran-svar** .
 
-## <a name="steps-to-add-a-new-web-service"></a>Steg för att lägga till en ny webbtjänst
+## <a name="steps-to-add-a-new-web-service"></a>Steg för att lägga till en ny webb tjänst
 
-1. Distribuera en webbtjänst eller använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [självstudiekurs 3: Distribuera kreditriskmodell](tutorial-part3-credit-risk-deploy.md).
-2. Klicka på **Förbruka**.
-3. Leta efter avsnittet **Grundläggande förbrukningsinformation.** Kopiera och spara **primärnyckeln** och **URL:en för begäran.Copy** and save the Primary Key and the Request-Response URL.
-4. I Excel går du till avsnittet **Webbtjänster** (om du är i avsnittet **Förutsäga** klickar du på bakåtpilen för att gå till listan över webbtjänster).
+1. Distribuera en webb tjänst eller Använd en befintlig webb tjänst. Mer information om hur du distribuerar en webb tjänst finns i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md).
+2. Klicka på **förbruka**.
+3. Leta upp avsnittet **grundläggande förbruknings information** . Kopiera och spara **primär nyckeln** och URL: en för **begäran-svar** .
+4. I Excel går du till avsnittet **webb tjänster** (om du är i avsnittet **predict** klickar du på pilen tillbaka för att gå till listan med webb tjänster).
    
-    ![Gå till Val av webbtjänst](./media/excel-add-in-for-web-services/image3.png)
-5. Klicka på **Lägg till webbtjänst**.
-6. Klistra in URL:en i textrutan Excel med namnet **URL**.
-7. Klistra in API/Primärnyckeln i textrutan med namnet **API-nyckel**.
+    ![Gå till val av webb tjänst](./media/excel-add-in-for-web-services/image3.png)
+5. Klicka på **Lägg till webb tjänst**.
+6. Klistra in webb adressen i text rutan för Excel-tillägget med etiketten **URL**.
+7. Klistra in API/primär nyckel i text rutan med etiketten **API-nyckel**.
 8. Klicka på **Lägg till**.
    
-    ![URL- och API-nyckel för en klassisk webbtjänst.](./media/excel-add-in-for-web-services/image6.png)
-9. Om du vill använda webbtjänsten följer du anvisningarna i föregående anvisningar, "Steg för att använda en befintlig webbtjänst".
+    ![URL och API-nyckel för en klassisk webb tjänst.](./media/excel-add-in-for-web-services/image6.png)
+9. Följ anvisningarna ovan om du vill använda en befintlig webb tjänst för att använda webb tjänsten.
 
-## <a name="sharing-your-workbook"></a>Dela arbetsboken
-Om du sparar arbetsboken sparas även API/primärnyckeln för de webbtjänster som du har lagt till. Det innebär att du bara ska dela arbetsboken med personer som du litar på.
+## <a name="sharing-your-workbook"></a>Dela din arbets bok
+Om du sparar din arbets bok sparas även API: n/primär nyckeln för de webb tjänster som du har lagt till. Det innebär att du endast bör dela arbets boken med individer som du litar på.
 
-Ställ några frågor i följande kommentar avsnitt eller på vårt [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Ställ frågor i följande kommentars avsnitt eller i vårt [Forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).

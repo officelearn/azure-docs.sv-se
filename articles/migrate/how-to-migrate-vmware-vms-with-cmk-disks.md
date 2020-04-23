@@ -1,6 +1,6 @@
 ---
-title: Migrera virtuella VMware-datorer till Azure med serverkryptering(SSE) och kundhanterade nycklar(CMK) med Azure Migrate Server Migration
-description: Lär dig hur du migrerar virtuella virtuella datorer med VMware till Azure med serverkryptering(SSE) och kundhanterade nycklar(CMK) med Azure Migrera servermigrering
+title: Migrera virtuella VMware-datorer till Azure med Server Side Encryption (SSE) och Kundhanterade nycklar (CMK) med hjälp av Azure Migrate Server-migrering
+description: Lär dig hur du migrerar virtuella VMware-datorer till Azure med Server Side Encryption (SSE) och Kundhanterade nycklar (CMK) med hjälp av Azure Migrate Server-migrering
 author: bsiva
 ms.service: azure-migrate
 ms.manager: carmonm
@@ -14,51 +14,51 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269489"
 ---
-# <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrera virtuella virtuella datorer med VMware till virtuella Azure-datorer som är aktiverade med kryptering på serversidan och kundhanterade nycklar
+# <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrera virtuella VMware-datorer till virtuella Azure-datorer med kryptering på Server sidan och Kundhanterade nycklar
 
-This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Azure Migrate Server Migration (agentless replication).
+Den här artikeln beskriver hur du migrerar virtuella VMware-datorer till Azure Virtual Machines med diskar som har krypterats med hjälp av kryptering på Server sidan (SSE) med Kundhanterade nycklar (CMK) med hjälp av Azure Migrate Server-migrering (replikering utan agent).
 
-Azure Migrate Server Migration portal erfarenhet kan du [migrera virtuella virtuella datorer med VMware till Azure med agentless replikering.](tutorial-migrate-vmware.md) Portalupplevelsen erbjuder för närvarande inte möjligheten att aktivera SSE med CMK för dina replikerade diskar i Azure. Möjligheten att aktivera SSE med CMK för de replikerade diskarna är för närvarande endast tillgänglig via REST API. I den här artikeln får du se hur du skapar och distribuerar en [Azure Resource Manager-mall](../azure-resource-manager/templates/overview.md) för att replikera en virtuell VMware-dator och konfigurera de replikerade diskarna i Azure för att använda SSE med CMK.
+Med den Azure Migrate serverns Migreringsverktyg kan du [migrera virtuella VMware-datorer till Azure med en agent lös replikering.](tutorial-migrate-vmware.md) Portal upplevelsen ger för närvarande inte möjlighet att aktivera SSE med CMK för dina replikerade diskar i Azure. Möjligheten att aktivera SSE med CMK för replikerade diskar är för närvarande endast tillgänglig via REST API. I den här artikeln får du se hur du skapar och distribuerar en [Azure Resource Manager mall](../azure-resource-manager/templates/overview.md) för att replikera en virtuell VMware-dator och konfigurera de replikerade diskarna i Azure för att använda SSE med CMK.
 
-Exemplen i den här artikeln använder [Azure PowerShell](/powershell/azure/new-azureps-module-az) för att utföra de uppgifter som behövs för att skapa och distribuera Resource Manager-mallen.
+I exemplen i den här artikeln används [Azure PowerShell](/powershell/azure/new-azureps-module-az) för att utföra de uppgifter som behövs för att skapa och distribuera Resource Manager-mallen.
 
-[Läs mer](../virtual-machines/windows/disk-encryption.md) om SSE (Server-side encryption) med kundhanterade nycklar (CMK) för hanterade diskar.
+[Lär dig mer](../virtual-machines/windows/disk-encryption.md) om Server Side Encryption (SSE) med Kundhanterade nycklar (CMK) för hanterade diskar.
 
 ## <a name="prerequisites"></a>Krav
 
-- [Granska självstudien](tutorial-migrate-vmware.md) om migrering av virtuella datorer med VMware till Azure med agentless replication för att förstå verktygskrav.
-- [Följ dessa instruktioner](how-to-add-tool-first-time.md) för att skapa ett Azure Migrate-projekt och lägga till **verktyget Azure Migrate: Server Migration** i projektet.
-- [Följ dessa instruktioner](how-to-set-up-appliance-vmware.md) för att konfigurera Azure Migrate-enheten för VMware i din lokala miljö och fullständig identifiering.
+- [Gå igenom självstudien](tutorial-migrate-vmware.md) om migrering av virtuella VMware-datorer till Azure med agent lös replikering för att förstå verktygs kraven.
+- [Följ de här anvisningarna](how-to-add-tool-first-time.md) för att skapa ett Azure Migrate-projekt och lägga till **Azure Migrate: Migreringsverktyg för Server** i projektet.
+- [Följ dessa anvisningar](how-to-set-up-appliance-vmware.md) för att konfigurera Azure Migrate-installationen för VMware i din lokala miljö och fullständig identifiering.
 
 ## <a name="prepare-for-replication"></a>Förbered för replikering
 
-När vm-identifieringen är klar visar raden Identifierade servrar på panelen Servermigrering ett antal virtuella datorer som identifierats av enheten.
+När identifieringen av den virtuella datorn är klar visar raden identifierade virtuella VMware-datorer som identifierats av enheten.
 
-Innan du kan börja replikera virtuella datorer måste replikeringsinfrastrukturen förberedas.
+Innan du kan påbörja replikering av virtuella datorer måste replikeringens infrastruktur vara för beredd.
 
-1. Skapa en Service Bus-instans i målregionen. Servicebussen används av den lokala Azure Migrate-enheten för att kommunicera med tjänsten Servermigrering för att samordna replikering och migrering.
-2. Skapa ett lagringskonto för överföring av åtgärdsloggar från replikering.
-3. Skapa ett lagringskonto som Azure Migrate-installationen överför replikeringsdata till.
-4. Skapa ett nyckelvalv och konfigurera Nyckelvalvet för att hantera signaturtoken för delad åtkomst för blob-åtkomst på lagringskonton som skapats i steg 3 och 4.
-5. Generera en signaturtoken för delad åtkomst för servicebussen som skapats i steg 1 och skapa en hemlighet för token i Nyckelvalvet som skapades i föregående steg.
-6. Skapa en nyckelvalvsprincip för att ge den lokala Azure Migrate-enheten (med hjälp av appen AAD- och servermigreringstjänsten åtkomst till Key Vault.
-7. Skapa en replikeringsprincip och konfigurera tjänsten Servermigrering med information om replikeringsinfrastrukturen som skapades i föregående steg.
+1. Skapa en Service Bus-instans i mål regionen. Service Bus används av den lokala Azure Migrates enheten för att kommunicera med Server migrations tjänsten för att samordna replikering och migrering.
+2. Skapa ett lagrings konto för överföring av åtgärds loggar från replikering.
+3. Skapa ett lagrings konto som Azure Migrates enheten överför replikeringsdata till.
+4. Skapa en Key Vault och konfigurera Key Vault för att hantera token för signaturer för delad åtkomst för BLOB-åtkomst på de lagrings konton som skapades i steg 3 och 4.
+5. Generera en token för signatur för delad åtkomst för Service Bus som skapades i steg 1 och skapa en hemlighet för token i den Key Vault som skapades i föregående steg.
+6. Skapa en Key Vault åtkomst princip för att ge den lokala Azure Migrate-installationen (med hjälp av appen AAD-app) och Server migrations tjänsten åtkomst till Key Vault.
+7. Skapa en replikeringsprincip och konfigurera server migrations tjänsten med information om den infrastruktur för replikering som skapades i föregående steg.
 
-Replikeringsinfrastrukturen måste skapas i regionen Target Azure för migreringen och i den Azure-prenumeration som de virtuella datorerna migreras till.
+Infrastrukturen för replikering måste skapas i Azure-regionen för migreringen och i den Azure-prenumeration som de virtuella datorerna migreras till.
 
-Servermigreringsportalens upplevelse förenklar förberedelsen av replikeringsinfrastrukturen genom att automatiskt göra detta åt dig när du replikerar en virtuell dator för första gången i ett projekt. I den här artikeln antar vi att du redan har replikerat en eller flera virtuella datorer med hjälp av portalupplevelsen och att replikeringsinfrastrukturen redan har skapats. Vi ska titta på hur du identifierar information om den befintliga replikeringsinfrastrukturen och hur du använder dessa information som indata till Resource Manager-mallen som ska användas för att konfigurera replikering med CMK.
+Portalen för Server Migration fören klar förberedelsen av infrastrukturen för replikering genom att automatiskt göra detta när du replikerar en virtuell dator för första gången i ett projekt. I den här artikeln förutsätter vi att du redan har replikerat en eller flera virtuella datorer med hjälp av Portal upplevelsen och att infrastrukturen för replikering redan har skapats. Vi ska titta på hur du kan identifiera information om den befintliga infrastrukturen för replikering och hur du använder den här informationen som indata till den Resource Manager-mall som ska användas för att konfigurera replikering med CMK.
 
-### <a name="identifying-replication-infrastructure-components"></a>Identifiera komponenter i replikeringsinfrastruktur
+### <a name="identifying-replication-infrastructure-components"></a>Identifiera infrastruktur komponenter för replikering
 
-1. På Azure-portalen går du till sidan resursgrupper och väljer resursgruppen där Azure Migrate-projektet skapades.
-2. Välj **Distributioner** från den vänstra menyn och sök efter ett distributionsnamn som börjar med strängen *"Microsoft.MigrateV2.VMwareV2EnableMigrate".* Du ser en lista över Resource Manager-mallar som skapats av portalupplevelsen för att konfigurera replikering för virtuella datorer i det här projektet. Vi hämtar en sådan mall och använder den som bas för att förbereda mallen för replikering med CMK.
-3. Om du vill hämta mallen väljer du en distribution som matchar strängmönstret i föregående steg > väljer **Mall** på den vänstra menyn > Klicka på **Hämta** på den övre menyn. Spara filen template.json lokalt. Du redigerar den här mallfilen i det sista steget.
+1. På Azure Portal går du till sidan resurs grupper och väljer resurs gruppen där Azure Migrate projektet skapades.
+2. Välj **distributioner** på den vänstra menyn och Sök efter ett distributions namn som börjar med strängen *"Microsoft. MigrateV2. VMwareV2EnableMigrate"*. Du ser en lista över Resource Manager-mallar som skapats av portalen för att konfigurera replikering för virtuella datorer i det här projektet. Vi laddar ned en sådan mall och använder den som bas för att förbereda mallen för replikering med CMK.
+3. Om du vill hämta mallen väljer du en distribution som matchar sträng mönstret i föregående steg > väljer **mall** i den vänstra menyn > klickar på **Hämta** på den översta menyn. Spara filen Template. JSON lokalt. Du redigerar den här mallfilen i det sista steget.
 
-## <a name="create-a-disk-encryption-set"></a>Skapa en diskkrypteringsuppsättning
+## <a name="create-a-disk-encryption-set"></a>Skapa en disk krypterings uppsättning
 
-Ett diskkrypteringsobjekt mappar hanterade diskar till ett nyckelvalv som innehåller CMK som ska användas för SSE. Om du vill replikera virtuella datorer med CMK skapar du en diskkrypteringsuppsättning och skickar den som en indata till replikeringsåtgärden.
+Ett objekt med en disk krypterings uppsättning mappar Managed Disks till en Key Vault som innehåller den CMK som ska användas för SSE. Om du vill replikera virtuella datorer med CMK skapar du en disk krypterings uppsättning och skickar den som en indatatyp till replikeringsåtgärden.
 
-Följ exemplet [här](../virtual-machines/windows/disk-encryption.md#powershell) för att skapa en diskkrypteringsuppsättning med Azure PowerShell. Kontrollera att diskkrypteringsuppsättningen skapas i målprenumerationen som virtuella datorer migreras till och i azure-regionen för målet för migreringen.
+Följ exemplet [här](../virtual-machines/windows/disk-encryption.md#powershell) för att skapa en disk krypterings uppsättning med hjälp av Azure PowerShell. Se till att disk krypterings uppsättningen har skapats i mål prenumerationen som de virtuella datorerna migreras till och i Azure-regionen för migreringen.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 
@@ -81,12 +81,12 @@ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ObjectId $des.Identity.Prin
 New-AzRoleAssignment -ResourceName $KeyVaultName -ResourceGroupName $TargetResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader"
 ```
 
-## <a name="get-details-of-the-vmware-vm-to-migrate"></a>Få information om den virtuella datorn för VMware att migrera
+## <a name="get-details-of-the-vmware-vm-to-migrate"></a>Hämta information om den virtuella VMware-datorn som ska migreras
 
-I det här steget använder du Azure PowerShell för att få information om den virtuella datorn som måste migreras. Dessa uppgifter används för att skapa Resource Manager-mallen för replikering. Närmare bestämt är de två fastigheter av intresse:
+I det här steget ska du använda Azure PowerShell för att hämta information om den virtuella dator som behöver migreras. Den här informationen används för att skapa Resource Manager-mallen för replikering. Mer specifikt är de två intresse egenskaperna:
 
-- Datorns resurs-ID för de identifierade virtuella datorerna.
-- Listan över diskar för den virtuella datorn och deras diskidentifierare.
+- Dator resurs-ID: t för de identifierade virtuella datorerna.
+- Listan över diskar för den virtuella datorn och deras disk-ID: n.
 
 ```azurepowershell
 
@@ -105,7 +105,7 @@ ApplianceName  SiteId
 VMwareApplianc /subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite
 ```
 
-Kopiera värdet för Den SiteId-sträng som motsvarar Azure Migrate-enheten som den virtuella datorn identifieras via. I exemplet ovan är SiteId *"/subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
+Kopiera värdet för ID-strängen som motsvarar Azure Migrate-installationen som den virtuella datorn identifieras via. I det exempel som visas ovan är ID: t *"/Subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
 
 ```azurepowershell
 
@@ -120,7 +120,7 @@ PS /home/bharathram> $machine = $Discoveredmachines | where {$_.Properties.displ
 PS /home/bharathram> $machine.count   #Validate that only 1 VM was found matching this name.
 ```
 
-Kopiera ResourceId-värdena, namn- och disk uuid-värdena för den dator som ska migreras.
+Kopiera värdena för ResourceId, namn och disk-UUID för datorn som ska migreras.
 ```Output
 PS > $machine.Name
 10-150-8-52-b090bef3-b733-5e34-bc8f-eb6f2701432a_50098f99-f949-22ca-642b-724ec6595210
@@ -137,11 +137,11 @@ uuid                                 label       name    maxSizeInBytes
 
 ```
 
-## <a name="create-resource-manager-template-for-replication"></a>Skapa resurshanterarens mall för replikering
+## <a name="create-resource-manager-template-for-replication"></a>Skapa Resource Manager-mall för replikering
 
-- Öppna mallfilen för Resource Manager som du hämtade i steget **Identifiera replikeringsinfrastrukturkomponenter** i en valfri redigerare.
-- Ta bort alla resursdefinitioner från mallen utom resurser av typen *"Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
-- Om det finns flera resursdefinitioner av ovanstående typ tar du bort alla utom en. Ta bort eventuella **berorPå** egenskapsdefinitioner från resursdefinitionen.
+- Öppna den Resource Manager-mallfil som du laddade ned i steget **identifiera replikering av infrastruktur komponenter** i valfritt redigerings program.
+- Ta bort alla resurs definitioner från mallen förutom resurser av typen *"Microsoft. RecoveryServices/valv/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
+- Om det finns flera resurs definitioner av ovanstående typ, tar du bort alla utom en. Ta bort alla **dependsOn** egenskaps definitioner från resurs definitionen.
 - I slutet av det här steget bör du ha en fil som ser ut som exemplet nedan och har samma uppsättning egenskaper.
 
 ```
@@ -182,14 +182,14 @@ uuid                                 label       name    maxSizeInBytes
 }
 ```
 
-- Redigera **name** namnegenskapen i resursdefinitionen. Ersätt strängen som följer den senaste "/" i egenskapen name med värdet *$machine. Namn*( från föregående steg).
-- Ändra värdet för egenskapen **properties.providerSpecificDetails.vmwareMachineId** med värdet *$machine. ResourceId*(från föregående steg).
-- Ange värdena för **targetResourceGroupId**, **targetNetworkId**, **targetSubnetName** till målresursgrupp-ID, målresurs-ID för virtuella nätverk och målundernätsnamn.
-- Ange värdet för **licenseType** till "WindowsServer" för att tillämpa Azure Hybrid Benefit för den här virtuella datorn. Om den här virtuella datorn inte är berättigad till Azure Hybrid Benefit anger du värdet för **licenseType** to NoLicenseType.
-- Ändra värdet för egenskapen **targetVmName** till önskat Azure-namn för virtuella datorer för den migrerade virtuella datorn.
-- Du kan också lägga till en egenskap med namnet **targetVmSize** under egenskapen **targetVmName.** Ange värdet för egenskapen **targetVmSize** till önskad Azure-storlek för den migrerade virtuella datorn.
-- Egenskapen **disksToInclude** är en lista över diskindata för replikering med varje listobjekt som representerar en lokal disk. Skapa lika många listobjekt som antalet diskar på den lokala virtuella datorn. Ersätt **egenskapen diskId** i listobjektet till uuid för de diskar som identifierades i föregående steg. Ange **värdet isOSDisk** till "true" för OS-disken på den virtuella datorn och "false" för alla andra diskar. Lämna egenskaperna **logStorageAccountId** och **logStorageAccountSasSecretName** oförändrade. Ange **diskType-värdet** till typen Azure Managed Disk (*Standard_LRS, Premium_LRS, StandardSSD_LRS*) som ska användas för disken. För diskarna som behöver krypteras med CMK lägger du till en egenskap med namnet **diskEncryptionSetId** och anger värdet till resurs-ID för den diskkrypteringsuppsättning som skapats(**$des. Id**) i steget *Skapa en diskkrypteringsuppsättning*
-- Spara den redigerade mallfilen. I exemplet ovan ser den redigerade mallfilen ut på följande sätt:
+- Redigera **namn** -egenskapen i resurs definitionen. Ersätt strängen som följer den sista "/" i namn-egenskapen med värdet för *$Machine. Namn*(från föregående steg).
+- Ändra värdet för egenskapen **Properties. providerSpecificDetails. vmwareMachineId** med värdet *$Machine. ResourceId*(från föregående steg).
+- Ange värdena för **targetResourceGroupId**, **targetNetworkId**, **targetSubnetName** till mål resurs grupps-ID: t, målets virtuella nätverks resurs-ID och mål under näts namn.
+- Ange värdet för **licenseType** till "Windows Server" för att tillämpa Azure Hybrid-förmån för den här virtuella datorn. Om den här virtuella datorn inte är giltig för Azure Hybrid-förmån anger du värdet för **licenseType** till NoLicenseType.
+- Ändra värdet för egenskapen **targetVmName** till önskat namn på den virtuella Azure-datorn för den MIGRERAde virtuella datorn.
+- Du kan också lägga till en egenskap med namnet **targetVmSize** under egenskapen **targetVmName** . Ange värdet för egenskapen **targetVmSize** till önskad storlek på virtuell Azure-dator för den MIGRERAde virtuella datorn.
+- Egenskapen **disksToInclude** är en lista med disk indata för replikering med varje List objekt som representerar en lokal disk. Skapa så många List objekt som antalet diskar på den lokala virtuella datorn. Ersätt egenskapen **diskId** i listobjektet med uuid för de diskar som identifierades i föregående steg. Ange värdet "true" för **isOSDisk** för den virtuella DATORns OS-disk och "false" för alla andra diskar. Lämna **logStorageAccountId** och **logStorageAccountSasSecretName** -egenskaperna oförändrade. Ange värdet **diskType** till den Azure-hanterade disk typen (*Standard_LRS, Premium_LRS, StandardSSD_LRS*) som ska användas för disken. För diskar som behöver krypteras med CMK lägger du till en egenskap med namnet **diskEncryptionSetId** och anger värdet till resurs-ID för den disk krypterings uppsättning som skapades (**$des. ID**) i steget *skapa en disk krypterings uppsättning*
+- Spara den redigerade mallfilen. I exemplet ovan ser den redigerade mallfilen ut så här:
 
 ```
 {
@@ -249,7 +249,7 @@ uuid                                 label       name    maxSizeInBytes
 
 ## <a name="set-up-replication"></a>Konfigurera replikering
 
-Du kan nu distribuera den redigerade Resource Manager-mallen till projektresursgruppen för att ställa in replikering för den virtuella datorn. Lär dig hur du [distribuerar resurser med Azure Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+Nu kan du distribuera den redigerade Resource Manager-mallen till projekt resurs gruppen och konfigurera replikeringen för den virtuella datorn. Lär dig hur du [distribuerar resurser med Azure Resource Manager mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $ProjectResourceGroup -TemplateFile "C:\Users\Administrator\Downloads\template.json"
@@ -270,4 +270,4 @@ DeploymentDebugLogLevel :
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Övervaka replikeringsstatus](tutorial-migrate-vmware.md#track-and-monitor) via portalupplevelsen och utför Testmigreringar och migrering.
+[Övervaka replikeringsstatus](tutorial-migrate-vmware.md#track-and-monitor) via portal upplevelsen och utför testmigreringar och migrering.

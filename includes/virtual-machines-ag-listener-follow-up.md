@@ -11,5 +11,5 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187290"
 ---
-När du har skapat tillgänglighetsgruppavlyssnaren kan det vara nödvändigt att justera klusterparametrarna RegisterAllProvidersIP och HostRecordTTL för lyssnarresursen. Dessa parametrar kan minska återanslutningstiden efter en redundans, vilket kan förhindra tidsutgångar för anslutningar. Mer information om dessa parametrar och exempelkod finns i [Skapa eller konfigurera en tillgänglighetsgrupplyssnare](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
+När du har skapat tillgänglighets gruppens lyssnare kan du behöva justera kluster parametrarna RegisterAllProvidersIP och HostRecordTTL för lyssnar resursen. Dessa parametrar kan minska åter anslutnings tiden efter en redundansväxling, vilket kan förhindra anslutningstimeout. Mer information om dessa parametrar, samt exempel kod, finns i [skapa eller konfigurera en lyssnare för tillgänglighets grupp](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
 

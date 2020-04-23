@@ -21,9 +21,9 @@ Använd andra Azure-tjänster och -verktyg. När du har anslutit din enhet till 
 
 | Scenario                                                   | Azure-tjänst eller -verktyg              |
 |----------------------------------------------------------- |------------------------------------|
-| [Hantera IoT Hub-meddelanden](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS-kod Azure IoT Hub-tillägg|
+| [Hantera IoT Hub-meddelanden](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS Code Azure IoT Hub-tillägg|
 | [Hantera din IoT-enhet](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Azure CLI och IoT-tillägget    |
-| [Hantera din IoT-enhet](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS-kod Azure IoT Hub-tillägg|
+| [Hantera din IoT-enhet](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code Azure IoT Hub-tillägg|
 | [Spara IoT Hub-meddelanden till Azure-lagring](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure Table Storage                |
 | [Visualisera sensordata](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualisera sensordata](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |

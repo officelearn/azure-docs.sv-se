@@ -1,7 +1,7 @@
 ---
-title: VIRTUELL med flera IP-adresser med Azure CLI
+title: Virtuell dator med flera IP-adresser med hjälp av Azure CLI
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med hjälp av Azure command-line interface (CLI).
+description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med hjälp av kommando rads gränssnittet för Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -24,18 +24,18 @@ ms.locfileid: "80240228"
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-I den här artikeln beskrivs hur du skapar en virtuell dator (VM) via Azure Resource Manager-distributionsmodellen med hjälp av Azure CLI. Flera IP-adresser kan inte tilldelas resurser som skapats via den klassiska distributionsmodellen. Mer information om Azure-distributionsmodeller finns i artikeln [Förstå distributionsmodeller.](../resource-manager-deployment-model.md)
+Den här artikeln beskriver hur du skapar en virtuell dator (VM) via Azure Resource Manager distributions modellen med hjälp av Azure CLI. Det går inte att tilldela flera IP-adresser till resurser som skapats via den klassiska distributions modellen. Läs mer om Azures distributions modeller i artikeln [förstå distributions modeller](../resource-manager-deployment-model.md) .
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Skapa en virtuell dator med flera IP-adresser
 
-Stegen som följer förklarar hur du skapar en virtuell exempeldator med flera IP-adresser, enligt beskrivningen i scenariot. Ändra variabla värden i "" och IP-adresstyper, efter behov, för din implementering. 
+Stegen nedan beskriver hur du skapar ett exempel på en virtuell dator med flera IP-adresser, enligt beskrivningen i scenariot. Ändra variabel värden i typerna "" och IP-adress, efter behov "för din implementering. 
 
-1. Installera [Azure CLI](/cli/azure/install-azure-cli) om du inte redan har den installerad.
-2. Skapa ett SSH-offentligt och privat nyckelpar för virtuella Linux-datorer genom att slutföra stegen i [det offentliga och privata nyckelparet Skapa en SSH för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-3. Logga in med kommandot `az login` från ett kommandoskal och välj den prenumeration du använder.
-4. Skapa den virtuella datorn genom att köra skriptet som följer på en Linux- eller Mac-dator. Skriptet skapar en resursgrupp, ett virtuellt nätverk (VNet), ett nätverkskort med tre IP-konfigurationer och en virtuell dator med de två nätverkskorten kopplade till det. Nätverkskortet, den offentliga IP-adressen, det virtuella nätverket och vm-resurserna måste alla finnas på samma plats och prenumeration. Även om resurserna inte alla behöver finnas i samma resursgrupp, i följande skript de gör.
+1. Installera [Azure CLI](/cli/azure/install-azure-cli) om du inte redan har det installerat.
+2. Skapa ett offentligt och privat SSH-nyckelpar för virtuella Linux-datorer genom att slutföra stegen i [skapa ett offentligt och privat SSH-nyckelpar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+3. Logga in med kommandot `az login` i ett kommando gränssnitt och välj den prenumeration som du använder.
+4. Skapa den virtuella datorn genom att köra skriptet som följer på en Linux-eller Mac-dator. Skriptet skapar en resurs grupp, ett virtuellt nätverk (VNet), ett nätverkskort med tre IP-konfigurationer och en virtuell dator med de två nätverkskort som är anslutna till det. NÄTVERKSKORTet, den offentliga IP-adressen, det virtuella nätverket och de virtuella dator resurserna måste finnas på samma plats och i samma prenumeration. Även om resurserna inte behöver finnas i samma resurs grupp, i följande skript.
 
 ```bash
     
@@ -153,28 +153,28 @@ az vm create \
 --ssh-key-value $SshKeyValue
 ```
 
-Förutom att skapa en virtuell dator med ett nätverkskort med 3 IP-konfigurationer, skapar skriptet:
+Förutom att skapa en virtuell dator med ett nätverkskort med tre IP-konfigurationer skapar skriptet:
 
-- En enda premiumhanterad disk som standard, men du har andra alternativ för den disktyp du kan skapa. Mer information finns i artikeln [Skapa en virtuell Linux-dator med hjälp av](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure CLI-artikeln.
-- Ett virtuellt nätverk med ett undernät och två offentliga IP-adresser. Du kan också använda *befintliga* virtuella nätverks-, undernäts-, nätverkskorts- eller offentliga IP-adressresurser. Om du vill lära dig hur du använder `az vm create -h`befintliga nätverksresurser i stället för att skapa ytterligare resurser anger du .
+- En enskild Premium-hanterad disk som standard, men du har andra alternativ för disk typen som du kan skapa. Mer information finns i artikeln [skapa en virtuell Linux-dator med hjälp av Azure CLI](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -artikeln.
+- Ett virtuellt nätverk med ett undernät och två offentliga IP-adresser. Du kan också använda *befintliga* virtuella nätverk, UNDERNÄT, NIC eller offentliga IP-adressresurser. Om du vill lära dig hur du använder befintliga nätverks resurser i stället för att `az vm create -h`skapa ytterligare resurser anger du.
 
-Offentliga IP-adresser har en nominell avgift. Mer information om IP-adressprissättning finns på [prissidan för IP-adresser.](https://azure.microsoft.com/pricing/details/ip-addresses) Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+Offentliga IP-adresser har en nominell avgift. Läs mer om pris information om IP-adresser i [pris](https://azure.microsoft.com/pricing/details/ip-addresses) sidan för IP-adresser. Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-När den virtuella datorn `az network nic show --name MyNic1 --resource-group myResourceGroup` har skapats anger du kommandot för att visa nätverkskortets konfiguration. Ange `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` om du vill visa en lista över IP-konfigurationer som är associerade till nätverkskortet.
+När den virtuella datorn har skapats anger du `az network nic show --name MyNic1 --resource-group myResourceGroup` kommandot för att Visa NIC-konfigurationen. Ange om `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` du vill visa en lista över de IP-konfigurationer som är kopplade till nätverkskortet.
 
-Lägg till de privata IP-adresserna i operativsystemet VM genom att slutföra stegen för operativsystemet i avsnittet [Lägg till IP-adresser i ett vm-operativsystem](#os-config) i den här artikeln.
+Lägg till de privata IP-adresserna i operativ systemet för den virtuella datorn genom att följa stegen för ditt operativ system i avsnittet [Lägg till IP-adresser till ett operativ system för virtuella datorer](#os-config) i den här artikeln.
 
-## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Lägga till IP-adresser till en virtuell dator
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Lägg till IP-adresser till en virtuell dator
 
-Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintligt Azure-nätverksgränssnitt genom att slutföra stegen som följer. Exemplen bygger på [det scenario](#scenario) som beskrivs i den här artikeln.
+Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintligt Azure-nätverks gränssnitt genom att följa anvisningarna nedan. Exemplen bygger på det [scenario](#scenario) som beskrivs i den här artikeln.
 
-1. Öppna ett kommandoskal och slutför de återstående stegen i det här avsnittet i en enda session. Om du inte redan har Azure CLI installerat och konfigurerat utför du stegen i azure `az-login` [CLI-installationsartikeln](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) och loggar in på ditt Azure-konto med kommandot.
+1. Öppna ett kommando gränssnitt och slutför de återstående stegen i det här avsnittet inom en enda session. Om du inte redan har installerat och konfigurerat Azure CLI slutför du stegen i artikeln [Azure CLI-installation](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) och loggar in på ditt Azure-konto med `az-login` kommandot.
 
-2. Gör stegen i något av följande avsnitt, baserat på dina krav:
+2. Slutför stegen i något av följande avsnitt, baserat på dina krav:
 
-    **Lägga till en privat IP-adress**
+    **Lägg till en privat IP-adress**
     
-    Om du vill lägga till en privat IP-adress i ett nätverkskort måste du skapa en IP-konfiguration med hjälp av det kommando som följer. Den statiska IP-adressen måste vara en oanvänd adress för undernätet.
+    Om du vill lägga till en privat IP-adress till ett nätverkskort måste du skapa en IP-konfiguration med hjälp av kommandot nedan. Den statiska IP-adressen måste vara en oanvänd adress för under nätet.
 
     ```azurecli
     az network nic ip-config create \
@@ -184,17 +184,17 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
     --name IPConfig-4
     ```
     
-    Skapa så många konfigurationer som du behöver, med hjälp av unika konfigurationsnamn och privata IP-adresser (för konfigurationer med statiska IP-adresser).
+    Skapa så många konfigurationer som du behöver, med hjälp av unika konfigurations namn och privata IP-adresser (för konfigurationer med statiska IP-adresser).
 
-    **Lägga till en offentlig IP-adress**
+    **Lägg till en offentlig IP-adress**
     
-    En offentlig IP-adress läggs till genom att associera den till antingen en ny IP-konfiguration eller en befintlig IP-konfiguration. Gör stegen i ett av de avsnitt som följer, som du behöver.
+    En offentlig IP-adress läggs till genom att associera den med antingen en ny IP-konfiguration eller en befintlig IP-konfiguration. Slutför stegen i något av de avsnitt som följer, efter behov.
 
-    Offentliga IP-adresser har en nominell avgift. Mer information om IP-adressprissättning finns på [prissidan för IP-adresser.](https://azure.microsoft.com/pricing/details/ip-addresses) Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+    Offentliga IP-adresser har en nominell avgift. Läs mer om pris information om IP-adresser i [pris](https://azure.microsoft.com/pricing/details/ip-addresses) sidan för IP-adresser. Det finns en gräns för hur många offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-    - **Associera resursen till en ny IP-konfiguration**
+    - **Koppla resursen till en ny IP-konfiguration**
     
-        När du lägger till en offentlig IP-adress i en ny IP-konfiguration måste du också lägga till en privat IP-adress, eftersom alla IP-konfigurationer måste ha en privat IP-adress. Du kan antingen lägga till en befintlig offentlig IP-adressresurs eller skapa en ny. Om du vill skapa en ny anger du följande kommando:
+        När du lägger till en offentlig IP-adress i en ny IP-konfiguration måste du också lägga till en privat IP-adress, eftersom alla IP-konfigurationer måste ha en privat IP-adress. Du kan antingen lägga till en befintlig offentlig IP-adressresurs eller skapa en ny. Ange följande kommando för att skapa en ny:
     
         ```azurecli
         az network public-ip create \
@@ -204,7 +204,7 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
         --dns-name mypublicdns3
         ```
 
-        Om du vill skapa en ny IP-konfiguration med en statisk privat IP-adress och den associerade offentliga IP-adressresursen *myPublicIP3* anger du följande kommando:
+        Om du vill skapa en ny IP-konfiguration med en statisk privat IP-adress och den tillhör ande *myPublicIP3* offentliga IP-adressresursen, anger du följande kommando:
 
         ```azurecli
         az network nic ip-config create \
@@ -215,7 +215,7 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
         --public-ip-address myPublicIP3
         ```
 
-    - **Associera resursen till en befintlig IP-konfiguration** En offentlig IP-adressresurs kan bara associeras till en IP-konfiguration som inte redan har en associerad. Du kan avgöra om en IP-konfiguration har en associerad offentlig IP-adress genom att ange följande kommando:
+    - **Associera resursen med en befintlig IP-konfiguration** En offentlig IP-adressresurs kan bara kopplas till en IP-konfiguration som inte redan har en associerad. Du kan avgöra om en IP-konfiguration har en associerad offentlig IP-adress genom att ange följande kommando:
 
         ```azurecli
         az network nic ip-config list \
@@ -224,7 +224,7 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
         --query "[?provisioningState=='Succeeded'].{ Name: name, PublicIpAddressId: publicIpAddress.id }" --output table
         ```
 
-        Returnerad utdata:
+        Returnerade utdata:
     
             Name        PublicIpAddressId
             
@@ -232,7 +232,7 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
             IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
             IPConfig-3
 
-        Eftersom kolumnen **PublicIpAddressId** för *IpConfig-3* är tom i utdata är ingen offentlig IP-adressresurs för närvarande kopplad till den. Du kan lägga till en befintlig offentlig IP-adressresurs i IpConfig-3 eller ange följande kommando för att skapa en:
+        Eftersom kolumnen **PublicIpAddressId** för *IpConfig-3* är tom i utdata är ingen offentlig IP-adressresurs kopplad till den. Du kan lägga till en befintlig offentlig IP-adressresurs i IpConfig-3 eller ange följande kommando för att skapa en:
 
         ```azurecli
         az network public-ip create \
@@ -243,7 +243,7 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
         --allocation-method Static
         ```
     
-        Ange följande kommando för att associera den offentliga IP-adressresursen till den befintliga IP-konfigurationen MED namnet *IPConfig-3:*
+        Ange följande kommando för att associera den offentliga IP-adressresursen till den befintliga IP-konfigurationen med namnet *ipconfig-3*:
     
         ```azurecli
         az network nic ip-config update \
@@ -253,7 +253,7 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
         --public-ip myPublicIP3
         ```
 
-3. Visa de privata IP-adresserna och de offentliga IP-adressresurs-ID:erna som tilldelats nätverkskortet genom att ange följande kommando:
+3. Visa de privata IP-adresserna och de offentliga IP-adress-resurs-ID: n som tilldelats NÄTVERKSKORTet genom att ange följande kommando:
 
     ```azurecli
     az network nic ip-config list \
@@ -262,7 +262,7 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
     --query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
     ```
 
-    Returnerad utdata: <br>
+    Returnerade utdata: <br>
     
         Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
         
@@ -271,6 +271,6 @@ Du kan lägga till ytterligare privata och offentliga IP-adresser i ett befintli
         IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
     
 
-4. Lägg till de privata IP-adresser som du har lagt till i nätverkskortet i operativsystemet Vm genom att följa instruktionerna i avsnittet [Lägg till IP-adresser i ett vm-operativsystem](#os-config) i den här artikeln. Lägg inte till de offentliga IP-adresserna i operativsystemet.
+4. Lägg till de privata IP-adresser som du har lagt till i NÄTVERKSKORTet i den virtuella datorns operativ system genom att följa anvisningarna i avsnittet [Lägg till IP-adresser till ett operativ system för virtuella datorer](#os-config) i den här artikeln. Lägg inte till offentliga IP-adresser i operativ systemet.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

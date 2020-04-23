@@ -1,6 +1,6 @@
 ---
-title: Analysera rapporten Deployment Planner för VMware-haveriberedskap med Azure Site Recovery
-description: I den här artikeln beskrivs hur du analyserar rapporten som genereras av Recovery Deployment Planner för VMware-haveriberedskap till Azure med hjälp av Azure Site Recovery.
+title: Analysera distributions planerings rapporten för VMware haveri beredskap med Azure Site Recovery
+description: Den här artikeln beskriver hur du analyserar rapporten som genereras av återställnings distributions planeraren för VMware haveri beredskap till Azure med hjälp av Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -14,7 +14,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257516"
 ---
-# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera distributionsplanerarens rapport för VMware-haveriberedskap till Azure
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera distributions planerings rapporten för VMware haveri beredskap till Azure
 
 Den genererade rapporten i Microsoft Excel innehåller följande ark:
 ## <a name="on-premises-summary"></a>Lokal sammanfattning
@@ -92,7 +92,7 @@ Om du kör verktyget på en konfigurations- eller processerver som redan har sky
 För alla företagsdistributioner av Site Recovery bör du använda [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Nödvändiga lagringskonton
-I följande diagram visas hur många lagringskonton (standard och premium) som behövs för att skydda alla kompatibla virtuella datorer. Om du vill veta vilket lagringskonto som ska användas för varje virtuell dator kan du läsa avsnittet ”Placering av VM-lagring”. Om du använder v2.5 i Deployment Planner visar den här rekommendationen bara antalet standardcachelagringskonton som behövs för replikering eftersom data skrivs direkt till hanterade diskar.
+I följande diagram visas hur många lagringskonton (standard och premium) som behövs för att skydda alla kompatibla virtuella datorer. Om du vill veta vilket lagringskonto som ska användas för varje virtuell dator kan du läsa avsnittet ”Placering av VM-lagring”. Om du använder v 2.5 av distributions planeraren visar den här rekommendationen endast antalet standardcache-lagrings konton som behövs för replikeringen, eftersom data skrivs direkt till Managed Disks.
 
 ![Nödvändiga lagringskonton i kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -157,19 +157,19 @@ Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än
 ## <a name="vm-storage-placement"></a>Placering av VM-lagring
 
 >[!Note]
->Deployment Planner v2.5 och framåt rekommenderar lagringsplacering för datorer som replikerar direkt till hanterade diskar.
+>Distributions hanteraren v 2.5 och senare rekommenderar lagrings placering för datorer som kommer att replikeras direkt till hanterade diskar.
 
 ![Placering av VM-lagring](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Replikeringslagringstyp:** Antingen en standard- eller premiumhanterad disk, som används för att replikera alla motsvarande virtuella datorer som nämns i de **virtuella datorerna till** platskolumnen.
+**Lagrings typ för replikering**: antingen en standard-eller Premium-hanterad disk, som används för att replikera alla motsvarande virtuella datorer som anges i kolumnen **virtuella datorer att placera** .
 
-**Logglagringskontotyp:** Alla replikeringsloggar lagras i ett standardlagringskonto.
+**Logg lagrings konto typ**: alla loggar lagras på ett standard lagrings konto.
 
-**Föreslaget prefix för lagringskonto:** Det föreslagna prefixet med tre tecken som kan användas för att namnge cachelagringskontot. Du kan använda ditt eget prefix, men verktygets förslag följer [namngivningskonventionen för partitioner av lagringskonton](https://aka.ms/storage-performance-checklist).
+**Föreslaget prefix för lagrings konto**: det föreslagna tre-Character-prefix som kan användas för att namnge cache-kontot. Du kan använda ditt eget prefix, men verktygets förslag följer [namngivningskonventionen för partitioner av lagringskonton](https://aka.ms/storage-performance-checklist).
 
-**Föreslaget loggkontonamn:** Lagringskontonamnet när du har inkluderat det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
+**Föreslaget logg konto namn**: namnet på lagrings kontot när du har inkluderat det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
 
-Sammanfattning av **placering:** En sammanfattning av de diskar som behövs för att skydda virtuella datorer efter lagringstyp. Den innehåller det totala antalet virtuella datorer, den totala etableringsstorleken på alla diskar och det totala antalet diskar.
+**Placerings Sammanfattning**: en sammanfattning av diskarna som behövs för att skydda virtuella datorer efter lagrings typ. Det innehåller det totala antalet virtuella datorer, total allokerad storlek på alla diskar och det totala antalet diskar.
 
 **Virtual Machines to Place** (Virtuella datorer att placera ut): En lista över de virtuella datorer som ska placeras på det angivna lagringskontot för att prestanda och användningsgrad ska vara optimala.
 
@@ -178,7 +178,7 @@ Sammanfattning av **placering:** En sammanfattning av de diskar som behövs för
 
 **VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**VM-kompatibilitet**: Värdena är **Ja** och **Ja\***. **Ja** \* är till exempel där den virtuella datorn är lämplig för [premium SSDs](../virtual-machines/windows/disks-types.md). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Ett exempel:
+**VM-kompatibilitet**: Värdena är **Ja** och **Ja\***. **Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/windows/disks-types.md). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Ett exempel:
 * < 128 GB är en P10.
 * 128 GB till 256 GB är en P15
 * 256 till 512 GB är en P20.
@@ -186,11 +186,11 @@ Sammanfattning av **placering:** En sammanfattning av de diskar som behövs för
 * 1 025 till 2 048 GB är en P40.
 * 2 049 till 4 095 GB är en P50.
 
-Om till exempel arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller P30, men storleken mappar ned den till en lägre premiumlagringsdisktyp, markerar verktyget den virtuella datorn som **Ja**\*. Verktyget rekommenderar också att du antingen ändrar källdiskens storlek så att den passar den rekommenderade Premium Storage-disktypen eller ändrar måldisktypen efter redundansväxling.
+Exempel: om arbets belastnings egenskaperna för en disk placerar den i kategorin P20 eller P30, men storleken mappar den till en lägre Premium Storage-disktyp, markerar verktyget den virtuella datorn som **Ja**\*. Verktyget rekommenderar också att du antingen ändrar källdiskens storlek så att den passar den rekommenderade Premium Storage-disktypen eller ändrar måldisktypen efter redundansväxling.
 
 **Lagringstyp**: Standard eller premium.
 
-**Asrseeddisk (Managed Disk) som skapats för replikering**: Namnet på den disk som skapas när du aktiverar replikering. Den lagrar data och dess ögonblicksbilder i Azure.
+**Asrseeddisk (hanterad disk) skapad för replikering**: namnet på den disk som skapas när du aktiverar replikering. Den lagrar data och dess ögonblicks bilder i Azure.
 
 **Peak R/W IOPS (with Growth Factor)** (Högsta R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen för läsning/skrivning på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för en virtuell dator inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
@@ -221,14 +221,14 @@ Om till exempel arbetsbelastningsegenskaperna för en disk placerar den i katego
 
 **VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
 
-* Fel datadiskstorlek eller fel OS-diskstorlek. [Granska](vmware-physical-azure-support-matrix.md#azure-vm-requirements) supportgränserna. 
+* Felaktig data disk storlek eller felaktig storlek på operativ system disk. [Granska](vmware-physical-azure-support-matrix.md#azure-vm-requirements) support gränserna. 
 * Total storlek för den virtuella datorn (replikering + TFO) överskrider den gräns för lagringskontostorlek som stöds (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Maxgränsen för ett lagringskonto av premiumtyp är däremot 35 TB, och det går inte att skydda en enda virtuell dator över flera lagringskonton. Tänk också på att när ett redundanstest körs på en skyddad virtuell dator körs det på samma lagringskonto där replikeringen körs. I den här instansen ställer du in 2 ggr storleken på disken för att replikeringen ska fortskrida samtidigt som redundanstestningen genomförs.
 
 * Käll-IOPS överskrider IOPS-gränsen för lagring på 7500 per disk.
 
 * Käll-IOPS överskrider IOPS-gränsen för lagring på 80 000 per virtuell dator.
 
-* Genomsnittlig dataomsättning överskrider värden för site recovery-data som stöds på 20 MB/s för genomsnittlig I/O-storlek för disken.
+* Den genomsnittliga data omsättningen överskrider gränsen för Site Recovery data omsättningen på 20 MB/s för den genomsnittliga I/O-storleken för disken.
 
 * Den högsta dataomsättningen för alla diskar i den virtuella datorn överskrider högsta gränsen i Site Recovery på 54 MB/s per virtuell dator.
 
@@ -255,12 +255,12 @@ Om till exempel arbetsbelastningsegenskaperna för en disk placerar den i katego
 
 **Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI.  För närvarande stöder Azure Site Recovery virtuella Windows Server EFI-datorer (Windows Server 2012, 2012 R2 och 2016) förutsatt att antalet partitioner i startdisken är under 4 och startsektorstorleken är 512 byte. För att skydda virtuella EFI-datorer måste mobilitetstjänstversionen för Azure Site Recovery vara 9.13 eller högre. Endast redundans stöds av virtuella EFI-datorer. Återställning efter fel stöds inte.
 
-**OS-typ:** Det är OS-typ av den virtuella datorn. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn.
+**OS-typ**: den virtuella datorns typ av operativ system. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn.
 
 ## <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
 Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat även efter distributionsplaneringen rekommenderar vi alltid att du kör omfattande programtester med redundanstest för att få en bild av verklig prestanda för programmet.
 
-**Replikeringslagringsmål** | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total omsättning av källdiskdata per dag**
+**Lagrings mål för replikering** | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total käll disk data omsättning per dag**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per disk
 Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk

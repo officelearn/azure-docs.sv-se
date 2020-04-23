@@ -1,6 +1,6 @@
 ---
-title: Säkerhetspraxis för tillverkare – Azure IoT-enhetsetableringstjänst
-description: Översikter vanliga säkerhetsmetoder för OEM-tillverkare och enhetstillverkare som förbereder enheter för att registrera sig i DPS (Azure IoT Device Provisioning Service).
+title: Säkerhets rutiner för tillverkare – Azure IoT Device Provisioning-tjänsten
+description: Visar vanliga säkerhets metoder för OEM-tillverkare och enhets tillverkning som förbereder enheter för registrering i Azure IoT Device Provisioning-tjänsten (DPS).
 author: timlt
 ms.author: timlt
 ms.date: 3/02/2020
@@ -15,179 +15,179 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2020
 ms.locfileid: "80529524"
 ---
-# <a name="security-practices-for-azure-iot-device-manufacturers"></a>Säkerhetsrutiner för Azure IoT-enhetstillverkare
-När fler tillverkare släpper IoT-enheter är det bra att identifiera vägledning kring vanliga metoder. Den här artikeln sammanfattar rekommenderade säkerhetsmetoder att tänka på när du tillverkar enheter för användning med DPS (Azure IoT Device Provisioning Service).  
+# <a name="security-practices-for-azure-iot-device-manufacturers"></a>Säkerhets rutiner för Azure IoT Device-tillverkare
+Eftersom fler tillverkare släpper IoT-enheter är det bra att identifiera vägledning kring vanliga metoder. Den här artikeln sammanfattar rekommenderade säkerhets metoder för att tänka på när du tillverkar enheter för användning med Azure IoT Device Provisioning-tjänsten (DPS).  
 
 > [!div class="checklist"]
 > * Välja alternativ för enhetsautentisering
 > * Installera certifikat på IoT-enheter
-> * Integrera en TPM (Trusted Platform Module) i tillverkningsprocessen
+> * Integrera en Trusted Platform Module (TPM) i tillverknings processen
 
 ## <a name="selecting-device-authentication-options"></a>Välja alternativ för enhetsautentisering
-Det yttersta syftet med alla IoT-enhetssäkerhetsåtgärd är att skapa en säker IoT-lösning. Men frågor som maskinvarubegränsningar, kostnader och säkerhetsexpertis påverkar alla vilka alternativ du väljer. Dessutom påverkar din inställning till säkerhet hur dina IoT-enheter ansluter till molnet. Det finns [flera element av IoT-säkerhet](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) att tänka på, men ett nyckelelement som varje kund stöter på är vilken autentiseringstyp som ska användas. 
+Det ultimata syftet med en säkerhets åtgärd för IoT-enheter är att skapa en säker IoT-lösning. Men problem som maskin varu begränsningar, kostnader och nivåer av säkerhets kunskaper påverkar vilka alternativ du väljer. Vidare påverkar din metod för säkerhet hur dina IoT-enheter ansluter till molnet. Även om det finns [flera element i IoT-säkerhet](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) att tänka på, är det ett viktigt element som varje kund påträffar, vilken autentiseringstyp som ska användas. 
 
-Tre allmänt använda autentiseringstyper är X.509-certifikat, TPM (Trusted Platform Modules) och symmetriska nycklar. Andra autentiseringstyper finns, men de flesta kunder som bygger lösningar på Azure IoT använder en av dessa tre typer. Resten av den här artikeln undersöker för- och nackdelar med att använda varje autentiseringstyp.
+De tre vanligaste typerna av autentisering är X. 509-certifikat, TPM (Trusted Platform modules) och symmetriska nycklar. Andra autentiseringstyper finns, men de flesta kunder som skapar lösningar på Azure IoT använder en av dessa tre typer. Resten av den här artikeln underhåller våra experter och nack delar med att använda varje autentiseringstyp.
 
-### <a name="x509-certificate"></a>X.509 certifikat
-X.509-certifikat är en typ av digital identitet som du kan använda för autentisering. Certifikatstandarden X.509 är dokumenterad i [IETF RFC 5280](https://tools.ietf.org/html/rfc5280). I Azure IoT finns det två sätt att autentisera certifikat:
-- Stämpel. En tumavtrycksalgoritm körs på ett certifikat för att generera en hexadecimal sträng. Den genererade strängen är en unik identifer för certifikatet. 
-- CA-autentisering baserat på en fullständig kedja. En certifikatkedja är en hierarkisk lista över alla certifikat som behövs för att autentisera ett EE-certifikat (end-entity). För att autentisera ett EE-certifikat är det nödvändigt att autentisera varje certifikat i kedjan, inklusive en betrodd rotcertifikatutfärdaren. 
+### <a name="x509-certificate"></a>X. 509-certifikat
+X. 509-certifikat är en typ av digital identitet som du kan använda för autentisering. Certifikat standarden X. 509 dokumenteras i [IETF RFC 5280](https://tools.ietf.org/html/rfc5280). I Azure IoT finns det två sätt att autentisera certifikat:
+- Begäran. En tumavtryck körs på ett certifikat för att generera en hexadecimal sträng. Den genererade strängen är en unik identifierare för certifikatet. 
+- CA-autentisering baserat på en fullständig kedja. En certifikat kedja är en hierarkisk lista över alla certifikat som behövs för att autentisera ett slutentitets-certifikat (EE). För att autentisera ett EE-certifikat måste du autentisera varje certifikat i kedjan, inklusive en betrodd rot certifikat utfärdare. 
 
-Fördelar för X.509:
-- X.509 är den säkraste autentiseringstypen som stöds i Azure IoT.
-- X.509 tillåter en hög kontrollnivå för certifikathantering.
-- Många leverantörer är tillgängliga för att tillhandahålla X.509-baserade autentiseringslösningar.
+-Proffs för X. 509:
+- X. 509 är den säkraste typen av autentisering som stöds i Azure IoT.
+- X. 509 tillåter en hög kontroll nivå för certifikat hanteringens syfte.
+- Många leverantörer är tillgängliga för att tillhandahålla X. 509-baserade lösningar för autentisering.
 
-Nackdelar för X.509:
+Nack delar för X. 509:
 - Många kunder kan behöva förlita sig på externa leverantörer för sina certifikat.
-- Certifikathantering kan vara kostsamt och ökar den totala lösningskostnaden.
-- Certifikat livscykelhantering kan vara svårt om logistiken inte är väl genomtänkt. 
+- Certifikat hanteringen kan vara kostsam och adderas till total lösnings kostnad.
+- Certifikat livs cykel hantering kan vara svårt om logistik inte är bra beskrivande. 
 
 ### <a name="trusted-platform-module-tpm"></a>Trusted Platform Module (TPM)
-TPM, även känd som [ISO/IEC 11889](https://www.iso.org/standard/66510.html), är en standard för att säkert generera och lagra kryptografiska nycklar. TPM refererar också till en virtuell eller fysisk I/O-enhet som interagerar med moduler som implementerar standarden. En TPM-enhet kan finnas som diskret maskinvara, integrerad maskinvara, en firmwarebaserad modul eller en programvarubaserad modul. 
+TPM, som även kallas [ISO/IEC 11889](https://www.iso.org/standard/66510.html), är en standard för att skapa och lagra kryptografiska nycklar på ett säkert sätt. TPM refererar också till en virtuell eller fysisk I/O-enhet som samverkar med moduler som implementerar standarden. En TPM-enhet kan finnas som diskret maskin vara, integrerad maskin vara, en inbyggd program vara baserad modul eller en programvarubaserad modul. 
 
-Det finns två viktiga skillnader mellan TPM:er och symmetriska nycklar: 
-- TPM-chips kan också lagra X.509-certifikat.
-- TPM-attestation i DPS använder TPM-godkännandenyckeln (EK), en form av asymmetrisk autentisering. Med asymmetrisk autentisering används en offentlig nyckel för kryptering och en separat privat nyckel används för dekryptering. Symmetriska nycklar använder däremot symmetrisk autentisering, där den privata nyckeln används för både kryptering och dekryptering. 
+Det finns två viktiga skillnader mellan TPM: er och symmetriska nycklar: 
+- TPM-chips kan också lagra X. 509-certifikat.
+- TPM-attestering i DPS använder TPM-bekräftelse nyckeln (EK), en form av asymmetrisk autentisering. Med asymmetrisk autentisering används en offentlig nyckel för kryptering och en separat privat nyckel används för dekryptering. Symmetriska nycklar använder däremot symmetrisk autentisering, där den privata nyckeln används för både kryptering och dekryptering. 
 
-Fördelar för TPM:
-- TPM ingår som standardmaskinvara på många Windows-enheter, med inbyggt stöd för operativsystemet. 
-- TPM attestation är lättare att skydda än delad åtkomst signatur (SAS) token-baserade symmetrisk nyckel attestation.
-- Du kan enkelt gå ut och förnya, eller rulla, enhetsautentiseringsuppgifter. DPS rullar automatiskt IoT Hub-autentiseringsuppgifterna när en TPM-enhet ska återetableras.
+För TPM:
+- TPM ingår som standard maskin vara på många Windows-enheter, med inbyggt stöd för operativ systemet. 
+- TPM-attestering är enklare att skydda än den token för token för delad åtkomst (SAS) som baseras på kryptografiska nycklar.
+- Du kan enkelt förfalla och förnya eller registrera autentiseringsuppgifter för enheten. DPS slår automatiskt IoT Hub autentiseringsuppgifter när en TPM-enhet förfaller för att etablera.
 
-Nackdelar för TPM: 
-- TPM:er är komplexa och kan vara svåra att använda. 
-- Programutveckling med TPM är svårt om du inte har en fysisk TPM eller en kvalitetsemulator.
-- Du kanske måste omforma enhetens anslagstavla så att den innehåller en TPM i maskinvaran. 
-- Om du rullar EK på en TPM förstör den TPM:ens identitet och skapar en ny. Även om det fysiska chippet förblir detsamma har det en ny identitet i din IoT-lösning.
+Nack delar för TPM: 
+- TPM är komplexa och kan vara svårt att använda. 
+- Program utveckling med TPM är svår om du inte har en fysisk TPM eller en kvalitets emulator.
+- Du kan behöva utforma om kortet på enheten för att inkludera en TPM i maskin varan. 
+- Om du rullar in EK på en TPM förstör den TPM-identiteten och skapar en ny. Även om det fysiska kretsen fortfarande är detsamma, har den en ny identitet i din IoT-lösning.
 
 ### <a name="symmetric-key"></a>Symmetrisk nyckel
-Med symmetriska tangenter används samma nyckel för att kryptera och dekryptera meddelanden. Därför är samma nyckel känd för både enheten och tjänsten som autentiserar den. Azure IoT stöder SAS tokenbaserade symmetriska nyckelanslutningar. Symmetrisk nyckelautentisering kräver ett betydande ägaransvar för att skydda nycklarna och uppnå en lika hög säkerhetsnivå med X.509-autentisering. Om du använder symmetriska nycklar är den rekommenderade metoden att skydda nycklarna med hjälp av en maskinvarusäkerhetsmodul (HSM).
+Med symmetriska nycklar används samma nyckel för att kryptera och dekryptera meddelanden. Därför är samma nyckel känd för både enheten och tjänsten som autentiserar den. Azure IoT stöder SAS-baserade symmetriska nyckel anslutningar med SAS-token. Symmetrisk nyckel autentisering kräver betydande ägar ansvar för att skydda nycklarna och uppnå en likvärdig säkerhets nivå med X. 509-autentisering. Om du använder symmetriska nycklar är den rekommenderade metoden att skydda nycklarna med hjälp av en maskin varu säkerhetsmodul (HSM).
 
-Fördelar för symmetrisk nyckel:
-- Att använda symmetriska nycklar är det enklaste och lägsta kostnadssättet för att komma igång med autentisering.
-- Med hjälp av symmetriska nycklar effektiviserar din process eftersom det inte finns något extra att generera. 
+Tekniker för symmetrisk nyckel:
+- Att använda symmetriska nycklar är det enklaste, lägsta sättet att komma igång med autentisering.
+- Om symmetriska nycklar används effektiviseras processen eftersom det inte finns något extra att generera. 
 
-Nackdelar för symmetrisk nyckel: 
-- Symmetriska nycklar tar en betydande grad av ansträngning för att säkra nycklarna. Samma nyckel delas mellan enhet och moln, vilket innebär att nyckeln måste skyddas på två ställen. Utmaningen med TPM- och X.509-certifikat bevisar däremot att den offentliga nyckeln har haft utan att avslöja den privata nyckeln.
-- Symmetriska nycklar gör det enkelt att följa dålig säkerhet. En vanlig tendens med symmetriska nycklar är att hårt koda okrypterade nycklar på enheter. Även om denna praxis är bekvämt, lämnar det nycklarna sårbara. Du kan minska vissa risker genom att säkert lagra den symmetriska nyckeln på enheten. Men om din prioritet i slutändan är säkerhet snarare än bekvämlighet, använd X.509 certifikat eller TPM för autentisering. 
+Nack delar för symmetrisk nyckel: 
+- Symmetriska nycklar tar en stor del av arbetet för att skydda nycklarna. Samma nyckel delas mellan enheten och molnet, vilket innebär att nyckeln måste skyddas på två platser. Utmaningen med TPM-och X. 509-certifikat förväntar sig däremot innehavandet av den offentliga nyckeln utan att avslöja den privata nyckeln.
+- Symmetriska nycklar gör det enkelt att följa dåliga säkerhets metoder. En vanlig tendens med symmetriska nycklar är att hårdkoda de okrypterade nycklarna på enheterna. Även om den här metoden är praktisk är det att nycklarna är sårbara. Du kan minska risken genom att säkert lagra den symmetriska nyckeln på enheten. Men om prioriteten är i princip i stället för bekvämlighet använder du X. 509-certifikat eller TPM för autentisering. 
 
 ### <a name="shared-symmetric-key"></a>Delad symmetrisk nyckel
-Det finns en variant av symmetrisk nyckelautentisering som kallas delad symmetrisk nyckel. Den här metoden innebär att du använder samma symmetriska nyckel i alla enheter. Rekommendationen är att undvika att använda delade symmetriska nycklar på dina enheter. 
+Det finns en variant av autentisering med symmetrisk nyckel som kallas delad symmetrisk nyckel. Den här metoden innebär att använda samma symmetriska nyckel i alla enheter. Rekommendationen är att undvika att använda delade symmetriska nycklar på dina enheter. 
 
 Pro för delad symmetrisk nyckel:
-- Enkelt att implementera och billigt att producera i stor skala. 
+- Enkel att implementera och billigt att producera i stor skala. 
 
-Nackdelar för delad symmetrisk nyckel: 
-- Mycket sårbar för angrepp. Fördelen med ett enkelt genomförande uppvägs långt av risken. 
+Nack delar med delad symmetrisk nyckel: 
+- Mycket sårbart för angrepp. Fördelen med enkel implementering är mycket utsatt för risken. 
 - Vem som helst kan personifiera dina enheter om de får den delade nyckeln.
-- Om du förlitar dig på en delad symmetrisk nyckel som äventyras, kommer du sannolikt att förlora kontrollen över enheterna. 
+- Om du använder en delad symmetrisk nyckel som blir komprometterad förlorar du förmodligen kontrollen över enheterna. 
 
-### <a name="making-the-right-choice-for-your-devices"></a>Göra rätt val för dina enheter
-Om du vill välja en autentiseringsmetod måste du tänka på fördelarna och kostnaderna för varje metod för din unika tillverkningsprocess.  För enhetsautentisering finns det vanligtvis en omvänd relation mellan hur säker en viss metod är och hur bekvämt det är.  
+### <a name="making-the-right-choice-for-your-devices"></a>Gör rätt val för dina enheter
+Du kan välja en autentiseringsmetod genom att ta hänsyn till fördelarna och kostnaderna för varje metod för din unika tillverknings process.  För enhetsautentisering är det vanligt vis en inverterad relation mellan hur säker en specifik metod är och hur bekvämt den är.  
 
 ## <a name="installing-certificates-on-iot-devices"></a>Installera certifikat på IoT-enheter
-Om du använder X.509-certifikat för att autentisera dina IoT-enheter innehåller det här avsnittet vägledning om hur du integrerar certifikat i tillverkningsprocessen. Du måste fatta flera beslut.  Dessa inkluderar beslut om vanliga certifikatvariabler, när certifikat ska genereras och när de ska installeras. 
+Om du använder X. 509-certifikat för att autentisera dina IoT-enheter ger det här avsnittet vägledning om hur du integrerar certifikat i din tillverknings process. Du måste fatta flera beslut.  Detta inkluderar beslut om vanliga certifikat-variabler, när du ska skapa certifikat och när du ska installera dem. 
 
-Om du är van vid att använda lösenord kan du fråga varför du inte kan använda samma certifikat på alla dina enheter, på samma sätt som du skulle kunna använda samma lösenord på alla dina enheter. För det första är det farligt att använda samma lösenord överallt. Praxis har utsatt företag för stora DDoS-attacker, inklusive den som tog ner DNS på den amerikanska östkusten för flera år sedan. Använd aldrig samma lösenord överallt, även med personliga konton. För det andra är ett certifikat inte ett lösenord, det är en unik identitet. Ett lösenord är som en hemlig kod som alla kan använda för att öppna en dörr på en säker byggnad.  Det är något du vet, och du kan ge lösenordet till vem som helst att få entré.  Ett certifikat är som ett körkort med ditt foto och andra detaljer, som du kan visa för en vakt för att komma in i en säker byggnad. Den är knuten till vem du är.  Förutsatt att vakten korrekt matchar personer med körkort, bara du kan använda ditt körkort (identitet) för att få entré. 
+Om du använder lösen ord kan du fråga varför du inte kan använda samma certifikat i alla dina enheter, på samma sätt som du kan använda samma lösen ord på alla dina enheter. Börja med att använda samma lösen ord överallt är farligt. I övningen har du exponerat företag för större DDoS-attacker, inklusive det som tog upp DNS på östra USA-kusten för varje år sedan. Använd aldrig samma lösen ord överallt, även med personliga konton. Ett annat certifikat är inte ett lösen ord, det är en unik identitet. Ett lösen ord är som en hemlig kod som alla kan använda för att öppna en dörr i en säker byggnad.  Det är något du känner till och du kan ge lösen ordet till vem som helst för att få till gång till dem.  Ett certifikat är som en driv rutins licens med ditt foto och annan information, som du kan visa för att skydda dig mot en säker byggnad. Den är knuten till vem du är.  Förutsatt att säkerhets identifieraren exakt matchar personer med driv Rutinens licenser, kan du använda din licens (identitet) för att få till gång. 
 
-### <a name="variables-involved-in-certificate-decisions"></a>Variabler som deltar i certifikatbeslut
-Tänk på följande variabler och hur var och en påverkar den övergripande tillverkningsprocessen. 
+### <a name="variables-involved-in-certificate-decisions"></a>Variabler som ingår i certifikat beslut
+Överväg följande variabler och hur var och en påverkar den övergripande tillverknings processen. 
 
-#### <a name="where-the-certificate-root-of-trust-comes-from"></a>Var certifikatroten av förtroende kommer ifrån
-Det kan vara kostsamt och komplicerat att hantera en infrastruktur för offentliga nycklar (PKI).  Speciellt om ditt företag inte har någon erfarenhet av att hantera en PKI. Alternativen är:
-- Använd en PKI från tredje part. Du kan köpa mellanliggande signeringscertifikat från en tredjepartscertifikatleverantör. Du kan också använda en privat certifikatutfärdarmyndighet. 
-- Använd en självhanterad PKI. Du kan underhålla ditt eget PKI-system och generera dina egna certifikat.
-- Använd säkerhetstjänsten [Azure Sphere.](https://azure.microsoft.com/services/azure-sphere/) Det här alternativet gäller endast Azure Sphere-enheter. 
+#### <a name="where-the-certificate-root-of-trust-comes-from"></a>Där certifikat roten för förtroendet kommer från
+Det kan vara kostsamt och komplicerat för att hantera en PKI (Public Key Infrastructure).  Särskilt om ditt företag inte har någon erfarenhet av att hantera en PKI. Alternativen är:
+- Använd en PKI från tredje part. Du kan köpa mellanliggande signerings certifikat från en certifikat leverantör från tredje part. Eller så kan du använda en privat certifikat utfärdare (CA). 
+- Använd en självhanterad PKI. Du kan underhålla ditt eget PKI-system och generera egna certifikat.
+- Använd tjänsten [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) Security. Det här alternativet gäller endast för Azure Sphere enheter. 
 
-#### <a name="where-certificates-are-stored"></a>Var certifikat lagras
-Det finns några faktorer som påverkar beslutet om var certifikat lagras. Dessa faktorer inkluderar typ av enhet, förväntade vinstmarginaler (om du har råd med säker lagring), enhetsfunktioner och befintlig säkerhetsteknik på den enhet som du kanske kan använda. Tänk på följande alternativ:
-- I en maskinvarusäkerhetsmodul (HSM). Användning av en HSM rekommenderas starkt. Kontrollera om enhetens kontrollkort redan har en HSM installerad. Om du vet att du inte har en HSM kan du arbeta med maskinvarutillverkaren för att identifiera en HSM som uppfyller dina behov.
-- På en säker plats på disken, till exempel en betrodd körningsmiljö (TEE).
-- I det lokala filsystemet eller i ett certifikatarkiv. Till exempel Windows-certifikatarkivet. 
+#### <a name="where-certificates-are-stored"></a>Där certifikat lagras
+Det finns några faktorer som påverkar beslutet om var certifikat lagras. Dessa faktorer omfattar typ av enhet, förväntade vinst marginaler (oavsett om du kan erbjuda säker lagring), enhets kapacitet och befintlig säkerhets teknik på den enhet som du kan använda. Överväg följande alternativ:
+- I en modul för maskin varu säkerhet (HSM). Användning av en HSM rekommenderas starkt. Kontrol lera om enhetens kontroll panel redan har en HSM installerad. Om du vet att du inte har en HSM kan du arbeta med maskin varu tillverkaren för att identifiera en HSM som uppfyller dina behov.
+- På en säker plats på en disk som en betrodd körnings miljö (TEE).
+- I det lokala fil systemet eller i ett certifikat arkiv. Till exempel Windows certifikat arkiv. 
 
-#### <a name="connectivity-at-the-factory"></a>Anslutning på fabriken
-Anslutningen på fabriken avgör hur och när du får certifikaten att installera på enheterna. Anslutningsalternativen är följande:
-- Anslutning. Att ha anslutning är optimalt, det effektiviserar processen att generera certifikat lokalt. 
-- Ingen anslutning. I det här fallet använder du ett signerat certifikat från en certifikatutfärdare för att generera enhetscertifikat lokalt och offline. 
-- Ingen anslutning. I det här fallet kan du hämta certifikat som genererades i förväg. Du kan också använda en offline-PKI för att generera certifikat lokalt.
+#### <a name="connectivity-at-the-factory"></a>Anslutning till fabriken
+Anslutningen på fabriken avgör hur och när du ska få certifikaten att installeras på enheterna. Anslutnings alternativen är följande:
+- Koppling. Om anslutningen är optimal, effektiviseras processen att generera certifikat lokalt. 
+- Ingen anslutning. I det här fallet använder du ett signerat certifikat från en certifikat utfärdare för att generera enhets certifikat lokalt och offline. 
+- Ingen anslutning. I det här fallet kan du hämta certifikat som har genererats i förväg. Du kan också använda en offline-PKI för att generera certifikat lokalt.
 
-#### <a name="audit-requirement"></a>Revisionskrav
-Beroende på vilken typ av enheter du producerar kan du ha ett regelkrav för att skapa en granskningsspårning över hur enhetsidentiteter installeras på dina enheter. Granskning tillför betydande produktionskostnad. Så i de flesta fall, bara göra det om det behövs. Om du är osäker på om en revision krävs kontaktar du företagets juridiska avdelning. Granskningsalternativ är: 
+#### <a name="audit-requirement"></a>Gransknings krav
+Beroende på vilken typ av enheter som du skapar kan du ha ett regel krav för att skapa en Gransknings logg för hur enhets identiteter installeras på dina enheter. Granskning lägger till betydande produktions kostnader. I de flesta fall behöver du bara göra det om det behövs. Om du är osäker på om en granskning krävs kan du kontakta företagets juridiska avdelning. Gransknings alternativ: 
 - Inte en känslig bransch. Ingen granskning krävs.
-- Känslig industri. Certifikat bör installeras i ett säkert rum enligt kraven för efterlevnadscertifiering. Om du behöver ett säkert rum för att installera certifikat är du förmodligen redan medveten om hur certifikat installeras på dina enheter. Och du har förmodligen redan ett revisionssystem på plats. 
+- Känslig bransch. Certifikaten bör installeras i ett säkert rum enligt certifierings kraven för efterlevnad. Om du behöver ett säkert rum för att installera certifikat är du förmodligen redan medveten om hur certifikaten installeras på dina enheter. Och du har förmodligen redan ett gransknings system på plats. 
 
-#### <a name="length-of-certificate-validity"></a>Intygets giltighetstid
-Precis som ett körkort har certifikaten ett utgångsdatum som anges när de skapas. Här är alternativen för certifikatets giltighetstid:
-- Förnyelse krävs inte.  Den här metoden använder en lång förnyelseperiod, så du behöver aldrig förnya certifikatet under enhetens livstid. Även om ett sådant tillvägagångssätt är bekvämt, det är också riskabelt.  Du kan minska risken genom att använda säker lagring som en HSM på dina enheter. Den rekommenderade metoden är dock att undvika att använda långlivade certifikat.
-- Förnyelse krävs.  Du måste förnya certifikatet under enhetens livstid. Certifikatets giltighetstid beror på sammanhanget och du behöver en strategi för förnyelse.  Strategin bör omfatta var du får certifikat och vilken typ av over-the-air-funktioner dina enheter har att använda i förnyelseprocessen. 
+#### <a name="length-of-certificate-validity"></a>Certifikatets giltighets tid
+Som en driv rutins licens har certifikat ett utgångs datum som anges när de skapas. Här följer alternativen för certifikatets giltighets tid:
+- Förnyelse krävs inte.  Den här metoden använder en lång förnyelse period, så du behöver aldrig förnya certifikatet under enhetens livs längd. En sådan metod är praktisk, men den är också riskfylld.  Du kan minska risken genom att använda säker lagring som en HSM på dina enheter. Den rekommenderade metoden är dock att undvika att använda certifikat med lång livs längd.
+- Förnyelse krävs.  Du måste förnya certifikatet under enhetens livs längd. Certifikatets giltighets tid beror på kontexten och du behöver en strategi för förnyelse.  Strategin bör omfatta var du får certifikat, och vilken typ av över-luft-funktioner som enheterna måste använda i förnyelse processen. 
 
-### <a name="when-to-generate-certificates"></a>När ska certifikat genereras
-Internetanslutningsfunktionerna på din fabrik påverkar din process för att generera certifikat. Du har flera alternativ för när du ska generera certifikat: 
+### <a name="when-to-generate-certificates"></a>När du ska skapa certifikat
+Funktionerna för Internet anslutning på fabriken påverkar din process för att skapa certifikat. Du har flera alternativ för när du ska skapa certifikat: 
 
-- Förinstallerade certifikat.  Vissa HSM-leverantörer erbjuder en premiumtjänst där HSM-leverantören installerar certifikat för kunden. Först ger kunderna HSM-leverantören åtkomst till ett signeringscertifikat. Sedan hsm-leverantören installerar certifikat som undertecknats av signeringscertifikatet på varje HSM som kunden köper. Allt kunden behöver göra är att installera HSM på enheten. Även om den här tjänsten tillför kostnader, hjälper den till att effektivisera din tillverkningsprocess.  Och det löser frågan om när certifikat ska installeras.
-- Enhetsgenererade certifikat.  Om dina enheter genererar certifikat internt måste du extrahera det offentliga X.509-certifikatet från enheten för att registrera det i DPS. 
-- Ansluten fabrik.  Om din fabrik har anslutning kan du generera enhetscertifikat när du behöver dem.
-- Offline fabrik med din egen PKI. Om din fabrik inte har någon anslutning och du använder din egen PKI med offlinesupport kan du generera certifikaten när du behöver dem.
-- Offline fabrik med tredje part PKI. Om din fabrik inte har någon anslutning och du använder en PKI från tredje part måste du generera certifikaten i förväg. Och det kommer att bli nödvändigt att generera certifikat från en plats som har anslutning. 
+- Förinstallerade certifikat.  Vissa HSM-leverantörer erbjuder en premium-tjänst där HSM-leverantören installerar certifikat för kunden. Först ger kunderna åtkomst till HSM-leverantören till ett signerings certifikat. Sedan installerar HSM-leverantören certifikat som signerats av signerings certifikatet på varje HSM som kunden köper. Allt kunden behöver göra är att installera HSM på enheten. Tjänsten lägger till kostnader och hjälper till att effektivisera din tillverknings process.  Och det löser frågan om när certifikat ska installeras.
+- Enhets genererade certifikat.  Om enheterna genererar certifikat internt måste du extrahera det offentliga X. 509-certifikatet från enheten för att registrera det i DPS. 
+- Ansluten fabrik.  Om fabriken har anslutning kan du generera enhets certifikat när du behöver dem.
+- Offline-fabrik med din egen PKI. Om fabriken inte har någon anslutning och du använder din egen PKI med offline-support, kan du generera certifikaten när du behöver dem.
+- Offline-fabrik med PKI från tredje part. Om fabriken inte har någon anslutning och du använder en tredjeparts-PKI måste du generera certifikaten i förväg. Du måste då skapa certifikaten från en plats som har anslutning. 
 
 ### <a name="when-to-install-certificates"></a>När du ska installera certifikat
 När du har genererat certifikat för dina IoT-enheter kan du installera dem på enheterna. 
 
-Om du använder förinlästa certifikat med en HSM förenklas processen. När HSM har installerats i enheten kan enhetskoden komma åt den. Sedan ringer du HSM API:er för att komma åt certifikatet som lagras i HSM. Detta tillvägagångssätt är det mest praktiska för din tillverkningsprocess. 
+Om du använder förinstallerade certifikat med en HSM förenklas processen. När HSM har installerats i enheten kan enhets koden komma åt den. Sedan anropar du HSM-API: er för att komma åt certifikatet som lagras i HSM. Den här metoden är den lämpligaste för din tillverknings process. 
 
-Om du inte använder ett förinläst certifikat måste du installera certifikatet som en del av produktionsprocessen. Den enklaste metoden är att installera certifikatet i HSM samtidigt som du blinkar den ursprungliga firmware bilden. Processen måste lägga till ett steg för att installera avbildningen på varje enhet. Efter det här steget kan du köra slutliga kvalitetskontroller och andra steg innan du paketerar och skickar enheten. 
+Om du inte använder ett förinstallerat certifikat måste du installera certifikatet som en del av produktions processen. Det enklaste sättet är att installera certifikatet i HSM på samma gång som du blinkar den första avbildningen av den inbyggda program varan. Processen måste lägga till ett steg för att installera avbildningen på varje enhet. Efter det här steget kan du köra slutgiltiga kvalitets kontroller och andra steg innan du paketerar och levererar enheten. 
 
-Det finns programvaruverktyg som gör att du kan köra installationsprocessen och den slutliga kvalitetskontrollen i ett enda steg. Du kan ändra dessa verktyg för att generera ett certifikat eller hämta ett certifikat från ett förgenererat certifikatarkiv. Då programvaran kan installera certifikatet där du behöver installera den. Med programvaruverktyg av den här typen kan du köra tillverkning av produktionskvalitet i stor skala. 
+Det finns tillgängliga program varu verktyg som låter dig köra installations processen och den slutliga kvalitets kontrollen i ett enda steg. Du kan ändra dessa verktyg för att skapa ett certifikat eller hämta ett certifikat från ett förgenererat certifikat arkiv. Sedan kan program varan installera det certifikat där du behöver installera det. Med program varu verktyg av den här typen kan du köra tillverkning av produktions kvalitet i stor skala. 
 
-När du har installerat certifikat på dina enheter är nästa steg att lära dig hur du registrerar enheterna med [DPS](about-iot-dps.md). 
+När du har certifikat installerade på dina enheter är nästa steg att lära dig hur du registrerar enheter med [DPS](about-iot-dps.md). 
 
-## <a name="integrating-a-tpm-into-the-manufacturing-process"></a>Integrera en TPM i tillverkningsprocessen
-Om du använder en TPM för att autentisera dina IoT-enheter innehåller det här avsnittet vägledning. Vägledningen omfattar de ofta använda TPM 2.0-enheter som har HMAC-nyckelstöd (Hash-baserad meddelandeautentiseringskod). TPM-specifikationen för TPM-chips är en ISO-standard som underhålls av Trusted Computing Group. Mer information om TPM finns i specifikationerna för [TPM 2.0](https://trustedcomputinggroup.org/tpm-library-specification/) och [ISO/IEC 11889](https://www.iso.org/standard/66510.html). 
+## <a name="integrating-a-tpm-into-the-manufacturing-process"></a>Integrera en TPM i tillverknings processen
+Om du använder en TPM för att autentisera dina IoT-enheter ger det här avsnittet vägledning. Vägledningen beskriver de vanligaste TPM 2,0-enheter som har hash-baserad nyckel stöd för meddelandeautentisering (HMAC). TPM-specifikationen för TPM-chips är en ISO-standard som underhålls av Trusted Computing Group. Mer information om TPM finns i specifikationer för [tpm 2,0](https://trustedcomputinggroup.org/tpm-library-specification/) och [ISO/IEC 11889](https://www.iso.org/standard/66510.html). 
 
-### <a name="taking-ownership-of-the-tpm"></a>Att ta ansvar för TPM
-A critical step in manufacturing a device with a TPM chip is to take ownership of the TPM. Det här steget krävs så att du kan ange en nyckel till enhetens ägare. Det första steget är att extrahera bekräftelsenyckeln (EK) från enheten. Nästa steg är att faktiskt göra anspråk på äganderätt. Hur du åstadkommer detta beror på vilket TPM och operativsystem du använder. Om det behövs kontaktar du TPM-tillverkaren eller utvecklaren av enhetens operativsystem för att avgöra hur du gör anspråk på ägarskap. 
+### <a name="taking-ownership-of-the-tpm"></a>Bli ägare till TPM: en
+Ett viktigt steg i att tillverka en enhet med ett TPM-chip är att bli ägare till TPM: en. Det här steget krävs för att du ska kunna ange en nyckel till enhetens ägare. Det första steget är att extrahera bekräftelse nyckeln (EK) från enheten. Nästa steg är att faktiskt kräva ägande rätt. Hur du gör detta beror på vilken TPM och vilket operativ system du använder. Om det behövs kan du kontakta TPM-tillverkaren eller utvecklaren av enhetens operativ system för att avgöra hur du ska göra anspråk på ägarskap. 
 
-I din tillverkningsprocess kan du extrahera EK och göra anspråk på ägarskap vid olika tidpunkter, vilket ger flexibilitet. Många tillverkare utnyttjar den här flexibiliteten genom att lägga till en maskinvarusäkerhetsmodul (HSM) för att öka säkerheten för sina enheter. Det här avsnittet innehåller vägledning om när EK ska extraheras, när du ska göra anspråk på äganderätten till TPM:en, och överväganden för att integrera dessa steg i en tillverkningstidslinje. 
+I tillverknings processen kan du extrahera EK-och anspråk-ägarskapet vid olika tidpunkter, vilket ökar flexibiliteten. Många tillverkare drar nytta av den här flexibiliteten genom att lägga till en modul för maskin varu säkerhet (HSM) för att förbättra säkerheten på sina enheter. Det här avsnittet innehåller information om när du ska extrahera EK, när du ska kräva ägarskap för TPM och överväganden för att integrera de här stegen i en arbets tids linje. 
 
 > [!IMPORTANT]
-> Följande vägledning förutsätter att du använder en diskret, firmware eller integrerad TPM. På platser där det är tillämpligt lägger vägledningen till anteckningar om hur du använder en icke-diskret eller programvara TPM. Om du använder en TPM för programvara kan det finnas ytterligare steg som den här vägledningen inte innehåller. Program-TPM:er har en mängd olika implementeringar som ligger utanför den här artikelns räckvidd.  I allmänhet är det möjligt att integrera en programvara TPM i följande allmänna tillverkning tidslinje. Men medan en programvara emulerade TPM är lämplig för prototyper och testning, kan det inte ge samma säkerhetsnivå som en diskret, firmware eller integrerad TPM. Som en allmän praxis, undvika att använda en programvara TPM i produktion.
+> Följande rikt linjer förutsätter att du använder en diskret, inbyggd program vara eller integrerad TPM. På platser där det är tillämpligt lägger vägledningen till anteckningar om att använda en icke-diskret eller program varu TPM. Om du använder en program vara för TPM kan det finnas ytterligare steg som den här vägledningen inte innehåller. Program varu-TPM: er har en mängd olika implementeringar utöver den här artikelns omfattning.  I allmänhet är det möjligt att integrera en program-TPM i följande generella arbets tids linje. Men en programemulerad TPM är lämplig för prototyper och testning, men kan inte ge samma säkerhets nivå som en diskret, inbyggd program vara eller integrerad TPM. Undvik att använda en programvaru-TPM i produktion som allmän praxis.
 
-### <a name="general-manufacturing-timeline"></a>Allmän tillverkningstidslinje
-Följande tidslinje visar hur en TPM går igenom en produktionsprocess och hamnar i en enhet. Varje tillverkningsprocess är unik och den här tidslinjen visar de vanligaste mönstren. Tidslinjen ger vägledning om när vissa åtgärder ska vidtas med tangenterna. 
+### <a name="general-manufacturing-timeline"></a>Arbets tids linje för allmän tillverkning
+Följande tids linje visar hur en TPM går igenom en produktions process och slutar på en enhet. Varje tillverknings process är unik och den här tids linjen visar de vanligaste mönstren. Tids linjen ger vägledning om när du ska vidta vissa åtgärder med nycklarna. 
 
 #### <a name="step-1-tpm-is-manufactured"></a>Steg 1: TPM tillverkas
-- Om du köper TPM:er från en tillverkare för användning på dina enheter kan du se om de extraherar offentliga godkännandenycklar (EK_pubs) åt dig. Det är användbart om tillverkaren tillhandahåller en lista över EK_pubs med de levererade enheterna. 
+- Om du köper TPM från en tillverkare för användning i dina enheter kan du se om de extraherar offentliga bekräftelse nycklar (EK_pubs) åt dig. Det är bra om tillverkaren tillhandahåller en lista över EK_pubs med de levererade enheterna. 
     > [!NOTE]
-    > Du kan ge TPM-tillverkaren skrivbehörighet till registreringslistan med hjälp av principer för delad åtkomst i etableringstjänsten.  Med den här metoden kan de lägga till TPM:er i registreringslistan åt dig.  Men det är tidigt i tillverkningsprocessen, och det kräver förtroende för TPM tillverkaren. Gör det på egen risk. 
+    > Du kan ge TPM-tillverkaren skriv åtkomst till registrerings listan genom att använda delade åtkomst principer i etablerings tjänsten.  Med den här metoden kan du lägga till TPM: en i registrerings listan åt dig.  Men det är tidigt i tillverknings processen och kräver förtroende i TPM-tillverkaren. Gör det på egen risk. 
 
-- Om du tillverkar TPM:er att sälja till enhetstillverkare kan du överväga att ge dina kunder en lista över EK_pubs tillsammans med deras fysiska TPM:er.  Att ge kunderna EK_pubs sparar ett steg i deras process. 
-- Om du tillverkar TPM:er att använda med dina egna enheter identifierar du vilken punkt i processen som är mest praktiskt att extrahera EK_pub. Du kan extrahera EK_pub vid någon av de återstående punkterna i tidslinjen. 
+- Om du tillverkar TPM: er för att sälja till enhets tillverkare bör du överväga att ge kunderna en lista över EK_pubs tillsammans med deras fysiska TPM.  Att förse kunder med EK_pubs sparar ett steg i sin process. 
+- Om du tillverkar TPM: er som ska användas med dina egna enheter kan du identifiera vilken punkt i processen som är mest praktisk för att extrahera EK_pub. Du kan extrahera EK_pub på någon av de återstående punkterna i tids linjen. 
 
 #### <a name="step-2-tpm-is-installed-into-a-device"></a>Steg 2: TPM installeras i en enhet
-Vid denna punkt i produktionsprocessen bör du veta vilken DPS-instans enheten kommer att användas med. Därför kan du lägga till enheter i registreringslistan för automatisk etablering. Mer information om automatisk enhetsetablering finns i [DPS-dokumentationen](about-iot-dps.md).
-- Om du inte har extraherat EK_pub, nu är en bra tid att göra det. 
-- Beroende på installationsprocessen för TPM, är detta steg också ett bra tillfälle att bli ägare till TPM. 
+Vid den här tidpunkten i produktions processen bör du veta vilken DPS-instans enheten ska användas med. Det innebär att du kan lägga till enheter i registrerings listan för automatisk etablering. Mer information om automatisk enhets etablering finns i [DPS-dokumentationen](about-iot-dps.md).
+- Om du inte har extraherat EK_pub har du nu en lämplig tid att göra det. 
+- Beroende på installations processen för TPM: en är det här steget också en lämplig tid att bli ägare till TPM: en. 
 
-#### <a name="step-3-device-has-firmware-and-software-installed"></a>Steg 3: Enheten har inbyggd programvara och programvara installerad
-Installera dps-klienten tillsammans med ID-scopet och den globala URL:en för etablering.
-- Nu är sista chansen att utvinna EK_pub. Om en tredje part installerar programvaran på enheten är det en bra idé att extrahera EK_pub först.
-- Denna punkt i tillverkningsprocessen är idealisk för att ta ansvar för TPM.  
+#### <a name="step-3-device-has-firmware-and-software-installed"></a>Steg 3: enheten har inbyggd program vara och program vara installerad
+I det här skedet installerar du DPS-klienten tillsammans med ID-omfånget och den globala URL: en för etablering.
+- Nu är den sista chansen att extrahera EK_pub. Om en tredje part kommer att installera program varan på enheten, är det en bra idé att först extrahera den EK_pub.
+- Den här punkten i tillverknings processen är idealisk för att bli ägare till TPM: en.  
     > [!NOTE]
-    > Om du använder en TPM-programvara kan du installera den nu.  Extrahera EK_pub samtidigt.
+    > Om du använder en program vara för TPM kan du installera den nu.  Extrahera EK_pub samtidigt.
 
-#### <a name="step-4-device-is-packaged-and-sent-to-the-warehouse"></a>Steg 4: Enheten paketerar och skickas till lagret
+#### <a name="step-4-device-is-packaged-and-sent-to-the-warehouse"></a>Steg 4: enheten paketeras och skickas till lagret
 En enhet kan sitta i ett lager i 6-12 månader innan den distribueras. 
 
-#### <a name="step-5-device-is-installed-into-the-location"></a>Steg 5: Enheten är installerad på platsen
-När enheten anländer till sin slutliga plats, går den igenom automatisk etablering med DPS.
+#### <a name="step-5-device-is-installed-into-the-location"></a>Steg 5: enheten installeras på platsen
+När enheten har nått sin slutgiltiga plats går den igenom automatiserad etablering med DPS.
 
-Mer information finns i [Begrepp för automatisk etablering](concepts-auto-provisioning.md) och [TPM-intyg](concepts-tpm-attestation.md). 
+Mer information finns i [autoetablering av koncept](concepts-auto-provisioning.md) och [TPM-attestering](concepts-tpm-attestation.md). 
 
 ## <a name="resources"></a>Resurser
 
-Utöver de rekommenderade säkerhetsrutinerna i den här artikeln tillhandahåller Azure IoT resurser för att hjälpa dig att välja säker maskinvara och skapa säkra IoT-distributioner: 
-- Azure [IoT-säkerhetsrekommendationer](../iot-fundamentals/security-recommendations.md) för att styra distributionsprocessen. 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/) erbjuder en tjänst som hjälper till att skapa säkra IoT-distributioner. 
-- Om du vill ha hjälp med att utvärdera maskinvarumiljön finns i vitboken [Utvärdera din IoT-säkerhet](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). 
-- Mer information om hur du väljer säker maskinvara finns i [Rätt säker maskinvara för din IoT-distribution](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf). 
+Utöver de rekommenderade säkerhets metoderna i den här artikeln tillhandahåller Azure IoT resurser som hjälper dig att välja säker maskin vara och skapa säkra IoT-distributioner: 
+- Rekommendationer för Azure IoT- [säkerhet](../iot-fundamentals/security-recommendations.md) för att vägleda distributions processen. 
+- [Azure Security Center](https://azure.microsoft.com/services/security-center/) erbjuder en tjänst som hjälper dig att skapa säkra IoT-distributioner. 
+- Information om hur du utvärderar din maskin varu miljö finns i rapporten om att [utvärdera din IoT-säkerhet](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). 
+- Information om hur du väljer säker maskin vara finns i [rätt säker maskin vara för din IoT-distribution](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf). 

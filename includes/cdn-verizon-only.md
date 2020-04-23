@@ -16,4 +16,4 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593285"
 ---
 > [!IMPORTANT]
-> Den här funktionen är endast tillgänglig med **Azure CDN Standard från Verizon** och Azure **CDN Premium från** Verizon-produkter. Det stöds inte på **Azure CDN från Akamai**. En jämförelse av CDN-funktioner finns under [Azure CDN produktfunktioner](../articles/cdn/cdn-features.md).
+> Den här funktionen är endast tillgänglig med **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -produkter. Det stöds inte på **Azure CDN från Akamai**. En jämförelse av CDN-funktioner finns under [Azure CDN produktfunktioner](../articles/cdn/cdn-features.md).

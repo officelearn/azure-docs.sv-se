@@ -12,16 +12,16 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "75467711"
 ---
 ### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
-Med azure **storage-länkade tjänsten** kan du länka ett Azure-lagringskonto till en Azure-datafabrik med hjälp av **kontonyckeln**, som ger datafabriken global åtkomst till Azure Storage. Följande tabell innehåller en beskrivning av JSON-element som är specifika för Azure Storage-länkade tjänsten.
+Med den **länkade tjänsten Azure Storage** kan du länka ett Azure Storage-konto till en Azure-datafabrik med hjälp av **konto nyckeln**, som tillhandahåller data fabriken med global åtkomst till Azure Storage. Följande tabell innehåller en beskrivning av JSON-element som är speciella för Azure Storage länkade tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Typegenskapen måste anges till: **AzureStorage** |Ja |
-| Connectionstring |Ange information som behövs för att ansluta till Azure-lagring för egenskapen connectionString. |Ja |
+| typ |Egenskapen Type måste anges till: **AzureStorage** |Ja |
+| Begär |Ange information som krävs för att ansluta till Azure Storage för egenskapen connectionString. |Ja |
 
-Information om hur du hämtar åtkomstnycklarna för lagringskonto finns i [Hantera åtkomstnycklar för lagringskonto](../articles/storage/common/storage-account-keys-manage.md).
+Information om hur du hämtar åtkomst nycklar för lagrings kontot finns i [Hantera åtkomst nycklar för lagrings kontot](../articles/storage/common/storage-account-keys-manage.md).
 
-**Exempel:**  
+**Exempel**  
 
 ```json
 {
@@ -35,24 +35,24 @@ Information om hur du hämtar åtkomstnycklarna för lagringskonto finns i [Hant
 }
 ```
 
-### <a name="azure-storage-sas-linked-service"></a>Azure Storage Sas-länkad tjänst
-En signatur för delad åtkomst (Shared Access Signature, SAS) ger delegerad åtkomst till resurser på ditt lagringskonto. Det gör att du kan bevilja en klient begränsad behörighet till objekt i ditt lagringskonto under en viss tidsperiod och med en angiven uppsättning behörigheter, utan att behöva dela dina kontoåtkomstnycklar. SAS är en URI som i sina frågeparametrar omfattar all information som behövs för autentiserat åtkomst till en lagringsresurs. För att komma åt lagringsresurser med SAS behöver klienten bara skicka i SAS till lämplig konstruktor eller metod. Mer information om SAS finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../articles/storage/common/storage-sas-overview.md)
+### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS-länkad tjänst
+En signatur för delad åtkomst (Shared Access Signature, SAS) ger delegerad åtkomst till resurser på ditt lagringskonto. Det gör att du kan ge en klient begränsad behörighet till objekt i ditt lagrings konto under en angiven tids period och med en angiven uppsättning behörigheter, utan att behöva dela dina konto åtkomst nycklar. SAS är en URI som omfattar den information som krävs för autentiserad åtkomst till en lagrings resurs i dess frågeparametrar. För att få åtkomst till lagrings resurser med SAS måste klienten bara skicka in SAS till lämplig konstruktor eller metod. Mer information om SAS finns i [bevilja begränsad åtkomst till Azure Storage resurser med hjälp av signaturer för delad åtkomst (SAS)](../articles/storage/common/storage-sas-overview.md).
 
 > [!IMPORTANT]
-> Azure Data Factory stöder nu bara **Service SAS** men inte Konto SAS. Sas-URL-url:en som kan vara generabel från Azure-portalen eller Storage Explorer är ett konto SAS som inte stöds.
+> Azure Data Factory har nu bara stöd för **tjänst-SAS** , men inte konto säkerhets associationer. Observera att SAS URL-generable från Azure Portal eller Storage Explorer är en konto säkerhets Association, vilket inte stöds.
 
 > [!TIP]
-> Du kan köra under PowerShell-kommandon för att generera en Service SAS för ditt lagringskonto (ersätta platsinnehavarna och bevilja nödvändig behörighet):`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> Du kan köra följande PowerShell-kommandon för att skapa en tjänst-SAS för ditt lagrings konto (Ersätt plats hållare och bevilja nödvändig behörighet):`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Med den länkade Azure Storage SAS-tjänsten kan du länka ett Azure Storage-konto till en Azure-datafabrik med hjälp av en SAS (Shared Access Signature). Det ger datafabriken begränsad/tidsbunden åtkomst till alla/specifika resurser (blob/container) i lagringen. Följande tabell innehåller en beskrivning av JSON-element som är specifika för Azure Storage SAS-länkade tjänst. 
+Med den länkade tjänsten Azure Storage SAS kan du länka ett Azure Storage konto till en Azure-datafabrik med hjälp av en signatur för delad åtkomst (SAS). Den tillhandahåller data fabriken med begränsad/tidsbegränsad åtkomst till alla/angivna resurser (BLOB/container) i lagrings utrymmet. Följande tabell innehåller en beskrivning av JSON-element som är speciella för Azure Storage SAS-länkad tjänst. 
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Typegenskapen måste anges till: **AzureStorageSas** |Ja |
-| sasuri (samma sak) |Ange URI för delad åtkomstsignatur till Azure Storage-resurser som blob, behållare eller tabell.  |Ja |
+| typ |Egenskapen Type måste anges till: **AzureStorageSas** |Ja |
+| sasUri |Ange signatur-URI för delad åtkomst till Azure Storage resurser som BLOB, container eller Table.  |Ja |
 
-**Exempel:**
+**Exempel**
 
 ```json
 {
@@ -66,9 +66,9 @@ Med den länkade Azure Storage SAS-tjänsten kan du länka ett Azure Storage-kon
 }
 ```
 
-När du skapar en **SAS URI**med tanke på följande:  
+När du skapar en **SAS-URI**, som beaktar följande:  
 
-* Ange lämpliga **läs-/skrivbehörigheter** för objekt baserat på hur den länkade tjänsten (läsa, skriva, läsa/skriva) används i din datafabrik.
-* Ställ **in utgångstid** på lämpligt sätt. Kontrollera att åtkomsten till Azure Storage-objekt inte upphör att gälla inom den aktiva perioden för pipelinen.
-* Uri ska skapas på rätt behållare/blob eller Tabellnivå baserat på behovet. En SAS Uri till en Azure-blob gör det möjligt för datafabrikstjänsten att komma åt just den bloben. En SAS Uri till en Azure blob-behållare gör att datafabrikstjänsten kan iterera via blobbar i den behållaren. Om du behöver ge åtkomst till fler/färre objekt senare, eller uppdatera SAS URI, kom ihåg att uppdatera den länkade tjänsten med den nya URI.If you need to provide access more/fewer objects later, or update the SAS URI, remember to update the linked service with the new URI.   
+* Ange lämpliga Läs-/skriv **behörigheter** för objekt baserat på hur den länkade tjänsten (läsa, skriva, läsa/skriva) används i din data fabrik.
+* Ange **förfallo tid** på lämpligt sätt. Se till att åtkomsten till Azure Storage objekt upphör att gälla inom den aktiva perioden för pipelinen.
+* URI: n måste skapas på rätt behållare/BLOB eller tabell nivå baserat på behovet. En SAS-URI till en Azure-Blob gör att Data Factorys tjänsten kan komma åt den specifika blobben. Med en SAS-URI till en Azure Blob-behållare kan Data Factorys tjänsten iterera genom blobbar i den behållaren. Om du behöver ge åtkomst mer/färre objekt senare, eller uppdatera SAS-URI: n, måste du komma ihåg att uppdatera den länkade tjänsten med den nya URI: n.   
 

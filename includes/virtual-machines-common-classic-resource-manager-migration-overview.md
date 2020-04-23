@@ -15,119 +15,119 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77192767"
 ---
-I den här artikeln beskrivs hur du migrerar infrastruktur som en tjänst (IaaS) resurser från distributionsmodellerna Classic till Resource Manager och information om hur du ansluter resurser från de två distributionsmodeller som samexisterar i din prenumeration med hjälp av virtuellt nätverk gateways från plats till plats. Du kan läsa mer om [Azure Resource Manager-funktioner och fördelar](../articles/azure-resource-manager/management/overview.md). 
+Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS) resurser från de klassiska distributions modellerna för Resource Manager och hur du ansluter resurser från de två distributions modeller som finns i din prenumeration med hjälp av virtuella nätverks plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager funktioner och förmåner](../articles/azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Mål för migrering
-Resource Manager gör det möjligt att distribuera komplexa program via mallar, konfigurerar virtuella datorer med hjälp av VM-tillägg och innehåller åtkomsthantering och taggning. Azure Resource Manager innehåller skalbar, parallell distribution för virtuella datorer i tillgänglighetsuppsättningar. Den nya distributionsmodellen ger också livscykelhantering av beräkning, nätverk och lagring oberoende av varandra. Slutligen finns det fokus på att aktivera säkerhet som standard med tillämpning av virtuella datorer i ett virtuellt nätverk.
+Med Resource Manager kan du distribuera komplexa program via mallar, konfigurera virtuella datorer med hjälp av VM-tillägg och införliva åtkomst hantering och taggning. Azure Resource Manager innehåller skalbar, parallell distribution för virtuella datorer i tillgänglighets uppsättningar. Den nya distributions modellen innehåller också livs cykel hantering av beräkning, nätverk och lagring oberoende av varandra. Slutligen är det en fokus på att aktivera säkerhet som standard med tvång av virtuella datorer i ett virtuellt nätverk.
 
-Nästan alla funktioner från den klassiska distributionsmodellen stöds för beräkning, nätverk och lagring under Azure Resource Manager. Om du vill dra nytta av de nya funktionerna i Azure Resource Manager kan du migrera befintliga distributioner från den klassiska distributionsmodellen.
+Nästan alla funktioner från den klassiska distributions modellen stöds för beräkning, nätverk och lagring under Azure Resource Manager. Om du vill dra nytta av de nya funktionerna i Azure Resource Manager kan du migrera befintliga distributioner från den klassiska distributions modellen.
 
 ## <a name="supported-resources-for-migration"></a>Resurser som stöds för migrering
-Dessa klassiska IaaS-resurser stöds under migrering
+Dessa klassiska IaaS-resurser stöds under migreringen
 
 * Virtuella datorer
 * Tillgänglighetsuppsättningar
 * Lagringskonton
 * Virtuella nätverk
 * VPN-gatewayer
-* Express Route Gateways _(i samma prenumeration som endast virtuellt nätverk)_
+* Express Route-gatewayer _(endast i samma prenumeration som Virtual Network)_
 * Nätverkssäkerhetsgrupper
 * Routningstabeller
 * Reserverade ip-adresser
 
-## <a name="supported-scopes-of-migration"></a>Tillämpningsområde för migrering som stöds
-Det finns fyra olika sätt att slutföra migreringen av beräknings-, nätverks- och lagringsresurser:
+## <a name="supported-scopes-of-migration"></a>Omfång som stöds för migrering
+Det finns fyra olika sätt att slutföra migreringen av beräknings-, nätverks-och lagrings resurser:
 
-* [Migrering av virtuella datorer (INTE i ett virtuellt nätverk)](#migration-of-virtual-machines-not-in-a-virtual-network)
+* [Migrering av virtuella datorer (inte i ett virtuellt nätverk)](#migration-of-virtual-machines-not-in-a-virtual-network)
 * [Migrering av virtuella datorer (i ett virtuellt nätverk)](#migration-of-virtual-machines-in-a-virtual-network)
-* [Migrering av lagringskonton](#migration-of-storage-accounts)
-* [Flyttning av obundna resurser](#migration-of-unattached-resources)
+* [Migrering av lagrings konton](#migration-of-storage-accounts)
+* [Migrering av ej anslutna resurser](#migration-of-unattached-resources)
 
-### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>Migrering av virtuella datorer (INTE i ett virtuellt nätverk)
-I resurshanterarens distributionsmodell tillämpas säkerhet för dina program som standard. Alla virtuella datorer måste finnas i ett virtuellt nätverk i Resource Manager-modellen. Azure-plattformen startar`Stop`om `Deallocate`( `Start`, och ) de virtuella datorerna som en del av migreringen. Du har två alternativ för de virtuella nätverk som de virtuella datorerna ska migreras till:
+### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>Migrering av virtuella datorer (inte i ett virtuellt nätverk)
+I distributions modellen för Resource Manager tillämpas säkerheten på dina program som standard. Alla virtuella datorer måste finnas i ett virtuellt nätverk i Resource Manager-modellen. Azure-plattformen startar om (`Stop`, `Deallocate`och `Start`) de virtuella datorerna som en del av migreringen. Du har två alternativ för de virtuella nätverk som Virtual Machines ska migreras till:
 
-* Du kan begära att plattformen skapar ett nytt virtuellt nätverk och migrerar den virtuella datorn till det nya virtuella nätverket.
+* Du kan begära plattformen för att skapa ett nytt virtuellt nätverk och migrera den virtuella datorn till det nya virtuella nätverket.
 * Du kan migrera den virtuella datorn till ett befintligt virtuellt nätverk i Resource Manager.
 
 > [!NOTE]
-> I det här migreringsområdet kan både hanteringsplan och dataplansåtgärder inte tillåtas under en tidsperiod under migreringen.
+> I det här migrerings omfånget är både hanterings Plans åtgärderna och data Plans åtgärderna inte tillåtna under en tids period under migreringen.
 >
 
 ### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>Migrering av virtuella datorer (i ett virtuellt nätverk)
-För de flesta VM-konfigurationer migreras endast metadata mellan distributionsmodellerna för Klassisk och Resource Manager. De underliggande virtuella datorerna körs på samma maskinvara, i samma nätverk och med samma lagring. Ledningens planverksamhet får inte tillåtas under en viss tidsperiod under migreringen. Dataplanet fortsätter dock att fungera. Det vill än om dina program som körs ovanpå virtuella datorer (klassisk) inte medför driftstopp under migreringen.
+För de flesta konfigurationer av virtuella datorer migreras bara metadata mellan de klassiska distributions modellerna för och Resource Manager. De underliggande virtuella datorerna körs på samma maskin vara, i samma nätverk och med samma lagrings utrymme. Hanterings Plans åtgärder kan inte tillåtas under en viss tids period under migreringen. Men data planet fortsätter att fungera. Det vill säga att dina program som körs på de virtuella datorerna (klassisk) inte tar avbrott under migreringen.
 
-Följande konfigurationer stöds för närvarande inte. Om stöd läggs till i framtiden kan vissa virtuella datorer i den här konfigurationen medföra driftstopp (gå igenom stop, deallocate och starta om vm-åtgärder).
+Följande konfigurationer stöds inte för närvarande. Om support läggs till i framtiden kan vissa virtuella datorer i den här konfigurationen ådra sig avbrott (gå igenom stoppa, frigör och starta om VM-åtgärder).
 
-* Du har mer än en tillgänglighet inställd i en enda molntjänst.
-* Du har en eller flera tillgänglighetsuppsättningar och virtuella datorer som inte finns i en tillgänglighetsuppsättning i en enda molntjänst.
+* Du har fler än en tillgänglighets uppsättning i en enda moln tjänst.
+* Du har en eller flera tillgänglighets uppsättningar och virtuella datorer som inte finns i en tillgänglighets uppsättning i en enda moln tjänst.
 
 > [!NOTE]
-> I det här migreringsområdet kanske hanteringsplanet inte tillåts under en viss tid under migreringen. För vissa konfigurationer som beskrivits tidigare inträffar avbrott i dataplanet.
+> I det här migrerings omfånget kanske inte hanterings planet tillåts under en viss tids period under migreringen. För vissa konfigurationer enligt beskrivningen ovan inträffar data planet avbrotts tid.
 >
 
-### <a name="migration-of-storage-accounts"></a>Migrering av lagringskonton
-Om du vill tillåta sömlös migrering kan du distribuera virtuella resurshanterare i ett klassiskt lagringskonto. Med den här funktionen kan och bör beräknings- och nätverksresurser migreras oberoende av lagringskonton. När du har migrerat över virtuella datorer och virtuella nätverk måste du migrera över dina lagringskonton för att slutföra migreringen.
+### <a name="migration-of-storage-accounts"></a>Migrering av lagrings konton
+För att möjliggöra sömlös migrering kan du distribuera virtuella Resource Manager-datorer i ett klassiskt lagrings konto. Med den här funktionen kan beräknings-och nätverks resurser och bör migreras oberoende av lagrings konton. När du har migrerat över din Virtual Machines och Virtual Network måste du migrera över dina lagrings konton för att slutföra migreringsprocessen.
 
-Om ditt lagringskonto inte har några associerade diskar eller virtuella datorer data och bara har blobbar, filer, tabeller och köer kan migreringen till Azure Resource Manager göras som en fristående migrering utan beroenden.
+Om ditt lagrings konto inte har några associerade diskar eller Virtual Machines data och bara innehåller blobbar, filer, tabeller och köer, kan migreringen till Azure Resource Manager göras som en fristående migrering utan beroenden.
 
 > [!NOTE]
-> Resurshanterarens distributionsmodell har inte begreppet klassiska avbildningar och diskar. När lagringskontot migreras visas inte klassiska avbildningar och diskar i Resurshanterarens stack, men de virtuella hårddiskarna för säkerhetskopiering finns kvar i lagringskontot.
+> Distributions modellen för Resource Manager har inte begreppet klassiska avbildningar och diskar. När lagrings kontot migreras visas inte klassiska avbildningar och diskar i Resource Manager-stacken men de virtuella hård diskarna finns kvar i lagrings kontot.
 
-Följande skärmbilder visar hur du uppgraderar ett klassiskt lagringskonto till ett Azure Resource Manager-lagringskonto med Azure Portal:The following screenshots show how to upgrade a Classic storage account to an Azure Resource Manager storage account using Azure portal:
+Följande skärm bilder visar hur du uppgraderar ett klassiskt lagrings konto till ett Azure Resource Manager lagrings konto med hjälp av Azure Portal:
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till ditt lagringskonto.
-3. Klicka på Migrera **till ARM**i avsnittet **Inställningar** .
-4. Klicka på **Validera** för att fastställa migreringsförsämringsmöjligheten.
-5. Om valideringen går klickar du på **Förbered** för att skapa ett migrerat lagringskonto.
-6. Skriv **ja** för att bekräfta migreringen och klicka på **Slutför** för att slutföra migreringen.
+3. I avsnittet **Inställningar** klickar du på **migrera till arm**.
+4. Klicka på **validera** för att fastställa hur migreringen är genomförbar.
+5. Om verifieringen lyckas klickar du på **Förbered** för att skapa ett migrerat lagrings konto.
+6. Skriv **Ja** för att bekräfta migreringen och klicka på **genomför** för att slutföra migreringen.
 
-    ![Validera lagringskonto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    ![Verifiera lagrings konto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
     
-    ![Förbereda lagringskonto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    ![Förbered lagrings konto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
     
-    ![Slutföra migrering av lagringskonto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
+    ![Slutför migrering av lagrings konto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
-### <a name="migration-of-unattached-resources"></a>Flyttning av obundna resurser
-Lagringskonton utan associerade diskar eller data för virtuella datorer kan migreras oberoende av dem.
+### <a name="migration-of-unattached-resources"></a>Migrering av ej anslutna resurser
+Lagrings konton utan tillhör ande diskar eller Virtual Machines data kan migreras separat.
 
-Nätverkssäkerhetsgrupper, vägtabeller & reserverade IP-adresser som inte är kopplade till virtuella datorer och virtuella nätverk kan också migreras oberoende av dem.
+Nätverks säkerhets grupper, väg tabeller & reserverade IP-adresser som inte är kopplade till någon Virtual Machines och virtuella nätverk kan också migreras separat.
 
 <br>
 
 ## <a name="unsupported-features-and-configurations"></a>Funktioner och konfigurationer som inte stöds
-Vissa funktioner och konfigurationer stöds för närvarande inte. i följande avsnitt beskrivs våra rekommendationer kring dem.
+Vissa funktioner och konfigurationer stöds inte för närvarande. i följande avsnitt beskrivs våra rekommendationer runt dem.
 
 ### <a name="unsupported-features"></a>Funktioner som inte stöds
-Följande funktioner stöds för närvarande inte. Du kan också ta bort dessa inställningar, migrera de virtuella datorerna och sedan återaktivera inställningarna i Resurshanterarens distributionsmodell.
+Följande funktioner stöds inte för närvarande. Du kan också ta bort de här inställningarna, migrera de virtuella datorerna och sedan återaktivera inställningarna i distributions modellen för Resource Manager.
 
 | Resursprovider | Funktion | Rekommendation |
 | --- | --- | --- |
-| Compute | Oassocierade virtuella datordiskar. | VHD-blobbar bakom dessa diskar migreras när lagringskontot migreras |
-| Compute | Virtuella datoravbildningar. | VHD-blobbar bakom dessa diskar migreras när lagringskontot migreras |
-| Nätverk | Slutpunktens åtkomstkontrollistor. | Ta bort ACL:er för slutpunkt och försök igen. |
-| Nätverk | Application Gateway | Ta bort programgatewayen innan du påbörjar migreringen och återskapa sedan programgatewayen när migreringen är klar. |
-| Nätverk | Virtuella nätverk med VNet Peering. | Migrera virtuellt nätverk till Resource Manager och sedan peer. Läs mer om [VNet-peering](../articles/virtual-network/virtual-network-peering-overview.md). |
+| Compute | Avassocierade virtuella dator diskar. | VHD-blobbar bakom diskarna migreras när lagrings kontot migreras |
+| Compute | Avbildningar av virtuella datorer. | VHD-blobbar bakom diskarna migreras när lagrings kontot migreras |
+| Nätverk | Slutpunktens åtkomstkontrollistor. | Ta bort ACL för slut punkter och försök att migrera igen. |
+| Nätverk | Application Gateway | Ta bort Application Gateway innan du påbörjar migreringen och återskapa sedan Application Gateway när migreringen är klar. |
+| Nätverk | Virtuella nätverk som använder VNet-peering. | Migrera Virtual Network till Resource Manager och sedan peer. Läs mer om [VNet-peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Konfigurationer som inte stöds
-Följande konfigurationer stöds för närvarande inte.
+Följande konfigurationer stöds inte för närvarande.
 
 | Tjänst | Konfiguration | Rekommendation |
 | --- | --- | --- |
-| Resource Manager |Rollbaserad åtkomstkontroll (RBAC) för klassiska resurser |Eftersom URI för resurserna ändras efter migreringen, rekommenderar vi att du planerar RBAC-principuppdateringar som måste ske efter migreringen. |
-| Compute |Flera undernät som är associerade med en virtuell dator |Uppdatera undernätskonfigurationen så att den bara refererar till ett undernät. Detta kan kräva att du tar bort ett sekundärt nätverkskort (som refererar till ett annat undernät) från den virtuella datorn och sätter tillbaka det när migreringen har slutförts. |
-| Compute |Virtuella datorer som tillhör ett virtuellt nätverk men inte har ett explicit undernät tilldelat |Du kan också ta bort den virtuella datorn. |
-| Compute |Virtuella datorer som har aviseringar, principer för automatisk skalning |Migreringen går igenom och dessa inställningar tas bort. Vi rekommenderar starkt att du utvärderar din miljö innan du gör migreringen. Du kan också konfigurera om aviseringsinställningarna när migreringen är klar. |
-| Compute |XML-vm-tillägg (BGInfo 1.*, Visual Studio-felsökning, webbut distribuera och fjärrfelsökning) |Detta stöds inte. Vi rekommenderar att du tar bort dessa tillägg från den virtuella datorn för att fortsätta migreringen eller att de kommer att tas bort automatiskt under migreringsprocessen. |
-| Compute |Starta diagnostik med Premium-lagring |Inaktivera funktionen Startdiagnostik för de virtuella datorerna innan du fortsätter med migreringen. Du kan återaktivera startdiagnostik i Resurshanteraren-stacken när migreringen har slutförts. Dessutom bör blobbar som används för skärmbild och seriella loggar tas bort så att du inte längre debiteras för dessa blobbar. |
-| Compute | Molntjänster som innehåller webb-/arbetarroller | Detta stöds för närvarande inte. |
-| Compute | Molntjänster som innehåller mer än en tillgänglighetsuppsättning eller flera tillgänglighetsuppsättningar. |Detta stöds för närvarande inte. Flytta de virtuella datorerna till samma tillgänglighetsuppsättning innan du migrerar. |
-| Compute | VM med Azure Security Center-tillägg | Azure Security Center installerar automatiskt tillägg på dina virtuella datorer för att övervaka deras säkerhet och höja aviseringar. Dessa tillägg installeras vanligtvis automatiskt om Azure Security Center-principen är aktiverad på prenumerationen. Om du vill migrera de virtuella datorerna inaktiverar du säkerhetscentrumprincipen för prenumerationen, som tar bort övervakningstillägget för Security Center från de virtuella datorerna. |
-| Compute | Virtuell dator med säkerhetskopierings- eller ögonblicksbildtillägg | Dessa tillägg installeras på en virtuell dator som konfigurerats med Azure Backup-tjänsten. Även om migreringen av dessa virtuella datorer inte stöds följer du vägledningen [här](/azure/virtual-machines/windows/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) för att hålla säkerhetskopior som togs före migreringen.  |
-| Compute | VM med Azure Site Recovery-tillägg | Dessa tillägg installeras på en virtuell dator som konfigurerats med Azure Site Recovery-tjänsten. Även om migreringen av lagring som används med Site Recovery kommer att fungera, kommer den aktuella replikeringen att påverkas. Du måste inaktivera och aktivera VM-replikering efter lagringsmigrering. |
-| Nätverk |Virtuella nätverk som innehåller virtuella datorer och webb-/arbetsroller |Detta stöds för närvarande inte. Flytta webb-/arbetarrollerna till sitt eget virtuella nätverk innan du migrerar. När det klassiska virtuella nätverket har migrerats kan det migrerade virtuella Azure Resource Manager-nätverket peered med det klassiska virtuella nätverket för att uppnå liknande konfiguration som tidigare.|
-| Nätverk | Klassiska Express Route-kretsar |Detta stöds för närvarande inte. Dessa kretsar måste migreras till Azure Resource Manager innan du påbörjar IaaS-migrering. Mer information finns i [Flytta ExpressRoute-kretsar från klassikern till Resurshanterarens distributionsmodell](../articles/expressroute/expressroute-move.md).|
-| Azure Apptjänst |Virtuella nätverk som innehåller App Service-miljöer |Detta stöds för närvarande inte. |
-| Azure HDInsight |Virtuella nätverk som innehåller HDInsight-tjänster |Detta stöds för närvarande inte. |
-| Microsoft Dynamics livscykeltjänster |Virtuella nätverk som innehåller virtuella datorer som hanteras av Dynamics Lifecycle Services |Detta stöds för närvarande inte. |
-| Azure AD Domain Services |Virtuella nätverk som innehåller Azure AD-domäntjänster |Detta stöds för närvarande inte. |
-| Azure API Management |Virtuella nätverk som innehåller Azure API Management-distributioner |Detta stöds för närvarande inte. Om du vill migrera IaaS VNET ändrar du VNET för API Management-distributionen, vilket är en åtgärd utan driftstopp. |
+| Resource Manager |Rollbaserad Access Control (RBAC) för klassiska resurser |Eftersom resursens URI ändras efter migreringen, rekommenderar vi att du planerar de RBAC-principinställningar som måste inträffa efter migreringen. |
+| Compute |Flera undernät som är kopplade till en virtuell dator |Uppdatera under näts konfigurationen så att den bara refererar till ett undernät. Detta kan kräva att du tar bort ett sekundärt nätverkskort (som refererar till ett annat undernät) från den virtuella datorn och ansluter det igen efter att migreringen har slutförts. |
+| Compute |Virtuella datorer som tillhör ett virtuellt nätverk, men som inte har något explicit tilldelat undernät |Du kan också ta bort den virtuella datorn. |
+| Compute |Virtuella datorer som har aviseringar, principer för autoskalning |Migreringen går igenom och de här inställningarna tas bort. Vi rekommenderar starkt att du utvärderar din miljö innan du migrerar. Alternativt kan du konfigurera om aviserings inställningarna när migreringen är klar. |
+| Compute |VIRTUELLA XML-tillägg (BGInfo 1. *, Visual Studio-felsökning, webb distribution och fjärrfelsökning) |Detta stöds inte. Vi rekommenderar att du tar bort dessa tillägg från den virtuella datorn för att fortsätta migreringen, eller så kommer de att tas bort automatiskt under migreringsprocessen. |
+| Compute |Startdiagnostik med Premium Storage |Inaktivera funktionen för startdiagnostik för de virtuella datorerna innan du fortsätter med migreringen. Du kan återaktivera startdiagnostik i Resource Manager-stacken när migreringen är klar. Dessutom bör blobbar som används för skärm bilds-och serie loggar tas bort så att du inte längre debiteras för dessa blobbar. |
+| Compute | Moln tjänster som innehåller webb-/arbets roller | Detta stöds inte för närvarande. |
+| Compute | Moln tjänster som innehåller mer än en tillgänglighets uppsättning eller flera tillgänglighets uppsättningar. |Detta stöds inte för närvarande. Flytta Virtual Machines till samma tillgänglighets uppsättning innan du migrerar. |
+| Compute | Virtuell dator med Azure Security Center-tillägget | Azure Security Center installerar automatiskt tillägg på Virtual Machines för att övervaka deras säkerhet och utlösa aviseringar. Dessa tillägg installeras vanligt vis automatiskt om Azure Security Centers principen är aktive rad för prenumerationen. Om du vill migrera Virtual Machines inaktiverar du Security Center-principen för prenumerationen, som tar bort Security Center övervaknings tillägget från Virtual Machines. |
+| Compute | Virtuell dator med säkerhets kopiering eller Snapshot-tillägg | Dessa tillägg installeras på en virtuell dator som har kon figurer ATS med tjänsten Azure Backup. Även om migreringen av de här virtuella datorerna inte stöds, följer du anvisningarna [här](/azure/virtual-machines/windows/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) för att behålla säkerhets kopior som togs innan migreringen.  |
+| Compute | Virtuell dator med Azure Site Recovery-tillägget | Dessa tillägg installeras på en virtuell dator som har kon figurer ATS med tjänsten Azure Site Recovery. Även om migreringen av lagrings utrymme som används med Site Recovery fungerar, påverkas den aktuella replikeringen. Du måste inaktivera och aktivera VM-replikering efter lagringsmigrering. |
+| Nätverk |Virtuella nätverk som innehåller virtuella datorer och webb-/arbets roller |Detta stöds inte för närvarande. Flytta webb-/arbets rollerna till sina egna Virtual Network innan du migrerar. När den klassiska Virtual Network har migrerats kan den migrerade Azure Resource Manager Virtual Network vara peer-kopplad med den klassiska Virtual Network för att uppnå liknande konfiguration som tidigare.|
+| Nätverk | Klassiska ExpressRoute-kretsar |Detta stöds inte för närvarande. Dessa kretsar måste migreras till Azure Resource Manager innan du påbörjar migreringen av IaaS. Läs mer i [Flytta ExpressRoute-kretsar från den klassiska distributions modellen till Resource Manager](../articles/expressroute/expressroute-move.md).|
+| Azure App Service |Virtuella nätverk som innehåller App Service miljöer |Detta stöds inte för närvarande. |
+| Azure HDInsight |Virtuella nätverk som innehåller HDInsight-tjänster |Detta stöds inte för närvarande. |
+| Microsoft Dynamics Lifecycle-tjänster |Virtuella nätverk som innehåller virtuella datorer som hanteras av Dynamics Lifecycle Services |Detta stöds inte för närvarande. |
+| Azure AD Domain Services |Virtuella nätverk som innehåller Azure AD Domain Services |Detta stöds inte för närvarande. |
+| Azure API Management |Virtuella nätverk som innehåller Azure API Management-distributioner |Detta stöds inte för närvarande. Om du vill migrera IaaS VNET ändrar du VNET för API Management distributionen, vilket inte är en drift stillestånds åtgärd. |

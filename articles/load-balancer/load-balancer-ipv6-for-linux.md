@@ -1,11 +1,11 @@
 ---
 title: Konfigurera DHCPv6 för virtuella Linux-datorer
 titleSuffix: Azure Load Balancer
-description: I den här artikeln kan du lära dig hur du konfigurerar DHCPv6 för virtuella Linux-datorer.
+description: I den här artikeln lär du dig hur du konfigurerar DHCPv6 för virtuella Linux-datorer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
-keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
+keywords: IPv6, Azure Load Balancer, dubbel stack, offentlig IP, inbyggd IPv6, mobil, IoT
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -24,26 +24,26 @@ ms.locfileid: "74225321"
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
 
 
-Vissa av Linux-avbildningarna för virtuella datorer på Azure Marketplace har inte dynamic host configuration protocol version 6 (DHCPv6) konfigurerad som standard. För att stödja IPv6 måste DHCPv6 konfigureras i Linux OS-distributionen som du använder. De olika Linux-distributionerna konfigurerar DHCPv6 på en mängd olika sätt eftersom de använder olika paket.
+Några av Linux-avbildningarna för virtuella datorer på Azure Marketplace har inte Dynamic Host Configuration Protocol version 6 (DHCPv6) som standard. DHCPv6 måste konfigureras i den Linux OS-distribution som du använder för att stödja IPv6. De olika Linux-distributionerna konfigurerar DHCPv6 på flera olika sätt eftersom de använder olika paket.
 
 > [!NOTE]
-> De senaste SUSE Linux- och CoreOS-avbildningarna på Azure Marketplace har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa bilder.
+> De senaste SUSE Linux-och Core-avbildningarna i Azure Marketplace har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder de här avbildningarna.
 
-I det här dokumentet beskrivs hur du aktiverar DHCPv6 så att din virtuella Linux-dator får en IPv6-adress.
+I det här dokumentet beskrivs hur du aktiverar DHCPv6 så att din virtuella Linux-dator erhåller en IPv6-adress.
 
 > [!WARNING]
-> Genom att felaktigt redigera nätverkskonfigurationsfiler kan du förlora nätverksåtkomst till den virtuella datorn. Vi rekommenderar att du testar dina konfigurationsändringar på icke-produktionssystem. Instruktionerna i den här artikeln har testats på de senaste versionerna av Linux-avbildningarna på Azure Marketplace. Mer detaljerade instruktioner finns i dokumentationen för din egen version av Linux.
+> Genom att felaktigt redigera filer för nätverks konfiguration kan du förlora nätverks åtkomsten till den virtuella datorn. Vi rekommenderar att du testar dina konfigurations ändringar på andra datorer än produktions system. Anvisningarna i den här artikeln har testats i de senaste versionerna av Linux-avbildningarna på Azure Marketplace. Mer detaljerad information finns i dokumentationen för din egen version av Linux.
 
 ## <a name="ubuntu"></a>Ubuntu
 
-1. Redigera filen */etc/dhcp/dhclient6.conf* och lägg till följande rad:
+1. Redigera */etc/DHCP/dhclient6.conf* -filen och Lägg till följande rad:
 
         timeout 10;
 
-2. Redigera nätverkskonfigurationen för eth0-gränssnittet med följande konfiguration:
+2. Redigera nätverks konfigurationen för eth0-gränssnittet med följande konfiguration:
 
-   * På **Ubuntu 12.04 och 14.04**redigerar du filen */etc/network/interfaces.d/eth0.cfg.* 
-   * På **Ubuntu 16.04**redigerar du filen */etc/network/interfaces.d/50-cloud-init.cfg.*
+   * Redigera */etc/network/interfaces.d/eth0.cfg* -filen på **Ubuntu 12,04 och 14,04**. 
+   * Redigera */etc/network/interfaces.d/50-Cloud-init.cfg* -filen på **Ubuntu 16,04**.
 
          iface eth0 inet6 auto
              up sleep 5
@@ -54,9 +54,9 @@ I det här dokumentet beskrivs hur du aktiverar DHCPv6 så att din virtuella Lin
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-Från och med Ubuntu 17.10 är standardkonfigurationsmekanismen för nätverkskonfiguration [NETPLAN]( https://netplan.io).  Vid installation/instansieringstid läser NETPLAN nätverkskonfiguration från YAML-konfigurationsfiler på den här platsen: /{lib,etc,run}/netplan/*.yaml.
+Från och med Ubuntu 17,10 är standard mekanismen för nätverks konfiguration [netplan]( https://netplan.io).  Vid installation/instansiering kan netplan läsa nätverks konfiguration från YAML konfigurationsfiler på den här platsen:/{lib, etc, kör}/netplan/*. yaml.
 
-Inkludera en *dhcp6:true-sats* för varje Ethernet-gränssnitt i konfigurationen.  Ett exempel:
+Inkludera en *dhcp6: true* -instruktion för varje Ethernet-gränssnitt i konfigurationen.  Ett exempel:
   
         network:
           version: 2
@@ -64,15 +64,15 @@ Inkludera en *dhcp6:true-sats* för varje Ethernet-gränssnitt i konfigurationen
             eno1:
               dhcp6: true
 
-Under tidig start skriver netplan "network renderer" konfiguration till /run to hand off control of devices to the https://netplan.io/referenceanspecified networking daemon For reference information about NETPLAN, see .
+Under tidig start skriver netplan "Network renderare"-konfigurationen till/Run för att kunna lämna kontroll över enheter till den angivna Network daemonen för att få referensinformation om netplan https://netplan.io/reference, se.
  
 ## <a name="debian"></a>Debian
 
-1. Redigera filen */etc/dhcp/dhclient6.conf* och lägg till följande rad:
+1. Redigera */etc/DHCP/dhclient6.conf* -filen och Lägg till följande rad:
 
         timeout 10;
 
-2. Redigera filen */etc/network/interfaces* och lägg till följande konfiguration:
+2. Redigera */etc/network/interfaces* -filen och Lägg till följande konfiguration:
 
         iface eth0 inet6 auto
             up sleep 5
@@ -86,11 +86,11 @@ Under tidig start skriver netplan "network renderer" konfiguration till /run to 
 
 ## <a name="rhel-centos-and-oracle-linux"></a>RHEL, CentOS och Oracle Linux
 
-1. Redigera nätverksfilen */etc/sysconfig/och* lägg till följande parameter:
+1. Redigera filen */etc/sysconfig/Network* och Lägg till följande parameter:
 
         NETWORKING_IPV6=yes
 
-2. Redigera filen */etc/sysconfig/network-scripts/ifcfg-eth0* och lägg till följande två parametrar:
+2. Redigera */etc/sysconfig/Network-scripts/ifcfg-eth0* -filen och Lägg till följande två parametrar:
 
         IPV6INIT=yes
         DHCPV6C=yes
@@ -103,15 +103,15 @@ Under tidig start skriver netplan "network renderer" konfiguration till /run to 
 
 ## <a name="sles-11-and-opensuse-13"></a>SLES 11 och openSUSE 13
 
-De senaste SUSE Linux Enterprise Server (SLES) och openSUSE-avbildningarna i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa bilder. Om du har en virtuell dator som baseras på en äldre eller anpassad SUSE-avbildning gör du följande:
+De senaste SUSE Linux Enterprise Server (SLES) och openSUSE-avbildningarna i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder de här avbildningarna. Om du har en virtuell dator som baseras på en äldre eller anpassad SUSE-avbildning gör du följande:
 
-1. Installera `dhcp-client` paketet om det behövs:
+1. Installera paketet `dhcp-client` om det behövs:
 
     ```bash
     sudo zypper install dhcp-client
     ```
 
-2. Redigera filen */etc/sysconfig/network/ifcfg-eth0* och lägg till följande parameter:
+2. Redigera filen */etc/sysconfig/Network/ifcfg-eth0* och Lägg till följande parameter:
 
         DHCLIENT6_MODE='managed'
 
@@ -121,15 +121,15 @@ De senaste SUSE Linux Enterprise Server (SLES) och openSUSE-avbildningarna i Azu
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-12-and-opensuse-leap"></a>SLES 12 och openSUSE Leap
+## <a name="sles-12-and-opensuse-leap"></a>SLES 12-och openSUSE-hopp
 
-De senaste SLES- och openSUSE-avbildningarna i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa bilder. Om du har en virtuell dator som baseras på en äldre eller anpassad SUSE-avbildning gör du följande:
+De senaste SLES-och openSUSE-avbildningarna i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder de här avbildningarna. Om du har en virtuell dator som baseras på en äldre eller anpassad SUSE-avbildning gör du följande:
 
-1. Redigera filen */etc/sysconfig/network/ifcfg-eth0* och `#BOOTPROTO='dhcp4'` ersätt parametern med följande värde:
+1. Redigera */etc/sysconfig/Network/ifcfg-eth0* -filen och Ersätt `#BOOTPROTO='dhcp4'` parametern med följande värde:
 
         BOOTPROTO='dhcp'
 
-2. Lägg till följande parameter i filen */etc/sysconfig/network/ifcfg-eth0:*
+2. Lägg till följande parameter i */etc/sysconfig/Network/ifcfg-eth0* -filen:
 
         DHCLIENT6_MODE='managed'
 
@@ -141,9 +141,9 @@ De senaste SLES- och openSUSE-avbildningarna i Azure har förkonfigurerats med D
 
 ## <a name="coreos"></a>CoreOS
 
-De senaste CoreOS-avbildningarna i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa bilder. Om du har en virtuell dator baserad på en äldre eller anpassad CoreOS-avbildning gör du följande:
+De senaste Core-avbildningarna i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder de här avbildningarna. Om du har en virtuell dator som baseras på en äldre eller anpassad Core-avbildning gör du följande:
 
-1. Redigera filen */etc/systemd/network/10_dhcp.network:*
+1. Redigera */etc/systemd/network/10_dhcp. Network* -fil:
 
         [Match]
         eth0

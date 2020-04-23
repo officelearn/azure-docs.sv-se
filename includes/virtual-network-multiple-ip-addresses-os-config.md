@@ -17,7 +17,7 @@ ms.locfileid: "76159595"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Lägg till IP-adresser till ett VM-operativsystem
 
-Anslut och logga in på en virtuell dator som du har skapat med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför stegen som följer för operativsystemet VM.
+Anslut och logga in på en virtuell dator som du har skapat med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför stegen som följer för ditt virtuella dator operativ system.
 
 ### <a name="windows"></a>Windows
 
@@ -32,14 +32,14 @@ Anslut och logga in på en virtuell dator som du har skapat med flera privata IP
     * **Standard-gateway**: Den första IP-adressen i undernätet. Om undernätet är 10.0.0.0/24 så är gateway-IP-adressen 10.0.0.1.
     * Välj **Använd följande DNS-serveradresser** och ange följande värden:
         * **Önskad DNS-server**: Ange 168.63.129.16 om du inte använder en egen DNS-server.  Om du använder en egen DNS-server måste du ange dess IP-adress.
-    * Välj knappen **Avancerat** och lägg till ytterligare IP-adresser. Lägg till var och en av de sekundära privata IP-adresser som du har lagt till i Azure-nätverksgränssnittet i ett tidigare steg i Windows-nätverksgränssnittet som har tilldelats den primära IP-adressen som tilldelats Azure-nätverksgränssnittet.
+    * Välj knappen **Avancerat** och Lägg till ytterligare IP-adresser. Lägg till var och en av de sekundära privata IP-adresserna, som du lade till i Azure Network Interface i ett föregående steg, till nätverks gränssnittet i Windows som har tilldelats den primära IP-adress som tilldelats Azure-nätverks gränssnittet.
 
-        Du bör aldrig tilldela den offentliga IP-adressen som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem manuellt. När du manuellt anger IP-adressen i operativsystemet, se till att det är samma adress som den privata IP-adressen som tilldelats [Azure-nätverksgränssnittet](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om [privata IP-adressinställningar.](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) Du bör aldrig tilldela en offentlig Azure-IP-adress i operativsystemet.
+        Du bör aldrig manuellt tilldela den offentliga IP-adress som tilldelats till en virtuell Azure-dator i den virtuella datorns operativ system. När du anger IP-adressen i operativ systemet manuellt måste du kontrol lera att den är samma adress som den privata IP-adress som tilldelats Azure- [nätverks gränssnittet](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om inställningar för [privata IP-adresser](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) . Du bör aldrig tilldela en offentlig Azure-IP-adress i operativ systemet.
 
     * Klicka på **OK** för att stänga TCP/IP-inställningarna och sedan på **OK** igen för att stänga inställningarna för nätverkskortet. RDP-anslutningen återupprättats.
 
 6. Från en kommandotolk skriver du *ipconfig /all*. Alla IP-adresser som du lade till visas och DHCP är avstängt.
-7. Konfigurera Windows för att använda den privata IP-adressen för den primära IP-konfigurationen i Azure som den primära IP-adressen för Windows. Se [Ingen Internet-åtkomst från Azure Windows VM som har flera IP-adresser](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) för mer information. 
+7. Konfigurera Windows att använda den privata IP-adressen för den primära IP-konfigurationen i Azure som den primära IP-adressen för Windows. Se [Ingen Internet åtkomst från virtuell Azure Windows-dator som har flera IP-adresser](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) för mer information. 
 
 ### <a name="validation-windows"></a>Validering (Windows)
 
@@ -49,7 +49,7 @@ Om du vill kontrollera att du kan ansluta till internet från den sekundära IP-
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en associerad offentlig IP-adress. För primära IP-konfigurationer krävs inte en offentlig IP-adress för att pinga till Internet.
+>För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplad till den. För primära IP-konfigurationer krävs ingen offentlig IP-adress för att pinga till Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
 
@@ -112,9 +112,9 @@ Vi rekommenderar att du tittar på den senaste dokumentationen för din Linux-di
 
    Du bör se IP-adressen som du lade till i listan.
 
-### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
 
-Ubuntu 18,04 och högre `netplan` har ändrats till för OS-nätverkshantering. Vi rekommenderar att du tittar på den senaste dokumentationen för din Linux-distribution. 
+Ubuntu 18,04 och senare har ändrats till `netplan` för nätverks hantering i operativ systemet. Vi rekommenderar att du tittar på den senaste dokumentationen för din Linux-distribution. 
 
 1. Öppna ett terminalfönster.
 2. Kontrollera att du är rotanvändaren. Om inte anger du följande kommando:
@@ -123,13 +123,13 @@ Ubuntu 18,04 och högre `netplan` har ändrats till för OS-nätverkshantering. 
     sudo -i
     ```
 
-3. Skapa en fil för det andra gränssnittet och öppna den i en textredigerare:
+3. Skapa en fil för det andra gränssnittet och öppna den i en text redigerare:
 
     ```bash
     vi /etc/netplan/60-static.yaml
     ```
 
-4. Lägg till följande rader i `10.0.0.6/24` filen och ersätt med din IP/netmask:
+4. Lägg till följande rader i filen och Ersätt `10.0.0.6/24` med IP/nätmask:
 
     ```bash
     network:
@@ -153,9 +153,9 @@ Ubuntu 18,04 och högre `netplan` har ändrats till för OS-nätverkshantering. 
     ```
 
 > [!NOTE]
-> `netplan try`ändringarna tillfälligt och återställa ändringarna efter 120 sekunder. Om anslutningen går förlorad väntar du 120 sekunder och återansluter sedan. Då har ändringarna återställts.
+> `netplan try`ändringarna kommer att verkställas tillfälligt och ändringarna återställs efter 120 sekunder. Om anslutningen bryts kan du vänta 120 sekunder och sedan ansluta igen. Vid detta tillfälle kommer ändringarna att återställas.
 
-7. Om du inte `netplan try`antar några problem med tillämpar du konfigurationsändringarna:
+7. Om du inte antar några `netplan try`problem med tillämpar du konfigurations ändringarna:
 
     ```bash
     netplan apply
@@ -254,7 +254,7 @@ Om du vill kontrollera att du kan ansluta till Internet från en sekundär IP-ko
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en associerad offentlig IP-adress. För primära IP-konfigurationer krävs inte en offentlig IP-adress för att pinga till Internet.
+>För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplad till den. För primära IP-konfigurationer krävs ingen offentlig IP-adress för att pinga till Internet.
 
 För virtuella Linux-datorer kan du behöva lägga till lämpliga vägar när du försöker verifiera utgående anslutningar från ett sekundärt nätverkskort. Det finns flera sätt att göra detta på. Se motsvarande dokumentation för din distribution av Linux. Detta går exempelvis att åstadkomma med hjälp av följande metod:
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Blob-filsystemdrivrutinen för Azure Data Lake Storage Gen2
-description: Drivrutinen för ABFS Hadoop-filsystem
+title: Driv rutinen för Azure Blob-filsystem för Azure Data Lake Storage Gen2
+description: Driv rutinen ABFS Hadoop-filsystem
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -15,53 +15,53 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75970282"
 ---
-# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob Filesystem driver (ABFS): En dedikerad Azure Storage-drivrutin för Hadoop
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob filesystem-drivrutinen (ABFS): en dedikerad Azure Storage driv rutin för Hadoop
 
-En av de primära åtkomstmetoderna för data i Azure Data Lake Storage Gen2 är via [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). DataSjölagring Gen2 ger användare av Azure Blob Storage åtkomst till en `ABFS`ny drivrutin, Azure Blob File System-drivrutinen eller . ABFS är en del av Apache Hadoop och ingår i många av de kommersiella distributioner av Hadoop. Med den här drivrutinen kan många program och ramverk komma åt data i Azure Blob Storage utan att någon kod uttryckligen refererar till Data Lake Storage Gen2.
+En av de primära åtkomst metoderna för data i Azure Data Lake Storage Gen2 är via [Hadoop-filsystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 ger användare av Azure Blob Storage åtkomst till en ny driv rutin, Azure Blob-filsystemets `ABFS`driv rutin eller. ABFS är en del av Apache Hadoop och ingår i många av de kommersiella distributionerna av Hadoop. Med den här driv rutinen kan många program och ramverk komma åt data i Azure Blob Storage utan kod som uttryckligen refererar till Data Lake Storage Gen2.
 
-## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Tidigare funktioner: Windows Azure Storage Blob-drivrutinen
+## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Tidigare funktion: Windows Azure Storage Blob-drivrutinen
 
-Windows Azure Storage Blob-drivrutinen eller [WASB-drivrutinen](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) gav det ursprungliga stödet för Azure Blob Storage. Den här drivrutinen utförde den komplexa uppgiften att mappa filsystemsenmantik (som krävs av Hadoop FileSystem-gränssnittet) till den för gränssnittet för objektlagringsformat som exponeras av Azure Blob Storage. Den här drivrutinen fortsätter att stödja den här modellen, vilket ger hög prestandaåtkomst till data som lagras i blobbar, men innehåller en betydande mängd kod som utför den här mappningen, vilket gör det svårt att underhålla. Dessutom kräver vissa åtgärder som [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) och [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) när de tillämpas på kataloger att drivrutinen utför ett stort antal åtgärder (på grund av objektlager brist på stöd för kataloger) vilket ofta leder till försämrad prestanda. ABFS-föraren var utformad för att övervinna de inneboende bristerna i WASB.
+Windows Azure Storage Blob driv rutinen eller [WASB-drivrutinen](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) tillhandahöll det ursprungliga stödet för Azure Blob Storage. Den här driv rutinen utförde den komplexa uppgiften att mappa fil systemets semantik (vilket krävs av Hadoop-filsystem-gränssnittet) till det objekt lagrings gränssnitt som exponeras av Azure Blob Storage. Den här driv rutinen fortsätter att stödja den här modellen, vilket ger hög prestanda åtkomst till data som lagras i blobbar, men som innehåller en betydande mängd kod som utför den här mappningen, vilket gör det svårt att underhålla. Dessutom kräver vissa åtgärder som [filesystem. Rename ()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) och [filesystem. Delete ()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) som tillämpas på kataloger att driv rutinen kan utföra ett stort antal åtgärder (på grund av att objekt inte innehåller stöd för kataloger) som ofta leder till försämrade prestanda. ABFS-drivrutinen har utformats för att lösa de olika bristerna i WASB.
 
-## <a name="the-azure-blob-file-system-driver"></a>Drivrutinen för Azure Blob File System
+## <a name="the-azure-blob-file-system-driver"></a>Azure Blob File System-drivrutinen
 
-[Azure Data Lake Storage REST-gränssnittet](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) är utformat för att stödja filsystemssenmantik över Azure Blob Storage. Med tanke på att Hadoop FileSystem också är utformat för att stödja samma semantik finns det inget krav på en komplex mappning i drivrutinen. Azure Blob File System-drivrutinen (eller ABFS) är alltså bara ett klientshims för REST API.Thus, the Azure Blob File System driver (or ABFS) is a mere client shim for the REST API.
+[Azure Data Lake Storage REST-gränssnittet](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) har utformats för att stödja semantiska fil system över Azure Blob Storage. Eftersom Hadoop-filsystem också är utformat för att stödja samma semantik finns det inget krav på en komplex mappning i driv rutinen. Därför är Azure Blob-filsystemets driv rutin (eller ABFS) en klient-Shim för REST API.
 
-Det finns dock vissa funktioner som drivrutinen fortfarande måste utföra:
+Det finns dock vissa funktioner som driv rutinen fortfarande måste utföra:
 
-### <a name="uri-scheme-to-reference-data"></a>URI-schema för referensdata
+### <a name="uri-scheme-to-reference-data"></a>URI-schema för referens data
 
-I enlighet med andra FileSystem-implementeringar inom Hadoop definierar ABFS-drivrutinen sitt eget URI-schema så att resurser (kataloger och filer) kan hanteras tydligt. URI-schemat dokumenteras i [Använd Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md). URI:ns struktur är:`abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+ABFS-drivrutinen är konsekvent med andra fil Systems implementeringar i Hadoop och definierar det egna URI-schemat så att resurser (kataloger och filer) kan särskiljas tydligt. URI-schemat dokumenteras i [använd Azure Data Lake Storage Gen2-URI](./data-lake-storage-introduction-abfs-uri.md). URI-strukturen är:`abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
-Med hjälp av ovanstående URI-format kan standardverktyg och samarbetsramverk användas för att referera till dessa resurser:
+Med hjälp av ovanstående URI-format kan du använda vanliga Hadoop-verktyg och ramverk för att referera till dessa resurser:
 
 ```bash
 hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data
 hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/
 ```
 
-Internt översätter ABFS-drivrutinen de resurser som anges i URI till filer och kataloger och anlöpar till AZURE Data Lake Storage REST API med dessa referenser.
+Internt översätter ABFS-drivrutinen resurserna som anges i URI: n till filer och kataloger och anropar Azure Data Lake Storage REST API med dessa referenser.
 
 ### <a name="authentication"></a>Autentisering
 
-ABFS-drivrutinen stöder två former av autentisering så att Hadoop-programmet kan komma åt resurser som finns i ett datasjölagringsgenm2-konto. Fullständig information om tillgängliga autentiseringsscheman finns i [säkerhetsguiden för Azure Storage](security-recommendations.md). De är:
+ABFS-drivrutinen stöder två typer av autentisering så att Hadoop-programmet kan komma åt resurser som finns i ett Data Lake Storage Gen2 kompatibelt konto. Fullständig information om tillgängliga autentiseringsscheman finns i [säkerhets guiden för Azure Storage](security-recommendations.md). De är:
 
-- **Delad nyckel:** Detta ger användare åtkomst till alla resurser i kontot. Nyckeln krypteras och lagras i Hadoop-konfigurationen.
+- **Delad nyckel:** Detta gör det möjligt för användare att få åtkomst till alla resurser i kontot. Nyckeln krypteras och lagras i Hadoop-konfigurationen.
 
-- **Token för Oauth-bärare i Azure Active Directory:** Azure AD-innehavartoken hämtas och uppdateras av drivrutinen med antingen slutanvändarens identitet eller ett konfigurerat tjänsthuvudnamn. Med den här autentiseringsmodellen auktoriseras all åtkomst per samtal med hjälp av identiteten som är associerad med den angivna token och utvärderas mot den tilldelade POSIX Access Control List (ACL).
+- **Azure Active Directory OAuth Bearer-token:** Azure AD Bearer-token förvärvas och uppdateras av driv rutinen med antingen identiteten för slutanvändaren eller ett konfigurerat huvud namn för tjänsten. Med hjälp av den här autentiseringsmetoden auktoriseras all åtkomst per anrop med den identitet som är kopplad till den angivna token och utvärderas mot den tilldelade POSIX-Access Control listan (ACL).
 
    > [!NOTE]
-   > Azure Data Lake Storage Gen2 stöder endast Azure AD v1.0-slutpunkter.
+   > Azure Data Lake Storage Gen2 stöder endast Azure AD v 1.0-slut punkter.
 
 ### <a name="configuration"></a>Konfiguration
 
-All konfiguration för ABFS-drivrutinen lagras i konfigurationsfilen. <code>core-site.xml</code> På Hadoop distributioner featuring [Ambari](https://ambari.apache.org/), konfigurationen kan också hanteras med hjälp av webbportalen eller Ambari REST API.
+All konfiguration för ABFS-drivrutinen lagras i <code>core-site.xml</code> konfigurations filen. På Hadoop-distributioner med [Ambari](https://ambari.apache.org/)kan konfigurationen också hanteras med hjälp av webb portalen eller Ambari REST API.
 
-Information om alla konfigurationsposter som stöds anges i den [officiella Hadoop-dokumentationen](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
+Information om alla konfigurations poster som stöds anges i den [officiella Hadoop-dokumentationen](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
 
 ### <a name="hadoop-documentation"></a>Hadoop-dokumentation
 
-ABFS-föraren är fullständigt dokumenterad i [hadoopdokumentationen](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
+ABFS-drivrutinen är fullständigt dokumenterad i den [officiella Hadoop-dokumentationen](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
 
 ## <a name="next-steps"></a>Nästa steg
 

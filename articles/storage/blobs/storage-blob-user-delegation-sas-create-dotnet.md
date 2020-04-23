@@ -1,7 +1,7 @@
 ---
-title: Använda .NET för att skapa en SAS för användardelegering för en behållare eller blob
+title: Använda .NET för att skapa en användar Delegerings-SAS för en behållare eller BLOB
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar en SAS för användardelegering med Azure Active Directory-autentiseringsuppgifter med hjälp av .NET-klientbiblioteket för Azure Storage.
+description: Lär dig hur du skapar en användar Delegerings-SAS med Azure Active Directory autentiseringsuppgifter genom att använda .NET-klient biblioteket för Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
@@ -17,25 +17,25 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75371844"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Skapa en SAS för användardelegering för en behållare eller blob med .NET
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD) autentiseringsuppgifter för att skapa en användaredelegering SAS för en behållare eller blob med Azure Storage-klientbiblioteket för .NET.
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-sa för en behållare eller BLOB med Azure Storage klient biblioteket för .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="assign-rbac-roles-for-access-to-data"></a>Tilldela RBAC-roller för åtkomst till data
 
-När ett Azure AD-säkerhetsobjekt försöker komma åt blob-data måste säkerhetsobjektet ha behörighet till resursen. Oavsett om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklingsmiljön, måste säkerhetsobjektet tilldelas en RBAC-roll som ger åtkomst till blob-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **Tilldela RBAC-roller för åtkomsträttigheter** i [Auktorisera åtkomst till Azure-blobbar och köer med Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+När ett Azure AD-säkerhetsobjekt försöker få åtkomst till BLOB-data måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en RBAC-roll som ger åtkomst till BLOB-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela RBAC-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Mer information om hur du autentiserar med Azure Identity-klientbiblioteket från Azure Storage finns i avsnittet **Autentisera med Azure Identity-biblioteket** i [Auktorisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+Mer information om hur du autentiserar med klient biblioteket för Azure Identity från Azure Storage finns i avsnittet **autentisera med Azure Identity Library** i [ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
 
-Lägg till `using` följande direktiv i koden för att använda Azure Identity- och Azure Storage-klientbiblioteken.
+Lägg till följande `using` direktiv i koden för att använda Azure-identiteten och Azure Storage klient biblioteken.
 
 ```csharp
 using System;
@@ -48,11 +48,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## <a name="get-an-authenticated-token-credential"></a>Hämta en autentrad tokenautentiseringsåtkomst
+## <a name="get-an-authenticated-token-credential"></a>Hämta autentiseringsuppgifter för autentiserad token
 
-Skapa en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) för att få en tokenautentiseringsinformation som koden kan använda för att auktorisera begäranden till Azure Storage.
+Skapa en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) om du vill hämta en token-autentiseringsuppgifter som din kod kan använda för att auktorisera begär anden till Azure Storage.
 
-Följande kodavsnitt visar hur du hämtar den autentiserade tokenautentiseringsuppgifterna och använder det för att skapa en tjänstklient för Blob-lagring:
+Följande kodfragment visar hur du hämtar autentiseringsuppgifter för autentiserade token och använder den för att skapa en tjänst klient för Blob Storage:
 
 ```csharp
 // Construct the blob endpoint from the account name.
@@ -63,18 +63,18 @@ BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
                                                      new DefaultAzureCredential());
 ```
 
-## <a name="get-the-user-delegation-key"></a>Hämta nyckeln för användardelegering
+## <a name="get-the-user-delegation-key"></a>Hämta användar Delegerings nyckeln
 
-Varje SAS är signerad med en nyckel. Om du vill skapa en SAS-användardelegering måste du först begära en användardelegeringsnyckel som sedan används för att signera SAS. Användardelegeringsnyckeln är jämförbar med den kontonyckel som används för att signera en tjänst SAS eller ett konto SAS, förutom att den är beroende av dina Azure AD-autentiseringsuppgifter. När en klient begär en användardelegeringsnyckel med hjälp av en OAuth 2.0-token returnerar Azure Storage användardelegeringsnyckeln för användarens räkning.
+Varje SAS signeras med en nyckel. Om du vill skapa en användar Delegerings-SAS måste du först begära en användar Delegerings nyckel som sedan används för att signera SAS. Användar Delegerings nyckeln motsvarar den konto nyckel som används för att signera en tjänst-SAS eller en konto säkerhets Association, förutom att den förlitar sig på dina autentiseringsuppgifter för Azure AD. När en klient begär en användar Delegerings nyckel med en OAuth 2,0-token returnerar Azure Storage användar Delegerings nyckeln för användarens räkning.
 
-När du har användardelegeringsnyckeln kan du använda den nyckeln för att skapa valfritt antal signaturer för delad åtkomst för användare under nyckelns livstid. Användardelegeringsnyckeln är oberoende av den OAuth 2.0-token som används för att hämta den, så token behöver inte förnyas så länge nyckeln fortfarande är giltig. Du kan ange att nyckeln ska vara giltig i upp till 7 dagar.
+När du har en användar Delegerings nyckel kan du använda den nyckeln för att skapa ett valfritt antal signaturer för delad åtkomst för användar delegering, under nyckelns livstid. Användar Delegerings nyckeln är oberoende av OAuth 2,0-token som används för att hämta den, så token behöver inte förnyas så länge nyckeln fortfarande är giltig. Du kan ange att nyckeln är giltig för en period på upp till sju dagar.
 
-Använd någon av följande metoder för att begära användardelegeringsnyckeln:
+Använd någon av följande metoder för att begära användar Delegerings nyckeln:
 
 - [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
 - [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
 
-Följande kodavsnitt hämtar användardelegeringsnyckeln och skriver ut dess egenskaper:
+Följande kodfragment hämtar användar Delegerings nyckeln och skriver ut dess egenskaper:
 
 ```csharp
 // Get a user delegation key for the Blob service that's valid for seven days.
@@ -94,7 +94,7 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 
 ## <a name="create-the-sas-token"></a>Skapa SAS-token
 
-Följande kodavsnitt visar skapa en ny [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) och ange parametrar för användarendelegationen SAS. Kodavsnittet anropar sedan [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) för att hämta SAS-tokensträngen. Slutligen skapar koden hela URI, inklusive resursadressen och SAS-token.
+Följande kodfragment visar hur du skapar en ny [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) och anger parametrarna för användar Delegerings-SAS. Kodfragmentet anropar sedan [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) för att hämta SAS-token-strängen. Slutligen skapar koden hela URI: n, inklusive resurs adressen och SAS-token.
 
 ```csharp
 // Create a SAS token that's valid for one hour.
@@ -123,9 +123,9 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## <a name="example-get-a-user-delegation-sas"></a>Exempel: Hämta en SAS-användaredelegering
+## <a name="example-get-a-user-delegation-sas"></a>Exempel: Hämta en användar Delegerings-SAS
 
-Följande exempelmetod visar den fullständiga koden för att autentisera säkerhetsobjektet och skapa SAS för användardelegation:
+Följande exempel metod visar den fullständiga koden för att autentisera säkerhets objekt och skapa användar Delegerings-SAS:
 
 ```csharp
 async static Task<Uri> GetUserDelegationSasBlob(string accountName, string containerName, string blobName)
@@ -183,9 +183,9 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Exempel: Läs en blob med en sas-för användardelegering
+## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Exempel: läsa en blob med en användar Delegerings-SAS
 
-I följande exempel testas den SAS som skapats i föregående exempel från ett simulerat klientprogram. Om SAS är giltigt kan klientprogrammet läsa innehållet i blobben. Om SAS är ogiltigt, till exempel om den har upphört att gälla, returnerar Azure Storage felkod 403 (Förbjudet).
+I följande exempel testas de användar Delegerings-SAS som skapades i föregående exempel från ett simulerat klient program. Om SAS är giltig kan klient programmet läsa innehållet i blobben. Om SAS är ogiltig, till exempel om den har upphört att gälla, returnerar Azure Storage felkod 403 (förbjuden).
 
 ```csharp
 private static async Task ReadBlobWithSasAsync(Uri sasUri)
@@ -237,6 +237,6 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 ## <a name="see-also"></a>Se även
 
-- [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SIGNATURER för delad åtkomst (SAS)](../common/storage-sas-overview.md)
-- [Hämta åtgärden Nyckel för användardelegering](/rest/api/storageservices/get-user-delegation-key)
-- [Skapa en SAS -för användardelegation (REST API)](/rest/api/storageservices/create-user-delegation-sas)
+- [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md)
+- [Hämta åtgärd för användar Delegerings nyckel](/rest/api/storageservices/get-user-delegation-key)
+- [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

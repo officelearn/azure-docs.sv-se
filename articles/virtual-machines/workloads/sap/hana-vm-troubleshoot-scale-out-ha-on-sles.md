@@ -1,6 +1,6 @@
 ---
-title: SAP HANA-utskalning av HSR-Pacemaker med SLES på Azure-virtuella datorer felsökning| Microsoft-dokument
-description: Guide för att kontrollera och felsöka en komplex SAP HANA-utskalningskonfiguration med hög tillgänglighet baserat på SAP HANA System Replication (HSR) och Pacemaker på SLES 12 SP3 som körs på virtuella Azure-datorer
+title: SAP HANA skalbar HSR – pacemaker med SLES på fel sökning av virtuella Azure-datorer | Microsoft Docs
+description: Guide för att kontrol lera och felsöka en komplex SAP HANA konfiguration med hög tillgänglighet baserat på SAP HANA system replikering (HSR) och pacemaker på SLES 12 SP3 som körs på virtuella Azure-datorer
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -19,7 +19,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617127"
 ---
-# <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och felsöka SAP HANA-utskalning med hög tillgänglighet på SLES 12 SP3 
+# <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och Felsök SAP HANA skalnings-och hög tillgänglighets installation på SLES 12 SP3 
 
 [sles-pacemaker-ha-guide]:high-availability-guide-suse-pacemaker.md
 [sles-hana-scale-out-ha-paper]:https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html
@@ -34,75 +34,75 @@ ms.locfileid: "77617127"
 [sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 
 
-Den här artikeln hjälper dig att kontrollera Pacemaker-klusterkonfigurationen för SAP HANA-utskalning som körs på virtuella Azure-datorer (VIRTUELLA datorer). Klusterkonfigurationen uppnåddes i kombination med SAP HANA System Replication (HSR) och SUSE RPM-paketet SAPHanaSR-ScaleOut. Alla tester gjordes endast på SUSE SLES 12 SP3. Artikelns avsnitt täcker olika områden och innehåller exempelkommandon och utdrag från config-filer. Vi rekommenderar dessa exempel som en metod för att verifiera och kontrollera hela klusterinställningarna.
+Den här artikeln hjälper dig att kontrol lera kluster konfigurationen för pacemaker för SAP HANA skalbarhet som körs på virtuella Azure-datorer (VM: ar). Kluster konfigurationen genomfördes i kombination med SAP HANA System Replication (HSR) och SUSE RPM-paketet SAPHanaSR-Scale. Alla tester utfördes på SUSE SLES 12 SP3. Artikelns avsnitt omfattar olika områden och inkluderar exempel kommandon och utdrag från konfigurationsfiler. Vi rekommenderar dessa exempel som en metod för att verifiera och kontrol lera hela kluster konfigurationen.
 
 
 
 ## <a name="important-notes"></a>Viktiga meddelanden
 
-Alla tester för SAP HANA-utskalning i kombination med SAP HANA System Replication och Pacemaker gjordes endast med SAP HANA 2.0. Operativsystemets version var SUSE Linux Enterprise Server 12 SP3 för SAP-program. Det senaste RPM-paketet, SAPHanaSR-ScaleOut från SUSE, användes för att konfigurera Pacemaker-klustret.
-SUSE publicerade en [detaljerad beskrivning av den här prestandaoptimerade installationen][sles-hana-scale-out-ha-paper].
+Alla tester för SAP HANA utskalning i kombination med SAP HANA system replikering och pacemaker skedde med SAP HANA 2,0. Operativ system versionen var SUSE Linux Enterprise Server 12 SP3 för SAP-program. Det senaste RPM-paketet, SAPHanaSR-skalning från SUSE, användes för att konfigurera pacemaker-klustret.
+SUSE har publicerat en [detaljerad beskrivning av den här Prestandaoptimerad installationen][sles-hana-scale-out-ha-paper].
 
-För typer av virtuella datorer som stöds för SAP HANA-utskalning läser du [DEN SAP HANA-certifierade IaaS-katalogen][sap-hana-iaas-list].
+För typer av virtuella datorer som stöds för SAP HANA utskalning kontrollerar du [SAP HANA Certified IaaS-katalogen][sap-hana-iaas-list].
 
-Det uppstod ett tekniskt problem med SAP HANA-utskalning i kombination med flera undernät och virtuella och virtuella nätverk och inrättandet av HSR. Det är obligatoriskt att använda de senaste SAP HANA 2.0-korrigeringsfilerna där problemet har åtgärdats. Följande SAP HANA-versioner stöds: 
+Det uppstod ett tekniskt problem med SAP HANA utskalning i kombination med flera undernät och virtuella nätverkskort och konfiguration av HSR. Det är obligatoriskt att använda de senaste SAP HANA 2,0-korrigeringarna där problemet har åtgärd ATS. Följande SAP HANA-versioner stöds: 
 
-* rev2.00.024.04 eller högre 
-* rev2.00.032 eller högre
+* rev 2.00.024.04 eller högre 
+* rev 2.00.032 eller högre
 
-Om du behöver stöd från SUSE följer du den här [guiden][suse-pacemaker-support-log-files]. Samla in all information om HA-klustret (HIGH-Availability) enligt beskrivningen i artikeln. SUSE-stöd behöver denna information för vidare analys.
+Om du behöver support från SUSE följer du den här [hand boken][suse-pacemaker-support-log-files]. Samla in all information om SAP HANA hög tillgänglighet (HA)-klustret enligt beskrivningen i artikeln. SUSE-support behöver den här informationen för ytterligare analys.
 
-Under interna tester blev klusterkonfigurationen förvirrad av en normal graciös VM-avstängning via Azure-portalen. Därför rekommenderar vi att du testar en kluster redundans med andra metoder. Använd metoder som att tvinga en kernel panik, **msl** eller stänga av nätverk eller migrera msl-resursen. Se information i följande avsnitt. Antagandet är att en standard avstängning sker med avsikt. Det bästa exemplet på en avsiktlig avstängning är för underhåll. Se information i [Planerat underhåll](#planned-maintenance).
+Under intern testning har kluster konfigurationen förväxlats av en normal korrekt avstängning av virtuella datorer via Azure Portal. Vi rekommenderar därför att du testar en redundanskluster på andra sätt. Använd metoder som tvinga en kernel-panik eller Stäng av nätverken eller migrera **MSL** -resursen. Se informationen i följande avsnitt. Antagandet är att en vanlig avstängning sker med avsikt. Det bästa exemplet på en avsiktlig avstängning är för underhåll. Se information i [planerat underhåll](#planned-maintenance).
 
-Under interna tester blev klusterkonfigurationen också förvirrad efter ett manuellt SAP HANA-övertagande medan klustret var i underhållsläge. Vi rekommenderar att du växlar tillbaka den manuellt innan du avslutar underhållsläget för klustret. Ett annat alternativ är att utlösa en redundans innan du sätter klustret i underhållsläge. Mer information finns i [Planerat underhåll](#planned-maintenance). Dokumentationen från SUSE beskriver hur du kan återställa klustret på det här sättet med hjälp av **crm-kommandot.** Men det tillvägagångssätt som tidigare nämnts var robust under interna tester och visade aldrig några oväntade biverkningar.
+Under intern testning förväxlas även kluster installationen efter en manuell SAP HANA övertag medan klustret var i underhålls läge. Vi rekommenderar att du byter tillbaka den igen manuellt innan du slutar klustrets underhålls läge. Ett annat alternativ är att utlösa redundans innan du försätter klustret i underhålls läge. Mer information finns i [planerat underhåll](#planned-maintenance). Dokumentationen från SUSE beskriver hur du kan återställa klustret på det här sättet med hjälp av **CRM** -kommandot. Men den metod som nämnts tidigare var robust under intern testning och visade aldrig några oväntade sido effekter.
 
-När du använder kommandot **crm migrate,** se till att rensa klusterkonfigurationen. Den lägger till platsbegränsningar som du kanske inte känner till. Dessa begränsningar påverkar klusterbeteendet. Se mer information i [Planerat underhåll](#planned-maintenance).
-
-
-
-## <a name="test-system-description"></a>Beskrivning av testsystemet
-
- För SAP HANA-utskalning HA-verifiering och certifiering användes en installation. Det bestod av två system med tre SAP HANA-noder vardera: en master och två arbetare. I följande tabell visas VM-namn och interna IP-adresser. Alla verifieringsprover som följer gjordes på dessa virtuella datorer. Genom att använda dessa VM-namn och IP-adresser i kommandoexemplen kan du bättre förstå kommandona och deras utdata:
+När du använder kommandot **CRM Migrate** , se till att rensa kluster konfigurationen. Den lägger till plats begränsningar som du kanske inte känner till. Dessa begränsningar påverkar kluster beteendet. Se mer information i [planerat underhåll](#planned-maintenance).
 
 
-| Typ av nod | VM-namn | IP-adress |
+
+## <a name="test-system-description"></a>Beskrivning av test system
+
+ För SAP HANA Scale-Out-verifiering och certifiering, användes en installation. Den består av två system med tre SAP HANA noder vardera: en huvud server och två arbets tagare. I följande tabell visas VM-namn och interna IP-adresser. Alla verifierings exempel som följer har utförts på de här virtuella datorerna. Genom att använda dessa VM-namn och IP-adresser i kommando exemplen kan du bättre förstå kommandona och deras utdata:
+
+
+| Nodtyp | VM-namn | IP-adress |
 | --- | --- | --- |
-| Huvudnod på plats 1 | hso-hana-vm-s1-0 | 10.0.0.30 |
-| Arbetsnod 1 på plats 1 | hso-hana-vm-s1-1 | 10.0.0.31 |
-| Arbetsnod 2 på plats 1 | hso-hana-vm-s1-2 | 10.0.0.32 |
+| Huvud nod på plats 1 | HSO-Hana-VM-S1-0 | 10.0.0.30 |
+| Arbetsnoden 1 på plats 1 | HSO-Hana-VM-S1-1 | 10.0.0.31 |
+| Arbetsnoden 2 på plats 1 | HSO-Hana-VM-S1-2 | 10.0.0.32 |
 | | | |
-| Huvudnod på plats 2 | hso-hana-vm-s2-0 | 10.0.0.40 |
-| Arbetsnod 1 på plats 2 | hso-hana-vm-s2-1 | 10.0.0.41 |
-| Arbetsnod 2 på plats 2 | hso-hana-vm-s2-2  | 10.0.0.42 |
+| Huvud nod på plats 2 | HSO-Hana-VM-S2-0 | 10.0.0.40 |
+| Arbetsnoden 1 på plats 2 | HSO-Hana-VM-S2-1 | 10.0.0.41 |
+| Arbetsnoden 2 på plats 2 | HSO-Hana-VM-S2-2  | 10.0.0.42 |
 | | | |
-| Majoritetstillverkare nod | hso-hana-dm | 10.0.0.13 |
-| SBD-enhetsserver | hso-hana-sbd | 10.0.0.19 |
+| Majoritets Maker-nod | HSO-Hana-DM | 10.0.0.13 |
+| SBD enhets Server | HSO-Hana-SBD | 10.0.0.19 |
 | | | |
-| NFS-server 1 | hso-nfs-vm-0 | 10.0.0.15 |
-| NFS-server 2 | hso-nfs-vm-1 | 10.0.0.14 |
+| NFS-server 1 | HSO-NFS-VM-0 | 10.0.0.15 |
+| NFS-server 2 | HSO-NFS-VM-1 | 10.0.0.14 |
 
 
 
 ## <a name="multiple-subnets-and-vnics"></a>Flera undernät och virtuella nätverkskort
 
-Efter SAP HANA-nätverksrekommendationer skapades tre undernät inom ett virtuellt Azure-nätverk. SAP HANA-utskalning på Azure måste installeras i icke-delat läge. Det innebär att varje nod använder lokala diskvolymer för **/hana/data** och **/hana/log**. Eftersom noderna endast använder lokala diskvolymer är det inte nödvändigt att definiera ett separat undernät för lagring:
+Följande SAP HANA nätverks rekommendationer skapades tre undernät i ett virtuellt Azure-nätverk. SAP HANA skala ut på Azure måste installeras i ett ej delat läge. Det innebär att varje nod använder lokala disk volymer för **/Hana/data** och **/Hana/log**. Eftersom noderna endast använder lokala disk volymer, är det inte nödvändigt att definiera ett separat undernät för lagring:
 
-- 10.0.2.0/24 för SAP HANA internode kommunikation
+- 10.0.2.0/24 för SAP HANA kommunikation mellan noder
 - 10.0.1.0/24 för SAP HANA System Replication (HSR)
 - 10.0.0.0/24 för allt annat
 
-Information om SAP HANA-konfiguration som är relaterad till att använda flera nätverk finns [i SAP HANA global.ini](#sap-hana-globalini).
+Information om SAP HANA konfiguration som är relaterad till att använda flera nätverk finns i [SAP HANA global. ini](#sap-hana-globalini).
 
-Varje virtuell dator i klustret har tre virtuella NCC som motsvarar antalet undernät. [Hur man skapar en virtuell Linux-dator i Azure med flera nätverkskort][azure-linux-multiple-nics] beskriver ett potentiellt routningsproblem på Azure när du distribuerar en Virtuell Linux-dator. Den här specifika routningsartikeln gäller endast för användning av flera virtuella NCC.This specific routing article applies only for use of multiple vNICs. Problemet löses av SUSE per standard i SLES 12 SP3. Mer information finns i [Multi-NIC med cloud-netconfig i EC2 och Azure][suse-cloud-netconfig].
+Varje virtuell dator i klustret har tre virtuella nätverkskort som motsvarar antalet undernät. [Hur du skapar en virtuell Linux-dator i Azure med flera nätverkskort som][azure-linux-multiple-nics] beskriver ett möjligt problem med routning i Azure när du distribuerar en virtuell Linux-dator. Den här artikeln gäller endast för användning av flera virtuella nätverkskort. Problemet löses med SUSE per standard i SLES 12 SP3. Mer information finns i [multi-NIC med Cloud-netconfig i EC2 och Azure][suse-cloud-netconfig].
 
 
-Om du vill kontrollera att SAP HANA är korrekt konfigurerat för att använda flera nätverk kör du följande kommandon. Kontrollera först på OS-nivån att alla tre interna IP-adresser för alla tre undernäten är aktiva. Om du har definierat undernäten med olika IP-adressintervall måste du anpassa kommandona:
+Kontrol lera att SAP HANA har kon figurer ATS korrekt för att använda flera nätverk genom att köra följande kommandon. Börja med att kontrol lera operativ Systems nivån att alla tre interna IP-adresser för alla tre undernät är aktiva. Om du har definierat undernät med olika IP-adressintervall måste du anpassa kommandona:
 
 <pre><code>
 ifconfig | grep "inet addr:10\."
 </code></pre>
 
-Följande exempelutdata kommer från den andra arbetarnoden på plats 2. Du kan se tre olika interna IP-adresser från eth0, eth1 och eth2:
+Följande exempel på utdata kommer från den andra Worker-noden på plats 2. Du kan se tre olika interna IP-adresser från eth0, eth1 och ETH2:
 
 <pre><code>
 inet addr:10.0.0.42  Bcast:10.0.0.255  Mask:255.255.255.0
@@ -111,25 +111,25 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 </code></pre>
 
 
-Kontrollera sedan SAP HANA-portarna för namnservern och HSR. SAP HANA bör lyssna på motsvarande undernät. Beroende på SAP HANA-instansnumret måste du anpassa kommandona. För testsystemet var instansnumret **00**. Det finns olika sätt att ta reda på vilka portar som används. 
+Kontrol lera sedan SAP HANA portar för namnserver-och HSR. SAP HANA bör lyssna på motsvarande undernät. Beroende på SAP HANA instans numret måste du anpassa kommandona. För test systemet var instans numret **00**. Det finns olika sätt att ta reda på vilka portar som används. 
 
-Följande SQL-uttryck returnerar instans-ID, instansnummer och annan information:
+Följande SQL-uttryck returnerar instans-ID, instans nummer och annan information:
 
 <pre><code>
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-Om du vill hitta rätt portnummer kan du till exempel titta i HANA Studio under **Konfiguration** eller via ett SQL-uttryck:
+Om du vill hitta rätt port nummer kan du se, till exempel, i HANA Studio under **konfigurationen** eller via ett SQL-uttryck:
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 </code></pre>
 
-Om du vill hitta alla portar som används i SAP-programvarustacken, inklusive SAP HANA, söker du i [TCP/IP-portar för alla SAP-produkter.][sap-list-port-numbers]
+Om du vill hitta alla portar som används i SAP-programs Tacken, inklusive SAP HANA, söker du igenom [TCP/IP-portarna för alla SAP-produkter][sap-list-port-numbers].
 
-Med tanke på instansnummer **00** i SAP HANA 2.0-testsystemet är portnumret för namnservern **30001**. Portnumret för HSR-metadatakommunikation är **40002**. Ett alternativ är att logga in på en arbetsnod och sedan kontrollera huvudnodtjänsterna. För den här artikeln kontrollerade vi arbetarnod 2 på plats 2 och försökte ansluta till huvudnoden på plats 2.
+Med instans nummer **00** i test systemet SAP HANA 2,0 är port numret för namn servern **30001**. Port numret för HSR metadata-kommunikation är **40002**. Ett alternativ är att logga in på en arbetsnoden och kontrol lera huvud Node-tjänsterna. I den här artikeln har vi kontrollerat Work Node 2 på plats 2 som försöker ansluta till huvud-noden på plats 2.
 
-Kontrollera namnserverporten:
+Kontrol lera namnet på Server porten:
 
 <pre><code>
 nc -vz 10.0.0.40 30001
@@ -137,8 +137,8 @@ nc -vz 10.0.1.40 30001
 nc -vz 10.0.2.40 30001
 </code></pre>
 
-För att bevisa att internodekommunikationen använder undernät **10.0.2.0/24**bör resultatet se ut så här med följande exempelutdata.
-Endast anslutningen via undernät **10.0.2.0/24** bör lyckas:
+För att bevisa att kommunikationen mellan noder använder undernät **10.0.2.0/24**, bör resultatet se ut som i följande exempel på utdata.
+Endast anslutningen via undernät **10.0.2.0/24** ska lyckas:
 
 <pre><code>
 nc: connect to 10.0.0.40 port 30001 (tcp) failed: Connection refused
@@ -146,7 +146,7 @@ nc: connect to 10.0.1.40 port 30001 (tcp) failed: Connection refused
 Connection to 10.0.2.40 30001 port [tcp/pago-services1] succeeded!
 </code></pre>
 
-Kontrollera nu om HSR-port **40002:**
+Sök nu efter HSR-port **40002**:
 
 <pre><code>
 nc -vz 10.0.0.40 40002
@@ -154,8 +154,8 @@ nc -vz 10.0.1.40 40002
 nc -vz 10.0.2.40 40002
 </code></pre>
 
-För att bevisa att HSR-kommunikationen använder undernät **10.0.1.0/24**bör resultatet se ut som följande exempelutdata.
-Endast anslutningen via undernät **10.0.1.0/24** bör lyckas:
+För att bevisa att HSR-kommunikationen använder undernät **10.0.1.0/24**bör resultatet se ut som i följande exempel på utdata.
+Endast anslutningen via undernät **10.0.1.0/24** ska lyckas:
 
 <pre><code>
 nc: connect to 10.0.0.40 port 40002 (tcp) failed: Connection refused
@@ -168,11 +168,11 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 ## <a name="corosync"></a>Corosync
 
 
-**Corosync-config-filen** måste vara korrekt på alla noder i klustret, inklusive majoritetsskaparnoden. Om klusterkopplingen för en nod inte fungerar som förväntat skapar eller **kopierar /etc/corosync/corosync.conf** manuellt på alla noder och startar om tjänsten. 
+Konfigurations filen för **corosync** måste vara korrekt på varje nod i klustret, inklusive majoritetsnoduppsättning-noden. Om klustrets koppling till en nod inte fungerar som förväntat skapar du eller kopierar **/etc/corosync/corosync.conf** manuellt till alla noder och startar om tjänsten. 
 
-Innehållet i **corosync.conf** från testsystemet är ett exempel.
+Innehållet i **corosync. conf** från test systemet är ett exempel.
 
-Det första avsnittet är **totem**, enligt beskrivningen i [Klusterinstallation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), steg 11. Du kan ignorera värdet för **mcastaddr**. Behåll bara den befintliga posten. Posterna för **token** och **konsensus** måste anges enligt Microsoft Azure [SAP HANA-dokumentation][sles-pacemaker-ha-guide].
+Det första avsnittet är **totem**, som beskrivs i [kluster installationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), steg 11. Du kan ignorera värdet för **mcastaddr**. Behåll bara den befintliga posten. Posterna för **token** och **konsensus** måste anges i enlighet med [Microsoft Azure SAP HANA-dokumentationen][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -202,7 +202,7 @@ totem {
 }
 </code></pre>
 
-Det andra avsnittet, **loggning,** ändrades inte från de angivna standardinställningarna:
+Det andra avsnittet, **loggning**, ändrades inte från de aktuella standardvärdena:
 
 <pre><code>
 logging {
@@ -220,7 +220,7 @@ logging {
 }
 </code></pre>
 
-I det tredje avsnittet visas **nodlisten**. Alla noder i klustret måste visa upp med sin **nodid:**
+I det tredje avsnittet visas **NodeList**. Alla noder i klustret måste visas med sina **nodeID**:
 
 <pre><code>
 nodelist {
@@ -255,7 +255,7 @@ nodelist {
 }
 </code></pre>
 
-I det sista avsnittet, **kvorum**, är det viktigt att ange värdet för **expected_votes** korrekt. Det måste vara antalet noder inklusive majoritetsskaparnoden. Och värdet för **two_node** måste vara **0**. Ta inte bort posten helt. Ställ bara in värdet på **0**.
+I det sista avsnittet, **kvorum**är det viktigt att ange värdet för **expected_votes** korrekt. Det måste vara antalet noder, inklusive majoritetsnoduppsättning-noden. Och värdet för **two_node** måste vara **0**. Ta inte bort posten helt. Ställ bara in värdet på **0**.
 
 <pre><code>
 quorum {
@@ -268,7 +268,7 @@ quorum {
 </code></pre>
 
 
-Starta om tjänsten via **systemctl:**
+Starta om tjänsten via **systemctl**:
 
 <pre><code>
 systemctl restart corosync
@@ -279,9 +279,9 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD-enhet
 
-Konfigurera en SBD-enhet på en Virtuell Azure-dator beskrivs i [SBD-stängsel](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Hur du konfigurerar en SBD-enhet på en virtuell Azure-dator beskrivs i [SBD-staket](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
-Kontrollera först på den virtuella datorn för SBD-servern om det finns ACL-poster för varje nod i klustret. Kör följande kommando på vm-servern för SBD:Run the following command on the SBD server VM:
+Börja med att kontrol lera den virtuella SBD-serverdatorn om det finns ACL-poster för varje nod i klustret. Kör följande kommando på den virtuella SBD-servern:
 
 
 <pre><code>
@@ -289,7 +289,7 @@ targetcli ls
 </code></pre>
 
 
-På testsystemet ser utdata från kommandot ut som följande exempel. ACL-namn som **iqn.2006-04.hso-db-0.local:hso-db-0** måste anges som motsvarande initierarnamn på de virtuella datorerna. Varje virtuell dator behöver en annan.
+I test systemet ser kommandots utdata ut som i följande exempel. ACL-namn som **IQN. 2006-04. HSO-dB-0. local: HSO-dB-0** måste anges som motsvarande namn på initierare på de virtuella datorerna. Varje virtuell dator behöver en annan.
 
 <pre><code>
  | | o- sbddbhso ................................................................... [/sbd/sbddbhso (50.0MiB) write-thru activated]
@@ -316,13 +316,13 @@ På testsystemet ser utdata från kommandot ut som följande exempel. ACL-namn s
   |     | o- iqn.2006-04.hso-db-6.local:hso-db-6 .................................................................. [Mapped LUNs: 1]
 </code></pre>
 
-Kontrollera sedan att initierarnamnen på alla virtuella datorer är olika och motsvarar de tidigare visade posterna. Det här exemplet är från arbetarnod 1 på plats 1:
+Kontrol lera sedan att initierar namnen på alla virtuella datorer är olika och motsvarar de poster som visades tidigare. Det här exemplet är från arbetsnoden 1 på plats 1:
 
 <pre><code>
 cat /etc/iscsi/initiatorname.iscsi
 </code></pre>
 
-Utdata ser ut som följande exempel:
+Utdata ser ut som i följande exempel:
 
 <pre><code>
 ##
@@ -338,31 +338,31 @@ Utdata ser ut som följande exempel:
 InitiatorName=iqn.2006-04.hso-db-1.local:hso-db-1
 </code></pre>
 
-Kontrollera sedan att **identifieringen** fungerar korrekt. Kör följande kommando på varje klusternod med hjälp av IP-adressen för den virtuella datorn för SBD-servern:
+Kontrol lera sedan att **identifieringen** fungerar korrekt. Kör följande kommando på varje klusternod med IP-adressen för den virtuella SBD-servern:
 
 <pre><code>
 iscsiadm -m discovery --type=st --portal=10.0.0.19:3260
 </code></pre>
 
-Utdata ska se ut som följande exempel:
+Utdata bör se ut som i följande exempel:
 
 <pre><code>
 10.0.0.19:3260,1 iqn.2006-04.dbhso.local:dbhso
 </code></pre>
 
-Nästa bevispunkt är att kontrollera att noden ser SDB-enheten. Kontrollera det på varje nod inklusive majoritetsmaskinnoden:
+Nästa korrektur punkt är att kontrol lera att noden ser SDB-enheten. Kontrol lera det på varje nod, inklusive majoritetsnoduppsättning-noden:
 
 <pre><code>
 lsscsi | grep dbhso
 </code></pre>
 
-Utdata ska se ut som följande exempel. Namnen kan dock skilja sig åt. Enhetsnamnet kan också ändras när den virtuella datorn har startats om:
+Utdata bör se ut som i följande exempel. Namnen kan dock skilja sig åt. Enhets namnet kan också ändras efter att den virtuella datorn har startats om:
 
 <pre><code>
 [6:0:0:0]    disk    LIO-ORG  sbddbhso         4.0   /dev/sdm
 </code></pre>
 
-Beroende på systemets status hjälper det ibland till att starta om iSCSI-tjänsterna för att lösa problem. Kör sedan följande kommandon:
+Beroende på systemets status hjälper det ibland att starta om iSCSI-tjänsterna för att lösa problem. Kör sedan följande kommandon:
 
 <pre><code>
 systemctl restart iscsi
@@ -370,13 +370,13 @@ systemctl restart iscsid
 </code></pre>
 
 
-Från valfri nod kan du kontrollera om alla noder är **klara**. Kontrollera att du använder rätt enhetsnamn på en viss nod:
+Från valfri nod kan du kontrol lera om alla noder är **tydliga**. Kontrol lera att du använder rätt enhets namn på en speciell nod:
 
 <pre><code>
 sbd -d /dev/sdm list
 </code></pre>
 
-Utdata ska vara **tydlig** för varje nod i klustret:
+Resultatet bör vara **klart** för varje nod i klustret:
 
 <pre><code>
 0       hso-hana-vm-s1-0        clear
@@ -389,13 +389,13 @@ Utdata ska vara **tydlig** för varje nod i klustret:
 </code></pre>
 
 
-En annan SBD kontroll är **dump** alternativet för **sbd** kommandot. I det här exempelkommandot och utdata från majoritetsnoden var **enhetsnamnet sdd**, inte **sdm:**
+En annan SBD kontroll är alternativet **dump** i **SBD** -kommandot. I det här exempel kommandot och utdata från majoritetsnoduppsättning-noden var enhets namnet **SDD**, inte **SDM**:
 
 <pre><code>
 sbd -d /dev/sdd dump
 </code></pre>
 
-Utdata, bortsett från enhetens namn, ska se likadan ut på alla noder:
+Utdata, förutom enhets namnet, bör se likadant ut på alla noder:
 
 <pre><code>
 ==Dumping header on disk /dev/sdd
@@ -410,21 +410,21 @@ Timeout (msgwait)  : 120
 ==Header on disk /dev/sdd is dumped
 </code></pre>
 
-En kontroll för SBD är möjligheten att skicka ett meddelande till en annan nod. Om du vill skicka ett meddelande till arbetsnod 2 på plats 2 kör du följande kommando på arbetsnod 1 på plats 2:
+En mer kontroll för SBD är möjligheten att skicka ett meddelande till en annan nod. Om du vill skicka ett meddelande till Work Node 2 på plats 2 kör du följande kommando på arbetsnoden 1 på plats 2:
 
 <pre><code>
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 </code></pre>
 
-På mål-VM-sidan, **hso-hana-vm-s2-2** i det här exemplet, hittar du följande post i **/var/log/messages:**
+På den virtuella mål datorn, **HSO-Hana-VM-S2-2** i det här exemplet kan du hitta följande post i **/var/log/Messages**:
 
 <pre><code>
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Kontrollera att posterna i **/etc/sysconfig/sbd** motsvarar beskrivningen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Kontrollera att startinställningen i **/etc/iscsi/iscsid.conf** är inställd på automatisk.
+Kontrol lera att posterna i **/etc/sysconfig/SBD** motsvarar beskrivningen i ställa in [pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Kontrol lera att start inställningen i **/etc/iSCSI/iscsid.conf** är inställd på automatisk.
 
-Följande poster är viktiga i **/etc/sysconfig/sbd**. Anpassa **id-värdet** om det behövs:
+Följande poster är viktiga i **/etc/sysconfig/SBD**. Anpassa **ID-** värdet vid behov:
 
 <pre><code>
 SBD_DEVICE="/dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68;"
@@ -434,45 +434,45 @@ SBD_WATCHDOG=yes
 </code></pre>
 
 
-Kontrollera startinställningen i **/etc/iscsi/iscsid.conf**. Den erforderliga inställningen borde ha skett med följande **iscsiadm-kommando,** som beskrivs i dokumentationen. Verifiera och anpassa den manuellt med **vi** om den är annorlunda.
+Kontrol lera start inställningen i **/etc/iSCSI/iscsid.conf**. Den obligatoriska inställningen ska ha hänt med följande **iscsiadm** -kommando, som beskrivs i dokumentationen. Kontrol lera och anpassa den manuellt med **vi** om den är annorlunda.
 
-Det här kommandot anger startbeteende:
+Det här kommandot anger start beteendet:
 
 <pre><code>
 iscsiadm -m node --op=update --name=node.startup --value=automatic
 </code></pre>
 
-Gör denna post i **/etc/iscsi/iscsid.conf:**
+Gör den här posten i **/etc/iSCSI/iscsid.conf**:
 
 <pre><code>
 node.startup = automatic
 </code></pre>
 
-Under testning och verifiering, efter omstarten av en virtuell dator, var SBD-enheten inte längre synlig längre i vissa fall. Det fanns en diskrepans mellan startinställningen och vad YaST2 visade. Så här kontrollerar du inställningarna:
+Vid testning och verifiering, efter omstart av en virtuell dator, var SBD-enheten inte längre synlig i vissa fall. Det uppstod en avvikelse mellan start inställningen och vilken YaST2 som visades. Gör så här för att kontrol lera inställningarna:
 
 1. Starta YaST2.
-2. Välj **Nätverkstjänster** till vänster.
-3. Bläddra nedåt till höger till **iSCSI-initieraren** och välj den.
-4. På nästa skärm under fliken **Tjänst** visas nodens unika initierarnamn.
-5. Ovanför initierarnamnet kontrollerar du att **värdet För tjänstens start** är inställt på Vid **start**.
-6. Om det inte är, sedan ställa in den till **vid uppstart** i stället för **manuellt**.
-7. Växla sedan den övre fliken till **Anslutna mål**.
-8. På skärmen **Anslutna mål** bör du se en post för SBD-enheten som det här exemplet: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
-9. Kontrollera om **startvärdet** är inställt **på vid uppstart**.
-10. Om inte väljer du **Redigera** och ändrar det.
+2. Välj **Network Services** till vänster.
+3. Rulla ned till höger till iSCSI- **initieraren** och markera den.
+4. På nästa skärm under fliken **tjänst** visas det unika initierar-namnet för noden.
+5. Ovanför initierarens namn ser du till att **tjänstens start** värde är inställt på **vid start**.
+6. Om den inte är det anger du den till **när du startar** i stället för **manuellt**.
+7. Sedan växlar du den översta fliken till **anslutna mål**.
+8. På skärmen **anslutna mål** bör du se en post för SBD-enheten som det här exemplet: **10.0.0.19:3260 IQN. 2006-04. dbhso. local: dbhso**.
+9. Kontrol lera om **Start-** värdet är inställt **på vid start**.
+10. Annars väljer du **Redigera** och ändrar det.
 11. Spara ändringarna och avsluta YaST2.
 
 
 
 ## <a name="pacemaker"></a>Pacemaker
 
-När allt har konfigurerats korrekt kan du köra följande kommando på varje nod för att kontrollera status för pacemakertjänsten:
+När allt är korrekt konfigurerat kan du köra följande kommando på varje nod för att kontrol lera statusen för pacemaker-tjänsten:
 
 <pre><code>
 systemctl status pacemaker
 </code></pre>
 
-Den övre av utdata ska se ut som följande exempel. Det är viktigt att statusen efter **Aktiv** visas som **inläst** och **aktiv (körs)**. Statusen efter **Inläst** måste visas som **aktiverad**.
+Den översta delen av utdata bör se ut som i följande exempel. Det är viktigt att statusen efter **aktiv** visas som **inläst** och **aktiv (körs)**. Status efter **inläsning** måste visas som **aktive rad**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -492,19 +492,19 @@ Den övre av utdata ska se ut som följande exempel. Det är viktigt att statuse
            └─4504 /usr/lib/pacemaker/crmd
 </code></pre>
 
-Om inställningen fortfarande är **inaktiverad**kör du följande kommando:
+Om inställningen fortfarande är **inaktive rad**kör du följande kommando:
 
 <pre><code>
 systemctl enable pacemaker
 </code></pre>
 
-Om du vill visa alla konfigurerade resurser i Pacemaker kör du följande kommando:
+Om du vill se alla konfigurerade resurser i pacemaker kör du följande kommando:
 
 <pre><code>
 crm status
 </code></pre>
 
-Utdata ska se ut som följande exempel. Det är bra att **cln** och **MSL** resurser visas som stoppas på majoriteten maker VM, **hso-hana-dm**. Det finns ingen SAP HANA-installation på majoritetsnoden. Så **cln** och **MSL** resurser visas som stoppas. Det är viktigt att det visar rätt totalt antal virtuella datorer, **7**. Alla virtuella datorer som ingår i klustret måste visas med **statusen Online**. Den aktuella primära huvudnoden måste kännas igen korrekt. I det här exemplet är det **hso-hana-vm-s1-0:**
+Utdata bör se ut som i följande exempel. Det är bra att **CLN** -och **MSL** -resurserna visas som stoppad i den virtuella datorns virtuella dator, **HSO-Hana-DM**. Det finns ingen SAP HANA installation på den flesta Maker-noden. Så att **CLN** -och **MSL** -resurserna visas som stoppade. Det är viktigt att det visar rätt totala antal virtuella datorer, **7**. Alla virtuella datorer som ingår i klustret måste anges med statusen **online**. Den aktuella primära huvud-noden måste identifieras korrekt. I det här exemplet är det **HSO-Hana-VM-S1-0**:
 
 <pre><code>
 Stack: corosync
@@ -532,14 +532,14 @@ Full list of resources:
      rsc_nc_HSO_HDB00   (ocf::heartbeat:anything):      Started hso-hana-vm-s1-0
 </code></pre>
 
-Ett viktigt inslag i Pacemaker är underhållsläge. I det här läget kan du göra ändringar utan att provocera fram en omedelbar klusteråtgärd. Ett exempel är en omstart av den virtuella datorn. Ett vanligt användningsfall skulle planeras underhåll av operativsystemet eller Azure-infrastrukturen. Se [Planerat underhåll](#planned-maintenance). Använd följande kommando för att placera Pacemaker i underhållsläge:
+En viktig funktion i pacemaker är underhålls läge. I det här läget kan du göra ändringar utan att anropa en omedelbar kluster åtgärd. Ett exempel är en VM-omstart. Ett vanligt användnings fall skulle vara planerat med underhåll av operativ system eller Azure-infrastruktur. Se [planerat underhåll](#planned-maintenance). Använd följande kommando för att sätt pacemaker i underhålls läge:
 
 <pre><code>
 crm configure property maintenance-mode=true
 </code></pre>
 
-När du kontrollerar med **crm-status**märker du i utdata att alla resurser är markerade som **ohanterade**. I det här läget reagerar klustret inte på några ändringar som att starta eller stoppa SAP HANA.
-Följande exempel visar utdata från **kommandot crm-status** medan klustret är i underhållsläge:
+När du kontrollerar med **CRM-status**visas ett meddelande i utdata om att alla resurser är markerade som **ohanterade**. I det här läget reagerar inte klustret på några ändringar som att starta eller stoppa SAP HANA.
+Följande exempel visar utdata från kommandot CRM- **status** när klustret är i underhålls läge:
 
 <pre><code>
 Stack: corosync
@@ -579,20 +579,20 @@ Full list of resources:
 </code></pre>
 
 
-Det här kommandots exempel visar hur du avslutar underhållsläget för kluster:
+Det här kommando exemplet visar hur du slutför klustrets underhålls läge:
 
 <pre><code>
 crm configure property maintenance-mode=false
 </code></pre>
 
 
-Ett annat **crm-kommando** får hela klusterkonfigurationen till en redigerare, så att du kan redigera den. När ändringarna har sparats startar klustret lämpliga åtgärder:
+Ett annat **CRM** -kommando hämtar den fullständiga kluster konfigurationen till en redigerare, så att du kan redigera den. När ändringarna har sparats startar klustret lämpliga åtgärder:
 
 <pre><code>
 crm configure edit
 </code></pre>
 
-Om du vill titta på hela klusterkonfigurationen använder du alternativet **crm show:**
+Använd **CRM show** -alternativet för att titta på den fullständiga kluster konfigurationen:
 
 <pre><code>
 crm configure show
@@ -600,7 +600,7 @@ crm configure show
 
 
 
-Efter fel på klusterresurser visar **kommandot crm-status** en lista över **misslyckade åtgärder**. Se följande exempel på den här utdata:
+Efter fel i kluster resurser visar CRM- **status** kommandot en lista över **misslyckade åtgärder**. Se följande exempel på följande utdata:
 
 
 <pre><code>
@@ -633,7 +633,7 @@ Failed Actions:
     last-rc-change='Wed Sep 12 17:01:28 2018', queued=0ms, exec=277663ms
 </code></pre>
 
-Det är nödvändigt att göra en klusterrensning efter fel. Använd **crm-kommandot** igen och använd kommandoalternativet **rensning** för att bli av med dessa misslyckade åtgärdsposter. Namnge motsvarande klusterresurs enligt följande:
+Du måste göra en kluster rensning efter fel. Använd **CRM** -kommandot igen och Använd kommando alternativet **Rensa** för att ta bort dessa misslyckade åtgärds poster. Namnge motsvarande kluster resurs på följande sätt:
 
 <pre><code>
 crm resource cleanup rsc_SAPHanaCon_HSO_HDB00
@@ -654,11 +654,11 @@ Waiting for 7 replies from the CRMd....... OK
 
 
 
-## <a name="failover-or-takeover"></a>Redundans eller uppköp
+## <a name="failover-or-takeover"></a>Redundans eller övertag Ande
 
-Som diskuterats i [Viktiga anteckningar](#important-notes)bör du inte använda en standard graciös avstängning för att testa kluster redundans eller SAP HANA HSR-övertagande. I stället rekommenderar vi att du utlöser en kernel-panik, tvingar en resursmigrering eller eventuellt stänger av alla nätverk på os-nivån för en virtuell dator. En annan metod är kommandot **för vänteläge \<för crm-nod.\> ** Se [SUSE-dokumentet][sles-12-ha-paper]. 
+Som det beskrivs i [viktiga anteckningar](#important-notes)bör du inte använda en vanlig standard avstängning för att testa kluster växling vid fel eller SAP HANA HSR övertag. I stället rekommenderar vi att du utlöser en kernel-panik, tvingar fram en resurstilldelning eller kan stänga av alla nätverk på OS-nivån för en virtuell dator. En annan metod är **kommandot \<väntar\> på CRM-noden** . Se [SUSE-dokumentet][sles-12-ha-paper]. 
 
-Följande tre exempelkommandon kan tvinga fram en klusterväxling:
+Följande tre exempel kommandon kan framtvinga en redundanskluster:
 
 <pre><code>
 echo c &gt /proc/sysrq-trigger
@@ -672,24 +672,24 @@ wicked ifdown eth2
 wicked ifdown eth&ltn&gt
 </code></pre>
 
-Som beskrivs i [Planerat underhåll](#planned-maintenance), ett bra sätt att övervaka klusteraktiviteter är att köra **SAPHanaSR-showAttr** med **klockan** kommandot:
+Som det beskrivs i [planerat underhåll](#planned-maintenance)är ett bra sätt att övervaka kluster aktiviteterna att köra **SAPHanaSR-showAttr** med **Watch** -kommandot:
 
 <pre><code>
 watch SAPHanaSR-showAttr
 </code></pre>
 
-Det hjälper också att titta på SAP HANA-landskapsstatus som kommer från ett SAP Python-skript. Klusterinställningarna söker efter det här statusvärdet. Det blir tydligt när du tänker på ett arbetsnodfel. Om en arbetsnod går ned returnerar INTE SAP HANA omedelbart ett fel för hälsan för hela skalningssystemet. 
+Det hjälper också att titta på den SAP HANA landskaps status som kommer från ett SAP Python-skript. Kluster konfigurationen söker efter detta status värde. Det blir tydligt när du tycker att det är ett problem med en arbetsnod. Om en arbetsnoden slutar fungera returnerar SAP HANA omedelbart ett fel för hela det skalbara systemets hälso tillstånd. 
 
-Det finns några försök att undvika onödiga redundans. Klustret reagerar bara om statusen ändras från **Ok**, returnerar värde **4**till **fel**, returnerar värde **1**. Så det är korrekt om utdata från **SAPHanaSR-showAttr** visar en virtuell dator med tillståndet **offline**. Men det finns ingen aktivitet ännu att byta primära och sekundära. Ingen klusteraktivitet utlöses så länge SAP HANA inte returnerar ett fel.
+Det finns vissa försök att undvika onödig redundans. Klustret agerar bara om status ändras från **OK**, returnera värde **4**, till **fel**, returnera värde **1**. Så det är korrekt om utdata från **SAPHanaSR-showAttr** visar en virtuell dator med statusen **offline**. Men det finns ingen aktivitet som ännu inte kan växla mellan primär och sekundär. Ingen kluster aktivitet utlöses så länge SAP HANA inte returnerar ett fel.
 
-Du kan övervaka HÄLSOTILLSTÅNDSSTATUSEN FÖR SAP HANA-landskapet som användare ** \<HANA\>SID adm** genom att anropa SAP Python-skriptet enligt följande. Du kanske måste anpassa banan:
+Du kan övervaka SAP HANA landskaps hälso status som användare ** \<Hana sid\>-ADM** genom att anropa SAP python-skriptet enligt följande. Du kan behöva anpassa sökvägen:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
 </code></pre>
 
-Utdata från det här kommandot ska se ut som följande exempel. Kolumnen **Värdstatus** och den **övergripande värdstatusen** är båda viktiga. Den faktiska utdata är bredare, med ytterligare kolumner.
-För att göra utdatatabellen mer läsbar i det här dokumentet togs de flesta kolumnerna på höger sida bort:
+Utdata från det här kommandot bör se ut som i följande exempel. Kolumnen **värd status** och den **övergripande värd statusen** är både viktiga. Faktiska utdata är bredare, med ytterligare kolumner.
+För att det ska gå att läsa tabellen i det här dokumentet har de flesta kolumner på den högra sidan tagits bort:
 
 <pre><code>
 | Host             | Host   | Host   | Failover | Remove | 
@@ -704,7 +704,7 @@ overall host status: ok
 </code></pre>
 
 
-Det finns ett annat kommando för att kontrollera aktuella klusteraktiviteter. Se följande kommando och utdatasvansen efter att huvudnoden för den primära platsen har dödats. Du kan se listan över övergångsåtgärder som **att befordra** den tidigare sekundära huvudnoden, **hso-hana-vm-s2-0**, som den nya primära huvudhanteraren. Om allt är bra och alla aktiviteter är klara måste listan **Övergångssammanfattning** vara tom.
+Det finns ett annat kommando för att kontrol lera aktuella kluster aktiviteter. Se följande kommando och utdata-änden efter att huvud noden för den primära platsen har stoppats. Du kan se listan över över gångs åtgärder som att **befordra** den tidigare sekundära huvudnoden, **HSO-Hana-VM-S2-0**, som den nya primära huvud servern. Om allt är bra och alla aktiviteter är klara måste den här **över gångs sammanfattnings** listan vara tom.
 
 <pre><code>
  crm_simulate -Ls
@@ -724,36 +724,36 @@ Transition Summary:
 
 ## <a name="planned-maintenance"></a>Planerat underhåll 
 
-Det finns olika användningsfall när det gäller planerat underhåll. En fråga är om det bara är infrastrukturunderhåll som ändringar på OS-nivå och diskkonfiguration eller en HANA-uppgradering.
-Du kan hitta ytterligare information i dokument från SUSE som [Mot noll driftstopp][sles-zero-downtime-paper] eller [SAP HANA SR Prestandaoptimerat Scenario][sles-12-for-sap]. Dessa dokument innehåller också exempel som visar hur du manuellt migrerar en primär.
+Det finns olika användnings fall när det kommer till planerat underhåll. En fråga är om det är bara infrastruktur underhåll som ändringar på operativ Systems nivån och disk konfigurationen eller en HANA-uppgradering.
+Du hittar mer information i dokument från SUSEt, t. ex. [noll stillestånd][sles-zero-downtime-paper] eller [SAP HANA optimalt prestanda optimerings scenario][sles-12-for-sap]. Dessa dokument innehåller också exempel som visar hur du migrerar en primär enhet manuellt.
 
-Intensiv intern testning gjordes för att verifiera användningsfallet för underhåll av infrastruktur. För att undvika problem relaterade till migrering av den primära, bestämde vi oss för att alltid migrera en primär innan du sätter ett kluster i underhållsläge. På så sätt är det inte nödvändigt att få klustret att glömma den tidigare situationen: vilken sida som var primär och vilken som var sekundär.
+Intensiv intern testning utfördes för att verifiera användnings fallet för infrastruktur underhåll. För att undvika problem som rör migrering av den primära, bestämde vi att alltid migrera en primär innan ett kluster placeras i underhålls läge. På så sätt behöver du inte göra klustret glömmt om den tidigare situationen: vilken sida som var primär och som var sekundär.
 
 Det finns två olika situationer i detta avseende:
 
-- **Planerat underhåll på den aktuella sekundära**. I det här fallet kan du bara placera klustret i underhållsläge och göra jobbet på den sekundära utan att påverka klustret.
+- **Planerat underhåll av den aktuella sekundära**. I det här fallet kan du bara försätta klustret i underhålls läge och göra arbetet på den sekundära utan att påverka klustret.
 
-- **Planerat underhåll på den aktuella primära**. Så att användarna kan fortsätta att arbeta under underhåll, måste du tvinga en redundans. Med den här metoden måste du utlösa kluster redundans av Pacemaker och inte bara på SAP HANA HSR-nivå. Pacemaker-installationen utlöser automatiskt SAP HANA-övertagandet. Du måste också utföra redundansen innan du sätter klustret i underhållsläge.
+- **Planerat underhåll på den aktuella primära servern**. För att användarna ska kunna fortsätta arbeta under underhållet måste du framtvinga en redundansväxling. Med den här metoden måste du utlösa klustrets redundans av pacemaker och inte bara på SAP HANA HSR-nivån. Pacemaker-installationen utlöser automatiskt SAP HANA övertag Ande. Du måste också utföra redundansväxlingen innan du försätter klustret i underhålls läge.
 
-Förfarandet för underhåll på den aktuella sekundära platsen är följande:
+Proceduren för underhåll på den aktuella sekundära platsen är följande:
 
-1. Sätt klustret i underhållsläge.
+1. Sätt klustret i underhålls läge.
 2. Utför arbetet på den sekundära platsen. 
-3. Avsluta underhållsläget för klustret.
+3. Avsluta klustrets underhålls läge.
 
 Proceduren för underhåll på den aktuella primära platsen är mer komplex:
 
-1. Utlösa en redundans- eller SAP HANA-uppköp manuellt via en pacemakerresursmigrering. Se detaljer som följer.
-2. SAP HANA på den tidigare primära platsen stängs av av klusterinställningarna.
-3. Sätt klustret i underhållsläge.
-4. När underhållsarbetet är klart registrerar du den tidigare primärt som den nya sekundära platsen.
-5. Rensa klusterkonfigurationen. Se detaljer som följer.
-6. Avsluta underhållsläget för klustret.
+1. Utlösa en redundansväxling manuellt eller SAP HANA uppköpsen via en pacemaker resurs-migrering. Se information som följer.
+2. SAP HANA på den tidigare primära platsen stängs av kluster konfigurationen.
+3. Sätt klustret i underhålls läge.
+4. När underhålls arbetet är slutfört registrerar du den tidigare primära platsen som den nya sekundära platsen.
+5. Rensa kluster konfigurationen. Se information som följer.
+6. Avsluta klustrets underhålls läge.
 
 
-Migrera en resurs lägger till en post i klusterkonfigurationen. Ett exempel är att tvinga fram en redundans. Du måste rensa dessa poster innan du avslutar underhållsläget. Se följande exempel.
+När du migrerar en resurs läggs posten till i kluster konfigurationen. Ett exempel som tvingar fram en redundansväxling. Du måste rensa dessa poster innan du slutar underhålls läge. Se följande exempel.
 
-Tvinga först en klusterväxling genom att migrera **msl-resursen** till den aktuella sekundära huvudnoden. Det här kommandot ger en varning om att ett **flyttvillkor** har skapats:
+Börja med att framtvinga en redundanskluster genom att migrera **MSL** -resursen till den aktuella sekundära huvud noden. Det här kommandot ger en varning om att ett **flytt villkor** har skapats:
 
 <pre><code>
 crm resource migrate msl_SAPHanaCon_HSO_HDB00 force
@@ -762,13 +762,13 @@ INFO: Move constraint created for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
 
-Kontrollera redundansprocessen via kommandot **SAPHanaSR-showAttr**. Om du vill övervaka klusterstatusen öppnar du ett dedikerat skalfönster och startar kommandot med **klockan:**
+Kontrol lera redundansväxlingen via kommandot **SAPHanaSR-showAttr**. Om du vill övervaka kluster statusen öppnar du ett dedikerat Shell-fönster och startar kommandot med **Se**:
 
 <pre><code>
 watch SAPHanaSR-showAttr
 </code></pre>
 
-Utdata ska visa den manuella redundansen. Den tidigare sekundära master noden **blev befordrad**, i detta urval, **hso-hana-vm-s2-0**. Den tidigare primära platsen **stoppades, lss** värde **1** för tidigare primära huvudnod **hso-hana-vm-s1-0**: 
+Utdata bör visa manuell redundans. Den tidigare sekundära huvudnoden har **uppgraderats**, i det här exemplet **HSO-Hana-VM-S2-0**. Den tidigare primära platsen stoppades, **LSS** värde **1** för den tidigare primära huvudnoden **HSO-Hana-VM-S1-0**: 
 
 <pre><code>
 Global cib-time                 prim  sec srHook sync_state
@@ -793,21 +793,21 @@ hso-hana-vm-s2-1 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS
 hso-hana-vm-s2-2 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
 </code></pre>
 
-Efter kluster redundans och SAP HANA övertagande, sätta klustret i underhållsläge som beskrivs i [Pacemaker](#pacemaker).
+När klustret har redundans och SAP HANA övertag ska klustret försättas i underhålls läge enligt beskrivningen i [pacemaker](#pacemaker).
 
-Kommandona **SAPHanaSR-showAttr** och **crm-status** anger ingenting om de begränsningar som skapas av resursmigreringen. Ett alternativ för att göra dessa villkor synliga är att visa hela klusterresurskonfigurationen med följande kommando:
+**SAPHanaSR-showAttr** och CRM- **status** indikerar inte något om begränsningarna som skapats av resursallokeringen. Ett alternativ för att göra dessa begränsningar synliga är att visa den fullständiga kluster resurs konfigurationen med följande kommando:
 
 <pre><code>
 crm configure show
 </code></pre>
 
-I klusterkonfigurationen hittar du ett nytt platsvillkor som orsakas av den tidigare manuella resursmigreringen. Det här exemplet börjar med **plats cli-**:
+I kluster konfigurationen hittar du en ny plats begränsning som orsakas av den tidigare manuella resursallokeringen. Den här exempel posten börjar med **plats-CLI-**:
 
 <pre><code>
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
 </code></pre>
 
-Tyvärr kan sådana begränsningar påverka det övergripande klusterbeteendet. Så det är obligatoriskt att ta bort dem igen innan du tar upp hela systemet igen. Med kommandot **unmigrate** är det möjligt att rensa de platsbegränsningar som skapades tidigare. Namngivningen kan vara lite förvirrande. Den försöker inte migrera resursen tillbaka till den ursprungliga virtuella datorn som den migrerades från. Det tar bara bort platsbegränsningar och returnerar även motsvarande information när du kör kommandot:
+Sådana begränsningar kan tyvärr påverka det övergripande kluster beteendet. Det är därför obligatoriskt att ta bort dem igen innan du tar hela system säkerhets kopieringen. Med kommandot Ta bort **migrering** är det möjligt att rensa de plats begränsningar som skapades tidigare. Namngivningen kan vara lite förvirrande. Det försöker inte att migrera resursen tillbaka till den ursprungliga virtuella dator som den migrerades från. Det tar bara bort plats begränsningarna och returnerar även motsvarande information när du kör kommandot:
 
 
 <pre><code>
@@ -816,32 +816,32 @@ crm resource unmigrate msl_SAPHanaCon_HSO_HDB00
 INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
-I slutet av underhållsarbetet stoppar du underhållsläget för klustret enligt [Pacemaker](#pacemaker).
+I slutet av underhålls arbetet stoppar du klustrets underhålls läge som visas i [pacemaker](#pacemaker).
 
 
 
-## <a name="hb_report-to-collect-log-files"></a>hb_report för att samla in loggfiler
+## <a name="hb_report-to-collect-log-files"></a>hb_report att samla in loggfiler
 
-För att analysera pacemakerklusterproblem är det användbart och även begärt av SUSE-stöd för att köra **verktyget hb_report.** Den samlar alla viktiga loggfiler som du behöver för att analysera vad som hände. Det här exempelanropet använder en start- och sluttid där en viss incident inträffade. Se också [Viktiga anteckningar:](#important-notes)
+För att analysera problem med pacemaker-kluster är det till hjälp och kan även begäras av SUSE support för att köra **hb_report** -verktyget. Den samlar in alla viktiga loggfiler som du behöver för att analysera vad som hände. Det här exempel anropet använder en start-och slut tid där en angiven incident inträffade. Se även [viktiga anteckningar](#important-notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
 </code></pre>
 
-Kommandot talar om var de komprimerade loggfilerna anges:
+Kommandot visar var de komprimerade loggfilerna ska läggas till:
 
 <pre><code>
 The report is saved in /tmp/hb_report_log.tar.bz2
 Report timespan: 09/13/18 07:36:00 - 09/13/18 08:00:00
 </code></pre>
 
-Du kan sedan extrahera de enskilda filerna via **standardtjärkommandot:**
+Du kan sedan extrahera de enskilda filerna via kommandot standard **tar** :
 
 <pre><code>
 tar -xvf hb_report_log.tar.bz2
 </code></pre>
 
-När du tittar på de extraherade filerna hittar du alla loggfiler. De flesta av dem sattes i separata kataloger för varje nod i klustret:
+När du tittar på de extraherade filerna hittar du alla loggfiler. De flesta av dem lades i separata kataloger för varje nod i klustret:
 
 <pre><code>
 -rw-r--r-- 1 root root  13655 Sep 13 09:01 analysis.txt
@@ -860,7 +860,7 @@ drwxr-xr-x 3 root root   4096 Sep 13 09:01 hso-hana-vm-s2-2
 </code></pre>
 
 
-Inom det angivna tidsintervallet dödades den aktuella huvudnoden **hso-hana-vm-s1-0.** Du kan hitta poster relaterade till den här händelsen i **journal.log:**
+Inom det angivna tidsintervallet har den aktuella huvudnoden **HSO-Hana-VM-S1-0** stoppats. Du hittar poster relaterade till den här händelsen i **journal. log**:
 
 <pre><code>
 2018-09-13T07:38:01+0000 hso-hana-vm-s2-1 su[93494]: (to hsoadm) root on none
@@ -882,7 +882,7 @@ Inom det angivna tidsintervallet dödades den aktuella huvudnoden **hso-hana-vm-
 2018-09-13T07:38:03+0000 hso-hana-vm-s2-1 su[93494]: pam_unix(su-l:session): session closed for user hsoadm
 </code></pre>
 
-Ett annat exempel är Pacemaker-loggfilen på den sekundära huvudbonaden, som blev den nya primära huvudbonaden. Det här utdraget visar att statusen för den dödade primära huvudnoden angavs till **offline:**
+Ett annat exempel är logg filen pacemaker på den sekundära huvud servern, som blev den nya primära huvud servern. Detta utdrag visar att statusen för den stoppade primära huvudnoden har angetts till **offline**:
 
 <pre><code>
 Sep 13 07:38:02 [4178] hso-hana-vm-s2-0 stonith-ng:     info: pcmk_cpg_membership:      Node 3 still member of group stonith-ng (peer=hso-hana-vm-s1-2, counter=5.1)
@@ -900,10 +900,10 @@ Sep 13 07:38:02 [4184] hso-hana-vm-s2-0       crmd:     info: pcmk_cpg_membershi
 
 
 
-## <a name="sap-hana-globalini"></a>SAP HANA global.ini
+## <a name="sap-hana-globalini"></a>SAP HANA global. ini
 
 
-Följande utdrag kommer från SAP HANA **global.ini-filen** på klusterplats 2. I det här exemplet visas värdens lösningsposter för att använda olika nätverk för SAP HANA internodekommunikation och HSR:
+Följande utdrag är från filen SAP HANA **Global. ini** på kluster plats 2. I det här exemplet visas matchnings poster för värdnamn för användning av olika nätverk för SAP HANA kommunikation mellan noder och HSR:
 
 <pre><code>
 [communication]
@@ -944,39 +944,39 @@ listeninterface = .internal
 
 ## <a name="hawk"></a>Hawk
 
-Klusterlösningen tillhandahåller ett webbläsargränssnitt som erbjuder ett GUI för användare som föredrar menyer och grafik till att ha alla kommandon på skalnivå.
-Om du vill använda webbläsargränssnittet ersätter du ** \<noden\> ** med en faktisk SAP HANA-nod i följande URL. Ange sedan autentiseringsuppgifterna för klustret **(användarkluster):**
+Kluster lösningen tillhandahåller ett webb läsar gränssnitt som ger ett användar gränssnitt för användare som föredrar menyer och grafik för att få alla kommandon på Shell-nivå.
+Om du vill använda webb läsar ** \<gränssnittet\> ** ersätter du noden med en faktisk SAP HANA-nod i följande URL. Ange sedan autentiseringsuppgifterna för klustret (användar **kluster**):
 
 <pre><code>
 https://&ltnode&gt:7630
 </code></pre>
 
-Den här skärmbilden visar klusterinstrumentpanelen:
+Den här skärm bilden visar kluster instrument panelen:
 
 
-![Instrumentpanel för hökkluster](media/hana-vm-scale-out-HA-troubleshooting/hawk-1.png)
+![Instrument panel för Hawk-kluster](media/hana-vm-scale-out-HA-troubleshooting/hawk-1.png)
 
 
-I det här exemplet visas de platsbegränsningar som orsakas av en klusterresursmigrering enligt förklaras i [Planerat underhåll:](#planned-maintenance)
+Det här exemplet visar de plats begränsningar som orsakas av en migrering av en kluster resurs som förklaras i [planerat underhåll](#planned-maintenance):
 
 
-![Begränsningar för hawk-lista](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
+![Begränsningar för Hawk-lista](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Du kan också **hb_report** ladda upp hb_report-utdata i Hawk under **Historik**, som visas på följande sätt. Se hb_report för att samla in loggfiler: 
+Du kan också ladda upp **hb_report** utdata i Hawk under **Historik**, som visas på följande sätt. Se hb_report för att samla in loggfiler: 
 
-![Hawk ladda upp hb_report utgång](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
+![Hawk Ladda upp hb_report utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-Med **historikutforskaren**kan du sedan gå igenom alla klusterövergångar som ingår i hb_report-utdata: **hb_report**
+Med **Historik Utforskaren**kan du gå igenom alla kluster över gångar som ingår i **hb_report** utdata:
 
-![Hawk övergångar i hb_report produktionen](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
+![Hawk-över gångar i hb_report utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
-Den här slutliga skärmbilden visar **avsnittet Detaljer i** en enda övergång. Klustret reagerade på en primär huvudnodkrasch, nod **hso-hana-vm-s1-0**. Det är nu främja den sekundära noden som ny mästare, **hso-hana-vm-s2-0:**
+Den sista skärm bilden visar **detalj** avsnittet i en enda över gång. Klustret reagerar på en primär huvudnods krasch, Node **HSO-Hana-VM-S1-0**. Nu marknadsförs den sekundära noden som den nya Master- **HSO-Hana-VM-S2-0**:
 
-![Hawk enda övergång](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
+![Hawk enskild över gång](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här felsökningsguiden beskriver hög tillgänglighet för SAP HANA i en skalningskonfiguration. Förutom databasen är en annan viktig komponent i ett SAP-landskap SAP NetWeaver-stacken. Lär dig mer om [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer som använder SUSE Enterprise Linux Server][sap-nw-ha-guide-sles].
+Den här fel söknings guiden beskriver hög tillgänglighet för SAP HANA i en skalbar konfiguration. Förutom-databasen är en annan viktig komponent i ett SAP-landskap den NetWeaver stacken. Lär dig mer om [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer som använder SUSE Enterprise Linux-server][sap-nw-ha-guide-sles].
 

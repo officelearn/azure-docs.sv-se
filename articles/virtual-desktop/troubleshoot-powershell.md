@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop PowerShell – Azure
-description: Felsöka problem med PowerShell när du konfigurerar en windows virtual desktop-klientmiljö.
+description: Så här felsöker du problem med PowerShell när du konfigurerar en Windows-klient för virtuella skriv bord.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -17,81 +17,81 @@ ms.locfileid: "79127465"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
-Använd den här artikeln för att lösa fel och problem när du använder PowerShell med Windows Virtual Desktop. Mer information om PowerShell för fjärrskrivbordstjänster finns i [Windows Virtual Desktop Powershell](/powershell/module/windowsvirtualdesktop/).
+Använd den här artikeln för att lösa fel och problem när du använder PowerShell med Windows Virtual Desktop. Mer information om Fjärrskrivbordstjänster PowerShell finns i [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
 ## <a name="provide-feedback"></a>Ge feedback
 
-Besök [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) för att diskutera Windows Virtual Desktop-tjänsten med produktteamet och aktiva communitymedlemmar.
+Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
 
-## <a name="powershell-commands-used-during-windows-virtual-desktop-setup"></a>PowerShell-kommandon som används under installationen av Virtuell dator i Windows
+## <a name="powershell-commands-used-during-windows-virtual-desktop-setup"></a>PowerShell-kommandon som används vid installation av virtuella Windows-datorer
 
-I det här avsnittet visas PowerShell-kommandon som vanligtvis används när du konfigurerar Windows Virtual Desktop och du kan hitta sätt att lösa problem som kan uppstå när du använder dem.
+Det här avsnittet innehåller PowerShell-kommandon som vanligt vis används när du konfigurerar Windows Virtual Desktop och ger möjlighet att lösa problem som kan uppstå när du använder dem.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Fel: Kommandot Add-RdsAppGroupUser – Det angivna UserPrincipalName har redan tilldelats en RemoteApp-appgrupp i den angivna värdpoolen
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Fel: Add-RdsAppGroupUser-kommandot--angivet UserPrincipalName har redan kopplats till en RemoteApp-app-grupp i den angivna poolen
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Orsak:** Användarnamnet som används har redan tilldelats en appgrupp av en annan typ. Användare kan inte tilldelas både ett fjärrskrivbord och en fjärrappgrupp under samma sessionsvärdpool.
+**Orsak:** Det användar namn som används har redan tilldelats en app-grupp av en annan typ. Användare kan inte tilldelas både till en fjärr skrivbord och en fjärran sluten program grupp under samma sessions värd pool.
 
-**Rättad:** Om användaren behöver både fjärrappar och fjärrskrivbord skapar du olika värdpooler eller ger användaren åtkomst till fjärrskrivbordet, vilket gör det möjligt att använda alla program på den virtuella sessionens värd.If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
+**KORRIGERA:** Om användaren behöver både fjärrappar och fjärr skrivbord, kan du skapa olika lagringspooler eller bevilja användar åtkomst till fjärr skrivbordet, vilket innebär att alla program kan användas på den virtuella datorn för sessionen.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Fel: Kommandot Add-RdsAppGroupUser – Det angivna UserPrincipalName finns inte i Azure Active Directory som är associerat med klientinnehavaren för fjärrskrivbord
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Fel: Add-RdsAppGroupUser-kommandot--angivet UserPrincipalName finns inte i den Azure Active Directory som är kopplad till fjärr skrivbords klienten
 
 ```PowerShell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
-**Orsak:** Användaren som anges av -UserPrincipalName kan inte hittas i Azure Active Directory som är knuten till Windows Virtual Desktop-klienten.
+**Orsak:** Användaren som anges av-UserPrincipalName går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-klienten för fjärr skrivbord.
 
-**Rättad:** Bekräfta objekten i följande lista.
+**KORRIGERA:** Bekräfta objekten i följande lista.
 
-- Användaren synkroniseras med Azure Active Directory.
-- Användaren är inte knuten till företag till konsument (B2C) eller business-to-business (B2B) handel.
-- Windows Virtual Desktop-klienten är knuten till korrekt Azure Active Directory.
+- Användaren är synkroniserad med Azure Active Directory.
+- Användaren är inte knuten till B2C-eller Business-to-Business-handel (B2B).
+- Windows-klienten för virtuella skriv bord är kopplad till rätt Azure Active Directory.
 
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Fel: Get-RdsDiagnosticActivities – Användaren har inte behörighet att fråga hanteringstjänsten
+### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Fel: get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
 
 ```PowerShell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 ```
 
-**Orsak:** -Parametern TenantName
+**Orsak:** -TenantName-parameter
 
-**Rättad:** Problem Get-RdsDiagnosticActivities med \<-TenantName TenantName>.
+**KORRIGERA:** Utfärda get-RdsDiagnosticActivities med-TenantName \<TenantName>.
 
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanteringstjänsten
+### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
 
 ```PowerShell
 Get-RdsDiagnosticActivities -Deployment -username <username>
 ```
 
-**Orsak:** Använda -Deployment switch.
+**Orsak:** Använd växeln-Deployment.
 
-**Åtgärdat:** -Distributionsväxeln kan endast användas av distributionsadministratörer. Dessa administratörer är vanligtvis medlemmar i teamet för fjärrskrivbordstjänster/Virtuella Windows-datorer. Ersätt växeln -Distribution med \<-TenantName TenantName>.
+**KORRIGERA:** -distributions växeln kan endast användas av distributions administratörer. Dessa administratörer är vanligt vis medlemmar i den virtuella Skriv bords gruppen Fjärrskrivbordstjänster/Windows. Ersätt växeln-Deployment med-TenantName \<TenantName>.
 
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Ny-RdsRoleAstilldelning – användaren har inte behörighet att fråga hanteringstjänsten
+### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: New-RdsRoleAssignment – användaren har inte behörighet att fråga hanterings tjänsten
 
-**Orsak 1:** Kontot som används har inte ägare av fjärrskrivbordstjänster för klienten.
+**Orsak 1:** Kontot som används har inte Fjärrskrivbordstjänster ägar behörighet till klienten.
 
-**Åtgärda 1:** En användare med ägarbehörighet för Fjärrskrivbordstjänster måste köra rolltilldelningen.
+**Korrigering 1:** En användare med Fjärrskrivbordstjänster ägar behörighet måste köra roll tilldelningen.
 
-**Orsak 2:** Kontot som används har ägarebehörigheter för Fjärrskrivbordstjänster men ingår inte i klientens Azure Active Directory eller har inte behörighet att fråga Azure Active Directory där användaren finns.
+**Orsak 2:** Kontot som används har Fjärrskrivbordstjänster ägar behörighet men är inte en del av klientens Azure Active Directory eller har inte behörighet att fråga den Azure Active Directory där användaren finns.
 
-**Åtgärda 2:** En användare med Active Directory-behörigheter måste köra rolltilldelningen.
+**Korrigera 2:** En användare med Active Directory behörigheter måste köra roll tilldelningen.
 
 >[!Note]
 >New-RdsRoleAssignment kan inte ge behörighet till en användare som inte finns i Azure Active Directory (AD).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över felsökning av Windows Virtual Desktop och eskaleringsspåren finns i [Felsökningsöversikt, feedback och support](troubleshoot-set-up-overview.md).
-- Information om hur du felsöker problem när du skapar en klient- och värdpool i en Windows Virtual Desktop-miljö finns i [Skapandet av klient- och värdpooler](troubleshoot-set-up-issues.md).
-- Mer om du vill felsöka problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [Konfigurationen för virtuell dator för session värd](troubleshoot-vm-configuration.md).
-- Mer om du vill felsöka problem med Windows Virtual Desktop-klientanslutningar finns i [Windows Virtual Desktop-tjänstanslutningar](troubleshoot-service-connection.md).
-- Om du vill felsöka problem med fjärrskrivbordsklienter finns i [Felsöka klienten för fjärrskrivbord](troubleshoot-client.md)
+- En översikt över fel sökning av virtuella Windows-datorer och eskalerade spår finns i [fel söknings översikt, feedback och support](troubleshoot-set-up-overview.md).
+- Information om hur du felsöker problem när du skapar en klient och en adresspool i en Windows Virtual Desktop-miljö finns i [skapa innehavare och skapa värdar för pooler](troubleshoot-set-up-issues.md).
+- Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
+- Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [Windows Virtual Desktop Service Connections](troubleshoot-service-connection.md).
+- Information om hur du felsöker problem med fjärr skrivbords klienter finns i [Felsöka fjärr skrivbords klienten](troubleshoot-client.md)
 - Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](environment-setup.md).
-- Information om hur du går igenom en felsökningsguide finns i [Självstudiekurs: Felsöka Resource Manager-malldistributioner](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Mer information om granskningsåtgärder finns i [Granskningsåtgärder med Resurshanteraren](../azure-resource-manager/management/view-activity-logs.md).
-- Mer information om åtgärder för att fastställa fel under distributionen finns i [Visa distributionsåtgärder](../azure-resource-manager/templates/deployment-history.md).
+- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](../azure-resource-manager/templates/deployment-history.md).

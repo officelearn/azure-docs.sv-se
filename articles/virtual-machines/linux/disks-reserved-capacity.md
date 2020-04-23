@@ -1,6 +1,6 @@
 ---
-title: Optimera kostnaderna för Azure Disk Storage med reservationer
-description: Lär dig mer om att köpa Azure Disk Storage-reservationer för att spara kostnader på premium SSD-hanterade diskar.
+title: Optimera kostnader för Azure-disklagring med reservationer
+description: Lär dig mer om att köpa Azure-disklagring reservationer för att spara kostnader på Premium SSD-hanterade diskar.
 author: roygara
 ms.author: rogarana
 ms.date: 01/30/2020
@@ -14,5 +14,5 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970390"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Minska kostnaderna med Azure Disks Reservation
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Minska kostnaderna med Azure disks-reservation
 [!INCLUDE [disk-reserved-capacity-shared](../../../includes/disk-reserved-capacity-shared.md)]

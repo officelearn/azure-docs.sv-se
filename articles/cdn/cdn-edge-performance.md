@@ -1,6 +1,6 @@
 ---
-title: Analysera kantnodprestanda i Azure CDN | Microsoft-dokument
-description: Analysera edge-nodprestanda i Microsoft Azure CDN. Edge Performance Analytics tillhandahåller detaljerad informationstrafik och bandbreddsanvändning för CDN.
+title: Analysera Edge-Nodens prestanda i Azure CDN | Microsoft Docs
+description: Analysera Edge-Nodens prestanda i Microsoft Azure CDN. Edge Performance Analytics tillhandahåller detaljerad informations trafik och bandbredds användning för CDN.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -25,167 +25,167 @@ ms.locfileid: "67593902"
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Översikt
-Edge prestandaanalys ger detaljerad informationstrafik och bandbreddsanvändning för CDN. Den här informationen kan sedan användas för att generera trendstatistik, vilket gör att du kan få insikt om hur dina tillgångar cachelagras och levereras till dina kunder. Detta gör att du kan bilda en strategi för hur du optimerar leveransen av ditt innehåll och för att avgöra vilka frågor som bör åtgärdas för att bättre utnyttja CDN. Som ett resultat kommer du inte bara att kunna förbättra dataleveransprestanda, men du kommer också att kunna minska dina CDN-kostnader.
+Edge Performance Analytics tillhandahåller detaljerad informations trafik och bandbredds användning för CDN. Den här informationen kan sedan användas för att generera trend statistik, vilket gör att du kan få information om hur dina resurser cachelagras och levereras till dina klienter. På så sätt kan du skapa en strategi för hur du optimerar leverans av ditt innehåll och avgör vilka problem som ska åtgärdas för att bättre utnyttja CDN. Det innebär att du inte bara kommer att kunna förbättra prestandan för data leveranser, men du kan också minska dina CDN-kostnader.
 
 > [!NOTE]
-> Alla rapporter använder UTC/GMT-notation när du anger ett datum/en tid.
+> Alla rapporter använder UTC/GMT-notation när du anger ett datum/tid.
 > 
 > 
 
-## <a name="reports-and-log-collection"></a>Rapporter och loggsamling
-CDN-aktivitetsdata måste samlas in av Edge Performance Analytics-modulen innan den kan generera rapporter om den. Denna insamlingsprocess sker en gång om dagen och täcker den aktivitet som ägde rum under föregående dag. Detta innebär att en rapports statistik representerar ett urval av dagens statistik vid den tidpunkt då den bearbetades och inte nödvändigtvis innehåller den fullständiga uppsättningen data för den aktuella dagen. Den primära funktionen i dessa rapporter är att bedöma prestanda. De bör inte användas för faktureringsändamål eller exakt numerisk statistik.
+## <a name="reports-and-log-collection"></a>Rapporter och logg insamling
+CDN-aktivitets data måste samlas in av Edge Performance Analytics-modulen innan den kan generera rapporter på den. Den här samlings processen sker en gång om dagen och den täcker den aktivitet som ägde rum under föregående dag. Det innebär att rapportens statistik representerar ett exempel på dags statistik vid den tidpunkt då den bearbetades och innehåller inte nödvändigt vis en fullständig uppsättning data för den aktuella dagen. Den primära funktionen i dessa rapporter är att utvärdera prestandan. De bör inte användas i fakturerings syfte eller med en exakt numerisk statistik.
 
 > [!NOTE]
-> Rådata som Edge Performance-analytiska rapporter genereras från är tillgängliga i minst 90 dagar.
+> Rå data som analys rapporter skapas från, är tillgängliga i minst 90 dagar.
 > 
 > 
 
 ## <a name="dashboard"></a>Instrumentpanel
-Instrumentpanelen Edge Performance Analytics spårar aktuell och historisk CDN-trafik genom ett diagram och statistik. Använd den här instrumentpanelen för att identifiera senaste och långsiktiga trender för prestanda för CDN-trafik för ditt konto.
+Instrument panelen för kant prestanda analys spårar aktuell och historisk CDN-trafik via ett diagram och statistik. Använd den här instrument panelen för att upptäcka senaste och långsiktiga trender om prestanda för CDN-trafik för ditt konto.
 
-Den här instrumentpanelen består av:
+Den här instrument panelen består av:
 
-* Ett interaktivt diagram som gör det möjligt att visualisera viktiga mått och trender.
-* En tidslinje som ger en känsla av långsiktiga mönster för viktiga mått och trender.
-* Viktiga mått och statistisk information om hur vårt CDN-nätverk förbättrar webbplatstrafiken mätt med övergripande prestanda, användning och effektivitet.
+* Ett interaktivt diagram som möjliggör visualisering av viktiga mått och trender.
+* En tids linje som ger en uppfattning om långsiktiga mönster för viktiga mått och trender.
+* Viktiga Mät värden och statistisk information om hur ditt CDN-nätverk förbättrar plats trafiken som mäts av den övergripande prestandan, användningen och effektiviteten.
 
-### <a name="accessing-the-edge-performance-dashboard"></a>Komma åt instrumentpanelen för kantprestanda
-1. Klicka på knappen **Hantera** i CDN-profilbladet.
+### <a name="accessing-the-edge-performance-dashboard"></a>Åtkomst till instrument panelen för Edge-prestanda
+1. På bladet CDN-profil klickar du på knappen **Hantera** .
    
-    ![Knappen Hantera CDN-profilblad](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![Knappen Hantera för CDN-profil bladet](./media/cdn-edge-performance/cdn-manage-btn.png)
    
-    CDN-hanteringsportalen öppnas.
-2. Håll muspekaren över fliken **Analytics** och hovra sedan över det utfällbara **edge-prestandaanalysen.**  Klicka på **Instrumentpanelen**.
+    Hanterings portalen för CDN öppnas.
+2. Hovra över fliken **analys** och hovra över den utfällbara **prestanda analysen** .  Klicka på **instrument panelen**.
    
-    Instrumentpanelen för edge-nodanalys visas.
+    Instrument panelen Edge Node Analytics visas.
 
 ### <a name="chart"></a>Diagram
-Instrumentpanelen innehåller ett diagram som spårar ett mått under den tidsperiod som valts på tidslinjen som visas direkt under den.  En tidslinje som visar upp till de två senaste årens CDN-aktivitet visas direkt under diagrammet.
+Instrument panelen innehåller ett diagram som spårar ett mått under den valda tids perioden i tids linjen som visas direkt under den.  En tids linje som visar att grafer upp till de senaste två årens CDN-aktivitet visas direkt under diagrammet.
 
 #### <a name="using-the-chart"></a>Använda diagrammet
-* Som standard kommer cacheeffektivitetshastigheten för de senaste 30 dagarna att kartläggas.
-* Det här diagrammet genereras från data som samlas in dagligen.
-* Om du hovrar över en dag i linjediagrammet visas ett datum och värdet för måttet på det datumet.
-* Klicka på Markera helger om du vill växla ett överlägg av ljusgråtta lodräta staplar som representerar helger i diagrammet. Den här typen av överlägg är användbar för att identifiera trafikmönster under helgerna.
-* Klicka på Visa ett år sedan om du vill växla ett överlägg av föregående års aktivitet under samma tidsperiod till diagrammet. Den här typen av jämförelse ger insikt i långsiktiga CDN-användningsmönster. Diagrammets övre högra hörn innehåller en förklaring som anger färgkoden för varje linjediagram.
+* Som standard visas ett diagram i cachens effektivitets grad under de senaste 30 dagarna.
+* Det här diagrammet genereras från data som sorteras per dag.
+* Om du hovrar över en dag i linje diagrammet visas ett datum och värdet för måttet på det datumet.
+* Klicka på Markera helger för att växla mellan ljusgrå lodräta staplar som representerar helger i diagrammet. Den här typen av överlägg är användbar för att identifiera trafik mönster över helger.
+* Klicka på Visa ett år sedan för att växla ett överlägg för föregående års aktivitet under samma tids period till diagrammet. Den här typen av jämförelse ger insikter om användnings mönster för långsiktiga CDN. Det övre högra hörnet i diagrammet innehåller en förklaring som anger färg koden för varje linje diagram.
 
-#### <a name="updating-the-chart"></a>Uppdatera diagrammet
-* Tidsintervall: Utför något av följande:
-  * Välj önskat område i tidslinjen. Diagrammet uppdateras med data som motsvarar den valda tidsperioden.
+#### <a name="updating-the-chart"></a>Diagrammet uppdateras
+* Tidsintervall: gör något av följande:
+  * Välj önskad region på tids linjen. Diagrammet kommer att uppdateras med data som motsvarar den valda tids perioden.
   * Dubbelklicka på diagrammet om du vill visa alla tillgängliga historiska data upp till högst två år.
-* Mått: Klicka på diagramikonen som visas bredvid önskat mått. Diagrammet och tidslinjen uppdateras med data för motsvarande mått.
+* Mått: Klicka på diagram ikonen som visas bredvid det önskade måttet. Diagrammet och tids linjen kommer att uppdateras med data för motsvarande mått.
 
-### <a name="key-metrics-and-statistics"></a>Viktiga mått och statistik
-#### <a name="efficiency-metrics"></a>Effektivitetsmått
-Syftet med dessa mått är att se om cacheeffektiviteten kan förbättras. De största fördelarna med cacheeffektivitet är:
+### <a name="key-metrics-and-statistics"></a>Nyckel värden och statistik
+#### <a name="efficiency-metrics"></a>Effektivitets mått
+Syftet med dessa mått är att se om cache-effektiviteten kan förbättras. De främsta fördelarna som härleds från cache-effektiviteten är:
 
-* Minskad belastning på ursprungsservern som kan leda till:
-  * Bättre webbserverprestanda.
-  * Minskade driftskostnader.
-* Förbättrad dataleveransacceleration eftersom fler begäranden kommer att betjänas direkt från CDN.
+* Minskad belastning på ursprungs servern som kan leda till:
+  * Bättre webb server prestanda.
+  * Lägre drifts kostnader.
+* Förbättrad acceleration av data leveranser eftersom fler förfrågningar kommer att betjänas direkt från CDN.
 
 | Field | Beskrivning |
 | --- | --- |
-| Cache effektivitet |Anger den procentandel data som överfördes och som serverades från cacheminnet. Det här måttet mäter när en cachelagd version av det begärda innehållet serverades direkt från CDN (edge-servrar) till beställare (t.ex. webbläsare) |
-| Träfffrekvens |Anger procentandelen begäranden som har serverats från cacheminnet. Det här måttet mäter när en cachelagd version av det begärda innehållet serverades direkt från CDN (edge-servrar) till beställare (t.ex. webbläsare). |
-| % av fjärrbyten - ingen cachekonfiguration |Anger den procentandel av trafiken som har serverats från ursprungsservrar till CDN (kantservrar) som inte cachelagras som ett resultat av funktionen Kringgå cache (HTTP Rules Engine). |
-| % av fjärrbyten – cache för utgångna |Anger den procentandel av trafiken som har serverats från ursprungsservrar till CDN (edge-servrar) som ett resultat av inaktuella innehållsåtervalidation. |
+| Cache-effektivitet |Anger procent andelen data som har överförts från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare) |
+| Träff hastighet |Anger procent andelen begär Anden som har hanterats från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare). |
+| % av fjär byte – ingen cache-konfiguration |Anger procent andelen trafik som har betjänats från ursprungs servrar till CDN (Edge-servrar) som inte cachelagras på grund av funktionen bypass cache (HTTP-regler motor). |
+| % av fjärranslutna byte-förfallet cache |Anger procent andelen trafik som har bearbetats från ursprungs servrar till CDN (Edge-servrar) som ett resultat av inaktuellt innehåll. |
 
 #### <a name="usage-metrics"></a>Användningsstatistik
-Syftet med dessa mått är att ge insikt i följande besparingsåtgärder:
+Syftet med dessa mått är att ge insikter om följande kostnader för styckning:
 
-* Minimera driftskostnaderna via CDN.
-* Minska CDN-utgifter genom cacheeffektivitet och komprimering.
+* Minimera drifts kostnaderna genom CDN.
+* Minska CDN-utgifter genom effektivitet och komprimering av cache.
 
 > [!NOTE]
-> Trafikvolymnummer representerar trafik som användes vid beräkningar av nyckeltal och procentsatser och får endast visa en del av den totala trafiken för kunder med stora volymer.
+> Trafik volym nummer representerar trafik som användes i beräkningar av förhållande och procent och kan bara visa en del av den totala trafiken för kunder med stora volymer.
 > 
 > 
 
 | Field | Beskrivning |
 | --- | --- |
-| Ave Bytes Ut |Anger det genomsnittliga antalet byte som överförs för varje begäran som visas från CDN (edge-servrar) till beställaren (t.ex. webbläsare). |
-| Ingen cachekonfigurationsbyteshastighet |Anger den procentandel av trafiken som betjänas från CDN (edge-servrar) till beställaren (t.ex. webbläsare) som inte cachelagras på grund av funktionen Bypass-cache. |
-| Komprimerad bytehastighet |Anger procentandelen trafik som skickas från CDN (kantservrar) till beställare (t.ex. webbläsare) i komprimerat format. |
-| Byte ut |Anger mängden data, i byte, som levererades från CDN (edge-servrar) till beställaren (t.ex. webbläsare). |
-| Byte i |Anger mängden data, i byte, som skickas från beställare (t.ex. webbläsare) till CDN (edge-servrar). |
-| Fjärrkontroll för byte |Anger mängden data, i byte, som skickas från CDN och kundursprungsservrar till CDN (edge-servrar). |
+| Byte ut för byte ut |Anger det genomsnittliga antalet byte som överförs för varje begäran som hanteras från CDN (Edge-servrar) till beställaren (t. ex. webbläsare). |
+| Ingen byte hastighet för cache-konfiguration |Anger procent andelen trafik som hanteras från CDN (Edge-servrar) till beställaren (t. ex. webbläsare) som inte kommer att cachelagras på grund av funktionen för att kringgå cache. |
+| Komprimerad byte-hastighet |Anger procent andelen trafik som skickas från CDN (Edge-servrar) till beställare (t. ex. webbläsare) i komprimerat format. |
+| Byte ut |Anger mängden data, i byte, som levererades från CDN (Edge-servrar) till beställaren (t. ex. webbläsare). |
+| Byte in |Anger mängden data, i byte, som skickats från beställare (t. ex. webbläsare) till CDN (Edge-servrar). |
+| Byte, fjärran sluten |Anger mängden data, i byte, som skickas från CDN och kund ursprungs servrar till CDN (Edge-servrar). |
 
 #### <a name="performance-metrics"></a>Prestandamått
-Syftet med dessa mått är att spåra övergripande CDN-prestanda för din trafik.
+Syftet med dessa mått är att spåra den totala CDN-prestandan för din trafik.
 
 | Field | Beskrivning |
 | --- | --- |
-| Överföringshastighet |Anger den genomsnittliga hastighet med vilken innehållet överfördes från CDN till en beställare. |
-| Varaktighet |Anger den genomsnittliga tiden, i millisekunder, det tog att leverera en tillgång till en beställare (t.ex. webbläsare). |
-| Komprimerad begärandehastighet |Anger procentandelen träffar som levererades från CDN (edge-servrar) till beställaren (t.ex. webbläsare) i komprimerat format. |
-| 4xx Felfrekvens |Anger procentandelen träffar som genererade en 4xx-statuskod. |
-| 5xx Felfrekvens |Anger procentandelen träffar som genererade en 5xx-statuskod. |
-| Träffar |Anger antalet begäranden om CDN-innehåll. |
+| Överföringshastighet |Anger genomsnitts takten som innehållet överfördes från CDN till en beställare. |
+| Varaktighet |Visar genomsnitts tiden, i millisekunder, som tog att leverera en till gång till en beställare (t. ex. webbläsare). |
+| Komprimerad begär ande frekvens |Anger procent andelen träffar som levererades från CDN (Edge-servrar) till beställaren (t. ex. webbläsare) i komprimerat format. |
+| 4xx fel frekvens |Anger procent andelen träffar som genererade status kod för 4xx. |
+| 5xx fel frekvens |Anger procent andelen träffar som genererade status kod för 5xx. |
+| Träffar |Anger antalet begär Anden för CDN-innehåll. |
 
-#### <a name="secure-traffic-metrics"></a>Mått för säker trafik
+#### <a name="secure-traffic-metrics"></a>Skydda trafik mått
 Syftet med dessa mått är att spåra CDN-prestanda för HTTPS-trafik.
 
 | Field | Beskrivning |
 | --- | --- |
-| Säker cacheeffektivitet |Anger procentandelen data som överförts för HTTPS-begäranden som serverades från cacheminnet. Det här måttet mäter när en cachelagd version av det begärda innehållet serverades direkt från CDN (edge-servrar) till beställare (t.ex. webbläsare) via HTTPS. |
-| Säker överföringshastighet |Anger den genomsnittliga hastighet med vilken innehåll överfördes från CDN (edge-servrar) till beställare (t.ex. webbservrar) via HTTPS. |
-| Genomsnittlig säker varaktighet |Anger den genomsnittliga tiden, i millisekunder, det tog att leverera en tillgång till en beställare (t.ex. webbläsare) via HTTPS. |
+| Säker cache-effektivitet |Anger procent andelen data som överförts för HTTPS-begäranden som har hanterats från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare) över HTTPS. |
+| Säker överföringshastighet |Anger den genomsnittliga frekvens med vilken innehåll överfördes från CDN (Edge-servrar) till beställare (t. ex. webb servrar) över HTTPS. |
+| Genomsnittlig säker varaktighet |Visar genomsnitts tiden, i millisekunder, som tog att leverera en till gång till en beställare (t. ex. webbläsare) över HTTPS. |
 | Säkra träffar |Anger antalet HTTPS-begäranden för CDN-innehåll. |
-| Säkra byte ut |Anger mängden HTTPS-trafik, i byte, som levererades från CDN (edge-servrar) till beställaren (t.ex. webbläsare). |
+| Säkra byte ut |Anger mängden HTTPS-trafik, i byte, som levererades från CDN (Edge-servrar) till beställaren (t. ex. webbläsare). |
 
 ## <a name="reports"></a>Rapporter
-Varje rapport i den här modulen innehåller ett diagram och statistik om bandbredd och trafikanvändning för olika typer av mått (t.ex. HTTP-statuskoder, cachestatuskoder, begärande-URL osv.). Den här informationen kan användas för att fördjupa sig i hur innehåll serveras till dina klienter och för att finjustera CDN-beteende för att förbättra dataleveransprestanda.
+Varje rapport i den här modulen innehåller ett diagram och statistik över bandbredds-och trafik användning för olika typer av mått (t. ex. HTTP-statuskod, cache status koder, begär ande-URL osv.). Den här informationen kan användas för att fördjupa dig i hur innehållet betjänas för dina klienter och för att finjustera CDN-beteendet för att förbättra data leverans prestanda.
 
-### <a name="accessing-the-edge-performance-reports"></a>Komma åt prestandarapporterna för kanten
-1. Klicka på knappen **Hantera** i CDN-profilbladet.
+### <a name="accessing-the-edge-performance-reports"></a>Åtkomst till kant prestanda rapporter
+1. På bladet CDN-profil klickar du på knappen **Hantera** .
    
-    ![Knappen Hantera CDN-profilblad](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![Knappen Hantera för CDN-profil bladet](./media/cdn-edge-performance/cdn-manage-btn.png)
    
-    CDN-hanteringsportalen öppnas.
-2. Håll muspekaren över fliken **Analytics** och hovra sedan över det utfällbara **edge-prestandaanalysen.**  Klicka på **HTTP Large Object**.
+    Hanterings portalen för CDN öppnas.
+2. Hovra över fliken **analys** och hovra över den utfällbara **prestanda analysen** .  Klicka på ett **stort http-objekt**.
    
-    Skärmen för kannodanalysrapporter visas.
+    Skärmen Edge nod analys rapporter visas.
 
 | Rapport | Beskrivning |
 | --- | --- |
-| Daglig sammanfattning |Gör att du kan visa dagliga trafiktrender under en angiven tidsperiod. Varje stapel i det här diagrammet representerar ett visst datum. Storleken på stapeln anger det totala antalet träffar som inträffade det datumet. |
-| Sammanfattning per timme |Gör att du kan visa trafiktrender per timme under en angiven tidsperiod. Varje stapel i det här diagrammet representerar en timme på ett visst datum. Storleken på stapeln anger det totala antalet träffar som inträffade under den timmen. |
-| Protokoll |Visar fördelningen av trafiken mellan HTTP- och HTTPS-protokollen. Ett donutdiagram anger hur många procent träffar som inträffade för varje typ av protokoll. |
-| HTTP-metoder |Gör att du kan få en snabb uppfattning om vilka HTTP-metoder som används för att begära dina data. Vanligtvis är de vanligaste HTTP-begärandemetoderna GET, HEAD och POST. Ett donutdiagram anger hur många procent träffar som inträffade för varje typ av HTTP-begärandemetod. |
-|  URL:er |Innehåller ett diagram som visar de tio mest efterfrågade webbadresserna. En stapel visas för varje WEBBADRESS. Höjden på stapeln anger hur många träffar just webbadressen har genererat under den tidsperiod som rapporten omfattar. Statistik för de 100 mest efterfrågade webbadresserna visas direkt under det här diagrammet. |
-| CNAMEs (CNAMEs) |Innehåller ett diagram som visar de 10 främsta CNAMEs som används för att begära tillgångar under en rapports tidsperiod. Statistik för de 100 mest efterfrågade CNAMEs visas direkt under detta diagram. |
-| Ursprung |Innehåller ett diagram som visar de 10 bästa CDN- eller kundursprungsservrarna från vilka tillgångar begärdes under en angiven tidsperiod. Statistik för de 100 mest efterfrågade CDN- eller kundursprungsservrarna visas direkt under det här diagrammet. Kundernas ursprungsservrar identifieras med namnet som definieras i alternativet Katalognamn. |
-| Geo POP |Visar hur mycket av din trafik som dirigeras genom en viss point-of-presence (POP). Förkortningen med tre bokstäver representerar en POP i vårt CDN-nätverk. |
-| Klienter |Innehåller ett diagram som visar de 10 klienter som har begärt tillgångar under en angiven tidsperiod. I den här rapporten anses alla begäranden som kommer från samma IP-adress komma från samma klient. Statistik för de 100 bästa klienterna visas direkt under det här diagrammet. Den här rapporten är användbar för att bestämma hämtningsaktivitetsmönster för dina bästa klienter. |
-| Cachestatus |Ger en detaljerad uppdelning av cachebeteende, som kan avslöja metoder för att förbättra den övergripande slutanvändarens upplevelse. Eftersom den snabbaste prestandan kommer från cacheträffar kan du optimera dataleveranshastigheter genom att minimera cachemissar och utgångna cacheträffar. |
-| INGA Detaljer |Innehåller ett diagram som visar de 10 främsta webbadresserna för tillgångar för vilka cacheinnehållets färskhet inte har kontrollerats under en angiven tidsperiod. Statistik för de 100 bästa webbadresserna för dessa typer av tillgångar visas direkt under det här diagrammet. |
-| CONFIG_NOCACHE Detaljer |Innehåller ett diagram som visar de 10 främsta webbadresserna för tillgångar som inte cachelagrades på grund av kundens CDN-konfiguration. Dessa typer av tillgångar betjänades direkt från ursprungsservern. Statistik för de 100 bästa webbadresserna för dessa typer av tillgångar visas direkt under det här diagrammet. |
-| EJACHEABLE Detaljer |Innehåller ett diagram som visar de 10 främsta url:erna för tillgångar som inte kunde cachelagras på grund av begärandehuvuddata. Statistik för de 100 bästa webbadresserna för dessa typer av tillgångar visas direkt under det här diagrammet. |
-| TCP_HIT Detaljer |Innehåller ett diagram som visar de 10 främsta webbadresserna för tillgångar som visas direkt från cacheminnet. Statistik för de 100 bästa webbadresserna för dessa typer av tillgångar visas direkt under det här diagrammet. |
-| TCP_MISS Detaljer |Innehåller ett diagram som visar de 10 främsta webbadresserna för tillgångar som har en cachestatus på TCP_MISS. Statistik för de 100 bästa webbadresserna för dessa typer av tillgångar visas direkt under det här diagrammet. |
-| TCP_EXPIRED_HIT detaljer |Innehåller ett diagram som visar de 10 främsta webbadresserna för inaktuella tillgångar som har serverats direkt från POP.Contains a graph that displays the top 10 URLLs for stale assets that were served directly from the POP. Statistik för de 100 bästa webbadresserna för dessa typer av tillgångar visas direkt under det här diagrammet. |
-| TCP_EXPIRED_MISS detaljer |Innehåller ett diagram som visar de 10 främsta webbadresserna för inaktuella tillgångar för vilka en ny version måste hämtas från ursprungsservern. Statistik för de 100 bästa webbadresserna för dessa typer av tillgångar visas direkt under det här diagrammet. |
-| TCP_CLIENT_REFRESH_MISS Detaljer |Innehåller ett stapeldiagram som visar de 10 främsta url:erna för tillgångar hämtades från en ursprungsserver på grund av en begäran om att inte cachelagra från klienten. Statistik för de 100 bästa webbadresserna för dessa typer av begäranden visas direkt under det här diagrammet. |
-| Typer av klientbegäranden |Anger vilken typ av begäranden som har gjorts av HTTP-klienter (t.ex. webbläsare). Den här rapporten innehåller ett donutdiagram som ger en känsla för hur begäranden hanteras. Bandbredds- och trafikinformation för varje begärandetyp visas under diagrammet. |
-| Användaragent |Innehåller ett stapeldiagram som visar de 10 vanligaste användaragenterna för att begära ditt innehåll via vår CDN. Vanligtvis är en användaragent en webbläsare, mediaspelare eller en mobiltelefonwebbläsare. Statistik för de 100 bästa användaragenterna visas direkt under det här diagrammet. |
-| Hänvisningsadresser |Innehåller ett stapeldiagram som visar de 10 som refererar till innehåll som nås via vår CDN. Vanligtvis är en referent webbadressen till webbsidan eller resursen som länkar till ditt innehåll. Detaljerad information finns under diagrammet för de 100 främsta referensarna. |
-| Komprimeringstyper |Innehåller ett donutdiagram som delar upp begärda tillgångar efter om de komprimerades av våra kantservrar. Procentandelen komprimerade tillgångar delas upp efter den typ av komprimering som används. Detaljerad information finns under diagrammet för varje komprimeringstyp och status. |
-| Filtyper |Innehåller ett stapeldiagram som visar de 10 vanligaste filtyperna som har begärts via vårt CDN för ditt konto. I den här rapporten definieras en filtyp av tillgångens filnamnstillägg och Internet-medietyp (t.ex. \[html-text/html\], .htm \[text/html\], .aspx \[text/html\], etc.). Detaljerad information finns under diagrammet för de 100 filtyperna. |
-| Unika filer |Innehåller ett diagram som visar det totala antalet unika tillgångar som begärdes en viss dag under en viss tidsperiod. |
-| Sammanfattning av tokenauth |Innehåller ett cirkeldiagram som ger en snabb översikt över om begärda tillgångar skyddades av tokenbaserad autentisering. Skyddade tillgångar visas i diagrammet enligt resultaten av deras försök till autentisering. |
-| Information om tokenauth neka |Innehåller ett stapeldiagram som gör att du kan visa de 10 begäranden som nekades på grund av tokenbaserad autentisering. |
-| HTTP-svarskoder |Ger en uppdelning av HTTP-statuskoder (t.ex. 200 OK, 403 Forbidden, 404 Hittades inte, etc.) som levererades till dina HTTP-klienter av våra kantservrar. Med ett cirkeldiagram kan du snabbt bedöma hur dina tillgångar har delgivits. Detaljerade statistiska uppgifter finns för varje svarskod under diagrammet. |
-| 404 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 vanligaste begärandena som resulterade i en svarskod på 404 hittades inte. |
-| 403 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 vanligaste begärandena som resulterade i en 403 Förbjuden svarskod. En 403 Förbjuden svarskod inträffar när en begäran nekas av en kundursprungsserver eller en kantserver på vår POP. |
-| 4xx Fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 vanligaste begärandena som resulterade i en svarskod i intervallet 400. Undantagna från den här rapporten är 403 Hittades inte och 404 Förbjudna svarskoder. Vanligtvis uppstår en 4xx-svarskod när en begäran nekas till följd av ett klientfel. |
-| 504 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 vanligaste begärandena som resulterade i en 504 Gateway Timeout-svarskod. En 504 Gateway Timeout-svarskod inträffar när en timeout inträffar när en HTTP-proxy försöker kommunicera med en annan server. När det gäller vårt CDN uppstår vanligtvis en 504 Gateway Timeout-svarskod när en kantserver inte kan upprätta kommunikation med en kundursprungsserver. |
-| 502 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 vanligaste begärandena som resulterade i en 502-svarskod för felaktig gateway. En 502-fel gateway-svarskod inträffar när ett HTTP-protokollfel inträffar mellan en server och en HTTP-proxy. När det gäller vårt CDN uppstår vanligtvis en 502-svarskod för felaktig gateway när en kundursprungsserver returnerar ett ogiltigt svar till en kantserver. Ett svar är ogiltigt om det inte kan tolkas eller om det är ofullständigt. |
-| 5xx Fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 vanligaste begärandena som resulterade i en svarskod i intervallet 500.  Undantagna från den här rapporten är 502 Bad Gateway och 504 Gateway Timeout-svarskoder. |
+| Daglig sammanfattning |Gör att du kan visa dagliga trafik trender under en angiven tids period. Varje stapel i diagrammet representerar ett visst datum. Storleken på stapeln anger det totala antalet träffar som inträffat på det datumet. |
+| Sammanfattning per timme |Gör att du kan visa tendenser i varje timme under en angiven tids period. Varje stapel i diagrammet representerar en enda timme på ett visst datum. Storleken på stapeln anger det totala antalet träffar som inträffat under den timmen. |
+| Protokoll |Visar nedbrytning av trafik mellan HTTP-och HTTPS-protokollen. Ett ring diagram anger procent andelen träffar som har inträffat för varje typ av protokoll. |
+| HTTP-metoder |Gör att du kan få en snabb uppfattning om vilka HTTP-metoder som används för att begära dina data. Vanligt vis är de vanligaste HTTP-metoderna GET, HEAD och POST. Ett ring diagram anger procent andelen träffar som har inträffat för varje typ av HTTP-metod för begäran. |
+| Webbadresser |Innehåller ett diagram som visar de 10 mest efterfrågade URL: erna. Ett fält visas för varje URL. Stapelns höjd anger hur många träffar som en viss URL har genererat under den tids period som rapporten avser. Statistik för de översta 100 begärda URL: erna visas direkt under det här diagrammet. |
+| CNAME |Innehåller ett diagram som visar de 10 populäraste CNAME som används för att begära till gångar under rapportens tids period. Statistik för de översta 100 som begärde CNAME visas direkt under det här diagrammet. |
+| Referens |Innehåller ett diagram som visar de 10 främsta CDN-eller kund ursprungs servrar från vilka till gångar har begärts under en angiven tids period. Statistik för de högsta 100 begärda CDN-eller kund ursprungs servrarna visas direkt under det här diagrammet. Kund ursprungs servrar identifieras med det namn som definierats i alternativet katalog namn. |
+| Geo pop |Visar hur mycket av trafiken som dirigeras genom en viss närvaro (POP). Förkortningen med tre bokstäver representerar en POP i vårt CDN-nätverk. |
+| Klienter |Innehåller ett diagram som visar de 10 främsta klienter som begärde till gångar under en angiven tids period. I den här rapporten anses alla begär Anden som härstammar från samma IP-adress vara från samma klient. Statistik för de översta 100 klienterna visas direkt under det här diagrammet. Den här rapporten är användbar när du ska bestämma mönster för hämtnings aktiviteter för dina främsta klienter. |
+| Cache status |Ger en detaljerad nedbrytning av cache-beteende, som kan visa metoder för att förbättra den övergripande slut användar upplevelsen. Eftersom den snabbaste prestandan kommer från cacheträffar kan du optimera data leverans hastigheten genom att minimera Cachemissar och utgångna cacheträffar. |
+| INGEN information |Innehåller ett diagram som visar de 10 populära URL: erna för till gångar för vilka cache-innehåll inte har kontroller ATS under en angiven tids period. Statistik för de översta 100-URL: erna för dessa typer av till gångar visas direkt under grafen. |
+| CONFIG_NOCACHE information |Innehåller ett diagram som visar de 10 populäraste URL: erna för till gångar som inte cachelagrades på grund av kundens CDN-konfiguration. Dessa typer av till gångar betjänades direkt från ursprungs servern. Statistik för de översta 100-URL: erna för dessa typer av till gångar visas direkt under grafen. |
+| Information som inte går att CACHELAGRA |Innehåller ett diagram som visar de 10 populära URL: erna för till gångar som inte kunde cachelagras på grund av begär ande huvud data. Statistik för de översta 100-URL: erna för dessa typer av till gångar visas direkt under grafen. |
+| TCP_HIT information |Innehåller ett diagram som visar de 10 populära URL: erna för till gångar som betjänas direkt från cachen. Statistik för de översta 100-URL: erna för dessa typer av till gångar visas direkt under grafen. |
+| TCP_MISS information |Innehåller ett diagram som visar de 10 populära URL: erna för till gångar som har cache-status TCP_MISS. Statistik för de översta 100-URL: erna för dessa typer av till gångar visas direkt under grafen. |
+| TCP_EXPIRED_HIT information |Innehåller ett diagram som visar de 10 populäraste URL: erna för inaktuella till gångar som har hanterats direkt från POP. Statistik för de översta 100-URL: erna för dessa typer av till gångar visas direkt under grafen. |
+| TCP_EXPIRED_MISS information |Innehåller ett diagram som visar de 10 populäraste URL: erna för inaktuella till gångar som en ny version måste hämtas från ursprungs servern. Statistik för de översta 100-URL: erna för dessa typer av till gångar visas direkt under grafen. |
+| TCP_CLIENT_REFRESH_MISS information |Innehåller ett stapeldiagram som visar de 10 översta URL: erna för till gångar som hämtats från en ursprungs server på grund av en begäran om cachelagring från klienten. Statistik för de översta 100-URL: erna för dessa typer av begär Anden visas direkt under det här diagrammet. |
+| Typer av klient förfrågningar |Anger vilken typ av begär Anden som gjorts av HTTP-klienter (t. ex. webbläsare). Den här rapporten innehåller ett ring diagram som ger en uppfattning om hur förfrågningar hanteras. Bandbredds-och trafik information för varje typ av begäran visas under diagrammet. |
+| Användar agent |Innehåller ett stapeldiagram som visar de 10 främsta användar agenterna för att begära innehåll via vårt CDN. Vanligt vis är en användar agent en webbläsare, Media Player eller en mobil telefon webbläsare. Statistik för de översta 100 användar agenterna visas direkt under det här diagrammet. |
+| Referenter |Innehåller ett stapeldiagram som visar de 10 främsta referenterna till innehåll som nås via vårt CDN. Vanligt vis är en referent webb adressen till den webb sida eller resurs som länkar till ditt innehåll. Detaljerad information finns under grafen för de översta 100-referenterna. |
+| Komprimerings typer |Innehåller ett ring diagram som delar upp de begärda till gångarna genom att de har komprimerats av våra Edge-servrar. Procent andelen komprimerade till gångar delas upp av den typ av komprimering som används. Detaljerad information anges under grafen för varje komprimerings typ och status. |
+| Filtyper |Innehåller ett stapeldiagram som visar de 10 viktigaste filtyper som har begärts via vårt CDN för ditt konto. För den här rapporten definieras en filtyp av till gångens fil namns tillägg och Internet medie typ (t \[. ex. html-text/HTML\],. htm \[-text/HTML\],. aspx \[-text/HTML\], osv.). Detaljerad information finns under grafen för de översta 100-filtyperna. |
+| Unika filer |Innehåller ett diagram som visar det totala antalet unika till gångar som har begärts på en viss dag under en angiven tids period. |
+| Sammanfattning av token auth |Innehåller ett cirkel diagram som ger en snabb översikt över om de begärda till gångarna skyddas av tokenbaserad autentisering. Skyddade till gångar visas i diagrammet enligt resultatet av deras autentiseringsförsök. |
+| Neka information om token auth |Innehåller ett stapeldiagram som gör att du kan visa de 10 viktigaste förfrågningarna som nekades på grund av tokenbaserad autentisering. |
+| HTTP-svars koder |Innehåller en uppdelning av HTTP-statuskod (t. ex. 200 OK, 403 förbjuden, 404 ej påträffat) som levererades till dina HTTP-klienter av våra Edge-servrar. Med ett cirkel diagram kan du snabbt bedöma hur dina till gångar betjänades. Detaljerade statistiska data tillhandahålls för varje svarskod under grafen. |
+| 404 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 främsta förfrågningar som resulterade i en 404 som inte hittade svars koden. |
+| 403 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 främsta förfrågningar som resulterade i en 403-förbjuden svarskod. En 403 förbjuden svarskod inträffar när en begäran nekas av en kund ursprungs Server eller en Edge-Server på vår POP. |
+| 4xx-fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 främsta förfrågningar som resulterade i en svarskod i intervallet 400. Exkluderad från den här rapporten går inte att hitta 403 och 404 förbjudna svars koder. Normalt inträffar en 4xx-svarskod när en begäran nekas till följd av ett klient fel. |
+| 504 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 främsta förfrågningar som resulterade i en 504 Gateway-tidsgräns. En svars kod på 504 Gateway-timeout inträffar när en timeout inträffar när en HTTP-proxy försöker kommunicera med en annan server. Om det finns ett CDN-svar med en tids gräns för 504 Gateway inträffar vanligt vis när en Edge-Server inte kan upprätta kommunikation med en kund ursprungs Server. |
+| 502 fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 främsta förfrågningar som resulterade i en 502 Felaktig gateway-svarskod. En 502 Felaktig gateway-svarskod inträffar när ett HTTP-protokollfel uppstår mellan en server och en HTTP-proxy. I fallet med ett CDN uppstår en 502 Felaktig gateway-svarskod när en kund ursprungs server returnerar ett ogiltigt svar på en Edge-Server. Ett svar är ogiltigt om det inte går att parsa eller om det är ofullständigt. |
+| 5xx-fel |Innehåller ett stapeldiagram som gör att du kan visa de 10 främsta förfrågningar som resulterade i en svarskod i intervallet 500.  Undantaget från den här rapporten är 502 Felaktiga gateway-och 504 Gateway-svars koder. |
 
 ## <a name="see-also"></a>Se även
 * [Översikt över Azure CDN](cdn-overview.md)
-* [Statistik i realtid i Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Åsidosätta standard-HTTP-beteende med hjälp av regelmotorn](cdn-rules-engine.md)
+* [Real tids statistik i Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](cdn-rules-engine.md)
 * [Avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
 

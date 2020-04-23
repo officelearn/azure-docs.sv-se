@@ -1,6 +1,6 @@
 ---
-title: 'VPN Gateway: Ändra gateway-IP-adressinställningar: Azure-portal'
-description: I den här artikeln får du hjälp med att ändra IP-adressprefix för din lokala nätverksgateway med Hjälp av Azure-portalen.
+title: 'VPN Gateway: ändra gatewayens IP-adress inställningar: Azure Portal'
+description: Den här artikeln vägleder dig genom att ändra IP-adressprefix för din lokala nätverksgateway med hjälp av Azure Portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -14,15 +14,15 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864034"
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Ändra inställningar för lokal nätverksgateway med Azure-portalen
+# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Ändra inställningarna för lokal nätverksgateway med hjälp av Azure Portal
 
-Ibland ändras inställningarna för adressprefixet för lokala nätverksgatewayer eller GatewayIPAddress. I den här artikeln visas hur du ändrar inställningarna för den lokala nätverksgatewayen. Du kan också ändra dessa inställningar med en annan metod genom att välja ett annat alternativ i följande lista:
+Ibland ändras inställningarna för din lokala nätverksgateway AddressPrefix eller GatewayIPAddress. Den här artikeln visar hur du ändrar inställningarna för din lokala nätverksgateway. Du kan också ändra dessa inställningar med en annan metod genom att välja ett annat alternativ i listan nedan:
 
-Innan du tar bort anslutningen kanske du vill hämta konfigurationen för dina anslutande enheter för att få den definierade PSK.Before you delete the connection, you may want to download the configuration for your connecting devices for to get the defined PSK. På så sätt behöver du inte omdefiniera det på andra sidan.
+Innan du tar bort anslutningen kanske du vill ladda ned konfigurationen för dina anslutande enheter för att kunna hämta det definierade PSK-nätverket. På så sätt behöver du inte omdefiniera den på den andra sidan.
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](vpn-gateway-modify-local-network-gateway-portal.md)
-> * [Powershell](vpn-gateway-modify-local-network-gateway.md)
+> * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
@@ -30,16 +30,16 @@ Innan du tar bort anslutningen kanske du vill hämta konfigurationen för dina a
 
 ## <a name="modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>Ändra IP-adressprefix
 
-När du ändrar IP-adressprefix beror de steg du följer på om din lokala nätverksgateway har en anslutning.
+När du ändrar IP-adressprefix är de steg du följer beroende av om din lokala nätverksgateway har en anslutning.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Ändra gateway-IP-adressen
+## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Ändra IP-adressen för gatewayen
 
-Om VPN-enheten som du vill ansluta till har bytt offentlig IP-adress måste du ändra den lokala nätverksgatewayen så att den återspeglar den ändringen. När du ändrar den offentliga IP-adressen beror de steg du följer på om din lokala nätverksgateway har en anslutning.
+Om VPN-enheten som du vill ansluta till har bytt offentlig IP-adress måste du ändra den lokala nätverksgatewayen så att den återspeglar den ändringen. När du ändrar den offentliga IP-adressen beror stegen du följer på om din lokala nätverksgateway har en anslutning.
 
 [!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan verifiera gatewayanslutningen. Se [Verifiera en gatewayanslutning](vpn-gateway-verify-connection-resource-manager.md).
+Du kan verifiera din gateway-anslutning. Se [Verifiera en gateway-anslutning](vpn-gateway-verify-connection-resource-manager.md).

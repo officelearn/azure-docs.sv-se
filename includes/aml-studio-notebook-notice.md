@@ -16,5 +16,5 @@ ms.lasthandoff: 04/16/2020
 ms.locfileid: "81411907"
 ---
 > [!NOTE]
-> Funktionen Anteckningsböcker (förhandsversion) togs bort *den 13 april 2020*. Borttagningen av anteckningsböcker och anteckningsboksfiler för användare distribueras för närvarande till Azure-regioner över hela världen.
+> Funktionen Notebooks (för hands version) togs bort den *13 2020 april*. Borttagning av fliken antecknings böcker och användare av Notebook-anteckningsbok-filer går för närvarande till Azure-regioner över hela världen.
       

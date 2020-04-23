@@ -16,14 +16,14 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77156049"
 ---
-**Beräkningsmål kan återanvändas från ett utbildningsarbete till nästa**. När du till exempel har bifogat en fjärrd-VM till arbetsytan kan du återanvända den för flera jobb.  Använd lämpligt [pipeline-steg](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) för maskininlärning för pipelines för maskininlärningspipelor.
+**Compute-mål kan återanvändas från ett utbildnings jobb till nästa**. När du till exempel ansluter en virtuell dator till din arbets yta kan du återanvända den för flera jobb.  För maskin inlärnings pipeliner använder du lämpligt [pipeline-steg](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) för varje beräknings mål.
 
-|Utbildningsmål &nbsp;|[Automatisk ML](../articles/machine-learning/concept-automated-ml.md) | [ML-pipelines](../articles/machine-learning/concept-ml-pipelines.md) | [Azure Machine Learning-designer](../articles/machine-learning/concept-designer.md)
+|Utbildnings &nbsp;mål|[Automatisk ML](../articles/machine-learning/concept-automated-ml.md) | [ML-pipelines](../articles/machine-learning/concept-ml-pipelines.md) | [Azure Machine Learning designer](../articles/machine-learning/concept-designer.md)
 |----|:----:|:----:|:----:|
 |[Lokal dator](../articles/machine-learning/how-to-set-up-training-targets.md#local)| ja | &nbsp; | &nbsp; |
-|[Azure Machine Learning-beräkningskluster](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| Ja & <br/>hyperparameterjustering&nbsp; | ja | ja |
-|[Fjärr-VM](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | Ja & <br/>hyperparameterjustering | ja | &nbsp; |
-|[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| ja (endast SDK-lokalt läge) | ja | &nbsp; |
+|[Azure Machine Learning beräknings kluster](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| Ja & <br/>inställning av&nbsp;min parameter | ja | ja |
+|[VIRTUELL fjärrdator](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | Ja & <br/>inställning av min parameter | ja | &nbsp; |
+|[Azure&nbsp;-Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| Ja (endast SDK lokalt läge) | ja | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | ja | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-set-up-training-targets.md#hdinsight) | &nbsp; | ja | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-set-up-training-targets.md#azbatch) | &nbsp; | ja | &nbsp; |

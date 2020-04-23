@@ -21,10 +21,10 @@ Du kan visa anslutningsstatus i Azure Portal för en klassisk VNet VPN Gateway g
 2. På bladet virtuellt nätverk klickar du på **Översikt** för att få åtkomst till avsnittet **VPN-anslutningar** på bladet.
 3. På bilden VPN-anslutningar klickar du på platsen.
 
-    ![Lokal webbplats](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "lokal webbplats")
+    ![Lokal plats](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "lokal plats")
 4. På bladet **VPN-anslutningar för plats till plats** visar du informationen om din webbplats.
 
     ![Anslutningsstatus](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Anslutningsstatus")
 5. Om du vill visa mer information om anslutningen klickar du på namnet på anslutningen för att öppna bladet **VPN-anslutningar för plats-till-plats**.
 
-    ![Anslutningsstatus mer](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Status för anslutning mer")
+    ![Anslutnings status mer](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Anslutnings status mer info")

@@ -1,6 +1,6 @@
 ---
-title: Översikt över åtkomstkontroll i Data Lake Storage Gen1 | Microsoft-dokument
-description: Förstå hur åtkomstkontroll fungerar i Azure Data Lake Storage Gen1
+title: Översikt över åtkomst kontroll i Data Lake Storage Gen1 | Microsoft Docs
+description: Förstå hur åtkomst kontroll fungerar i Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -21,7 +21,7 @@ ms.locfileid: "79260337"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implementerar en åtkomstkontrollmodell som härleds från HDFS, som i sin tur härleds från POSIX-åtkomstkontrollmodellen. Den här artikeln sammanfattar grunderna i åtkomstkontrollmodellen för Data Lake Storage Gen1. 
+Azure Data Lake Storage Gen1 implementerar en modell för åtkomst kontroll som härleds från HDFS, som i sin tur härleds från POSIX-modellen för åtkomst kontroll. I den här artikeln sammanfattas grunderna för åtkomst kontroll modellen för Data Lake Storage Gen1. 
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Åtkomstkontrollistor för filer och mappar
 
@@ -65,20 +65,20 @@ Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Kör
 
 ### <a name="permissions-do-not-inherit"></a>Behörigheter ärvs inte
 
-I den POSIX-formatmodell som används av Data Lake Storage Gen1 lagras behörigheter för ett objekt på själva objektet. Behörigheter för ett objekt kan med andra ord inte ärvas från de överordnade objekten.
+I POSIX-format modellen som används av Data Lake Storage Gen1 lagras behörigheter för ett objekt i själva objektet. Behörigheter för ett objekt kan med andra ord inte ärvas från de överordnade objekten.
 
 ## <a name="common-scenarios-related-to-permissions"></a>Vanliga scenarier som rör behörigheter
 
-Här följer några vanliga scenarier som hjälper dig att förstå vilka behörigheter som behövs för att utföra vissa åtgärder på ett Data Lake Storage Gen1-konto.
+Nedan följer några vanliga scenarier som hjälper dig att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett Data Lake Storage Gen1-konto.
 
-| Åtgärd | Objekt              |    /      | Seattle/   | Portland/   | Data.txt       |
+| Åtgärd | Objekt              |    /      | Stockholm   | Portland   | Data. txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
-| Läsa      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Lägg till i | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Ta bort    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Skapa    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Läsa      | Data. txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Lägg till i | Data. txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Ta bort    | Data. txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Skapa    | Data. txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Visa lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Visa lista      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Visa lista      | Stockholm           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Visa lista      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
@@ -98,17 +98,17 @@ Alla filer och mappar har olika behörigheter för dessa identiteter:
 * Namngivna grupper
 * Alla andra användare
 
-Identiteten för användare och grupper är Azure Active Directory (Azure AD)-identiteter. Så om inget annat anges kan en "användare" i samband med Data Lake Storage Gen1 antingen betyda en Azure AD-användare eller en Azure AD-säkerhetsgrupp.
+Identiteten för användare och grupper är Azure Active Directory (Azure AD)-identiteter. Så om inget annat anges kan en "användare" i kontexten för Data Lake Storage Gen1 antingen innebära en Azure AD-användare eller en Azure AD-säkerhetsgrupp.
 
 ### <a name="the-super-user"></a>Superanvändaren
 
-En superanvändare har flest rättigheter för alla användare i Data Lake Storage Gen1-kontot. En superanvändare:
+En superanvändare har flest rättigheter till alla användare i Data Lake Storage Gen1-kontot. En superanvändare:
 
 * Har RWX-behörigheter till **alla** filer och mappar.
 * Kan ändra behörigheterna för alla filer och mappar.
 * Kan ändra ägande användare eller ägande grupp för alla filer och mappar.
 
-Alla användare som ingår **i** ägarrollen för ett Data Lake Storage Gen1-konto är automatiskt superanvändare.
+Alla användare som ingår i rollen **ägare** för ett data Lake Storage gen1 konto är automatiskt en super-användare.
 
 ### <a name="the-owning-user"></a>Ägande användare
 
@@ -128,14 +128,14 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
-Eftersom det inte finns någon "primär grupp" som är associerad med användare i Data Lake Storage Gen1, tilldelas den ägande gruppen enligt nedan.
+Eftersom det inte finns någon "primär grupp" kopplad till användare i Data Lake Storage Gen1, tilldelas ägande gruppen enligt nedan.
 
-**Tilldela den ägande gruppen för en ny fil eller mapp**
+**Tilldela ägande grupp för en ny fil eller mapp**
 
-* **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1-konto skapas. I det här fallet är den ägande gruppen inställd på en helt noll GUID.  Det här värdet tillåter inte åtkomst.  Det är en platshållare tills en grupp tilldelas.
+* **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1-konto skapas. I det här fallet har den ägande gruppen angetts till en GUID på alla-noll.  Det här värdet tillåter inte åtkomst.  Det är en plats hållare tills en grupp tilldelas en grupp.
 * **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
 
-**Ändra ägandegruppen**
+**Ändra den ägande gruppen**
 
 Den ägande gruppen kan ändras av:
 * Alla superanvändare.
@@ -144,12 +144,12 @@ Den ägande gruppen kan ändras av:
 > [!NOTE]
 > Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.
 >
-> För konton som skapats den 20 september 2018 eller före september 2018 angavs den användare som skapade kontot för rotmappen för **ärende 1**ovan.  Ett enda användarkonto är inte giltigt för att ge behörigheter via den ägande gruppen, vilket innebär att inga behörigheter beviljas av den här standardinställningen. Du kan tilldela den här behörigheten till en giltig användargrupp.
+> För konton som skapats på eller före september 2018 var den ägande gruppen inställd på den användare som skapade kontot i fallet med rotmappen för **fall 1**ovan.  Ett enda användar konto är inte giltigt för att ge behörigheter via den ägande gruppen, så ingen behörighet beviljas av den här standardinställningen. Du kan tilldela den här behörigheten till en giltig användar grupp.
 
 
 ## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll
 
-Följande pseudokod representerar åtkomstkontrollalgoritmen för Data Lake Storage Gen1-konton.
+Följande pseudocode representerar algoritmen för åtkomst kontroll för Data Lake Storage Gen1-konton.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -194,20 +194,20 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>Masken
 
-Som illustreras i algoritmen för åtkomstkontroll begränsar masken åtkomst för **namngivna användare**, den **ägande gruppen**och **namngivna grupper**.  
+Som illustreras i algoritmen för åtkomst kontroll begränsar masken åtkomsten för **namngivna användare**, **ägande grupp**och **namngivna grupper**.  
 
 > [!NOTE]
-> For a new Data Lake Storage Gen1 account, the mask for the Access ACL of the root folder ("/") defaults to RWX.
+> För ett nytt Data Lake Storage Gen1-konto är masken för åtkomst-ACL: en för rotmappen ("/") som standard RWX.
 >
 >
 
 ### <a name="the-sticky-bit"></a>Sticky bit
 
-Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen1 är det osannolikt att den klibbiga biten kommer att behövas. Sammanfattningsvis, om den klibbiga biten är aktiverad på en mapp, kan ett underordnat objekt bara tas bort eller byta namn på av det underordnade objektets ägandeanvändare.
+Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen1 är det osannolikt att det behövs. I sammanfattning, om trögheten är aktive rad i en mapp, kan ett underordnat objekt bara tas bort eller byta namn på det underordnade objektets ägande användare.
 
 Sticky bit visas inte i Azure-portalen.
 
-## <a name="default-permissions-on-new-files-and-folders"></a>Standardbehörigheter för nya filer och mappar
+## <a name="default-permissions-on-new-files-and-folders"></a>Standard behörigheter för nya filer och mappar
 
 När en ny fil eller mapp skapas under en befintlig mapp, anger standard-ACL:en på den överordnade mappen:
 
@@ -216,19 +216,19 @@ När en ny fil eller mapp skapas under en befintlig mapp, anger standard-ACL:en 
 
 ### <a name="umask"></a>umask
 
-När du skapar en fil eller mapp används umask för att ändra hur standard-ACL:erna anges för det underordnade objektet. umask är ett 9-bitarsvärde på överordnade mappar som innehåller ett RWX-värde för **att äga användare,** **äga grupp**och **andra**.
+När du skapar en fil eller mapp används umask för att ändra hur standard-ACL: erna anges för det underordnade objektet. umask är ett 9-bitars värde för överordnade mappar som innehåller ett RWX-värde för **ägande användare**, **ägande grupp**och **annat**.
 
-Umask för Azure Data Lake Storage Gen1 är ett konstant värde inställt på 007. Det här värdet kan översättas till
+Umask för Azure Data Lake Storage Gen1 är ett konstant värde som är inställt på 007. Det här värdet översätts till
 
 | umask-komponent     | Numeriskt format | Kortformat | Betydelse |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   `---`      | För att äga användaren kopierar du den överordnade standard-åtkomstkontrollistan till barnets åtkomstförstykningsförord | 
-| umask.owning_group  |    0         |   `---`      | För att äga gruppen kopierar du den överordnade standard-åtkomstkontrollistan till barnets Åtkomst-åtkomstförstöring | 
-| umask.other         |    7         |   `RWX`      | För andra, ta bort alla behörigheter för barnets Åtkomst-åtkomst-åtkomst- |
+| umask. owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
+| umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
+| umask. other         |    7         |   `RWX`      | För övrigt tar du bort alla behörigheter för barnets åtkomst-ACL |
 
-Det umask-värde som används av Azure Data Lake Storage Gen1 innebär effektivt att värdet för andra aldrig överförs som standard på nya underordnade - oavsett vad standard-åtkomstkontrollistan anger. 
+Umask-värdet som används av Azure Data Lake Storage Gen1 effektivt innebär att värdet för other aldrig skickas som standard på nya underordnade, oavsett vad standard-ACL: en visar. 
 
-Följande pseudokod visar hur umask används när du skapar ACL:erna för ett underordnat objekt.
+Följande pseudocode visar hur umask används när du skapar ACL: er för ett underordnat objekt.
 
 ```
 def set_default_acls_for_new_child(parent, child):
@@ -246,11 +246,11 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Vanliga frågor om ACL:er i Gen1 för lagring av datasjö
+## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Vanliga frågor om ACL: er i Data Lake Storage Gen1
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Måste jag aktivera stöd för ACL:er?
 
-Nej. Åtkomstkontroll via ACL:er är alltid aktiverat för ett Data Lake Storage Gen1-konto.
+Nej. Åtkomst kontroll via ACL: er är alltid aktiverat för ett Data Lake Storage Gen1-konto.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Vilka behörigheter krävs för att rekursivt ta bort en mapp och dess innehåll?
 
@@ -282,14 +282,14 @@ Posterna i ACL lagras som GUID:er som motsvarar användare i Azure AD. API:erna 
 
 En GUID visas när användaren inte finns i Azure AD längre. Detta inträffar vanligtvis när användaren har lämnat företaget eller om kontot har tagits bort i Azure AD.
 
-### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Stöder Data Lake Storage Gen1 arv av ACL:er?
+### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Stöder Data Lake Storage Gen1 arv av ACL: er?
 
 Nej, men standard-ACL:er kan användas för att ange ACL:er för underordnade filer och mappar som nyligen skapats under den överordnade mappen.  
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 
 * [POSIX-åtkomstkontrollistor på Linux](https://www.linux.com/news/posix-acls-linux)
-* [Behörighetsguide för HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [Guide för HDFS-behörighet](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 * [Vanliga frågor och svar om POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
 * [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)

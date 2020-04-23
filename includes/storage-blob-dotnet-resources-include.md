@@ -17,21 +17,21 @@ ms.locfileid: "79129063"
 ---
 ## <a name="resources-for-development-with-net"></a>Resurser för utveckling med .NET
 
-Länkarna nedan ger användbara resurser för utvecklare som använder Azure Storage-klientbiblioteket för .NET.
+Länkarna nedan tillhandahåller användbara resurser för utvecklare som använder Azure Storage-klient biblioteket för .NET.
 
-### <a name="azure-storage-common-apis"></a>Vanliga Azure Storage-API:er
+### <a name="azure-storage-common-apis"></a>Azure Storage vanliga API: er
 
 - [Referensdokumentation för API](/dotnet/api/overview/azure/storage)
-- [Bibliotekets källkod](https://github.com/Azure/azure-storage-net/tree/master/Common)
+- [Biblioteks käll kod](https://github.com/Azure/azure-storage-net/tree/master/Common)
 - [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 
-### <a name="blob-storage-apis"></a>API:er för bloblagring
+### <a name="blob-storage-apis"></a>API: er för Blob Storage
 
 - [Referensdokumentation för API](/dotnet/api/overview/azure/storage)
-- [Bibliotekets källkod](https://github.com/Azure/azure-storage-net/tree/master/Blob)
-- [Paket (NuGet) för version 11.x](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-- [Paket (NuGet) för version 12.x](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Prover](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+- [Biblioteks käll kod](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+- [Paket (NuGet) för version 11. x](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+- [Paket (NuGet) för version 12. x](https://www.nuget.org/packages/Azure.Storage.Blobs)
+- [Exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 ### <a name="net-tools"></a>.NET-verktyg
 

@@ -15,8 +15,8 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299210"
 ---
-- Inkrementella ögonblicksbilder kan för närvarande inte flyttas mellan prenumerationer.
-- Du kan för närvarande bara generera SAS-URI:er med upp till fem ögonblicksbilder av en viss ögonblicksbildfamilj vid en given tidpunkt.
-- Du kan inte skapa en inkrementell ögonblicksbild för en viss disk utanför diskens prenumeration.
-- Upp till sju inkrementella ögonblicksbilder per disk kan skapas var femte minut.
-- Totalt 200 inkrementella ögonblicksbilder kan skapas för en enda disk.
+- Det går för närvarande inte att flytta stegvisa ögonblicks bilder mellan prenumerationer.
+- För närvarande kan du bara skapa SAS-URI: er på upp till fem ögonblicks bilder av en viss ögonblicks bild serie vid en given tidpunkt.
+- Du kan inte skapa en stegvis ögonblicks bild för en viss disk utanför diskens prenumeration.
+- Upp till sju stegvisa ögonblicks bilder per disk kan skapas var femte minut.
+- Totalt 200 stegvisa ögonblicks bilder kan skapas för en enskild disk.

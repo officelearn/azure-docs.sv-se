@@ -19,46 +19,46 @@ ms.locfileid: "67187179"
 
 #### <a name="to-add-additional-address-prefixes"></a>Så här lägger du till ytterligare adressprefix:
 
-1. Klicka på **Konfiguration**i avsnittet Inställningar i avsnittet Inställningar i resursen **Lokal** nätverksgateway .
-2. Lägg till IP-adressutrymmet i rutan *Lägg till ytterligare adressintervall.*
-3. Spara inställningarna genom att klicka på **Spara.**
+1. I avsnittet **Inställningar** på resursen lokal nätverksgateway klickar du på **konfiguration**.
+2. Lägg till IP-adressutrymmet i rutan *Lägg till ytterligare adress intervall* .
+3. Klicka på **Spara** för att spara inställningarna.
 
 #### <a name="to-remove-address-prefixes"></a>Så här tar du bort adressprefix:
 
-1. Klicka på **Konfiguration**i avsnittet Inställningar i avsnittet Inställningar i resursen **Lokal** nätverksgateway .
-2. Klicka på **'...'** på raden som innehåller prefixet som du vill ta bort.
+1. I avsnittet **Inställningar** på resursen lokal nätverksgateway klickar du på **konfiguration**.
+2. Klicka på **"..."** på den rad som innehåller prefixet som du vill ta bort.
 3. Klicka på **Ta bort**.
-4. Spara inställningarna genom att klicka på **Spara.**
+4. Klicka på **Spara** för att spara inställningarna.
 
 ### <a name="to-modify-local-network-gateway-ip-address-prefixes---existing-gateway-connection"></a><a name="withconnection"></a>Ändra IP-adressprefix för nätverksgateway – existerande gatewayanslutning
 
 Om du har en gatewayanslutning och vill lägga till eller ta bort IP-adressprefixet som ingår i din lokala nätverksgateway, behöver du genomföra följande steg i turordning. Det medför en del avbrott för din VPN-anslutning. När du ändrar IP-adressprefix behöver du inte ta bort VPN-gatewayen. Du måste bara ta bort anslutningen.
 
-#### <a name="1-remove-the-connection"></a>1. Ta bort anslutningen.
+#### <a name="1-remove-the-connection"></a>1. ta bort anslutningen.
 
-1. Klicka på Anslutningar i avsnittet **Inställningar** i avsnittet **Inställningar**på resursen Lokal nätverksgateway .
-2. Klicka på **...** på raden för varje anslutning och klicka sedan på **Ta bort**.
-3. Spara inställningarna genom att klicka på **Spara.**
+1. I avsnittet **Inställningar** på resursen lokal nätverksgateway klickar du på **anslutningar**.
+2. Klicka på **...** på raden för varje anslutning och klicka sedan på **ta bort**.
+3. Klicka på **Spara** för att spara inställningarna.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Ändra adressprefixen.
+#### <a name="2-modify-the-address-prefixes"></a>2. ändra adressprefix.
 
 Så här lägger du till ytterligare adressprefix:
 
-1. Klicka på **Konfiguration**i avsnittet Inställningar i avsnittet Inställningar i resursen **Lokal** nätverksgateway .
+1. I avsnittet **Inställningar** på resursen lokal nätverksgateway klickar du på **konfiguration**.
 2. Lägg till IP-adressutrymmet.
-3. Spara inställningarna genom att klicka på **Spara.**
+3. Klicka på **Spara** för att spara inställningarna.
 
 Så här tar du bort adressprefix:
 
-1. Klicka på **Konfiguration**i avsnittet Inställningar i avsnittet Inställningar i resursen **Lokal** nätverksgateway .
-2. Klicka på **...** på raden som innehåller det prefix som du vill ta bort.
+1. I avsnittet **Inställningar** på resursen lokal nätverksgateway klickar du på **konfiguration**.
+2. Klicka på **...** på den rad som innehåller det prefix som du vill ta bort.
 3. Klicka på **Ta bort**.
-4. Spara inställningarna genom att klicka på **Spara.**
+4. Klicka på **Spara** för att spara inställningarna.
 
-#### <a name="3-recreate-the-connection"></a>3. Återskapa anslutningen.
+#### <a name="3-recreate-the-connection"></a>3. skapa anslutningen igen.
 
-1. Navigera till virtual network gateway för ditt virtuella nätverk. (Inte den lokala nätverksgatewayen.)
-2. Klicka på **Anslutningar**i avsnittet **Inställningar** i den virtuella nätverksgatewayen.
-3. Klicka på **bladet + Lägg** till för att öppna **Bladet Lägg till anslutning.**
+1. Navigera till Virtual Network Gateway för ditt VNet. (Inte den lokala Nätverksgatewayen.)
+2. Klicka på **anslutningar**i avsnittet **Inställningar** på Virtual Network Gateway.
+3. Klicka på **+ Lägg** till för att öppna bladet **Lägg till anslutning** .
 4. Återskapa anslutningen.
 5. Klicka på **OK** för att skapa anslutningen.

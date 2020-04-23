@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resurser'
-description: Lär dig allt om SQL .NET Core API och SDK, inklusive utgivningsdatum, pensioneringsdatum och ändringar som gjorts mellan varje version av Azure Cosmos DB .NET Core SDK.
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK &-resurser'
+description: Lär dig allt om SQL .NET Core API och SDK, inklusive versions datum, indragnings datum och ändringar som görs mellan varje version av Azure Cosmos DB .NET Core SDK.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -20,34 +20,34 @@ ms.locfileid: "72177711"
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resten](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulkutnrutören - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-|**SDK nedladdning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API-dokumentation**|[.NET API-referensdokumentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
-|**Prover**|[EXEMPEL PÅ .NET-kod](sql-api-dotnet-samples.md)|
-|**Kom igång**|[Komma igång med Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
-|**Självstudiekurs för webbappar**|[Webbprogramutveckling med Azure Cosmos DB](sql-api-dotnet-application.md)|
-|**Nuvarande ramverk som stöds**|[.NET Standard 1.6 och .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
+|**SDK-hämtning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**API-dokumentation**|[Dokumentation om .NET API-referens](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Exempel**|[.NET-kod exempel](sql-api-dotnet-samples.md)|
+|**Kom igång**|[Kom igång med Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
+|**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Aktuellt ramverk som stöds**|[.NET standard 1,6 och .NET standard 1,5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Viktig information
 
 > [!NOTE]
-> Om du använder .NET Core läser du den senaste versionen 3.x av [.NET SDK](sql-api-sdk-dotnet-standard.md), som är inriktad på .NET Standard. 
+> Om du använder .NET Core, se den senaste versionen 3. x av [.NET SDK](sql-api-sdk-dotnet-standard.md), som är riktad mot .net standard. 
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 
 
 ## <a name="see-also"></a>Se även
-Mer information om Cosmos DB finns på tjänstsidan [för Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
+Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
 

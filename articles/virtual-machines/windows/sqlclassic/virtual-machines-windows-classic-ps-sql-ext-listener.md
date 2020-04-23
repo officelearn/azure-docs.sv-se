@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en extern lyssnare för tillgänglighetsgrupper
-description: Den här självstudien går igenom steg för att skapa en gruppavlyssnare för alltid på tillgänglighet i Azure som är externt tillgänglig med hjälp av den offentliga virtuella IP-adressen för den associerade molntjänsten.
+title: Konfigurera en extern lyssnare för tillgänglighets grupper
+description: Den här självstudien vägleder dig genom stegen för att skapa en lyssnare för Always on-tillgänglighetsgrupper i Azure som kan nås externt med hjälp av den offentliga virtuella IP-adressen för den associerade moln tjänsten.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -22,52 +22,52 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978188"
 ---
-# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurera en extern lyssnare för tillgänglighetsgrupper på virtuella Azure SQL Server-datorer
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurera en extern lyssnare för tillgänglighets grupper på Azure SQL Server virtuella datorer
 > [!div class="op_single_selector"]
 > * [Intern lyssnare](../classic/ps-sql-int-listener.md)
 > * [Extern lyssnare](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
-Det här avsnittet visar hur du konfigurerar en lyssnare för en grupp som alltid är tillgänglig för tillgänglighet som är externt tillgänglig på internet. Detta möjliggörs genom att koppla molntjänstens **offentliga VIRTUAL IP-adress (VIP)** med lyssnaren.
+Det här avsnittet visar hur du konfigurerar en lyssnare för en tillgänglighets grupp som alltid är tillgänglig via Internet. Detta görs möjligt genom att associera moln tjänstens **offentliga virtuella IP-adress (VIP)** med lyssnaren.
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och Classic](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
-Din tillgänglighetsgrupp kan innehålla repliker som endast är lokalt, azure eller spanar både lokalt och Azure för hybridkonfigurationer. Azure-repliker kan finnas inom samma region eller mellan flera regioner med hjälp av flera virtuella nätverk (VNets). Stegen nedan förutsätter att du redan har [konfigurerat en tillgänglighetsgrupp](../classic/portal-sql-alwayson-availability-groups.md) men inte har konfigurerat en lyssnare.
+Din tillgänglighets grupp kan bara innehålla repliker som endast är lokala, endast Azure eller både lokalt och Azure för Hybrid konfigurationer. Azure-replikeringar kan finnas i samma region eller i flera regioner med hjälp av flera virtuella nätverk (virtuella nätverk). Stegen nedan förutsätter att du redan har [konfigurerat en tillgänglighets grupp](../classic/portal-sql-alwayson-availability-groups.md) men inte har konfigurerat en lyssnare.
 
-## <a name="guidelines-and-limitations-for-external-listeners"></a>Riktlinjer och begränsningar för externa lyssnare
-Observera följande riktlinjer om tillgänglighetsgruppavlyssnare i Azure när du distribuerar med hjälp av molntjänstens offentliga VIP-adress:
+## <a name="guidelines-and-limitations-for-external-listeners"></a>Rikt linjer och begränsningar för externa lyssnare
+Observera följande rikt linjer för tillgänglighets gruppens lyssnare i Azure när du distribuerar med hjälp av den offentliga VIP-adressen för moln tjänsten:
 
-* Lyssnare för tillgänglighetsgruppen stöds på Windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2.
-* Klientprogrammet måste finnas på en annan molntjänst än den som innehåller virtuella datorer i tillgänglighetsgruppen. Azure stöder inte direkt serverretur med klient och server i samma molntjänst.
-* Som standard visar stegen i den här artikeln hur du konfigurerar en lyssnare för att använda ip-adressen (Cloud Service Virtual IP). Det är dock möjligt att reservera och skapa flera VIP-adresser för din molntjänst. På så sätt kan du använda stegen i den här artikeln för att skapa flera lyssnare som var och en är associerade med en annan VIP. Information om hur du skapar flera VIP-adresser finns i [Flera VIP-adresser per molntjänst](../../../load-balancer/load-balancer-multivip.md).
-* Om du skapar en lyssnare för en hybridmiljö måste det lokala nätverket ha anslutning till det offentliga Internet utöver vpn från plats till plats med det virtuella Azure-nätverket. När i Azure-undernätet kan tillgänglighetsgruppavlyssnaren endast nås av den offentliga IP-adressen för respektive molntjänst.
-* Det stöds inte för att skapa en extern lyssnare i samma molntjänst där du också har en intern lyssnare med hjälp av Internal Load Balancer (ILB).
+* Tillgänglighets gruppens lyssnare stöds på Windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2.
+* Klient programmet måste finnas på en annan moln tjänst än den som innehåller dina virtuella dator namn för tillgänglighets gruppen. Azure stöder inte direkt Server retur med klienten och servern i samma moln tjänst.
+* Som standard visar stegen i den här artikeln hur du konfigurerar en lyssnare att använda den virtuella IP-adressen (VIP) för moln tjänsten. Det är dock möjligt att reservera och skapa flera VIP-adresser för din moln tjänst. På så sätt kan du använda stegen i den här artikeln för att skapa flera lyssnare som är associerade med en annan VIP. Information om hur du skapar flera VIP-adresser finns i [flera virtuella IP-adresser per moln tjänst](../../../load-balancer/load-balancer-multivip.md).
+* Om du skapar en lyssnare för en hybrid miljö måste det lokala nätverket ha anslutning till det offentliga Internet förutom VPN för plats-till-plats med det virtuella Azure-nätverket. I Azure-undernätet kan tillgänglighets gruppens lyssnare endast uppnås av den offentliga IP-adressen för respektive moln tjänst.
+* Det finns inte stöd för att skapa en extern lyssnare i samma moln tjänst där du också har en intern lyssnare som använder den interna Load Balancer (ILB).
 
-## <a name="determine-the-accessibility-of-the-listener"></a>Bestäm tillgängligheten för lyssnaren
+## <a name="determine-the-accessibility-of-the-listener"></a>Avgöra tillgängligheten för lyssnaren
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Den här artikeln fokuserar på att skapa en lyssnare som använder **extern belastningsutjämning**. Om du vill ha en lyssnare som är privat för ditt virtuella nätverk läser du den version av den här artikeln som innehåller steg för att konfigurera en [lyssnare med ILB](../classic/ps-sql-int-listener.md)
+Den här artikeln fokuserar på att skapa en lyssnare som använder **extern belastnings utjämning**. Om du vill ha en lyssnare som är privat för ditt virtuella nätverk, se den version av artikeln som innehåller steg för att konfigurera en [lyssnare med ILB](../classic/ps-sql-int-listener.md)
 
-## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Skapa belastningsbalanserade vm-slutpunkter med direkt serverretur
-Extern belastningsutjämning använder den virtuella virtuella virtuella IP-adressen för molntjänsten som är värd för dina virtuella datorer. Så du behöver inte skapa eller konfigurera belastningsutjämnaren i det här fallet.
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Skapa belastningsutjämnade VM-slutpunkter med direkt Server retur
+Extern belastnings utjämning använder den virtuella offentliga virtuella IP-adressen för den moln tjänst som är värd för dina virtuella datorer. Så du behöver inte skapa eller konfigurera belastningsutjämnaren i det här fallet.
 
-Du måste skapa en belastningsbalanserad slutpunkt för varje virtuell dator som är värd för en Azure-replik. Om du har repliker i flera regioner måste varje replik för den regionen finnas i samma molntjänst i samma virtuella nätverk. För att skapa kondränningsgrupprepliker som sträcker sig över flera Azure-regioner krävs att flera virtuella nätverk konfigureras. Mer information om hur du konfigurerar anslutning mellan virtuella nätverk finns i [Konfigurera VNet till VNet-anslutning](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Du måste skapa en belastningsutjämnad slut punkt för varje virtuell dator som är värd för en Azure-replik. Om du har repliker i flera regioner måste varje replik för regionen finnas i samma moln tjänst i samma VNet. Att skapa tillgänglighets grupp repliker som sträcker sig över flera Azure-regioner kräver att du konfigurerar flera virtuella nätverk. Mer information om hur du konfigurerar Cross VNet-anslutning finns i [Konfigurera VNet till VNET-anslutning](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-1. I Azure-portalen navigerar du till varje virtuell dator som är värd för en replik och visar detaljerna.
-2. Klicka på fliken **Slutpunkter** för var och en av de virtuella datorerna.
-3. Kontrollera att **namn** och **offentlig port** för lyssnarens slutpunkt som du vill använda inte redan används. I exemplet nedan är namnet "MyEndpoint" och porten är "1433".
-4. På din lokala klient laddar du ned och installerar [den senaste PowerShell-modulen](https://azure.microsoft.com/downloads/).
-5. Starta **Azure PowerShell**. En ny PowerShell-session öppnas med Azure-administratörsmodulerna inlästa.
-6. Kör **Get-AzurePublishSettingsFile**. Den här cmdleten leder dig till en webbläsare för att hämta en publiceringsinställningsfil till en lokal katalog. Du kan bli tillfrågad om dina inloggningsuppgifter för din Azure-prenumeration.
-7. Kör kommandot **Importera-AzurePublishSettingsFile** med sökvägen till den publiceringsinställningsfil som du hämtade:
+1. I Azure Portal navigerar du till varje virtuell dator som är värd för en replik och visar informationen.
+2. Klicka på fliken **slut punkter** för var och en av de virtuella datorerna.
+3. Kontrol lera att **namnet** och den **offentliga porten** för den lyssnare slut punkt som du vill använda inte redan används. I exemplet nedan är namnet "min slut punkt" och porten är "1433".
+4. Hämta och installera [den senaste PowerShell-modulen](https://azure.microsoft.com/downloads/)på den lokala klienten.
+5. Starta **Azure PowerShell**. En ny PowerShell-session öppnas med de Azure-administrativa moduler som lästs in.
+6. Kör **Get-AzurePublishSettingsFile**. Denna cmdlet dirigerar dig till en webbläsare för att ladda ned en fil för publicerings inställningar till en lokal katalog. Du kan uppmanas att ange dina inloggnings uppgifter för din Azure-prenumeration.
+7. Kör kommandot **import-AzurePublishSettingsFile** med sökvägen till filen med publicerings inställningar som du laddade ned:
    
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
    
-    När filen för publiceringsinställningar har importerats kan du hantera din Azure-prenumeration i PowerShell-sessionen.
+    När publicerings inställnings filen har importer ATS kan du hantera din Azure-prenumeration i PowerShell-sessionen.
     
-1. Kopiera PowerShell-skriptet nedan till en textredigerare och ange variabelvärden som passar din miljö (standardvärden har angetts för vissa parametrar). Observera att om din tillgänglighetsgrupp sträcker sig över Azure-regioner måste du köra skriptet en gång i varje datacenter för molntjänsten och noder som finns i det datacentret.
+1. Kopiera PowerShell-skriptet nedan till en text redigerare och ange variabel värden som passar din miljö (standardvärden har angetts för vissa parametrar). Observera att om din tillgänglighets grupp sträcker sig över Azure-regioner måste du köra skriptet en gång i varje data Center för moln tjänsten och noder som finns i det data centret.
    
         # Define variables
         $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -79,25 +79,25 @@ Du måste skapa en belastningsbalanserad slutpunkt för varje virtuell dator som
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
         }
 
-2. När du har angett variablerna kopierar du skriptet från textredigeraren till din Azure PowerShell-session för att köra det. Om uppmaningen fortfarande visas >> skriver du RETUR igen för att kontrollera att skriptet börjar köras.
+2. När du har angett variablerna kopierar du skriptet från text redigeraren till din Azure PowerShell-session för att köra det. Om meddelandet fortfarande visar >> skriver du in RETUR för att kontrol lera att skriptet börjar köras.
 
-## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Kontrollera att KB2854082 är installerat om det behövs
+## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Kontrol lera att KB2854082 installeras vid behov
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>Öppna brandväggsportarna i tillgänglighetsgruppnoder
+## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>Öppna brand Väggs portarna i tillgänglighets gruppens noder
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-## <a name="create-the-availability-group-listener"></a>Skapa lyssnaren för tillgänglighetsgruppen
+## <a name="create-the-availability-group-listener"></a>Skapa tillgänglighets gruppens lyssnare
 
-Skapa tillgänglighetsgrupplyssnaren i två steg. Skapa först klusterresursen för klientåtkomstpunkten och konfigurera beroenden. För det andra konfigurerar du klusterresurserna med PowerShell.
+Skapa tillgänglighets gruppens lyssnare i två steg. Först skapar du kluster resursen för klient åtkomst punkten och konfigurerar beroenden. Sedan konfigurerar du kluster resurserna med PowerShell.
 
-### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>Skapa klientåtkomstpunkten och konfigurera klusterberoenden
+### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>Skapa klient åtkomst punkten och konfigurera kluster beroenden
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-### <a name="configure-the-cluster-resources-in-powershell"></a>Konfigurera klusterresurserna i PowerShell
-1. För extern belastningsutjämning måste du hämta den offentliga virtuella IP-adressen för molntjänsten som innehåller dina repliker. Logga in på Azure-portalen. Navigera till molntjänsten som innehåller din vm-grupp för tillgänglighetsgrupp. Öppna **instrumentpanelsvyn.**
-2. Notera adressen som visas under **VIP-adress (Public Virtual IP).** Om din lösning sträcker sig över virtuella nätverk upprepar du det här steget för varje molntjänst som innehåller en virtuell dator som är värd för en replik.
-3. På en av de virtuella datorerna kopierar du PowerShell-skriptet nedan till en textredigerare och ställer in variablerna på de värden som du noterade tidigare.
+### <a name="configure-the-cluster-resources-in-powershell"></a>Konfigurera kluster resurserna i PowerShell
+1. För extern belastnings utjämning måste du hämta den offentliga virtuella IP-adressen för den moln tjänst som innehåller dina repliker. Logga in på Azure-portalen. Navigera till moln tjänsten som innehåller din tillgänglighets grupps virtuella dator. Öppna vyn **instrument panel** .
+2. Observera adressen som visas under **offentlig virtuell IP-adress (VIP)**. Om din lösning omfattar virtuella nätverk upprepar du det här steget för varje moln tjänst som innehåller en virtuell dator som är värd för en replik.
+3. På en av de virtuella datorerna kopierar du PowerShell-skriptet nedan till en text redigerare och anger variablerna till de värden som du antecknade tidigare.
    
         # Define variables
         $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -110,26 +110,26 @@ Skapa tillgänglighetsgrupplyssnaren i två steg. Skapa först klusterresursen f
    
         # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
         # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
-4. När du har angett variablerna öppnar du ett upphöjt Windows PowerShell-fönster och kopierar sedan skriptet från textredigeraren och klistrar in i din Azure PowerShell-session för att köra den. Om uppmaningen fortfarande visas >> skriver du RETUR igen för att kontrollera att skriptet börjar köras.
-5. Upprepa detta på varje virtuell dator. Det här skriptet konfigurerar IP-adressresursen med molntjänstens IP-adress och anger andra parametrar som avsökningsporten. När IP-adressresursen är online kan den sedan svara på avsökningen på avsökningsporten från den belastningsbalanserade slutpunkten som skapades tidigare i den här självstudien.
+4. När du har angett variablerna, öppnar du ett upphöjt Windows PowerShell-fönster och kopierar skriptet från text redigeraren och klistrar in det i Azure PowerShell-sessionen för att köra det. Om meddelandet fortfarande visar >> skriver du in RETUR för att kontrol lera att skriptet börjar köras.
+5. Upprepa detta på varje virtuell dator. Det här skriptet konfigurerar IP-adressresursen med IP-adressen för moln tjänsten och anger andra parametrar som avsöknings port. När IP-adressresursen är online kan den svara på avsökningen på avsöknings porten från den belastningsutjämnade slut punkten som skapades tidigare i den här självstudien.
 
 ## <a name="bring-the-listener-online"></a>Ta med lyssnaren online
 [!INCLUDE [Bring-Listener-Online](../../../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-## <a name="follow-up-items"></a>Uppföljningsobjekt
+## <a name="follow-up-items"></a>Uppföljnings objekt
 [!INCLUDE [Follow-up](../../../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-## <a name="test-the-availability-group-listener-within-the-same-vnet"></a>Testa tillgänglighetsgrupplyssnaren (inom samma virtuella nätverk)
+## <a name="test-the-availability-group-listener-within-the-same-vnet"></a>Testa tillgänglighets gruppens lyssnare (inom samma VNet)
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
-## <a name="test-the-availability-group-listener-over-the-internet"></a>Testa tillgänglighetsgruppens lyssnare (över internet)
-För att komma åt lyssnaren utanför det virtuella nätverket måste du använda extern/offentlig belastningsutjämning (beskrivs i det här avsnittet) i stället för ILB, som endast är tillgänglig inom samma virtuella nätverk. I anslutningssträngen anger du molntjänstnamnet. Om du till exempel hade en molntjänst med namnet *mycloudservice*skulle sqlcmd-uttrycket vara följande:
+## <a name="test-the-availability-group-listener-over-the-internet"></a>Testa tillgänglighets gruppens lyssnare (via Internet)
+För att få åtkomst till lyssnaren utanför det virtuella nätverket måste du använda extern/offentlig belastnings utjämning (beskrivs i det här avsnittet) i stället för ILB, som endast är tillgängligt inom samma VNet. I anslutnings strängen anger du namnet på moln tjänsten. Om du till exempel har en moln tjänst med namnet *mycloudservice*skulle SQLCMD-instruktionen vara följande:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Till skillnad från föregående exempel måste SQL-autentisering användas, eftersom anroparen inte kan använda windows-autentisering via Internet. Mer information finns [i Alltid på tillgänglighetsgruppen i Azure VM: Scenarier för klientanslutning](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). När du använder SQL-autentisering, se till att du skapar samma inloggning på båda replikerna. Mer information om felsökning av inloggningar med tillgänglighetsgrupper finns i [Så här mappar du inloggningar eller använder innehållen SQL-databasanvändare för att ansluta till andra repliker och mappa till tillgänglighetsdatabaser](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Till skillnad från föregående exempel måste SQL-autentisering användas, eftersom anroparen inte kan använda Windows-autentisering via Internet. Mer information finns i [tillgänglighets gruppen Always on i Azure VM: klient anslutnings scenarier](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). När du använder SQL-autentisering ser du till att du skapar samma inloggning på båda replikerna. Mer information om hur du felsöker inloggningar med tillgänglighets grupper finns i [så här mappar du inloggningar eller använder SQL Database-användare som är anslutna till andra repliker och mappar till tillgänglighets databaser](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
-Om alltid på replikerna finns i olika undernät måste klienter ange **MultisubnetFailover=True** i anslutningssträngen. Detta resulterar i parallella anslutningsförsök till repliker i de olika undernäten. Observera att det här scenariot innehåller en distribution mellan regioner på tillgänglighetsgrupp.
+Om Always on-repliker finns i olika undernät måste klienterna ange **MultisubnetFailover = True** i anslutnings strängen. Detta resulterar i parallella anslutnings försök till repliker i de olika under näten. Observera att det här scenariot omfattar en tillgänglighets grupps distribution över flera regioner.
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]

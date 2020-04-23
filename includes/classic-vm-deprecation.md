@@ -12,9 +12,9 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911804"
 ---
 > [!IMPORTANT]
-> Klassiska virtuella datorer kommer att pensioneras den 1 mars 2023.
+> De klassiska virtuella datorerna kommer att dras tillbaka den 1 mars 2023.
 >
-> Om du använder IaaS-resurser från ASM ska du slutföra migreringen senast den 1 mars 2023. Vi rekommenderar att du gör bytet tidigare för att dra nytta av de många funktionsförbättringarna i Azure Resource Manager.
+> Om du använder IaaS-resurser från ASM ska du slutföra migreringen den 1 mars 2023. Vi rekommenderar att du gör switchen tidigare för att dra nytta av de många funktionerna i Azure Resource Manager.
 >
-> Mer information finns i [Migrera dina IaAS-resurser till Azure Resource Manager senast den 1 mars 2023](../articles/virtual-machines/classic-vm-deprecation.md).
+> Mer information finns i [migrera dina IaaS-resurser till Azure Resource Manager före den 1 mars 2023](../articles/virtual-machines/classic-vm-deprecation.md).
 > 

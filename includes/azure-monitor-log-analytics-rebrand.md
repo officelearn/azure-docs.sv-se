@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187069"
 ---
 >[!NOTE]
-> Den här artikeln uppdaterades nyligen om du vill använda termen Azure Monitor-loggar i stället för Log Analytics. Loggdata lagras fortfarande i en Log Analytics-arbetsyta och samlas fortfarande in och analyseras av samma Log Analytics-tjänst. Vi uppdaterar terminologin för att bättre återspegla rollen för [loggar i Azure Monitor](../articles/azure-monitor/platform/data-platform-logs.md). Mer information finns i [Azure Monitor-terminologiändringar.](../articles/azure-monitor/azure-monitor-rebrand.md)
+> Den här artikeln har nyligen uppdaterats för användning av term Azure Monitors loggar i stället för Log Analytics. Loggdata lagras fortfarande i en Log Analytics arbets yta och samlas in och analyseras fortfarande av samma Log Analytics-tjänst. Vi uppdaterar terminologin för att bättre avspegla rollen för [loggar i Azure Monitor](../articles/azure-monitor/platform/data-platform-logs.md). Se [Azure Monitor terminologis ändringar](../articles/azure-monitor/azure-monitor-rebrand.md) för mer information.

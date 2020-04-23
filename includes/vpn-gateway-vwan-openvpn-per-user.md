@@ -15,17 +15,17 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471576"
 ---
-### <a name="open-the-mfa-page"></a><a name="mfa"></a>Öppna MFA-sidan
+### <a name="open-the-mfa-page"></a><a name="mfa"></a>Öppna sidan MFA
 
 1. Logga in på Azure Portal.
-2. Navigera till **Azure Active Directory -> Alla användare**.
-3. Välj **Multifaktorautentisering** för att öppna multifaktorautentiseringssidan.
+2. Navigera till **Azure Active Directory – > alla användare**.
+3. Välj **Multi-Factor Authentication** för att öppna sidan Multi-Factor Authentication.
 
    ![Logga in](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa1.jpg)
 
 ### <a name="select-users"></a><a name="users"></a>Välj användare
 
-1. På sidan **multifaktorautentisering** väljer du de användare som du vill aktivera MFA för.
+1. På sidan **Multi-Factor Authentication** väljer du de användare för vilka du vill aktivera MFA.
 2. Välj **Aktivera**.
 
    ![Välj](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa2.jpg)

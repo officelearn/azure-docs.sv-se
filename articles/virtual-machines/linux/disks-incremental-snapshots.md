@@ -1,6 +1,6 @@
 ---
-title: Inkrementella ögonblicksbilder för hanterade diskar
-description: Lär dig mer om inkrementella ögonblicksbilder för hanterade diskar, inklusive hur du skapar dem med CLI och Azure Resource Manager.
+title: Stegvisa ögonblicks bilder för hanterade diskar
+description: Lär dig mer om stegvisa ögonblicks bilder för hanterade diskar, inklusive hur du skapar dem med CLI och Azure Resource Manager.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
@@ -14,5 +14,5 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370873"
 ---
-# <a name="create-an-incremental-snapshot-for-managed-disks---cli"></a>Skapa en inkrementell ögonblicksbild för hanterade diskar - CLI
+# <a name="create-an-incremental-snapshot-for-managed-disks---cli"></a>Skapa en stegvis ögonblicks bild för hanterade diskar – CLI
 [!INCLUDE [virtual-machines-disks-incremental-snapshot-cli](../../../includes/virtual-machines-disks-incremental-snapshot-cli.md)]

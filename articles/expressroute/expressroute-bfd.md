@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Konfigurera BFD'
-description: Den här artikeln innehåller instruktioner om hur du konfigurerar BFD (Bidirectional Forwarding Detection) över privat peering av en ExpressRoute-krets.
+title: 'Azure-ExpressRoute: Konfigurera BFD'
+description: Den här artikeln innehåller anvisningar om hur du konfigurerar BFD (identifiering av dubbelriktad vidarebefordran) över privat peering av en ExpressRoute-krets.
 services: expressroute
 author: rambk
 ms.service: expressroute
@@ -14,28 +14,28 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80064845"
 ---
-# <a name="configure-bfd-over-expressroute"></a>Konfigurera BFD via ExpressRoute
+# <a name="configure-bfd-over-expressroute"></a>Konfigurera BFD över ExpressRoute
 
-ExpressRoute stöder BFD (Bidirectional Forwarding Detection) både via privat och Microsoft-peering. Genom att aktivera BFD via ExpressRoute kan du påskynda identifiering av länkfel mellan MICROSOFT Enterprise edge (MSEE) enheter och de routrar där du avslutar ExpressRoute-kretsen (CE/PE). Du kan avsluta ExpressRoute via Customer Edge-routningsenheter eller Partner Edge-routningsenheter (om du gick med hanterad Layer 3-anslutningstjänst). Det här dokumentet går igenom behovet av BFD och hur du aktiverar BFD över ExpressRoute.
+ExpressRoute stöder identifiering av dubbelriktad vidarebefordran (BFD) både över privat och Microsoft-peering. Genom att aktivera BFD över ExpressRoute kan du påskynda identifieringen av länkar mellan Microsoft Enterprise Edge-enheter (MSEE: N) och de routrar som du avslutar ExpressRoute-kretsen på (CE/PE). Du kan säga upp ExpressRoute över kund gräns enheter eller routnings enheter för klient sidan (om du gick med i den hanterade Layer 3-anslutnings tjänsten). Det här dokumentet vägleder dig genom behovet av BFD och hur du aktiverar BFD över ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Behov av BFD
 
-Följande diagram visar fördelen med att aktivera BFD över ExpressRoute krets: [![1]][1]
+Följande diagram visar fördelarna med att aktivera BFD över ExpressRoute-kretsen: [![1]][1]
 
-Du kan aktivera ExpressRoute-krets antingen via Layer 2-anslutningar eller hanterade Layer 3-anslutningar. In either case, if there are one or more Layer-2 devices in the ExpressRoute connection path, responsibility of detecting any link failures in the path lies with the overlying BGP.
+Du kan aktivera ExpressRoute-kretsen antingen via Layer 2 anslutningar eller hanterade Layer 3-anslutningar. I båda fallen finns det ansvar för att identifiera eventuella länkfel i sökvägen, om det finns en eller flera Layer-2-enheter i ExpressRoute-anslutnings Sök väg.
 
-På MSEE-enheterna konfigureras normalt BGP keepalive och hold-time som 60 respektive 180 sekunder. Därför, efter en länk fel det skulle ta upp till tre minuter att identifiera eventuella länk fel och växla trafik till alternativ anslutning.
+BGP keepalive-och MSEE: N-enheter är vanligt vis konfigurerade som 60 respektive 180 sekunder. Därför kan det ta upp till tre minuter att identifiera eventuella länkfel och byta trafik till en annan anslutning efter en länk som misslyckats.
 
-Du kan styra BGP-timers genom att konfigurera lägre BGP keepalive och hold-time på kundens kant peering enhet. Om BGP-timers är inkompatibla mellan de två peering-enheterna, använder BGP-sessionen mellan peer-datorerna det lägre timervärdet. BGP-keepalive kan ställas in så lågt som tre sekunder och hålltiden i ordningen på tiotals sekunder. Att ställa in BGP-timers aggressivt är dock mindre att föredra eftersom protokollet är processintensivt.
+Du kan kontrol lera BGP-tidsövervakarna genom att konfigurera lägre BGP keepalive-och Hold-Time på kundens Edge-peering-enhet. Om BGP-tidsintervallen är felaktiga mellan de två peering-enheterna, använder BGP-sessionen mellan peer-datorerna det nedre timer-värdet. BGP keepalive kan anges till tre sekunder, och Hold-tiden i storleksordningen på flera sekunder. Att ställa in BGP-timers är dock mindre lämpligt eftersom protokollet är process intensivt.
 
-I det här fallet kan BFD hjälpa till. BFD ger identifiering av fel vid låga omkostnader i ett delsektertidsintervall. 
+I det här scenariot kan BFD hjälpa dig. BFD ger låg overheadkostnad för länkfel i ett under sekunds tidsintervall. 
 
 
 ## <a name="enabling-bfd"></a>Aktivera BFD
 
-BFD har konfigurerats som standard under alla nyligen skapade ExpressRoute privata peering-gränssnitt på MSEEs. Därför, för att aktivera BFD, måste du bara konfigurera BFD på dina CEs / PEs (både på din primära och sekundära enheter). Konfigurera BFD är tvåstegsprocess: du måste konfigurera BFD på gränssnittet och sedan länka den till BGP-sessionen.
+BFD konfigureras som standard under alla nyligen skapade ExpressRoute privata peering-gränssnitt på msee. För att aktivera BFD behöver du därför bara konfigurera BFD på din CEs/Parameterentiteter (både på dina primära och sekundära enheter). Att konfigurera BFD är två stegs process: du måste konfigurera BFD på gränssnittet och sedan länka det till BGP-sessionen.
 
-Ett exempel PÅ CE/PE-konfiguration (med Cisco IOS XE) visas nedan. 
+Ett exempel på CE/PE-konfiguration (med Cisco IOS XE) visas nedan. 
 
     interface TenGigabitEthernet2/0/0.150
        description private peering to Azure
@@ -55,15 +55,15 @@ Ett exempel PÅ CE/PE-konfiguration (med Cisco IOS XE) visas nedan.
        exit-address-family
 
 >[!NOTE]
->Så här aktiverar du BFD under en redan befintlig privat peering; du behöver återställa peering. Se [Återställ ExpressRoute-peerings][ResetPeering]
+>Så här aktiverar du BFD under en redan befintlig privat peering. Du måste återställa peer kopplingen. Se [återställa ExpressRoute-peering][ResetPeering]
 >
 
-## <a name="bfd-timer-negotiation"></a>BFD Timer Förhandling
+## <a name="bfd-timer-negotiation"></a>BFD timer-förhandling
 
-Mellan BFD-peer-datorer avgör de långsammare av de två peer-datorerna överföringshastigheten. MSEEs BFD överförings-/mottagningsintervall är inställda på 300 millisekunder. I vissa fall kan intervallet ställas in till ett högre värde på 750 millisekunder. Genom att konfigurera högre värden kan du tvinga dessa intervall att vara längre. men inte kortare.
+Mellan BFD-peer-datorer fastställer överföringshastigheten för de två peer-datorerna. Msee BFD-överföring/mottagnings intervall anges till 300 millisekunder. I vissa fall kan intervallet anges till ett högre värde på 750 millisekunder. Genom att konfigurera högre värden kan du tvinga dessa intervall att vara längre. men inte kortare.
 
 >[!NOTE]
->Om du har konfigurerat Geo-redundanta ExpressRoute-kretsar eller använder IPSec VPN-anslutning från plats till plats som säkerhetskopiering. aktivera BFD skulle hjälpa redundans snabbare efter ett ExpressRoute-anslutningsfel. 
+>Om du har konfigurerat geo-redundanta ExpressRoute-kretsar eller använda VPN-anslutning från plats till plats som säkerhets kopiering, aktivering av BFD skulle hjälpa till att växla snabbare efter ett ExpressRoute anslutnings fel. 
 >
 
 ## <a name="next-steps"></a>Efterföljande moment
@@ -74,7 +74,7 @@ Mer information eller hjälp finns i följande länkar:
 - [Skapa och ändra routning för en ExpressRoute-krets][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-bfd/BFD_Need.png "BFD påskyndar länk fel avdrag tid"
+[1]: ./media/expressroute-bfd/BFD_Need.png "BFD påskyndar länkning" av länkfel
 
 <!--Link References-->
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 

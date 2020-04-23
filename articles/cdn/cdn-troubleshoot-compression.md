@@ -1,6 +1,6 @@
 ---
-title: Felsöka filkomprimering i Azure CDN | Microsoft-dokument
-description: Felsöka problem med Azure CDN-filkomprimering.
+title: Felsöka fil komprimering i Azure CDN | Microsoft Docs
+description: Felsök problem med Azure CDN fil komprimering.
 services: cdn
 documentationcenter: ''
 author: sohamnc
@@ -24,99 +24,99 @@ ms.locfileid: "79476431"
 # <a name="troubleshooting-cdn-file-compression"></a>Felsöka CDN-filkomprimering
 Den här artikeln hjälper dig att felsöka problem med [CDN-filkomprimering](cdn-improve-performance.md).
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN Azure och Stack Overflow-forumen](https://azure.microsoft.com/support/forums/). Alternativt kan du också arkivera en Azure-supportincident. Gå till [Azure Support-webbplatsen](https://azure.microsoft.com/support/options/) och klicka på **Hämta support**.
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och klicka på **Hämta support**.
 
 ## <a name="symptom"></a>Symptom
-Komprimering för slutpunkten är aktiverat, men filer returneras okomprimerade.
+Komprimeringen för slut punkten är aktive rad, men filerna returneras okomprimerade.
 
 > [!TIP]
-> Om du vill kontrollera om dina filer returneras komprimerade måste du använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) eller webbläsarens [utvecklarverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Kontrollera http-svarshuvudena som returneras med det cachelagrade CDN-innehållet.  Om det finns `Content-Encoding` ett sidhuvud med värdet **gzip**, **bzip2**eller **töms**komprimeras innehållet.
+> Om du vill kontrol lera om filerna returneras som komprimerade måste du använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) eller webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Kontrol lera vilka HTTP-svarshuvuden som returneras med ditt cachelagrade CDN-innehåll.  Om det finns ett huvud som `Content-Encoding` heter **gzip**, **bzip2**eller **DEFLATE**, komprimeras innehållet.
 > 
-> ![Rubrik för innehållskodning](./media/cdn-troubleshoot-compression/cdn-content-header.png)
+> ![Innehålls kodnings rubrik](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
 > 
 
 ## <a name="cause"></a>Orsak
 Det finns flera möjliga orsaker, inklusive:
 
-* Det begärda innehållet kan inte komprimering.
+* Det begärda innehållet är inte kvalificerat för komprimering.
 * Komprimering är inte aktiverat för den begärda filtypen.
-* HTTP-begäran innehöll inte ett huvud som begärde en giltig komprimeringstyp.
-* Origin skickar segmenterat innehåll.
+* HTTP-begäran innehåller inte något huvud som begär en giltig komprimerings typ.
+* Ursprunget skickar segmenterat innehåll.
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 > [!TIP]
-> Precis som med distribution av nya slutpunkter tar det lite tid att sprida cdn-konfigurationsändringar genom nätverket.  Vanligtvis tillämpas ändringar inom 90 minuter.  Om det är första gången du konfigurerar komprimering för CDN-slutpunkten bör du överväga att vänta 1-2 timmar för att vara säker på att komprimeringsinställningarna har spridits till POP.If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
+> När du distribuerar nya slut punkter tar det en stund att sprida ändringar i CDN-konfigurationen i nätverket.  Normalt tillämpas ändringarna inom 90 minuter.  Om det här är första gången du konfigurerar komprimering för CDN-slutpunkten bör du vänta 1-2 timmar innan du ser till att komprimerings inställningarna har spridits till pop. 
 > 
 > 
 
 ### <a name="verify-the-request"></a>Verifiera begäran
-Först bör vi göra en snabb förståndskontroll på begäran.  Du kan använda webbläsarens [utvecklarverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) för att visa de begäranden som görs.
+Först bör vi göra en snabb Sanity kontroll av begäran.  Du kan använda webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) för att visa de begär Anden som görs.
 
-* Kontrollera att begäran skickas till slutpunkts-URL:en `<endpointname>.azureedge.net`och inte ditt ursprung.
-* Kontrollera att begäran innehåller ett **Acceptera-kodningshuvud** och värdet för det huvudet innehåller **gzip**, **deflate**eller **bzip2**.
+* Kontrol lera att begäran skickas till din slut punkts- `<endpointname>.azureedge.net`URL, och inte ditt ursprung.
+* Kontrol lera att begäran innehåller ett **Accept-Encoding-** huvud och att värdet för den rubriken innehåller **gzip**, **DEFLATE**eller **bzip2**.
 
 > [!NOTE]
-> **Azure CDN från Akamai-profiler** stöder endast **gzip-kodning.**
+> **Azure CDN från Akamai** -profiler stöder endast **gzip** -kodning.
 > 
 > 
 
-![HUVUDEN för CDN-begäran](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
+![Huvuden för CDN-begäran](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profiles"></a>Verifiera komprimeringsinställningar (vanliga CDN-profiler)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Kontrol lera komprimerings inställningarna (standard-CDN-profiler)
 > [!NOTE]
-> Det här steget gäller endast om din CDN-profil är en **Azure CDN Standard från Microsoft,** **Azure CDN Standard från Verizon**eller Azure **CDN Standard från Akamai-profilen.** 
+> Det här steget gäller bara om din CDN-profil är en **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**eller **Azure CDN Standard från Akamai** -profilen. 
 > 
 > 
 
-Navigera till slutpunkten i [Azure-portalen](https://portal.azure.com) och klicka på knappen **Konfigurera.**
+Navigera till din slut punkt i [Azure Portal](https://portal.azure.com) och klicka på knappen **Konfigurera** .
 
-* Kontrollera att komprimeringen är aktiverad.
-* Kontrollera MIME-typen för innehållet som ska komprimeras finns med i listan över komprimerade format.
+* Kontrol lera att komprimering har Aktiver ATS.
+* Kontrol lera att MIME-typen för det innehåll som ska komprimeras ingår i listan över komprimerade format.
 
-![Inställningar för CDN-komprimering](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
+![Komprimerings inställningar för CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profiles"></a>Verifiera komprimeringsinställningar (Premium CDN-profiler)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Kontrol lera komprimerings inställningar (Premium CDN-profiler)
 > [!NOTE]
-> Det här steget gäller endast om din CDN-profil är en **Azure CDN Premium från** Verizon-profil.
+> Det här steget gäller bara om din CDN-profil är ett **Azure CDN Premium från Verizon** -profilen.
 > 
 > 
 
-Navigera till slutpunkten i [Azure-portalen](https://portal.azure.com) och klicka på knappen **Hantera.**  Den kompletterande portalen öppnas.  Hovra över fliken **HTTP Stor** och hovra sedan över den utfällbara **cacheinställningarna.**  Klicka på **Komprimering**. 
+Navigera till din slut punkt i [Azure Portal](https://portal.azure.com) och klicka på knappen **Hantera** .  Den kompletterande portalen öppnas.  Hovra över fliken **http-stor** och hovra sedan över de **cachelagrade inställningarna** .  Klicka på **komprimering**. 
 
-* Kontrollera att komprimeringen är aktiverad.
-* Kontrollera att listan **Filtyper** innehåller en kommaavgränsad lista (inga blanksteg) av MIME-typer.
-* Kontrollera MIME-typen för innehållet som ska komprimeras finns med i listan över komprimerade format.
+* Kontrol lera att komprimering har Aktiver ATS.
+* Kontrol lera att listan **filtyper** innehåller en kommaavgränsad lista (inga blank steg) av MIME-typer.
+* Kontrol lera att MIME-typen för det innehåll som ska komprimeras ingår i listan över komprimerade format.
 
-![Inställningar för CDN premiumkomprimering](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
+![Komprimerings inställningar för CDN Premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Kontrollera att innehållet cachelagras (Verizon CDN-profiler)
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Kontrol lera att innehållet är cachelagrat (Verizon CDN-profiler)
 > [!NOTE]
-> Det här steget gäller endast om din CDN-profil är en **Azure CDN Standard från Verizon** eller Azure **CDN Premium från** Verizon-profilen.
+> Det här steget gäller bara om din CDN-profil är en **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** -profilen.
 > 
 > 
 
-Kontrollera svarsrubrikerna med hjälp av webbläsarens utvecklarverktyg för att säkerställa att filen cachelagras i den region där den begärs.
+Använd webbläsarens utvecklingsverktyg för att kontrol lera svarshuvuden för att se till att filen cachelagras i den region där den begärs.
 
-* Kontrollera **serversvarshuvudet.**  Rubriken ska ha formatet **Platform (POP/Server ID),** vilket visas i följande exempel.
-* Kontrollera svarshuvudet för **X-Cache.**  Rubriken ska läsa **HIT**.  
+* Kontrol lera **Server** svars huvudet.  Rubriken ska ha formatet **plattform (POP/server-ID)**, som visas i följande exempel.
+* Kontrol lera **X-cache-** svarets rubrik.  Rubriken ska läsa **träff**.  
 
 ![CDN-svarshuvuden](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Kontrollera att filen uppfyller storlekskraven (Verizon CDN-profiler)
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Kontrol lera att filen uppfyller storleks kraven (Verizon CDN-profiler)
 > [!NOTE]
-> Det här steget gäller endast om din CDN-profil är en **Azure CDN Standard från Verizon** eller Azure **CDN Premium från** Verizon-profilen.
+> Det här steget gäller bara om din CDN-profil är en **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** -profilen.
 > 
 > 
 
-För att vara berättigad till komprimering måste en fil uppfylla följande storlekskrav:
+För att vara kvalificerad för komprimering måste en fil uppfylla följande storleks krav:
 
 * Större än 128 byte.
 * Mindre än 1 MB.
 
-### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Kontrollera begäran på ursprungsservern för ett **Via-huvud**
-**Via** HTTP-huvudet anger för webbservern att begäran skickas av en proxyserver.  Microsoft IIS-webbservrar komprimerar som standard inte **Via** svar när begäran innehåller ett Via-huvud.  Så här åsidosätter du detta:
+### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Kontrol lera begäran på ursprungs servern för en **via** -rubrik
+**Via** HTTP-huvudet anger webb servern som begäran skickas av en proxyserver.  Microsoft IIS-webbservrar komprimerar som standard inte svar när begäran innehåller en **via** -rubrik.  Gör så här för att åsidosätta det här problemet:
 
-* **IIS 6**: [Ställ in HcNoCompressionForProxies="FALSE" i IIS-metabasegenskaperna](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 och up**: [Ställ in både **noCompressionForHttp10** och **noCompressionForProxies** till False i serverkonfigurationen](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Ange HCNOCOMPRESSIONFORPROXIES = "false" i IIS-metabasens egenskaper](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 och uppåt**: [ange både **NoCompressionForHttp10** och **noCompressionForProxies** som falskt i Server konfigurationen](https://www.iis.net/configreference/system.webserver/httpcompression)
 

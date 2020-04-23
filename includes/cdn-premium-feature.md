@@ -16,7 +16,7 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "74284166"
 ---
 > [!IMPORTANT]
-> Detta är en funktion i **Azure CDN Premium från Verizon,** för att konfigurera regler på **Azure CDN från Microsoft** använd [standardregler motorn](../articles/cdn/cdn-standard-rules-engine-reference.md). Avancerade regler är inte tillgängliga för **Azure CDN från Akamai**. En fullständig jämförelse av CDN-funktioner finns i [Azure CDN-produktfunktioner](../articles/cdn/cdn-features.md). 
+> Det här är en funktion i **Azure CDN Premium från endast Verizon** , för att konfigurera regler på **Azure CDN från Microsoft** använder du [standard regel motorn](../articles/cdn/cdn-standard-rules-engine-reference.md). Avancerade regler är inte tillgängliga för **Azure CDN från Akamai**. En fullständig jämförelse av CDN-funktioner finns i [Azure CDN produkt funktioner](../articles/cdn/cdn-features.md). 
 > 
 > 
 

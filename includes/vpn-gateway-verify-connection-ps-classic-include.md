@@ -15,14 +15,14 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187175"
 ---
-Du kan kontrollera att anslutningen lyckades med cmdleten Get-AzureVNetConnection.
+Du kan kontrol lera att anslutningen har slutförts med cmdleten "Get-AzureVNetConnection".
 
-1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Namnet på det virtuella nätverket måste vara inom citationstecken om det innehåller blanksteg.
+1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Namnet på det virtuella nätverket måste vara inom citat tecken om det innehåller blank steg.
 
    ```azurepowershell
    Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
    ```
-2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan visas anslutningstillståndet som "Ansluten" och du kan se ingående och utgående byte.
+2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan visas anslutnings statusen som ansluten och du kan se inkommande och utgående byte.
 
         ConnectivityState         : Connected
         EgressBytesTransferred    : 181664

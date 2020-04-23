@@ -1,6 +1,6 @@
 ---
-title: Migrera från Azure Media Encoder till Media Encoder Standard | Microsoft-dokument
-description: I det här avsnittet beskrivs hur du migrerar från Azure Media Encoder till mediakodaren Standard-medieprocessorn.
+title: Migrera från Azure Media Encoder till Media Encoder Standard | Microsoft Docs
+description: I det här avsnittet beskrivs hur du migrerar från Azure Media Encoder till Media Encoder Standard medie processor.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -22,13 +22,13 @@ ms.locfileid: "76513509"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrera från Azure Media Encoder till Media Encoder Standard
 
-I den här artikeln beskrivs stegen för att migrera från den äldre Azure Media Encoder -processorn (AME) (som dras tillbaka) till mediakodaren Standard.This article discusss the steps for migring from the legacy Azure Media Encoder (AME) media processor (which is being retired) to the Media Encoder Standard media processor. För pensioneringsdatumen finns i det här [äldre komponentavsnittet.](legacy-components.md)
+Den här artikeln beskriver stegen för att migrera från den äldre Azure Media Encoder (amn) medie processorn (som dras tillbaka) till Media Encoder Standard medie processor. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen.
 
-När du kodar filer med AME använde kunderna vanligtvis `H264 Adaptive Bitrate MP4 Set 1080p`en namngiven förinställd sträng, till exempel . För att kunna migrera måste koden uppdateras för att använda **mediakodarens standardprocessor** i stället för `H264 Multiple Bitrate 1080p`AME och en av motsvarande [systemförinställningar](media-services-mes-presets-overview.md) som . 
+När du kodar filer med amn använder kunderna vanligt vis en namngiven förinställd `H264 Adaptive Bitrate MP4 Set 1080p`sträng, till exempel. För att du ska kunna migrera måste koden uppdateras för att använda **Media Encoder Standard** medie processor i stället för amn och en av motsvarande [system för inställningar](media-services-mes-presets-overview.md) som `H264 Multiple Bitrate 1080p`. 
 
 ## <a name="migrating-to-media-encoder-standard"></a>Migrera till Media Encoder Standard
 
-Här är ett typiskt C#-kodexempel som använder den äldre medieprocessorn. 
+Här är ett typiskt C#-kod exempel som använder den äldre medie processorn. 
 
 ```csharp
 // Declare a new job. 
@@ -64,13 +64,13 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Avancerade scenarier 
 
-Om du hade skapat en egen kodningsförinställning för AME med hjälp av schemat finns det ett [motsvarande schema för Media Encoder Standard](media-services-mes-schema.md). Om du har frågor om hur du mappar de äldre inställningarna till den nya kodaren, vänligen kontakta oss viamailto:amshelp@microsoft.com  
+Om du har skapat din egen kodnings för inställning för amn med dess schema, finns det ett [motsvarande schema för Media Encoder Standard](media-services-mes-schema.md). Om du har frågor om hur du mappar de äldre inställningarna till den nya kodaren kan du kontakta oss viamailto:amshelp@microsoft.com  
 ## <a name="known-differences"></a>Kända skillnader 
 
-Media Encoder Standard är mer robust, tillförlitlig, har bättre prestanda och ger bättre utskrift än den äldre AME-kodaren. Följande gäller också: 
+Media Encoder Standard är stabilare, tillförlitlig, har bättre prestanda och ger bättre kvalitet på utdata än den äldre AMNs koden. Följande gäller också: 
 
-* Media Encoder Standard producerar utdatafiler med en annan namngivningskonvention än AME.
-* Media Encoder Standard producerar artefakter som filer som innehåller metadata för [indatafilen](media-services-input-metadata-schema.md) och metadata för [utdatafiler](media-services-output-metadata-schema.md).
+* Media Encoder Standard producerar utdatafiler med en annan namngivnings konvention än amn.
+* Media Encoder Standard skapar artefakter, till exempel filer som innehåller metadata för [indatafilen](media-services-input-metadata-schema.md) och [metadata för utdatafilen](media-services-output-metadata-schema.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

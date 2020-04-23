@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471569"
 ---
-1. Navigera till **Azure Active Directory -> Enterprise-program -> Alla program**.
-2. På sidan **Företagsprogram - Alla program** väljer du **Azure VPN**.
+1. Navigera till **Azure Active Directory-> företags program – > alla program**.
+2. På sidan **företags program – alla program** väljer du **Azure VPN**.
 
    ![Katalog-ID](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)

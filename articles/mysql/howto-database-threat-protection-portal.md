@@ -1,6 +1,6 @@
 ---
-title: Avancerat skydd mot hot – Azure-portal – Azure-databas för MySQL
-description: Lär dig hur du konfigurerar avancerat skydd mot hot för att identifiera avvikande databasaktiviteter som anger potentiella säkerhetshot mot databasen.
+title: Avancerat skydd – Azure Portal-Azure Database for MySQL
+description: Lär dig hur du konfigurerar Avancerat skydd för att identifiera avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
@@ -13,55 +13,55 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80062345"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Avancerat skydd mot hot för Azure-databas för MySQL
+# <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Avancerat skydd för Azure Database for MySQL
 
 Advanced Threat Protection för Azure Database for MySQL identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Avancerat skydd mot hot är en del av erbjudandet om avancerad datasäkerhet, som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd mot hot kan nås och hanteras via [Azure-portalen](https://portal.azure.com) och är för närvarande i förhandsversion.
+Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via [Azure Portal](https://portal.azure.com) och är för närvarande en för hands version.
 
 > [!NOTE]
-> Funktionen Avancerat skydd mot hot är **inte** tillgänglig i följande Azure-myndigheter och suveräna molnregioner: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Besök [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän produkttillgänglighet.
+> Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US gov, IOWA, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland Central, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
 >
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MySQL distribueras för servrar med allmänt syfte och minne.
+> Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MySQL distribueras för Generell användning och minnesoptimerade servrar.
 
-## <a name="set-up-threat-detection"></a>Konfigurera identifiering av hot
-1. Starta Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
-2. Navigera till konfigurationssidan för Azure Database for MySQL-servern som du vill skydda. I säkerhetsinställningarna väljer du **Avancerat skydd mot hot (förhandsgranskning)**.
-3. På konfigurationssidan **för avancerat skyddsskydd (förhandsversion):**
+## <a name="set-up-threat-detection"></a>Konfigurera hot identifiering
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+2. Gå till konfigurations sidan för den Azure Database for MySQL-server som du vill skydda. I säkerhets inställningarna väljer du **Avancerat skydd (för hands version)**.
+3. På konfigurations sidan för **Advanced Threat Protection (för hands version)** :
 
-   - Aktivera avancerat skydd mot hot på servern.
-   - I **Avancerade inställningar för skydd av hot**anger du i rutan Skicka aviseringar **till** text en lista över e-postmeddelanden för att ta emot säkerhetsaviseringar vid identifiering av avvikande databasaktiviteter.
+   - Aktivera avancerat skydd på servern.
+   - I **Inställningar för avancerat skydd**i rutan **skicka aviseringar till** text anger du en lista över e-postmeddelanden som ska ta emot säkerhets aviseringar vid identifiering av avvikande databas aktiviteter.
   
-   ![Konfigurera identifiering av hot](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
+   ![Konfigurera hot identifiering](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 
-## <a name="explore-anomalous-database-activities"></a>Utforska avvikande databasaktiviteter
+## <a name="explore-anomalous-database-activities"></a>Utforska avvikande databas aktiviteter
 
-Du får ett e-postmeddelande när du har upptäckt avvikande databasaktiviteter. E-postmeddelandet innehåller information om den misstänkta säkerhetshändelsen, inklusive arten av avvikande aktiviteter, databasnamn, servernamn, programnamn och händelsetid. Dessutom innehåller e-postmeddelandet information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minska det potentiella hotet mot databasen.
+Du får ett e-postmeddelande när du har identifierat avvikande databas aktiviteter. E-postmeddelandet innehåller information om den misstänkta säkerhets händelsen, inklusive typen av avvikande aktiviteter, databasens namn, Server namn, program namn och händelse tiden. Dessutom innehåller e-postmeddelandet information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet mot databasen.
  
-1. Klicka på länken **Visa senaste aviseringar** i e-postmeddelandet för att starta Azure-portalen och visa sidan Azure Security Center-aviseringar, som ger en översikt över aktiva hot som upptäckts i SQL-databasen.
+1. Klicka på länken **Visa nya aviseringar** i e-postmeddelandet för att starta Azure Portal och visa sidan för Azure Security Center aviseringar, som ger en översikt över aktiva hot som har identifierats i SQL-databasen.
     
-    ![Avvikelseaktivitetsrapport](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
+    ![Avvikande aktivitets rapport](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
 
     Visa aktiva hot:
 
     ![Aktiva hot](./media/howto-database-threat-protection-portal/active-threats.png)
 
-2. Klicka på en specifik avisering för att få ytterligare information och åtgärder för att undersöka det här hotet och åtgärda framtida hot.
+2. Klicka på en avisering om du vill ha mer information och åtgärder för att undersöka det här hotet och åtgärda framtida hot.
     
-    ![Specifik varning](./media/howto-database-threat-protection-portal/specific-alert.png)
+    ![Speciell avisering](./media/howto-database-threat-protection-portal/specific-alert.png)
 
-## <a name="explore-threat-detection-alerts"></a>Utforska varningar om identifiering av hot
+## <a name="explore-threat-detection-alerts"></a>Utforska aviseringar om hot identifiering
 
-SQL Database Threat Detection integrerar sina aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). En panel för identifiering av aktiva SQL-hot spårar status för aktiva hot på databasen och SQL ATP-sidor i Azure-portalen.
+SQL Database hot identifiering integrerar sina aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). En panel för Live SQL hot identifiering spårar statusen för aktiva hot på databasen och SQL ATP-sidor i Azure Portal.
 
-Klicka på **Avisering om identifiering av hot** om du vill starta sidan Azure Security Center-aviseringar och få en översikt över aktiva SQL-hot som identifierats i databasen.
+Klicka på **avisering om hot identifiering** för att starta sidan Azure Security Center aviseringar och få en översikt över aktiva SQL-hot som har identifierats i databasen.
 
-   ![Varning för identifiering av hot](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+   ![Avisering om hot identifiering](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
    
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Mer information om priser finns på [sidan Azure Database for MySQL Pricing](https://azure.microsoft.com/pricing/details/mysql/)  
+* Mer information om priser finns på sidan med [Azure Database for MySQL priser](https://azure.microsoft.com/pricing/details/mysql/)  

@@ -11,30 +11,30 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187294"
 ---
-1. Expandera **Roller i Klusterhanteraren**för redundans och markera sedan din tillgänglighetsgrupp.  
+1. Expandera **roller**i Klusterhanteraren för växling vid fel och markera sedan din tillgänglighets grupp.  
 
-2. Högerklicka på lyssnarens namn på fliken **Resurser** och klicka sedan på **Egenskaper**.
+2. På fliken **resurser** högerklickar du på namnet på lyssnaren och klickar sedan på **Egenskaper**.
 
-3. Klicka på fliken **Beroenden.** Om flera resurser visas kontrollerar du att IP-adresserna har ELLER, inte OCH, beroenden.  
+3. Klicka på fliken **beroenden** . Om flera resurser visas kontrollerar du att IP-adresserna har eller, inte och, är beroende av varandra.  
 
 4. Klicka på **OK**.
 
-5. Högerklicka på lyssnarens namn och klicka sedan på **Ta med online**.
+5. Högerklicka på namnet på lyssnaren och klicka sedan på **ta online**.
 
-6. När lyssnaren är online högerklickar du på tillgänglighetsgruppen på fliken **Resurser** och klickar sedan på **Egenskaper**.
+6. När lyssnaren är online går du till fliken **resurser** , högerklickar på tillgänglighets gruppen och klickar sedan på **Egenskaper**.
    
-    ![Konfigurera resursen för tillgänglighetsgruppen](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+    ![Konfigurera tillgänglighets grupps resursen](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-7. Skapa ett beroende av lyssnarens namnresurs (inte namnet på IP-adressresurser) och klicka sedan på **OK**.
+7. Skapa ett beroende på resursen för lyssnar namn (inte namnet på IP-adressresursen) och klicka sedan på **OK**.
    
-    ![Lägga till beroende av lyssnarens namn](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+    ![Lägg till beroende på lyssnarens namn](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-8. Starta SQL Server Management Studio och anslut sedan till den primära repliken.
+8. Starta SQL Server Management Studio och Anslut sedan till den primära repliken.
 
-9. Gå till **AlwaysOn-tillgänglighetsgrupper** > **Availability Groups** > **\<\>** med hög tillgänglighet > **Gruppnamnsavlyssnare.**  
-    Lyssnarnamnet som du skapade i Redundansklusterhanteraren ska visas.
+9. Gå till**tillgänglighets grupper** > **\<\>** med **hög tillgänglighet** > för AlwaysOn AvailabilityGroupName > **tillgänglighets grupp lyssnare**.  
+    Det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel ska visas.
 
-10. Högerklicka på lyssnarens namn och klicka sedan på **Egenskaper**.
+10. Högerklicka på namnet på lyssnaren och klicka sedan på **Egenskaper**.
 
-11. I rutan **Port** anger du portnumret för tillgänglighetsgruppens lyssnare med hjälp av den $EndpointPort som du använde tidigare (i den här självstudien var 1433 standard) och klicka sedan på **OK**.
+11. I rutan **port** anger du Port numret för tillgänglighets gruppens lyssnare genom att använda $EndpointPort som du använde tidigare (i den här självstudien är 1433 standard) och klickar sedan på **OK**.
 

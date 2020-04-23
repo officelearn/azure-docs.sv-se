@@ -15,4 +15,4 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80272918"
 ---
-Inkrementella ögonblicksbilder är nu tillgängliga i alla offentliga regioner i GA.
+Stegvisa ögonblicks bilder är nu tillgängliga i alla offentliga regioner i GA.

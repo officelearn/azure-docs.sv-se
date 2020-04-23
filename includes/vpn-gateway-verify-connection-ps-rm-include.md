@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187171"
 ---
-Du kan kontrollera att anslutningen lyckades med cmdleten Get-AzVirtualNetworkGatewayConnection med eller utan "-Debug". 
+Du kan kontrol lera att anslutningen har lyckats med hjälp av cmdleten "Get-AzVirtualNetworkGatewayConnection", med eller utan "-debug". 
 
 1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Välj A om du uppmanas, för att köra Alla. I exemplet avser '-Name' namnet på den anslutning du vill testa.
 

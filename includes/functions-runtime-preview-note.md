@@ -15,4 +15,4 @@ ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279374"
 ---
 > [!IMPORTANT]
-> Azure Functions Runtime preview 2 stöder endast version 1.x av Azure Functions runtime. Den här förhandsgranskningsfunktionen uppdateras inte för att stödja version 2.x och högre av körningen och inga framtida uppdateringar planeras. Om du behöver vara värd för Azure Functions runtime utanför Azure kan du överväga att [använda Azure Functions på Kubernetes med KEDA](../articles/azure-functions/functions-kubernetes-keda.md)
+> Körmiljö för Azure Functions Preview 2 stöder endast version 1. x av Azure Functions Runtime. Den här förhands gransknings funktionen uppdateras inte för att stödja version 2. x och högre av körningen och inga framtida uppdateringar planeras. Om du behöver vara värd för Azure Functions runtime utanför Azure bör du överväga att [använda Azure Functions på Kubernetes med KEDA](../articles/azure-functions/functions-kubernetes-keda.md)

@@ -15,10 +15,10 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471579"
 ---
-Konfigurera inloggningsinställningar på sidan **Azure VPN - Egenskaper.**
+Konfigurera inloggnings inställningar på sidan **Azure VPN-egenskaper** .
 
-1. Vill du ange **aktiverad för användare att logga in?** **Yes** Med den här inställningen kan alla användare i AD-klienten ansluta till VPN.This setting allows all users in the AD tenant to connect to the VPN successfully.
-2. Ange **användartilldelning krävs?** till **Ja** om du vill begränsa inloggningen till endast användare som har behörighet till Azure VPN.
+1. Vill du **Aktivera inloggning för användare?** till **Ja**. Med den här inställningen kan alla användare i AD-klienten ansluta till VPN-nätverket.
+2. Vill du ange **användar tilldelning krävs?** **Ja** om du vill begränsa inloggningen till endast användare som har behörighet till Azure VPN.
 3. Spara ändringarna.
 
    ![Behörigheter](./media/vpn-gateway-vwan-openvpn-sign-in/user2.jpg)

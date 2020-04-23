@@ -18,4 +18,4 @@ ms.locfileid: "67187775"
 > [!div class="op_single_selector"]
 > * [Visual Studio](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Docker](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-docker.md)
-> * [Visual Studio-kod](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode.md)
+> * [Visual Studio-koden](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode.md)

@@ -1,5 +1,5 @@
 ---
-title: Vad är beräkningsmål
+title: Vad är beräknings mål
 titleSuffix: Azure Machine Learning
 description: Definiera var du vill träna eller distribuera din modell med Azure Machine Learning.
 services: machine-learning
@@ -16,66 +16,66 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/30/2020
 ms.locfileid: "80398185"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräkningsmål i Azure Machine Learning? 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
-Ett **beräkningsmål** är en angiven beräkningsresurs/-miljö där du kör ditt träningsskript eller är värd för din tjänstdistribution. Den här platsen kan vara din lokala dator eller en molnbaserad beräkningsresurs. Med hjälp av beräkningsmål gör det enkelt för dig att senare ändra din beräkningsmiljö utan att behöva ändra koden.  
+Ett **beräknings mål** är en viss beräknings resurs/miljö där du kör ditt utbildnings skript eller är värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs. Genom att använda beräknings mål kan du enkelt ändra beräknings miljön utan att behöva ändra koden.  
 
-I en typisk modellutvecklingslivscykel kan du:
-1. Börja med att utveckla och experimentera på en liten mängd data. I det här skedet rekommenderar vi din lokala miljö (lokal dator eller molnbaserad virtuell dator) som beräkningsmål. 
-2. Skala upp till större data eller gör distribuerad utbildning med hjälp av något av dessa [träningsberäkningsmål](#train).  
-3. När din modell är klar distribuerar du den till en webbhotellsmiljö eller IoT-enhet med ett av dessa [beräkningsmål för distributionen](#deploy).
+I en typisk modell utvecklings livs cykel kan du:
+1. Börja med att utveckla och experimentera med en liten mängd data. I det här skedet rekommenderar vi din lokala miljö (lokal dator eller molnbaserad virtuell dator) som beräknings mål. 
+2. Skala upp till större data eller distribuera utbildning med någon av dessa [inlärnings mål](#train).  
+3. När modellen är klar distribuerar du den till en webb värd miljö eller IoT-enhet med någon av dessa [distributions mål](#deploy).
 
-De beräkningsresurser som du använder för dina beräkningsmål är kopplade till en [arbetsyta](concept-workspace.md). Beräkningsresurser som inte är den lokala datorn delas av användare av arbetsytan.
+De beräknings resurser som du använder för beräknings målen är kopplade till en [arbets yta](concept-workspace.md). Andra beräknings resurser än den lokala datorn delas av användare av arbets ytan.
 
-## <a name="training-compute-targets"></a><a name="train"></a>Beräkningsmål för utbildning
+## <a name="training-compute-targets"></a><a name="train"></a>Inlärnings mål
 
-Azure Machine Learning har varierande support för olika beräkningsresurser.  Du kan också koppla din egen beräkningsresurs, även om stödet för olika scenarier kan variera.
+Azure Machine Learning har varierande stöd för olika beräknings resurser.  Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Läs mer om [hur du konfigurerar och använder ett beräkningsmål för modellutbildning](how-to-set-up-training-targets.md).
+Läs mer om hur du [konfigurerar och använder ett beräknings mål för modell träning](how-to-set-up-training-targets.md).
 
-## <a name="deployment-targets"></a><a name="deploy"></a>Driftsättningsmål
+## <a name="deployment-targets"></a><a name="deploy"></a>Distributions mål
 
-Följande beräkningsresurser kan användas för att vara värd för din modelldistribution.
+Följande beräknings resurser kan användas som värd för modell distributionen.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
-Lär dig [var och hur du distribuerar din modell till ett beräkningsmål](how-to-deploy-and-where.md).
+Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-to-deploy-and-where.md).
 
 <a name="amlcompute"></a>
-## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning-beräkning (hanterad)
+## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning Compute (hanterad)
 
-En hanterad beräkningsresurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för maskininlärningsarbetsbelastningar. Azure Machine Learning-beräkningskluster och [beräkningsinstanser](concept-compute-instance.md) är de enda hanterade beräkningarna. Ytterligare hanterade beräkningsresurser kan läggas till i framtiden.
+En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning beräknings kluster och [beräknings instanser](concept-compute-instance.md) är de enda hanterade beräkningarna. Ytterligare hanterade beräknings resurser kan läggas till i framtiden.
 
-Du kan skapa Azure Machine Learning-beräkningsinstanser (förhandsversion) eller beräkningskluster från:
+Du kan skapa Azure Machine Learning beräknings instanser (för hands version) eller beräknings kluster från:
 * Azure Machine Learning-studio
 * Azure Portal
-* Klasserna Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) -klasser
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
 * Resource Manager-mall
 
-Du kan också skapa beräkningskluster med hjälp av [maskininlärningstillägget för Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+Du kan också skapa beräknings kluster med [Machine Learning-tillägget för Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
-När dessa beräkningsresurser skapas är de automatiskt en del av arbetsytan till skillnad från andra typer av beräkningsmål.
+När du skapar de här beräknings resurserna sker en del av din arbets yta automatiskt till skillnad från andra typer av beräknings mål.
 
-### <a name="compute-clusters"></a>Beräkna kluster
+### <a name="compute-clusters"></a>Beräknings kluster
 
-Du kan använda Azure Machine Learning-beräkningskluster för utbildning och batchinferencing (förhandsversion).  Med den här beräkningsresursen har du:
+Du kan använda Azure Machine Learning beräknings kluster för utbildning och för batch-inferencing (för hands version).  Med den här beräknings resursen har du:
 
 * Kluster med en eller flera noder
-* Automatisk skalning varje gång du skickar in en körning 
-* Automatisk klusterhantering och finplanering 
-* Stöd för både CPU- och GPU-resurser
+* Autoskalar varje gången du skickar en körning 
+* Automatisk kluster hantering och schemaläggning av jobb 
+* Stöd för både CPU-och GPU-resurser
 
 
 
-## <a name="unmanaged-compute"></a>Ohanterd beräkning
+## <a name="unmanaged-compute"></a>Ohanterad beräkning
 
-Ett ohanterat beräkningsmål hanteras *inte* av Azure Machine Learning. Du skapar den här typen av beräkningsmål utanför Azure Machine Learning och bifogar det sedan till din arbetsyta. Ohanterad beräkningsresurser kan kräva ytterligare steg för att du ska kunna underhålla eller förbättra prestanda för maskininlärningsarbetsbelastningar.
+Ett ohanterat beräknings mål hanteras *inte* av Azure Machine Learning. Du skapar den här typen av beräknings mål utanför Azure Machine Learning och kopplar den sedan till din arbets yta. Ohanterade beräknings resurser kan kräva ytterligare åtgärder för att underhålla eller förbättra prestanda för Machine Learning-arbetsbelastningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig att:
-* [Konfigurera ett beräkningsmål för att träna din modell](how-to-set-up-training-targets.md)
-* [Distribuera din modell till ett beräkningsmål](how-to-deploy-and-where.md)
+* [Konfigurera ett beräknings mål för att träna din modell](how-to-set-up-training-targets.md)
+* [Distribuera din modell till ett beräknings mål](how-to-deploy-and-where.md)

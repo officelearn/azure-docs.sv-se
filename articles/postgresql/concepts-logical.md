@@ -1,6 +1,6 @@
 ---
-title: Logisk avkodning – Azure-databas för PostgreSQL - Single Server
-description: Beskriver logiskt avkodning och wal2json för ändringsdatainsamling i Azure Database for PostgreSQL - Single Server
+title: Logisk avkodning-Azure Database for PostgreSQL-enskild server
+description: Beskriver logisk avkodning och wal2json för registrering av ändrings data i Azure Database for PostgreSQL-enskild server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -15,25 +15,25 @@ ms.locfileid: "80522152"
 ---
 # <a name="logical-decoding"></a>Logisk avkodning
  
-[Med logisk avkodning i PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) kan du strömma dataändringar till externa konsumenter. Logisk avkodning används populärt för händelseströmning och ändring av datainsamlingsscenarier.
+[Med logisk avkodning i postgresql](https://www.postgresql.org/docs/current/logicaldecoding.html) kan du strömma data ändringar till externa konsumenter. Logisk avkodning används ofta för händelse strömning och ändring av data insamlings scenarier.
 
-Logisk avkodning använder en utdata plugin för att konvertera Postgres skriva framåt logg (WAL) till ett läsbart format. Azure Database för PostgreSQL innehåller två plugins för utdata: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) och [wal2json](https://github.com/eulerto/wal2json).
+Med den logiska avkodningen används ett output-pluginprogram för att konvertera postgres Write Ahead-logg (WAL) till ett läsbart format. Azure Database for PostgreSQL innehåller två plugin-program för utdata: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) och [wal2json](https://github.com/eulerto/wal2json).
  
 
 > [!NOTE]
-> Logisk avkodning är i offentlig förhandsversion på Azure Database för PostgreSQL - Single Server.
+> Logisk avkodning är i offentlig för hands version på Azure Database for PostgreSQL-enskild server.
 
 
 ## <a name="set-up-your-server"></a>Konfigurera servern
-Om du vill börja använda logisk avkodning aktiverar du servern för att spara och strömma WAL.To start using logical avcoding, enable your server to save and stream the WAL. 
+Om du vill börja använda logisk avkodning kan du aktivera servern för att spara och strömma WAL. 
 
-1. Ange azure.replication_support till `logical` att använda Azure CLI. 
+1. Ställ in Azure. replication_support `logical` att använda Azure CLI. 
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ```
 
    > [!NOTE]
-   > Om du använder läsrepliker, azure.replication_support `logical` inställd på att också tillåter repliker att köras. Om du slutar använda logisk avkodning `replica`ändrar du tillbaka inställningen till . 
+   > Om du använder Läs repliker kan Azure. replication_support inställd så `logical` att repliker kan köras. Om du slutar använda logisk avkodning ändrar du inställningen tillbaka till `replica`. 
 
 
 2. Starta om servern för att tillämpa ändringarna.
@@ -41,20 +41,20 @@ Om du vill börja använda logisk avkodning aktiverar du servern för att spara 
    az postgres server restart --resource-group mygroup --name myserver
    ```
 
-## <a name="start-logical-decoding"></a>Starta logiskt avkodning
+## <a name="start-logical-decoding"></a>Starta logisk avkodning
 
-Logisk avkodning kan förbrukas via streamingprotokoll eller SQL-gränssnitt. Båda metoderna använder [replikeringsplatser](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS). En plats representerar en ström av ändringar från en enda databas.
+Logisk avkodning kan användas via direkt uppspelnings protokoll eller SQL-gränssnitt. Båda metoderna använder [replikerings-platser](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS). En plats representerar en data ström med ändringar från en enskild databas.
 
-Om du använder en replikeringsplats krävs Postgres replikeringsbehörighet. För närvarande är replikeringsbehörigheten endast tillgänglig för serverns administratörsanvändare. 
+Om du använder en replikerings plats krävs postgres. Vid det här tillfället är replik privilegiet bara tillgängligt för serverns administratörs användare. 
 
-### <a name="streaming-protocol"></a>Protokoll för direktuppspelning
-Att konsumera ändringar med hjälp av direktuppspelningsprotokollet är ofta att föredra. Du kan skapa din egen konsument / kontakt, eller använda ett verktyg som [Debezium](https://debezium.io/). 
+### <a name="streaming-protocol"></a>Strömnings protokoll
+Användning av ändringar med streaming-protokollet är ofta bättre. Du kan skapa en egen konsument/anslutning eller använda ett verktyg som [Debezium](https://debezium.io/). 
 
-Besök wal2json-dokumentationen i [ett exempel med hjälp av streamingprotokollet med pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
+Besök wal2json-dokumentationen för [ett exempel som använder streaming-protokollet med pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
 
 
 ### <a name="sql-interface"></a>SQL-gränssnitt
-I exemplet nedan använder vi SQL-gränssnittet med wal2json plugin.
+I exemplet nedan använder vi SQL-gränssnittet med wal2json-plugin-programmet.
  
 1. Skapa en plats.
    ```SQL
@@ -73,12 +73,12 @@ I exemplet nedan använder vi SQL-gränssnittet med wal2json plugin.
    DELETE FROM a_table WHERE id='id1';
    ```
 
-3. Konsumera ändringarna.
+3. Förbrukar ändringarna.
    ```SQL
    SELECT data FROM pg_logical_slot_get_changes('test_slot', NULL, NULL, 'pretty-print', '1');
    ```
 
-   Utdata kommer att se ut:
+   Resultatet kommer att se ut så här:
    ```
    {
          "change": [
@@ -112,41 +112,41 @@ I exemplet nedan använder vi SQL-gränssnittet med wal2json plugin.
    }
    ```
 
-4. Släpp facket när du är klar med den.
+4. Ta bort facket när du är färdig med den.
    ```SQL
    SELECT pg_drop_replication_slot('test_slot'); 
    ```
 
 
-## <a name="monitoring-slots"></a>Övervakning av ankomst- och avgångstider
+## <a name="monitoring-slots"></a>Övervaknings platser
 
-Du måste övervaka logiska avkodning. Oanvänd replikeringsplats måste släppas. Slots håller fast vid Postgres WAL-loggar och relevanta systemkataloger tills ändringar har lästs av en konsument. Om din konsument misslyckas eller inte har konfigurerats korrekt samlas de okonsumerade loggarna och fyller lagringsutrymmet. Dessutom ökar oomräknade loggar risken för transaktions-ID wraparound. Båda situationerna kan leda till att servern blir otillgänglig. Därför är det viktigt att logiska replikeringsplatser förbrukas kontinuerligt. Om en logisk replikeringsplats inte längre används släpper du den omedelbart.
+Du måste övervaka logisk avkodning. Eventuell oanvänd replikerings plats måste släppas. Platser är kvar på postgres WAL-loggar och relevanta system kataloger tills ändringar har lästs av en konsument. Om din konsument Miss lyckas eller inte har kon figurer ATS korrekt, kommer de oanvända loggarna att stapla och fylla lagringen. Oanvända loggar ökar också risken för transaktions-ID wraparound. Båda situationerna kan orsaka att servern blir otillgänglig. Därför är det viktigt att logiska replikerings platser konsumeras kontinuerligt. Om ingen logisk replikerings plats används tar du bort den direkt.
 
-Kolumnen "aktiv" i pg_replication_slots visar om det finns en konsument som är ansluten till en plats.
+Kolumnen "aktiv" i vyn pg_replication_slots visar om det finns en konsument som är ansluten till en plats.
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
 
-[Ange aviseringar](howto-alert-on-metric.md) för *lagring som används* och Max fördröjning över *replikermått* för att meddela dig när värdena ökar tidigare normala tröskelvärden. 
+[Ange aviseringar](howto-alert-on-metric.md) för *använt lagrings utrymme* och *högsta fördröjning i repliker* mått för att meddela dig när värdena ökar de tidigare tröskelvärdena för normala perioder. 
 
 > [!IMPORTANT]
-> Du måste släppa oanvända replikeringsplatser. Om du inte gör det kan det leda till otillgänglighet för servern.
+> Du måste ta bort oanvända replikerings-platser. Om du inte gör det kan det leda till att servern inte är tillgänglig.
 
-## <a name="how-to-drop-a-slot"></a>Hur man släpper en plats
-Om du inte aktivt förbrukar en replikeringsplats bör du släppa den.
+## <a name="how-to-drop-a-slot"></a>Så här släpper du en plats
+Om du inte aktivt konsumerar en replikerings plats bör du släppa den.
 
-Så här släpper `test_slot` du en replikeringsplats som anropas med SQL:
+Så här släpper du en replikerings-kortplats med namnet `test_slot` med hjälp av SQL:
 ```SQL
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Om du slutar använda logisk avkodning ändrar du `replica` `off`azure.replication_support tillbaka till eller . WAL-detaljerna som `logical` behålls av är mer utförliga och bör inaktiveras när logisk avkodning inte används. 
+> Om du slutar använda logisk avkodning ändrar du Azure. replication_support tillbaka till `replica` eller `off`. WAL-informationen som behålls av `logical` är mer utförlig och bör inaktive ras när logisk avkodning inte används. 
 
  
 ## <a name="next-steps"></a>Nästa steg
 
-* Besök Postgres dokumentation om du vill [veta mer om logiska avkodning](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html).
-* Kontakta [vårt team](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) om du har frågor om logiska avkodning.
-* Läs mer om [läsrepliker](concepts-read-replicas.md).
+* Besök postgres-dokumentationen om du vill [veta mer om logisk avkodning](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html).
+* Kontakta [vårt team](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) om du har frågor om logisk avkodning.
+* Läs mer om [Läs repliker](concepts-read-replicas.md).
 

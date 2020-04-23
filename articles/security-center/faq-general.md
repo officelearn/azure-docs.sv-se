@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure Security Center – Allmänna frågor
-description: Vanliga frågor allmänna frågor om Azure Security Center, en produkt som hjälper dig att förebygga, upptäcka och svara på hot
+title: Azure Security Center vanliga frågor och svar – allmänna frågor
+description: Vanliga frågor och svar om Azure Security Center, en produkt som hjälper dig att förhindra, upptäcka och reagera på hot
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,84 +13,84 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436120"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106584"
 ---
-# <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – Allmänna frågor om Azure Security Center
+# <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – allmänna frågor om Azure Security Center
 
 ## <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
-Azure Security Center hjälper dig att förebygga, identifiera och svara på hot med ökad insyn i och kontroll över säkerheten för dina resurser. Härifrån kan du övervaka och hantera principer för alla prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+Azure Security Center hjälper dig att förhindra, identifiera och svara på hot med ökad insyn i och kontroll över säkerheten för dina resurser. Härifrån kan du övervaka och hantera principer för alla prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
-Security Center använder Log Analytics-agenten för att samla in och lagra data. Detaljerad information finns i [Datainsamling i Azure Security Center](security-center-enable-data-collection.md).
+Security Center använder Log Analytics-agenten för att samla in och lagra data. Detaljerad information finns i [data insamling i Azure Security Center](security-center-enable-data-collection.md).
 
 
-## <a name="how-do-i-get-azure-security-center"></a>Hur skaffar jag Azure Security Center?
-Azure Security Center är aktiverat med din Microsoft Azure-prenumeration och nås från [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). Om du vill komma åt [den loggar du in på portalen,](https://portal.azure.com)väljer **Bläddra**och bläddrar till **Säkerhetscenter**.
+## <a name="how-do-i-get-azure-security-center"></a>Hur gör jag för att hämta Azure Security Center?
+Azure Security Center aktive ras med din Microsoft Azure-prenumeration och nås från [Azure Portal](https://azure.microsoft.com/features/azure-portal/). För att få åtkomst till den [loggar du in på portalen](https://portal.azure.com), väljer **Bläddra**och bläddrar till **Security Center**.
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Vilka Azure-resurser övervakas av Azure Security Center?
 Azure Security Center övervakar följande Azure-resurser:
 
-* Virtuella datorer (VMs) (inklusive [molntjänster)](../cloud-services/cloud-services-choose-me.md)
+* Virtuella datorer (VM) (inklusive [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Skalningsuppsättningar för virtuella datorer
 *  Azure Virtual Networks
 * Containrar
 * Azure SQL-tjänst
 * Azure Storage-konto
-* Azure Web Apps (i [App Service Environment)](../app-service/environment/intro.md)
-* Partnerlösningar integrerade med din Azure-prenumeration, till exempel brandvägg för webbprogram på virtuella datorer och i App Service Environment
+* Azure-Web Apps (i [App Service-miljön](../app-service/environment/intro.md))
+* Partner lösningar som är integrerade med din Azure-prenumeration, till exempel en brand vägg för webbaserade program på virtuella datorer och på App Service-miljön
 
-Dessutom kan datorer som inte är Azure (inklusive lokala) också övervakas av Azure Security Center. Både [Windows-maskiner](./quick-onboard-windows-computer.md) och [Linux-maskiner](./quick-onboard-linux-computer.md) stöds.
-
-
-## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Hur kan jag se det aktuella säkerhetstillståndet för mina Azure-resurser?
-Sidan **Översikt över säkerhetscenter** visar den övergripande säkerhetspositionen för din miljö uppdelad efter beräkning, nätverk, lagring & data och program. Varje resurstyp har en indikator som visar identifierade säkerhetsproblem. Om du klickar på varje panel visas en lista över säkerhetsproblem som identifierats av Security Center, tillsammans med en inventering av resurserna i prenumerationen.
+Dessutom kan icke-Azure-datorer (inklusive lokala) också övervakas av Azure Security Center. Både [Windows-datorer](./quick-onboard-windows-computer.md) och [Linux-datorer](./quick-onboard-linux-computer.md) stöds.
 
 
-
-## <a name="what-is-a-security-policy"></a>Vad är en säkerhetsprincip?
-En säkerhetsprincip definierar den uppsättning kontroller som rekommenderas för resurser inom den angivna prenumerationen. I Azure Security Center definierar du principer för dina Azure-prenumerationer enligt företagets säkerhetskrav och typen av program eller känslighet för data i varje prenumeration.
-
-Säkerhetsprinciperna som är aktiverade i Azure Security Center kör säkerhetsrekommendationer och övervakning. Mer information om säkerhetsprinciper finns [i Hälsoövervakning för säkerhet i Azure Security Center](security-center-monitoring.md).
+## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Hur kan jag se det aktuella säkerhets läget för mina Azure-resurser?
+På sidan **Security Center översikt** visas den övergripande säkerhets position i miljön, uppdelad efter beräkning, nätverk, lagring & data och program. Varje resurs typ har en indikator som visar identifierade säkerhets problem. Om du klickar på varje panel visas en lista med säkerhets problem som identifieras av Security Center, tillsammans med en inventering av resurserna i din prenumeration.
 
 
-## <a name="who-can-modify-a-security-policy"></a>Vem kan ändra en säkerhetsprincip?
-Om du vill ändra en säkerhetsprincip måste du vara säkerhetsadministratör eller ägare eller deltagare i prenumerationen.
 
-Mer information om hur du konfigurerar en säkerhetsprinciper finns [i Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md).
+## <a name="what-is-a-security-policy"></a>Vad är en säkerhets princip?
+En säkerhets princip definierar en uppsättning kontroller som rekommenderas för resurser i den angivna prenumerationen. I Azure Security Center definierar du principer för dina Azure-prenumerationer enligt företagets säkerhets krav och typ av program eller känslighet för data i varje prenumeration.
+
+Säkerhets principerna som är aktiverade i Azure Security Center säkerhets rekommendationer och övervakning. Mer information om säkerhets principer finns [i övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md).
 
 
-## <a name="what-is-a-security-recommendation"></a>Vad är en säkerhetsrekommendation?
-Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När potentiella säkerhetsproblem identifieras skapas rekommendationer. Rekommendationerna guidar dig genom processen att konfigurera den nödvändiga kontrollen. Några exempel:
+## <a name="who-can-modify-a-security-policy"></a>Vem kan ändra en säkerhets princip?
+Om du vill ändra en säkerhets princip måste du vara säkerhets administratör eller ägare eller deltagare i den prenumerationen.
 
-* Etablering av skadlig kod mot skadlig kod för att identifiera och ta bort skadlig programvara
-* [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) och regler för att styra trafiken till virtuella datorer
-* Etablering av en brandvägg för webbprogram för att skydda mot attacker som riktar sig mot dina webbprogram
+Information om hur du konfigurerar en säkerhets princip finns [i ställa in säkerhets principer i Azure Security Center](tutorial-security-policy.md).
+
+
+## <a name="what-is-a-security-recommendation"></a>Vad är en säkerhets rekommendation?
+Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När potentiella säkerhets risker identifieras skapas rekommendationer. Rekommendationerna vägleder dig genom processen med att konfigurera kontrollen som krävs. Några exempel:
+
+* Etablering av program mot skadlig kod för att identifiera och ta bort skadlig program vara
+* [Nätverks säkerhets grupper](../virtual-network/security-overview.md) och regler för att styra trafik till virtuella datorer
+* Etablering av en brand vägg för webbaserade program för att skydda mot attacker som riktar sig mot dina webb program
 * genomföra alla systemuppdateringar som fattas
 * se till att operativsystemen är konfigurerade enligt rekommenderade baslinjer
 
-Endast rekommendationer som är aktiverade i säkerhetsprinciper visas här.
+Endast rekommendationer som är aktiverade i säkerhets principer visas här.
 
 
 
-## <a name="what-triggers-a-security-alert"></a>Vad utlöser en säkerhetsavisering?
-Azure Security Center samlar automatiskt in, analyserar och säkringar loggar data från dina Azure-resurser, nätverket och partnerlösningar som antimalware och brandväggar. Om hot upptäcks skapas en säkerhetsavisering. Exempel på hot:
+## <a name="what-triggers-a-security-alert"></a>Vad utlöser en säkerhets avisering?
+Azure Security Center samlar automatiskt in, analyserar och säkrar loggdata från dina Azure-resurser, nätverket och partner lösningar som program mot skadlig kod och brand väggar. Om hot upptäcks skapas en säkerhetsavisering. Exempel på hot:
 
 * angripna virtuella datorer som kommunicerar med IP-adresser som man vet är skadliga
-* Avancerad skadlig kod som upptäckts med windows-felrapportering
+* Avancerad skadlig kod har identifierats med Windows fel rapportering
 * nyckelsökningsangrepp mot virtuella datorer
-* Säkerhetsvarningar från integrerade partnersäkerhetslösningar som Anti-Malware eller Brandväggar för webbprogram
+* Säkerhets aviseringar från integrerade partner säkerhets lösningar som program mot skadlig kod eller brand väggar för webb program
 
 
-## <a name="why-did-secure-score-values-change"></a>Varför ändrades värdena för säker poäng? <a name="secure-score-faq"></a>
-Från och med februari 2019 justerade Security Center poängen för några rekommendationer för att bättre passa deras svårighetsgrad. Som ett resultat av den här justeringen kan det finnas ändringar i de övergripande värdena för säker poäng.  Mer information om Säker poäng finns i [Beräkning av säker poäng](security-center-secure-score.md).
+## <a name="why-did-secure-score-values-change"></a>Varför har säkra Poäng värden ändrats? <a name="secure-score-faq"></a>
+Från och med februari 2019 har Security Center justerat poängen för några få rekommendationer, så att det bättre passar deras allvarlighets grad. Till följd av den här ändringen kan det uppstå ändringar i övergripande säkra Poäng värden.  Mer information om säkra Poäng finns i [säker Poäng beräkning](security-center-secure-score.md).
 
 
-## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Vad är skillnaden mellan hot som upptäcks och varnas av Microsoft Security Response Center kontra Azure Security Center?
-Microsoft Security Response Center (MSRC) utför utvald säkerhetsövervakning av Azure-nätverket och Azure-infrastrukturen och tar emot hotinformation och missbruksklagomål från tredje part. När MSRC får kännedom om att kunddata har använts av en olaglig eller obehörig part eller att kundens användning av Azure inte överensstämmer med villkoren för godtagbar användning, meddelar en säkerhetsincidenthanterare kunden. Meddelande sker vanligtvis genom att skicka ett e-postmeddelande till de säkerhetskontakter som anges i Azure Security Center eller Azure-prenumerationsägaren om en säkerhetskontakt inte har angetts.
+## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Vad är skillnaden mellan hot som upptäckts och aviserats av Microsoft Security Response Center jämfört med Azure Security Center?
+Microsoft Security Response Center (MSRC) gör det genom att välja säkerhets övervakning av Azure-nätverket och-infrastrukturen och ta emot Hot information och missbruk från tredje part. När MSRC blir medveten om att kunddata har kunnat nås av en olagligt eller obehörig part eller att kundens användning av Azure inte uppfyller villkoren för acceptabel användning, meddelar en säkerhets incident ansvarig kunden. Avisering sker vanligt vis genom att skicka ett e-postmeddelande till de säkerhets kontakter som anges i Azure Security Center eller Azure-Prenumerationens ägare om ingen säkerhets kontakt har angetts.
 
-Security Center är en Azure-tjänst som kontinuerligt övervakar kundens Azure-miljö och tillämpar analyser för att automatiskt identifiera ett brett spektrum av potentiellt skadlig aktivitet. Dessa identifieringar visas som säkerhetsaviseringar på instrumentpanelen i Security Center.
+Security Center är en Azure-tjänst som kontinuerligt övervakar kundens Azure-miljö och använder analyser för att automatiskt identifiera en rad potentiellt skadlig aktivitet. Dessa identifieringar visas som säkerhets aviseringar på instrument panelen för Security Center.

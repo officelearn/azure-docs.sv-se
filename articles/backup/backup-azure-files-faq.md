@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b89e4a55bc8bc4ef2f4cdb50059537fe7708b6a6
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101169"
+ms.locfileid: "82105649"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -74,7 +74,7 @@ Ja. Se den detaljerade dokumentationen [här](backup-azure-afs-automation.md).
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Kan jag få åtkomst till ögonblicks bilder som tas av Azure backups och montera dem?
 
-Alla ögonblicks bilder som tas av Azure Backup kan nås genom att Visa ögonblicks bilder i portalen, PowerShell eller CLI. Läs mer om ögonblicksbilder av Azure-filresurser i [Översikt över resursögonblicksbilder för Azure Files (förhandsversion)](../storage/files/storage-snapshots-files.md).
+Alla ögonblicks bilder som tas av Azure Backup kan nås genom att Visa ögonblicks bilder i portalen, PowerShell eller CLI. Mer information om hur du Azure Files resurs ögonblicks bilder finns i [Översikt över resurs ögonblicks bilder för Azure Files](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Vad är den maximala kvarhållning som jag kan konfigurera för säkerhets kopieringar?
 

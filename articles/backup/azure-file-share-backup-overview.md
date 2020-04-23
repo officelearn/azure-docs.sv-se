@@ -3,12 +3,12 @@ title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: bea5035ff50eaf4047f56cde3bd671d81e21f5d3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101439"
+ms.locfileid: "82105751"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
@@ -47,12 +47,7 @@ Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets k
 
 ## <a name="backup-costs"></a>Kostnader för säkerhets kopiering
 
-Säkerhets kopiering av Azure-filresurs är en ögonblicks bilds-baserad lösning och lagrings kostnader för ögonblicks bilder faktureras tillsammans med Azure Files användning enligt pris informationen som anges [här](https://azure.microsoft.com/pricing/details/storage/files/).
-
-Avgiften för den skyddade instansen för att dra nytta av säkerhets kopierings lösningen sker dock enligt pris sättnings modellen som beskrivs i avsnittet [säkerhetskopiera för Azure Files](https://azure.microsoft.com/pricing/details/backup/) . För närvarande har det faktiska priset endast uppdaterats för USA, västra centrala. För andra regioner kommer exakta priser att uppdateras snart med vissa regionala variationer, men med samma pris modell.
-
->[!NOTE]
->Nu finns det ingen "skyddad instans avgift" och du debiteras bara för ögonblicks bilder enligt de priser som anges [här](https://azure.microsoft.com/pricing/details/storage/files/).
+För närvarande debiteras du bara för ögonblicks bilder eftersom Azure File Share-säkerhetskopiering är en ögonblicks bilds lösning. Lagrings avgifter som skapas för ögonblicks bilder faktureras tillsammans med Azure Files användning enligt pris informationen som anges [här](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Nästa steg
 

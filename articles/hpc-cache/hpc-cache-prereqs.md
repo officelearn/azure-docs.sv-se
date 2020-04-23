@@ -1,146 +1,149 @@
 ---
-title: Förutsättningar för Azure HPC-cache
-description: Förutsättningar för att använda Azure HPC-cache
+title: Krav för Azure HPC-cache
+description: Krav för att använda Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: ab342dba5c8be2ff3793c0eb36926969b3e364e5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537295"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106516"
 ---
-# <a name="prerequisites-for-azure-hpc-cache"></a>Förutsättningar för Azure HPC-cache
+# <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
-Innan du använder Azure-portalen för att skapa en ny Azure HPC-cache, se till att din miljö uppfyller dessa krav.
+Innan du använder Azure Portal för att skapa en ny Azure HPC-cache kontrollerar du att din miljö uppfyller dessa krav.
 
 ## <a name="azure-subscription"></a>Azure-prenumeration
 
 En betald prenumeration rekommenderas.
 
+> [!NOTE]
+> Azure HPC cache-teamet måste lägga till din prenumeration i åtkomst listan innan den kan användas för att skapa en cache-instans. Med den här proceduren ser du till att varje kund får svars tider med hög kvalitet från cacheminnet. Fyll i [det här formuläret](https://aka.ms/onboard-hpc-cache) om du vill begära åtkomst.
+
 ## <a name="network-infrastructure"></a>Nätverksinfrastruktur
 
-Två nätverksrelaterade förutsättningar bör ställas in innan du kan använda cachen:
+Två nätverksrelaterade krav bör ställas in innan du kan använda din cache:
 
-* Ett dedikerat undernät för Azure HPC Cache-instansen
+* Ett dedikerat undernät för Azure HPC cache-instansen
 * DNS-stöd så att cachen kan komma åt lagring och andra resurser
 
-### <a name="cache-subnet"></a>Cacheundernät
+### <a name="cache-subnet"></a>Cache-undernät
 
-Azure HPC-cachen behöver ett dedikerat undernät med följande egenskaper:
+Azure HPC-cachen behöver ett dedikerat undernät med följande kvaliteter:
 
-* Undernätet måste ha minst 64 IP-adresser tillgängliga.
-* Undernätet kan inte vara värd för andra virtuella datorer, även för relaterade tjänster som klientdatorer.
-* Om du använder flera Azure HPC-cacheinstanser behöver var och en sitt eget undernät.
+* Under nätet måste ha minst 64 IP-adresser tillgängliga.
+* Under nätet kan inte vara värd för andra virtuella datorer, även för relaterade tjänster som klient datorer.
+* Om du använder flera Azure HPC cache-instanser behöver var och en av sina egna undernät.
 
-Det bästa är att skapa ett nytt undernät för varje cache. Du kan skapa ett nytt virtuellt nätverk och ett nytt undernät som en del av skapandet av cacheminnet.
+Det bästa sättet är att skapa ett nytt undernät för varje cache. Du kan skapa ett nytt virtuellt nätverk och undernät som en del av att skapa cachen.
 
 ### <a name="dns-access"></a>DNS-åtkomst
 
-Cachen behöver DNS för att komma åt resurser utanför det virtuella nätverket. Beroende på vilka resurser du använder kan du behöva konfigurera en anpassad DNS-server och konfigurera vidarebefordran mellan servern och Azure DNS-servrar:
+Cachen behöver DNS för att få åtkomst till resurser utanför det virtuella nätverket. Beroende på vilka resurser du använder kan du behöva konfigurera en anpassad DNS-server och konfigurera vidarebefordran mellan servern och Azure DNS servrar:
 
-* För att komma åt Azure Blob-lagringsslutpunkter och andra interna resurser behöver du den Azure-baserade DNS-servern.
-* För att komma åt lokal lagring måste du konfigurera en anpassad DNS-server som kan matcha dina lagringsvärdnamn.
+* För att få åtkomst till Azure Blob Storage-slutpunkter och andra interna resurser behöver du den Azure-baserade DNS-servern.
+* För att komma åt lokal lagring måste du konfigurera en anpassad DNS-server som kan matcha dina lagrings-värdnamn.
 
-Om du bara behöver åtkomst till Blob-lagring kan du använda standard-DNS-servern som tillhandahålls av Azure för cacheminnet. Men om du behöver åtkomst till andra resurser bör du skapa en anpassad DNS-server och konfigurera den för att vidarebefordra alla Azure-specifika lösningsbegäranden till Azure DNS-servern.
+Om du bara behöver åtkomst till Blob Storage kan du använda standard-Azure-standardservern för cacheminnet. Men om du behöver åtkomst till andra resurser bör du skapa en anpassad DNS-server och konfigurera den så att den vidarebefordrar alla Azure-speciella matchnings begär anden till Azure DNS-servern.
 
-En enkel DNS-server kan också användas för att ladda balans klientanslutningar bland alla tillgängliga cachemonteringspunkter.
+En enkel DNS-server kan också användas för att belastningsutjämna klient anslutningar bland alla tillgängliga cache-monterings punkter.
 
-Läs mer om virtuella Azure-nätverk och DNS-serverkonfigurationer i [Namnmatchning för resurser i virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Lär dig mer om Azure Virtual Networks och DNS-serverkonfigurationer i [namn matchning för resurser i virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 ## <a name="permissions"></a>Behörigheter
 
-Kontrollera dessa behörighetsrelaterade förutsättningar innan du börjar skapa cacheminnet.
+Kontrol lera de här behörighets kraven innan du börjar skapa din cache.
 
-* Cacheinstansen måste kunna skapa nätverkskort (Virtual Network Interfaces). Användaren som skapar cachen måste ha tillräckliga privilegier i prenumerationen för att skapa nätverkskort.
+* Cache-instansen måste kunna skapa virtuella nätverks gränssnitt (NIC). Den användare som skapar cachen måste ha tillräcklig behörighet i prenumerationen för att skapa nätverkskort.
 
-* Om du använder Blob-lagring behöver Azure HPC-cachen auktorisering för att komma åt ditt lagringskonto. Använd rollbaserad åtkomstkontroll (RBAC) för att ge cacheåtkomst till din Blob-lagring. Två roller krävs: Storage Account Contributor och Storage Blob Data Contributor.
+* Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Använd rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till blob-lagringen. Två roller krävs: lagrings konto deltagare och data deltagare i Storage blob.
 
-  Följ instruktionerna i [Lägg till lagringsmål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
+  Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
 
-## <a name="storage-infrastructure"></a>Lagringsinfrastruktur
+## <a name="storage-infrastructure"></a>Lagrings infrastruktur
 
-Cachen stöder Azure Blob-behållare eller NFS-maskinvarulagringsexport. Lägg till lagringsmål när du har skapat cacheminnet.
+Cachen stöder export av Azure Blob-behållare eller NFS-maskinvara. Lägg till lagrings mål när du har skapat cacheminnet.
 
-Varje lagringstyp har specifika förutsättningar.
+Varje lagrings typ har särskilda krav.
 
-### <a name="blob-storage-requirements"></a>Krav på bloblagring
+### <a name="blob-storage-requirements"></a>Blob Storage-krav
 
-Om du vill använda Azure Blob-lagring med cacheminnet behöver du ett kompatibelt lagringskonto och antingen en tom Blob-behållare eller en behållare som fylls med Azure HPC-cacheformaterade data enligt beskrivningen i [Flytta data till Azure Blob-lagring](hpc-cache-ingest.md).
+Om du vill använda Azure Blob Storage med ditt cacheminne behöver du ett kompatibelt lagrings konto och antingen en tom BLOB-behållare eller en behållare som är ifylld med Azure HPC cache-formaterade data enligt beskrivningen i [Flytta data till Azure Blob Storage](hpc-cache-ingest.md).
 
-Skapa kontot innan du försöker lägga till ett lagringsmål. Du kan skapa en ny behållare när du lägger till målet.
+Skapa kontot innan du försöker lägga till ett lagrings mål. Du kan skapa en ny behållare när du lägger till målet.
 
-Om du vill skapa ett kompatibelt lagringskonto använder du följande inställningar:
+Använd följande inställningar om du vill skapa ett kompatibelt lagrings konto:
 
-* Prestanda: **Standard**
-* Konto typ: **StorageV2 (allmänt ändamål v2)**
-* Replikering: **Lokalt redundant lagring (LRS)**
-* Åtkomstnivå (standard): **Hot**
+* Prestanda: **standard**
+* Konto typ: **StorageV2 (generell användning v2)**
+* Replikering: **Lokalt Redundant lagring (LRS)**
+* Åtkomst nivå (standard): **snabb**
 
-Det är bra att använda ett lagringskonto på samma plats som cacheminnet.
+Det är en bra idé att använda ett lagrings konto på samma plats som din cache.
 
-Du måste också ge cacheprogrammet åtkomst till ditt Azure-lagringskonto som nämns i [Behörigheter](#permissions)ovan. Följ proceduren i [Lägg till lagringsmål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cacheminnet de åtkomstroller som krävs. Om du inte är lagringskontoägare ber du ägaren göra det här steget.
+Du måste också ge cache-programmet åtkomst till ditt Azure Storage-konto som anges i [behörigheter](#permissions)ovan. Följ proceduren i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cachen de nödvändiga åtkomst rollerna. Om du inte är lagrings kontots ägare kan du låta ägaren göra detta steg.
 
-### <a name="nfs-storage-requirements"></a>NFS-lagringskrav
+### <a name="nfs-storage-requirements"></a>Krav för NFS-lagring
 <!-- linked from configuration.md -->
 
-Om du använder ett NFS-lagringssystem (till exempel ett lokalt NAS-system för maskinvara) kontrollerar du att det uppfyller dessa krav. Du kan behöva arbeta med nätverksadministratörer eller brandväggshanterare för ditt lagringssystem (eller datacenter) för att verifiera dessa inställningar.
+Om du använder ett NFS-filsystem (till exempel ett lokalt maskinvaru-NAS-system) kontrollerar du att det uppfyller dessa krav. Du kan behöva arbeta med nätverks administratörer eller brand Väggs hanterare för ditt lagrings system (eller data Center) för att verifiera inställningarna.
 
 > [!NOTE]
-> Lagringsmål skapas misslyckas om cachen har otillräcklig åtkomst till NFS lagringssystem.
+> Det gick inte att skapa lagrings mål om cachen har otillräcklig åtkomst till NFS-lagrings systemet.
 
-Mer information ingår i [Felsökning av NAS-konfiguration och NFS-lagringsmålproblem](troubleshoot-nas.md).
+Mer information finns i [Felsöka problem med NAS-konfiguration och NFS-lagring](troubleshoot-nas.md).
 
-* **Nätverksanslutning:** Azure HPC-cachen behöver nätverksåtkomst med hög bandbredd mellan cacheundernätet och NFS-systemets datacenter. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller liknande åtkomst rekommenderas. Om du använder en VPN kan du behöva konfigurera den för att klämma fast TCP MSS vid 1350 för att se till att stora paket inte är blockerade. Läs begränsningar för [VPN-paketstorlek](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) för ytterligare hjälp med felsökning av VPN-inställningar.
+* **Nätverks anslutning:** Azure HPC-cachen behöver nätverks åtkomst med hög bandbredd mellan cache-undernät och NFS-systemets Data Center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller liknande åtkomst rekommenderas. Om du använder en VPN-anslutning kan du behöva konfigurera den till dessutom foga ihop TCP MSS på 1350 för att se till att stora paket inte blockeras. Läs [storleks begränsningar för VPN-paket](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) för ytterligare hjälp vid fel sökning av VPN-inställningar.
 
-* **Tillträde till port:** Cachen behöver åtkomst till specifika TCP/UDP-portar i ditt lagringssystem. Olika typer av lagring har olika portkrav.
+* **Port åtkomst:** Cachen behöver åtkomst till vissa TCP/UDP-portar på lagrings systemet. Olika typer av lagrings enheter har olika port krav.
 
-  Följ den här proceduren om du vill kontrollera inställningarna för lagringssystemet.
+  Följ den här proceduren om du vill kontrol lera inställningarna för lagrings systemet.
 
-  * Utfärda `rpcinfo` ett kommando till ditt lagringssystem för att kontrollera de nödvändiga portarna. Kommandot nedan visar portarna och formaterar relevanta resultat i en tabell. (Använd systemets IP-adress i stället för *<storage_IP>* sikt.)
+  * Skicka ett `rpcinfo` kommando till lagrings systemet för att kontrol lera vilka portar som behövs. Kommandot nedan visar portarna och formaterar relevanta resultat i en tabell. (Använd systemets IP-adress i stället för *<storage_IP>* term.)
 
-    Du kan utfärda det här kommandot från alla Linux-klienter som har NFS-infrastruktur installerad. Om du använder en klient i klustrets undernät kan den också hjälpa till att verifiera anslutningen mellan undernätet och lagringssystemet.
+    Du kan skicka det här kommandot från valfri Linux-klient som har NFS-infrastruktur installerad. Om du använder en klient i klustrets undernät kan du också kontrol lera anslutningen mellan under nätet och lagrings systemet.
 
     ```bash
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
-  Kontrollera att alla portar som ``rpcinfo`` returneras av frågan tillåter obegränsad trafik från Azure HPC-cachens undernät.
+  Se till att alla portar som returneras av ``rpcinfo`` frågan tillåter obegränsad trafik från Azure HPC-nätets undernät.
 
-  * Om du inte kan `rpcinfo` använda kommandot kontrollerar du att dessa vanliga portar tillåter inkommande och utgående trafik:
+  * Om du inte kan använda `rpcinfo` kommandot kontrollerar du att dessa ofta använda portar tillåter inkommande och utgående trafik:
 
     | Protokoll | Port  | Tjänst  |
     |----------|-------|----------|
-    | TCP/UDP  | 111   | rpcbind (rpcbind)  |
+    | TCP/UDP  | 111   | rpcbind  |
     | TCP/UDP  | 2049  | NFS      |
-    | TCP/UDP  | 4045  | nlockmgr (nlockmgr) |
+    | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | monterad   |
     | TCP/UDP  | 4047  | status   |
 
-    Vissa system använder olika portnummer för dessa tjänster - kontakta dokumentationen för ditt lagringssystem för att vara säker.
+    Vissa system använder olika port nummer för dessa tjänster. Läs mer i dokumentationen för lagrings systemet.
 
-  * Kontrollera brandväggsinställningarna för att vara säker på att de tillåter trafik på alla dessa nödvändiga portar. Var noga med att kontrollera brandväggar som används i Azure samt lokala brandväggar i ditt datacenter.
+  * Kontrol lera brand Väggs inställningarna så att de tillåter trafik på alla de portar som krävs. Se till att kontrol lera brand väggar som används i Azure samt lokala brand väggar i ditt data Center.
 
-* **Tillgång till katalog:** Aktivera `showmount` kommandot på lagringssystemet. Azure HPC Cache använder det här kommandot för att kontrollera att din konfiguration för lagringsmål pekar på en giltig export och även för att se till att flera fästen inte kommer åt samma underkataloger (en risk för filkollision).
+* **Katalog åtkomst:** Aktivera `showmount` kommandot på lagrings systemet. Azure HPC cache använder det här kommandot för att kontrol lera att din lagrings mål konfiguration pekar på en giltig export, och också för att se till att flera monteringar inte har åtkomst till samma under kataloger (en risk för fil kollision).
 
   > [!NOTE]
-  > Om NFS-lagringssystemet använder NetApps ONTAP 9.2-operativsystem **ska du inte aktivera `showmount` **. [Kontakta Microsoft Service och support](hpc-cache-support-ticket.md) för hjälp.
+  > Om ditt NFS Storage-System använder NetApp ONTAP 9,2-operativ system ska **du inte `showmount`aktivera **. [Kontakta Microsofts tjänst och support](hpc-cache-support-ticket.md) om du behöver hjälp.
 
-  Läs mer om kataloglista åtkomst i [felsökningsartikeln](troubleshoot-nas.md#enable-export-listing)för NFS-lagringsmål .
+  Läs mer om åtkomst till katalog listor i [fel söknings artikeln](troubleshoot-nas.md#enable-export-listing)för NFS-lagrings målet.
 
-* **Root access** (läs/skriv): Cachen ansluter till backend-systemet som användar-ID 0. Kontrollera de här inställningarna på ditt lagringssystem:
+* **Rot åtkomst** (Läs/skriv): cachen ansluter till backend-systemet som användar-ID 0. Kontrol lera inställningarna på ditt lagrings system:
   
-  * Aktivera `no_root_squash`. Det här alternativet säkerställer att fjärrrotanvändaren kan komma åt filer som ägs av root.
+  * Aktivera `no_root_squash`. Med det här alternativet ser du till att fjärranslutna rot användare kan komma åt filer som ägs av roten.
 
-  * Kontrollera exportprinciper för att se till att de inte innehåller begränsningar för rotåtkomst från cachens undernät.
+  * Kontrol lera export principerna för att se till att de inte innehåller begränsningar för rot åtkomst från cachens undernät.
 
-  * Om lagringen har export som är underkataloger för en annan export kontrollerar du att cachen har root-åtkomst till det lägsta segmentet i sökvägen. Läs [Root-åtkomst på katalogsökvägar](troubleshoot-nas.md#allow-root-access-on-directory-paths) i felsökningsartikeln för NFS-lagringsmål för mer information.
+  * Om lagrings platsen har en export som är under kataloger till en annan export, se till att cachen har rot åtkomst till det lägsta segmentet i sökvägen. Läs [rot åtkomst för katalog Sök vägar](troubleshoot-nas.md#allow-root-access-on-directory-paths) i fel söknings artikeln NFS-lagrings mål för mer information.
 
-* NFS backend-lagring måste vara en kompatibel maskinvaru-/programvaruplattform. Kontakta Azure HPC-cacheteamet för mer information.
+* NFS-backend-lagring måste vara en kompatibel maskin-/program varu plattform. Kontakta Azure HPC-teamet för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en Azure HPC-cacheinstans](hpc-cache-create.md) från Azure-portalen
+* [Skapa en Azure HPC cache-instans](hpc-cache-create.md) från Azure Portal

@@ -5,25 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82096924"
+ms.locfileid: "82106040"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastnings lösning i Azure Automation
 
 Lösningen **Starta/stoppa virtuella datorer vid låg belastnings tider** startar eller stoppar dina virtuella Azure-datorer. Den startar eller stoppar datorer enligt användardefinierade scheman, ger insikter via Azure Monitor loggar och skickar valfria e-postmeddelanden med hjälp av [Åtgärds grupper](../azure-monitor/platform/action-groups.md). Lösningen stöder både Azure Resource Manager och klassiska virtuella datorer för de flesta scenarier. 
 
-Den här lösningen innehåller ett decentraliserat alternativ för låg kostnads automatisering för användare som vill optimera sina VM-kostnader. Med den här lösningen kan du:
+Den här lösningen använder cmdleten [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) för att starta virtuella datorer. Den använder [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) för att stoppa virtuella datorer.
+
+> [!NOTE]
+> Lösningen **Starta/stoppa virtuella datorer vid låg belastning** har uppdaterats till att stödja de senaste versionerna av de Azure-moduler som är tillgängliga.
+
+Lösningen innehåller ett decentraliserat Automation-alternativ för användare som vill optimera sina VM-kostnader. Med den här lösningen kan du:
 
 - [Schemalägg virtuella datorer för start och stopp](automation-solution-vm-management-config.md#schedule).
 - Schemalägg virtuella datorer att starta och stoppa i stigande ordning med [hjälp av Azure-Taggar](automation-solution-vm-management-config.md#tags) (stöds inte för klassiska virtuella datorer).
 - Stoppa virtuella datorer för virtuella datorer baserat på [låg CPU-användning](automation-solution-vm-management-config.md#cpuutil).
-
-> [!NOTE]
-> Lösningen **Starta/stoppa virtuella datorer vid låg belastning** har uppdaterats till att stödja de senaste versionerna av de Azure-moduler som är tillgängliga.
 
 Följande är begränsningar med den aktuella lösningen:
 

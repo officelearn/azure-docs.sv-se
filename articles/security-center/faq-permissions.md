@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure Security Center – frågor om behörigheter
-description: Den här vanliga frågor och svar på frågor om behörigheter i Azure Security Center, en produkt som hjälper dig att förebygga, identifiera och svara på hot.
+title: Azure Security Center FAQ – frågor om behörigheter
+description: Detta vanliga frågor och svar om behörigheter i Azure Security Center, en produkt som hjälper dig att förhindra, identifiera och svara på hot.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 66a260fbb03f770ee98ec29a5f5e15e3d7dd1310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89b3233966ac53d6c384ca6bd5ac30322fbb0b02
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599397"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106601"
 ---
 # <a name="permissions"></a>Behörigheter
 
@@ -26,14 +26,14 @@ ms.locfileid: "77599397"
 
 I Azure Security Center tillämpas [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md), vilket innebär att det finns [förinställda roller](../role-based-access-control/built-in-roles.md) som kan ges till användare, grupper och tjänster i Azure.
 
-Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center visas bara information som är relaterad till en resurs när du tilldelas rollen som Ägare, Deltagare eller Läsare för den prenumeration eller resursgrupp som en resurs tillhör.
+Security Center bedömer konfigurationen av dina resurser för att identifiera säkerhets problem och sårbarheter. I Security Center ser du bara information som rör en resurs när du tilldelas rollen som ägare, deltagare eller läsare för den prenumeration eller resurs grupp som en resurs tillhör.
 
-Se [Behörigheter i Azure Security Center](security-center-permissions.md) om du vill veta mer om roller och tillåtna åtgärder i Security Center.
+Se [behörigheter i Azure Security Center](security-center-permissions.md) om du vill veta mer om roller och tillåtna åtgärder i Security Center.
 
 
 
-## <a name="who-can-modify-a-security-policy"></a>Vem kan ändra en säkerhetsprincip?
+## <a name="who-can-modify-a-security-policy"></a>Vem kan ändra en säkerhets princip?
 
-Om du vill ändra en säkerhetsprincip måste du vara säkerhetsadministratör eller ägare eller deltagare i prenumerationen.
+Om du vill ändra en säkerhets princip måste du vara säkerhets administratör eller ägare eller deltagare i den prenumerationen.
 
-Mer information om hur du konfigurerar en säkerhetsprinciper finns [i Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md).
+Information om hur du konfigurerar en säkerhets princip finns [i ställa in säkerhets principer i Azure Security Center](tutorial-security-policy.md).

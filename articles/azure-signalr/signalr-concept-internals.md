@@ -1,25 +1,23 @@
 ---
 title: Azure SignalR Service – internt
-description: Lär dig mer om Azure SignalR-tjänstens interna enheter, arkitekturen, anslutningarna och hur data överförs.
+description: Lär dig om interna Azure SignalR-tjänster, arkitekturen, anslutningarna och hur data överförs.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74157608"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105768"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service – internt
 
-Azure SignalR Service är byggt på ASP.NET Core SignalR-ramverket. Det stöder även ASP.NET SignalR som en förhandsversion av funktionen.
+Azure SignalR Service är byggt på ASP.NET Core SignalR-ramverket. Det stöder också ASP.NET-SignalR genom att återimplementerar ASP.NET-signalers data protokoll ovanpå ASP.NET Core Framework.
 
-> För att stödja ASP.NET SignalR återimplementerar Azure SignalR Service ASP.NET SignalR:s dataprotokoll ovanpå ASP.NET Core-ramverket
-
-Du kan enkelt migrera ett lokalt ASP.NET Core SignalR-program så att det fungerar med SignalR Service med några få ändringar i koden.
+Du kan enkelt migrera ett lokalt ASP.NET Core SignalR-program eller ASP.NET SignalR-program för att fungera med signal tjänsten, med några rader kod ändringar.
 
 Diagrammet nedan beskriver den vanliga arkitekturen när du använder SignalR Service med programservern.
 

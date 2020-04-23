@@ -1,132 +1,129 @@
 ---
 title: Publicera en webbapp till en virtuell Azure-dator från Visual Studio
-description: Publicera ett ASP.NET webbprogram på en virtuell Azure-dator från Visual Studio
-services: virtual-machines-windows
+description: Publicera ett ASP.NET-webbprogram på en virtuell Azure-dator från Visual Studio
 author: ghogen
 manager: jillfra
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71970870"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098242"
 ---
-# <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET web app till en virtuell Azure-dator från Visual Studio
+# <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-webbapp till en virtuell Azure-dator från Visual Studio
 
-I det här dokumentet beskrivs hur du publicerar ett ASP.NET webbprogram till en virtuell Azure-dator (VM) med hjälp av publiceringsfunktionen **för Microsoft Azure Virtual Machines** i Visual Studio 2019.  
+Det här dokumentet beskriver hur du publicerar ett ASP.NET-webbprogram på en virtuell Azure-dator med hjälp av funktionen för **Microsoft Azure Virtual Machines** publicering i Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Krav
-För att kunna använda Visual Studio för att publicera ett ASP.NET projekt till en virtuell Azure-dator måste den virtuella datorn vara korrekt konfigurerad.
+För att kunna använda Visual Studio för att publicera ett ASP.NET-projekt till en virtuell Azure-dator måste den virtuella datorn konfigureras på rätt sätt.
 
-- Datorn måste vara konfigurerad för att köra ett ASP.NET webbprogram och ha WebDeploy installerat.
+- Datorn måste vara konfigurerad för att köra ett ASP.NET-webbprogram och ha WebDeploy installerat.
 
-- Den virtuella datorn måste ha ett DNS-namn konfigurerat. Mer information finns [i Skapa ett fullständigt kvalificerat domännamn i Azure-portalen för en Windows VM](portal-create-fqdn.md).
+- Den virtuella datorn måste ha ett konfigurerat DNS-namn. Mer information finns i [skapa ett fullständigt kvalificerat domän namn i Azure Portal för en virtuell Windows-dator](portal-create-fqdn.md).
 
-## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicera din ASP.NET webbapp till Den virtuella Azure-datorn med Visual Studio
-I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET webbprogram till en virtuell Azure-dator.
+## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicera ASP.NET-webbappen på den virtuella Azure-datorn med Visual Studio
+I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogram på en virtuell Azure-dator.
 
-1. Öppna webbapplösningen i Visual Studio 2019.
-2. Högerklicka på projektet i Lösningsutforskaren och välj **Publicera...**
-3. Använd pilen till höger på sidan för att bläddra igenom publiceringsalternativen tills du hittar **Microsoft Azure Virtual Machines**.  
+1. Öppna din Web App-lösning i Visual Studio 2019.
+2. Högerklicka på projektet i Solution Explorer och välj **publicera...**
+3. Använd pilen till höger på sidan för att bläddra igenom publicerings alternativen tills du hittar **Microsoft Azure Virtual Machines**.  
 
-   ![Publicera sida - högerpil]
+   ![Publicera sida-HÖGERPIL]
 
-4. Välj ikonen **Microsoft Azure Virtual Machines** och välj **Publicera**.
+4. Välj ikonen **Microsoft Azure Virtual Machines** och välj **publicera**.
 
-   ![Publiceringssida – ikon för Microsoft Azure Virtual Machine]
+   ![Sidan publicera – Microsoft Azure ikon för virtuell dator]
 
-5. Välj lämpligt konto (med Azure-prenumeration ansluten till din virtuella dator).  
-   - Om du är inloggad i Visual Studio fylls kontolistan i med alla dina autentiserade konton.  
-   - Om du inte är inloggad, eller om kontot du behöver inte finns med i listan, väljer du "Lägg till ett konto..." och följ anvisningarna för att logga in.  
-   ![Azure-kontoväljare]  
+5. Välj lämpligt konto (med Azure-prenumeration som är ansluten till den virtuella datorn).  
+   - Om du är inloggad i Visual Studio fylls konto listan i med alla dina autentiserade konton.  
+   - Om du inte är inloggad, eller om kontot du behöver inte finns med i listan, väljer du Lägg till ett konto... och följ anvisningarna för att logga in.  
+   ![Konto väljare för Azure]  
 
-6. Välj lämplig virtuell dator i listan över befintliga virtuella datorer.
+6. Välj lämplig virtuell dator i listan över befintliga Virtual Machines.
 
    > [!Note]
-   > Det kan ta lite tid att fylla i den här listan.
+   > Det kan ta en stund att fylla listan.
 
-   ![Azure VM-väljare]
+   ![VIRTUELL Azure-väljare]
 
 7. Klicka på OK för att börja publicera.
 
-8. När du uppmanas att ange autentiseringsuppgifter anger du användarnamn och lösenord för ett användarkonto på måldatorn som har konfigurerats med publiceringsrättigheter. Dessa autentiseringsuppgifter är vanligtvis administratörens användarnamn och lösenord som används när den virtuella datorn skapas.  
+8. När du uppmanas att ange autentiseringsuppgifter anger du användar namnet och lösen ordet för ett användar konto på den virtuella mål datorn som har kon figurer ATS med publicerings behörighet. Dessa autentiseringsuppgifter är vanligt vis administratörens användar namn och lösen ord som används när du skapar den virtuella datorn.  
 
-   ![Webbdeploy-inloggning]
+   ![Inloggning för WebDeploy]
 
-9. Acceptera säkerhetscertifikatet.
+9. Godkänn säkerhetscertifikatet.
 
-   ![Certifikatfel]
+   ![Certifikat fel]
 
-10. Titta på utdatafönstret för att kontrollera förloppet för publiceringsåtgärden.
+10. Se fönstret utdata för att kontrol lera förloppet för publicerings åtgärden.
 
-    ![Utdatafönster]
+    ![fönstret Utmatning]
 
-11. Om publiceringen lyckas startar en webbläsare för att öppna webbadressen till den nyligen publicerade webbplatsen.
+11. Om publiceringen lyckas startas en webbläsare för att öppna URL: en för den nyligen publicerade platsen.
 
-**Framgång!**
+**Resultatet!**
 
-Du har nu publicerat din webbapp till en virtuell Azure-dator.
+Nu har du publicerat din webbapp på en virtuell Azure-dator.
 
-## <a name="publish-page-options"></a>Alternativ för publicering av sidor
+## <a name="publish-page-options"></a>Alternativ för publicerings sida
 
-När publiceringsguiden har slutförts öppnas sidan Publicera i dokumentet väl med den nya publiceringsprofilen markerad.
+När du har slutfört publicerings guiden öppnas publicerings sidan i dokumentets välbefinnande med den nya publicerings profilen vald.
 
-### <a name="re-publish"></a>Publicera på för en om
+### <a name="re-publish"></a>Publicera igen
 
-Om du vill publicera uppdateringar i webbprogrammet väljer du knappen **Publicera** på sidan Publicera.  
-- Om du uppmanas till det anger du användarnamn och lösenord.  
+Om du vill publicera uppdateringar i ditt webb program väljer du knappen **publicera** på sidan publicera.  
+- Ange användar namn och lösen ord om du uppmanas att göra det.  
 - Publiceringen börjar omedelbart.
 
-![Knappen Publicera sida - knappen Publicera]
+![Sidan publicera – knappen publicera]
 
-### <a name="modify-publish-profile-settings"></a>Ändra inställningar för publiceringsprofil
+### <a name="modify-publish-profile-settings"></a>Ändra inställningar för publicerings profil
 
-Om du vill visa och ändra inställningarna för publicera profil väljer du **Inställningar...**.  
+Om du vill visa och ändra inställningarna för publicerings profilen väljer du **Inställningar...**.  
 
-![Knappen Publicera sida – knappen Inställningar]
+![Sidan publicera – knappen Inställningar]
 
-Dina inställningar bör se ut ungefär så här:  
+Inställningarna bör se ut ungefär så här:  
 
-![Publiceringsinställningar - Sidan Anslutning]
+![Publicerings inställningar – anslutnings sida]
 
-#### <a name="save-user-name-and-password"></a>Spara användarnamn och lösenord
-- Undvik att tillhandahålla autentiseringsinformation varje gång du publicerar. Om du vill göra det fyller du i fälten **Användarnamn** och **Lösenord** och väljer rutan **Spara lösenord.**
-- Använd knappen **Validera anslutning** för att bekräfta att du har angett rätt information.
+#### <a name="save-user-name-and-password"></a>Spara användar namn och lösen ord
+- Undvik att tillhandahålla autentiseringsinformation varje gång du publicerar. Det gör du genom att fylla i fälten **användar namn** och **lösen ord** och markera rutan **Spara lösen ord** .
+- Använd knappen **Verifiera anslutning** för att bekräfta att du har angett rätt information.
 
-#### <a name="deploy-to-clean-web-server"></a>Distribuera för att rensa webbservern
+#### <a name="deploy-to-clean-web-server"></a>Distribuera till en ren webb server
 
-- Om du vill vara medveten om att webbservern har en ren kopia av webbprogrammet efter varje överföring och att inga andra filer finns kvar från en tidigare distribution kan du markera kryssrutan **Ta bort ytterligare filer vid mål på** fliken **Inställningar.**
+- Om du vill kontrol lera att webb servern har en ren kopia av webb programmet efter varje uppladdning och att inga andra filer återstår från en tidigare distribution, kan du markera kryss rutan **ta bort ytterligare filer i målet** på fliken **Inställningar** .
 
-- Varning: Om du publicerar med den här inställningen tas alla filer som finns på webbservern (wwwroot-katalogen bort). Kontrollera att du känner till maskinens tillstånd innan du publicerar det här alternativet. 
+- Varning: om du publicerar med den här inställningen tas alla filer som finns på webb servern (Wwwroot-katalogen) bort. Se till att du känner till datorns tillstånd innan du publicerar med det här alternativet aktiverat. 
 
-![Sidan Publiceringsinställningar – sidan Inställningar]
+![Publicerings inställningar – sidan Inställningar]
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Konfigurera CI/CD för automatiserad distribution till Azure VM
+### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Konfigurera CI/CD för automatisk distribution till virtuell Azure-dator
 
-Information om hur du konfigurerar en kontinuerlig leveranspipeline med Azure Pipelines finns i [Distribuera till en Virtuell Windows-dator](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Om du vill konfigurera en pipeline för kontinuerlig leverans med Azure-pipelines, se [distribuera till en virtuell Windows-dator](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png
 [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png
-[Publicera sida - högerpil]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
-[Publiceringssida – ikon för Microsoft Azure Virtual Machine]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
-[Azure-kontoväljare]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
-[Azure VM-väljare]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
-[Webbdeploy-inloggning]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
-[Certifikatfel]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Utdatafönster]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
-[Knappen Publicera sida - knappen Publicera]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
-[Knappen Publicera sida – knappen Inställningar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
-[Publiceringsinställningar - Sidan Anslutning]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
-[Sidan Publiceringsinställningar – sidan Inställningar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
+[Publicera sida-HÖGERPIL]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
+[Sidan publicera – Microsoft Azure ikon för virtuell dator]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
+[Konto väljare för Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
+[VIRTUELL Azure-väljare]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
+[Inloggning för WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
+[Certifikat fel]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
+[fönstret Utmatning]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Sidan publicera – knappen publicera]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
+[Sidan publicera – knappen Inställningar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
+[Publicerings inställningar – anslutnings sida]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
+[Publicerings inställningar – sidan Inställningar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png

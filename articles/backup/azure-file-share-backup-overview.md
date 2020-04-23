@@ -1,59 +1,60 @@
 ---
-title: Om säkerhetskopiering av Azure-fildelning
+title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: fd5bb51b2c7b5c09e9d859b69c3094eb50c205b5
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: bea5035ff50eaf4047f56cde3bd671d81e21f5d3
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396269"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101439"
 ---
-# <a name="about-azure-file-share-backup"></a>Om säkerhetskopiering av Azure-fildelning
+# <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
-Azure-filresurssäkerhetskopiering är en inbyggd, molnbaserad säkerhetskopieringslösning som skyddar dina data i molnet och eliminerar ytterligare underhållskostnader som ingår i lokala säkerhetskopieringslösningar. Azure Backup-tjänsten integreras smidigt med Azure-filsynkronisering och låter dig centralisera dina fildelningsdata och dina säkerhetskopior. Med den här enkla, tillförlitliga och säkra lösningen kan du konfigurera skyddet för företagets filresurser i några enkla steg med en försäkran om att du kan återställa dina data i händelse av ett katastrofscenario.
+Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets kopierings lösning som skyddar dina data i molnet och eliminerar ytterligare underhålls kostnader som ingår i lokala säkerhets kopierings lösningar. Azure Backups tjänsten integreras smidigt med Azure File Sync och gör att du kan centralisera dina fil resurs data och dina säkerhets kopior. Med den här enkla, tillförlitliga och säkra lösningen kan du konfigurera skydd för företags fil resurser i några enkla steg med en garanti att du kan återställa dina data i händelse av ett katastrof scenario.
 
-## <a name="key-benefits-of-azure-file-share-backup"></a>Viktiga fördelar med säkerhetskopiering av Azure-filresurs
+## <a name="key-benefits-of-azure-file-share-backup"></a>Viktiga fördelar med Azure File Share-säkerhetskopiering
 
-* Noll infrastruktur: Ingen distribution behövs för att konfigurera skydd för dina filresurser.
-* Inbyggda hanteringsfunktioner: Du kan schemalägga säkerhetskopior och ange önskad kvarhållningsperiod utan ytterligare information om databeskärning.
-* Omedelbar återställning: Azure-filresurssäkerhetskopiering använder ögonblicksbilder av fildelning, så att du kan välja bara de filer som du vill återställa direkt.
-* Avisering och rapportering: Du kan konfigurera aviseringar för säkerhetskopiering och återställning av fel och använda rapporteringslösningen som tillhandahålls av Azure Backup för att få insikter om säkerhetskopior över dina filresurser.
+* Ingen infrastruktur: ingen distribution krävs för att konfigurera skydd för dina fil resurser.
+* Anpassad kvarhållning: du kan konfigurera säkerhets kopior med dagliga/veckovis/månads Visa/årliga kvarhållning enligt dina krav.
+* Inbyggda hanterings funktioner: du kan schemalägga säkerhets kopieringar och ange önskad kvarhållningsperiod utan ytterligare överbelastning av data rensning.
+* Omedelbar återställning: Azure-filresurs säkerhets kopiering använder ögonblicks bilder av fil resurser, så du kan bara välja de filer som du vill återställa direkt.
+* Avisering och rapportering: du kan konfigurera aviseringar för säkerhets kopierings-och återställnings problem och använda rapporterings lösningen som tillhandahålls av Azure Backup för att få insikter om säkerhets kopieringar över dina fil resurser.
 
 ## <a name="architecture"></a>Arkitektur
 
-![Azure-säkerhetskopieringsarkitektur för filresurs](./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png)
+![Azure-fil resurs säkerhets kopierings arkitektur](./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png)
 
-## <a name="how-the-backup-process-works"></a>Så här fungerar säkerhetskopieringsprocessen
+## <a name="how-the-backup-process-works"></a>Så här fungerar säkerhets kopieringen
 
-1. Det första steget i att konfigurera säkerhetskopiering för Azure File-resurser är att skapa ett valv för återställningstjänster. Valvet ger dig en konsoliderad vy över de säkerhetskopior som konfigurerats över olika arbetsbelastningar.
+1. Det första steget i att konfigurera säkerhets kopiering för Azure-filresurser är att skapa ett Recovery Services-valv. Valvet ger dig en samlad vy över de säkerhets kopior som kon figurer ATS för olika arbets belastningar.
 
-2. När du har skapat ett valv identifierar Azure Backup-tjänsten de lagringskonton som kan registreras med valvet. Du kan välja det lagringskonto som är värd för de filresurser som du vill skydda.
+2. När du har skapat ett valv identifierar Azure Backup tjänsten de lagrings konton som kan registreras med valvet. Du kan välja det lagrings konto som är värd för de fil resurser som du vill skydda.
 
-3. När du har valt lagringskontot listar Azure Backup-tjänsten den uppsättning filresurser som finns i lagringskontot och lagrar deras namn i hanteringslagrets katalog.
+3. När du har valt lagrings kontot visar Azure Backup tjänsten den uppsättning av fil resurser som finns i lagrings kontot och lagrar deras namn i hanterings lager katalogen.
 
-4. Du konfigurerar sedan säkerhetskopieringsprincipen (schema och kvarhållning) enligt dina krav och väljer de filresurser som ska säkerhetskopieras. Azure Backup-tjänsten registrerar scheman i kontrollplanet för att göra schemalagda säkerhetskopior.
+4. Sedan kan du konfigurera säkerhets kopierings principen (schema och kvarhållning) enligt dina krav och välja de fil resurser som ska säkerhets kopie ras. Azure Backups tjänsten registrerar scheman i kontroll planet för schemalagda säkerhets kopieringar.
 
-5. Baserat på den angivna principen utlöser Azure Backup-schemaläggaren säkerhetskopieringar vid den schemalagda tiden. Som en del av det jobbet skapas ögonblicksbilden av filresursen med hjälp av API:et för filresurs. Endast url:en för ögonblicksbild lagras i metadataarkivet.
+5. Baserat på den angivna principen, utlöser Azure Backup Scheduler säkerhets kopieringar vid den schemalagda tiden. Som en del av detta jobb skapas fil resursens ögonblicks bild med hjälp av fil resurs-API: et. Endast ögonblicks bildens URL lagras i metadatalagret.
 
     >[!NOTE]
-    >Filresursdata överförs inte till säkerhetskopieringstjänsten eftersom säkerhetskopieringstjänsten skapar och hanterar ögonblicksbilder som ingår i ditt lagringskonto.
+    >Fil resurs data överförs inte till säkerhets kopierings tjänsten eftersom säkerhets kopierings tjänsten skapar och hanterar ögonblicks bilder som ingår i ditt lagrings konto, och säkerhets kopieringarna överförs till valvet.
 
-6. Du kan återställa Azure-filresursinnehållet (enskilda filer eller hela resursen) från ögonblicksbilder som är tillgängliga på källfilresursen. När åtgärden har utlösts hämtas url:en ögonblicksbild från metadataarkivet och data visas och överförs från källögonblicksbilden till den målfilsresurs du väljer.
+6. Du kan återställa innehållet i Azure-filresursen (enskilda filer eller hela resursen) från ögonblicks bilder som är tillgängliga på käll fil resursen. När åtgärden har Aktiver ATS hämtas ögonblicks bildens URL från metadatalagret och data visas och överförs från käll ögonblicks bilden till önskad mål fil resurs.
 
-7. Säkerhetskopierings- och återställningsjobbövervakningsdata överförs till azure backup monitoring-tjänsten. På så sätt kan du övervaka säkerhetskopieringar i molnet för filresurserna på en enda instrumentpanel. Dessutom kan du också konfigurera aviseringar eller e-postmeddelanden när säkerhetskopieringshälsan påverkas. E-postmeddelanden skickas via Azure-e-posttjänsten.
+7. Övervaknings data för säkerhets kopierings-och återställnings jobbet skickas till Azure Backup övervaknings tjänsten. På så sätt kan du övervaka säkerhets kopiering av molnet för dina fil resurser på en enda instrument panel. Dessutom kan du också konfigurera aviseringar eller e-postaviseringar när säkerhets kopierings hälsan påverkas. E-postmeddelanden skickas via Azures e-posttjänst.
 
-## <a name="backup-costs"></a>Kostnader för säkerhetskopiering
+## <a name="backup-costs"></a>Kostnader för säkerhets kopiering
 
-Azure File share backup är en ögonblicksbild-baserad lösning och lagringsavgifter som uppkommit för ögonblicksbilder faktureras tillsammans med Azure Files Usage enligt prisinformation som nämns [här](https://azure.microsoft.com/pricing/details/storage/files/).
+Säkerhets kopiering av Azure-filresurs är en ögonblicks bilds-baserad lösning och lagrings kostnader för ögonblicks bilder faktureras tillsammans med Azure Files användning enligt pris informationen som anges [här](https://azure.microsoft.com/pricing/details/storage/files/).
 
-Den skyddade instansavgiften för att utnyttja säkerhetskopieringslösningen är dock enligt den prismodell som beskrivs under avsnittet [Backup For Azure Files.](https://azure.microsoft.com/pricing/details/backup/) För närvarande har det faktiska priset uppdaterats endast för Västra centrala USA. För andra regioner kommer exakta priser att uppdateras snart med vissa regionala variationer, men med samma prismodell.
+Avgiften för den skyddade instansen för att dra nytta av säkerhets kopierings lösningen sker dock enligt pris sättnings modellen som beskrivs i avsnittet [säkerhetskopiera för Azure Files](https://azure.microsoft.com/pricing/details/backup/) . För närvarande har det faktiska priset endast uppdaterats för USA, västra centrala. För andra regioner kommer exakta priser att uppdateras snart med vissa regionala variationer, men med samma pris modell.
 
 >[!NOTE]
->Under förhandsversionen finns det ingen avgift för "skyddad instans" och du debiteras endast för ögonblicksbilder enligt den prissättning som nämns [här](https://azure.microsoft.com/pricing/details/storage/files/).
+>Nu finns det ingen "skyddad instans avgift" och du debiteras bara för ögonblicks bilder enligt de priser som anges [här](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [säkerhetskopierar Azure-filresurser](backup-afs.md)
-* Hitta svar [på frågor om säkerhetskopiering av Azure-filer](backup-azure-files-faq.md)
+* Få svar på [frågor om att säkerhetskopiera Azure Files](backup-azure-files-faq.md)

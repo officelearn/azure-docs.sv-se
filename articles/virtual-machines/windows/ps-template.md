@@ -1,43 +1,35 @@
 ---
-title: Skapa en Virtuell Windows-dator från en mall i Azure
-description: Använd en Resource Manager-mall och PowerShell för att enkelt skapa en ny Windows-virtuell dator.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Skapa en virtuell Windows-dator från en mall i Azure
+description: Använd en Resource Manager-mall och PowerShell för att enkelt skapa en ny virtuell Windows-dator.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99e292930414ae027c9cbbf3a901d550041899d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74065554"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098330"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en virtuell Windows-dator från en Resource Manager-mall
 
-Lär dig hur du skapar en virtuell Windows-dator med hjälp av en Azure Resource Manager-mall och Azure PowerShell från Azure Cloud-gränssnittet. Mallen som används i den här artikeln distribuerar en enda virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät. Information om hur du skapar en virtuell Linux-dator finns i [Så här skapar du en virtuell Linux-dator med Azure Resource Manager-mallar](../linux/create-ssh-secured-vm-from-template.md).
+Lär dig hur du skapar en virtuell Windows-dator med hjälp av en Azure Resource Manager-mall och Azure PowerShell från Azure Cloud Shell. Mallen som används i den här artikeln distribuerar en enskild virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät. Information om hur du skapar en virtuell Linux-dator finns i [så här skapar du en virtuell Linux-dator med Azure Resource Manager mallar](../linux/create-ssh-secured-vm-from-template.md).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Att skapa en virtuell Azure-dator innehåller vanligtvis två steg:
+Att skapa en virtuell Azure-dator innehåller vanligt vis två steg:
 
 - Skapa en resursgrupp. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn.
 - Skapa en virtuell dator.
 
-I följande exempel skapas en virtuell dator från en [Azure Quickstart-mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Här är en kopia av mallen:
+I följande exempel skapas en virtuell dator från en [Azure snabb starts mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Här är en kopia av mallen:
 
 [!code-json[create-windows-vm](~/quickstart-templates/101-vm-simple-windows/azuredeploy.json)]
 
-Om du vill köra PowerShell-skriptet väljer du **Prova det** för att öppna Azure Cloud-gränssnittet. Om du vill klistra in skriptet högerklickar du på skalet och väljer sedan **Klistra in:**
+Om du vill köra PowerShell-skriptet väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -58,28 +50,28 @@ New-AzResourceGroupDeployment `
 
 ```
 
-Om du väljer att installera och använda PowerShell lokalt i stället för från Azure Cloud-gränssnittet, kräver den här självstudien Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt i stället för från Azure Cloud Shell, kräver den här självstudien Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-I föregående exempel angav du en mall som lagras i GitHub. Du kan också hämta eller skapa en mall `--template-file` och ange den lokala sökvägen med parametern.
+I föregående exempel angav du en mall som lagrats i GitHub. Du kan också hämta eller skapa en mall och ange den lokala sökvägen med `--template-file` parametern.
 
 Här följer några ytterligare resurser:
 
-- Mer information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentationen](/azure/azure-resource-manager/).
-- Information om hur du ser Azure-schemana för virtuella datorer finns i [Azure-mallreferens](/azure/templates/microsoft.compute/allversions).
-- Mer information om hur du ser fler exempel på mallar för virtuella datorer finns i [Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](/azure/azure-resource-manager/).
+- Information om Azures virtuella dator scheman finns i [referens för Azure-mallar](/azure/templates/microsoft.compute/allversions).
+- För att se fler exempel på mallar för virtuella datorer, se [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Det senaste PowerShell-kommandot från föregående skript visar namnet på den virtuella datorn. Information om hur du ansluter till den virtuella datorn finns i [Så här ansluter och loggar du in på en virtuell Azure-dator som kör Windows](./connect-logon.md).
+Det sista PowerShell-kommandot från det föregående skriptet visar namnet på den virtuella datorn. Information om hur du ansluter till den virtuella datorn finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](./connect-logon.md).
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-- Om det fanns problem med distributionen kan du ta en titt på [Felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-- Lär dig hur du skapar och hanterar en virtuell dator i [Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Om det uppstod problem med distributionen kan du ta en titt på [Felsök vanliga fel i Azure-distribution med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Lär dig hur du skapar och hanterar en virtuell dator i [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Om du vill veta mer om hur du skapar mallar visar du JSON-syntaxen och egenskaperna för de resurstyper som du har distribuerat:
+Om du vill veta mer om hur du skapar mallar kan du Visa JSON-syntaxen och egenskaperna för de resurs typer som du har distribuerat:
 
-- [Microsoft.Network/publicIPAdresser](/azure/templates/microsoft.network/publicipaddresses)
-- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft. Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft. Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft. Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

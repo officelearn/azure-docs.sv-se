@@ -1,6 +1,6 @@
 ---
-title: Åtkomst- och användningsrapporter för Azure MFA - Azure Active Directory
-description: Här beskrivs hur du använder Azure Multi-Factor Authentication-funktionen - rapporter.
+title: Åtkomst-och användnings rapporter för Azure MFA – Azure Active Directory
+description: Här beskrivs hur du använder Azure Multi-Factor Authentication Feature-Reports.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,38 +11,38 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d8665e58dc84a2ea9b5f2ed70a41bbdd0aa3aa9b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653608"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099163"
 ---
-# <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi Factor-autentisering
+# <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication innehåller flera rapporter som kan användas av dig och din organisation som är tillgängliga via Azure-portalen. I följande tabell visas tillgängliga rapporter:
+Azure Multi-Factor Authentication innehåller flera rapporter som du och din organisation kan använda för att komma åt via Azure Portal. I följande tabell visas tillgängliga rapporter:
 
 | Rapport | Location | Beskrivning |
 |:--- |:--- |:--- |
-| Blockerad användarhistorik | Azure AD > Security > MFA > Blockera/avblockera användare | Visar historiken för begäranden om att blockera eller häva blockeringen av användare. |
-| Användnings- och bedrägerivarningar | Azure AD > inloggningar | Innehåller information om övergripande användning, användarsammanfattning och användarinformation. samt en historik över bedrägerivarningar som lämnats in under det angivna datumintervallet. |
-| Användning för lokala komponenter | Azure AD > > MFA-> aktivitetsrapport | Innehåller information om övergripande användning för MFA via NPS-tillägget, ADFS och MFA-servern. |
-| Förbigående användarhistorik | Azure AD > Security > MFA > Engångsföregång | Innehåller en historik över begäranden om att kringgå multifaktorautentisering för en användare. |
-| Serverstatus | Azure AD > Security > MFA > Server status | Visar status för multifaktorautentiseringsservrar som är associerade med ditt konto. |
+| Blockerad användar historik | Azure AD >-säkerhet > MFA > blockera/avblockera användare | Visar historiken för förfrågningar om att blockera eller avblockera användare. |
+| Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
+| Användning för lokala komponenter | Azure AD > säkerhets > MFA > aktivitets rapport | Innehåller information om den övergripande användningen av MFA via NPS-tillägget, ADFS-och MFA-servern. |
+| Förhoppad användar historik | Azure AD >-säkerhet > MFA-> eng ång slö tiden | Innehåller en historik över förfrågningar om att kringgå Multi-Factor Authentication för en användare. |
+| Server status | Azure AD > säkerhets > MFA > Server status | Visar statusen för Multi-Factor Authentication servrar som är kopplade till ditt konto. |
 
 ## <a name="view-mfa-reports"></a>Visa MFA-rapporter
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **Security** > **MFA**.
+2. Till vänster väljer du **Azure Active Directory** > **säkerhets** > -**MFA**.
 3. Välj den rapport som du vill visa.
 
-   ![Statusrapport för MFA-serverserver i Azure-portalen](./media/howto-mfa-reporting/report.png)
+   ![Status rapport för MFA Server-Server i Azure Portal](./media/howto-mfa-reporting/report.png)
 
-## <a name="azure-ad-sign-ins-report"></a>Azure AD-inloggningsrapport
+## <a name="azure-ad-sign-ins-report"></a>Inloggnings rapport för Azure AD
 
-Med **aktivitetsrapporten för inloggningar i** [Azure-portalen](https://portal.azure.com)kan du få den information du behöver för att avgöra hur det går för din miljö.
+Med **rapporten inloggnings aktiviteter** i [Azure Portal](https://portal.azure.com)kan du få den information som du behöver för att avgöra hur din miljö fungerar.
 
-Inloggningsrapporten kan ge dig information om användningen av hanterade program och användarinloggningsaktiviteter, vilket innehåller information om MFA-användning (Multi Factor Authentication). MFA-data ger dig information om hur MFA fungerar i din organisation. Du får hjälp att besvara frågor som:
+Inloggnings rapporten kan ge dig information om användningen av hanterade program och användar inloggnings aktiviteter, som innehåller information om Multi-Factor Authentication (MFA) användning. MFA-data ger dig information om hur MFA fungerar i din organisation. Du får hjälp att besvara frågor som:
 
 - Kontrollerades inloggningen med MFA?
 - Hur slutförde användaren MFA?
@@ -51,15 +51,15 @@ Inloggningsrapporten kan ge dig information om användningen av hanterade progra
 - Hur många användare kan inte slutföra MFA-kontrollen?
 - Vilka vanliga MFA-relaterade problem råkar slutanvändarna ut för?
 
-Dessa data är tillgängliga via [Azure-portalen](https://portal.azure.com) och [rapporterings-API: et](../reports-monitoring/concept-reporting-api.md).
+Dessa data är tillgängliga via [Azure Portal](https://portal.azure.com) och [rapporterings-API: et](../reports-monitoring/concept-reporting-api.md).
 
-![Azure AD-inloggningsrapport i Azure-portalen](./media/howto-mfa-reporting/sign-in-report.png)
+![Rapporten Azure AD-inloggningar i Azure Portal](./media/howto-mfa-reporting/sign-in-report.png)
 
-### <a name="sign-ins-report-structure"></a>Rapportstruktur för inloggningar
+### <a name="sign-ins-report-structure"></a>Rapport struktur för inloggningar
 
 Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande information:
 
-**MFA krävs:** Om MFA krävs för inloggning eller inte. MFA kan krävas på grund av MFA, villkorlig åtkomst eller andra orsaker. Möjliga värden är **Ja** eller **Nej**.
+**MFA krävs:** Om MFA krävs för inloggning eller inte. MFA kan krävas på grund av MFA per användare, villkorlig åtkomst eller andra orsaker. Möjliga värden är **Ja** eller **Nej**.
 
 **MFA-resultat:** Mer information om huruvida MFA uppfylldes eller nekades:
 
@@ -90,7 +90,7 @@ Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande i
       - telefonsamtalet dirigerades till röstmeddelanden
       - telefonnumret har ett ogiltigt format
       - tjänstfel
-      - inte kan nå användarens telefon
+      - Det gick inte att komma åt användarens telefon
       - kunde inte skicka meddelande via mobilapp till enheten
       - kunde inte skicka meddelande via mobilapp
       - användaren nekade autentiseringen
@@ -104,7 +104,7 @@ Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande i
       - användaren kunde inte hittas
       - verifieringskoden har redan använts en gång
 
-**MFA-autentiseringsmetod:** Autentiseringsmetoden som användaren använde för att slutföra MFA. Möjliga värden inkluderar:
+**MFA-autentiseringsmetod:** Autentiseringsmetoden som användaren använde för att slutföra MFA. Möjliga värden är:
 
 - Textmeddelande
 - Meddelanden via mobilapp
@@ -115,28 +115,32 @@ Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande i
 
 **Information om MFA-autentisering:**: Delvis gömd version av telefonnumret, till exempel: + X XXXXXXXX64.
 
-**Villkorlig åtkomst** Hitta information om principer för villkorlig åtkomst som påverkade inloggningsförsöket, inklusive:
+**Villkorlig åtkomst** Hitta information om principer för villkorlig åtkomst som påverkat inloggnings försöket, inklusive:
 
 - Principnamn
 - Bevilja kontroller
-- Sessionskontroller
+- Kontroller av sessioner
 - Resultat
 
-## <a name="powershell-reporting-on-users-registered-for-mfa"></a>PowerShell-rapportering om användare som är registrerade för MFA
+## <a name="powershell-reporting-on-users-registered-for-mfa"></a>PowerShell-rapportering för användare som registrerats för MFA
 
-Kontrollera först att du har [MSOnline V1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installerad.
+Se först till att du har installerat [MSOnline v1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) .
 
 Identifiera användare som har registrerat sig för MFA med hjälp av PowerShell som följer. Den här uppsättningen kommandon utesluter inaktiverade användare eftersom dessa konton inte kan autentisera mot Azure AD.
 
-```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods -ne $null -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods -ne $null -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
 Identifiera användare som inte har registrerat sig för MFA med hjälp av PowerShell som följer. Den här uppsättningen kommandon utesluter inaktiverade användare eftersom dessa konton inte kan autentisera mot Azure AD.
 
-```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods.Count -eq 0 -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods.Count -eq 0 -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
-Identifiera användare och produktionsmetoder registrerade. 
+Identifiera användare och utmatnings metoder som registrerats. 
 
-```PowerShell
+```powershell
 Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
 
 @{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
@@ -144,60 +148,60 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 @{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
 ```
 
-## <a name="possible-results-in-activity-reports"></a>Möjliga resultat i aktivitetsrapporter
+## <a name="possible-results-in-activity-reports"></a>Möjliga resultat i aktivitets rapporter
 
-Följande tabell kan användas för att felsöka multifaktorautentisering med den nedladdade versionen av aktivitetsrapporten för multifaktorautentisering. De visas inte direkt i Azure-portalen.
+Följande tabell kan användas för att felsöka Multi-Factor Authentication med den nedladdade versionen av Multi-Factor Authentication-aktivitets rapporten. De visas inte direkt i Azure Portal.
 
-| Samtalsresultat | Beskrivning | Bred beskrivning |
+| Anrops resultat | Beskrivning | Bred beskrivning |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | Vald PIN-kod | Användaren angav en PIN-kod. Om autentiseringen lyckades angav de rätt PIN-kod. Om autentisering nekas har de angett en felaktig PIN-kod eller så är användaren inställd på standardläge. |
-| SUCCESS_NO_PIN | Endast # Inmatad | Om användaren är inställd på PIN-kod och autentiseringen nekas, betyder det att användaren inte angav sin PIN-kod och endast angav #.  Om användaren är inställd på standardläge och autentiseringen lyckas innebär det att användaren bara angett # vilket är rätt sak att göra i standardläge. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Inte tryckt efter inträde | Användaren har inte skickat några DTMF-siffror eftersom # inte angavs. Andra angivna siffror skickas inte om inte # anges som anger att transaktionen är slutförd. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Ingen telefoninmatning - timed out | Samtalet besvarades, men det fanns inget svar. Detta indikerar vanligtvis att samtalet plockades upp med röstbrevlåda. |
-| SUCCESS_PIN_EXPIRED | PIN-koden har upphört att gälla och har inte ändrats | Användarens PIN-kod har upphört att gälla och de uppmanades att ändra den, men PIN-koden slutfördes inte. |
-| SUCCESS_USED_CACHE | Använd cache | Autentiseringen lyckades utan ett multifaktorautentiseringsanrop sedan en tidigare lyckad autentisering för samma användarnamn inträffade inom den konfigurerade cachetidsramen. |
-| SUCCESS_BYPASSED_AUTH | Förbi Auth | Autentiseringen lyckades med hjälp av en engångsföregång som initierats för användaren. Mer information om förbikopplingen finns i rapporten Förbi användarhistorik. |
-| SUCCESS_USED_IP_BASED_CACHE | Använd IP-baserad cache | Autentiseringen lyckades utan ett multifaktorautentiseringsanrop sedan en tidigare lyckad autentisering för samma användarnamn, autentiseringstyp, programnamn och IP inträffade inom den konfigurerade cachetidsramen. |
-| SUCCESS_USED_APP_BASED_CACHE | Använd appbaserad cache | Autentiseringen lyckades utan ett multifaktorautentiseringsanrop sedan en tidigare lyckad autentisering för samma användarnamn, autentiseringstyp och programnamn inom den konfigurerade cachetidsramen. |
-| SUCCESS_INVALID_INPUT | Ogiltig telefoninmatning | Svaret som skickas från telefonen är ogiltigt. Detta kan vara från en fax eller modem eller användaren kan ha angett * som en del av sin PIN-kod. |
-| SUCCESS_USER_BLOCKED | Användaren är blockerad | Användarens telefonnummer är blockerat. Ett blockerat nummer kan initieras av användaren under ett autentiseringsanrop eller av en administratör som använder Azure-portalen. <br> Ett blockerat nummer är också en biprodukt av en bedrägerivarning. |
-| SUCCESS_SMS_AUTHENTICATED | Autentiserat textmeddelande | För tvåvägstestmeddelande svarade användaren korrekt med sin engångslösenord (OTP) eller OTP + PIN. |
-| SUCCESS_SMS_SENT | Sms:et skickat | För SMS skickades sms:et med engångslösenordet. Användaren kommer att ange OTP eller OTP + PIN i programmet för att slutföra autentiseringen. |
-| SUCCESS_PHONE_APP_AUTHENTICATED | Mobilapp autentiserat | Användaren har autentiserats via mobilappen. |
-| SUCCESS_OATH_CODE_PENDING | OATH-kod väntar | Användaren blev tillfrågad om sin OATH-kod men svarade inte. |
-| SUCCESS_OATH_CODE_VERIFIED | OATH-kod verifierad | Användaren angav en giltig OATH-kod när den uppmanas. |
-| SUCCESS_FALLBACK_OATH_CODE_VERIFIED | ED-kod för återgång verifierad | Användaren nekades autentisering med sin primära multifaktorautentiseringsmetod och tillhandahöll sedan en giltig OATH-kod för reserv. |
-| SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Besvarade säkerhetsfrågor | Användaren nekades autentisering med sin primära multifaktorautentiseringsmetod och svarade sedan på sina säkerhetsfrågor korrekt för reserv. |
-| FAILED_PHONE_BUSY | Redan pågående | Multifaktorautentisering bearbetar redan en autentisering för den här användaren. Detta orsakas ofta av RADIUS-klienter som skickar flera autentiseringsbegäranden under samma inloggning. |
-| CONFIG_ISSUE | Telefonen kan inte nås | Samtalet gjordes, men antingen kunde inte placeras eller besvarades inte. Detta inkluderar upptagen signal, snabb upptagen signal (frånkopplad), tri-toner (nummer inte längre i drift), timed out medan ringningar, etc. |
-| FAILED_INVALID_PHONENUMBER | Ogiltigt telefonnummerformat | Telefonnumret har ett ogiltigt format. Telefonnummer måste vara numeriska och måste vara 10 siffror för landskod +1 (USA & Kanada). |
-| FAILED_USER_HUNGUP_ON_US | Användaren lade på luren | Användaren svarade i telefonen, men lade sedan på utan att trycka på några knappar. |
-| FAILED_INVALID_EXTENSION | Ogiltigt tillägg | Tillägget innehåller ogiltiga tecken. Endast siffror, kommatecken, *, och # är tillåtna. Ett @ prefix kan också användas. |
-| FAILED_FRAUD_CODE_ENTERED | Bedrägerikod har angetts | Användaren valde att rapportera bedrägeri under samtalet vilket resulterade i en nekad autentisering och ett blockerat telefonnummer.| 
-| FAILED_SERVER_ERROR | Det går inte att ringa | Tjänsten Multifaktorautentisering kunde inte ringa samtalet. |
-| FAILED_SMS_NOT_SENT | Det gick inte att skicka sms | Det gick inte att skicka sms:et. Autentiseringen nekas. |
-| FAILED_SMS_OTP_INCORRECT | Felaktigt felmeddelande | Användaren angav en felaktig engångslösenord (OTP) från sms:et de fick. Autentiseringen nekas. |
-| FAILED_SMS_OTP_PIN_INCORRECT | Felaktig islagning av sms - felaktigt i pinkoden | Användaren angav en felaktig engångslösenord (OTP) och/eller en felaktig användar-PIN.The user entered an incorrect one-time passcode (OTP) and/or an incorrect user PIN. Autentiseringen nekas. |
-| FAILED_SMS_MAX_OTP_RETRY_REACHED | Överskred maximalt antal otp-försök för sms | Användaren har överskridit det maximala antalet engångslösenordsförsök.The user has exceeded the maximum number of one-time passcode (OTP) attempts. |
-| FAILED_PHONE_APP_DENIED | Mobil app nekad | Användaren nekade autentiseringen i mobilappen genom att trycka på knappen Neka. |
-| FAILED_PHONE_APP_INVALID_PIN | Ogiltig PIN-kod för mobilapp | Användaren angav en ogiltig PIN-kod när den autentiserades i mobilappen. |
-| FAILED_PHONE_APP_PIN_NOT_CHANGED | PIN-koden för mobilappen har inte ändrats | Användaren slutförde inte en nödvändig PIN-ändring i mobilappen. |
-| FAILED_FRAUD_REPORTED | Rapporterade bedrägerier | Användaren rapporterade bedrägeri i mobilappen. |
-| FAILED_PHONE_APP_NO_RESPONSE | Inget svar i mobilappen | Användaren svarade inte på begäran om autentisering av mobilappar. |
-| FAILED_PHONE_APP_ALL_DEVICES_BLOCKED | Mobilapp alla enheter blockerade | Mobilappsenheterna för den här användaren svarar inte längre på aviseringar och har blockerats. |
-| FAILED_PHONE_APP_NOTIFICATION_FAILED | Det gick inte att meddela mobilappen | Ett fel uppstod när ett meddelande skulle skickas till mobilappen på användarens enhet. |
-| FAILED_PHONE_APP_INVALID_RESULT | Ogiltigt resultat för mobilappen | Mobilappen returnerade ett ogiltigt resultat. |
-| FAILED_OATH_CODE_INCORRECT | OATH-kod felaktig | Användaren angav en felaktig OATH-kod.  Autentiseringen nekas. |
-| FAILED_OATH_CODE_PIN_INCORRECT | OATH-kod + felaktig PIN-kod | Användaren angav en felaktig OATH-kod och/eller en felaktig användar-PIN-kod.  Autentiseringen nekas. |
-| FAILED_OATH_CODE_DUPLICATE | Dubblett ED-kod | Användaren angav en OATH-kod som tidigare användes.  Autentiseringen nekas. |
-| FAILED_OATH_CODE_OLD | OATH-koden inaktuella | Användaren angav en OATH-kod som föregår en OATH-kod som tidigare användes.  Autentiseringen nekas. |
-| FAILED_OATH_TOKEN_TIMEOUT | TIMEOUT för OATH-kodresultat | Användaren tog för lång tid på sig att ange OATH-koden och multifaktorautentiseringsförsöket hade redan tagit time out. |
-| FAILED_SECURITY_QUESTIONS_TIMEOUT | Tidsgränsen för säkerhetsfrågor resultat | Användaren tog för lång tid att ange svar på säkerhetsfrågor och multifaktorautentiseringsförsöket hade redan tagit time out. |
-| FAILED_AUTH_RESULT_TIMEOUT | Timeout för auth-resultat | Det tog för lång tid för användaren att slutföra multifaktorautentiseringsförsöket. |
-| FAILED_AUTHENTICATION_THROTTLED | Begränsa autentisering | Multifaktorautentiseringsförsöket begränsades av tjänsten. |
+| SUCCESS_WITH_PIN | PIN-kod angiven | Användaren angav en PIN-kod. Om autentiseringen lyckades angavs rätt PIN-kod. Om autentisering nekas anges en felaktig PIN-kod eller användaren är inställd på standard läge. |
+| SUCCESS_NO_PIN | Endast antal angivna | Om användaren är inställd på PIN-läge och autentiseringen nekas innebär det att användaren inte angav sin PIN-kod och bara angav #.  Om användaren är inställd på standard läge och autentiseringen lyckas innebär det att användaren bara angav # vilket är rätt att göra i standard läge. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Har inte tryckts ned efter posten | Användaren skickade inga DTMF-siffror eftersom # inte angavs. Andra siffror som anges skickas inte om # anges i slutet av posten. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Ingen telefonin text-tids gränsen uppnåddes | Anropet besvarades, men det fanns inget svar. Detta indikerar vanligt vis att samtalet hämtades av röst brev. |
+| SUCCESS_PIN_EXPIRED | PIN-koden har upphört och har inte ändrats | Användarens PIN-kod har upphört att gälla och du uppmanas att ändra den, men PIN-koden har ändrats. |
+| SUCCESS_USED_CACHE | Använt cacheminne | Autentiseringen lyckades utan ett Multi-Factor Authentication-anrop eftersom en tidigare lyckad autentisering för samma användar namn inträffade inom den konfigurerade cache-tidsramen. |
+| SUCCESS_BYPASSED_AUTH | Förhoppad autentisering | Autentiseringen lyckades med en eng ång slö fördröjning för användaren. Se rapporten över ignorerade användar historik för mer information om att kringgå. |
+| SUCCESS_USED_IP_BASED_CACHE | Använd IP-baserad cache | Autentiseringen lyckades utan ett Multi-Factor Authentication-anrop sedan en tidigare lyckad autentisering för samma användar namn, autentiseringstyp, program namn och IP inträffade inom den konfigurerade cache-tidsramen. |
+| SUCCESS_USED_APP_BASED_CACHE | Använd app-baserad cache | Autentiseringen lyckades utan ett Multi-Factor Authentication-anrop sedan en tidigare lyckad autentisering för samma användar namn, autentiseringstyp och program namn inom den konfigurerade cache-tidsramen. |
+| SUCCESS_INVALID_INPUT | Ogiltig telefonin ingång | Svaret som skickas från telefonen är inte giltigt. Detta kan vara från en fax maskin eller ett modem, eller så kan användaren ha angett * som en del av PIN-koden. |
+| SUCCESS_USER_BLOCKED | Användaren är blockerad | Användarens telefonnummer är blockerat. Ett blockerat nummer kan initieras av användaren under ett autentiserings anrop eller av en administratör med hjälp av Azure Portal. <br> Obs: ett blockerat nummer är också en byproduct av en bedrägeri avisering. |
+| SUCCESS_SMS_AUTHENTICATED | Textmeddelande autentiserat | För tvåvägs test meddelande svarar användaren korrekt med eng ång slö sen ord (eng ång slö sen ord) eller eng ång slö sen ord + PIN-kod. |
+| SUCCESS_SMS_SENT | Textmeddelande har skickats | SMS-meddelandet som innehåller eng ång slö sen ordet (eng ång slö sen ord) har skickats. Användaren kommer att ange eng ång slö sen ord eller eng ång slö sen ord i programmet för att slutföra autentiseringen. |
+| SUCCESS_PHONE_APP_AUTHENTICATED | Mobilapp autentiserad | Användaren har autentiserats via mobilappen. |
+| SUCCESS_OATH_CODE_PENDING | Väntande OATH-kod | Användaren uppmanades att ange sin OATH-kod men svarade inte. |
+| SUCCESS_OATH_CODE_VERIFIED | OATH-kod verifierad | Användaren angav en giltig OATH-kod när den uppmanas till det. |
+| SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Återställnings-OATH-kod verifierad | Användaren nekades autentisering med hjälp av den primära Multi-Factor Authentication metoden och angav sedan en giltig OATH-kod för återställning. |
+| SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Svar på reserv säkerhets frågor | Användaren nekades autentisering med hjälp av den primära Multi-Factor Authentication metoden och besvarade sedan sina säkerhets frågor korrekt för reserven. |
+| FAILED_PHONE_BUSY | Autentisering pågår redan | Multi-Factor Authentication bearbetar redan en autentisering för den här användaren. Detta orsakas ofta av RADIUS-klienter som skickar flera autentiseringsbegäranden vid samma inloggning. |
+| CONFIG_ISSUE | Det går inte att komma åt telefonen | Anropet gjordes, men kunde inte placeras eller besvarades inte. Detta omfattar upptaget signal, snabb, upptaget signal (frånkopplad), tre toner (antalet finns inte längre i tjänsten), tids gränsen nåddes vid ringning osv. |
+| FAILED_INVALID_PHONENUMBER | Ogiltigt telefonnummer format | Telefonnumret har ett ogiltigt format. Telefonnummer måste vara numeriska och måste vara 10 siffror för lands kod + 1 (USA & Kanada). |
+| FAILED_USER_HUNGUP_ON_US | Användaren lade på telefonen | Användaren besvarade telefonen, men stannade sedan utan att trycka på några knappar. |
+| FAILED_INVALID_EXTENSION | Ogiltigt tillägg | Tillägget innehåller ogiltiga tecken. Endast siffror, kommatecken, * och # tillåts. Ett @-prefix kan också användas. |
+| FAILED_FRAUD_CODE_ENTERED | Bedrägeri kod har angetts | Användaren valde att rapportera bedrägerier under anropet, vilket resulterade i en nekad autentisering och ett blockerat telefonnummer.| 
+| FAILED_SERVER_ERROR | Det gick inte att ringa | Det gick inte att placera anropet i Multi-Factor Authentications tjänsten. |
+| FAILED_SMS_NOT_SENT | Det gick inte att skicka textmeddelande | Det gick inte att skicka textmeddelandet. Autentiseringen nekas. |
+| FAILED_SMS_OTP_INCORRECT | Felaktigt eng ång slö sen ord | Användaren angav ett felaktigt lösen ord (eng ång slö sen ord) från det textmeddelande som de fick. Autentiseringen nekas. |
+| FAILED_SMS_OTP_PIN_INCORRECT | Textmeddelandets eng ång slö sen ord + PIN-kod | Användaren angav ett felaktigt lösen ord (eng ång slö sen ord) och/eller en felaktig PIN-kod för användaren. Autentiseringen nekas. |
+| FAILED_SMS_MAX_OTP_RETRY_REACHED | Max antal försök för eng ång slö sen ord | Användaren har överskridit det maximala antalet eng ång slö sen ord (eng ång slö sen ord). |
+| FAILED_PHONE_APP_DENIED | Nekad mobilapp | Användaren nekade autentiseringen i mobilappen genom att trycka på neka-knappen. |
+| FAILED_PHONE_APP_INVALID_PIN | Ogiltig PIN-kod för mobilapp | Användaren angav en ogiltig PIN-kod vid autentisering i mobilappen. |
+| FAILED_PHONE_APP_PIN_NOT_CHANGED | Mobil Programets PIN-kod har inte ändrats | Användaren kunde inte slutföra en nödvändig PIN-ändring i mobilappen. |
+| FAILED_FRAUD_REPORTED | Bedrägeri har rapporter ATS | Användaren rapporterade bedrägerier i mobilappen. |
+| FAILED_PHONE_APP_NO_RESPONSE | Mobilapp saknar svar | Användaren svarade inte på autentiseringsbegäran för mobilappen. |
+| FAILED_PHONE_APP_ALL_DEVICES_BLOCKED | Alla enheter har blockerats av mobilappen | Mobile App-enheter för den här användaren svarar inte längre på meddelanden och har blockerats. |
+| FAILED_PHONE_APP_NOTIFICATION_FAILED | Avisering om mobilapp misslyckades | Ett fel uppstod vid försök att skicka ett meddelande till mobilappen på användarens enhet. |
+| FAILED_PHONE_APP_INVALID_RESULT | Ogiltigt resultat för mobilapp | Mobilappen returnerade ett ogiltigt resultat. |
+| FAILED_OATH_CODE_INCORRECT | Felaktig OATH-kod | Användaren angav en felaktig OATH-kod.  Autentiseringen nekas. |
+| FAILED_OATH_CODE_PIN_INCORRECT | OATH-kod + PIN-kod felaktigt | Användaren angav en felaktig OATH-kod och/eller en felaktig PIN-kod för användaren.  Autentiseringen nekas. |
+| FAILED_OATH_CODE_DUPLICATE | Duplicera OATH-kod | Användaren angav en OATH-kod som tidigare har använts.  Autentiseringen nekas. |
+| FAILED_OATH_CODE_OLD | OATH-koden är inaktuell | Användaren angav en OATH-kod som föregår en OATH-kod som tidigare har använts.  Autentiseringen nekas. |
+| FAILED_OATH_TOKEN_TIMEOUT | Timeout för OATH-kods resultat | Användaren tog för lång tid att ange OATH-koden och Multi-Factor Authentication försök hade redan nått tids gränsen. |
+| FAILED_SECURITY_QUESTIONS_TIMEOUT | Timeout för säkerhets frågor | Användaren tog för lång tid att ange svar på säkerhets frågor och det Multi-Factor Authentication försöket hade redan nått tids gränsen. |
+| FAILED_AUTH_RESULT_TIMEOUT | Timeout för autentiserings resultat | Användaren tog för lång tid att slutföra Multi-Factor Authentication försöket. |
+| FAILED_AUTHENTICATION_THROTTLED | Begränsad autentisering | Multi-Factor Authentication-försöket begränsades av tjänsten. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [SSPR och MFA användning och insikter rapportering](howto-authentication-methods-usage-insights.md)
+* [SSPR och MFA-användning och insikts rapportering](howto-authentication-methods-usage-insights.md)
 * [För användare](../user-help/multi-factor-authentication-end-user.md)
-* [Var du ska distribuera](concept-mfa-whichversion.md)
+* [Distributions plats](concept-mfa-whichversion.md)

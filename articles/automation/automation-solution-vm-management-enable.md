@@ -1,97 +1,97 @@
 ---
-title: Aktivera Azure Automation Start/Stop virtuella datorer under starttimmarslösning
-description: I den här artikeln beskrivs hur du aktiverar Azure Automation Start/Stop VM-lösningen för dina virtuella Azure-datorer.
+title: Aktivera Azure Automation starta/stoppa virtuella datorer vid låg belastnings lösning
+description: I den här artikeln beskrivs hur du aktiverar Azure Automation starta/stoppa VM-lösningen för dina virtuella Azure-datorer.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2414567b74232d634fa0a34202691a8e43ae6135
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: d47daa29c65f847fdeb33b9e24a892ac1f31b52a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604752"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096970"
 ---
-# <a name="enable-azure-automation-startstop-vms-solution"></a>Aktivera Azure Automation Start/Stop VMs-lösning
+# <a name="enable-azure-automation-startstop-vms-solution"></a>Aktivera Azure Automation starta/stoppa VM-lösning
 
-Utför följande steg för att lägga till **start-/stopp-virtuella datorer under ledig tid** i ett nytt eller befintligt Automation-konto och länkad Log Analytics-arbetsyta. När du har slutfört introduktionsprocessen konfigurerar du variablerna för att anpassa lösningen.
+Utför följande steg för att lägga till **Starta/stoppa virtuella datorer när de inte används** -lösningen i ett nytt eller befintligt Automation-konto och länkade Log Analytics-arbetsytan. När du har slutfört onboarding-processen konfigurerar du variablerna för att anpassa lösningen.
 
 >[!NOTE]
->Om du vill använda den här lösningen med klassiska virtuella datorer behöver du ett klassiskt kör som-konto, som inte skapas som standard. Instruktioner om hur du skapar ett klassiskt kör som-konto finns i [Skapa ett klassiskt kör som-konto](automation-create-standalone-account.md#create-a-classic-run-as-account).
+>Om du vill använda den här lösningen med klassiska virtuella datorer behöver du ett klassiskt kör som-konto, som inte skapas som standard. Anvisningar om hur du skapar ett klassiskt kör som-konto finns i [skapa ett klassiskt kör som-konto](automation-create-standalone-account.md#create-a-classic-run-as-account).
 >
 
 ## <a name="enable-solution"></a>Aktivera lösning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på Azure- [portalen](https://portal.azure.com).
 
 2. Sök efter och välj **Automation-konton**.
 
 3. På sidan Automation-konton väljer du ditt Automation-konto i listan.
 
-4. Välj **Start/Stoppa virtuell dator** i Automation-kontot under **Relaterade resurser**. Härifrån kan du klicka på **Läs mer om och aktivera lösningen**. Om du redan har distribuerat en Start/Stop VM-lösning kan du välja den genom att klicka på **Hantera lösningen** och hitta den i listan.
+4. Från Automation-kontot väljer du **Starta/stoppa virtuell dator** under **relaterade resurser**. Härifrån kan du klicka på **Läs mer om och aktivera lösningen**. Om du redan har distribuerat en lösning för att starta/stoppa virtuell dator kan du välja den genom att klicka på **Hantera lösningen** och söka efter den i listan.
 
-   ![Aktivera från automationskonto](./media/automation-solution-vm-management/enable-from-automation-account.png)
+   ![Aktivera från Automation-konto](./media/automation-solution-vm-management/enable-from-automation-account.png)
 
    > [!NOTE]
-   > Du kan också skapa den var som helst i Azure-portalen genom att klicka på **Skapa en resurs**. Skriv ett nyckelord som **Start** eller **Start/Stopp**på Marketplace-sidan. När du börjar skriva filtreras listan baserat på det du skriver. Du kan också skriva in ett eller flera nyckelord från lösningens fullständiga namn och sedan trycka på Retur. Välj **Start/Stoppa virtuella datorer under lediga timmar** från sökresultaten.
+   > Du kan också skapa den från var som helst i Azure Portal genom att klicka på **skapa en resurs**. På sidan Marketplace skriver du ett nyckelord, till exempel **Starta** eller **Starta/stoppa**. När du börjar skriva filtreras listan baserat på det du skriver. Alternativt kan du skriva in ett eller flera nyckelord från det fullständiga namnet på lösningen och trycka på RETUR. Välj **Starta/stoppa virtuella datorer när de inte används** från Sök resultaten.
 
-5. På sidan **Start/Stop-datorer under ledig tid** för den valda lösningen granskar du sammanfattningsinformationen och klickar sedan på **Skapa**.
+5. På sidan **Starta/stoppa virtuella datorer när de inte används** för den valda lösningen granskar du sammanfattnings informationen och klickar sedan på **skapa**.
 
    ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 6. Sidan Lägg till lösning visas. Du uppmanas att konfigurera lösningen innan du kan importera den till din Automation-prenumeration.
 
-   ![Sidan Lägg till lösning för VM-hantering](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+   ![Sidan för att lägga till hantering av virtuella datorer](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-7. Välj **Arbetsyta**på sidan Lägg till lösning . Välj en Log Analytics-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot finns i. Om du inte har någon arbetsyta väljer du **Skapa ny arbetsyta**. Gör följande på sidan Logganalysarbetsyta:
+7. På sidan Lägg till lösning väljer du **arbets yta**. Välj en Log Analytics arbets yta som är länkad till samma Azure-prenumeration som Automation-kontot finns i. Om du inte har en arbets yta väljer du **Skapa ny arbets yta**. Utför följande steg på sidan Log Analytics arbets yta:
 
-   - Ange ett namn för den nya log analytics-arbetsytan, till exempel **ContosoLAWorkspace**.
-   - Välj en **prenumeration** som du vill länka till genom att välja från listrutan, om den valda standardinställningen inte är lämplig.
-   - För **Resursgrupp**kan du skapa en ny resursgrupp eller välja en befintlig.
+   - Ange ett namn för den nya Log Analytics-arbetsytan, till exempel **ContosoLAWorkspace**.
+   - Välj en **prenumeration** som du vill länka till genom att välja i list rutan, om det valda standardvärdet inte är tillämpligt.
+   - För **resurs grupp**kan du skapa en ny resurs grupp eller välja en befintlig.
    - Välj en **plats**.
-   - Välj en **prisnivå**. Välj alternativet **Per GB (fristående).** Azure Monitor-loggar har uppdaterade [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och per GB-nivå är det enda alternativet.
+   - Välj en **pris nivå**. Välj alternativet **per GB (fristående)** . Azure Monitors loggar har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och nivån per GB är det enda alternativet.
 
    > [!NOTE]
    > När du aktiverar lösningar stöds endast vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto.
    >
-   > En lista över mappningspar som stöds finns i [Regionmappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
+   > En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
 
-8. När du har lämnat den information som krävs på arbetsytan Log Analytics klickar du på **Skapa**. Du kan spåra dess förlopp under **Meddelanden** från menyn, som returnerar dig till sidan Lägg till lösning när du är klar.
+8. När du har angett nödvändig information på sidan Log Analytics arbets yta klickar du på **skapa**. Du kan följa förloppet under **meddelanden** på menyn, som återgår till sidan Lägg till lösning när du är färdig.
 
-9. Välj **Automation-konto**på sidan Lägg till lösning . Om du skapar en ny Log Analytics-arbetsyta kan du skapa ett nytt Automation-konto som ska kopplas till det, eller välja ett befintligt Automation-konto som inte redan är länkat till en Log Analytics-arbetsyta. Välj ett befintligt Automation-konto eller klicka på **Skapa ett Automation-konto**och ange följande information på sidan Lägg till automation-konto:
+9. På sidan Lägg till lösning väljer du **Automation-konto**. Om du skapar en ny Log Analytics arbets yta kan du skapa ett nytt Automation-konto som ska associeras med det, eller välja ett befintligt Automation-konto som inte redan är kopplat till en Log Analytics arbets yta. Välj ett befintligt Automation-konto eller klicka på **skapa ett Automation-konto**och ange följande information på sidan Lägg till Automation-konto:
  
    - I fältet **namn** anger du namnet på Automation-kontot.
 
-     Alla andra alternativ fylls i automatiskt baserat på den valda logganalysarbetsytan. Det går inte att ändra dessa alternativ. Ett Azure kör som-konto är standardmetoden för autentisering för runbooks som ingår i den här lösningen. När du har klickat på **OK**valideras konfigurationsalternativen och Automation-kontot skapas. Du kan spåra förloppet under **Meddelanden** på menyn.
+     Alla andra alternativ fylls i automatiskt baserat på den Log Analytics arbets ytan som valts. Dessa alternativ kan inte ändras. Ett Azure kör som-konto är standardmetoden för autentisering för runbooks som ingår i den här lösningen. När du klickar på **OK**verifieras konfigurations alternativen och automation-kontot skapas. Du kan spåra förloppet under **Meddelanden** på menyn.
 
-10. Slutligen väljer du **Konfiguration**på sidan Lägg till lösning . Sidan Parametrar visas.
+10. På sidan Lägg till lösning väljer du till sist **konfiguration**. Sidan parametrar visas.
 
-    ![Sidan Parametrar för lösning](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
+    ![Parameter sidan för lösningen](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
    Här uppmanas du att:
   
-   - Ange **namn på målresursgrupper**. Dessa värden är resursgruppsnamn som innehåller virtuella datorer som ska hanteras av den här lösningen. Du kan ange mer än ett namn och separera varje med hjälp av ett kommatecken (värden är inte skiftlägeskänsliga). Användning av jokertecken stöds om du vill inkludera virtuella datorer i alla resursgrupper i prenumerationen. Det här värdet lagras i **variablerna External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames.**
+   - Ange **mål ResourceGroup namn**. Dessa värden är resurs grupp namn som innehåller virtuella datorer som ska hanteras av den här lösningen. Du kan ange mer än ett namn och avgränsa dem med ett kommatecken (värden är inte Skift läges känsliga). Användning av jokertecken stöds om du vill inkludera virtuella datorer i alla resursgrupper i prenumerationen. Det här värdet lagras i **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** variabler.
   
-   - Ange **den vm-undantagslista (strängen)**. Det här värdet är namnet på en eller flera virtuella datorer från målresursgruppen. Du kan ange mer än ett namn och separera varje med hjälp av ett kommatecken (värden är inte skiftlägeskänsliga). Det går att använda ett jokertecken. Det här värdet lagras i **variabeln External_ExcludeVMNames.**
+   - Ange **undantags listan för den virtuella datorn (sträng)**. Det här värdet är namnet på en eller flera virtuella datorer från mål resurs gruppen. Du kan ange mer än ett namn och avgränsa dem med ett kommatecken (värden är inte Skift läges känsliga). Användning av jokertecken stöds. Det här värdet lagras i variabeln **External_ExcludeVMNames** .
   
-   - Välj ett **schema**. Välj ett datum och en tid för schemat. Ett återkommande dagligt schema skapas från och med den tid du valde. Det går inte att välja en annan region. Information om hur du konfigurerar schemat till den specifika tidszonen efter att lösningen har konfigurerats finns i [Ändra start- och avstängningsschemat](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
+   - Välj ett **schema**. Välj datum och tid för ditt schema. Ett dagligt schema som pågår kommer att skapas från och med den tid som du har valt. Det går inte att välja en annan region. Information om hur du konfigurerar schemat till din speciella tidszon efter att du har konfigurerat lösningen finns i [ändra schemat för start och avstängning](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
   
-   - Om du vill ta emot **e-postaviseringar** från en åtgärdsgrupp godkänner du standardvärdet **Ja** och anger en giltig e-postadress. Om du väljer **Nej** men bestämmer dig vid ett senare tillfälle att du vill få e-postmeddelanden kan du uppdatera [åtgärdsgruppen](../azure-monitor/platform/action-groups.md) som skapas med giltiga e-postadresser avgränsade med ett kommatecken. Du måste också aktivera följande varningsregler:
+   - Acceptera standardvärdet **Ja** och ange en giltig e-postadress för att ta emot **e-postaviseringar** från en åtgärds grupp. Om du väljer **Nej** men väljer ett senare datum som du vill ta emot e-postaviseringar kan du uppdatera den [Åtgärds grupp](../azure-monitor/platform/action-groups.md) som skapas med giltiga e-postadresser, avgränsade med kommatecken. Du måste också aktivera följande aviserings regler:
 
      - AutoStop_VM_Child
      - Scheduled_StartStop_Parent
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > Standardvärdet för **Mål ResourceGroup-namn** är en **&ast;**. Detta är inriktat på alla virtuella datorer i en prenumeration. Om du inte vill att lösningen ska inriktas på alla virtuella datorer i din prenumeration måste det här värdet uppdateras till en lista över resursgruppsnamn innan schemana aktiveras.
+     > Standardvärdet för **mål ResourceGroup namn** är ett **&ast;**. Detta riktar sig till alla virtuella datorer i en prenumeration. Om du inte vill att lösningen ska rikta alla virtuella datorer i din prenumeration måste det här värdet uppdateras till en lista över resurs grupp namn innan du aktiverar scheman.
 
-11. När du har konfigurerat de första inställningarna som krävs för lösningen klickar du på **OK** för att stänga sidan Parametrar och välj **Skapa**. 
+11. När du har konfigurerat de första inställningarna som krävs för lösningen klickar du på **OK** för att stänga sidan parametrar och väljer **skapa**. 
 
-När alla inställningar har validerats distribueras lösningen till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan spåra dess förlopp under **Meddelanden** från menyn.
+När alla inställningar har verifierats distribueras lösningen till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan följa förloppet under **meddelanden** på menyn.
 
 > [!NOTE]
-> Om du har en Azure Cloud Solution Provider-prenumeration (Azure CSP) går du i ditt Automation-konto i ditt Automation-konto till **Variabler** under **Delade resurser** och anger [**External_EnableClassicVMs**](automation-solution-vm-management.md#variables) variabeln till **False**. Detta hindrar lösningen från att leta efter klassiska vm-resurser.
+> Om du har en prenumeration på Azure Cloud Solution Provider (Azure CSP) efter att distributionen har slutförts går du till **variabler** under **delade resurser** i ditt Automation-konto och anger [External_EnableClassicVMs](automation-solution-vm-management.md#variables) variabeln till **falskt**. Detta stoppar lösningen från att leta efter klassiska VM-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lösningen aktiverad kan du [konfigurera](automation-solution-vm-management-config.md) den för att stödja dina vm-hanteringskrav.
+Nu när lösningen är aktive rad kan du [Konfigurera](automation-solution-vm-management-config.md) den så att den stöder dina krav för hantering av virtuella datorer.

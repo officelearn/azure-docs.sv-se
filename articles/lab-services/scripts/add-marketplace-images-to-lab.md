@@ -1,6 +1,6 @@
 ---
-title: PowerShell - Lägga till en marknadsplatsavbildning i ett labb i Azure DevTest Labs
-description: Det här PowerShell-skriptet lägger till en marketplace-avbildning i ett labb i Azure DevTest Labs.
+title: PowerShell – Lägg till en Marketplace-avbildning i ett labb i Azure DevTest Labs
+description: Det här PowerShell-skriptet lägger till en Marketplace-avbildning i ett labb i Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,25 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 3d699a22ed06022c6d9df12ade7f202fb304648c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2f5d6b6b9500ccd90630e8920c09340658fb76f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166453"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100200"
 ---
-# <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Använda PowerShell för att lägga till en marketplace-avbildning i ett labb i Azure DevTest Labs
+# <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att lägga till en Marketplace-avbildning i ett labb i Azure DevTest Labs
 
-Det här exemplet powershell-skript lägger till en marketplace-avbildning i ett labb i Azure DevTest Labs. 
+Det här exemplet på PowerShell-skript lägger till en Marketplace-avbildning i ett labb i Azure DevTest Labs. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Krav
-* **Ett labb.** Skriptet kräver att du har ett befintligt labb. 
+* **Ett labb**. Skriptet kräver att du har ett befintligt labb. 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -40,13 +40,13 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| Sök-AzResource | Söker efter resurser baserat på angivna parametrar. |
+| Find-AzResource | Söker efter resurser baserat på angivna parametrar. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Ändrar en resurs. |
-| [Ny-AzResource](/powershell/module/az.resources/new-azresource) | skapa en resurs |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | skapa en resurs |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare Azure Lab Services PowerShell-skriptexempel finns i [Azure Lab Services PowerShell-exempel](../samples-powershell.md).
+Ytterligare Azure Lab Services PowerShell-skript exempel finns i [Azure Lab Services PowerShell-exempel](../samples-powershell.md).

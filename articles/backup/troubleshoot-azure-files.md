@@ -1,69 +1,280 @@
 ---
-title: Felsöka säkerhetskopiering av Azure-filresurser
+title: Felsöka säkerhets kopiering av Azure-filresurs
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
-ms.date: 08/20/2019
+ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252394"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100064"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
+# <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Felsöka problem vid säkerhets kopiering av Azure-filresurser
 
-Du kan felsöka problem och fel vid användning av säkerhetskopiering av Azure-filresurser med hjälp av informationen i följande tabeller.
+Den här artikeln innehåller felsöknings information för att åtgärda eventuella problem som du följer när du konfigurerar säkerhets kopiering eller återställning av Azure-filresurser med hjälp av tjänsten Azure Backup.
 
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
+## <a name="common-configuration-issues"></a>Vanliga konfigurations problem
 
-Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-konton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
+### <a name="could-not-find-my-storage-account-to-configure-backup-for-the-azure-file-share"></a>Det gick inte att hitta mitt lagrings konto för att konfigurera säkerhets kopiering för Azure-filresursen
 
-- Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
-- Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
-- Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
-- Använd [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot för att förhindra oavsiktlig borttagning av säkerhetskopior i ditt Recovery Services-valv.
-- Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter och/eller drabbas av återställningsfel.
-- Ta inte bort filresurser som skyddas av Azure Backup. Den aktuella lösningen tar bort alla ögonblicksbilder som har tagits av Azure Backup när filresursen har tagits bort och förlorar därför alla återställningspunkter
+- Vänta tills identifieringen har slutförts.
+- Kontrol lera om någon fil resurs under lagrings kontot redan är skyddad med ett annat Recovery Services-valv.
 
-Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS), USA, östra (EUS), USA, östra 2 (EUS2), Europa, norra (NE), Sydostasien (SEA), Europa, västra (WE) och USA, västra 2 (WUS2).
+  >[!NOTE]
+  >Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. Du kan använda [det här skriptet](scripts/backup-powershell-script-find-recovery-services-vault.md) för att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
 
-## <a name="configuring-backup"></a>Konfigurera säkerhetskopiering
+- Se till att fil resursen inte finns i något av de lagrings konton som inte stöds. Du kan läsa [support mat ris för Azure-filresursen](azure-file-share-support-matrix.md) för att hitta lagrings konton som stöds.
 
-Följande tabell används för att konfigurera säkerhetskopieringen:
+### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Fel i portalen anger att identifieringen av lagringskonton misslyckades
 
-| Felmeddelanden | Lösningstips |
-| ------------------ | ----------------------------- |
-| Jag kunde inte hitta mitt lagringskonto när jag skulle konfigurera säkerhetskopiering för en Azure-filresurs | <ul><li>Vänta tills identifieringen har slutförts. <li>Kontrollera om någon filresurs i lagringskontot redan skyddas med ett annat Recovery Services-valv. **Obs!** Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. <li>Kontrollera att filresursen inte finns i något av de lagringskonton som inte stöds.<li> Kontrollera att kryssrutan **Tillåt betrodda Microsoft-tjänster för åtkomst till det här lagringskontot** är markerad i lagringskontot. [Läs mer.](../storage/common/storage-network-security.md)|
-| Fel i Portal anger att identifieringen av lagringskonton misslyckades. | Om din prenumeration är CSP-aktiverad (partner) kan du ignorera felet. Kontakta support om prenumerationen inte är CSP-aktiverad och dina lagringskonton inte kan identifieras.|
-| Vald lagringskontoverifiering eller registrering misslyckades.| Försök utföra åtgärden på nytt. Kontakta support om problemet kvarstår.|
-| Det gick inte att visa eller hitta filresurserna i det valda lagringskontot. | <ul><li> Kontrollera att lagringskontot finns i resursgruppen (och inte har tagits bort eller flyttats efter den senaste verifieringen/registreringen i valvet).<li>Kontrollera att filresursen du vill skydda inte har tagits bort. <li>Kontrollera att ditt lagringskonto är ett lagringskonto som stöder säkerhetskopiering av filresurser.<li>Kontrollera om filresursen redan skyddas i samma Recovery Services-valv.|
-| Det går inte att konfigurera säkerhetskopiering av filresursen (eller konfigurera skyddsprincipen). | <ul><li>Försök igen och se om problemet kvarstår. <li> Kontrollera att filresursen du vill skydda inte har tagits bort. <li> Om du skyddar flera filresurser samtidigt och säkerhetskopieringen av vissa av filresurserna misslyckas, kan du prova igen att konfigurera säkerhetskopieringen för de filresurser som misslyckas. |
-| Det går inte att ta bort Recovery Services-valvet efter att skyddet för en filresurs har tagits bort. | Öppna dina Arkiv-konton >**Lagringsinfrastruktur för** **säkerhetskopieringsinfrastruktur** > i Azure-portalen och klicka på **Avregistrera** för att ta bort lagringskontot från Recovery Services-valvet.|
+Ignorera felet om du har en partner prenumeration (CSP-aktiverad). Kontakta supporten om din prenumeration inte är CSP-aktiverad och dina lagrings konton inte kan identifieras.
 
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Felmeddelanden för säkerhetskopiering eller återställning av jobbfel
+### <a name="selected-storage-account-validation-or-registration-failed"></a>Det gick inte att verifiera eller registrera den valda lagrings kontot
 
-| Felmeddelanden | Lösningstips |
-| -------------- | ----------------------------- |
-| Åtgärden misslyckades eftersom det inte går att hitta filresursen. | Kontrollera att filresursen du vill skydda inte har tagits bort.|
-| Lagringskontot hittades inte eller stöds inte. | <ul><li>Kontrollera att lagringskontot finns i resursgruppen, och inte har tagits bort eller flyttats från resursgruppen efter den senaste verifieringen. <li> Kontrollera att lagringskontot är ett lagringskonto som stöder säkerhetskopiering av filresurser.|
-| Du har nått maxgränsen för ögonblicksbilder för den här filresursen. Du kan ta fler när de äldsta förfaller. | <ul><li> Det här felet kan uppstå när du skapar flera säkerhetskopieringar på begäran för en fil. <li> Det finns en gräns på 200 ögonblicksbilder per filresurs, inklusive de som tas av Azure Backup. Äldre schemalagda säkerhetskopieringar (eller ögonblicksbilder) rensas automatiskt. Säkerhetskopieringar på begäran (eller ögonblicksbilder) måste tas bort om den maximala gränsen har nåtts.<li> Ta bort säkerhetskopieringar på begäran (ögonblicksbilder av Azure-filresurser) från Azure Files-portalen. **Obs!** Återställningspunkterna går förlorade om du tar bort ögonblicksbilder som skapats av Azure Backup. |
-| Säkerhetskopieringen eller återställningen av filresurser misslyckades på grund av begränsningar i lagringstjänsten. Detta kan bero på att lagringstjänsten är upptagen med andra begäranden för det angivna lagringskontot.| Försök igen efter en stund. |
-| Återställningen misslyckades med ett felmeddelande om att det inte gick att hitta målfilresursen. | <ul><li>Kontrollera att det valda lagringskontot finns och att målfilresursen inte har tagits bort. <li> Kontrollera att ditt lagringskonto är ett lagringskonto som stöder säkerhetskopiering av filresurser. |
-| Säkerhetskopierings- eller återställningsjobb misslyckas på grund av att lagringskontot är i ett låst tillstånd. | Ta bort låset för lagringskontot eller använd raderingslås i stället för läslås och försök igen. |
-| Återställningen misslyckades på grund av att antalet filer som misslyckades överskred tröskelvärdet. | <ul><li> Orsaker till återställningsfel visas i en fil (sökvägen finns i Jobbinformation). Åtgärda felen och försök att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att filerna som misslyckades inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |
-| Återställningen misslyckades eftersom ingen fil kunde återställas. | <ul><li> Orsaker till återställningsfel visas i en fil (sökvägen finns i Jobbinformation). Åtgärda felen och försök att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att filerna som misslyckades inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |
-| Återställningen misslyckas eftersom en av filerna i källan inte finns. | <ul><li> De markerade objekten finns inte i informationen för återställningspunkten. Ange rätt fillista för att återställa filerna. <li> Ögonblicksbilden av filresursen som motsvarar återställningspunkten tas bort manuellt. Välj en annan återställningspunkt och försök att utföra återställningsåtgärden på nytt. |
-| Ett återställningsjobb pågår till samma mål. | <ul><li>Säkerhetskopiering av filresurser stöder inte parallell återställning till samma målfilresurs. <li>Vänta tills den pågående återställningen har slutförts och prova sedan igen. Om du inte hittar ett återställningsjobb i Recovery Services-valvet kontrollerar du andra Recovery Services-valv i samma prenumeration. |
-| Återställningsåtgärden misslyckades eftersom målfilresursen är full. | Öka storlekskvoten för målfilresursen så att återställningsdata får plats och prova sedan åtgärden igen. |
-| Återställningsåtgärden misslyckades eftersom ett fel uppstod när de förberedande återställningsåtgärderna på filsynkroniseringstjänstens resurser associerades med målfilresursen. | Försök igen senare och kontakta Microsofts support om problemet kvarstår. |
-| En eller flera filer kunde inte återställas. Mer information finns i listan med filer som misslyckats på den sökväg som anges ovan. | <ul> <li> Orsakerna till återställningsfel visas i filen (sökvägen finns i Jobbinformation). Åtgärda orsakerna och prova att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att de filer som misslyckas inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |
+Försök att registrera igen. Kontakta supporten om problemet kvarstår.
 
-## <a name="modify-policy"></a>Ändra princip
+### <a name="could-not-list-or-find-file-shares-in-the-selected-storage-account"></a>Det gick inte att lista eller hitta fil resurser i det valda lagrings kontot
 
-| Felmeddelanden | Lösningstips |
-| ------------------ | ----------------------------- |
-| En annan ”Konfigurera skydd”-åtgärd pågår för det här objektet. | Vänta tills den föregående ”Ändra princip”-åtgärden är klar och försök igen efter en stund.|
-| En annan åtgärd körs på det valda objektet. | Vänta tills den andra pågående åtgärden är klar och försök igen efter en stund |
+- Kontrol lera att lagrings kontot finns i resurs gruppen och att det inte har tagits bort eller flyttats efter den senaste verifieringen eller registreringen i valvet.
+- Se till att fil resursen du vill skydda inte har tagits bort.
+- Se till att lagrings kontot är ett lagrings konto som stöds för fil resurs säkerhets kopiering. Du kan läsa [support mat ris för Azure-filresursen](azure-file-share-support-matrix.md) för att hitta lagrings konton som stöds.
+- Kontrol lera om fil resursen redan är skyddad i samma Recovery Services-valv.
+
+### <a name="backup-file-share-configuration-or-the-protection-policy-configuration-is-failing"></a>Konfiguration av säkerhets kopierings fil resurs (eller konfiguration av skydds princip) fungerar inte
+
+- Gör om konfigurationen för att se om problemet kvarstår.
+- Se till att den fil resurs som du vill skydda inte har tagits bort.
+- Om du försöker skydda flera fil resurser samtidigt och några av fil resurserna Miss lyckas, kan du prova med att konfigurera säkerhets kopieringen för de misslyckade fil resurserna igen.
+
+### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Det gick inte att ta bort Recovery Services valvet efter borttagning av skydd för en fil resurs
+
+I Azure Portal öppnar du ditt **valv** > **lagrings konto** för**säkerhets kopierings infrastruktur** > och klickar på **avregistrera** för att ta bort lagrings kontona från Recovery Services-valvet.
+
+>[!NOTE]
+>Det går bara att ta bort ett Recovery Services-valv efter att alla lagrings konton har registrerats med valvet.
+
+## <a name="common-backup-or-restore-errors"></a>Vanliga säkerhets kopierings-eller återställnings fel
+
+### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound-åtgärden misslyckades eftersom det inte gick att hitta fil resursen
+
+Felkod: FileShareNotFound
+
+Fel meddelande: åtgärden misslyckades eftersom det inte gick att hitta fil resursen
+
+Se till att fil resursen som du försöker skydda inte har tagits bort.
+
+### <a name="usererrorfileshareendpointunreachable--storage-account-not-found-or-not-supported"></a>UserErrorFileShareEndpointUnreachable-lagrings kontot hittades inte eller stöds inte
+
+Felkod: UserErrorFileShareEndpointUnreachable
+
+Fel meddelande: lagrings kontot hittades inte eller stöds inte
+
+- Kontrol lera att lagrings kontot finns i resurs gruppen och inte har tagits bort eller tagits bort från resurs gruppen efter den senaste verifieringen.
+
+- Se till att lagrings kontot är ett lagrings konto som stöds för fil resurs säkerhets kopiering.
+
+### <a name="afsmaxsnapshotreached--you-have-reached-the-max-limit-of-snapshots-for-this-file-share-you-will-be-able-to-take-more-once-the-older-ones-expire"></a>AFSMaxSnapshotReached-du har nått Max gränsen för ögonblicks bilder för den här fil resursen. du kommer att kunna ta längre tid än den äldre tiden
+
+Felkod: AFSMaxSnapshotReached
+
+Fel meddelande: du har nått Max gränsen för ögonblicks bilder för den här fil resursen. du kommer att kunna ta längre tid än tidigare.
+
+- Det här felet kan inträffa när du skapar flera säkerhets kopieringar på begäran för en fil resurs.
+- Det finns en gräns på 200 ögonblicks bilder per fil resurs, inklusive de som tas av Azure Backup. Äldre schemalagda säkerhetskopieringar (eller ögonblicksbilder) rensas automatiskt. Säkerhetskopieringar på begäran (eller ögonblicksbilder) måste tas bort om den maximala gränsen har nåtts.
+
+Ta bort säkerhetskopieringar på begäran (ögonblicksbilder av Azure-filresurser) från Azure Files-portalen.
+
+>[!NOTE]
+> Återställningspunkterna går förlorade om du tar bort ögonblicksbilder som skapats av Azure Backup.
+
+### <a name="usererrorstorageaccountnotfound--operation-failed-as-the-specified-storage-account-does-not-exist-anymore"></a>UserErrorStorageAccountNotFound-åtgärden misslyckades eftersom det angivna lagrings kontot inte finns längre
+
+Felkod: UserErrorStorageAccountNotFound
+
+Fel meddelande: det gick inte att utföra åtgärden eftersom det angivna lagrings kontot inte finns längre.
+
+Kontrol lera att lagrings kontot fortfarande finns och inte har tagits bort.
+
+### <a name="usererrordtsstorageaccountnotfound--the-storage-account-details-provided-are-incorrect"></a>UserErrorDTSStorageAccountNotFound-informationen om lagrings kontot är felaktig
+
+Felkod: UserErrorDTSStorageAccountNotFound
+
+Fel meddelande: informationen om lagrings kontot är felaktig.
+
+Kontrol lera att lagrings kontot fortfarande finns och inte har tagits bort.
+
+### <a name="usererrorresourcegroupnotfound--resource-group-doesnt-exist"></a>UserErrorResourceGroupNotFound-resurs gruppen finns inte
+
+Felkod: UserErrorResourceGroupNotFound
+
+Fel meddelande: resurs gruppen finns inte
+
+Välj en befintlig resurs grupp eller skapa en ny resurs grupp.
+
+### <a name="parallelsnapshotrequest--a-backup-job-is-already-in-progress-for-this-file-share"></a>ParallelSnapshotRequest-ett säkerhets kopierings jobb pågår redan för den här fil resursen
+
+Felkod: ParallelSnapshotRequest
+
+Fel meddelande: ett säkerhets kopierings jobb pågår redan för den här fil resursen.
+
+- Fil resurs säkerhets kopiering stöder inte parallella ögonblicks bild begär Anden mot samma fil resurs.
+
+- Vänta tills det befintliga säkerhets kopierings jobbet har slutförts och försök sedan igen. Om du inte kan hitta ett säkerhets kopierings jobb i Recovery Services-valvet, kontrollerar du andra Recovery Services-valv i samma prenumeration.
+
+### <a name="filesharebackupfailedwithazurerprequestthrottling-filesharerestorefailedwithazurerprequestthrottling--file-share-backup-or-restore-failed-due-to-storage-service-throttling-this-may-be-because-the-storage-service-is-busy-processing-other-requests-for-the-given-storage-account"></a>FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling-säkerhets kopiering eller återställning av fil resurs misslyckades på grund av begränsningar i lagrings tjänsten. Detta kan bero på att lagrings tjänsten är upptagen med att bearbeta andra begär Anden för det aktuella lagrings kontot
+
+Felkod: FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling
+
+Fel meddelande: fil resurs säkerhets kopiering eller återställning misslyckades på grund av begränsningar i lagrings tjänsten. Detta kan bero på att lagringstjänsten är upptagen med andra begäranden för det angivna lagringskontot.
+
+Försök utföra säkerhets kopiering/återställning vid ett senare tillfälle.
+
+### <a name="targetfilesharenotfound--target-file-share-not-found"></a>TargetFileShareNotFound-mål fil resurs hittades inte
+
+Felkod: TargetFileShareNotFound
+
+Fel meddelande: det gick inte att hitta mål fil resursen.
+
+- Kontrol lera att det valda lagrings kontot finns och att mål fil resursen inte har tagits bort.
+
+- Se till att lagrings kontot är ett lagrings konto som stöds för fil resurs säkerhets kopiering.
+
+### <a name="usererrorstorageaccountislocked--backup-or-restore-jobs-failed-due-to-storage-account-being-in-locked-state"></a>UserErrorStorageAccountIsLocked-säkerhets kopierings-eller återställnings jobb misslyckades på grund av att lagrings kontot är i låst läge
+
+Felkod: UserErrorStorageAccountIsLocked
+
+Fel meddelande: säkerhets kopierings-eller återställnings jobb misslyckades på grund av att lagrings kontot är i låst läge.
+
+Ta bort låset på lagrings kontot eller Använd **ta bort lås** i stället för **läslås** och försök att säkerhetskopiera eller återställa igen.
+
+### <a name="datatransferservicecoflimitreached--recovery-failed-because-number-of-failed-files-are-more-than-the-threshold"></a>DataTransferServiceCoFLimitReached-återställningen misslyckades eftersom antalet misslyckade filer överstiger tröskelvärdet
+
+Felkod: DataTransferServiceCoFLimitReached
+
+Fel meddelande: återställningen misslyckades eftersom antalet misslyckade filer är större än tröskelvärdet.
+
+- Orsaken till återställnings felen finns i en fil (sökvägen finns i jobb informationen). Åtgärda felen och försök att utföra återställnings åtgärden för de filer som misslyckades.
+
+- Vanliga orsaker till fil återställnings problem:
+
+  - filer som misslyckats används för närvarande
+  - Det finns en katalog med samma namn som den felaktiga filen i den överordnade katalogen.
+
+### <a name="datatransferserviceallfilesfailedtorecover--recovery-failed-as-no-file-could-be-recovered"></a>DataTransferServiceAllFilesFailedToRecover-återställningen misslyckades eftersom ingen fil kunde återställas
+
+Felkod: DataTransferServiceAllFilesFailedToRecover
+
+Fel meddelande: återställningen misslyckades eftersom ingen fil kunde återställas.
+
+- Orsaken till återställnings felen finns i en fil (sökvägen finns i jobb informationen). Åtgärda felen och försök att köra återställningsåtgärden på nytt för bara de filer som misslyckades.
+
+- Vanliga orsaker till fil återställnings problem:
+
+  - filer som misslyckats används för närvarande
+  - Det finns en katalog med samma namn som den felaktiga filen i den överordnade katalogen.
+
+### <a name="usererrordtssourceurinotvalid---restore-fails-because-one-of-the-files-in-the-source-does-not-exist"></a>UserErrorDTSSourceUriNotValid – återställningen Miss lyckas eftersom en av filerna i källan inte finns
+
+Felkod: DataTransferServiceSourceUriNotValid
+
+Fel meddelande: det går inte att återställa eftersom en av filerna i källan inte finns.
+
+- De markerade objekten finns inte i informationen för återställningspunkten. Ange rätt fillista för att återställa filerna.
+- Ögonblicksbilden av filresursen som motsvarar återställningspunkten tas bort manuellt. Välj en annan återställningspunkt och försök att utföra återställningsåtgärden på nytt.
+
+### <a name="usererrordtsdestlocked--a-recovery-job-is-in-process-to-the-same-destination"></a>UserErrorDTSDestLocked-ett återställnings jobb håller på att bearbetas till samma mål
+
+Felkod: UserErrorDTSDestLocked
+
+Fel meddelande: ett återställnings jobb pågår på samma mål.
+
+- Fil resurs säkerhets kopiering stöder inte parallell återställning till samma mål fil resurs.
+
+- Vänta tills den pågående återställningen har slutförts och prova sedan igen. Om du inte hittar ett återställnings jobb i Recovery Services-valvet kan du kontrol lera andra Recovery Services valv i samma prenumeration.
+
+### <a name="usererrortargetfilesharefull--restore-operation-failed-as-target-file-share-is-full"></a>UserErrorTargetFileShareFull-det gick inte att återställa eftersom mål fil resursen är full
+
+Felkod: UserErrorTargetFileShareFull
+
+Fel meddelande: återställnings åtgärden misslyckades eftersom mål fil resursen är full.
+
+Öka storleks kvoten för mål fil resursen för att hantera återställnings data och försök utföra återställnings åtgärden igen.
+
+### <a name="usererrortargetfilesharequotanotsufficient--target-file-share-does-not-have-sufficient-storage-size-quota-for-restore"></a>UserErrorTargetFileShareQuotaNotSufficient-mål fil resursen har inte tillräckligt med lagrings storleks kvot för återställning
+
+Felkod: UserErrorTargetFileShareQuotaNotSufficient
+
+Fel meddelande: mål fil resursen har inte tillräckligt med lagrings storleks kvot för återställning
+
+Öka storleks kvoten för mål fil resursen för att kunna hantera återställnings data och försök sedan igen
+
+### <a name="file-sync-prerestorefailed--restore-operation-failed-as-an-error-occurred-while-performing-pre-restore-operations-on-file-sync-service-resources-associated-with-the-target-file-share"></a>File Sync PreRestoreFailed-Restore-åtgärden misslyckades eftersom det uppstod ett fel under återställnings åtgärder på File Sync tjänst resurser som är kopplade till mål fil resursen
+
+Felkod: File Sync PreRestoreFailed
+
+Fel meddelande: återställnings åtgärden misslyckades eftersom ett fel inträffade under återställnings åtgärder på File Sync tjänst resurser som är kopplade till mål fil resursen.
+
+Försök att återställa data vid ett senare tillfälle. Kontakta Microsofts supportavdelning om problemet kvarstår.
+
+### <a name="azurefilesyncchangedetectioninprogress--azure-file-sync-service-change-detection-is-in-progress-for-the-target-file-share-the-change-detection-was-triggered-by-a-previous-restore-to-the-target-file-share"></a>AzureFileSyncChangeDetectionInProgress-Azure File Sync tjänstens ändrings identifiering pågår för mål fil resursen. Ändrings identifieringen utlöstes av en tidigare återställning till mål fil resursen
+
+Felkod: AzureFileSyncChangeDetectionInProgress
+
+Fel meddelande: Azure File Sync tjänst ändrings identifiering pågår för mål fil resursen. Ändrings identifieringen utlöstes av en tidigare återställning till mål fil resursen.
+
+Använd en annan mål fil resurs. Du kan också vänta på att Azure File Sync tjänst ändrings identifieringen ska slutföras för mål fil resursen innan du försöker återställa igen.
+
+### <a name="usererrorafsrecoverysomefilesnotrestored--one-or-more-files-could-not-be-recovered-successfully-for-more-information-check-the-failed-file-list-in-the-path-given-above"></a>UserErrorAFSRecoverySomeFilesNotRestored-en eller flera filer kunde inte återställas. Mer information finns i listan över misslyckade filer i sökvägen ovan
+
+Felkod: UserErrorAFSRecoverySomeFilesNotRestored
+
+Fel meddelande: en eller flera filer kunde inte återställas. Mer information finns i listan med filer som misslyckats på den sökväg som anges ovan.
+
+- Orsaken till återställnings felen finns i filen (sökvägen finns i jobb informationen). Åtgärda orsakerna och försök att utföra återställnings åtgärden för de filer som misslyckades.
+- Vanliga orsaker till fil återställnings problem:
+
+  - filer som misslyckats används för närvarande
+  - Det finns en katalog med samma namn som den felaktiga filen i den överordnade katalogen.
+
+### <a name="usererrorafssourcesnapshotnotfound--azure-file-share-snapshot-corresponding-to-recovery-point-cannot-be-found"></a>UserErrorAFSSourceSnapshotNotFound-det går inte att hitta ögonblicks bilden för Azure-filresursen
+
+Felkod: UserErrorAFSSourceSnapshotNotFound
+
+Fel meddelande: det går inte att hitta ögonblicks bilden av Azure-filresursen för återställnings punkten
+
+- Se till att fil resursens ögonblicks bild, som motsvarar den återställnings punkt som du försöker använda för återställning, fortfarande finns.
+
+  >[!NOTE]
+  >Om du tar bort en ögonblicks bild av en fil resurs som har skapats av Azure Backup, blir motsvarande återställnings punkter oanvändbara. Vi rekommenderar att inte ta bort ögonblicks bilder för att garantera garanterad återställning.
+
+- Försök att välja en annan återställnings punkt för att återställa dina data.
+
+### <a name="usererroranotherrestoreinprogressonsametarget--another-restore-job-is-in-progress-on-the-same-target-file-share"></a>UserErrorAnotherRestoreInProgressOnSameTarget-ett annat återställnings jobb pågår på samma mål fil resurs
+
+Felkod: UserErrorAnotherRestoreInProgressOnSameTarget
+
+Fel meddelande: ett annat återställnings jobb pågår på samma mål fil resurs
+
+Använd en annan mål fil resurs. Alternativt kan du avbryta eller vänta tills den andra återställningen har slutförts.
+
+## <a name="common-modify-policy-errors"></a>Vanliga ändringar av princip fel
+
+### <a name="bmsusererrorconflictingprotectionoperation--another-configure-protection-operation-is-in-progress-for-this-item"></a>BMSUserErrorConflictingProtectionOperation – en annan konfigurations skydds åtgärd pågår för det här objektet
+
+Felkod: BMSUserErrorConflictingProtectionOperation
+
+Fel meddelande: en annan konfigurations skydds åtgärd pågår för det här objektet.
+
+Vänta tills den tidigare ändrings princip åtgärden har slutförts och försök igen vid ett senare tillfälle.
+
+### <a name="bmsusererrorobjectlocked--another-operation-is-in-progress-on-the-selected-item"></a>BMSUserErrorObjectLocked-en annan åtgärd pågår för det valda objektet
+
+Felkod: BMSUserErrorObjectLocked
+
+Fel meddelande: en annan åtgärd pågår för det valda objektet.
+
+Vänta tills den andra pågående åtgärden har slutförts och försök igen vid ett senare tillfälle.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,62 +1,62 @@
 ---
-title: Felsöka anslutningsproblem - Azure Database för MySQL
-description: Lär dig hur du felsöker anslutningsproblem till Azure Database for MySQL, inklusive tillfälliga fel som kräver återförsök, brandväggsproblem och avbrott.
-keywords: mysql-anslutning,anslutningssträng,anslutningsproblem,tillfälligt fel,anslutningsfel
-author: jasonwhowell
-ms.author: jasonh
+title: Felsöka anslutnings problem – Azure Database for MySQL
+description: Lär dig hur du felsöker anslutnings problem till Azure Database for MySQL, inklusive tillfälliga fel som kräver nya försök, brand Väggs problem och avbrott.
+keywords: MySQL-anslutning, anslutnings sträng, anslutnings problem, tillfälligt fel, anslutnings fel
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: b22d47d177c4606396b0c8b2279301121c905ca2
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e4afcb8756f64ab9b66044a1bf1304427330e365
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768271"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100897"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Felsöka anslutningsproblem till Azure Database for MySQL
 
-Anslutningsproblem kan orsakas av en mängd olika saker, bland annat:
+Anslutnings problem kan orsakas av olika saker, inklusive:
 
 * Brandväggsinställningar
-* Time-out för anslutning
-* Felaktig inloggningsinformation
-* Högsta gräns som uppnåtts för vissa Azure-databas för MySQL-resurser
+* Anslutnings-timeout
+* Felaktig inloggnings information
+* Max gränsen har nåtts för vissa Azure Database for MySQL resurser
 * Problem med tjänstens infrastruktur
-* Underhåll som utförs i tjänsten
-* Beräkningsallokeringen av servern ändras genom att antalet virtuella kärnor skalas eller flyttas till en annan tjänstnivå
+* Underhåll utförs i tjänsten
+* Compute-allokeringen av servern ändras genom att skala antalet virtuella kärnor eller flytta till en annan tjänst nivå
 
-I allmänhet kan anslutningsproblem till Azure Database för MySQL klassificeras enligt följande:
+I allmänhet kan anslutnings problem till Azure Database for MySQL klassificeras på följande sätt:
 
-* Tillfälliga fel (kortlivade eller intermittenta)
-* Beständiga eller icke-tillfälliga fel (fel som regelbundet återkommer)
+* Tillfälliga fel (kort livs längd eller intermittent)
+* Beständiga eller icke-tillfälliga fel (fel som upprepas regelbundet)
 
-## <a name="troubleshoot-transient-errors"></a>Felsöka tillfälliga fel
+## <a name="troubleshoot-transient-errors"></a>Felsök tillfälliga fel
 
-Tillfälliga fel uppstår när underhåll utförs, systemet stöter på ett fel med maskinvaran eller programvaran eller du ändrar serverns virtuella kärnor eller tjänstnivå. Azure Database for MySQL-tjänsten har inbyggd hög tillgänglighet och är utformad för att minska dessa typer av problem automatiskt. Programmet förlorar dock anslutningen till servern under en kort tidsperiod på normalt mindre än 60 sekunder som mest. Vissa händelser kan ibland ta längre tid att minska, till exempel när en stor transaktion orsakar en tidskrävande återställning.
+Tillfälliga fel uppstår när underhåll utförs, ett fel uppstår i systemet med maskin vara eller program vara, eller så ändrar du virtuella kärnor eller tjänst nivån på servern. Tjänsten Azure Database for MySQL har inbyggd hög tillgänglighet och är utformad för att minimera dessa typer av problem automatiskt. Programmet förlorar dock sin anslutning till servern under en kort tids period på vanligt vis mindre än 60 sekunder. Vissa händelser kan ibland ta längre tid att undvika, till exempel när en stor transaktion orsakar en tids krävande återställning.
 
-### <a name="steps-to-resolve-transient-connectivity-issues"></a>Åtgärder för att lösa tillfälliga anslutningsproblem
+### <a name="steps-to-resolve-transient-connectivity-issues"></a>Steg för att lösa problem med tillfälliga anslutningar
 
-1. Kontrollera [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) för alla kända avbrott som inträffade under den tid då felen rapporterades av programmet.
-2. Program som ansluter till en molntjänst som Azure Database for MySQL bör förvänta sig tillfälliga fel och implementera logik för återförsök för att hantera dessa fel i stället för att visa dessa som programfel för användare. Granska [Hantering av tillfälliga anslutningsfel för Azure Database for MySQL](concepts-connectivity.md) för metodtips och designriktlinjer för hantering av tillfälliga fel.
-3. När en server närmar sig sina resursgränser kan fel verka vara tillfälliga anslutningsproblem. Se [begränsningar i Azure Database för MySQL](concepts-limits.md).
-4. Om anslutningsproblemen fortsätter, eller om den varaktighet som ditt program stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en viss dag, lämnar du in en Azure-supportbegäran genom att välja **Hämta support** på [Azure-supportwebbplatsen.](https://azure.microsoft.com/support/options)
+1. Kontrol lera [instrument panelen för Microsoft Azures tjänsten](https://azure.microsoft.com/status) för eventuella kända avbrott som uppstod under den tid då felen rapporterades av programmet.
+2. Program som ansluter till en moln tjänst som Azure Database for MySQL ska förvänta sig tillfälliga fel och implementera omprövnings logik för att hantera dessa fel i stället för att visa dem som program fel till användare. Granska [hanteringen av tillfälliga anslutnings fel för Azure Database for MySQL](concepts-connectivity.md) för bästa praxis och design rikt linjer för att hantera tillfälliga fel.
+3. När en server närmar sig resurs begränsningarna kan det verka som om ett tillfälligt anslutnings problem uppstår. Se [begränsningar i Azure Database for MySQL](concepts-limits.md).
+4. Om problem med anslutningen fortsätter eller om varaktigheten för programmet stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en dag, kan du skicka en support förfrågan till Azure genom att välja **få support** på support webbplatsen för [Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Felsöka beständiga fel
 
-Om programmet beständigt misslyckas med att ansluta till Azure Database för MySQL, indikerar det vanligtvis ett problem med något av följande:
+Om programmet inte kan ansluta till Azure Database for MySQL, indikerar det vanligt vis ett problem med något av följande:
 
-* Konfiguration av serverbrandvägg: Kontrollera att Azure Database for MySQL-serverbrandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gateways.
-* Klientbrandväggskonfiguration: Brandväggen på klienten måste tillåta anslutningar till databasservern. IP-adresser och portar på servern som du inte kan tillåtas samt programnamn som MySQL i vissa brandväggar.
-* Användarfel: Du kan ha felskrivna anslutningsparametrar, till exempel servernamnet i anslutningssträngen eller ett * \@saknat servernamnssuffix* i användarnamnet.
+* Konfiguration av Server brand vägg: kontrol lera att Azure Database for MySQL server-brandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
+* Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. IP-adresser och portar på den server som du inte kan tillåta måste vara tillåtna samt program namn som MySQL i vissa brand väggar.
+* Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett * \@servername* -suffix som saknas i användar namnet.
 
-### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Åtgärder för att lösa beständiga anslutningsproblem
+### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 
-1. Ställ in [brandväggsregler](howto-manage-firewall-using-portal.md) för att tillåta klient-IP-adressen. Endast för tillfälliga tester ställer du in en brandväggsregel med 0.0.0.0 som start-IP-adress och använder 255.255.255.255 som slut-IP-adress. Då öppnas servern för alla IP-adresser. Om detta löser anslutningsproblemet tar du bort den här regeln och skapar en brandväggsregel för en lämpligt begränsad IP-adress eller adressintervall.
-2. På alla brandväggar mellan klienten och Internet kontrollerar du att port 3306 är öppen för utgående anslutningar.
-3. Kontrollera anslutningssträngen och andra anslutningsinställningar. Granska [Hur du ansluter program till Azure Database för MySQL](howto-connection-string.md).
-4. Kontrollera tjänstens hälsotillstånd på instrumentpanelen. Om du tror att det finns ett regionalt avbrott läser du [Översikt över affärskontinuitet med Azure Database för MySQL](concepts-business-continuity.md) för steg att återställa till en ny region.
+1. Konfigurera [brand Väggs regler](howto-manage-firewall-using-portal.md) som tillåter KLIENTens IP-adress. För temporär testning kan du konfigurera en brand Väggs regel med 0.0.0.0 som första IP-adress och använda 255.255.255.255 som sista IP-adress. Då öppnas servern med alla IP-adresser. Om detta löser problemet med anslutningen tar du bort den här regeln och skapar en brand Väggs regel för en lämplig, begränsad IP-adress eller ett IP-adressintervall.
+2. Kontrol lera att port 3306 är öppen för utgående anslutningar på alla brand väggar mellan klienten och Internet.
+3. Kontrol lera anslutnings strängen och andra anslutnings inställningar. Granska [hur du ansluter program till Azure Database for MySQL](howto-connection-string.md).
+4. Kontrol lera tjänstens hälso tillstånd på instrument panelen. Om du tror att det finns ett regionalt avbrott, se [Översikt över affärs kontinuitet med Azure Database for MySQL](concepts-business-continuity.md) för att återställa till en ny region.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantering av tillfälliga anslutningsfel för Azure Database for MySQL](concepts-connectivity.md)
+* [Hantering av tillfälliga anslutnings fel för Azure Database for MySQL](concepts-connectivity.md)

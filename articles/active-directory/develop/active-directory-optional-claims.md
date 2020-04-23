@@ -1,424 +1,445 @@
 ---
-title: Ange valfria anspråk till Azure AD-appar | Azure
+title: Tillhandahålla valfria anspråk till Azure AD-appar
 titleSuffix: Microsoft identity platform
-description: Så här lägger du till anpassade eller ytterligare anspråk i JWT-token (SAML 2.0 och JSON Web Tokens) som utfärdats av Azure Active Directory.
+description: Hur du lägger till anpassade eller ytterligare anspråk till SAML 2,0 och JWT-token (JSON Web token) som utfärdats av Azure Active Directory.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 3/11/2020
+ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136525"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099120"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Så här tillhandahåller du valfria anspråk till din Azure AD-app
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
 
-Programutvecklare kan använda valfria anspråk i sina Azure AD-program för att ange vilka anspråk de vill ha i token som skickas till deras program. 
+Programutvecklare kan använda valfria anspråk i sina Azure AD-program för att ange vilka anspråk de vill ha i token som skickas till deras program.
 
 Du kan använda valfria anspråk för att:
 
 - Välj ytterligare anspråk som ska inkluderas i token för ditt program.
-- Ändra beteendet för vissa anspråk som Azure AD returnerar i token.
-- Lägg till och komma åt anpassade anspråk för ditt program.
+- Ändra beteendet för vissa anspråk som Azure AD returnerar i tokens.
+- Lägg till och få till gång till anpassade anspråk för ditt program.
 
-För listor över standardanspråk, se [åtkomsttoken](access-tokens.md) och [id_token](id-tokens.md) anspråksdokumentation. 
+Listor över standard anspråk finns i [åtkomsttoken](access-tokens.md) och [id_token](id-tokens.md) dokumentation om anspråk.
 
-Även om valfria anspråk stöds i token för både v1.0- och v2.0-format, samt SAML-token, ger de det mesta av sitt värde när de flyttar från v1.0 till v2.0. Ett av målen för [slutpunkten för microsoft-identitetsplattformen v2.0](active-directory-appmodel-v2-overview.md) är mindre tokenstorlekar för att säkerställa optimal prestanda för klienter. Därför finns flera anspråk som tidigare ingick i åtkomst- och ID-token inte längre i v2.0-token och måste begäras specifikt per program.
+Även om det finns stöd för valfria anspråk i både v 1.0-och v 2.0-format-token, och även SAML-token, ger de mest av sitt värde när de flyttas från v 1.0 till v 2.0. Ett av målen för [v 2.0 Microsoft Identity Platform-slutpunkten](active-directory-appmodel-v2-overview.md) är mindre token-storlekar för att säkerställa optimala prestanda av klienter. Det innebär att flera anspråk som tidigare inkluderats i åtkomst-och ID-token inte längre finns i v 2.0-token och måste tillfrågas specifikt för varje program.
 
-**Tabell 1: Tillämplighet**
+**Tabell 1: tillämplighet**
 
-| Typ av konto | v1.0-token | v2.0-token  |
-|--------------|---------------|----------------|
-| Personligt Microsoft-konto  | Ej tillämpligt  | Stöds |
-| Azure AD-konto      | Stöds | Stöds |
+| Kontotyp               | v 1.0-token | v 2.0-token |
+|----------------------------|-------------|-------------|
+| Personlig Microsoft-konto | Ej tillämpligt         | Stöds   |
+| Azure AD-konto           | Stöds   | Stöds   |
 
-## <a name="v10-and-v20-optional-claims-set"></a>v1.0 och v2.0 valfria anspråksuppsättning
+## <a name="v10-and-v20-optional-claims-set"></a>v 1.0 och v 2.0 valfria anspråks uppsättningar
 
-Den uppsättning valfria anspråk som är tillgängliga som standard för program som ska användas visas nedan. Om du vill lägga till anpassade valfria anspråk för ditt program finns i [Katalogtillägg](#configuring-directory-extension-optional-claims)nedan. När du lägger till anspråk i **åtkomsttoken**gäller anspråken för åtkomsttoken som begärs *för* programmet (ett webb-API), inte anspråk som *begärs av* programmet. Oavsett hur klienten kommer åt ditt API finns rätt data i åtkomsttoken som används för att autentisera mot ditt API.
+Den uppsättning valfria anspråk som är tillgängliga som standard för program som ska användas visas nedan. Om du vill lägga till anpassade valfria anspråk för programmet, se [katalog tillägg](#configuring-directory-extension-optional-claims)nedan. När anspråk läggs till i **åtkomsttoken gäller**anspråken för de åtkomsttoken som begärs *för* programmet (ett webb-API), inte anspråk som begärts *av* programmet. Oavsett hur klienten har åtkomst till ditt API, finns rätt data i den åtkomsttoken som används för att autentisera mot ditt API.
 
 > [!NOTE]
-> Majoriteten av dessa anspråk kan inkluderas i JWTs för v1.0- och v2.0-token, men inte SAML-token, förutom när det anges i kolumnen Tokentyp. Konsumentkonton stöder en delmängd av dessa anspråk, markerade i kolumnen "Användartyp".  Många av de angivna anspråken gäller inte konsumentanvändare (de har ingen klient, så `tenant_ctry` har inget värde).  
+> Majoriteten av dessa anspråk kan inkluderas i JWTs för v 1.0-och v 2.0-token, men inte SAML-token, förutom vad som anges i kolumnen tokentyp. Konsument konton har stöd för en delmängd av dessa anspråk som marker ATS i kolumnen "användar typ".  Många av anspråken i listan gäller inte konsument användare (de har ingen innehavare, så `tenant_ctry` har inget värde).
 
-**Tabell 2: v1.0 och v2.0 valfritt anspråksuppsättning**
+**Tabell 2: v 1.0 och v 2.0 valfri anspråks uppsättning**
 
-| Namn                       |  Beskrivning   | Tokentyp | Användartyp | Anteckningar  |
+| Namn                       |  Beskrivning   | Tokentyp | Användar typ | Anteckningar  |
 |----------------------------|----------------|------------|-----------|--------|
-| `auth_time`                | Tid då användaren senast autentiserades. Se OpenID Connect-spec.| Jwt        |           |  |
-| `tenant_region_scope`      | Region för resursklienten | Jwt        |           | |
-| `home_oid`                 | För gästanvändare är användarens objekt-ID i användarens hemklient.| Jwt        |           | |
-| `sid`                      | Sessions-ID som används för användarloggning per session. | Jwt        |  Personliga och Azure AD-konton.   |         |
-| `platf`                    | Enhetsplattform    | Jwt        |           | Begränsad till hanterade enheter som kan verifiera enhetstyp.|
-| `verified_primary_email`   | Kommer från användarens PrimaryAuthoritativeEmail      | Jwt        |           |         |
-| `verified_secondary_email` | Kommer från användarens SecondaryAuthoritativeEmail   | Jwt        |           |        |
-| `enfpolids`                | Tvingande princip-ID:er. En lista över de princip-ID:er som utvärderades för den aktuella användaren. | Jwt |  |  |
-| `vnet`                     | VNET-specificerarinformation. | Jwt        |           |      |
-| `fwd`                      | IP-adress.| Jwt    |   | Lägger till den ursprungliga IPv4-adressen för den begärande klienten (i ett VNET) |
-| `ctry`                     | Användarens land | Jwt |  | Azure AD `ctry` returnerar det valfria anspråket om det finns och värdet för anspråket är en standardkod med två bokstäver, till exempel FR, JP, SZ och så vidare. |
-| `tenant_ctry`              | Resursklientens land | Jwt | | |
-| `xms_pdl`          | Önskad dataplats   | Jwt | | För Multi-Geo-klienter är den önskade dataplatsen den trebokstavskod som visar det geografiska område som användaren befinner sig i. Mer information finns i [Azure AD Connect-dokumentationen om önskad dataplats](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Till exempel: `APC` för Asien och Stillahavsområdet. |
-| `xms_pl`                   | Önskat språk för användare  | Jwt ||Användarens önskade språk, om det är inställt. Kommer från sin hemklient, i gäståtkomstscenarier. Formaterad LL-CC ("en-us"). |
-| `xms_tpl`                  | Önskat språk för klient| Jwt | | Resursklientens önskade språk, om det anges. Formaterad LL ("en"). |
-| `ztdid`                    | Distributions-ID för zero touch | Jwt | | Enhetens identitet som används för [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | Den adresserbara e-postadressen för den här användaren, om användaren har en.  | JWT, SAML | MSA, Azure AD | Det här värdet inkluderas som standard om användaren är gäst i klienten.  För hanterade användare (användarna i klienten) måste det begäras via det här valfria anspråket eller, endast på v2.0, med OpenID-scopet.  För hanterade användare måste e-postadressen anges i [Office-administratörsportalen](https://portal.office.com/adminportal/home#/users).| 
-| `groups`| Valfri formatering för gruppanspråk |JWT, SAML| |Används tillsammans med gruppmedlemskapsanställningen i [ansökningsmanifestet](reference-app-manifest.md), som också måste ställas in. För mer information se [Koncernens anspråk](#configuring-groups-optional-claims) nedan. Mer information om gruppanspråk finns i [Så här konfigurerar du gruppanspråk](../hybrid/how-to-connect-fed-group-claims.md)
-| `acct`             | Användarkontostatus i klienten. | JWT, SAML | | Om användaren är medlem i klienten `0`är värdet . Om de är en gäst `1`är värdet . |
-| `upn`                      | Anspråk på UserPrincipalName. | JWT, SAML  |           | Även om det här anspråket inkluderas automatiskt kan du ange det som ett valfritt anspråk för att bifoga ytterligare egenskaper för att ändra dess beteende i gästanvändarfallet.  |
+| `auth_time`                | Tid när användaren senast autentiserades. Se OpenID Connect spec.| JWT        |           |  |
+| `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
+| `home_oid`                 | För gäst användare: objekt-ID för användaren i användarens hem klient.| JWT        |           | |
+| `sid`                      | Sessions-ID som används för användar utloggning per session. | JWT        |  Personliga och Azure AD-konton.   |         |
+| `platf`                    | Enhetsplattform    | JWT        |           | Begränsat till hanterade enheter som kan verifiera enhets typ.|
+| `verified_primary_email`   | Källan från användarens PrimaryAuthoritativeEmail      | JWT        |           |         |
+| `verified_secondary_email` | Källan från användarens SecondaryAuthoritativeEmail   | JWT        |           |        |
+| `enfpolids`                | Tvingade princip-ID: n. En lista med princip-ID: n som utvärderats för den aktuella användaren. | JWT |  |  |
+| `vnet`                     | Information om VNET-specifikation. | JWT        |           |      |
+| `fwd`                      | IP-adress.| JWT    |   | Lägger till den ursprungliga IPv4-adressen för den begär ande klienten (i ett VNET) |
+| `ctry`                     | Användarens land | JWT |  | Azure AD returnerar det `ctry` valfria anspråket om det finns och värdet för anspråket är en vanlig landskod i två bokstäver, till exempel fr, JP, sz och så vidare. |
+| `tenant_ctry`              | Resurs innehavarens land | JWT | | |
+| `xms_pdl`             | Önskad data plats   | JWT | | För flera geo-klienter är den önskade data platsen den tre bokstavs koden som visar den geografiska region som användaren är i. Mer information finns i Azure AD Connect- [dokumentationen om önskad data plats](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Exempel: `APC` för Asien och Stillahavsområdet. |
+| `xms_pl`                   | Användarens prioriterade språk  | JWT ||Användarens önskade språk, om det är inställt. Från hem klienten, i scenarier med gäst åtkomst. Formaterat lla-CC ("en-US"). |
+| `xms_tpl`                  | Föredraget klient språk| JWT | | Resurs innehavarens föredragna språk, om det är inställt. Formaterat lla ("en"). |
+| `ztdid`                    | ID för noll-Touch-distribution | JWT | | Enhets identiteten som används för [Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `email`                    | Det adresser bara e-postmeddelandet för den här användaren, om användaren har ett.  | JWT, SAML | MSA, Azure AD | Det här värdet ingår som standard om användaren är en gäst i klienten.  För hanterade användare (användare i klienten) måste det begäras via detta valfria anspråk eller, endast v 2.0, med OpenID-omfånget.  För hanterade användare måste e-postadressen anges i [Office Admin-portalen](https://portal.office.com/adminportal/home#/users).|
+| `groups`| Valfri formatering för grupp anspråk |JWT, SAML| |Används tillsammans med GroupMembershipClaims-inställningen i [applikations manifestet](reference-app-manifest.md), som även måste anges. Mer information finns i [grupp anspråk](#configuring-groups-optional-claims) nedan. Mer information om grupp anspråk finns i [så här konfigurerar du grupp anspråk](../hybrid/how-to-connect-fed-group-claims.md)
+| `acct`                | Användarens konto status i klient organisationen. | JWT, SAML | | Om användaren är medlem i klienten är `0`värdet. Om de är en gäst är `1`värdet. |
+| `upn`                      | UserPrincipalName-anspråk. | JWT, SAML  |           | Även om det här anspråket ingår automatiskt kan du ange det som ett valfritt anspråk för att bifoga ytterligare egenskaper för att ändra dess beteende i gäst användarens ärende.  |
 
-## <a name="v20-specific-optional-claims-set"></a>v2.0-specifika valfria anspråksuppsättning
+## <a name="v20-specific-optional-claims-set"></a>v 2.0 – angivna valfria anspråks uppsättningar
 
-Dessa anspråk ingår alltid i v1.0 Azure AD-token, men ingår inte i v2.0-token om det inte begärs. Dessa anspråk gäller endast för JWTs (ID-token och Åtkomsttokens). 
+De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.0-token om det inte begärs. Dessa anspråk gäller endast för JWTs (ID-token och åtkomsttoken).
 
-**Tabell 3: endast v2.0-anspråk**
+**Tabell 3: v 2.0 – endast valfria anspråk**
 
-| JWT Fordran     | Namn                            | Beskrivning                                | Anteckningar |
+| JWT-anspråk     | Namn                            | Beskrivning                                | Anteckningar |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
-| `onprem_sid`  | Lokal säkerhetsidentifierare |                                             |       |
-| `pwd_exp`     | Förfallotid för lösenord        | Den datum då lösenordet upphör att gälla. |       |
-| `pwd_url`     | Ändra url till lösenord             | En URL som användaren kan besöka för att ändra sitt lösenord.   |   |
-| `in_corp`     | Inifrån företagsnätverket        | Signalerar om klienten loggar in från företagsnätverket. Om de inte är det, ingår inte anspråket.   |  Baserat på de [betrodda IPs-inställningarna](../authentication/howto-mfa-mfasettings.md#trusted-ips) i MFA.    |
-| `nickname`    | Smeknamn                        | Ytterligare ett namn för användaren. Smeknamnet är skilt från för- eller efternamn. Kräver `profile` omfattningen.| 
-| `family_name` | Efternamn                       | Anger användarens efternamn, efternamn eller efternamn enligt definitionen i användarobjektet. <br>"family_name":"Mjölnare" | Stöds i MSA och Azure AD. Kräver `profile` omfattningen.   |
-| `given_name`  | Förnamn                      | Anger användarens första eller "givna" namn, enligt anvisningarna för användarobjektet.<br>"given_name": "Frank"                   | Stöds i MSA och Azure AD .  Kräver `profile` omfattningen. |
-| `upn`         | User Principal Name | En identifer för användaren som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och bör inte användas för att knappa data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. Kräver `profile` omfattningen.|
+| `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
+| `pwd_exp`     | Förfallotid för lösenord        | Det datum/tid-värde som lösen ordet upphör att gälla. |       |
+| `pwd_url`     | Ändra lösen ordets URL             | En URL som användaren kan besöka för att ändra sina lösen ord.   |   |
+| `in_corp`     | Inifrån företagsnätverket        | Signalerar om klienten loggar in från företags nätverket. Om de inte är det inkluderas inte anspråket.   |  Baserat på de [betrodda IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) -inställningarna i MFA.    |
+| `nickname`    | Smek namn                        | Ett ytterligare namn för användaren. Smek namnet är skilt från första eller sista namnet. Kräver `profile` omfånget.|
+| `family_name` | Efternamn                       | Innehåller användarens efter namn, efter namn eller familj som definierats i användarobjektet. <br>"family_name": "Miller" | Stöds i MSA och Azure AD. Kräver `profile` omfånget.   |
+| `given_name`  | Förnamn                      | Anger det första eller "tilldelade" namnet på användaren, enligt vad som anges på användarobjektet.<br>"given_name": "Frank"                   | Stöds i MSA och Azure AD.  Kräver `profile` omfånget. |
+| `upn`         | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och ska inte användas för nyckel data. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. Kräver `profile` omfånget.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
-Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används främst för att hjälpa migrering av lokala `include_externally_authenticated_upn_without_hash` program med olika dataförväntningar (till exempel hjälper till med klienter som inte kan hantera hash-markeringar (`#`) i UPN)
+Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används främst för att hjälpa migrering av lokala program med olika data förväntningar (till exempel för `include_externally_authenticated_upn_without_hash` att hjälpa klienter som inte kan hantera hash-tecken (`#`) i UPN)
 
-**Tabell 4: Värden för att konfigurera valfria anspråk**
+**Tabell 4: värden för konfiguration av valfria anspråk**
 
-| Egenskapsnamn  | Ytterligare egenskapsnamn | Beskrivning |
+| Egenskapsnamn  | Ytterligare egenskaps namn | Beskrivning |
 |----------------|--------------------------|-------------|
-| `upn`          |                          | Kan användas för både SAML och JWT-svar och för v1.0- och v2.0-tokens. |
-|                | `include_externally_authenticated_upn`  | Inkluderar gästen UPN som lagras i resursklienten. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | Samma som ovan, förutom att`#`hash-märkena (`_`) ersätts med understreck ( ), till exempel`foo_hometenant.com_EXT_@resourcetenant.com` |
+| `upn`          |                          | Kan användas för både SAML-och JWT-svar och för v 1.0-och v 2.0-token. |
+|                | `include_externally_authenticated_upn`  | Inkluderar gäst-UPN som lagrats i resurs klienten. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Samma som ovan, förutom att hash-tecknen (`#`) ersätts med under streck (`_`), till exempel`foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Exempel på ytterligare egenskaper
 
-    ```json
-        "optionalClaims": 
-         {
-             "idToken": [ 
-            { 
-                      "name": "upn", 
-                      "essential": false,
-                  "additionalProperties": [ "include_externally_authenticated_upn"]  
-                    }
-                 ]
+```json
+"optionalClaims": {
+    "idToken": [
+        {
+            "name": "upn",
+            "essential": false,
+            "additionalProperties": [
+                "include_externally_authenticated_upn"
+            ]
         }
-    ```
+    ]
+}
+```
 
-Det här optionalClaims-objektet gör att ID-token som returneras till klienten innehåller ett upn-anspråk med ytterligare information om hemklienten och resursklienten. Anspråket `upn` ändras endast i token om användaren är gäst i klienten (som använder ett annat IDP för autentisering). 
+Detta OptionalClaims-objekt gör att ID-token som returnerades till klienten inkluderar ett UPN-anspråk med ytterligare information om hem klient och resurs klient. `upn` Anspråket ändras bara i token om användaren är en gäst i klienten (som använder en annan IDP för autentisering).
 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
 > [!IMPORTANT]
-> Åtkomsttoken genereras **alltid** med hjälp av resursens manifest, inte klienten.  Så i `...scope=https://graph.microsoft.com/user.read...` begäran resursen är Microsoft Graph API.  Åtkomsttoken skapas alltså med hjälp av Microsoft Graph API-manifestet, inte klientens manifest.  Om du ändrar manifestet för ditt program kommer tokens för Microsoft Graph API att se annorlunda ut.  För att verifiera `accessToken` att ändringarna är i kraft, begär en token för ditt program, inte en annan app.  
+> Åtkomsttoken skapas **alltid** med hjälp av resurs manifestet, inte klienten.  Så i begäran `...scope=https://graph.microsoft.com/user.read...` är resursen Microsoft Graph-API.  Därför skapas åtkomsttoken med hjälp av Microsoft Graph API-manifestet, inte klientens manifest.  Att ändra manifestet för programmet kommer aldrig att orsaka att token för Microsoft Graph-API: et ser annorlunda ut.  För att verifiera att `accessToken` ändringarna gäller, begär du en token för ditt program, inte en annan app.
 
+Du kan konfigurera valfria anspråk för ditt program via användar gränssnittet eller applikations manifestet.
 
-Du kan konfigurera valfria anspråk för ditt program via användargränssnittet eller programmanifestet.
-
-1. Gå till [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
-1. Välj **Appregistreringar**i avsnittet **Hantera** .
+1. Gå till [Azure Portal](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
+1. I avsnittet **Hantera** väljer du **Appregistreringar**.
 1. Välj det program som du vill konfigurera valfria anspråk för i listan.
 
-**Konfigurera valfria anspråk via användargränssnittet:**
+**Konfigurera valfria anspråk genom användar gränssnittet:**
 
-[![Visar hur du konfigurerar valfria anspråk med hjälp av användargränssnittet](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Visar hur du konfigurerar valfria anspråk med hjälp av användar gränssnittet](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. Välj **Tokenkonfiguration (förhandsgranskning)** i avsnittet **Hantera** .
-2. Välj **Lägg till valfritt anspråk**.
-3. Välj den tokentyp som du vill konfigurera.
-4. Välj valfria anspråk att lägga till.
-5. Klicka på **Lägg till**.
+1. I avsnittet **Hantera** väljer du **token-konfiguration**.
+1. Välj **Lägg till valfritt anspråk**.
+1. Välj den tokentyp som du vill konfigurera.
+1. Välj de valfria anspråk som ska läggas till.
+1. Välj **Lägg till**.
 
-**Konfigurera valfria anspråk via programmanifestet:**
+**Konfigurera valfria anspråk via applikations manifestet:**
 
-[![Visar hur du konfigurerar valfria anspråk med hjälp av appmanifestet](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
+[![Visar hur du konfigurerar valfria anspråk med hjälp av app-manifestet](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Välj **Manifest**i avsnittet **Hantera** . En webbaserad manifestredigerare öppnas, så att du kan redigera manifestet. Du kan också välja **Ladda ned** och redigera manifestet lokalt, och sedan använda **Ladda upp** för att tillämpa det på appen igen. Mer information om programmanifestet finns i [artikeln Förstå azure AD-programmanifestet](reference-app-manifest.md).
+1. I avsnittet **Hantera** väljer du **manifest**. En webbaserad manifest redigerare öppnas, så att du kan redigera manifestet. Du kan också välja **Ladda ned** och redigera manifestet lokalt, och sedan använda **Ladda upp** för att tillämpa det på appen igen. Mer information om applikations manifestet finns i [artikeln förstå program manifestet för Azure AD](reference-app-manifest.md).
 
-    Följande programmanifestpost lägger till auth_time, ipaddr och upn valfria anspråk på ID-, åtkomst- och SAML-token.
+    Följande program manifest post lägger till de auth_time, ipaddr och UPN valfria anspråk till ID, Access och SAML-token.
 
     ```json
-        "optionalClaims":  
-           {
-              "idToken": [
-                    {
-                          "name": "auth_time", 
-                          "essential": false
-                     }
-              ],
-              "accessToken": [
-                     {
-                            "name": "ipaddr", 
-                            "essential": false
-                      }
-              ],
-              "saml2Token": [
-                      {
-                            "name": "upn", 
-                            "essential": false
-                       },
-                       {
-                            "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
-                            "source": "user", 
-                            "essential": false
-                       }
-               ]
-           }
+    "optionalClaims": {
+        "idToken": [
+            {
+                "name": "auth_time",
+                "essential": false
+            }
+        ],
+        "accessToken": [
+            {
+                "name": "ipaddr",
+                "essential": false
+            }
+        ],
+        "saml2Token": [
+            {
+                "name": "upn",
+                "essential": false
+            },
+            {
+                "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
+                "source": "user",
+                "essential": false
+            }
+        ]
+    }
     ```
 
-2. När det är klart klickar du på **Spara**. Nu inkluderas de angivna valfria anspråken i token för ditt program.    
+2. När du är färdig väljer du **Spara**. Nu kommer de angivna valfria anspråken att inkluderas i token för ditt program.
 
+### <a name="optionalclaims-type"></a>Typ av OptionalClaims
 
-### <a name="optionalclaims-type"></a>ValfriClaims-typ
+Deklarerar de valfria anspråk som begärs av ett program. Ett program kan konfigurera valfria anspråk som ska returneras i var och en av tre typer av tokens (ID-token, åtkomsttoken, SAML 2-token) som den kan ta emot från säkerhetstokentjänsten. Programmet kan konfigurera en annan uppsättning valfria anspråk som ska returneras i varje tokentyp. Egenskapen OptionalClaims för programentiteten är ett OptionalClaims-objekt.
 
-Deklarerar de valfria anspråk som begärs av en ansökan. Ett program kan konfigurera valfria anspråk som ska returneras i var och en av tre typer av token (ID-token, åtkomsttoken, SAML 2-token) som det kan ta emot från säkerhetstokentjänsten. Programmet kan konfigurera en annan uppsättning valfria anspråk som ska returneras i varje tokentyp. Egenskapen OptionalClaims för applicationentiteten är ett OptionalClaims-objekt.
+**Tabell 5: egenskaper för OptionalClaims-typ**
 
-**Tabell 5: Egenskaper för valfria egenskaper för typen Klasar**
+| Namn          | Typ                       | Beskrivning                                           |
+|---------------|----------------------------|-------------------------------------------------------|
+| `idToken`     | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT ID-token.     |
+| `accessToken` | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT-åtkomsttoken. |
+| `saml2Token`  | Samling (OptionalClaim) | De valfria anspråk som returneras i SAML-token.       |
 
-| Namn        | Typ                       | Beskrivning                                           |
-|-------------|----------------------------|-------------------------------------------------------|
-| `idToken`     | Samling (valfrittClaim) | De valfria anspråk som returneras i JWT ID-token. |
-| `accessToken` | Samling (valfrittClaim) | De valfria anspråk som returneras i JWT-åtkomsttoken. |
-| `saml2Token`  | Samling (valfrittClaim) | De valfria anspråken som returneras i SAML-token.   |
+### <a name="optionalclaim-type"></a>Typ av OptionalClaim
 
-### <a name="optionalclaim-type"></a>ValfriClaim-typ
+Innehåller ett valfritt anspråk som associeras med ett program eller ett huvud namn för tjänsten. Egenskaperna idToken, accessToken och saml2Token för [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) -typen är en samling OptionalClaim.
+Om det stöds av ett angivet anspråk kan du också ändra beteendet för OptionalClaim med hjälp av fältet AdditionalProperties.
 
-Innehåller ett valfritt anspråk som är associerat med ett program eller ett huvudnamn för tjänsten. Egenskaperna idToken, accessToken och saml2Token för typen [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) är en samling optionalClaim.
-Om det stöds av ett visst anspråk kan du också ändra beteendet för OptionalClaim med hjälp av fältet AdditionalProperties.
+**Tabell 6: egenskaper för OptionalClaim-typ**
 
-**Tabell 6: Egenskaper för valfriknapptyp**
+| Namn                   | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
+|------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`                 | Edm.String              | Namnet på det valfria anspråket.                                                                                                                                                                                                                                                                               |
+| `source`               | Edm.String              | Källa (katalog objekt) för anspråket. Det finns fördefinierade anspråk och användardefinierade anspråk från tilläggs egenskaper. Om source-värdet är null är anspråket ett fördefinierat valfritt anspråk. Om source-värdet är User är värdet i egenskapen name egenskapen Extension från objektet User. |
+| `essential`            | Edm.Boolean             | Om värdet är True är det anspråk som anges av klienten nödvändigt för att säkerställa en smidig auktorisering för den specifika uppgift som användaren begärt. Standardvärdet är false.                                                                                                                 |
+| `additionalProperties` | Samling (EDM. String) | Ytterligare egenskaper för anspråket. Om det finns en egenskap i den här samlingen ändras beteendet för det valfria anspråket som anges i egenskapen Name.                                                                                                                                                   |
 
-| Namn                 | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
-|----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                 | Edm.String              | Namnet på det frivilliga anspråket.                                                                                                                                                                                                                                                                           |
-| `source`               | Edm.String              | Anspråkets källa (katalogobjekt). Det finns fördefinierade anspråk och användardefinierade anspråk från tilläggsegenskaper. Om källvärdet är null är anspråket ett fördefinierat valfritt anspråk. Om källvärdet är användaren är värdet i egenskapen name egenskap egenskapen extension från användarobjektet. |
-| `essential`            | Edm.Boolean             | Om värdet är sant är anspråket som anges av klienten nödvändigt för att säkerställa en smidig auktoriseringsupplevelse för den specifika uppgift som slutanvändaren begär. Standardvärdet är false.                                                                                                             |
-| `additionalProperties` | Samling (Edm.String) | Ytterligare egenskaper för anspråket. Om det finns en egenskap i den här samlingen ändrar den beteendet för det valfria anspråk som anges i egenskapen name.                                                                                                                                               |
-## <a name="configuring-directory-extension-optional-claims"></a>Konfigurera valfria anspråk för katalogtillägg
+## <a name="configuring-directory-extension-optional-claims"></a>Konfigurerar valfria anspråk för katalog tillägg
 
-Förutom standardvalanspråksuppsättningen kan du också konfigurera token till tillägg. Mer information finns i dokumentationen till [Microsoft Graph extensionProperty](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) - observera att schema och öppna tillägg inte stöds av valfria anspråk, bara katalogtilläggen för AAD-Graph-format. Den här funktionen är användbar när du vill koppla ytterligare användarinformation som din app kan använda, till exempel en ytterligare identifierare eller ett viktigt konfigurationsalternativ som användaren har angett. Se längst ner på den här sidan i ett exempel.
+Förutom de vanliga valfria anspråks uppsättningarna kan du också konfigurera tokens för att inkludera tillägg. Mer information finns i [dokumentationen för Microsoft Graph extensionProperty](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+
+Schema-och öppna tillägg stöds inte av valfria anspråk, bara katalog tilläggen AAD-Graph. Den här funktionen är användbar för att bifoga ytterligare användar information som din app kan använda – till exempel en ytterligare identifierare eller ett viktigt konfigurations alternativ som användaren har angett. Se slutet på den här sidan för ett exempel.
 
 > [!NOTE]
-> - Katalogschematillägg är en Azure AD-funktionen, så om ditt programmanifest begär ett anpassat tillägg och en MSA-användare loggar in i din app returneras inte dessa tillägg.
+> Katalog schema utökningar är en Azure AD-funktion. Om ditt program manifest begär ett anpassat tillägg och en MSA-användare loggar in i din app, returneras inte dessa tillägg.
 
-### <a name="directory-extension-formatting"></a>Formatering för katalogtillägg
+### <a name="directory-extension-formatting"></a>Formatering av katalog tillägg
 
-När du konfigurerar valfria anspråk på katalogtillägg med hjälp av programmanifestet använder du tilläggets fullständiga namn (i formatet: `extension_<appid>_<attributename>`). Måste `<appid>` matcha ID för den ansökan som begär anspråket. 
+När du konfigurerar alternativ anspråk för katalog tillägg med hjälp av applikations manifestet använder du det fullständiga namnet på tillägget ( `extension_<appid>_<attributename>`i formatet:). `<appid>` Måste matcha ID för programmet som begär anspråket.
 
-Inom JWT kommer dessa anspråk att avges med `extn.<attributename>`följande namnformat: .
+I JWT genereras dessa anspråk med följande namn format: `extn.<attributename>`.
 
-Inom SAML-token kommer dessa anspråk att skickas ut med följande URI-format:`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+I SAML-token genereras dessa anspråk med följande URI-format:`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
-## <a name="configuring-groups-optional-claims"></a>Konfigurera valfria anspråk för grupper
+## <a name="configuring-groups-optional-claims"></a>Konfigurera grupper valfria anspråk
 
    > [!NOTE]
-   > Möjligheten att avge gruppnamn för användare och grupper som synkroniserats från lokala är Offentlig förhandsversion.
+   > Möjligheten att generera grupp namn för användare och grupper som synkroniseras från lokal är offentlig för hands version.
 
-Det här avsnittet beskriver konfigurationsalternativen under valfria anspråk för att ändra gruppattribut som används i gruppanspråk från standardgruppen objectID till attribut som synkroniserats från lokala Windows Active Directory. Du kan konfigurera valfria anspråk för dina program via användargränssnittet eller programmanifestet.
+Det här avsnittet beskriver konfigurations alternativen under valfria anspråk för att ändra de Gruppattribut som används i grupp anspråk från standard gruppen objectID till attribut som synkroniseras från lokala Windows-Active Directory. Du kan konfigurera grupper valfria anspråk för ditt program via användar gränssnittet eller applikations manifestet.
 
 > [!IMPORTANT]
-> Mer information om att inkludera viktiga varningar för offentlig förhandsversion av gruppanspråk från lokala attribut finns i [Konfigurera gruppanspråk för program med Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+> Mer information, inklusive viktiga varningar om den offentliga för hands versionen av grupp anspråk från lokala attribut, finns i [Konfigurera grupp anspråk för program med Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
-**Konfigurera valfria anspråk för grupper via användargränssnittet:**
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. När du har autentiserat väljer du din Azure AD-klient genom att välja den i det övre högra hörnet på sidan
+**Konfigurera grupper valfria anspråk genom användar gränssnittet:**
+
+1. Logga in på [Azure Portal](https://portal.azure.com)
+1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan
 1. Välj **Azure Active Directory** på menyn till vänster
 1. Under avsnittet **Hantera** väljer du **Appregistreringar**
 1. Välj det program som du vill konfigurera valfria anspråk för i listan
-1. Välj **Tokenkonfiguration (förhandsgranskning)** under avsnittet **Hantera**
-2. Välj **anspråk på Lägg till grupper**
-3. Markera de grupptyper som ska returneras (**Alla grupper,** **Säkerhetsgrupper**eller **DirectoryRole**). Alternativet **Alla grupper** innehåller **SecurityGroup,** **DirectoryRole**och **DistributionList**
-4. Valfritt: Klicka på egenskaperna för specifik tokentyp för att ändra gruppanspråksvärdet som ska innehålla lokala gruppattribut eller för att ändra anspråkstypen till en roll
-5. Klicka på **Spara**
+1. Under avsnittet **Hantera** väljer du **token-konfiguration**
+1. Välj **Lägg till grupp anspråk**
+1. Välj de grupp typer som ska returneras (**alla grupper**, **SecurityGroup**eller **DirectoryRole**). Alternativet **alla grupper** innehåller **SecurityGroup**, **DirectoryRole**och **DistributionList**
+1. Valfritt: Välj egenskaperna för den speciella tokentypen för att ändra värdet för grupp anspråk till att innehålla lokala Gruppattribut eller ändra anspråks typen till en roll
+1. Välj **Spara**
 
-**Konfigurera valfria anspråk för grupper via programmanifestet:**
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. När du har autentiserat väljer du din Azure AD-klient genom att välja den i det övre högra hörnet på sidan
+**Konfigurera grupper valfria anspråk via applikations manifestet:**
+
+1. Logga in på [Azure Portal](https://portal.azure.com)
+1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan
 1. Välj **Azure Active Directory** på menyn till vänster
 1. Välj det program som du vill konfigurera valfria anspråk för i listan
-1. Välj **Manifest** under avsnittet **Hantera**
-3. Lägg till följande post med manifestredigeraren:
+1. Under avsnittet **Hantera** väljer du **manifest**
+1. Lägg till följande post med hjälp av manifest redigeraren:
 
-   De giltiga värdena är:
+   Giltiga värden är:
 
-   - "Alla" (det här alternativet inkluderar SecurityGroup, DirectoryRole och DistributionList)
+   - "Alla" (det här alternativet omfattar SecurityGroup, DirectoryRole och DistributionList)
    - "SecurityGroup"
    - "DirectoryRole"
 
    Ett exempel:
 
     ```json
-        "groupMembershipClaims": "SecurityGroup"
+    "groupMembershipClaims": "SecurityGroup"
     ```
 
-   Som standard kommer gruppobjekt-ID:er att skickas ut i gruppanspråksvärdet.  Om du vill ändra anspråksvärdet så att det innehåller lokala gruppattribut eller ändrar anspråkstypen till roll använder du OptionalClaims-konfigurationen på följande sätt:
+   Som standard genereras grupp ObjectIDs i grupp anspråks värdet.  Om du vill ändra anspråks värdet så att det innehåller lokala Gruppattribut, eller ändra anspråks typen till roll, använder du OptionalClaims-konfiguration enligt följande:
 
-3. Ange valfria anspråk för gruppnamnkonfiguration.
+1. Ange alternativ för grupp namns konfiguration valfria anspråk.
 
-   Om du vill gruppera i token för att innehålla de lokala AD-gruppattributen i det valfria anspråksavsnittet anger vilket valfritt anspråk av tokentyp som ska tillämpas på, namnet på det begärda anspråket och eventuella ytterligare egenskaper som önskas.  Flera tokentyper kan visas:
+   Om du vill att grupper i token ska innehålla attributen för lokal AD-grupp i det valfria anspråks avsnittet anger du vilken tokentyp som valfritt anspråk ska tillämpas på, namnet på valfritt begärt anspråk och eventuella ytterligare egenskaper som önskas.  Flera typer av token kan visas:
 
-   - idToken för OIDC ID-token
+   - idToken för OIDC-ID-token
    - accessToken för OAuth-åtkomsttoken
-   - Saml2Token för SAML-tokens.
+   - Saml2Token för SAML-token.
 
    > [!NOTE]
-   > Typen Saml2Token gäller för token i både SAML1.1- och SAML2.0-format
+   > Saml2Token-typen gäller för både SAML 1.1 och SAML 2.0-format-token
 
-   För varje relevant tokentyp ändrar du gruppanspråket för att använda avsnittet OptionalClaims i manifestet. Schemat OptionalClaims är följande:
+   För varje relevant tokentyp ändrar du grupp anspråk till att använda OptionalClaims-avsnittet i manifestet. OptionalClaims-schemat ser ut så här:
 
     ```json
-       {
-       "name": "groups",
-       "source": null,
-       "essential": false,
-       "additionalProperties": []
-       }
+    {
+        "name": "groups",
+        "source": null,
+        "essential": false,
+        "additionalProperties": []
+    }
     ```
 
-   | Valfritt anspråksschema | Värde |
+   | Valfritt anspråks schema | Värde |
    |----------|-------------|
    | **Namn:** | Måste vara "grupper" |
-   | **Källkod:** | Används inte. Utelämna eller ange null |
-   | **Viktigt:** | Används inte. Utelämna eller ange falskt |
-   | **ytterligareegenskaper:** | Lista över ytterligare egenskaper.  Giltiga alternativ är "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **källicensservern** | Används inte. Utelämna eller ange null |
+   | **största** | Används inte. Utelämna eller ange falskt |
+   | **additionalProperties:** | Lista över ytterligare egenskaper.  Giltiga alternativ är "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   I ytterligareegenskaper krävs endast en av "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Om det finns mer än en används den första och andra ignoreras.
+   I additionalProperties krävs bara en av "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Om det finns fler än en används den första och andra ignoreras.
 
-   Vissa program kräver gruppinformation om användaren i rollanspråket.  Om du vill ändra anspråkstypen till från ett gruppanspråk till ett rollanspråk lägger du till "emit_as_roles" i ytterligare egenskaper.  Gruppvärdena kommer att släppas ut i rollanspråket.
+   Vissa program kräver grupp information om användaren i roll anspråket.  Om du vill ändra anspråks typen till från ett grupp anspråk till ett roll anspråk lägger du till "emit_as_roles" i ytterligare egenskaper.  Grupp värden genereras i roll anspråket.
 
    > [!NOTE]
-   > Om "emit_as_roles" används visas inte alla programroller som konfigurerats som användaren har tilldelats i rollanspråket
+   > Om emit_as_roles används alla program roller som kon figurer ATS som användaren är tilldelad visas inte i roll anspråket
 
-**Exempel:**
+**Fler**
 
-1) Emit grupper som gruppnamn i OAuth-åtkomsttoken i dnsDomainName\sAMAccountName-format
+1) Generera grupper som grupp namn i OAuth-åtkomsttoken i dnsDomainName\sAMAccountName-format
 
-    
-    **Konfiguration av användargränssnitt:**
+    **GRÄNSSNITTs konfiguration:**
 
-    [![Visar hur du konfigurerar valfria anspråk med hjälp av användargränssnittet](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Visar hur du konfigurerar valfria anspråk med hjälp av användar gränssnittet](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
+    **Post för program manifest:**
 
-    **Anmatning av programmanifest:**
     ```json
-        "optionalClaims": {
-            "accessToken": [{
-            "name": "groups",
-            "additionalProperties": ["dns_domain_and_sam_account_name"]
-            }]
-        }
+    "optionalClaims": {
+        "accessToken": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "dns_domain_and_sam_account_name"
+                ]
+            }
+        ]
+    }
     ```
 
- 
-    
-2) Gruppernamn för emit som ska returneras i netbiosDomain\sAMAccountName-format som rollerna gör anspråk på i SAML- och OIDC ID-token
+2) Genererar grupp namn som ska returneras i netbiosDomain\sAMAccountName-format som roll anspråk i SAML-och OIDC-ID-token
 
-    **Konfiguration av användargränssnitt:**
+    **GRÄNSSNITTs konfiguration:**
 
-    [![Visar hur du konfigurerar valfria anspråk med hjälp av användargränssnittet](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Visar hur du konfigurerar valfria anspråk med hjälp av användar gränssnittet](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
-    **Anmatning av programmanifest:**
-    
+    **Post för program manifest:**
+
     ```json
-        "optionalClaims": {
-        "saml2Token": [{
-            "name": "groups",
-            "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
-        }],
-        "idToken": [{
-            "name": "groups",
-            "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
-        }]
-    ``` 
-     
+    "optionalClaims": {
+        "saml2Token": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "netbios_name_and_sam_account_name",
+                    "emit_as_roles"
+                ]
+            }
+        ],
+        "idToken": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "netbios_name_and_sam_account_name",
+                    "emit_as_roles"
+                ]
+            }
+        ]
+    }
+    ```
 
 ## <a name="optional-claims-example"></a>Exempel på valfria anspråk
 
-I det här avsnittet kan du gå igenom ett scenario för att se hur du kan använda den valfria anspråksfunktionen för ditt program.
-Det finns flera alternativ för uppdatering av egenskaperna för ett programs identitetskonfiguration för att aktivera och konfigurera valfria anspråk:
--    Du kan använda **användargränssnittet för tokenkonfiguration (förhandsgranskning)** (se exempel nedan)
--    Du kan använda **Manifestet** (se exempel nedan). Läs [förstå Azure AD-programmanifestdokumentet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) först för en introduktion till manifestet.
--   Det är också möjligt att skriva ett program som använder [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) för att uppdatera ditt program. Den [valfria kladdtypen](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) i Microsoft Graph API-referensguiden kan hjälpa dig att konfigurera valfria anspråk.
+I det här avsnittet kan du gå igenom ett scenario för att se hur du kan använda funktionen valfria anspråk för ditt program.
+Det finns flera tillgängliga alternativ för att uppdatera egenskaperna för ett programs identitets konfiguration för att aktivera och konfigurera valfria anspråk:
 
-**Exempel:** I exemplet nedan använder du användargränssnittet **tokenkonfiguration (förhandsversion)** och **Manifest** för att lägga till valfria anspråk i åtkomst-, ID- och SAML-token som är avsedda för ditt program. Olika valfria anspråk läggs till i varje typ av token som programmet kan ta emot:
--    ID-token innehåller nu UPN för federerade användare i`<upn>_<homedomain>#EXT#@<resourcedomain>`den fullständiga formen ( ).
--    De åtkomsttoken som andra klienter begär för det här programmet innehåller nu auth_time anspråk
--    SAML-token innehåller nu tillägget skypeId-katalogschema (i det här exemplet är app-ID för den här appen ab603c56068041afb2f6832e2a17e237). SAML-tokens exponerar Skype-ID:t som `extension_skypeId`.
+- Du kan använda användar gränssnittet för **token-konfiguration** (se exemplet nedan)
+- Du kan använda **manifestet** (se exemplet nedan). Läs [förstå Azure AD Application manifest-dokumentet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) först för en introduktion till manifestet.
+- Det är också möjligt att skriva ett program som använder [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) för att uppdatera ditt program. [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) -typen i referens hand boken för Microsoft Graph API kan hjälpa dig att konfigurera de valfria anspråken.
 
-**Konfiguration av användargränssnitt:**
+**Exempel**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
+I exemplet nedan använder du användar gränssnittet för **token-konfiguration** och **manifestet** för att lägga till valfria anspråk till åtkomst, ID och SAML-token som är avsedda för ditt program. Olika valfria anspråk kommer att läggas till i varje tokentyp som programmet kan ta emot:
 
-1. När du har autentiserat väljer du din Azure AD-klient genom att välja den i det övre högra hörnet på sidan.
+- ID-token kommer nu att innehålla UPN för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
+- De åtkomsttoken som andra klienter begär för det här programmet kommer nu att innehålla auth_time-anspråk
+- SAML-token kommer nu att innehålla skypeId Directory schema-tillägget (i det här exemplet är app-ID: t för den här appen ab603c56068041afb2f6832e2a17e237). SAML-token kommer att exponera Skype-ID `extension_skypeId`: t som.
+
+**GRÄNSSNITTs konfiguration:**
+
+1. Logga in på [Azure Portal](https://portal.azure.com)
+
+1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan.
 
 1. Välj **Azure Active Directory** på menyn till vänster.
 
 1. Under avsnittet **Hantera** väljer du **Appregistreringar**.
 
-1. Leta reda på det program som du vill konfigurera valfria anspråk för i listan och klicka på det.
+1. Hitta det program som du vill konfigurera valfria anspråk för i listan och markera det.
 
-1. Klicka på **Tokenkonfiguration (förhandsgranskning)** under avsnittet **Hantera** .
+1. Under avsnittet **Hantera** väljer du **token-konfiguration**.
 
-1. Välj **Lägg till valfritt anspråk,** välj **ID-tokentyp,** välj **upn** i listan med anspråk och klicka sedan på Lägg **till**.
+1. Välj **Lägg till valfritt anspråk**, Välj typ av **ID-** token, Välj **UPN** i listan över anspråk och välj sedan **Lägg till**.
 
-1. Välj **Lägg till valfritt anspråk**, välj tokentyp för **Access,** välj **auth_time** i listan med anspråk och klicka sedan på **Lägg till**.
+1. Välj **Lägg till valfritt anspråk**, Välj **åtkomsttoken,** Välj **auth_time** i listan över anspråk och välj sedan **Lägg till**.
 
-1. Klicka på pennikonen bredvid **upn**på översiktsskärmen för tokenkonfiguration, klicka på den **externt autentiserade** växlingsknappen och klicka sedan på **Spara**.
+1. På sidan Översikt över token konfiguration väljer du Penn ikonen bredvid **UPN**, väljer den **externt autentiserade** växlingen och väljer sedan **Spara**.
 
-1. Välj **Lägg till valfritt anspråk**, välj TYPEN **SAML-token,** välj **extn.skypeID** i listan över anspråk (gäller endast om du har skapat ett Azure AD-användarobjekt som heter skypeID) och klicka sedan på **Lägg till**.
+1. Välj **Lägg till valfritt anspråk**, Välj **SAML** -tokentyp och välj **EXTn. skypeID** i listan över anspråk (gäller endast om du har skapat ett Azure AD-användarobjektet som heter SkypeID) och väljer sedan **Lägg till**.
 
-    [![Visar hur du konfigurerar valfria anspråk med hjälp av användargränssnittet](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Visar hur du konfigurerar valfria anspråk med hjälp av användar gränssnittet](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
-**Manifestkonfiguration:**
+**Manifest konfiguration:**
+
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. När du har autentiserat väljer du din Azure AD-klient genom att välja den i det övre högra hörnet på sidan.
+1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan.
 1. Välj **Azure Active Directory** på menyn till vänster.
-1. Leta reda på det program som du vill konfigurera valfria anspråk för i listan och klicka på det.
-1. Klicka på **Manifest** under avsnittet **Hantera** för att öppna den infogade manifestredigeraren.
-1. Du kan redigera manifestet direkt med hjälp av den här redigeraren. Manifestet följer schemat för [entiteten Program](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)och formaterar manifestet automatiskt när det har sparats. Nya element läggs till `OptionalClaims` i egenskapen.
+1. Hitta det program som du vill konfigurera valfria anspråk för i listan och markera det.
+1. Under avsnittet **Hantera** väljer du **manifest** för att öppna den infogade manifest redigeraren.
+1. Du kan redigera manifestet direkt med hjälp av den här redigeraren. Manifestet följer schemat för [programmets entitet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)och formaterar automatiskt manifestet när det har sparats. Nya element kommer att läggas till i `OptionalClaims` egenskapen.
 
     ```json
-            "optionalClaims": {
-                "idToken": [ 
-                     { 
-                        "name": "upn", 
-                        "essential": false, 
-                        "additionalProperties": [ "include_externally_authenticated_upn"]  
-                     }
-                     ],
-                "accessToken": [ 
-                      {
-                        "name": "auth_time", 
-                        "essential": false
-                      }
-                     ],
-            "saml2Token": [ 
-                  { 
-                    "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
-                    "source": "user", 
-                    "essential": true
-                  }
-                 ]
-        ``` 
+    "optionalClaims": {
+        "idToken": [
+            {
+                "name": "upn",
+                "essential": false,
+                "additionalProperties": [
+                    "include_externally_authenticated_upn"
+                ]
+            }
+        ],
+        "accessToken": [
+            {
+                "name": "auth_time",
+                "essential": false
+            }
+        ],
+        "saml2Token": [
+            {
+                "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
+                "source": "user",
+                "essential": true
+            }
+        ]
+    }
+    ```
 
+1. När du är klar med uppdateringen av manifestet väljer du **Spara** för att spara manifestet.
 
-1. When you're finished updating the manifest, click **Save** to save the manifest.
+## <a name="next-steps"></a>Nästa steg
 
-## Next steps
+Läs mer om de standard anspråk som tillhandahålls av Azure AD.
 
-Learn more about the standard claims provided by Azure AD.
-
-- [ID tokens](id-tokens.md)
-- [Access tokens](access-tokens.md)
+- [ID-tokens](id-tokens.md)
+- [Åtkomsttokens](access-tokens.md)

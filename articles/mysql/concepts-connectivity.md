@@ -1,77 +1,77 @@
 ---
-title: Tillfälliga anslutningsfel – Azure Database for MySQL
-description: Lär dig hur du hanterar tillfälliga anslutningsfel och ansluter effektivt till Azure Database för MySQL.
-keywords: mysql-anslutning,anslutningssträng,anslutningsproblem,tillfälligt fel,anslutningsfel,anslut effektivt
-author: jasonwhowell
-ms.author: jasonh
+title: Tillfälliga anslutnings fel – Azure Database for MySQL
+description: Lär dig hur du hanterar tillfälliga anslutnings fel och ansluter effektivt till Azure Database for MySQL.
+keywords: MySQL-anslutning, anslutnings sträng, anslutnings problem, tillfälligt fel, anslutnings fel, Anslut effektivt
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4f9101b4108f5512ee9779f4633845b34fdfad5a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: cb5adb3787176e3bdbfb7897aa7d7deb9cc2dae7
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767875"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100149"
 ---
-# <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Hantera tillfälliga fel och ansluta effektivt till Azure Database for MySQL
+# <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Hantera tillfälliga fel och Anslut effektivt till Azure Database for MySQL
 
-I den här artikeln beskrivs hur du hanterar tillfälliga fel och ansluter effektivt till Azure Database for MySQL.
+Den här artikeln beskriver hur du hanterar tillfälliga fel och ansluter effektivt till Azure Database for MySQL.
 
 ## <a name="transient-errors"></a>Tillfälliga fel
 
-Ett tillfälligt fel, även kallat transientfel, är ett fel som löser sig själv. Oftast visas dessa fel som en anslutning till databasservern som tas bort. Det går inte heller att öppna nya anslutningar till en server. Tillfälliga fel kan uppstå till exempel när maskinvaru- eller nätverksfel inträffar. En annan orsak kan vara en ny version av en PaaS-tjänst som håller på att rullas ut. De flesta av dessa händelser mildras automatiskt av systemet på mindre än 60 sekunder. En bästa praxis för att utforma och utveckla program i molnet är att förvänta sig tillfälliga fel. Anta att de kan hända i någon komponent när som helst och att ha lämplig logik på plats för att hantera dessa situationer.
+Ett tillfälligt fel, även kallat ett tillfälligt fel, är ett fel som kommer att lösa sig självt. Oftast manifestet de här felen som en anslutning till databas servern som tappas bort. Det går inte att öppna nya anslutningar till en server. Tillfälliga fel kan uppstå när ett maskin-eller nätverks fel uppstår. En annan orsak kan vara en ny version av en PaaS-tjänst som distribueras. De flesta av dessa händelser begränsas automatiskt av systemet på mindre än 60 sekunder. En bra metod för att utforma och utveckla program i molnet är att vänta på tillfälliga fel. Anta att de kan ske i vilken komponent som helst och att ha rätt logik på plats för att hantera dessa situationer.
 
-## <a name="handling-transient-errors"></a>Hantera tillfälliga fel
+## <a name="handling-transient-errors"></a>Hantering av tillfälliga fel
 
-Tillfälliga fel bör hanteras med hjälp av logik för återförsök. Situationer som måste beaktas:
+Tillfälliga fel ska hanteras med logiken för omprövning. Situationer som måste beaktas:
 
-* Ett fel uppstår när du försöker öppna en anslutning
-* En inaktiv anslutning tas bort på serversidan. När du försöker utfärda ett kommando kan det inte köras
-* En aktiv anslutning som för närvarande kör ett kommando tas bort.
+* Ett fel inträffar när du försöker öppna en anslutning
+* En inaktiv anslutning bryts på Server sidan. När du försöker utfärda ett kommando kan det inte köras
+* En aktiv anslutning som för närvarande kör ett kommando ignoreras.
 
-Det första och andra fallet är ganska rakt fram för att hantera. Försök öppna anslutningen igen. När du lyckas har det tillfälliga felet mildrats av systemet. Du kan använda din Azure-databas för MySQL igen. Vi rekommenderar att du väntar innan du försöker ansluta igen. Backa om de första försöken misslyckas. På så sätt kan systemet använda alla tillgängliga resurser för att lösa felsituationen. Ett bra mönster att följa är:
+Det första och det andra fallet är ganska rakt framåt till referensen. Försök att öppna anslutningen igen. När du lyckas har det tillfälliga felet minimerats av systemet. Du kan använda din Azure Database for MySQL igen. Vi rekommenderar att du väntar innan du försöker ansluta igen. Stäng av om de första Återförsöken inte fungerar. På så sätt kan systemet använda alla resurser som är tillgängliga för att lösa fel situationen. Ett lämpligt mönster att följa är:
 
-* Vänta i 5 sekunder innan du försöker igen.
-* För varje efterföljande återförsök ökar väntetiden exponentiellt, upp till 60 sekunder.
-* Ange ett maximalt antal försök vid vilken tidpunkt ditt program anser att åtgärden misslyckades.
+* Vänta i 5 sekunder innan ditt första försök.
+* För varje följande försök ökar vänte tiden exponentiellt, upp till 60 sekunder.
+* Ange ett högsta antal återförsök som programmet anser att åtgärden misslyckades.
 
-När en anslutning till en aktiv transaktion misslyckas är det svårare att hantera återställningen korrekt. Det finns två fall: Om transaktionen var skrivskyddad till sin natur är det säkert att öppna anslutningen igen och att försöka igen transaktionen. Om transaktionen emellertid också skrev till databasen måste du ta reda på om transaktionen återställdes eller om den lyckades innan det tillfälliga felet inträffade. I så fall kanske du bara inte har fått bekräftelse från databasservern.
+När en anslutning med en aktiv transaktion Miss lyckas är det svårare att hantera återställningen korrekt. Det finns två fall: om transaktionen var skrivskyddad, är det säkert att öppna anslutningen igen och försöka utföra transaktionen igen. Om transaktionen även skrevs till databasen, måste du bestämma om transaktionen återställdes eller om den lyckades innan det tillfälliga felet uppstod. I så fall kanske du bara inte har fått bekräftelse bekräftelse från databas servern.
 
-Ett sätt att göra detta är att generera ett unikt ID på klienten som används för alla försök. Du skickar det här unika ID:t som en del av transaktionen till servern och lagrar det i en kolumn med en unik begränsning. På så sätt kan du säkert försöka transaktionen igen. Det lyckas om den tidigare transaktionen återställdes och klientgenererat unikt ID ännu inte finns i systemet. Det misslyckas med att ange en dubblettnyckelfel om det unika ID:t tidigare lagrats eftersom den tidigare transaktionen slutfördes.
+Ett sätt att göra detta är att generera ett unikt ID på klienten som används för alla återförsök. Du skickar det här unika ID: t som en del av transaktionen till servern och lagrar den i en kolumn med en unik begränsning. På så sätt kan du på ett säkert sätt försöka utföra transaktionen igen. Det lyckas om den tidigare transaktionen återställdes och det unika ID: t för klienten som skapats ännu inte finns i systemet. Det går inte att ange en dubblett av nyckeln om det unika ID: t tidigare lagrades eftersom den tidigare transaktionen slutfördes.
 
-När ditt program kommunicerar med Azure Database for MySQL via mellanprogram från tredje part frågar du leverantören om mellanmaterialet innehåller logik för återförsök för tillfälliga fel.
+När ditt program kommunicerar med Azure Database for MySQL via mellanprodukter från tredje part, frågar du leverantören om mellanprodukter innehåller omprövnings logik för tillfälliga fel.
 
-Se till att testa att du försöker logiken igen. Försök till exempel att köra koden samtidigt skala upp eller ned beräkningsresurserna för din Azure-databas för MySQL-server. Ditt program bör hantera den korta driftstopp som påträffas under den här åtgärden utan problem.
+Se till att testa att du testar logiken igen. Försök till exempel att köra koden när du skalar upp eller ned beräknings resurserna för Azure Database for MySQL-servern. Ditt program bör hantera de korta stillestånds tiden som påträffas under den här åtgärden utan problem.
 
-## <a name="connect-efficiently-to-azure-database-for-mysql"></a>Ansluta effektivt till Azure Database för MySQL
+## <a name="connect-efficiently-to-azure-database-for-mysql"></a>Anslut effektivt till Azure Database for MySQL
 
-Databasanslutningar är en begränsad resurs, så att effektivt använda anslutningspooler för att komma åt Azure Database for MySQL optimerar prestanda. I avsnittet nedan beskrivs hur du använder anslutningspoolning eller beständiga anslutningar för att mer effektivt komma åt Azure Database för MySQL.
+Databas anslutningar är en begränsad resurs, så att du effektivt kan använda anslutningspoolen för att komma åt Azure Database for MySQL optimerar prestandan. I avsnittet nedan förklaras hur du använder anslutningspoolen eller beständiga anslutningar till mer effektiv åtkomst Azure Database for MySQL.
 
-## <a name="access-databases-by-using-connection-pooling-recommended"></a>Komma åt databaser med hjälp av anslutningspooler (rekommenderas)
+## <a name="access-databases-by-using-connection-pooling-recommended"></a>Få åtkomst till databaser med hjälp av anslutningspoolen (rekommenderas)
 
-Hantering av databasanslutningar kan ha en betydande inverkan på programmets prestanda som helhet. För att optimera programmets prestanda bör målet vara att minska antalet gånger anslutningar upprättas och tid för att upprätta anslutningar i nyckelkodsökvägar. Vi rekommenderar starkt att du använder databasanslutningspooler eller beständiga anslutningar för att ansluta till Azure Database for MySQL. Databasanslutningspooler hanterar skapande, hantering och allokering av databasanslutningar. När ett program begär en databasanslutning prioriteras allokeringen av befintliga inaktiva databasanslutningar i stället för att skapa en ny anslutning. När programmet har slutförts med hjälp av databasanslutningen återställs anslutningen som förberedelse för vidare användning, i stället för att bara stängas.
+Hantering av databas anslutningar kan ha en betydande inverkan på programmets prestanda som helhet. För att optimera prestanda för ditt program bör målet vara att minska antalet gånger som anslutningar upprättas och tid för att upprätta anslutningar i nyckel kods Sök vägar. Vi rekommenderar starkt att du använder anslutningspoolen för databas anslutning eller beständiga anslutningar för att ansluta till Azure Database for MySQL. Anslutningspoolen för databas anslutning hanterar skapande, hantering och allokering av databas anslutningar. När ett program begär en databas anslutning prioriteras tilldelningen av befintliga inaktiva databas anslutningar i stället för att en ny anslutning skapas. När programmet har slutat använda databas anslutningen återställs anslutningen som förberedelse för att användas i stället för att helt enkelt stängas av.
 
-För bättre illustration innehåller den här artikeln [en bit exempelkod](./sample-scripts-java-connection-pooling.md) som använder JAVA som exempel. Mer information finns i [Apache common DBCP](https://commons.apache.org/proper/commons-dbcp/).
+Den här artikeln innehåller [en exempel kod](./sample-scripts-java-connection-pooling.md) som använder Java som exempel för bättre bild. Mer information finns i avsnittet om [apache common DBCP](https://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
-> Servern konfigurerar en timeout-mekanism för att stänga en anslutning som har varit inaktiv under en längre tid för att frigöra resurser. Var noga med att ställa in verifieringssystemet för att säkerställa effektiviteten av beständiga anslutningar när du använder dem. Mer information finns i [Konfigurera verifieringssystem på klientsidan för att säkerställa hur effektiva beständiga anslutningar är](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
+> Servern konfigurerar en timeout-mekanism för att stänga en anslutning som har varit i inaktivt läge under en tid för att frigöra resurser. Se till att konfigurera verifierings systemet för att säkerställa effektiviteten hos beständiga anslutningar när du använder dem. Mer information finns i [Konfigurera verifierings system på klient sidan för att säkerställa effektiviteten hos permanenta anslutningar](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
 
-## <a name="access-databases-by-using-persistent-connections-recommended"></a>Komma åt databaser med hjälp av beständiga anslutningar (rekommenderas)
+## <a name="access-databases-by-using-persistent-connections-recommended"></a>Få åtkomst till databaser med hjälp av beständiga anslutningar (rekommenderas)
 
-Begreppet beständiga anslutningar liknar anslutningspoolningen. Att ersätta korta anslutningar med beständiga anslutningar kräver endast mindre ändringar i koden, men det har en viktig effekt när det gäller att förbättra prestanda i många typiska programscenarier.
+Begreppet beständiga anslutningar liknar det för anslutningspoolen. Att ersätta korta anslutningar med permanenta anslutningar kräver bara mindre ändringar i koden, men det har en stor effekt vad gäller att förbättra prestanda i många typiska program scenarier.
 
-## <a name="access-databases-by-using-wait-and-retry-mechanism-with-short-connections"></a>Komma åt databaser med hjälp av mekanismen för vänte- och återförsök med korta anslutningar
+## <a name="access-databases-by-using-wait-and-retry-mechanism-with-short-connections"></a>Få åtkomst till databaser med hjälp av metoden vänta och försök med korta anslutningar
 
-Om du har resursbegränsningar rekommenderar vi starkt att du använder databaspoolning eller beständiga anslutningar för att komma åt databaser. Om ditt program använder korta anslutningar och upplever anslutningsfel när du närmar dig den övre gränsen för antalet samtidiga anslutningar kan du prova mekanismen för att vänta och försöka igen. Du kan ställa in en lämplig väntetid med kortare väntetid efter det första försöket. Därefter kan du prova att vänta på händelser flera gånger.
+Om du har resurs begränsningar rekommenderar vi starkt att du använder databas bassänger eller beständiga anslutningar för att få åtkomst till databaser. Om programmet använder korta anslutningar och upplever anslutnings fel när du närmar dig den övre gränsen för antalet samtidiga anslutningar kan du prova att vänta och försöka igen. Du kan ange en lämplig vänte tid med en kortare vänte tid efter det första försöket. Därefter kan du prova att vänta på händelser flera gånger.
 
-## <a name="configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections"></a>Konfigurera verifieringsmekanismer i klienter för att bekräfta hur effektiva beständiga anslutningar är
+## <a name="configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections"></a>Konfigurera verifierings mekanismer i-klienter för att bekräfta effektiviteten hos beständiga anslutningar
 
-Servern konfigurerar en timeout-mekanism för att stänga en anslutning som har varit inaktiv under en längre tid för att frigöra resurser. När klienten kommer åt databasen igen motsvarar den att skapa en ny anslutningsbegäran mellan klienten och servern. Konfigurera en verifieringsmekanism på klienten för att säkerställa hur effektiva anslutningarna är under processen att använda dem. Som visas i följande exempel kan du använda Tomcat JDBC-anslutningspoolning för att konfigurera den här verifieringsmekanismen.
+Servern konfigurerar en tids gräns för att stänga en anslutning som har varit i inaktivt läge under en tid för att frigöra resurser. När klienten har åtkomst till databasen igen är det detsamma som att skapa en ny anslutningsbegäran mellan klienten och servern. Konfigurera en verifierings funktion på klienten för att säkerställa effektiviteten i anslutningarna under processen med att använda dem. Som du ser i följande exempel kan du använda Tomcat JDBC anslutningspoolen för att konfigurera den här verifierings funktionen.
 
-Genom att ställa in parametern TestOnBorrow, när det finns en ny begäran, verifierar anslutningspoolen automatiskt effektiviteten av alla tillgängliga inaktiva anslutningar. Om en sådan anslutning är effektiv, dess direkt returnerade annars anslutningspoolen drar tillbaka anslutningen. Anslutningspoolen skapar sedan en ny effektiv anslutning och returnerar den. Den här processen säkerställer att databasen används effektivt. 
+Genom att ange parametern TestOnBorrow när det finns en ny begäran, verifierar anslutningspoolen automatiskt effektiviteten hos eventuella tillgängliga inaktiva anslutningar. Om en sådan anslutning är effektiv, kommer dess direkt returnerade andra anslutningspoolen att återkalla anslutningen. Anslutningspoolen skapar sedan en ny effektiv anslutning och returnerar den. Den här processen säkerställer att databasen nås effektivt. 
 
-Information om de specifika inställningarna finns i [JDBC:s officiella introduktionsdokument för anslutningspoolen](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). Du måste främst ställa in följande tre parametrar: TestOnBorrow (inställt på true), ValidationQuery (inställt på SELECT 1) och ValidationQueryTimeout (inställd på 1). Den specifika exempelkoden visas nedan:
+Information om de olika inställningarna finns i JDBC- [anslutningspoolen, officiellt introduktions dokument](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). Du måste huvudsakligen ange följande tre parametrar: TestOnBorrow (true), ValidationQuery (inställt på SELECT 1) och ValidationQueryTimeout (inställt på 1). Den speciella exempel koden visas nedan:
 
 ```java
 public class SimpleTestOnBorrowExample {

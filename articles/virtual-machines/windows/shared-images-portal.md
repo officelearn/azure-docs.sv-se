@@ -1,94 +1,88 @@
 ---
-title: Skapa ett Azure Shared Image Gallery med hjälp av portalen
-description: Lär dig hur du använder Azure-portalen för att skapa och dela avbildningar för virtuella datorer.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
+title: Skapa ett galleri för Azure-delad avbildning med hjälp av portalen
+description: Lär dig hur du använder Azure Portal för att skapa och dela avbildningar av virtuella datorer.
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.subservice: imaging
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.custom: ''
-ms.openlocfilehash: 83cdae95d43884647e257cbf1808222a542a212e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1560a67d73b712ba1f295992fce4f7f1a2ae75bd
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458104"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100710"
 ---
-# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Skapa ett Azure Shared Image Gallery med hjälp av portalen
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Skapa ett galleri för Azure-delad avbildning med hjälp av portalen
 
-Ett [delat bildgalleri](shared-image-galleries.md) förenklar anpassad bilddelning i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för att bootstrap distributionsuppgifter som förinläsning av program, programkonfigurationer och andra OS-konfigurationer. 
+Ett [delat bild galleri](shared-image-galleries.md) fören klar en anpassad bild delning i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för att starta distributions åtgärder som till exempel för att läsa in program, programkonfigurationer och andra OS-konfigurationer. 
 
-Med det delade bildgalleriet kan du dela dina anpassade VM-avbildningar med andra i organisationen, inom eller mellan regioner, inom en AAD-klientorganisation. Välj vilka bilder du vill dela, vilka regioner du vill göra dem tillgängliga i och vilka du vill dela dem med. Du kan skapa flera gallerier så att du logiskt kan gruppera delade bilder. 
+Med galleriet för delade avbildningar kan du dela dina anpassade VM-avbildningar med andra i din organisation, inom eller mellan regioner, inom en AAD-klient. Välj vilka bilder du vill dela, vilka regioner du vill göra tillgängliga i och vilka du vill dela dem med. Du kan skapa flera gallerier så att du kan gruppera delade avbildningar logiskt. 
 
-Galleriet är en resurs på den högsta nivån som ger fullständig rollbaserad åtkomstkontroll (RBAC). Avbildningar kan versionsas och du kan välja att replikera varje avbildningsversion till en annan uppsättning Azure-regioner. Galleriet fungerar bara med hanterade bilder.
+Galleriet är en resurs på den översta nivån som ger fullständig rollbaserad åtkomst kontroll (RBAC). Avbildningar kan vara versioner och du kan välja att replikera varje avbildnings version till en annan uppsättning Azure-regioner. Galleriet fungerar bara med hanterade bilder.
 
-Funktionen Delat bildgalleri har flera resurstyper. Vi kommer att använda eller bygga dessa i den här artikeln:
+Funktionen för delad bild galleri har flera resurs typer. Vi kommer att använda eller skapa dessa i den här artikeln:
 
 | Resurs | Beskrivning|
 |----------|------------|
-| **Hanterad bild** | En grundläggande bild som kan användas ensam eller användas för att skapa en **bildversion** i ett bildgalleri. Hanterade avbildningar skapas från [generaliserade](shared-image-galleries.md#generalized-and-specialized-images) virtuella datorer. En hanterad avbildning är en speciell typ av virtuell hårddisk som kan användas för att skapa flera virtuella datorer och som nu kan användas för att skapa delade avbildningsversioner. |
-| **Ögonblicksbild** | En kopia av en virtuell hårddisk som kan användas för att skapa en **bildversion**. Ögonblicksbilder kan tas från en [specialiserad](shared-image-galleries.md#generalized-and-specialized-images) virtuell dator (en som inte har generaliserats) och sedan användas ensamt eller med ögonblicksbilder av datadiskar, för att skapa en specialiserad avbildningsversion.
-| **Bildgalleri** | Precis som Azure Marketplace är ett **avbildningsgalleri** en databas för hantering och delning av avbildningar, men du styr vem som har åtkomst. |
-| **Bilddefinition** | Bilder definieras i ett galleri och innehåller information om bilden och krav för att använda den i organisationen. Du kan inkludera information som om avbildningen är generaliserad eller specialiserad, operativsystemet, lägsta och högsta minneskrav och viktig information. Det är en definition av en typ av bild. |
-| **Bildversion** | En **bildversion** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Precis som en hanterad avbildning används avbildningsversionen när du använder en **avbildningsversion** för att skapa en virtuell dator för att skapa nya diskar för den virtuella datorn. Bildversioner kan användas flera gånger. |
+| **Hanterad avbildning** | En grundläggande bild som kan användas separat eller som används för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från [generaliserade](shared-image-galleries.md#generalized-and-specialized-images) virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
+| **Ögonblicksbild** | En kopia av en virtuell hård disk som kan användas för att skapa en **avbildnings version**. Ögonblicks bilder kan hämtas från en [specialiserad](shared-image-galleries.md#generalized-and-specialized-images) virtuell dator (en som inte har generaliserats), sedan används separat eller med ögonblicks bilder av data diskar för att skapa en specialiserad avbildnings version.
+| **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
+| **Bild definition** | Avbildningar definieras i ett galleri och bär information om avbildningen och kraven för att använda den i din organisation. Du kan inkludera information, till exempel om avbildningen är generaliserad eller specialiserad, kraven på operativ system, minsta och högsta mängd minne och viktig information. Det är en definition av en typ av bild. |
+| **Avbildnings version** | En **avbildnings version** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Som en hanterad avbildning används avbildnings versionen för att skapa nya diskar för den virtuella datorn när du använder en **avbildnings version** för att skapa en virtuell dator. Avbildnings versioner kan användas flera gånger. |
 
 <br>
 
 
 > [!IMPORTANT]
-> Specialiserade bilder är för närvarande i offentlig förhandsgranskning.
+> Specialiserade avbildningar är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> **Kända begränsningar för förhandsgranskning** Virtuella datorer kan bara skapas från specialiserade avbildningar med hjälp av portalen eller API:et. Det finns inget CLI- eller PowerShell-stöd för förhandsversionen.
+> **Kända för hands versions begränsningar** Virtuella datorer kan bara skapas från specialiserade avbildningar med hjälp av portalen eller API: et. Är inget CLI-eller PowerShell-stöd för förhands granskningen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du vill slutföra exemplet i den här artikeln måste du ha en befintlig hanterad avbildning av en generaliserad virtuell dator eller en ögonblicksbild av en specialiserad virtuell dator. Du kan följa [självstudiekurs: Skapa en anpassad avbildning av en Virtuell Azure-dator med Azure PowerShell](tutorial-custom-images.md) för att skapa en hanterad avbildning eller [Skapa en ögonblicksbild](snapshot-copy-managed-disk.md) för en specialiserad virtuell dator. För både hanterade avbildningar och ögonblicksbilder kan datadiskstorleken inte vara mer än 1 TB.
+För att kunna slutföra exemplet i den här artikeln måste du ha en befintlig hanterad avbildning av en generaliserad virtuell dator eller en ögonblicks bild av en specialiserad virtuell dator. Du kan följa [Självstudier: skapa en anpassad avbildning av en virtuell Azure-dator med Azure PowerShell](tutorial-custom-images.md) för att skapa en hanterad avbildning eller [skapa en ögonblicks bild](snapshot-copy-managed-disk.md) för en specialiserad virtuell dator. Data disk storleken får inte vara större än 1 TB för både hanterade avbildningar och ögonblicks bilder.
 
-När du arbetar med den här artikeln ersätter du resursgruppen och VM-namnen där det behövs.
+När du arbetar med den här artikeln ersätter du resurs gruppen och VM-namnen där det behövs.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
  
 ## <a name="create-vms"></a>Skapa VM:ar
 
-Nu kan du skapa en eller flera nya virtuella datorer. I det här exemplet skapas en virtuell dator med namnet *myVM*i *myResourceGroup*i datacentret *östra USA.*
+Nu kan du skapa en eller flera nya virtuella datorer. I det här exemplet skapas en virtuell dator med namnet *myVM*i *myResourceGroup*i data centret *USA, östra* .
 
-1. Gå till din bilddefinition. Du kan använda resursfiltret för att visa alla tillgängliga bilddefinitioner.
-1. På sidan för bilddefinitionen väljer du **Skapa virtuell dator** högst upp på sidan.
-1. För **resursgrupp**väljer du **Skapa ny** och skriv *myResourceGroup* för namnet.
-1. Skriv *myVM* **i namnet Virtual Machine**.
-1. För **Region**väljer du *Östra USA*.
-1. För **tillgänglighetsalternativ**lämnar du standardinställningen *Ingen infrastrukturredundans krävs*.
-1. Värdet för **Bild** fylls automatiskt `latest` med bildversionen om du startade från sidan för bilddefinitionen.
-1. För **Storlek**väljer du en vm-storlek i listan över tillgängliga storlekar och väljer sedan **Välj**.
-1. Under **Administratörskontot**måste du ange ett användarnamn, till exempel *azureuser* och ett lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm). Om din avbildning var specialiserad kommer fälten användarnamn och lösenord att grånas ut eftersom användarnamnet och lösenordet för källdatorns virtuella dator används.
-1. Om du vill tillåta fjärråtkomst till den virtuella datorn väljer du **Tillåt valda portar** under **Offentliga inkommande portar**och väljer sedan **RDP (3389)** i listrutan. Om du inte vill tillåta fjärråtkomst till den virtuella datorn lämnar du **Ingen** markerad för **inkommande inkommande portar**.
-1. När du är klar väljer du knappen **Granska + skapa** längst ned på sidan.
-1. När den virtuella datorn har godkänts väljer du **Skapa** längst ned på sidan för att starta distributionen.
+1. Gå till din avbildnings definition. Du kan använda resurs filtret för att visa alla tillgängliga avbildnings definitioner.
+1. På sidan för din avbildnings definition väljer du **Skapa virtuell dator** på menyn längst upp på sidan.
+1. För **resurs grupp**väljer du **Skapa ny** och skriver *myResourceGroup* som namn.
+1. Skriv *myVM*i **namn på virtuell dator**.
+1. För **region**väljer du *östra USA*.
+1. För **tillgänglighets alternativ**lämnar du standardvärdet *ingen redundans krävs*.
+1. Värdet för **bild** fylls automatiskt med `latest` bild versionen om du startade från sidan för avbildnings definitionen.
+1. I **storlek**väljer du en storlek på virtuell dator i listan över tillgängliga storlekar och väljer sedan **Välj**.
+1. Om avbildningen generaliseras måste du ange ett användar namn, till exempel *azureuser* och ett lösen ord, under **Administratörs kontot**. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm). Om din avbildning var specialiserad kommer fälten användar namn och lösen ord att tonas ut eftersom användar namnet och lösen ordet för den virtuella käll datorn används.
+1. Om du vill tillåta fjärråtkomst till den virtuella datorn under **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** i list rutan. Om du inte vill tillåta fjärråtkomst till den virtuella datorn lämnar du **inget** markerat för **offentliga inkommande portar**.
+1. När du är färdig väljer du knappen **Granska + skapa** längst ned på sidan.
+1. När den virtuella datorn har godkänts för validering väljer du **skapa** längst ned på sidan för att starta distributionen.
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra detta väljer du resursgruppen för den virtuella datorn. Välj sedan **Ta bort** och kontrollera namnet på resursgruppen som du vill ta bort.
 
-Om du vill ta bort enskilda resurser måste du ta bort dem i omvänd ordning. Om du till exempel vill ta bort en bilddefinition måste du ta bort alla bildversioner som skapats från den bilden.
+Om du vill ta bort enskilda resurser måste du ta bort dem i omvänd ordning. Om du till exempel vill ta bort en avbildnings definition måste du ta bort alla avbildnings versioner som skapats från avbildningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också skapa resurs för delat bildgalleri med hjälp av mallar. Det finns flera Azure Quickstart-mallar tillgängliga: 
+Du kan också skapa en delad resurs för avbildnings galleriet med hjälp av mallar. Det finns flera tillgängliga Azure snabb starts mallar: 
 
-- [Skapa ett delat bildgalleri](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Skapa en bilddefinition i ett delat bildgalleri](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Skapa en bildversion i ett delat bildgalleri](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Skapa en virtuell dator från avbildningsversion](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Skapa ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Skapa en avbildnings definition i ett galleri för delade avbildningar](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Skapa en avbildnings version i ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Skapa en virtuell dator från avbildnings version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Mer information om delade bildgallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem läser du [Felsöka delade bildgallerier](troubleshooting-shared-images.md).
+Mer information om delade avbildnings gallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).
 

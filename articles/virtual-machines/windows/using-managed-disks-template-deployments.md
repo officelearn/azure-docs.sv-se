@@ -1,23 +1,19 @@
 ---
-title: Hanterade diskar - Azure Resource Manager-mallar - Virtuella windows-datorer
-description: Information om hur du använder hanterade diskar i Azure Resource Manager-mallar för virtuella Datorer i Windows
-services: virtual-machines-windows
-documentationcenter: ''
+title: Hanterade diskar – Azure Resource Manager mallar
+description: Information om hur du använder hanterade diskar i Azure Resource Manager mallar för virtuella datorer
 author: jboeshart
-manager: ''
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: storage
+ms.service: virtual-machines
+ms.topic: how-to
+ms.workload: infrastructure
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: d9b5618a46a21dd394633e01a9d7f1cf6d270f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 353fd368c0470309c8d753317da33341e77caa43
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464920"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100098"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Använda hanterade diskar i Azure Resource Manager-mallar
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Använda Managed Disks i Azure Resource Manager mallar
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

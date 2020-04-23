@@ -1,48 +1,48 @@
 ---
-title: Tillfälliga anslutningsfel - Azure Database för MariaDB
-description: Lär dig hur du hanterar tillfälliga anslutningsfel för Azure Database för MariaDB.
-keywords: mysql-anslutning,anslutningssträng,anslutningsproblem,tillfälligt fel,anslutningsfel
-author: jasonwhowell
-ms.author: jasonh
+title: Tillfälliga anslutnings fel – Azure Database for MariaDB
+description: Lär dig hur du hanterar tillfälliga anslutnings fel för Azure Database for MariaDB.
+keywords: MySQL-anslutning, anslutnings sträng, anslutnings problem, tillfälligt fel, anslutnings fel
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2d162b5123cdaabe17859863c148f6483175d1e1
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 3e6c5c8b6c3f118f1b19c5e2b3455f1f66f7e70e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770238"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100812"
 ---
-# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Hantering av tillfälliga anslutningsfel för Azure Database för MariaDB
+# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Hantering av tillfälliga anslutnings fel för Azure Database for MariaDB
 
-I den här artikeln beskrivs hur du hanterar tillfälliga fel som ansluter till Azure Database för MariaDB.
+Den här artikeln beskriver hur du hanterar tillfälliga fel som ansluter till Azure Database for MariaDB.
 
 ## <a name="transient-errors"></a>Tillfälliga fel
 
-Ett tillfälligt fel, även kallat transientfel, är ett fel som löser sig själv. Oftast visas dessa fel som en anslutning till databasservern som tas bort. Det går inte heller att öppna nya anslutningar till en server. Tillfälliga fel kan uppstå till exempel när maskinvaru- eller nätverksfel inträffar. En annan orsak kan vara en ny version av en PaaS-tjänst som håller på att rullas ut. De flesta av dessa händelser mildras automatiskt av systemet på mindre än 60 sekunder. En bästa praxis för att utforma och utveckla program i molnet är att förvänta sig tillfälliga fel. Anta att de kan hända i någon komponent när som helst och att ha lämplig logik på plats för att hantera dessa situationer.
+Ett tillfälligt fel, även kallat ett tillfälligt fel, är ett fel som kommer att lösa sig självt. Oftast manifestet de här felen som en anslutning till databas servern som tappas bort. Det går inte att öppna nya anslutningar till en server. Tillfälliga fel kan uppstå när ett maskin-eller nätverks fel uppstår. En annan orsak kan vara en ny version av en PaaS-tjänst som distribueras. De flesta av dessa händelser begränsas automatiskt av systemet på mindre än 60 sekunder. En bra metod för att utforma och utveckla program i molnet är att vänta på tillfälliga fel. Anta att de kan ske i vilken komponent som helst och att ha rätt logik på plats för att hantera dessa situationer.
 
-## <a name="handling-transient-errors"></a>Hantera tillfälliga fel
+## <a name="handling-transient-errors"></a>Hantering av tillfälliga fel
 
-Tillfälliga fel bör hanteras med hjälp av logik för återförsök. Situationer som måste beaktas:
+Tillfälliga fel ska hanteras med logiken för omprövning. Situationer som måste beaktas:
 
-* Ett fel uppstår när du försöker öppna en anslutning
-* En inaktiv anslutning tas bort på serversidan. När du försöker utfärda ett kommando kan det inte köras
-* En aktiv anslutning som för närvarande kör ett kommando tas bort.
+* Ett fel inträffar när du försöker öppna en anslutning
+* En inaktiv anslutning bryts på Server sidan. När du försöker utfärda ett kommando kan det inte köras
+* En aktiv anslutning som för närvarande kör ett kommando ignoreras.
 
-Det första och andra fallet är ganska rakt fram för att hantera. Försök öppna anslutningen igen. När du lyckas har det tillfälliga felet mildrats av systemet. Du kan använda din Azure-databas för MariaDB igen. Vi rekommenderar att du väntar innan du försöker ansluta igen. Backa om de första försöken misslyckas. På så sätt kan systemet använda alla tillgängliga resurser för att lösa felsituationen. Ett bra mönster att följa är:
+Det första och det andra fallet är ganska rakt framåt till referensen. Försök att öppna anslutningen igen. När du lyckas har det tillfälliga felet minimerats av systemet. Du kan använda din Azure Database for MariaDB igen. Vi rekommenderar att du väntar innan du försöker ansluta igen. Stäng av om de första Återförsöken inte fungerar. På så sätt kan systemet använda alla resurser som är tillgängliga för att lösa fel situationen. Ett lämpligt mönster att följa är:
 
-* Vänta i 5 sekunder innan du försöker igen.
-* För varje efterföljande återförsök ökar väntetiden exponentiellt, upp till 60 sekunder.
-* Ange ett maximalt antal försök vid vilken tidpunkt ditt program anser att åtgärden misslyckades.
+* Vänta i 5 sekunder innan ditt första försök.
+* För varje följande försök ökar vänte tiden exponentiellt, upp till 60 sekunder.
+* Ange ett högsta antal återförsök som programmet anser att åtgärden misslyckades.
 
-När en anslutning till en aktiv transaktion misslyckas är det svårare att hantera återställningen korrekt. Det finns två fall: Om transaktionen var skrivskyddad till sin natur är det säkert att öppna anslutningen igen och att försöka igen transaktionen. Om transaktionen var också att skriva till databasen måste du bestämma om transaktionen återställdes eller om den lyckades innan det tillfälliga felet inträffade. I så fall kanske du inte har fått bekräftelsen från databasservern.
+När en anslutning med en aktiv transaktion Miss lyckas är det svårare att hantera återställningen korrekt. Det finns två fall: om transaktionen var skrivskyddad, är det säkert att öppna anslutningen igen och försöka utföra transaktionen igen. Om transaktionen även skrevs till databasen, måste du bestämma om transaktionen återställdes eller om den lyckades innan det tillfälliga felet uppstod. I så fall kanske du inte har fått bekräftelse bekräftelse från databas servern.
 
-Ett sätt att göra detta är att generera ett unikt ID på klienten som används för alla försök. Du skickar det här unika ID:t som en del av transaktionen till servern och lagrar det i en kolumn med en unik begränsning. På så sätt kan du säkert försöka transaktionen igen. Det kommer att lyckas om den tidigare transaktionen återställdes och klienten genererade unikt ID ännu inte finns i systemet. Det misslyckas med att ange en dubblettnyckelfel om det unika ID:t tidigare lagrats eftersom den tidigare transaktionen slutfördes.
+Ett sätt att göra detta är att generera ett unikt ID på klienten som används för alla återförsök. Du skickar det här unika ID: t som en del av transaktionen till servern och lagrar den i en kolumn med en unik begränsning. På så sätt kan du på ett säkert sätt försöka utföra transaktionen igen. Det kommer att lyckas om den tidigare transaktionen återställs och det unika ID: t för klienten som genererats inte redan finns i systemet. Det går inte att ange en dubblett av nyckeln om det unika ID: t tidigare lagrades eftersom den tidigare transaktionen slutfördes.
 
-När ditt program kommunicerar med Azure Database för MariaDB via mellanprogram från tredje part frågar du leverantören om mellanmaterialet innehåller logik för återförsök för tillfälliga fel.
+När ditt program kommunicerar med Azure Database for MariaDB via mellanprodukter från tredje part, frågar du leverantören om mellanprodukter innehåller omprövnings logik för tillfälliga fel.
 
-Se till att testa att du försöker logiken igen. Försök till exempel att köra koden medan du skalar upp eller ned beräkningsresurserna för dig Azure Database för MariaDB-server. Ditt program bör hantera den korta driftstopp som påträffas under den här åtgärden utan problem.
+Se till att testa att du testar logiken igen. Försök till exempel att köra din kod medan du skalar upp eller ned beräknings resurserna för Azure Database for MariaDB-servern. Ditt program bör hantera de korta stillestånds tiden som påträffas under den här åtgärden utan problem.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,33 +1,28 @@
 ---
 title: Framtvinga säkerhet med principer för virtuella Windows-datorer i Azure
-description: Så här tillämpar du en princip på en virtuell Virtuell Azure Resource Manager-dator för Windows
-services: virtual-machines-windows
-documentationcenter: ''
+description: Så här tillämpar du en princip på en Azure Resource Manager virtuell Windows-dator
 author: mimckitt
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0b71ba54-01db-43ad-9bca-8ab358ae141b
 ms.service: virtual-machines-windows
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: 407e5cefe9f7f60c86de6e80133ff1b3f8b9003d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: a0ff463bd7f77f8a4a138bf41698059102809215
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086546"
+ms.locfileid: "82098704"
 ---
-# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Tillämpa principer på virtuella Windows-datorer med Azure Resource Manager
-Genom att använda principer kan en organisation tillämpa olika konventioner och regler i hela företaget. Verkställighet av önskat beteende kan bidra till att minska risken och samtidigt bidra till organisationens framgång. I den här artikeln beskriver vi hur du kan använda Azure Resource Manager-principer för att definiera önskat beteende för organisationens virtuella datorer.
+# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Tillämpa principer för virtuella Windows-datorer med Azure Resource Manager
+Med hjälp av principer kan en organisation tillämpa olika konventioner och regler i hela företaget. Verk ställandet av det önskade beteendet kan hjälpa till att minska risken och bidra till organisationens framgång. I den här artikeln beskriver vi hur du kan använda Azure Resource Manager principer för att definiera det önskade beteendet för organisationens Virtual Machines.
 
-En introduktion till principer finns i [Vad är Azure-princip?](../../governance/policy/overview.md).
+För en introduktion till principer, se [Vad är Azure policy?](../../governance/policy/overview.md).
 
-## <a name="permitted-virtual-machines"></a>Tillåtna virtuella datorer
-Om du vill vara säkra på att virtuella datorer för din organisation är kompatibla med ett program kan du begränsa de tillåtna operativsystemen. I följande principexempel tillåter du att endast virtuella virtuella datorer för Windows Server 2012 R2 Datacenter skapas:
+## <a name="permitted-virtual-machines"></a>Tillåten Virtual Machines
+För att säkerställa att virtuella datorer för din organisation är kompatibla med ett program kan du begränsa tillåtna operativ system. I följande princip exempel tillåter du att endast Windows Server 2012 R2 Data Center Virtual Machines skapas:
 
 ```json
 {
@@ -78,7 +73,7 @@ Om du vill vara säkra på att virtuella datorer för din organisation är kompa
 }
 ```
 
-Använd ett jokertecken för att ändra föregående princip för att tillåta alla Windows Server Datacenter-avbildningar:
+Använd ett jokertecken för att ändra föregående princip för att tillåta Windows Server-datacenter-avbildning:
 
 ```json
 {
@@ -87,7 +82,7 @@ Använd ett jokertecken för att ändra föregående princip för att tillåta a
 }
 ```
 
-Använd anyOf för att ändra föregående princip för att tillåta alla Windows Server 2012 R2 Datacenter eller högre avbildning:
+Använd anyOf för att ändra föregående princip för att tillåta alla Windows Server 2012 R2-Data Center eller högre avbildningar:
 
 ```json
 {
@@ -104,7 +99,7 @@ Använd anyOf för att ändra föregående princip för att tillåta alla Window
 }
 ```
 
-Information om principfält finns i [Principalias](../../governance/policy/concepts/definition-structure.md#aliases).
+Information om princip fält finns i [princip-alias](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## <a name="managed-disks"></a>Hanterade diskar
 
@@ -154,11 +149,11 @@ Om du vill kräva användning av hanterade diskar använder du följande princip
 }
 ```
 
-## <a name="images-for-virtual-machines"></a>Avbildningar för virtuella datorer
+## <a name="images-for-virtual-machines"></a>Avbildningar för Virtual Machines
 
-Av säkerhetsskäl kan du kräva att endast godkända anpassade avbildningar distribueras i din miljö. Du kan ange antingen resursgruppen som innehåller de godkända avbildningarna eller de specifika godkända avbildningarna.
+Av säkerhets skäl kan du kräva att endast godkända anpassade avbildningar distribueras i din miljö. Du kan ange antingen resurs gruppen som innehåller de godkända avbildningarna eller de angivna godkända avbildningarna.
 
-I följande exempel krävs bilder från en godkänd resursgrupp:
+Följande exempel kräver bilder från en godkänd resurs grupp:
 
 ```json
 {
@@ -185,7 +180,7 @@ I följande exempel krävs bilder från en godkänd resursgrupp:
 } 
 ```
 
-I följande exempel anges de godkända bild-ID:erna:
+I följande exempel anges godkända avbildnings-ID: n:
 
 ```json
 {
@@ -194,9 +189,9 @@ I följande exempel anges de godkända bild-ID:erna:
 }
 ```
 
-## <a name="virtual-machine-extensions"></a>Tillägg för virtuella datorer
+## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
-Du kanske vill förbjuda användning av vissa typer av tillägg. Ett tillägg kanske till exempel inte är kompatibelt med vissa anpassade avbildningar för virtuella datorer. I följande exempel visas hur du blockerar ett visst tillägg. Den använder utgivare och typ för att avgöra vilket tillägg som ska blockeras.
+Du kanske vill förbjuda användning av vissa typer av tillägg. Till exempel kanske ett tillägg inte är kompatibelt med vissa anpassade avbildningar av virtuella datorer. I följande exempel visas hur du blockerar ett speciellt tillägg. Den använder utgivare och typ för att avgöra vilket tillägg som ska blockeras.
 
 ```json
 {
@@ -226,7 +221,7 @@ Du kanske vill förbjuda användning av vissa typer av tillägg. Ett tillägg ka
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
 
-När du har en lokal licens kan du spara licensavgiften på dina virtuella datorer. När du inte har licensen bör du förbjuda alternativet. Följande princip förbjuder användning av Azure Hybrid Use Benefit (AHUB):
+När du har en lokal licens kan du spara licens avgiften på dina virtuella datorer. När du inte har licensen bör du förbjuda alternativet. Följande princip tillåter inte användning av Azure Hybrid Use Benefit (AHUB):
 
 ```json
 {
@@ -249,6 +244,6 @@ När du har en lokal licens kan du spara licensavgiften på dina virtuella dator
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* När du har definierat en principregel (som visas i föregående exempel) måste du skapa principdefinitionen och tilldela den till ett scope. Scopet kan vara en prenumeration, resursgrupp eller resurs. Information om hur du tilldelar principer finns i [Använda Azure-portal för att tilldela och hantera resursprinciper](../../governance/policy/assign-policy-portal.md), [Använda PowerShell för att tilldela principer](../../governance/policy/assign-policy-powershell.md)eller Använda Azure CLI för att tilldela [principer](../../governance/policy/assign-policy-azurecli.md).
-* En introduktion till resursprinciper finns i [Vad är Azure-princip?](../../governance/policy/overview.md).
+* När du har definierat en princip regel (som visas i föregående exempel), måste du skapa princip definitionen och tilldela den till ett omfång. Omfånget kan vara en prenumeration, en resurs grupp eller en resurs. Om du vill tilldela principer, se [använda Azure Portal för att tilldela och hantera resurs principer](../../governance/policy/assign-policy-portal.md), [använda PowerShell för att tilldela principer](../../governance/policy/assign-policy-powershell.md)eller [använda Azure CLI för att tilldela principer](../../governance/policy/assign-policy-azurecli.md).
+* En introduktion till resurs principer finns i [Vad är Azure policy?](../../governance/policy/overview.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

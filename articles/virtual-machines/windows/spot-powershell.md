@@ -1,37 +1,38 @@
 ---
-title: Använda PowerShell för att distribuera virtuella Azure Spot-datorer
-description: Lär dig hur du använder Azure PowerShell för att distribuera spot-datorer för att spara på kostnader.
+title: Använd PowerShell för att distribuera virtuella Azure-datorer
+description: Lär dig hur du använder Azure PowerShell för att distribuera virtuella datorer för virtuella datorer för att spara pengar.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 234cf3f51173c53ef8ca15af4ca6f24881be3109
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.reviewer: jagaveer
+ms.openlocfilehash: 321983fbe99d17dc78198feb195eed8ea26de569
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547274"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100625"
 ---
-# <a name="deploy-spot-vms-using-azure-powershell"></a>Distribuera spot-datorer med Azure PowerShell
+# <a name="deploy-spot-vms-using-azure-powershell"></a>Distribuera virtuella datorer med hjälp av Azure PowerShell
 
 
-Med hjälp av [Spot virtuella datorer](spot-vms.md) kan du dra nytta av vår outnyttjade kapacitet till en betydande kostnadsbesparingar. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort spot-datorer. Därför är spot-virtuella datorer bra för arbetsbelastningar som kan hantera avbrott som batchbearbetningsjobb, utvecklings-/testmiljöer, stora beräkningsarbetsbelastningar med mera.
+Med hjälp av [virtuella datorer](spot-vms.md) kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
 
-Priserna för spot-virtuella datorer varierar, baserat på region och SKU. Mer information finns i VM-priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Mer information om hur du anger maxpriset finns i [Spot-virtuella datorer - Prissättning](spot-vms.md#pricing).
+Priser för virtuella datorer i virtuella datorer är varierande, baserat på region och SKU. Mer information finns i prissättning för virtuella datorer för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Mer information om hur du ställer in högsta pris finns i [VM-priser för virtuella datorer](spot-vms.md#pricing).
 
-Du har möjlighet att ställa in ett maxpris som du är villig att betala, per timme, för den virtuella datorn. Maxpriset för en spot-VM kan ställas in i US-dollar (USD), med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett maxpris på 0,98765 USD per timme. Om du ställer in `-1`maxpriset så kommer den virtuella datorn inte att vräkas baserat på priset. Priset för den virtuella datorn blir det aktuella priset för avista eller priset för en vanlig virtuell dator, som någonsin är mindre, så länge det finns kapacitet och kvot tillgänglig.
+Du har möjlighet att ange ett högsta pris som du är villig att betala per timme för den virtuella datorn. Det maximala priset för en VM-VM kan anges i USD (USD) med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1`kommer den virtuella datorn inte att avlägsnas baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa en spotVM med [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) för att skapa konfigurationen. Inkludera `-Priority Spot` och `-MaxPrice` ställ in på antingen:
-- `-1`så den virtuella datorn inte vräkas baserat på pris.
-- en dollar belopp, upp till 5 siffror. Innebär till `-MaxPrice .98765` exempel att den virtuella datorn kommer att frigöras när priset för en spotVM går ca $.98765 per timme.
+Skapa en spotVM med [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) för att skapa konfigurationen. Inkludera `-Priority Spot` och ange `-MaxPrice` antingen:
+- `-1`Det innebär att den virtuella datorn inte avlägsnas utifrån priset.
+- en dollar mängd, upp till 5 siffror. Till exempel `-MaxPrice .98765` innebär att den virtuella datorn kommer att frigöras när priset för en spotVM går ungefär $. 98765 per timme.
 
 
-Det här exemplet skapar en spotVM som inte kommer att hanteras baserat på prissättning (endast när Azure behöver tillbaka kapaciteten).
+I det här exemplet skapas en spotVM som inte frigörs baserat på priser (endast när Azure behöver kapaciteten tillbaka).
 
 ```azurepowershell-interactive
 $resourceGroup = "mySpotRG"
@@ -64,7 +65,7 @@ Add-AzVMNetworkInterface -Id $nic.Id
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-När den virtuella datorn har skapats kan du fråga för att se maxpriset för alla virtuella datorer i resursgruppen.
+När den virtuella datorn har skapats kan du fråga om du vill se det högsta priset för alla virtuella datorer i resurs gruppen.
 
 ```azurepowershell-interactive
 Get-AzVM -ResourceGroupName $resourceGroup | `
@@ -73,6 +74,6 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också skapa en spot-vm med [Azure CLI](../linux/spot-cli.md) eller en [mall](../linux/spot-template.md).
+Du kan också skapa en virtuell dator med hjälp av [Azure CLI](../linux/spot-cli.md) eller en [mall](../linux/spot-template.md).
 
-Om du stöter på ett fel läser du [Felkoder](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du stöter på ett fel, se [felkoder](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

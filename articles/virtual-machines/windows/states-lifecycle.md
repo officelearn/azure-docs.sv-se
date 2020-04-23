@@ -1,30 +1,24 @@
 ---
-title: Livscykel och tillstånd för en Windows-virtuell dator i Azure
-description: Översikt över livscykeln för en Windows-virtuell dator i Azure, inklusive beskrivningar av de olika tillstånd som en virtuell dator kan ha i när som helst.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Livs cykel och tillstånd för en virtuell Windows-dator i Azure
+description: Översikt över livs cykeln för en virtuell Windows-dator i Azure, inklusive beskrivningar av de olika tillstånd som en virtuell dator kan ha i taget.
 author: shandilvarun
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: f7823d0e34fb6a79e79e9feab8eea77785b3d0da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbe236cc4a407cca78f7f7ab64f3809797c02614
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74068212"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100608"
 ---
-# <a name="virtual-machines-lifecycle-and-states"></a>Livscykel och tillstånd för virtuella datorer
+# <a name="virtual-machines-lifecycle-and-states"></a>Livscykler och tillstånd för Virtual Machines
 
 [!INCLUDE [virtual-machines-common-states-lifecycle](../../../includes/virtual-machines-common-states-lifecycle.md)]
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du övervakar den virtuella datorn finns i [Så här övervakar du virtuella datorer i Azure](monitor.md).
+Mer information om övervakning av den virtuella datorn finns i [övervaka virtuella datorer i Azure](monitor.md).

@@ -1,5 +1,5 @@
 ---
-title: Användare som flaggats för risker i Azure Active Directory-portalen | Microsoft-dokument
+title: Användare som har flaggats för risk i Azure Active Directory Portal | Microsoft Docs
 description: Lär dig mer om användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen
 services: active-directory
 author: MarkusVi
@@ -15,55 +15,55 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68989705"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100795"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
-Med säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du mäta sannolikheten för komprometterade användarkonton i din miljö. En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats.
+Med säkerhets rapporterna i Azure Active Directory (Azure AD) kan du mäta sannolikheten för att användar konton i din miljö har komprometterats. En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats.
 
 Det är viktigt för Microsoft att hålla dina miljöer säkra. Som en del av detta åtagande övervakar Microsoft kontinuerligt för att hitta aktiviteter som är ovanliga eller som följer kända angreppsmönster. 
 
-Om ovanliga aktiviteter som kan tyda på obehörig åtkomst till vissa av användarnas konton upptäcks får du meddelanden som gör att du kan vidta åtgärder. Detta betyder inte att Microsofts egna system har äventyrats.
+Om ovanliga aktiviteter som kan indikera obehörig åtkomst till vissa av användarnas konton identifieras, får du aviseringar som gör att du kan vidta åtgärder. Detta innebär inte att Microsofts egna system har komprometterats.
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Åtkomst till användare som har flaggats för risk
 
-Du kan granska användare som flaggats för risker via rapporten användare i [riskzonen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) i Azure-portalen. Om du inte har Azure AD kan du [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)registrera dig gratis på . 
+Du kan granska användare som har flaggats för risk genom [rapporten användare i fara](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) i Azure Portal. Om du inte har Azure AD kan du registrera dig kostnads fritt på [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
-Från de användare som flaggats för riskrapport kan du vidta följande åtgärder för varje användare:
+Från användare som har flaggats för risk rapport kan du utföra följande åtgärder för varje användare:
 
 - skapa ett tillfälligt lösenord
 - kräva att användarna måste återställa sina lösenord på ett säkert sätt nästa gång de loggar in
 - minimera användarrisken utan att behöva vidta någon åtgärd.
 
-Mer information finns i [Användare som flaggats för risksäkerhetsrapport](concept-user-at-risk.md).
+Mer information finns i [användare som har flaggats för risk säkerhets rapporten](concept-user-at-risk.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Azure AD-prenumeration för Office 365-kunder
 
-Du kan också använda dina Office 365-autentiseringsuppgifter för att komma åt **Azure Admin Center**. När du har aktiverat din åtkomst till Azure AD omdirigeras du till Azure AD-portalen. Lägg märke till att mängden detaljer som tillhandahålls i rapporterna är begränsade på Basic-nivån. Ytterligare data och analyser är tillgängliga för Azure Premium-prenumeranter.
+Du kan också använda dina Office 365-autentiseringsuppgifter för att komma åt **Azure administrations centret**. När du har aktiverat din åtkomst till Azure AD omdirigeras du till Azure AD-portalen. Lägg märke till att mängden detaljer som tillhandahålls i rapporterna är begränsade på Basic-nivån. Ytterligare data och analyser är tillgängliga för Azure Premium-prenumeranter.
 
-Så här kommer du åt **användarna som flaggats för riskrapporter** i microsoft 365-administrationscentret:
+För att få åtkomst till de användare som har **flaggats för risk** rapporter i Microsoft 365 administrations centret:
 
-1.  Välj **Administrationscenter**på navigeringsmenyn till vänster . 
+1.  I navigerings menyn på vänster sida väljer du **administrations Center**. 
 2.  Välj **Azure AD**.
 3.  Logga in på **Azure Active Directory-administratörcentret**.
-4.  Om en banderoll visas högst upp på sidan där det står **Checka ut den nya portalen**väljer du länken.
-4.  Välj **Azure Active Directory**på navigeringsmenyn till vänster . 
-5.  Välj Användare som **flaggats för risker** i avsnittet **Säkerhet** i navigeringsfönstret.
+4.  Om en banderoll visas överst på sidan som visar en **titt på den nya portalen**väljer du länken.
+4.  I navigerings menyn på vänster sida väljer du **Azure Active Directory**. 
+5.  I navigerings fönstret väljer **du användare som har flaggats för risk** i avsnittet **säkerhet** .
 
 ## <a name="remediation-actions"></a>Åtgärder
 
 Gör följande för att åtgärda de berörda kontona och göra miljön säker:
 
-1.  [Verifiera korrekt information](https://aka.ms/MFAValid) för multifaktorautentisering och återställning av lösenord för självbetjäning. 
-2.  [Aktivera multifaktorautentisering](https://aka.ms/MFAuth) för alla användare. 
-3.  Använd det här [reparationsskriptet](https://aka.ms/remediate) för varje påverkat konto för att automatiskt utföra följande steg: 
+1.  [Verifiera korrekt information](https://aka.ms/MFAValid) för Multi-Factor Authentication och återställning av lösen ord för självbetjäning. 
+2.  [Aktivera Multi-Factor Authentication](https://aka.ms/MFAuth) för alla användare. 
+3.  Använd det här [reparations skriptet](https://aka.ms/remediate) för varje påverkat konto för att automatiskt utföra följande steg: 
 
-    a. Återställ lösenord för att skydda kontot och döda aktiva sessioner.
+    a. Återställ lösen ordet för att skydda kontot och avsluta aktiva sessioner.
 
     b. Ta bort postlådedelegater.
 
@@ -77,17 +77,16 @@ Gör följande för att åtgärda de berörda kontona och göra miljön säker:
 
     g. Aktivera granskning av postlådan.
 
-    h. Skapa en granskningslogg som administratören kan granska.
+    h. Skapa en Gransknings logg som administratören kan granska.
 
 4. Undersök din Office 365-klient och övrig IT-infrastruktur, däribland en granskning av alla klientinställningar, användarkonton och konfigurationsinställningar per användare för eventuell ändring. Leta efter indikatorer på beständighetsmetoder och på att en inkräktare kan ha skapat ett första fäste för att få tag i VPN-autentiseringsuppgifter eller få åtkomst till andra resurser i organisationen. 
 
-5.  Som en del av din utredning, överväga om du ska meddela statliga myndigheter, inklusive brottsbekämpning.
+5.  Som en del av din undersökning bör du överväga om du bör meddela myndighets myndigheter, inklusive rätts tvång.
 
 Dessutom bör du:
 
-- Läs och implementera den här [vägledningen om hur du tar itu med ovanliga aktiviteter](https://aka.ms/fixaccount). 
-- [Aktivera granskningspipelinen](https://aka.ms/improvesecurity) så att du kan analysera aktiviteten i din klientorganisation. När granskningsarkivet är klart börjar det fyllas med aktivitetsloggar. Nu kan du också utnyttja [säkerhets- och efterlevnadscentrets sök- och undersökningsresurs](https://aka.ms/sccsearch). 
-- Använd det här [skriptet för att aktivera postlådegranskning](https://aka.ms/mailboxaudit1) för alla dina konton. 
+- Läs och implementera den här [vägledningen om hur du löser ovanliga aktiviteter](https://aka.ms/fixaccount). 
+- [Aktivera gransknings pipelinen](https://aka.ms/improvesecurity) för att hjälpa dig att analysera aktiviteten i din klient organisation. När du är klar börjar gransknings lagret fylla med aktivitets loggar. I det här läget kan du också använda [Sök-och gransknings resurserna i Security och Compliance Center](https://aka.ms/sccsearch). 
 - Granska reglerna för delegeringsbehörigheter och vidarebefordran av e-post för alla brevlådor. Du kan använda det här [PowerShell-skriptet](https://aka.ms/delegateforwardrules) för at utföra den här uppgiften. 
 
 ## <a name="next-steps"></a>Nästa steg

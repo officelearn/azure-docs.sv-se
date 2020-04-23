@@ -1,72 +1,72 @@
 ---
 title: Köra skript i en virtuell Azure Windows-dator
-description: I det här avsnittet beskrivs hur du kör skript i en virtuell Windows-dator
+description: I det här avsnittet beskrivs hur du kör skript på en virtuell Windows-dator
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd65f33663dea3663f14fb4167448e39b9b7d0b7
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67476763"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099775"
 ---
-# <a name="run-scripts-in-your-windows-vm"></a>Köra skript i din virtuella Windows-dator
+# <a name="run-scripts-in-your-windows-vm"></a>Kör skript i din virtuella Windows-dator
 
-Om du vill automatisera uppgifter eller felsöka problem kan du behöva köra kommandon i en virtuell dator. Följande artikel ger en kort översikt över de funktioner som är tillgängliga för att köra skript och kommandon i dina virtuella datorer.
+Om du vill automatisera uppgifter eller felsöka problem kan du behöva köra kommandon i en virtuell dator. Följande artikel innehåller en kort översikt över de funktioner som är tillgängliga för att köra skript och kommandon i de virtuella datorerna.
 
 ## <a name="custom-script-extension"></a>Anpassat skripttillägg
 
-[Det anpassade skripttillägget](../extensions/custom-script-windows.md) används främst för konfiguration efter distribution och programvaruinstallation.
+Det [anpassade skript tillägget](../extensions/custom-script-windows.md) används främst för konfiguration och program varu installation efter distribution.
 
-* Hämta och kör skript i virtuella Azure-datorer.
-* Kan köras med Azure Resource Manager-mallar, Azure CLI, REST API, PowerShell eller Azure-portalen.
-* Skriptfiler kan hämtas från Azure-lagring eller GitHub, eller tillhandahållas från datorn när de körs från Azure-portalen.
-* Kör PowerShell-skript i Windows-maskiner och Bash-skript i Linux-datorer.
-* Användbart för konfiguration efter distribution, programvaruinstallation och andra konfigurations- eller hanteringsuppgifter.
+* Hämta och kör skript på virtuella Azure-datorer.
+* Kan köras med Azure Resource Manager mallar, Azure CLI, REST API, PowerShell eller Azure Portal.
+* Skriptfiler kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas från din dator när de körs från Azure Portal.
+* Kör PowerShell-skript i Windows-datorer och bash-skript på Linux-datorer.
+* Användbart för konfiguration av distribution, program varu installation och andra konfigurations-eller hanterings uppgifter.
 
-## <a name="run-command"></a>Kör kommandot 
+## <a name="run-command"></a>Kör kommando
 
-Funktionen [Kör kommando](run-command.md) möjliggör hantering av virtuella datorer och program med skript och är tillgänglig även när datorn inte kan nås, till exempel om gästbrandväggen inte har RDP- eller SSH-porten öppen.
+[Kommando funktionen kör](run-command.md) möjliggör hantering av virtuella datorer och program och fel sökning med skript och är tillgänglig även om datorn inte kan nås, till exempel om gäst brand väggen inte har RDP-eller SSH-porten öppen.
 
-* Kör skript i virtuella Azure-datorer.
-* Kan köras med [Azure Portal,](run-command.md) [REST API,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)eller [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
-* Kör snabbt ett skript och visa utdata och upprepa efter behov i Azure-portalen.
-* Skriptet kan skrivas direkt eller så kan du köra ett av de inbyggda skripten.
-* Kör PowerShell-skript i Windows-maskiner och Bash-skript i Linux-datorer.
-* Användbart för hantering av virtuella datorer och program och för att köra skript i virtuella datorer som inte kan nås.
+* Kör skript på virtuella Azure-datorer.
+* Kan köras med [Azure Portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)eller [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
+* Kör snabbt ett skript och visa utdata och upprepa efter behov i Azure Portal.
+* Skriptet kan skrivas in direkt eller så kan du köra ett av de inbyggda skripten.
+* Kör PowerShell-skript i Windows-datorer och bash-skript på Linux-datorer.
+* Användbart för hantering av virtuella datorer och program och för att köra skript på virtuella datorer som inte kan kontaktas.
 
 ## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-[Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) tillhandahåller allmän maskin-, program- och miljöhantering med användarens anpassade skript som lagras i ett Automation-konto.
+[Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) tillhandahåller allmän hantering av datorer, program och miljöer med användarens anpassade skript lagrade i ett Automation-konto.
 
-* Kör skript i Azure och datorer som inte är Azure.
-* Kan köras med Azure portal, Azure CLI, REST API, PowerShell, webhook.
-* Skript som lagras och hanteras i ett automationskonto.
-* Kör PowerShell, PowerShell-arbetsflöde, Python eller grafiska runbooks
-* Ingen tidsgräns för skriptkörningstid.
+* Kör skript på Azure-datorer och datorer som inte är Azure-datorer.
+* Kan köras med Azure Portal, Azure CLI, REST API, PowerShell, webhook.
+* Skript som lagras och hanteras i ett Automation-konto.
+* Kör PowerShell, PowerShell-arbetsflöde, python eller grafiska runbooks
+* Ingen tids gräns för skript körnings tid.
 * Flera skript kan köras samtidigt.
-* Fullständig skriptutdata returneras och lagras.
-* Jobbhistorik tillgänglig i 90 dagar.
-* Skript kan köras som lokalt system eller med användarin angivna autentiseringsuppgifter.
+* Fullständigt utdata för skript returneras och lagras.
+* Jobb historik tillgängligt i 90 dagar.
+* Skript kan köras som lokalt system eller med användar uppgifter som angetts av användaren.
 * Kräver [manuell installation](../../automation/automation-windows-hrw-install.md)
 
 ## <a name="serial-console"></a>Seriekonsol
 
-[Seriekonsolen](serial-console.md) ger direkt åtkomst till en virtuell dator, ungefär som att ha ett tangentbord anslutet till den virtuella datorn.
+[Seriell konsol](serial-console.md) ger direkt åtkomst till en virtuell dator, på samma sätt som ett tangent bord som är anslutet till den virtuella datorn.
 
-* Kör kommandon i virtuella Azure-datorer.
-* Kan köras med en textbaserad konsol till datorn i Azure-portalen.
-* Logga in på datorn med ett lokalt användarkonto.
-* Användbart när åtkomst till den virtuella datorn behövs oavsett datorns nätverks- eller operativsystemtillstånd.
+* Kör kommandon i Azure Virtual Machines.
+* Kan köras med hjälp av en text-baserad konsol till datorn i Azure Portal.
+* Logga in på datorn med ett lokalt användar konto.
+* Användbart när åtkomst till den virtuella datorn krävs, oavsett datorns nätverks-eller operativ system tillstånd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om de olika funktioner som är tillgängliga för att köra skript och kommandon i dina virtuella datorer.
+Lär dig mer om de olika funktionerna som är tillgängliga för att köra skript och kommandon i dina virtuella datorer.
 
 * [Anpassat skripttillägg](../extensions/custom-script-windows.md)
 * [Kör kommando](run-command.md)

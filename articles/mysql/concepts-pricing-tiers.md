@@ -1,106 +1,106 @@
 ---
 title: Prisnivåer – Azure Database for MySQL
-description: Lär dig mer om de olika prisnivåerna för Azure Database för MySQL, inklusive beräkningsgenerationer, lagringstyper, lagringsstorlek, virtuella kärnor, minne och lagringsperioder för säkerhetskopiering.
-author: jasonwhowell
-ms.author: jasonh
+description: Lär dig mer om de olika pris nivåerna för Azure Database for MySQL inklusive Compute-generationer, lagrings typer, lagrings storlek, virtuella kärnor, minne och kvarhållning av säkerhets kopior.
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 0123436eab2cdfa91066a2bd0652e16896ee838a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: f633c33d0d90715a940129d62cee6472d33d2106
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767847"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100965"
 ---
-# <a name="azure-database-for-mysql-pricing-tiers"></a>Azure-databas för mysQL-prisnivåer
+# <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL pris nivåer
 
-Du kan skapa en Azure-databas för MySQL-server på en av tre olika prisnivåer: Grundläggande, allmänt syfte och Minnesoptimerad. Prisnivåerna differentieras med mängden beräkning i virtuella kärnor som kan etableras, minne per vCore och lagringsteknik som används för att lagra data. Alla resurser etableras på MySQL-servernivå. En server kan ha en eller flera databaser.
+Du kan skapa en Azure Database for MySQL-server på en av tre olika pris nivåer: Basic, Generell användning och Minnesoptimerade. Pris nivåerna åtskiljs av mängden data bearbetning i virtuella kärnor som kan tillhandahållas, minne per vCore och lagrings teknik som används för att lagra data. Alla resurser har allokerats på MySQL-server nivå. En server kan ha en eller flera databaser.
 
-|    | **Basic** | **Allmänt syfte** | **Minnesoptimerat** |
+|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Beräkna generering | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores (virtuella) | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
+| Beräknings generation | Gen 4, gen 5 | Gen 4, gen 5 | Gen 5 |
+| Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
-| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
-| Lagringsperiod för säkerhetskopiering av databas | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
+| Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
+| Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
 
-Om du vill välja en prisnivå använder du följande tabell som utgångspunkt.
+Om du vill välja en pris nivå använder du följande tabell som utgångs punkt.
 
 | Prisnivå | Målbelastningar |
 |:-------------|:-----------------|
-| Basic | Arbetsbelastningar som kräver ljusberäkning och I/O-prestanda. Exempel är servrar som används för utveckling eller testning eller småskaliga sällan använda program. |
-| Generell användning | De flesta affärsarbetsbelastningar som kräver balanserad beräkning och minne med skalbar I/O-dataflöde. Exempel är servrar för att vara värd för webb- och mobilappar och andra företagsprogram.|
-| Minnesoptimerad | Högpresterande databasarbetsbelastningar som kräver prestanda i minnet för snabbare transaktionsbearbetning och högre samtidighet. Exempel är servrar för bearbetning av realtidsdata och högpresterande transaktions- eller analysappar.|
+| Basic | Arbets belastningar som kräver ljus beräkning och I/O-prestanda. Exempel på detta är servrar som används för utveckling eller testning eller småskaliga program som inte används ofta. |
+| Generell användning | De flesta företags arbets belastningar som kräver balanserade beräkning och minne med skalbart I/O-genomflöde. Exempel på det är servrar som är värdar för webb-och mobilappar och andra företags program.|
+| Minnesoptimerad | Databas arbets belastningar med höga prestanda som kräver minnes prestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel på detta är servrar för bearbetning av real tids data och högpresterande transaktionella eller analytiska appar.|
 
-När du har skapat en server kan antalet virtuella kärnor, maskinvarugenerering och prisnivå (förutom till och från Basic) ändras upp eller ned inom några sekunder. Du kan också självständigt justera mängden lagringsutrymme upp och lagringsperioden för säkerhetskopiering upp eller ned utan programstopp. Du kan inte ändra lagringstypen för säkerhetskopiering när en server har skapats. Mer information finns i avsnittet [Skala resurser.](#scale-resources)
+När du har skapat en server kan du ändra antalet virtuella kärnor, maskin varu generation och pris nivå (förutom till och från Basic) på några sekunder. Du kan också självständigt justera mängden lagrings utrymme och säkerhets kopierings perioden upp eller ned utan avbrott i programmet. Du kan inte ändra lagrings typen för säkerhets kopia när en server har skapats. Mer information finns i avsnittet [Scale Resources](#scale-resources) .
 
 ## <a name="compute-generations-and-vcores"></a>Beräkna generationer och virtuella kärnor
 
-Beräkningsresurser tillhandahålls som virtuella kärnor, som representerar den logiska processorn för den underliggande maskinvaran. China East 1, China North 1, US DoD Central och US DoD East använder Gen 4 logiska processorer som är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Alla andra regioner använder logiska gen 5-processorer som är baserade på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer.
+Beräknings resurser tillhandahålls som virtuella kärnor, som representerar den underliggande maskin varans logiska processor. Kina, östra 1, Kina, norra 1, US DoD, centrala och US DoD, östra använda generation 4 logiska processorer som baseras på Intel E5-2673 v3-processorer (Haswell) 2,4 GHz. Alla andra regioner använder generation 5 logiska processorer som baseras på Intel E5-2673 v4-processorer (Broadwell) 2,3 GHz.
 
 ## <a name="storage"></a>Storage
 
-Lagringen som du etablerar är den mängd lagringskapacitet som är tillgänglig för din Azure-databas för MySQL-server. Lagringen används för databasfiler, temporära filer, transaktionsloggar och MySQL-serverloggar. Den totala mängden lagringsutrymme som du etablerar definierar också den I/O-kapacitet som är tillgänglig för servern.
+Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är tillgänglig för din Azure Database for MySQL-server. Lagrings utrymmet används för databasfilerna, temporära filer, transaktions loggar och MySQL-server loggarna. Den totala mängden lagrings utrymme som du tillhandahåller definierar också den I/O-kapacitet som är tillgänglig för servern.
 
-|    | **Basic** | **Allmänt syfte** | **Minnesoptimerat** |
+|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Lagringstyp | Grundläggande lagring | Förvaring av allmänt ändamål | Förvaring av allmänt ändamål |
-| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
-| Storlek för lagringssteg | 1 GB | 1 GB | 1 GB |
+| Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
+| Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
+| Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 
 > [!NOTE]
-> Lagring upp till 16 TB och 20 000 IOPS stöds i följande regioner: Östra USA, Östra USA 2, Centrala USA, Västra USA, Norra centrala USA, Södra Centrala USA, Norra Europa, Västeuropa, Storbritannien syd, västra Storbritannien, Sydostasien, Östra Japan, Japan Väst, Västra Japan, Korea Central, Korea Syd- och Sydamerika öst, Australien sydost.
+> Det finns stöd för lagring upp till 16TB och 20 000 IOPS i följande regioner: östra USA, östra USA 2, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, västra Europa, Storbritannien, södra, Storbritannien, västra, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Australien, östra Australien.
 >
-> Alla andra regioner har stöd för upp till 4 TB lagringsutrymme och upp till 6 000 IOPS.
+> Alla andra regioner stöder upp till 4 TB lagring och upp till 6000 IOPS.
 >
 
-Du kan lägga till ytterligare lagringskapacitet under och efter att servern har skapats och tillåta att systemet växer lagring automatiskt baserat på lagringsförbrukningen för din arbetsbelastning. 
+Du kan lägga till ytterligare lagrings kapacitet under och efter att servern har skapats och göra det möjligt för systemet att växa lagring automatiskt baserat på lagrings förbrukningen för din arbets belastning. 
 
 >[!NOTE]
-> Lagring kan bara skalas upp, inte ner.
+> Lagringen kan bara skalas upp, inte nedåt.
 
-Basic-nivån ger ingen IOPS-garanti. I de allmänna nivåerna för ändamål och minnesoptimerade prisnivåer skalas IOPS-skalan med den etablerade lagringsstorleken i ett 3:1-förhållande.
+Basic-nivån ger ingen IOPS-garanti. På den Generell användning och minnesoptimerade pris nivån, skalar IOPS med den tillhandahållna lagrings storleken i ett 3:1-förhållande.
 
-Du kan övervaka din I/O-förbrukning i Azure-portalen eller med hjälp av Azure CLI-kommandon. De relevanta måtten som ska övervakas är [lagringsgräns, lagringsprocent, lagring som används och IO procent](concepts-monitoring.md).
+Du kan övervaka i/O-förbrukningen i Azure Portal eller genom att använda Azure CLI-kommandon. De relevanta måtten för övervakning är [lagrings gränser, lagrings utrymme, lagring och i/o procent](concepts-monitoring.md).
 
-### <a name="reaching-the-storage-limit"></a>Nå lagringsgränsen
+### <a name="reaching-the-storage-limit"></a>Nått lagrings gränsen
 
-Servrar med mindre än 100 GB etablerad lagring markeras endast med skrivskydd om det kostnadsfria lagringsutrymmet är mindre än 5 % av den etablerade lagringsstorleken. Servrar med mer än 100 GB allokerat lagringsutrymme markeras bara som skrivskyddade när det lediga lagringsutrymmet är mindre än 5 GB.
+Servrar med mindre än lika med 100 GB allokerat lagrings utrymme markeras som skrivskyddade om det lediga lagrings utrymmet är mindre än 5% av den allokerade lagrings storleken. Servrar med mer än 100 GB allokerat lagringsutrymme markeras bara som skrivskyddade när det lediga lagringsutrymmet är mindre än 5 GB.
 
-Om du till exempel har etablerat 110 GB lagringsutrymme och det faktiska utnyttjandet går över 105 GB markeras servern skrivskyddad. Alternativt, om du har etablerat 5 GB lagringsutrymme, markeras servern skrivskyddad när det kostnadsfria lagringsutrymmet når mindre än 256 MB.
+Om du till exempel har allokerat 110 GB lagrings utrymme och den faktiska användningen går över 105 GB, är servern markerad som skrivskyddad. Alternativt, om du har allokerat 5 GB lagring, markeras servern som skrivskyddad när den kostnads fria lagrings platsen når mindre än 256 MB.
 
 När tjänsten försöker göra så att servern blir skrivskyddad blockeras alla nya skrivtransaktionsbegäranden och befintliga aktiva transaktioner fortsätter att köras. När servern är i skrivskyddat läge misslyckas alla efterföljande skrivåtgärder och transaktioner. Läsfrågor fortsätter att fungera utan avbrott. När du har ökat lagringen är servern redo att acceptera skrivtransaktioner igen.
 
-Vi rekommenderar att du aktiverar automatisk lagringsförväxning eller ställer in en avisering för att meddela dig när serverlagringen närmar sig tröskelvärdet så att du kan undvika att hamna i skrivskyddat tillstånd. Mer information finns i dokumentationen om [hur du ställer in en avisering](howto-alert-on-metric.md).
+Vi rekommenderar att du aktiverar automatisk storleks ökning för lagring eller ställer in en avisering som meddelar dig när Server lagringen närmar sig tröskelvärdet, så att du kan undvika att komma in i skrivskyddat läge. Mer information finns i dokumentationen om [hur du konfigurerar en avisering](howto-alert-on-metric.md).
 
-### <a name="storage-auto-grow"></a>Lagring växer automatiskt
+### <a name="storage-auto-grow"></a>Utöka lagring automatiskt
 
-Lagring som växer automatiskt förhindrar att servern får på lagringsutrymme och blir skrivskyddad. Om automatisk lagring växer aktiveras, växer lagringen automatiskt utan att påverka arbetsbelastningen. För servrar med mindre än 100 GB etablerad lagring ökas den etablerade lagringsstorleken med 5 GB när det kostnadsfria lagringsutrymmet är lägre än 10 % av den etablerade lagringen. För servrar med mer än 100 GB etablerad lagring ökas den etablerade lagringsstorleken med 5 % när det lediga lagringsutrymmet är lägre än 10 GB av den etablerade lagringsstorleken. Maximala lagringsgränser enligt ovan gäller.
+Med automatisk storleks ökning i arkivet förhindrar du att servern kör lagrings utrymme och blir skrivskyddad. Om lagrings funktionen är aktive rad utökas lagringen automatiskt utan att arbets belastningen påverkas. För servrar med mindre än lika med 100 GB allokerat lagrings utrymme ökas den etablerade lagrings storleken med 5 GB när det lediga lagrings utrymmet är lägre än 10% av det allokerade lagrings utrymmet. För servrar som har mer än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5% när det lediga lagrings utrymmet är mindre än 10 GB av den allokerade lagrings storleken. De maximala lagrings gränserna som anges ovan gäller.
 
-Om du till exempel har etablerat 1000 GB lagringsutrymme och det faktiska utnyttjandet går över 990 GB, ökas serverlagringsstorleken till 1050 GB. Alternativt, om du har etablerat 10 GB lagringsutrymme, ökar lagringsstorleken till 15 GB när mindre än 1 GB lagringsutrymme är gratis.
+Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska användningen går över 990 GB, ökar server lagrings storleken till 1050 GB. Alternativt, om du har etablerad 10 GB lagrings utrymme, ökar lagrings storleken till 15 GB om mindre än 1 GB lagrings utrymme är kostnads fritt.
 
-Kom ihåg att lagring bara kan skalas upp, inte ner.
+Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
 ## <a name="backup"></a>Backup
 
-Tjänsten tar automatiskt säkerhetskopior av servern. Du kan välja en kvarhållningsperiod från intervallet 7 till 35 dagar. Allmänna servrar och minnesoptimerade servrar kan välja att ha geouppsagbar lagring för säkerhetskopior. Läs mer om säkerhetskopior i [begreppsartikeln](concepts-backup.md).
+Tjänsten tar automatiskt säkerhets kopior av servern. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering. Läs mer om säkerhets kopieringar i [artikeln begrepp](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Skala resurser
 
-När du har skapat servern kan du självständigt ändra virtuella kärnor, maskinvarugenerering, prisnivå (förutom till och från Basic), mängden lagringsutrymme och lagringsperioden för säkerhetskopiering. Du kan inte ändra lagringstypen för säkerhetskopiering när en server har skapats. Antalet virtuella kärnor kan skalas upp eller ned. Lagringsperioden för säkerhetskopiering kan skalas upp eller ned från 7 till 35 dagar. Lagringsstorleken kan bara ökas. Skalning av resurserna kan göras antingen via portalen eller Azure CLI. Ett exempel på skalning med hjälp av Azure CLI finns i [Övervaka och skala en Azure-databas för MySQL-server med hjälp av Azure CLI](scripts/sample-scale-server.md).
+När du har skapat din server kan du oberoende ändra virtuella kärnor, maskin varu genereringen, pris nivån (förutom till och från Basic), mängden lagring och kvarhållningsperioden för säkerhets kopior. Du kan inte ändra lagrings typen för säkerhets kopia när en server har skapats. Antalet virtuella kärnor kan skalas upp eller ned. Kvarhållningsperioden för säkerhets kopior kan skalas upp eller ned från 7 till 35 dagar. Det går bara att öka lagrings storleken. Skalning av resurserna kan göras via portalen eller Azure CLI. Ett exempel på skalning med hjälp av Azure CLI finns i [övervaka och skala en Azure Database for MySQL server med hjälp av Azure CLI](scripts/sample-scale-server.md).
 
-När du ändrar antalet virtuella kärnor, maskinvarugenerering eller prisnivå skapas en kopia av den ursprungliga servern med den nya beräkningsallokeringen. När den nya servern är igång växlar anslutningarna över till den nya servern. Under tiden då systemet växlar över till den nya servern kan inga nya anslutningar upprättas, och transaktioner som inte allokerats återställs. Hur lång tid detta tar varierar, men i de flesta fall tar det mindre än en minut.
+När du ändrar antalet virtuella kärnor, maskin varu genereringen eller pris nivån skapas en kopia av den ursprungliga servern med den nya beräknings allokeringen. När den nya servern är igång växlar anslutningarna över till den nya servern. Under tiden då systemet växlar över till den nya servern kan inga nya anslutningar upprättas, och transaktioner som inte allokerats återställs. Hur lång tid detta tar varierar, men i de flesta fall tar det mindre än en minut.
 
-Skalning av lagring och ändring av lagringsperioden för säkerhetskopiering är sanna onlineåtgärder. Det finns ingen driftstopp och ditt program påverkas inte. När IOPS skalar med storleken på den etablerade lagringen kan du öka IOPS som är tillgängligt för servern genom att utöka lagringen.
+Skalning av lagring och ändring av kvarhållning av säkerhets kopior är true online-åtgärder. Det finns ingen nedtid och ditt program påverkas inte. Som IOPS-skala med storleken på den allokerade lagringen kan du öka tillgängligheten för IOPS för servern genom att skala upp lagringen.
 
 ## <a name="pricing"></a>Prissättning
 
-Den senaste prisinformationen finns på sidan för [tjänstpriser](https://azure.microsoft.com/pricing/details/mysql/). Om du vill se kostnaden för den konfiguration du vill använda visar [Azure-portalen](https://portal.azure.com/#create/Microsoft.MySQLServer) månadskostnaden på fliken **Prisnivå** baserat på de alternativ du väljer. Om du inte har en Azure-prenumeration kan du använda Azure-priskalkylatorn för att få ett uppskattat pris. På [azure-priskalkylatorns](https://azure.microsoft.com/pricing/calculator/) webbplats väljer du **Lägg till objekt,** expanderar kategorin **Databaser** och väljer Azure Database **för MySQL för** att anpassa alternativen.
+Den senaste pris informationen finns på [sidan med pris](https://azure.microsoft.com/pricing/details/mysql/)information för tjänsten. Om du vill se kostnaden för den konfiguration du vill ha, visar [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer) månads kostnaden på fliken **pris nivå** baserat på de alternativ du väljer. Om du inte har någon Azure-prenumeration kan du använda pris Kalkylatorn för Azure för att få ett uppskattat pris. På webbplatsen för [Azures pris kalkylator](https://azure.microsoft.com/pricing/calculator/) väljer du **Lägg till objekt**, expanderar kategorin **databaser** och väljer **Azure Database for MySQL** för att anpassa alternativen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [skapar en MySQL-server i portalen](howto-create-manage-server-portal.md).
-- Läs mer om [servicegränser](concepts-limits.md).
-- Lär dig hur du [skalar ut med läsrepliker](howto-read-replicas-portal.md).
+- Läs mer om [tjänst begränsningar](concepts-limits.md).
+- Lär dig hur du [skalar ut med Läs repliker](howto-read-replicas-portal.md).

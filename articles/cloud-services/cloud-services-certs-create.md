@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811455"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024616"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certifikatöversikt för Azure Cloud Services
 Certifikat används i Azure för molntjänster[(tjänstcertifikat)](#what-are-service-certificates)och för att autentisera med[hanterings-API :et ( hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda certifikattyperna, hur du [skapar](#create) och distribuerar dem till Azure.
 
 Certifikat som används i Azure är x.509 v3-certifikat och kan signeras av ett annat betrott certifikat eller så kan de vara självsignerade. Ett självsignerat certifikat signeras av den egna skaparen, därför är det inte betrott som standard. De flesta webbläsare kan ignorera det här problemet. Du bör bara använda självsignerade certifikat när du utvecklar och testar dina molntjänster. 
 
-Certifikat som används av Azure kan innehålla en privat eller en offentlig nyckel. Certifikat har ett tumavtryck som ger ett sätt att identifiera dem på ett entydigt sätt. Det här tumavtrycket används i [Azure-konfigurationsfilen](cloud-services-configure-ssl-certificate-portal.md) för att identifiera vilket certifikat en molntjänst ska använda. 
+Certifikat som används av Azure kan innehålla en offentlig nyckel. Certifikat har ett tumavtryck som ger ett sätt att identifiera dem på ett entydigt sätt. Det här tumavtrycket används i [Azure-konfigurationsfilen](cloud-services-configure-ssl-certificate-portal.md) för att identifiera vilket certifikat en molntjänst ska använda. 
 
 >[!Note]
 >Azure Cloud Services accepterar inte AES256-SHA256 krypterat certifikat.
@@ -51,7 +51,7 @@ Det finns en gräns på 100 hanteringscertifikat per prenumeration. Det finns oc
 Du kan använda alla tillgängliga verktyg för att skapa ett självsignerat certifikat så länge de följer dessa inställningar:
 
 * Ett X.509-certifikat.
-* Innehåller en privat nyckel.
+* Innehåller en offentlig nyckel.
 * Skapad för nyckelutbyte (.pfx-fil).
 * Ämnesnamn måste matcha den domän som används för att komma åt molntjänsten.
 

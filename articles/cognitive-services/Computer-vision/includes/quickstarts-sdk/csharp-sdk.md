@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ce311d2deaf0eec76ef0dec3ea279a387d14fd22
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 522adc0f07f4ab21e391b952284dff97b089dccc
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81637136"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81791676"
 ---
 <a name="HOLTop"></a>
 
@@ -40,7 +40,7 @@ När du har fått en nyckel från utvärderingsprenumerationen eller resursen `C
 
 Skapa ett nytt .NET Core-program i önskad redigerare eller IDE. 
 
-I ett konsolfönster (till exempel cmd, PowerShell `dotnet new` eller Bash) använder du `computer-vision-quickstart`kommandot för att skapa en ny konsolapp med namnet . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda källfil: *Program.cs*.
+I ett konsolfönster (till exempel cmd, PowerShell `dotnet new` eller Bash) använder du `computer-vision-quickstart`kommandot för att skapa en ny konsolapp med namnet . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda källfil: *ComputerVisionQuickstart.cs*.
 
 ```console
 dotnet new console -n computer-vision-quickstart
@@ -62,13 +62,13 @@ Build succeeded.
 ...
 ```
 
-Öppna den *Program.cs* filen i önskad redigerare eller IDE från projektkatalogen. Lägg till `using` följande direktiv:
+Öppna den *ComputerVisionQuickstart.cs* filen i önskad redigerare eller IDE från projektkatalogen. Lägg till `using` följande direktiv:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_using)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
 
 Skapa variabler för resursens Azure-slutpunkt och -nyckel i programmets **programklass.**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_vars)]
 
 ### <a name="install-the-client-library"></a>Installera klientbiblioteket
 
@@ -105,11 +105,11 @@ Dessa kodavsnitt visar hur du utför följande uppgifter med klientbiblioteket C
 
 I en ny metod instansierar du en klient med slutpunkten och nyckeln. Skapa ett **[ApiKeyServiceClientCredentials-objekt](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials?view=azure-dotnet)** med nyckeln och använd det med slutpunkten för att skapa ett **[ComputerVisionClient-objekt.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet)**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_auth)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
 Du kommer förmodligen vill anropa `Main` den här metoden i metoden.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>Analysera en bild
 
@@ -117,22 +117,22 @@ Följande kod definierar en `AnalyzeImageUrl`metod, som använder klientobjektet
 
 Lägg till metodanropet i metoden. `Main`
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_analyzeinmain)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
 
 ### <a name="set-up-test-image"></a>Konfigurera testavbildning
 
 Spara en referens till webbadressen till den bild som du vill analysera i klassen **Program.**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_analyze_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_url)]
 
 > [!NOTE]
-> Du kan också analysera en lokal bild. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs) för scenarier med lokala avbildningar.
+> Du kan också analysera en lokal bild. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) för scenarier med lokala avbildningar.
 
 ### <a name="specify-visual-features"></a>Ange visuella funktioner
 
 Definiera din nya metod för bildanalys. Lägg till koden nedan, som anger visuella funktioner som du vill extrahera i analysen. Se **[VisualFeatureTypes-uppräkningen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)** för en fullständig lista.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_visualfeatures)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_visualfeatures)]
 
 Infoga något av följande kodblock i **metoden AnalyzeImageUrl** för att implementera deras funktioner. Kom ihåg att lägga till en avslutande hakparentes i slutet.
 
@@ -144,7 +144,7 @@ Infoga något av följande kodblock i **metoden AnalyzeImageUrl** för att imple
 
 **Metoden AnalyzeImageAsync** returnerar ett **ImageAnalysis-objekt** som innehåller all extraherad information.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_analyze_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_call)]
 
 Följande avsnitt visar hur du tolkar den här informationen i detalj.
 
@@ -152,49 +152,49 @@ Följande avsnitt visar hur du tolkar den här informationen i detalj.
 
 Följande kod hämtar listan över genererade bildtexter för bilden. Mer information finns i [Beskriv bilder.](../../concept-describing-images.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_describe)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_describe)]
 
 ### <a name="get-image-category"></a>Hämta bildkategori
 
 Följande kod får den identifierade kategorin av bilden. Mer information [finns i Kategorisera bilder.](../../concept-categorizing-images.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_categorize)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_categorize)]
 
 ### <a name="get-image-tags"></a>Hämta bildtaggar
 
 Följande kod hämtar uppsättningen identifierade taggar i bilden. Mer information [finns i Innehållstaggar.](../../concept-tagging-images.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_tags)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_tags)]
 
 ### <a name="detect-objects"></a>Upptäcka objekt
 
 Följande kod identifierar vanliga objekt i bilden och skriver ut dem på konsolen. Mer information [finns i Objektidentifiering.](../../concept-object-detection.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_objects)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_objects)]
 
 ### <a name="detect-brands"></a>Identifiera varumärken
 
 Följande kod identifierar företagets varumärken och logotyper i bilden och skriver ut dem på konsolen. Mer information [finns i Varumärkesidentifiering.](../../concept-brand-detection.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_brands)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Identifiera ansikten
 
 Följande kod returnerar de identifierade ytorna i bilden med sina rektangelkoordinater och väljer ansiktsattribut. Mer information finns i [Ansiktsigenkänning.](../../concept-detecting-faces.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_faces)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_faces)]
 
 ### <a name="detect-adult-racy-or-gory-content"></a>Identifiera innehåll för vuxna, racy eller blodiga
 
 Följande kod skriver ut den upptäckta förekomsten av sexuellt innehåll i bilden. Se [Vuxen, racy, blodiga innehåll](../../concept-detecting-adult-content.md) för mer information.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_adult)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_adult)]
 
 ### <a name="get-image-color-scheme"></a>Hämta bildfärgschema
 
 Följande kod skriver ut de identifierade färgattributen i bilden, till exempel de dominerande färgerna och accentfärgen. Se [Färgscheman](../../concept-detecting-color-schemes.md) för mer information.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_color)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_color)]
 
 ### <a name="get-domain-specific-content"></a>Hämta domänspecifikt innehåll
 
@@ -202,17 +202,17 @@ Computer Vision kan använda specialiserade modeller för att göra ytterligare 
 
 Följande kod tolkar data om identifierade kändisar i bilden.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_celebs)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_celebs)]
 
 Följande kod tolkar data om identifierade landmärken i bilden.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_landmarks)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_landmarks)]
 
 ### <a name="get-the-image-type"></a>Hämta bildtypen
 
 Följande kod skriver ut information om&mdash;vilken typ av bild det är ClipArt eller en linjeritning.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_type)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
 
 ## <a name="read-printed-and-handwritten-text"></a>Läsa tryckt och handskriven text
 
@@ -220,34 +220,34 @@ Computer Vision kan läsa synlig text i en bild och konvertera den till en tecke
 
 Lägg till metodanropet i metoden. `Main`
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extracttextinmain)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 ### <a name="set-up-test-image"></a>Konfigurera testavbildning
 
 Spara en referens till webbadressen till den bild som du vill extrahera text från i klassen **Program.**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extracttext_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
 
 > [!NOTE]
-> Du kan också extrahera text från en lokal bild. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs) för scenarier med lokala avbildningar.
+> Du kan också extrahera text från en lokal bild. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) för scenarier med lokala avbildningar.
 
 ### <a name="call-the-read-api"></a>Anropa läs-API:et
 
 Definiera den nya metoden för att läsa text. Lägg till koden nedan, som anropar **metoden BatchReadFileAsync** för den givna bilden. Detta returnerar ett åtgärds-ID och startar en asynkron process för att läsa bildens innehåll.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extract_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
 
 ### <a name="get-read-results"></a>Få läsresultat
 
 Hämta sedan åtgärds-ID:et som returneras från **BatchReadFileAsync-anropet** och använder det för att fråga tjänsten efter åtgärdsresultat. Följande kod kontrollerar åtgärden med en sekunds mellanrum tills resultaten returneras. Sedan skrivs de extraherade textdata ut till konsolen.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extract_response)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
 
 ### <a name="display-read-results"></a>Visa läsresultat
 
 Lägg till följande kod för att tolka och visa hämtade textdata och avsluta metoddefinitionen.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_extract_display)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_display)]
 
 ## <a name="run-the-application"></a>Köra appen
 
@@ -270,4 +270,4 @@ Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort 
 >[API-referens för datorseende (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
 * [Vad är visuellt innehåll?](../../Home.md)
-* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs).
+* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

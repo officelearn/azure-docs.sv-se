@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a39e1e19f65722b4b5ae809ca943da719a3c6e22
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314076"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869778"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -290,6 +290,9 @@ Använd följande instruktioner för att använda RTF-redigeraren:
 
 Kom ihåg att **spara** innan du går vidare till nästa avsnitt.
 
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
+
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare resurser för marknadsplatsnotering
 
 - [Metodtips för marknadsplatserbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
@@ -399,7 +402,7 @@ Välj den frekvens som kunderna måste betala det angivna priset. Minst ett mån
 
 - **Pris:** USD per månad eller USD per år
 
-Priserna som anges i lokal valuta (USD = US-dollar) konverteras till lokal valuta för alla valda marknader med hjälp av aktuella valutakurser som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera priskalkylbladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar och importerar du priskalkylbladet. Du är ansvarig för att validera denna prissättning och äger dessa inställningar.
+Priserna som anges i USD (USD = US-dollar) konverteras till lokal valuta för alla valda marknader med hjälp av aktuella valutakurser när de sparas. Validera dessa priser innan du publicerar genom att exportera priskalkylbladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar och importerar du priskalkylbladet. Du är ansvarig för att validera denna prissättning och äger dessa inställningar.
 *\*Du måste först spara dina prisändringar för att aktivera export av prisdata.*
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan har publicerats:

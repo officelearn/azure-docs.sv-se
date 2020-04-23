@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b9de6c2b8d9f7b11b686e820aab54fdd8e8a02f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67442845"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Självstudiekurs: Azure Active Directory-integrering med HR2day av Merces
 
@@ -163,7 +163,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med HR2day by Merces:
 Om du vill konfigurera enkel inloggning på **HR2day från Merces-sidan** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [HR2day av Merces supportteam](mailto:servicedesk@merces.nl). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!NOTE]
-> Nämn till Merces-teamet att den här integrationen **https://hr2day.force.com/INSTANCENAME**behöver ettentitets-ID som ska ställas in med mönstret .
+> Nämn merces-teamet att den här integrationen behöver entitets-ID:t med mönstret **\/https: /hr2day.force.com/INSTANCENAME**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

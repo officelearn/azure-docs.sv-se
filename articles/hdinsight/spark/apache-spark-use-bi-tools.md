@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
-ms.date: 03/02/2020
-ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/21/2020
+ms.openlocfilehash: dd0b4d1b0998bd4b13a17fb8345b87924bc27e1d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251956"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869977"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Självstudie: Analysera Apache Spark-data med Power BI i HDInsight
 
-I den här självstudien får du lära dig hur du använder [Microsoft Power BI](https://powerbi.microsoft.com/) för att visualisera data i ett Apache Spark-kluster i Azure [HDInsight](https://azure.microsoft.com/services/hdinsight/).
+I den här självstudien får du lära dig hur du använder Microsoft Power BI för att visualisera data i ett Apache Spark-kluster i Azure HDInsight.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Visualisera Spark-data med Power BI
 
@@ -70,9 +70,6 @@ I det här avsnittet använder du Power BI för att skapa visualiseringar, rappo
 ### <a name="create-a-report-in-power-bi-desktop"></a>Skapa en rapport i Power BI Desktop
 
 De första stegen i att arbeta med Spark är att ansluta till klustret i Power BI Desktop, läsa in data från klustret och skapa en grundläggande visualisering baserat på dessa data.
-
-> [!NOTE]  
-> Anslutningsprogrammet som visas i den här artikeln finns för närvarande i en förhandsversion. Ge feedback som du har på webbplatsen för [Power BI Community](https://community.powerbi.com/) eller [Power BI-idéer](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Öppna Power BI Desktop. Stäng startstänkskärmen om den öppnas.
 
@@ -180,7 +177,7 @@ Information om hur du tar bort ett kluster finns i [Ta bort ett HDInsight-kluste
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du använder [Microsoft Power BI](https://powerbi.microsoft.com/) för att visualisera data i ett Apache Spark-kluster i Azure [HDInsight](https://azure.microsoft.com/services/hdinsight/). Gå vidare till nästa artikel för att se att du kan skapa ett maskininlärningsprogram.
+I den här självstudien lärde du dig hur du använder Microsoft Power BI för att visualisera data i ett Apache Spark-kluster i Azure HDInsight. Gå vidare till nästa artikel för att se att du kan skapa ett maskininlärningsprogram.
 
 > [!div class="nextstepaction"]
 > [Skapa ett maskininlärningsprogram](./apache-spark-ipython-notebook-machine-learning.md)

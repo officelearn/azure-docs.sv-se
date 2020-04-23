@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906885"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024888"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -62,11 +62,11 @@ Visa dina säkerhetsprinciper i Security Center:
 
 1. Välj bland de tillgängliga alternativen på den här sidan:
 
-    1. Om du vill arbeta med branschpolicyer klickar du på **Lägg till fler standarder**. Mer information finns i [Uppdatera till dynamiska efterlevnadspaket](update-regulatory-compliance-packages.md).
+    1. Om du vill arbeta med branschpolicyer väljer du **Lägg till fler standarder**. Mer information finns i [Uppdatera till dynamiska efterlevnadspaket](update-regulatory-compliance-packages.md).
 
-    1. Om du vill tilldela och hantera anpassade initiativ klickar du på **Lägg till anpassade initiativ**. Mer information finns i [Använda anpassade säkerhetsprinciper](custom-security-policies.md).
+    1. Om du vill tilldela och hantera anpassade initiativ väljer du **Lägg till anpassade initiativ**. Mer information finns i [Använda anpassade säkerhetsprinciper](custom-security-policies.md).
 
-    1. Om du vill visa och redigera standardprincipen klickar du på **Visa effektiv princip** och fortsätter enligt beskrivningen nedan. 
+    1. Om du vill visa och redigera standardprincipen väljer du **Visa effektiv princip** och fortsätter enligt beskrivningen nedan. 
 
        ![skärmen princip](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ I Security Center används rollbaserad åtkomstkontroll, vilket innebär att det
 Om standardsäkerhetsprincipen genererar en rekommendation som inte är relevant för din miljö kan du stoppa den genom att inaktivera principdefinitionen som skickar rekommendationen.
 Mer information om rekommendationer finns i [Hantera säkerhetsrekommendationer](security-center-recommendations.md).
 
-1. Klicka på **Säkerhetsprincip**i avsnittet **Princip & efterlevnad** i Säkerhetscenter.
+1. Välj **Säkerhetsprincip**i avsnittet **Princip & i** Security Center .
 
    ![policyhantering](./media/tutorial-security-policy/policy-management.png)
 
-2. Klicka på den prenumeration eller hanteringsgrupp som du vill inaktivera rekommendationen för.
+2. Välj den prenumeration eller hanteringsgrupp som du vill inaktivera rekommendationen för.
 
    > [!NOTE]
    > Kom ihåg att en hanteringsgrupp tillämpar sina policyer på prenumerationerna i den. Om du inaktiverar en policy för en prenumeration och prenumerationen tillhör en hanteringsgrupp som fortfarande använder samma policy så fortsätter du att få tillhörande rekommendationer. Policyn tillämpas fortfarande från hanteringsnivån och rekommendationerna fortsätter att genereras.
 
-1. Klicka på **Visa effektiv princip**.
+1. Välj **Visa effektiv princip**.
 
    ![inaktivera princip](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Klicka på den tilldelade principen.
+1. Välj den tilldelade principen.
 
    ![inaktivera princip](./media/tutorial-security-policy/security-policy.png)
 
@@ -117,7 +117,7 @@ Mer information om rekommendationer finns i [Hantera säkerhetsrekommendationer]
 
    ![inaktivera princip](./media/tutorial-security-policy/disable-policy.png)
 
-1. Klicka på **Spara**.
+1. Välj **Spara**.
 
    > [!NOTE]
    > Ändringarna av inaktivera princip kan ta upp till 12 timmar att börja gälla.

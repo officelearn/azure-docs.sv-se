@@ -1,18 +1,18 @@
 ---
-title: Översikt över Azure Disk Storage för virtuella Windows-datorer
-description: Översikt över Azure-hanterade diskar, som hanterar lagringskonton för dig när du använder virtuella Azure Windows-datorer
+title: Översikt över Azure Disk Storage
+description: Översikt över Azure-hanterade diskar, som hanterar lagringskonton för dig när du använder virtuella Azure-datorer
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7b2c2c1289a40d63b2f396ee59000c3aedb14c3d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 689fc0b5dbf590dd7f2284091188bf96d12477ad
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75460039"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869999"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed Disks
 

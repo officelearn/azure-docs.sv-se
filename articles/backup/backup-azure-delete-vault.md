@@ -1,18 +1,18 @@
 ---
 title: Ta bort ett Microsoft Azure Recovery Services-valv
-description: I den här artikeln kan du läsa om hur du tar bort beroenden och sedan tar bort ett MARS-valv (Microsoft Azure Backup Recovery Services).
+description: I den här artikeln kan du läsa om hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69fed6c53914ed7aa16b04b5311ec69966734f25
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500404"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025143"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
-I den här artikeln beskrivs hur du tar bort ett [MARS-valv](backup-overview.md) (Microsoft Azure Backup Recovery Services). Den innehåller instruktioner för att ta bort beroenden och sedan ta bort ett valv.
+I den här artikeln beskrivs hur du tar bort ett [Azure Backup](backup-overview.md) Recovery Services-valv. Den innehåller instruktioner för att ta bort beroenden och sedan ta bort ett valv.
 
 ## <a name="before-you-start"></a>Innan du börjar
 

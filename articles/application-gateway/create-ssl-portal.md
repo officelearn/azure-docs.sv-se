@@ -5,20 +5,20 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 04/22/2019
 ms.author: victorh
-ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312379"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024501"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Självstudiekurs: Konfigurera en programgateway med TLS-avslutning med Azure-portalen
 
 Du kan använda Azure-portalen för att konfigurera en [programgateway](overview.md) med ett certifikat för TLS-avslutning som använder virtuella datorer för serverd-servrar.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
@@ -56,13 +56,11 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Använd [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med tumavtrycket som returnerades för att exportera en pfx-fil från certifikatet:
+Använd [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med tumavtrycket som returnerades för att exportera en pfx-fil från certifikatet. Se till att ditt lösenord är 4 - 12 tecken långt:
 
-> [!NOTE]
-> Använd inga specialtecken i pfx-fillösenordet. Endast alfanumeriska tecken stöds.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String <your password> -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +148,7 @@ På fliken **Konfiguration** ansluter du klientdels- och serverdelspoolen som du
 
    - **PFX-certifikatfil** - Bläddra till och välj filen c:\appgwcert.pfx som du skapar tidigare.
    - **Certifikatnamn** - Skriv *mycert1* för namnet på certifikatet.
-   - **Lösenord** - Skriv *Azure123456* för lösenordet.
+   - **Lösenord** - Skriv ditt lösenord.
   
         Acceptera standardvärdena för de andra inställningarna på fliken **Lyssnare** och välj sedan fliken **Serveringsmål** för att konfigurera resten av routningsregeln.
 
@@ -194,10 +192,10 @@ För att göra detta kommer du att:
     - **Resursgrupp**: Välj **myResourceGroupAG** för resursgruppsnamnet.
     - **Namn på virtuell dator:** Ange *myVM* för namnet på den virtuella datorn.
     - **Användarnamn**: Ange *azureuser* för administratörens användarnamn.
-    - **Lösenord**: Ange *Azure123456* för administratörslösenordet.
-4. Acceptera de andra standardinställningarna och välj sedan **Nästa: Diskar**.  
-5. Acceptera **standardvärdena för diskfliken** och välj sedan **Nästa: Nätverk**.
-6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Acceptera de andra standardinställningarna och välj sedan **Nästa: Hantering**.
+    - **Lösenord**: Ange ett lösenord för administratörskontot.
+1. Acceptera de andra standardinställningarna och välj sedan **Nästa: Diskar**.  
+2. Acceptera **standardvärdena för diskfliken** och välj sedan **Nästa: Nätverk**.
+3. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Acceptera de andra standardinställningarna och välj sedan **Nästa: Hantering**.
 
    Application Gateway kan kommunicera med instanser utanför det virtuella nätverket som den finns i, men du måste se till att det finns IP-anslutning.
 1. På fliken **Hantering** anger du **Startdiagnostik** till **Av**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.

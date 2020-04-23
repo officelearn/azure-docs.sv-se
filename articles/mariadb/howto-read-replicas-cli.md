@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: abf80e98881b73bed53c5a939a79bc8b3a9de2db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530588"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025058"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Så här skapar och hanterar du läsande repliker i Azure Database för MariaDB med Azure CLI- och REST API
 
@@ -45,9 +45,6 @@ Kommandot `az mariadb server replica create` kräver följande parametrar:
 | source-server | mydemoserver | Namnet eller ID:t för den befintliga huvudservern som ska replikeras från. |
 
 Om du vill skapa en `--location` läsreplik för korsområde använder du parametern. 
-
-> [!NOTE]
-> Replikering mellan regioner är i förhandsgranskning.
 
 CLI-exemplet nedan skapar repliken i västra USA.
 
@@ -113,7 +110,7 @@ Om du vill ta bort en huvudserver kan du köra kommandot **[az mariadb server de
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Du kan skapa och hantera läsande repliker med Hjälp av [Azure REST API](/rest/api/azure/).
 
 ### <a name="create-a-read-replica"></a>Skapa en läsreplik

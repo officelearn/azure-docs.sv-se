@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 10d5449cb77ea09f62db0a2f2bbdab6761646738
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ec62095f14b38d0c4ffebfabc14c4a0a27a70fb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295450"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869826"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Skapa ett nytt Dynamics 365 for Customer Engagement-& PowerApps-erbjudande
 
@@ -214,6 +214,9 @@ Du måste tillhandahålla minst ett (och upp till tre) relaterade marknadsförin
 ### <a name="marketplace-images"></a>Marketplace-bilder
 
 I det här avsnittet kan du ange logotyper och bilder som ska användas när du visar ditt erbjudande till kunden. Alla bilder måste vara i PNG-format.
+
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
 
 #### <a name="store-logos"></a>Lagra logotyper
 

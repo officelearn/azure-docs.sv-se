@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 828bdab26684b29d664ea42d0b36f475c7872a80
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309452"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868656"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft-identitetsplattform och OAuth 2.0 Lösenord för resursägare
 
@@ -50,8 +50,8 @@ ROPC-flödet är en enda begäran: det skickar klientidentifieringen och använd
 > [![Prova att köra den här begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
-```
-// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
+```HTTP
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,13 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Den katalogklient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan `common` `consumers`inte ställas in `organizations`på eller , men kan ställas in på . |
-| `client_id` | Krävs | Program-ID (klient) som [sidan Azure Portal - Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) har tilldelats din app. | 
+| `client_id` | Krävs | Program-ID (klient) som [sidan Azure Portal - Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) har tilldelats din app. |
 | `grant_type` | Krävs | Måste ställas `password`in på . |
 | `username` | Krävs | Användarens e-postadress. |
 | `password` | Krävs | Användarens lösenord. |
 | `scope` | Rekommenderas | En utrymmesavgränsad lista över [scope](v2-permissions-and-consent.md)eller behörigheter som appen kräver. I ett interaktivt flöde måste administratören eller användaren samtycka till dessa scope i förväg. |
-| `client_secret`| Ibland krävs | Om din app är en `client_secret` offentlig `client_assertion` klient, då eller inte kan inkluderas.  Om appen är en konfidentiell klient måste den inkluderas. | 
-| `client_assertion` | Ibland krävs | En annan `client_secret`form av , genereras med hjälp av ett certifikat.  Mer information finns i [certifikatuppgifter.](active-directory-certificate-credentials.md) | 
+| `client_secret`| Ibland krävs | Om din app är en `client_secret` offentlig `client_assertion` klient, då eller inte kan inkluderas.  Om appen är en konfidentiell klient måste den inkluderas. |
+| `client_assertion` | Ibland krävs | En annan `client_secret`form av , genereras med hjälp av ett certifikat.  Mer information finns i [certifikatuppgifter.](active-directory-certificate-credentials.md) |
 
 ### <a name="successful-authentication-response"></a>Lyckat autentiseringssvar
 

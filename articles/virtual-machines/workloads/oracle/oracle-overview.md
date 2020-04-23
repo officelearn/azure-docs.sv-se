@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
 ms.author: borisb
-ms.openlocfilehash: e6a2e7c646782f5ad874124e4a86809ed1d79eea
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c737189650d571fb62a770707e84ed15c5a37a57
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687402"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870504"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och lösningar på Azure
 
@@ -49,7 +49,7 @@ Kör företagsprogram i Azure på Oracle-operativsystem som stöds. Följande av
 
 * Använd [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) för att dirigera och hantera haveriberedskap för dina virtuella Oracle Linux-datorer i Azure och dina lokala eller fysiska servrar. 
 
-* Aktivera RAC (Oracle Real Application Clusters) i Azure med [Azure VMWare Solution](https://docs.azure.cloudsimple.com/oracle-rac/) eller [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Aktivera RAC (Oracle Real Application Clusters) i Azure med [Azure VMWare Solution](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) eller [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Arbetsbelastningar för Oracle säkerhetskopieras
 

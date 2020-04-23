@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770114"
+ms.locfileid: "82024633"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
@@ -33,9 +33,6 @@ Funktionen läsreplik använder asynkron replikering. Funktionen är inte avsedd
 
 ## <a name="cross-region-replication"></a>Replikering mellan regioner
 Du kan skapa en läsreplik i en annan region än huvudservern. Replikering mellan regioner kan vara till hjälp för scenarier som planering av haveriberedskap eller föra data närmare användarna.
-
-> [!NOTE]
-> Replikering mellan regioner är i förhandsgranskning.
 
 Du kan ha en huvudserver i valfri [Azure-databas för MariaDB-region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  En huvudserver kan ha en replik i den parade regionen eller de universella replikregionerna. Bilden nedan visar vilka replikområden som är tillgängliga beroende på huvudregionen.
 

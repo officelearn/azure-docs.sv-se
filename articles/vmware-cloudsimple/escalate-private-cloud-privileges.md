@@ -9,25 +9,25 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025324"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870474"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalera privata moln vCenter-privilegier från CloudSimple-portalen
 
 För administrativ åtkomst till ditt privata moln vCenter kan du tillfälligt eskalera dina CloudSimple-privilegier.  Med förhöjda privilegier kan du installera VMware-lösningar, lägga till identitetskällor och hantera användare.
 
-Nya användare kan skapas på vCenter SSO-domänen och få åtkomst till vCenter.  När du skapar nya användare lägger du till dem i CloudSimple-inbyggda grupper för åtkomst till vCenter.  Mer information finns i [CloudSimple Private Cloud-behörighetsmodellen för VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
+Nya användare kan skapas på vCenter SSO-domänen och få åtkomst till vCenter.  När du skapar nya användare lägger du till dem i CloudSimple-inbyggda grupper för åtkomst till vCenter.  Mer information finns i [CloudSimple Private Cloud-behörighetsmodellen för VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
 
 > [!CAUTION]
 > Gör inga konfigurationsändringar för hanteringskomponenter. Åtgärder som vidtas under det eskalerade privilegierade tillståndet kan påverka systemet negativt eller orsaka att systemet blir otillgängligt.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="escalate-privileges"></a>Eskalera privilegier
 
@@ -88,5 +88,5 @@ När dina administrativa uppgifter är slutförda bör du de-eskalera dina privi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera vCenter-identitetskällor för att använda Active Directory](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
-* Installera säkerhetskopieringslösning för att [arbetsbelastningsdatorer för säkerhetskopiering](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)
+* [Konfigurera vCenter-identitetskällor för att använda Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
+* Installera säkerhetskopieringslösning för att [arbetsbelastningsdatorer för säkerhetskopiering](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)

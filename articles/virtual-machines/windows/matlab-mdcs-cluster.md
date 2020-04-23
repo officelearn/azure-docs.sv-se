@@ -1,24 +1,19 @@
 ---
 title: MATLAB-kluster på virtuella datorer
 description: Använd virtuella Microsoft Azure-datorer för att skapa MATLAB Distributed Computing Server-kluster för att köra dina beräkningsintensiva parallella MATLAB-arbetsbelastningar
-services: virtual-machines-windows
-documentationcenter: ''
 author: mscurrell
-manager: gwallace
-editor: ''
-ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: Windows
+ms.subservice: workloads
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: a2fb2479f5544b869b51e796085fcb4d0b76121a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74038147"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869411"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Skapa MATLAB Distributed Computing Server-kluster på virtuella Azure-datorer
 Använd virtuella Microsoft Azure-datorer för att skapa ett eller flera MATLAB Distributed Computing Server-kluster för att köra dina beräkningsintensiva parallella MATLAB-arbetsbelastningar. Installera din MATLAB Distributed Computing Server programvara på en virtuell dator för att använda som en basavbildning och använda en Azure snabbstart mall eller Azure PowerShell-skript (tillgänglig på [GitHub)](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)för att distribuera och hantera klustret. Efter distributionen ansluter du till klustret för att köra dina arbetsbelastningar.
@@ -26,7 +21,7 @@ Använd virtuella Microsoft Azure-datorer för att skapa ett eller flera MATLAB 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Om MATLAB och MATLAB Distributed Computing Server
 [MATLAB-plattformen](https://www.mathworks.com/products/matlab/) är optimerad för att lösa tekniska och vetenskapliga problem. MATLAB-användare med storskaliga simuleringar och databehandlingsuppgifter kan använda MathWorks parallella datorsystem för att snabba upp sina beräkningsintensiva arbetsbelastningar genom att dra nytta av beräkningskluster och rutnätstjänster. [Med Toolbox](https://www.mathworks.com/products/parallel-computing/) för parallella datorer kan MATLAB-användare parallellisera program och dra nytta av processorer med flera kärnor, GPU:er och beräkningskluster. [MATLAB Distributed Computing Server](https://www.mathworks.com/products/distriben/) gör det möjligt för MATLAB-användare att använda många datorer i ett beräkningskluster.
 
-Genom att använda virtuella Azure-datorer kan du skapa MATLAB Distributed Computing Server-kluster som har alla samma mekanismer tillgängliga för att skicka parallellt arbete som lokala kluster, till exempel interaktiva jobb, batchjobb, oberoende uppgifter och kommunikation Uppgifter. Att använda Azure tillsammans med MATLAB-plattformen har många fördelar jämfört med etablering och användning av traditionell lokal maskinvara: en rad storlekar på virtuella datorer, skapande av kluster på begäran så att du bara betalar för de beräkningsresurser du använder och förmåga att testa modeller i stor skala.  
+Genom att använda virtuella Azure-datorer kan du skapa MATLAB Distributed Computing Server-kluster som har alla samma mekanismer tillgängliga för att skicka parallellt arbete som lokala kluster, till exempel interaktiva jobb, batchjobb, oberoende uppgifter och kommunikationsuppgifter. Att använda Azure tillsammans med MATLAB-plattformen har många fördelar jämfört med etablering och användning av traditionell lokal maskinvara: en rad storlekar på virtuella datorer, skapande av kluster på begäran så att du bara betalar för de beräkningsresurser du använder och möjligheten att testa modeller i stor skala.  
 
 ## <a name="prerequisites"></a>Krav
 * **Klientdator** – Du behöver en Windows-baserad klientdator för att kommunicera med Azure och MATLAB Distributed Computing Server-klustret efter distributionen.

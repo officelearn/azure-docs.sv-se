@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 5c28697b27e9cf910302b7379e1443f7e78e96b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: 20d8e46d6fa6b031c809d629a6af41e8e682bcef
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530622"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025092"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Så här skapar och hanterar du läsande repliker i Azure Database för MariaDB med Azure-portalen
 
@@ -45,9 +45,6 @@ En läsreplikserver kan skapas med hjälp av följande steg:
 6. Välj plats för replikservern. Standardplatsen är samma som huvudserverns.
 
     ![Azure-databas för MariaDB - Replikplats](./media/howto-read-replica-portal/replica-location.png)
-
-   > [!NOTE]
-   > Replikering mellan regioner är i förhandsgranskning. Mer information om vilka regioner du kan skapa en replik i finns i [artikeln läsreplikbegrepp](concepts-read-replicas.md). 
 
 7. Välj **OK** för att bekräfta att repliken skapas.
 

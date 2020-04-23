@@ -12,12 +12,12 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ebec4cb6bbbac5b331eb2eb4145716e16e7320fa
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 161f97dc99ce5ce16d7c40126b95a769c4b79621
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677690"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868321"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft identity-plattform och OpenID Connect-protokoll
 
@@ -38,6 +38,7 @@ OpenID Connect beskriver ett metadatadokument som innehåller det mesta av den i
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+
 > [!TIP]
 > Prova! Klicka [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) här `common` om du vill se klientkonfigurationen.
 
@@ -52,7 +53,7 @@ Kan `{tenant}` ta ett av fyra värden:
 
 Metadata är ett enkelt JavaScript Object Notation (JSON) dokument. Se följande kodavsnitt för ett exempel. Innehållet i kodavsnittet beskrivs fullständigt i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
-```
+```json
 {
   "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
   "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
@@ -84,7 +85,7 @@ När webbappen behöver autentisera användaren kan den `/authorize` dirigera an
 
 Ett exempel:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -123,7 +124,7 @@ När användaren har autentiserat och gett sitt samtycke returnerar slutpunkten 
 
 Ett lyckat svar `response_mode=form_post` när du använder ser ut så här:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -140,7 +141,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 Felsvar kan också skickas till omdirigera URI så att appen kan hantera dem. Ett felmeddelande ser ut så här:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -187,7 +188,7 @@ När du vill logga ut användaren från din app räcker det inte att rensa appen
 
 Du kan omdirigera användaren `end_session_endpoint` till listan i OpenID Connect-metadatadokumentet:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
@@ -211,7 +212,7 @@ Det fullständiga OpenID Connect-inloggnings- och tokeninhämtningsflödet ser u
 ## <a name="get-access-tokens"></a>Hämta åtkomsttoken
 Om du vill hämta åtkomsttoken ändrar du inloggningsbegäran:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -236,7 +237,7 @@ Genom att inkludera behörighetsscope i `response_type=id_token code`begäran oc
 
 Ett lyckat `response_mode=form_post` svar från att använda ser ut så här:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -254,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 Felsvar kan också skickas till omdirigera URI så att appen kan hantera dem på rätt sätt. Ett felmeddelande ser ut så här:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded

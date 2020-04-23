@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f0ea5b922b2c958aabf5be3a6123bb81a8f0234
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048510"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Självstudiekurs: Azure Active Directory-integrering med Jobscience
 
@@ -116,7 +116,7 @@ I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen och
     Skriv en URL i textrutan **Sign-on URL** med följande mönster:`http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Få det här värdet av [Jobscience Client supportteam](https://www.jobscience.com/support) eller från SSO-profilen du kommer att skapa som förklaras senare i handledningen. 
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Få det här värdet av [Jobscience Client supportteam](http://www.jobscience.com/support) eller från SSO-profilen du kommer att skapa som förklaras senare i handledningen. 
  
 1. Klicka på **Certifikat (Base64)** i avsnittet **SAML-signeringscertifikat** och spara sedan certifikatfilen på datorn.
 
@@ -134,7 +134,7 @@ I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen och
 
 1. Gå till **installationsprogrammet**.
    
-   ![Installation](./media/jobscience-tutorial/IC784358.png "Installation")
+   ![Setup](./media/jobscience-tutorial/IC784358.png "Setup")
 
 1. Klicka på **Domänhantering** i avsnittet **Administrera** i det vänstra navigeringsfönstret för att expandera det relaterade avsnittet och klicka sedan på **Min domän** för att öppna sidan **Min domän.** 
    
@@ -245,7 +245,7 @@ För att Azure AD-användare ska kunna logga in på Jobscience måste de etabler
 
 1. Gå till installationsprogrammet.
    
-   ![Installation](./media/jobscience-tutorial/ic784358.png "Installation")
+   ![Setup](./media/jobscience-tutorial/ic784358.png "Setup")
 1. Gå till **Hantera användare \> **.
    
    ![Användare](./media/jobscience-tutorial/ic784369.png "Användare")

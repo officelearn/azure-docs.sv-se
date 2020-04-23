@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7fb2bbcdd5f84e3637a108d0753566d3a9de7fd0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 89ae088b9cbb3bb3c593cfcbbfb4ce619baccfa8
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677750"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868414"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsofts identitetsplattform och implicita bidragsflöde
 
@@ -117,7 +117,7 @@ När användaren har autentiserat och gett sitt samtycke returnerar slutpunkten 
 
 Ett lyckat `response_mode=fragment` `response_type=id_token+token` svar med och ser ut som följande (med radbrytningar för läsbarhet):
 
-```
+```HTTP
 GET https://localhost/myapp/#
 &token_type=Bearer
 &expires_in=3599
@@ -138,7 +138,7 @@ GET https://localhost/myapp/#
 
 Felsvar kan också skickas `redirect_uri` till så att appen kan hantera dem på rätt sätt:
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -184,7 +184,7 @@ Tack vare `prompt=none` parametern kommer den här begäran antingen att lyckas 
 
 Ett lyckat `response_mode=fragment` svar med ser ut som:
 
-```
+```HTTP
 GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
@@ -206,7 +206,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 Felsvar kan också skickas `redirect_uri` till så att appen kan hantera dem på rätt sätt. När det `prompt=none`gäller , ett förväntat fel kommer att vara:
 
-```
+```HTTP
 GET https://localhost/myapp/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0941a6cdde5b60b71da6f58ea6b0fd2ccbb262
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d64307c4f91839c466b5f3f495cad8d7410ed364
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160958"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Självstudiekurs: Azure Active Directory-integrering med Splunk Enterprise och Splunk Cloud
 
@@ -113,7 +113,7 @@ Om du vill konfigurera Azure AD enkel inloggning med Splunk Enterprise och Splun
     c. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<splunkserver>/saml/acs`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [supportteamet för Splunk Enterprise och Splunk Cloud ](https://www.splunk.com/about-us/contact.html#tabs/customer-support) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [supportteamet för Splunk Enterprise och Splunk Cloud ](https://www.splunk.com/en_us/about-splunk/contact-us.html) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -121,7 +121,7 @@ Om du vill konfigurera Azure AD enkel inloggning med Splunk Enterprise och Splun
 
 ### <a name="configure-splunk-enterprise-and-splunk-cloud-single-sign-on"></a>Konfigurera enkel inloggning för Splunk Enterprise och Splunk Cloud
 
-Om du vill konfigurera enkel inloggning på **Splunk Enterprise och Splunk Cloud**-sidan måste du skicka den hämtade **Federation Metadata-XML:en** och lämpliga kopierade URL:er från Azure-portalen till [Splunk Enterprise- och Splunk Cloud-supportteamet](https://www.splunk.com/about-us/contact.html#tabs/customer-support). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Splunk Enterprise och Splunk Cloud**-sidan måste du skicka den hämtade **Federation Metadata-XML:en** och lämpliga kopierade URL:er från Azure-portalen till [Splunk Enterprise- och Splunk Cloud-supportteamet](https://www.splunk.com/en_us/about-splunk/contact-us.html). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -176,7 +176,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Skapa testanvändare för Splunk Enterprise och Splunk Cloud
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Splunk Enterprise och Splunk Cloud. Arbeta med [Splunk Enterprise- och Splunk Cloud-supportteamet](https://www.splunk.com/about-us/contact.html#tabs/customer-support) för att lägga till användare i Splunk Enterprise och Splunk Cloud-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Splunk Enterprise och Splunk Cloud. Arbeta med [Splunk Enterprise- och Splunk Cloud-supportteamet](https://www.splunk.com/en_us/about-splunk/contact-us.html) för att lägga till användare i Splunk Enterprise och Splunk Cloud-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

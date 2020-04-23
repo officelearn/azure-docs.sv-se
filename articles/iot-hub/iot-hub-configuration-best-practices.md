@@ -1,18 +1,18 @@
 ---
 title: Metodtips för enhetskonfiguration för Azure IoT Hub | Microsoft-dokument
 description: Lär dig mer om metodtips för att använda automatisk enhetshantering för att minimera repetitiva och komplexa uppgifter som är involverade i hanteringen av IoT-enheter i stor skala.
-author: Philmea
-ms.author: philmea
+author: robinsh
+ms.author: robinsh
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 99a9a2161cff4805d3181e54b88926d2d9b8daa6
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 67f0d9eb1fdac603ee82d568644e8ad8550d1c80
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770769"
+ms.locfileid: "82024786"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Metodtips för enhetskonfiguration i en IoT-lösning
 

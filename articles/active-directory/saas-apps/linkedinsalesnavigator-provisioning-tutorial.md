@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77057387"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869733"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera LinkedIn Sales Navigator för automatisk etablering av användare
 
@@ -53,7 +53,7 @@ Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vil
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Konfigurera användaretablering till LinkedIn Sales Navigator
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till LinkedIn Sales Navigators SCIM-användarkontotablering API och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i LinkedIn Sales Navigator baserat på användare och grupptilldelning i Azure AD.
+Det här avsnittet hjälper dig att ansluta din Azure AD till LinkedIn Sales Navigators SCIM-användarkontotablering API och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i LinkedIn Sales Navigator baserat på användar- och grupptilldelning i Azure AD.
 
 > [!TIP]
 > Du kan också välja att aktivera SAML-baserad enkel inloggning för LinkedIn Sales Navigator, enligt instruktionerna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
@@ -99,7 +99,7 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
 
 11. Fyll i följande fält under **Administratörsautentiseringsuppgifter:**
 
-    * Ange i fältet https://api.linkedin.com **Klient-URL.**
+    * Ange i fältet https://developer.linkedin.com **Klient-URL.**
 
     * I fältet **Hemlig token** anger du den åtkomsttoken som du skapade i steg 1 och klickar på **Testa anslutning** .
 

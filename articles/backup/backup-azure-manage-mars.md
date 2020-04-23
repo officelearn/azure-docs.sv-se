@@ -4,12 +4,12 @@ description: Lär dig hur du hanterar och övervakar SÄKERHETSKOPIERing av Micr
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537363"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025109"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhetskopiering av Microsoft Azure Recovery Services (MARS) Agent med hjälp av Azure Backup-tjänsten
 
@@ -79,8 +79,8 @@ Du kan lägga till undantagsregler för att hoppa över filer och mappar som du 
 
     ![Markera objekten](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> Var försiktig när du tar bort en volym helt från principen.  Om du behöver lägga till den igen, kommer det att behandlas som en ny volym. Nästa schemalagda säkerhetskopiering utför en inledande säkerhetskopiering (fullständig säkerhetskopiering) i stället för inkrementell säkerhetskopiering. Om du tillfälligt behöver ta bort och lägga till objekt senare rekommenderas att du använder Inställningar för **undantag** i stället för **Ta bort objekt** för att säkerställa inkrementell säkerhetskopiering i stället för fullständig säkerhetskopiering.
+    > [!NOTE]
+    > Var försiktig när du tar bort en volym helt från principen.  Om du behöver lägga till den igen, kommer det att behandlas som en ny volym. Nästa schemalagda säkerhetskopiering utför en inledande säkerhetskopiering (fullständig säkerhetskopiering) i stället för inkrementell säkerhetskopiering. Om du tillfälligt behöver ta bort och lägga till objekt senare rekommenderas att du använder Inställningar för **undantag** i stället för **Ta bort objekt** för att säkerställa inkrementell säkerhetskopiering i stället för fullständig säkerhetskopiering.
 
 2. Slutför de efterföljande stegen och klicka på **Slutför** för att slutföra åtgärden.
 
@@ -90,7 +90,7 @@ Det finns två sätt att sluta skydda säkerhetskopiering av filer och mappar:
 
 - **Stoppa skyddet och behåll säkerhetskopierade data**.
   - Det här alternativet stoppar alla framtida säkerhetskopieringsjobb från skydd.
-  - Azure Backup-tjänsten behåller alla befintliga återställningspunkter på obestämd tid. Återställningspunkter kontrolleras inte för utgångsdatum förrän skyddet har återupptagits.
+  - Azure Backup-tjänsten fortsätter att behålla alla befintliga återställningspunkter.  
   - Du kan återställa säkerhetskopierade data för oexpirerade återställningspunkter.
   - Om du bestämmer dig för att återuppta skyddet kan du använda alternativet *Aktivera schema för säkerhetskopiering.* Därefter skulle data lagras baserat på den nya bevarandeprincipen.
 - **Stoppa skyddet och ta bort säkerhetskopierade data**.
@@ -167,7 +167,6 @@ En lösenfras används för att kryptera och dekryptera data samtidigt som du s�
 
     ![Generera lösenfras.](./media/backup-azure-manage-mars/passphrase2.png)
 - Kontrollera att lösenfrasen sparas på ett säkert sätt på en annan plats (förutom källdatorn), helst i Azure Key Vault. Håll reda på alla lösenfraser om du har flera datorer som säkerhetskopieras med MARS-agenterna.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

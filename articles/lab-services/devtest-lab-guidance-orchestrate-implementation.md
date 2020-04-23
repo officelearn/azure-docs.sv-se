@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62127352"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025007"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Dirigera implementeringen av Azure DevTest Labs
 Den här artikeln innehåller en rekommenderad metod för snabb distribution och implementering av Azure DevTest Labs. Följande bild betonar den övergripande processen som normativ vägledning samtidigt som flexibiliteten iakttas för att stödja olika branschkrav och scenarier.
@@ -43,7 +43,7 @@ Det första fokusområdet när du distribuerar en Azure DevTest Labs-lösning ä
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Milstolpe 2: Distribuera pilotlabbet
 När nätverkstopologin är på plats kan det första/pilotlabbet skapas genom att vidta följande åtgärder:
 
-1. Skapa en första DevTest Labs-miljö (steg-för-steg-instruktioner finns [här)](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md)
+1. Skapa en första DevTest Labs-miljö.
 2. Bestäm tillåtna VM-avbildningar och storlekar för användning med labb. Bestäm om anpassade avbildningar kan överföras till Azure för användning med DevTest Labs.
 3. Säker åtkomst till labbet genom att skapa inledande rollbasåtkomstkontroller (RBAC) för labbet (labbägare och labbanvändare). Vi rekommenderar att du använder synkroniserade active directory-konton med Azure Active Directory för identitet med DevTest Labs.
 4. Konfigurera DevTest Labs så att principer som scheman, kostnadshantering, anspråksbara virtuella datorer, anpassade avbildningar eller formler används.

@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 6a4ae2932f8d294ecf71de0ae405204a1f4d7b4d
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/21/2020
+ms.openlocfilehash: cd6ba50cf81b93da887134e89d75313acb6bd936
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436950"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869864"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
-Om du vill analysera data i HDInsight-klustret kan du lagra data antingen i [Azure Storage,](../storage/common/storage-introduction.md) [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)eller en kombination. Med de här lagringsalternativen kan du på ett säkert sätt ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+Du kan lagra data i [Azure Storage,](../storage/common/storage-introduction.md) [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)eller [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Eller en kombination av dessa alternativ. Med de här lagringsalternativen kan du på ett säkert sätt ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
-Apache Hadoop stöder en uppfattning om standardfilsystemet. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under hdinsight-klustergenereringsprocessen kan du ange en blob-behållare i Azure Storage som standardfilsystem, eller med HDInsight 3.6 kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2 som standardfilsystem med några få undantag. För support av att använda Data Lake Storage Gen 1 som både standardlagring och länkad lagring finns i [Tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop stöder en uppfattning om standardfilsystemet. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under hdinsight-klusterskapandeprocessen kan du ange en blob-behållare i Azure Storage som standardfilsystem. Eller med HDInsight 3.6 kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2 som standardfilsystem med några få undantag. För support av att använda Data Lake Storage Gen 1 som både standardlagring och länkad lagring finns i [Tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
 I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-kluster. Mer information om hur Data Lake Storage Gen 1 fungerar med HDInsight-kluster finns i [Använda Azure Data Lake Storage med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-store.md). Mer information om hur du skapar ett HDInsight-kluster finns i [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -68,7 +68,7 @@ Exempel baseras på en [ssh-anslutning](./hdinsight-hadoop-linux-use-ssh-unix.md
 
 #### <a name="a-few-hdfs-commands"></a>Några hdfs-kommandon
 
-1. Skapa en enkel fil på lokal lagring.
+1. Skapa en fil på lokal lagring.
 
     ```bash
     touch testFile.txt
@@ -147,31 +147,30 @@ Information om hur du hämtar sökvägen med Ambari REST API finns i [Hämta sta
 
 ## <a name="blob-containers"></a>Blob-containrar
 
-Om du vill använda blobar måste du först skapa ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Som en del av detta anger du en Azure-region där lagringskontot ska skapas. Klustret och lagringskontot måste finnas i samma region. Hive-metabutiken SQL Server-databasen och Apache Oozie-metabutiken SQL Server-databasen måste också finnas i samma region.
+Om du vill använda blobar måste du först skapa ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Som en del av det här steget anger du en Azure-region där lagringskontot skapas. Klustret och lagringskontot måste finnas i samma region. Hive-metabutiken SQL Server-databasen och Apache Oozie-metabutiken SQL Server-databasen måste finnas i samma region.
 
-Oavsett var den finns tillhör varje blob som du skapar en container på ditt Azure Storage-konto. Den här containern kan vara en befintlig blob som skapats utanför HDInsight eller en container som skapats för ett HDInsight-kluster.
+Oavsett var den finns tillhör varje blob som du skapar en container på ditt Azure Storage-konto. Den här behållaren kan vara en befintlig blob som skapats utanför HDInsight. Eller så kan det vara en behållare som skapas för ett HDInsight-kluster.
 
-Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Låt inte flera HDInsight-kluster dela en standardblob-container. Detta kan skada jobbets historik. Vi rekommenderar att du använder en annan behållare för varje kluster och placerar delade data på ett länkat lagringskonto som anges i distributionen av alla relevanta kluster i stället för standardlagringskontot. Mer information om hur du konfigurerar länkade lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Du kan emellertid återanvända en standardcontainer för lagring när det ursprungliga HDInsight-klustret har tagits bort. För HBase-kluster kan du behålla HBase-tabellschemat och data genom att skapa ett nytt HBase-kluster med hjälp av standardblobbehållaren som används av ett HBase-kluster som har tagits bort.
+Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Låt inte flera HDInsight-kluster dela en standardblob-container. Den här åtgärden kan skada jobbhistoriken. Vi rekommenderar att du använder en annan behållare för varje kluster. Placera delade data på ett länkat lagringskonto som har angetts för alla relevanta kluster i stället för standardlagringskontot. Mer information om hur du konfigurerar länkade lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Du kan emellertid återanvända en standardcontainer för lagring när det ursprungliga HDInsight-klustret har tagits bort. För HBase-kluster kan du behålla HBase-tabellschemat och data genom att skapa ett nytt HBase-kluster med hjälp av standardblobbehållaren som används av ett borttaget HBase-kluster
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 ## <a name="use-additional-storage-accounts"></a>Använda ytterligare lagringskonton
 
-När du skapar ett HDInsight-kluster kan du ange ett Azure Storage-konto som du vill koppla det till. Förutom det här lagringskontot kan du lägga till ytterligare lagringskonton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapandeprocessen eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+När du skapar ett HDInsight-kluster kan du ange ett Azure Storage-konto som du vill koppla det till. Du kan också lägga till ytterligare lagringskonton från samma Azure-prenumeration eller olika Azure-prenumerationer under skapandeprocessen. Eller när ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > Du kan inte använda ett annat lagringskonto på en annan plats än HDInsight-klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln fick du lära dig hur du använder det HDFS-kompatibla Azure Storage med HDInsight. Du kan skapa skalbara, långsiktiga lösningar för arkivering av insamlade data samt HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.
+I den här artikeln fick du lära dig hur du använder det HDFS-kompatibla Azure Storage med HDInsight. Med den här lagringen kan du skapa anpassningsbara, långsiktiga, arkiveringslösningar för datainsamling och använda HDInsight för att låsa upp informationen i de lagrade strukturerade och ostrukturerade data.
 
 Mer information finns i:
 
 * [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Komma igång med Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Överföra data till HDInsight](hdinsight-upload-data.md)
-* [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
 * [Använda signaturer för delad åtkomst i Azure Storage för att begränsa åtkomsten till data med HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
 * [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-storage-gen2.md)
 * [Självstudiekurs: Extrahera, transformera och läsa in data med interaktiv fråga i Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

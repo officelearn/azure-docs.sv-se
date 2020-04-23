@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457186"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870561"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -655,7 +655,7 @@ Om alternativet [Klientcertifikat](../active-directory/authentication/active-dir
 
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Ja | **Klientcertifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas för TLS/SSL-klientcertifikat. Även om självsignerade certifikat stöds stöds inte självsignerade certifikat för TLS/SSL. |
+| **Autentisering** | `type` | Ja | **Klientcertifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas för TLS/SSL-klientcertifikat <p><p>**Även**om självsignerade certifikat stöds stöds inte självsignerade certifikat för TLS/SSL. HTTP-anslutningen stöder inte mellanliggande TLS/SSL-certifikat. |
 | **Pfx** | `pfx` | Ja | <*kodad-pfx-fil-innehåll*> | Det base64-kodade innehållet från en PFX-fil (Personal Information Exchange) <p><p>Om du vill konvertera PFX-filen till base64-kodat format kan du använda PowerShell genom att följa följande steg: <p>1. Spara certifikatinnehållet i en variabel: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Konvertera certifikatinnehållet `ToBase64String()` med hjälp av funktionen och spara innehållet i en textfil: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Lösenord** | `password`| Inga | <*lösenord-för-pfx-fil*> | Lösenordet för åtkomst till PFX-filen |
 |||||

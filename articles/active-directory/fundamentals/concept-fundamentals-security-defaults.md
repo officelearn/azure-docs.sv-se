@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78248849"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869903"
 ---
 # <a name="what-are-security-defaults"></a>Vad är standardvärden för säkerhet?
 
@@ -92,8 +92,6 @@ Att använda Azure Resource Manager för att hantera dina tjänster är en mycke
 Det är viktigt att verifiera identiteten för användare som vill komma åt Azure Resource Manager och uppdatera konfigurationer. Du verifierar deras identitet genom att kräva ytterligare autentisering innan du tillåter åtkomst.
 
 När du har aktiverat standardvärden för säkerhet i din klientorganisation måste alla användare som har åtkomst till Azure-portalen, Azure PowerShell eller Azure CLI slutföra ytterligare autentisering. Den här principen gäller för alla användare som har åtkomst till Azure Resource Manager, oavsett om de är administratör eller användare. 
-
-Om användaren inte är registrerad för multifaktorautentisering måste användaren registrera sig med hjälp av Microsoft Authenticator-appen för att kunna fortsätta. Ingen 14-dagars registreringsperiod för multifaktorautentisering kommer att tillhandahållas.
 
 > [!NOTE]
 > Exchange Online-klienter före 2017 har modern autentisering inaktiverad som standard. För att undvika möjligheten till en inloggningsloop när du autentiserar via dessa klienter måste du [aktivera modern autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).

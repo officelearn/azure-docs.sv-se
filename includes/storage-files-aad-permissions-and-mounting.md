@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e40171b95e6faae0020f8bf61410aad8999ddecb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 608c2619c19a2b5fa7e39c1ecb82be40ff4e83f4
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536545"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82072628"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Tilldela åtkomstbehörigheter till en identitet
 
@@ -87,15 +87,6 @@ Följande behörighetsgrupper stöds i rotkatalogen för en filresurs:
 - NT AUTHORITY\SYSTEM:(F)
 - SKAPARE ÄGARE:(OI)(CI)(IO)(F)
 
-### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurera NTFS-behörigheter med icacls
-Använd följande Windows-kommando för att ge alla kataloger och filer fullständiga behörigheter under filresursen, inklusive rotkatalogen. Kom ihåg att ersätta platshållarvärdena i exemplet med dina egna värden.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-Mer information om hur du använder icacls för att ange NTFS-behörigheter och om de olika typerna av behörigheter som stöds finns [i kommandoradsreferensen för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
-
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>Montera en filresurs från kommandotolken
 
 Använd kommandot Windows **net use** för att montera Azure-filresursen. Kom ihåg att ersätta platshållarvärdena i följande exempel med dina egna värden. Mer information om hur du monterar filresurser finns i [Använda en Azure-filresurs med Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
@@ -103,6 +94,7 @@ Använd kommandot Windows **net use** för att montera Azure-filresursen. Kom ih
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
+
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Konfigurera NTFS-behörigheter med Utforskaren
 Använd Utforskaren i Utforskaren för att ge fullständig behörighet till alla kataloger och filer under filresursen, inklusive rotkatalogen.
 
@@ -114,6 +106,15 @@ Använd Utforskaren i Utforskaren för att ge fullständig behörighet till alla
 7.    Välj **OK**.
 8.    På fliken **Säkerhet** väljer du alla behörigheter som du vill bevilja den nya användaren.
 9.    Välj **Använd**.
+
+### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurera NTFS-behörigheter med icacls
+Använd följande Windows-kommando för att ge alla kataloger och filer fullständiga behörigheter under filresursen, inklusive rotkatalogen. Kom ihåg att ersätta platshållarvärdena i exemplet med dina egna värden.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+Mer information om hur du använder icacls för att ange NTFS-behörigheter och om de olika typerna av behörigheter som stöds finns [i kommandoradsreferensen för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Montera en filresurs från en domänansluten virtuell dator
 

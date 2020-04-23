@@ -12,16 +12,16 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c9f633e0d205adaf5cefb2e3c036ce7f48253651
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886389"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868670"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Administratörsmedgivande på Microsofts identitetsplattform
 
-Vissa behörigheter kräver medgivande från en administratör innan de kan beviljas inom en klient.  Du kan också använda slutpunkten för administratörsgodkännande för att bevilja behörigheter till en hel klient.  
+Vissa behörigheter kräver medgivande från en administratör innan de kan beviljas inom en klient.  Du kan också använda slutpunkten för administratörsgodkännande för att bevilja behörigheter till en hel klient.
 
 ## <a name="recommended-sign-the-user-into-your-app"></a>Rekommenderas: Logga in användaren i appen
 
@@ -33,15 +33,15 @@ När du signerar användaren i din app kan du identifiera den organisation som a
 
 När du är redo att begära behörigheter från organisationens administratör kan du omdirigera användaren till *slutpunkten för administratör*för Microsoft-identitetsplattform.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-    GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-    &scope=
-    https://graph.microsoft.com/calendars.read 
-    https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -51,7 +51,7 @@ När du är redo att begära behörigheter från organisationens administratör 
 | `client_id` | Krävs | **Program-ID (klient)** som [Azure-portalen – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) erfarenhet som tilldelats din app. |
 | `redirect_uri` | Krävs |Omdirigerings-URI:n där du vill att svaret ska skickas för att appen ska hanteras. Den måste exakt matcha en av de omdirigerings-URI:er som du registrerade i appregistreringsportalen. |
 | `state` | Rekommenderas | Ett värde som ingår i begäran som också returneras i tokensvaret. Det kan vara en sträng av vilket innehåll du vill. Använd tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, till exempel sidan eller vyn som de var på. |
-|`scope`        | Krävs      | Definierar den uppsättning behörigheter som begärs av programmet. Detta kan vara antingen statiska (med /.default) eller dynamiska scope.  Detta kan inkludera OIDC-scope `profile` `email`(`openid`, , ). | 
+|`scope`        | Krävs      | Definierar den uppsättning behörigheter som begärs av programmet. Detta kan vara antingen statiska (med /.default) eller dynamiska scope.  Detta kan inkludera OIDC-scope `profile` `email`(`openid`, , ). |
 
 
 Nu kräver Azure AD att en klientadministratör loggar in för att slutföra begäran. Administratören uppmanas att godkänna alla behörigheter som `scope` du har begärt i parametern.  Om du har använt`/.default`ett statiskt ( ) värde fungerar det som slutpunkten v1.0 admin consent och begär medgivande för alla scope som finns i de behörigheter som krävs för appen.

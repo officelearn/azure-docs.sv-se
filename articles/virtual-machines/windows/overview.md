@@ -1,22 +1,19 @@
 ---
 title: Översikt över virtuella Windows-datorer i Azure
 description: Översikt över virtuella Windows-datorer i Azure.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: efcbdb2ebd7f4830214dbd0f2ea2ea1cfe36c3de
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e304841d09913aac59f5e6ba082d3e76ec791e81
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75893522"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869349"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Virtuella Windows-datorer i Azure
 
@@ -52,7 +49,7 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 | --- | --- |
 | Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| REST API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
+| REST-API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
 | Azure CLI |Använd åtgärden [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Tillgänglighet
@@ -108,7 +105,7 @@ Resurserna i den här tabellen används av den virtuella datorn och måste finna
 
 Skapa din första VM!
 
-- [Portal](quick-create-portal.md)
-- [Powershell](quick-create-powershell.md)
+- [Portalen](quick-create-portal.md)
+- [PowerShell](quick-create-powershell.md)
 - [Azure CLI](quick-create-cli.md)
 

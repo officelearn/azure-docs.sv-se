@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 195fa26a38d89d9ef738e6060ff7dab602d5c234
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 875114c53cb3193b1b140e95be19daf7fb6415a9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67095917"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Självstudiekurs: Azure Active Directory-integrering med Oneteam
 
@@ -118,7 +118,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Oneteam:
     Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<team name>.one-team.io/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Oneteam Client supportteam](https://support.one-team.com/hc/requests/new) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta Oneteam Client supportteam för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -136,7 +136,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Oneteam:
 
 ### <a name="configure-oneteam-single-sign-on"></a>Konfigurera Oneteam Enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **Oneteam-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Oneteam-supportteamet](https://support.one-team.com/hc/requests/new). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Oneteam-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till Oneteams supportteam. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -194,7 +194,7 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 I det här avsnittet skapas en användare som heter Britta Simon i Oneteam. Oneteam stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Oneteam skapas en ny efter autentisering.
 
 >[!NOTE]
->Om du behöver skapa en användare manuellt kan du höja supportbiljetten med [Oneteams supportteam](https://support.one-team.com/hc/requests/new).
+>Om du behöver skapa en användare manuellt kan du höja supportbiljetten med Oneteams supportteam.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

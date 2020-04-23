@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43fbc158c9ed0bbe87a75cd845433c7a7be2e6d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086641"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Självstudiekurs: Azure Active Directory-integrering med Workstars
 
@@ -110,7 +110,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Workstars:
     b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<subdomain>.workstars.com/saml/login_check`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [Workstars Client supportteam](https://support.workstars.com/) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [Workstars Client supportteam](http://support.workstars.com/) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -210,7 +210,7 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 ### <a name="create-workstars-test-user"></a>Skapa Workstars testanvändare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Workstars. Arbeta med Supportteamet för [Workstars](https://support.workstars.com) för att lägga till användarna på Workstars-plattformen.
+I det här avsnittet skapar du en användare som heter Britta Simon i Workstars. Arbeta med Supportteamet för [Workstars](http://support.workstars.com) för att lägga till användarna på Workstars-plattformen.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77016382"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024480"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Självstudiekurs: Skapa ett program för övervakning av vattenkvalitet i Azure IoT Central
 
@@ -58,7 +58,7 @@ I det här avsnittet använder du azure IoT Central **Water kvalitetsövervaknin
     * **URL**: Du kan ange vilken webbadress du vill eller ändra URL-värdet senare.
     * Om du har en Azure-prenumeration anger du värden för **Directory,** **Azure-prenumeration**och **Region**. Om du inte har en prenumeration kan du aktivera **7 dagars kostnadsfri utvärderingsversion** och slutföra den erforderliga kontaktinformationen.
 
-    Mer information om kataloger och prenumerationer finns i snabbstarten [Skapa ett program.](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+    Mer information om kataloger och prenumerationer finns i snabbstarten [Skapa ett program.](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 1. Välj knappen **Skapa** längst ned till vänster på sidan.
 

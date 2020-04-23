@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: b0efed83237c191f02bfffd9b26a0fd9cd2c871f
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 6ed0d743f9b9cdc136b8f52f4d9d02583fc63eb9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606581"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870185"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ansluta labbets nätverk med ett virtuellt peer-nätverk i Azure Lab Services
 
@@ -46,7 +46,7 @@ När det nya [labbkontot skapas](tutorial-setup-lab-account.md)kan du välja ett
 
 ### <a name="address-range"></a>Adressintervall
 
-Det finns också ett alternativ för att ange **adressintervall** för virtuella datorer för labben. Om adressintervallet anges skapas alla virtuella datorer i labben under labbkontot i det adressintervallet. Adressintervallet bör vara i CIDR-notation (t.ex. 10.20.0.0/20) och inte överlappa med några befintliga adressintervall.  När du anger ett adressintervall är det viktigt att tänka på antalet labb som ska *skapas* och tillhandahålla ett adressintervall för att hantera det. Lab Services förutsätter högst 512 virtuella datorer per labb.  Ett IP-intervall med '/23' kan till exempel bara skapa ett labb.  Ett intervall med en "/21" gör det möjligt att skapa fyra laboratorier.
+Det finns också ett alternativ för att ange **adressintervall** för virtuella datorer för labben.  Egenskapen **Adressintervall** gäller endast om **peer-virtuellt nätverk** är aktiverat för labbet.  Om adressintervallet anges skapas alla virtuella datorer i labben under labbkontot i det adressintervallet. Adressintervallet bör vara i CIDR-notation (t.ex. 10.20.0.0/20) och inte överlappa med några befintliga adressintervall.  När du anger ett adressintervall är det viktigt att tänka på antalet labb som ska *skapas* och tillhandahålla ett adressintervall för att hantera det. Lab Services förutsätter högst 512 virtuella datorer per labb.  Ett IP-intervall med '/23' kan till exempel bara skapa ett labb.  Ett intervall med en "/21" gör det möjligt att skapa fyra laboratorier.
 
 Om **adressintervallet** inte har angetts använder Lab Services det standardadressintervall som azure ger det när det virtuella nätverket skapas som ska peer-data med ditt virtuella nätverk.  Intervallet är ofta något i stil med 10.x.0.0/16.  Detta kan leda till överlappning av IP-intervall, så se till att antingen ange och adressintervall i labbinställningarna eller kontrollera adressintervallet för det virtuella nätverket som peer-data.
 

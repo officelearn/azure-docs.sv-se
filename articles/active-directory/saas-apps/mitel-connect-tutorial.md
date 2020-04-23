@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 26a761708f56ff7aba8daf86d2991579e60291cb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160533"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Självstudiekurs: Azure Active Directory-integrering med Mitel MiCloud Connect
 
@@ -202,7 +202,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda Azure enkel 
 
 I det här avsnittet skapar du en användare med namnet Britta Simon på ditt MiCloud Connect-konto. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-Mer information om hur du lägger till användare i Mitel-kontoportalen finns i artikeln [Lägga till en användare](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) i Mitel Knowledge Base.
+Mer information om hur du lägger till användare i Mitel-kontoportalen finns i artikeln [Lägga till en användare](https://oneview.mitel.com/s/article/Adding-a-User-092815) i Mitel Knowledge Base.
 
 Skapa en användare på ditt MiCloud Connect-konto med följande information:
 

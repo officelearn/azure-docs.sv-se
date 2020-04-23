@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: fcd80c052edf659f93f97800da3112c1f11309cc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677936"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868493"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft-identitetsplattform och OAuth 2.0-auktoriseringskodflöde
 
@@ -35,7 +35,7 @@ På en hög nivå ser hela autentiseringsflödet för ett inbyggt/mobilprogram l
 
 ## <a name="request-an-authorization-code"></a>Begär en auktoriseringskod
 
-Auktoriseringskodflödet börjar med att klienten dirigerar användaren till `/authorize` slutpunkten. I den här begäran `openid`begär `offline_access`klienten , och `https://graph.microsoft.com/mail.read `behörigheter från användaren.  Vissa behörigheter är administratörsbegränsade, till exempel att `Directory.ReadWrite.All`skriva data till en organisations katalog med hjälp av . Om ditt program begär åtkomst till någon av dessa behörigheter från en organisationsanvändare får användaren ett felmeddelande som säger att de inte har behörighet att godkänna appens behörigheter. Om du vill begära åtkomst till administratörsbegränsade scope bör du begära dem direkt från en företagsadministratör.  Mer information finns i [Administratörsbegränsade behörigheter](v2-permissions-and-consent.md#admin-restricted-permissions).
+Auktoriseringskodflödet börjar med att klienten dirigerar användaren till `/authorize` slutpunkten. I den här begäran `openid`begär `offline_access`klienten , och `https://graph.microsoft.com/mail.read ` behörigheter från användaren.  Vissa behörigheter är administratörsbegränsade, till exempel att `Directory.ReadWrite.All`skriva data till en organisations katalog med hjälp av . Om ditt program begär åtkomst till någon av dessa behörigheter från en organisationsanvändare får användaren ett felmeddelande som säger att de inte har behörighet att godkänna appens behörigheter. Om du vill begära åtkomst till administratörsbegränsade scope bör du begära dem direkt från en företagsadministratör.  Mer information finns i [Administratörsbegränsade behörigheter](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only
@@ -76,7 +76,7 @@ När användaren har autentiserat och gett sitt samtycke returnerar slutpunkten 
 
 Ett lyckat `response_mode=query` svar med ser ut som:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
@@ -91,7 +91,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 Felsvar kan också skickas `redirect_uri` till så att appen kan hantera dem på rätt sätt:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -122,7 +122,7 @@ I följande tabell beskrivs de olika felkoder `error` som kan returneras i param
 
 Nu när du har skaffat en authorization_code och har beviljats behörighet `code` av `access_token` användaren kan du lösa in för en till önskad resurs. Gör detta genom `POST` att `/token` skicka en begäran till slutpunkten:
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -221,7 +221,7 @@ Nu när du har förvärvat `access_token`en kan du använda token i begäranden 
 > [!TIP]
 > Kör denna begäran i Postman! (Byt `Authorization` ut sidhuvudet först) [Prova att köra den här begäran i Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -235,7 +235,7 @@ Uppdatera token har inte angivna livstider. Vanligtvis är livslängden för upp
 
 Även om uppdateringstoken inte återkallas när de används för att hämta nya åtkomsttoken, förväntas du ignorera den gamla uppdateringstoken. [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-6) säger: "Auktoriseringsservern kan utfärda en ny uppdateringstoken, i vilket fall klienten måste ignorera den gamla uppdateringstoken och ersätta den med den nya uppdateringstoken. Auktoriseringsservern KAN återkalla den gamla uppdateringstoken efter att ha utfärdat en ny uppdateringstoken till klienten."
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -276,6 +276,7 @@ Ett lyckat tokensvar kommer att se ut:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
+
 | Parameter     | Beskrivning         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | Den begärda åtkomsttoken. Appen kan använda den här token för att autentisera till den skyddade resursen, till exempel ett webb-API. |

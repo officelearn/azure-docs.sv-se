@@ -3,12 +3,12 @@ title: Beroendeanalys i Utvärdering av Azure Migrate Server
 description: Beskriver hur du använder beroendeanalys för utvärdering med Azure Migrate Server Assessment.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537754"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024769"
 ---
 # <a name="dependency-analysis"></a>Beroendeanalys
 
@@ -51,7 +51,7 @@ För agentbaserad analys använder Server Assessment [service map-lösningen](..
 
 ### <a name="collected-data"></a>Insamlade data
 
-För agentbaserad visualisering samlas följande data in:
+För agentbaserad analys samlas följande data in:
 
 - Källmaskinsservernamn, process, programnamn.
 - Målmaskinsserverns namn, process, programnamn och port.

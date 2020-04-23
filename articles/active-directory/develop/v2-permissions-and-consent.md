@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 26bfbcb4762d889b2c56276e66e4bf8e0acb64b2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677695"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868383"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i slutpunkten för Microsoft-identitetsplattform
 
@@ -97,7 +97,7 @@ Mer information om hur du hämtar och använder uppdateringstoken finns i [micro
 
 I en [OpenID Connect- eller OAuth 2.0-auktoriseringsbegäran](active-directory-v2-protocols.md) `scope` kan en app begära de behörigheter den behöver med hjälp av frågeparametern. När en användare till exempel loggar in på en app skickar appen en begäran som följande exempel (med radbrytningar tillagda för läsbarhet):
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
@@ -179,15 +179,15 @@ När du signerar användaren i din app kan du identifiera den organisation som a
 
 När du är redo att begära behörigheter från organisationens administratör kan du omdirigera användaren till *slutpunkten för administratör*för Microsoft-identitetsplattform.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-  GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-  &scope=
-  https://graph.microsoft.com/calendars.read
-  https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -206,7 +206,7 @@ Nu kräver Azure AD att en klientadministratör loggar in för att slutföra beg
 
 Om administratören godkänner behörigheterna för din app ser det lyckade svaret ut så här:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -220,7 +220,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 Om administratören inte godkänner behörigheterna för din app ser det misslyckade svaret ut så här:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -235,7 +235,7 @@ När du har fått ett lyckat svar från slutpunkten för administratörsmedgivan
 
 När användaren har medgivandet till behörigheter för din app kan appen hämta åtkomsttoken som representerar appens behörighet att komma åt en resurs i viss kapacitet. En åtkomsttoken kan endast användas för en enskild resurs, men kodad inuti åtkomsttoken är all behörighet som din app har beviljats för den resursen. Om du vill hämta en åtkomsttoken kan appen göra en begäran till slutpunkten för Microsoft identity platform-token, så här:
 
-```
+```HTTP
 POST common/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/json
@@ -287,7 +287,7 @@ I det här exemplet har användaren `mail.read` redan samtyckt till för kliente
 
 Ett specialfall `/.default` av omfånget finns `/.default` när en klient begär sitt eget scope. Följande exempel visar det här scenariot.
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?

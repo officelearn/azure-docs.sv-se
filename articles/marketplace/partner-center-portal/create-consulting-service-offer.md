@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873828"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869783"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsultserviceerbjudande
 
@@ -173,6 +173,9 @@ Lägg till upp till tre (men minst ett) stöddokument för ditt erbjudande.
 ### <a name="marketplace-images"></a>Marketplace-bilder
 
 Ange logotyper och bilder som du kan använda med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
+
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
 
 #### <a name="store-logos"></a>Lagra logotyper
 

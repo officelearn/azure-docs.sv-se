@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77016025"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868080"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimera ditt CloudSimple Private Cloud för att installera Oracle RAC
 
@@ -169,7 +169,7 @@ Så här distribuerar du ett vSphere-kluster i ditt privata moln:
 
 vSAN-principer definierar fel att tolerera och disk striping för data som lagras på VM-diskarna.  Lagringsprincipen som skapas måste tillämpas på VM-diskarna när den virtuella datorn skapas.
 
-1. [Logga in på vSphere-klienten](https://docs.azure.cloudsimple.com/vsphere-access) för ditt privata moln.
+1. [Logga in på vSphere-klienten](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) för ditt privata moln.
 2. Välj Principer och **profiler**på den övre menyn .
 3. Välj **VM-lagringsprinciper** på den vänstra menyn och välj sedan **Skapa en vm-lagringsprincip**.
 4. Ange ett meningsfullt namn för principen och klicka på **NÄSTA**.

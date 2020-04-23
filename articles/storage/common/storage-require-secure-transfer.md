@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457444"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870522"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Kräv säker överföring för att säkerställa säkra anslutningar
 
@@ -25,7 +25,7 @@ När säker överföring krävs måste ett anrop till en AZURE Storage REST API-
 
 Att ansluta till en Azure File-resurs över SMB utan kryptering misslyckas när säker överföring krävs för lagringskontot. Exempel på osäkra anslutningar är de som gjorts över SMB 2.1, SMB 3.0 utan kryptering, eller vissa versioner av Linux SMB-klienten.
 
-Som standard aktiveras egenskapen **Säker överföring** som krävs när du skapar ett lagringskonto i Azure-portalen. Den inaktiveras dock när du skapar ett lagringskonto med SDK.
+Som standard **aktiveras** egenskapen Säker överföring när du skapar ett lagringskonto.
 
 > [!NOTE]
 > Eftersom Azure Storage inte stöder HTTPS för anpassade domännamn tillämpas inte det här alternativet när du använder ett anpassat domännamn. Och klassiska lagringskonton stöds inte.
@@ -53,8 +53,8 @@ Du kan aktivera egenskapen **Säker överföring** när du skapar ett lagringsko
 
 Om du vill kräva säker överföring programmässigt anger du _egenskapenHttpsTrafficOnly_ på lagringskontot. Du kan ange den här egenskapen med hjälp av REST-API:ET för lagringsresursprovidern, klientbibliotek eller verktyg:
 
-* [REST API](/rest/api/storagerp/storageaccounts)
-* [Powershell](/powershell/module/az.storage/set-azstorageaccount)
+* [REST-API](/rest/api/storagerp/storageaccounts)
+* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
 * [CLI](/cli/azure/storage/account)
 * [Nodejs](https://www.npmjs.com/package/azure-arm-storage/)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)

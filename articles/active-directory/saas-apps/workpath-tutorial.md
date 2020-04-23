@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e9f22df8df77c3d59990d26b0f63f134f537d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c224f1e3b7ce53df9bfb24b0c9a9ac14f15996fe
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75561804"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867710"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workpath"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Workpath
 
@@ -96,7 +96,7 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<subdomain>.workpath.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta Supportteamet för [Workpath-klienten](https://help.workpath.com/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta Supportteamet för [Workpath-klienten](https://www.workpath.com/en/company/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Workpath-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
 
@@ -149,7 +149,7 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 ## <a name="configure-workpath-sso"></a>Konfigurera Workpath SSO
 
-Om du vill konfigurera enkel inloggning på **Workpath-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portal till [Workpath-supportteam](https://help.workpath.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Workpath-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portal till [Workpath-supportteam](https://www.workpath.com/en/company/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-workpath-test-user"></a>Skapa arbetsvägstestanvändare
 

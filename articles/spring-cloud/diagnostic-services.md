@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920050"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870396"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analysera loggar och mått med diagnostikinställningar
 
@@ -22,6 +22,9 @@ Med hjälp av diagnostikfunktionen i Azure Spring Cloud kan du analysera loggar 
 * Strömma loggar till din händelsehubb för inmatning av en tjänst från tredje part eller anpassad analyslösning.
 
 Välj den loggkategori och måttkategori som du vill övervaka.
+
+> [!TIP]
+> Vill du bara streama dina loggar? Kolla in det här [Azure CLI-kommandot!](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)
 
 ## <a name="logs"></a>Loggar
 

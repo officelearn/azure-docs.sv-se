@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473548"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868401"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklarkonton med Azure Active Directory i Azure API Management
 
@@ -38,7 +38,7 @@ I den här artikeln visas hur du aktiverar åtkomst till utvecklarportalen för 
 3. Skriv **api** i sökrutan.
 4. Välj **API Management-tjänster**.
 5. Välj API Management-tjänstinstansen.
-6. Under **Säkerhet**väljer du **Identiteter**.
+6. Under **Utvecklarportal**väljer du **Identiteter**.
 7. Välj **+Lägg till** högst upp.
 
     Fönstret **Lägg till identitetsprovider** visas till höger.

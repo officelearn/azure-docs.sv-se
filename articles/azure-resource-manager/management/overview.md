@@ -2,17 +2,17 @@
 title: Översikt
 description: Beskriver hur du använder Azure Resource Manager för distribution, hantering och åtkomstkontroll av resurser i Azure.
 ms.topic: overview
-ms.date: 03/25/2020
-ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/21/2020
+ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80258149"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870495"
 ---
 # <a name="what-is-azure-resource-manager"></a>Vad är Azure Resource Manager?
 
-Azure Resource Manager är Azures tjänst för distribution och hantering. Det ger ett hanteringslager som gör att du kan skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Du använder hanteringsfunktioner, till exempel åtkomstkontroll, lås och taggar, för att skydda och organisera dina resurser efter distributionen.
+Azure Resource Manager är Azures tjänst för distribution och hantering. Det ger ett hanteringslager som gör att du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Du använder hanteringsfunktioner, till exempel åtkomstkontroll, lås och taggar, för att skydda och organisera dina resurser efter distributionen.
 
 Mer information om Azure Resource Manager-mallar finns i [Översikt över malldistribution](../templates/overview.md).
 
@@ -30,10 +30,10 @@ Alla funktioner som är tillgängliga i portalen är även tillgängliga via Pow
 
 Om du inte har arbetat med Azure Resource Manager tidigare finns det några termer som kanske är nya för dig.
 
-* **resurs** – Ett hanterbart objekt som är tillgängligt via Azure. Virtuella datorer, lagringskonton, webbappar, databaser och virtuella nätverk är exempel på resurser.
+* **resurs** – Ett hanterbart objekt som är tillgängligt via Azure. Virtuella datorer, lagringskonton, webbappar, databaser och virtuella nätverk är exempel på resurser. Resursgrupper, prenumerationer, hanteringsgrupper och taggar är också exempel på resurser.
 * **resursgrupp** – En container som innehåller relaterade resurser för en Azure-lösning. En resursgrupp innehåller de resurser du vill hantera som en grupp. Du bestämmer vilka resurser som ska ingå i en resursgrupp baserat på vad som är bäst för organisationen. Mer information finns i [Resursgrupper](#resource-groups).
 * **resursprovider** – en tjänst som tillhandahåller Azure-resurser. En vanlig resursprovider är till exempel Microsoft.Compute, som tillhandahåller resursen för virtuella datorer. Microsoft.Storage är en annan vanlig resursprovider. Se [Resursleverantörer och -typer](resource-providers-and-types.md).
-* **Resource Manager-mall** – En JSON-fil (JavaScript Object Notation) som definierar en eller flera resurser som ska distribueras till en resursgrupp eller en prenumeration. Mallen kan användas för att distribuera resurserna på ett konsekvent sätt och upprepade gånger. Se [Översikt över malldistribution](../templates/overview.md).
+* **Resource Manager-mall** - En JSON-fil (JavaScript Object Notation) som definierar en eller flera resurser som ska distribueras till en resursgrupp, prenumeration, hanteringsgrupp eller klient. Mallen kan användas för att distribuera resurserna på ett konsekvent sätt och upprepade gånger. Se [Översikt över malldistribution](../templates/overview.md).
 * **deklarativ syntax** – Syntax som låter dig ange vad du vill skapa utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det. Resource Manager-mallen är ett exempel på deklarativ syntax. I filen definierar du egenskaperna för infrastrukturen som ska distribueras till Azure.  Se [Översikt över malldistribution](../templates/overview.md).
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Fördelarna med att använda Resource Manager
@@ -48,7 +48,7 @@ Med Resource Manager kan du:
 
 * Definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 
-* Använd åtkomstkontroll på alla tjänster i resursgruppen eftersom ROLLBaserad åtkomstkontroll (RBAC) är inbyggt integrerat i hanteringsplattformen.
+* Använd åtkomstkontroll på alla tjänster eftersom rollbaserad åtkomstkontroll (RBAC) är inbyggt integrerat i hanteringsplattformen.
 
 * Använd taggar på resurser för att logiskt ordna alla resurser i prenumerationen.
 
@@ -58,11 +58,11 @@ Med Resource Manager kan du:
 
 Azure innehåller fyra nivåer av omfattning: [hanteringsgrupper,](../../governance/management-groups/overview.md)prenumerationer, [resursgrupper](#resource-groups)och resurser. Följande bild visar ett exempel på dessa lager.
 
-![Omfång](./media/overview/scope-levels.png)
+![Ledningsnivåer](./media/overview/scope-levels.png)
 
 Du tillämpar hanteringsinställningar på vilken som helst av dessa omfångsnivåer. Den nivå nu väljer avgör hur brett inställningen tillämpas. Lägre nivåer ärver inställningar från högre nivåer. När du till exempel tillämpar en [princip](../../governance/policy/overview.md) på prenumerationen tillämpas principen på alla resursgrupper och resurser i prenumerationen. När du tillämpar en princip i resursgruppen tillämpas resursgruppen och alla dess resurser. En annan resursgrupp har dock inte den principtilldelningen.
 
-Du kan distribuera mallar till hanteringsgrupper, prenumerationer eller resursgrupper.
+Du kan distribuera mallar till klienter, hanteringsgrupper, prenumerationer eller resursgrupper.
 
 ## <a name="resource-groups"></a>Resursgrupper
 
@@ -71,6 +71,8 @@ Det finns några viktiga faktorer att tänka på när du definierar en resursgru
 * Alla resurserna i din grupp måste ha samma livscykel. Du distribuerar, uppdaterar och tar bort dem tillsammans. Om en resurs, till exempel en databasserver, behöver finnas i en annan distributionscykel ska den höra till en annan resursgrupp.
 
 * En enskild resurs kan bara finnas i en resursgrupp.
+
+* Vissa resurser kan finnas utanför en resursgrupp. Dessa resurser distribueras till [prenumerationen,](../templates/deploy-to-subscription.md) [hanteringsgruppen](../templates/deploy-to-management-group.md)eller [klienten](../templates/deploy-to-tenant.md). Endast specifika resurstyper stöds vid dessa scope.
 
 * Du kan lägga till eller ta bort en resurs i en resursgrupp när som helst.
 

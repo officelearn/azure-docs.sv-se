@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934153"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025041"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Distribuera på dedikerade värdar
 
@@ -37,7 +37,7 @@ Egenskapen `sku` kan ha något av följande värden:
 ## <a name="modify-your-json-deployment-template"></a>Ändra din JSON-distributionsmall
 
 Ändra eller lägg till följande egenskaper i distributionsmallen:
-* Under `resources`, `apiVersion` `2012-12-01`inställd på .
+* Under `resources`, `apiVersion` `2019-12-01`inställd på .
 * Lägg till en `sku` egenskap med värde `Dedicated`under egenskaperna för behållargrupp.
 
 Här är ett exempel utdrag för resursavsnittet i en distributionsmall för behållargrupp som använder den dedikerade sku:

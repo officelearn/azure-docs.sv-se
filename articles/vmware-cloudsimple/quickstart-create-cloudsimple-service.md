@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024440"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868022"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Snabbstart - Skapa Azure VMware-lösning via CloudSimple-tjänst
 
@@ -34,7 +34,7 @@ Granska [nätverksförutsättning .](cloudsimple-network-checklist.md)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-the-service"></a>Skapa tjänsten
 
@@ -87,4 +87,4 @@ Om du vill konfigurera betalningskapacitet för en CloudSimple Private Cloud-mil
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa privat moln och konfigurera miljö](quickstart-create-private-cloud.md)
-* Läs mer om [CloudSimple-tjänsten](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Läs mer om [CloudSimple-tjänsten](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81a8c5030f716246caf3dcd8b540bb47fcaf6520
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76718147"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023630"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatisera lägger till en labbanvändare i ett labb i Azure DevTest Labs
-Med Azure DevTest Labs kan du snabbt skapa självbetjäningsmiljöer för utvecklingstest med hjälp av Azure-portalen. Men om du har flera team och flera DevTest Labs-instanser kan det spara tid genom att automatisera skapandeprocessen. [Med Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) kan du skapa labb, virtuella labb-datorer, anpassade avbildningar, formler och lägga till användare på ett automatiserat sätt. Den här artikeln fokuserar specifikt på att lägga till användare i en DevTest Labs-instans.
+Med Azure DevTest Labs kan du snabbt skapa självbetjäningsmiljöer för utvecklingstest med hjälp av Azure-portalen. Men om du har flera team och flera DevTest Labs-instanser kan det spara tid genom att automatisera skapandeprocessen. [Med Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/Environments) kan du skapa labb, virtuella labb-datorer, anpassade avbildningar, formler och lägga till användare på ett automatiserat sätt. Den här artikeln fokuserar specifikt på att lägga till användare i en DevTest Labs-instans.
 
 Om du vill lägga till en användare i ett labb lägger du till användaren i användarrollen **DevTest Labs** för labbet. I den här artikeln beskrivs hur du automatiserar att lägga till en användare i ett labb på något av följande sätt:
 

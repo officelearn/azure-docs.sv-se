@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 48be73a6385c9690909cb70abe558a2def1ace88
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f557753c61af1e57490ae2d10b7f42475bd7c0a6
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730517"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870239"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referensguide till att använda funktioner i uttryck för Azure Logic Apps och Power Automate
 
@@ -82,11 +82,11 @@ Strängfunktioner fungerar bara på strängar.
 | [Concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Kombinera två eller flera strängar och returnera den kombinerade strängen. |
 | [slutarMed](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Kontrollera om en sträng slutar med den angivna delsträngen. |
 | [formatNummer](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Returnera ett tal som en sträng baserat på det angivna formatet |
-| [Guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. |
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Returnera startpositionen för en delsträng. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Returnera startpositionen för den sista förekomsten av en delsträng. |
 | [Ersätta](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätt en delsträng med den angivna strängen och returnera den uppdaterade strängen. |
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, från en större sträng baserat på ett angivet avgränsare i den ursprungliga strängen. |
+| [Split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, från en större sträng baserat på ett angivet avgränsare i den ursprungliga strängen. |
 | [börjarMed](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Kontrollera om en sträng börjar med en viss delsträng. |
 | [Delsträng](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. |
 | [toLower (TillLågare)](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Returnera en sträng i gemener format. |
@@ -151,7 +151,7 @@ Den fullständiga referensen för varje funktion finns i den [alfabetiska listan
 | [bas64TillBinär](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Returnera den binära versionen för en base64-kodad sträng. |
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Returnera strängversionen för en base64-kodad sträng. |
 | [Binära](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Returnera den binära versionen för ett indatavärde. |
-| [Bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Returnera den booleska versionen för ett indatavärde. |
+| [boolesk](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Returnera den booleska versionen för ett indatavärde. |
 | [skapaArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Returnera en matris från flera indata. |
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Returnera data-URI för ett indatavärde. |
 | [dataUriToBinär](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Returnera den binära versionen för en data-URI. |
@@ -163,7 +163,7 @@ Den fullständiga referensen för varje funktion finns i den [alfabetiska listan
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Returnera ett flyttalsnummer för ett indatavärde. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Returnera heltalsversionen för en sträng. |
 | [Json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Returnera typvärdet eller objektet för JavaScript-objekt (JSON) för en sträng eller XML. |
-| [Sträng](../logic-apps/workflow-definition-language-functions-reference.md#string) | Returnera strängversionen för ett indatavärde. |
+| [sträng](../logic-apps/workflow-definition-language-functions-reference.md#string) | Returnera strängversionen för ett indatavärde. |
 | [uriKompent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Returnera den URI-kodade versionen för ett indatavärde genom att ersätta URL-osäkra tecken med escape-tecken. |
 | [uriKompentTillbinären](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Returnera den binära versionen för en URI-kodad sträng. |
 | [uriKompent TillString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Returnera strängversionen för en URI-kodad sträng. |
@@ -1077,7 +1077,7 @@ Och returnerar detta resultat:
 
 <a name="bool"></a>
 
-### <a name="bool"></a>bool
+### <a name="bool"></a>boolesk
 
 Returnera den booleska versionen för ett värde.
 
@@ -2223,7 +2223,7 @@ Och returnera dessa resultat:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>Guid
+### <a name="guid"></a>guid
 
 Generera en globalt unik identifierare (GUID) som en sträng, till exempel "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 
@@ -2426,9 +2426,11 @@ iterationIndexes('<loopName>')
 
 *Exempel* 
 
-Det här exemplet skapar en räknarvariabel och ökar variabeln med en under varje iteration i en Till-slinga tills räknarvärdet når fem. Exemplet skapar också en variabel som spårar det aktuella indexet för varje iteration. I till-loopen, under varje iteration, ökar exemplet räknaren och tilldelar sedan räknarvärdet till det aktuella indexvärdet och ökar sedan räknaren. Du kan när som helst bestämma det aktuella iterationsnumret genom att hämta det aktuella indexvärdet.
+Det här exemplet skapar en räknarvariabel och ökar variabeln med en under varje iteration i en Till-slinga tills räknarvärdet når fem. Exemplet skapar också en variabel som spårar det aktuella indexet för varje iteration. I till-loopen, under varje iteration, ökar exemplet räknaren och tilldelar sedan räknarvärdet till det aktuella indexvärdet och ökar sedan räknaren. I loopen refererar det här exemplet till `iterationIndexes` det aktuella iterationsindexet med hjälp av funktionen:
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2459,7 +2461,7 @@ Det här exemplet skapar en räknarvariabel och ökar variabeln med en under var
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2472,6 +2474,15 @@ Det här exemplet skapar en räknarvariabel och ökar variabeln med en under var
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {

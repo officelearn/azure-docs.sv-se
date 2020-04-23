@@ -4,22 +4,22 @@ description: Lär dig hur du identifierar, diagnostiserar och felsöker Azure Co
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 04/20/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 852ed8c49eda7f13542eb0bad63d84e1cf770e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a8b61f3719a60af567d10f8839987e613babc9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131383"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870462"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsöka frågeproblem när du använder Azure Cosmos DB
 
 Den här artikeln går igenom en allmän rekommenderad metod för felsökning av frågor i Azure Cosmos DB. Även om du inte bör överväga de steg som beskrivs i den här artikeln ett fullständigt försvar mot potentiella frågeproblem, har vi inkluderat de vanligaste prestandatipsen här. Du bör använda den här artikeln som en startplats för felsökning av långsamma eller dyra frågor i Azure Cosmos DB core (SQL) API. Du kan också använda [diagnostikloggar](cosmosdb-monitor-resource-logs.md) för att identifiera frågor som är långsamma eller som förbrukar betydande mängder dataflöde.
 
-Du kan i stort sett kategorisera frågeoptimeringar i Azure Cosmos DB: 
+Du kan i stort sett kategorisera frågeoptimeringar i Azure Cosmos DB:
 
 - Optimeringar som minskar frågans avgift för begäranhet (RU)
 - Optimeringar som bara minskar svarstiden
@@ -28,19 +28,18 @@ Om du minskar RU-avgiften för en fråga minskar du nästan säkert svarstiden o
 
 Den här artikeln innehåller exempel som du kan återskapa med hjälp av [näringsdatauppsättningen.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
 
-## <a name="important"></a>Viktigt
+## <a name="common-sdk-issues"></a>Vanliga SDK-problem
 
 - För bästa prestanda, följ [prestandatipsen](performance-tips.md).
     > [!NOTE]
     > För bättre prestanda rekommenderar vi windows 64-bitars värdbearbetning. SQL SDK innehåller en inbyggd ServiceInterop.dll för att tolka och optimera frågor lokalt. ServiceInterop.dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds där ServiceInterop.dll inte är tillgängligt kommer ytterligare ett nätverksanrop att göras till gatewayen för att få den optimerade frågan.
-- Azure Cosmos DB-frågor stöder inte ett minsta antal objekt.
-    - Koden ska hantera valfri sidstorlek, från noll till maximalt artikelantal.
-    - Antalet objekt på en sida kan och ändras utan föregående meddelande.
-- Tomma sidor förväntas för frågor och kan visas när som helst.
-    - Tomma sidor visas i SDK:erna eftersom den exponeringen ger fler möjligheter att avbryta en fråga. Det gör det också klart att SDK gör flera nätverkssamtal.
-    - Tomma sidor kan visas i befintliga arbetsbelastningar eftersom en fysisk partition delas i Azure Cosmos DB. Den första partitionen har noll resultat, vilket orsakar den tomma sidan.
-    - Tomma sidor orsakas av att backend föregick en fråga eftersom frågan tar mer än en viss fast tid på backend för att hämta dokumenten. Om Azure Cosmos DB föregriper en fråga returneras en fortsättningstoken som gör att frågan kan fortsätta.
-- Var noga med att tömma frågan helt. Titta på SDK-exemplen `while` och `FeedIterator.HasMoreResults` använd en loop för att tömma hela frågan.
+- Du kan `MaxItemCount` ange en för dina frågor men du kan inte ange ett minsta antal objekt.
+    - Koden ska hantera valfri sidstorlek, `MaxItemCount`från noll till .
+    - Antalet objekt på en sida kommer alltid att `MaxItemCount`vara mindre än det angivna . Men `MaxItemCount` är strikt ett maximum och det kan finnas färre resultat än detta belopp.
+- Ibland kan frågor ha tomma sidor även när det finns resultat på en framtida sida. Orsaker till detta kan vara:
+    - SDK kan göra flera nätverkssamtal.
+    - Frågan kan ta lång tid att hämta dokumenten.
+- Alla frågor har en fortsättningstoken som gör att frågan kan fortsätta. Var noga med att tömma frågan helt. Titta på SDK-exemplen `while` och `FeedIterator.HasMoreResults` använd en loop för att tömma hela frågan.
 
 ## <a name="get-query-metrics"></a>Hämta frågemått
 
@@ -61,6 +60,8 @@ Se följande avsnitt för att förstå relevanta frågeoptimeringar för ditt sc
 - [Inkludera nödvändiga sökvägar i indexeringsprincipen.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Förstå vilka systemfunktioner som använder indexet.](#understand-which-system-functions-use-the-index)
+
+- [Förstå vilka aggregerade frågor som använder indexet.](#understand-which-aggregate-queries-use-the-index)
 
 - [Ändra frågor som har både ett filter och en ORDER BY-sats.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
@@ -190,7 +191,7 @@ Du kan lägga till egenskaper i indexeringsprincipen när som helst, utan att p�
 
 Om ett uttryck kan översättas till ett intervall med strängvärden kan det använda indexet. Annars kan det inte.
 
-Här är listan över strängfunktioner som kan använda indexet:
+Här är listan över några vanliga strängfunktioner som kan använda indexet:
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
@@ -207,6 +208,50 @@ Följande är några vanliga systemfunktioner som inte använder indexet och må
 ------
 
 Andra delar av frågan kan fortfarande använda indexet även om systemfunktionerna inte gör det.
+
+### <a name="understand-which-aggregate-queries-use-the-index"></a>Förstå vilka aggregerade frågor som använder indexet
+
+I de flesta fall använder aggregerade systemfunktioner i Azure Cosmos DB indexet. Beroende på filter eller ytterligare satser i en aggregerad fråga kan frågemotorn dock behövas för att läsa in ett stort antal dokument. Frågemotorn tillämpar vanligtvis likhets- och intervallfilter först. När du har använt dessa filter kan frågemotorn utvärdera ytterligare filter och tillgripa inläsning av återstående dokument för att beräkna aggregationen om det behövs.
+
+Med tanke på dessa två exempelfrågor blir frågan `CONTAINS` med både likhets- och systemfunktionsfilter `CONTAINS` i allmänhet effektivare än en fråga med bara ett systemfunktionsfilter. Detta beror på att likhetsfiltret används först och använder indexet `CONTAINS` innan dokument behöver läsas in för det dyrare filtret.
+
+Fråga med `CONTAINS` endast filter - högre RU avgift:
+
+```sql
+SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+Fråga med både `CONTAINS` likhetsfilter och filter - lägre RU-laddning:
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+```
+
+Här är ytterligare exempel på aggregerade frågor som inte helt kommer att använda indexet:
+
+#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>Frågor med systemfunktioner som inte använder indexet
+
+Du bör läsa den relevanta [systemfunktionens sida](sql-query-system-functions.md) för att se om den använder indexet.
+
+```sql
+SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Aggregera frågor med användardefinierade funktioner(UDF)
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+```
+
+#### <a name="queries-with-group-by"></a>Frågor med GROUP BY
+
+RU-laddningen `GROUP BY` av kommer att öka i `GROUP BY` takt med att kardinaliteten hos egenskaperna i klausulen ökar. I det här exemplet måste frågemotorn `c.foodGroup = "Sausages and Luncheon Meats"` läsa in alla dokument som matchar filtret så att RU-laddningen förväntas vara hög.
+
+```sql
+SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+```
+
+Om du planerar att köra samma mängdfrågor ofta kan det vara mer effektivt att skapa en materialiserad vy i realtid med [Azure Cosmos DB-ändringsflödet](change-feed.md) än att köra enskilda frågor.
 
 ### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Ändra frågor som har både ett filter och en ORDER BY-sats
 

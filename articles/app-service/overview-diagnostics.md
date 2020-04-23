@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671640"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869950"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Översikt över Diagnostik i Azure App Service
 
@@ -31,6 +31,10 @@ För Azure Functions navigerar du till din funktionsapp och i den övre navigeri
 På startsidan för App Service-diagnostik kan du välja den kategori som bäst beskriver problemet med din app med hjälp av sökorden på varje startsida. Den här sidan hittar du även **diagnostikverktyg** för Windows-appar. Se [Diagnostikverktyg (endast för Windows-app)](#diagnostic-tools-only-for-windows-app).
 
 ![Startsida](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> Om appen är nere eller går långsamt kan du [samla in en profileringsspårning](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) för att identifiera orsaken till problemet. Profilering är låg vikt och är utformad för produktionsscenarier.
+>
 
 ## <a name="interactive-interface"></a>Interaktivt gränssnitt
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c4cb553ee7edc92b5cb3d319631a985de476b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 15b31bf14b01a215d99814ce57eb9cd5f2cb2773
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159300"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Självstudiekurs: Azure Active Directory-integrering med CS Stars
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [CS Stars-klientsupporten](http://www.riskonnectclearsight.com/support/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [CS Stars-klientsupporten](https://riskonnect.com/support/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -129,7 +129,7 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
 
 ### <a name="configure-cs-stars-single-sign-on"></a>Konfigurera enkel inloggning för CS Stars
 
-För att konfigurera enkel inloggning på **CS Stars**-sidan måste du skicka den nedladdade **XML:en med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [CS Stars-supportteamet](http://www.riskonnectclearsight.com/support/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **CS Stars**-sidan måste du skicka den nedladdade **XML:en med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [CS Stars-supportteamet](https://riskonnect.com/support/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -184,7 +184,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-cs-stars-test-user"></a>Skapa en testanvändare för CS Stars
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i CS Stars. Arbeta med [CS Stars-supportteamet](http://www.riskonnectclearsight.com/support/) när du lägger till användare till CS Stars-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i CS Stars. Arbeta med [CS Stars-supportteamet](https://riskonnect.com/support/) när du lägger till användare till CS Stars-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

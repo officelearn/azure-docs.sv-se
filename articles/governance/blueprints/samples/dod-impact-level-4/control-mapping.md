@@ -3,12 +3,12 @@ title: Provkontroller för DoD Impact Level 4-skiss
 description: Kontrollera mappningen av skissexemplet DoD Impact Level 4. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärdering.
 ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 001c838ed6a19269a6abbcebd59ee2e344b6a296
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a11a8637618bb42831ccf1a7001e4da40529ba74
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79415401"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024837"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Kontrollkartläggning av ritningsprovet dod impact level 4
 
@@ -18,7 +18,7 @@ Följande mappningar är till **Kontrollerna för DoD-påverkansnivå 4.** Anvä
 
 > [!IMPORTANT]
 > Varje kontroll nedan är associerad med en eller flera [Azure-principdefinitioner.](../../../policy/overview.md) Dessa policyer kan hjälpa dig att [bedöma efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta inte en 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan refererar **kompatibel** i Azure-princip endast till principerna själva. Detta säkerställer inte att du är helt kompatibel med alla krav på en kontroll. Dessutom innehåller efterlevnadsstandarden kontroller som inte åtgärdas av några Azure-principdefinitioner just nu. Därför är efterlevnad i Azure Policy bara en partiell bild av din övergripande efterlevnadsstatus. Associationerna mellan kontroller och Azure-principdefinitioner för det härmplet för efterlevnadsritning kan ändras med tiden.
-> Om du vill visa ändringshistoriken läser du [GitHub Commit-historiken](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/DoDIL4/control-mapping.md).
+> Om du vill visa ändringshistoriken läser du [GitHub Commit-historiken](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
 
 ## <a name="ac-2-account-management"></a>AC-2 Kontohantering
 
@@ -427,8 +427,8 @@ Nu när du har granskat kontrollmappningen av DoD Impact Level 4-skissen kan du 
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Läs mer om [skisslivscykeln](../../concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
-- Lär dig att anpassa [ordningsföljden för skisssekvensering](../../concepts/sequencing-order.md).
-- Ta reda på hur du använder [skiss resurs låsning](../../concepts/resource-locking.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../../how-to/update-existing-assignments.md).

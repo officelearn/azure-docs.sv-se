@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1dbc08e01b9a36b1bc80ee6b81ceb2d92ff831cc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273723"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870218"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
 
@@ -445,7 +445,7 @@ Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer 
 
     Uppdatera administratörsautentiseringsuppgifterna direkt i skalningsuppsättningsmodellen (till exempel med hjälp av Azure Resource Explorer, PowerShell eller CLI). När skalningsuppsättningen har uppdaterats har alla nya virtuella datorer de nya autentiseringsuppgifterna. Befintliga virtuella datorer har bara de nya autentiseringsuppgifterna om de är omgjorda.
 
-- Återställ lösenordet med hjälp av vm-åtkomsttilläggen.
+- Återställ lösenordet med hjälp av vm-åtkomsttilläggen. Se till att följa lösenordskraven som beskrivs [här](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Använd följande PowerShell-exempel:
 

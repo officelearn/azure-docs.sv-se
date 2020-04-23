@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 159b38962fe91cedfc8d313bef943dbc74e9974e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
-ms.translationtype: MT
+ms.openlocfilehash: e8c4e1fcca347ad2783238c0f5ec4fe407849d3b
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520240"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024544"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Skapa en statisk HTML-webbapp i Azure
 
@@ -42,16 +42,12 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
-
-Ersätt <app_name> med ett unikt programnamn i följande exempel.
+Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot. Ersätt <app_name> med ett unikt programnamn i följande exempel. Statiskt innehåll indikeras `--html` av flaggan.
 
 ```bash
 cd html-docs-hello-world
-```
 
-```azurecli
-az webapp up --location westeurope --name <app_name> 
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 Kommandot `az webapp up` utför följande åtgärder:
@@ -102,7 +98,7 @@ Spara dina ändringar och avsluta nano. Använd kommandot `^O` för att spara oc
 
 Du kan nu distribuera appen med samma `az webapp up`-kommando.
 
-```azurecli
+```bash
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -130,7 +126,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
 I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort resursgruppen genom att köra följande kommando i Cloud Shell. Kom ihåg att resursgruppens namn har genererats automatiskt för dig i steget [skapa en webbapp](#create-a-web-app).
 
-```azurecli
+```bash
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

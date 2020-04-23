@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f625f5df4f33c6516bd5c50f97c52404d76757a0
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392564"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024463"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Azure AD-inloggning
 
@@ -100,7 +100,7 @@ Utför följande steg:
     |Field|Beskrivning|
     |-|-|
     |Klientorganisations-ID| Använd **program-ID:t (klient)för** appregistreringen. |
-    |Url till utfärdare| Använd `https://login.microsoftonline.com/<tenant-id>/v2.0`och ersätt * \<klient-ID>* med **katalog-ID (klient)** för appregistreringen. Det här värdet används för att omdirigera användare till rätt Azure AD-klientorganisation, samt för att hämta lämpliga metadata för att fastställa lämpliga tokensigneringsnycklar och tokenutfärdare anspråksvärde till exempel. Avsnittet `/v2.0` kan utelämnas för program som använder AAD v1. |
+    |Url till utfärdare| Använd `<authentication-endpoint>/<tenant-id>/v2.0`och ersätt * \<autentiseringsslutpunkt>* med [autentiseringsslutpunkten för din molnmiljö](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (t.ex. "https://login.microsoft.com" för global Azure), som också ersätter * \<klient-ID->* med **katalog-ID (klient)** där appregistreringen skapades. Det här värdet används för att omdirigera användare till rätt Azure AD-klientorganisation, samt för att hämta lämpliga metadata för att fastställa lämpliga tokensigneringsnycklar och tokenutfärdare anspråksvärde till exempel. Avsnittet `/v2.0` kan utelämnas för program som använder AAD v1. |
     |Klienthemlighet (valfritt)| Använd klienthemligheten som du skapade i appregistreringen.|
     |Tillåtna tokenmålningar| Om detta är en moln- eller serverapp och du vill tillåta autentiseringstoken från en webbapp lägger du till **webbappens program-ID-URI** här. Det konfigurerade **klient-ID:et** anses *alltid* implicit vara en tillåten målgrupp. |
 

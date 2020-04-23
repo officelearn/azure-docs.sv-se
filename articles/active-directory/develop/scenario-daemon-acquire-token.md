@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882989"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868985"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app som anropar webb-API: er - skaffa en token
 
@@ -173,7 +173,7 @@ Om du ännu inte har ett bibliotek för det språk du valt kan du använda proto
 
 #### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Första fallet: Få tillgång till tokenbegäran med hjälp av en delad hemlighet
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -186,7 +186,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>Andra fallet: Få tillgång till tokenbegäran med hjälp av ett certifikat
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -215,7 +215,7 @@ Om du får ett felmeddelande om att du har använt ett `resource/.default` ogilt
 Om du får **otillräckliga privilegier för att slutföra åtgärdsfelet** när du anropar API:et måste klientadministratören bevilja behörigheter till programmet. Se steg 6 i Registrera klientappen ovan.
 Du ser vanligtvis ett fel som ser ut så här:
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {

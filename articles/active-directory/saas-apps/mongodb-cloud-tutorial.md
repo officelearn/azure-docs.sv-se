@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02cc78f7e786e97062cce6d402c972e66fa56860
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: ef8094464b428f1f46017b0d4abaac5aeb1fa428
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81688118"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med MongoDB Cloud
 
@@ -37,7 +37,7 @@ Mer information om integrering av SaaS-appar (Software as a Service) med Azure A
 Du behöver följande för att komma igång:
 
 * En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* En MongoDB Cloud-prenumeration som är aktiverad för enkel inloggning (SSO).
+* En MongoDB Cloud organisation som är aktiverad för enkel inloggning (SSO), kan du registrera dig för ett [gratis kluster](https://www.mongodb.com/cloud)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -146,7 +146,7 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 ## <a name="configure-mongodb-cloud-sso"></a>Konfigurera MongoDB Cloud SSO
 
-Om du vill konfigurera enkel inloggning på MongoDB Cloud-sidan behöver du lämpliga url:er som kopieras från Azure-portalen. Du måste också konfigurera federationsprogrammet för din MongoDB Cloud Organization. Följ instruktionerna i [MongoDB Cloud-dokumentationen](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). Om du har problem kontaktar du Supportteamet för [MongoDB Cloud](https://support.mongodb.com/).
+Om du vill konfigurera enkel inloggning på MongoDB Cloud-sidan behöver du lämpliga url:er som kopieras från Azure-portalen. Du måste också konfigurera federationsprogrammet för din MongoDB Cloud Organization. Följ instruktionerna i [MongoDB Cloud-dokumentationen](https://docs.atlas.mongodb.com/security/federated-auth-azure-ad/). Om du har problem kontaktar du Supportteamet för [MongoDB Cloud](https://support.mongodb.com/).
 
 ### <a name="create-a-mongodb-cloud-test-user"></a>Skapa en MongoDB Cloud-testanvändare
 

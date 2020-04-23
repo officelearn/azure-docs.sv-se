@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731254"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869065"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Skapa ett erbjudande om virtuell azure-dator
 
@@ -254,6 +254,9 @@ Ange kontaktinformation som Microsoft kan använda när det finns problem med di
 ### <a name="marketplace-media"></a>Marknadsplatsmedia
 
 Ange logotyper och bilder som du kan använda med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att göra att ditt bidrag avvisas.
+
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
 
 #### <a name="marketplace-logos"></a>Marketplace-logotyper
 

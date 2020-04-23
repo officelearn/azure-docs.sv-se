@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 063f2e1005db177420da7f81b799ab01fd212d7e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 42c58a84c71b6573814e82517373db6900a83658
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478472"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025024"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Skicka händelser till eller ta emot händelser från händelsehubbar med hjälp av JavaScript (azure/event-hubs version 5)
 Den här snabbstarten visar hur du skickar händelser till och ta emot händelser från en händelsenav med **azure/event-hubs version 5 JavaScript-paketet.** 
@@ -185,7 +185,7 @@ Var noga med att registrera anslutningssträngen och behållarnamnet för senare
 1. Kör `node receive.js` i en kommandotolk för att köra den här filen. Fönstret ska visa meddelanden om mottagna händelser.
 
     > [!NOTE]
-    > För den fullständiga källkoden, inklusive ytterligare informationskommentarer, gå till [sidan GitHub receiveEventsUsingCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsUsingCheckpointStore.js).
+    > För den fullständiga källkoden, inklusive ytterligare informationskommentarer, gå till [sidan GitHub receiveEventsUsingCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
 
 Grattis! Du har nu fått händelser från din händelsehubb. Mottagarprogrammet tar emot händelser från alla partitioner i standardkonsumentgruppen i händelsehubben.
 

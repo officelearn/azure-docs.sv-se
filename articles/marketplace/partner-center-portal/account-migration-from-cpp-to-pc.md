@@ -1,18 +1,18 @@
 ---
 title: Kontomigrering från Cloud Partner Portal till Partner Center – kommersiell marknadsplats för Azure
-description: Så här migrerar du ditt konto från CPP till Partner Center. - kommersiell marknadsplats för Azure
+description: Så här migrerar du ditt konto från CPP till Partner Center – kommersiell marknadsplats för Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730493"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024429"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Kontomigrering från Cloud Partner Portal till Partnercenter
 
@@ -42,6 +42,16 @@ Klicka på bannern för att starta din kontomigreringsprocess. Du förväntas an
 2. Registrera dig för Microsoft Partner Network-programmet
 
     Om ditt CPP-konto inte har ett Microsoft Partner Network-ID eller har ett som är ogiltigt måste du registrera dig för Microsoft Partner Network-programmet som en del av aktiveringsprocessen.
+
+## <a name="publishers-moving-from-cpp"></a>Utgivare flyttar från CPP
+
+Om ditt konto har migrerats från [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com)behöver du inte skapa ett nytt Partner Center-konto. Du borde ha fått en anpassad länk till ditt nya Partner Center-konto i e-post och i en banneravisering efter inloggning till ditt befintliga CPP-konto.
+
+När du har aktiverat ditt nya Partner Center-konto genom att besöka den här anpassade länken kan du gå tillbaka till ditt konto genom att besöka [instrumentpanelen](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) för kommersiella marknadsplatser i Partner Center.
+
+Publiceringsavtalet och företagsprofilinformationen migreras till ditt nya Partner Center-konto, tillsammans med alla tidigare konfigurerade kontoutbetalningsprofilinformation, användarkonton och behörigheter samt aktiva erbjudanden som är kopplade till ditt CPP-konto.
+
+När kontoinformationen har flyttats från CPP till Partner Center använder du inte längre CPP för att skapa kontouppdateringar eller hantera användare, behörigheter och fakturering. Under en begränsad tid uppdateras alla kontouppdateringar som du gör i Partner Center automatiskt i ditt skrivskyddade CPP-konto tills CPP-portalen så småningom är inaktuell.
 
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>Registrera dig för Microsoft Partner Network-programmet
 

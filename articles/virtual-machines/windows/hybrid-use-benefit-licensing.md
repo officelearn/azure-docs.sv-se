@@ -1,24 +1,18 @@
 ---
 title: Azure Hybrid-förmånen för Windows Server
 description: Lär dig hur du maximerar fördelarna med Windows Software Assurance för att få lokala licenser till Azure
-services: virtual-machines-windows
-documentationcenter: ''
 author: xujing-ms
-manager: gwallace
-editor: ''
-ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77911803"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869574"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan du med Azure Hybrid Benefit för Windows Server använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer på Azure till en lägre kostnad. Du kan använda Azure Hybrid Benefit för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går igenom stegen för hur du distribuerar nya virtuella datorer med Azure Hybrid Benefit för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid Benefit för Windows Server-licensiering och kostnadsbesparingar finns på [licensieringssidan för Azure Hybrid Benefit för Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).

@@ -7,12 +7,12 @@ manager: saudas
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 907aa83bc293aacd9920d8fd79a1b3184dd1d5dc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 7a71d3bd70d97df884f1bc962c0ef9897d7fd2cb
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767591"
+ms.locfileid: "82024412"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ AKS skapar två hanterade identiteter:
 - **Systemtilldelade hanterade identitet:** Den identitet som Kubernetes-molnleverantören använder för att skapa Azure-resurser för användarens räkning. Livscykeln för den systemtilldelade identiteten är knuten till klustrets. Identiteten tas bort när klustret tas bort.
 - **Användartilldelade hanterade identitet:** Den identitet som används för auktorisering i klustret. Den användartilldelade identiteten används till exempel för att auktorisera AKS att använda Azure Container Register (ACRs) eller för att auktorisera kubelet för att hämta metadata från Azure.
 
-Tillägg autentiserar också med hjälp av en hanterad identitet. För varje tillägg skapas en hanterad identitet av AKS och varar under tilläggets livstid. Om du vill skapa och använda ditt eget virtuella nätverk, statisk IP-adress eller ansluten Azure-disk där resurserna ligger utanför resursgruppen MC_*använder du principalID i klustret för att utföra en rolltilldelning. Mer information om rolltilldelning finns i [Delegera åtkomst till andra Azure-resurser](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+Tillägg autentiserar också med hjälp av en hanterad identitet. För varje tillägg skapas en hanterad identitet av AKS och varar under tilläggets livstid. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -58,6 +58,9 @@ En lyckad klusterskapande med hanterade identiteter innehåller den här tjänst
     "secret": null
   }
 ```
+
+> [!NOTE]
+> Om du vill skapa och använda ditt eget virtuella nätverk, statisk IP-adress eller en ansluten Azure-disk där resurserna ligger utanför resursgruppen MC_* använder du PrincipalID för klustret System assigned Managed Identity för att utföra en rolltilldelning. Mer information om rolltilldelning finns i [Delegera åtkomst till andra Azure-resurser](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 
 Slutligen, få autentiseringsuppgifter för att komma åt klustret:
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56a7680de3127da06341ac03252a9ab0cff9da7c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266239"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024956"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använda Azure DNS för att tillhandahålla anpassade domäninställningar för en Azure-tjänst
 
@@ -134,7 +134,7 @@ Navigera till DNS-zonen och klicka på **+ Postuppsättning**. Fyll i följande 
 |TTL-enhet     | Timmar        | Timmar används som tidsmätning         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Det DNS-namn som du skapar aliaset för, i det här exemplet är det asverify.adatumfunctiona9ed.blob.core.windows.net DNS-namn som tillhandahålls som standard till lagringskontot.        |
 
-Navigera tillbaka till ditt lagringskonto genom att klicka på > **Lagringslagringskonton,** välj ditt lagringskonto och klicka på **Anpassad domän**. **Storage** Skriv in det alias som du skapade utan standardprefixet i textrutan, markera **Använd indirekt CNAME-validering och klicka på **Spara**. När det här steget är klart går du tillbaka till DNS-zonen och skapar en CNAME-post utan det uppordna prefixet.  Efter den punkten är det säkert att ta bort CNAME-posten med cdnverify-prefixet.
+Navigera tillbaka till ditt lagringskonto genom att klicka på > **Lagringslagringskonton,** välj ditt lagringskonto och klicka på **Anpassad domän**. **Storage** Skriv in det alias som du skapade utan standardprefixet i textrutan, markera **Använd indirekt CNAME-validering**och klicka på **Spara**. När det här steget är klart går du tillbaka till DNS-zonen och skapar en CNAME-post utan det uppordna prefixet.  Efter den punkten är det säkert att ta bort CNAME-posten med cdnverify-prefixet.
 
 ![anpassad domän för blob-lagring](./media/dns-custom-domain/indirectvalidate.png)
 

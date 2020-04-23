@@ -1,25 +1,21 @@
 ---
 title: Azure-instansmetadatatjänst
-description: RESTful-gränssnitt för att få information om Windows virtuella datorer beräkning, nätverk och kommande underhållshändelser.
-services: virtual-machines-windows
-documentationcenter: ''
+description: RESTful-gränssnitt för att få information om virtuella datorer beräkning, nätverk och kommande underhållshändelser.
 author: KumariSupriya
 manager: paulmey
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.subservice: monitoring
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f351bba9cd474eab0774efa5ffbd2b24499d105b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cb9453e1a25f4042c45d4e89229b555c996d4c8b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520959"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870085"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansmetadatatjänst
 

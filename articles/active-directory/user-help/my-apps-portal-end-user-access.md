@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80347178"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869729"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logga in och starta appar från portalen Mina appar
 
@@ -110,7 +110,7 @@ Om du har behörighet att komma åt och använda organisationens molnbaserade ap
 
 Visa och använd organisationens appar från en Intune-hanterad webbläsare på dina iOS- och Android-enheter.
 
-1. På din mobila enhet laddar du ned och installerar appen Intune Managed Browser från [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) och Google Play [Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. På din mobila enhet laddar du ned och installerar appen Intune Managed Browser från Apple App Store och Google Play Store.
 
 2. Öppna appen Intune Managed Browser, gå till https://myapps.microsoft.comeller använd länken som tillhandahålls av din https://myapps.microsoft.com/contoso.comorganisation om de leder dig till en anpassad sida, till exempel .
 

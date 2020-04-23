@@ -1,24 +1,18 @@
 ---
 title: Skapa och hantera virtuella Windows-datorer i Azure som använder flera nätverkskort
 description: Lär dig hur du skapar och hanterar en Windows-virtuell dator som har flera nätverkskort kopplade till sig med hjälp av Azure PowerShell- eller Resource Manager-mallar.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6651ae21694022be86d8db08737c609aed3df569
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249989"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870259"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator med flera nätverkskort
 Virtuella datorer (VMs) i Azure kan ha flera nätverkskort (NIC) kopplade till dem. Ett vanligt scenario är att ha olika undernät för front-end och backend-anslutning. Du kan associera flera nätverkskort på en virtuell dator till flera undernät, men dessa undernät måste alla finnas i samma virtuella nätverk (vNet). I den här artikeln beskrivs hur du skapar en virtuell dator som har flera nätverkskort kopplade till sig. Du lär dig också hur du lägger till eller tar bort nätverkskort från en befintlig virtuell dator. Olika [vm-storlekar](sizes.md) stöder ett varierande antal nätverkskort, så storlek på den virtuella datorn därefter.

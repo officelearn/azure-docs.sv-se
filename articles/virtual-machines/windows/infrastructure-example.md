@@ -1,26 +1,19 @@
 ---
 title: Exempel på azure-infrastrukturgenomgång
 description: Lär dig mer om de viktigaste riktlinjerna för design och implementering för distribution av en exempelinfrastruktur i Azure.
-documentationcenter: ''
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: example-scenario
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74038569"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869472"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exempel på Azure-infrastrukturgenomgång för virtuella Windows-datorer
 Den här artikeln går igenom att bygga ut ett exempel på programinfrastruktur. Vi beskriver utformningen av en infrastruktur för en enkel onlinebutik som samlar alla riktlinjer och beslut kring namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar dina virtuella datorer .
@@ -60,7 +53,7 @@ Alla ovanstående följer dessa namngivningskonventioner:
 ## <a name="azure-subscriptions-and-accounts"></a>Azure-prenumerationer och -konton
 Adventure Works Cycles använder sin Enterprise-prenumeration, adventure works enterprise-prenumeration, för att tillhandahålla fakturering för den här IT-arbetsbelastningen.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 Adventure Works Cykler fastställt att de ska använda Azure Managed Disks. När du skapar virtuella datorer används båda tillgängliga lagringsnivåer:
 
 * **Standardlagring** för webbservrar, programservrar och domänkontrollanter och deras datadiskar.

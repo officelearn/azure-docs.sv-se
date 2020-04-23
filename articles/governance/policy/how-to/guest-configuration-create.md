@@ -3,12 +3,12 @@ title: Så här skapar du principer för gästkonfiguration för Windows
 description: Lär dig hur du skapar en azure-princip gästkonfigurationsprincip för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757410"
+ms.locfileid: "82024905"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du principer för gästkonfiguration för Windows
 
@@ -27,9 +27,8 @@ Använd följande åtgärder för att skapa din egen konfiguration för att vali
 > Anpassade principer med gästkonfiguration är en förhandsgranskningsfunktion.
 >
 > Tillägget Gästkonfiguration krävs för att utföra granskningar i virtuella Azure-datorer.
-> Om du vill distribuera tillägget i stor skala tilldelar du följande principdefinitioner:
->   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella datorer i Windows.
->   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella Linux-datorer.
+> Om du vill distribuera tillägget i stor skala över alla Windows-datorer tilldelar du följande principdefinitioner:
+>   - [Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella datorer i Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: c4eddf68e964b412e7270319630f41fc4d802241
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733149"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869152"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
@@ -223,6 +223,9 @@ Mer information om hur du skapar erbjudanden finns i [Bästa praxis för erbjuda
 ### <a name="marketplace-images"></a>Marketplace-bilder
 
 Ange logotyper och bilder som du kan använda med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
+
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
 
 #### <a name="store-logos"></a>Lagra logotyper
 

@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 08/28/2019
-  ms.openlocfilehash: f96f011eedc297b3f48d8b8dda177198809bb564
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: a6c0bee32fbeb50c1eef0a9625706bcee9e1ae17
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70142949"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82086478"
 landingContent:
 - title: Om Virtual Network
   linkLists:
@@ -64,6 +64,10 @@ landingContent:
     links:
     - text: Skydda och isolera åtkomst till Azure-resurser
       url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+  - linkListType: video
+    links:
+    - text: Få säker åtkomst till dina Azure PaaS-resurser med Azure Private Link
+      url: https://www.youtube.com/watch?v=PWKM5KXjWno
 - title: Ansluta virtuella nätverk
   linkLists:
   - linkListType: concept

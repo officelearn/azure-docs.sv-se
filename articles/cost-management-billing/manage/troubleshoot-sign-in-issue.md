@@ -1,19 +1,20 @@
 ---
 title: Felsöka problem med inloggning för Azure-prenumeration
 description: Hjälper till att lösa de problem som gör att du inte kan logga in på Azure-portalen eller Azure-kontocentret.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4213df57423f5211517b019a8b58be99d2e12e7a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 08f278d56e742659ebe197695fae8dfa35383b17
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409346"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639210"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Felsöka problem med inloggning för Azure-prenumeration
 
@@ -36,12 +37,12 @@ Det här problemet kan uppstå om du använder mer än ett användarkonto i en w
 Försök att lösa problemet på något av följande sätt:
 
 - Rensa cacheminnet och ta bort Internet-cookies. I Internet Explorer klickar du på **Verktyg** > **Internetalternativ** > **Ta bort**. Kontrollera att kryssrutorna för temporära filer, cookies, lösenord och webbläsarhistorik är markerade och klicka sedan på ta bort.
-- Återställ Internet Explorer-inställningarna för att återställa alla personliga inställningar som du har gjort. Klicka på **Verktyg** > **Internetalternativ** > **Avancerat** > välj rutan **Ta bort personliga inställningar** > **Återställ**.
+- Återställ Internet Explorer-inställningarna för att återställa alla personliga inställningar som du har utfört. Klicka på **Verktyg** > **Internetalternativ** > **Avancerat** > välj rutan **Ta bort personliga inställningar** > **Återställ**.
 - Använd privat surfläge för webbläsaren. För Internet Explorer:  Klicka på**Verktyg** > **Säkerhet** > **InPrivate-surfning** och gå till och logga in på[Azure-portalen](https://portal.azure.com/) eller [Azure-kontocentret](https://account.azure.com/Subscriptions).
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Jag kan logga in men det står *Inga prenumerationer hittades*
 
-Det här problemet uppstår om du har valt fel katalog eller om ditt konto inte har tillräcklig behörighet.
+Det här problemet inträffar om du har valt fel katalog eller om kontot inte har tillräcklig behörighet.
 
 **Scenario 1:** Felmeddelande visas i [Azure-portalen](https://portal.azure.com/)
 

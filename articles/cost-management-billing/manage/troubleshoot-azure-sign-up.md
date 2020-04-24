@@ -1,21 +1,22 @@
 ---
-title: Felsöka Azure-registrering
-description: Detta gäller lösning av ett problem vid försök att registrera ett nytt konto i Microsoft Azure-portalen eller kontocentret.
+title: Det går inte att registrera ett nytt Azure-konto
+description: Lösa ett problem vid försök att registrera ett nytt konto i Microsoft Azure-portalen eller kontocentret.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e8536555e3763674a2c018182e70f8d50e11556b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409461"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641738"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Felsöka Azure-registrering
+# <a name="troubleshoot-issues-when-you-sign-up-a-new-account-in-azure-portal-or-azure-account-center"></a>Felsöka problem när du registrerar ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter
 
 Ett problem kan uppstå när du försöker registrera ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter. Innan du felsöker problemet bör du först kontrollera följande:
 
@@ -37,7 +38,7 @@ Följ dessa anvisningar för att lösa problemet:
 
 3. Kontrollera att alla adressfält är ifyllda och giltiga.
 
-4. När du registrerar dig för Azure-prenumerationen ska du kontrollera att faktureringsadressen för kreditkortsregistreringen överensstämmer med dina bankuppgifter.
+4. När du registrerar dig för Azure-prenumerationen är det viktigt att du kontrollerar att faktureringsadressen för registreringen av ditt kreditkort stämmer överens med dina bankuppgifter.
 
 Om du fortsätter att få felmeddelandet kan du försöka att registrera dig via en annan webbläsare.
 

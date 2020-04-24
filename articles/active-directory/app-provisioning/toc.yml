@@ -19,7 +19,7 @@
       href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Alla integrerade galleriappar
       href: /azure/active-directory/saas-apps
-- name: Koncept
+- name: Begrepp
   expanded: true
   items:
     - name: Så fungerar programetablering
@@ -28,7 +28,7 @@
       href: plan-auto-user-provisioning.md
     - name: Planera en molndistribution av HR-etablering
       href: plan-cloud-hr-provision.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Konfigurera etablering för en galleriapp
@@ -79,6 +79,8 @@
   items:
     - name: Kompatibilitet med protokollet SCIM 2.0
       href: application-provisioning-config-problem-scim-compatibility.md
+    - name: SCIM- och Graph-scenarier
+      href: scim-graph-scenarios.md
     - name: Välj en etableringsmetod
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Etablering av HR Cloud
@@ -99,7 +101,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=active-directory'

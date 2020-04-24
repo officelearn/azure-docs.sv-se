@@ -149,8 +149,9 @@
             - name: Använda Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Säkra webbtjänster med SSL
+            - name: Skydda webbtjänster med TLS
               href: how-to-secure-web-service.md
+              displayName: ssl
             - name: Använda Azure AD-identitet i AKS-distributioner
               href: how-to-use-azure-ad-identity.md
             - name: Återskapa åtkomstnycklar för lagring

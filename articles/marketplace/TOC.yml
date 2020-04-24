@@ -441,7 +441,7 @@
           href: ./partner-center-portal/manage-account.md
         - name: Hitta eller skapa ett arbetskonto för företag
           href: ./partner-center-portal/company-work-accounts.md
-        - name: Kontomigrering från CPP till Partnercenter
+        - name: Kontomigrering från CPP till Partner-centrum
           href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Skapa ett nytt erbjudande
       items:

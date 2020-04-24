@@ -20,8 +20,8 @@
     - name: Utveckla program
       expanded: true
       items:
-        - name: Använda utkast
-          href: kubernetes-draft.md
+        - name: Utveckla med Helm
+          href: quickstart-helm.md
         - name: Azure Dev Spaces
           expanded: true
           items:
@@ -316,7 +316,7 @@
                 - name: 3 – Teamutveckling
                   href: ../dev-spaces/team-development-nodejs.md
                   maintainContext: true
-        - name: Köra program med Helm
+        - name: Installera befintliga program med Helm
           href: kubernetes-helm.md
         - name: Använda OpenFaaS
           href: openfaas.md

@@ -108,7 +108,7 @@
           items:
             - name: Azure SQL-granskning
               href: sql-database-auditing.md
-            - name: Att lagra bakom VNet eller brandvägg
+            - name: Granska i lagringskonto bakom VNet eller brandvägg
               href: create-auditing-storage-account-vnet-firewall.md
             - name: Format för granskningsloggar
               href: sql-database-audit-log-format.md

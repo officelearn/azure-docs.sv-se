@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Azure Media Player
+summary: Läs mer om hur du använder Azure Media Player
+metadata:
+  title: Landningssida för Azure Media Player
+  description: Läs mer om hur du använder Azure Media Player på dina webbsidor.
+  ms.service: media-services
+  ms.topic: landing-page
+  author: IngridAtMicrosoft
+  ms.author: inhenkel
+  ms.date: 04/20/2020
+  ms.openlocfilehash: 522821be3b5921ba6cb9c8b25643a5337e502b43
+  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81873230"
+landingContent:
+- title: Azure Media Player
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt
+      url: azure-media-player-overview.md
+    - text: Viktig information
+      url: azure-media-player-release-notes.md
+    - text: Ändringslogg
+      url: azure-media-player-changelog.md
+- title: Kom igång
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Snabbstart för Azure Media Player
+      url: azure-media-player-quickstart.md
+    - text: Fullständig installation av Azure Media Player
+      url: azure-media-player-full-setup.md
+    - text: Azure Media Player-exempel
+      url: https://github.com/Azure-Samples/azure-media-player-samples
+- title: Begrepp
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Uppspelningsteknik
+      url: azure-media-player-playback-technology.md
+    - text: Skyddat innehåll
+      url: azure-media-player-protected-content.md
+    - text: Funktionslista
+      url: azure-media-player-feature-list.md
+    - text: URL-omskrivare
+      url: azure-media-player-url-rewriter.md
+    - text: Hjälpmedel
+      url: azure-media-player-accessibility.md
+    - text: Skriva plugin-program
+      url: azure-media-player-writing-plugins.md
+    - text: Galleri för plugin-program
+      url: azure-media-player-plugin-gallery.md
+    - text: Lokalisering
+      url: azure-media-player-localization.md
+- title: Referens
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Exempel
+      url: https://github.com/Azure-Samples/azure-media-player-samples
+    - text: API
+      url: https://docs.microsoft.com/javascript/api/azuremediaplayer/?view=azure-node-latest
+    - text: API-metoder
+      url: azure-media-player-api-methods.md
+    - text: Alternativ
+      url: azure-media-player-options.md
+    - text: Felkoder
+      url: azure-media-player-error-codes.md
+    - text: Kända problem
+      url: azure-media-player-known-issues.md

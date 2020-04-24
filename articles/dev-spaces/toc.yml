@@ -21,6 +21,8 @@
               href: quickstart-netcore-visualstudio.md
         - name: Utveckla med CLI
           href: quickstart-cli.md
+        - name: Utveckla med ett befintligt Helm-diagram
+          href: quickstart-existing-helm-chart.md
     - name: Självstudier
       items:
         - name: Java (VS Code och CLI)

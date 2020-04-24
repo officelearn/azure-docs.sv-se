@@ -39,6 +39,8 @@
       items:
         - name: Apache Hadoop-komponenter på HDInsight
           href: ./hdinsight-component-versioning.md
+        - name: Viktig information om Hortonworks
+          href: ./hortonworks-release-notes.md
         - name: Komponenter med hög tillgänglighet
           href: ./hdinsight-high-availability-components.md
         - name: Apache Ambari i Azure HDInsight
@@ -59,10 +61,17 @@
           href: ./cluster-management-best-practices.md
         - name: Tillgänglighet och tillförlitlighet
           href: ./hdinsight-high-availability-linux.md
-        - name: Jämför lagringsalternativ
-          href: ./hdinsight-hadoop-compare-storage-options.md
         - name: Förstå hanterade identiteter
           href: ./hdinsight-managed-identities.md
+        - name: Jämför lagringsalternativ
+          href: hdinsight-hadoop-compare-storage-options.md
+          items:
+            - name: Azure Storage-översikt
+              href: overview-azure-storage.md
+            - name: Azure Data Lake Storage Gen1-översikt
+              href: overview-data-lake-storage-gen1.md
+            - name: Azure Data Lake Storage Gen2-översikt
+              href: overview-data-lake-storage-gen2.md
     - name: Gör så här för att
       items:
         - name: Skapa kluster
@@ -122,6 +131,8 @@
               href: hdinsight-hadoop-linux-use-ssh-unix.md
             - name: Använd SSH-tunnel
               href: hdinsight-linux-ambari-ssh-tunnel.md
+            - name: Använda SCP med HDInsight
+              href: ./use-scp.md
             - name: Begränsa åtkomst till data
               href: hdinsight-storage-sharedaccesssignature-permissions.md
             - name: Auktorisera användare för Apache Ambari Views
@@ -216,6 +227,8 @@
           items:
             - name: Felsöka skriptåtgärder
               href: ./troubleshoot-script-action.md
+            - name: Problem med att skapa resurser
+              href: ./troubleshoot-resource-creation-fails.md
     - name: Referens
       items:
         - name: Azure PowerShell

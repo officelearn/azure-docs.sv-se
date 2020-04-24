@@ -1,6 +1,6 @@
 ---
-title: Lokal återställning av lösenord med självbetjäningslösenordsåterställning - Azure Active Directory
-description: Lär dig hur lösenordsändring eller återställning av händelser i Azure Active Directory kan skrivas tillbaka till en lokal katalogmiljö
+title: Tillbakaskrivning av lösen ord med självbetjäning för återställning av lösen ord – Azure Active Directory
+description: Lär dig hur lösen ords ändring eller återställning av händelser i Azure Active Directory kan skrivas tillbaka till en lokal katalog miljö
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,142 +11,143 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787c15c11c995c7eb30662131302658175c7f877
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 89431c2bf1838d3264b03c8a5f2ce62cd6df3631
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393025"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127833"
 ---
-# <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar självbetjäningsåterställning av lösenordsåterställning i Azure Active Directory?
+# <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory?
 
-Med Azure Active Directory (Azure AD) återställning av lösenord för självbetjäning (SSPR) kan användare återställa sina lösenord i molnet, men de flesta företag har också en lokal AD DS-miljö (Active Directory Domain Services) där användarna finns. Återställning av lösenord är en funktion som är aktiverad med [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) som gör att lösenordsändringar i molnet kan skrivas tillbaka till en befintlig lokal katalog i realtid. I den här konfigurationen, när användare ändrar eller återställer sina lösenord med SSPR i molnet, skrivs de uppdaterade lösenorden också tillbaka till den lokala AD DS-miljön
+Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord (SSPR) gör det möjligt för användare att återställa sina lösen ord i molnet, men de flesta företag har också en lokal Active Directory Domain Services (AD DS)-miljö där deras användare finns. Tillbakaskrivning av lösen ord är en funktion som aktive ras med [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) som gör att lösen ords ändringar i molnet kan skrivas tillbaka till en befintlig lokal katalog i real tid. I den här konfigurationen, när användare ändrar eller återställer sina lösen ord med SSPR i molnet, skrivs även de uppdaterade lösen orden tillbaka till den lokala AD DS-miljön
 
-Återställning av lösenord stöds i miljöer som använder följande hybrididentitetsmodeller:
+Tillbakaskrivning av lösen ord stöds i miljöer som använder följande hybrid identitets modeller:
 
 * [Synkronisering av lösenordshash](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Direktautentisering](../hybrid/how-to-connect-pta.md)
 * [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
 
-Tillbakaskrivning av lösenord innehåller följande funktioner:
+Tillbakaskrivning av lösen ord innehåller följande funktioner:
 
-* **Tvingande av lokala AD DS-lösenordsprinciper (Active Directory Domain Services):** När en användare återställer sitt lösenord kontrolleras det för att säkerställa att den uppfyller din lokala AD DS-princip innan den förs till den katalogen. Den här granskningen omfattar kontroll av historik, komplexitet, ålder, lösenordsfilter och andra lösenordsbegränsningar som du definierar i AD DS.
-* **Feedback med noll fördröjning:** Tillbakaskrivning av lösenord är en synkron åtgärd. Användare meddelas omedelbart om deras lösenord inte uppfyller policyn eller inte kan återställas eller ändras av någon anledning.
-* **Stöder lösenordsändringar från åtkomstpanelen och Office 365:** När federerade eller lösenordshämtade användare kommer att ändra sina utgångna eller icke-utgångna lösenord skrivs dessa lösenord tillbaka till AD DS.
-* **Stöder återställning av lösenord när en administratör återställer dem från Azure-portalen:** När en administratör återställer en användares lösenord i [Azure-portalen,](https://portal.azure.com)om användaren är federerad eller lösenordsh hash synkroniserad, skrivs lösenordet tillbaka till lokalt. Den här funktionen stöds för närvarande inte i Office-administratörsportalen.
-* **Kräver inga regler för inkommande brandvägg:** Tillbakaskrivning av lösenord använder ett Azure Service Bus-relä som en underliggande kommunikationskanal. All kommunikation är utgående över port 443.
+* **Tillämpning av lösen ords principer för lokala Active Directory Domain Services (AD DS)**: när en användare återställer sitt lösen ord, kontrol leras att den uppfyller din lokala AD DS-princip innan den allokeras till den katalogen. Den här granskningen innefattar att kontrol lera historik, komplexitet, ålder, lösen ords filter och andra lösen ords begränsningar som du definierar i AD DS.
+* **Noll – fördröjning i feedback**: tillbakaskrivning av lösen ord är en synkron åtgärd. Användare meddelas omedelbart om lösen ordet inte uppfyller principen eller inte kan återställas eller ändras av någon anledning.
+* **Har stöd för lösen ords ändringar från åtkomst panelen och Office 365**: när federerade eller lösen ords-hash-synkroniserade användare kommer att ändra sina lösen ord som förfaller eller inte har förfallit, skrivs lösen orden tillbaka till AD DS.
+* **Har stöd för tillbakaskrivning av lösen ord när en administratör återställer dem från Azure Portal**: när en administratör återställer en användares lösen ord i [Azure Portal](https://portal.azure.com), skrivs lösen ordet tillbaka till lokalt. Den här funktionen stöds för närvarande inte i Office Admin-portalen.
+* **Kräver inte några inkommande brand Väggs regler**: tillbakaskrivning av lösen ord använder ett Azure Service Bus relä som en underliggande kommunikations kanal. All kommunikation har utgående trafik via port 443.
 
 > [!NOTE]
-> Administratörskonton som finns inom skyddade grupper i lokala AD kan användas med tillbakaskrivning av lösenord. Administratörer kan ändra sitt lösenord i molnet men kan inte använda återställning av lösenord för att återställa ett glömt lösenord. Mer information om skyddade grupper finns i [Skyddade konton och grupper i Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> Administratörs konton som finns i skyddade grupper i lokala AD kan användas med tillbakaskrivning av lösen ord. Administratörer kan ändra sitt lösen ord i molnet, men kan inte använda lösen ords återställning för att återställa ett bortglömt lösen ord. Mer information om skyddade grupper finns [i skyddade konton och grupper i Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 ## <a name="how-password-writeback-works"></a>Så fungerar tillbakaskrivning av lösenord
 
-När en synkroniserad användare med federerade eller lösenordsvrediga användare försöker återställa eller ändra sitt lösenord i molnet inträffar följande åtgärder:
+När en federerad eller lösenordsskyddad hash-användare försöker återställa eller ändra sitt lösen ord i molnet inträffar följande åtgärder:
 
-1. En kontroll utförs för att se vilken typ av lösenord användaren har. Om lösenordet hanteras lokalt:
-   * En kontroll utförs för att se om tillbakaskrivningstjänsten är igång. Om så är fallet kan användaren fortsätta.
-   * Om återskrivningstjänsten är nere informeras användaren om att deras lösenord inte kan återställas just nu.
-1. Därefter skickar användaren lämpliga autentiseringsgrindar och når sidan **Återställ lösenord.**
-1. Användaren väljer ett nytt lösenord och bekräftar det.
-1. När användaren väljer **Skicka**krypteras lösenordet för klartext med en symmetrisk nyckel som skapats under inställningsprocessen för tillbakaskrivning.
-1. Det krypterade lösenordet ingår i en nyttolast som skickas via en HTTPS-kanal till ditt klientspecifika servicebussrelä (som har ställts in åt dig under återskrivningsinställningsprocessen). Det här reläet skyddas av ett slumpmässigt genererat lösenord som bara din lokala installation känner till.
-1. När meddelandet når servicebussen aktiveras slutpunkten för återställning av lösenord automatiskt och ser att en återställningsbegäran väntar.
-1. Tjänsten söker sedan efter användaren med hjälp av molnet ankare attribut. För att sökningen ska lyckas måste följande villkor vara uppfyllda:
+1. En kontroll utförs för att se vilken typ av lösen ord som användaren har. Om lösen ordet hanteras lokalt:
+   * En kontroll utförs för att se om tillbakaskrivning-tjänsten är igång och körs. Om det är det kan användaren fortsätta.
+   * Om tillbakaskrivning-tjänsten inte är igång, informeras användaren om att lösen ordet inte kan återställas just nu.
+1. Därefter skickar användaren lämpliga autentiseringsalgoritmer och når sidan **Återställ lösen ord** .
+1. Användaren väljer ett nytt lösen ord och bekräftar det.
+1. När användaren väljer **Skicka**krypteras lösen ordet i klartext med en symmetrisk nyckel som skapas under tillbakaskrivning-installationen.
+1. Det krypterade lösen ordet ingår i en nytto last som skickas via en HTTPS-kanal till det klient-/regionsspecifika Service Bus-reläet (som har kon figurer ATS under installationen av tillbakaskrivning). Detta relä skyddas av ett slumpmässigt genererat lösen ord som bara en lokal installation känner till.
+1. När meddelandet når Service Bus aktive ras slut punkten för lösen ords återställning automatiskt och ser att den har en återställnings förfrågan väntar.
+1. Tjänsten söker sedan efter användaren med hjälp av molnets Anchor-attribut. För att sökningen ska lyckas måste följande villkor vara uppfyllda:
 
-   * Användarobjektet måste finnas i Active Directory-anslutningsutrymmet.
-   * Användarobjektet måste vara länkat till motsvarande metaversumobjekt (MV).
-   * Användarobjektet måste vara länkat till motsvarande Azure Active Directory-anslutningsobjekt.
-   * Länken från Active Directory-anslutningsobjektet till MV `Microsoft.InfromADUserAccountEnabled.xxx` måste ha synkroniseringsregeln på länken.
+   * Användarobjektet måste finnas i Active Directory kopplings utrymme.
+   * Användarobjektet måste vara länkat till motsvarande metaversum-objekt (MV).
+   * Objektet User måste vara länkat till motsvarande Azure Active Directory kopplings objekt.
+   * Länken från Active Directory Connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken.
 
-   När anropet kommer in från molnet använder synkroniseringsmotorn **attributet cloudAnchor** för att slå upp Azure Active Directory-anslutningsutrymmesobjektet. Den följer sedan länken tillbaka till MV-objektet och följer sedan länken tillbaka till Active Directory-objektet. Eftersom det kan finnas flera Active Directory-objekt (multi-skog) för samma `Microsoft.InfromADUserAccountEnabled.xxx` användare, förlitar sig synkroniseringsmotorn på länken för att välja rätt.
+   När anropet kommer från molnet använder Synkroniseringsmotorn attributet **cloudAnchor** för att söka efter Azure Active Directory anslutnings utrymmes objekt. Sedan följer länken tillbaka till MV-objektet och följer sedan länken tillbaka till Active Directory-objektet. Eftersom det kan finnas flera Active Directory objekt (flera skogar) för samma användare, använder Synkroniseringsmotorn-motorn på `Microsoft.InfromADUserAccountEnabled.xxx` länken för att välja rätt.
 
-1. När användarkontot har hittats görs ett försök att återställa lösenordet direkt i lämplig Active Directory-skog.
-1. Om åtgärden för lösenordsuppsättningen lyckas får användaren veta att lösenordet har ändrats.
+1. När användar kontot har hittats görs ett försök att återställa lösen ordet direkt i rätt Active Directory skog.
+1. Om åtgärden för lösen ords uppsättning lyckas, uppmanas användaren att lösen ordet har ändrats.
 
    > [!NOTE]
-   > Om användarens lösenordshhÃ¤nde synkroniseras med Azure AD med hjälp av synkronisering av lösenordhÃ¤nder, finns det en risk att den lokala lösenordsprincipen är svagare än principen för molnlösenord. I det här fallet tillämpas den lokala principen. Den här principen säkerställer att din lokala princip tillämpas i molnet, oavsett om du använder synkronisering av lösenord hash-synkronisering eller federation för att tillhandahålla enkel inloggning.
+   > Om användarens lösen ords-hash synkroniseras med Azure AD med hjälp av Lösenordssynkronisering, finns det en risk att den lokala lösen ords principen är svagare än moln lösen ords principen. I det här fallet tillämpas den lokala principen. Den här principen säkerställer att din lokala princip tillämpas i molnet, oavsett om du använder hash-synkronisering av lösen ord eller Federation för att tillhandahålla enkel inloggning.
 
-1. Om åtgärden för lösenordsuppsättning misslyckas uppmanas användaren att försöka igen. Åtgärden kan misslyckas på grund av följande orsaker:
-    * Tjänsten var nere.
-    * Det valda lösenordet uppfyller inte organisationens principer.
+1. Om lösen ords uppsättnings åtgärden Miss lyckas visas ett fel meddelande om att användaren försöker igen. Åtgärden kan Miss Miss av följande orsaker:
+    * Tjänsten var avstängd.
+    * Det lösen ord som de har valt uppfyller inte organisationens principer.
     * Det gick inte att hitta användaren i den lokala Active Directory.
 
-   Felmeddelandena ger vägledning till användare så att de kan försöka lösa utan administratörsingripar.
+   Fel meddelandena ger vägledning för användarna så att de kan försöka lösa utan att administratören behöver göra något.
 
-## <a name="password-writeback-security"></a>Säkerhet för återställning av lösenord
+## <a name="password-writeback-security"></a>Säkerhet för tillbakaskrivning av lösen ord
 
-Tillbakaskrivning av lösenord är en mycket säker tjänst. För att säkerställa att din information är skyddad aktiveras en säkerhetsmodell med fyra nivåer på följande sätt:
+Tillbakaskrivning av lösen ord är en mycket säker tjänst. För att se till att informationen är skyddad, aktive ras en säkerhets modell på fyra nivåer enligt följande:
 
-* **Bostadsrättsspecifikt servicebussrelä**
-   * När du konfigurerar tjänsten ställs ett klientspecifikt servicebussrelä in som skyddas av ett slumpmässigt genererat starkt lösenord som Microsoft aldrig har åtkomst till.
-* **Låst, kryptografiskt stark krypteringsnyckel för lösenord**
-   * När servicebussreläet har skapats skapas en stark symmetrisk nyckel som används för att kryptera lösenordet när det kommer över kabeln. Den här nyckeln lever bara i företagets hemliga butik i molnet, som är kraftigt låst och granskad, precis som alla andra lösenord i katalogen.
-* **Säkerhet för transportlager (TLS) för transportlager (branschstandard)**
-   1. När en lösenordsåterställning eller ändringsåtgärd sker i molnet krypteras lösenordet för klartext med din offentliga nyckel.
-   1. Det krypterade lösenordet placeras i ett HTTPS-meddelande som skickas via en krypterad kanal med hjälp av Microsoft TLS/SSL-certs till servicebussreläet.
-   1. När meddelandet anländer till servicebussen väcks och autentiseras servicebussen med hjälp av det starka lösenord som tidigare genererades.
+* **Klient-Specific Service-Bus-relä**
+   * När du konfigurerar tjänsten konfigureras klient organisationens Service Bus-relä som skyddas av ett slumpmässigt genererat starkt lösen ord som Microsoft aldrig har åtkomst till.
+* **Låst, kryptografiskt stark kryptering nyckel för lösen ords kryptering**
+   * När Service Bus-reläet har skapats skapas en stark symmetrisk nyckel som that'is används för att kryptera lösen ordet när det kommer över kabeln. Den här nyckeln finns bara i företagets hemliga Arkiv i molnet, som är mycket låst och granskad, precis som andra lösen ord i katalogen.
+* **Bransch standard Transport Layer Security (TLS)**
+   1. När en lösen ords återställning eller ändrings åtgärd utförs i molnet krypteras lösen ordet i klartext med din offentliga nyckel.
+   1. Det krypterade lösen ordet placeras i ett HTTPS-meddelande som skickas via en krypterad kanal genom att använda Microsoft TLS/SSL-certifikat till Service Bus-reläet.
+   1. När meddelandet tas emot i Service Bus-tjänsten aktive ras och autentiseras den lokala agenten med hjälp av det starka lösen ord som genererades tidigare.
    1. Den lokala agenten hämtar det krypterade meddelandet och dekrypterar det med hjälp av den privata nyckeln.
-   1. Den lokala agenten försöker ange lösenordet via AD DS SetPassword API. Det här steget är det som gör det möjligt att tillämpa din lokala lösenordsprincip i Active Directory (till exempel komplexitet, ålder, historik och filter) i molnet.
-* **Principer för förfallodatum för meddelanden**
-   * Om meddelandet sitter i servicebussen eftersom din lokala service är nere, tidsfördärvar och tas bort efter flera minuter. Time-out och borttagning av meddelandet ökar säkerheten ytterligare.
+   1. Den lokala agenten försöker ange lösen ordet via AD DS SetPassword-API: et. Det här steget är det som tillåter tvång av din Active Directory lokala lösen ords princip (till exempel komplexitet, ålder, historik och filter) i molnet.
+* **Principer för förfallo datum för meddelande**
+   * Om meddelandet finns i Service Bus, eftersom den lokala tjänsten är nere, tids gränsen uppnåddes och tas bort efter några minuter. Timeout och borttagning av meddelandet ökar säkerheten ytterligare.
 
-### <a name="password-writeback-encryption-details"></a>Krypteringsinformation för lösenordsrestitution
+### <a name="password-writeback-encryption-details"></a>Krypterings information för tillbakaskrivning av lösen ord
 
-När en användare har skickat en återställning av lösenord går återställningsbegäran igenom flera krypteringssteg innan den anländer till din lokala miljö. Dessa krypteringssteg säkerställer maximal tjänsttillförlitlighet och säkerhet. De beskrivs på följande sätt:
+När en användare har skickat en lösen ords återställning går återställnings förfrågan igenom flera krypterings steg innan den tas emot i din lokala miljö. Dessa krypterings steg säkerställer maximal tillförlitlighet och säkerhet för tjänsten. De beskrivs på följande sätt:
 
-1. **Lösenordskryptering med 2048-bitars RSA-nyckel:** När en användare skickar in ett lösenord som ska skrivas tillbaka till lokalt krypteras själva det inskickade lösenordet med en 2048-bitars RSA-nyckel.
-1. **Kryptering på paketnivå med AES-GCM:** Hela paketet, lösenordet plus de metadata som krävs, krypteras med hjälp av AES-GCM. Den här krypteringen förhindrar att alla som har direkt åtkomst till den underliggande ServiceBus-kanalen visar eller manipulerar innehållet.
-1. **All kommunikation sker via TLS/SSL**: All kommunikation med ServiceBus sker i en SSL/TLS-kanal. Denna kryptering säkrar innehållet från obehörig tredje part.
-1. **Automatisk nyckelrullning var sjätte månad:** Alla nycklar rullas över var sjätte månad, eller varje gång tillbakaskrivning av lösenord inaktiveras och sedan återaktiverat på Azure AD Connect, för att säkerställa maximal servicesäkerhet och säkerhet.
+1. **Lösen ords kryptering med 2048-bitars RSA-nyckel**: när en användare skickar in ett lösen ord som ska skrivas tillbaka till lokalt, krypteras det skickade lösen ordet med en 2048-bitars RSA-nyckel.
+1. **Kryptering på paket nivå med AES-GCM**: hela paketet, lösen ordet plus de metadata som krävs, krypteras med hjälp av AES-GCM. Den här krypteringen förhindrar att någon har direkt åtkomst till den underliggande Service Bus-kanalen från att visa eller manipulera innehållet.
+1. **All kommunikation sker över TLS/SSL**: all kommunikation med Service Bus sker i en SSL/TLS-kanal. Den här krypteringen skyddar innehållet från icke-auktoriserade tredje parter.
+1. **Automatisk nyckel rulle under var sjätte**månad: alla nycklar slås över var sjätte månad, eller varje gång en tillbakaskrivning av lösen ord inaktive ras och sedan aktive ras på Azure AD Connect, för att säkerställa maximal tjänst säkerhet och säkerhet.
 
-### <a name="password-writeback-bandwidth-usage"></a>Bandbreddsanvändning för återställning av lösenord
+### <a name="password-writeback-bandwidth-usage"></a>Bandbredds användning för tillbakaskrivning av lösen ord
 
-Återställning av lösenord är en tjänst med låg bandbredd som bara skickar förfrågningar tillbaka till den lokala agenten under följande omständigheter:
+Tillbakaskrivning av lösen ord är en tjänst med låg bandbredd som bara skickar förfrågningar tillbaka till den lokala agenten under följande omständigheter:
 
-* Två meddelanden skickas när funktionen är aktiverad eller inaktiverad via Azure AD Connect.
-* Ett meddelande skickas en gång var femte minut som ett serviceslagslag så länge tjänsten körs.
-* Två meddelanden skickas varje gång ett nytt lösenord skickas:
-   * Det första meddelandet är en begäran om att utföra åtgärden.
-   * Det andra meddelandet innehåller resultatet av åtgärden och skickas under följande omständigheter:
-      * Varje gång ett nytt lösenord skickas in under en självbetjäningsåterställning av användaren.
-      * Varje gång ett nytt lösenord skickas in under en åtgärd för ändring av användarlösenord.
-      * Varje gång ett nytt lösenord skickas under en administratörsinitierad återställning av användarlösenord (endast från Azure-administratörsportalerna).
+* Två meddelanden skickas när funktionen är aktive rad eller inaktive rad via Azure AD Connect.
+* Ett meddelande skickas en gång var femte minut som en tjänst pulsslag så länge som tjänsten körs.
+* Två meddelanden skickas varje gången ett nytt lösen ord skickas:
+   * Det första meddelandet är en begäran att utföra åtgärden.
+   * Det andra meddelandet innehåller resultatet av åtgärden och skickas i följande fall:
+      * Varje gången skickas ett nytt lösen ord under en användares självbetjäning för återställning av lösen ord.
+      * Varje gången ett nytt lösen ord skickas under en ändring av användar lösen ord.
+      * Varje gången skickas ett nytt lösen ord under en administratörs initierad administratör för användar lösen ord (endast från Azures administrations portaler).
 
-#### <a name="message-size-and-bandwidth-considerations"></a>Meddelandestorlek och bandbreddsöverväganden
+#### <a name="message-size-and-bandwidth-considerations"></a>Överväganden för meddelande storlek och bandbredd
 
-Storleken på vart och ett av de meddelanden som beskrivits tidigare är vanligtvis under 1 KB. Även under extrema belastningar, lösenordet tillbakaskrivning tjänsten själv förbrukar några kilobit per sekund av bandbredd. Eftersom varje meddelande skickas i realtid, endast när det krävs av en lösenordsuppdateringsåtgärd, och eftersom meddelandestorleken är så liten, är bandbreddsanvändningen för tillbakaskrivningsfunktionen för liten för att ha en mätbar effekt.
+Storleken på vart och ett av de meddelanden som beskrivs ovan är vanligt vis under 1 KB. Även under extrema inläsningar tar själva tjänsten för lösen ords tillbakaskrivning över några kilobit per sekund i bandbredden. Eftersom varje meddelande skickas i real tid, bara när det krävs av en lösen ords uppdaterings åtgärd och eftersom meddelande storleken är så liten, är bandbredds användningen för tillbakaskrivning för liten för att få en mätbar påverkan.
 
-## <a name="supported-writeback-operations"></a>Tillbakaskrivningsåtgärder som stöds
+## <a name="supported-writeback-operations"></a>Tillbakaskrivning-åtgärder som stöds
 
-Lösenord skrivs tillbaka i alla följande situationer:
+Lösen ord skrivs tillbaka i alla följande situationer:
 
-* **Slutanvändares åtgärder som stöds**
-   * Alla slutanvändare självbetjäning frivillig förändring lösenord operation.
-   * Alla självbetjäningsförbehör för slutanvändare ändrar lösenord, till exempel lösenordsförfallodatum.
-   * All återställning av lösenord för slutanvändare som kommer från [portalen](https://passwordreset.microsoftonline.com)för återställning av lösenord .
+* **Slut användar åtgärder som stöds**
+   * Valfri åtgärd för att ändra lösen ord för självbetjäning av egen användare.
+   * Alla självbetjänings åtgärder för att ändra lösen ord för självbetjäning, till exempel förfallo datum för lösen ord.
+   * Eventuell återställning av lösen ord för självbetjäning av användare som kommer från [portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com).
 
-* **Administratörsåtgärder som stöds**
-   * Alla självbetjäningslösenordsåtgärder.
-   * Alla självbetjäningsförbehör för administratörer ändrar lösenordsåtgärd, till exempel förfallodatum för lösenord.
-   * En återställning av lösenord för administratörer som kommer från [portalen för återställning av lösenord](https://passwordreset.microsoftonline.com).
-   * Alla administratörsinitierade lösenordsåterställning från slutanvändaren från [Azure-portalen](https://portal.azure.com).
+* **Administratörs åtgärder som stöds**
+   * Valfri åtgärd för att ändra lösen ord för självbetjäning för administratörer.
+   * Alla administratörs åtgärder för självbetjänings ändringar, till exempel lösen ordets giltighets tid.
+   * Administratörs lösen ords återställning via självbetjäning som kommer från [portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com).
+   * En administratör som initierat slut användar lösen ord Återställ från [Azure Portal](https://portal.azure.com).
+   * All administratörs-initierad återställning av lösen ord för slutanvändare från [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
 
-## <a name="unsupported-writeback-operations"></a>Tillbakaskrivningsåtgärder som inte stöds
+## <a name="unsupported-writeback-operations"></a>Tillbakaskrivning-åtgärder som inte stöds
 
-Lösenord skrivs inte tillbaka i någon av följande situationer:
+Lösen ord skrivs inte tillbaka i någon av följande situationer:
 
-* **Slutanvändarens åtgärder som inte stöds**
-   * Alla slutanvändare som återställer sitt eget lösenord med hjälp av PowerShell version 1, version 2 eller Microsoft Graph API.
-* **Administratörsåtgärder som inte stöds**
-   * Alla administratörsinitierade lösenordsåterställning från PowerShell version 1, version 2 eller Microsoft Graph API.
-   * Alla administratörsinitierade lösenordsåterställning från [Microsoft 365 från Microsoft 365 administrationscenter](https://admin.microsoft.com).
+* **Slut användar åtgärder som inte stöds**
+   * Alla slutanvändare återställer sina egna lösen ord med hjälp av PowerShell version 1, version 2 eller Microsoft Graph API.
+* **Administratörs åtgärder som inte stöds**
+   * All administratörs-initierad återställning av lösen ord för slutanvändare från PowerShell version 1, version 2 eller Microsoft Graph API ( [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) stöds).
+   * All administratörs-initierad återställning av lösen ord för slutanvändare från [Microsoft 365 administrations Center](https://admin.microsoft.com).
 
 > [!WARNING]
-> Användning av kryssrutan "Användaren måste ändra lösenord vid nästa inloggning" i lokala AD DS-administrationsverktyg som Active Directory – användare och datorer eller Active Directory Administrationscenter stöds som en förhandsgranskningsfunktion i Azure AD Connect. Mer information finns i [Implementera synkronisering av lösenordsh hash med Azure AD Connect-synkronisering](../hybrid/how-to-connect-password-hash-synchronization.md).
+> Om du använder kryss rutan "användaren måste byta lösen ord vid nästa inloggning" i lokala administrations verktyg för AD DS som Active Directory användare och datorer eller om Active Directory Administrationscenter stöds som en förhands gransknings funktion i Azure AD Connect. Mer information finns i [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Slutför följande självstudiekurs för att komma igång med SSPR-tillbakaskrivning:
+Kom igång med SSPR tillbakaskrivning genom att följa de här självstudierna:
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Aktivera självbetjäningsåterställning av lösenord (SSPR)](tutorial-enable-writeback.md)
+> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](tutorial-enable-writeback.md)

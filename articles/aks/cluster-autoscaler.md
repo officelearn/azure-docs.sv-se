@@ -1,64 +1,64 @@
 ---
-title: Använda klusterautomatskalningsverktyget i Azure Kubernetes Service (AKS)
-description: Lär dig hur du använder kluster automatisk skalning för att automatiskt skala klustret för att uppfylla programkraven i ett AKS-kluster (Azure Kubernetes Service).
+title: Använda den automatiska skalnings tjänsten för kluster i Azure Kubernetes service (AKS)
+description: Lär dig hur du använder kluster autoskalning för att automatiskt skala klustret så att det uppfyller program kraven i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 732c405cad20aef3485b521fa245cb504a809c40
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617550"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129067"
 ---
-# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster för att uppfylla programkraven på Azure Kubernetes Service (AKS)
+# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
-För att hålla jämna steg med programkraven i Azure Kubernetes Service (AKS) kan du behöva justera antalet noder som kör dina arbetsbelastningar. Komponenten kluster automatisk skalbara kan titta efter poddar i klustret som inte kan schemaläggas på grund av resursbegränsningar. När problem upptäcks ökas antalet noder i en nodpool för att uppfylla programmets efterfrågan. Noder kontrolleras också regelbundet för brist på löpande poddar, med antalet noder minskade sedan efter behov. Med den här möjligheten att automatiskt skala upp eller ned antalet noder i AKS-klustret kan du köra ett effektivt och kostnadseffektivt kluster.
+För att hålla dig uppdaterad med program krav i Azure Kubernetes service (AKS) kan du behöva justera antalet noder som kör arbets belastningarna. Komponenten för kluster autoskalning kan bevaka poddar i klustret som inte kan schemaläggas på grund av resurs begränsningar. När problem upptäcks ökas antalet noder i en Node-pool för att uppfylla programmets krav. Noderna kontrol leras också regelbundet för att det inte ska finnas någon poddar, med antalet noder som sedan kan minskas efter behov. Med den här möjligheten att automatiskt skala upp eller ned antalet noder i AKS-klustret kan du köra ett effektivt, kostnads effektivt kluster.
 
-Den här artikeln visar hur du aktiverar och hanterar kluster automatisk skalning i ett AKS-kluster.
+Den här artikeln visar hur du aktiverar och hanterar klustrets autoskalning i ett AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln kräver att du kör Azure CLI version 2.0.76 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här artikeln kräver att du kör Azure CLI-version 2.0.76 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="limitations"></a>Begränsningar
 
-Följande begränsningar gäller när du skapar och hanterar AKS-kluster som använder kluster automatisk skalning:
+Följande begränsningar gäller när du skapar och hanterar AKS-kluster som använder kluster autoskalning:
 
-* Http-programroutningstillägget kan inte användas.
+* Det går inte att använda Dirigerings tillägget för HTTP-program.
 
-## <a name="about-the-cluster-autoscaler"></a>Om kluster automatisk skalning
+## <a name="about-the-cluster-autoscaler"></a>Om klustrets autoskalning
 
-För att anpassa sig till ändrade programkrav, till exempel mellan arbetsdag och kväll eller på en helg, behöver kluster ofta ett sätt att automatiskt skala. AKS-kluster kan skalas på två sätt:
+För att justera för att ändra program krav, till exempel mellan arbets dagar och kväll eller på en helg, behöver kluster ofta ett sätt att skala automatiskt. AKS-kluster kan skalas på ett av två sätt:
 
-* **Klusterautomaten** söker efter poddar som inte kan schemaläggas på noder på grund av resursbegränsningar. Klustret ökar sedan automatiskt antalet noder.
-* Den **horisontella pod-bildrensaren** använder Metrics Server i ett Kubernetes-kluster för att övervaka resursbehovet för poddar. Om ett program behöver mer resurser ökas antalet poddar automatiskt för att möta efterfrågan.
+* Den **automatiska skalnings** funktionen i klustret söker efter poddar som inte kan schemaläggas på noder på grund av resurs begränsningar. Klustret ökar sedan automatiskt antalet noder.
+* Den **horisontella Pod-autoskalning** använder mått servern i ett Kubernetes-kluster för att övervaka resurs behovet för poddar. Om ett program behöver fler resurser ökas antalet poddar automatiskt för att uppfylla behovet.
 
-![Kluster automatisk skalning och horisontell pod automatisk skalning arbetar ofta tillsammans för att stödja de nödvändiga programkraven](media/autoscaler/cluster-autoscaler.png)
+![Autoskalning av klustret och horisontell Pod-autoskalning fungerar ofta tillsammans för att stödja nödvändiga program krav](media/autoscaler/cluster-autoscaler.png)
 
-Både den horisontella pod autoscaler och kluster automatisk skalning kan också minska antalet poddar och noder efter behov. Kluster automatiskskalning minskar antalet noder när det har funnits outnyttjad kapacitet under en tidsperiod. Poddar på en nod som ska tas bort av kluster automatisk skalningsapparat är säkert schemalagda någon annanstans i klustret. Kluster automatisk skalning kanske inte kan skalas ned om poddar inte kan flytta, till exempel i följande situationer:
+Både den automatiska skalnings tjänsten för Pod och klustret kan också minska antalet poddar och noder efter behov. Klustrets autoskalning minskar antalet noder när det finns outnyttjad kapacitet under en tids period. Poddar på en nod som ska tas bort av klustrets autoskalning är säkert schemalagt i klustret. Klustrets autoskalning kan inte skalas ned om poddar inte kan flyttas, till exempel i följande situationer:
 
-* En pod skapas direkt och backas inte upp av ett styrenhetsobjekt, till exempel en distribution eller replikuppsättning.
-* En pod avbrott budget (PDB) är alltför restriktiv och tillåter inte antalet poddar att falla under ett visst tröskelvärde.
-* En pod använder nodväljare eller antitillhörighet som inte kan uppfyllas om den schemaläggs på en annan nod.
+* En POD skapas direkt och backas inte upp av ett kontroll enhets objekt, till exempel en distribution eller replik uppsättning.
+* En POD störnings budget (PDB) är för begränsad och tillåter inte att antalet poddar kan falla under ett visst tröskelvärde.
+* En POD använder Node-väljare eller anti-tillhörighet som inte kan användas om de är schemalagda på en annan nod.
 
-Mer information om hur kluster automatisk skalning kanske inte kan skalas ned finns i Vilka typer av poddar kan förhindra att [klusteravkalkaren tar bort en nod?][autoscaler-scaledown]
+För mer information om hur klustrets autoskalning inte kan skalas ned, se [vilka typer av poddar kan förhindra att klustret autoskalning tar bort en nod?][autoscaler-scaledown]
 
-Kluster automatiskskalning använder startparametrar för saker som tidsintervall mellan skalningshändelser och resurströskelvärden. Dessa parametrar definieras av Azure-plattformen och är för närvarande inte exponerade för att du ska justera. Mer information om vilka parametrar som klusterautomatsystemet använder finns i [Vilka parametrar för automatisk skalning av kluster?][autoscaler-parameters]
+Klustrets autoskalning använder start parametrar för saker som tidsintervall mellan skalnings händelser och resurs trösklar. Dessa parametrar definieras av Azure-plattformen och är för närvarande inte tillgängliga för dig att justera. Mer information om vilka parametrar som används av klustret finns i [Vad är klustrets parametrar för autoskalning?][autoscaler-parameters].
 
-Klustret och den horisontella pod-gruppen kan arbeta tillsammans och distribueras ofta i ett kluster. När den kombineras fokuserar den horisontella pod-förankningsenheten på att köra antalet poddar som krävs för att möta programmets efterfrågan. Kluster automatiskskalning fokuserar på att köra antalet noder som krävs för att stödja schemalagda poddar.
+De automatiska skalningarna i kluster och horisontella Pod kan fungera tillsammans och båda är ofta distribuerade i ett kluster. När den här funktionen kombineras, fokuserar den horisontella Pod autoskalning på att köra antalet poddar som krävs för att uppfylla programmets krav. Klustrets autoskalning fokuserar på att köra antalet noder som krävs för att stödja den schemalagda poddar.
 
 > [!NOTE]
-> Manuell skalning är inaktiverat när du använder kluster automatisk skalning. Låt kluster automatisk skalning bestämma det antal noder som krävs. Om du vill skala klustret manuellt [inaktiverar du klusterautomaten](#disable-the-cluster-autoscaler).
+> Manuell skalning är inaktive rad när du använder klustret autoskalning. Låt klustret autoscaler fastställa antalet noder som krävs. Om du vill skala klustret manuellt [inaktiverar du klustrets autoskalning](#disable-the-cluster-autoscaler).
 
-## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Skapa ett AKS-kluster och aktivera klusterautomatisk skalning
+## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Skapa ett AKS-kluster och aktivera kluster autoskalning
 
-Om du behöver skapa ett AKS-kluster använder du kommandot [az aks create.][az-aks-create] Om du vill aktivera och konfigurera klusterautomatskalningsaren på nodpoolen för klustret använder du parametern *--enable-cluster-autoscaler* och anger en nod *--min-count* och *--max-count*.
+Om du behöver skapa ett AKS-kluster använder du kommandot [AZ AKS Create][az-aks-create] . Om du vill aktivera och konfigurera klustrets autoskalning på nodens nod för klustret använder du parametern *--Enable-Cluster-autoscaleor* och anger en nod *--min-Count* och *--Max-Count*.
 
 > [!IMPORTANT]
-> Kluster automatisk skalning är en Kubernetes komponent. Även om AKS-klustret använder en skalningsuppsättning för den virtuella datorn för noderna ska du inte aktivera eller redigera inställningar manuellt för automatisk skalning av skalning i Azure-portalen eller med hjälp av Azure CLI. Låt Kubernetes-kluster automatiskt skala de skalningsinställningar som krävs. Mer information finns i [Kan jag ändra AKS-resurserna i nodresursgruppen?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
+> Klustrets autoskalning är en Kubernetes-komponent. Även om AKS-klustret använder en skalnings uppsättning för virtuella datorer för noderna, ska du inte manuellt aktivera eller redigera inställningarna för skalnings uppsättning autoskalning i Azure Portal eller med hjälp av Azure CLI. Låt Kubernetes-klustret hantera de nödvändiga skalnings inställningarna. Mer information finns i [kan jag ändra AKS-resurserna i noden resurs grupp?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-I följande exempel skapas ett AKS-kluster med en enda nodpool som backas upp av en skalningsuppsättning för den virtuella datorn. Det gör det också möjligt för kluster automatisk skalbar på nodpoolen för klustret och anger minst *1* och högst *3* noder:
+I följande exempel skapas ett AKS-kluster med en pool med en enda nod som backas upp av en skalnings uppsättning för virtuella datorer. Det aktiverar också klustrets autoskalning på nodens nod för klustret och anger minst *1* och högst *3* noder:
 
 ```azurecli-interactive
 # First create a resource group
@@ -76,16 +76,16 @@ az aks create \
   --max-count 3
 ```
 
-Det tar några minuter att skapa klustret och konfigurera inställningarna för automatisk skalning av kluster.
+Det tar några minuter att skapa klustret och konfigurera inställningarna för den automatiska skalnings inställningen i klustret.
 
-## <a name="change-the-cluster-autoscaler-settings"></a>Ändra inställningarna för automatisk skalning av kluster
+## <a name="change-the-cluster-autoscaler-settings"></a>Ändra inställningarna för kluster autoskalning
 
 > [!IMPORTANT]
-> Om du har flera nodpooler i AKS-klustret går du till [avsnittet Automatisk skalning med flera agentpooler](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Kluster med flera agentpooler kräver `az aks nodepool` användning av kommandouppsättningen för `az aks`att ändra nodpoolspecifika egenskaper i stället för .
+> Om du har flera resurspooler i ditt AKS-kluster går du vidare till [avsnittet autoskalning med flera agenter](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Kluster med flera agenter kräver att `az aks nodepool` kommando uppsättningen använder kommandot för att ändra egenskaper för Node-pooler i stället `az aks`för.
 
-I föregående steg för att skapa ett AKS-kluster eller uppdatera en befintlig nodpool angavs minsta nodantalet för kluster automatisk skalning *till 1*och det maximala antalet noder angavs till *3*. När ditt program kräver förändring kan du behöva justera antalet nodnoder för klusternoder.
+I föregående steg för att skapa ett AKS-kluster eller uppdatera en befintlig Node-pool, angavs det lägsta antalet noder för klustrets Autoskala till *1*, och det maximala antalet noder hade angetts till *3*. När dina program kräver ändringar kan du behöva justera antalet noder i den automatiska skalnings tjänsten för klustret.
 
-Om du vill ändra antalet noder använder du kommandot [az aks update.][az-aks-update]
+Om du vill ändra antalet noder använder du kommandot [AZ AKS Update][az-aks-update] .
 
 ```azurecli-interactive
 az aks update \
@@ -96,35 +96,35 @@ az aks update \
   --max-count 5
 ```
 
-I exemplet ovan uppdateras kluster automatisk skalbar på den enda nodpoolen i *myAKSCluster* till minst *1* och högst *5* noder.
+Exemplet ovan uppdaterar kluster autoskalning på den enskild Node-poolen i *myAKSCluster* till minst *1* och högst *5* noder.
 
 > [!NOTE]
-> Du kan inte ange ett högre minsta antal nod än vad som för närvarande anges för nodpoolen. Om du till exempel har minantal inställt på *1*kan du inte uppdatera antalet minuter till *3*.
+> Du kan inte ange ett högre lägsta antal noder än vad som för närvarande har angetts för Node-poolen. Om du till exempel har angett till *1*för antal, kan du inte uppdatera det minsta antalet till *3*.
 
-Övervaka prestanda för dina program och tjänster och justera antalet klusternoder för automatisk skalning så att de matchar den prestanda som krävs.
+Övervaka prestanda för dina program och tjänster och justera antalet noder i den automatiska skalnings tjänsten för klustret så att de matchar de nödvändiga prestanda.
 
-## <a name="using-the-autoscaler-profile"></a>Använda profilen för automatisk skalning
+## <a name="using-the-autoscaler-profile"></a>Använda den automatiska skalnings profilen
 
-Du kan också konfigurera mer detaljerad information om kluster automatisk skalning genom att ändra standardvärdena i den klusteromfattande autoskalningsprofilen. En nedskalningshändelse inträffar till exempel efter att noder har utnyttjats underutnyttjade efter 10 minuter. Om du hade arbetsbelastningar som kördes var 15:e minut kanske du vill ändra profilen för automatisk skalning för att skala ned under använda noder efter 15 eller 20 minuter. När du aktiverar klusterprofilen används en standardprofil om du inte anger olika inställningar. Profilen för automatisk skalning av kluster har följande inställningar som du kan uppdatera:
+Du kan också konfigurera mer detaljerad information om klustrets autoskalning genom att ändra standardvärdena i den globala profilen för autoskalning i klustret. Till exempel inträffar en händelsen skala ned efter att noderna har utnyttjats efter 10 minuter. Om du har arbets belastningar som kördes var 15: e minut kanske du vill ändra profilen för autoskalning för att skala ned under använda noder efter 15 eller 20 minuter. När du aktiverar klustret autoskalning används en standard profil om du inte anger andra inställningar. Klustrets profil för autoskalning har följande inställningar som du kan uppdatera:
 
 | Inställning                          | Beskrivning                                                                              | Standardvärde |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
-| skanningsintervall                    | Hur ofta kluster omvärderas för skala upp eller ned                                    | 10 sekunder    |
-| skala ned-fördröjning-efter-tillägg       | Hur lång tid efter skala upp att skala ner utvärderingen återupptas                               | 10 minuter    |
-| skala ned-fördröjning-efter-borttagning    | Hur lång tid efter nodborttagning som skala ner utvärderingen återupptas                          | skanningsintervall |
-| skala ned-fördröjning-efter-fel   | Hur länge efter nedskalningsfel återupptas utvärderingen                     | 3 minuter     |
-| nedskalad-onödiga tid         | Hur länge en nod ska vara onödiga innan den kan skalas ned                  | 10 minuter    |
-| nedskala-ner-oläslig tid          | Hur länge en oläslig nod ska vara onödiga innan den kan skalas ned         | 20 minuter    |
-| nedvärderingströskel | Nodutnyttjandenivå, definierad som summan av begärda resurser dividerat med kapacitet, under vilken en nod kan beaktas för nedskalning | 0,5 |
-| max-graciös-uppsägning-sek     | Maximalt antal sekunder som klusterautomatenheten väntar på pod-avslutning när du försöker skala ned en nod. | 600 sekunder   |
-| balans-liknande-nod-grupper | Identifiera liknande nodpooler och balansera antalet noder mellan dem | false |
+| genomsökning – intervall                    | Hur ofta klustret utvärderas för att skala upp eller ned                                    | 10 sekunder    |
+| skala ned-fördröjning – efter-tillägg       | Hur lång tid det tar att skala ned utvärderingen återupptas                               | 10 minuter    |
+| skala ned-fördröjning – efter-borttagning    | Hur lång tid efter att noden har tagits bort återupptar utvärderingen                          | genomsökning – intervall |
+| skala ned-fördröjning – efter-Failure   | Hur lång tid det tar för fel på att skala ned utvärderings versionen återupptas                     | 3 minuter     |
+| skalning – inte nödvändig-tid         | Hur länge en nod ska vara onödiga innan den kan skalas ned                  | 10 minuter    |
+| skalar ned-oläst, tid          | Hur länge en oläsbar nod ska vara onödiga innan den kan skalas ned         | 20 minuter    |
+| skalning – användning – tröskel | Nodens användnings nivå, definieras som summan av de begärda resurserna dividerat med kapaciteten, under vilken en nod kan övervägas för skalning nedåt | 0,5 |
+| Max--Termination-s     | Maximalt antal sekunder som klustrets automatiska skalning väntar på att Pod avslutas vid försök att skala ned en nod. | 600 sekunder   |
+| balans-liknande-Node-Groups | Identifiera liknande noder och utjämna antalet noder mellan dem | false |
 
 > [!IMPORTANT]
-> Profilen för automatisk skalning av kluster påverkar alla nodpooler som använder kluster automatisk skalbar. Du kan inte ange en profil för automatisk skalning per nodpool.
+> Klustrets profil för autoskalning påverkar alla resurspooler som använder klustrets autoskalning. Det går inte att ange en autoskalning-profil per Node-pool.
 
-### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för förhandsversion
+### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
 
-Om du vill ange profilen för inställningar för klusterinställningar för kluster behöver du CLI-tilläggsversionen 0.4.30 eller senare *aks-förhandsversion.* Installera Azure *CLI-tillägget aks-preview* med kommandot [az extension add][az-extension-add] och sök sedan efter tillgängliga uppdateringar med kommandot az extension [update:][az-extension-update]
+Om du vill ställa in profil för automatisk skalnings profil för klustret behöver du *AKS-Preview CLI-* tillägg version 0.4.30 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -134,9 +134,9 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Ange profilen för automatisk skalning av kluster på ett befintligt AKS-kluster
+### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Ställ in klustrets profil för autoskalning i ett befintligt AKS-kluster
 
-Använd kommandot [az aks update][az-aks-update] med parametern *kluster-autoscaler-profile* för att ställa in klustrets autoskalningsprofil i klustret. I följande exempel konfigureras skanningsintervallinställningen som 30:00 i profilen.
+Använd kommandot [AZ AKS Update][az-aks-update] med parametern *cluster-autoscaler – profil* för att ställa in klustrets autoskalning-profil i klustret. I följande exempel konfigureras inställningen för genomsöknings intervallet som 30 s i profilen.
 
 ```azurecli-interactive
 az aks update \
@@ -145,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-När du aktiverar kluster automatisk skalbar på nodpooler i klustret, kommer dessa kluster också att använda klustrets autoskalningsprofil. Ett exempel:
+När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Ett exempel:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -158,11 +158,11 @@ az aks nodepool update \
 ```
 
 > [!IMPORTANT]
-> När du ställer in profilen för automatisk skalning av kluster börjar alla befintliga nodpooler med klusterautomaten aktiverad att använda profilen omedelbart.
+> När du ställer in klustrets profil för autoskalning börjar alla befintliga noder med den aktiverade klustret att använda profilen omedelbart.
 
-### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ange profilen för klusterprofilen för automatisk skalning när du skapar ett AKS-kluster
+### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ställ in klustrets profil för autoskalning när du skapar ett AKS-kluster
 
-Du kan också använda parametern *kluster-autoscaler-profile* när du skapar klustret. Ett exempel:
+Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Ett exempel:
 
 ```azurecli-interactive
 az aks create \
@@ -175,11 +175,11 @@ az aks create \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-Kommandot ovan skapar ett AKS-kluster och definierar skanningsintervallet som 30 sekunder för den klusteromfattande autoskalningsprofilen. Kommandot aktiverar också kluster automatiskskalning på den första nodpoolen, anger minsta nodantal till 1 och det maximala antalet noder till 3.
+Kommandot ovan skapar ett AKS-kluster och definierar genomsöknings intervallet som 30 sekunder för den automatiska skalnings profilen i klustret. Kommandot aktiverar också klustrets autoskalning på den första noden, anger det lägsta antalet noder till 1 och det maximala antalet noder till 3.
 
-### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>Återställa profil för automatisk skalning av kluster till standardvärden
+### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>Återställ profil för automatiskt skalnings profil till standardvärdena
 
-Använd kommandot [az aks update][az-aks-update] för att återställa klustrets autoskalningsprofil i klustret.
+Använd kommandot [AZ AKS Update][az-aks-update] för att återställa klustrets autoskalning-profil i klustret.
 
 ```azurecli-interactive
 az aks update \
@@ -188,9 +188,9 @@ az aks update \
   --cluster-autoscaler-profile ""
 ```
 
-## <a name="disable-the-cluster-autoscaler"></a>Inaktivera kluster automatisk skalning
+## <a name="disable-the-cluster-autoscaler"></a>Inaktivera klustrets autoskalning
 
-Om du inte längre vill använda kluster automatisk skalning, kan du inaktivera den med kommandot [az aks update,][az-aks-update] ange parametern *--disable-cluster-autoscaler.* Noder tas inte bort när kluster automatisk skalning inaktiveras.
+Om du inte längre vill använda klustrets autoskalning kan du inaktivera det med kommandot [AZ AKS Update][az-aks-update] och ange parametern *--disable-Cluster-autoscaler* . Noderna tas inte bort när klustrets autoskalning är inaktive rad.
 
 ```azurecli-interactive
 az aks update \
@@ -199,23 +199,23 @@ az aks update \
   --disable-cluster-autoscaler
 ```
 
-Du kan skala klustret manuellt när du har inaktiverat klusteravkalkaren med kommandot [az aks scale.][az-aks-scale] Om du använder den automatiska vågen pod-skalningen fortsätter den funktionen att köras med klusterautomatenheten inaktiverad, men poddar kan inte schemaläggas om alla nodresurser används.
+Du kan skala klustret manuellt när du har inaktiverat kluster autoskalning med kommandot [AZ AKS Scale][az-aks-scale] . Om du använder den vågräta Pod autoskalning, fortsätter funktionen att köras med den automatiska skalnings funktionen för klustret inaktive rad, men poddar kan inte schemaläggas om alla resurs resurser används.
 
-## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Återaktivera en inaktiverad kluster automatisk skalning
+## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Återaktivera en inaktive rad kluster autoskalning
 
-Om du vill återaktivera klusterautomatiskskalning på ett befintligt kluster kan du återaktivera det med kommandot [az aks update][az-aks-update] och ange parametrarna *--enable-cluster-autoscaler*, *--min-count*och *--max-count.*
+Om du vill återaktivera klustrets autoskalning i ett befintligt kluster kan du återaktivera det med kommandot [AZ AKS Update][az-aks-update] och ange parametern *--Enable-Cluster-autoscaler*, *--minimum-Count*och *--Max-Count* .
 
-## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Hämta loggar och status för klusterloggar för automatisk skalning
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Hämta loggar och status för kluster för autoskalning
 
-För att diagnostisera och felsöka händelser för automatisk skalning kan loggar och status hämtas från tillägget autoskalning.
+För att diagnostisera och felsöka autoskalning-händelser kan loggar och status hämtas från autoskalning-tillägget.
 
-AKS hanterar kluster automatisk skalning för din räkning och kör den i det hanterade kontrollplanet. Huvudnodsloggar måste vara konfigurerade för att kunna visas som ett resultat.
+AKS hanterar klustrets automatiska skalning åt dig och kör det i det hanterade kontroll planet. Huvud nod loggar måste konfigureras för att kunna visas som ett resultat.
 
-Så här konfigurerar du loggar som ska skickas från klusterautomaten till Log Analytics.
+Följ dessa steg om du vill konfigurera loggar som ska överföras från klustrets autoskalning till Log Analytics.
 
-1. Ställ in en regel för diagnostikloggar för att skicka kluster-autoscaler loggar till Log Analytics. [Instruktionerna är detaljerade här,](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs)se `cluster-autoscaler` till att du markerar rutan för när du väljer alternativ för "Loggar".
-1. Klicka på avsnittet "Loggar" i klustret via Azure-portalen.
-1. Ange följande exempelfråga i Logganalys:
+1. Konfigurera en regel för resurs loggar för att skicka ett push-kluster med automatiska skalnings loggar till Log Analytics. [Instruktioner beskrivs här](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), se till att du markerar kryss rutan `cluster-autoscaler` när du väljer alternativ för "loggar".
+1. Klicka på avsnittet "loggar" i klustret via Azure Portal.
+1. Mata in följande exempel fråga i Log Analytics:
 
 ```
 AzureDiagnostics
@@ -224,21 +224,21 @@ AzureDiagnostics
 
 Du bör se loggar som liknar följande exempel så länge det finns loggar att hämta.
 
-![Logga Analytics-loggar](media/autoscaler/autoscaler-logs.png)
+![Log Analytics loggar](media/autoscaler/autoscaler-logs.png)
 
-Kluster automatisk skalbar kommer också att skriva ut `cluster-autoscaler-status`hälsostatus till en configmap med namnet . Om du vill hämta dessa `kubectl` loggar kör du följande kommando. En hälsostatus rapporteras för varje nodpool som konfigurerats med kluster automatisk skalbar.
+Klustrets autoskalning kommer också att skriva ut hälso status till en configmap `cluster-autoscaler-status`med namnet. Kör följande `kubectl` kommando för att hämta loggarna. En hälso status rapporteras för varje noduppsättning som kon figurer ATS med klustrets autoskalning.
 
 ```
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
 ```
 
-Om du vill veta mer om vad som loggas från den automatiska skalningsapparaten läser du vanliga frågor och svar om [Kubernetes/autoscaler GitHub-projektet](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
+Om du vill veta mer om vad som loggas från autoskalning läser du vanliga frågor och svar om [Kubernetes/autoskalning GitHub-projektet](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
 
-## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Använda kluster automatisk skalbar med flera nodpooler aktiverade
+## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Använd kluster autoskalning med flera noder aktiverade
 
-Kluster automatisk skalbar kan användas tillsammans med [flera nodpooler](use-multiple-node-pools.md) aktiverade. Följ det dokumentet om du vill lära dig hur du aktiverar flera nodpooler och lägger till ytterligare nodpooler i ett befintligt kluster. När du använder båda funktionerna tillsammans aktiverar du klusterautomatskalningsaren på varje enskild nodpool i klustret och kan skicka unika regler för automatisk skalning till var och en.
+Klustrets autoskalning kan användas tillsammans med [flera noder](use-multiple-node-pools.md) aktiverade. Följ det dokumentet för att lära dig hur du aktiverar flera resurspooler och lägger till ytterligare resurspooler i ett befintligt kluster. När du använder båda funktionerna tillsammans aktiverar du klustrets autoskalning på varje enskild nod i klustret och kan skicka unika regler för automatisk skalning till var och en.
 
-Kommandot nedan förutsätter att du följde de [första instruktionerna](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) tidigare i det här dokumentet och du vill uppdatera en befintlig nodpools maxantal från *3* till *5*. Använd kommandot [az aks nodepool update][az-aks-nodepool-update] för att uppdatera inställningarna för en befintlig nodpool.
+Kommandot nedan förutsätter att du följde de [inledande anvisningarna](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) tidigare i det här dokumentet och du vill uppdatera en befintlig nods Pools Max antal från *3* till *5*. Använd kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] för att uppdatera en befintlig Node-uppsättnings inställningar.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -250,7 +250,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-Kluster automatiskskalning kan inaktiveras med [az aks nodepool uppdatering][az-aks-nodepool-update] och passerar parametern. `--disable-cluster-autoscaler`
+Klustret autoskalning kan inaktive ras med [AZ AKS nodepool Update][az-aks-nodepool-update] och skicka `--disable-cluster-autoscaler` parametern.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -260,11 +260,11 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-Om du vill återaktivera kluster automatisk skalning på ett befintligt kluster kan du återaktivera det med kommandot [az aks nodepool update][az-aks-nodepool-update] och ange parametrarna *--enable-cluster-autoscaler*, *--min-count*och *--max-count.*
+Om du vill återaktivera klustrets autoskalning i ett befintligt kluster kan du återaktivera det med kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] , som anger parametrarna *--Enable-Cluster-autoscaler*, *--minimum-Count*och *--Max-Count* .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visade hur du automatiskt skalar antalet AKS-noder. Du kan också använda den vågräta podden för automatisk skalning för att automatiskt justera antalet poddar som kör ditt program. Steg om hur du använder den automatiska vågensapenna finns [i Skala program i AKS][aks-scale-apps].
+I den här artikeln visade vi hur du automatiskt skalar antalet AKS-noder. Du kan också använda den vågräta Pod autoskalning för att automatiskt justera antalet poddar som kör programmet. Anvisningar om hur du använder den vågräta Pod-autoskalning finns i [skala program i AKS][aks-scale-apps].
 
 <!-- LINKS - internal -->
 [aks-faq]: faq.md

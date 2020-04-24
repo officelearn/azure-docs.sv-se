@@ -4,12 +4,12 @@ description: Lär dig att säkerhetskopiera system tillstånd för Windows Serve
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 847ed8fc5a6c102284a03fa593587792767d7913
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76294022"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "82128176"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiera Windows system State i Resource Manager-distribution
 
@@ -25,7 +25,7 @@ Om du vill säkerhetskopiera ditt system tillstånd för Windows Server måste d
 
 ### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv
 
-1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/) med din Azure-prenumeration.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med din Azure-prenumeration om du inte redan gjort det.
 2. På navigeringsmenyn klickar du på **Alla tjänster** och skriver **Recovery Services** i listan över resurser och klickar sedan på **Recovery Services-valv**.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-system-state/open-rs-vault-list.png)
@@ -193,11 +193,11 @@ För att slutföra den första säkerhetskopieringen använder du Microsoft Azur
 
 5. Välj **system tillstånd** och klicka sedan på **OK**.
 
-6. Klicka på **Next**.
+6. Klicka på **Nästa**.
 
 7. Välj säkerhets kopierings frekvens och bevarande princip för säkerhets kopiering av system tillstånd på efterföljande sidor.
 
-8. Läs informationen på sidan Bekräftelse och klicka sedan på **Slutför**.
+8. Läs informationen på sidan Confirmation (Bekräftelse) och klicka sedan på **Finish** (Slutför).
 
 9. När guiden har skapat säkerhetskopieringsschemat klickar du på **Stäng**.
 
@@ -224,10 +224,10 @@ När den första säkerhetskopieringen har slutförts visas statusen **Jobbet ha
 
 ## <a name="questions"></a>Har du några frågor?
 
-Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](https://aka.ms/azurebackup_feedback).
+Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Få mer information om hur du [säkerhetskopierar Windows-datorer](backup-configure-vault.md).
+* Få mer information om hur du [säkerhetskopierar Windows-datorer](backup-windows-with-mars-agent.md).
 * Nu när du har säkerhetskopierat system tillstånd för Windows Server kan du [Hantera dina valv och servrar](backup-azure-manage-windows-server.md).
 * Om du behöver återställa en säkerhetskopia använder du den här artikeln för att [återställa filer till en Windows-dator](backup-azure-restore-windows-server.md).

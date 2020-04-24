@@ -1,45 +1,45 @@
 ---
-title: Certifikatbindningar
-description: Förklara många ämnen som rör certifikat i en App Service-miljö. Läs om hur certifikatbindningar fungerar på appar med en enda klientorganisation i en ASE.
+title: Certifikat bindningar
+description: Förklara flera ämnen som rör certifikat på en App Service-miljön. Lär dig hur certifikat bindningar fungerar i appar för en enda klient i en ASE.
 author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: dffa9571706c067834e47a656ec1d47cb884fb48
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477510"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128712"
 ---
-# <a name="certificates-and-the-app-service-environment"></a>Certifikat och apptjänstmiljön 
+# <a name="certificates-and-the-app-service-environment"></a>Certifikat och App Service-miljön 
 
-App Service Environment(ASE) är en distribution av Azure App Service som körs inom ditt Virtuella Azure-nätverk(VNet). Den kan distribueras med en internetanpassningstillgänglig programslutpunkt eller en programslutpunkt som finns i ditt virtuella nätverk. Om du distribuerar ASE med en internettillgänglig slutpunkt kallas den distributionen för extern ASE. Om du distribuerar ASE med en slutpunkt i ditt virtuella nätverk kallas den distributionen för ILB ASE. Du kan läsa mer om ILB ASE från [Skapa och använda ett ILB ASE-dokument.](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)
+App Service-miljön (ASE) är en distribution av Azure App Service som körs i Azure-Virtual Network (VNet). Den kan distribueras med en tillgänglig program slut punkt för Internet eller en slut punkt för program som finns i ditt VNet. Om du distribuerar ASE med en tillgänglig slut punkt för Internet kallas distributionen en extern ASE. Om du distribuerar ASE med en slut punkt i ditt virtuella nätverk kallas den distributionen en ILB-ASE. Du kan lära dig mer om ILB-ASE från dokumentet [create och Use a ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) .
 
-ASE är ett enda klientsystem. Eftersom det är en enda klient finns det vissa funktioner som endast är tillgängliga med en ASE som inte är tillgängliga i Apptjänsten för flera innehavare. 
+ASE är ett enda klient system. Eftersom det är en enda klient, finns det vissa funktioner som endast är tillgängliga med en ASE som inte är tillgänglig i App Service för flera innehavare. 
 
 ## <a name="ilb-ase-certificates"></a>ILB ASE-certifikat 
 
-Om du använder en extern ASE nås dina appar på [appnamn]. [asename].p.azurewebsites.net. Som standard skapas alla ASEs, även ILB ASEs, med certifikat som följer det formatet. När du har en ILB ASE nås apparna baserat på det domännamn som du anger när du skapar ILB ASE. För att apparna ska stödja TLS måste du ladda upp certifikat. Skaffa ett giltigt TLS/SSL-certifikat med hjälp av interna certifikatutfärdare, köpa ett certifikat från en extern utfärdare eller använda ett självsignerat certifikat. 
+Om du använder en extern ASE nås dina appar på [APPNAME]. [asename]. p. azurewebsites. net. Som standard skapas alla ASE, även ILB ASE, med certifikat som följer det formatet. När du har en ILB-ASE nås apparna baserat på det domän namn som du anger när du skapar ILB-ASE. För att appar ska kunna stödja TLS måste du ladda upp certifikat. Skaffa ett giltigt TLS/SSL-certifikat genom att använda interna certifikat utfärdare, köpa ett certifikat från en extern utfärdare eller använda ett självsignerat certifikat. 
 
-Det finns två alternativ för att konfigurera certifikat med din ILB ASE.  Du kan ange ett jokerteckenstandardcertifikat för ILB ASE eller ange certifikat på de enskilda webbapparna i ASE.  Oavsett vilket val du väljer måste följande certifikatattribut konfigureras korrekt:
+Det finns två alternativ för att konfigurera certifikat med din ILB-ASE.  Du kan ange ett standard certifikat för jokertecken för ILB-ASE eller ange certifikat för enskilda webbappar i ASE.  Oavsett vilket val du gör måste följande attribut för certifikaten vara korrekt konfigurerade:
 
-- **Angående:** Det här attributet måste anges till *. [din-root-domain-here] för ett jokertecken ILB ASE-certifikat. Om du skapar certifikatet för din app bör det vara [appnamn]. [din-root-domän-här]
-- **Ämne alternativt namn:** Det här attributet måste innehålla båda *. [din-root-domän-domän-här] och *.scm. [din-root-domain-here] för jokertecken ILB ASE-certifikatet. Om du skapar certifikatet för din app bör det vara [appnamn]. [din-root-domain-here] och [appname].scm. [din-root-domän-här].
+- **Ämne:** Det här attributet måste anges till *. [din-Root-Domain-här] för ett ILB ASE-certifikat med jokertecken. Om du skapar certifikatet för din app ska det vara [APPNAME]. [din-Root-Domain-här]
+- **Alternativt namn för certifikat mottagare:** Attributet måste innehålla både *. [din-Root-Domain-här] och *. scm. [din-Root-Domain-här] för ASE-certifikatet med jokertecken ILB. Om du skapar certifikatet för din app ska det vara [APPNAME]. [din-Root-Domain-här] och [APPNAME]. scm. [din-Root-Domain-här].
 
-Som en tredje variant kan du skapa ett ILB ASE-certifikat som innehåller alla dina enskilda appnamn i CERTIFIKATET i certifikatet i stället för att använda en jokerteckenreferens. Problemet med den här metoden är att du måste veta på framsidan namnen på de appar som du lägger i ASE eller du behöver för att hålla uppdatera ILB ASE-certifikat.
+Som tredje variant kan du skapa ett ILB ASE-certifikat som innehåller alla dina egna program namn i certifikatets SAN i stället för att använda en jokertecken referens. Problemet med den här metoden är att du måste känna till namnen på de appar som du placerar i ASE eller så måste du fortsätta uppdatera ILB ASE-certifikatet.
 
 ### <a name="upload-certificate-to-ilb-ase"></a>Ladda upp certifikat till ILB ASE 
 
-När en ILB ASE har skapats i portalen måste certifikatet anges för ILB ASE. Tills certifikatet har angetts visar ASE en banderoll som certifikatet inte har angetts.  
+När en ILB-ASE har skapats i portalen måste certifikatet anges för ILB-ASE. När certifikatet har angetts visas en banderoll i ASE som inte har angetts för certifikatet.  
 
-Certifikatet som du överför måste vara en PFX-fil. När certifikatet har överförts utför ASE en skalningsåtgärd för att ange certifikatet. 
+Det certifikat som du överför måste vara en. pfx-fil. När certifikatet har laddats upp utför ASE en skalnings åtgärd för att ställa in certifikatet. 
 
-Du kan inte skapa ASE och överföra certifikatet som en åtgärd i portalen eller ens i en mall. Som en separat åtgärd kan du ladda upp certifikatet med hjälp av en mall enligt beskrivningen i [Skapa en ASE från ett malldokument.](./create-from-template.md)  
+Du kan inte skapa ASE och ladda upp certifikatet som en åtgärd i portalen eller till och med i en mall. Som en separat åtgärd kan du ladda upp certifikatet med hjälp av en mall enligt beskrivningen i [skapa en ASE från ett dokument i mallen](./create-from-template.md) .  
 
-Om du snabbt vill skapa ett självsignerat certifikat för testning kan du använda följande bit powershell:
+Om du snabbt vill skapa ett självsignerat certifikat för testning kan du använda följande PowerShell-version:
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -48,43 +48,43 @@ Om du snabbt vill skapa ett självsignerat certifikat för testning kan du anvä
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-När du skapar ett självsignerat certifikat måste du se till att ämnesnamnet har formatet CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
+När du skapar ett självsignerat certifikat måste du se till att ämnes namnet har formatet CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
-## <a name="application-certificates"></a>Programcertifikat 
+## <a name="application-certificates"></a>Program certifikat 
 
-Appar som finns i en ASE kan använda de appcentrerade certifikatfunktioner som är tillgängliga i Apptjänsten för flera innehavare. Dessa funktioner inkluderar:  
+Appar som finns i en ASE kan använda app-koncentriska certifikat funktioner som är tillgängliga i App Service för flera innehavare. Dessa funktioner är:  
 
 - SNI-certifikat 
-- IP-baserad SSL, som endast stöds med en extern ASE.  En ILB ASE stöder inte IP-baserad SSL.
-- KeyVault värdcertifikat 
+- IP-baserad SSL, som endast stöds med en extern ASE.  En ILB-ASE har inte stöd för IP-baserad SSL.
+- Värdbaserade certifikat för nyckel valv 
 
-Instruktionerna för att ladda upp och hantera dessa certifikat finns i [Lägg till ett TLS/SSL-certifikat i Azure App Service](../configure-ssl-certificate.md).  Om du bara konfigurerar certifikat så att de matchar ett eget domännamn som du har tilldelat din webbapp räcker dessa instruktioner. Om du laddar upp certifikatet för en ILB ASE-webbapp med standarddomännamnet anger du scm-platsen i CERTIFIKATET för certifikatet som tidigare nämnts. 
+Instruktioner för att ladda upp och hantera dessa certifikat finns i [Lägg till ett TLS/SSL-certifikat i Azure App Service](../configure-ssl-certificate.md).  Om du helt enkelt konfigurerar certifikat så att de matchar ett anpassat domän namn som du har tilldelat din webbapp räcker dessa instruktioner. Om du laddar upp certifikatet för en ILB ASE-webbapp med standard domän namnet anger du SCM-platsen i SAN-nätverket för certifikatet enligt ovan. 
 
 ## <a name="tls-settings"></a>TLS-inställningar 
 
-Du kan konfigurera TLS-inställningen på appnivå.  
+Du kan konfigurera TLS-inställningen på en app-nivå.  
 
-## <a name="private-client-certificate"></a>Privat klientcertifikat 
+## <a name="private-client-certificate"></a>Privat klient certifikat 
 
-Ett vanligt användningsfall är att konfigurera appen som klient i en klient-servermodell. Om du skyddar servern med ett privat certifikatutfärdarcertifikat måste du ladda upp klientcertifikatet till din app.  Följande instruktioner läser in certifikat till truststore för de arbetare som appen körs på. Om du läser in certifikatet i en app kan du använda det med dina andra appar i samma App Service-plan utan att ladda upp certifikatet igen.
+Ett vanligt användnings fall är att konfigurera din app som en klient i en klient-server-modell. Om du skyddar din server med ett privat CA-certifikat måste du ladda upp klient certifikatet till din app.  Följande instruktioner läser in certifikat till trustStore för de arbetare som appen körs på. Om du läser in certifikatet till en app kan du använda det med dina andra appar i samma App Service plan utan att ladda upp certifikatet igen.
 
-Så här laddar du upp certifikatet till din app i DIN ASE:
+Ladda upp certifikatet till din app i din ASE:
 
-1. Generera en *CER-fil* för ditt certifikat. 
-2. Gå till appen som behöver certifikatet i Azure-portalen
-3. Gå till SSL-inställningar i appen. Klicka på Ladda upp certifikat. Välj Offentlig. Välj Lokal dator. Ange ett namn. Bläddra och välj *fil i .cer.* Välj uppladdning. 
+1. Generera en *CER* -fil för ditt certifikat. 
+2. Gå till den app som behöver certifikatet i Azure Portal
+3. Gå till SSL-inställningar i appen. Klicka på Ladda upp certifikat. Välj Offentlig. Välj lokal dator. Ange ett namn. Bläddra och välj *CER* -filen. Välj överför. 
 4. Kopiera tumavtrycket.
-5. Gå till Programinställningar. Skapa en appinställning WEBSITE_LOAD_ROOT_CERTIFICATES med tumavtrycket som värde. Om du har flera certifikat kan du placera dem i samma inställning åtskilda av kommatecken och inget blanktecken som 
+5. Gå till program inställningar. Skapa en app-inställning WEBSITE_LOAD_ROOT_CERTIFICATES med tumavtrycket som värde. Om du har flera certifikat kan du lägga dem i samma inställning avgränsade med kommatecken och inget blank steg som 
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-Certifikatet kommer att vara tillgängligt för alla appar i samma apptjänstplan som appen, som konfigurerade den inställningen. Om du behöver den för att vara tillgänglig för appar i en annan App Service-plan måste du upprepa appinställningsåtgärden i en app i apptjänstplanen. Om du vill kontrollera att certifikatet är inställt går du till Kudu-konsolen och utfärdar följande kommando i PowerShell-felsökningskonsolen:
+Certifikatet är tillgängligt av alla appar i samma app service-plan som appen, som har konfigurerat inställningen. Om du vill att det ska vara tillgängligt för appar i en annan App Service plan måste du upprepa appens inställnings åtgärd i en app i App Service plan. Om du vill kontrol lera att certifikatet har angetts går du till kudu-konsolen och utfärdar följande kommando i PowerShell-felsöknings konsolen:
 
     dir cert:\localmachine\root
 
-Om du vill utföra testning kan du skapa ett självsignerat certifikat och generera en *CER-fil* med följande PowerShell: 
+Om du vill utföra testningen kan du skapa ett självsignerat certifikat och generera en *CER* -fil med följande PowerShell: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
     $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

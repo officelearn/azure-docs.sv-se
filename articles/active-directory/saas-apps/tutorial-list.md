@@ -1,6 +1,6 @@
 ---
-title: SSO-och SCIM-etablering SaaS program integrations guider för användning med Azure AD | Microsoft Docs
-description: Konfigurera Azure Active Directory enkel inloggning (SSO) och SCIM-integrering med en mängd program från tredje part som tjänst program.
+title: SaaS-självstudier för program integrering för användning med Azure AD | Microsoft Docs
+description: Konfigurera Azure Active Directory enkel inloggning med en rad program från tredje part som tjänst program.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 267efd103c3cfdca1aa6d3db10977bac9739f641
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: be265eee32a739bdfc2d4c3b746e01cd0c5ec06a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274449"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "82130527"
 ---
-# <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Självstudier för att integrera SaaS-program med Azure Active Directory
+# <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Självstudier för att integrera SaaS-appar med Azure Active Directory
 
 Vi har utvecklat en samling med självstudier som vägleder dig genom konfigurationen för att integrera [SaaS-program (program vara som en tjänst](https://azure.microsoft.com/overview/what-is-saas/) i molnet) med Azure Active Directory.
 
-En lista över alla SaaS-appar som har förintegrerats i Azure AD finns på [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps). Klicka [här](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) för att begära att en app läggs till i program galleriet. 
+En lista över alla SaaS-appar som har förintegrerats i Azure AD finns på [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+
+Använd [programmets nätverks Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) för att begära att ett [scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) aktiverat program läggs till i galleriet för automatisk etablering eller ett SAML/OIDC-aktiverat program som ska läggas till i galleriet för SSO.
 
 ## <a name="quick-links"></a>Snabblänkar
 
 | Logotyp | Program självstudie för enkel inloggning | Vägledning för program för användar etablering |
 | :--- | :--- | :--- |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian-moln](atlassian-cloud-tutorial.md)| [Atlassian-moln – användar etablering](atlassian-cloud-provisioning-tutorial.md)|
+| ![Microsofts](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian-moln – användar etablering](atlassian-cloud-provisioning-tutorial.md)|
 | ![Microsofts](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow – användar etablering](servicenow-provisioning-tutorial.md)|
 | ![Microsofts](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack – användar etablering](slack-provisioning-tutorial.md)|
-| ![Microsofts](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors – användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Arbets dag – användar etablering](workday-inbound-tutorial.md)|
 
 Använd innehålls förteckningen till vänster om du vill ha fler självstudier.
@@ -56,25 +58,62 @@ Använd innehålls förteckningen till vänster om du vill ha fler självstudier
 
 | Logotyp | Program självstudie för enkel inloggning |        |
 | :--- | :--- | :--- |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|      |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|      |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|      |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](amplitude-tutorial.md)|      |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-appraisd-tutorial.png)| [Appraisd](appraisd-tutorial.md)|      |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|     |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian-moln](atlassian-cloud-tutorial.md)|     |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Avvisare](displayr-tutorial.md)|     |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox för företag](dropboxforbusiness-tutorial.md)|    |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-deskradar-tutorial.png)| [Deskradar](deskradar-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-dmarcian-tutorial.png)| [dmarcian](dmarcian-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-docusign-tutorial.png)| [DocuSign](docusign-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-drift-tutorial.png)| [Drift](drift-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)|    |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](elium-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-envoy-tutorial.png)| [Envoy](envoy-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|     |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|     |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|     |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [JAMF Pro](jamfprosamlconnector-tutorial.md)|     |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Kunskap överallt, LMS](knowledge-anywhere-lms-tutorial.md)|     |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight – CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-harness-tutorial.png)| [Harness](harness-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|     |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-myworkdrive-tutorial.png)| [MyWorkDrive](myworkdrive-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-nuclino-tutorial.png)| [Nuclino](nuclino-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [People](people-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-velpicsaml-tutorial.png)| [Velpic SAML](velpicsaml-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-wandera-tutorial.png)| [Wandera](wandera-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-watch-by-colors-tutorial.png)| [Watch by Colors](watch-by-colors-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|       |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|       |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|        |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|        |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-tutorial.png)| [Zscaler](zscaler-tutorial.md)|          |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler beta](zscaler-beta-tutorial.md)|       |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler en](zscaler-one-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-beta-tutorial.png)| [Zscaler Beta](zscaler-beta-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-one-tutorial.png)| [Zscaler One](zscaler-one-tutorial.md)|       |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-zscalerprivateaccess-tutorial.png)| [Zscaler Private Access (ZPA)](zscalerprivateaccess-tutorial.md)|        |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler tre](zscaler-three-tutorial.md)|       |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler två](zscaler-two-tutorial.md)|        |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-three-tutorial.png)| [Zscaler Three](zscaler-three-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](zscaler-two-tutorial.md)|        |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|         |
 
 ## <a name="next-steps"></a>Nästa steg

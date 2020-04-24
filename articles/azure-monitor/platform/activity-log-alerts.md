@@ -1,64 +1,64 @@
 ---
-title: Aviseringar för aktivitetslogg i Azure Monitor
-description: Meddelas via SMS, webhook, SMS, e-post och mer, när vissa händelser inträffar i aktivitetsloggen.
+title: Aktivitets logg aviseringar i Azure Monitor
+description: Meddelas via SMS, webhook, SMS, e-post och mer, när vissa händelser inträffar i aktivitets loggen.
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669021"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137713"
 ---
-# <a name="alerts-on-activity-log"></a>Varningar i aktivitetsloggen
+# <a name="alerts-on-activity-log"></a>Aviseringar i aktivitets loggen
 
 ## <a name="overview"></a>Översikt
 
-Aktivitetsloggaviseringar är aviseringar som aktiveras när en ny [aktivitetslogghändelse](activity-log-schema.md) inträffar som matchar de villkor som anges i aviseringen. Baserat på ordningen och volymen på de händelser som registrerats i [Azure-aktivitetsloggen](platform-logs-overview.md)aktiveras aviseringsregeln. Aviseringsregler för aktivitetslogg är Azure-resurser, så att de kan skapas med hjälp av en Azure Resource Manager-mall. De kan också skapas, uppdateras eller tas bort i Azure-portalen. Den här artikeln introducerar begreppen bakom aktivitetsloggaviseringar. Mer information om hur du skapar eller erar aktivitetsloggvarningsregler finns i [Skapa och hantera aktivitetsloggaviseringar](alerts-activity-log.md).
+Aktivitets logg aviseringar är aviseringar som aktive ras när en ny [aktivitets logg händelse](activity-log-schema.md) inträffar som matchar de villkor som anges i aviseringen. Varnings regeln utlöses baserat på ordningen och volymen av de händelser som registrerats i [Azure aktivitets loggen](platform-logs-overview.md). Aktivitets logg aviserings regler är Azure-resurser, så de kan skapas med hjälp av en Azure Resource Manager mall. De kan också skapas, uppdateras eller tas bort i Azure Portal. Den här artikeln beskriver koncepten bakom aktivitets logg aviseringar. Mer information om hur du skapar eller använder aktivitets logg aviserings regler finns i [skapa och hantera aktivitets logg aviseringar](alerts-activity-log.md).
 
 > [!NOTE]
-> Aviseringar **kan inte** skapas för händelser i aviseringskategori i aktivitetsloggen.
+> **Det går inte** att skapa aviseringar för händelser i aviserings kategorin för aktivitets loggen.
 
-Vanligtvis skapar du aktivitetsloggaviseringar för att ta emot meddelanden när:
+Normalt skapar du aktivitets logg aviseringar för att ta emot meddelanden när:
 
-* Specifika åtgärder utförs på resurser i din Azure-prenumeration, ofta begränsade till vissa resursgrupper eller resurser. Du kanske till exempel vill bli meddelad när en virtuell dator i myProductionResourceGroup tas bort. Du kanske vill få ett meddelande om några nya roller tilldelas en användare i prenumerationen.
-* En hälsohändelse för tjänsten inträffar. Tjänsthälsohändelser inkluderar meddelanden om incidenter och underhållshändelser som gäller för resurser i din prenumeration.
+* Specifika åtgärder sker i resurser i din Azure-prenumeration, och är ofta begränsade till specifika resurs grupper eller resurser. Du kanske till exempel vill bli meddelad när en virtuell dator i myProductionResourceGroup tas bort. Eller så kanske du vill bli meddelad om eventuella nya roller har tilldelats till en användare i din prenumeration.
+* En tjänst hälso händelse inträffar. Tjänste hälso händelser innehåller meddelanden om incidenter och underhålls händelser som gäller för resurser i din prenumeration.
 
-En enkel analogi för att förstå villkor för vilka varningsregler kan skapas i aktivitetsloggen är att utforska eller filtrera händelser via [Aktivitetslogg i Azure Portal](activity-log-view.md#azure-portal). I Azure Monitor - Aktivitetslogg kan man filtrera eller hitta nödvändig händelse och sedan skapa en avisering med hjälp av knappen **Lägg till aktivitetslogg.**
+En enkel analoghet för att förstå villkor för vilka aviserings regler som kan skapas i aktivitets loggen är att utforska eller filtrera händelser via [aktivitets loggen i Azure Portal](activity-log-view.md#azure-portal). I Azure Monitor-aktivitets loggen kan en filtrera eller hitta nödvändig händelse och sedan skapa en avisering med hjälp av knappen **Lägg till aktivitets logg avisering** .
 
-I båda fallen övervakar en aktivitetsloggavisering endast för händelser i prenumerationen där aviseringen skapas.
+I båda fallen övervakar en aktivitets logg avisering endast för händelser i prenumerationen som aviseringen skapas i.
 
-Du kan konfigurera en aktivitetsloggavisering baserat på vilken egenskap på den översta nivån i JSON-objektet för en aktivitetslogghändelse. Mer information finns [i Kategorier i aktivitetsloggen](activity-log-view.md#categories-in-the-activity-log). Mer information om hälsohändelser för tjänsten finns i [Ta emot aktivitetsloggaviseringar för tjänstmeddelanden](alerts-activity-log-service-notifications.md). 
+Du kan konfigurera en aktivitets logg avisering baserat på valfri toppnivå egenskap i JSON-objektet för en aktivitets logg händelse. Mer information finns i [Kategorier i aktivitets loggen](activity-log-view.md#categories-in-the-activity-log). Läs mer om tjänst hälso händelser i [ta emot aktivitets logg aviseringar för tjänst meddelanden](alerts-activity-log-service-notifications.md). 
 
-Aktivitetsloggvarningar har några vanliga alternativ:
+Aktivitets logg aviseringar har några vanliga alternativ:
 
-- **Kategori**: Administration, ServiceHälsa, Automatisk skalning, Säkerhet, Princip och Rekommendation. 
-- **Scope**: Den eller de resurser som aviseringen för aktivitetsloggen har definierats för. Omfattning för en aktivitetsloggavisering kan definieras på olika nivåer:
-    - Resursnivå: Till exempel för en viss virtuell dator
-    - Resursgruppsnivå: Till exempel alla virtuella datorer i en viss resursgrupp
-    - Prenumerationsnivå: Till exempel alla virtuella datorer i en prenumeration (eller) alla resurser i en prenumeration
-- **Resursgrupp**: Som standard sparas varningsregeln i samma resursgrupp som för målet som definierats i Scope. Användaren kan också definiera resursgruppen där aviseringsregeln ska lagras.
-- **Resurstyp**: Resource Manager har definierat namnområde för aviseringens mål.
-- **Åtgärdsnamn**: [Åtgärdsnamnet Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) som används för rollbaserad åtkomstkontroll . Åtgärder som inte har registrerats med Azure Resource Manager kan inte användas i en aviseringsregel för aktivitetslogg.
-- **Nivå**: Allvarlighetsgraden för händelsen (utförliga, informativa, varning, fel eller kritiska).
-- **Status**: Status för händelsen, vanligtvis Startad, Misslyckad eller lyckades.
-- **Händelse initierad av**: Kallas även "uppringaren". E-postadressen eller Azure Active Directory-identifieraren för den användare som utförde åtgärden.
+- **Kategori**: administrativ, service Health, autoskalning, säkerhet, princip och rekommendation. 
+- **Omfattning**: den enskilda resurs eller resurs uppsättning som aviseringen för aktivitets loggen har definierats för. Omfattningen för en aktivitets logg avisering kan definieras på olika nivåer:
+    - Resurs nivå: till exempel för en enskild virtuell dator
+    - Resurs grupps nivå: till exempel alla virtuella datorer i en speciell resurs grupp
+    - Prenumerations nivå: till exempel alla virtuella datorer i en prenumeration (eller) alla resurser i en prenumeration
+- **Resurs grupp**: som standard sparas varnings regeln i samma resurs grupp som det angivna målet i definitions området. Användaren kan också definiera resurs gruppen där varnings regeln ska lagras.
+- **Resurs typ**: Resource Manager-definierad namnrymd för målet för aviseringen.
+- **Åtgärds namn**: [Azure Resource Manager åtgärds](../../role-based-access-control/resource-provider-operations.md) namn som används för rollbaserad Access Control. Åtgärder som inte har registrerats med Azure Resource Manager kan inte användas i en varnings regel för aktivitets logg.
+- **Nivå**: händelsens allvarlighets grad (information, varning, fel eller kritisk).
+- **Status**: händelsens status, vanligt vis startad, misslyckades eller lyckades.
+- **Händelse som initieras av**: kallas även för anroparen. E-postadressen eller Azure Active Directory identifieraren för den användare som utförde åtgärden.
 
 > [!NOTE]
-> I en prenumeration kan upp till 100 aviseringsregler skapas för en aktivitet med omfattning på antingen: en enda resurs, alla resurser i resursgruppen (eller) hela prenumerationsnivån.
+> I en prenumeration på upp till 100 kan du skapa aviserings regler för en aktivitet av scope på något av följande: en enda resurs, alla resurser i resurs gruppen (eller) hela prenumerations nivån.
 
-När en aktivitetsloggavisering är aktiverad används en åtgärdsgrupp för att generera åtgärder eller meddelanden. En åtgärdsgrupp är en återanvändbar uppsättning meddelandemottagare, till exempel e-postadresser, webhook-url:er eller SMS-telefonnummer. Mottagarna kan refereras från flera aviseringar för att centralisera och gruppera dina meddelandekanaler. När du definierar aktivitetsloggaviseringen har du två alternativ. Du kan:
+När en aktivitets logg avisering aktive ras använder den en åtgärds grupp för att generera åtgärder eller meddelanden. En åtgärds grupp är en återanvändbar uppsättning aviserings mottagare, till exempel e-postadresser, webhook-URL: er eller SMS-telefonnummer. Mottagarna kan refereras från flera aviseringar för att centralisera och gruppera dina aviserings kanaler. När du definierar aktivitets logg aviseringen har du två alternativ. Du kan:
 
-* Använd en befintlig åtgärdsgrupp i aktivitetsloggaviseringen.
-* Skapa en ny åtgärdsgrupp.
+* Använd en befintlig åtgärds grupp i aktivitets logg aviseringen.
+* Skapa en ny åtgärds grupp.
 
-Mer information om åtgärdsgrupper finns [i Skapa och hantera åtgärdsgrupper i Azure-portalen](action-groups.md).
+Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper i Azure Portal](action-groups.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få en [översikt över aviseringar](alerts-overview.md).
-- Lär dig mer om [att skapa och ändra aktivitetsloggaviseringar](alerts-activity-log.md).
-- Granska [webbkroksschemat för aktivitetsloggen.](activity-log-alerts-webhook.md)
-- Läs mer om [hälsomeddelanden](service-notifications.md)för tjänster .
+- Få en [Översikt över aviseringar](alerts-overview.md).
+- Lär dig mer om att [skapa och ändra aktivitets logg aviseringar](alerts-activity-log.md).
+- Granska [aktivitets logg aviseringens webhook-schema](activity-log-alerts-webhook.md).
+- Läs mer om [meddelanden om tjänst hälsa](service-notifications.md).

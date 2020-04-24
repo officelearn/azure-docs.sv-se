@@ -1,64 +1,66 @@
 ---
 title: Azure Service Fabric-avsökningar
-description: Så här modellerar du Liveness Probe i Azure Service Fabric med hjälp av program- och tjänstmanifestfiler.
+description: Hur man modellerar en Direktmigrering i Azure Service Fabric med hjälp av MANIFEST-filer för program och tjänster.
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 38f3888a29bf505b723d40bc7cd08fb0c7e29eff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431220"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137594"
 ---
-# <a name="liveness-probe"></a>Liveness Probe
-Från och med 7.1 Service Fabric stöder Liveness Probe mekanism för [containeriserade][containers-introduction-link] applikationer. Liveness Probe hjälper till att tillkännage liveness av containerized ansökan och när de inte svarar i tid, kommer det att resultera i en omstart.
-Den här artikeln innehåller en översikt över hur du definierar en Liveness Probe via manifestfiler.
+# <a name="liveness-probe"></a>Direktmigreringens avsökning
+Från och med version 7,1 stöder Azure Service Fabric en mekanism för direktmigrering av program i [behållare][containers-introduction-link] . En Live-avsökning hjälper till att rapportera om liveheten för ett behållar program, som kommer att startas om det inte svarar snabbt.
+Den här artikeln innehåller en översikt över hur du definierar en direktmigreringens avsökning med hjälp av MANIFEST filer.
 
-Innan du fortsätter med den här artikeln rekommenderar vi att du bekantar dig med [programmodellen Service Fabric][application-model-link] och [service fabric-värdmodellen][hosting-model-link].
+Innan du fortsätter med den här artikeln kan du bekanta dig med [Service Fabric program modellen][application-model-link] och [Service Fabric värd modell][hosting-model-link].
 
 > [!NOTE]
-> Liveness Probe stöds endast för behållare i NAT-nätverksläge.
+> Direktmigreringens avsökning stöds bara för behållare i NAT-nätverk.
 
-## <a name="semantics"></a>Semantics
-Du kan bara ange 1 Liveness Probe per behållare och kan styra dess beteende med dessa fält:
+## <a name="semantics"></a>Semantik
+Du kan bara ange en Direktmigrering per behållare och kan styra dess beteende genom att använda följande fält:
 
-* `initialDelaySeconds`: Den första fördröjningen i sekunder för att börja köra sonden när behållaren har startat. Värdet som stöds är int. Standard är 0. Minimum är 0.
+* `initialDelaySeconds`: Den första fördröjningen i sekunder att börja köra avsökningen efter att behållaren har startats. Det värde som stöds är **int**. Standardvärdet är 0 och minimivärdet är 0.
 
-* `timeoutSeconds`: Period i sekunder varefter vi anser att avsökningen misslyckades om den inte har slutförts. Värdet som stöds är int. Standard är 1. Minimum är 1.
+* `timeoutSeconds`: Den tid i sekunder som vi anser att avsökningen är klar, om den inte har slutförts. Det värde som stöds är **int**. Standardvärdet är 1 och minimivärdet är 1.
 
-* `periodSeconds`: Period i sekunder för att ange hur ofta vi sond. Värdet som stöds är int. Standard är 10. Minimum är 1.
+* `periodSeconds`: Tiden i sekunder för att ange frekvensen för avsökningen. Det värde som stöds är **int**. Standardvärdet är 10 och minimivärdet är 1.
 
-* `failureThreshold`: När vi träffar FailureThreshold startar behållaren om. Värdet som stöds är int. Standard är 3. Minimum är 1.
+* `failureThreshold`: När vi träffar det här värdet startar behållaren om. Det värde som stöds är **int**. Standardvärdet är 3 och minimivärdet är 1.
 
-* `successThreshold`: Vid fel, för att sonden ska anses vara framgångsrik måste den köras framgångsrikt för SuccessThreshold. Värdet som stöds är int. Standard är 1. Minimum är 1.
+* `successThreshold`: Vid fel, för att avsökningen ska betraktas som lyckad, måste den köras korrekt för det här värdet. Det värde som stöds är **int**. Standardvärdet är 1 och minimivärdet är 1.
 
-Det kommer att finnas högst 1 sond till behållare vid ett tillfälle. Om sonden inte slutförs i **timeoutSeconds** vi fortsätter att vänta och räknar den mot **misslyckandetThreshold**. 
+Det kan bara finnas en avsökning till en behållare när som helst. Om avsökningen inte slutförs inom den tid som anges i **timeoutSeconds**, väntar du och räknar tiden mot **failureThreshold**. 
 
-Dessutom kommer ServiceFabric att höja följande [avsökningshälsorapporter][health-introduction-link] om DeployedServicePackage:
+Dessutom kommer Service Fabric att öka följande [hälso rapporter][health-introduction-link] för avsökning på **DeployedServicePackage**:
 
-* `Ok`: Om sonden lyckas **framgångTröskar** då vi rapporterar hälsa som Ok.
+* `OK`: Avsökningen slutförs för det värde som anges i **successThreshold**.
 
-* `Error`: Om avsökningen misslyckadesCount == **failureThreshold,** innan du startar om behållaren rapporterar vi Fel.
+* `Error`: Avsökningen **failureCount** ==  **failureThreshold**innan behållaren startas om.
 
 * `Warning`: 
-    1. Om avsökningen misslyckas och feletCount < **misslyckandeDröskar** vi Varning. Den här hälsorapporten stannar tills failureCount når **felReshold** eller **successThreshold**.
-    2. Vid framgång efter misslyckande rapporterar vi fortfarande Varning men med uppdaterad framgång i följd.
+    * Avsökningen Miss lyckas och **failureCount** < **failureThreshold**. Hälso rapporten är kvar tills **failureCount** når värdet som anges i **failureThreshold** eller **successThreshold**.
+    * Vid lyckad efter fel kvarstår varningen men med uppdaterad efterföljande lyckade försök.
 
-## <a name="specifying-liveness-probe"></a>Ange Liveness Probe
+## <a name="specifying-a-liveness-probe"></a>Ange en direktmigreringens avsökning
 
-Du kan ange avsökning i ApplicationManifest.xml under ServiceManifestImport:
+Du kan ange en avsökning i filen ApplicationManifest. xml under **service manifest import**.
 
-Probe kan antingen en av:
+Avsökningen kan vara något av följande:
 
-1. HTTP
-2. TCP
-3. Exec 
+* HTTP
+* TCP
+* Ledn 
 
-## <a name="http-probe"></a>HTTP-avsökning
+### <a name="http-probe"></a>HTTP-avsökning
 
-För HTTP-avsökning skickar Service Fabric en HTTP-begäran till den angivna porten och sökvägen. Returkod som är större än eller lika med 200 och mindre än 400 anger framgång.
+För en HTTP-avsökning kommer Service Fabric att skicka en HTTP-begäran till den port och sökväg som du anger. En returkod som är större än eller lika med 200, och mindre än 400, visar att det lyckades.
 
-Här är ett exempel på hur du anger HttpGet-avsökning:
+Här är ett exempel på hur du anger en HTTP-avsökning:
 
 ```xml
   <ServiceManifestImport>
@@ -79,21 +81,21 @@ Här är ett exempel på hur du anger HttpGet-avsökning:
   </ServiceManifestImport>
 ```
 
-HttpGet-avsökningen har ytterligare egenskaper som du kan ange:
+HTTP-avsökningen har ytterligare egenskaper som du kan ange:
 
-* `path`: Sökväg till åtkomst på HTTP-begäran.
+* `path`: Sökvägen som ska användas i HTTP-begäran.
 
-* `port`: Port för åtkomst för sonder. Räckvidden är 1 till 65535. Obligatorisk.
+* `port`: Porten som ska användas för avsökningar. Den här egenskapen är obligatorisk. Intervallet är 1 till 65535.
 
-* `scheme`: Schema som ska användas för anslutning till kodpaket. Om den är inställd på HTTPS hoppas certifikatverifieringen över. Standardvärden till HTTP
+* `scheme`: Det schema som ska användas för att ansluta till kod paketet. Om den här egenskapen är inställd på HTTPS hoppas certifikat verifieringen över. Standardvärdet är HTTP.
 
-* `httpHeader`: Rubriker som ska anges i begäran. Du kan ange flera av dessa.
+* `httpHeader`: De rubriker som ska anges i begäran. Du kan ange flera huvuden.
 
-* `host`: Värd-IP att ansluta till.
+* `host`: Värdens IP-adress att ansluta till.
 
-## <a name="tcp-probe"></a>TCP-sond
+### <a name="tcp-probe"></a>TCP-avsökning
 
-För TCP-avsökning försöker Service Fabric öppna ett uttag på behållaren med den angivna porten. Om den kan upprätta en anslutning anses avsökningen vara framgångsrik. Här är ett exempel på hur du anger avsökning som använder TCP-socket:
+För en TCP-avsökning försöker Service Fabric att öppna en socket på behållaren genom att använda den angivna porten. Om den kan upprätta en anslutning anses avsökningen vara lyckad. Här är ett exempel på hur du anger en avsökning som använder en TCP-socket:
 
 ```xml
   <ServiceManifestImport>
@@ -111,13 +113,13 @@ För TCP-avsökning försöker Service Fabric öppna ett uttag på behållaren m
   </ServiceManifestImport>
 ```
 
-## <a name="exec-probe"></a>Exec sond
+### <a name="exec-probe"></a>Exec-avsökning
 
-Den här avsökningen utfärdar en exec i behållaren och väntar på att kommandot ska slutföras.
+Den här avsökningen utfärdar ett **exec** -kommando till behållaren och väntar på att kommandot ska slutföras.
 
 > [!NOTE]
-> Exec kommandot tar en komma separat sträng. Följande kommando i exemplet fungerar för Linux-behållaren.
-> Om du försöker windows-behållaren använder du <Command>cmd</Command>
+> **Exec** -kommandot tar en kommaavgränsad sträng. Kommandot i följande exempel fungerar för en Linux-behållare.
+> Om du försöker avsöka en Windows-behållare använder du **cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -138,8 +140,8 @@ Den här avsökningen utfärdar en exec i behållaren och väntar på att komman
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar för relaterad information.
-* [Service tyg och behållare.][containers-introduction-link]
+I följande artikel finns relaterad information:
+* [Service Fabric och behållare][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

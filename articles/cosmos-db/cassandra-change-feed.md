@@ -1,26 +1,26 @@
 ---
 title: Ändra feed i Azure Cosmos DB API för Cassandra
-description: Lär dig hur du använder ändringsflödet i Azure Cosmos DB API för Cassandra för att få ändringarna gjorda i dina data.
+description: Lär dig hur du använder ändrings flöden i Azure Cosmos DB API för Cassandra för att hämta de ändringar som gjorts i dina data.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: c2c695608653130b97bf29cc9ce48e2fbb429209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 167d9fc68cb075a2cf96d9079131be9e5a510c08
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74694628"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137424"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Ändra feed i Azure Cosmos DB API för Cassandra
 
-[Ändra feedstöd](change-feed.md) i Azure Cosmos DB API för Cassandra är tillgängligt via frågepredikaterna i Cassandra Query Language (CQL). Med hjälp av dessa predikatvillkor kan du fråga om ändringsfeed-API:et. Program kan hämta ändringarna i en tabell med primärnyckeln (kallas även partitionsnyckeln) som krävs i CQL. Du kan sedan vidta ytterligare åtgärder baserat på resultaten. Ändringar av raderna i tabellen fångas i ordningen för deras ändringstid och sorteringsordningen garanteras per partitionsnyckel.
+[Ändra feed](change-feed.md) -stöd i Azure Cosmos DB API för Cassandra är tillgängligt via frågesyntaxen i Cassandra-FRÅGESPRÅKET (CQL). Med dessa predikat villkor kan du fråga API: et för ändrings flöden. Program kan hämta de ändringar som gjorts i en tabell med hjälp av den primära nyckeln (kallas även partitionsnyckel) som krävs i CQL. Du kan sedan vidta ytterligare åtgärder baserat på resultaten. Ändringar av raderna i tabellen samlas i ordningen av deras ändrings tid och sorterings ordningen garanteras per partitionsnyckel.
 
-I följande exempel visas hur du får en ändringsfeed på alla rader i en Cassandra API Keyspace-tabell med .NET. Predikatet COSMOS_CHANGEFEED_START_TIME() används direkt inom CQL för att fråga objekt i ändringsflödet från en angiven starttid (i det här fallet aktuell datetime). Du kan ladda ner hela provet [här](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
+I följande exempel visas hur du hämtar en ändrings-feed på alla rader i en API för Cassandra i tabellen med .NET. Predikatet COSMOS_CHANGEFEED_START_TIME () används direkt i CQL för att skicka frågor till objekt i ändrings flödet från en angiven start tid (i det här fallet aktuell datetime). Du kan hämta hela exemplet, för C# [här](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) och för Java [här](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
-I varje iteration återupptas frågan vid den sista punkten som ändringarna lästes med hjälp av växlingstillstånd. Vi kan se en kontinuerlig ström av nya ändringar i tabellen i Keyspace. Vi ser ändringar i rader som infogas eller uppdateras. Det går inte att söka efter borttagningsåtgärder med ändringsflödet i Cassandra API. 
+I varje iteration fortsätter frågan vid de senaste punkt ändringarna lästes, med hjälp av växlings status. Vi kan se en kontinuerlig ström med nya ändringar i tabellen i utrymmet. Vi kommer att se ändringar av rader som infogas eller uppdateras. Att titta efter borttagnings åtgärder med hjälp av Change feed i API för Cassandra stöds inte för närvarande.
 
 ```C#
     //set initial start time for pulling the change feed
@@ -70,8 +70,41 @@ I varje iteration återupptas frågan vid den sista punkten som ändringarna lä
     }
 
 ```
+```java
+        Session cassandraSession = utils.getSession();
 
-Om du vill hämta ändringarna på en enda rad efter primärnyckel kan du lägga till primärnyckeln i frågan. I följande exempel visas hur du spårar ändringar för raden där "user_id = 1"
+        try {
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+               LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+               String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+                    + dtf.format(now)+ "'";
+               
+             byte[] token=null; 
+             System.out.println(query); 
+             while(true)
+             {
+                 SimpleStatement st=new  SimpleStatement(query);
+                 st.setFetchSize(100);
+                 if(token!=null)
+                     st.setPagingStateUnsafe(token);
+                 
+                 ResultSet result=cassandraSession.execute(st) ;
+                 token=result.getExecutionInfo().getPagingState().toBytes();
+                 
+                 for(Row row:result)
+                 {
+                     System.out.println(row.getString("user_name"));
+                 }
+             }
+                    
+
+        } finally {
+            utils.close();
+            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+        }
+
+```
+Du kan lägga till primär nyckeln i frågan för att få ändringarna till en enskild rad efter primär nyckel. I följande exempel visas hur du spårar ändringar för raden där "user_id = 1"
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -79,21 +112,25 @@ Om du vill hämta ändringarna på en enda rad efter primärnyckel kan du lägga
     $"SELECT * FROM uprofile.user where user_id = 1 AND COSMOS_CHANGEFEED_START_TIME() = '{timeBegin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture)}'");
 
 ```
-
+```java
+    String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
+                    + dtf.format(now)+ "'";
+    SimpleStatement st=new  SimpleStatement(query);
+```
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-Följande begränsningar gäller när du använder ändringsflöde med Cassandra API:
+Följande begränsningar gäller när du använder ändra feed med API för Cassandra:
 
-* Skär och uppdateringar stöds för närvarande. Borttagningsåtgärd stöds ännu inte. Som en lösning kan du lägga till en mjuk markör på rader som tas bort. Lägg till exempel till ett fält på raden som heter "borttagen" och ställ in det på "true".
-* Senaste uppdatering sparas som i centrala SQL API och mellanliggande uppdateringar till entiteten är inte tillgängliga.
+* Infogningar och uppdateringar stöds för närvarande. Borttagnings åtgärden stöds inte ännu. Som en lösning kan du lägga till en mjuk markör på rader som tas bort. Du kan till exempel lägga till ett fält i raden "borttaget" och ange det som "true".
+* Den senaste uppdateringen är sparad som i SQL API-kärnan och mellanliggande uppdateringar till entiteten är inte tillgängliga.
 
 
 ## <a name="error-handling"></a>Felhantering
 
-Följande felkoder och meddelanden stöds när du använder ändringsflödet i Cassandra API:
+Följande felkoder och meddelanden stöds när du använder ändrings flöden i API för Cassandra:
 
-* **HTTP-felkod 429** - När ändringsflödet är begränsat returneras en tom sida.
+* **Http-felkod 429** – när den ändrade feeden är begränsad returneras en tom sida.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Azure Cosmos DB Cassandra API-resurser med Azure Resource Manager-mallar](manage-cassandra-with-resource-manager.md)
+* [Hantera Azure Cosmos DB API för Cassandra resurser med Azure Resource Manager mallar](manage-cassandra-with-resource-manager.md)

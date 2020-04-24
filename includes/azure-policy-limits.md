@@ -4,26 +4,26 @@ description: ta med fil
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 04/23/2020
 ms.author: dacoulte
-ms.openlocfilehash: 19b43c857058b3af50db3bc1b42ec1ae558ee884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04e607296478520298a2febab61a7edac911a59c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80272819"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131846"
 ---
-Det finns ett maximalt antal för varje objekttyp för Azure Policy. En post av typen _Omfång_ betyder antingen prenumerationen eller [hanteringsgruppen](../articles/governance/management-groups/overview.md).
+Det finns ett maximalt antal för varje objekt typ för Azure Policy. En post av typen _Omfång_ betyder antingen prenumerationen eller [hanteringsgruppen](../articles/governance/management-groups/overview.md).
 
 | Var | Vad | Maximalt antal |
 |---|---|---|
 | Omfång | Principdefinitioner | 500 |
 | Omfång | Initiativdefinitioner | 100 |
 | Klientorganisation | Initiativdefinitioner | 1,000 |
-| Omfång | Policy- eller initiativuppdrag | 100 |
+| Omfång | Princip-eller initiativ tilldelningar | 100 |
 | Definition av princip | Parametrar | 20 |
 | Initiativdefinition | Principer | 100 |
 | Initiativdefinition | Parametrar | 100 |
-| Policy- eller initiativuppdrag | Undantag (notScopes) | 400 |
+| Princip-eller initiativ tilldelningar | Undantag (notScopes) | 400 |
 | Principregel | Kapslade villkor | 512 |
-| Åtgärdsuppgift | Resurser | 1000 |
+| Reparations uppgift | Resurser | 500 |

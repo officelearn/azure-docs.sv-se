@@ -1,64 +1,67 @@
 ---
-title: Ta bort resursgrupp och resurser
-description: Beskriver hur du tar bort resursgrupper och resurser. Den beskriver hur Azure Resource Manager beställer borttagning av resurser när en borttagning av en resursgrupp. Den beskriver svarskoderna och hur Resource Manager hanterar dem för att avgöra om borttagningen lyckades.
+title: Ta bort resurs grupp och resurser
+description: Beskriver hur du tar bort resurs grupper och resurser. Det beskriver hur Azure Resource Manager beställer borttagningen av resurser när en resurs grupp tas bort. Den beskriver svars koderna och hur resurs hanteraren hanterar dem för att avgöra om borttagningen lyckades.
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: db56cf0897cd90f1e6e51199032d0d9712530f1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c03296f8bec24da1fc85bae14e91ca742054d02
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274026"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136489"
 ---
-# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Resursgrupp och borttagning av resurser i Azure Resource Manager
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager resurs grupp och borttagning av resurs
 
-Den här artikeln visar hur du tar bort resursgrupper och resurser. Den beskriver hur Azure Resource Manager beställer borttagning av resurser när du tar bort en resursgrupp.
+Den här artikeln visar hur du tar bort resurs grupper och resurser. Det beskriver hur Azure Resource Manager beställer borttagningen av resurser när du tar bort en resurs grupp.
 
-## <a name="how-order-of-deletion-is-determined"></a>Hur raderingsordningen bestäms
+## <a name="how-order-of-deletion-is-determined"></a>Hur borttagnings ordningen bestäms
 
-När du tar bort en resursgrupp bestämmer Resource Manager ordningen för att ta bort resurser. Den använder följande ordning:
+När du tar bort en resurs grupp fastställer Resource Manager i vilken ordning resurserna ska tas bort. Den använder följande ordning:
 
 1. Alla underordnade (kapslade) resurser tas bort.
 
-2. Resurser som hanterar andra resurser tas bort härnäst. En resurs kan `managedBy` ha egenskapen inställd på att ange att en annan resurs hanterar den. När den här egenskapen har angetts tas resursen som hanterar den andra resursen bort före de andra resurserna.
+2. Resurser som hanterar andra resurser tas bort nästa. En resurs kan ha en `managedBy` egenskap som anger att en annan resurs hanterar den. När den här egenskapen anges tas den resurs som hanterar den andra resursen bort innan de andra resurserna.
 
-3. De återstående resurserna tas bort efter de två föregående kategorierna.
+3. De återstående resurserna tas bort efter de föregående två kategorierna.
 
-När ordern har bestämts utfärdar Resource Manager en DELETE-åtgärd för varje resurs. Den väntar på att eventuella beroenden ska slutföras innan du fortsätter.
+När ordningen har fastställts utfärdar Resource Manager en BORTTAGNINGs åtgärd för varje resurs. Det väntar på att alla beroenden ska slutföras innan du fortsätter.
 
-För synkrona åtgärder är de förväntade lyckade svarskoderna:
+För synkrona åtgärder är de förväntade lyckade svars koderna:
 
 * 200
 * 204
 * 404
 
-För asynkrona åtgärder är det förväntade lyckade svaret 202. Resource Manager spårar platshuvudet eller azure-async-åtgärdshuvudet för att fastställa status för den asynkrona borttagningsåtgärden.
+För asynkrona åtgärder är det förväntade lyckade svaret 202. Resource Manager spårar plats rubriken eller Azure-async-åtgärds huvudet för att fastställa statusen för den asynkrona borttagnings åtgärden.
   
 ### <a name="deletion-errors"></a>Fel vid borttagning
 
-När en borttagningsåtgärd returnerar ett fel försöker Resource Manager ta bort anropet. Försök sker för statuskoderna 5xx, 429 och 408. Som standard är tidsperioden för återförsök 15 minuter.
+När en borttagnings åtgärd returnerar ett fel, försöker Resource Manager att ta bort samtalet igen. Det sker återförsök för status koderna 5xx, 429 och 408. Som standard är tids perioden för återförsök 15 minuter.
 
-## <a name="after-deletion"></a>Efter radering
+## <a name="after-deletion"></a>Efter borttagning
 
-Resource Manager utfärdar ett GET-anrop på varje resurs som den försökte ta bort. Svaret från detta GET-samtal förväntas vara 404. När Resource Manager får en 404, anser den att borttagningen har slutförts. Resource Manager tar bort resursen från cacheminnet.
+Resource Manager utfärdar ett GET-anrop på varje resurs som det försökte ta bort. Svaret på det här GET-anropet förväntas vara 404. När Resource Manager får en 404 anses borttagningen vara klar. Resource Manager tar bort resursen från cacheminnet.
 
-Men om GET-anropet på resursen returnerar en 200 eller 201 återskapas resursen.
+Men om GET-anropet på resursen returnerar en 200 eller 201, återskapar Resource Manager resursen.
 
-Om GET-åtgärden returnerar ett fel försöker Resource Manager hämta för följande felkod:
+Om åtgärden Hämta returnerar ett fel, försöker Resource Manager att hämta följande felkod:
 
-* Färre än 100
+* Mindre än 100
 * 408
 * 429
 * Större än 500
 
-För andra felkoder misslyckas resurshanteraren att resursen tas bort.
+För andra felkoder Miss lyckas resurs hanteraren att ta bort resursen.
+
+> [!IMPORTANT]
+> Borttagning av resurs gruppen går inte att ångra.
 
 ## <a name="delete-resource-group"></a>Ta bort resursgrupp
 
-Använd någon av följande metoder för att ta bort resursgruppen.
+Använd någon av följande metoder för att ta bort resurs gruppen.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ExampleResourceGroup
@@ -70,15 +73,15 @@ Remove-AzResourceGroup -Name ExampleResourceGroup
 az group delete --name ExampleResourceGroup
 ```
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-1. Markera den resursgrupp som du vill ta bort i [portalen.](https://portal.azure.com)
+1. I [portalen](https://portal.azure.com)väljer du den resurs grupp som du vill ta bort.
 
 1. Välj **Ta bort resursgrupp**.
 
    ![Ta bort resursgrupp](./media/delete-resource-group/delete-group.png)
 
-1. Om du vill bekräfta borttagningen skriver du namnet på resursgruppen
+1. Bekräfta borttagningen genom att skriva namnet på resurs gruppen
 
 ---
 
@@ -86,7 +89,7 @@ az group delete --name ExampleResourceGroup
 
 Använd någon av följande metoder för att ta bort en resurs.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResource `
@@ -104,11 +107,11 @@ az resource delete \
   --resource-type "Microsoft.Compute/virtualMachines"
 ```
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-1. Markera den resurs som du vill ta bort i [portalen.](https://portal.azure.com)
+1. I [portalen](https://portal.azure.com)väljer du den resurs som du vill ta bort.
 
-1. Välj **Ta bort**. Följande skärmbild visar hanteringsalternativen för en virtuell dator.
+1. Välj **Ta bort**. Följande skärm bild visar hanterings alternativen för en virtuell dator.
 
    ![Ta bort resurs](./media/delete-resource-group/delete-resource.png)
 
@@ -119,5 +122,5 @@ az resource delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du förstår Resource Manager-begrepp finns i [Översikt över Azure Resource Manager](overview.md).
-* Borttagningskommandon finns i [PowerShell,](/powershell/module/az.resources/Remove-AzResourceGroup) [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete)och [REST API](/rest/api/resources/resourcegroups/delete).
+* Information om Resource Manager-koncept finns i [Azure Resource Manager översikt](overview.md).
+* För borttagnings kommandon, se [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete)och [REST API](/rest/api/resources/resourcegroups/delete).

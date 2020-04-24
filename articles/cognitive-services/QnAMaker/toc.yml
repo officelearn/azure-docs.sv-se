@@ -61,6 +61,8 @@
     - name: Bästa praxis
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
+    - name: Använda QnA Maker och LUIS
+      href: choose-natural-language-processing-service.md
 - name: Anvisningar
   items:
     - name: Hantera Azure-resurser
@@ -74,6 +76,8 @@
           href: How-To/collaborate-knowledge-base.md
         - name: Aktivera aktiv inlärning
           href: How-To/use-active-learning.md
+        - name: Ändra standardsvar
+          href: How-To/change-default-answer.md
     - name: Hantera kunskapsbas
       items:
         - name: Skapa kunskapsbas

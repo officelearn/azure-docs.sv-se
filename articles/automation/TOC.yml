@@ -26,6 +26,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
 - name: Begrepp
   items:
+    - name: Översikt över autentisering av Automation-konto
+      href: automation-security-overview.md
     - name: Översikt över runbook-körning
       href: automation-runbook-execution.md
     - name: Översikt över Hybrid Runbook Worker
@@ -48,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Skapa ett Automation-konto med en Resource Manager-mall
           href: automation-create-account-template.md
+        - name: Konfigurera autentisering med Amazon Web Services
+          href: automation-config-aws-account.md
         - name: Hantera ett Kör som-konto för Automation
           href: manage-runas-account.md
         - name: Hantera rollbehörigheter och säkerhet
@@ -156,6 +160,8 @@
               href: automation-dsc-diagnostics.md
             - name: Felsöka problem med DSC
               href: troubleshoot/desired-state-configuration.md
+            - name: Versionshistorik för Azure DSC-tillägg
+              href: automation-dsc-extension-history.md
         - name: Ändringsspårning och inventering
           items:
             - name: Översikt
@@ -248,8 +254,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: Hantera Office 365-tjänster
           href: manage-office-365.md
-        - name: Autentisera runbooks med Amazon Web Services (AWS)
-          href: automation-config-aws-account.md
         - name: Distribuera virtuella datorer i AWS med Automation-runbook
           href: automation-scenario-aws-deployment.md
         - name: Distribuera Resource Manager-mall med en runbook

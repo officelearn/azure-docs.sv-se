@@ -19,6 +19,8 @@
   items:
     - name: Importera ett certifikat
       href: tutorial-import-certificate.md
+    - name: Konfigurera certifikatrotation
+      href: tutorial-rotate-certificates.md
 - name: Begrepp
   items:
     - name: Kom igång med Key Vault-certifikat

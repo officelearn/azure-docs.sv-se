@@ -34,6 +34,8 @@
       href: security-baselines-overview.md
     - name: Säkerhetsbaslinje för Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Säkerhetsbaslinje för säkerhetskopiering
+      href: ../../backup/security-baseline.md
     - name: Säkerhetsbaslinje för Batch
       href: ../../batch/security-baseline.md
     - name: Säkerhetsbaslinje för Container Registry
@@ -56,3 +58,5 @@
       href: ../../postgresql/security-baseline.md
     - name: Säkerhetsöversikt för SQL Database
       href: ../../sql-database/security-baseline.md
+    - name: Säkerhetsbaslinje för lagring
+      href: ../../storage/common/security-baseline.md

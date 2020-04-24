@@ -20,11 +20,29 @@
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
     - name: Azure PowerShell
       href: samples-powershell.md
+      items:
+        - name: Lägga till en extern användare i ett labb
+          href: scripts/add-external-user-to-lab.md
+        - name: Lägga till marknadsplatsavbildningar i ett labb
+          href: scripts/add-marketplace-images-to-lab.md
+        - name: Skapa en anpassad avbildning från en VHD
+          href: scripts/create-custom-image-from-vhd.md
+        - name: Skapa en anpassad roll i ett labb
+          href: scripts/create-custom-role-in-lab.md
+        - name: Ange tillåtna VM-storlekar i ett labb
+          href: scripts/set-allowed-vm-sizes-in-lab.md
     - name: Azure PowerShell – Az.DevTestLabs2-modul
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
     - name: Azure CLI
       href: samples-cli.md
-- name: Koncept
+      items:
+        - name: Skapa och verifiera tillgängligheten för en virtuell dator
+          href: scripts/create-verify-virtual-machine-in-lab-cli.md
+        - name: Starta en virtuell dator
+          href: scripts/start-connect-virtual-machine-in-lab-cli.md
+        - name: Stoppa och ta bort en virtuell dator
+          href: scripts/stop-delete-virtual-machine-in-lab-cli.md
+- name: Begrepp
   items:
     - name: DevTest Labs-koncept
       href: devtest-lab-concepts.md
@@ -44,7 +62,7 @@
           href: devtest-lab-training-lab.md
         - name: Scenarier för att använda virtuella datorer som kan begäras
           href: devtest-lab-use-claim-capabilities.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Konfigurera ett labb
       items:
@@ -251,7 +269,7 @@
       href: /powershell/module/az.devtestlabs
     - name: PowerShell – Az.DevTestLabs2-exempelmodul
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
-    - name: REST API
+    - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/dtl/'
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.devtestlab/allversions
@@ -259,7 +277,7 @@
   items:
     - name: Azure-uppdateringar
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'

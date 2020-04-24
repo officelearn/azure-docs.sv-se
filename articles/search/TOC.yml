@@ -232,7 +232,7 @@
           items:
             - name: Skapa en förslagsställare
               href: index-add-suggesters.md
-            - name: Lägga till förslag eller komplettera automatiskt
+            - name: Lägga till automatisk komplettering och förslag
               href: search-autocomplete-tutorial.md
         - name: Fråga från Power Apps
           href: search-howto-powerapps.md
@@ -256,8 +256,8 @@
           href: search-query-troubleshoot-collection-filters.md
         - name: Förstå samlingsfilter
           href: search-query-understand-collection-filters.md
-        - name: Exempel på flernivåfasetter
-          href: search-example-adventureworks-multilevel-faceting.md
+        - name: Filtrera efter språk
+          href: search-filters-language.md
     - name: Resultat
       items:
         - name: Arbeta med resultat
@@ -455,10 +455,6 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: JFK-filer – demo
           href: 'https://aka.ms/jfkfiles'
-        - name: Jobb i New York – demo
-          href: 'https://aka.ms/azjobsdemo'
-        - name: Sök bland användarsituationer
-          href: 'https://searchsamples.azurewebsites.net/'
     - name: Utbildning
       items:
         - name: Introduktion (Microsoft Learn)

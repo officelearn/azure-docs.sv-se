@@ -14,13 +14,13 @@
     - name: Använda det anpassade skripttillägget
       href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
       maintainContext: true
-- name: Koncept
+- name: Begrepp
   items:
     - name: Linux
       href: features-linux.md
     - name: Windows
       href: features-windows.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Azure Disk Encryption
       items:
@@ -125,3 +125,5 @@
       href: export-templates.md
     - name: Felsöka
       href: troubleshoot.md
+    - name: Problem med Python 3-aktiverade Linux-system
+      href: issues-using-vm-extensions-python-3.md

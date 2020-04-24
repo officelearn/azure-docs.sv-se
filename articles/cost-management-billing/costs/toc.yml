@@ -10,6 +10,9 @@
       items:
         - name: Börja analysera kostnader
           href: quick-acm-cost-analysis.md
+        - name: Skapa en budget med hjälp av en mall
+          href: quick-create-budget-template.md
+          displayName: 'ARM template, resource manager template'
     - name: Självstudier
       items:
         - name: Skapa och hantera budgetar

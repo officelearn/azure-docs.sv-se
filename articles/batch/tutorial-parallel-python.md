@@ -1,21 +1,16 @@
 ---
-title: Köra en parallell arbetsbelastning – Azure Batch Python
+title: Köra en parallell arbets belastning
 description: Självstudie – Bearbeta mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch Python
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77023097"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117123"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudie: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -43,7 +38,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
@@ -107,13 +102,13 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill se en värmekarta över beräkningsnoderna i poolen klickar du på **Pooler** > *LinuxFFmpegPool*.
+Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill visa en värme karta över datornoderna i din pool klickar du på **pooler** > *LinuxFFmpegPool*.
 
 När uppgifter körs ser den termiska kartan ut ungefär så här:
 
 ![Termisk karta för pool](./media/tutorial-parallel-python/pool.png)
 
-Den typiska körningstiden är cirka **5 minuter** när du kör programmet i standardkonfigurationen. Att skapa poolen är det som tar mest tid. 
+Den normala körnings tiden är ungefär **5 minuter** när du kör programmet med standard konfigurationen. Att skapa poolen är det som tar mest tid. 
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -167,7 +162,7 @@ input_files = [
 
 Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `create_pool`. Den här definierade funktionen använder Batch-klassen [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) till en Ubuntu Server 18.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch har stöd för ett stort antal Linux- och Windows Server-avbildningar på Azure Marketplace samt för anpassade VM-avbildningar.
 
-Antalet noder och VM-storleken anges med definierade konstanter. Batch stöder dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md)och du kan använda båda eller båda i poolerna. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*. 
+Antalet noder och VM-storleken anges med definierade konstanter. Batch har stöd för dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md), och du kan använda antingen eller båda i dina pooler. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*. 
 
 Förutom fysiska nodegenskaper innehåller den här poolkonfigurationen ett [StartTask](/python/api/azure-batch/azure.batch.models.starttask)-objekt. StartTask körs på varje nod när noden ansluter till poolen och varje gång en nod startas om. I det här exemplet kör StartTask Bash shell-kommandon för att installera paketet ffmpeg och beroenden på noderna.
 

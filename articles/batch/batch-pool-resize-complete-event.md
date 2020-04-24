@@ -1,28 +1,21 @@
 ---
-title: Azure Batch-pool ändra storlek på slutförd händelse
-description: Referens för batchpool ändra storlek på slutförd händelse. Se ett exempel på en pool som ökade i storlek och slutfördes.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
+title: Händelse för storleks ändring i Azure Batch pool
+description: Referens för slutförd händelse för storleks ändring i batch-pool. Se ett exempel på en pool som har ökat i storlek och slutförts.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
-ms.openlocfilehash: e2c66471ad9fe8d917d1ffddceb6e01c339d62dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4268c9d840aa9dfadd785d74811e9d12ac32ec31
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022230"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115898"
 ---
 # <a name="pool-resize-complete-event"></a>Sluthändelse för storleksändring av pool
 
- Den här händelsen avges när en poolstorlek har slutförts eller misslyckats.
+ Den här händelsen genereras när en storleks ändring för poolen har slutförts eller misslyckats.
 
- I följande exempel visas brödtexten i en pool ändra storlek på slutförd händelse för en pool som ökade i storlek och slutfördes.
+ I följande exempel visas innehållet i en storleks ändring i en pool för en pool som har ökat i storlek och slutförts.
 
 ```
 {
@@ -43,15 +36,15 @@ ms.locfileid: "77022230"
 
 |Element|Typ|Anteckningar|
 |-------------|----------|-----------|
-|`id`|String|Id för poolen.|
-|`nodeDeallocationOption`|String|Anger när noder kan tas bort från poolen, om poolstorleken minskar.<br /><br /> Möjliga värden:<br /><br /> **requeue** – Avsluta körande aktiviteter och requeue dem. Aktiviteterna körs igen när jobbet är aktiverat. Ta bort noder så snart aktiviteter har avslutats.<br /><br /> **avsluta** – Avsluta löpaktiviteter. Aktiviteterna kommer inte att köras igen. Ta bort noder så snart aktiviteter har avslutats.<br /><br /> **taskcompletion** – Tillåt att uppgifter som körs för närvarande slutförs. Schemalägg inga nya aktiviteter i väntan. Ta bort noder när alla aktiviteter har slutförts.<br /><br /> **Lagrade data** - Tillåt att uppgifter som körs slutförs och väntar sedan på att alla lagringsperioder för aktivitetsdata ska upphöra att gälla. Schemalägg inga nya aktiviteter i väntan. Ta bort noder när alla uppgiftskvarhållningsperioder har upphört att gälla.<br /><br /> Standardvärdet är requeue.<br /><br /> Om poolstorleken ökar är värdet inställt på **ogiltigt**.|
-|`currentDedicatedNodes`|Int32|Antalet dedikerade beräkningsnoder som för närvarande har tilldelats poolen.|
-|`targetDedicatedNodes`|Int32|Antalet dedikerade beräkningsnoder som begärs för poolen.|
-|`currentLowPriorityNodes`|Int32|Antalet beräkningsnoder med låg prioritet som för närvarande har tilldelats poolen.|
-|`targetLowPriorityNodes`|Int32|Antalet beräkningsnoder med låg prioritet som begärs för poolen.|
-|`enableAutoScale`|Bool|Anger om poolstorleken justeras automatiskt med tiden.|
-|`isAutoPool`|Bool|Anger om poolen skapades via ett jobbs Automatiska poolmekanism.|
-|`startTime`|DateTime|Den tid då poolen ändrar storlek startade.|
-|`endTime`|DateTime|Den tid då poolen ändrar storlek har slutförts.|
-|`resultCode`|String|Resultatet av storleksstorleken.|
-|`resultMessage`|String| Ett detaljerat meddelande om resultatet.<br /><br /> Om storleksstorleken har slutförts anges att åtgärden lyckades.|
+|`id`|Sträng|Poolens ID.|
+|`nodeDeallocationOption`|Sträng|Anger när noder kan tas bort från poolen, om poolens storlek minskar.<br /><br /> Möjliga värden:<br /><br /> **köa** om – avsluta aktiviteter som körs och köa om dem. Aktiviteterna kommer att köras igen när jobbet är aktiverat. Ta bort noder så snart som aktiviteter har avslut ATS.<br /><br /> **Avsluta** – avsluta aktiviteter som körs. Aktiviteterna kommer inte att köras igen. Ta bort noder så snart som aktiviteter har avslut ATS.<br /><br /> **taskcompletion** – Tillåt att aktiviteter som körs för tillfället slutförs. Schemalägg inga nya aktiviteter under väntan. Ta bort noder när alla aktiviteter har slutförts.<br /><br /> **Retaineddata** – Tillåt att aktiviteter som körs för tillfället slutförs och vänta sedan på att alla tids perioder för uppgifts data upphör att gälla. Schemalägg inga nya aktiviteter under väntan. Ta bort noder när alla aktiviteter för kvarhållning av aktiviteter har upphört att gälla.<br /><br /> Standardvärdet är Queue.<br /><br /> Om poolens storlek ökar, anges värdet **ogiltigt**.|
+|`currentDedicatedNodes`|Int32|Antalet dedikerade datornoder som för närvarande är kopplade till poolen.|
+|`targetDedicatedNodes`|Int32|Antalet dedikerade datornoder som har begärts för poolen.|
+|`currentLowPriorityNodes`|Int32|Antalet Compute-noder med låg prioritet som för närvarande är kopplade till poolen.|
+|`targetLowPriorityNodes`|Int32|Antalet Compute-noder med låg prioritet som begärs för poolen.|
+|`enableAutoScale`|Bool|Anger om poolens storlek justeras automatiskt över tid.|
+|`isAutoPool`|Bool|Anger om poolen har skapats via en jobbs mekanism för autopool.|
+|`startTime`|DateTime|Tiden då storleken på poolen startades.|
+|`endTime`|DateTime|Tiden då storleken på poolen har ändrats.|
+|`resultCode`|Sträng|Resultatet av storleks ändring.|
+|`resultMessage`|Sträng| Ett detaljerat meddelande om resultatet.<br /><br /> Om storleken har slutförts anger det att åtgärden lyckades.|

@@ -1,21 +1,15 @@
 ---
 title: Azure Snabbstart – Köra Batch-jobb – .NET
-description: Kör snabbt ett Azure Batch-exempeljobb och uppgifter från ett C#-program med batch -NET-klientbiblioteket.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: dotnet
+description: Kör snabbt ett Azure Batch exempel jobb och uppgifter från ett C#-program med batch .NET-klient biblioteket.
 ms.topic: quickstart
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77017215"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117224"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API
 
@@ -27,13 +21,13 @@ Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på A
 
 ## <a name="prerequisites"></a>Krav
 
-* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, macOS eller Windows. 
+* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, MacOS eller Windows. 
 
 * Ett Batch-konto och ett länkat Azure Storage-konto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -66,11 +60,11 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 Om du vill se Batch-arbetsflödet i praktiken skapar och kör du programmet i Visual Studio eller på kommandoraden med kommandona `dotnet build` och `dotnet run`. När du har kört appen ska du granska koden för att lära dig hur varje del av appen fungerar. Till exempel i Visual Studio:
 
-* Högerklicka på lösningen i Solution Explorer och klicka på **Bygg lösning**. 
+* Högerklicka på lösningen i Solution Explorer och klicka på Build- **lösning**. 
 
 * Bekräfta återställningen av NuGet-paket om du uppmanas att göra det. Om du behöver ladda ned paket som saknas ska du se till att [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) är installerat.
 
-Kör det. När du kör exempelappen ser utdata i konsolen ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Aktiviteter köas för att köras när den första beräkningsnoden körs. Gå till ditt Batch-konto i [Azure-portalen](https://portal.azure.com) för att övervaka poolen, beräkna noder, jobb och uppgifter.
+Kör det. När du kör exempelappen ser utdata i konsolen ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Aktiviteter köas för att köras när den första beräkningsnoden körs. Gå till batch-kontot i [Azure Portal](https://portal.azure.com) för att övervaka poolen, Compute-noderna, jobbet och uppgifterna.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM

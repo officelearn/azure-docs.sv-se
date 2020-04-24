@@ -1,76 +1,66 @@
 ---
-title: Kör Linux på beräkningsnoder för virtuella datorer – Azure Batch | Microsoft-dokument
-description: Lär dig hur du bearbetar dina parallella beräkningsarbetsbelastningar på pooler av virtuella Linux-datorer i Azure Batch.
-services: batch
-documentationcenter: python
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
-ms.service: batch
+title: Kör Linux på Virtual Machine Compute-noder – Azure Batch | Microsoft Docs
+description: Lär dig att bearbeta dina parallella beräknings arbets belastningar på pooler för virtuella Linux-datorer i Azure Batch.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: na
 ms.date: 06/01/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7abdab248a6f19ec4d57018d65f883fdc838da21
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252290"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116799"
 ---
-# <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux-beräkningsnoder i batchpooler
+# <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux Compute-noder i batch-pooler
 
-Du kan använda Azure Batch för att köra parallella beräkningsarbetsbelastningar på både Virtuella Linux- och Windows-datorer. I den här artikeln beskrivs hur du skapar pooler av Linux-beräkningsnoder i batch-tjänsten med hjälp av både [batch python-][py_batch_package] och [batch-KLIENTBIBLIOTEK.][api_net]
+Du kan använda Azure Batch för att köra parallella beräknings arbets belastningar på både virtuella Linux-och Windows-datorer. Den här artikeln beskriver hur du skapar pooler för Linux Compute-noder i batch-tjänsten med hjälp av både [batchen python][py_batch_package] och [batch .net][api_net] -klient bibliotek.
 
 > [!NOTE]
 > Programpaket kan användas för alla Batch-pooler som skapats efter 5 juli 2017. De kan användas för Batch-pooler som skapats mellan 10 mars 2016 och 5 juli 2017, men endast om poolen skapades med en molntjänstkonfiguration. Programpaket kan inte användas för Batch-pooler som har skapats före 10 mars 2016. Mer information om hur du använder programpaket för att distribuera program till dina Batch-noder finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
 >
 >
 
-## <a name="virtual-machine-configuration"></a>Konfiguration av virtuella datorer
-När du skapar en pool med beräkningsnoder i Batch har du två alternativ för att välja nodstorlek och operativsystem: Konfiguration av molntjänster och konfiguration av virtuella datorer.
+## <a name="virtual-machine-configuration"></a>Konfiguration av virtuell dator
+När du skapar en pool med datornoder i batch har du två alternativ för att välja Node-storlek och operativ system: Cloud Services konfiguration och konfiguration av virtuell dator.
 
-En **Cloud Services-konfiguration** tillhandahåller *endast*Windows-beräkningsnoder. Tillgängliga beräkningsnodstorlekar visas i [Storlekar för molntjänster](../cloud-services/cloud-services-sizes-specs.md)och tillgängliga operativsystem visas i [Azure Guest OS-versionerna och SDK-kompatibilitetsmatrisen](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Azure Cloud Services-noder anger du nodstorleken och OS-familjen, som beskrivs i de tidigare nämnda artiklarna. För pooler av Windows-beräkningsnoder används molntjänster oftast.
+En **Cloud Services-konfiguration** tillhandahåller *endast*Windows-beräkningsnoder. Tillgängliga Compute Node-storlekar visas i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md)och tillgängliga operativ system visas i [matrisen för Azure gäst operativ system och SDK-kompatibilitet](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Azure Cloud Services noder, anger du nodens storlek och OS-familjen, som beskrivs i de tidigare nämnda artiklarna. För pooler med Windows Compute-noder används Cloud Services vanligt vis.
 
-**Konfiguration av virtuella** datorer tillhandahåller både Linux- och Windows-avbildningar för beräkningsnoder. Tillgängliga beräkningsnodstorlekar visas i [Storlekar för virtuella datorer i Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) och storlekar för virtuella datorer i [Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). När du skapar en pool som innehåller noder för konfiguration av virtuella datorer måste du ange storleken på noderna, avbildningsreferensen för den virtuella datorn och den batchnodagent SKU som ska installeras på noderna.
+**Konfigurationen av den virtuella datorn** innehåller både Linux-och Windows-avbildningar för Compute-noder. Tillgängliga Compute Node-storlekar visas i [storlekar för virtuella datorer i Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) och [storlekar för virtuella datorer i Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). När du skapar en pool som innehåller noder för konfiguration av virtuell dator måste du ange storleken på noderna, avbildnings referensen för den virtuella datorn och den batch Node agent-SKU som ska installeras på noderna.
 
-### <a name="virtual-machine-image-reference"></a>Bildreferens för virtuell dator
+### <a name="virtual-machine-image-reference"></a>Referens för avbildning av virtuell dator
 
-Batch-tjänsten använder [skaluppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för att tillhandahålla beräkningsnoder i konfigurationen för virtuella datorer. Du kan ange en avbildning från [Azure Marketplace][vm_marketplace]eller tillhandahålla en anpassad avbildning som du har förberett. Mer information om anpassade bilder finns i [Skapa en pool med det delade bildgalleriet](batch-sig-images.md).
+Batch-tjänsten använder [skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för att tillhandahålla Compute-noder i konfigurationen för den virtuella datorn. Du kan ange en avbildning från [Azure Marketplace][vm_marketplace]eller ange en anpassad avbildning som du har för berett. Mer information om anpassade avbildningar finns i [skapa en pool med det delade avbildnings galleriet](batch-sig-images.md).
 
-När du konfigurerar en avbildningsreferens för virtuella datorer anger du egenskaperna för avbildningen för den virtuella datorn. Följande egenskaper krävs när du skapar en avbildningsreferens för virtuella datorer:
+När du konfigurerar en avbildnings referens för en virtuell dator anger du egenskaperna för avbildningen av den virtuella datorn. Följande egenskaper krävs när du skapar en avbildnings referens för en virtuell dator:
 
-| **Egenskaper för bildreferens** | **Exempel** |
+| **Egenskaper för bild referens** | **Exempel** |
 | --- | --- |
 | Utgivare |Canonical |
 | Erbjudande |UbuntuServer |
-| SKU |18.04-LTS |
+| SKU |18,04 – LTS |
 | Version |senaste |
 
 > [!TIP]
-> Du kan läsa mer om dessa egenskaper och hur du listar Marketplace-avbildningar i [Navigera och väljer Linux-avbildningar för virtuella datorer i Azure med CLI eller PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Observera att inte alla Marketplace-avbildningar för närvarande är kompatibla med Batch. Mer information finns i [Node agent SKU](#node-agent-sku).
+> Du kan lära dig mer om dessa egenskaper och hur du listar Marketplace-avbildningar i [navigera och välja virtuella Linux-dator avbildningar i Azure med CLI eller PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Observera att inte alla Marketplace-avbildningar för närvarande är kompatibla med batch. Mer information finns i [SKU för Node-agenten](#node-agent-sku).
 >
 >
 
-### <a name="node-agent-sku"></a>Nodagent SKU
-Batch-nodagenten är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-kontroll-gränssnittet mellan noden och batch-tjänsten. Det finns olika implementeringar av nodagenten, skus, för olika operativsystem. När du skapar en konfiguration för virtuella datorer anger du först avbildningsreferensen för den virtuella datorn och anger sedan den nodagent som ska installeras på avbildningen. Vanligtvis är varje nodagent SKU kompatibel med flera avbildningar för virtuella datorer. Här är några exempel på nodagent SKU:er:
+### <a name="node-agent-sku"></a>Node agent-SKU
+Batch Node agent är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. Det finns olika implementeringar av Node-agenten, som kallas SKU: er, för olika operativ system. När du skapar en konfiguration för virtuell dator är det i princip att du först ange avbildnings referensen för den virtuella datorn och sedan ange vilken Node-agent som ska installeras på avbildningen. Normalt är varje nod-agent-SKU kompatibel med flera avbildningar av virtuella datorer. Här följer några exempel på Node agent-SKU: er:
 
-* batch.node.ubuntu 18,04
-* batch.node.centos 7
-* batch.node.windows amd64
+* batch. Node. Ubuntu 18,04
+* batch. Node. CentOS 7
+* batch. Node. Windows amd64
 
 > [!IMPORTANT]
-> Alla avbildningar för virtuella datorer som är tillgängliga på Marketplace är inte kompatibla med de för närvarande tillgängliga batchnodagenterna. Använd batch-SDK:erna för att lista de tillgängliga nodagentSku:erna och de virtuella datoravbildningar som de är kompatibla med. Mer information och exempel på hur du hämtar en lista över giltiga bilder under körning finns i [listan över avbildningar](#list-of-virtual-machine-images) med virtuella datorer senare i den här artikeln.
+> Alla avbildningar av virtuella datorer som är tillgängliga i Marketplace är inte kompatibla med de för närvarande tillgängliga batch Node-agenterna. Använd batch SDK: er för att lista tillgängliga Node agent-SKU: er och avbildningar av virtuella datorer som de är kompatibla med. Se [listan över avbildningar av virtuella datorer](#list-of-virtual-machine-images) längre fram i den här artikeln för mer information och exempel på hur du hämtar en lista över giltiga avbildningar vid körning.
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Skapa en Linux-pool: Batch Python
-Följande kodavsnitt visar ett exempel på hur du använder [Microsoft Azure Batch Client Library for Python för][py_batch_package] att skapa en pool med Ubuntu Server-beräkningsnoder. Referensdokumentation för Batch Python-modulen finns på [azure.batch-paketet][py_batch_docs] på Läs dokumenten.
+## <a name="create-a-linux-pool-batch-python"></a>Skapa en Linux-pool: batch python
+Följande kodfragment visar ett exempel på hur du använder [Microsoft Azure Batch klient bibliotek för python][py_batch_package] för att skapa en pool med Ubuntu-serverns beräknings noder. Referens dokumentation för batch python-modulen hittar du på [Azure. batch-paketet][py_batch_docs] på läsa dokumenten.
 
-Det här kodavsnittet skapar en [ImageReference][py_imagereference] uttryckligen och anger var och en av dess egenskaper (utgivare, erbjudande, SKU, version). I produktionskod rekommenderar vi dock att du använder [list_supported_images][py_list_supported_images] metod för att bestämma och välja från de tillgängliga bild- och nodagenten SKU-kombinationer vid körning.
+Det här kodfragmentet skapar en [ImageReference][py_imagereference] explicit och anger var och en av dess egenskaper (utgivare, erbjudande, SKU, version). I produktions kod rekommenderar vi dock att du använder metoden [list_supported_images][py_list_supported_images] för att fastställa och välja bland kombinationerna tillgängliga avbildnings-och Node agent-SKU vid körning.
 
 ```python
 # Import the required modules from the
@@ -126,7 +116,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Som tidigare nämnts rekommenderar vi att du i stället för att uttryckligen skapa [ImageReference-metoden][py_imagereference] använder [metoden list_supported_images][py_list_supported_images] för att dynamiskt välja från de nodagent/Marketplace-bildkombinationer som för närvarande stöds. Följande Python-kodavsnitt visar hur du använder den här metoden.
+Som tidigare nämnts rekommenderar vi att du i stället för att skapa [ImageReference][py_imagereference] uttryckligen använder metoden [list_supported_images][py_list_supported_images] för att dynamiskt välja bland kombinations avbildningar för just nu stöd för Node-agenten/Marketplace. Följande python-kodfragment visar hur du använder den här metoden.
 
 ```python
 # Get the list of supported images from the Batch service
@@ -151,10 +141,10 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id=image.node_agent_sku_id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Skapa en Linux-pool: Batch .NET
-Följande kodavsnitt visar ett exempel på hur du använder [batch -NET-klientbiblioteket][nuget_batch_net] för att skapa en pool med Ubuntu Server-beräkningsnoder. Du hittar [referensdokumentationen för batch .NET][api_net] på docs.microsoft.com.
+## <a name="create-a-linux-pool-batch-net"></a>Skapa en Linux-pool: batch .NET
+Följande kodfragment visar ett exempel på hur du använder [batch .net][nuget_batch_net] -klient biblioteket för att skapa en pool med Ubuntu-serverns Compute-noder. Du hittar [batch .net Reference-dokumentationen][api_net] på docs.Microsoft.com.
 
-Följande kodavsnitt använder [PoolOperations][net_pool_ops]. [ListSupportedImages][net_list_supported_images] metod för att välja från listan över för närvarande stöds Marketplace image och nod agent SKU kombinationer. Den här tekniken är önskvärd eftersom listan över kombinationer som stöds kan ändras från tid till annan. Oftast läggs kombinationer som stöds till.
+I följande kodfragment används [PoolOperations][net_pool_ops]. [ListSupportedImages][net_list_supported_images] -metoden för att välja från en lista över stödda Marketplace-avbildningar och Node agent-kombinationer som stöds för närvarande. Den här tekniken är önskvärd eftersom listan över kombinationer som stöds kan ändras från tid till tid. Oftast läggs de kombinationer som stöds till.
 
 ```csharp
 // Pool settings
@@ -198,7 +188,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Även om föregående utdrag använder [PoolOperations][net_pool_ops]. [ListSupportedImages][net_list_supported_images] metod för att dynamiskt lista och välja från bild- och nodagent SKU-kombinationer som stöds (rekommenderas), du kan också konfigurera en [ImageReference][net_imagereference] explicit:
+Även om det tidigare kodfragmentet använder [PoolOperations][net_pool_ops]. [ListSupportedImages][net_list_supported_images] -metoden för att dynamiskt lista och välja från avbildningar som stöds och som stöds (rekommenderas), kan du också konfigurera en [ImageReference][net_imagereference] explicit:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -208,13 +198,13 @@ ImageReference imageReference = new ImageReference(
     version: "latest");
 ```
 
-## <a name="list-of-virtual-machine-images"></a>Lista över avbildningar för virtuella datorer
-Om du vill hämta listan över alla Marketplace-avbildningar för virtuella datorer som stöds för batch-tjänsten och deras motsvarande nodagenter kan du utnyttja [list_supported_images][py_list_supported_images] (Python), [ListSupportedImages][net_list_supported_images] (Batch .NET) eller motsvarande API på respektive språk SDK som du väljer.
+## <a name="list-of-virtual-machine-images"></a>Lista över avbildningar av virtuella datorer
+Om du vill hämta en lista över alla virtuella Marketplace-avbildningar som stöds för batch-tjänsten och deras motsvarande Node-agenter, kan du använda [list_supported_images][py_list_supported_images] (python), [ListSupportedImages][net_list_supported_images] (batch .net) eller motsvarande API i respektive språk-SDK som du väljer.
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Ansluta till Linux-noder med SSH
-Under utvecklingen eller under felsökningen kan det vara nödvändigt att logga in på noderna i poolen. Till skillnad från Windows-beräkningsnoder kan du inte använda RDP (Remote Desktop Protocol) för att ansluta till Linux-noder. I stället aktiverar batch-tjänsten SSH-åtkomst på varje nod för fjärranslutning.
+Under utvecklingen eller under fel sökningen kanske du måste logga in på noderna i poolen. Till skillnad från Windows Compute-noder kan du inte använda Remote Desktop Protocol (RDP) för att ansluta till Linux-noder. I stället möjliggör batch-tjänsten SSH-åtkomst på varje nod för fjärr anslutning.
 
-Följande Python-kodavsnitt skapar en användare på varje nod i en pool, vilket krävs för fjärranslutning. Därefter skrivs den säkra SSH-anslutningsinformationen (Säkra skal) för varje nod.
+Följande python-kodfragment skapar en användare på varje nod i en pool, vilket krävs för fjärr anslutning. Den skriver sedan ut SSH-anslutningen (Secure Shell) för varje nod.
 
 ```python
 import datetime
@@ -273,7 +263,7 @@ for node in nodes:
                                          login.remote_login_port))
 ```
 
-Här är exempelutdata för den tidigare koden för en pool som innehåller fyra Linux-noder:
+Här är exempel på utdata för föregående kod för en pool som innehåller fyra Linux-noder:
 
 ```
 Password:
@@ -283,16 +273,16 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-I stället för ett lösenord kan du ange en allmän SSH-nyckel när du skapar en användare på en nod. I Python SDK använder **du parametern ssh_public_key** på [ComputeNodeUser][py_computenodeuser]. Använd [ComputeNodeUser][net_computenodeuser]i .NET . [SshPublicKey.][net_ssh_key]
+I stället för ett lösen ord kan du ange en offentlig SSH-nyckel när du skapar en användare på en nod. Använd **ssh_public_key** -parametern på [COMPUTENODEUSER][py_computenodeuser]i python SDK. Använd [ComputeNodeUser][net_computenodeuser]i .net. [SshPublicKey][net_ssh_key] -egenskap.
 
 ## <a name="pricing"></a>Prissättning
-Azure Batch bygger på Azure Cloud Services och Azure Virtual Machines-teknik. Själva batch-tjänsten erbjuds utan kostnad, vilket innebär att du debiteras endast för beräkningsresurser (och tillhörande kostnader som medför) som dina batch-lösningar förbrukar. När du väljer **Cloud Services-konfiguration**debiteras du baserat på [molntjänsternas prisstruktur.][cloud_services_pricing] När du väljer **Konfiguration för virtuella**datorer debiteras du baserat på [prisstrukturen för virtuella datorer.][vm_pricing]
+Azure Batch bygger på Azure Cloud Services-och Azure Virtual Machines-teknik. Själva batch-tjänsten erbjuds utan kostnad, vilket innebär att du bara debiteras för beräknings resurserna (och tillhör ande kostnader som ingår) som dina batch-lösningar använder. När du väljer **Cloud Services konfiguration**debiteras du baserat på [Cloud Services prissättnings][cloud_services_pricing] struktur. När du väljer **konfiguration för virtuell dator**debiteras du baserat på [Virtual Machines pris][vm_pricing] strukturen.
 
-Om du distribuerar program till dina batchnoder med hjälp av [programpaket](batch-application-packages.md)debiteras du också för de Azure Storage-resurser som programpaketen använder.
+Om du distribuerar program till dina batch-noder med hjälp av [programpaket](batch-application-packages.md), debiteras du också för de Azure Storage-resurser som dina program paket använder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Python-kodexemplen][github_samples_py] i [azure-batch-samples-databasen][github_samples] på GitHub innehåller skript som visar hur du utför vanliga Batch-åtgärder, till exempel pool, jobb och skapande av uppgifter. [Readme][github_py_readme] som medföljer Python-exemplen innehåller information om hur du installerar de nödvändiga paketen.
+[Python-kod exemplen][github_samples_py] i [Azure-Batch-samples-][github_samples] lagringsplatsen på GitHub innehåller skript som visar hur du utför vanliga batch-åtgärder, t. ex. pool, jobb och aktivitets skapande. [Readme-filen][github_py_readme] som medföljer python-exemplen innehåller information om hur du installerar de nödvändiga paketen.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx

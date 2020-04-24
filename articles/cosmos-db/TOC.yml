@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: Konflikttyper och matchningsprinciper
-          displayName: 'last write wins, custom'
+          displayName: 'last write wins, custom, multi master, multi-master'
           href: conflict-resolution-policies.md
         - name: Global distribution
           href: global-dist-under-the-hood.md
@@ -1180,8 +1180,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
-    - name: Fördelar med flera original
-      href: multi-master-benefits.md
+    - name: Prestandanivåer
+      href: performance-levels.md
     - name: Användningsfall
       items:
         - name: Vanliga användarsituationer

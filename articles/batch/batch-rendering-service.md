@@ -1,105 +1,103 @@
 ---
-title: Översikt över rendering - Azure Batch
-description: Introduktion av hur du använder Azure för rendering och en översikt över Azure Batch-renderingsfunktioner
-services: batch
-ms.service: batch
+title: Översikt över åter givning – Azure Batch
+description: Introduktion till att använda Azure för åter givning och en översikt över Azure Batch åter givnings funktioner
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 515fc92aa14c0a86746d0a97d2bc601fab553aa3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60774037"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115711"
 ---
 # <a name="rendering-using-azure"></a>Rendering med hjälp av Azure
 
-Rendering är processen att ta 3D-modeller och konvertera dem till 2D-bilder. 3D-scenfiler skapas i program som Autodesk 3ds Max, Autodesk Maya och Blender.  Renderingsprogram som Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray och Blender Cycles producerar 2D-bilder.  Ibland skapas enstaka bilder från scenfilerna. Det är dock vanligt att modellera och rendera flera bilder och sedan kombinera dem i en animering.
+Rendering är processen att ta 3D-modeller och konvertera dem till 2D-bilder. 3D-scenens filer skapas i program som Autodesk 3ds Max, Autodesk Maya och Blender.  Att rendera program som Autodesk Maya, Autodesk Arnold, kaos Group V-Ray och blends ger 2D-bilder.  Ibland skapas enkla avbildningar från scen filen. Det är dock vanligt att modellera och återge flera avbildningar och kombinera dem sedan i en animering.
 
-Renderingsarbetsbelastningen används i hög grad för specialeffekter (VFX) inom medie- och underhållningsindustrin. Rendering används också inom flera andra branscher som marknadsföring, detaljhandel, olja och gas samt tillverkning.
+Arbets belastningen för rendering används kraftigt för specialeffekter (VFX) i medie-och underhållnings branschen. Rendering används också inom flera andra branscher som marknadsföring, detaljhandel, olja och gas samt tillverkning.
 
-Processen för rendering är beräkningsmässigt intensiv; det kan finnas många ramar / bilder att producera och varje bild kan ta många timmar att återge.  Rendering är därför en perfekt arbetsbelastning för batchbearbetning som kan utnyttja Azure och Azure Batch för att köra många renderingar parallellt.
+Processen för åter givning är i beräknings intensiv. Det kan finnas många ramar/bilder att producera och varje bild kan ta flera timmar att rendera.  Åter givning är därför en perfekt grupp bearbetnings arbets belastning som kan utnyttja Azure och Azure Batch för att köra många åter givningar parallellt.
 
-## <a name="why-use-azure-for-rendering"></a>Varför använda Azure för rendering?
+## <a name="why-use-azure-for-rendering"></a>Varför ska jag använda Azure för rendering?
 
-Av många skäl är rendering en arbetsbelastning som passar perfekt för Azure och Azure Batch:
+Av många skäl är åter givning en arbets belastning som passar perfekt för Azure och Azure Batch:
 
-* Renderingsjobb kan delas upp i många bitar som kan köras parallellt med flera virtuella datorer:
-  * Animeringar består av många bildrutor och varje bildruta kan återges parallellt.  Ju fler virtuella datorer som är tillgängliga för att bearbeta varje bildruta, desto snabbare kan alla bildrutor och animeringen produceras.
-  * Vissa renderingsprogram gör att enskilda bildrutor kan delas upp i flera delar, till exempel brickor eller segment.  Varje bit kan återges separat, sedan kombineras till den slutliga bilden när alla bitar är färdiga.  Ju fler virtuella datorer som är tillgängliga, desto snabbare kan en ram återges.
-* Renderingsprojekt kan kräva stor skala:
-  * Enskilda ramar kan vara komplexa och kräva många timmar att rendera, även på avancerad maskinvara. animationer kan bestå av hundratusentals bildrutor.  En enorm mängd beräkning krävs för att göra högkvalitativa animeringar på en rimlig tid.  I vissa fall har över 100 000 kärnor använts för att rendera tusentals bildrutor parallellt.
-* Renderingsprojekt är projektbaserade och kräver varierande beräkningsmängder:
-  * Allokera beräknings- och lagringskapacitet när det behövs, skala upp eller ned den efter belastning under ett projekt och ta bort den när ett projekt är klart.
-  * Betala för kapacitet när den allokeras, men betala inte för den när det inte finns någon belastning, till exempel mellan projekt.
-  * Tillgodose skurar på grund av oväntade förändringar; skala högre om det finns oväntade ändringar sent i ett projekt och dessa ändringar måste bearbetas i ett snävt schema.
-* Välj bland ett brett urval av maskinvara enligt program, arbetsbelastning och tidsram:
-  * Det finns ett brett utbud av maskinvara som är tillgänglig i Azure som kan allokeras och hanteras med Batch.
-  * Beroende på projektet kan kravet vara för bästa pris / prestanda eller bästa övergripande prestanda.  Olika scener och/eller renderingsprogram har olika minneskrav.  Vissa renderingsprogram kan utnyttja GPU:er för bästa prestanda eller vissa funktioner. 
+* Åter givnings jobb kan delas upp i många delar som kan köras parallellt med flera virtuella datorer:
+  * Animeringar består av många ramar och varje ram kan återges parallellt.  Ju fler virtuella datorer som är tillgängliga för bearbetning av varje ram, desto snabbare kan alla ramar och animeringen skapas.
+  * Med vissa åter givnings program kan enskilda ramar delas upp i flera delar, till exempel paneler eller segment.  Varje del kan återges separat och sedan kombineras till den sista bilden när alla delar har slutförts.  Ju fler virtuella datorer som är tillgängliga, desto snabbare kan en ram återges.
+* Åter givnings projekt kan kräva enorma skalning:
+  * Enskilda ramar kan vara komplexa och kräver många timmar för att kunna återges även på avancerad maskin vara. animeringar kan bestå av hundratals tusentals ramar.  En enorm mängd data krävs för att återge animeringar med hög kvalitet under en rimlig tids period.  I vissa fall har över 100 000 kärnor använts för att återge tusentals ramar parallellt.
+* Åter givnings projekt är projektbaserade och kräver varierande beräknings mängder:
+  * Tilldela beräknings-och lagrings kapacitet vid behov kan du skala upp eller ned enligt belastningen under ett projekt och ta bort det när projektet är klart.
+  * Betala för kapacitet vid tilldelning, men betala inte för det när det inte finns någon belastning, till exempel mellan projekt.
+  * Anpassa till burst-överföring på grund av oväntade ändringar. skala högre om det finns oväntade ändringar sent i ett projekt och dessa ändringar måste bearbetas enligt ett tätt schema.
+* Välj bland ett brett utbud av maskin vara enligt program, arbets belastning och tidsram:
+  * Det finns ett brett utbud av maskin vara som är tillgänglig i Azure och som kan allokeras och hanteras med batch.
+  * Beroende på projektet kan kravet vara för bästa pris/prestanda eller bästa övergripande prestanda.  Olika scener och/eller åter givnings program har olika minnes krav.  Vissa åter givnings program kan utnyttja GPU: er för bästa prestanda eller vissa funktioner. 
 * Virtuella datorer med låg prioritet minskar kostnaderna:
-  * Virtuella datorer med låg prioritet är tillgängliga för en stor rabatt jämfört med vanliga virtuella datorer på begäran och är lämpliga för vissa jobbtyper.
-  * Virtuella datorer med låg prioritet kan allokeras av Azure Batch, med Batch som ger flexibilitet i hur de används för att tillgodose en bred uppsättning krav.  Batchpooler kan bestå av både dedikerade och lågprioriterade virtuella datorer, med möjlighet att ändra mixen av vm-typer när som helst.
+  * Virtuella datorer med låg prioritet är tillgängliga för en stor rabatt jämfört med vanliga virtuella datorer på begäran och är lämpliga för vissa typer av jobb.
+  * Virtuella datorer med låg prioritet kan tilldelas av Azure Batch, med batch som ger flexibilitet för hur de används för att tillgodose en rad olika krav.  Batch-pooler kan bestå av både dedikerade och lågprioriterade virtuella datorer, och det är möjligt att ändra blandningen av VM-typer när som helst.
 
-## <a name="options-for-rendering-on-azure"></a>Alternativ för rendering på Azure
+## <a name="options-for-rendering-on-azure"></a>Alternativ för åter givning av Azure
 
-Det finns en rad Azure-funktioner som kan användas för rendering av arbetsbelastningar.  Vilka funktioner som ska användas beror på befintliga miljöer och krav.
+Det finns ett antal Azure-funktioner som kan användas för att återge arbets belastningar.  Vilka funktioner som ska användas beror på befintliga miljö och krav.
 
-### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Befintlig lokal renderingsmiljö med hjälp av ett renderingshanteringsprogram
+### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Befintlig lokal åter givnings miljö med hjälp av ett åter givnings hanterings program
 
-Det vanligaste fallet är att det finns en befintlig lokal renderingsgrupp som hanteras av ett renderingshanteringsprogram som PipelineFX Qube, Royal Render eller Thinkbox Deadline.  Kravet är att utöka den lokala renderingsbelöningen med hjälp av virtuella Azure-datorer.
+Det vanligaste fallet är att det finns en befintlig lokal åter givning-grupp som hanteras av ett program för rendering Management, till exempel PipelineFX Qube, den senaste åter givningen eller tids gränsen.  Kravet är att utöka den lokala åter givnings Server gruppens kapacitet med hjälp av virtuella Azure-datorer.
 
-Render-hanteringsprogrammet har antingen Azure-stöd inbyggt eller så gör vi plugin-program som lägger till Azure-stöd. Mer information om de renderingshanterare och funktioner som stöds är aktiverade finns i artikeln om [hur du använder renderingshanterare](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
+Program varan för åter givnings hantering har stöd för inbyggd Azure-support eller så gör vi tillgängliga plugin-program som lägger till Azure-support. Mer information om de åter givnings hanterare och funktioner som stöds är aktiverade finns i artikeln om att [använda åter givnings hanterare](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
 
-### <a name="custom-rendering-workflow"></a>Arbetsflöde för anpassad återgivning
+### <a name="custom-rendering-workflow"></a>Anpassat åter givnings arbets flöde
 
-Kravet är att virtuella datorer ska utöka en befintlig renderingsgrupp.  Azure Batch-pooler kan allokera ett stort antal virtuella datorer, tillåta virtuella datorer med låg prioritet som ska användas och dynamiskt automatiskt skalas med virtuella datorer med full pris och tillhandahålla pay-for-use-licensiering för populära renderingsprogram.
+Kravet är för virtuella datorer att utöka en befintlig åter givnings Server grupp.  Azure Batch pooler kan allokera ett stort antal virtuella datorer, tillåta att virtuella datorer med låg prioritet används och dynamiskt skalas dynamiskt med virtuella datorer med höga priser och ger betalnings-och användnings licensiering för populära åter givnings program.
 
-### <a name="no-existing-render-farm"></a>Ingen befintlig rendergrupp
+### <a name="no-existing-render-farm"></a>Ingen befintlig åter givnings grupp
 
-Klientarbetsstationer kan utföra rendering, men renderingsarbetsbelastningen ökar och det tar för lång tid att enbart använda arbetsstationskapacitet.  Azure Batch kan användas för att både allokera renderingsbeställa servergruppsberäkning på begäran samt schemalägga renderingsjobb till Azure render-servergruppen.
+Klient datorerna kan utföra åter givning, men åter givningen av arbets belastningen ökar och tar för lång tid att endast använda arbets Stations kapacitet.  Azure Batch kan användas för att både allokera data behandling på begäran och schemalägga åter givnings jobb till Azure Render-servergruppen.
 
-## <a name="azure-batch-rendering-capabilities"></a>Funktioner för Azure Batch-rendering
+## <a name="azure-batch-rendering-capabilities"></a>Azure Batch åter givnings funktioner
 
-Azure Batch gör att parallella arbetsbelastningar kan köras i Azure.  Det gör det möjligt att skapa och hantera ett stort antal virtuella datorer där program installeras och körs.  Den innehåller också omfattande funktioner för finplanering för att köra instanser av dessa program, vilket ger tilldelning av uppgifter till virtuella datorer, kö, programövervakning och så vidare.
+Azure Batch gör det möjligt att köra parallella arbets belastningar i Azure.  Det gör det möjligt att skapa och hantera ett stort antal virtuella datorer där programmen är installerade och körs.  Den innehåller också omfattande funktioner för schemaläggning av jobb för att köra instanser av dessa program, vilket ger tilldelning av uppgifter till virtuella datorer, köer, program övervakning och så vidare.
 
-Azure Batch används för många arbetsbelastningar, men följande funktioner är tillgängliga för att specifikt göra det enklare och snabbare att köra renderingsarbetsbelastningar.
+Azure Batch används för många arbets belastningar, men följande funktioner är tillgängliga för att göra det enklare och snabbare att köra åter användning av arbets belastningar.
 
-* VM-avbildningar med förinstallerade grafik- och renderingsprogram:
-  * Azure Marketplace VM-avbildningar är tillgängliga som innehåller populära grafik- och renderingsprogram, vilket undviker behovet av att installera programmen själv eller skapar egna anpassade avbildningar med de installerade programmen. 
-* Pay-per-use-licensiering för renderingsprogram:
-  * Du kan välja att betala för programmen per minut, förutom att betala för virtuella beräknings-datorer, vilket undviker att behöva köpa licenser och eventuellt konfigurera en licensserver för programmen.  Att betala för användning innebär också att det är möjligt att tillgodose varierande och oväntad belastning eftersom det inte finns ett fast antal licenser.
-  * Det är också möjligt att använda de förinstallerade programmen med dina egna licenser och inte använda pay-per-use-licensieringen. För att göra detta installerar du vanligtvis en lokal eller Azure-baserad licensserver och använder ett virtuellt Azure-nätverk för att ansluta renderingspoolen till licensservern.
-* Plugin-program för klientdesign och modelleringsprogram:
-  * Plugin-program gör det möjligt för slutanvändare att använda Azure Batch direkt från klientprogram, till exempel Autodesk Maya, vilket gör det möjligt för dem att skapa pooler, skicka jobb och använda mer beräkningskapacitet för att utföra snabbare renderingar.
-* Integrering av renderingshanterare:
-  * Azure Batch är integrerat i renderingshanteringsprogram eller plugin-program är tillgängliga för att tillhandahålla Azure Batch-integrering.
+* VM-avbildningar med förinstallerade program för grafik och åter givning:
+  * VIRTUELLA Azure Marketplace-avbildningar är tillgängliga som innehåller populära grafik-och åter givnings program, vilket gör att du inte behöver installera programmen själv eller skapa egna anpassade avbildningar med de installerade programmen. 
+* Betala per användning-licensiering för åter givning av program:
+  * Du kan välja att betala för programmen per minut, förutom att betala för de virtuella datorerna för beräkning, vilket gör att du slipper köpa licenser och eventuellt konfigurera en licens Server för programmen.  Att betala för användning innebär också att det är möjligt att tillgodose för varierande och oväntade belastning eftersom det inte finns något fast antal licenser.
+  * Du kan också använda de förinstallerade programmen med dina egna licenser och inte använda licensieringen betala per användning. För att göra detta installerar du normalt en lokal eller Azure-baserad licens Server och använder ett virtuellt Azure-nätverk för att ansluta åter givnings poolen till licens servern.
+* Plugin-program för klient design och modellerings program:
+  * Med plugin-program kan slutanvändare använda Azure Batch direkt från klient programmet, till exempel Autodesk Maya, så att de kan skapa pooler, skicka jobb och använda mer beräknings kapacitet för att utföra snabbare åter givning.
+* Rendera chefs integrering:
+  * Azure Batch är integrerat i program för rendering Management eller plugin-program finns tillgängliga för att tillhandahålla Azure Batch-integrering.
 
-Det finns flera sätt att använda Azure Batch, som alla även gäller för Azure Batch-rendering.
+Det finns flera sätt att använda Azure Batch, som alla gäller även för Azure Batch åter givning.
 
 * API:er:
-  * Skriv kod med [REST,](https://docs.microsoft.com/rest/api/batchservice) [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch)eller andra API:er som stöds.  Utvecklare kan integrera Azure Batch-funktioner i sina befintliga program eller arbetsflöden, oavsett om de är i molnet eller lokalt.  Plugin-programmet [Autodesk Maya](https://github.com/Azure/azure-batch-maya) använder till exempel Batch Python-API:et för att anropa Batch, skapa och hantera pooler, skicka jobb och uppgifter och övervaka status.
-* Kommandoradsverktyg:
-  * [Azure-kommandoraden](https://docs.microsoft.com/cli/azure/) eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) kan användas för att skriptbatch använda batch.
-  * I synnerhet batch CLI-mallens stöd gör det mycket enklare att skapa pooler och skicka jobb.
-* Uis:
-  * [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett plattformsoberoende klientverktyg som också gör att Batch-konton kan hanteras och övervakas, men som ger några rikare funktioner jämfört med Azure-portalgränssnittet.  En uppsättning pool- och jobbmallar tillhandahålls som är skräddarsydda för varje program som stöds och som kan användas för att enkelt skapa pooler och skicka jobb.
-  * Azure-portalen kan användas för att hantera och övervaka Azure Batch.
-* Plugin-programmet för klientprogram:
-  * Plugin-program finns tillgängliga som gör att Batch-rendering kan användas direkt från klientdesign- och modelleringsprogram. Plugin-programmen anropar huvudsakligen batchutforskaren med kontextuell information om den aktuella 3D-modellen.
-  * Följande plugin-program finns tillgängliga:
+  * Skriv kod med hjälp av [rest](https://docs.microsoft.com/rest/api/batchservice), [.net](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch)eller andra API: er som stöds.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.  [Autodesk Maya-plugin-programmet](https://github.com/Azure/azure-batch-maya) använder till exempel batch python-API: et för att anropa batch, skapa och hantera pooler, skicka jobb och uppgifter och övervaknings status.
+* Kommando rads verktyg:
+  * [Kommando rads](https://docs.microsoft.com/cli/azure/) -eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) för Azure kan användas för att använda skript för batch-användning.
+  * I synnerhet gör stödet för batch CLI det mycket enklare att skapa pooler och skicka jobb.
+* UIs:
+  * [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett klient verktyg för flera plattformar som också tillåter att batch-konton hanteras och övervakas, men ger till gång till en del rikare funktioner jämfört med Azure Portal gränssnittet.  En uppsättning pool-och jobbmallar tillhandahålls som är skräddarsydda för varje program som stöds och som kan användas för att enkelt skapa pooler och skicka jobb.
+  * Azure Portal kan användas för att hantera och övervaka Azure Batch.
+* Klient programmets plugin-program:
+  * Plugin-program är tillgängliga som tillåter att batch-rendering används direkt i klientens design-och modellerings program. Plugin-programmen anropar huvudsakligen Batch Explorer program med sammanhangsbaserad information om den aktuella 3D-modellen.
+  * Följande plugin-program är tillgängliga:
     * [Azure Batch för Maya](https://github.com/Azure/azure-batch-maya)
     * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-    * [Mixer](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
-## <a name="getting-started-with-azure-batch-rendering"></a>Komma igång med Azure Batch-rendering
+## <a name="getting-started-with-azure-batch-rendering"></a>Komma igång med Azure Batch åter givning
 
-Se följande inledande självstudier för att prova Azure Batch-rendering:
+Se följande inledande självstudier för att prova Azure Batch åter givning:
 
-* [Använda Batch Explorer för att rendera en Blender-scen](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
-* [Använd Batch CLI för att återge en Autodesk 3ds Max-scen](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Använda Batch Explorer för att återge en över gångs scen](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Använd batch CLI för att rendera en Autodesk 3ds Max-scen](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fastställ listan över renderingsprogram och versioner som ingår i Azure Marketplace VM-avbildningar i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-rendering-applications).
+Ta reda på listan över åter givnings program och versioner som finns på virtuella Azure Marketplace-avbildningar i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-rendering-applications).

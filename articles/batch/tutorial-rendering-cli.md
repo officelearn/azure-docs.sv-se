@@ -1,20 +1,15 @@
 ---
-title: Rendera en scen i molnet – Azure Batch
+title: Rendera en scen i molnet
 description: Självstudie – Så renderar du en Autodesk 3ds Max-scen med Arnold med hjälp av Batch Rendering Service och kommandoradsgränssnittet i Azure
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78672984"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117139"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -33,7 +28,7 @@ I den här självstudien renderar du en 3ds Max-scen med Batch med ray-tracing-r
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. **Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.**
 
-3ds Max-exempelscenen till den här självstudien finns på [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), tillsammans med ett Bash-exempelskript och JSON-konfigurationsfiler. 3ds Max-scenen kommer från [Autodesk 3ds Max-exempelfilerna](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max-exempelfilerna är tillgängliga under en Creative Commons Attribution-NonCommercial-Share Alike-licens. Upphovsrätt &copy; Autodesk, Inc.)
+3ds Max-exempelscenen till den här självstudien finns på [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), tillsammans med ett Bash-exempelskript och JSON-konfigurationsfiler. 3ds Max-scenen kommer från [Autodesk 3ds Max-exempelfilerna](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max-exempelfilerna är tillgängliga under en Creative Commons Attribution-NonCommercial-Share Alike-licens. Copyright &copy; Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -168,7 +163,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Om du ska kunna skriva utdatafilerna till containern måste Batch använda en SAS-token. Skapa token med kommandot [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). I det här exemplet skapas en token för att skriva till valfri blob-behållare i kontot och token upphör att gälla den 15 november 2020:
+Om du ska kunna skriva utdatafilerna till containern måste Batch använda en SAS-token. Skapa token med kommandot [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). I det här exemplet skapas en token som skrivs till en BLOB-behållare i kontot, och token upphör att gälla den 15 november 2020:
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -291,7 +286,7 @@ Det tar några minuter att ändra storlek på poolen. Medan den här processen p
 
 ## <a name="render-a-multiframe-scene"></a>Rendera en scen med flera bildrutor
 
-Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa renderingsuppgifter i jobbet *myrenderjob*. Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json*. (Du kan hämta filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex uppgifterna anger en Arnold kommandorad för att återge en ram av 3ds Max scen *MotionBlur-DragonFlying.max*.
+Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa renderingsuppgifter i jobbet *myrenderjob*. Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json*. (Du kan hämta filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex aktiviteterna anger en Arnold kommando rad som återger en bild ruta i max. *Max*.
 
 Skapa en fil med namnet *myrendertask_multi.json* i ditt aktuella gränssnitt. Kopiera och klistra in innehållet från filen du hämtade. Ändra elementen `blobSource` och `containerURL` i JSON-filen så att de innehåller namnet på ditt lagringskonto och din SAS-token. Kom ihåg att ändra inställningarna för var och en av de sex uppgifterna. Spara filen och kör följande kommando för att placera uppgifterna i kö:
 
@@ -317,7 +312,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Uppgifterna genererar utdatafiler som heter *dragon0002.jpg* - *dragon0007.jpg* på beräkning noder och ladda upp dem till *jobbet-myrenderjob* behållaren i ditt lagringskonto. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Ett exempel:
+Uppgifterna genererar utdatafilerna med namnet *dragon0002. jpg* - *dragon0007. jpg* på datornoderna och laddar upp dem till *jobb-myrenderjob-* behållaren i ditt lagrings konto. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Ett exempel:
 
 ```azurecli-interactive
 az storage blob download-batch \

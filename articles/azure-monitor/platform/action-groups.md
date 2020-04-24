@@ -3,15 +3,15 @@ title: Skapa och hantera åtgärds grupper i Azure Portal
 description: Lär dig hur du skapar och hanterar åtgärds grupper i Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 2/18/2020
+ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9bc191bb27ebb0bac631ef5cfa8ddc34bbd8214e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520892"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116221"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -196,14 +196,20 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>SMS
-Mer viktig information finns i [frekvens begränsa information](./../../azure-monitor/platform/alerts-rate-limiting.md) och [SMS-aviseringar](../../azure-monitor/platform/alerts-sms-behavior.md) .
+Mer viktig information finns i [frekvens begränsa information](./../../azure-monitor/platform/alerts-rate-limiting.md) och [SMS-aviseringar](../../azure-monitor/platform/alerts-sms-behavior.md) . 
 
-Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.  
+Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.
+
+Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds SMS inte för ditt land. Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+
+  
 
 ### <a name="voice"></a>Röst
 Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
+
+Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds inte röst samtal för ditt land. Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
 
 ### <a name="webhook"></a>Webhook
 Webhook-försök görs med följande regler. Webhook-anropet görs om högst 2 gånger när följande HTTP-status koder returneras: 408, 429, 503, 504 eller HTTP-slutpunkten svarar inte. Det första återförsöket görs efter 10 sekunder. Det andra återförsöket sker efter 100 sekunder. Efter två haveri anropar ingen åtgärds grupp slut punkten i 30 minuter. 

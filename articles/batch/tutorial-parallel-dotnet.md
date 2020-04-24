@@ -1,22 +1,16 @@
 ---
-title: Kör en parallell arbetsbelastning – Azure Batch .NET
+title: Köra en parallell arbets belastning
 description: Självstudie – Omkoda mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch .NET
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 8734f748da07b36497ce143646e614ef82056d37
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 24f68ee1d2650a5f3e77b61fb30b5c0185cd82b1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254610"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117156"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudie: Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET API
 
@@ -37,7 +31,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 ## <a name="prerequisites"></a>Krav
 
-* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, macOS eller Windows.
+* [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, MacOS eller Windows.
 
 * Ett Batch-konto och ett länkat Azure Storage-konto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
@@ -45,14 +39,14 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="add-an-application-package"></a>Lägg till ett programpaket
 
 Använd Azure-portalen och lägg till ffmpeg i Batch-kontot som ett [programpaket](batch-application-packages.md). Med programpaket kan du hantera uppgiftsprogram och deras distribution till beräkningsnoderna i din pool. 
 
-1. Klicka på Fler **tjänster** > **Batch-konton**i Azure-portalen och klicka på namnet på ditt batchkonto.
-3. Klicka på Lägg**till** **program** > .
+1. Klicka på **fler tjänster** > **batch-konton**i Azure Portal och klicka på namnet på batch-kontot.
+3. Klicka på **program** > **Lägg till**.
 4. Som **Program-id** anger du *ffmpeg* och paketversionen *3.4*. Välj zip-filen för ffmpeg som du laddade ned tidigare och klicka på **OK**. Programpaketet för ffmpeg läggs till i Batch-kontot.
 
 ![Lägg till programpaket](./media/tutorial-parallel-dotnet/add-application.png)
@@ -124,7 +118,7 @@ Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill se en värmekarta över beräkningsnoderna i poolen klickar du på **Pooler** > *WinFFmpegPool*.
+Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill visa en värme karta över datornoderna i din pool klickar du på **pooler** > *WinFFmpegPool*.
 
 När uppgifter körs ser den termiska kartan ut ungefär så här:
 
@@ -153,7 +147,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Appen skapar ett [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)-objekt för att skapa och hantera pooler, jobb och uppgifter i Batch-tjänsten. Batch-klienten i exemplet använder autentisering med delad nyckel. Batch stöder också autentisering via [Azure Active Directory](batch-aad-auth.md) för att autentisera enskilda användare eller ett obevakat program.
+Appen skapar ett [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)-objekt för att skapa och hantera pooler, jobb och uppgifter i Batch-tjänsten. Batch-klienten i exemplet använder autentisering med delad nyckel. Batch har även stöd för autentisering via [Azure Active Directory](batch-aad-auth.md) för att autentisera enskilda användare eller obevakade program.
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -196,10 +190,10 @@ Mer information om hur du laddar upp filer som blobar till ett lagringskonto med
 
 Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `CreatePoolIfNotExistAsync`. I den här definierade metoden används metoden [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) till att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration)-objekt en [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) till en Windows Server-avbildning som publicerats på Azure Marketplace. Batch har stöd för ett stort antal Linux- och Windows Server-avbildningar på Azure Marketplace samt för anpassade VM-avbildningar.
 
-Antalet noder och VM-storleken anges med definierade konstanter. Batch stöder dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md)och du kan använda båda eller båda i poolerna. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*.
+Antalet noder och VM-storleken anges med definierade konstanter. Batch har stöd för dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md), och du kan använda antingen eller båda i dina pooler. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*.
 
 >[!Note]
->Kontrollera nodkvoterna. Se [Batch-tjänstkvoter och begränsningar](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) för instruktioner om hur du skapar en kvotbegäran."
+>Se till att du kontrollerar dina Node-kvoter. Se [batch-tjänstens kvoter och begränsningar](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) för instruktioner om hur du skapar en kvot förfrågan. "
 
 Programmet ffmpeg distribueras till beräkningsnoderna genom att en [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) läggs till i poolkonfigurationen.
 
@@ -340,4 +334,4 @@ Fler exempel på hur du använder .NET API till att schemalägga och bearbeta Ba
 > [Batch C#-exempel](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
 
 
-Ställa in instansvariabeln LowPriorityNodeCount=0 och DedicatedNodeCount=5 åtgärdade problemet och gjorde det möjligt för jobbet att slutföras.
+Om du ställer in instans variabeln LowPriorityNodeCount = 0 och DedicatedNodeCount = 5 åtgärdades problemet och det tillåtna jobbet slutförs.

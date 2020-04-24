@@ -1,41 +1,35 @@
 ---
-title: Använda Python API för att köra ett Azure Batch-jobb
-description: Kör snabbt ett Azure Batch-exempeljobb och uppgifter med hjälp av Batch Python-klientbiblioteket. Lär dig de viktigaste begreppen i batch-tjänsten.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: python
+title: Använd python API för att köra ett Azure Batch jobb
+description: Kör snabbt ett Azure Batch exempel jobb och aktiviteter med hjälp av batch python-klientprogrammet. Lär dig viktiga begrepp i batch-tjänsten.
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 07ad9115f6cb602b4df5adbe9a7acdc0425bbf86
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77086041"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117207"
 ---
-# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Snabbstart: Använd Python API för att köra ett Azure Batch-jobb
+# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Snabb start: Använd python API för att köra ett Azure Batch jobb
 
-I den här snabbstarten använder du Python-API:et för att köra ett Azure Batch-jobb från en app. Appen överför indatafiler till Azure Storage och skapar en *pool* av batchberäkningsnoder (virtuella datorer). Sedan skapas ett *jobb* som kör *uppgifter* för att bearbeta varje indatafil i poolen med hjälp av ett grundläggande kommando.
+I den här snabb starten använder du python-API: et för att köra ett Azure Batch jobb från en app. Appen laddar upp indata-filer till Azure Storage och skapar en *pool* med batch-datornoder (virtuella datorer). Sedan skapas ett *jobb* som kör *aktiviteter* för att bearbeta varje indatafil i poolen med hjälp av ett grundläggande kommando.
 
-Här får du lära dig viktiga begrepp för batch-tjänsten och vara redo att prova Batch med mer realistiska arbetsbelastningar i större skala.
+Här lär du dig viktiga begrepp i batch-tjänsten och är redo att testa batch med mer realistiska arbets belastningar i större skala.
 
-![Översikt över Azure Batch-arbetsflödet](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
+![Översikt över Azure Batch arbets flöde](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Ett **Azure Batch-konto** och länkat **Azure Storage-konto.** Använd [Azure-portalen](quick-create-portal.md) eller [CLI](quick-create-cli.md) för att skapa dessa konton.
-- [Python](https://python.org/downloads), version 2.7 eller 3.3 eller senare, inklusive [pip-pakethanteraren](https://pip.pypa.io/en/stable/installing/)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett **Azure Batch** konto och länkat **Azure Storage** konto. Använd [Azure Portal](quick-create-portal.md) eller [CLI](quick-create-cli.md) för att skapa dessa konton.
+- [Python](https://python.org/downloads), version 2,7 eller 3,3 eller senare, inklusive [pip](https://pip.pypa.io/en/stable/installing/) -paket hanteraren
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -47,7 +41,7 @@ Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Gå till katalogen som innehåller `python_quickstart_client.py`Python-skriptet .
+Gå till den katalog som innehåller python-skriptet `python_quickstart_client.py`.
 
 I Python-miljön installerar du de nödvändiga paketen med `pip`.
 
@@ -174,7 +168,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Skapa ett Batch-jobb
 
-Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) lägger till ett jobb i det angivna batchkontot. Från början har jobbet inga uppgifter.
+Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) lägger till ett jobb till det angivna batch-kontot. Från början har jobbet inga uppgifter.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -230,7 +224,7 @@ for task in tasks:
 
 Appen tar automatiskt bort den lagringscontainer den skapar och ger dig möjlighet att ta bort Batch-poolen och jobbet. Du debiteras för poolen medan noderna körs, även om inga jobb är schemalagda. Ta bort poolen när du inte längre behöver den. När du tar bort poolen raderas alla aktivitetsutdata på noderna. 
 
-När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för batchkontot och väljer **Ta bort resursgrupp**.
+När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure Portal väljer du resurs gruppen för batch-kontot och väljer **ta bort resurs grupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 

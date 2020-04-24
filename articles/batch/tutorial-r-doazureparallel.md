@@ -1,22 +1,16 @@
 ---
 title: Parallell R-simulering med Azure Batch
 description: Självstudie – Stegvisa instruktioner för hur du kör en finansiell Monte Carlo-simulering i Azure Batch med R-paketet doAzureParallel
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 64daede5de4f2d1bbc69c65f88fe5b5875a0a5b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77025851"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117105"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Kör en parallell R-simulering med Azure Batch 
 
@@ -40,7 +34,7 @@ I den här självstudien visas hur du distribuerar en Batch-pool och kör ett pa
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Installera doAzureParallel
@@ -226,7 +220,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-I simuleringen distribueras uppgifter till noderna i Batch-poolen. Du kan se uppgiften i den termiska kartan för poolen i Azure-portalen. Gå till **Batch-konton** > *myBatchAccount*. Klicka på **Pooler** > *myPoolName*. 
+I simuleringen distribueras uppgifter till noderna i Batch-poolen. Du kan se uppgiften i den termiska kartan för poolen i Azure-portalen. Gå till **batch-konton** > *myBatchAccount*. Klicka på **pooler** > *myPoolName*. 
 
 ![Termisk karta för pool som kör parallella R-uppgifter](media/tutorial-r-doazureparallel/pool.png)
 

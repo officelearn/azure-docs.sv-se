@@ -1,24 +1,22 @@
 ---
 title: Rendera en Blender-scen med Azure Batch och Batch Explorer
 description: Självstudie – Så här renderar du flera bildrutor från en Blender-scen med Azure Batch och Batch Explorer-klientprogrammet
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60617680"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117088"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Självstudie: Rendera en Blender-scen med Batch Explorer
 
 I den här självstudiekursen visas hur du renderar flera bildrutor från en Blender-demoscen. Blender används för den här självstudien eftersom det är kostnadsfritt för både klienten och virtuella renderingsdatorer, men processen är mycket lik om andra program, till exempel Maya eller 3ds Max, skulle användas.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Ladda upp en Blender-scen till Azure Storage
 > * Skapa en Batch-pool med flera noder för att utföra renderingen

@@ -1,6 +1,6 @@
 ---
-title: Fördelar med att använda Azure NetApp-filer med Oracle Database | Microsoft-dokument
-description: Beskriver tekniken och ger en prestandajämförelse mellan Oracle Direct NFS (dNFS) och den traditionella NFS-klienten. Visar fördelarna med att använda dNFS med Azure NetApp-filer.
+title: Fördelar med att använda Azure NetApp Files med Oracle Database | Microsoft Docs
+description: Beskriver tekniken och ger en prestanda jämförelse mellan Oracle Direct NFS (dNFS) och den traditionella NFS-klienten. Visar fördelarna med att använda dNFS med Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,52 +12,54 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 04/23/2020
 ms.author: b-juche
-ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 56322dc8def288ed388713e143f6b77816360ba3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085016"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117054"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Fördelar med att använda Azure NetApp Files med Oracle Database
 
-Oracle Direct NFS (dNFS) gör det möjligt att driva högre prestanda än operativsystemets egen NFS-drivrutin. Den här artikeln förklarar tekniken och ger en prestandajämförelse mellan dNFS och den traditionella NFS-klienten (Kernel NFS). Det visar också fördelarna och enkelheten med att använda dNFS med Azure NetApp-filer.  
+Oracle Direct NFS (dNFS) gör det möjligt att köra högre prestanda än operativ systemets egna NFS-drivrutin. Den här artikeln förklarar tekniken och ger en prestanda jämförelse mellan dNFS och den traditionella NFS-klienten (kernel NFS). Det visar också fördelarna och lätt att använda dNFS med Azure NetApp Files.  
 
 ## <a name="how-oracle-direct-nfs-works"></a>Så här fungerar Oracle Direct NFS
 
-Oracle Direct NFS (dNFS) kringgår operativsystemets buffertcache. Data cachelagras bara en gång i användarutrymmet, vilket eliminerar minneskopior.  
+I följande sammanfattning förklaras hur Oracle Direct NFS fungerar på hög nivå:
 
-Den traditionella NFS-klienten använder ett enda nätverksflöde, vilket visas i följande exempel: 
+* Oracle Direct NFS kringgår operativ systemets buffert-cache. Data cachelagras bara en gång i användar utrymmet, vilket eliminerar omkostnader för minnes kopior.  
 
-![Traditionell NFS-klient med ett enda nätverksflöde](../media/azure-netapp-files/solutions-traditional-nfs-client-using-single-network-flow.png)
+* Den traditionella NFS-klienten använder ett enda nätverks flöde som visas nedan:    
 
-Oracle dNFS förbättrar däremot prestanda genom att belastningsbalansera nätverkstrafik över flera nätverksflöden. Med den här funktionen kan Oracle-databasen dynamiskt upprätta ett betydande antal 650 olika nätverksanslutningar, vilket visas i exemplet nedan:  
+    ![Traditionell NFS-klient med ett enda nätverks flöde](../media/azure-netapp-files/solutions-traditional-nfs-client-using-single-network-flow.png)
 
-![Oracle Direct NFS förbättrar prestanda](../media/azure-netapp-files/solutions-oracle-direct-nfs-performance-load-balancing.png)
+    Oracle Direct NFS förbättrar ytterligare prestanda genom belastnings utjämning av nätverks trafik över flera nätverks flöden. Som testas och visas nedan upprättades 650 distinkta nätverks anslutningar dynamiskt av Oracle Database:  
 
-[Oracle FAQ för Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) visar att Oracle dNFS är en optimerad NFS-klient. Det ger snabb och skalbar åtkomst till NFS-lagring som finns på NAS-lagringsenheter (tillgänglig via TCP/IP). dNFS är inbyggt i databaskärnan precis som ASM, som främst används med DAS eller SAN-lagring. Som sådan *är riktlinjen att använda dNFS vid implementering av NAS-lagring och använda ASM vid implementering av SAN-lagring.*
+    ![Förbättra prestanda med Oracle Direct NFS](../media/azure-netapp-files/solutions-oracle-direct-nfs-performance-load-balancing.png)
 
-dNFS är standardalternativet i Oracle 18c.
+[Vanliga frågor och svar om Oracle för Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) visar att Oracle-dNFS är en optimerad NFS-klient. Den ger snabb och skalbar åtkomst till NFS-lagring som finns på NAS-lagringsenheter (kan nås via TCP/IP). dNFS är inbyggd i databas kärnan precis som ASM, som främst används med DAS-eller SAN-lagring. Därför *är rikt linjen att använda dNFS när du implementerar NAS-lagring och använder ASM vid implementering av San-lagring.*
 
-dNFS är tillgängligt från och med Oracle Database 11g. Diagrammet nedan jämför dNFS med inbyggt NFS. När du använder dNFS kan en Oracle-databas som körs på en virtuell Azure-dator köra mer I/O än den inbyggda NFS-klienten.
+dNFS är standard alternativet i Oracle-18c.
 
-![Oracle och Azure NetApp-filer jämförelse av dNFS med inbyggt NFS](../media/azure-netapp-files/solutions-oracle-azure-netapp-files-comparing-dnfs-native-nfs.png)
+dNFS är tillgängligt från och med Oracle Database 11g. Diagrammet nedan jämför dNFS med ursprunglig NFS. När du använder dNFS kan en Oracle-databas som körs på en virtuell Azure-dator köra mer I/O än den ursprungliga NFS-klienten.
+
+![Oracle och Azure NetApp Files jämförelse av dNFS med inbyggd NFS](../media/azure-netapp-files/solutions-oracle-azure-netapp-files-comparing-dnfs-native-nfs.png)
 
 Du kan aktivera eller inaktivera dNFS genom att köra två kommandon och starta om databasen.
 
-Så här aktiverar du:  
+För att aktivera:  
 `cd $ORACLE_HOME/rdbms/lib ; make -f ins_rdbms.mk dnfs_on`
 
-Så här inaktiverar du:  
+För att inaktivera:  
 `cd $ORACLE_HOME/rdbms/lib ; make -f ins_rdbms.mk dnfs_off`
 
-## <a name="azure-netapp-files-combined-with-oracle-direct-nfs"></a>Azure NetApp-filer i kombination med Oracle Direct NFS
+## <a name="azure-netapp-files-combined-with-oracle-direct-nfs"></a>Azure NetApp Files kombinerat med Oracle Direct NFS
 
-Du kan förbättra prestanda för Oracle dNFS med Azure NetApp Files-tjänsten. Tjänsten ger dig total kontroll över programmets prestanda. Den kan uppfylla extremt krävande applikationer. Kombinationen av Oracle dNFS med Azure NetApp Files ger stor fördel för dina arbetsbelastningar.
+Du kan förbättra prestanda för Oracle-dNFS med Azure NetApp Files-tjänsten. Tjänsten ger dig total kontroll över dina program prestanda. Det kan uppfylla extremt krävande program. Kombinationen av Oracle dNFS med Azure NetApp Files ger fantastisk nytta av dina arbets belastningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lösningsarkitekturer med Azure NetApp Files](azure-netapp-files-solution-architectures.md)
-- [Översikt över Oracle-program och lösningar på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview)
+- [Översikt över Oracle-program och Azure-lösningar på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview)

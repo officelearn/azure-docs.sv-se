@@ -1,98 +1,96 @@
 ---
-title: Renderingsfunktioner – Azure Batch
-description: Standard Azure Batch-funktioner används för att köra renderingsarbetsbelastningar och appar. Batch innehåller specifika funktioner för att stödja renderingsarbetsbelastningar.
-services: batch
-ms.service: batch
+title: Åter givnings funktioner
+description: Standard Azure Batch-funktioner används för att köra åter givning av arbets belastningar och appar. Batch innehåller vissa funktioner som stöder åter givning av arbets belastningar.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449713"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115762"
 ---
-# <a name="azure-batch-rendering-capabilities"></a>Funktioner för Azure Batch-rendering
+# <a name="azure-batch-rendering-capabilities"></a>Azure Batch åter givnings funktioner
 
-Standard Azure Batch-funktioner används för att köra renderingsarbetsbelastningar och program. Batch innehåller också specifika funktioner för att stödja renderingsarbetsbelastningar.
+Standard Azure Batch-funktioner används för att köra åter givning av arbets belastningar och program. Batch innehåller också vissa funktioner som stöder åter givning av arbets belastningar.
 
-En översikt över batchbegrepp, inklusive pooler, jobb och uppgifter, finns i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-api-basics).
+En översikt över batch-begrepp, inklusive pooler, jobb och aktiviteter, finns i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-api-basics).
 
-## <a name="batch-pools"></a>Batch pooler
+## <a name="batch-pools"></a>Batch-pooler
 
-### <a name="rendering-application-installation"></a>Installation av renderingsprogram
+### <a name="rendering-application-installation"></a>Återge programinstallation
 
-En Azure Marketplace-rendering av VM kan anges i poolkonfigurationen om bara de förinstallerade programmen behöver användas.
+En Azure Marketplace-avbildning av en avbildning av virtuella datorer kan anges i konfigurationen av poolen om bara de förinstallerade programmen måste användas.
 
-Det finns en Windows 2016-bild och en CentOS-avbildning.  I [Azure Marketplace](https://azuremarketplace.microsoft.com)kan vm-avbildningar hittas genom att söka efter "batchrendering".
+Det finns en Windows 2016-avbildning och en CentOS-avbildning.  På [Azure Marketplace](https://azuremarketplace.microsoft.com)hittar du VM-avbildningarna genom att söka efter "batch-rendering".
 
-En exempelpoolkonfiguration finns i [azure CLI-renderingsguiden](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Azure-portalen och Batch Explorer tillhandahåller GUI-verktyg för att välja en avbildning av återgivnings-VM när du skapar en pool.  Om du använder ett batch-API anger du följande egenskapsvärden för [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) när du skapar en pool:
+Ett exempel på en pool konfiguration finns i [själv studie kursen för Azure CLI-åter givning](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Azure Portal och Batch Explorer ger GUI-verktyg för att välja en avbildning av avbildning av avbildning när du skapar en pool.  Om du använder ett batch-API anger du följande egenskaps värden för [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) när du skapar en pool:
 
 | Utgivare | Erbjudande | Sku | Version |
 |---------|---------|---------|--------|
-| batch | rendering-centos73 | Rendering | senaste |
-| batch | rendering-windows2016 | Rendering | senaste |
+| batch | rendering – centos73 | Render | senaste |
+| batch | rendering – windows2016 | Render | senaste |
 
-Andra alternativ är tillgängliga om ytterligare program krävs på pool-datorerna:
+Andra alternativ är tillgängliga om ytterligare program krävs på de virtuella datorerna i poolen:
 
-* En anpassad bild från det delade bildgalleriet:
-  * Med det här alternativet kan du konfigurera din virtuella dator med de exakta program och specifika versioner du behöver. Mer information finns i [Skapa en pool med det delade bildgalleriet](batch-sig-images.md). Autodesk och Chaos Group har ändrat Arnold respektive V-Ray för att validera mot en Azure Batch-licensieringstjänst. Se till att du har versionerna av dessa program med det här stödet, annars fungerar inte licensieringen för betalning per användning. Aktuella versioner av Maya eller 3ds Max kräver inte en licensserver när du kör huvudlös (i batch/kommandoradsläge). Kontakta Azure-supporten om du inte är säker på hur du går vidare med det här alternativet.
-* [Ansökningspaket:](https://docs.microsoft.com/azure/batch/batch-application-packages)
-  * Paketera programfilerna med en eller flera ZIP-filer, ladda upp via Azure-portalen och ange paketet i poolkonfigurationen. När pool-datorer skapas hämtas ZIP-filerna och filerna extraheras.
+* En anpassad avbildning från det delade avbildnings galleriet:
+  * Med det här alternativet kan du konfigurera din virtuella dator med de exakta program och specifika versioner du behöver. Mer information finns i [skapa en pool med det delade avbildnings galleriet](batch-sig-images.md). Autodesk och kaos Group har ändrat Arnold och V-Ray för att verifiera mot en Azure Batch-klientlicensieringstjänsten. Se till att du har versioner av de här programmen med detta stöd, annars fungerar inte betala per användning-licensiering. Aktuella versioner av Maya eller 3DS Max kräver ingen licens Server vid körning av konsol lös läge (i batch-/kommando rads läge). Kontakta Azure-supporten om du inte är säker på hur du kan fortsätta med det här alternativet.
+* [Programpaket](https://docs.microsoft.com/azure/batch/batch-application-packages):
+  * Paketera programfilerna med en eller flera ZIP-filer, ladda upp via Azure Portal och ange paketet i konfigurationen för poolen. När virtuella pooler skapas laddas ZIP-filerna ned och filerna extraheras.
 * Resursfiler:
-  * Programfiler överförs till Azure blob storage och du anger filreferenser i [poolstartuppgiften](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). När pool-virtuella datorer skapas hämtas resursfilerna till varje virtuell dator.
+  * Programfiler laddas upp till Azure Blob Storage och du anger fil referenser i [Start aktiviteten för poolen](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). När virtuella pooler skapas laddas resursfiler ned till varje virtuell dator.
 
-### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>Pay-for-use-licensiering för förinstallerade program
+### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>Betala för användnings licensiering för förinstallerade program
 
-De program som ska användas och har en licensavgift måste anges i poolkonfigurationen.
+De program som ska användas och har en licens avgift måste anges i konfiguration av poolen.
 
-* Ange `applicationLicenses` egenskapen när [du skapar en pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Följande värden kan anges i matrisen med strängar - "vray", "arnold", "3dsmax", "maya".
-* När du anger ett eller flera program läggs kostnaden för dessa program till kostnaden för de virtuella datorerna.  Programpriser visas på [prissidan för Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+* Ange egenskapen `applicationLicenses` när du [skapar en pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Följande värden kan anges i sträng mat ris-"Vray", "Arnold", "3dsmax", "Maya".
+* När du anger ett eller flera program läggs kostnaden för dessa program till i kostnaden för de virtuella datorerna.  Program priserna visas på [sidan Azure Batch priser](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
-> Om du i stället ansluter till en licensserver för `applicationLicenses` att använda renderingsprogrammen ska du inte ange egenskapen.
+> Om du i stället ansluter till en licens Server för att använda åter givnings programmen ska du inte `applicationLicenses` ange egenskapen.
 
-Du kan använda Azure-portalen eller Batch Explorer för att välja program och visa programpriserna.
+Du kan använda Azure Portal eller Batch Explorer för att välja program och Visa program priserna.
 
-Om ett försök görs att använda ett program, men programmet `applicationLicenses` inte har angetts i egenskapen för poolkonfigurationen eller inte når en licensserver, misslyckas programkörningen med ett licensfel och icke-noll-stängningskod.
+Om ett försök görs att använda ett program, men programmet inte har angetts i `applicationLicenses` egenskapen för konfigurationen av poolen eller inte når någon licens Server, Miss lyckas program körningen med ett licens fel och en slutkod som inte är noll.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Miljövariabler för förinstallerade program
 
-För att kunna skapa kommandoraden för renderingsuppgifter måste installationsplatsen för renderingsprogrammets körbara filer anges.  Systemmiljövariabler har skapats på Azure Marketplace VM-avbildningar, som kan användas i stället för att behöva ange faktiska sökvägar.  Dessa miljövariabler är utöver de [standardvariabler batchmiljö som skapas](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) för varje aktivitet.
+Om du vill kunna skapa kommando raden för att återge aktiviteter måste installations platsen för program varan för rendering av program anges.  Systemmiljövariabler har skapats på virtuella Azure Marketplace-avbildningar, som kan användas i stället för att ange faktiska sökvägar.  De här miljövariablerna är förutom de [standard-batch-miljövariabler](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) som skapas för varje aktivitet.
 
-|Program|Programmet körbar|Miljövariabel|
+|Program|Körbar program fil|Miljö variabel|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Kaos Grupp V-Ray Fristående|vray.exe (på annat sätt)|VRAY_3.60.4_EXEC|
-Arnold 2017 kommandorad|kick.exe (på/på)|ARNOLD_2017_EXEC|
-|Arnold 2018 kommandorad|kick.exe (på/på)|ARNOLD_2018_EXEC|
-|Mixer|blender.exe|BLENDER_2018_EXEC|
+|Autodesk 3ds Max 2018|3dsmaxcmdio. exe|3DSMAX_2018_EXEC|
+|Autodesk 3ds Max 2019|3dsmaxcmdio. exe|3DSMAX_2019_EXEC|
+|Autodesk Maya 2017|rendera. exe|MAYA_2017_EXEC|
+|Autodesk Maya 2018|rendera. exe|MAYA_2018_EXEC|
+|Kaos Group V-Ray fristående|Vray. exe|VRAY_3.60.4_EXEC|
+Arnold 2017-kommando rad|kick. exe|ARNOLD_2017_EXEC|
+|Arnold 2018-kommando rad|kick. exe|ARNOLD_2018_EXEC|
+|Blender|Blender. exe|BLENDER_2018_EXEC|
 
 ### <a name="azure-vm-families"></a>Azure VM-familjer
 
-Precis som med andra arbetsbelastningar varierar kraven på programsystem och prestandakraven varierar för jobb och projekt.  Ett stort antal vm-familjer är tillgängliga i Azure beroende på dina behov – lägsta kostnad, bästa pris/prestanda, bästa prestanda och så vidare.
-Vissa renderingsprogram, till exempel Arnold, är CPU-baserade. andra såsom V-Ray och Blender Cycles kan använda processorer och /eller GPU: er.
-En beskrivning av tillgängliga vm-familjer och VM-storlekar [finns i VM-typer och vm-storlekar](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+Precis som med andra arbets belastningar varierar kraven på program systemet och prestanda kraven varierar för jobb och projekt.  En stor mängd olika VM-familjer är tillgängliga i Azure beroende på dina krav – lägsta kostnad, bästa pris/prestanda, bästa prestanda och så vidare.
+Vissa åter givnings program, till exempel Arnold, är CPU-baserade. andra som V-Ray-och blends-cykler kan använda processorer och/eller GPU: er.
+En beskrivning av tillgängliga VM-familjer och VM-storlekar [finns i VM-typer och storlekar](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
 ### <a name="low-priority-vms"></a>Lågprioriterade virtuella datorer
 
-Precis som med andra arbetsbelastningar kan virtuella datorer med låg prioritet användas i batchpooler för rendering.  Virtuella datorer med låg prioritet utför samma som vanliga dedikerade virtuella datorer men använder överskott av Azure-kapacitet och är tillgängliga för en stor rabatt.  Avvägningen för att använda virtuella datorer med låg prioritet är att dessa virtuella datorer kanske inte är tillgängliga för att tilldelas eller kan föregripas när som helst, beroende på tillgänglig kapacitet. Därför kommer virtuella datorer med låg prioritet inte att vara lämpliga för alla renderingsjobb. Om det till exempel tar många timmar att rendera om det är troligt att återgivningen av dessa bilder avbryts och startas om på grund av att virtuella datorer som föregrips inte skulle vara acceptabelt.
+Precis som med andra arbets belastningar kan virtuella datorer med låg prioritet användas i batch-pooler för åter givning.  Virtuella datorer med låg prioritet utför samma som vanliga dedikerade virtuella datorer, men använder överskott i Azure-kapacitet och är tillgängliga för en stor rabatt.  Kompromissen med att använda virtuella datorer med låg prioritet är att de virtuella datorerna kanske inte är tillgängliga för tilldelning eller kan avbrytas när som helst, beroende på tillgänglig kapacitet. Av den anledningen kommer virtuella datorer med låg prioritet inte att vara lämpliga för alla åter givnings jobb. Om det till exempel tar flera timmar att rendera bilder, är det troligt att åter givningen av dessa avbildningar avbryts och startas om på grund av att de virtuella datorerna inte skulle vara acceptabla.
 
-Mer information om egenskaperna för virtuella datorer med låg prioritet och de olika sätten att konfigurera dem med Batch finns i [Använda virtuella datorer med låg prioritet med Batch](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
+Mer information om egenskaperna för virtuella datorer med låg prioritet och de olika sätten att konfigurera dem med hjälp av batch finns i [använda virtuella datorer med låg prioritet med batch](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
 
 ## <a name="jobs-and-tasks"></a>Jobb och uppgifter
 
-Inget renderingsspecifikt stöd krävs för jobb och aktiviteter.  Huvudkonfigurationsobjektet är aktivitetskommandoraden, som måste referera till det nödvändiga programmet.
-När Azure Marketplace VM-avbildningar används är det bästa sättet att använda miljövariablerna för att ange sökvägen och programmets körbara.
+Inget stöd för åter givning krävs för jobb och uppgifter.  Huvud konfigurations objekt är aktivitets kommando raden som måste referera till det program som krävs.
+När de virtuella Azure Marketplace-avbildningarna används är det bästa sättet att använda miljövariablerna för att ange sökvägen och programmets körbara fil.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För exempel på Batch rendering prova de två tutorials:
+Exempel på batch-åter givning testar de två självstudierna:
 
-* [Rendering med Hjälp av Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Rendering med hjälp av Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 * [Rendering med hjälp av Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

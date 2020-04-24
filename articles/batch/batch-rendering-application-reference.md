@@ -1,37 +1,35 @@
 ---
-title: Använda renderingsprogram - Azure Batch
-description: Så här använder du renderingsprogram med Azure Batch. Den här artikeln innehåller en kort beskrivning av hur du kör varje renderingsprogram.
-services: batch
-ms.service: batch
+title: Använda åter givnings program
+description: Så här använder du åter givnings program med Azure Batch. Den här artikeln innehåller en kort beskrivning av hur du kör varje åter givnings program.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: dc0ce23c90a4ba6575ba26b37d97f94ba8fa1f63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75390486"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115813"
 ---
 # <a name="rendering-applications"></a>Återge program
 
-Renderingsprogram används genom att skapa batchjobb och uppgifter. Egenskapen aktivitetskommandorad anger lämplig kommandorad och parametrar.  Det enklaste sättet att skapa jobbuppgifterna är att använda mallarna i Batch Explorer enligt den [här artikeln](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  Mallarna kan visas och ändrade versioner skapas om det behövs.
+Åter givnings program används genom att skapa batch-jobb och uppgifter. Kommando rads egenskapen för aktiviteten anger lämplig kommando rad och parametrar.  Det enklaste sättet att skapa jobb aktiviteter är att använda Batch Explorer mallar som anges i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  Mallarna kan visas och ändrade versioner skapas vid behov.
 
-Den här artikeln innehåller en kort beskrivning av hur du kör varje renderingsprogram.
+Den här artikeln innehåller en kort beskrivning av hur du kör varje åter givnings program.
 
-## <a name="rendering-with-autodesk-3ds-max"></a>Rendering med Autodesk 3ds Max
+## <a name="rendering-with-autodesk-3ds-max"></a>Åter givning med Autodesk 3ds Max
 
-### <a name="renderer-support"></a>Stöd för renderare
+### <a name="renderer-support"></a>Stöd för åter givning
 
-Förutom de renderare inbyggda i 3ds Max, är följande renderare tillgängliga på rendering vm-avbildningar och kan refereras av 3ds Max scenfilen:
+Förutom de åter givningar som är inbyggda i 3ds Max, är följande åter givningar tillgängliga på avbildningarna för rendering av virtuella datorer och kan refereras till av en 3DS Max-scen fil:
 
 * Autodesk Arnold
-* Kaos Grupp V-Ray
+* Kaos Group V-Ray
 
-### <a name="task-command-line"></a>Kommandoraden Aktivitet
+### <a name="task-command-line"></a>Kommando rad för aktivitet
 
-Anropa programmet `3dsmaxcmdio.exe` för att utföra kommandoradsrendering på en poolnod.  Det här programmet finns på sökvägen när aktiviteten körs. Ansökan `3dsmaxcmdio.exe` har samma tillgängliga parametrar `3dsmaxcmd.exe` som programmet, som [dokumenteras i 3ds Max hjälpdokumentation](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (Rendering | Kommandoradsrenderingsavsnitt).
+Anropa `3dsmaxcmdio.exe` programmet för att utföra kommando rads åter givning på en pool-nod.  Det här programmet finns på sökvägen när aktiviteten körs. `3dsmaxcmdio.exe` Programmet har samma tillgängliga parametrar som `3dsmaxcmd.exe` programmet, som dokumenteras i [hjälp dokumentationen för 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (rendering | Avsnittet åter givning av kommando rad).
 
 Ett exempel:
 
@@ -41,48 +39,48 @@ Ett exempel:
 
 Obs!
 
-* Stor försiktighet måste iakttas för att se till att tillgångsfilerna hittas.  Kontrollera att sökvägarna är korrekta och relativa med `-bitmapPath` hjälp av fönstret **Tillgångsspårning** eller använd parametern på kommandoraden.
-* Se om det finns problem med renderingen, till exempel `stdout.txt` oförmåga att hitta tillgångar, genom att kontrollera filen skriven av 3ds Max när aktiviteten körs.
+* Du måste vara mycket försiktig för att se till att till gångs filen hittas.  Se till att Sök vägarna är korrekta och relativa i fönstret **till gångs spårning** , `-bitmapPath` eller Använd parametern på kommando raden.
+* Se om det finns problem med renderingen, t. ex. möjligheten att hitta till gångar, genom `stdout.txt` att kontrol lera filen som skrivits av 3ds Max när aktiviteten körs.
 
-### <a name="batch-explorer-templates"></a>Mallar för grupputforskaren
+### <a name="batch-explorer-templates"></a>Batch Explorer mallar
 
-Pool- och jobbmallar kan nås från **galleriet** i Batch Explorer.  Mallkällfilerna är tillgängliga i [datadatabasen Batch Explorer på GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax).
+Pool-och jobbmallar kan nås från **galleriet** i batch Explorer.  Mallens källfiler är tillgängliga i [batch Explorer data centralen på GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax).
 
-## <a name="rendering-with-autodesk-maya"></a>Rendering med Autodesk Maya
+## <a name="rendering-with-autodesk-maya"></a>Rendera med Autodesk Maya
 
-### <a name="renderer-support"></a>Stöd för renderare
+### <a name="renderer-support"></a>Stöd för åter givning
 
-Förutom de renderare som är inbyggda i Maya är följande renderare tillgängliga på återgivningen av vm-avbildningar och kan refereras av 3ds Max-scenfilen:
+Förutom de åter givningar som är inbyggda i Maya, finns följande åter givningar tillgängliga på avbildningarna för rendering av virtuella datorer och kan refereras till av den 3ds Max-scen filen:
 
 * Autodesk Arnold
-* Kaos Grupp V-Ray
+* Kaos Group V-Ray
 
-### <a name="task-command-line"></a>Kommandoraden Aktivitet
+### <a name="task-command-line"></a>Kommando rad för aktivitet
 
-Kommandoradsrenderaren `renderer.exe` används på aktivitetskommandoraden. Kommandoradsrenderaren dokumenteras i [Maya-hjälpen](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+`renderer.exe` Kommando rads åter givning används i aktivitetens kommando rad. Kommando rads renderaren finns dokumenterad i [Maya-hjälpen](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
-I följande exempel används en jobbförberedelseuppgift för att kopiera scenfiler och resurser till arbetskatalogen för förberedelse av jobb, en utdatamapp används för att lagra återgivningsavbildningen och bildruta 10 återges.
+I följande exempel används en jobb förberedelse uppgift för att kopiera scenens filer och till gångar till arbets katalogen för jobb förberedelse, en målmapp används för att lagra åter givnings avbildningen och bild ruta 10 återges.
 
 ```
 render -renderer sw -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_BATCH_TASK_WORKING_DIR%\output" -s 10 -e 10 -x 1920 -y 1080 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scene-file.ma"
 ```
 
-För V-Ray rendering, maya scenfilen normalt skulle ange V-Ray som renderare.  Det kan också anges på kommandoraden:
+För V-Ray-rendering skulle Maya scen-filen normalt ange V-Ray som renderare.  Den kan också anges på kommando raden:
 
 ```
 render -renderer vray -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_BATCH_TASK_WORKING_DIR%\output" -s 10 -e 10 -x 1920 -y 1080 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scene-file.ma"
 ```
 
-För Arnold rendering, maya scenfilen normalt skulle ange Arnold som renderare.  Det kan också anges på kommandoraden:
+För Arnold rendering skulle Maya scen filen normalt ange Arnold som renderare.  Den kan också anges på kommando raden:
 
 ```
 render -renderer arnold -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_BATCH_TASK_WORKING_DIR%\output" -s 10 -e 10 -x 1920 -y 1080 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scene-file.ma"
 ```
 
-### <a name="batch-explorer-templates"></a>Mallar för grupputforskaren
+### <a name="batch-explorer-templates"></a>Batch Explorer mallar
 
-Pool- och jobbmallar kan nås från **galleriet** i Batch Explorer.  Mallkällfilerna är tillgängliga i [datadatabasen Batch Explorer på GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya).
+Pool-och jobbmallar kan nås från **galleriet** i batch Explorer.  Mallens källfiler är tillgängliga i [batch Explorer data centralen på GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd pool- och jobbmallarna från [datadatabasen i GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj) med Hjälp av Batch Explorer.  Skapa nya mallar eller ändra en av de medföljande mallarna när det behövs.
+Använd pool-och jobbmallar från [Data lagringen i GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj) med hjälp av batch Explorer.  När det behövs kan du skapa nya mallar eller ändra en av de angivna mallarna.

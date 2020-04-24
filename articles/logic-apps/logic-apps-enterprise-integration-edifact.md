@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 8aed4f44b597235557a495a263c6a4ddf8e93ce7
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: c9d80ccac311b02d8734663d99a37804f8280771
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106329"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115541"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange EDIFACT-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -254,7 +254,7 @@ När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte
 Mer teknisk information om den här anslutningen, till exempel åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/edifact/).
 
 > [!NOTE]
-> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version de [B2B-meddelande gränserna för ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## <a name="next-steps"></a>Nästa steg
 

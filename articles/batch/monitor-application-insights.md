@@ -1,76 +1,68 @@
 ---
-title: Övervaka batch med Azure Application Insights | Microsoft-dokument
-description: Lär dig hur du instrumenterar ett Azure Batch .NET-program med hjälp av Azure Application Insights-biblioteket.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
-ms.devlang: .NET
+title: Övervaka batch med Azure Application insikter
+description: Lär dig att instrumentera ett Azure Batch .NET-program med hjälp av Azure Application Insights-biblioteket.
 ms.topic: article
-ms.workload: na
 ms.date: 04/05/2018
-ms.author: labrenne
-ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022468"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115473"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
-[Application Insights](../azure-monitor/app/app-insights-overview.md) är ett elegant och kraftfullt sätt för utvecklare att övervaka och felsöka program som distribueras till Azure-tjänster. Använd Application Insights för att övervaka prestandaräknare och undantag samt instrumentera din kod med anpassade mått och spårning. Genom att integrera application insights med ditt Azure Batch-program kan du få djup insikt i beteenden och undersöka problem i nära realtid.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) är ett elegant och kraftfullt sätt för utvecklare att övervaka och felsöka program som distribueras till Azure-tjänster. Använd Application Insights för att övervaka prestanda räknare och undantag samt utforma koden med anpassade mått och spårning. Genom att integrera Application Insights med ditt Azure Batchs program kan du få djupgående insikter om beteenden och undersöka problem i nära real tid.
 
-Den här artikeln visar hur du lägger till och konfigurerar application insights-biblioteket i din Azure Batch .NET-lösning och instrumenterar din programkod. Den visar också olika sätt att övervaka ditt program via Azure-portalen och skapa anpassade instrumentpaneler. För Application Insights-stöd på andra språk kan du titta på [dokumentationen för språk, plattformar och integrationer](../azure-monitor/app/platforms.md).
+Den här artikeln visar hur du lägger till och konfigurerar Application Insights-biblioteket i din Azure Batch .NET-lösning och instrumenterar program koden. Det visar också hur du övervakar ditt program via Azure Portal och skapar anpassade instrument paneler. För Application Insights support på andra språk tittar du på [språk, plattformar och integrerings dokumentation](../azure-monitor/app/platforms.md).
 
-Ett exempel C# lösning med kod som följer med den här artikeln finns på [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). I det här exemplet läggs instrumenteringskoden Application Insights till [i exemplet TopNWords.](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) Om du inte är bekant med det exemplet kan du prova att bygga och köra TopNWords först. Om du gör det kan du förstå ett grundläggande batcharbetsflöde för bearbetning av en uppsättning indatablobar parallellt på flera beräkningsnoder. 
+Ett exempel på en C#-lösning med kod som medföljer den här artikeln finns på [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). I det här exemplet läggs Application Insights Instrumentation-kod till i [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) -exemplet. Om du inte är bekant med det exemplet kan du försöka skapa och köra TopNWords först. Detta hjälper dig att förstå ett grundläggande batch-arbetsflöde för bearbetning av en uppsättning BLOB-instanser parallellt på flera Compute-noder. 
 
 > [!TIP]
-> Som ett alternativ kan du konfigurera batch-lösningen så att programstatistikdata visas, till exempel prestandaräknare för virtuella datorer i Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnadsfritt, utsålt, fristående klientverktyg som hjälper dig att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Se [batch-insights repo](https://github.com/Azure/batch-insights) för snabba steg för att aktivera Application Insights data i Batch Explorer. 
+> Alternativt kan du konfigurera batch-lösningen så att den visar Application Insights data, till exempel prestanda räknare för virtuella datorer i Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnads fritt, fristående klient verktyg med omfattande funktioner som hjälper dig att skapa, felsöka och övervaka Azure Batch program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Se [batch-Insights-lagrings platsen](https://github.com/Azure/batch-insights) för snabb steg för att aktivera Application Insights data i batch Explorer. 
 >
 
 ## <a name="prerequisites"></a>Krav
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs)
 
-* [Batchkonto och länkat lagringskonto](batch-account-create-portal.md)
+* [Batch-konto och länkat lagrings konto](batch-account-create-portal.md)
 
 * [Application Insights-resurs](../azure-monitor/app/create-new-resource.md )
   
-   * Använd Azure-portalen för att skapa en application *insights-resurs*. Välj *General* **typen**Allmänt program .
+   * Använd Azure Portal för att skapa en Application Insights *resurs*. Välj *allmän* **program typ**.
 
-   * Kopiera [instrumenteringsnyckeln](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) från portalen. Det krävs senare i den här artikeln.
+   * Kopiera [Instrumentation-nyckeln](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) från portalen. Det krävs senare i den här artikeln.
   
   > [!NOTE]
-  > Du kan [debiteras](https://azure.microsoft.com/pricing/details/application-insights/) för data som lagras i Application Insights. Detta inkluderar diagnostik- och övervakningsdata som beskrivs i den här artikeln.
+  > Du kanske [debiteras](https://azure.microsoft.com/pricing/details/application-insights/) för data som lagras i Application Insights. Detta omfattar diagnostik-och övervaknings data som diskuteras i den här artikeln.
   > 
 
-## <a name="add-application-insights-to-your-project"></a>Lägga till programinsikter i projektet
+## <a name="add-application-insights-to-your-project"></a>Lägg till Application Insights i projektet
 
-**Packaget Microsoft.ApplicationInsights.WindowsServer** NuGet och dess beroenden krävs för projektet. Lägg till eller återställa dem i programmets projekt. Om du vill installera `Install-Package` paketet använder du kommandot eller NuGet Package Manager.
+NuGet-paketet **Microsoft. ApplicationInsights. Windows Server** och dess beroenden krävs för ditt projekt. Lägg till eller Återställ dem till programmets projekt. Om du vill installera paketet använder du `Install-Package` kommandot eller NuGet Package Manager.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
-Referera till programstatistik från ditt .NET-program med hjälp av namnområdet **Microsoft.ApplicationInsights.**
+Referens Application Insights från ditt .NET-program med hjälp av namn området **Microsoft. ApplicationInsights** .
 
 ## <a name="instrument-your-code"></a>Instrumentera din kod
 
-För att instrumentera din kod måste din lösning skapa en Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). I exemplet läser TelemetryClient in konfigurationen från filen [ApplicationInsights.config.](../azure-monitor/app/configuration-with-applicationinsights-config.md) Var noga med att uppdatera ApplicationInsights.config i följande projekt med instrumentationsnyckeln Application Insights: Microsoft.Azure.Batch.Samples.TelemetryStartTask och TopNWordsSample.
+För att kunna instrumentera din kod måste din lösning skapa en Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). I exemplet laddar TelemetryClient konfigurationen från filen [ApplicationInsights. config](../azure-monitor/app/configuration-with-applicationinsights-config.md) . Se till att uppdatera ApplicationInsights. config i följande projekt med din Application Insights Instrumentation-nyckel: Microsoft. Azure. batch. Samples. TelemetryStartTask och TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
-Lägg också till instrumenteringsnyckeln i TopNWords.cs.
+Lägg också till Instrumentation-nyckeln i filen TopNWords.cs.
 
-I exemplet i TopNWords.cs används följande [instrumenteringsanrop](../azure-monitor/app/api-custom-events-metrics.md) från API:et för Application Insights:
-* `TrackMetric()`- Spårar hur lång tid det tar i genomsnitt en beräkningsnod att hämta den textfil som krävs.
-* `TrackTrace()`- Lägger felsökning samtal till din kod.
-* `TrackEvent()`- Spårar intressanta händelser att fånga.
+I exemplet i TopNWords.cs används följande [Instrumentation-anrop](../azure-monitor/app/api-custom-events-metrics.md) från Application Insights API:
+* `TrackMetric()`– Spårar hur lång tid det tar för en beräknings nod att ladda ned den nödvändiga text filen.
+* `TrackTrace()`– Lägger till fel söknings anrop till din kod.
+* `TrackEvent()`– Spårar intressanta händelser som ska fångas.
 
-I det här exemplet utelämnas undantagshantering avsiktligt. I stället rapporterar Application Insights automatiskt ohanterade undantag, vilket avsevärt förbättrar felsökningsupplevelsen. 
+I det här exemplet används inte undantags hanteringen. I stället rapporterar Application Insights automatiskt ohanterade undantag, vilket avsevärt förbättrar fel söknings upplevelsen. 
 
-Följande kodavsnitt illustrerar hur du använder dessa metoder.
+Följande fragment illustrerar hur du använder dessa metoder.
 
 ```csharp
 public void CountWords(string blobName, int numTopN, string storageAccountName, string storageAccountKey)
@@ -124,8 +116,8 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 }
 ```
 
-### <a name="azure-batch-telemetry-initializer-helper"></a>Initialator för Azure Batch-telemetri
-När du rapporterar telemetri för en viss server och instans använder Application Insights Azure VM-rollen och VM-namnet för standardvärdena. I kontexten för Azure Batch visar exemplet hur du använder poolnamnet och beräkningsnodnamnet i stället. Använd en [telemetriinitierare](../azure-monitor/app/api-filtering-sampling.md#add-properties) för att åsidosätta standardvärdena. 
+### <a name="azure-batch-telemetry-initializer-helper"></a>Hjälp program för telemetri till Azure Batch telemetri
+Vid rapportering av telemetri för en specifik server och instans använder Application Insights den virtuella Azure-rollen och VM-namnet för standardvärdena. I samband med Azure Batch visar exemplet hur du använder poolnamn och Compute Node-namnet i stället. Använd en [telemetri-initierare](../azure-monitor/app/api-filtering-sampling.md#add-properties) för att åsidosätta standardvärdena. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -174,7 +166,7 @@ namespace Microsoft.Azure.Batch.Samples.TelemetryInitializer
 }
 ```
 
-Om du vill aktivera telemetriinitieraren innehåller filen ApplicationInsights.config i TopNWordsSample-projektet följande:
+För att aktivera telemetri-initieraren innehåller filen ApplicationInsights. config i TopNWordsSample-projektet följande:
 
 ```xml
 <TelemetryInitializers>
@@ -182,11 +174,11 @@ Om du vill aktivera telemetriinitieraren innehåller filen ApplicationInsights.c
 </TelemetryInitializers>
 ``` 
 
-## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Uppdatera jobbet och aktiviteterna så att de innehåller binärfiler för programinsikter
+## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Uppdatera jobbet och aktiviteterna så att de inkluderar Application Insights-binärfiler
 
-För att Application Insights ska fungera korrekt på dina beräkningsnoder kontrollerar du att binärfilerna är korrekt placerade. Lägg till de binärfiler som krävs i aktivitetens resursfilssamling så att de hämtas när aktiviteten körs. Följande kodavsnitt liknar kod i Job.cs.
+För att Application Insights ska kunna köras korrekt på dina datornoder kontrollerar du att binärfilerna är rätt placerade. Lägg till de binärfiler som krävs i aktivitetens resurs fil samling så att de hämtas när uppgiften körs. Följande kodfragment liknar kod i Job.cs.
 
-Skapa först en statisk lista över Application Insights-filer som ska överföras.
+Skapa först en statisk lista med Application Insights filer som ska överföras.
 
 ```csharp
 private static readonly List<string> AIFilesToUpload = new List<string>()
@@ -206,7 +198,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
 ...
 ```
 
-Skapa sedan de mellanlagringsfiler som används av uppgiften.
+Skapa sedan de uppsamlingsfiler som används av uppgiften.
 ```csharp
 ...
 // create file staging objects that represent the executable and its dependent assembly to run as the task.
@@ -223,9 +215,9 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-Metoden `FileToStage` är en hjälpfunktion i kodexemplet som gör att du enkelt kan överföra en fil från lokal disk till en Azure Storage-blob. Varje fil hämtas senare till en beräkningsnod och refereras av en uppgift.
+`FileToStage` Metoden är en hjälp funktion i kod exemplet som gör att du enkelt kan ladda upp en fil från en lokal disk till en Azure Storage-blob. Varje fil laddas ned senare till en Compute-nod och refereras till av en aktivitet.
 
-Lägg slutligen till aktiviteterna i jobbet och inkludera nödvändiga binärfiler för Application Insights.
+Slutligen lägger du till aktiviteterna i jobbet och inkluderar nödvändiga Application Insights binärfiler.
 ```csharp
 ...
 // initialize a collection to hold the tasks that will be submitted in their entirety
@@ -259,52 +251,52 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 }
 ```
 
-## <a name="view-data-in-the-azure-portal"></a>Visa data i Azure-portalen
+## <a name="view-data-in-the-azure-portal"></a>Visa data i Azure Portal
 
-Nu när du har konfigurerat jobbet och uppgifterna för att använda Application Insights kör du exempeljobbet i poolen. Navigera till Azure-portalen och öppna application insights-resursen som du har etablerat. När poolen har etablerats bör du börja se data flöda och loggas. Resten av den här artikeln berör endast ett fåtal Application Insights-funktioner, men känn dig fri att utforska hela funktionsuppsättningen.
+Nu när du har konfigurerat jobbet och aktiviteterna för att använda Application Insights kör du exempel jobbet i poolen. Navigera till Azure Portal och öppna den Application Insights resurs som du har etablerad. När poolen är etablerad bör du starta för att se data som flödar och loggar in. Resten av den här artikeln berör bara några få Application Insights funktioner, men du kan inte utforska den fullständiga funktions uppsättningen.
 
-### <a name="view-live-stream-data"></a>Visa data för livestream
+### <a name="view-live-stream-data"></a>Visa real tids data ström
 
-Om du vill visa spårningsloggar i appen Applications Insights klickar du på **Live Stream**. Följande skärmbild visar hur du visar livedata som kommer från beräkningsnoderna i poolen, till exempel CPU-användningen per beräkningsnod.
+Om du vill visa spårnings loggar i din program insikts resurs klickar du på **Live Stream**. Följande skärm bild visar hur du visar live-data som kommer från datornoderna i poolen, till exempel processor användning per Compute-nod.
 
-![Beräkningsdata för livestream](./media/monitor-application-insights/applicationinsightslivestream.png)
+![Data för data bearbetning av real tids data behandling](./media/monitor-application-insights/applicationinsightslivestream.png)
 
-### <a name="view-trace-logs"></a>Visa spårningsloggar
+### <a name="view-trace-logs"></a>Visa spårnings loggar
 
-Om du vill visa spårningsloggar i appen Applications Insights klickar du på **Sök**. Den här vyn visar en lista över diagnostikdata som samlas in av Application Insights, inklusive spårningar, händelser och undantag. 
+Om du vill visa spårnings loggar i din program insikts resurs klickar du på **Sök**. I den här vyn visas en lista med diagnostikdata som har registrerats med Application Insights inklusive spår, händelser och undantag. 
 
-Följande skärmbild visar hur en enda spårning för en uppgift loggas och senare efterfrågas för felsökning.
+Följande skärm bild visar hur en enskild spårning för en aktivitet loggas och senare efter frågas i fel söknings syfte.
 
-![Bild av spårningsloggar](./media/monitor-application-insights/tracelogsfortask.png)
+![Bild av spårnings loggar](./media/monitor-application-insights/tracelogsfortask.png)
 
 ### <a name="view-unhandled-exceptions"></a>Visa ohanterade undantag
 
-Följande skärmbilder visar hur Application Insights loggar undantag som genereras från ditt program. I det här fallet, inom några sekunder efter att programmet kastar undantaget, kan du öka detaljnivån och diagnostisera problemet.
+Följande skärm bilder visar hur Application Insights loggar undantag som har utlösts av ditt program. I det här fallet kan du, inom några sekunder av programmet, identifiera undantaget, öka detalj nivån i ett särskilt undantag och diagnostisera problemet.
 
 ![Ohanterade undantag](./media/monitor-application-insights/exception.png)
 
-### <a name="measure-blob-download-time"></a>Mät blob nedladdningstid
+### <a name="measure-blob-download-time"></a>Mäta BLOB hämtnings tid
 
-Anpassade mått är också ett värdefullt verktyg i portalen. Du kan till exempel visa den genomsnittliga tiden det tog varje beräkningsnod för att hämta den textfil som krävs som den bearbetade.
+Anpassade mått är också ett värdefullt verktyg i portalen. Du kan till exempel Visa den genomsnittliga tid det tog för varje Compute-nod att ladda ned den nödvändiga text filen som den bearbetade.
 
-Så här skapar du ett exempeldiagram:
-1. Klicka på Diagram för Att lägga**till** **programinsikter** > i resursen Application Insights .
-2. Klicka på **Redigera** i diagrammet som lades till.
-2. Uppdatera diagraminformationen enligt följande:
-   * Ange **diagramtyp** till **rutnät**.
-   * Ange **aggregering** till **Medelvärde**.
-   * Ange **Grupp efter** **nodeId**.
-   * Välj **Anpassad** > **Blob-hämtning i** **mått**på några sekunder .
-   * Justera **visningspaletten Färg** efter eget val. 
+Så här skapar du ett exempel diagram:
+1. I Application Insights resurs klickar du på **Metrics Explorer** > **Lägg till diagram**.
+2. Klicka på **Redigera** i diagrammet som har lagts till.
+2. Uppdatera diagram informationen på följande sätt:
+   * Ange **diagram typ** till **rutnät**.
+   * Ange **agg regering** till **genomsnitt**.
+   * Ange **Gruppera efter** till **nodeId**.
+   * I **mått**väljer du **anpassad** > **BLOB-hämtning på några sekunder**.
+   * Justera **paletten** för bildskärms färg efter eget val. 
 
-![Blob nedladdningstid per nod](./media/monitor-application-insights/blobdownloadtime.png)
+![Hämtnings tid för BLOB per nod](./media/monitor-application-insights/blobdownloadtime.png)
 
 
-## <a name="monitor-compute-nodes-continuously"></a>Övervaka beräkningsnoder kontinuerligt
+## <a name="monitor-compute-nodes-continuously"></a>Övervaka Compute-noder kontinuerligt
 
-Du kanske har märkt att alla mått, inklusive prestandaräknare, bara loggas när aktiviteterna körs. Det här problemet är användbart eftersom det begränsar mängden data som Application Insights loggar. Det finns dock fall när du alltid vill övervaka beräkningsnoderna. De kan till exempel köra bakgrundsarbete som inte har schemalagts via batch-tjänsten. I det här fallet ställer du in en övervakningsprocess för att köras under beräkningsnodens livslängd. 
+Du kanske har märkt att alla mått, inklusive prestanda räknare, bara loggas när aktiviteterna körs. Det här beteendet är användbart eftersom det begränsar mängden data som Application Insights loggar. Det finns dock fall då du alltid vill övervaka datornoderna. De kan till exempel köra bakgrunds arbete som inte är schemalagt via batch-tjänsten. I det här fallet konfigurerar du en övervaknings process så att den körs under Compute-nodens livs längd. 
 
-Ett sätt att uppnå detta beteende är att skapa en process som läser in Application Insights-biblioteket och körs i bakgrunden. I exemplet läser startuppgiften binärfilerna på datorn och håller en process igång på obestämd tid. Konfigurera konfigurationsfilen application insights för den här processen för att avge ytterligare data som du är intresserad av, till exempel prestandaräknare.
+Ett sätt att åstadkomma detta är att skapa en process som läser in Application Insightss biblioteket och körs i bakgrunden. I exemplet laddar start aktiviteten binärfilerna på datorn och bevarar en process som körs på obestämd tid. Konfigurera Application Insights konfigurations filen för den här processen för att generera ytterligare data som du är intresse rad av, till exempel prestanda räknare.
 
 ```csharp
 ...
@@ -333,17 +325,17 @@ pool.StartTask = new StartTask()
 ```
 
 > [!TIP]
-> Om du vill öka lösningens hanterbarhet kan du paketera sammansättningen i ett [programpaket](./batch-application-packages.md). Om du sedan vill distribuera programpaketet automatiskt till dina pooler lägger du till en programpaketreferens till poolkonfigurationen.
+> Om du vill öka hanteringen av din lösning kan du paketera sammansättningen i ett [programpaket](./batch-application-packages.md). Om du vill distribuera programpaketet automatiskt till dina pooler lägger du till en programpaket-referens i konfigurationen för poolen.
 >
 
-## <a name="throttle-and-sample-data"></a>Gasspjäll- och exempeldata 
+## <a name="throttle-and-sample-data"></a>Begränsa och sampla data 
 
-På grund av den storskaliga karaktären hos Azure Batch-program som körs i produktion kanske du vill begränsa mängden data som samlas in av Application Insights för att hantera kostnader. Se [Sampling i Application Insights](../azure-monitor/app/sampling.md) för vissa mekanismer för att uppnå detta.
+På grund av storskalig natur för Azure Batch program som körs i produktion, kanske du vill begränsa mängden data som samlas in av Application Insights för att hantera kostnader. Se [sampling i Application Insights](../azure-monitor/app/sampling.md) för vissa mekanismer för att åstadkomma detta.
 
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
-* För Application Insights-stöd på andra språk kan du titta på [dokumentationen för språk, plattformar och integrationer](../azure-monitor/app/platforms.md).
+* För Application Insights support på andra språk tittar du på [språk, plattformar och integrerings dokumentation](../azure-monitor/app/platforms.md).
 
 

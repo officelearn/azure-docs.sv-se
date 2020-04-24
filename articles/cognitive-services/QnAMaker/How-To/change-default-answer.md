@@ -1,35 +1,35 @@
 ---
-title: Få standardsvar - QnA Maker
-description: Standardsvaret returneras när det inte finns någon matchning till frågan. Du kanske vill ändra standardsvaret från standardsvaret.
-ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+title: Hämta standard svar – QnA Maker
+description: Standard svaret returneras när det inte finns någon matchning till frågan. Du kanske vill ändra standard svaret från standard-standardsvaret.
+ms.topic: how-to
+ms.date: 04/22/2020
+ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76843283"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097106"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>Ange standardsvar för en kunskapsbas
+# <a name="change-default-answer-for-a-qna-maker-resource"></a>Ändra standard svar för en QnA Maker resurs
 
-Standardsvaret returneras när det inte finns någon matchning till frågan. Du kanske vill ändra standardsvaret från standardsvaret.
+Standard svaret returneras när det inte finns någon matchning till frågan. Du kanske vill ändra standard svaret från standard-standardsvaret.
 
-## <a name="change-default-answer"></a>Ändra standardsvar
+## <a name="change-default-answer-in-the-azure-portal"></a>Ändra standard svar i Azure Portal
 
-1. Gå till [Azure-portalen](https://portal.azure.com) och navigera till resursgruppen som representerar QnA Maker-tjänsten som du skapade.
+1. Gå till [Azure Portal](https://portal.azure.com) och navigera till resurs gruppen som representerar den QNA Maker tjänst som du har skapat.
 
-2. Öppna **Apptjänsten**genom att klicka här .
+2. Klicka för att öppna **App Service**.
 
-    ![I Azure-portalen får du åtkomst till apptjänsten för QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![I Azure Portal, Access app service för QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. Klicka på **Programinställningar och** redigera **fältet DefaultAnswer** till önskat standardsvar. Klicka på **Spara**.
+3. Klicka på **program inställningar** och redigera fältet **DefaultAnswer** till önskat standard svar. Klicka på **Spara**.
 
-    ![Välj Programinställningar och redigera sedan DefaultAnswer för QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Välj program inställningar och redigera sedan DefaultAnswer för QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 
-4. Starta om apptjänsten
+4. Starta om App Service
 
-    ![När du har ändrat DefaultAnswer startar du om QnA Maker-apptjänsten](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![När du har ändrat DefaultAnswer startar du om QnA Maker AppService](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en robot med QnA Maker och LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Skapa en kunskapsbas](../How-to/manage-knowledge-bases.md)

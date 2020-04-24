@@ -1,28 +1,21 @@
 ---
-title: Starthändelse för borttagning av Azure Batch-pool
-description: Referens för starthändelse för batchpool. Den här händelsen avges när en poolborttagningsåtgärd har startat.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
+title: Start händelse för borttagning av Azure Batch pool
+description: Referens för start händelse för borttagning av batch-pool. Den här händelsen genereras när en borttagning av en pool har startat.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
-ms.openlocfilehash: 24a68c6656bd13f0c353d53870a51cdc940fd141
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38e419e549006d3fde2f1694e0d40e620cd438e5
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022213"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115932"
 ---
 # <a name="pool-delete-start-event"></a>Starthändelse för borttagning av pool
 
- Den här händelsen avges när en poolborttagningsåtgärd har startat. Eftersom borttagning av poolen är en asynkron händelse kan du förvänta dig att en poolborttagning fullständig händelse ska skickas ut när borttagningsåtgärden är klar.
+ Den här händelsen genereras när en borttagning av en pool har startat. Eftersom poolen ta bort är en asynkron händelse kan du förvänta en borttagnings händelse för poolen som ska genereras när borttagnings åtgärden har slutförts.
 
- I följande exempel visas brödtexten för en starthändelse för poolborttagning.
+ I följande exempel visas innehållet i en start händelse för pool borttagning.
 
 ```
 {
@@ -32,4 +25,4 @@ ms.locfileid: "77022213"
 
 |Element|Typ|Anteckningar|
 |-------------|----------|-----------|
-|`id`|String|Id för poolen.|
+|`id`|Sträng|Poolens ID.|

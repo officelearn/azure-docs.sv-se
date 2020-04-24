@@ -1,6 +1,6 @@
 ---
-title: Använda SQL på begäran (förhandsgranskning)
-description: I den här snabbstarten kommer du att se och lära dig hur enkelt är att fråga olika typer av filer med SQL on-demand (preview).
+title: Använda SQL på begäran (för hands version)
+description: I den här snabb starten får du se och lära dig hur enkelt det är att fråga olika typer av filer med hjälp av SQL på begäran (för hands version).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d49918fc67a45419e5c7ca123642c48e689a1496
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457390"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113790"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>Snabbstart: Använda SQL on-demand
+# <a name="quickstart-using-sql-on-demand"></a>Snabb start: använda SQL på begäran
 
-Synapse SQL on-demand (preview) är en serverlös frågetjänst som gör att du kan köra SQL-frågor på dina filer som placeras i Azure Storage. I den här snabbstarten får du lära dig att fråga olika typer av filer med SQL on-demand.
+Synapse SQL on-demand (för hands version) är en server lös fråga som gör att du kan köra SQL-frågorna på dina filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med SQL på begäran.
 
 Följande filtyper stöds: JSON, CSV, Apache Parquet
 
@@ -26,36 +26,36 @@ Följande filtyper stöds: JSON, CSV, Apache Parquet
 
 Välj en SQL-klient för att utfärda frågor:
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) är ett webbverktyg som du kan använda för att bläddra bland filer i lagring och skapa SQL-fråga.
-- [Azure Data Studio](sql/get-started-azure-data-studio.md) är ett klientverktyg som gör att du kan köra SQL-frågor och anteckningsböcker på din on-demand-databas.
-- [SQL Server Management Studio](sql/get-started-ssms.md) är ett klientverktyg som gör att du kan köra SQL-frågor på din on-demand-databas.
+- [Azure Synapse Studio](quickstart-synapse-studio.md) är ett webb verktyg som du kan använda för att söka efter filer i lagring och skapa SQL-frågor.
+- [Azure Data Studio](sql/get-started-azure-data-studio.md) är ett klient verktyg som gör att du kan köra SQL-frågor och antecknings böcker på din databas på begäran.
+- [SQL Server Management Studio](sql/get-started-ssms.md) är ett klient verktyg som gör att du kan köra SQL-frågor på din databas på begäran.
 
-Parametrar för snabbstart:
+Parametrar för snabb start:
 
 | Parameter                                 | Beskrivning                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Slutpunktsadress för SQL on-demand-tjänst    | Används som servernamn                                   |
-| Slutpunktsregion för SQL-tjänst på begäran     | Används för att avgöra vilken lagring vi ska använda i prover |
-| Användarnamn och lösenord för åtkomst till slutpunkter | Används för att komma åt slutpunkt                               |
-| Databasen som används för att skapa vyer         | Databas som används som utgångspunkt i exempel       |
+| Slut punkts adress för SQL-tjänst på begäran    | Används som server namn                                   |
+| Tjänstens slut punkts region för SQL på begäran     | Används för att avgöra vilken lagrings enhet som ska användas i exempel |
+| Användar namn och lösen ord för slut punkts åtkomst | Används för att komma åt slut punkten                               |
+| Databasen som används för att skapa vyer         | Databas som används som start punkt i exempel       |
 
-## <a name="first-time-setup"></a>Första gången setup
+## <a name="first-time-setup"></a>Installation vid första tiden
 
-Innan prover med hjälp av prover:
+Innan du använder exempel:
 
 - Skapa databas för dina vyer (om du vill använda vyer)
-- Skapa autentiseringsuppgifter som ska användas av SQL på begäran för att komma åt filer i lagring
+- Skapa autentiseringsuppgifter som ska användas av SQL på begäran för att komma åt filer i lagringen
 
 ### <a name="create-database"></a>Skapa databas
 
-Skapa din egen databas för demoändamål. Det här är databasen där du skapar dina vyer. Använd den här databasen i exempelfrågorna i den här artikeln.
+Skapa en egen databas för demonstrations syfte. Det här är databasen där du skapar dina vyer. Använd den här databasen i exempel frågorna i den här artikeln.
 
 > [!NOTE]
-> Databaserna används endast för visningsmetadata, inte för faktiska data.
+> Databaserna används bara för att visa metadata, inte för faktiska data.
 >
-> Skriv ned databasnamn som du använder för att användas senare i snabbstarten.
+> Skriv ned databas namn som du använder för senare användning i snabb starten.
 
-Använd följande fråga `mydbname` och ändra till ett namn som du väljer:
+Använd följande fråga och ändra `mydbname` till önskat namn:
 
 ```sql
 CREATE DATABASE mydbname
@@ -63,12 +63,18 @@ CREATE DATABASE mydbname
 
 ### <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Om du vill köra frågor med SQL på begäran skapar du autentiseringsuppgifter för SQL on-demand som ska användas för att komma åt filer i lagring.
+Om du vill köra frågor med SQL på begäran skapar du autentiseringsuppgifter för SQL på begäran för att komma åt filer i lagringen.
 
 > [!NOTE]
-> Observera att du måste skapa autentiseringsuppgifter för åtkomst till lagringskontot. Även om SQL on-demand kan komma åt lagringar från olika regioner, kommer lagring och Azure Synapse-arbetsyta i samma region att ge bättre prestandaupplevelse.
+> För att kunna köra exempel i det här avsnittet måste du använda SAS-token.
+>
+> Om du vill börja använda SAS-tokens måste du släppa UserIdentity som beskrivs i följande [artikel](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+>
+> SQL på begäran som standard använder alltid AAD-vidarekoppling.
 
-Ändra följande kodavsnitt för att skapa autentiseringsuppgifter för CSV-, JSON- och Parkettbehållare:
+Mer information om hur du hanterar åtkomst kontroll för lagring, finns i den här [länken](sql/develop-storage-files-storage-access-control.md).
+
+Kör följande kodfragment för att skapa autentiseringsuppgifter som används i exempel i det här avsnittet:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -86,11 +92,11 @@ GO
 
 ## <a name="querying-csv-files"></a>Fråga CSV-filer
 
-Följande bild är en förhandsgranskning av filen som ska efterfrågas:
+Följande bild är en förhands granskning av den fil som ska frågas:
 
-![Första 10 raderna i CSV-filen utan rubrik, Windows stil ny rad.](./sql/media/query-single-csv-file/population.png)
+![De första 10 raderna i CSV-filen utan sidhuvud, ny rad i Windows-format.](./sql/media/query-single-csv-file/population.png)
 
-Följande fråga visar hur du läser en CSV-fil som inte innehåller en rubrikrad, med ny rad i Windows-format och kommaavgränsade kolumner:
+Följande fråga visar hur du läser en CSV-fil som inte innehåller någon rubrik rad, med ny rad med Windows-typ och kommaavgränsade kolumner:
 
 ```sql
 SELECT TOP 10 *
@@ -110,15 +116,15 @@ WHERE
   country_name = 'Luxembourg' AND year = 2017
 ```
 
-Du kan ange schema vid frågekompileringstid.
-Fler exempel finns i hur du [frågar CSV-filen](sql/query-single-csv-file.md).
+Du kan ange schema vid tid för kompilering av frågor.
+Fler exempel finns i [fråga CSV-fil](sql/query-single-csv-file.md).
 
-## <a name="querying-parquet-files"></a>Fråga parkettfiler
+## <a name="querying-parquet-files"></a>Fråga Parquet-filer
 
-Följande exempel visar de automatiska schemaavferensfunktionerna för att fråga parquet-filer. Antalet rader returneras i september 2017 utan att schema anges.
+I följande exempel visas de automatiska schema härlednings funktionerna för att fråga Parquet-filer. Det returnerar antalet rader i september 2017 utan att ange schema.
 
 > [!NOTE]
-> Du behöver inte ange `OPENROWSET WITH` kolumner i sats när du läser Parquet filer. I så fall använder SQL on-demand metadata i parquet-filen och binder kolumner efter namn.
+> Du behöver inte ange columns i `OPENROWSET WITH` -satsen när du läser Parquet-filer. I så fall använder SQL på begäran metadata i Parquet-filen och bind kolumner efter namn.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -129,13 +135,13 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Mer information om [hur du frågar parkettfiler](sql/query-parquet-files.md)finns i du.
+Hitta mer information om att [fråga Parquet-filer](sql/query-parquet-files.md)].
 
 ## <a name="querying-json-files"></a>Fråga JSON-filer
 
-### <a name="json-sample-file"></a>JSON-exempelfil
+### <a name="json-sample-file"></a>JSON-exempel fil
 
-Filer lagras i *json* container, *mappböcker*, och innehåller en bok post med följande struktur:
+Filer lagras i *JSON* *-behållare, mappträdet och*innehåller en post i en bok med följande struktur:
 
 ```json
 {  
@@ -155,7 +161,7 @@ Filer lagras i *json* container, *mappböcker*, och innehåller en bok post med 
 
 ### <a name="querying-json-files"></a>Fråga JSON-filer
 
-Följande fråga visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalärvärden (titel, utgivare) från en bok med titeln *Probabilistic och Statistiska metoder i kryptologi, en introduktion av utvalda artiklar:*
+Följande fråga visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från en bok med rubriken *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
 
 ```sql
 SELECT
@@ -177,22 +183,22 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Vi läser hela JSON filen som enda rad / kolumn så FIELDTERMINATOR, FIELDQUOTE och ROWTERMINATOR är inställda på 0x0b eftersom vi inte förväntar oss att hitta den i filen.
+> Vi läser hela JSON-filen som enskild rad/kolumn så att FIELDTERMINATOR, FIELDQUOTE och ROWTERMINATOR är inställda på 0x0B eftersom vi inte förväntar sig att hitta den i filen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu är du redo att börja med följande Snabbstartsartiklar:
+Nu är du redo att börja med följande snabb starts artiklar:
 
-- [Fråga en enda CSV-fil](sql/query-single-csv-file.md)
+- [Fråga en enkel CSV-fil](sql/query-single-csv-file.md)
 - [Fråga mappar och flera CSV-filer](sql/query-folders-multiple-csv-files.md)
-- [Fråga specifika filer](sql/query-specific-files.md)
-- [Fråga parquet-filer](sql/query-parquet-files.md)
-- [Frågor Parkett kapslade typer](sql/query-parquet-nested-types.md)
-- [Fråga JSON-filer](sql/query-json-files.md)
+- [Fråga efter vissa filer](sql/query-specific-files.md)
+- [Efterfråga Parquet-filer](sql/query-parquet-files.md)
+- [Efterfråga kapslade Parquet-typer](sql/query-parquet-nested-types.md)
+- [Efterfråga JSON-filer](sql/query-json-files.md)
 - [Skapa och använda vyer](sql/create-use-views.md)
 - [Skapa och använda externa tabeller](sql/create-use-external-tables.md)
-- [Beständigt frågeresultat i Azure-lagring](sql/create-external-table-as-select.md)
+- [Behåll frågeresultat till Azure Storage](sql/create-external-table-as-select.md)
 
-Gå vidare till nästa artikel om du vill lära dig hur du frågar en enda CSV-fil.
+Gå vidare till nästa artikel om du vill lära dig att fråga en enskild CSV-fil.
 > [!div class="nextstepaction"]
-> [Fråga en enda CSV-fil](sql/query-single-csv-file.md)
+> [Fråga en enkel CSV-fil](sql/query-single-csv-file.md)

@@ -1,13 +1,13 @@
 ---
-title: Översikt över önskad tillståndskonfiguration för Azure
-description: Lär dig hur du använder Microsoft Azure-tilläggshanteraren för PowerShell Desired State Configuration (DSC). Artikeln innehåller förutsättningar, arkitektur och cmdlets.
+title: Önskad tillstånds konfiguration för Azure-översikt
+description: Lär dig hur du använder den Microsoft Azure tilläggs hanteraren för PowerShell (Desired State Configuration). Artikeln innehåller krav, arkitektur och cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
 author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-keywords: Dsc
+keywords: DSC
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -15,107 +15,107 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: adb36e14bb7b772d3e28361bdc48d248bd84f41f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458972"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115320"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggshanteraren för Azure Desired State Configuration
 
-Azure VM-agenten och tillhörande tillägg är en del av Microsoft Azure-infrastrukturtjänster. VM-tillägg är programvarukomponenter som utökar VM-funktioner och förenklar olika vm-hanteringsåtgärder.
+Azure VM-agenten och de associerade tilläggen ingår i Microsoft Azure infrastruktur tjänster. VM-tillägg är program varu komponenter som utökar VM-funktioner och fören klar olika hanterings åtgärder för virtuella datorer.
 
-Det primära användningsfallet för DSC-tillägget (Azure Desired State Configuration) är att bootstrap a VM to the [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
-Tjänsten ger [fördelar](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service) som inkluderar löpande hantering av VM-konfigurationen och integration med andra operativa verktyg, till exempel Azure Monitoring.
-Att använda tillägget för att registrera virtuella datorer till tjänsten ger en flexibel lösning som även fungerar över Azure-prenumerationer.
+Det främsta användnings fallet för Azures tillägg för önskad tillstånds konfiguration (DSC) är att starta en virtuell dator till [tjänsten Azure Automation State Configuration (DSC)](../../automation/automation-dsc-overview.md).
+Tjänsten ger [fördelar](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service) som omfattar pågående hantering av VM-konfigurationen och integrering med andra operativa verktyg, till exempel Azure-övervakning.
+Att använda tillägget för att registrera virtuella datorer till tjänsten är en flexibel lösning som även fungerar i Azure-prenumerationer.
 
-Du kan använda DSC-tillägget oberoende av Automation DSC-tjänsten.
-Detta kommer dock bara att driva en konfiguration till den virtuella datorn.
-Ingen löpande rapportering är tillgänglig, förutom lokalt i den virtuella datorn.
+Du kan använda DSC-tillägget oberoende av Automation DSC tjänsten.
+Detta kommer dock bara att push-överföra en konfiguration till den virtuella datorn.
+Ingen kontinuerlig rapportering är tillgänglig, förutom lokalt på den virtuella datorn.
 
-Den här artikeln innehåller information om båda scenarierna: användning av DSC-tillägget för onboarding av automatisering och användning av DSC-tillägget som ett verktyg för att tilldela konfigurationer till virtuella datorer med hjälp av Azure SDK.
+Den här artikeln innehåller information om båda scenarierna: använda DSC-tillägget för automatisering onboarding och använda DSC-tillägget som ett verktyg för att tilldela konfigurationer till virtuella datorer med hjälp av Azure SDK.
 
 ## <a name="prerequisites"></a>Krav
 
-- **Lokal dator**: Om du vill interagera med Azure VM-tillägget måste du använda antingen Azure-portalen eller Azure PowerShell SDK.
-- **Gästagent:** Den virtuella Azure-datorn som konfigureras av DSC-konfigurationen måste vara ett operativsystem som stöder Windows Management Framework (WMF) 4.0 eller senare. Den fullständiga listan över os-versioner som stöds finns i [versionshistoriken för DSC-tillägg](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Lokal dator**: om du vill interagera med tillägget för Azure VM måste du antingen använda Azure Portal eller Azure PowerShell SDK.
+- **Gästa Gent**: den virtuella Azure-dator som konfigureras av DSC-konfigurationen måste vara ett operativ system som stöder Windows Management Framework (WMF) 4,0 eller senare. En fullständig lista över OS-versioner som stöds finns i [versions historik för DSC-tillägg](../../automation/automation-dsc-extension-history.md).
 
 ## <a name="terms-and-concepts"></a>Termer och begrepp
 
-Den här guiden förutsätter förtrogenhet med följande begrepp:
+Den här guiden förutsätter att du är bekant med följande begrepp:
 
-- **Konfiguration**: Ett DSC-konfigurationsdokument.
-- **Nod**: Ett mål för en DSC-konfiguration. I det här dokumentet refererar noden alltid till en Virtuell Azure.In this document, *node* always refers to an Azure VM.
-- **Konfigurationsdata**: En PSD1-fil som har miljödata för en konfiguration.
+- **Konfiguration**: ett DSC-konfigurationsobjekt.
+- **Node**: ett mål för en DSC-konfiguration. I det här dokumentet refererar *noden* alltid till en virtuell Azure-dator.
+- **Konfigurations data**: en. psd1-fil med miljö data för en konfiguration.
 
 ## <a name="architecture"></a>Arkitektur
 
-Azure DSC-tillägget använder Azure VM Agent-ramverket för att leverera, anta och rapportera om DSC-konfigurationer som körs på virtuella Azure-datorer. DSC-tillägget accepterar ett konfigurationsdokument och en uppsättning parametrar. Om ingen fil anges bäddas ett [standardkonfigurationsskript](#default-configuration-script) in med tillägget. Standardkonfigurationsskriptet används endast för att ange metadata i [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
+Azure DSC-tillägget använder Azure VM agent Framework för att leverera, införa och rapportera om DSC-konfigurationer som körs på virtuella Azure-datorer. DSC-tillägget accepterar ett konfigurations dokument och en uppsättning parametrar. Om ingen fil anges bäddas ett [standard konfigurations skript](#default-configuration-script) in med tillägget. Standard konfigurations skriptet används endast för att ange metadata i den [lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 När tillägget anropas för första gången installeras en version av WMF med hjälp av följande logik:
 
 - Om Azure VM OS är Windows Server 2016 vidtas ingen åtgärd. Windows Server 2016 har redan den senaste versionen av PowerShell installerad.
-- Om **wmfVersion-egenskapen** anges installeras den versionen av WMF, såvida inte den versionen är inkompatibel med den virtuella datorns operativsystem.
-- Om ingen **wmfVersion-egenskap** har angetts installeras den senaste aktuella versionen av WMF.
+- Om **wmfVersion** -egenskapen har angetts installeras den versionen av WMF, om inte den versionen är inkompatibel med den virtuella datorns operativ system.
+- Om ingen **wmfVersion** -egenskap anges installeras den senaste tillämpliga versionen av WMF.
 
-Installera WMF kräver en omstart. När du har startat om hämtas tillägget från ZIP-filen som anges i egenskapen **modulesUrl,** om den anges. Om den här platsen finns i Azure Blob-lagring kan du ange en SAS-token i egenskapen **sasToken** för åtkomst till filen. När ZIP har hämtats och packats upp körs konfigurationsfunktionen som definieras i **configurationFunction** för att generera en .mof([Managed Object Format)](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)fil. Tillägget körs `Start-DscConfiguration -Force` sedan med hjälp av den genererade .mof-filen. Tillägget samlar in utdata och skriver det till Azure-statuskanalen.
+Installation av WMF kräver en omstart. Efter omstarten laddar tillägget. zip-filen som anges i egenskapen **modulesUrl** , om den har angetts. Om den här platsen finns i Azure Blob Storage kan du ange en SAS-token i egenskapen **sasToken** för att komma åt filen. När. zip har hämtats och packats upp körs konfigurations funktionen som definieras i **configurationFunction** för att generera en MOF-fil ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Tillägget körs `Start-DscConfiguration -Force` sedan med hjälp av den genererade MOF-filen. Tillägget fångar utdata och skriver den till Azures status kanal.
 
-### <a name="default-configuration-script"></a>Standardkonfigurationsskript
+### <a name="default-configuration-script"></a>Standard konfigurations skript
 
-Azure DSC-tillägget innehåller ett standardkonfigurationsskript som är avsett att användas när du går ombord på en virtuell dator till Azure Automation DSC-tjänsten. Skriptparametrarna är justerade med de konfigurerbara egenskaperna [för Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig). Skriptparametrar finns i [Standardkonfigurationsskript](dsc-template.md#default-configuration-script) i [tillägget Konfiguration för önskat tillstånd med Azure Resource Manager-mallar](dsc-template.md). Det fullständiga skriptet finns [i snabbstartsmallen för Azure i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+Azure DSC-tillägget innehåller ett standard konfigurations skript som är avsett att användas när du registrerar en virtuell dator till tjänsten Azure Automation DSC. Skript parametrarna är justerade med de konfigurerbara egenskaperna för [lokal Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig). Skript parametrar finns i [standard konfigurations skript](dsc-template.md#default-configuration-script) i [önskat tillstånds konfigurations tillägg med Azure Resource Manager mallar](dsc-template.md). Det fullständiga skriptet finns i mallen för [Azure snabb start i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Information för registrering med DSC-tjänsten (Azure Automation State Configuration)
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Information om registrering med tjänsten Azure Automation State Configuration (DSC)
 
-När du använder DSC-tillägget för att registrera en nod med tjänsten Tillståndskonfiguration måste tre värden anges.
+När du använder DSC-tillägget för att registrera en nod med tillstånds konfigurations tjänsten måste tre värden anges.
 
-- RegistrationUrl - https-adressen för Azure Automation-kontot
-- RegistrationKey - en delad hemlighet som används för att registrera noder med tjänsten
-- NodeConfigurationName - namnet på nodkonfigurationen (MOF) som ska hämtas från tjänsten för att konfigurera serverrollen
+- RegistrationUrl – https-adressen för det Azure Automation kontot
+- RegistrationKey – en delad hemlighet som används för att registrera noder med tjänsten
+- NodeConfigurationName – namnet på den Node-konfiguration (MOF) som ska hämtas från tjänsten för att konfigurera Server rollen
 
-Den här informationen kan ses i Azure-portalen eller så kan du använda PowerShell.
+Den här informationen kan visas i Azure Portal eller så kan du använda PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Kontrollera att nodkonfigurationsnamnet finns i Azure State Configuration för nodkonfigurationen.  Om den inte gör det returneras ett fel i tilläggsdistributionen.  Kontrollera också att du använder namnet på *nodkonfigurationen* och inte konfigurationen.
-En konfiguration definieras i ett skript som används [för att kompilera MOF-filen (Nod Configuration).](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
-Namnet kommer alltid att vara konfigurationen följt av en punkt `.` och antingen `localhost` eller ett visst datornamn.
+För konfigurations namnet för noden, se till att nodens konfiguration finns i konfiguration av Azure-tillstånd.  Om den inte gör det returnerar tilläggs distributionen ett haveri.  Kontrol lera också att du använder namnet på *nodens konfiguration* och inte konfigurationen.
+En konfiguration definieras i ett skript som används [för att kompilera Node-konfigurationen (MOF-filen)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Namnet är alltid konfigurationen följt av en punkt `.` och antingen `localhost` eller ett särskilt dator namn.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-tillägg i Resource Manager-mallar
 
-I de flesta fall är Resource Manager-distributionsmallar det förväntade sättet att arbeta med DSC-tillägget. Mer information och exempel på hur du inkluderar DSC-tillägget i Resurshanterarens distributionsmallar finns i [Tillägget För önskad tillståndskonfiguration med Azure Resource Manager-mallar](dsc-template.md).
+I de flesta fall är distributions mallar för Resource Manager det förväntade sättet att arbeta med DSC-tillägget. Mer information och exempel på hur du inkluderar DSC-tillägget i distributions mallar för Resource Manager finns i [önskat tillstånds konfigurations tillägg med Azure Resource Manager mallar](dsc-template.md).
 
-## <a name="dsc-extension-powershell-cmdlets"></a>PowerShell-cmdlets för DSC-förlängning
+## <a name="dsc-extension-powershell-cmdlets"></a>PowerShell-cmdletar för DSC-tillägg
 
-De PowerShell-cmdletar som används för att hantera DSC-tillägget används bäst i interaktiva felsöknings- och informationsinsamlingsscenarier. Du kan använda cmdlets för att paketera, publicera och övervaka DSC-tilläggsdistributioner. Cmdlets för DSC-tillägget är ännu inte uppdaterade för att fungera med [standardkonfigurationsskriptet](#default-configuration-script).
+PowerShell-cmdletar som används för att hantera DSC-tillägget används bäst i interaktiva fel söknings-och informations insamlings scenarier. Du kan använda cmdlet: ar för att paketera, publicera och övervaka distributioner av DSC-tillägg. Cmdletar för DSC-tillägget har inte uppdaterats för att fungera med [standard konfigurations skriptet](#default-configuration-script).
 
-**Cmdlet för Publicering-AzVMDscKonfigurering** tar i en konfigurationsfil, söker efter beroende DSC-resurser och skapar sedan en ZIP-fil. Zip-filen innehåller konfigurations- och DSC-resurser som behövs för att anta konfigurationen. Cmdleten kan också skapa paketet lokalt med parametern *-OutputArchivePath.* Annars publicerar cmdleten ZIP-filen till blob-lagring och skyddar den sedan med en SAS-token.
+Cmdleten **Publish-AzVMDscConfiguration** tar i en konfigurations fil, söker efter beroende DSC-resurser och skapar sedan en zip-fil. Zip-filen innehåller de konfigurations-och DSC-resurser som behövs för att införa konfigurationen. Cmdleten kan också skapa paketet lokalt med hjälp av parametern *-OutputArchivePath* . Annars publicerar cmdlet. zip-filen till Blob Storage och skyddar den sedan med en SAS-token.
 
-Konfigurationsskriptet .ps1 som cmdlet skapar finns i ZIP-filen i arkivmappens rot. Modulmappen placeras i arkivmappen i resurser.
+Konfigurations skriptet. ps1 som cmdleten skapar finns i. zip-filen i roten i arkivmappen. Mappen module placeras i mappen Arkiv i resurser.
 
-**Cmdlet set-AzVMDscExtension** ingjuter de inställningar som PowerShell DSC-tillägget kräver i ett vm-konfigurationsobjekt.
+Cmdlet **: en Set-AzVMDscExtension** infogar de inställningar som PowerShell DSC-tillägget kräver i ett konfigurations objekt för virtuell dator.
 
-**Cmdleten Get-AzVMDscExtension** hämtar DSC-tilläggsstatus för en viss virtuell dator.
+Cmdlet: en **Get-AzVMDscExtension** hämtar DSC-tilläggets status för en angiven virtuell dator.
 
-**Cmdlet Get-AzVMDscExtensionStatus** hämtar statusen för DSC-konfigurationen som har antagits av DSC-tilläggshanteraren. Den här åtgärden kan utföras på en enda virtuell dator eller på en grupp virtuella datorer.
+Cmdlet: en **Get-AzVMDscExtensionStatus** hämtar STATUSEN för DSC-konfigurationen som hanteras av DSC-tilläggs hanteraren. Den här åtgärden kan utföras på en enskild virtuell dator eller en grupp med virtuella datorer.
 
-Cmdleten **Remove-AzVMDscExtension** tar bort förlängningshanteraren från en viss virtuell dator. Den här cmdleten tar *inte* bort konfigurationen, avinstallerar WMF eller ändrar de tillämpade inställningarna på den virtuella datorn. Förlängningshanteraren tas bara bort. 
+Cmdlet: en **Remove-AzVMDscExtension** tar bort tilläggs hanteraren från en angiven virtuell dator. Den här cmdleten tar *inte* bort konfigurationen, avinstallerar WMF eller ändrar de tillämpade inställningarna på den virtuella datorn. Den tar bara bort tilläggs hanteraren.
 
-Viktig information om DSC-tilläggs-cmdlets för Resurshanteraren:
+Viktig information om cmdlets för DSC-tillägg i Resource Manager:
 
-- Azure Resource Manager-cmdlets är synkrona.
-- *Parametrarna ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *Version*och *Plats* krävs alla.
-- *ArchiveResourceGroupName* är en valfri parameter. Du kan ange den här parametern när ditt lagringskonto tillhör en annan resursgrupp än den där den virtuella datorn skapas.
-- Använd växeln **AutoUpdate** för att automatiskt uppdatera tilläggshanteraren till den senaste versionen när den är tillgänglig. Den här parametern kan orsaka omstarter på den virtuella datorn när en ny version av WMF släpps.
+- Azure Resource Manager-cmdlet: ar är synkrona.
+- Parametrarna *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *version*och *location* krävs.
+- *ArchiveResourceGroupName* är en valfri parameter. Du kan ange den här parametern när ditt lagrings konto tillhör en annan resurs grupp än den där den virtuella datorn skapas.
+- Använd den automatiska **uppdaterings** växeln för att automatiskt uppdatera tilläggs hanteraren till den senaste versionen när den är tillgänglig. Den här parametern har möjlighet att starta om den virtuella datorn när en ny version av WMF lanseras.
 
-### <a name="get-started-with-cmdlets"></a>Komma igång med cmdlets
+### <a name="get-started-with-cmdlets"></a>Kom igång med cmdletar
 
-Azure DSC-tillägget kan använda DSC-konfigurationsdokument för att direkt konfigurera Virtuella Azure-datorer under distributionen. Det här steget registrerar inte noden till Automation. Noden hanteras *inte* centralt.
+Azure DSC-tillägget kan använda DSC-konfigurationsobjekt för att konfigurera virtuella Azure-datorer direkt under distributionen. Det här steget registrerar inte noden som ska automatiseras. Noden hanteras *inte* centralt.
 
-Följande exempel visar ett enkelt exempel på en konfiguration. Spara konfigurationen lokalt som iisInstall.ps1.
+I följande exempel visas ett enkelt exempel på en konfiguration. Spara konfigurationen lokalt som skriptet iisinstall. ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-Följande kommandon placerar skriptet iisInstall.ps1 på den angivna virtuella datorn. Kommandona kör också konfigurationen och rapporterar sedan tillbaka statusen.
+Följande kommandon placerar skriptet skriptet iisinstall. ps1 på den angivna virtuella datorn. Kommandona kör också konfigurationen och rapporterar sedan om status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -171,32 +171,32 @@ az vm extension set \
   --settings '{}'
 ```
 
-## <a name="azure-portal-functionality"></a>Azure-portalfunktioner
+## <a name="azure-portal-functionality"></a>Azure Portal funktioner
 
 Så här konfigurerar du DSC i portalen:
 
 1. Gå till en virtuell dator.
 2. Under **Inställningar** väljer du **Tillägg**.
-3. På den nya sidan som skapas väljer du **+ Lägg till**och väljer sedan **PowerShell-önskad tillståndskonfiguration**.
-4. Klicka på **Skapa** längst ned på tilläggsinformationssidan.
+3. På den nya sidan som skapas väljer du **+ Lägg till**och väljer sedan **PowerShell Desired State Configuration**.
+4. Klicka på **skapa** längst ned på sidan tilläggs information.
 
-Portalen samlar in följande indata:
+Portalen samlar in följande ingångar:
 
-- **Konfigurationsmoduler eller skript:** Det här fältet är obligatoriskt (formuläret har inte uppdaterats för [standardkonfigurationsskriptet](#default-configuration-script)). Konfigurationsmoduler och skript kräver en PS1-fil som har ett konfigurationsskript eller en ZIP-fil med ett PS1-konfigurationsskript vid roten. Om du använder en ZIP-fil måste alla beroende resurser inkluderas i modulmapparna i ZIP.If you use a .zip file, all dependent resources must be included in module folders in the .zip. Du kan skapa ZIP-filen med hjälp av cmdleten **Publish-AzureVMDscConfiguration -OutputArchivePath** som ingår i Azure PowerShell SDK. Zip-filen överförs till användarens blob-lagring och skyddas av en SAS-token.
+- **Konfigurations moduler eller skript**: det här fältet är obligatoriskt (formuläret har inte uppdaterats för [standard konfigurations skriptet](#default-configuration-script)). Konfigurations moduler och-skript kräver en. ps1-fil som har ett konfigurations skript eller en. zip-fil med konfigurations skriptet. ps1 på roten. Om du använder en. zip-fil måste alla beroende resurser tas med i modulens mappar i. zip-filen. Du kan skapa. zip-filen med hjälp av cmdleten **Publish-AzureVMDscConfiguration-OutputArchivePath** som ingår i Azure PowerShell SDK. Zip-filen överförs till din användar-blob-lagring och skyddas av en SAS-token.
 
-- **Modulkvalificerat konfigurationsnamn:** Du kan inkludera flera konfigurationsfunktioner i en PS1-fil. Ange namnet på konfigurationen .ps1-skript följt av \\ och namnet på konfigurationsfunktionen. Om PS1-skriptet till exempel har namnet configuration.ps1 och konfigurationen är **IisInstall**anger du **configuration.ps1\IisInstall**.
+- **Konfiguration av modulens kvalificerade namn**: du kan inkludera flera konfigurations funktioner i en. ps1-fil. Ange namnet på Configuration. ps1-skriptet följt av \\ och namnet på konfigurations funktionen. Om t. ex. ps1-skriptet har namnet Configuration. ps1 och konfigurationen är **skriptet iisinstall**anger du **Configuration. ps1\IisInstall**.
 
-- **Konfigurationsargument**: Om konfigurationsfunktionen tar argument anger du dem här i formatet **argumentName1=value1,argumentName2=value2**. Det här formatet är ett annat format där konfigurationsargument accepteras i PowerShell-cmdletar eller Resource Manager-mallar.
+- **Konfigurations argument**: om konfigurations funktionen tar argument anger du dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där konfigurations argument godkänns i PowerShell-cmdletar eller Resource Manager-mallar.
 
-- **PSD1-fil för konfigurationsdata:** Det här fältet är valfritt. Om konfigurationen kräver en konfigurationsdatafil i PSD1 använder du det här fältet för att välja datafältet och överför det till användarens blob-lagring. Konfigurationsdatafilen skyddas av en SAS-token i blob-lagring.
+- **PSD1-fil för konfigurations data**: det här fältet är valfritt. Om konfigurationen kräver en konfigurations data fil i. psd1, använder du det här fältet för att välja data fältet och överföra det till din användar-blob-lagring. Konfigurations data filen skyddas av en SAS-token i Blob Storage.
 
-- **WMF-version:** Anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du ställer in den här egenskapen på den senaste versionen av WMF installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen 4.0, 5.0, 5.1 och senaste. Dessa möjliga värden är föremål för uppdateringar. Standardvärdet är **det senaste**.
+- **WMF-version**: anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du anger den här egenskapen till senaste installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen 4,0, 5,0, 5,1 och senaste. Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är **senaste**.
 
-- **Datainsamling:** Avgör om tillägget ska samla in telemetri. Mer information finns i [Azure DSC-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)för tillägg .
+- **Data insamling**: anger om tillägget ska samla in telemetri. Mer information finns i [data insamling för Azure DSC-tillägg](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
-- **Version**: Anger vilken version av DSC-tillägget som ska installeras. Information om versioner finns i [DSC-tilläggsversionshistorik](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Version**: anger vilken version av DSC-tillägget som ska installeras. Information om versioner finns i [versions historik för DSC-tillägg](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
-- **Automatisk uppgradering Minor Version:** Det här fältet mappar till **Växeln AutoUpdate** i cmdlets och gör det möjligt för tillägget att automatiskt uppdatera till den senaste versionen under installationen. **Ja** instruerar tilläggshanteraren att använda den senast tillgängliga versionen och **Nej** tvingar den **version som** har angetts att installeras. Om du varken väljer **Ja** eller **Nej** är samma sak som att välja **Nej**.
+- **Del version för automatisk uppgradering**: det här fältet mappar till **AutoUpdate** -växeln i-cmdletarna och aktiverar tillägget till att uppdateras automatiskt till den senaste versionen under installationen. **Ja** instruerar tilläggs hanteraren att använda den senaste tillgängliga versionen och **ingen** kommer att tvinga den angivna **versionen** att installeras. Att välja **Yes** nej eller **Nej** är inte detsamma som att välja **Nej**.
 
 ## <a name="logs"></a>Loggar
 
@@ -204,7 +204,7 @@ Loggar för tillägget lagras på följande plats:`C:\WindowsAzure\Logs\Plugins\
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om PowerShell DSC finns i [PowerShells dokumentationscenter](/powershell/scripting/dsc/overview/overview).
-- Undersök [resurshanterarens mall för DSC-tillägget](dsc-template.md).
-- Om du vill ha fler funktioner som du kan hantera med PowerShell DSC och mer DSC-resurser bläddrar du i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Mer information om hur du skickar känsliga parametrar till konfigurationer finns i [Hantera autentiseringsuppgifter på ett säkert sätt med DSC-tilläggshanteraren](dsc-credentials.md).
+- Mer information om PowerShell DSC finns i [PowerShell-dokumentations centret](/powershell/scripting/dsc/overview/overview).
+- Granska [Resource Manager-mallen för DSC-tillägget](dsc-template.md).
+- Om du vill ha fler funktioner som du kan hantera med hjälp av PowerShell DSC kan du bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)för fler DSC-resurser.
+- Mer information om hur du skickar känsliga parametrar till konfigurationer finns i [Hantera autentiseringsuppgifter säkert med DSC-tilläggs hanteraren](dsc-credentials.md).

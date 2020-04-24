@@ -1,7 +1,7 @@
 ---
-title: Datakonvertering - LUIS
+title: Data konvertering – LUIS
 titleSuffix: Azure Cognitive Services
-description: Läs om hur yttranden kan ändras före förutsägelser i Språkförståelse (LUIS)
+description: Lär dig hur yttranden kan ändras innan förutsägelser i Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,33 +11,33 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: aeb9094db83b14af988f70485788934a7854200c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2455df87c8eae1a48cb6c8b1381dad85d304bf4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68619801"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099248"
 ---
-# <a name="convert-data-format-of-utterances"></a>Konvertera dataformat för yttranden
-LUIS tillhandahåller följande konverteringar av ett användarutseende före förutsägelse"
+# <a name="convert-data-format-of-utterances"></a>Konvertera data formatet yttranden
+LUIS tillhandahåller följande konverteringar av en användar-uttryck innan du förutsäger "
 
-* Tal till text med hjälp av [cognitive services-taltjänsten.](../Speech-Service/overview.md) 
+* Tal till text med hjälp av [Cognitive Services Speech](../Speech-Service/overview.md) service.
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Tal till text tillhandahålls som en integrering med LUIS. 
+Tal till text tillhandahålls som en integrering med LUIS.
 
-### <a name="intent-conversion-concepts"></a>Begrepp för avsiktskonvertering
-Konvertering av tal till text i LUIS gör att du kan skicka talade yttranden till en slutpunkt och få ett LUIS-förutsägelsesvar. Processen är en integrering av [taltjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech) med LUIS. Läs mer om Tal till avsikt med en [självstudiekurs](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+### <a name="intent-conversion-concepts"></a>Konverterings begrepp för avsikt
+Genom att konvertera tal till text i LUIS kan du skicka talade yttranden till en slut punkt och få ett LUIS förutsägelse svar. Processen är en integrering av [tal](https://docs.microsoft.com/azure/cognitive-services/Speech) tjänsten med Luis. Lär dig mer om tal till avsikt med en [själv studie kurs](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Viktiga krav
-Du behöver inte skapa en **API-nyckel för Bing-tal** för den här integreringen. En **språk understanding-nyckel** som skapats i Azure-portalen fungerar för den här integrationen. Använd inte STARTknappen LUIS.
+Du behöver inte skapa en **API för Bing-taligenkänning** nyckel för den här integrationen. En **language Understanding** nyckel som skapats i Azure Portal fungerar för den här integrationen. Använd inte start nyckeln LUIS.
 
 ### <a name="pricing-tier"></a>Prisnivå
-Den här integreringen använder en annan [prismodell](luis-boundaries.md#key-limits) än de vanliga prisnivåerna för språkbeståe. 
+Den här integrationen använder en annan [pris](luis-limits.md#key-limits) modell än vanliga language Understanding pris nivåer.
 
-### <a name="quota-usage"></a>Kvotanvändning
-Se [Nyckelgränser](luis-boundaries.md#key-limits) för information. 
+### <a name="quota-usage"></a>Kvot användning
+Se [viktiga begränsningar](luis-limits.md#key-limits) för information.
 
 ## <a name="next-steps"></a>Nästa steg
 

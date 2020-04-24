@@ -1,6 +1,6 @@
 ---
-title: Exempel på Azure CLI-skript – Integrera App-tjänsten med Application Gateway | Microsoft-dokument
-description: Exempel på Azure CLI-skript – Integrera App-tjänsten med Application Gateway
+title: Skript exempel för Azure CLI – integrera App Service med Application Gateway | Microsoft Docs
+description: Skript exempel för Azure CLI – integrera App Service med Application Gateway
 services: appservice
 documentationcenter: appservice
 author: madsd
@@ -25,13 +25,13 @@ ms.locfileid: "74979856"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrera App Service med Application Gateway med CLI
 
-Det här exempelskriptet skapar en Azure App Service-webbapp, ett Virtuellt Azure-nätverk och en Application Gateway. Den begränsar sedan trafiken för webbappen till att endast komma från undernätet Application Gateway.
+Det här exempel skriptet skapar en Azure App Service-webbapp, en Azure-Virtual Network och en Application Gateway. Den begränsar sedan trafiken för webbappen så att den endast kommer från Application Gateway under nätet.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt behöver du Azure CLI version 2.0.74 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0.74 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -50,11 +50,11 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [`az network public-ip create`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) | Skapar en offentlig IP-adress. |
 | [`az network public-ip show`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | Visa information om en offentlig IP-adress. |
 | [`az appservice plan create`](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |
-| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Skapar en app för App Service-webb. |
-| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Visa information om en app för App Service.Show details of an App Service web app. |
-| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Lägger till en åtkomstbegränsning i apptjänstens webbapp. |
-| [`az network application-gateway create`](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Skapar en programgateway. |
-| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Uppdaterar HTTP-inställningar för programgateway. |
+| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Skapar ett App Service-webbprogram. |
+| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Visa information om en App Service-webbapp. |
+| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Lägger till en åtkomst begränsning i App Service-webbappen. |
+| [`az network application-gateway create`](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Skapar en Application Gateway. |
+| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Uppdateringar Application Gateway HTTP-inställningar. |
 
 ## <a name="next-steps"></a>Nästa steg
 

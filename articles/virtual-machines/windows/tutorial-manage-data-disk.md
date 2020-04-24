@@ -1,26 +1,21 @@
 ---
 title: Självstudier – Hantera Azure-diskar med Azure PowerShell
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa och hantera Azure-diskar för virtuella datorer
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.subservice: disks
-ms.openlocfilehash: 1957ae620cccee619c8608b79d9e804c356adf17
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: c9f514b70eda7d74950576a1a6f3a1199cddb232
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455673"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100336"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Självstudier – Hantera Azure-diskar med Azure PowerShell
 
@@ -37,15 +32,15 @@ Azure Virtual Machines använder diskar för att lagra de virtuella datorernas o
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="default-azure-disks"></a>Azure-standarddiskar
 
 När en virtuell Azure-dator skapas kopplas två diskar automatiskt till den virtuella datorn. 
 
-**Operativsystemdisken** – Operativsystemdiskar kan vara upp till 4 TB och innehåller de virtuella datorernas operativsystem. Om du skapar en ny virtuell dator (VM) från en [Azure Marketplace-avbildning,](https://azure.microsoft.com/marketplace/) har vanligtvis 127 GB (men vissa avbildningar mindre os-diskstorlekar). OS-disken tilldelas enhetsbokstaven *C:* som standard. OS-diskens cachelagringkonfiguration har optimerats för OS-prestanda. OS-disken **bör inte** innehålla program eller data. För program och data använder du en datadisk (beskrivs senare i den här artikeln).
+**Operativsystemdisken** – Operativsystemdiskar kan vara upp till 4 TB och innehåller de virtuella datorernas operativsystem. Om du skapar en ny virtuell dator (VM) från en [Azure Marketplace](https://azure.microsoft.com/marketplace/) -avbildning, är det vanligt vis 127 GB (men vissa avbildningar har mindre disk storlekar för operativ system). OS-disken tilldelas enhetsbokstaven *C:* som standard. OS-diskens cachelagringkonfiguration har optimerats för OS-prestanda. OS-disken **bör inte** innehålla program eller data. För program och data använder du en datadisk (beskrivs senare i den här artikeln).
 
-**Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporära diskar har höga prestanda och kan användas för åtgärder som till exempel tillfällig databearbetning. Men om den virtuella datorn flyttas till en ny värd tas alla data som är lagrade på den temporära disken bort. Storleken på den temporära disken bestäms av [den virtuella datorns storlek](sizes.md). Temporära diskar tilldelas enhetsbeteckningen *D:* som standard.
+**Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporära diskar har höga prestanda och kan användas för åtgärder som till exempel tillfällig databearbetning. Men om den virtuella datorn flyttas till en ny värd tas alla data som är lagrade på den temporära disken bort. Storleken på den temporära disken bestäms av storleken på den [virtuella datorn](sizes.md). Temporära diskar tilldelas enhetsbeteckningen *D:* som standard.
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
 

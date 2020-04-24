@@ -1,25 +1,19 @@
 ---
-title: Självstudiekurs - Belastningsutjämna Windows virtuella datorer i Azure
+title: Självstudie – belastningsutjämna virtuella Windows-datorer i Azure
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa en lastbalanserare för ett säkert program med hög tillgänglighet på tre virtuella Windows-datorer
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 781ee9136c13f75ab53c662225cc12b28b1fb02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 0ece182765be2ee3b18334569799769e251d1af4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455707"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100353"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Självstudier: Belastningsutjämna virtuella Windows-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure PowerShell
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
@@ -46,7 +40,7 @@ För att styra trafikflödet definierar du regler för lastbalanseraren för spe
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-azure-load-balancer"></a>Skapa en Azure Load Balancer
 I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren skapar du en resursgrupp med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *EastUS* (Östra USA):

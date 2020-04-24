@@ -1,89 +1,87 @@
 ---
-title: Sök efter jobb- och aktivitetsfel - Azure Batch | Microsoft-dokument
-description: Fel för att söka efter och felsöka jobb och uppgifter
-services: batch
+title: Söka efter jobb- och uppgiftsfel
+description: Fel vid sökning efter och fel sökning av jobb och uppgifter
 author: mscurrell
-ms.service: batch
 ms.topic: article
 ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c58bdf50f3e69b2b7d18f750f94fecdb512af85
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087017"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116034"
 ---
-# <a name="job-and-task-error-checking"></a>Jobb- och uppgiftsfelkontroll
+# <a name="job-and-task-error-checking"></a>Fel kontroll av jobb och aktivitet
 
-Det finns olika fel som kan uppstå när du lägger till jobb och aktiviteter. Det är enkelt att identifiera fel för dessa åtgärder eftersom eventuella fel returneras omedelbart av API, CLI eller UI.  Det finns dock fel som kan inträffa senare när jobb och aktiviteter schemaläggs och körs.
+Det finns olika fel som kan uppstå när du lägger till jobb och uppgifter. Det är enkelt att identifiera felen för dessa åtgärder eftersom eventuella problem returneras direkt av API, CLI eller gränssnitt.  Det finns dock problem som kan uppstå senare när jobb och aktiviteter schemaläggs och körs.
 
-Den här artikeln beskriver de fel som kan uppstå när jobb och aktiviteter har skickats. Den listar och förklarar de fel som måste kontrolleras och hanteras.
+Den här artikeln beskriver de fel som kan uppstå när jobb och uppgifter har skickats. Den visar och förklarar de fel som måste kontrol leras och hanteras.
 
 ## <a name="jobs"></a>Jobb
 
-Ett jobb är en gruppering av en eller flera aktiviteter, de aktiviteter som faktiskt anger de kommandorader som ska köras.
+Ett jobb är en gruppering av en eller flera aktiviteter, de uppgifter som faktiskt anger vilka kommando rader som ska köras.
 
-När du lägger till ett jobb kan följande parametrar anges som kan påverka hur jobbet kan misslyckas:
+När du lägger till ett jobb kan du ange följande parametrar som kan påverka hur jobbet kan gå sönder:
 
-- [Jobbbegränsningar](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints)
-  - Egenskapen `maxWallClockTime` kan eventuellt anges för att ange den maximala tid ett jobb kan vara aktivt eller körs. Om det överskrids avslutas jobbet `terminateReason` med egenskapen som anges i [körningenInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob) för jobbet.
-- [Uppgift om förberedelse av arbete](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)
-  - Om det anges körs en jobbförberedelseaktivitet första gången en aktivitet körs för ett jobb på en nod. Jobbförberedelseaktiviteten kan misslyckas, vilket leder till att aktiviteten inte körs och jobbet inte slutförs.
-- [Uppgift om projektfrisläppning](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)
-  - En jobbfrisättningsaktivitet kan bara anges om en jobbförberedelseaktivitet har konfigurerats. När ett jobb avslutas körs jobbfrisläppningsaktiviteten på var och en av poolnoderna där en jobbförberedelseaktivitet kördes. En jobbfrisättningsaktivitet kan misslyckas, men `completed` jobbet flyttas fortfarande till ett tillstånd.
+- [Jobb begränsningar](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints)
+  - Du `maxWallClockTime` kan också ange en egenskap för att ange den maximala tid som ett jobb kan vara aktivt eller körs. Om det överskrids avbryts jobbet med `terminateReason` egenskapen som angetts i [executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob) för jobbet.
+- [Uppgift för jobb förberedelse](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)
+  - Om det här alternativet anges körs en jobb förberedelse aktivitet första gången en aktivitet körs för ett jobb på en nod. Uppgiften att förbereda jobbet kan Miss klar, vilket leder till att aktiviteten inte körs och att jobbet inte slutförs.
+- [Jobb publicerings aktivitet](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)
+  - En jobb publicerings aktivitet kan bara anges om en jobb förberedelse aktivitet har kon figurer ATS. När ett jobb avslutas körs jobb publicerings aktiviteten på varje pool där en jobb förberedelse aktivitet kördes. Det går inte att utföra en jobb publicerings uppgift, men jobbet kommer fortfarande `completed` att flyttas till ett tillstånd.
 
-### <a name="job-properties"></a>Egenskaper för jobb
+### <a name="job-properties"></a>Jobb egenskaper
 
-Följande jobbegenskaper bör kontrolleras för fel:
+Följande jobb egenskaper bör kontrol leras för fel:
 
-- [" utförandeInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobexecutioninformation)":
-  - Egenskapen `terminateReason` kan ha värden `maxWallClockTime`som anger att den , som anges i jobbbegränsningarna, har överskridits och därför avslutades jobbet. Den kan också ställas in för att `onTaskFailure` ange att en aktivitet misslyckades om jobbegenskapen har angetts på rätt sätt.
-  - Egenskapen [schedulingError](https://docs.microsoft.com/rest/api/batchservice/job/get#jobschedulingerror) anges om det har förekommit ett schemaläggningsfel.
+- '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobexecutioninformation)':
+  - `terminateReason` Egenskapen kan ha värden som anger att `maxWallClockTime`, som anges i jobb begränsningarna, överskreds och att jobbet avbröts. Den kan också anges för att indikera att en uppgift misslyckades om jobb `onTaskFailure` egenskapen har ställts in korrekt.
+  - Egenskapen [schedulingError](https://docs.microsoft.com/rest/api/batchservice/job/get#jobschedulingerror) anges om det har uppstått ett schemaläggnings fel.
  
-### <a name="job-preparation-tasks"></a>Jobbförberedelseuppgifter
+### <a name="job-preparation-tasks"></a>Jobb förberedelse aktiviteter
 
-Om en jobbförberedelseaktivitet har angetts för ett projekt körs en instans av aktiviteten första gången en aktivitet för jobbet körs på en nod. Den jobbförberedelseuppgift som konfigurerats för jobbet kan ses som en aktivitetsmall, med flera uppgiftsinstanser för jobbförberedelser som körs, upp till antalet noder i en pool.
+Om en jobb förberedelse uppgift har angetts för ett jobb körs en instans av den aktiviteten första gången en aktivitet för jobbet körs på en nod. Jobb förberedelse aktiviteten som kon figurer ATS för jobbet kan ses som en uppgiftsmall, med att flera uppgifts instanser för jobb förberedelse körs, upp till antalet noder i en pool.
 
-Uppgiftsinstanserna för jobbförberedelser bör kontrolleras för att avgöra om det fanns fel:
-- När en jobbförberedelseaktivitet körs flyttas aktiviteten som utlöste jobbförberedelseaktiviteten till ett [tillstånd](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) av `preparing`; Om jobbförberedelseaktiviteten sedan misslyckas återgår `active` den utlösande aktiviteten till tillståndet och körs inte.  
-- Alla instanser av jobbförberedelseaktiviteten som har körts kan erhållas från jobbet med [api:et för förberedelse och frisläppning](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus) av aktivitet. Precis som med alla uppgifter finns det `failureInfo` [körningsinformation](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) tillgänglig med egenskaper som , `exitCode`och `result`.
-- Om jobbförberedelseaktiviteter misslyckas kommer de utlösande jobbaktiviteterna inte att köras, jobbet slutförs inte och kommer att fastna. Poolen kan gå outnyttjad om det inte finns några andra jobb med aktiviteter som kan schemaläggas.
+Uppgifts instanserna för jobb förberedelsen bör kontrol leras för att avgöra om det finns fel:
+- När en jobb förberedelse aktivitet körs, flyttas aktiviteten som utlöste aktiviteten jobb till ett [tillstånd](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) av `preparing`; om jobb förberedelse aktiviteten Miss lyckas återgår den Utlös ande aktiviteten till `active` statusen och körs inte.  
+- Alla instanser av uppgiften för jobb förberedelse som har körts kan hämtas från jobbet med hjälp av API: et för [förberedelse och publicering av uppgifts status](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus) . Som med alla uppgifter finns [körnings information](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) som är tillgänglig med egenskaper som `failureInfo`, `exitCode`och `result`.
+- Om jobb förberedelse aktiviteterna Miss lyckas körs inte jobb uppgifter som utlöses, jobbet kommer inte att slutföras och kommer att fastna. Poolen kan komma att användas om det inte finns några andra jobb med aktiviteter som kan schemaläggas.
 
-### <a name="job-release-tasks"></a>Jobbutgåva uppgifter
+### <a name="job-release-tasks"></a>Jobb publicerings aktiviteter
 
-Om en jobbfrisättningsaktivitet har angetts för ett jobb körs en instans av jobbfrisättningsaktiviteten när ett jobb avslutas på var och en av poolnoderna där en jobbförberedelseaktivitet kördes.  Uppgiftsinstanserna för jobbrelease bör kontrolleras för att avgöra om det fanns fel:
-- Alla instanser av jobbfrisättningsaktiviteten som körs kan erhållas från jobbet med hjälp av [API-listförberedelse och utgivningsaktivitetsstatus](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus). Precis som med alla uppgifter finns det `failureInfo` [körningsinformation](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) tillgänglig med egenskaper som , `exitCode`och `result`.
-- Om en eller flera jobbfrigivningsaktiviteter misslyckas kommer jobbet `completed` fortfarande att avslutas och flyttas till ett tillstånd.
+Om en jobb publicerings uppgift har angetts för ett jobb körs en instans av jobb publicerings aktiviteten när ett jobb avbryts, och en instans av jobb lanserings aktiviteten körs på varje pool där jobb förberedelse aktiviteten kördes.  Aktivitets instanserna för jobb lansering bör kontrol leras för att avgöra om det finns fel:
+- Alla instanser av jobb publicerings aktiviteten som körs kan hämtas från jobbet med hjälp av [aktivitets status för förberedelse och publicering](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus)av API-lista. Som med alla uppgifter finns [körnings information](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) som är tillgänglig med egenskaper som `failureInfo`, `exitCode`och `result`.
+- Om en eller flera jobb lanserings aktiviteter Miss Miss kan jobbet fortfarande avslutas och flyttas till ett `completed` tillstånd.
 
 ## <a name="tasks"></a>Aktiviteter
 
-Jobbaktiviteter kan misslyckas av flera skäl:
+Jobb aktiviteter kan inte utföras av flera orsaker:
 
-- Aktivitetskommandoraden misslyckas och returneras med en utgångskod som inte är noll.
-- Det `resourceFiles` har angetts för en aktivitet, men det uppstod ett fel som innebar att en eller flera filer inte hämtades.
-- Det `outputFiles` har angetts för en aktivitet, men det uppstod ett fel som innebar att en eller flera filer inte laddades upp.
-- Den förflutna tiden för aktiviteten, som anges `maxWallClockTime` av egenskapen i [aktivitetsbegränsningarna,](https://docs.microsoft.com/rest/api/batchservice/task/add#taskconstraints)har överskridits.
+- Aktivitetens kommando rad Miss lyckas, returnerar en slutkod som inte är noll.
+- En aktivitet `resourceFiles` har angetts, men det uppstod ett problem som avsåg en eller flera filer som inte hämtades.
+- En aktivitet `outputFiles` har angetts, men det uppstod ett problem som innebar att en eller flera filer inte överfördes.
+- Den förflutna tiden för aktiviteten, som anges av `maxWallClockTime` egenskapen i aktivitets [begränsningarna](https://docs.microsoft.com/rest/api/batchservice/task/add#taskconstraints), överskreds.
 
-I samtliga fall måste följande egenskaper kontrolleras för fel och information om felen:
-- Egenskapen tasks [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation) innehåller flera egenskaper som innehåller information om ett fel. [resultatet](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) anger om aktiviteten misslyckades av `exitCode` någon `failureInfo` anledning, med och ger mer information om felet.
-- Aktiviteten flyttas alltid till `completed` [staten](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate), oberoende av om den lyckades eller misslyckades.
+I samtliga fall måste följande egenskaper kontrol leras för fel och information om felen:
+- Egenskapen tasks [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation) innehåller flera egenskaper som innehåller information om ett fel. [resultatet](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) visar om uppgiften misslyckades av någon anledning, med `exitCode` och `failureInfo` ger mer information om fel.
+- Aktiviteten kommer alltid att flyttas till `completed` [tillstånd](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate), oberoende av om den lyckades eller misslyckades.
 
-Effekten av aktivitetsfel på jobbet och eventuella aktivitetssamband måste beaktas.  Egenskapen [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) kan anges för en aktivitet för att konfigurera en åtgärd för samband och för jobbet.
-- För samband styr [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) om de aktiviteter som är beroende av den misslyckade aktiviteten blockeras eller körs.
-- För jobbet styr [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) om den misslyckade aktiviteten leder till att jobbet inaktiveras, avslutas eller lämnas oförändrat.
+Effekten av aktivitets haverier på jobbet och eventuella aktivitets beroenden måste beaktas.  Egenskapen [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) kan anges för en uppgift för att konfigurera en åtgärd för beroenden och för jobbet.
+- För-beroenden kontrollerar [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) om aktiviteterna som är beroende av den misslyckade aktiviteten är blockerade eller körs.
+- För jobbet styr [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) om den misslyckade aktiviteten leder till jobbet som inaktive ras, avslutas eller lämnas oförändrat.
 
-### <a name="task-command-line-failures"></a>Fel på aktivitetskommandoraden
+### <a name="task-command-line-failures"></a>Åtgärds kommando rads problem
 
-När aktivitetskommandoraden körs skrivs `stderr.txt` `stdout.txt`utdata till och . Dessutom kan programmet skriva till programspecifika loggfiler.
+När aktivitetens kommando rad körs skrivs utdata till `stderr.txt` och. `stdout.txt` Dessutom kan programmet skriva till programspecifika loggfiler.
 
-Om den poolnod som en aktivitet har körts kvar finns kan loggfilerna hämtas och visas. Azure-portalen listar och kan till exempel visa loggfiler för en uppgift eller en poolnod. Flera API:er gör det också möjligt att lista och hämta aktivitetsfiler, till exempel [Hämta från uppgift](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+Om noden pool där en aktivitet har körts fortfarande finns, kan loggfilerna hämtas och visas. Till exempel visar Azure Portal listor och kan visa loggfiler för en aktivitet eller en pool-nod. Flera API: er tillåter också att aktivitetsvyer visas och hämtas, till exempel [Hämta från uppgift](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
 
-På grund av att pooler och poolnoder ofta är efemära, med noder som kontinuerligt läggs till och tas bort, rekommenderas att loggfiler sparas. [Uppgiftsutdatafiler](https://docs.microsoft.com/azure/batch/batch-task-output-files) är ett praktiskt sätt att spara loggfiler i Azure Storage.
+Eftersom pooler och pooler ofta är tillfälliga, och noderna läggs till och tas bort kontinuerligt, rekommenderar vi att loggfilerna är bestående. Med [Uppgiftsutdata](https://docs.microsoft.com/azure/batch/batch-task-output-files) kan du enkelt spara loggfiler till Azure Storage.
 
-### <a name="output-file-failures"></a>Fel i utdatafilen
-På varje filöverföring skriver Batch två loggfiler till `fileuploadout.txt` `fileuploaderr.txt`beräkningsnoden och . Du kan undersöka dessa loggfiler om du vill veta mer om ett specifikt fel. I de fall där filöverföringen aldrig gjordes, till exempel på grund av att själva uppgiften inte kunde köras, kommer dessa loggfiler inte att finnas.  
+### <a name="output-file-failures"></a>Utdatafel
+Vid varje fil uppladdning skriver batch två loggfiler till Compute- `fileuploadout.txt` noden och. `fileuploaderr.txt` Du kan kontrol lera loggfilerna för att lära dig mer om ett speciellt haveri. I de fall där fil överföringen aldrig har gjorts, till exempel eftersom själva uppgiften inte kunde köras, finns inte dessa loggfiler.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kontrollera att ditt program implementerar omfattande felkontroll. Det kan vara viktigt att snabbt upptäcka och diagnostisera problem.
+Kontrol lera att ditt program implementerar omfattande fel kontroll. Det kan vara viktigt att snabbt identifiera och diagnostisera problem.

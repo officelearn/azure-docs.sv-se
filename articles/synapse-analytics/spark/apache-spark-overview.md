@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4155e419bb03613abad808ca09d84bcb6583291f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b6af42f09351df60beb2aa449f8fcd2ff6a554e8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423651"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116663"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Vad är Apache Spark i Azure Synapse Analytics
 
-Apache Spark är ett ramverk för parallellbearbetning som stöder minnesintern bearbetning för att öka prestanda i program för stordataanalys. Apache Spark i Azure Synapse Analytics är en av Microsofts implementeringar av Apache Spark i molnet. Azure Synapse gör det enkelt att skapa och konfigurera en Spark-pool (förhandsversion) i Azure. Spark-pooler i Azure Synapse är kompatibla med Azure Storage och Azure Data Lake Generation 2 Storage. Så du kan använda Azure Spark-pooler för att bearbeta dina data som lagras i Azure.
+Apache Spark är ett ramverk för parallellbearbetning som stöder minnesintern bearbetning för att öka prestanda i program för stordataanalys. Apache Spark i Azure Synapse Analytics är en av Microsofts implementeringar av Apache Spark i molnet. Med Azure Synapse kan du enkelt skapa och konfigurera en spark-pool (för hands version) i Azure. Spark-pooler i Azure Synapse är kompatibla med Azure Storage och Azure Data Lake generation 2-lagring. Så du kan använda Azure Spark-pooler för att bearbeta dina data som lagras i Azure.
 
 ![Spark: ett enhetligt ramverk](./media/apache-spark-overview/spark-overview.png)
 
@@ -26,67 +26,68 @@ Apache Spark är ett ramverk för parallellbearbetning som stöder minnesintern 
 
 ## <a name="what-is-apache-spark"></a>Vad är Apache Spark
 
-Apache Spark tillhandahåller primitiver för minnesbaserad klusterdator. Ett Spark-jobb kan läsa in och cachelagra data i minnet samt köra frågor på dessa data upprepade gånger. Minnesdatorer är mycket snabbare än diskbaserade program. Spark integrerar också med flera programmeringsspråk så att du kan manipulera distribuerade datauppsättningar som lokala samlingar. Det finns inget behov av att strukturera det hela i mappnings- och reduceringsåtgärder.
+Apache Spark innehåller primitiver för minnes intern kluster användning. Ett Spark-jobb kan läsa in och cachelagra data i minnet samt köra frågor på dessa data upprepade gånger. Data bearbetning i minnet är mycket snabbare än diskbaserade program. Spark integreras också med flera programmeringsspråk så att du kan manipulera distribuerade data uppsättningar som lokala samlingar. Det finns inget behov av att strukturera det hela i mappnings- och reduceringsåtgärder.
 
 ![Traditionell MapReduce vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark.png)
 
-Spark-pooler i Azure Synapse erbjuder en fullständigt hanterad Spark-tjänst. Fördelarna med att skapa en Spark-pool i Synapse Analytics visas här.
+Spark-pooler i Azure Synapse erbjuder en fullständigt hanterad Spark-tjänst. Fördelarna med att skapa en spark-pool i Synapse Analytics visas här.
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Snabbhet och effektivitet |Spark-instanser börjar om cirka 2 minuter i färre än 60 noder och cirka 5 minuter i mer än 60 noder. Instansen stängs av som standard 5 minuter efter det senaste jobbet som kördes om den inte hålls vid liv av en anteckningsboksanslutning. |
-| Enkelt att skapa |Du kan skapa en ny Spark-pool i Azure Synapse på några minuter med Azure-portalen, Azure PowerShell eller Synapse Analytics .NET SDK. Se [Komma igång med Spark-pooler i Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md). |
-| Användbarhet |Synapse Analytics innehåller en anpassad anteckningsbok som härleds från [Nteract](https://nteract.io/). Du kan de här anteckningsböckerna för interaktiv databehandling och visualisering.|
-| REST API:er |Spark i Synapse Analytics innehåller [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), en REST API-baserad Spark-jobbserver för att fjärrstyra och övervaka jobb. |
-| Stöd för Generation för Azure Data Lake Storage Generation 2| Spark-pooler i Azure Synapse kan använda Azure Data Lake Storage Generation 2 samt BLOB-lagring. Mer information om Data Lake Storage finns i [Översikt över Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
-| Integrering med tredje parts IDEs | Azure Synapse tillhandahåller en IDE-plugin för [Jetbrains IntelliJ IDEA](https://www.jetbrains.com/idea/) som är användbar för att skapa och skicka program till en Spark-pool. |
+| Hastighet och effektivitet |Spark-instanser startar på ungefär 2 minuter för färre än 60 noder och ungefär 5 minuter för fler än 60 noder. Instansen stängs av som standard, 5 minuter efter det senaste jobbet som utförts om det inte hålls alivet av en Notebook-anslutning. |
+| Enkelt att skapa |Du kan skapa en ny Spark-pool i Azure Synapse på bara några minuter med hjälp av Azure Portal, Azure PowerShell eller Synapse Analytics .NET SDK. Se [Kom igång med Spark-pooler i Synapse Analytics](../quickstart-create-apache-spark-pool.md). |
+| Användbarhet |Synapse Analytics innehåller en anpassad Notebook som härletts från [nteract](https://nteract.io/). Du kan de här anteckningsböckerna för interaktiv databehandling och visualisering.|
+| REST API:er |Spark i Synapse Analytics innehåller [Apache livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), en REST API-baserad Spark-jobbiljett för att skicka och övervaka jobb på distans. |
+| Stöd för Azure Data Lake Storage generation 2| Spark-pooler i Azure Synapse kan använda Azure Data Lake Storage generation 2 och BLOB Storage. Mer information om Data Lake Storage finns i [Översikt över Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
+| Integrering med tredje parts IDEs | Azure Synapse tillhandahåller ett IDE-plugin-program för [JetBrains "IntelliJ-idé](https://www.jetbrains.com/idea/) som är användbar för att skapa och skicka program till en spark-pool. |
 | Förinstallerade Anaconda-bibliotek |Spark-pooler i Azure Synapse levereras med Anaconda-bibliotek förinstallerade. [Anaconda](https://docs.continuum.io/anaconda/) innehåller närmare 200 bibliotek för Machine Learning, dataanalys, visualisering med mera. |
-| Skalbarhet | Apache Spark i Azure Synapse-pooler kan ha automatisk skalning aktiverat, så att poolerna skalas upp och ned efter behov. Spark-pooler kan också stängas av utan förlust av data eftersom alla data lagras i Azure Storage eller Data Lake Storage. |
+| Skalbarhet | Apache Spark i Azure Synapse-pooler kan aktivera automatisk skalning, så att pooler skalar upp och ned efter behov. Dessutom kan Spark-pooler stängas utan data förlust eftersom alla data lagras i Azure Storage eller Data Lake Storage. |
 
-Spark-pooler i Azure Synapse innehåller följande komponenter som är tillgängliga i poolerna som standard.
+Spark-pooler i Azure Synapse innehåller följande komponenter som är tillgängliga på pooler som standard.
 
-- [Spark Core](https://spark.apache.org/docs/latest/). Innehåller Spark Core, Spark SQL, GraphX och MLlib.
+- [Spark Core](https://spark.apache.org/docs/latest/). Inkluderar Spark Core, Spark SQL, GraphX och MLlib.
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
-- [Nteract bärbar dator](https://nteract.io/)
+- [Nteract Notebook](https://nteract.io/)
 
-## <a name="spark-pool-architecture"></a>Spark pool arkitektur
+## <a name="spark-pool-architecture"></a>Arkitektur för Spark-pool
 
-Det är lätt att förstå komponenterna i Spark genom att förstå hur Spark körs på Synapse Analytics.
+Det är enkelt att förstå komponenterna i Spark genom att förstå hur Spark körs på Synapse-analys.
 
-Spark-program körs som oberoende uppsättningar processer på en pool, som koordineras av SparkContext-objektet i huvudprogrammet (kallas drivrutinsprogrammet).
+Spark-program körs som oberoende uppsättningar av processer i en pool, koordineras av SparkContext-objektet i huvud programmet (kallas driv rutins program).
 
-SparkContext kan ansluta till klusterhanteraren, som allokerar resurser mellan program. Klusterhanteraren är [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). När Spark har anslutits hämtas utförare på noder i poolen, som är processer som kör beräkningar och lagrar data för ditt program. Därefter skickar den din programkod (definieras av JAR- eller Python-filer som överförts till SparkContext) till exekverarna. Slutligen skickar SparkContext uppgifter till de exekverare som ska köras.
+SparkContext kan ansluta till kluster hanteraren, som allokerar resurser mellan program. Kluster hanteraren är [Apache HADOOP garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). När en anslutning har upprättats skaffar Spark körningar på noder i poolen, som är processer som kör beräkningar och lagrar data för ditt program. Därefter skickar den din programkod (definieras av JAR- eller Python-filer som överförts till SparkContext) till exekverarna. Slutligen skickar SparkContext uppgifter till de exekverare som ska köras.
 
-SparkContext kör användarens huvudfunktion och kör de olika parallella åtgärderna på noderna. Drivrutinen samlar sedan in åtgärdernas resultat. Noderna läser och skriver data från och till filsystemet. Noderna cachelagrade också data i minnet som RDDs (Resilient Distributed Datasets).
+SparkContext kör användarens huvud funktion och kör de olika parallella åtgärderna på noderna. Drivrutinen samlar sedan in åtgärdernas resultat. Noderna läser och skriver data från och till fil systemet. Noderna cachelagrar också transformerade data i minnet som elastiska distribuerade data uppsättningar (RDD).
 
-SparkContext ansluter till Spark-poolen och ansvarar för att konvertera ett program till ett riktat diagram (DAG). Diagrammet består av enskilda uppgifter som körs i en executor-process på noderna. Varje applikation får en egen körningsprocess som förblir aktiv under applikationens livslängd och kör uppgifter i flera trådar.
+SparkContext ansluter till Spark-poolen och ansvarar för att konvertera ett program till ett riktat diagram (DAG). Grafen består av enskilda uppgifter som körs i en utförar-process på noderna. Varje applikation får en egen körningsprocess som förblir aktiv under applikationens livslängd och kör uppgifter i flera trådar.
 
-## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Apache Spark i Synapse Analytics användningsfall
+## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Apache Spark i användnings fall i Synapse Analytics
 
-Spark-pooler i Synapse Analytics aktiverar följande huvudscenarier:
+Spark-pooler i Synapse Analytics aktiverar följande viktiga scenarier:
 
-### <a name="data-engineeringdata-preparation"></a>Datateknik/dataförberedelse
+### <a name="data-engineeringdata-preparation"></a>Data teknik/data förberedelse
 
-Apache Spark innehåller många språkfunktioner för att stödja förberedelse och bearbetning av stora mängder data så att den kan göras mer värdefull och sedan förbrukas av andra tjänster inom Synapse Analytics. Detta aktiveras via flera språk (C#, Scala, PySpark, Spark SQL) och angivna bibliotek för bearbetning och anslutning.
+Apache Spark innehåller många språk funktioner som stöder förberedelse och bearbetning av stora data volymer så att det kan göras mer värdefullt och sedan konsumeras av andra tjänster i Synapse Analytics. Detta är aktiverat via flera språk (C#, Scala, PySpark, Spark SQL) och tillhandahållna bibliotek för bearbetning och anslutning.
 
 ### <a name="machine-learning"></a>Machine Learning
 
-Apache Spark levereras med [MLlib](https://spark.apache.org/mllib/), ett maskininlärningsbibliotek byggt ovanpå Spark som du kan använda från en Spark-pool i Synapse Analytics. Spark pooler i Synapse Analytics inkluderar också Anaconda, en Python-distribution med en mängd olika paket för datavetenskap, inklusive maskininlärning. I kombination med inbyggt stöd för bärbara datorer har du en miljö för att skapa maskininlärningsprogram.
+Apache Spark levereras med [MLlib](https://spark.apache.org/mllib/), ett maskin inlärnings bibliotek som byggts ovanpå Spark och som du kan använda från en spark-pool i Synapse Analytics. Spark-pooler i Synapse Analytics inkluderar även Anaconda, en python-distribution med flera olika paket för data vetenskap, inklusive Machine Learning. När du kombineras med inbyggt stöd för antecknings böcker har du en miljö för att skapa maskin inlärnings program.
 
 ## <a name="where-do-i-start"></a>Var börjar jag
 
-Använd följande artiklar om du vill veta mer om Apache Spark i Synapse Analytics:
+Använd följande artiklar för att lära dig mer om Apache Spark i Synapse Analytics:
 
-- [Snabbstart: Skapa en Spark-pool i Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
-- [Självstudiekurs: Maskininlärning med Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
+- [Snabb start: skapa en spark-pool i Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Snabb start: skapa en Apache Spark Notebook](../quickstart-apache-spark-notebook.md)
+- [Självstudie: Machine Learning med hjälp av Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 - [Apache Spark officiell dokumentation](https://spark.apache.org/docs/latest/)
 
 > [!NOTE]
-> En del av den officiella Apache Spark-dokumentationen förlitar sig på att använda spark-konsolen, detta är inte tillgängligt på Azure Synapse Spark, använder den bärbara datorn eller IntelliJ-upplevelserna istället
+> En del av den officiella Apache Spark dokumentationen är beroende av att använda Spark-konsolen, detta är inte tillgängligt på Azure Synapse Spark, Använd Notebook-eller IntelliJ-upplevelsen istället
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här översikten får du en grundläggande förståelse för Apache Spark i Azure Synapse Analytics. Gå vidare till nästa artikel om du vill lära dig hur du skapar en Spark-pool i Azure Synapse Analytics:
+I den här översikten får du en grundläggande förståelse för Apache Spark i Azure Synapse Analytics. Fortsätt till nästa artikel och lär dig hur du skapar en spark-pool i Azure Synapse Analytics:
 
-- [Skapa en Spark-pool i Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+- [Skapa en spark-pool i Azure Synapse](../quickstart-create-apache-spark-pool.md)

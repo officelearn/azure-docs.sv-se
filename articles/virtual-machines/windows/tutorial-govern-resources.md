@@ -1,25 +1,21 @@
 ---
-title: Självstudiekurs - Hantera virtuella datorer med PowerShell
+title: Självstudie – hantera virtuella datorer med PowerShell
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att hantera virtuella Azure-datorer med hjälp av RBAC, principer, lås och taggar
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: tfitzmac
-manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-windows
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d8cb1895c980fa9f84983ea8364cb2f0f5dcb982
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b4ce4cd53f9dda3d0f96e892128d543e59c83b26
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456030"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100370"
 ---
-# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Självstudiekurs: Lär dig mer om hantering av virtuella Datorer i Windows med Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Självstudie: Lär dig mer om hantering av virtuella Windows-datorer med Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -27,7 +23,7 @@ ms.locfileid: "81456030"
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="understand-scope"></a>Förstå omfång
 
@@ -67,7 +63,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Om du får ett felmeddelande om **att Principal \<guid> inte finns i katalogen**har den nya gruppen inte spridits i Azure Active Directory. Prova att köra kommandot igen.
+Om du får ett fel meddelande om **att \<huvud-GUID> inte finns i katalogen**sprids den nya gruppen i Azure Active Directory. Prova att köra kommandot igen.
 
 Normalt upprepar du processen för *Nätverksdeltagare* och *Lagringskontodeltagare* för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 
@@ -167,7 +163,7 @@ Ett felmeddelande visas som anger att borttagningsåtgärden inte kan slutföras
 
 ## <a name="tag-resources"></a>Tagga resurser
 
-Du använder [taggar](../../azure-resource-manager/management/tag-resources.md) på dina Azure-resurser för att logiskt ordna dem efter kategorier. Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
+Du kan använda [taggar](../../azure-resource-manager/management/tag-resources.md) till dina Azure-resurser för att logiskt organisera dem efter kategorier. Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -232,7 +228,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 > * Skydda viktiga resurser med lås
 > * Tagga resurser för fakturering och hantering
 
-Gå vidare till nästa självstudiekurs om du vill veta mer om hur du identifierar ändringar och hanterar paketuppdateringar på en virtuell Linux-dator.
+Gå vidare till nästa självstudie om du vill veta mer om hur du identifierar ändringar och hanterar paket uppdateringar på en virtuell Linux-dator.
 
 > [!div class="nextstepaction"]
 > [Hantera virtuella datorer](tutorial-config-management.md)

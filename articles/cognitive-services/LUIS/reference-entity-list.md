@@ -1,33 +1,33 @@
 ---
-title: Listentitetstyp - LUIS
-description: Listentiteter representerar en fast, sluten uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listentiteter. Använd funktionen Rekommendera om du vill se förslag på nya ord baserat på den aktuella listan.
+title: Lista enhets typ – LUIS
+description: Lista entiteter representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för List-entiteter. Använd rekommendations funktionen om du vill se förslag på nya ord baserade på den aktuella listan.
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297245"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097582"
 ---
 # <a name="list-entity"></a>Lista entitet
 
-Listentiteter representerar en fast, sluten uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listentiteter. Använd funktionen **Rekommendera** om du vill se förslag på nya ord baserat på den aktuella listan. Om det finns mer än en listentitet med samma värde returneras varje entitet i slutpunktsfrågan.
+Lista entiteter representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för List-entiteter. Använd **rekommendations** funktionen om du vill se förslag på nya ord baserade på den aktuella listan. Om det finns mer än en List-entitet med samma värde returneras varje entitet i slut punkts frågan.
 
-En listentitet är inte maskininlärd. Det är en exakt textmatchning. LUIS markerar en matchning till ett objekt i en lista som en entitet i svaret.
+En lista entitet har inte registrerats på datorn. Det är en exakt text matchning. LUIS markerar valfri matchning till ett objekt i en lista som en entitet i svaret.
 
-**Entiteten passar bra när textdata:**
+**Entiteten passar bra när text data:**
 
 * Är en känd uppsättning.
-* Det förändras inte ofta. Om du behöver ändra listan ofta eller vill att listan ska expandera sig själv är en enkel entitet som har ökat med en fraslista ett bättre val.
-* Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
-* Texten i uttryck är en skiftlägesokänslig matchning med en synonym eller det kanoniska namnet. LUIS använder inte listan utöver matchningen. Luddig matchning, avledning, plural och andra varianter löses inte med en listentitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
+* Ändras inte ofta. Om du behöver ändra listan ofta eller vill att listan ska expanderas själv, är en enkel entitet som ökar med en fras lista ett bättre alternativ.
+* Uppsättningen inte överskrider de högsta [gränserna](luis-limits.md) för LUIS för den här entitetstypen.
+* Texten i uttryck är inte Skift läges känslig med en synonym eller ett kanoniskt namn. LUIS använder inte listan bortom matchningen. Fuzzy Matching, igenkänning, plural och andra variationer löses inte med en List-entitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
 
 ![lista entitet](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json-to-import-into-list-entity"></a>Exempel på .json som ska importeras till listentiteten
+## <a name="example-json-to-import-into-list-entity"></a>Exempel. JSON att importera till List-entitet
 
-  Du kan importera värden till en befintlig listentitet med följande .json-format:
+  Du kan importera värden till en befintlig List-entitet med hjälp av följande. JSON-format:
 
   ```JSON
   [
@@ -52,18 +52,18 @@ En listentitet är inte maskininlärd. Det är en exakt textmatchning. LUIS mark
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
-Anta att appen har `Cities`en lista med namnet, som tillåter varianter av stadsnamn, inklusive flygplatsstad (Sea-tac), flygplatsnummer (SEA), postnummer (98101) och telefonnummer (206).
+Anta att appen har en lista med namnet `Cities`, som tillåter variationer av Orts namn, till exempel stads-TAC, flyg plats kod (Sea), post nummer (98101) och telefon rikt nummer (206).
 
-|Listobjekt|Artikel synonymer|
+|List objekt|Objekt synonymer|
 |---|---|
 |`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
 |`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 
-I föregående uttryck mappas ordet `paris` till paris-objektet som `Cities` en del av listentiteten. Listentiteten matchar både objektets normaliserade namn och artikel synonymerna.
+I föregående uttryck mappas ordet `paris` till Paris-objektet som en del av entiteten `Cities` lista. List entiteten matchar både objektets normaliserade namn och objektets synonymer.
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
   "entities": [
@@ -81,10 +81,10 @@ I föregående uttryck mappas ordet `paris` till paris-objektet som `Cities` en 
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 
-Detta är JSON `verbose=false` om anges i frågesträngen:
+Detta är JSON om `verbose=false` anges i frågesträngen:
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ Detta är JSON `verbose=false` om anges i frågesträngen:
 }
 ```
 
-Detta är JSON `verbose=true` om anges i frågesträngen:
+Detta är JSON om `verbose=true` anges i frågesträngen:
 
 ```json
 "entities": {
@@ -125,11 +125,11 @@ Detta är JSON `verbose=true` om anges i frågesträngen:
 
 * * *
 
-|Dataobjekt|Entitetsnamn|Värde|
+|Data objekt|Entitetsnamn|Värde|
 |--|--|--|
 |Lista entitet|`Cities`|`paris`|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](tutorial-list-entity.md)får du lära dig hur du använder en **listentitet** för att extrahera exakta matchningar med text från en lista med kända objekt.
+I den här [självstudien](tutorial-list-entity.md)får du lära dig hur du använder en **list-entitet** för att extrahera exakta matchningar av text från en lista över kända objekt.

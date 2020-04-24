@@ -1,64 +1,59 @@
 ---
-title: Azure-renderingsreferensarkitekturer - Azure Batch
-description: Arkitekturer för att använda Azure Batch och andra Azure-tjänster för att utöka en lokal renderingsgrupp genom att brista ut i molnet
-services: batch
-ms.service: batch
-author: davefellows
-manager: evansma
-ms.author: labrenne
+title: Referens arkitekturer för Azure rendering
+description: Arkitekturer för att använda Azure Batch och andra Azure-tjänster för att utöka en lokal rendering-servergrupp genom burst-överföring till molnet
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022961"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115779"
 ---
-# <a name="reference-architectures-for-azure-rendering"></a>Referensarkitekturer för Azure-rendering
+# <a name="reference-architectures-for-azure-rendering"></a>Referens arkitekturer för Azure-åter givning
 
-Den här artikeln visar arkitekturdiagram på hög nivå för scenarier som ska utöka, eller "burst", en lokal renderingsgrupp till Azure. Exemplen visar olika alternativ för Azure-beräknings-, nätverks- och lagringstjänster.
+Den här artikeln visar arkitektur diagram på hög nivå för scenarier som kan utökas eller "burst", en lokal åter givnings Server grupp till Azure. I exemplen visas olika alternativ för Azure Compute, nätverk och lagrings tjänster.
 
 ## <a name="hybrid-with-nfs-or-cfs"></a>Hybrid med NFS eller CFS
 
-Följande diagram visar ett hybridscenario som innehåller följande Azure-tjänster:
+Följande diagram visar ett hybrid scenario som innehåller följande Azure-tjänster:
 
-* **Beräkning** - Azure Batch pool eller virtuell dator skaluppsättning.
+* **Compute** -Azure Batch pool eller skalnings uppsättning för virtuell dator.
 
-* **Nätverk** - Lokalt: Azure ExpressRoute eller VPN. Azure: Azure VNet.
+* Lokalt **nätverk** : Azure EXPRESSROUTE eller VPN. Azure: Azure VNet.
 
-* **Lagring** - In- och utdatafiler: NFS eller CFS med virtuella Azure-datorer, synkroniserade med lokalt lagringsutrymme via Azure File Sync eller RSync. Alternativt: Avere vFXT för att mata in eller mata ut filer från lokala NAS-enheter med NFS.
+* **Lagrings** -och utdatafiler: NFS eller CFS med virtuella Azure-datorer, synkroniserade med lokal lagring via Azure File Sync eller RSync. Alternativt kan du: aver vFXT till indata-eller utdatafiler från lokala NAS-enheter med hjälp av NFS.
 
-  ![Cloud bursting - Hybrid med NFS eller CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
+  ![Cloud bursting – hybrid med NFS eller CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
-## <a name="hybrid-with-blobfuse"></a>Hybrid med blus
+## <a name="hybrid-with-blobfuse"></a>Hybrid med Blobfuse
 
-Följande diagram visar ett hybridscenario som innehåller följande Azure-tjänster:
+Följande diagram visar ett hybrid scenario som innehåller följande Azure-tjänster:
 
-* **Beräkning** - Azure Batch pool eller virtuell dator skaluppsättning.
+* **Compute** -Azure Batch pool eller skalnings uppsättning för virtuell dator.
 
-* **Nätverk** - Lokalt: Azure ExpressRoute eller VPN. Azure: Azure VNet.
+* Lokalt **nätverk** : Azure EXPRESSROUTE eller VPN. Azure: Azure VNet.
 
-* **Lagring** - In- och utdatafiler: Blob-lagring, monterad för att beräkna resurser via Azure Blobfuse.
+* **Lagrings** -och utdatafiler: Blob Storage, monteras på beräknings resurser via Azure Blobfuse.
 
-  ![Cloud bursting - Hybrid med blus](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
+  ![Cloud bursting – hybrid med Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
 ## <a name="hybrid-compute-and-storage"></a>Hybrid beräkning och lagring
 
-Följande diagram visar ett fullständigt anslutet hybridscenario för både beräkning och lagring och innehåller följande Azure-tjänster:
+Följande diagram visar ett fullständigt kopplat hybrid scenario för både beräkning och lagring och innehåller följande Azure-tjänster:
 
-* **Beräkning** - Azure Batch pool eller virtuell dator skaluppsättning.
+* **Compute** -Azure Batch pool eller skalnings uppsättning för virtuell dator.
 
-* **Nätverk** - Lokalt: Azure ExpressRoute eller VPN. Azure: Azure VNet.
+* Lokalt **nätverk** : Azure EXPRESSROUTE eller VPN. Azure: Azure VNet.
 
-* **Förvaring** - Korslokaler: Avere vFXT. Valfri arkivering av lokala filer via Azure Data Box till Blob-lagring eller lokal Avere FXT för NAS-acceleration.
+* **Lagring** – mellan platser: aver vFXT. Valfri arkivering av lokala filer via Azure Data Box till Blob Storage eller lokalt AVERT FXT för NAS-acceleration.
 
-  ![Cloud bursting - Hybrid beräkning och lagring](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
+  ![Cloud burst – hybrid beräkning och lagring](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du använder [Render-chefer](batch-rendering-render-managers.md) med Azure Batch.
+* Lär dig mer om hur du använder [åter givnings hanterare](batch-rendering-render-managers.md) med Azure Batch.
 
-* Läs mer om alternativ för [rendering i Azure](batch-rendering-service.md).
+* Lär dig mer om alternativ för [åter givning i Azure](batch-rendering-service.md).

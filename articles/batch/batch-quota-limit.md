@@ -1,151 +1,141 @@
 ---
-title: Tjänstkvoter och -gränser – Azure Batch | Microsoft-dokument
-description: Lär dig mer om azure batch-standardkvoter, begränsningar och begränsningar och hur du begär kvothöjningar
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
+title: Kvoter och begränsningar för tjänsten
+description: Lär dig mer om standard Azure Batch kvoter, gränser och begränsningar samt hur du begär kvot ökningar
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c8a78acfa1f3e7332cee337ae1a82ee365fe356a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248234"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115830"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
-Precis som med andra Azure-tjänster finns det gränser för vissa resurser som är associerade med batch-tjänsten. Många av dessa gränser är standardkvoter som tillämpas av Azure på prenumerations- eller kontonivå. I den här artikeln beskrivs standardinställningarna och hur du kan begära kvothöjningar.
+Precis som med andra Azure-tjänster finns det gränser för vissa resurser som är kopplade till batch-tjänsten. Många av de här gränserna är standard kvoter som används av Azure på prenumerations-eller konto nivå. I den här artikeln beskrivs dessa standardvärden och hur du kan begära kvot ökningar.
 
-Tänk på dessa kvoter när du utformar och skalar upp dina batcharbetsbelastningar. Om poolen till exempel inte når det målantal beräkningsnoder som du har angett kan du ha nått kärnkvotgränsen för ditt Batch-konto.
+Behåll dessa kvoter i åtanke när du utformar och skalar upp dina batch-arbetsbelastningar. Om din pool till exempel inte når mål antalet datornoder som du har angett kan du ha nått kärn kvot gränsen för ditt batch-konto.
 
 Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuera dina arbetsbelastningar mellan Batch-konton som är i samma prenumeration, men i olika Azure-regioner.
 
-Om du planerar att köra produktionsarbetsbelastningar i Batch kan du behöva öka en eller flera av kvoterna ovanför standardvärdet. Om du vill höja en kvot kan du öppna en [kundsupportbegäran](#increase-a-quota) online utan kostnad.
+Om du planerar att köra produktions arbets belastningar i batch kan du behöva öka en eller flera av kvoterna ovanför standardvärdet. Om du vill öka en kvot kan du öppna en [support förfrågan](#increase-a-quota) online utan kostnad.
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-En kvot är en kreditgräns, inte en kapacitetsgaranti. Om du har stora kapacitetsbehov kontaktar du Azure-supporten.
+En kvot är en kredit gräns, inte en kapacitets garanti. Kontakta Azure-supporten om du har storskaliga kapacitets behov.
 
-Observera också att kvoter inte är garanterade värden. Kvoter kan variera beroende på ändringar från batch-tjänsten eller en användarbegäran om att ändra ett kvotvärde.
+Observera också att kvoter inte är garanterade värden. Kvoter kan variera beroende på ändringar från batch-tjänsten eller en användar förfrågan för att ändra ett kvot värde.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="cores-quotas-in-user-subscription-mode"></a>Kärnkvoter i användarprenumerationsläge
+### <a name="cores-quotas-in-user-subscription-mode"></a>Kärn kvoter i användar prenumerations läge
 
-Om du har skapat ett batchkonto med poolallokeringsläge inställt på **användarprenumeration**tillämpas kvoter på olika sätt. I det här läget skapas virtuella batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Azure Batch-kärnorna gäller inte för ett konto som skapats i det här läget. I stället tillämpas kvoterna i prenumerationen för regionala beräkningskärnor och andra resurser. Läs mer om dessa kvoter i [Azure-prenumerations- och tjänstgränser, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Om du har skapat ett batch-konto med pool-allokeringsinställningar inställt på **användar prenumeration**tillämpas kvoter på olika sätt. I det här läget skapas virtuella batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Kvoterna för Azure Batch kärnor gäller inte för ett konto som skapats i det här läget. I stället tillämpas kvoterna i din prenumeration för regionala beräknings kärnor och andra resurser. Läs mer om de här kvoterna i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="pool-size-limits"></a>Storleksbegränsningar för pool
+## <a name="pool-size-limits"></a>Storleks begränsningar för pooler
 
-Poolstorleksgränser anges av batch-tjänsten. Till skillnad från [resurskvoter](#resource-quotas)kan dessa värden inte ändras. Endast pooler med internodkommunikation och anpassade avbildningar har andra begränsningar än standardkvoten.
+Storleks gränser för pooler anges av batch-tjänsten. Till skillnad från [resurs kvoter](#resource-quotas)kan de här värdena inte ändras. Endast pooler med kommunikation mellan noder och anpassade avbildningar har begränsningar som skiljer sig från standard kvoten.
 
 | **Resurs** | **Övre gräns** |
 | --- | --- |
-| **Beräkningsnoder i [kommunikationsaktiverad pool mellan noder](batch-mpi.md)**  ||
-| Allokeringsläge för batchservicepool | 100 |
-| Allokeringsläge för batchpool | 80 |
-| **Beräkna noder i [poolen som skapats med en hanterad avbildningsresurs](batch-custom-images.md)**<sup>1</sup> ||
+| **Compute-noder i en [pool för kommunikation mellan noder](batch-mpi.md)**  ||
+| Allocation mode för batch service pool | 100 |
+| Pool för batch-Fakturapool | 80 |
+| **Compute-noder som [skapats med en hanterad avbildnings resurs](batch-custom-images.md)**<sup>1</sup> ||
 | Dedikerade noder | 2000 |
 | Lågprioriterade virtuella noder | 1000 |
 
-<sup>1</sup> För pooler som inte är kommunikation mellan nod aktiverade.
+<sup>1</sup> för pooler som inte är kommunikation mellan noder aktive rad.
 
 ## <a name="other-limits"></a>Andra gränser
 
-Ytterligare gränser som anges av batch-tjänsten. Till skillnad från [resurskvoter](#resource-quotas)kan dessa värden inte ändras.
+Ytterligare begränsningar som anges av batch-tjänsten. Till skillnad från [resurs kvoter](#resource-quotas)kan de här värdena inte ändras.
 
 | **Resurs** | **Övre gräns** |
 | --- | --- |
-| [Samtidiga aktiviteter](batch-parallel-node-tasks.md) per beräkningsnod | 4 x antal nodkärnor |
+| [Samtidiga aktiviteter](batch-parallel-node-tasks.md) per Compute-nod | 4 x antal Node-kärnor |
 | [Program](batch-application-packages.md) per batch-konto | 20 |
 | Programpaket per program | 40 |
 | Programpaket per pool | 10 |
-| Maximal livslängd för aktiviteten | 180 dagar<sup>1</sup> |
-| [Monterar per beräkningsnod](virtual-file-mount.md) | 10 |
+| Maximal varaktighet för aktivitet | 180 dagar<sup>1</sup> |
+| [Monteringar](virtual-file-mount.md) per Compute-nod | 10 |
 
-<sup>1</sup> Den maximala livslängden för en aktivitet, från när den läggs till i jobbet till när den är klar, är 180 dagar. Slutförda uppgifter kvarstår i sju dagar; uppgifter för uppgifter som inte har slutförts inom den maximala livslängden är inte tillgängliga.
+<sup>1</sup> den maximala livs längden för en aktivitet, från när den läggs till i jobbet till när den är klar, är 180 dagar. Slutförda uppgifter sparas i sju dagar; data för uppgifter som inte har slutförts inom den maximala livs längden är inte tillgängliga.
 
-## <a name="view-batch-quotas"></a>Visa batchkvoter
+## <a name="view-batch-quotas"></a>Visa batch-kvoter
 
-Visa dina batchkontokvoter i [Azure-portalen][portal].
+Visa kvoterna för batch-kontot i [Azure Portal][portal].
 
-1. Välj **Batch-konton** i portalen och välj sedan det Batch-konto som du är intresserad av.
-1. Välj **Kvoter på** batchkontots meny.
-1. Visa de kvoter som för närvarande tillämpas på batchkontot
+1. Välj **batch-konton** i portalen och välj sedan det batch-konto som du är intresse rad av.
+1. Välj **kvoter** på menyn för batch-kontot.
+1. Visa de kvoter som för närvarande tillämpas på batch-kontot
 
-    ![Kvoter för batchkonto][account_quotas]
+    ![Batch-konto-kvoter][account_quotas]
 
 ## <a name="increase-a-quota"></a>Öka en kvot
 
-Följ dessa steg för att begära en kvotökning för ditt Batch-konto eller din prenumeration med Hjälp av [Azure-portalen][portal]. Vilken typ av kvotökning beror på poolallokeringsläget för ditt batchkonto. Om du vill begära en kvotökning måste du inkludera den VM-serie som du vill öka kvoten för. När kvotökningen tillämpas tillämpas den på alla serier av virtuella datorer.
+Följ dessa steg om du vill begära en kvot ökning för batch-kontot eller din prenumeration med hjälp av [Azure Portal][portal]. Vilken typ av kvot ökning som är beror på poolens fördelnings läge för batch-kontot. Om du vill begära en kvot ökning måste du ta med den VM-serien som du vill öka kvoten för. När kvot ökningen tillämpas tillämpas den på alla virtuella datorer.
 
-### <a name="increase-cores-quota-in-batch"></a>Öka kärnornas kvot i Batch 
+### <a name="increase-cores-quota-in-batch"></a>Öka kärn kvoten i batch 
 
-1. Välj **stödpanelen Hjälp +** på portalens instrumentpanel eller frågetecknet (**?**) i det övre högra hörnet av portalen.
-1. Välj **Nya supportbegäran** > **Basics**.
-1. I **grunderna:**
+1. Välj panelen **Hjälp + Support** på portalens instrument panel eller frågetecknet (**?**) i det övre högra hörnet i portalen.
+1. Välj **nya grundläggande support förfrågningar** > **Basics**.
+1. I **grunderna**:
    
-    a. **Problemtypstjänst** > **och prenumerationsgränser (kvoter)**
+    a. **Ärende typ** > **tjänst och prenumerations gränser (kvoter)**
    
     b. Välj din prenumeration.
    
-    c. **Batch för kvottyp** > **Batch**
+    c. **Kvot typ** > **batch**
       
     Välj **Nästa**.
     
 1. I **Information**:
       
-    a. Ange plats, kvottyp och Batch-konto i **Ange information.**
+    a. I **Ange information**anger du plats, kvot typ och batch-konto.
     
-    ![Ökning av batchkvot][quota_increase]
+    ![Ökning av batch-kvot][quota_increase]
 
-    Kvottyper inkluderar:
+    Kvot typer är:
 
-    * **Konto per batch**  
-        Värden som är specifika för ett enda batchkonto, inklusive dedikerade kärnor med låg prioritet och antal jobb och pooler.
+    * **Per batch-konto**  
+        Värden som är specifikt för ett enda batch-konto, inklusive dedikerade och låg prioritets kärnor samt antal jobb och pooler.
         
     * **Per region**  
-        Värden som gäller för alla batchkonton i en region och inkluderar antalet Batch-konton per region per prenumeration.
+        Värden som gäller för alla batch-konton i en region och innehåller antalet batch-konton per region per prenumeration.
 
-    Lågprioriterad kvot är ett enda värde i alla VM-serier. Om du behöver begränsade SKU:er måste du välja **lågprioriterade kärnor** och inkludera den virtuella datorns familjer att begära.
+    Kvoten med låg prioritet är ett enda värde i alla VM-serier. Om du behöver begränsade SKU: er måste du välja **låg prioritets kärnor** och inkludera VM-familjer som ska begäras.
 
-    b. Välj en **allvarlighetsgrad** enligt din inverkan på [verksamheten][support_sev].
+    b. Välj en **allvarlighets grad** för ditt [företags påverkan][support_sev].
 
     Välj **Nästa**.
 
-1. I **kontaktinformation:**
+1. I **kontakt information**:
    
-    a. Välj en **önskad kontaktmetod**.
+    a. Välj en **önskad kontakt metod**.
    
-    b. Verifiera och ange de kontaktuppgifter som krävs.
+    b. Verifiera och ange nödvändig kontakt information.
    
-    Välj **Skapa** om du vill skicka supportbegäran.
+    Välj **skapa** för att skicka in support förfrågan.
 
-När du har skickat in din supportbegäran kontaktar Azure-supporten dig. Kvotbegäranden kan slutföras inom några minuter eller upp till två arbetsdagar.
+När du har skickat in ditt support ärende kontaktar Azure-supporten. Kvot begär Anden kan slutföras inom några minuter eller upp till två arbets dagar.
 
 ## <a name="related-quotas-for-vm-pools"></a>Relaterade kvoter för VM-pooler
 
-Batchpooler i konfigurationen för virtuella datorer som distribueras i ett virtuellt Azure-nätverk allokerar automatiskt ytterligare Azure-nätverksresurser. Följande resurser behövs för varje 50 poolnoder i ett virtuellt nätverk:
+Batch-pooler i den virtuella dator konfigurationen som distribueras i ett virtuellt Azure-nätverk allokerar automatiskt ytterligare Azure nätverks resurser. Följande resurser behövs för varje 50-pool i ett virtuellt nätverk:
 
-* En [nätverkssäkerhetsgrupp](../virtual-network/security-overview.md#network-security-groups)
+* En [nätverks säkerhets grupp](../virtual-network/security-overview.md#network-security-groups)
 * En [offentlig IP-adress](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * En [belastningsutjämnare](../load-balancer/load-balancer-overview.md)
 
-Dessa resurser allokeras i prenumerationen som innehåller det virtuella nätverket som tillhandahålls när batchpoolen skapas. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). Om du planerar stora pooldistributioner i ett virtuellt nätverk kontrollerar du prenumerationens kvoter för dessa resurser. Om det behövs, begär en ökning av Azure-portalen genom att välja **Hjälp + support**.
+De här resurserna allokeras i prenumerationen som innehåller det virtuella nätverk som angavs när du skapade batch-poolen. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). Om du planerar distributioner av stora pooler i ett virtuellt nätverk kontrollerar du prenumerationens kvoter för dessa resurser. Om det behövs kan du begära en ökning av Azure Portal genom att välja **Hjälp + Support**.
 
 
 ## <a name="related-topics"></a>Relaterade ämnen
 * [Skapa ett Azure Batch-konto med hjälp av Azure-portalen](batch-account-create-portal.md)
-* [Översikt över Azure Batch-funktioner](batch-api-basics.md)
-* [Azure-prenumerations- och tjänstbegränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md)
+* [Översikt över Azure Batch funktioner](batch-api-basics.md)
+* [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

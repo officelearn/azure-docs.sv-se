@@ -1,40 +1,30 @@
 ---
-title: Designeffektiva listfrågor – Azure Batch | Microsoft-dokument
-description: Öka prestanda genom att filtrera dina frågor när du begär information om batchresurser som pooler, jobb, aktiviteter och beräkningsnoder.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
-ms.service: batch
+title: Utforma effektiva List frågor
+description: Öka prestanda genom att filtrera dina frågor när du begär information om batch-resurser som pooler, jobb, uppgifter och Compute-noder.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: df923ac479ce5f5a3668c18c616b11348dc6c0b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022247"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116119"
 ---
-# <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista batchresurser effektivt
+# <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista batch-resurser effektivt
 
-Här får du lära dig hur du ökar prestanda för Azure Batch-programmet genom att minska mängden data som returneras av tjänsten när du frågar jobb, uppgifter, beräkningsnoder och andra resurser med [batch -NET-biblioteket.][api_net]
+Här lär du dig hur du ökar Azure Batch programmets prestanda genom att minska mängden data som returneras av tjänsten när du frågar jobb, aktiviteter, Compute-noder och andra resurser med [batch .net][api_net] -biblioteket.
 
-Nästan alla Batch-program måste utföra någon typ av övervakning eller annan åtgärd som frågar batch-tjänsten, ofta med jämna mellanrum. Om du till exempel vill avgöra om det finns några köade uppgifter kvar i ett jobb måste du hämta data om varje aktivitet i jobbet. Om du vill ta reda på status för noder i poolen måste du hämta data på varje nod i poolen. I den här artikeln beskrivs hur du kör sådana frågor på det mest effektiva sättet.
+Nästan alla batch-program behöver utföra någon typ av övervakning eller annan åtgärd som skickar frågor till batch-tjänsten, ofta med jämna mellanrum. Om du till exempel vill fastställa om det finns några köade uppgifter kvar i ett jobb måste du hämta data för alla aktiviteter i jobbet. Om du vill fastställa status för noder i poolen måste du hämta data på varje nod i poolen. Den här artikeln förklarar hur du kör sådana frågor på det mest effektiva sättet.
 
 > [!NOTE]
-> Batch-tjänsten ger särskilt API-stöd för de vanliga scenarierna för att räkna uppgifter i ett jobb och räkna beräkningsnoder i batch-pool. I stället för att använda en listfråga för dessa kan du anropa åtgärderna [Hämta aktivitetsantal][rest_get_task_counts] och [listpoolräkna.][rest_get_node_counts] Dessa åtgärder är effektivare än en listfråga, men returnerar mer begränsad information. Se [Antal uppgifter och beräkningsnoder efter tillstånd](batch-get-resource-counts.md). 
+> Batch-tjänsten tillhandahåller särskilt API-stöd för vanliga scenarier för att räkna aktiviteter i ett jobb, och beräkning av datornoder i batch-poolen. I stället för att använda en lista fråga för dessa kan du anropa åtgärderna [Hämta antal aktiviteter][rest_get_task_counts] och [lista antal noder i noden][rest_get_node_counts] . Dessa åtgärder är mer effektiva än en List fråga, men returnerar mer begränsad information. Se [räkna aktiviteter och Compute-noder efter tillstånd](batch-get-resource-counts.md). 
 
 
-## <a name="meet-the-detaillevel"></a>Möt detaljnivån
-I ett produktionsbatchprogram kan entiteter som jobb, aktiviteter och beräkningsnoder numrera i tusental. När du begär information om dessa resurser måste en potentiellt stor mängd data "korsa kabeln" från batch-tjänsten till ditt program på varje fråga. Genom att begränsa antalet objekt och typ av information som returneras av en fråga kan du öka hastigheten på dina frågor och därmed programmets prestanda.
+## <a name="meet-the-detaillevel"></a>Uppfylla DetailLevel
+I ett batch-program för produktion kan entiteter som jobb, aktiviteter och Compute-noder numreras i tusental. När du begär information om de här resurserna måste en potentiellt stor mängd data "korsa kabeln" från batch-tjänsten till ditt program på varje fråga. Genom att begränsa antalet objekt och vilken typ av information som returneras av en fråga kan du öka hastigheten på dina frågor och därmed programmets prestanda.
 
-I det här [batch-KODAVSNITTET för NET][api_net] API-kod visas *varje* aktivitet som är associerad med ett jobb, tillsammans med *alla* egenskaper för varje aktivitet:
+Det här [batch .net][api_net] API-kodfragmentet listar *varje* aktivitet som är associerad med ett jobb, tillsammans med *alla* egenskaper för varje aktivitet:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -42,7 +32,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-Du kan dock utföra en mycket effektivare listfråga genom att använda en "detaljnivå" på frågan. Du gör detta genom att ange ett [ODATADetailLevel-objekt][odata] till metoden [JobOperations.ListTasks.][net_list_tasks] Det här kodavsnittet returnerar endast egenskaperna för ID, kommandorad och beräkningsnodinformation för slutförda aktiviteter:
+Du kan använda en mycket mer effektiv List fråga, men genom att använda en "detalj nivå" i din fråga. Du gör detta genom att tillhandahålla ett [ODATADetailLevel][odata] -objekt till [JobOperations. ListTasks][net_list_tasks] -metoden. Det här kodfragmentet returnerar bara egenskaperna ID, kommando rad och Compute Node (information) för slutförda aktiviteter:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -56,60 +46,60 @@ IPagedEnumerable<CloudTask> completedTasks =
     batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-I det här exemplet, om det finns tusentals aktiviteter i jobbet, returneras resultaten från den andra frågan vanligtvis mycket snabbare än den första. Mer information om hur du använder ODATADetailLevel när du listar objekt med batch .NET-API:et finns [nedan](#efficient-querying-in-batch-net).
+I det här exempel scenariot, om det finns tusentals uppgifter i jobbet, kommer resultatet från den andra frågan vanligt vis att returnera mycket snabbare än den första. Mer information om hur du använder ODATADetailLevel när du listerar objekt med batch .NET-API: et finns [nedan](#efficient-querying-in-batch-net).
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du *alltid* tillhandahåller ett ODATADetailLevel-objekt till dina .NET API-listanrop för att säkerställa maximal effektivitet och prestanda för ditt program. Genom att ange en detaljnivå kan du hjälpa till att sänka svarstiderna för batchtjänster, förbättra nätverksanvändningen och minimera minnesanvändningen för klientprogram.
+> Vi rekommenderar starkt att du *alltid* anger ett ODATADetailLevel-objekt till dina .NET API List-anrop för att säkerställa högsta effektivitet och prestanda för ditt program. Genom att ange en detalj nivå kan du hjälpa till att minska svars tiderna för batch-tjänsten, förbättra nätverks användningen och minimera minnes användningen av klient program.
 > 
 > 
 
-## <a name="filter-select-and-expand"></a>Filtrera, markera och expandera
-[Batch .NET-][api_net] och [Batch-REST-API:erna][api_rest] ger möjlighet att minska både antalet artiklar som returneras i en lista och mängden information som returneras för var och en. Du gör det genom att ange **filter,** **markera**och **expandera strängar** när du utför listfrågor.
+## <a name="filter-select-and-expand"></a>Filtrera, välja och expandera
+API: erna för [batch .net][api_net] och [batch rest][api_rest] ger möjlighet att minska antalet objekt som returneras i en lista, samt hur mycket information som returneras för varje. Du gör detta genom att ange **filter**, **välja**och **expandera strängar** när du utför List frågor.
 
 ### <a name="filter"></a>Filter
-Filtersträngen är ett uttryck som minskar antalet objekt som returneras. Lista till exempel endast de aktiviteter som körs för ett jobb, eller lista endast beräkningsnoder som är redo att köra aktiviteter.
+Filter strängen är ett uttryck som minskar antalet objekt som returneras. Du kan till exempel endast lista de aktiviteter som körs för ett jobb, eller en lista med enbart datornoder som är redo att köra uppgifter.
 
-* Filtersträngen består av ett eller flera uttryck, med ett uttryck som består av ett egenskapsnamn, en operator och ett värde. De egenskaper som kan anges är specifika för varje entitetstyp som du frågar, liksom de operatorer som stöds för varje egenskap.
-* Flera uttryck kan kombineras med hjälp `and` av `or`logiska operatorer och .
-* I det här exemplet visas filtersträngen `(state eq 'running') and startswith(id, 'renderTask')`endast de drivrutinsaktiviteter som körs: .
+* Filter strängen består av ett eller flera uttryck med ett uttryck som består av ett egenskaps namn, en operator och ett värde. De egenskaper som kan anges är specifika för varje entitetstyp som du frågar efter, som är de operatorer som stöds för varje egenskap.
+* Flera uttryck kan kombineras med hjälp av logiska `and` operatorer `or`och.
+* I den här exempel filter strängen visas bara de kör åter givnings aktiviteter `(state eq 'running') and startswith(id, 'renderTask')`som körs:.
 
 ### <a name="select"></a>Välj
-Urvalssträngen begränsar egenskapsvärdena som returneras för varje artikel. Du anger en lista med egenskapsnamn och endast dessa egenskapsvärden returneras för objekten i frågeresultatet.
+Den valda strängen begränsar de egenskaps värden som returneras för varje objekt. Du kan ange en lista över egenskaps namn och bara de egenskaps värden som returneras för objekten i frågeresultatet.
 
-* Urvalssträngen består av en kommaavgränsad lista med egenskapsnamn. Du kan ange någon av egenskaperna för den entitetstyp som du frågar efter.
-* Den här exempelsträngen anger att endast tre egenskapsvärden `id, state, stateTransitionTime`ska returneras för varje aktivitet: .
+* Select-strängen består av en kommaavgränsad lista med egenskaps namn. Du kan ange någon av egenskaperna för entitetstypen som du frågar.
+* I det här exemplet väljer du sträng anger att endast tre egenskaps värden ska returneras för `id, state, stateTransitionTime`varje aktivitet:.
 
 ### <a name="expand"></a>Visa
-Expandera strängen minskar antalet API-anrop som krävs för att få viss information. När du använder en expanderande sträng kan mer information om varje objekt erhållas med ett enda API-anrop. I stället för att först hämta listan över entiteter och sedan begära information för varje objekt i listan använder du en expandersträng för att hämta samma information i ett enda API-anrop. Mindre API-anrop innebär bättre prestanda.
+Expand-strängen minskar antalet API-anrop som krävs för att hämta viss information. När du använder en Expand-sträng kan mer information om varje objekt hämtas med ett enda API-anrop. I stället för att först hämta listan över entiteter, och sedan begära information för varje objekt i listan, använder du en Expand sträng för att hämta samma information i ett enda API-anrop. Färre API-anrop innebär bättre prestanda.
 
-* I likhet med urvalssträngen styr expand strängen om vissa data ingår i listfrågeresultatet.
-* Expand strängen stöds bara när den används i listning jobb, jobbscheman, aktiviteter och pooler. För närvarande stöder den bara statistikinformation.
-* När alla egenskaper krävs och ingen urvalssträng har angetts *måste* expandersträngen användas för att hämta statistikinformation. Om en urvalssträng används för att hämta `stats` en delmängd av egenskaper kan du ange i urvalssträngen och expandersträngen behöver inte anges.
-* I det här exemplet anger expanderingssträngen att statistikinformation `stats`ska returneras för varje objekt i listan: .
+* På samma sätt som med Select-strängen, kontrollerar Expand-strängen om vissa data ingår i lista frågeresultat.
+* Expand strängen stöds bara när den används i ett List jobb, jobb scheman, uppgifter och pooler. För närvarande stöder den bara statistik information.
+* När alla egenskaper krävs och ingen Select-sträng anges, *måste* expansions strängen användas för att hämta statistik information. Om en SELECT-sträng används för att hämta en delmängd av egenskaperna `stats` , kan anges i SELECT-strängen och den expanderade strängen behöver inte anges.
+* I det här exemplet expanderas sträng anger du att statistik information ska returneras för varje objekt i `stats`listan:.
 
 > [!NOTE]
-> När du konstruerar någon av de tre frågesträngtyperna (filtrera, markerar och expanderar) måste du se till att egenskapsnamnen och skiftfallet matchar dem för deras REST API-elementmotsvarigheter. När du till exempel arbetar med klassen .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) måste du ange **tillstånd** i stället för **Tillstånd**, även om egenskapen .NET är [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Se tabellerna nedan för egenskapsmappningar mellan .NET- och REST-API:erna.
+> När du skapar någon av de tre typerna av frågesträngar (filter, Välj och expandera) måste du se till att egenskaps namnen och skiftet stämmer överens med de REST API elementens motsvarigheter. När du arbetar med .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) -klassen måste du till exempel ange **State** i stället för **State**, även om .net-egenskapen är [CloudTask. State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Se tabellerna nedan för egenskaps mappningar mellan .NET-och REST-API: er.
 > 
 > 
 
-### <a name="rules-for-filter-select-and-expand-strings"></a>Regler för filter, markering och expanderande strängar
-* Egenskapsnamn i filter, markering och expanderande strängar ska visas på samma sätt som i [BATCH REST][api_rest] API – även när du använder [Batch .NET][api_net] eller någon av de andra batch-SDK:erna.
-* Alla egenskapsnamn är skiftlägeskänsliga, men egenskapsvärden är skiftlägesokänsliga.
-* Datum-/tidssträngar kan vara ett av två format `DateTime`och måste föregås av .
+### <a name="rules-for-filter-select-and-expand-strings"></a>Regler för filter, Välj och expandera strängar
+* Egenskaps namn i filter, Välj och expandera strängar bör visas på samma sätt som i [batch rest][api_rest] -API: et, även när du använder [batch .net][api_net] eller någon av de andra batch SDK: erna.
+* Alla egenskaps namn är Skift läges känsliga, men egenskaps värden är Skift läges känsliga.
+* Datum-och tids strängar kan vara ett av två format och måste föregås av `DateTime`.
   
-  * Exempel på W3C-DTF-format:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * Exempel på W3C-DTF format:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
   * Exempel på RFC 1123-format:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
-* Boolesksträngar `true` är `false`antingen eller .
-* Om en ogiltig egenskap eller operatör anges uppstår ett `400 (Bad Request)` fel.
+* Booleska strängar är antingen `true` eller `false`.
+* Om en ogiltig egenskap eller operator anges, uppstår ett `400 (Bad Request)` fel.
 
-## <a name="efficient-querying-in-batch-net"></a>Effektiv fråga i Batch .NET
-I [batch .NET][api_net] API används klassen [ODATADetailLevel][odata] för att leverera filter, välja och expandera strängar till liståtgärder. Klassen ODataDetailLevel har tre offentliga strängegenskaper som kan anges i konstruktorn eller ställas in direkt på objektet. Du skickar sedan ODataDetailLevel-objektet som en parameter till de olika liståtgärderna, till exempel [ListPools][net_list_pools], [ListJobs][net_list_jobs]och [ListTasks][net_list_tasks].
+## <a name="efficient-querying-in-batch-net"></a>Effektiv fråga i batch .NET
+I [batch .net][api_net] -API: et används klassen [ODATADetailLevel][odata] för att ange filter, välja och expandera strängar för att lista åtgärder. ODataDetailLevel-klassen har tre offentliga sträng egenskaper som kan anges i konstruktorn eller anges direkt för objektet. Sedan skickar du ODataDetailLevel-objektet som en parameter till de olika List åtgärderna, till exempel [ListPools][net_list_pools], [ListJobs][net_list_jobs]och [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata]. [FilterClause][odata_filter]: Begränsa antalet artiklar som returneras.
-* [ODATADetailLevel][odata]. [SelectClause][odata_select]: Ange vilka egenskapsvärden som returneras med varje artikel.
+* [ODATADetailLevel][odata]. [FilterClause][odata_filter]: begränsa antalet objekt som returneras.
+* [ODATADetailLevel][odata]. [SelectClause][odata_select]: ange vilka egenskaps värden som ska returneras för varje objekt.
 * [ODATADetailLevel][odata]. [ExpandClause][odata_expand]: Hämta data för alla objekt i ett enda API-anrop i stället för separata anrop för varje objekt.
 
-Följande kodavsnitt använder batch.NET-API:et för att effektivt fråga batchtjänsten efter statistik för en viss uppsättning pooler. I det här fallet har batch-användaren både test- och produktionspooler. Testpool-ID:erna föregås av "test", och produktionspool-ID:erna föregås av "prod". I utdraget är *myBatchClient* en korrekt initierad instans av klassen [BatchClient.](/dotnet/api/microsoft.azure.batch.batchclient)
+Följande kodfragment använder batch .NET API för att effektivt fråga batch-tjänsten om statistik för en angiven uppsättning pooler. I det här scenariot har batch-användaren både test-och produktionspooler. TestPool-ID: n föregås av "test" och ID: n för produktionspooler har prefixet "Prod". I kodfragmentet är *myBatchClient* en korrekt initierad instans av [metoden batchclient](/dotnet/api/microsoft.azure.batch.batchclient) -klassen.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -138,69 +128,69 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> En instans av [ODATADetailLevel][odata] som har konfigurerats med Select- och Expand-satser kan också skickas till lämpliga Get-metoder, till exempel [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), för att begränsa mängden data som returneras.
+> En instans av [ODATADetailLevel][odata] som kon figurer ATS med Select and Expand-satser kan också skickas till lämpliga get-metoder, till exempel [PoolOperations. GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), för att begränsa mängden data som returneras.
 > 
 > 
 
-## <a name="batch-rest-to-net-api-mappings"></a>Batch REST till .NET API-mappningar
-Egenskapsnamn i filter, markering och expanderande strängar *måste* återspegla sina REST API-motsvarigheter, både i namn och ärende. Tabellerna nedan innehåller mappningar mellan motsvarigheterna .NET och REST API.
+## <a name="batch-rest-to-net-api-mappings"></a>Batch-REST till .NET API-mappningar
+Egenskaps namn i filter-, Select-och Expand-strängar *måste* reflektera sina REST API-motsvarigheter, både i namn och Skift läge. Tabellerna nedan innehåller mappningar mellan .NET och REST API motsvarigheter.
 
-### <a name="mappings-for-filter-strings"></a>Mappningar för filtersträngar
-* **.NET-listmetoder:** Var och en av .NET API-metoderna i den här kolumnen accepterar ett [ODATADetailLevel-objekt][odata] som en parameter.
-* **REST-listbegäranden:** Varje REST API-sida som är länkad till i den här kolumnen innehåller en tabell som anger de egenskaper och åtgärder som tillåts i *filtersträngar.* Du kommer att använda dessa egenskapsnamn och åtgärder när du skapar en [ODATADetailLevel.FilterClause-sträng.][odata_filter]
+### <a name="mappings-for-filter-strings"></a>Mappningar för filter strängar
+* **.Net-List metoder**: var och en av .NET API-metoderna i den här kolumnen accepterar ett [ODATADetailLevel][odata] -objekt som en parameter.
+* **Rest List-begäranden**: varje REST API sida som är länkad till i den här kolumnen innehåller en tabell som anger de egenskaper och åtgärder som tillåts i *filter* strängar. Du kommer att använda dessa egenskaps namn och-åtgärder när du skapar en [ODATADetailLevel. FilterClause][odata_filter] -sträng.
 
-| .NET-listmetoder | Begäran om REST-lista |
+| .NET-List metoder | REST List-begäranden |
 | --- | --- |
-| [CertificateOperations.ListCertificates][net_list_certs] |[Lista certifikaten i ett konto][rest_list_certs] |
-| [CloudTask.ListNodeFiler][net_list_task_files] |[Lista de filer som är associerade med en uppgift][rest_list_task_files] |
-| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Ange status för jobbförberedelser och jobbfrisättningsuppgifter för ett jobb][rest_list_jobprep_status] |
-| [JobOperations.ListJobs][net_list_jobs] |[Lista jobben i ett konto][rest_list_jobs] |
-| [JobOperations.ListNodeFiles][net_list_nodefiles] |[Lista filerna på en nod][rest_list_nodefiles] |
-| [JobOperations.ListTaks][net_list_tasks] |[Lista de uppgifter som är associerade med ett jobb][rest_list_tasks] |
-| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Lista jobbuppläggen i ett konto][rest_list_job_schedules] |
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Lista de jobb som är associerade med ett jobbschema][rest_list_schedule_jobs] |
-| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Lista beräkningsnoderna i en pool][rest_list_compute_nodes] |
-| [PoolOperations.ListPools][net_list_pools] |[Lista poolerna i ett konto][rest_list_pools] |
+| [Metoden certificateoperations. ListCertificates][net_list_certs] |[Lista certifikaten i ett konto][rest_list_certs] |
+| [CloudTask. ListNodeFiles][net_list_task_files] |[Lista de filer som associeras med en aktivitet][rest_list_task_files] |
+| [JobOperations. ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Lista status för jobb förberedelse-och jobb publicerings aktiviteter för ett jobb][rest_list_jobprep_status] |
+| [JobOperations. ListJobs][net_list_jobs] |[Visa en lista över jobben i ett konto][rest_list_jobs] |
+| [JobOperations. ListNodeFiles][net_list_nodefiles] |[Lista filerna på en nod][rest_list_nodefiles] |
+| [JobOperations. ListTasks][net_list_tasks] |[Lista de uppgifter som är associerade med ett jobb][rest_list_tasks] |
+| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Visa en lista med jobb scheman i ett konto][rest_list_job_schedules] |
+| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Lista de jobb som är associerade med ett jobb schema][rest_list_schedule_jobs] |
+| [PoolOperations. ListComputeNodes][net_list_compute_nodes] |[Visa en lista med datornoderna i en pool][rest_list_compute_nodes] |
+| [PoolOperations. ListPools][net_list_pools] |[Lista pooler i ett konto][rest_list_pools] |
 
-### <a name="mappings-for-select-strings"></a>Mappningar för utvalda strängar
-* **Batch .NET-typer:** Batch .NET API-typer.
-* **REST API-entiteter:** Varje sida i den här kolumnen innehåller en eller flera tabeller som listar egenskapsnamnen för REST API för typen. Dessa egenskapsnamn används när du konstruerar *välj* strängar. Du kommer att använda samma egenskapsnamn när du skapar en [ODATADetailLevel.SelectClause-sträng.][odata_select]
+### <a name="mappings-for-select-strings"></a>Mappningar för Select-strängar
+* **Batch .net-typer**: batch .NET API-typer.
+* **REST API entiteter**: varje sida i den här kolumnen innehåller en eller flera tabeller som visar REST API egenskaps namnen för typen. Dessa egenskaps namn används när du skapar *Select* -strängar. Du kommer att använda samma egenskaps namn när du skapar en [ODATADetailLevel. SelectClause][odata_select] -sträng.
 
-| Batch .NET-typer | REST API-entiteter |
+| Batch .NET-typer | REST API entiteter |
 | --- | --- |
-| [Certifikat][net_cert] |[Få information om ett certifikat][rest_get_cert] |
-| [CloudJob (Moln)][net_job] |[Få information om ett jobb][rest_get_job] |
-| [CloudJobSchedule][net_schedule] |[Få information om ett jobbschema][rest_get_schedule] |
-| [ComputeNode (Beräkningsnod)][net_node] |[Få information om en nod][rest_get_node] |
-| [CloudPool (moln)][net_pool] |[Få information om en pool][rest_get_pool] |
-| [CloudTask][net_task] |[Få information om en uppgift][rest_get_task] |
+| [Certifikatmallens][net_cert] |[Hämta information om ett certifikat][rest_get_cert] |
+| [CloudJob][net_job] |[Hämta information om ett jobb][rest_get_job] |
+| [CloudJobSchedule][net_schedule] |[Hämta information om ett jobb schema][rest_get_schedule] |
+| [ComputeNode][net_node] |[Hämta information om en nod][rest_get_node] |
+| [CloudPool][net_pool] |[Hämta information om en pool][rest_get_pool] |
+| [CloudTask][net_task] |[Hämta information om en uppgift][rest_get_task] |
 
-## <a name="example-construct-a-filter-string"></a>Exempel: konstruera en filtersträng
-När du skapar en filtersträng för [ODATADetailLevel.FilterClause][odata_filter]läser du tabellen ovan under "Mappningar för filtersträngar" för att hitta sidan REST API-dokumentation som motsvarar den liståtgärd som du vill utföra. Du hittar de filterbara egenskaperna och deras operatorer som stöds i den första flerväxningstabellen på den sidan. Om du vill hämta alla aktiviteter vars avslutningskod inte var noll, till exempel, anger den här raden i [Lista de aktiviteter som är associerade med ett jobb][rest_list_tasks] den tillämpliga egenskapssträngen och tillåtna operatorer:
+## <a name="example-construct-a-filter-string"></a>Exempel: skapa en filter sträng
+När du skapar en filter sträng för [ODATADetailLevel. FilterClause][odata_filter], se tabellen ovan under "mappningar för filter strängar" för att hitta REST API dokumentations sidan som motsvarar den List åtgärd som du vill utföra. Du hittar de filter bara egenskaperna och de operatörer som stöds i den första multirow-tabellen på den sidan. Om du vill hämta alla aktiviteter vars slutkod inte var noll, till exempel den här raden i [lista de uppgifter som är associerade med ett jobb][rest_list_tasks] , anger den tillämpliga egenskaps strängen och tillåtna operatorer:
 
 | Egenskap | Tillåtna åtgärder | Typ |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
-Filtersträngen för att lista alla uppgifter med en icke-nollutträdeskod skulle alltså vara:
+Därför blir filter strängen för att lista alla aktiviteter med en slutkod som inte är noll:
 
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
-## <a name="example-construct-a-select-string"></a>Exempel: konstruera en urvalssträng
-Om du vill konstruera [ODATADetailLevel.SelectClause][odata_select]läser du tabellen ovan under "Mappningar för utvalda strängar" och navigerar till SIDAN REST API som motsvarar den typ av entitet som du listar. Du hittar de valbara egenskaperna och deras operatorer som stöds i den första flerväxningstabellen på den sidan. Om du till exempel bara vill hämta ID och kommandorad för varje aktivitet i en lista hittar du dessa rader i den tillämpliga tabellen på [Hämta information om en uppgift:][rest_get_task]
+## <a name="example-construct-a-select-string"></a>Exempel: skapa en SELECT-sträng
+Om du vill skapa [ODATADetailLevel. SelectClause][odata_select]läser du tabellen ovan under "mappningar för Select Strings" och navigerar till REST API sidan som motsvarar den typ av enhet som du visar. Du hittar de valbara egenskaperna och de operatörer som stöds i den första multirow-tabellen på den sidan. Om du till exempel bara vill hämta ID och kommando rad för varje aktivitet i en lista, så hittar du till exempel raderna i den tillämpliga tabellen på [Hämta information om en aktivitet][rest_get_task]:
 
 | Egenskap | Typ | Anteckningar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
 
-Den valda strängen för att bara inkludera ID och kommandoraden för varje listad uppgift blir då:
+Den valda strängen för att inkludera endast ID och kommando rad med varje listad aktivitet skulle då vara:
 
 `id, commandLine`
 
 ## <a name="code-samples"></a>Kodexempel
-### <a name="efficient-list-queries-code-sample"></a>Kodexempel för effektiva listfrågor
-Kolla in [exempelprojektet EfficientListQueries][efficient_query_sample] på GitHub för att se hur effektiv listfrågor kan påverka prestanda i ett program. Det här C#-konsolprogrammet skapar och lägger till ett stort antal uppgifter i ett jobb. Sedan anropas flera anrop till metoden [JobOperations.ListTasks][net_list_tasks] och [ODATADetailLevel-objekt][odata] som är konfigurerade med olika egenskapsvärden varierar mängden data som ska returneras. Den producerar utdata som liknar följande:
+### <a name="efficient-list-queries-code-sample"></a>Effektiv lista frågor kod exempel
+Kolla in [EfficientListQueries][efficient_query_sample] -exempelprojektet på GitHub för att se hur effektiva List frågor kan påverka prestanda i ett program. Det här C#-konsol programmet skapar och lägger till ett stort antal aktiviteter i ett jobb. Sedan gör det flera anrop till metoden [JobOperations. ListTasks][net_list_tasks] och överför [ODATADetailLevel][odata] -objekt som har kon figurer ATS med olika egenskaps värden för att variera mängden data som ska returneras. Den ger utdata som liknar följande:
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -216,19 +206,19 @@ Adding 5000 tasks to job jobEffQuery...
 Sample complete, hit ENTER to continue...
 ```
 
-Som visas i förflutna tider kan du avsevärt sänka frågesvarstiderna genom att begränsa egenskaperna och antalet objekt som returneras. Du hittar det här och andra exempelprojekt i databasen [för azure-batch-samples][github_samples] på GitHub.
+Som du ser i de förflutna tiderna kan du minska svars tiderna i frågan genom att begränsa egenskaperna och antalet objekt som returneras. Du kan hitta det här och andra exempel projekt i databasen [Azure-Batch-samples][github_samples] på GitHub.
 
-### <a name="batchmetrics-library-and-code-sample"></a>Exempel på BatchMetrics-bibliotek och kod
-Förutom kodexemplet EfficientListQueries ovan kan du hitta [BatchMetrics-projektet][batch_metrics] i GitHub-arkivet för [azure-batch-exempel.][github_samples] Exempelprojektet BatchMetrics visar hur du effektivt övervakar Azure Batch-jobbframsteg med batch-API:et.
+### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics-bibliotek och kod exempel
+Förutom EfficientListQueries-kod exemplet ovan kan du hitta [BatchMetrics][batch_metrics] -projektet i [Azure-Batch-samples][github_samples] GitHub-lagringsplatsen. BatchMetrics-exempelprojektet visar hur du effektivt övervakar Azure Batch jobb förlopp med batch-API: et.
 
-Exemplet [BatchMetrics][batch_metrics] innehåller ett .NET-klassbiblioteksprojekt som du kan införliva i dina egna projekt och ett enkelt kommandoradsprogram för att träna och demonstrera användningen av biblioteket.
+[BatchMetrics][batch_metrics] -exemplet innehåller ett .NET-klass biblioteks projekt som du kan inkludera i dina egna projekt, och ett enkelt kommando rads program för att använda och demonstrera användningen av biblioteket.
 
-Exempelprogrammet inom projektet visar följande åtgärder:
+Exempel programmet i projektet demonstrerar följande åtgärder:
 
-1. Välja specifika attribut för att bara hämta de egenskaper du behöver
-2. Filtrering av tillståndsövergångstider för att bara hämta ändringar sedan den senaste frågan
+1. Välja speciella attribut för att bara hämta de egenskaper du behöver
+2. Filtrering av tillstånds över gångs tider för att bara hämta ändringar sedan den senaste frågan
 
-Följande metod visas till exempel i batchmetrikbiblioteket. Den returnerar en ODATADetailLevel som `id` `state` anger att endast egenskaperna och ska erhållas för de entiteter som efterfrågas. Det anger också att endast enheter vars tillstånd `DateTime` har ändrats sedan den angivna parametern ska returneras.
+Till exempel visas följande metod i BatchMetrics-biblioteket. Den returnerar en ODATADetailLevel som anger att endast egenskaperna `id` och `state` ska hämtas för de entiteter som efter frågas. Det anger också att endast entiteter vars tillstånd har ändrats sedan den `DateTime` angivna parametern ska returneras.
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
@@ -241,8 +231,8 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-### <a name="parallel-node-tasks"></a>Parallella nodaktiviteter
-[Maximera Azure Batch-beräkningsresursanvändning med samtidiga noduppgifter](batch-parallel-node-tasks.md) är en annan artikel som är relaterad till batchprogramprestanda. Vissa typer av arbetsbelastningar kan dra nytta av att köra parallella uppgifter på större men färre beräkningsnoder. Kolla in [exempelscenariot](batch-parallel-node-tasks.md#example-scenario) i artikeln för information om ett sådant scenario.
+### <a name="parallel-node-tasks"></a>Aktiviteter för parallell nod
+[Maximera Azure Batch beräknings resursanvändningen med aktiviteter för samtidiga noder](batch-parallel-node-tasks.md) är en annan artikel som rör prestanda för batch-program. Vissa typer av arbets belastningar kan dra nytta av att köra parallella uppgifter på större, men färre-beräknings noder. Se [exempel scenariot](batch-parallel-node-tasks.md#example-scenario) i artikeln för information om ett sådant scenario.
 
 
 [api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch

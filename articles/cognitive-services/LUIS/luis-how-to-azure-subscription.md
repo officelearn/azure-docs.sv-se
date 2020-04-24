@@ -1,46 +1,46 @@
 ---
-title: Så här använder du redigerings- och körningsnycklar - LUIS
-description: När du först använder SPRÅKFÖRSTÅELSE (LUIS) behöver du inte skapa en redigeringsnyckel. När du tänker publicera appen och sedan använda slutpunkten för körning måste du skapa och tilldela körningsnyckeln till appen.
+title: Använda redigerings-och körnings nycklar – LUIS
+description: Första gången du använder Language Understanding (LUIS) behöver du inte skapa någon redigerings nyckel. När du tänker publicera appen måste du använda din runtime-slutpunkt för att skapa och tilldela appen körnings nyckel.
 services: cognitive-services
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: ea2799e7b8bb18ad4a729a70ae1477cde9f97e95
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754342"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101033"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
-Redigerings- och körningsresurser ger autentisering till LUIS-appen och slutpunkten för förutsägelse.
+Redigerings-och körnings resurser ger autentisering till din LUIS-app och förutsägelse slut punkt.
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
 När du loggar in på LUIS-portalen kan du välja att fortsätta med:
 
-* en fri [testversion nyckel](#trial-key) - ger redigering och några förutsägelse slutpunkt frågor.
-* en Azure [LUIS-redigeringsresurs.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+* en kostnads fri [utvärderings nyckel](#trial-key) – som tillhandahåller redigering och några förutsägelse slut punkts frågor.
+* en redigerings resurs för Azure- [Luis](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) .
 
 <a name="starter-key"></a>
 
-## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Logga in på LUIS-portalen och börja skapa
+## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Logga in på LUIS-portalen och börja redigera
 
-1. Logga in på [LUIS-portalen](https://www.luis.ai) och godkänn användarvillkoren.
-1. Börja luis-appen genom att välja vilken typ av LUIS-redigeringsnyckel du vill använda: kostnadsfri utvärderingsversionsnyckel eller ny Azure LUIS-redigeringsnyckel.
+1. Logga in på [Luis-portalen](https://www.luis.ai) och godkänn användnings villkoren.
+1. Starta LUIS-appen genom att välja vilken typ av LUIS redigerings nyckel som du vill använda: kostnads fri utvärderings nyckel eller ny LUIS redigerings nyckel för Azure.
 
-    ![Välj en typ av språk understanding-redigeringsresurs](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+    ![Välj en typ av Language Understanding redigering av resurs](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-1. När du är klar med resursvalsprocessen [skapar du en ny app](luis-how-to-start-new-app.md#create-new-app-in-luis).
+1. När du är färdig med din resurs urvals process [skapar du en ny app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
-## <a name="trial-key"></a>Testnyckel
+## <a name="trial-key"></a>Utvärderings nyckel
 
-Testnyckeln (startmotorn) tillhandahålls för dig. Den används som autentiseringsnyckel för att fråga förutsägelseslutpunktskörningen, upp till 1 000 frågor per månad.
+Du har fått nyckeln för utvärderings versionen (starter). Den används som autentiseringsnyckel för att fråga efter körningen av förutsägelse slut punkten, upp till 1000 frågor per månad.
 
-Den visas på både sidan **Användarinställningar** och sidan **Hantera -> Azure-resurser** i LUIS-portalen.
+Den visas både på sidan **användar inställningar** och på **hanterings > Azure-resurser** på Luis-portalen.
 
-När du är redo att publicera din förutsägelseslutpunkt [skapar](#create-luis-resources) och [tilldelar](#assign-a-resource-to-an-app) du tangenter för redigering och förutsägelsekörning, för att ersätta startnyckelfunktionen.
+När du är redo att publicera din förutsägelse slut punkt [skapar](#create-luis-resources) du och [tilldelar](#assign-a-resource-to-an-app) redigerings-och förutsägelse körnings nycklar för att ersätta start nyckel funktionen.
 
 <a name="create-resources-in-the-azure-portal"></a>
 
@@ -53,8 +53,8 @@ Använd [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=
 
 Resurs `kind`:
 
-* Författande:`LUIS.Authoring`
-* Prognos:`LUIS`
+* Redigerings`LUIS.Authoring`
+* Förutsägelse`LUIS`
 
 1. Logga in på Azure CLI:
 
@@ -62,136 +62,136 @@ Resurs `kind`:
     az login
     ```
 
-    Detta öppnar en webbläsare så att du kan välja rätt konto och tillhandahålla autentisering.
+    Då öppnas en webbläsare så att du kan välja rätt konto och tillhandahålla autentisering.
 
-1. Skapa en **LUIS-redigeringsresurs** `LUIS.Authoring`, `my-luis-authoring-resource` av typen , med `westus` namnet i den _befintliga_ resursgruppen som heter `my-resource-group` för regionen.
+1. Skapa en **Luis Authoring-resurs**, av `LUIS.Authoring`typen, `my-luis-authoring-resource` med namnet i den _befintliga_ resurs `my-resource-group` gruppen med `westus` namnet för regionen.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Skapa en **LUIS-förutsägelseslutpunktsresurs**, av typen `LUIS`, med namnet `my-luis-prediction-resource` i den _befintliga_ resursgruppen som heter `my-resource-group` för `westus` regionen. Om du vill ha ett högre dataflöde än den kostnadsfria nivån ändrar du `F0` till `S0`. Läs mer om [prisnivåer och dataflöde](luis-boundaries.md#key-limits).
+1. Skapa en **resurs**av typen `LUIS`Luis förutsägelse-slutpunkt med namnet `my-luis-prediction-resource` i den _befintliga_ resurs gruppen med `my-resource-group` namnet för `westus` regionen. Ändra `F0` till `S0`om du vill ha ett högre data flöde än den kostnads fria nivån. Läs mer om [pris nivåer och data flöde](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
     > [!Note]
-    > De här nycklarna används **inte** av LUIS-portalen förrän de har tilldelats i LUIS-portalen på **Hantera -> Azure-resurser**.
+    > De här nycklarna används **inte** av Luis-portalen förrän de har tilldelats i Luis-portalen på **Azure-resurserna för hanterings >**.
 
-## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Tilldela en redigeringsresurs i LUIS-portalen för alla appar
+## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Tilldela en Authoring-resurs i LUIS-portalen för alla appar
 
-Du kan tilldela en redigeringsresurs för en enskild app eller för alla appar i LUIS. Följande procedur tilldelar alla appar till en enda redigeringsresurs.
+Du kan tilldela en redigerings resurs för en enskild app eller för alla appar i LUIS. Följande procedur tilldelar alla appar till en enda redigerings resurs.
 
-1. Logga in på [LUIS-portalen](https://www.luis.ai).
-1. Längst till höger längst upp i navigeringsfältet väljer du ditt användarkonto och väljer sedan **Inställningar**.
-1. På sidan **Användarinställningar** väljer du **Lägg till redigeringsresurs** och väljer sedan en befintlig redigeringsresurs. Välj **Spara**.
+1. Logga in på [Luis-portalen](https://www.luis.ai).
+1. I det övre navigerings fältet längst till höger väljer du ditt användar konto och väljer sedan **Inställningar**.
+1. På sidan **användar inställningar** väljer du **Lägg till Authoring-resurs** och väljer sedan en befintlig redigerings resurs. Välj **Spara**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Tilldela en resurs till en app
 
-Du kan tilldela en enskild resurs, redigering eller förutsägelseslutpunktskörning, till en app med följande procedur.
+Du kan tilldela en enskild resurs, redigering eller förutsägelse slut punkt körning till en app med följande procedur.
 
-1. Logga in på [LUIS-portalen](https://www.luis.ai)och välj sedan en app i listan **Mina appar.**
-1. Navigera till sidan **Hantera -> Azure-resurser.**
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj sedan en app från listan **Mina appar** .
+1. Gå till sidan för att **hantera > Azure-resurser** .
 
-    ![Välj hantera -> Azure-resurser i LUIS-portalen för att tilldela en resurs till appen.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+    ![Välj hanterings > Azure-resurser i LUIS-portalen för att tilldela en resurs till appen.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
-1. Välj fliken Förutsägelse eller Redigering av resurser och välj sedan knappen **Lägg till förutsägelseresurs** eller **Lägg till redigeringsresurs.**
-1. Markera fälten i formuläret för att hitta rätt resurs och välj sedan **Spara**.
+1. Välj fliken förutsägelse eller redigering av resurs och välj sedan knappen **Lägg till förutsägelse resurs** eller **Lägg till redigering resurs** .
+1. Välj fälten i formuläret för att hitta rätt resurs och välj sedan **Spara**.
 
-### <a name="assign-runtime-resource-without-using-luis-portal"></a>Tilldela körningsresurs utan att använda LUIS-portalen
+### <a name="assign-runtime-resource-without-using-luis-portal"></a>Tilldela körnings resurser utan att använda LUIS-portalen
 
-För automatiseringsändamål, till exempel en CI/CD-pipeline, kanske du vill automatisera tilldelningen av en LUIS-körningsresurs till en LUIS-app. För att kunna göra det måste du utföra följande steg:
+I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automatisera tilldelningen av en LUIS runtime-resurs till en LUIS-app. Du måste utföra följande steg för att göra det:
 
-1. Hämta en Azure Resource Manager-token från den här [webbplatsen](https://resources.azure.com/api/token?plaintext=true). Den här token upphör att gälla så använd den omedelbart. Begäran returnerar en Azure Resource Manager-token.
+1. Hämta en Azure Resource Manager token från den här [webbplatsen](https://resources.azure.com/api/token?plaintext=true). Denna token upphör att gälla, så Använd den omedelbart. Begäran returnerar en Azure Resource Manager-token.
 
-    ![Begär Azure Resource Manager-token och ta emot Azure Resource Manager-token](./media/luis-manage-keys/get-arm-token.png)
+    ![Begär Azure Resource Manager-token och ta emot Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
 
-1. Använd token för att begära LUIS-körningsresurserna över prenumerationer, från [API:et för Get LUIS azure-konton](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), som ditt användarkonto har åtkomst till.
+1. Använd token för att begära LUIS runtime-resurser mellan prenumerationer, från [Get Luis Azure-konton API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)som ditt användar konto har åtkomst till.
 
-    Detta POST API kräver följande inställningar:
+    Detta POST-API kräver följande inställningar:
 
     |Huvud|Värde|
     |--|--|
-    |`Authorization`|Värdet på `Authorization` `Bearer {token}`är . Observera att tokenvärdet måste föregås `Bearer` av ordet och ett blanksteg.|
-    |`Ocp-Apim-Subscription-Key`|Din redigeringsnyckel.|
+    |`Authorization`|Värdet för `Authorization` är `Bearer {token}`. Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
+    |`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
 
-    Det här API:et returnerar en matris med JSON-objekt för dina LUIS-prenumerationer, inklusive prenumerations-ID, resursgrupp och resursnamn, som returneras som kontonamn. Leta reda på det objekt i matrisen som är LUIS-resursen som ska tilldelas LUIS-appen.
+    Detta API returnerar en matris med JSON-objekt för dina LUIS-prenumerationer, inklusive prenumerations-ID, resurs grupp och resurs namn, returnerat som konto namn. Hitta det objekt i matrisen som är den LUIS-resurs som ska tilldelas LUIS-appen.
 
-1. Tilldela token till LUIS-resursen med [tilldela ett LUIS-azure-konto till ett](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) program-API.
+1. Tilldela token till LUIS-resursen med [tilldela ett Luis Azure-konto till ett program](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) -API.
 
-    Detta POST API kräver följande inställningar:
+    Detta POST-API kräver följande inställningar:
 
     |Typ|Inställning|Värde|
     |--|--|--|
-    |Huvud|`Authorization`|Värdet på `Authorization` `Bearer {token}`är . Observera att tokenvärdet måste föregås `Bearer` av ordet och ett blanksteg.|
-    |Huvud|`Ocp-Apim-Subscription-Key`|Din redigeringsnyckel.|
+    |Huvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}`. Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
+    |Huvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
     |Huvud|`Content-type`|`application/json`|
-    |Querystring|`appid`|LUIS-app-ID.
-    |Innehåll||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Mängden|`appid`|LUIS-app-ID.
+    |Innehåll||{"AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "ResourceGroup-2",<br>"AccountName": "Luis-USWest-S0-2"}|
 
-    När det här API:et lyckas returneras statusen 201 - skapad.
+    När det här API: et lyckas returneras statusen 201-skapat.
 
-## <a name="unassign-resource"></a>Tilldela resurs som inte har tilldelats
+## <a name="unassign-resource"></a>Ta bort tilldelning av resurs
 
-1. Logga in på [LUIS-portalen](https://www.luis.ai)och välj sedan en app i listan **Mina appar.**
-1. Navigera till sidan **Hantera -> Azure-resurser.**
-1. Välj fliken Förutsägelse eller Redigering av resurser och välj sedan knappen **Tilldela bort resurs** för resursen.
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj sedan en app från listan **Mina appar** .
+1. Gå till sidan för att **hantera > Azure-resurser** .
+1. Välj fliken förutsägelse eller redigering av resurs och välj sedan knappen **ta bort tilldelning av resurs** för resursen.
 
-När du avtilldelar en resurs tas den inte bort från Azure. Det är bara olänkat från LUIS.
+När du tar bort tilldelningen av en resurs tas den inte bort från Azure. Den länkas bara från LUIS.
 
-## <a name="reset-authoring-key"></a>Återställa redigeringsnyckeln
+## <a name="reset-authoring-key"></a>Återställ redigerings nyckel
 
-**För [att skapa resursrendererade](luis-migration-authoring.md) appar:** Om redigeringsnyckeln komprometteras återställer du nyckeln i Azure-portalen på **sidan Nycklar** för den redigeringsresursen.
+**För [redigering av resurs migrerade](luis-migration-authoring.md) appar**: om redigerings nyckeln har komprometterats, återställer du nyckeln i Azure Portal på sidan **nycklar** för den redigerings resursen.
 
-**För appar som inte har migrerat ännu:** nyckeln återställs på alla dina appar i LUIS-portalen. Om du skapar dina appar via de författande API:erna måste du ändra värdet på Ocp-Apim-Subscription-Key till den nya nyckeln.
+**För appar som inte har migrerats än**: nyckeln återställs på alla dina appar i Luis-portalen. Om du redigerar dina appar via redigerings-API: erna måste du ändra värdet för OCP-APIM-Subscription-Key till den nya nyckeln.
 
 ## <a name="regenerate-azure-key"></a>Återskapa Azure-nyckel
 
-Återskapa Azure-nycklarna från Azure-portalen på sidan **Nycklar.**
+Återskapa Azure-nycklarna från Azure Portal på sidan **nycklar** .
 
 ## <a name="delete-account"></a>Ta bort konto
 
-Se [Lagring och borttagning](luis-concept-data-storage.md#accounts) av data för information om vilka data som tas bort när du tar bort ditt konto.
+Se [data lagring och borttagning](luis-concept-data-storage.md#accounts) för information om vilka data som tas bort när du tar bort ditt konto.
 
 ## <a name="change-pricing-tier"></a>Ändra prisnivå
 
-1.  Hitta din LUIS-prenumeration i [Azure.](https://portal.azure.com) Välj LUIS-prenumerationen.
+1.  Leta upp din LUIS-prenumeration i [Azure](https://portal.azure.com). Välj prenumerationen LUIS.
     ![Hitta din LUIS-prenumeration](./media/luis-usage-tiers/find.png)
-1.  Välj **prisnivå** för att se tillgängliga prisnivåer.
-    ![Visa prisnivåer](./media/luis-usage-tiers/subscription.png)
-1.  Välj prisnivå och välj **Välj för** att spara ändringen.
-    ![Ändra luis-betalningsnivån](./media/luis-usage-tiers/plans.png)
-1.  När prisändringen är klar verifierar ett popup-fönster den nya prisnivån.
-    ![Verifiera luis-betalningsnivån](./media/luis-usage-tiers/updated.png)
-1. Kom ihåg att [tilldela den här slutpunktsnyckeln](#assign-a-resource-to-an-app) på sidan **Publicera** och använda den i alla slutpunktsfrågor.
+1.  Välj **pris nivå** för att se tillgängliga pris nivåer.
+    ![Visa pris nivåer](./media/luis-usage-tiers/subscription.png)
+1.  Välj pris nivå och välj **Välj** för att spara ändringen.
+    ![Ändra din betalnings nivå för LUIS](./media/luis-usage-tiers/plans.png)
+1.  När pris ändringen är klar verifierar ett popup-fönster den nya pris nivån.
+    ![Verifiera din LUIS-betalningsnivå](./media/luis-usage-tiers/updated.png)
+1. Kom ihåg att [tilldela den här slut punkts nyckeln](#assign-a-resource-to-an-app) på **publicerings** sidan och Använd den i alla slut punkts frågor.
 
-## <a name="viewing-azure-resource-metrics"></a>Visa Azure-resursmått
+## <a name="viewing-azure-resource-metrics"></a>Visa Azures resurs mått
 
-### <a name="viewing-azure-resource-summary-usage"></a>Visa Azure-resurssammanfattningsanvändning
-Du kan visa LUIS-användningsinformation i Azure. På sidan **Översikt** visas den senaste sammanfattningsinformationen, inklusive samtal och fel. Om du gör en LUIS-slutpunktsbegäran kan du omedelbart titta på **översiktssidan**, upp till fem minuter för att användningen ska visas.
+### <a name="viewing-azure-resource-summary-usage"></a>Visa användning av Azure-resurs Sammanfattning
+Du kan visa LUIS användnings information i Azure. På sidan **Översikt** visas senaste sammanfattnings information, inklusive anrop och fel. Om du gör en LUIS kan du omedelbart titta på **sidan Översikt**, tillåta upp till fem minuter innan användningen visas.
 
-![Visa sammanfattningsanvändning](./media/luis-usage-tiers/overview.png)
+![Visa sammanfattnings användning](./media/luis-usage-tiers/overview.png)
 
-### <a name="customizing-azure-resource-usage-charts"></a>Anpassa Azure-resursanvändningsdiagram
-Mått ger en mer detaljerad vy över data.
+### <a name="customizing-azure-resource-usage-charts"></a>Anpassa användnings diagram för Azure-resursanvändning
+Mått är en mer detaljerad vy i data.
 
-![Standardmått](./media/luis-usage-tiers/metrics-default.png)
+![Standard mått](./media/luis-usage-tiers/metrics-default.png)
 
-Du kan konfigurera måttdiagram för tidsperiod och måtttyp.
+Du kan konfigurera mått diagram för tids period och Måttyp.
 
 ![Anpassade mått](./media/luis-usage-tiers/metrics-custom.png)
 
-### <a name="total-transactions-threshold-alert"></a>Tröskelavisering för totalt antal transaktioner
-Om du vill veta när du har nått ett visst transaktionströskel, till exempel 10 000 transaktioner, kan du skapa en avisering.
+### <a name="total-transactions-threshold-alert"></a>Avisering om totalt antal transaktioner
+Om du vill veta när du har nått ett visst transaktions tröskelvärde, till exempel 10 000 transaktioner, kan du skapa en avisering.
 
-![Standardaviseringar](./media/luis-usage-tiers/alert-default.png)
+![Standard varningar](./media/luis-usage-tiers/alert-default.png)
 
-Lägg till en måttavisering för det **totala anropsmåttet** för en viss tidsperiod. Lägg till e-postadresser för alla personer som ska få aviseringen. Lägg till webhooks för alla system som ska ta emot aviseringen. Du kan också köra en logikapp när aviseringen utlöses.
+Lägg till en mått avisering för det **totala anrops** måttet under en viss tids period. Lägg till e-postadresser till alla personer som ska ta emot aviseringen. Lägg till webhookar för alla system som ska ta emot aviseringen. Du kan också köra en Logic app när aviseringen utlöses.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du [använder versioner](luis-how-to-manage-versions.md) för att styra appens livscykel.
-* Förstå begreppen, inklusive [redigeringsresursen](luis-concept-keys.md#authoring-key) och [deltagarna](luis-concept-keys.md#contributions-from-other-authors) på den resursen.
-* Lär dig hur du [skapar](luis-how-to-azure-subscription.md) redigerings- och körningsresurser
-* Migrera till den nya [redigeringsresursen](luis-migration-authoring.md)
+* Lär dig [hur du använder versioner](luis-how-to-manage-versions.md) för att kontrol lera appens livs cykel.
+* Förstå begreppen, inklusive [redigering av resurser](luis-concept-keys.md#authoring-key) och [deltagare](luis-concept-keys.md#contributions-from-other-authors) på den resursen.
+* Lär dig [hur du skapar](luis-how-to-azure-subscription.md) redigerings-och körnings resurser
+* Migrera till den nya [redigerings resursen](luis-migration-authoring.md)

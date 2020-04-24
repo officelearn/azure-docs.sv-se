@@ -15,4 +15,4 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/24/2020
 ms.locfileid: "72818664"
 ---
-Du kan arbeta med tabeller med hjälp av Azure Table-lagring eller Azure Cosmos DB. Mer information om skillnaderna mellan tjänsterna finns i [Tabellerbjudanden](../articles/cosmos-db/table-introduction.md#table-offerings). Du måste skapa ett konto för den tjänst som du ska använda.
+Du kan arbeta med tabeller med hjälp av Azure Table-lagring eller Azure Cosmos DB. Mer information om skillnaderna mellan tjänsterna finns i [tabell erbjudanden](../articles/cosmos-db/table-introduction.md#table-offerings). Du måste skapa ett konto för den tjänst som du ska använda.

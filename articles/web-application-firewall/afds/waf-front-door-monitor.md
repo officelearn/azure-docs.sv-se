@@ -1,49 +1,49 @@
 ---
-title: Övervakning och loggning av Azure Web Application-brandväggen
-description: Lär dig brandvägg för webbprogram (WAF) med FrontDoor-övervakning och loggning
+title: Övervakning och loggning av brand vägg för Azure-webbprogram
+description: Lär dig mer om brand vägg för webbaserade program (WAF) med ytterdörr-övervakning och loggning
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: 4488fadf5db3b32049b5dce4bbee1fa76c320e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4f666415a96307b89022c6caf6af90581f294f3
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284151"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115371"
 ---
-# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Övervakning och loggning av Azure Web Application-brandväggen 
+# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Övervakning och loggning av brand vägg för Azure-webbprogram 
 
-Övervakning och loggning (Azure Web Application Firewall) tillhandahålls genom loggning och integrering med Azure Monitor- och Azure Monitor-loggar.
+Övervakning och loggning av Azure Web Application-brandväggen (WAF) tillhandahålls genom loggning och integrering med Azure Monitor-och Azure Monitor-loggar.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-WAF med FrontDoor-loggen är integrerad med [Azure Monitor](../../azure-monitor/overview.md). Med Azure Monitor kan du spåra diagnostikinformation, inklusive WAF-aviseringar och loggar. Du kan konfigurera WAF-övervakning inom front door-resursen i portalen under fliken **Diagnostik** eller via Azure Monitor-tjänsten direkt.
+WAF med ytterdörr-loggen är integrerad med [Azure Monitor](../../azure-monitor/overview.md). Med Azure Monitor kan du spåra diagnostikinformation, inklusive WAF-aviseringar och loggar. Du kan konfigurera WAF övervakning i den främre dörren i portalen under fliken **diagnostik** eller via tjänsten Azure Monitor direkt.
 
-Gå till resurstypen Ytterdörr från Azure-portalen. Från fliken/**Övervakningsmått** till vänster kan du lägga till **WebApplicationFirewallRequestCount** för att spåra antalet begäranden som matchar WAF-regler. **Monitoring** Anpassade filter kan skapas baserat på åtgärdstyper och regelnamn.
+Från Azure Portal går du till resurs typen frontend-dörr. Från fliken **övervakning**/av**mått** till vänster kan du lägga till **WebApplicationFirewallRequestCount** för att spåra antalet förfrågningar som matchar WAF-regler. Anpassade filter kan skapas baserat på åtgärds typer och regel namn.
 
-![WAFMetrics (19)100](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
+![WAFMetrics](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
 
 ## <a name="logs-and-diagnostics"></a>Loggar och diagnostik
 
-WAF med ytterdörren ger detaljerad rapportering om varje hot den upptäcker. Loggningen är integrerad med loggar och varningar för Azure Diagnostics och registreras i JSON-format. Dessa loggar kan integreras med [Azure Monitor-loggar](../../azure-monitor/insights/azure-networking-analytics.md).
+WAF med front dörren ger detaljerad rapportering om varje hot som identifieras. Loggningen är integrerad med loggar och varningar för Azure Diagnostics och registreras i JSON-format. Dessa loggar kan integreras med [Azure Monitor loggar](../../azure-monitor/insights/azure-networking-analytics.md).
 
-![WAFDiag (på andra sätt)](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
+![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-FrontdoorAccessLog loggar alla begäranden som vidarebefordras till kundens back-ends. FrontdoorWebApplicationFirewallLog loggar alla förfrågningar som matchar en WAF-regel.
+FrontdoorAccessLog loggar alla förfrågningar som vidarebefordras till kund Server delar. FrontdoorWebApplicationFirewallLog loggar alla förfrågningar som matchar en WAF-regel.
 
-Följande exempelfråga hämtar WAF-loggar på blockerade begäranden:
+I följande exempel fråga hämtas WAF-loggar på blockerade begär Anden:
 
 ``` WAFlogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
-| where action_name_s == "Block"
+| where action_s == "Block"
 
 ```
 
-Här är ett exempel på en loggad begäran i WAF logg:
+Här är ett exempel på en loggad begäran i WAF-loggen:
 
 ``` WAFlogQuerySample
 {
@@ -66,7 +66,7 @@ Här är ett exempel på en loggad begäran i WAF logg:
 
 ``` 
 
-Följande exempelfråga hämtar AccessLogs-poster:
+I följande exempel fråga hämtas AccessLogs-poster:
 
 ``` AccessLogQuery
 AzureDiagnostics
@@ -74,7 +74,7 @@ AzureDiagnostics
 
 ```
 
-Här är ett exempel på en inloggad begäran i Access-loggen:
+Här är ett exempel på en loggad begäran i Access logg:
 
 ``` AccessLogSample
 {
@@ -105,4 +105,4 @@ Här är ett exempel på en inloggad begäran i Access-loggen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [ytterdörren.](../../frontdoor/front-door-overview.md)
+- Läs mer om [front dörren](../../frontdoor/front-door-overview.md).

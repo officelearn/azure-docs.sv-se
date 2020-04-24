@@ -1,45 +1,40 @@
 ---
-title: 'Självstudiekurs: Skydda en Windows-webbserver med TLS/SSL-certifikat i Azure'
+title: 'Självstudie: skydda en Windows-webbserver med TLS/SSL-certifikat i Azure'
 description: I den här självstudien får du lära dig hur du använder Azure PowerShell för att skydda en virtuell Windows-dator som kör IIS-webbservern med TLS/SSL-certifikat som lagras i Azure Key Vault.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2795d45cd5bba7aab33b06350faee23e83189c30
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: da9834636944c6bb816c4f49b0e9bf3abda2264a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455588"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097786"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Självstudiekurs: Skydda en webbserver på en virtuell Windows-dator i Azure med TLS/SSL-certifikat lagrade i Key Vault
+# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Självstudie: skydda en webb server på en virtuell Windows-dator i Azure med TLS/SSL-certifikat som lagras i Key Vault
 
 > [!NOTE]
-> För närvarande fungerar detta dokument endast för generaliserade avbildningar. Om du försöker med den här självstudien med en specialiserad disk visas ett felmeddelande. 
+> För närvarande fungerar det här dokumentet bara för generaliserade avbildningar. Om du försöker utföra den här självstudien med en specialiserad disk får du ett fel meddelande. 
 
-För att skydda webbservrar, en TLS (Transport Layer Security), som tidigare kallades SSL (Secure Sockets Layer), kan certifikat användas för att kryptera webbtrafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault och tillåta säkra distributioner av certifikat till virtuella Datorer i Windows (VMs) i Azure. I den här guiden får du lära du dig hur man:
+För att skydda webb servrar, en Transport Layer Security (TLS), som tidigare kallades Secure Sockets Layer (SSL), kan du använda certifikat för att kryptera webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault och tillåta säker distribution av certifikat till virtuella Windows-datorer i Azure. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
 > * Generera eller ladda upp ett certifikat till Key Vault
 > * Skapa en virtuell dator och installera IIS-webbservern
-> * Injicera certifikatet i den virtuella datorn och konfigurera IIS med en TLS-bindning
+> * Mata in certifikatet i den virtuella datorn och konfigurera IIS med en TLS-bindning
 
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 
 ## <a name="overview"></a>Översikt
@@ -57,7 +52,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Skapa sedan ett nyckelvalv med [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt `mykeyvault` i följande exempel med ditt eget unika Key Vault-namn:
+Skapa sedan en Key Vault med [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt `mykeyvault` i följande exempel med ditt eget unika Key Vault-namn:
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -68,7 +63,7 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra det i Key Vault
-För produktionsanvändning bör du importera ett giltigt certifikat som signerats av betrodd provider med [Import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). I den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) som använder standardcertifikatprincipen från [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
+För produktions användning bör du importera ett giltigt certifikat signerat av en betrodd Provider med [import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). I den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) som använder standard certifikat principen från [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
 
 ```azurepowershell-interactive
 $policy = New-AzKeyVaultCertificatePolicy `
@@ -121,7 +116,7 @@ Det tar några minuter att skapa den virtuella datorn. I det sista steget använ
 
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>Lägga till ett certifikat till en virtuell dator från Key Vault
-Om du vill lägga till certifikatet från Key Vault till en virtuell dator hämtar du ID:et för ditt certifikat med [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Lägg till certifikatet till den virtuella datorn med [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
+Om du vill lägga till certifikatet från Key Vault till en virtuell dator hämtar du certifikatets ID med [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Lägg till certifikatet till den virtuella datorn med [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
 
 ```azurepowershell-interactive
 $certURL=(Get-AzKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
@@ -161,7 +156,7 @@ Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzPublicIPA
 Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Nu kan du öppna en webbläsare och ange `https://<myPublicIP>` i adressfältet. Om du vill acceptera säkerhetsvarningen om du har använt ett självsignerat certifikat väljer du **Information** och går sedan **vidare till webbsidan:**
+Nu kan du öppna en webbläsare och ange `https://<myPublicIP>` i adressfältet. Om du vill acceptera säkerhets varningen om du använde ett självsignerat certifikat väljer du **information** och **går sedan till webb sidan**:
 
 ![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-secure-web-server/browser-warning.png)
 
@@ -171,13 +166,13 @@ Din skyddade IIS-webbplats visas sedan som i exemplet nedan:
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du säkrat en IIS-webbserver med ett TLS/SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
+I den här självstudien har du skyddat en IIS-webbserver med ett TLS/SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
 > * Generera eller ladda upp ett certifikat till Key Vault
 > * Skapa en virtuell dator och installera IIS-webbservern
-> * Injicera certifikatet i den virtuella datorn och konfigurera IIS med en TLS-bindning
+> * Mata in certifikatet i den virtuella datorn och konfigurera IIS med en TLS-bindning
 
 Klicka på den här länken om du vill se inbyggda skriptexempel för virtuella datorer.
 

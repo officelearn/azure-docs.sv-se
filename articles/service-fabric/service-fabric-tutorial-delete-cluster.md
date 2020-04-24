@@ -1,5 +1,5 @@
 ---
-title: Ta bort ett Service Fabric-kluster i Azure
+title: Ta bort ett Service Fabric kluster i Azure
 description: I den här självstudien får du lära dig hur du tar bort ett Azure-baserat Service Fabric-kluster och alla dess resurser. Du kan ta bort resursgruppen som innehåller klustret eller ta bort resurser selektivt.
 ms.topic: tutorial
 ms.date: 07/22/2019
@@ -13,9 +13,9 @@ ms.locfileid: "75465360"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Självstudie: Ta bort ett Service Fabric-kluster som körs i Azure
 
-Den här självstudien är del fem i en serie och visar hur du tar bort ett Service Fabric-kluster som körs i Azure. Om du vill ta bort ett Service Fabric-kluster måste du även ta bort alla resurser som används av klustret. Du har två alternativ: antingen tar du bort resursgruppen som klustret finns i (vilket tar bort klusterresursen och alla andra resurser i resursgruppen) eller så tar du bort klusterresursen specifikt och dess tillhörande resurser (men inte andra resurser i resursgruppen).
+Den här självstudien är del fem i en serie och visar hur du tar bort ett Service Fabric kluster som körs i Azure. Om du vill ta bort ett Service Fabric-kluster måste du även ta bort alla resurser som används av klustret. Du har två alternativ: antingen tar du bort resursgruppen som klustret finns i (vilket tar bort klusterresursen och alla andra resurser i resursgruppen) eller så tar du bort klusterresursen specifikt och dess tillhörande resurser (men inte andra resurser i resursgruppen).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ta bort en resursgrupp och alla dess resurser
@@ -37,13 +37,13 @@ I den här självstudieserien får du lära du dig att:
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure//install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure//install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Ta bort resursgruppen som innehåller Service Fabric-klustret
 Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
 
-Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret med.  Du hittar ditt prenumerations-ID genom att logga in på [Azure-portalen](https://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med cmdlet- eller [az-gruppborttagningskommandot](/cli/azure/group?view=azure-cli-latest) Ta bort.Delete the resource group and all the cluster resources using the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet or az group delete command.
+Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret med.  Du kan hitta ditt prenumerations-ID genom att logga in på [Azure Portal](https://portal.azure.com). Ta bort resurs gruppen och alla kluster resurser med kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet eller [AZ Group Delete](/cli/azure/group?view=azure-cli-latest) .
 
 ```powershell
 Connect-AzAccount

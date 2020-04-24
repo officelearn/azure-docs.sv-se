@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Importera ett certifikat i Key Vault med Azure portal | Microsoft-dokument
-description: Självstudiekurs som visar hur du importerar ett certifikat i Azure Key Vault
+title: Självstudie – importera ett certifikat i Key Vault med Azure Portal | Microsoft Docs
+description: Självstudie som visar hur du importerar ett certifikat i Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,28 +9,28 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 754f30f7931f9fad6a95328cbf8ab34f70cb75a0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423112"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105581"
 ---
-# <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Självstudiekurs: Importera ett certifikat i Azure Key Vault
+# <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Självstudie: importera ett certifikat i Azure Key Vault
 
-Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här självstudien skapar du ett nyckelvalv och använder det sedan för att importera ett certifikat. Mer information om nyckelvalv finns i [översikten](../general/overview.md).
+Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här självstudien skapar du ett nyckel valv och använder det sedan för att importera ett certifikat. Mer information om nyckelvalv finns i [översikten](../general/overview.md).
 
 Självstudien visar hur du:
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv.
-> * Importera ett certifikat i Nyckelvalv med hjälp av portalen.
-> * Importera ett certifikat i Key vault med CLI.
+> * Importera ett certifikat i Key Vault med hjälp av portalen.
+> * Importera ett certifikat i Key Vault med CLI.
 
 
-Innan du börjar läser du [grundläggande begrepp för Nyckelvalv](../general/basic-concepts.md). 
+Läs [Key Vault grundläggande koncept](../general/basic-concepts.md)innan du börjar. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
@@ -40,21 +40,21 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
-1. På Azure-portalmenyn eller på **startsidan** väljer du **Skapa en resurs**.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Skriv **Key Vault** i sökrutan.
 3. Välj **Key Vault** i listan med resultat.
 4. Välj **Skapa** i avsnittet Key Vault.
 5. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:
-    - **Namn**: Ett unikt namn krävs. För den här snabbstarten använder vi **Example-Vault**. 
+    - **Namn**: Ett unikt namn krävs. I den här snabb starten använder vi **exempel-valv**. 
     - **Prenumeration**: Välj en prenumeration.
-    - Under **Resursgrupp**väljer du **Skapa nytt** och anger ett resursgruppnamn.
+    - Under **resurs grupp**väljer du **Skapa ny** och anger ett resurs grupp namn.
     - Välj en plats i listrutan **Plats**.
     - Lämna standardvärdena för de andra alternativen.
 6. När du har angett den här informationen väljer du **Skapa**.
 
 Anteckna de två egenskaperna som visas nedan:
 
-* **Vault Namn:** I exemplet är detta **Exempel-Vault**. Du kommer att använda det här namnet i senare steg.
+* **Valv namn**: i exemplet är detta **exempel-valv**. Du kommer att använda det här namnet i senare steg.
 * **Valvets URI**: I det här exemplet är det https://example-vault.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
@@ -63,30 +63,33 @@ Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i
 
 ## <a name="import-a-certificate-to-key-vault"></a>Importera ett certifikat till Key Vault
 
-Om du vill importera ett certifikat till valvet måste du ha en PEM- eller PFX-certifikatfil för att finnas på disken. I det här fallet importerar vi ett certifikat med filnamnet **ExampleCertificate**.
+Om du vill importera ett certifikat till valvet måste du ha en PEM-eller PFX-certifikatfil på disken. I det här fallet ska vi importera ett certifikat med fil namnet **ExampleCertificate**.
 
 > [!IMPORTANT]
-> I Azure Key Vault är certifikatformat som stöds PFX och PEM. 
-> - .pem-filformatet innehåller en eller flera X509-certifikatfiler.
-> - PFX-filformat är ett arkivfilformat för lagring av flera kryptografiska objekt i en enda fil, dvs.  
+> I Azure Key Vault är certifikat format som stöds, PFX-och PEM. 
+> - . pem-filformat innehåller en eller flera X509-certifikatfiler.
+> - PFX-filformat är ett Arkiv fil format för lagring av flera kryptografiska objekt i en enda fil, t. ex. Server certifikat (utfärdat för din domän), en matchande privat nyckel och eventuellt även en mellanliggande certifikat utfärdare.  
 
-1. På **egenskapssidorna**För Nyckelvalv väljer du Certifikat .
+1. Välj **certifikat**på sidan Key Vault egenskaper.
 2. Klicka på **Generera/importera**.
-3. Välj följande värden på skärmen **Skapa ett certifikat:**
-    - **Metod för att skapa certifikat**: Importera.
-    - **Certifikatnamn**: Exempelcertifiera.
-    - **Ladda upp certifikatfil:** välj certifikatfilen från disk
-    - Lämna standardvärdena för de andra alternativen. Klicka på **Skapa**.
+3. På skärmen **skapa ett certifikat** väljer du följande värden:
+    - **Metod för att skapa certifikat**: importera.
+    - **Certifikat namn**: ExampleCertificate.
+    - **Ladda upp certifikat fil**: Välj certifikat filen från disk
+    - **Lösen ord** : om du överför en lösenordsskyddad certifikat fil anger du detta lösen ord här. Annars lämnar du det tomt. När certifikat filen har importer ATS tar Key Vault bort lösen ordet.
+4. Klicka på **Skapa**.
 
-![Egenskaper för certifikat](../media/certificates/tutorial-import-cert/cert-import.png)
+![Certifikat egenskaper](../media/certificates/tutorial-import-cert/cert-import.png)
 
-När du har fått meddelandet om att certifikatet har importerats kan du klicka på det i listan. Du kan sedan se några av dess egenskaper. 
+Genom att lägga till ett certifikat med **import** metoden fyller Azure Key Vault automatiskt certifikat parametrar (t. ex. giltighets period, utfärdarens namn, aktiverings datum osv.).
 
-![Egenskaper för certifikat](../media/certificates/tutorial-import-cert/current-version-hidden.png)
+När du har fått ett meddelande om att certifikatet har importer ATS kan du klicka på det i listan för att visa dess egenskaper. 
+
+![Certifikat egenskaper](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Importera ett certifikat med Azure CLI
 
-Importera ett certifikat till ett angivet nyckelvalv. Om du vill importera ett befintligt giltigt certifikat, som innehåller en privat nyckel, till Azure Key Vault kan filen som ska importeras vara i antingen PFX- eller PEM-format. Om certifikatet är i PEM-format måste PEM-filen innehålla såväl nyckel- och x509-certifikat som x509-certifikat. Den här åtgärden kräver certifikat-/importbehörighet.
+Importera ett certifikat till ett angivet nyckel valv. Om du vill importera ett befintligt giltigt certifikat som innehåller en privat nyckel till Azure Key Vault, kan filen som ska importeras vara antingen i PFX-eller PEM-format. Om certifikatet är i PEM-format måste PEM-filen innehålla nyckeln och x509-certifikat. Den här åtgärden kräver behörigheten certifikat/import.
 
 ```azurecli
 az keyvault certificate import --file
@@ -101,6 +104,22 @@ az keyvault certificate import --file
 ```
 Läs mer om parametrarna [här](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
 
+När du har importerat certifikatet kan du Visa certifikatet med [certifikat visning](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+Nu har du skapat ett nyckel valv, importerat ett certifikat och visat certifikat egenskaper.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Andra snabbstarter och självstudier om Key Vault bygger på den här snabbstarten. Om du planerar att fortsätta med efterföljande snabbstarter och självstudier kan du lämna kvar de här resurserna.
@@ -113,8 +132,8 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapade du ett Nyckelvalv och importerade ett certifikat i den. Om du vill veta mer om Key Vault och hur du integrerar det med dina program fortsätter du med artiklarna nedan.
+I den här självstudien har du skapat en Key Vault och importerat ett certifikat i det. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-- Läs mer om [hantering av certifikat i Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
-- Se exempel på [importera certifikat med REST-API:er](/rest/api/keyvault/importcertificate/importcertificate)
-- Granska [metodtips för Azure Key Vault](../general/best-practices.md)
+- Läs mer om att [Hantera certifikat skapande i Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+- Se exempel på hur du [importerar certifikat med hjälp av REST API: er](/rest/api/keyvault/importcertificate/importcertificate)
+- Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

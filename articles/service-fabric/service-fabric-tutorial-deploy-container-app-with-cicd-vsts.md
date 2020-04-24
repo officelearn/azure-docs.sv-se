@@ -1,5 +1,5 @@
 ---
-title: Distribuera ett behållarprogram med CI/CD
+title: Distribuera ett behållar program med CI/CD
 description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Azure DevOps.
 ms.topic: tutorial
 ms.date: 08/29/2018
@@ -42,7 +42,7 @@ Välj en målprofil inom programprojektet att använda för arbetsflödet för d
 
 Dela programkällfilerna till ett teamprojekt i Azure DevOps så att du kan generera byggen.
 
-Skapa en ny lokal Git-repo för ditt projekt genom att välja **Lägg till i källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio.
+Skapa en ny lokal git-lagrings platsen för projektet genom att välja **Lägg till i käll kontroll** -> **git** i statusfältet i det nedre högra hörnet av Visual Studio.
 
 I vyn för **Push-överföring ** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
 
@@ -99,7 +99,7 @@ I **dialogrutan för att spara bygg-pipeline och kö** klickar du på **Save & q
 
 ![Välj utlösare][save-and-queue]
 
-Byggen utlöser också vid push och incheckning. Om du vill kontrollera byggstatusen växlar du till fliken **Bygg.**  När du har verifierat att versionen har körs definierar du en versionsdefinition som distribuerar ditt program till ett kluster.
+Byggen utlöser också vid push och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att genereringen körs korrekt definierar du en versions definition som distribuerar ditt program till ett kluster.
 
 ### <a name="create-a-release-definition"></a>Skapa en versionsdefinition
 
@@ -134,7 +134,7 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 ![Aktivera utlösare][enable-trigger]
 
-Välj **+ Släpp** -> **Skapa en release** -> **Skapa** för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
+Välj **+ släpp** -> **skapa en version** -> **skapa** för att skapa en version manuellt. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
 
 Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 

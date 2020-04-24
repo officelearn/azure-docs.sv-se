@@ -1,25 +1,20 @@
 ---
-title: Självstudiekurs - Säkerhetskopiera virtuella Windows-datorer i Azure-portalen
+title: Självstudie – säkerhetskopiera virtuella Windows-datorer i Azure Portal
 description: I den här självstudiekursen lär du dig hur du använder Azure Portal för att skydda dina virtuella Windows-datorer med Azure Backup.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1fa85dc63bc23760888192f2118158e73320a86
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456115"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100438"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Windows-datorer i Azure
 
@@ -32,7 +27,7 @@ Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Az
 
 ## <a name="backup-overview"></a>Översikt över Backup
 
-När Azure Backup-tjänsten initierar ett säkerhetskopieringsjobb instruerar den säkerhetskopieringstillägget att ta en ögonblicksbild. Azure Backup-tjänsten använder [VMSnapshot-tillägget](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). Tillägget installeras under den första säkerhetskopieringen av den virtuella datorn om den virtuella datorn körs. Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
+När Azure Backup-tjänsten initierar ett säkerhetskopieringsjobb instruerar den säkerhetskopieringstillägget att ta en ögonblicksbild. I Azure Backup tjänsten används [VMSnapshot-tillägget](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). Tillägget installeras under den första säkerhetskopieringen av den virtuella datorn om den virtuella datorn körs. Om den virtuella datorn inte körs tar Backup-tjänsten en ögonblicksbild av snapshot det underliggande lagringsutrymmet (eftersom ingen programskrivning medan den virtuella datorn stoppas).
 
 När Backup-tjänsten tar en ögonblicksbild av virtuella Windows-datorer kontaktar den VSS-tjänsten (Volume Shadow Copy) för att få en konsekvent ögonblicksbild av den virtuella datorns diskar. När Azure Backup-tjänsten har tagit ögonblicksbilden överförs data till valvet. För att maximera effektiviteten identifierar och överför tjänsten endast de datablock som har ändrats sedan föregående säkerhetskopia.
 
@@ -45,11 +40,11 @@ Skapa en enkel schemalagd daglig säkerhetskopiering till ett Recovery Services-
 1. Välj **Virtuella datorer** på menyn till vänster. 
 1. Välj en virtuell dator som du vill säkerhetskopiera i listan.
 1. På VM-bladet går du till avsnittet **Åtgärder** och klickar på **Säkerhetskopiering**. Bladet **Aktivera säkerhetskopiering** öppnas.
-1. I **Recovery Services-valv** klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resursgrupp och plats som den virtuella datorn.
-1. Under **Välj principer för säkerhetskopiering**behåller du **standardprincipen (Ny) DailyPolicy**och klickar sedan på **Aktivera säkerhetskopiering**.
+1. I **Recovery Services-valv** klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resurs grupp och plats som den virtuella datorn.
+1. Behåll standard **-DailyPolicy (ny)** under **Välj säkerhets kopierings princip**och klicka sedan på **Aktivera säkerhets kopiering**.
 1. Om du vill skapa en första återställningspunkt går du till bladet **Säkerhetskopiera** och klickar på **Säkerhetskopiera nu**.
-1. Klicka på kalenderikonen på bladet **Säkerhetskopiera nu,** använd kalenderkontrollen för att välja hur länge återställningspunkten ska behållas och klicka på **OK**.
-1. I **bladet Säkerhetskopiering** för den virtuella datorn ser du antalet återställningspunkter som är slutförda.
+1. På bladet **Säkerhetskopiera nu** klickar du på kalender ikonen, använder kalender kontrollen för att välja hur länge återställnings punkten ska behållas och klickar på **OK**.
+1. I **säkerhets kopierings** bladet för den virtuella datorn ser du hur många återställnings punkter som är klara.
 
 
     ![Återställningspunkter](./media/tutorial-backup-vms/backup-complete.png)
@@ -77,14 +72,14 @@ I det här exemplet beskriver vi hur du återställer bildfilen som används på
 1. På VM-bladet går du till avsnittet **Åtgärder** och klickar på **Säkerhetskopiering**. Bladet **Säkerhetskopiera** öppnas. 
 1. På menyn överst på bladet väljer du **Filåterställning**. Bladet **Filåterställning** öppnas.
 1. I **Steg 1: Välj återställningspunkt** väljer du en återställningspunkt från listrutan.
-1. I **Steg 2: Ladda ned skriptet för att söka och återställa filer** klickar du på knappen **Ladda ned körbar fil**. Kopiera lösenordet för filen och spara det någonstans säkert.
+1. I **Steg 2: Ladda ned skriptet för att söka och återställa filer** klickar du på knappen **Ladda ned körbar fil**. Kopiera lösen ordet för filen och spara det på en säker plats.
 1. Öppna **Utforskaren** på den lokala datorn, navigera till mappen **Hämtningsbara filer** och kopiera den nedladdade EXE-filen. Filnamnet inleds med namnet på den virtuella datorn. 
-1. Klistra in EXE-filen på den virtuella datorn (med RDP-anslutningen) på den virtuella datorn. 
-1. Navigera till skrivbordet på den virtuella datorn och dubbelklicka på EXE-filen. En kommandotolk startar. Återställningspunkten monteras som en filresurs som du kan komma åt. När resursen har skapats stänger du kommandotolken genom att skriva **q**.
+1. Klistra in exe-filen på den virtuella datorn på den virtuella datorn (med RDP-anslutningen). 
+1. Navigera till skrivbordet på den virtuella datorn och dubbelklicka på EXE-filen. En kommando tolk kommer att startas. Programmet monterar återställnings punkten som en fil resurs som du har åtkomst till. När resursen har skapats stänger du kommandotolken genom att skriva **q**.
 1. Öppna **Utforskaren** på den virtuella datorn och navigera till enhetsbeteckningen som användes för filresursen.
 1. Navigera till \inetpub\wwwroot, kopiera **iisstart.png** från filresursen och klistra in filen i \inetpub\wwwroot. Kopiera exempelvis F:\inetpub\wwwroot\iisstart.png och klistra in filen i c:\inetpub\wwwroot för att återställa filen.
 1. På din lokala dator öppnar du webbläsarfliken där du är ansluten till den virtuella datorns IP-adress som visar IIS-standardwebbsidan. Tryck på CTRL + F5 för att uppdatera webbläsaren. Nu bör du se att bilden har återställts.
-1. På din lokala dator går du tillbaka till webbläsarfliken för Azure-portalen i **Steg 3: Demontera diskarna efter återställning** klickar du på knappen **Demontera diskar**. Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter dessa 12 timmar måste du ladda ner ett nytt skript för att skapa en ny monteringspunkt.
+1. På din lokala dator går du tillbaka till webbläsarfliken för Azure-portalen i **Steg 3: Demontera diskarna efter återställning** klickar du på knappen **Demontera diskar**. Om du glömmer att utföra det här steget stängs anslutningen till monteringspunkten automatiskt efter 12 timmar. Efter de 12 timmarna måste du hämta ett nytt skript för att skapa en ny monterings punkt.
 
 
 

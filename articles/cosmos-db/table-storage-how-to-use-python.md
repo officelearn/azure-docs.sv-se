@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Cosmos DB Table API och Azure Table Storage med Python
+title: Använda Azure Cosmos DB Tabell-API och Azure Table Storage med python
 description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -38,7 +38,7 @@ Vi rekommenderar att du använder [referensen för Azure Cosmos DB SDK för Pyth
 Du behöver följande för att kunna följa med i det här exemplet:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 eller 3.6
-- [Azure Cosmos DB Tabell SDK för Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Detta SDK fungerar med både Azure Table Storage och Azure Cosmos DB Table-API:et.
+- [Azure Cosmos DB Table SDK för python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Detta SDK fungerar med både Azure Table Storage och Azure Cosmos DB Table-API:et.
 - Ett [Azure Storage-konto](../storage/common/storage-account-create.md) eller [Azure Cosmos DB-konto](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto

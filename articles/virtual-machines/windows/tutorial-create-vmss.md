@@ -1,27 +1,19 @@
 ---
-title: 'Självstudiekurs: Skapa en skalauppsättning för virtuell dator i Windows'
-description: Lär dig hur du använder Azure PowerShell för att skapa och distribuera ett program med högtillgänglighet på Virtuella datorer i Windows med hjälp av en skalbar för virtuella datorer
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: 'Självstudie: skapa en skalnings uppsättning för virtuella Windows-datorer'
+description: Lär dig hur du använder Azure PowerShell för att skapa och distribuera ett program med hög tillgänglighet på virtuella Windows-datorer med en skalnings uppsättning för virtuella datorer
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf53b2777c5d1e4d774a9f5ee9df119a0deac9d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aba5df346d8df9b9f2ad130ded336e45576dbd89
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75464973"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100404"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Självstudiekurs: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Windows med Azure PowerShell
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt. Du kan även definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure och lär dig att:
@@ -37,7 +29,7 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="scale-set-overview"></a>Översikt över skalningsuppsättning
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Virtuella datorer i en skalningsuppsättning är distribuerade över logiska fel- och uppdateringsdomäner i en eller flera *placeringsgrupper*. Placeringsgrupper är grupper med virtuella datorer som har en liknande konfiguration, vilket liknar [tillgänglighetsuppsättningar](tutorial-availability-sets.md).
@@ -163,7 +155,7 @@ Ange den offentliga IP-adressen i en webbläsare. Webbappen visas med värddator
 Om du vill se när skalningsuppsättningen används kan du framtvinga en uppdatering av webbläsaren. Då visas hur lastbalanseraren distribuerar trafik över alla virtuella datorer som kör programmet.
 
 
-## <a name="management-tasks"></a>Administrativa uppgifter
+## <a name="management-tasks"></a>Hanteringsuppgifter
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för skalningsuppsättningen. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Med Azure PowerShell kan du snabbt utföra dessa uppgifter. Här följer några vanliga uppgifter.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning

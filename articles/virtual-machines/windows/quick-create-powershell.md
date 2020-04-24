@@ -1,25 +1,19 @@
 ---
-title: Snabbstart – Skapa en virtuell Windows-dator med Azure PowerShell
+title: Snabb start – skapa en virtuell Windows-dator med Azure PowerShell
 description: I den här snabbstarten lär du dig hur du använder Azure PowerShell för att skapa en virtuell Windows-dator
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b927105d2fd74051c7449f52a886d71e6ad0ad7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 45160e8bc406318f3b3924142899e33640ee6b73
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458138"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097956"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure med PowerShell
 
@@ -31,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
@@ -76,9 +70,9 @@ Använd följande kommando för att skapa en fjärrskrivbordssession från den l
 mstsc /v:publicIpAddress
 ```
 
-I fönstret **Windows-säkerhet** väljer du **fler alternativ** och väljer sedan **Använd ett annat konto**. Skriv användarnamnet som **localhost**\\*användarnamn,* ange lösenord som du skapade för den virtuella datorn och klicka sedan på **OK**.
+I fönstret **Windows-säkerhet** väljer du **fler alternativ** och väljer sedan **Använd ett annat konto**. Skriv användar namnet som **localhost**\\*användar namn*, ange lösen ordet som du skapade för den virtuella datorn och klicka sedan på **OK**.
 
-Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** om du vill skapa anslutningen
+Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att skapa anslutningen
 
 ## <a name="install-web-server"></a>Installera webbservern
 

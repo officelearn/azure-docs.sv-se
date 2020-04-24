@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Cosmos DB Table API och Azure Table Storage med Ruby
+title: Använda Azure Cosmos DB Tabell-API och Azure Table Storage med ruby
 description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table

@@ -1,25 +1,16 @@
 ---
-title: Skala automatiskt Compute-noder i en Azure Batch pool | Microsoft Docs
+title: Automatisk skalning av compute-noder i en Azure Batch-pool
 description: Aktivera automatisk skalning i en molnbaserad pool för att dynamiskt justera antalet datornoder i poolen.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054019"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113569"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera slutpunkter för Azure Files-nätverk | Microsoft-dokument
-description: En översikt över nätverksalternativ för Azure-filer.
+title: Konfigurera Azure Files nätverks slut punkter | Microsoft Docs
+description: En översikt över nätverks alternativ för Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -14,59 +14,59 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2020
 ms.locfileid: "80082509"
 ---
-# <a name="configuring-azure-files-network-endpoints"></a>Konfigurera slutpunkter för Azure Files-nätverk
-Azure Files innehåller två huvudtyper av slutpunkter för åtkomst till Azure-filresurser: 
-- Offentliga slutpunkter, som har en offentlig IP-adress och kan nås från var som helst i världen.
-- Privata slutpunkter, som finns i ett virtuellt nätverk och har en privat IP-adress inifrån adressutrymmet i det virtuella nätverket.
+# <a name="configuring-azure-files-network-endpoints"></a>Konfigurera Azure Files nätverks slut punkter
+Azure Files tillhandahåller två huvud typer av slut punkter för åtkomst till Azure-fil resurser: 
+- Offentliga slut punkter som har en offentlig IP-adress och som kan nås från var som helst i världen.
+- Privata slut punkter, som finns i ett virtuellt nätverk och har en privat IP-adress inom det virtuella nätverkets adress utrymme.
 
-Offentliga och privata slutpunkter finns på Azure-lagringskontot. Ett lagringskonto är en hanteringskonstruktion som representerar en delad lagringspool där du kan distribuera flera filresurser, samt andra lagringsresurser, till exempel blob-behållare eller köer.
+Offentliga och privata slut punkter finns på Azure Storage-kontot. Ett lagrings konto är en hanterings konstruktion som representerar en delad pool av lagring där du kan distribuera flera fil resurser, samt andra lagrings resurser, till exempel BLOB-behållare eller köer.
 
-Den här artikeln fokuserar på hur du konfigurerar slutpunkterna för ett lagringskonto för åtkomst till Azure-filresursen direkt. De flesta detaljer som finns i det här dokumentet gäller även för hur Azure File Sync interoperates med offentliga och privata slutpunkter för lagringskontot, men mer information om nätverksöverväganden för en Azure File Sync-distribution finns i [konfigurera Azure File Sync proxy och brandväggsinställningar](storage-sync-files-firewall-and-proxy.md).
+Den här artikeln fokuserar på hur du konfigurerar ett lagrings kontos slut punkter för åtkomst till Azure-filresursen direkt. De flesta Detaljer som tillhandahålls i det här dokumentet gäller också hur Azure File Sync interagerar med offentliga och privata slut punkter för lagrings kontot, men för mer information om nätverks överväganden för en Azure File Sync distribution, se [konfigurera Azure File Sync proxy-och brand Väggs inställningar](storage-sync-files-firewall-and-proxy.md).
 
-Vi rekommenderar att du läser [Azure Files-nätverksöverväganden](storage-files-networking-overview.md) innan du läser det här för att vägleda.
+Vi rekommenderar att du läser [Azure Files nätverks överväganden](storage-files-networking-overview.md) innan du läser den här guiden.
 
 ## <a name="prerequisites"></a>Krav
 - Den här artikeln förutsätter att du redan har skapat en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- Den här artikeln förutsätter att du redan har skapat en Azure-filresurs i ett lagringskonto som du vill ansluta till från lokala. Mer information om hur du skapar en Azure-filresurs finns i [Skapa en Azure-filresurs](storage-how-to-create-file-share.md).
+- Den här artikeln förutsätter att du redan har skapat en Azure-filresurs i ett lagrings konto som du vill ansluta till lokalt. Information om hur du skapar en Azure-filresurs finns i [skapa en Azure-fil resurs](storage-how-to-create-file-share.md).
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
-Om du skapar en privat slutpunkt för ditt lagringskonto kommer följande Azure-resurser att distribueras:
+Om du skapar en privat slut punkt för ditt lagrings konto leder det till att följande Azure-resurser distribueras:
 
-- **En privat slutpunkt:** En Azure-resurs som representerar lagringskontots privata slutpunkt. Du kan se detta som en resurs som ansluter ett lagringskonto och ett nätverksgränssnitt.
-- **Ett nätverksgränssnitt (NIC)**: Nätverksgränssnittet som underhåller en privat IP-adress i det angivna virtuella nätverket/undernätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator ägs den av den privata slutpunkten.
-- **En privat DNS-zon:** Om du aldrig har distribuerat en privat slutpunkt för det här virtuella nätverket tidigare distribueras en ny privat DNS-zon för det virtuella nätverket. En DNS A-post skapas också för lagringskontot i den här DNS-zonen. Om du redan har distribuerat en privat slutpunkt i det här virtuella nätverket läggs en ny A-post för lagringskontot till i den befintliga DNS-zonen. Det är valfritt att distribuera en DNS-zon, men rekommenderas starkt, och krävs om du monterar dina Azure-filresurser med ett AD-tjänsthuvudnamn eller använder FileREST API.Deploying a DNS zone is optional, however highly recommended, and required if you are mounting your Azure file shares with an AD service principal or using the FileREST API.
+- **En privat slut punkt**: en Azure-resurs som representerar lagrings kontots privata slut punkt. Du kan tänka på detta som en resurs som ansluter ett lagrings konto och ett nätverks gränssnitt.
+- **Ett nätverks gränssnitt (NIC)**: det nätverks gränssnitt som upprätthåller en privat IP-adress inom det angivna virtuella nätverket/under nätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator, ägs den av den privata slut punkten.
+- **En privat DNS-zon**: om du aldrig har distribuerat en privat slut punkt för det här virtuella nätverket tidigare, kommer en ny privat DNS-zon att distribueras för det virtuella nätverket. En DNS A-post kommer också att skapas för lagrings kontot i den här DNS-zonen. Om du redan har distribuerat en privat slut punkt i det här virtuella nätverket kommer en ny A-post för lagrings kontot att läggas till i den befintliga DNS-zonen. Distribution av en DNS-zon är valfritt, rekommenderas, och krävs om du monterar dina Azure-filresurser med ett huvud namn för AD-tjänsten eller med det fileraste API: et.
 
 > [!Note]  
-> Den här artikeln använder DNS-suffixet för `core.windows.net`lagringskontot för Azure Public-regionerna . Den här kommentaren gäller även Azure Sovereign-moln som Azure US Government-molnet och Azure China-molnet – bara ersätta lämpliga suffix för din miljö. 
+> I den här artikeln används DNS-suffixet för lagrings kontot för `core.windows.net`Azures offentliga regioner. Den här kommentarer gäller också för Azures suveräna moln, till exempel Azure-molnet för amerikanska myndigheter och molnet i molnet, och ersätter bara de nödvändiga suffixen för din miljö. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Navigera till det lagringskonto som du vill skapa en privat slutpunkt för. I innehållsförteckningen för lagringskontot väljer du **Privata slutpunktsanslutningar**och sedan **+ Privat slutpunkt** för att skapa en ny privat slutpunkt. 
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
+Navigera till lagrings kontot som du vill skapa en privat slut punkt för. I innehålls förteckningen för lagrings kontot väljer du **anslutningar för privata slut punkter**och sedan **+ privat slut punkt** för att skapa en ny privat slut punkt. 
 
-![En skärmbild av objektet för privata slutpunktsanslutningar i innehållsförteckningen för lagringskonto](media/storage-files-networking-endpoints/create-private-endpoint-0.png)
+![En skärm bild av objektet privata slut punkts anslutningar i innehålls förteckningen för lagrings kontot](media/storage-files-networking-endpoints/create-private-endpoint-0.png)
 
 Den resulterande guiden har flera sidor att slutföra.
 
-I bladet **Grunderna** väljer du önskad resursgrupp, namn och region för din privata slutpunkt. Dessa kan vara vad du vill, de behöver inte matcha lagringskontot i alla fall, även om du måste skapa den privata slutpunkten i samma region som det virtuella nätverk som du vill skapa den privata slutpunkten i.
+På bladet **grundläggande** väljer du önskad resurs grupp, namn och region för din privata slut punkt. Det kan vara vad du vill, de behöver inte matcha lagrings kontot i alla fall, men du måste skapa den privata slut punkten i samma region som det virtuella nätverk som du vill skapa den privata slut punkten i.
 
-![En skärmbild av avsnittet Grunderna i avsnittet skapa privat slutpunkt](media/storage-files-networking-endpoints/create-private-endpoint-1.png)
+![En skärm bild av grunderna i avsnittet Skapa privat slut punkt](media/storage-files-networking-endpoints/create-private-endpoint-1.png)
 
-I **resursbladet** väljer du alternativknappen för **Anslut till en Azure-resurs i katalogen**. Under **Resurstyp**väljer du **Microsoft.Storage/storageAccounts** för resurstypen. Fältet **Resurs** är lagringskontot med den Azure-filresurs som du vill ansluta till. Målunderresurs är **fil**, eftersom detta är för Azure-filer.
+På **resurs** bladet väljer du alternativ knappen för **att ansluta till en Azure-resurs i min katalog**. Under **resurs typ**väljer du **Microsoft. Storage/storageAccounts** som resurs typ. **Resurs** fältet är lagrings kontot med den Azure-filresurs som du vill ansluta till. Mål under resurs är **fil**, eftersom det är för Azure Files.
 
-**Med bladet Konfiguration** kan du välja det specifika virtuella nätverk och det undernät som du vill lägga till den privata slutpunkten i. Välj det virtuella nätverk som du skapade ovan. Du måste välja ett distinkt undernät från undernätet som du lade till tjänstslutpunkten i ovan. Konfigurationsbladet innehåller också information för att skapa/uppdatera den privata DNS-zonen. Vi rekommenderar att `privatelink.file.core.windows.net` du använder standardzonen.
+På bladet **konfiguration** kan du välja det angivna virtuella nätverk och undernät som du vill lägga till din privata slut punkt till. Välj det virtuella nätverk som du skapade ovan. Du måste välja ett distinkt undernät från under nätet som du har lagt till tjänst slut punkten till ovan. Konfigurations bladet innehåller också information om hur du skapar/uppdaterar den privata DNS-zonen. Vi rekommenderar att du använder `privatelink.file.core.windows.net` standard zonen.
 
-![En skärmbild av avsnittet Konfiguration](media/storage-files-networking-endpoints/create-private-endpoint-2.png)
+![En skärm bild av konfigurations avsnittet](media/storage-files-networking-endpoints/create-private-endpoint-2.png)
 
-Klicka på **Granska + skapa** för att skapa den privata slutpunkten. 
+Klicka på **Granska + skapa** för att skapa den privata slut punkten. 
 
-Om du har en virtuell dator inuti det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen [här,](storage-files-networking-dns.md)kan du testa att din privata slutpunkt har konfigurerats korrekt genom att köra följande kommandon från PowerShell, kommandoraden eller terminalen (fungerar för Windows, Linux eller macOS). Du måste `<storage-account-name>` ersätta med lämpligt lagringskontonamn:
+Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen [här](storage-files-networking-dns.md), kan du testa att den privata slut punkten har kon figurer ATS korrekt genom att köra följande kommandon från PowerShell, kommando raden eller terminalen (Works för Windows, Linux eller MacOS). Du måste ersätta `<storage-account-name>` med lämpligt lagrings konto namn:
 
 ```
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
-Om allt har fungerat, bör du se `192.168.0.5` följande utdata, var är den privata IP-adressen för den privata slutpunkten i ditt virtuella nätverk (utdata som visas för Windows):
+Om allt har fungerat korrekt bör du se följande utdata, där `192.168.0.5` är den privata IP-adressen för den privata slut punkten i det virtuella nätverket (utdata som visas för Windows):
 
 ```Output
 Server:  UnKnown
@@ -78,8 +78,8 @@ Address:  192.168.0.5
 Aliases:  storageaccount.file.core.windows.net
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-Om du vill skapa en privat slutpunkt för ditt lagringskonto måste du först hämta en referens till ditt lagringskonto och det virtuella nätverksundernätet som du vill lägga till den privata slutpunkten till. Ersätt `<storage-account-resource-group-name>` `<storage-account-name>`, `<vnet-resource-group-name>` `<vnet-name>`, `<vnet-subnet-name>` , och nedan:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Om du vill skapa en privat slut punkt för ditt lagrings konto måste du först hämta en referens till ditt lagrings konto och det virtuella nätverks under nätet där du vill lägga till den privata slut punkten. Ersätt `<storage-account-resource-group-name>`, `<storage-account-name>` `<vnet-resource-group-name>`,, och `<vnet-subnet-name>` nedan: `<vnet-name>`
 
 ```PowerShell
 $storageAccountResourceGroupName = "<storage-account-resource-group-name>"
@@ -124,7 +124,7 @@ if ($null -eq $subnet) {
 }
 ```
 
-Om du vill skapa en privat slutpunkt måste du skapa en privat länktjänstanslutning till lagringskontot. Den privata länktjänstanslutningen är en indata till skapandet av den privata slutpunkten. 
+Om du vill skapa en privat slut punkt måste du skapa en anslutning till ett privat länk-tjänst till lagrings kontot. Den privata länk tjänst anslutningen är inmatad för att skapa den privata slut punkten. 
 
 ```PowerShell
 # Disable private endpoint network policies
@@ -147,7 +147,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
         -ErrorAction Stop
 ```
 
-Genom att skapa en privat AZURE DNS-zon kan `storageaccount.file.core.windows.net` det ursprungliga namnet på lagringskontot matchas till den privata IP-adressen i det virtuella nätverket. Även om det är valfritt med tanke på att skapa en privat slutpunkt, krävs det uttryckligen för att montera Azure-filresursen med hjälp av ett AD-användarobjekt eller åtkomst via REST API.  
+När du skapar en privat DNS-zon för Azure kan du använda det ursprungliga namnet på `storageaccount.file.core.windows.net` lagrings kontot, till exempel för att matcha den privata IP-adressen i det virtuella nätverket. Även om det är valfritt från perspektivet för att skapa en privat slut punkt krävs det uttryckligen för att montera Azure-filresursen med hjälp av ett huvud för AD-användare eller åtkomst via REST API.  
 
 ```PowerShell
 # Get the desired storage account suffix (core.windows.net for public cloud).
@@ -188,7 +188,7 @@ if ($null -eq $dnsZone) {
 }
 ```
 
-Nu när du har en referens till den privata DNS-zonen måste du skapa en A-post för ditt lagringskonto.
+Nu när du har en referens till den privata DNS-zonen måste du skapa en A-post för ditt lagrings konto.
 
 ```PowerShell
 $privateEndpointIP = $privateEndpoint | `
@@ -215,7 +215,7 @@ New-AzPrivateDnsRecordSet `
     Out-Null
 ```
 
-Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen [här,](storage-files-networking-dns.md)kan du testa att den privata slutpunkten har konfigurerats korrekt med följande kommandon:
+Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen [här](storage-files-networking-dns.md), kan du testa att den privata slut punkten har kon figurer ATS korrekt med följande kommandon:
 
 ```PowerShell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.File) | `
@@ -224,7 +224,7 @@ $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.Fil
 Resolve-DnsName -Name $storageAccountHostName
 ```
 
-Om allt har fungerat har fungerat bör du `192.168.0.5` se följande utdata, där är den privata IP-adressen för den privata slutpunkten i det virtuella nätverket:
+Om allt har fungerat korrekt bör du se följande utdata, där `192.168.0.5` är den privata IP-adressen för den privata slut punkten i det virtuella nätverket:
 
 ```Output
 Name                             Type   TTL   Section    NameHost
@@ -240,7 +240,7 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Om du vill skapa en privat slutpunkt för ditt lagringskonto måste du först hämta en referens till ditt lagringskonto och det virtuella nätverksundernätet som du vill lägga till den privata slutpunkten till. Ersätt `<storage-account-resource-group-name>` `<storage-account-name>`, `<vnet-resource-group-name>` `<vnet-name>`, `<vnet-subnet-name>` , och nedan:
+Om du vill skapa en privat slut punkt för ditt lagrings konto måste du först hämta en referens till ditt lagrings konto och det virtuella nätverks under nätet där du vill lägga till den privata slut punkten. Ersätt `<storage-account-resource-group-name>`, `<storage-account-name>` `<vnet-resource-group-name>`,, och `<vnet-subnet-name>` nedan: `<vnet-name>`
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group-name>"
@@ -272,7 +272,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-Om du vill skapa en privat slutpunkt måste du först se till att undernätets privata slutpunktsnätverksprincip är inaktiverad. Sedan kan du skapa en `az network private-endpoint create` privat slutpunkt med kommandot
+Om du vill skapa en privat slut punkt måste du först se till att under nätets nätverks princip är inställd på inaktive rad. Sedan kan du skapa en privat slut punkt med `az network private-endpoint create` kommandot
 
 ```bash
 # Disable private endpoint network policies
@@ -300,7 +300,7 @@ privateEndpoint=$(az network private-endpoint create \
     tr -d '"')
 ```
 
-Genom att skapa en privat AZURE DNS-zon kan `storageaccount.file.core.windows.net` det ursprungliga namnet på lagringskontot matchas till den privata IP-adressen i det virtuella nätverket. Även om det är valfritt med tanke på att skapa en privat slutpunkt, krävs det uttryckligen för att montera Azure-filresursen med hjälp av ett AD-användarobjekt eller åtkomst via REST API.  
+När du skapar en privat DNS-zon för Azure kan du använda det ursprungliga namnet på `storageaccount.file.core.windows.net` lagrings kontot, till exempel för att matcha den privata IP-adressen i det virtuella nätverket. Även om det är valfritt från perspektivet för att skapa en privat slut punkt krävs det uttryckligen för att montera Azure-filresursen med hjälp av ett huvud för AD-användare eller åtkomst via REST API.  
 
 ```bash
 # Get the desired storage account suffix (core.windows.net for public cloud).
@@ -360,7 +360,7 @@ then
 fi
 ```
 
-Nu när du har en referens till den privata DNS-zonen måste du skapa en A-post för ditt lagringskonto.
+Nu när du har en referens till den privata DNS-zonen måste du skapa en A-post för ditt lagrings konto.
 
 ```bash
 privateEndpointNIC=$(az network private-endpoint show \
@@ -387,7 +387,7 @@ az network private-dns record-set a add-record \
         --output none
 ```
 
-Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen [här,](storage-files-networking-dns.md)kan du testa att den privata slutpunkten har konfigurerats korrekt med följande kommandon:
+Om du har en virtuell dator i det virtuella nätverket, eller om du har konfigurerat DNS-vidarebefordran enligt beskrivningen [här](storage-files-networking-dns.md), kan du testa att den privata slut punkten har kon figurer ATS korrekt med följande kommandon:
 
 ```bash
 httpEndpoint=$(az storage account show \
@@ -400,7 +400,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Om allt har fungerat har fungerat bör du `192.168.0.5` se följande utdata, där är den privata IP-adressen för den privata slutpunkten i det virtuella nätverket:
+Om allt har fungerat korrekt bör du se följande utdata, där `192.168.0.5` är den privata IP-adressen för den privata slut punkten i det virtuella nätverket:
 
 ```Output
 Server:         127.0.0.53
@@ -414,24 +414,24 @@ Address: 192.168.0.5
 
 ---
 
-## <a name="restrict-access-to-the-public-endpoint"></a>Begränsa åtkomsten till den offentliga slutpunkten
-Du kan begränsa åtkomsten till den offentliga slutpunkten med hjälp av brandväggsinställningarna för lagringskontot. I allmänhet begränsar de flesta brandväggsprinciper för ett lagringskonto nätverksåtkomst till ett eller flera virtuella nätverk. Det finns två metoder för att begränsa åtkomsten till ett lagringskonto till ett virtuellt nätverk:
+## <a name="restrict-access-to-the-public-endpoint"></a>Begränsa åtkomsten till den offentliga slut punkten
+Du kan begränsa åtkomsten till den offentliga slut punkten med hjälp av brand Väggs inställningarna för lagrings kontot. I allmänhet kommer de flesta brand Väggs principer för ett lagrings konto att begränsa nätverks åtkomsten till ett eller flera virtuella nätverk. Det finns två sätt att begränsa åtkomsten till ett lagrings konto till ett virtuellt nätverk:
 
-- [Skapa en eller flera privata slutpunkter för lagringskontot](#create-a-private-endpoint) och begränsa all åtkomst till den offentliga slutpunkten. Detta säkerställer att endast trafik som kommer inifrån önskade virtuella nätverk kan komma åt Azure-filresurserna i lagringskontot.
-- Begränsa den offentliga slutpunkten till ett eller flera virtuella nätverk. Detta fungerar med hjälp av en funktion i det virtuella nätverket som kallas *tjänstslutpunkter*. När du begränsar trafiken till ett lagringskonto via en tjänstslutpunkt, är du fortfarande tillgång till lagringskontot via den offentliga IP-adressen.
+- [Skapa en eller flera privata slut punkter för lagrings kontot](#create-a-private-endpoint) och begränsa all åtkomst till den offentliga slut punkten. Detta säkerställer att endast trafik som härstammar från de önskade virtuella nätverken kan komma åt Azure-filresurserna i lagrings kontot.
+- Begränsa den offentliga slut punkten till ett eller flera virtuella nätverk. Detta fungerar med hjälp av en funktion i det virtuella nätverket med namnet *tjänst slut punkter*. När du begränsar trafiken till ett lagrings konto via en tjänst slut punkt har du fortfarande åtkomst till lagrings kontot via den offentliga IP-adressen.
 
-### <a name="restrict-all-access-to-the-public-endpoint"></a>Begränsa all åtkomst till den offentliga slutpunkten
-När all åtkomst till den offentliga slutpunkten är begränsad kan lagringskontot fortfarande nås via det privata slutpunkterna. Annars avvisas giltiga begäranden till lagringskontots offentliga slutpunkt. 
+### <a name="restrict-all-access-to-the-public-endpoint"></a>Begränsa all åtkomst till den offentliga slut punkten
+När all åtkomst till den offentliga slut punkten är begränsad kan lagrings kontot fortfarande nås via den privata slut punkten. Annars avvisas giltiga begär anden till lagrings kontots offentliga slut punkt. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Navigera till det lagringskonto som du vill begränsa all åtkomst till den offentliga slutpunkten för. I innehållsförteckningen för lagringskontot väljer du **Brandväggar och virtuella nätverk**.
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
+Navigera till det lagrings konto som du vill begränsa all åtkomst till den offentliga slut punkten. I innehålls förteckningen för lagrings kontot väljer du **brand väggar och virtuella nätverk**.
 
-Högst upp på sidan väljer du alternativknappen **Markerade nätverk.** Detta kommer att dölja ett antal inställningar för att styra begränsningen av den offentliga slutpunkten. Kontrollera **Tillåt betrodda Microsoft-tjänster att komma åt det här tjänstkontot** så att betrodda Microsoft-tjänster från första part, till exempel Azure File Sync, kan komma åt lagringskontot.
+Längst upp på sidan väljer du alternativ knappen **valda nätverk** . Detta gör att det inte går att dölja ett antal inställningar för att kontrol lera begränsningen för den offentliga slut punkten. Markera **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här tjänst kontot** för att tillåta betrodda Microsoft-tjänster från första part, till exempel Azure File Sync att komma åt lagrings kontot.
 
-![Skärmbild av bladet Brandväggar och virtuella nätverk med lämpliga begränsningar på plats](media/storage-files-networking-endpoints/restrict-public-endpoint-0.png)
+![Skärm bild av bladet brand väggar och virtuella nätverk med lämplig begränsning på plats](media/storage-files-networking-endpoints/restrict-public-endpoint-0.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-Följande PowerShell-kommando nekar all trafik till lagringskontots offentliga slutpunkt. Observera att det `-Bypass` här kommandot `AzureServices`har parametern inställd på . Detta gör det möjligt för betrodda förstapartstjänster som Azure File Sync att komma åt lagringskontot via den offentliga slutpunkten.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Följande PowerShell-kommando kommer att neka all trafik till lagrings kontots offentliga slut punkt. Observera att det här kommandot har `-Bypass` parametern inställd på `AzureServices`. Detta ger betrodda tjänster från första part, till exempel Azure File Sync att komma åt lagrings kontot via den offentliga slut punkten.
 
 ```PowerShell
 # This assumes $storageAccount is still defined from the beginning of this of this guide.
@@ -444,7 +444,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Följande CLI-kommando nekar all trafik till lagringskontots offentliga slutpunkt. Observera att det `-bypass` här kommandot `AzureServices`har parametern inställd på . Detta gör det möjligt för betrodda förstapartstjänster som Azure File Sync att komma åt lagringskontot via den offentliga slutpunkten.
+Följande CLI-kommando kommer att neka all trafik till lagrings kontots offentliga slut punkt. Observera att det här kommandot har `-bypass` parametern inställd på `AzureServices`. Detta ger betrodda tjänster från första part, till exempel Azure File Sync att komma åt lagrings kontot via den offentliga slut punkten.
 
 ```bash
 # This assumes $storageAccountResourceGroupName and $storageAccountName 
@@ -458,20 +458,20 @@ az storage account update \
 ```
 ---
 
-### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Begränsa åtkomsten till den offentliga slutpunkten till specifika virtuella nätverk
-När du begränsar lagringskontot till specifika virtuella nätverk tillåter du begäranden till den offentliga slutpunkten inifrån de angivna virtuella nätverken. Detta fungerar med hjälp av en funktion i det virtuella nätverket som kallas *tjänstslutpunkter*. Detta kan användas med eller utan privata slutpunkter.
+### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Begränsa åtkomsten till den offentliga slut punkten till vissa virtuella nätverk
+När du begränsar lagrings kontot till specifika virtuella nätverk kan du tillåta begär anden till den offentliga slut punkten från de angivna virtuella nätverken. Detta fungerar med hjälp av en funktion i det virtuella nätverket med namnet *tjänst slut punkter*. Detta kan användas med eller utan privata slut punkter.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Navigera till det lagringskonto som du vill begränsa den offentliga slutpunkten till specifika virtuella nätverk för. I innehållsförteckningen för lagringskontot väljer du **Brandväggar och virtuella nätverk**. 
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
+Navigera till det lagrings konto för vilket du vill begränsa den offentliga slut punkten till vissa virtuella nätverk. I innehålls förteckningen för lagrings kontot väljer du **brand väggar och virtuella nätverk**. 
 
-Högst upp på sidan väljer du alternativknappen **Markerade nätverk.** Detta kommer att dölja ett antal inställningar för att styra begränsningen av den offentliga slutpunkten. Klicka på **+Lägg till befintligt virtuellt nätverk** för att välja det specifika virtuella nätverk som ska tillåtas att komma åt lagringskontot via den offentliga slutpunkten. Detta kräver att du väljer ett virtuellt nätverk och ett undernät för det virtuella nätverket. 
+Längst upp på sidan väljer du alternativ knappen **valda nätverk** . Detta gör att det inte går att dölja ett antal inställningar för att kontrol lera begränsningen för den offentliga slut punkten. Klicka på **+ Lägg till befintligt virtuellt nätverk** för att välja det enskilda virtuella nätverk som ska få åtkomst till lagrings kontot via den offentliga slut punkten. Detta kräver att du väljer ett virtuellt nätverk och ett undernät för det virtuella nätverket. 
 
-Kontrollera **Tillåt betrodda Microsoft-tjänster att komma åt det här tjänstkontot** så att betrodda Microsoft-tjänster från första part, till exempel Azure File Sync, kan komma åt lagringskontot.
+Markera **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här tjänst kontot** för att tillåta betrodda Microsoft-tjänster från första part, till exempel Azure File Sync att komma åt lagrings kontot.
 
-![Skärmbild av bladet Brandväggar och virtuella nätverk med ett specifikt virtuellt nätverk som får åtkomst till lagringskontot via den offentliga slutpunkten](media/storage-files-networking-endpoints/restrict-public-endpoint-1.png)
+![Skärm bild av bladet brand väggar och virtuella nätverk med ett särskilt virtuellt nätverk som har behörighet att komma åt lagrings kontot via den offentliga slut punkten](media/storage-files-networking-endpoints/restrict-public-endpoint-1.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-Om du vill begränsa åtkomsten till lagringskontots offentliga slutpunkt till specifika virtuella nätverk med hjälp av tjänstslutpunkter måste vi först samla in information om lagringskontot och det virtuella nätverket. Fyll `<storage-account-resource-group>`i `<storage-account-name>` `<vnet-resource-group-name>`, `<vnet-name>`, `<subnet-name>` , och för att samla in den här informationen.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+För att begränsa åtkomsten till lagrings kontots offentliga slut punkt till vissa virtuella nätverk som använder tjänst slut punkter, behöver vi först samla in information om lagrings kontot och det virtuella nätverket. Fyll i `<storage-account-resource-group>`, `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>`,, och `<subnet-name>` för att samla in den här informationen.
 
 ```PowerShell
 $storageAccountResourceGroupName = "<storage-account-resource-group>"
@@ -501,7 +501,7 @@ if ($null -eq $subnet) {
 }
 ```
 
-För att trafik från det virtuella nätverket ska tillåtas av Azure-nätverksinfrastrukturen för att komma till den `Microsoft.Storage` offentliga slutpunkten för lagringskontot måste det virtuella nätverkets undernät ha tjänstslutpunkten exponerat. Följande PowerShell-kommandon lägger `Microsoft.Storage` till tjänstslutpunkten i undernätet om den inte redan finns där.
+För att trafik från det virtuella nätverket ska tillåtas av Azure Network Fabric för att komma till lagrings kontots offentliga slut punkt måste `Microsoft.Storage` tjänst slut punkten vara utsatt för det virtuella nätverkets undernät. Följande PowerShell `Microsoft.Storage` -kommandon kommer att lägga till tjänstens slut punkt i under nätet om den inte redan finns där.
 
 ```PowerShell
 $serviceEndpoints = $subnet | `
@@ -528,7 +528,7 @@ if ($serviceEndpoints -notcontains "Microsoft.Storage") {
 }
 ```
 
-Det sista steget i att begränsa trafiken till lagringskontot är att skapa en nätverksregel och lägga till lagringskontots nätverksregeluppsättning.
+Det sista steget i att begränsa trafiken till lagrings kontot är att skapa en nätverks regel och lägga till lagrings kontots nätverks regel uppsättning.
 
 ```PowerShell
 $networkRule = $storageAccount | Add-AzStorageAccountNetworkRule `
@@ -545,7 +545,7 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Om du vill begränsa åtkomsten till lagringskontots offentliga slutpunkt till specifika virtuella nätverk med hjälp av tjänstslutpunkter måste vi först samla in information om lagringskontot och det virtuella nätverket. Fyll `<storage-account-resource-group>`i `<storage-account-name>` `<vnet-resource-group-name>`, `<vnet-name>`, `<subnet-name>` , och för att samla in den här informationen.
+För att begränsa åtkomsten till lagrings kontots offentliga slut punkt till vissa virtuella nätverk som använder tjänst slut punkter, behöver vi först samla in information om lagrings kontot och det virtuella nätverket. Fyll i `<storage-account-resource-group>`, `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>`,, och `<subnet-name>` för att samla in den här informationen.
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group>"
@@ -574,7 +574,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-För att trafik från det virtuella nätverket ska tillåtas av Azure-nätverksinfrastrukturen för att komma till den `Microsoft.Storage` offentliga slutpunkten för lagringskontot måste det virtuella nätverkets undernät ha tjänstslutpunkten exponerat. Följande CLI-kommandon lägger `Microsoft.Storage` till tjänstslutpunkten i undernätet om den inte redan finns där.
+För att trafik från det virtuella nätverket ska tillåtas av Azure Network Fabric för att komma till lagrings kontots offentliga slut punkt måste `Microsoft.Storage` tjänst slut punkten vara utsatt för det virtuella nätverkets undernät. Följande CLI `Microsoft.Storage` -kommandon lägger till tjänstens slut punkt i under nätet om den inte redan finns där.
 
 ```bash
 serviceEndpoints=$(az network vnet subnet show \
@@ -612,7 +612,7 @@ then
 fi
 ```
 
-Det sista steget i att begränsa trafiken till lagringskontot är att skapa en nätverksregel och lägga till lagringskontots nätverksregeluppsättning.
+Det sista steget i att begränsa trafiken till lagrings kontot är att skapa en nätverks regel och lägga till lagrings kontots nätverks regel uppsättning.
 
 ```bash
 az storage account network-rule add \
@@ -632,6 +632,6 @@ az storage account update \
 ---
 
 ## <a name="see-also"></a>Se även
-- [Överväganden för Azure Files-nätverk](storage-files-networking-overview.md)
-- [Konfigurera DNS-vidarebefordran för Azure-filer](storage-files-networking-dns.md)
-- [Konfigurera S2S VPN för Azure-filer](storage-files-configure-s2s-vpn.md)
+- [Azure Files nätverks överväganden](storage-files-networking-overview.md)
+- [Konfigurera DNS-vidarebefordring för Azure Files](storage-files-networking-dns.md)
+- [Konfigurerar S2S VPN för Azure Files](storage-files-configure-s2s-vpn.md)

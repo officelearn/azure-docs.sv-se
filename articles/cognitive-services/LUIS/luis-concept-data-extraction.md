@@ -1,44 +1,44 @@
 ---
-title: Dataextrahering - LUIS
-description: Extrahera data från uttryckstext med avsikter och entiteter. Läs om vilken typ av data som kan extraheras från Språk understanding (LUIS).
+title: Data extrahering – LUIS
+description: Extrahera data från uttryck text med avsikter och entiteter. Lär dig vilken typ av data som kan extraheras från Language Understanding (LUIS).
 author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221088"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100302"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryckstext med avsikter och entiteter
-LUIS ger dig möjlighet att hämta information från en användares yttranden på naturligt språk. Informationen extraheras på ett sätt som kan användas av ett program, ett program eller en chattrobot för att vidta åtgärder. I följande avsnitt kan du läsa vilka data som returneras från avsikter och entiteter med exempel på JSON.
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
+LUIS ger dig möjlighet att hämta information från en användares naturliga språk yttranden. Informationen extraheras på ett sätt som kan användas av ett program, program eller en chatt-robot för att vidta åtgärder. I följande avsnitt lär du dig vilka data som returneras från avsikter och entiteter med exempel på JSON.
 
-De svåraste data att extrahera är maskininlärda data eftersom det inte är en exakt textmatchning. Datautvinning av de maskininlärda [entiteterna](luis-concept-entity-types.md) måste vara en del av [redigeringscykeln](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
+De hårda data som ska extraheras är de data som lagras på datorn eftersom det inte är en exakt text matchning. Data extrahering av de datorbaserade [enheterna](luis-concept-entity-types.md) måste vara en del av [redigerings cykeln](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
 
-## <a name="data-location-and-key-usage"></a>Dataplats och nyckelanvändning
-LUIS tillhandahåller data från den publicerade [slutpunkten](luis-glossary.md#endpoint). **HTTPS-begäran** (POST eller GET) innehåller uttryck samt vissa valfria konfigurationer som mellanlagring eller produktionsmiljöer.
+## <a name="data-location-and-key-usage"></a>Data plats och nyckel användning
+LUIS tillhandahåller data från den publicerade [slut punkten](luis-glossary.md#endpoint). **Https-begäran** (post eller get) innehåller uttryck samt vissa valfria konfigurationer som till exempel mellanlagrings-eller produktions miljöer.
 
-#### <a name="v2-prediction-endpoint-request"></a>[V2-begäran om förutsägelseslutpunkt](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[V2-begäran om slut punkts förutsägelse](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-request"></a>[V3-begäran om för förutsägelseslutpunkt](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[V3 förutsägelse slut punkts förfrågan](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-Den `appID` är tillgänglig på sidan **Inställningar** i LUIS-appen samt `/apps/`en del av webbadressen (efter) när du redigerar luis-appen. Slutpunktsnyckeln `subscription-key` som används för att fråga appen. Även om du kan använda din kostnadsfria redigerings-/startnyckel medan du lär dig LUIS, är det viktigt att ändra slutpunktsnyckeln till en nyckel som stöder din [förväntade LUIS-användning](luis-boundaries.md#key-limits). Enheten `timezoneOffset` är minuter.
+Är tillgänglig på sidan **Inställningar** i Luis-appen samt en del av URL: en (efter `/apps/`) när du redigerar den Luis-appen. `appID` `subscription-key` Är den slut punkts nyckel som används för att skicka frågor till din app. Även om du kan använda din kostnads fria redigerings-/start nyckel när du lär dig LUIS, är det viktigt att ändra slut punkts nyckeln till en nyckel som stöder din [förväntade Luis-användning](luis-limits.md#key-limits). `timezoneOffset` Enheten är minuter.
 
-**HTTPS-svaret** innehåller all avsikts- och entitetsinformation LUIS kan avgöra baserat på den aktuella publicerade modellen för antingen mellanlagrings- eller produktionsslutpunkten. Slutpunkts-URL:en finns på [LUIS-webbplatsen,](luis-reference-regions.md) i avsnittet **Hantera,** på sidan **Nycklar och slutpunkter.**
+**Https-svaret** innehåller all information om Luis och entiteten som kan fastställas baserat på den aktuella publicerade modellen för antingen mellanlagrings-eller produktions slut punkten. Slut punkts-URL: en finns på [Luis](luis-reference-regions.md) -webbplatsen i avsnittet **Hantera** på sidan **nycklar och slut punkter** .
 
 ## <a name="data-from-intents"></a>Data från avsikter
-Den primära informationen är det högsta **poängmetodnamnet**. Slutpunktssvaret är:
+Primära data är det översta namnet på bedömnings **avsikten**. Slut punktens svar är:
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -51,7 +51,7 @@ Den primära informationen är det högsta **poängmetodnamnet**. Slutpunktssvar
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 ```JSON
 {
@@ -69,20 +69,20 @@ Den primära informationen är det högsta **poängmetodnamnet**. Slutpunktssvar
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-|Dataobjekt|Datatyp|Dataplats|Värde|
+|Data objekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|
-|Avsikt|String|topScoringIntent.intent|"GetStoreInfo"|
+|Avsikt|Sträng|topScoringIntent. avsikt|"GetStoreInfo"|
 
-Om din chatbot- eller LUIS-samtalsapp fattar ett beslut baserat på mer än en avsiktspoäng returnerar du alla avsikters poäng.
+Om din chattrobot-eller LUIS-anropande app fattar ett beslut baserat på fler än ett avsikts poäng, returnerar du alla Intents-resultat.
 
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
-Ange frågestreparametern `verbose=true`. Slutpunktssvaret är:
+Ange parametern QueryString, `verbose=true`. Slut punktens svar är:
 
 ```JSON
 {
@@ -105,9 +105,9 @@ Ange frågestreparametern `verbose=true`. Slutpunktssvaret är:
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Ange frågestreparametern `show-all-intents=true`. Slutpunktssvaret är:
+Ange parametern QueryString, `show-all-intents=true`. Slut punktens svar är:
 
 ```JSON
 {
@@ -129,20 +129,20 @@ Ange frågestreparametern `show-all-intents=true`. Slutpunktssvaret är:
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-Avsikterna sorteras från högsta till lägsta poäng.
+Avsikterna är sorterade från högsta till lägsta poäng.
 
-|Dataobjekt|Datatyp|Dataplats|Värde|Poäng|
+|Data objekt|Datatyp|Dataplats|Värde|Poäng|
 |--|--|--|--|:--|
-|Avsikt|String|avsikter[0].avsikt|"GetStoreInfo"|0.984749258|
-|Avsikt|String|avsikter[1].avsikt|"Ingen"|0.0168218873|
+|Avsikt|Sträng|avsikter [0]. avsikt|"GetStoreInfo"|0,984749258|
+|Avsikt|Sträng|avsikter [1]. avsikt|Alternativet|0,0168218873|
 
-Om du lägger till fördefinierade domäner anger avsiktsnamnet domänen, till exempel `Utilties` eller `Communication` samt avsikten:
+Om du lägger till fördefinierade domäner, anger namn på avsikt domänen, t. ex. `Utilties` eller `Communication` och avsikten:
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -168,7 +168,7 @@ Om du lägger till fördefinierade domäner anger avsiktsnamnet domänen, till e
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 ```JSON
 {
@@ -192,25 +192,25 @@ Om du lägger till fördefinierade domäner anger avsiktsnamnet domänen, till e
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-|Domain|Dataobjekt|Datatyp|Dataplats|Värde|
+|Domain|Data objekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|--|
-|Verktyg|Avsikt|String|avsikter[0].avsikt|"<b>Verktyg</b>. ShowNext"|
-|Kommunikation|Avsikt|String|avsikter[1].avsikt|<b>Kommunikation</b>. StartOver"|
-||Avsikt|String|avsikter[2].avsikt|"Ingen"|
+|Verktyg|Avsikt|Sträng|avsikter [0]. avsikt|"<b>Verktyg</b>. ShowNext"|
+|Kommunikation|Avsikt|Sträng|avsikter [1]. avsikt|<b>Kommunikation</b>. StartOver"|
+||Avsikt|Sträng|avsikter [2]. avsikt|Alternativet|
 
 
 ## <a name="data-from-entities"></a>Data från entiteter
-De flesta chatbots och program behöver mer än avsiktsnamnet. Dessa ytterligare, valfria data kommer från entiteter som identifierats i uttryck. Varje typ av entitet returnerar olika information om matchningen.
+De flesta chattrobotar och program behöver mer än namnet på avsikten. Detta ytterligare, valfria data kommer från entiteter som identifierats i uttryck. Varje typ av entitet returnerar annan information om matchningen.
 
-Ett enda ord eller en fras i ett uttryck kan matcha mer än en entitet. I så fall returneras varje matchande entitet med sin poäng.
+Ett enstaka ord eller en fras i en uttryck kan matcha mer än en entitet. I så fall returneras varje matchande entitet med poängen.
 
-Alla entiteter returneras i **entitetsmatrisen** för svaret från slutpunkten:
+Alla entiteter returneras i matrisen **entiteter** för svaret från slut punkten:
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 "entities": [
@@ -233,7 +233,7 @@ Alla entiteter returneras i **entitetsmatrisen** för svaret från slutpunkten:
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 ```JSON
 "entities": {
@@ -241,32 +241,32 @@ Alla entiteter returneras i **entitetsmatrisen** för svaret från slutpunkten:
     "number": [3]
 }
 ```
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="tokenized-entity-returned"></a>Tokeniserad entitet returnerad
+## <a name="tokenized-entity-returned"></a>En token enhet returnerades
 
-Granska [tokensupporten](luis-language-support.md#tokenization) i LUIS.
+Granska [token-stödet](luis-language-support.md#tokenization) i Luis.
 
-## <a name="simple-entity-data"></a>Enkla entitetsdata
+## <a name="simple-entity-data"></a>Enkla enhets data
 
-En [enkel entitet](reference-entity-simple.md) är ett maskininlärt värde. Det kan vara ett ord eller en fras.
+En [enkel entitet](reference-entity-simple.md) är ett värde som är känd för datorn. Det kan vara ett ord eller en fras.
 
-## <a name="composite-entity-data"></a>Sammansatta entitetsdata
+## <a name="composite-entity-data"></a>Sammansatta enhets data
 
-En [sammansatt entitet](reference-entity-composite.md) består av andra entiteter, till exempel fördefinierade entiteter, enkla, reguljära uttryck och listentiteter. De separata entiteterna utgör en hel entitet.
+En [sammansatt entitet](reference-entity-composite.md) består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en hel entitet.
 
-## <a name="list-entity-data"></a>Lista entitetsdata
+## <a name="list-entity-data"></a>Lista entitets data
 
-[Listentiteter representerar](reference-entity-list.md) en fast, sluten uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listentiteter. Använd funktionen **Rekommendera** om du vill se förslag på nya ord baserat på den aktuella listan. Om det finns mer än en listentitet med samma värde returneras varje entitet i slutpunktsfrågan.
+[Lista entiteter](reference-entity-list.md) representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för List-entiteter. Använd **rekommendations** funktionen om du vill se förslag på nya ord baserade på den aktuella listan. Om det finns mer än en List-entitet med samma värde returneras varje entitet i slut punkts frågan.
 
-## <a name="prebuilt-entity-data"></a>Fördefinierade entitetsdata
-[Fördefinierade entiteter](luis-concept-entity-types.md) identifieras baserat på en reguljär uttrycksmatchning med projektet [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) med öppen källkod. Fördefinierade entiteter returneras i entitetsmatrisen och `builtin::`använder typnamnet som föregås av . Följande text är ett exempel yttrande med den returnerade fördefinierade entiteter:
+## <a name="prebuilt-entity-data"></a>Färdiga enhets data
+[Förbyggda](luis-concept-entity-types.md) entiteter identifieras baserat på en reguljär uttrycks matchning med hjälp av [text](https://github.com/Microsoft/Recognizers-Text) projekt med öppen källkod. Förbyggda entiteter returneras i entiteten entiteter och använder det typnamn som föregås av `builtin::`. Följande text är ett exempel på en uttryck med returnerade fördefinierade entiteter:
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 "entities": [
@@ -347,9 +347,9 @@ En [sammansatt entitet](reference-entity-composite.md) består av andra entitete
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Utan frågestringsparametern: `verbose=true`
+Utan parametern QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -391,7 +391,7 @@ Utan frågestringsparametern: `verbose=true`
 }
 ```
 
-Med frågestringsparametern: `verbose=true`
+Med parametern QueryString `verbose=true`:
 
 ```json
 
@@ -524,41 +524,41 @@ Med frågestringsparametern: `verbose=true`
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
-## <a name="regular-expression-entity-data"></a>Entitetsdata för reguljära uttryck
+## <a name="regular-expression-entity-data"></a>Enhets data för reguljära uttryck
 
 En [entitet för reguljära uttryck](reference-entity-regular-expression.md) extraherar en entitet baserat på ett mönster för reguljära uttryck som du anger.
 
-## <a name="extracting-names"></a>Extrahera namn
-Det är svårt att få namn från ett uttryck eftersom ett namn kan vara nästan vilken kombination som helst av bokstäver och ord. Beroende på vilken typ av namn du extraherar har du flera alternativ. Följande förslag är inte regler utan fler riktlinjer.
+## <a name="extracting-names"></a>Extraherar namn
+Det är svårt att hämta namn från en uttryck eftersom ett namn kan vara praktiskt taget valfri kombination av bokstäver och ord. Beroende på vilken typ av namn du extraherar har du flera alternativ. Följande förslag är inte regler, men fler rikt linjer.
 
-### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Lägg till fördefinierade personnamn och geographyV2-entiteter
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Lägg till färdiga PersonName-och GeographyV2-entiteter
 
-[PersonName](luis-reference-prebuilt-person.md) och [GeographyV2-entiteter](luis-reference-prebuilt-geographyV2.md) finns i vissa [språkkulturer](luis-reference-prebuilt-entities.md).
+[PersonName](luis-reference-prebuilt-person.md) -och [GeographyV2](luis-reference-prebuilt-geographyV2.md) -entiteter är tillgängliga i vissa [språk kulturer](luis-reference-prebuilt-entities.md).
 
 ### <a name="names-of-people"></a>Namn på personer
 
-Människors namn kan ha några små format beroende på språk och kultur. Använd antingen en fördefinierad **[personName-entitet](luis-reference-prebuilt-person.md)** eller en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) för- och efternamn.
+Personens namn kan ha lite format beroende på språk och kultur. Använd antingen en fördefinierad **[personName](luis-reference-prebuilt-person.md)** -entitet eller en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) för för-och efter namn.
 
-Om du använder den enkla entiteten, se till att ge exempel som använder för- och efternamn i olika delar av uttryck, i uttryck av olika längder och yttranden över alla avsikter, inklusive avsikten Ingen. [Granska](luis-how-to-review-endoint-utt.md) slutpunktsyttranden regelbundet för att märka alla namn som inte förutsågs korrekt.
+Om du använder den enkla entiteten ska du se till att ge exempel som använder det första och sista namnet i olika delar av uttryck, i yttranden med olika längd och yttranden i alla avsikter, inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) slut punkts yttranden regelbundet för att märka namn som inte har förutsägts korrekt.
 
 ### <a name="names-of-places"></a>Namn på platser
 
-Platsnamn anges och kallas städer, län, delstater, provinser och länder/regioner. Använd den fördefinierade entiteten **[geographyV2](luis-reference-prebuilt-geographyv2.md)** för att extrahera platsinformation.
+Plats namn anges och är kända som städer, regioner, stater, provinser och länder/regioner. Använd den fördefinierade entiteten **[geographyV2](luis-reference-prebuilt-geographyv2.md)** för att extrahera plats information.
 
-### <a name="new-and-emerging-names"></a>Nya och nya namn
+### <a name="new-and-emerging-names"></a>Nya och framväxande namn
 
-Vissa appar måste kunna hitta nya och nya namn som produkter eller företag. Dessa typer av namn är den svåraste typen av dataextrahering. Börja med en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** och lägg till en [fraslista](luis-concept-feature.md). [Granska](luis-how-to-review-endoint-utt.md) slutpunktsyttranden regelbundet för att märka alla namn som inte förutsågs korrekt.
+Vissa appar måste kunna hitta nya och nya namn, till exempel produkter eller företag. Dessa typer av namn är den svåraste typen av data extrahering. Börja med en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** och Lägg till en [fras lista](luis-concept-feature.md). [Granska](luis-how-to-review-endoint-utt.md) slut punkts yttranden regelbundet för att märka namn som inte har förutsägts korrekt.
 
-## <a name="pattern-roles-data"></a>Mönsterroller data
-Roller är kontextuella skillnader mellan entiteter.
+## <a name="pattern-roles-data"></a>Mönster Rolls data
+Roller är Sammanhangs beroende skillnader i entiteter.
 
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
-Entitetsnamnet är `Location` `Origin` , `Destination`med två roller och .
+Entitetsnamnet är `Location`, med två roller `Origin` och. `Destination`
 
 ```JSON
 "entities": [
@@ -589,13 +589,13 @@ Entitetsnamnet är `Location` `Origin` , `Destination`med två roller och .
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-I V3 är **rollnamnet** objektets primära namn.
+I v3 är **roll namnet** det primära namnet på objektet.
 
-Entitetsnamnet är `Location` `Origin` , `Destination`med två roller och .
+Entitetsnamnet är `Location`, med två roller `Origin` och. `Destination`
 
-Utan frågestringsparametern: `verbose=true`
+Utan parametern QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -611,7 +611,7 @@ Utan frågestringsparametern: `verbose=true`
 }
 ```
 
-Med frågestringsparametern: `verbose=true`
+Med parametern QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -673,21 +673,21 @@ Med frågestringsparametern: `verbose=true`
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="patternany-entity-data"></a>Pattern.any entitetsdata
+## <a name="patternany-entity-data"></a>Mönster. alla entitets data
 
-[Pattern.any](reference-entity-pattern-any.md) är en platshållare med variabel längd som endast används i ett mönsters malluttryck för att markera var entiteten börjar och slutar.
+[Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar.
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
-Om Sentiment-analys har konfigurerats innehåller LUIS-json-svaret sentimentanalys. Läs mer om sentimentanalys i [dokumentationen till Text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
+Om sentiment-analysen har kon figurer ATS innehåller LUIS JSON-svaret sentiment analys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.
 
-### <a name="sentiment-data"></a>Sentimentdata
-Sentimentdata är en poäng mellan 1 och 0 som anger den positiva (närmare 1) eller negativa (närmare 0) sentimentet för data.
+### <a name="sentiment-data"></a>Sentiment-data
+Sentiment-data är ett resultat mellan 1 och 0 som anger positiv (närmare 1) eller negativ (närmare 0) sentiment av data.
 
-När kulturen `en-us`är är svaret:
+När kulturen är `en-us`är svaret:
 
 ```JSON
 "sentimentAnalysis": {
@@ -705,11 +705,11 @@ För alla andra kulturer är svaret:
 ```
 
 
-### <a name="key-phrase-extraction-entity-data"></a>Information om extrahering av nyckelfraser
-Entiteten för nyckelfrasextrahering returnerar nyckelfraser i uttrycket som tillhandahålls av [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+### <a name="key-phrase-extraction-entity-data"></a>Nyckel fras extrahering av enhets data
+Extraherings enheten för nyckel fraser returnerar nyckel fraser i uttryck, som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -744,11 +744,11 @@ Entiteten för nyckelfrasextrahering returnerar nyckelfraser i uttrycket som til
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Utan frågestringsparametern: `verbose=true`
+Utan parametern QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -760,7 +760,7 @@ Utan frågestringsparametern: `verbose=true`
 }
 ```
 
-Med frågestringsparametern: `verbose=true`
+Med parametern QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -809,20 +809,20 @@ Med frågestringsparametern: `verbose=true`
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
 
 ## <a name="data-matching-multiple-entities"></a>Data som matchar flera entiteter
 
-LUIS returnerar alla entiteter som har identifierats i uttrycket. Som ett resultat kan din chatbot behöva fatta beslut baserat på resultaten. Ett uttryck kan ha många entiteter i ett uttryck:
+LUIS returnerar alla entiteter som identifierats i uttryck. Därför kan din chattrobot behöva fatta beslut baserat på resultaten. En uttryck kan ha många entiteter i en uttryck:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-LUIS-slutpunkten kan identifiera samma data i olika entiteter.
+LUIS-slutpunkten kan upptäcka samma data i olika entiteter.
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -948,9 +948,9 @@ LUIS-slutpunkten kan identifiera samma data i olika entiteter.
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Utan `verbose=true` som frågestrålningsparameter.
+Utan `verbose=true` som en QueryString-parameter.
 
 ```json
 "entities": {
@@ -987,7 +987,7 @@ Utan `verbose=true` som frågestrålningsparameter.
 }
 ```
 
-Med `verbose=true` som frågeparameter.
+Med `verbose=true` som en QueryString-parameter.
 
 
 ```json
@@ -1125,17 +1125,17 @@ Med `verbose=true` som frågeparameter.
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="data-matching-multiple-list-entities"></a>Datamatchning av flera listentiteter
+## <a name="data-matching-multiple-list-entities"></a>Data som matchar flera List enheter
 
-Om ett ord eller en fras matchar mer än en listentitet returnerar slutpunktsfrågan varje listentitet.
+Om ett ord eller en fras matchar mer än en List-entitet returnerar slut punkts frågan varje lista entitet.
 
-För frågan `when is the best time to go to red rock?`och appen innehåller `red` ordet i mer än en lista känner LUIS igen alla entiteter och returnerar en matris med entiteter som en del av JSON-slutpunktssvaret:
+För frågan `when is the best time to go to red rock?`och appen har ordet `red` i fler än en lista, känner Luis igen alla entiteter och returnerar en matris med entiteter som en del av JSON-slutpunktens svar:
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -1173,7 +1173,7 @@ För frågan `when is the best time to go to red rock?`och appen innehåller `re
 
 
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 Utan `verbose=true` i frågesträngen:
 
@@ -1262,10 +1262,10 @@ Med `verbose=true` i frågesträngen:
 }
 ```
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Lägga till entiteter](luis-how-to-add-entities.md) om du vill veta mer om hur du lägger till entiteter i LUIS-appen.
+Se [Lägg till entiteter](luis-how-to-add-entities.md) för att lära dig mer om hur du lägger till entiteter i Luis-appen.

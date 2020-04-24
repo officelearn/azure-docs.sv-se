@@ -1,25 +1,19 @@
 ---
-title: Snabbstart – Skapa en Virtuell Windows-dator med Azure CLI
-description: I den här snabbstarten får du lära dig hur du använder Azure CLI för att skapa en virtuell Windows-dator
-services: virtual-machines-windows
-documentationcenter: virtual-machines
+title: Snabb start – skapa en virtuell Windows-dator med hjälp av Azure CLI
+description: I den här snabb starten får du lära dig hur du använder Azure CLI för att skapa en virtuell Windows-dator
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 37f86f480e0d2a46bb54ad9b041fb1892a9ebbc4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: c6f1663924f338b6b17c760afe64527f563f5bc2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458172"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098024"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Windows-dator med Azure CLI
 
@@ -31,11 +25,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/bash](https://shell.azure.com/bash)en separat webbläsarflik genom att gå till . Välj **Kopiera** om du vill kopiera kodblocken, klistra in den i Molnskalet och tryck på **Retur** för att köra den.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/bash](https://shell.azure.com/bash)gå till. Välj **Kopiera** för att kopiera kod blocken, klistra in den i Cloud Shell och tryck på **RETUR** för att köra den.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,10 +37,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM*. I det här exemplet används *azureuser* för ett administrativt användarnamn. 
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM*. I det här exemplet används *azureuser* för ett administrativt användar namn. 
 
-Du måste ange ett lösenord som uppfyller [lösenordskraven för virtuella Azure-datorer](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-). Med hjälp av exemplet nedan uppmanas du att ange ett lösenord på kommandoraden. Du kan också `--admin-password` lägga till parametern med ett värde för ditt lösenord. Användarnamnet och lösenordet används senare när du ansluter till den virtuella datorn.
+Du måste ange ett lösen ord som uppfyller [lösen ords kraven för virtuella Azure-datorer](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). I exemplet nedan uppmanas du att ange ett lösen ord på kommando raden. Du kan också lägga till `--admin-password` parametern med ett värde för ditt lösen ord. Användar namnet och lösen ordet kommer att användas senare när du ansluter till den virtuella datorn.
 
 ```azurecli-interactive
 az vm create \

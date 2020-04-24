@@ -1,7 +1,7 @@
 ---
 title: Fältmappningar i indexerare
 titleSuffix: Azure Cognitive Search
-description: Konfigurera fältmappningar i en indexerare för att ta hänsyn till skillnader i fältnamn och datarepresentationer.
+description: Konfigurera fält mappningar i en indexerare för att redovisa skillnader i fält namn och data representationer.
 manager: nitinme
 author: mattmsft
 ms.author: magottei
@@ -9,45 +9,42 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e09741e841897032b8146dee67b79e0c26ea5cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17a96479b80410cbfcb2a6061904491f95c45f10
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275160"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116272"
 ---
-# <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fältmappningar och omvandlingar med Hjälp av Azure Cognitive Search-indexerare
+# <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
 
-När du använder Azure Cognitive Search-indexerare upptäcker du ibland att indata inte riktigt matchar schemat för ditt målindex. I sådana fall kan du använda **fältmappningar** för att omforma dina data under indexeringsprocessen.
+När du använder Azure Kognitiv sökning indexerare ser du ibland till att indata inte stämmer överens med schemat för ditt mål index. I dessa fall kan du använda **fält mappningar** för att ändra form på dina data under indexerings processen.
 
-Vissa situationer där fältmappningar är användbara:
+Några situationer där fält mappningar är användbara:
 
-* Datakällan har ett `_id`fält med namnet , men Azure Cognitive Search tillåter inte fältnamn som börjar med ett understreck. Med en fältmappning kan du byta namn på ett fält på ett effektivt sätt.
-* Du vill fylla i flera fält i indexet från samma datakälldata. Du kanske till exempel vill använda olika analysatorer på dessa fält.
-* Du vill fylla i ett indexfält med data från mer än en datakälla, och datakällorna använder olika fältnamn.
-* Du måste base64 koda eller avkoda dina data. Fältmappningar stöder flera **mappningsfunktioner,** inklusive funktioner för Base64-kodning och avkodning.
+* Data källan har ett fält med namnet `_id`, men Azure kognitiv sökning tillåter inte fält namn som börjar med ett under streck. Med en fält mappning kan du effektivt byta namn på ett fält.
+* Du vill fylla i flera fält i indexet från samma data käll data. Du kanske till exempel vill använda olika analys verktyg för dessa fält.
+* Du vill fylla i ett index fält med data från fler än en data källa och data källorna använder olika fält namn.
+* Du måste base64 koda eller avkoda dina data. Fält mappningar har stöd för flera **mappnings funktioner**, inklusive funktioner för base64-kodning och avkodning.
 
 > [!NOTE]
-> Fältmappningsfunktionen i Azure Cognitive Search-indexerare är ett enkelt sätt att mappa datafält till indexfält, med några alternativ för datakonvertering. Mer komplexa data kan kräva förbearbetning för att omforma dem till ett formulär som är enkelt att indexera.
->
-> Microsoft Azure Data Factory är en kraftfull molnbaserad lösning för import och omvandling av data. Du kan också skriva kod för att omvandla källdata innan du indexerar. Kodexempel finns i [Modellrelationsdata](search-example-adventureworks-modeling.md) och [modellfaceter på flera nivåer](search-example-adventureworks-multilevel-faceting.md).
->
+> Fält mappningar i indexerare är ett enkelt sätt att mappa data fält till index fält, med viss möjlighet till låg data konvertering. Mer komplexa data kan kräva för bearbetning för att forma om den till ett formulär som är till för indexering. Ett alternativ som du kan överväga är [Azure Data Factory](https://docs.microsoft.com/zure/data-factory/).
 
-## <a name="set-up-field-mappings"></a>Ställa in fältmappningar
+## <a name="set-up-field-mappings"></a>Konfigurera fält mappningar
 
-En fältkartläggning består av tre delar:
+En fält mappning består av tre delar:
 
-1. A `sourceFieldName`, som representerar ett fält i datakällan. Boendet är obligatoriskt.
-2. Ett `targetFieldName`valfritt , som representerar ett fält i sökindexet. Om det utelämnas används samma namn som i datakällan.
-3. En `mappingFunction`valfri , som kan omvandla dina data med hjälp av en av flera fördefinierade funktioner. Den fullständiga listan över funktioner finns [nedan](#mappingFunctions).
+1. En `sourceFieldName`, som representerar ett fält i data källan. Den här egenskapen är obligatorisk.
+2. En valfri `targetFieldName`, som representerar ett fält i Sök indexet. Om det utelämnas används samma namn som i data källan.
+3. En valfri `mappingFunction`, som kan transformera dina data med hjälp av en av flera fördefinierade funktioner. Den fullständiga listan över funktioner finns [nedan](#mappingFunctions).
 
-Fältmappningar läggs till `fieldMappings` i matrisen för indexeringsdefinitionen.
+Fält mappningar läggs till i `fieldMappings` matrisen för index definition.
 
-## <a name="map-fields-using-the-rest-api"></a>Mappa fält med REST API
+## <a name="map-fields-using-the-rest-api"></a>Mappa fält med hjälp av REST API
 
-Du kan lägga till fältmappningar när du skapar en ny indexerare med hjälp av [API-begäran skapa indexerare.](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) Du kan hantera fältmappningar för en befintlig indexerare med hjälp av [API-begäran för Uppdatera indexerare.](https://docs.microsoft.com/rest/api/searchservice/update-indexer)
+Du kan lägga till fält mappningar när du skapar en ny indexerare med hjälp av API-förfrågan [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) . Du kan hantera fält mappningar för en befintlig indexerare med hjälp av API-begäran [Uppdatera indexerare](https://docs.microsoft.com/rest/api/searchservice/update-indexer) .
 
-Så här mappar du till exempel ett källfält till ett målfält med ett annat namn:
+Så här mappar du till exempel ett käll fält till ett målfält med ett annat namn:
 
 ```JSON
 
@@ -61,7 +58,7 @@ api-key: [admin key]
 }
 ```
 
-Ett källfält kan refereras i flera fältmappningar. I följande exempel visas hur du "gaffel" ett fält, kopiera samma källfält till två olika indexfält:
+Det går att referera till ett käll fält i flera fält mappningar. I följande exempel visas hur du kopierar samma käll fält till två olika index fält med "förgrening" i ett fält:
 
 ```JSON
 
@@ -72,17 +69,17 @@ Ett källfält kan refereras i flera fältmappningar. I följande exempel visas 
 ```
 
 > [!NOTE]
-> Azure Cognitive Search använder skiftlägesokänslig jämförelse för att matcha fält- och funktionsnamnen i fältmappningar. Detta är praktiskt (du behöver inte få alla höljet rätt), men det innebär att din datakälla eller index inte kan ha fält som skiljer sig endast från fall.  
+> Azure Kognitiv sökning använder SKIFT läges okänslig jämförelse för att matcha fält-och funktions namn i fält mappningar. Detta är praktiskt (du behöver inte hämta alla Skift läges rättigheter), men det innebär att data källan eller indexet inte kan ha fält som bara skiljer sig från versaler.  
 >
 >
 
-## <a name="map-fields-using-the-net-sdk"></a>Mappa fält med .NET SDK
+## <a name="map-fields-using-the-net-sdk"></a>Mappa fält med hjälp av .NET SDK
 
-Du definierar fältmappningar i .NET SDK med klassen [FieldMapping,](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) som har egenskaperna `SourceFieldName` och `TargetFieldName`och en valfri `MappingFunction` referens.
+Du definierar fält mappningar i .NET SDK med klassen [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) , som har egenskaperna `SourceFieldName` och `TargetFieldName`, och en valfri `MappingFunction` referens.
 
-Du kan ange fältmappningar när du skapar indexeraren `Indexer.FieldMappings` eller senare genom att direkt ange egenskapen.
+Du kan ange fält mappningar när du konstruerar indexeraren eller senare genom att `Indexer.FieldMappings` ange egenskapen direkt.
 
-I följande C#-exempel anges fältmappningarna när du skapar en indexerare.
+I följande C#-exempel anges fält mappningar när du skapar en indexerare.
 
 ```csharp
   List<FieldMapping> map = new List<FieldMapping> {
@@ -104,28 +101,28 @@ I följande C#-exempel anges fältmappningarna när du skapar en indexerare.
 
 <a name="mappingFunctions"></a>
 
-## <a name="field-mapping-functions"></a>Funktioner för fältmappning
+## <a name="field-mapping-functions"></a>Fält mappnings funktioner
 
-En fältmappningsfunktion omvandlar innehållet i ett fält innan det lagras i indexet. Följande mappningsfunktioner stöds för närvarande:
+En fält mappnings funktion omvandlar innehållet i ett fält innan det lagras i indexet. Följande mappnings funktioner stöds för närvarande:
 
 * [base64Encode](#base64EncodeFunction)
 * [base64Decode](#base64DecodeFunction)
-* [extraktTokenAtPosition](#extractTokenAtPositionFunction)
-* [jsonArrayToStringKollera](#jsonArrayToStringCollectionFunction)
-* [urlEncode (urlEncode)](#urlEncodeFunction)
-* [urlDecode (urlDecode)](#urlDecodeFunction)
+* [extractTokenAtPosition](#extractTokenAtPositionFunction)
+* [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
+* [urlEncode](#urlEncodeFunction)
+* [urlDecode](#urlDecodeFunction)
 
 <a name="base64EncodeFunction"></a>
 
 ### <a name="base64encode-function"></a>funktionen base64Encode
 
-Utför *URL-säker* Base64-kodning av indatasträngen. Förutsätter att indata är UTF-8-kodad.
+Utför *URL-säker base64-* kodning för Indatasträngen. Förutsätter att indatatypen är UTF-8-kodad.
 
-#### <a name="example---document-key-lookup"></a>Exempel - uppslag på dokumentnyckel
+#### <a name="example---document-key-lookup"></a>Exempel – sökning efter dokument nyckel
 
-Endast URL-säkra tecken kan visas i en Azure Cognitive Search-dokumentnyckel (eftersom kunderna måste kunna adressera dokumentet med hjälp av [uppslags-API).](https://docs.microsoft.com/rest/api/searchservice/lookup-document) Om källfältet för nyckeln innehåller URL-osäkra tecken kan `base64Encode` du använda funktionen för att konvertera det vid indexeringstiden. En dokumentnyckel (både före och efter konvertering) kan dock inte vara längre än 1 024 tecken.
+Endast URL-säkra tecken kan visas i en Azure Kognitiv sökning-dokument nyckel (eftersom kunderna måste kunna adressera dokumentet med [söknings-API: et](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). Om käll fältet för nyckeln innehåller URL-osäkra tecken kan du använda `base64Encode` funktionen för att konvertera den vid indexerings tiden. Men en dokument nyckel (både före och efter konverteringen) får inte vara längre än 1 024 tecken.
 
-När du hämtar den kodade nyckeln vid sökningen `base64Decode` kan du sedan använda funktionen för att hämta det ursprungliga nyckelvärdet och använda det för att hämta källdokumentet.
+När du hämtar den kodade nyckeln vid sökning kan du använda `base64Decode` funktionen för att hämta det ursprungliga nyckelvärdet och använda det för att hämta käll dokumentet.
 
 ```JSON
 
@@ -140,19 +137,19 @@ När du hämtar den kodade nyckeln vid sökningen `base64Decode` kan du sedan an
   }]
  ```
 
-Om du inte inkluderar en parameteregenskap för mappningsfunktionen `{"useHttpServerUtilityUrlTokenEncode" : true}`är värdet som standard .
+Om du inte inkluderar en parameter egenskap för mappnings funktionen används värdet `{"useHttpServerUtilityUrlTokenEncode" : true}`som standard.
 
-Azure Cognitive Search stöder två olika Base64-kodningar. Du bör använda samma parametrar när du kodar och avkodar samma fält. Mer information finns i [base64-kodningsalternativ](#base64details) för att bestämma vilka parametrar som ska användas.
+Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda samma parametrar när du kodar och avkodar samma fält. Mer information finns i [base64 encoding-alternativ](#base64details) för att avgöra vilka parametrar som ska användas.
 
 <a name="base64DecodeFunction"></a>
 
 ### <a name="base64decode-function"></a>funktionen base64Decode
 
-Utför Base64 avkodning av indatasträngen. Indata antas vara en *URL-säker* Base64-kodad sträng.
+Utför base64-avkodning av Indatasträngen. Indatamängden antas vara en *URL-säker* Base64-kodad sträng.
 
-#### <a name="example---decode-blob-metadata-or-urls"></a>Exempel - avkoda blobmetadata eller webbadresser
+#### <a name="example---decode-blob-metadata-or-urls"></a>Exempel – avkoda BLOB-metadata eller URL: er
 
-Källdata kan innehålla Base64-kodade strängar, till exempel blobmetadatasträngar eller webb-URL:er, som du vill göra sökbara som oformaterad text. Du kan `base64Decode` använda funktionen för att återföra kodade data till vanliga strängar när du fyller i sökindexet.
+Dina källdata kan innehålla base64-kodade strängar, till exempel BLOB-metadata strängar eller webb adresser, som du vill göra sökbara som oformaterad text. Du kan använda `base64Decode` funktionen för att omvandla kodade data tillbaka till vanliga strängar när du fyller i sökindexet.
 
 ```JSON
 
@@ -167,48 +164,48 @@ Källdata kan innehålla Base64-kodade strängar, till exempel blobmetadatasträ
   }]
 ```
 
-Om du inte inkluderar en parameteregenskap är `{"useHttpServerUtilityUrlTokenEncode" : true}`värdet som standard standard .
+Om du inte tar med en parameter egenskap används värdet `{"useHttpServerUtilityUrlTokenEncode" : true}`som standard.
 
-Azure Cognitive Search stöder två olika Base64-kodningar. Du bör använda samma parametrar när du kodar och avkodar samma fält. Mer information finns i [base64-kodningsalternativ](#base64details) för att bestämma vilka parametrar som ska användas.
+Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda samma parametrar när du kodar och avkodar samma fält. Mer information finns i [base64 encoding-alternativ](#base64details) för att avgöra vilka parametrar som ska användas.
 
 <a name="base64details"></a>
 
-#### <a name="base64-encoding-options"></a>alternativ för bas64-kodning
+#### <a name="base64-encoding-options"></a>Base64-kodnings alternativ
 
-Azure Cognitive Search stöder URL-säker base64-kodning och normal base64-kodning. En sträng som är base64 kodad under indexering ska avkodas senare med samma kodningsalternativ, annars matchar resultatet inte originalet.
+Azure Kognitiv sökning stöder URL-säker base64-kodning och normal base64-kodning. En sträng som är Base64-kodad vid indexering ska avkodas senare med samma kodnings alternativ, eller annars matchar inte resultatet originalet.
 
-Om `useHttpServerUtilityUrlTokenEncode` parametrarna `useHttpServerUtilityUrlTokenDecode` eller för kodning respektive avkodning `true`är `base64Encode` inställda på , beter sig sedan som `base64Decode` [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) och fungerar som [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Om- `useHttpServerUtilityUrlTokenEncode` eller `useHttpServerUtilityUrlTokenDecode` -parametrarna för encoding och deencoding är inställda på `true`, beter `base64Encode` sig sedan som [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) och `base64Decode` beter sig som [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
 > [!WARNING]
-> Om `base64Encode` används för att `useHttpServerUtilityUrlTokenEncode` skapa nyckelvärden måste värdet vara true. Endast URL-säker base64-kodning kan användas för nyckelvärden. Se [Namngivningsregler &#40;Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) för fullständig uppsättning begränsningar för tecken i nyckelvärden.
+> Om `base64Encode` används för att skapa nyckel värden `useHttpServerUtilityUrlTokenEncode` måste anges till sant. Endast URL-säker base64-kodning kan användas för nyckel värden. Se [namngivnings regler &#40;Azure Kognitiv sökning&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) för att få en fullständig uppsättning begränsningar för tecken i nyckel värden.
 
-.NET-biblioteken i Azure Cognitive Search antar hela .NET Framework, som tillhandahåller inbyggd kodning. Alternativen `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` och utnyttjar den här inbyggda funktionsfunktionen. Om du använder .NET Core eller ett annat `false` ramverk rekommenderar vi att du ställer in dessa alternativ till och anropar ramverkets kodnings- och avkodningsfunktioner direkt.
+.NET-biblioteken i Azure Kognitiv sökning antar den fullständiga .NET Framework, som innehåller inbyggd kodning. Alternativen `useHttpServerUtilityUrlTokenEncode` och `useHttpServerUtilityUrlTokenDecode` utnyttjar denna inbyggda funktion. Om du använder .NET Core eller ett annat ramverk rekommenderar vi att du ställer in de `false` här alternativen till och anropar ramverkets kodning och avkodnings funktioner direkt.
 
-I följande tabell jämförs olika base64-kodningar `00>00?00`för strängen . Om du vill ta reda på vilken ytterligare bearbetning (om sådan finns) `00>00?00` för dina base64-funktioner använder du bibliotekskodfunktionen på strängen och jämför utdata med den förväntade utdata `MDA-MDA_MDA`.
+I följande tabell jämförs olika base64-kodningar för `00>00?00`strängen. Om du vill fastställa nödvändig ytterligare bearbetning (om det finns någon) för dina base64-funktioner använder du din biblioteks kodnings funktion i strängen `00>00?00` och jämför utdata med `MDA-MDA_MDA`förväntade utdata.
 
-| Kodning | Base64 koda utdata | Ytterligare bearbetning efter bibliotekskodning | Ytterligare bearbetning före avkodning av bibliotek |
+| Kodning | Base64-koda utdata | Ytterligare bearbetning efter biblioteks kodning | Ytterligare bearbetning före biblioteks avkodning |
 | --- | --- | --- | --- |
-| Base64 med stoppning | `MDA+MDA/MDA=` | Använda URL-säkra tecken och ta bort utfyllnad | Använda standardbas64-tecken och lägg till utfyllnad |
-| Base64 utan stoppning | `MDA+MDA/MDA` | Använda URL-säkra tecken | Använda standardbas64-tecken |
-| URL-säker bas64 med utfyllnad | `MDA-MDA_MDA=` | Ta bort utfyllnad | Lägga till utfyllnad |
-| URL-säker bas64 utan utfyllnad | `MDA-MDA_MDA` | Inget | Inget |
+| Base64 med utfyllnad | `MDA+MDA/MDA=` | Använd URL-säkra tecken och ta bort utfyllnad | Använd standard base64-tecken och Lägg till utfyllnad |
+| Base64 utan utfyllnad | `MDA+MDA/MDA` | Använd URL-säkra tecken | Använd standard base64-tecken |
+| URL – säker base64 med utfyllnad | `MDA-MDA_MDA=` | Ta bort utfyllnad | Lägg till utfyllnad |
+| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Ingen | Ingen |
 
 <a name="extractTokenAtPositionFunction"></a>
 
 ### <a name="extracttokenatposition-function"></a>funktionen extractTokenAtPosition
 
-Delar ett strängfält med den angivna avgränsaren och väljer token på angiven position i den resulterande delningen.
+Delar upp ett sträng fält med angiven avgränsare och plockar token på den angivna positionen i den resulterande delningen.
 
 Den här funktionen använder följande parametrar:
 
-* `delimiter`: en sträng som ska användas som avgränsare när indatasträngen delas upp.
-* `position`: en heltals-nollbaserad position för token som ska plockas efter att indatasträngen har delats.
+* `delimiter`: en sträng som ska användas som avgränsare vid delning av Indatasträngen.
+* `position`: en heltal noll-baserad position för den token som ska väljas efter att Indatasträngen har delats upp.
 
-Om indata till `Jane Doe`exempel `delimiter` är `" "`, är `position` (mellanslag) och `Jane`är 0, blir resultatet ; om `position` är 1, blir `Doe`resultatet . Om befattningen refererar till en token som inte finns returneras ett fel.
+Om till exempel indatatypen är `Jane Doe`, `delimiter` är `" "`(blank steg) och `position` är 0, blir resultatet. `Jane` Om `position` är 1 är `Doe`resultatet. Om positionen refererar till en token som inte finns returneras ett fel.
 
-#### <a name="example---extract-a-name"></a>Exempel - extrahera ett namn
+#### <a name="example---extract-a-name"></a>Exempel – extrahera ett namn
 
-Datakällan innehåller `PersonName` ett fält och du vill indexera det som två separata `FirstName` fält och `LastName` fält. Du kan använda den här funktionen för att dela indata med blankstegstecknet som avgränsare.
+Data källan innehåller ett `PersonName` fält och du vill indexera det som två separata `FirstName` fält och `LastName` fält. Du kan använda den här funktionen för att dela upp indatamängden med blank stegs tecken som avgränsare.
 
 ```JSON
 
@@ -227,15 +224,15 @@ Datakällan innehåller `PersonName` ett fält och du vill indexera det som två
 
 <a name="jsonArrayToStringCollectionFunction"></a>
 
-### <a name="jsonarraytostringcollection-function"></a>jsonArrayToStringKollektionsfunktion
+### <a name="jsonarraytostringcollection-function"></a>funktionen jsonArrayToStringCollection
 
-Omvandlar en sträng formaterad som en JSON-matris med strängar till en `Collection(Edm.String)` strängmatris som kan användas för att fylla i ett fält i indexet.
+Transformerar en sträng formaterad som en JSON-matris med strängar till en sträng mat ris som kan användas för att fylla `Collection(Edm.String)` ett fält i indexet.
 
-Om indatasträngen till `["red", "white", "blue"]`exempel är fylls `Collection(Edm.String)` målfältet av typen `red`med `white`de `blue`tre värdena , och . För indatavärden som inte kan tolkas som JSON-strängmatriser returneras ett fel.
+Om till `["red", "white", "blue"]`exempel Indatasträngen är, fylls mål fält av typ `Collection(Edm.String)` med de tre värdena `red`, `white`och. `blue` Ett fel returneras för inmatade värden som inte kan parsas som JSON-sträng mat ris.
 
-#### <a name="example---populate-collection-from-relational-data"></a>Exempel - fylla i insamling från relationsdata
+#### <a name="example---populate-collection-from-relational-data"></a>Exempel – fylla i samling från Relations data
 
-Azure SQL Database har inte en inbyggd datatyp `Collection(Edm.String)` som naturligt mappar till fält i Azure Cognitive Search. Om du vill fylla i strängsamlingsfält kan du förbehandla källdata `jsonArrayToStringCollection` som en JSON-strängmatris och sedan använda mappningsfunktionen.
+Azure SQL Database har inte någon inbyggd datatyp som naturligt mappar till `Collection(Edm.String)` fält i Azure kognitiv sökning. För att fylla i sträng samlings fält kan du Förbearbeta dina källdata som en JSON-sträng mat ris och sedan `jsonArrayToStringCollection` använda mappnings funktionen.
 
 ```JSON
 
@@ -246,21 +243,19 @@ Azure SQL Database har inte en inbyggd datatyp `Collection(Edm.String)` som natu
   }]
 ```
 
-Ett detaljerat exempel som omvandlar relationsdata till indexinsamlingsfält finns i [Modellrelationsdata](search-example-adventureworks-modeling.md).
-
 <a name="urlEncodeFunction"></a>
 
-### <a name="urlencode-function"></a>urlEncode-funktion
+### <a name="urlencode-function"></a>funktionen urlEncode
 
-Denna funktion kan användas för att koda en sträng så att den är "URL säker". När den används med en sträng som innehåller tecken som inte är tillåtna i en URL konverteras dessa "osäkra" tecken till teckenettitetsekvivalenter. Den här funktionen använder UTF-8-kodningsformatet.
+Den här funktionen kan användas för att koda en sträng så att den är "säker URL". När den används med en sträng som innehåller tecken som inte tillåts i en URL, kommer funktionen att konvertera dessa "osäkra" tecken till motsvarande tecken i entiteter. Den här funktionen använder UTF-8-encoding-formatet.
 
-#### <a name="example---document-key-lookup"></a>Exempel - uppslag på dokumentnyckel
+#### <a name="example---document-key-lookup"></a>Exempel – sökning efter dokument nyckel
 
-`urlEncode`funktionen kan användas som ett `base64Encode` alternativ till funktionen, om bara URL osäkra tecken ska konverteras, samtidigt som andra tecken som är.
+`urlEncode`funktionen kan användas som ett alternativ till `base64Encode` funktionen, om bara URL-osäkra tecken ska konverteras, samtidigt som de behåller andra tecken.
 
-Säg, indatasträngen är `<hello>` - då `(Edm.String)` kommer målfältet av typen att fyllas med värdet`%3chello%3e`
+Anta att Indatasträngen är `<hello>` -och sedan fylls mål fält av typ `(Edm.String)` i med värdet`%3chello%3e`
 
-När du hämtar den kodade nyckeln vid sökningen `urlDecode` kan du sedan använda funktionen för att hämta det ursprungliga nyckelvärdet och använda det för att hämta källdokumentet.
+När du hämtar den kodade nyckeln vid sökning kan du använda `urlDecode` funktionen för att hämta det ursprungliga nyckelvärdet och använda det för att hämta käll dokumentet.
 
 ```JSON
 
@@ -276,13 +271,13 @@ När du hämtar den kodade nyckeln vid sökningen `urlDecode` kan du sedan anvä
 
  <a name="urlDecodeFunction"></a>
 
- ### <a name="urldecode-function"></a>urlDecode-funktion
+ ### <a name="urldecode-function"></a>funktionen urlDecode
 
- Den här funktionen konverterar en URL-kodad sträng till en avkodad sträng med UTF-8-kodningsformat.
+ Den här funktionen konverterar en URL-kodad sträng till en avkodad sträng med UTF-8-kodat format.
 
- ### <a name="example---decode-blob-metadata"></a>Exempel - avkoda blobmetadata
+ ### <a name="example---decode-blob-metadata"></a>Exempel – avkoda BLOB-metadata
 
- Vissa Azure-lagringsklienter url kodar automatiskt blobmetadata om de innehåller icke-ASCII-tecken. Men om du vill göra sådana metadata sökbara (som `urlDecode` oformaterad text) kan du använda funktionen för att återföra kodade data till vanliga strängar när du fyller i sökindexet.
+ Vissa Azure Storage-klienter automatiskt URL-koda BLOB-metadata om det innehåller icke-ASCII-tecken. Men om du vill göra dessa metadata sökbara (som oformaterad text) kan du använda `urlDecode` funktionen för att omvandla kodade data tillbaka till vanliga strängar när du fyller i Sök indexet.
 
  ```JSON
 
@@ -298,13 +293,13 @@ När du hämtar den kodade nyckeln vid sökningen `urlDecode` kan du sedan anvä
  
  <a name="fixedLengthEncodeFunction"></a>
  
- ### <a name="fixedlengthencode-function"></a>fixedLengthEncode-funktionen
+ ### <a name="fixedlengthencode-function"></a>funktionen fixedLengthEncode
  
- Den här funktionen konverterar en sträng av valfri längd till en fast längdsträng.
+ Den här funktionen konverterar en sträng med valfri längd till en sträng med fast längd.
  
- ### <a name="example---map-document-keys-that-are-too-long"></a>Exempel - kartdokumentnycklar som är för långa
+ ### <a name="example---map-document-keys-that-are-too-long"></a>Exempel – mappa dokument nycklar som är för långa
  
-När du står inför fel klagar dokumentnyckel är längre än 1024 tecken, kan denna funktion användas för att minska längden på dokumentnyckeln.
+Om det uppstår fel som klagande om dokument nyckeln är längre än 1024 tecken kan den här funktionen användas för att minska längden på dokument nyckeln.
 
  ```JSON
 

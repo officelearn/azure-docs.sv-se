@@ -1,26 +1,15 @@
 ---
-title: Komma igång med PowerShell – Azure Batch | Microsoft Docs
+title: Kom igång med PowerShell
 description: En snabb introduktion till Azure PowerShell-cmdlets som du kan använda för att hantera Batch-resurserna.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: powershell
-ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79473c5fb63a5f5ad29194c65cd8094ea444dbd8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023012"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115847"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Hantera Batch-resurser med PowerShell-cmdletar
 

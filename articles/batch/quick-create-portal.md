@@ -1,20 +1,15 @@
 ---
 title: Azure Snabbstart – Köra Batch-jobb – Portal
-description: Lär dig hur du använder Azure-portalen för att skapa ett batchkonto, en pool med beräkningsnoder och ett jobb som kör grundläggande uppgifter i poolen.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
+description: Lär dig hur du använder Azure Portal för att skapa ett batch-konto, en pool med Compute-noder och ett jobb som kör grundläggande aktiviteter i poolen.
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 6ce0066765de3d99f8309bf568b467518f38923e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4857b9ffb38cf48678f793284afaaf3bbefb7e42
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240438"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114164"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Kör ditt första Batch-jobb på Azure-portalen
 
@@ -24,14 +19,14 @@ Den här snabbstarten visar hur du använder Azure-portalen för att skapa ett B
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 
 Följ dessa steg om du vill skapa ett Batch-konto som ska användas som exempel för testning. Du behöver ett Batch-konto för att skapa pooler och jobb. Som du ser här kan du länka ett Azure-lagringskonto till Batch-kontot. Även om det inte krävs för den här snabbstarten, är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna.
 
 
-1. Välj Skapa en**resursberäkningsbatchtjänst** > **Batch Service** **Create a resource** > . 
+1. Välj **skapa en resurs** > **Compute** > **Batch-tjänst**. 
 
    ![Batch på Marketplace][marketplace_portal]
 
@@ -50,7 +45,7 @@ När meddelandet **Distributionen lyckades** visas ska du gå till Batch-kontot 
 Nu när du har ett Batch-konto kan du skapa en exempelpool med Windows beräkningsnoder för testning. Poolen för det här snabba exemplet består av 2 noder som kör en Windows Server 2012 R2-avbildning från Azure Marketplace.
 
 
-1. Välj **Pooler** > **Lägg till**i batchkontot .
+1. Välj **pooler** > **Lägg till**i batch-kontot.
 
 2. Ange ett **Pool-ID** som kallas *mypool*. 
 
@@ -59,9 +54,9 @@ Nu när du har ett Batch-konto kan du skapa en exempelpool med Windows beräknin
    |Inställning  |Värde  |
    |---------|---------|
    |**Avbildningstyp**|Marketplace (Linux/Windows)|
-   |**Publisher**     |MicrosoftWindowsServer|
-   |**Erbjuder**     |WindowsServer|
-   |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |**Förläggare**     |MicrosoftWindowsServer|
+   |**Erbjudande**     |WindowsServer|
+   |**SKU**     |2012-R2-Datacenter-smalldisk|
 
    ![Välj ett pooloperativsystem][pool_os] 
 
@@ -86,7 +81,7 @@ Efter några minuter är tillståndet för poolen **Konstant** och noderna start
 
 Nu när du har en pool ska du skapa ett jobb att köra på den. Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Från början har jobbet inga uppgifter. 
 
-1. Välj **Jobb** > **Lägg till**i vyn Batchkonto . 
+1. I vyn batch-konto väljer du **jobb** > **Lägg till**. 
 
 2. Ange ett **Jobb-ID** som kallas *myjob*. I **Pool**väljer du *mypool*. Behåll standardinställningarna för återstående inställningar och välj **OK**.
 

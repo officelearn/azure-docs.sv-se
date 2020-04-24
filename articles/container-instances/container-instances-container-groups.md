@@ -1,104 +1,107 @@
 ---
-title: Introduktion till behållargrupper
-description: Lär dig mer om behållargrupper i Azure Container Instances, en samling instanser som delar en livscykel och resurser som lagring och nätverk
+title: Introduktion till behållar grupper
+description: Lär dig mer om behållar grupper i Azure Container Instances, en samling instanser som delar en livs cykel och resurser, till exempel processorer, lagring och nätverk
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efc4528863286da676fc7eb758176156c87a32a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247220"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115660"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container Instances
 
-Resursen på den översta nivån i Azure Container Instances är *behållargruppen*. I den här artikeln beskrivs vilka behållargrupper som är och vilka typer av scenarier de aktiverar.
+Resursen på den översta nivån i Azure Container Instances är *behållar gruppen*. I den här artikeln beskrivs vilka behållar grupper som är och vilka typer av scenarier de aktiverar.
 
-## <a name="what-is-a-container-group"></a>Vad är en behållargrupp?
+## <a name="what-is-a-container-group"></a>Vad är en behållar grupp?
 
-En behållargrupp är en samling behållare som schemaläggs på samma värddator. Behållarna i en behållargrupp delar en livscykel, resurser, lokala nätverk och lagringsvolymer. Det liknar i konceptet till en *pod* i [Kubernetes][kubernetes-pod].
+En behållar grupp är en samling behållare som är schemalagda på samma värddator. Behållarna i en behållar grupp delar en livs cykel, resurser, lokalt nätverk och lagrings volymer. Det liknar begreppet *Pod* i [Kubernetes][kubernetes-pod].
 
-I följande diagram visas ett exempel på en behållargrupp som innehåller flera behållare:
+Följande diagram visar ett exempel på en behållar grupp som innehåller flera behållare:
 
-![Diagram över behållargrupper][container-groups-example]
+![Diagram över container grupper][container-groups-example]
 
-Det här exemplet behållaregrupp:
+Den här exempel behållar gruppen:
 
-* Schemaläggs på en enda värddator.
-* Tilldelas en DNS-namnetikett.
-* Exponerar en enda offentlig IP-adress med en exponerad port.
-* Består av två behållare. En container lyssnar på port 80, medan den andra lyssnar på port 5000.
-* Innehåller två Azure-filresurser som volymfästen och varje behållare monterar en av resurserna lokalt.
+* Har schemalagts på en dator med en enda värd.
+* Har tilldelats en DNS-benämning.
+* Exponerar en enskild offentlig IP-adress med en exponerad port.
+* Består av två behållare. En behållare lyssnar på port 80, medan den andra lyssnar på port 5000.
+* Innehåller två Azure-filresurser som volym monteringar och varje behållare monterar en av resurserna lokalt.
 
 > [!NOTE]
-> Multi-container grupper stöder för närvarande endast Linux-behållare. För Windows-behållare stöder Azure Container Instances endast distribution av en enskild behållarinstans. Medan vi arbetar för att få alla funktioner till Windows-behållare, kan du hitta aktuella plattformsskillnader i tjänsten [Översikt](container-instances-overview.md#linux-and-windows-containers).
+> Grupper med flera behållare stöder för närvarande endast Linux-behållare. För Windows-behållare stöder Azure Container Instances endast distribution av en enda behållar instans. Medan vi arbetar för att hämta alla funktioner till Windows-behållare kan du hitta aktuella plattforms skillnader i tjänst [översikten](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>Distribution
 
-Här är två vanliga sätt att distribuera en grupp med flera behållare: använd en [Resource Manager-mall][resource-manager template] eller en [YAML-fil][yaml-file]. En Resource Manager-mall rekommenderas när du behöver distribuera ytterligare Azure-tjänstresurser (till exempel en [Azure Files-resurs)][azure-files]när du distribuerar behållarinstanserna. På grund av YAML-formatets mer koncisa natur rekommenderas en YAML-fil när distributionen endast innehåller behållarinstanser. Mer information om egenskaper som du kan ange finns i [referensdokumentationen för Resurshanterarens mallreferens](/azure/templates/microsoft.containerinstance/containergroups) eller [YAML-referens.](container-instances-reference-yaml.md)
+Här följer två vanliga sätt att distribuera en grupp med flera behållare: Använd en [Resource Manager-mall][resource-manager template] eller en [yaml-fil][yaml-file]. En Resource Manager-mall rekommenderas när du behöver distribuera ytterligare Azure-tjänst resurser (till exempel en [Azure Files resurs][azure-files]) när du distribuerar behållar instanserna. På grund av YAML-formatets mer koncisa typ rekommenderas en YAML-fil när distributionen endast innehåller behållar instanser. Mer information om egenskaper som du kan ange finns i [referens dokumentationen för Resource Manager-mallen](/azure/templates/microsoft.containerinstance/containergroups) eller [yaml](container-instances-reference-yaml.md) .
 
-Om du vill bevara konfigurationen av en behållargrupp kan du exportera konfigurationen till en YAML-fil med hjälp av Azure CLI-kommandot [az container export][az-container-export]. Med Export kan du lagra konfigurationerna för behållargruppen i versionskontrollen för "konfiguration som kod". Du kan också använda den exporterade filen som utgångspunkt när du utvecklar en ny konfiguration i YAML.
+Om du vill bevara en behållar grupps konfiguration kan du exportera konfigurationen till en YAML-fil med hjälp av Azure CLI-kommandot [AZ container export][az-container-export]. Med export kan du lagra konfigurationerna för behållar grupper i versions kontroll för "konfiguration som kod". Du kan också använda den exporterade filen som en start punkt när du utvecklar en ny konfiguration i YAML.
 
 
 
-## <a name="resource-allocation"></a>Resursallokeringen
+## <a name="resource-allocation"></a>Resursallokering
 
-Azure Container Instances allokerar resurser som processorer, minne och eventuellt [GPU :er][gpus] (förhandsversion) till en grupp med flera behållare genom att lägga till [resursbegäranden för][resource-requests] instanserna i gruppen. Om du tar CPU-resurser som exempel, om du skapar en behållargrupp med två behållarinstanser, som var och en begär 1 CPU, tilldelas behållargruppen två processorer.
+Azure Container Instances allokerar resurser som processorer, minne och alternativt [GPU][gpus] (för hands version) till en grupp med flera behållare genom att lägga till [resurs begär Anden][resource-requests] för instanserna i gruppen. Att ta processor resurser som exempel, om du skapar en behållar grupp med två behållar instanser, varje begäran 1 processor, allokeras behållar gruppen 2 processorer.
 
-### <a name="resource-usage-by-container-instances"></a>Resursanvändning efter behållarinstanser
+### <a name="resource-usage-by-container-instances"></a>Resursanvändning efter container instances
 
-Varje behållarinstans i en grupp allokeras de resurser som anges i dess resursbegäran. De maximala resurser som används av en behållarinstans i en grupp kan dock vara olika om du konfigurerar egenskapen valfri [resursgräns.][resource-limits] Resursgränsen för en behållarinstans måste vara större än eller lika med egenskapen obligatorisk [resursbegäran.][resource-requests]
+Varje behållar instans i en grupp tilldelas resurserna som anges i resurs förfrågan. De maximala resurserna som används av en behållar instans i en grupp kan dock vara olika om du konfigurerar den valfria [resurs begränsnings][resource-limits] egenskapen. Resurs gränsen för en behållar instans måste vara större än eller lika med den obligatoriska [resurs förfrågnings][resource-requests] egenskapen.
 
-* Om du inte anger en resursgräns är behållarinstansens maximala resursanvändning densamma som resursbegäran.
+* Om du inte anger en resurs gräns, är behållar instansens maximala resursanvändning samma som resurs förfrågan.
 
-* Om du anger en gräns för en behållarinstans kan instansens maximala användning vara större än begäran, upp till den gräns du anger. På motsvarande sätt kan resursanvändningen av andra behållarinstanser i gruppen minska. Den maximala resursgränsen som du kan ange för en behållarinstans är det totala antalet resurser som allokerats till gruppen.
+* Om du anger en gräns för en behållar instans kan instansens maximala användning vara större än begäran, upp till den gräns du angav. På motsvarande sätt kan resursanvändning från andra behållar instanser i gruppen minska. Den maximala resurs gränsen som du kan ange för en behållar instans är det totala antalet resurser som har allokerats till gruppen.
     
-I en grupp med två behållarinstanser som var och en begär 1 PROCESSOR kan en av dina behållare till exempel köra en arbetsbelastning som kräver att fler processorer körs än den andra.
+I en grupp med två behållar instanser varje begäran 1 processor kan en av dina behållare köra en arbets belastning som kräver att fler processorer körs än det andra.
 
-I det här fallet kan du ange en resursgräns på 2 processorer för behållarinstansen. Med den här konfigurationen kan behållarinstansen använda upp till hela 2 processorer om det är tillgängligt.
+I det här scenariot kan du ange en resurs gräns på upp till 2 processorer för behållar instansen. Den här konfigurationen gör att behållar instansen kan använda upp till 2 processorer om den är tillgänglig.
 
-### <a name="minimum-and-maximum-allocation"></a>Minsta och högsta tilldelning
+> [!NOTE]
+> En liten del av en behållar grupps resurser används av tjänstens underliggande infrastruktur. Behållarna kommer att kunna komma åt de flesta men inte alla resurser som har allokerats till gruppen. Därför bör du planera en liten resurs buffert när du begär resurser för behållare i gruppen.
 
-* Allokera **minst** 1 CPU och 1 GB minne till en behållargrupp. Enskilda behållarinstanser inom en grupp kan etableras med mindre än 1 CPU och 1 GB minne. 
+### <a name="minimum-and-maximum-allocation"></a>Lägsta och högsta allokering
 
-* För **maximalt** antal resurser i en behållargrupp finns i [resurstillgängligheten][region-availability] för Azure Container Instances i distributionsregionen.
+* Allokera **minst** 1 processor och 1 GB minne till en behållar grupp. Enskilda behållar instanser i en grupp kan tillhandahållas med mindre än 1 processor och 1 GB minne. 
+
+* För **maximala** resurser i en behållar grupp, se [resurs tillgänglighet][region-availability] för Azure Container instances i distributions regionen.
 
 ## <a name="networking"></a>Nätverk
 
-Behållargrupper kan dela en extern IP-adress, en eller flera portar på IP-adressen och en DNS-etikett med ett fullständigt kvalificerat domännamn (FQDN). Om du vill att externa klienter ska kunna nå en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett portnamnområde stöds inte portmappning. En behållargrupps IP-adress och FQDN frisläpps när behållargruppen tas bort. 
+Behållar grupper kan dela en extern IP-adress, en eller flera portar på den IP-adressen och en DNS-etikett med ett fullständigt kvalificerat domän namn (FQDN). Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett port namn område, stöds port mappning inte. En behållar grupps IP-adress och FQDN kommer att släppas när behållar gruppen tas bort. 
 
-Inom en behållargrupp kan behållarinstanser nå varandra via localhost på valfri port, även om dessa portar inte exponeras externt på gruppens IP-adress eller från behållaren.
+I en behållar grupp kan behållar instanser komma åt varandra via localhost på vilken port som helst, även om dessa portar inte exponeras externt på gruppens IP-adress eller från behållaren.
 
-Du kan också distribuera behållargrupper till ett [virtuellt Azure-nätverk][virtual-network] så att behållare kan kommunicera säkert med andra resurser i det virtuella nätverket.
+Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][virtual-network] så att behållare kan kommunicera säkert med andra resurser i det virtuella nätverket.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
-Du kan ange externa volymer som ska monteras i en behållargrupp. Volymer som stöds inkluderar:
+Du kan ange externa volymer som ska monteras i en behållar grupp. Volymer som stöds är:
 * [Azure-filresurs][azure-files]
 * [Hemlighet][secret]
 * [Tom katalog][empty-directory]
-* [Klonad git repo][volume-gitrepo]
+* [Klonad git-lagrings platsen][volume-gitrepo]
 
-Du kan mappa dessa volymer till specifika sökvägar i de enskilda behållarna i en grupp. 
+Du kan mappa dessa volymer till specifika sökvägar inom de enskilda behållarna i en grupp. 
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
-Grupper med flera behållare är användbara i de fall där du vill dela upp en enda funktionell uppgift i ett litet antal behållaravbildningar. Dessa avbildningar kan sedan levereras av olika team och ha separata resurskrav.
+Grupper med flera behållare är användbara i de fall där du vill dela upp en enda funktions aktivitet i ett litet antal behållar avbildningar. Dessa bilder kan sedan levereras av olika team och ha separata resurs krav.
 
 Exempel på användning kan vara:
 
-* En behållare som betjänar ett webbprogram och en behållare som hämtar det senaste innehållet från källkontrollen.
-* En programbehållare och en loggningsbehållare. Loggningsbehållaren samlar in loggar och mått som utdata från huvudprogrammet och skriver dem till långsiktig lagring.
-* En programbehållare och en övervakningsbehållare. Övervakningsbehållaren gör regelbundet en begäran till programmet för att säkerställa att den körs och svarar korrekt och väcker en avisering om den inte är det.
-* En front-end behållare och en back-end behållare. Klientdelen kan fungera som ett webbprogram, där serverdelen kör en tjänst för att hämta data. 
+* En behållare som hanterar ett webb program och en behållare hämtar det senaste innehållet från käll kontroll.
+* En program behållare och en loggnings behållare. Loggnings behållaren samlar in loggar och mät resultat från det huvudsakliga programmet och skriver dem till långsiktig lagring.
+* En program behållare och en övervaknings behållare. Övervaknings behållaren skickar regelbundet en begäran till programmet för att säkerställa att den körs och svarar korrekt, och genererar en avisering om den inte är det.
+* En klient dels behållare och en backend-behållare. Klient delen kan betjäna ett webb program, med Server delen som kör en tjänst för att hämta data. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du distribuerar en behållare med flera behållare med en Azure Resource Manager-mall:
+Lär dig hur du distribuerar en container grupp med flera behållare med en Azure Resource Manager-mall:
 
 > [!div class="nextstepaction"]
-> [Distribuera en behållargrupp][resource-manager template]
+> [Distribuera en behållar grupp][resource-manager template]
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

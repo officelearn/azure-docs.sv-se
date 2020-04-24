@@ -1,37 +1,37 @@
 ---
 title: Vad är Azure Cache for Redis?
-description: Lär dig mer om Azure Cache för Redis för att aktivera cache-aside, innehållscachelagring, cachelagring av användarsessioner, jobb- och meddelandeköer och distribuerade transaktioner.
+description: Lär dig om Azure cache för Redis för att aktivera cachelagring av cacheminnen, cachelagring av innehåll, cachelagring av användarsessioner, jobb och meddelande köer och distribuerade transaktioner.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 03/11/2020
-ms.openlocfilehash: 38936000e426d560237295105b5456429d9ae16d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cd4e7c8e2693c25f3fc092fb53874a97cfd62434
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126361"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113212"
 ---
 # <a name="azure-cache-for-redis-description"></a>Beskrivning av Azure Cache for Redis
 
-Azure Cache för Redis tillhandahåller ett minnesbaserat datalager baserat på programvaran [Redis](https://redis.io/)med öppen källkod. När Redis används som cache förbättrar du prestanda och skalbarhet för system som är starkt beroende av backend-datalager. Prestanda förbättras genom att kopiera data som används ofta till snabb lagring som finns nära programmet. Med Azure Cache för Redis finns den här snabba lagringen i minnet i stället för att läsas in från disken av en databas.
+Azure cache för Redis tillhandahåller ett InMemory-datalager baserat på [Redis](https://redis.io/)med öppen källkod. När den används som cache förbättrar Redis prestanda och skalbarhet för system som förlitar sig på Server dels data lager. Prestanda förbättras genom kopiering av data som används ofta till snabb lagring som finns nära programmet. Med Azure cache för Redis finns den här snabba lagringen i minnet i stället för att läsas in från disk av en databas.
 
-Azure Cache för Redis kan användas som ett minnesbaserat datastrukturlager, en distribuerad icke-relationell databas och en meddelandemäklare. Genom att utnyttja Redis-motorns korta svarstider och höga dataflöde förbättras programprestanda.
+Azure cache för Redis kan användas som en lagrings plats för data strukturen i minnet, en distribuerad icke-relationell databas och en meddelande koordinator. Genom att utnyttja Redis-motorns korta svarstider och höga dataflöde förbättras programprestanda.
 
-Azure Cache för Redis ger åtkomst till en säker, dedikerad Redis-cache. Azure Cache för Redis hanteras av Microsoft, som finns i Azure och är tillgängligt för alla program inom eller utanför Azure.
+Azure cache för Redis ger åtkomst till en säker, dedikerad Redis-cache. Azure cache för Redis hanteras av Microsoft, som finns i Azure och är tillgängligt för alla program inom eller utanför Azure. Dessutom använder Azure-Redis för cache strategin för replikering utan disk, vilket förbättrar kompatibiliteten med betalnings korts branschen.
 
-## <a name="using-azure-cache-for-redis"></a>Använda Azure Cache för Redis
+## <a name="using-azure-cache-for-redis"></a>Använda Azure cache för Redis
 
-Azure Cache för Redis förbättrar programprestanda genom att stödja vanliga programarkitekturmönster. Här följer exempel på några av de vanligaste:
+Azure cache för Redis förbättrar program prestandan genom att stödja vanliga mönster för program arkitektur. Här följer exempel på några av de vanligaste:
 
 | Mönster      | Beskrivning                                        |
 | ------------ | -------------------------------------------------- |
-| [Cachereservera](cache-web-app-cache-aside-leaderboard.md) | Databaser är ofta för stora för att läsas in direkt i en cache. Det är vanligt att använda [cache-aside mönster](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) för att läsa in data i cacheminnet endast efter behov. När systemet gör ändringar i data kan systemet också uppdatera cacheminnet, som sedan distribueras till andra klienter. Dessutom kan systemet ange en förfallodatum för data eller använda en vräkningsprincip för att utlösa datauppdateringar till cachen.|
-| [Cachelagring av innehåll](cache-aspnet-output-cache-provider.md) | Många webbsidor genereras från mallar som använder statiskt innehåll som sidhuvuden, sidfötter, banderoller. Dessa statiska objekt bör inte ändras ofta. Om du använder en cache i minnet får du snabb åtkomst till statiskt innehåll jämfört med backend-datalager. Det här mönstret minskar bearbetningstiden och serverbelastningen, vilket gör att webbservrarna blir mer responsiva. Det kan göra att du kan minska antalet servrar som behövs för att hantera belastningar. Azure Cache för Redis tillhandahåller Redis Output Cache Provider för att stödja det här mönstret med ASP.NET.|
-| [Cachelagring av användarsessioner](cache-aspnet-session-state-provider.md) | Det här mönstret används ofta med kundvagnar och andra användarhistorikdata som ett webbprogram kanske vill associera med användarcookies. Att lagra för stora datamängder i en cookie kan påverka prestanda negativt då storleken på cookie-filerna ökar och de skickas och verifieras med varje begäran. En typisk lösning använder cookien som en nyckel för att fråga data i en databas. Ett mycket snabbare sätt än att interagera med en hel relationsdatabas är att använda en minnesintern cache, som Azure Cache for Redis, till att associera information med en användare. |
-| Jobb- och meddelandeköer | Program lägger ofta till uppgifter i en kö när de åtgärder som är associerade med begäran tar tid att köra. Längre driftåtgärder köas för att bearbetas i följd, ofta av en annan server.  Den här metoden att skjuta upp arbete kallas för att placera uppgifter i kö. Azure Cache för Redis tillhandahåller en distribuerad kö för att aktivera det här mönstret i ditt program.|
-| Distribuerade transaktioner | Program kräver ibland en serie kommandon mot ett datalager för säkerhetskopiering för att köras som en enda atomåtgärd. Alla kommandon måste slutföras, eller så måste alla återställas till det ursprungliga tillståndet. Azure Cache för Redis stöder körning av en grupp kommandon som en enda [transaktion](https://redis.io/topics/transactions). |
+| [Cachereservera](cache-web-app-cache-aside-leaderboard.md) | Databaserna är ofta för stora för att läsas in direkt i en cache. Det är vanligt att använda [cache-undan-](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) mönstret för att endast läsa in data i cachen vid behov. När systemet gör ändringar i data kan systemet också uppdatera cachen, som sedan distribueras till andra klienter. Dessutom kan systemet ange förfallo datum för data eller använda en princip för att utlösa data uppdateringar i cacheminnet.|
+| [Cachelagring av innehåll](cache-aspnet-output-cache-provider.md) | Många webb sidor genereras från mallar som använder statiskt innehåll, till exempel sidhuvuden, sid fötter, banderoller. Dessa statiska objekt bör inte ändras ofta. Om du använder en minnes intern cache får du snabb åtkomst till statiskt innehåll jämfört med backend-datalager. Det här mönstret minskar bearbetnings tiden och Server belastningen, vilket gör att webb servrar svarar mer. Det kan göra att du kan minska antalet servrar som behövs för att hantera belastningar. Azure cache för Redis tillhandahåller providern för Redis för utdata för att stödja det här mönstret med ASP.NET.|
+| [Cachelagring av användarsessioner](cache-aspnet-session-state-provider.md) | Det här mönstret används ofta med shopping vagnar och andra användar historik data som ett webb program kanske vill associera med användarens cookies. Att lagra för stora datamängder i en cookie kan påverka prestanda negativt då storleken på cookie-filerna ökar och de skickas och verifieras med varje begäran. En typisk lösning använder cookien som en nyckel för att fråga data i en databas. Ett mycket snabbare sätt än att interagera med en hel relationsdatabas är att använda en minnesintern cache, som Azure Cache for Redis, till att associera information med en användare. |
+| Jobb- och meddelandeköer | Program lägger ofta till uppgifter i en kö när de åtgärder som är kopplade till begäran tar tid att köra. Längre kör åtgärder placeras i kö för att bearbetas i följd, ofta av en annan server.  Den här metoden att skjuta upp arbete kallas för att placera uppgifter i kö. Azure cache för Redis tillhandahåller en distribuerad kö för att aktivera det här mönstret i ditt program.|
+| Distribuerade transaktioner | Program kräver ibland en serie kommandon mot en backend-datalagringsplats för att köras som en enskild atomisk åtgärd. Alla kommandon måste slutföras, eller så måste alla återställas till det ursprungliga tillståndet. Azure cache för Redis stöder körning av en batch med-kommandon som en enskild [transaktion](https://redis.io/topics/transactions). |
 
 ## <a name="azure-cache-for-redis-offerings"></a>Erbjudanden för Azure Cache for Redis
 
@@ -39,15 +39,15 @@ Azure Cache for Redis är tillgänglig på följande nivåer:
 
 | Nivå | Beskrivning |
 |---|---|
-Basic | Cache för en enda nod. Den här nivån stöder flera minnesstorlekar (250 MB - 53 GB) och är idealisk för utveckling/test och icke-kritiska arbetsbelastningar. Basic-nivån har inget serviceavtal (SLA) |
-| Standard | En replikerad cache i en konfiguration med två nod, primär/sekundär, som hanteras av Azure med ett SLA med hög tillgänglighet (99,9 %) |
-| Premium | Premium-nivån är den Enterprise-klara nivån. Cacheminnen på Premium-nivå stöder fler funktioner och har högre datagenomflöde med kortare svarstider. Cacheminnen på Premium-nivå distribueras på kraftfullare maskinvara som ger bättre prestanda jämfört med Basic- och Standard-nivån. Den här fördelen innebär att dataflödet för en cache av samma storlek kommer att vara högre i Premium jämfört med standardnivå. |
+Basic | Cache för en enda nod. Den här nivån stöder flera minnes storlekar (250 MB-53 GB) och är perfekt för utveckling/testning och icke-kritiska arbets belastningar. Basic-nivån har inget serviceavtal (SLA) |
+| Standard | En replikerad cache i en primär/sekundär konfiguration med två noder som hanteras av Azure med ett service avtal med hög tillgänglighet (99,9%) |
+| Premium | Premium nivån är den företags färdiga nivån. Cacheminnen på Premium-nivå stöder fler funktioner och har högre datagenomflöde med kortare svarstider. Cacheminnen på Premium-nivå distribueras på kraftfullare maskinvara som ger bättre prestanda jämfört med Basic- och Standard-nivån. Den här fördelen innebär att data flödet för en cache med samma storlek blir högre i Premium jämfört med standard nivån. |
 
 > [!TIP]
 > Mer information om storlek, dataflöde och bandbredd för cacheminnen på Premium-nivå finns i [Vanliga frågor och svar om Azure Cache for Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 >
 
-Du kan skala cachen till en högre nivå när den har skapats. Det går inte att skala ned till en lägre nivå. Stegvisa skalningsanvisningar finns i [Skala Azure Cache for Redis](cache-how-to-scale.md) och [Automatisera en skalningsåtgärd](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+Du kan skala upp cacheminnet till en högre nivå när det har skapats. Det går inte att skala ned till en lägre nivå. Stegvisa skalningsanvisningar finns i [Skala Azure Cache for Redis](cache-how-to-scale.md) och [Automatisera en skalningsåtgärd](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
 ### <a name="feature-comparison"></a>Jämför funktioner
 
@@ -61,7 +61,7 @@ En detaljerad jämförelse av varje nivå finns på sidan med [prissättning fö
 | [Säkerhet via brandväggsregler](cache-configure.md#firewall) |✔|✔|✔|
 | Kryptering under överföring |✔|✔|✔|
 | [Förbättrad säkerhet och isolering med VNet](cache-how-to-premium-vnet.md) |✔|-|-|
-| [Importera/exportera](cache-how-to-import-export-data.md) |✔|-|-|
+| [Import/Export](cache-how-to-import-export-data.md) |✔|-|-|
 | [Schemalagda uppdateringar](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [Geo-replikering](cache-how-to-geo-replication.md) |✔|-|-|
 | [Starta om](cache-administration.md#reboot) |✔|✔|✔|

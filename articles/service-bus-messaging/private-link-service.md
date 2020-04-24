@@ -1,100 +1,114 @@
 ---
-title: Integrera Azure Service Bus med Azure Private Link Service
-description: Lär dig hur du integrerar Azure Service Bus med Azure Private Link Service
+title: Integrera Azure Service Bus med Azure Private Link service
+description: Lär dig hur du integrerar Azure Service Bus med Azure Private Link service
 services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: b8c4248b7275ac96acce96f890f6ff0148116f48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79478011"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116714"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrera Azure Service Bus med Azure Private Link (förhandsversion)
+# <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrera Azure Service Bus med en privat Azure-länk (förhands granskning)
 
-Azure Private Link Service gör att du kan komma åt Azure-tjänster (till exempel Azure Service Bus, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partnertjänster via en **privat slutpunkt** i ditt virtuella nätverk.
+Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Service Bus, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
 
-En privat slutpunkt är ett nätverksgränssnitt som ansluter dig privat och säkert till en tjänst som drivs av Azure Private Link. Den privata slutpunkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt för in tjänsten i ditt virtuella nätverk. All trafik till tjänsten kan dirigeras via den privata slutpunkten, så inga gateways, NAT-enheter, ExpressRoute- eller VPN-anslutningar eller offentliga IP-adresser behövs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta detaljnivån i åtkomstkontrollen.
+En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
-Mer information finns i [Vad är Azure Private Link?](../private-link/private-link-overview.md)
+Mer information finns i [Vad är en privat Azure-länk?](../private-link/private-link-overview.md)
 
-> [!NOTE]
-> Den här funktionen stöds med **premiumnivån** för Azure Service Bus. Mer information om premiumnivån finns i artikeln [Service Bus Premium och Standard meddelandenivåer.](service-bus-premium-messaging.md)
+>[!WARNING]
+> Implementering av privata slut punkter kan förhindra att andra Azure-tjänster interagerar med Service Bus.
 >
-> Den här funktionen är för närvarande i **förhandsgranskning**. 
+> Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
+>
+> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
+> - Integrering med Azure Event Grid
+> - Azure IoT Hub vägar
+> - Azure IoT-Device Explorer
+>
+> De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
+> - Azure App Service
+> - Azure Functions
+
+> [!IMPORTANT]
+> Den här funktionen stöds med **Premium** -nivån för Azure Service Bus. Mer information om Premium-nivån finns i artikeln [Service Bus Premium-och standard meddelande nivåer](service-bus-premium-messaging.md) .
+>
+> Den här funktionen är för närvarande en för **hands version**. 
 
 
-## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägga till en privat slutpunkt med Azure-portalen
+## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägg till en privat slut punkt med Azure Portal
 
 ### <a name="prerequisites"></a>Krav
 
-Om du vill integrera ett servicebussnamnområde med Azure Private Link behöver du följande entiteter eller behörigheter:
+Om du vill integrera ett Service Bus-namnområde med en privat Azure-länk behöver du följande entiteter eller behörigheter:
 
-- Ett namnområde för servicebuss.
+- Ett Service Bus namn område.
 - Ett virtuellt Azure-nätverk.
 - Ett undernät i det virtuella nätverket.
-- Ägare- eller deltagarbehörigheter för både servicebussnamnområdet och det virtuella nätverket.
+- Ägar-eller deltagar behörighet för både Service Bus-namnrymden och det virtuella nätverket.
 
-Din privata slutpunkt och virtuella nätverk måste finnas i samma region. När du väljer en region för den privata slutpunkten med hjälp av portalen filtreras endast virtuella nätverk som finns i den regionen automatiskt. Namnet på servicebussen kan finnas i en annan region. Och, Din privata slutpunkt använder en privat IP-adress i ditt virtuella nätverk.
+Din privata slut punkt och det virtuella nätverket måste finnas i samma region. När du väljer en region för den privata slut punkten med hjälp av portalen filtreras automatiskt endast virtuella nätverk i den regionen. Ditt Service Bus namn område kan finnas i en annan region. Och den privata slut punkten använder en privat IP-adress i det virtuella nätverket.
 
 ### <a name="steps"></a>steg
 
-Om du redan har ett befintligt namnområde kan du skapa en privat slutpunkt genom att följa dessa steg:
+Om du redan har ett befintligt namn område kan du skapa en privat slut punkt genom att följa dessa steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
-2. Skriv in **Service Bus**i sökfältet .
-3. Markera **namnområdet** i listan där du vill lägga till en privat slutpunkt.
-4. Välj fliken **Nätverk** under **Inställningar**.
-5. Välj fliken **Privata slutpunktsanslutningar (förhandsgranskning)** högst upp på sidan
-6. Välj knappen **+ Privat slutpunkt** högst upp på sidan.
+2. I Sök fältet skriver du in **Service Bus**.
+3. Välj det **namn område** i listan som du vill lägga till en privat slut punkt för.
+4. Välj fliken **nätverk** under **Inställningar**.
+5. Välj fliken **anslutningar för privat slut punkt (för hands version)** överst på sidan
+6. Välj knappen **+ privat slut punkt** överst på sidan.
 
-    ![Knappen Lägg till privat slutpunkt](./media/private-link-service/private-link-service-3.png)
-7. Gör så här på sidan **Grunderna:** 
-    1. Välj den **Azure-prenumeration** där du vill skapa den privata slutpunkten. 
-    2. Välj **resursgruppen** för den privata slutpunktsresursen.
-    3. Ange ett **namn** för den privata slutpunkten. 
-    5. Välj en **region** för den privata slutpunkten. Din privata slutpunkt måste finnas i samma region som det virtuella nätverket, men kan finnas i en annan region tillbaka till den privata länkresurs som du ansluter till. 
-    6. Välj **Nästa: Knappen Resurs >** längst ned på sidan.
+    ![Knappen Lägg till privat slut punkt](./media/private-link-service/private-link-service-3.png)
+7. Följ de här stegen på sidan **grundläggande** : 
+    1. Välj den **Azure-prenumeration** där du vill skapa den privata slut punkten. 
+    2. Välj **resurs grupp** för den privata slut punkts resursen.
+    3. Ange ett **namn** för den privata slut punkten. 
+    5. Välj en **region** för den privata slut punkten. Din privata slut punkt måste finnas i samma region som ditt virtuella nätverk, men kan finnas i en annan region än den privata länk resurs som du ansluter till. 
+    6. Välj **Nästa: resurs >s** knappen längst ned på sidan.
 
-        ![Skapa privat slutpunkt - sidan Grunderna](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. Gör så här på sidan **Resurs:**
-    1. Gör så här om du väljer **Anslut till en Azure-resurs i min katalog:**   
-        1. Välj den **Azure-prenumeration** där **namnområdet för Service Bus** finns. 
-        2. För **resurstyp**väljer du **Microsoft.ServiceBus/namespaces** för **resurstypen**.
-        3. För **Resurs**väljer du ett servicebussnamnområde i listrutan. 
-        4. Bekräfta att **underresursen Mål** är inställd på **namnområde**.
-        5. Välj **Nästa: Knappen Konfiguration >** längst ned på sidan. 
+        ![Sidan skapa privat slut punkt – grunder](./media/private-link-service/create-private-endpoint-basics-page.png)
+8. Följ de här stegen på sidan **resurs** :
+    1. För anslutnings metod, om du väljer **Anslut till en Azure-resurs i min katalog**, följer du dessa steg:   
+        1. Välj den **Azure-prenumeration** där **Service Bus namn området** finns. 
+        2. För **resurs typ**väljer du **Microsoft. Service Bus/Namespaces** för **resurs typen**.
+        3. För **resurs**väljer du ett Service Bus namn område i list rutan. 
+        4. Bekräfta att **mål under resursen** har angetts till **namnrymd**.
+        5. Välj **Nästa: konfiguration >s** knappen längst ned på sidan. 
         
-            ![Skapa privat slutpunkt - resurssida](./media/private-link-service/create-private-endpoint-resource-page.png)
-    2. Om du väljer **Anslut till en Azure-resurs efter resurs-ID eller alias**gör du så här:
-        1. Ange **resurs-ID** eller **alias**. Det kan vara det resurs-ID eller alias som vissa har delat med dig.
-        2. För **Underresurs för mål**anger du **namnområde**. Det är den typ av underresurs som din privata slutpunkt kan komma åt. 
-        3. (valfritt) Ange ett **meddelande om begäran**. Resursägaren ser det här meddelandet när du hanterar privat slutpunktsanslutning. 
-        4. Välj sedan **Nästa: Knappen Konfiguration >** längst ned på sidan. 
+            ![Skapa privat slut punkt – resurs sida](./media/private-link-service/create-private-endpoint-resource-page.png)
+    2. Om du väljer **Anslut till en Azure-resurs efter resurs-ID eller alias**följer du dessa steg:
+        1. Ange **resurs-ID** eller **alias**. Det kan vara resurs-ID eller alias som någon har delat med dig.
+        2. För **under resurs för mål**anger du **namnrymd**. Det är den typ av under resurs som din privata slut punkt kan komma åt. 
+        3. valfritt Ange ett **meddelande om begäran**. Resurs ägaren ser det här meddelandet vid hantering av privat slut punkts anslutning. 
+        4. Välj sedan **Nästa: konfiguration >** knappen längst ned på sidan. 
 
-            ![Skapa privat slutpunkt – anslut med resurs-ID](./media/private-link-service/connect-resource-id.png)
-9. På sidan **Konfiguration** väljer du undernätet i ett virtuellt nätverk dit du vill distribuera den privata slutpunkten. 
-    1. Välj ett **virtuellt nätverk**. Endast virtuella nätverk i den valda prenumerationen och platsen visas i listrutan. 
-    2. Markera ett **undernät** i det virtuella nätverk som du har valt. 
-    3. Välj **Nästa: Taggar >** knappen längst ned på sidan. 
+            ![Skapa privat slut punkt – Anslut med resurs-ID](./media/private-link-service/connect-resource-id.png)
+9. På sidan **konfiguration** väljer du det undernät i ett virtuellt nätverk som du vill distribuera den privata slut punkten till. 
+    1. Välj ett **virtuellt nätverk**. Endast virtuella nätverk i den valda prenumerationen och platsen visas i list rutan. 
+    2. Välj ett **undernät** i det virtuella nätverk som du har valt. 
+    3. Välj **Nästa: tagg >** -knappen längst ned på sidan. 
 
-        ![Skapa privat slutpunkt - konfigurationssida](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. På sidan **Taggar** skapar du alla taggar (namn och värden) som du vill associera med den privata slutpunktsresursen. Välj sedan **knappen Granska + skapa** längst ned på sidan. 
-11. Granska alla inställningar i **granskning + skapa**och välj **Skapa** för att skapa den privata slutpunkten.
+        ![Skapa privat slut punkt – konfigurations sida](./media/private-link-service/create-private-endpoint-configuration-page.png)
+10. På sidan **taggar** skapar du alla Taggar (namn och värden) som du vill koppla till den privata slut punkts resursen. Välj sedan **Granska + skapa** längst ned på sidan. 
+11. Granska alla inställningar på sidan **Granska och skapa**och välj **skapa** för att skapa den privata slut punkten.
     
-    ![Skapa privat slutpunkt - sidan Granska och skapa](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. Bekräfta att den privata slutpunkten har skapats. Om du äger resursen och har valt **Anslut till en Azure-resurs i mitt katalogalternativ** för **anslutningsmetoden**ska slutpunktsanslutningen **godkännas automatiskt**. Om det är i **väntande** tillstånd läser du avsnittet [Hantera privata slutpunkter med hjälp av Azure Portal.](#manage-private-endpoints-using-azure-portal)
+    ![Skapa privat slut punkt – sidan Granska och skapa](./media/private-link-service/create-private-endpoint-review-create-page.png)
+12. Bekräfta att den privata slut punkten har skapats. Om du är ägare till resursen och har valt **Anslut till en Azure-resurs i mitt katalog** alternativ för **anslutnings metoden**, ska slut punkts anslutningen **automatiskt godkännas**. Om det är i **vänte** läge, se avsnittet [hantera privata slut punkter med Azure Portal](#manage-private-endpoints-using-azure-portal) .
 
-    ![Privat slutpunkt skapad](./media/private-link-service/private-endpoint-created.png)
+    ![Den privata slut punkten har skapats](./media/private-link-service/private-endpoint-created.png)
 
-## <a name="add-a-private-endpoint-using-powershell"></a>Lägga till en privat slutpunkt med PowerShell
-I följande exempel visas hur du använder Azure PowerShell för att skapa en privat slutpunktsanslutning till ett servicebussnamnområde.
+## <a name="add-a-private-endpoint-using-powershell"></a>Lägg till en privat slut punkt med PowerShell
+I följande exempel visas hur du använder Azure PowerShell för att skapa en privat slut punkts anslutning till ett Service Bus namn område.
 
-Din privata slutpunkt och virtuella nätverk måste finnas i samma region. Namnet på servicebussen kan finnas i en annan region. Och, Din privata slutpunkt använder en privat IP-adress i ditt virtuella nätverk.
+Din privata slut punkt och det virtuella nätverket måste finnas i samma region. Ditt Service Bus namn område kan finnas i en annan region. Och den privata slut punkten använder en privat IP-adress i det virtuella nätverket.
 
 ```azurepowershell-interactive
 
@@ -153,84 +167,84 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 ```
 
 
-## <a name="manage-private-endpoints-using-azure-portal"></a>Hantera privata slutpunkter med Azure-portalen
+## <a name="manage-private-endpoints-using-azure-portal"></a>Hantera privata slut punkter med hjälp av Azure Portal
 
-När du skapar en privat slutpunkt måste anslutningen godkännas. Om resursen som du skapar en privat slutpunkt för finns i katalogen kan du godkänna anslutningsbegäran förutsatt att du har tillräcklig behörighet. Om du ansluter till en Azure-resurs i en annan katalog måste du vänta på att resursägaren godkänner din anslutningsbegäran.
+När du skapar en privat slut punkt måste anslutningen godkännas. Om den resurs som du skapar en privat slut punkt för finns i din katalog kan du godkänna anslutningsbegäran förutsatt att du har tillräcklig behörighet. Om du ansluter till en Azure-resurs i en annan katalog måste du vänta tills ägaren av resursen har godkänt din anslutningsbegäran.
 
-Det finns fyra etableringstillstånd:
+Det finns fyra etablerings tillstånd:
 
-| Åtgärd för tjänst | Privat slutpunktstillstånd för tjänstkonsument | Beskrivning |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Inget | Väntande åtgärder | Anslutningen skapas manuellt och väntar på godkännande från private link-resursägaren. |
-| Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är klar att användas. |
-| Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länkresursen. |
-| Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länkresursen, den privata slutpunkten blir informativ och bör tas bort för rensning. |
+| Ingen | Väntande åtgärder | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
+| Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länk resursen. |
+| Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |
  
-###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänna, avvisa eller ta bort en privat slutpunktsanslutning
+###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
 
 1. Logga in på Azure Portal.
-1. Skriv in **Service Bus**i sökfältet .
-1. Markera det **namnområde** som du vill hantera.
-1. Välj fliken **Nätverk.**
-5. Gå till lämpligt avsnitt nedan baserat på den åtgärd du vill: godkänna, avvisa eller ta bort. 
+1. I Sök fältet skriver du in **Service Bus**.
+1. Välj det **namn område** som du vill hantera.
+1. Välj fliken **nätverk** .
+5. Gå till lämpligt avsnitt nedan, baserat på den åtgärd du vill: Godkänn, avvisa eller ta bort. 
 
-### <a name="approve-a-private-endpoint-connection"></a>Godkänna en privat slutpunktsanslutning
+### <a name="approve-a-private-endpoint-connection"></a>Godkänna en privat slut punkts anslutning
 
-1. Om det finns några anslutningar som väntar visas en anslutning som visas med **Väntande** i etableringstillståndet. 
-2. Välj den **privata slutpunkt** som du vill godkänna
-3. Välj knappen **Godkänn.**
+1. Om det finns några anslutningar som väntar, visas en anslutning som anges i **väntan** på etablerings status. 
+2. Välj den **privata slut punkt** som du vill godkänna
+3. Välj knappen **Godkänn** .
 
-    ![Godkänna privat slutpunkt](./media/private-link-service/private-endpoint-approve.png)
+    ![Godkänn privat slut punkt](./media/private-link-service/private-endpoint-approve.png)
 4. På sidan **Godkänn anslutning** anger du en valfri **kommentar**och väljer **Ja**. Om du väljer **Nej**händer ingenting. 
 
     ![Sidan Godkänn anslutning](./media/private-link-service/approve-connection-page.png)
-5. Du bör se status för anslutningen i listan **ändras**till Godkänd . 
+5. Du bör se status för anslutningen i listan ändrad till **godkänd**. 
 
-    ![Anslutningsstatus - godkänd](./media/private-link-service/connection-status-approved.png)
+    ![Anslutnings status-godkänd](./media/private-link-service/connection-status-approved.png)
 
-### <a name="reject-a-private-endpoint-connection"></a>Avvisa en privat slutpunktsanslutning
+### <a name="reject-a-private-endpoint-connection"></a>Avvisa en privat slut punkts anslutning
 
-1. Om det finns några privata slutpunktsanslutningar som du vill avvisa, oavsett om det är en väntande begäran eller befintlig anslutning som godkändes tidigare, markerar du slutpunktsanslutningen och klickar på knappen **Avvisa.**
+1. Om det finns anslutningar för privata slut punkter som du vill avvisa, oavsett om det är en väntande begäran eller en befintlig anslutning som har godkänts tidigare, väljer du slut punkts anslutningen och klickar på knappen **avvisa** .
 
-    ![Knappen Avvisa](./media/private-link-service/private-endpoint-reject.png)
-2. På sidan **Avvisa anslutning** anger du en valfri kommentar och väljer **Ja**. Om du väljer **Nej**händer ingenting. 
+    ![Knappen avvisa](./media/private-link-service/private-endpoint-reject.png)
+2. På sidan **avvisa anslutning** anger du en valfri kommentar och väljer **Ja**. Om du väljer **Nej**händer ingenting. 
 
-    ![Sidan Avvisa anslutning](./media/private-link-service/reject-connection-page.png)
-3. Du bör se status för anslutningen i listan **ändrad Avvisad**. 
+    ![Sidan avvisa anslutning](./media/private-link-service/reject-connection-page.png)
+3. Du bör se status för anslutningen i listan ändrad **avvisad**. 
 
-    ![Slutpunkt avvisad](./media/private-link-service/endpoint-rejected.png)
+    ![Avvisad slut punkt](./media/private-link-service/endpoint-rejected.png)
 
 
-### <a name="remove-a-private-endpoint-connection"></a>Ta bort en privat slutpunktsanslutning
+### <a name="remove-a-private-endpoint-connection"></a>Ta bort en privat slut punkts anslutning
 
-1. Om du vill ta bort en privat slutpunktsanslutning markerar du den i listan och väljer **Ta bort** i verktygsfältet. 
+1. Om du vill ta bort en privat slut punkts anslutning markerar du den i listan och väljer **ta bort** i verktygsfältet. 
 
     ![Knappen Ta bort](./media/private-link-service/remove-endpoint.png)
-2. På sidan **Ta bort anslutning** väljer du **Ja** för att bekräfta borttagningen av den privata slutpunkten. Om du väljer **Nej**händer ingenting. 
+2. På sidan **ta bort anslutning** väljer du **Ja** för att bekräfta borttagningen av den privata slut punkten. Om du väljer **Nej**händer ingenting. 
 
-    ![Ta bort anslutningssida](./media/private-link-service/delete-connection-page.png)
-3. Du bör se statusen ändras till **Frånkopplad**. Sedan ser du slutpunkten försvinna från listan. 
+    ![Sidan ta bort anslutning](./media/private-link-service/delete-connection-page.png)
+3. Du bör se statusen ändrad till **frånkopplad**. Sedan visas slut punkten kvar från listan. 
 
-## <a name="validate-that-the-private-link-connection-works"></a>Verifiera att den privata länkanslutningen fungerar
+## <a name="validate-that-the-private-link-connection-works"></a>Kontrol lera att anslutningen till den privata länken fungerar
 
-Du bör verifiera att resurserna i samma undernät till den privata slutpunktsresursen ansluter till tjänstbussens namnområde via en privat IP-adress och att de har rätt integrering av privata DNS-zoner.
+Du bör kontrol lera att resurserna i samma undernät i den privata slut punkts resursen ansluter till Service Bus namn området över en privat IP-adress och att de har rätt integrering av privata DNS-zoner.
 
-Skapa först en virtuell dator genom att följa stegen i [Skapa en virtuell Windows-dator i Azure-portalen](../virtual-machines/windows/quick-create-portal.md)
+Börja med att skapa en virtuell dator genom att följa stegen i [skapa en virtuell Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 
-På fliken **Nätverk:**
+På fliken **nätverk** :
 
-1. Ange **virtuellt nätverk** och **undernät**. Du kan skapa ett nytt virtuellt nätverk eller välja ett befintligt nätverk. Om du väljer en befintlig kontrollerar du att regionen matchar.
-1. Ange en **offentlig IP-resurs.**
-1. För säkerhetsgrupp för **NIC-nätverk**väljer du **Ingen**.
-1. För **Belastningsutjämning**väljer du **Nej**.
+1. Ange **virtuellt nätverk** och **undernät**. Du kan skapa ett nytt virtuellt nätverk eller välja ett befintligt. Om du väljer en befintlig, se till att regionen stämmer.
+1. Ange en **offentlig IP-** resurs.
+1. Välj **ingen**för nätverkskortets **nätverks säkerhets grupp**.
+1. För **belastnings utjämning**väljer du **Nej**.
 
-Öppna kommandoraden och kör följande kommando:
+Öppna kommando raden och kör följande kommando:
 
 ```console
 nslookup <your-service-bus-namespace-name>.servicebus.windows.net
 ```
 
-Om du kör kommandot ns lookup för att matcha IP-adressen för ett Service Bus-namnområde över en offentlig slutpunkt visas ett resultat som ser ut så här:
+Om du kör kommandot ns lookup för att matcha IP-adressen för ett Service Bus namn område över en offentlig slut punkt visas ett resultat som ser ut så här:
 
 ```console
 c:\ >nslookup <your-service-bus-namespace-name>.servicebus.windows.net
@@ -241,7 +255,7 @@ Address:  (public IP address)
 Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
 ```
 
-Om du kör kommandot ns lookup för att matcha IP-adressen för ett Service Bus-namnområde över en privat slutpunkt visas ett resultat som ser ut så här:
+Om du kör kommandot ns lookup för att matcha IP-adressen för ett Service Bus namn område över en privat slut punkt visas ett resultat som ser ut så här:
 
 ```console
 c:\ >nslookup your_service-bus-namespace-name.servicebus.windows.net
@@ -252,17 +266,17 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
 ```
 
-## <a name="limitations-and-design-considerations"></a>Begränsningar och designöverväganden
+## <a name="limitations-and-design-considerations"></a>Begränsningar och design överväganden
 
-**Priser**: För prisinformation finns i [Azure Private Link-priser](https://azure.microsoft.com/pricing/details/private-link/).
+**Priser**: information om priser finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Begränsningar**: Private Endpoint for Azure Service Bus finns i offentlig förhandsversion. Den här funktionen är tillgänglig i alla offentliga Azure-regioner.
+**Begränsningar**: den privata slut punkten för Azure Service Bus finns i en offentlig för hands version. Den här funktionen är tillgänglig i alla offentliga Azure-regioner.
 
-**Maximalt antal privata slutpunkter per servicebussnamnområde:** 120.
+**Maximalt antal privata slut punkter per Service Bus namnrymd**: 120.
 
-Mer information finns i [Azure Private Link-tjänsten: Begränsningar](../private-link/private-link-service-overview.md#limitations)
+Mer information finns i [Azure Private Link service: begränsningar](../private-link/private-link-service-overview.md#limitations)
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-- Läs mer om [Azure Private Link](../private-link/private-link-service-overview.md)
+- Läs mer om [Azures privata länk](../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Service Bus](service-bus-messaging-overview.md)

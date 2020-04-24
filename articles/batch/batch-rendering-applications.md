@@ -1,94 +1,90 @@
 ---
-title: Renderingsprogram - Azure Batch
-description: Det är möjligt att använda alla renderingsprogram med Azure Batch. Azure Marketplace VM-avbildningar är dock tillgängliga med vanliga program förinstallerade.
-services: batch
-ms.service: batch
-author: LauraBrenner
-ms.author: labrenne
+title: Återge program
+description: Det är möjligt att använda alla åter givnings program med Azure Batch. VIRTUELLA Azure Marketplace-avbildningar är dock tillgängliga med vanliga program för installation.
 ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 77672534b2aad993a44e9b637fbed58df8610e97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f04fff3df2deb714f0432e5ad77d921a2d7ac205
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022995"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115796"
 ---
-# <a name="pre-installed-applications-on-rendering-vm-images"></a>Förinstallerade program på rendering av VM-avbildningar
+# <a name="pre-installed-applications-on-rendering-vm-images"></a>Förinstallerade program på att återge VM-avbildningar
 
-Det är möjligt att använda alla renderingsprogram med Azure Batch. Azure Marketplace VM-avbildningar är dock tillgängliga med vanliga program förinstallerade.
+Det är möjligt att använda alla åter givnings program med Azure Batch. VIRTUELLA Azure Marketplace-avbildningar är dock tillgängliga med vanliga program för installation.
 
-I förekommande fall är pay-per-use-licensiering tillgänglig för de förinstallerade renderingsprogrammen. När en batchpool skapas kan de nödvändiga programmen anges och både kostnaden för virtuell dator och program debiteras per minut. Programpriser visas på [prissidan för Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+I tillämpliga fall är licens för betalning per användning tillgängligt för de förinstallerade åter givnings programmen. När en batch-pool skapas kan de nödvändiga programmen anges och både kostnaden för VM och program debiteras per minut. Program priserna visas på [sidan Azure Batch priser](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
-Vissa program stöder bara Windows, men de flesta stöds på både Windows och Linux.
+Vissa program stöder bara Windows, men de flesta stöds i både Windows och Linux.
 
-## <a name="applications-on-centos-7-rendering-images"></a>Program på CentOS 7 renderingsbilder
+## <a name="applications-on-centos-7-rendering-images"></a>Program på CentOS 7-åter givnings bilder
 
-Följande lista gäller CentOS 7.6, version 1.1.6 renderingsbilder.
+Följande lista gäller för CentOS 7,6, version 1.1.6 rendering images.
 
 * Autodesk Maya I/O 2017 uppdatering 5 (version 201708032230)
-* Autodesk Maya I/O 2018 Uppdatering 2 (cut 201711281015)
-* Autodesk Maya I/O 2019 Uppdatering 1
+* Autodesk Maya I/O 2018 uppdatering 2 (klipp ut 201711281015)
+* Autodesk Maya I/O 2019 uppdatering 1
 * Autodesk Arnold för Maya 2017 (Arnold version 5.3.1.1) MtoA-3.2.1.1-2017
 * Autodesk Arnold för Maya 2018 (Arnold version 5.3.1.1) MtoA-3.2.1.1-2018
 * Autodesk Arnold för Maya 2019 (Arnold version 5.3.1.1) MtoA-3.2.1.1-2019
 * Chaos Group V-Ray för Maya 2017 (version 3.60.04)
 * Chaos Group V-Ray för Maya 2018 (version 3.60.04)
 * Blender (2.68)
-* Mixer (2,8)
+* Över gång (2,8)
 
-## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Program på de senaste återgivningsavbildningarna i Windows Server 2016
+## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Program på de senaste Windows Server 2016-avbildningarna
 
-Följande lista gäller för Windows Server 2016, version 1.3.8-återgivningsbilder.
+Följande lista gäller för Windows Server 2016, version 1.3.8 rendering images.
 
 * Autodesk Maya I/O 2017 uppdatering 5 (version 17.4.5459)
-* Autodesk Maya I/O 2018 Uppdatering 6 (version 18.4.0.7622)
+* Autodesk Maya I/O 2018 uppdatering 6 (version 18.4.0.7622)
 * Autodesk Maya I/O 2019
 * Autodesk Maya 3ds I/O 2018 uppdatering 4 (version 20.4.0.4254)
-* Autodesk 3ds Max I/O 2019 Uppdatering 1 (version 21.2.0.2219)
-* Autodesk 3ds Max I/O 2020 Uppdatering 2
+* Autodesk 3ds Max I/O 2019 uppdatering 1 (version 21.2.0.2219)
+* Autodesk 3ds Max I/O 2020 uppdatering 2
 * Autodesk Arnold för Maya 2017 (Arnold version 5.3.0.2) MtoA-3.2.0.2-2017
 * Autodesk Arnold för Maya 2018 (Arnold version 5.3.0.2) MtoA-3.2.0.2-2018
 * Autodesk Arnold för Maya 2019 (Arnold version 5.3.0.2) MtoA-3.2.0.2-2019
-* Autodesk Arnold för 3ds Max 2018 (Arnold version 5.3.0.2)(version 1.2.926)
-* Autodesk Arnold för 3ds Max 2019 (Arnold version 5.3.0.2)(version 1.2.926)
-* Autodesk Arnold för 3ds Max 2020 (Arnold version 5.3.0.2)(version 1.2.926)
-* Chaos Group V-Ray för Maya 2017 (version 4.12.01)
-* Chaos Group V-Ray för Maya 2018 (version 4.12.01)
-* Chaos Group V-Ray för Maya 2019 (version 4.04.03)
-* Chaos Group V-Ray för 3ds Max 2018 (version 4.20.01)
-* Chaos Group V-Ray för 3ds Max 2019 (version 4.20.01)
-* Chaos Group V-Ray för 3ds Max 2020 (version 4.20.01)
+* Autodesk Arnold för 3ds Max 2018 (Arnold version 5.3.0.2) (version 1.2.926)
+* Autodesk Arnold för 3ds Max 2019 (Arnold version 5.3.0.2) (version 1.2.926)
+* Autodesk Arnold för 3ds Max 2020 (Arnold version 5.3.0.2) (version 1.2.926)
+* Kaos Group V-Ray för Maya 2017 (version 4.12.01)
+* Kaos Group V-Ray för Maya 2018 (version 4.12.01)
+* Kaos Group V-Ray för Maya 2019 (version 4.04.03)
+* Kaos Group V-Ray för 3ds Max 2018 (version 4.20.01)
+* Kaos Group V-Ray för 3ds Max 2019 (version 4.20.01)
+* Kaos Group V-Ray för 3ds Max 2020 (version 4.20.01)
 * Blender (2.79)
-* Mixer (2,80)
-* AZ 10 (PÅ ANDRA)
+* Över gång (2,80)
+* AZ 10
 
 > [!IMPORTANT]
-> Om du vill köra V-Ray med Maya utanför `vrayses.exe` [Azure Batch-tilläggsmallarna](https://github.com/Azure/batch-extension-templates)börjar du innan du kör renderingen. Om du vill starta vrayses.exe utanför mallarna `%MAYA_2017%\vray\bin\vrayses.exe"`kan du använda följande kommando .
+> Om du vill köra V-Ray med Maya utanför [Azure Batch tilläggs mallar](https://github.com/Azure/batch-extension-templates)startar `vrayses.exe` du innan du kör renderingen. För att starta vrayses. exe utanför mallarna kan du använda följande kommando `%MAYA_2017%\vray\bin\vrayses.exe"`.
 >
-> En till exempel se startuppgiften för [Maya- och V-Ray-mallen](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) på GitHub.
+> Ett exempel finns i Start uppgiften för [Maya-och V-Ray-mallen](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) på GitHub.
 
-## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Program på tidigare Windows Server 2016-renderingsavbildningar
+## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Program på tidigare Windows Server 2016-åter givnings avbildningar
 
-Följande lista gäller för Windows Server 2016, version 1.3.7-återgivningsbilder.
+Följande lista gäller för Windows Server 2016, version 1.3.7 rendering images.
 
 * Autodesk Maya I/O 2017 uppdatering 5 (version 17.4.5459)
-* Autodesk Maya I/O 2018 Uppdatering 4 (version 18.4.0.7622)
-* Autodesk 3ds Max I/O 2019 Uppdatering 1 (version 21.2.0.2219)
+* Autodesk Maya I/O 2018 uppdatering 4 (version 18.4.0.7622)
+* Autodesk 3ds Max I/O 2019 uppdatering 1 (version 21.2.0.2219)
 * Autodesk Maya 3ds I/O 2018 uppdatering 4 (version 20.4.0.4254)
 * Autodesk Arnold för Maya 2017 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2017
 * Autodesk Arnold för Maya 2018 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2018
-* Autodesk Arnold för 3ds Max 2018 (Arnold version 5.0.2.4)(version 1.2.926)
-* Autodesk Arnold för 3ds Max 2019 (Arnold version 5.0.2.4)(version 1.2.926)
-* Chaos Group V-Ray för Maya 2018 (version 3.52.03)
-* Chaos Group V-Ray för 3ds Max 2018 (version 3.60.02)
-* Chaos Group V-Ray för Maya 2019 (version 3.52.03)
-* Chaos Group V-Ray för 3ds Max 2019 (version 4.10.01)
+* Autodesk Arnold för 3ds Max 2018 (Arnold version 5.0.2.4) (version 1.2.926)
+* Autodesk Arnold för 3ds Max 2019 (Arnold version 5.0.2.4) (version 1.2.926)
+* Kaos Group V-Ray för Maya 2018 (version 3.52.03)
+* Kaos Group V-Ray för 3ds Max 2018 (version 3.60.02)
+* Kaos Group V-Ray för Maya 2019 (version 3.52.03)
+* Kaos Group V-Ray för 3ds Max 2019 (version 4.10.01)
 * Blender (2.79)
 
 > [!NOTE]
-> Chaos Group V-Ray för 3ds Max 2019 (version 4.10.01) introducerar bryta förändringar i V-ray. Om du vill använda den tidigare versionen (version 3.60.02) använder du Windows Server 2016, version 1.3.2-renderingsnoder.
+> Kaos Group V-Ray för 3ds Max 2019 (version 4.10.01) introducerar brytande ändringar i V-Ray. Använd den tidigare versionen (version 3.60.02) genom att använda Windows Server 2016, version 1.3.2 rendering Nodes.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill använda avbildningarna för återgivning av virtuella datorer måste de anges i poolkonfigurationen när en pool skapas. se [batchpoolen för rendering](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).
+Om du vill använda avbildningarna för rendering av virtuella datorer måste de anges i konfiguration av poolen när en pool skapas. Se [funktioner för batch-pool för rendering](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).

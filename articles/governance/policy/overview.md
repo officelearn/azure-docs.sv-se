@@ -3,52 +3,52 @@ title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
 ms.date: 04/21/2020
 ms.topic: overview
-ms.openlocfilehash: 68005a9a07e7f081a646c75566a0be4046f078ad
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770590"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097378"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
-Azure Policy hjälper till att tillämpa organisationsstandarder och bedöma efterlevnad i stor skala. Genom instrumentpanelen för efterlevnad ger den en aggregerad vy för att utvärdera miljöns övergripande tillstånd, med möjlighet att öka detaljnivån till per resurs, per principgranularitet. Det bidrar också till att få dina resurser till efterlevnad genom massreparation för befintliga resurser och automatisk reparation för nya resurser.
+Azure Policy hjälper till att upprätthålla organisations standarder och utvärdera kompatibiliteten i stor skala. Med hjälp av instrument panelen för efterlevnad får du en sammanställd vy som utvärderar miljöns övergripande tillstånd, med möjlighet att öka detalj nivån till per-resurs-granularitet per princip. Det hjälper också till att se till att dina resurser efterlevs genom Mass reparation av befintliga resurser och automatisk reparation av nya resurser.
 
-Vanliga användningsfall för Azure Policy är implementering av styrning för resurskonsekvens, regelefterlevnad, säkerhet, kostnad och hantering. Principdefinitioner för dessa vanliga användningsfall är redan tillgängliga i din Azure-miljö som inbyggda för att enkelt komma igång.
+Vanliga användnings fall för Azure Policy inkluderar implementering av styrning för resurs konsekvens, regelefterlevnad, säkerhet, kostnad och hantering. Princip definitioner för dessa vanliga användnings fall är redan tillgängliga i din Azure-miljö som inbyggda moduler för att hjälpa dig att komma igång.
 
 ## <a name="overview"></a>Översikt
 
-Azure Policy utvärderar resurser i Azure genom att jämföra egenskaperna för dessa resurser med affärsregler. Dessa affärsregler, som beskrivs i [JSON-format,](./concepts/definition-structure.md)kallas [principdefinitioner](#policy-definition). För att förenkla hanteringen kan flera affärsregler grupperas tillsammans för att bilda ett [politiskt initiativ](#initiative-definition) (kallas ibland _policySet_). När dina affärsregler har [utformats tilldelas](#assignments) principdefinitionen eller initiativet till alla resurser som Azure stöder, till exempel [hanteringsgrupper,](../management-groups/overview.md)prenumerationer, [resursgrupper](../../azure-resource-manager/management/overview.md#resource-groups)eller enskilda resurser. Tilldelningen gäller för alla resurser som [omfattas](../../azure-resource-manager/management/overview.md#understand-scope) av tilldelningen.
-Subscopes kan uteslutas, om det behövs.
+Azure Policy utvärderar resurser i Azure genom att jämföra egenskaperna för dessa resurser med affärs regler. Dessa affärs regler, som beskrivs i [JSON-format](./concepts/definition-structure.md), kallas för [princip definitioner](#policy-definition). För att förenkla hanteringen kan flera affärs Regler grupperas tillsammans för att bilda ett [princip initiativ](#initiative-definition) (kallas ibland för en _policySet_). När dina affärs regler har skapats [tilldelas](#assignments) princip definitionen eller initiativet alla resurser som stöds av Azure, till exempel [hanterings grupper](../management-groups/overview.md), prenumerationer, [resurs grupper](../../azure-resource-manager/management/overview.md#resource-groups)eller enskilda resurser. Tilldelningen gäller för alla resurser inom tilldelningens [omfattning](../../azure-resource-manager/management/overview.md#understand-scope) .
+Under omfattningar kan undantas vid behov.
 
-Azure Policy använder ett [JSON-format](./concepts/definition-structure.md) för att skapa den logik som utvärderingen använder för att avgöra om en resurs är kompatibel eller inte. Definitioner inkluderar metadata och principregeln. Den definierade regeln kan använda funktioner, parametrar, logiska operatorer, villkor och [egenskapsalias](./concepts/definition-structure.md#aliases) för att matcha exakt det scenario du vill ha. Principregeln avgör vilka resurser i tilldelningens omfattning som utvärderas.
+Azure Policy använder ett [JSON-format](./concepts/definition-structure.md) för att forma logiken som utvärderingen använder för att avgöra om en resurs är kompatibel eller inte. Definitioner inkluderar metadata och princip regeln. Den definierade regeln kan använda funktioner, parametrar, logiska operatorer, villkor och egenskaps- [alias](./concepts/definition-structure.md#aliases) för att matcha exakt det scenario du önskar. Princip regeln avgör vilka resurser i tilldelnings omfånget som ska utvärderas.
 
-### <a name="understand-evaluation-outcomes"></a>Förstå utvärderingsresultat
+### <a name="understand-evaluation-outcomes"></a>Förstå utvärderings resultat
 
-Resurser utvärderas vid specifika tidpunkter under resurslivscykeln, livscykeln för principtilldelning och för regelbunden pågående efterlevnadsutvärdering. Följande är de tider eller händelser som gör att en resurs utvärderas:
+Resurserna utvärderas vid bestämda tidpunkter under resurs livs cykeln, livs cykeln för princip tilldelning och för regelbunden utvärdering av efterlevnad. Följande är de tider eller händelser som gör att en resurs utvärderas:
 
-- En resurs skapas, uppdateras eller tas bort i ett scope med en principtilldelning.
-- En princip eller ett initiativ har nyligen tilldelats ett scope.
-- En princip eller ett initiativ som redan har tilldelats ett scope uppdateras.
-- Under standardutvärderingscykeln, som sker en gång var 24:e timme.
+- En resurs skapas, uppdateras eller tas bort i ett omfång med en princip tilldelning.
+- En princip eller ett initiativ har nyligen tilldelats ett omfång.
+- En princip eller ett initiativ som redan har tilldelats ett omfång uppdateras.
+- Under utvärderings cykeln för standard kompatibilitet, som inträffar en gång var 24: e timme.
 
-Detaljerad information om när och hur utvärdering av principen sker finns i [Utvärderingsutlösare](./how-to/get-compliance-data.md#evaluation-triggers).
+Detaljerad information om när och hur princip utvärderingen sker finns i [utvärderings utlösare](./how-to/get-compliance-data.md#evaluation-triggers).
 
-### <a name="control-the-response-to-an-evaluation"></a>Kontrollera svaret på en utvärdering
+### <a name="control-the-response-to-an-evaluation"></a>Kontrol lera svaret på en utvärdering
 
-Affärsregler för hantering av icke-kompatibla resurser varierar kraftigt mellan organisationer. Exempel på hur en organisation vill att plattformen ska svara på en resurs som inte är klagomålsresurs är:
+Affärs regler för hantering av icke-kompatibla resurser varierar kraftigt mellan organisationer. Exempel på hur en organisation vill att plattformen ska svara på en icke-inklagomåls resurs är:
 
-- Neka resursändringen
-- Logga ändringen till resursen
-- Ändra resursen före ändringen
+- Neka resurs ändringen
+- Logga ändringen i resursen
+- Ändra resursen innan ändringen
 - Ändra resursen efter ändringen
 - Distribuera relaterade kompatibla resurser
 
-Azure Policy gör var och en av dessa affärssvar möjliga genom tillämpning av [effekter](./concepts/effects.md). Effekter anges i **principregeldelen** av [principdefinitionen](./concepts/definition-structure.md).
+Azure Policy gör vart och ett av dessa affärs svar möjligt genom tillämpning av [effekter](./concepts/effects.md). Effekter anges i **princip regel** delen i [princip definitionen](./concepts/definition-structure.md).
 
 ### <a name="remediate-non-compliant-resources"></a>Åtgärda icke-kompatibla resurser
 
-Även om dessa effekter främst påverkar en resurs när resursen skapas eller uppdateras, stöder Azure Policy också hantera befintliga icke-kompatibla resurser utan att behöva ändra den resursen. Mer information om hur du gör befintliga resurser kompatibla finns i [åtgärda resurser](./how-to/remediate-resources.md).
+Även om dessa effekter främst påverkar en resurs när resursen skapas eller uppdateras, kan Azure Policy också hantera befintliga icke-kompatibla resurser utan att behöva ändra den resursen. Mer information om hur du gör befintliga resurser kompatibla finns i [Reparera resurser](./how-to/remediate-resources.md).
 
 ### <a name="video-overview"></a>Videoöversikt
 
@@ -58,13 +58,13 @@ Följande översikt över Azure Policy är från Build 2018. För nedladdning av
 
 ## <a name="getting-started"></a>Komma igång
 
-### <a name="azure-policy-and-rbac"></a>Azure-principen och RBAC
+### <a name="azure-policy-and-rbac"></a>Azure Policy och RBAC
 
-Det finns några viktiga skillnader mellan Azure Policy och rollbaserad åtkomstkontroll (RBAC). Azure Policy utvärderar tillståndet genom att undersöka egenskaper för resurser som representeras i Resource Manager och egenskaper för vissa resursleverantörer. Azure Policy begränsar inte åtgärder (kallas även _åtgärder_). Azure Policy säkerställer att resurstillståndet är kompatibelt med dina affärsregler utan att bry sig om vem som har gjort ändringen eller vem som har behörighet att göra en ändring.
+Det finns några viktiga skillnader mellan Azure Policy och rollbaserad åtkomst kontroll (RBAC). Azure Policy utvärderar tillstånd genom att undersöka egenskaper för resurser som representeras i Resource Manager och egenskaper för vissa resurs leverantörer. Azure Policy begränsar inte åtgärder (kallas även _åtgärder_). Azure Policy ser till att resurs statusen är kompatibel med dina affärs regler utan att behöva oroa sig för vem som gjorde ändringen eller vem som har behörighet att göra en ändring.
 
-RBAC fokuserar på att hantera [användaråtgärder](../../role-based-access-control/resource-provider-operations.md) i olika omfattningar. Om kontroll av en åtgärd krävs är RBAC rätt verktyg att använda. Även om en person har åtkomst till att utföra en åtgärd, om resultatet är en icke-kompatibel resurs, blockerar Azure Policy fortfarande skapa eller uppdatera.
+RBAC fokuserar på hantering av användar [åtgärder](../../role-based-access-control/resource-provider-operations.md) i olika omfång. Om kontrollen av en åtgärd krävs är RBAC rätt verktyg för att använda. Även om en enskild person har åtkomst för att utföra en åtgärd, eller om resultatet är en icke-kompatibel resurs, blockerar Azure Policy fortfarande åtgärden Skapa eller uppdatera.
 
-Kombinationen av RBAC och Azure Policy ger fullständig scopekontroll i Azure.
+Kombinationen av RBAC och Azure Policy ger fullständig omfattnings kontroll i Azure.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>RBAC-behörigheter i Azure Policy
 
@@ -73,16 +73,16 @@ Azure Policy har flera behörigheter, som kallas åtgärder, i två olika resurs
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen **Resursprincipdeltagare** innehåller de flesta Azure-principåtgärder. **Ägare** har fullständiga behörigheter. Både **Contributor** och **Reader** har åtkomst till alla _lästa_ Azure-principåtgärder. **Deltagaren** kan utlösa resurssanering, men kan inte _skapa_ definitioner eller tilldelningar.
+Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen som **deltagar resurs princip** omfattar de flesta Azure policy åtgärder. **Ägare** har fullständiga behörigheter. Både **deltagare** och **läsare** har åtkomst till alla _Läs_ Azure policy-åtgärder. **Deltagare** kan utlösa resurs reparation, men kan inte _skapa_ definitioner eller tilldelningar.
 
 Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Den hanterade identiteten för en **deployIfNotExists** principtilldelning behöver tillräckligt med behörighet för att skapa eller uppdatera resurser som ingår i mallen. Mer information finns i [Konfigurera principdefinitioner för reparation](./how-to/remediate-resources.md#configure-policy-definition).
+> Den hanterade identiteten för en **deployIfNotExists** princip tilldelning måste ha tillräcklig behörighet för att skapa eller uppdatera resurser som ingår i mallen. Mer information finns i [Konfigurera princip definitioner för reparation](./how-to/remediate-resources.md#configure-policy-definition).
 
-### <a name="resources-covered-by-azure-policy"></a>Resurser som omfattas av Azure-principen
+### <a name="resources-covered-by-azure-policy"></a>Resurser som omfattas av Azure Policy
 
-Azure Policy utvärderar alla resurser i Azure. För vissa resursleverantörer som [Gästkonfiguration](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md)och [Azure Key Vault](../../key-vault/key-vault-overview.md)finns det en djupare integrering för hantering av inställningar och objekt. Mer information finns i [Resursproviderlägen](./concepts/definition-structure.md).
+Azure Policy utvärderar alla resurser i Azure. För vissa resurs leverantörer, till exempel [gäst konfiguration](./concepts/guest-configuration.md), [Azure Kubernetes service](../../aks/intro-kubernetes.md)och [Azure Key Vault](../../key-vault/key-vault-overview.md), finns det en djupare integrering för hantering av inställningar och objekt. Mer information finns i [resurs leverantörs lägen](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Rekommendationer för principhantering
 
@@ -100,7 +100,7 @@ Här följer några råd och tips att tänka på:
 - När en initiativtilldelning utvärderas, utvärderas även alla principer inom initiativet.
   Om du behöver utvärdera en princip individuellt är det bättre att inte inkludera den i ett initiativ.
 
-## <a name="azure-policy-objects"></a>Azure-principobjekt
+## <a name="azure-policy-objects"></a>Azure Policy objekt
 
 ### <a name="policy-definition"></a>Definition av princip
 
@@ -108,13 +108,13 @@ Resan med att skapa och implementera en princip i Azure Policy börjar med skapa
 
 Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Ett exempel:
 
-- **Tillåtna lagringskontoSkuser** (Neka): Avgör om ett lagringskonto som distribueras ligger inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
-- **Tillåten resurstyp** (Neka): Definierar de resurstyper som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
-- **Tillåtna platser** (Neka): Begränsar tillgängliga platser för nya resurser. Effekten används för att genomdriva kraven på geo-efterlevnad.
-- **Tillåtna SKU:er** för virtuella datorer (Nekad): Anger en uppsättning SKU:er för virtuella datorer som du kan distribuera.
-- **Lägg till en tagg i resurser** (Ändra): Använder en obligatorisk tagg och dess standardvärde om den inte anges av distributionsbegäran.
-- **Lägg till tagg och dess standardvärde** (Lägg till): Framtvingar en obligatorisk tagg och dess värde till en resurs.
-- **Inte tillåtna resurstyper** (Neka): Förhindrar att en lista över resurstyper distribueras.
+- **Tillåtna lagrings konto SKU: er** (neka): avgör om ett lagrings konto som distribueras är inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
+- **Tillåten resurs typ** (neka): definierar de resurs typer som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
+- **Tillåtna platser** (neka): begränsar de tillgängliga platserna för nya resurser. Effekten används för att genomdriva kraven på geo-efterlevnad.
+- **Tillåtna virtuella dator-SKU** : er (neka): anger en uppsättning SKU: er för virtuella datorer som du kan distribuera.
+- **Lägg till en tagg till resurser** (ändra): använder en obligatorisk tagg och dess standardvärde om den inte anges i distributions förfrågan.
+- **Lägg till tagg och dess standardvärde** (append): tillämpar en obligatorisk tagg och dess värde för en resurs.
+- **Ej tillåtna resurs typer** (neka): förhindrar att en lista över resurs typer distribueras.
 
 För att implementera dessa principdefinitioner (både inbyggda och anpassade definitioner) måste du tilldela dem. Du kan tilldela de här principerna via Azure Portal, PowerShell eller Azure CLI.
 
@@ -133,7 +133,7 @@ Mer information om principparametrar finns i [Struktur för definitioner – par
 En initiativdefinition är en samling principdefinitioner som är skräddarsydda för att uppnå ett enda övergripande mål. Initiativdefinitioner gör det enklare att hantera och tilldela principdefinitioner genom att de grupperar en uppsättning principer som ett enda objekt. Du kan till exempel skapa ett initiativ med titeln **Aktivera övervakning i Azure Security Center**, med målet att övervaka alla tillgängliga säkerhetsrekommendationer i Azure Security Center.
 
 > [!NOTE]
-> SDK, till exempel Azure CLI och Azure PowerShell, använder egenskaper och parametrar med namnet **PolicySet** för att referera till initiativ.
+> SDK, till exempel Azure CLI och Azure PowerShell, använder egenskaper och parametrar som heter **PolicySet** för att referera till initiativ.
 
 Under det här initiativet skulle du ha principdefinitioner som dessa:
 
@@ -153,22 +153,22 @@ Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, m
 I det här scenariot, när du definierar initiativparametrar för **initiativC**, har du tre alternativ:
 
 - Använd parametrarna för principdefinitionerna i det här initiativet. I det här exemplet blir _allowedLocations_ och _allowedSingleLocation_ initiativparametrar för **initiativC**.
-- Ange värden för parametrarna för principdefinitionerna i den här initiativdefinitionen. I det här exemplet kan du ange en lista över platser till **parametern policyA**– **allowedLocations** and **policyB's**parameter – **allowedSingleLocation**. Du kan också ange värden när du tilldelar det här initiativet.
+- Ange värden för parametrarna för principdefinitionerna i den här initiativdefinitionen. I det här exemplet kan du ange en lista över **platser som ska**användas för att ställa in parameter- **allowedLocations** och **principb**parameter – **allowedSingleLocation**. Du kan också ange värden när du tilldelar det här initiativet.
 - Ange en lista med alternativ _värden_ som kan användas när du tilldelar det här initiativet. När du tilldelar det här initiativet kan ärvda parametrarna från principdefinitionerna inom initiativet endast ha värden från den här listan.
 
 När du skapar värdealternativ i en initiativdefinition kan du inte ange ett annat värde under initiativtilldelningen eftersom det inte ingår i listan.
 
 ### <a name="assignments"></a>Tilldelningar
 
-En tilldelning är en principdefinition eller ett initiativ som har tilldelats att äga rum inom ett visst omfång. Det här omfånget kan vara allt från en [hanteringsgrupp](../management-groups/overview.md) till en enskild resurs. Termen _omfattning_ refererar till alla resurser, resursgrupper, prenumerationer eller hanteringsgrupper som definitionen har tilldelats. Tilldelningar ärvs av alla underordnade resurser. Den här designen innebär att en definition som tillämpas på en resursgrupp också tillämpas på resurser i resursgruppen. Du kan dock utesluta ett underscope från tilldelningen.
+En tilldelning är en princip definition eller ett initiativ som har tilldelats för att äga rum inom ett angivet omfång. Det här omfånget kan vara ett intervall från en [hanterings grupp](../management-groups/overview.md) till en enskild resurs. Termen _definitions område_ syftar på alla resurser, resurs grupper, prenumerationer eller hanterings grupper som definitionen är tilldelad till. Tilldelningar ärvs av alla underordnade resurser. Den här designen innebär att en definition som tillämpas på en resurs grupp också tillämpas på resurser i den resurs gruppen. Du kan dock undanta ett under omfång från tilldelningen.
 
-I prenumerationsomfånget kan du till exempel tilldela en definition som förhindrar att nätverksresurser skapas. Du kan undanta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du beviljar därefter åtkomst till den här nätverksresursgruppen för användare som du litar på för att skapa nätverksresurser.
+I prenumerations omfattningen kan du till exempel tilldela en definition som förhindrar skapandet av nätverks resurser. Du kan undanta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du beviljar därefter åtkomst till den här nätverksresursgruppen för användare som du litar på för att skapa nätverksresurser.
 
-I ett annat exempel kanske du vill tilldela en resurstyp tillåt listdefinition på hanteringsgruppsnivå. Sedan kan du tilldela en mer tillåtande princip (som tillåter fler resurstyper) på en underordnad hanteringsgrupp eller till och med direkt på prenumerationer. Det här exemplet skulle dock inte fungera eftersom Azure Policy är ett explicit neka system. I stället måste du utesluta den underordnade hanteringsgruppen eller prenumerationen från tilldelningen på hanteringsgruppsnivå. Tilldela sedan den mer tillåtande definitionen på den underordnade hanteringsgruppen eller prenumerationsnivån. Om någon tilldelning resulterar i att en resurs nekas, är det enda sättet att tillåta resursen att ändra tilldelningen nekas.
+I ett annat exempel kanske du vill tilldela en resurs typ Tillåt List definition på hanterings grupps nivå. Sedan tilldelar du en mer tillåtande princip (vilket tillåter fler resurs typer) i en underordnad hanterings grupp eller till och med direkt på prenumerationer. Det här exemplet skulle dock inte fungera eftersom Azure Policy är ett explicit Deny system. I stället måste du undanta den underordnade hanterings gruppen eller prenumerationen från tilldelningen på hanterings grupps nivå. Tilldela sedan den mer tillåtna definitionen för den underordnade hanterings gruppen eller prenumerations nivån. Om en tilldelning resulterar i att en resurs får åtkomst, är det enda sättet att tillåta resursen att ändra den nekande tilldelningen.
 
-Mer information om hur du anger tilldelningar via portalen finns i [Skapa en principtilldelning för att identifiera icke-kompatibla resurser i din Azure-miljö](assign-policy-portal.md). Steg för [PowerShell](assign-policy-powershell.md) och [Azure CLI](assign-policy-azurecli.md) är också tillgängliga.
+Mer information om hur du ställer in tilldelningar via portalen finns i [skapa en princip tilldelning för att identifiera icke-kompatibla resurser i Azure-miljön](assign-policy-portal.md). Steg för [PowerShell](assign-policy-powershell.md) och [Azure CLI](assign-policy-azurecli.md) är också tillgängliga.
 
-## <a name="maximum-count-of-azure-policy-objects"></a>Maximalt antal Azure-principobjekt
+## <a name="maximum-count-of-azure-policy-objects"></a>Maximalt antal Azure Policy objekt
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -176,5 +176,5 @@ Mer information om hur du anger tilldelningar via portalen finns i [Skapa en pri
 
 Nu när du har en översikt över Azure Policy och några av de centrala begreppen föreslår vi följande som nästa steg:
 
-- [Granska principdefinitionsstrukturen](./concepts/definition-structure.md).
-- [Tilldela en principdefinition med hjälp av portalen](./assign-policy-portal.md).
+- [Granska princip definitions strukturen](./concepts/definition-structure.md).
+- [Tilldela en princip definition med hjälp av portalen](./assign-policy-portal.md).

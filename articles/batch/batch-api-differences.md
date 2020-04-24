@@ -1,28 +1,23 @@
 ---
-title: Skillnader mellan hanterings-API:er och tjänst-API:er – Azure Batch | Microsoft-dokument
-description: API:er fungerar på de olika lagren i Azure Batch-tjänsten.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
+title: 'Skillnader mellan API: er för hantering och tjänst-API: er'
+description: 'API: er fungerar på de olika skikten i Azure Batchs tjänsten.'
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 181515c0f497af8ffadcb909c13e51a40bfbf3b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33b8c5980aba1090155d6b136c6707e928666abf
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672762"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115405"
 ---
-# <a name="service-level-and-management-level-apis"></a>API:er på servicenivå och hanteringsnivå
+# <a name="service-level-and-management-level-apis"></a>API: er för service nivå och hanterings nivå
 
-Azure Batch har två uppsättningar API:er, en för tjänstnivån och en för hanteringsnivån. Namngivningen är ofta liknande men de returnerar olika resultat. Om du vill ha aktivitetsloggar måste du använda hanterings-API:erna. API:er på tjänstnivå kringgår Azure Resource Management-lagret och loggas inte.
+Azure Batch har två uppsättnings-API: er, en för Service nivån och en för hanterings nivån. Namnet är ofta detsamma, men de returnerar olika resultat. Om du vill ha aktivitets loggar måste du använda hanterings-API: er. Service nivå-API: er kringgår Azure-resurs hanterings skiktet och loggas inte.
 
 
-Batchhantering och batch-tjänst har båda API:er för pool, till exempel. 
-- Det här API:et för att ta bort poolen är direkt inriktat på batchkontot:https://docs.microsoft.com/rest/api/batchservice/pool/delete 
+Batch-hantering och batch-tjänsten har båda API: er för pool, till exempel. 
+- Detta API för att ta bort poolen är riktat direkt mot batch-kontot:https://docs.microsoft.com/rest/api/batchservice/pool/delete 
 
-- Det här API:et för att ta bort poolen https://docs.microsoft.com/rest/api/batchmanagement/pool/delete är inriktat på management.azure.com lagret.
+- Detta API för att ta https://docs.microsoft.com/rest/api/batchmanagement/pool/delete bort poolen riktas mot Management.Azure.com-skiktet.
 

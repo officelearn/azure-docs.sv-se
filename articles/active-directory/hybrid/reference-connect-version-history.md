@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/21/2020
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1377023af9d4f153671f15e214516ac29536638
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100081"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112209"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -47,6 +47,14 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 >Om du har aktiverat Azure AD Connect för synkronisering börjar du snart att automatiskt få hälso aviseringar som varnar dig om kommande inläsningar när du kör någon av de äldre versionerna.
 >
 >Mer information om hur du uppgraderar Azure AD Connect till den senaste versionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
+## <a name="15290"></a>1.5.29.0
+
+### <a name="release-status"></a>Versionsstatus
+04/23/2020: har släppts för nedladdning
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+Den här snabb korrigeringen åtgärdar ett problem som introducerades i build-1.5.20.0, där en innehavaradministratör med MFA inte kunde aktivera DSSO.
 
 ## <a name="15220"></a>1.5.22.0
 

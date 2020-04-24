@@ -1,15 +1,15 @@
 ---
 title: PowerShell-exempel
-description: Den här artikeln innehåller länkar till PowerShell-skriptexempel som använder Azure Backup för att säkerhetskopiera och återställa data.
+description: Den här artikeln innehåller länkar till exempel på PowerShell-skript som använder Azure Backup för att säkerhetskopiera och återställa data.
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: ebe89a22639e94d8c2ef0e8e5354176f6d04ad8d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8b571be4fc33c3a3645c5176bbe3d079e7d8eda2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76768090"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101526"
 ---
 # <a name="azure-backup-powershell-samples"></a>PowerShell-exempel för Azure Backup
 
@@ -18,4 +18,5 @@ Följande tabell länkar till PowerShell-skriptexempel som använder Azure Backu
 | |                                                              |
 |---|---|
 | [Säkerhetskopiera krypterade virtuella datorer till Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Säkerhetskopiera alla data på den krypterade virtuella datorn.|
-| [Hitta registrerat lagringskonto](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Hitta valvet för återställningstjänster där lagringskontot är registrerat |
+| [Hitta registrerat lagrings konto](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Hitta Recovery Services-valvet där lagrings kontot är registrerat |
+

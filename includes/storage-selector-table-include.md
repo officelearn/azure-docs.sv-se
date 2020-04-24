@@ -16,7 +16,7 @@ ms.locfileid: "67187088"
 > * [Node.js](../articles/cosmos-db/table-storage-how-to-use-nodejs.md)
 > * [Java](../articles/cosmos-db/table-storage-how-to-use-java.md)
 > * [C++](../articles/cosmos-db/table-storage-how-to-use-c-plus.md)
-> * [Php](../articles/cosmos-db/table-storage-how-to-use-php.md)
+> * [PHP](../articles/cosmos-db/table-storage-how-to-use-php.md)
 > * [Ruby](../articles/cosmos-db/table-storage-how-to-use-ruby.md)
 > * [Python](../articles/cosmos-db/table-storage-how-to-use-python.md)
 > 

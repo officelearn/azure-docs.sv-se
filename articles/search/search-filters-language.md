@@ -1,53 +1,53 @@
 ---
-title: Filtrera efter språk i ett sökindex
+title: Filtrera efter språk i ett Sök index
 titleSuffix: Azure Cognitive Search
-description: Filtrera villkor för att stödja sökning på flera språk, omfånga frågekörning till språkspecifika fält.
+description: Filtrera villkor för att stödja sökning på flera språk, köra frågor mot språkspecifika fält.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112059"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116289"
 ---
-# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Så här filtrerar du efter språk i Azure Cognitive Search 
+# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Så här filtrerar du efter språk i Azure Kognitiv sökning 
 
-Ett viktigt krav i ett flerspråkigt sökprogram är möjligheten att söka igenom och hämta resultat på användarens eget språk. I Azure Cognitive Search är ett sätt att uppfylla språkkraven för en flerspråkig app att skapa en serie fält som är dedikerade till att lagra strängar på ett visst språk och sedan begränsa fulltextsökning till just dessa fält vid frågetid.
+Ett nyckel krav i ett program för flerspråkig sökning är möjligheten att söka över och hämta resultat i användarens eget språk. I Azure Kognitiv sökning är det ett sätt att uppfylla språk kraven för en flerspråkig app att skapa en serie fält som är dedikerade för att lagra strängar på ett specifikt språk och sedan begränsa full texts ökningen till bara dessa fält vid tidpunkten i frågan.
 
-Frågeparametrar för begäran används för att både begränsa sökåtgärden och trimma sedan resultaten av alla fält som inte tillhandahåller innehåll som är kompatibelt med den sökupplevelse som du vill leverera.
+Frågeparametrar på begäran används för att både hitta Sök åtgärden och sedan trimma resultaten för fält som inte tillhandahåller innehåll som är kompatibelt med den Sök funktion som du vill leverera.
 
 | Parametrar | Syfte |
 |-----------|--------------|
-| **sökFält** | Begränsar fulltextsökning till listan med namngivna fält. |
-| **$select** | Trimmar svaret så att det bara finns de fält som du anger. Som standard returneras alla fält som kan hämtas. Med **parametern $select** kan du välja vilka som ska returneras. |
+| **searchFields** | Begränsar fullständig texts ökning till listan över namngivna fält. |
+| **$select** | Trimmar svaret så att det endast innehåller de fält som du anger. Som standard returneras alla fält som kan hämtas. Med parametern **$Select** kan du välja vilka som ska returneras. |
 
-Framgången för denna teknik beror på integriteten i fältinnehållet. Azure Cognitive Search översätter inte strängar eller utför språkidentifiering. Det är upp till dig att se till att fälten innehåller de strängar du förväntar dig.
+Det här är en lyckad genom gång av den här metoden för att skydda fält innehåll. Azure Kognitiv sökning översätter inte strängar eller utför språk identifiering. Det är upp till dig att se till att fälten innehåller de strängar som du förväntar dig.
 
 ## <a name="define-fields-for-content-in-different-languages"></a>Definiera fält för innehåll på olika språk
 
-I Azure Cognitive Search riktar sig frågor till ett enda index. Utvecklare som vill tillhandahålla språkspecifika strängar i en enda sökupplevelse definierar vanligtvis dedikerade fält för att lagra värdena: ett fält för engelska strängar, ett för franska och så vidare. 
+I Azure Kognitiv sökning riktar sig frågor mot ett enda index. Utvecklare som vill tillhandahålla språkspecifika strängar i en enda Sök funktion definierar vanligt vis dedikerade fält för att lagra värdena: ett fält för engelska strängar, ett för franska och så vidare. 
 
-I våra prover, inklusive [fastighetsprovet](search-get-started-portal.md) som visas nedan, kanske du har sett fältdefinitioner som liknar följande skärmdump. Lägg märke till hur det här exemplet visar språkanalystilldelningarna för fälten i det här indexet. Fält som innehåller strängar presterar bättre i fulltextsökning när de paras ihop med en analysator som är konstruerad för att hantera målspråkets språkliga regler.
+I följande exempel är ett exempel på ett [fastighets-exempel](search-get-started-portal.md) som innehåller flera sträng fält som innehåller innehåll på olika språk. Observera språk analys tilldelningarna för fälten i det här indexet. Fält som innehåller strängar fungerar bättre i full texts ökning när de kombineras med en analys som är utformad för att hantera språkspråkets språk regler.
 
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Kodexempel som visar fältdefinitioner med språkanalysatorer finns i [Definiera ett index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) och [Definiera ett index (REST)](search-create-index-rest-api.md).
+> Kod exempel som visar fält definitioner med språk analys verktyg finns i [definiera ett index (.net)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) och [definiera ett index (rest)](search-create-index-rest-api.md).
 
-## <a name="build-and-load-an-index"></a>Skapa och ladda ett index
+## <a name="build-and-load-an-index"></a>Bygga och läsa in ett index
 
-Ett mellanliggande (och kanske självklart) steg är att du måste [skapa och fylla i indexet](https://docs.microsoft.com/azure/search/search-create-index-dotnet) innan du formulerar en fråga. Vi nämner detta steg här för fullständighet. Ett sätt att avgöra om indexet är tillgängligt är att kontrollera indexlistan i [portalen](https://portal.azure.com).
+Ett mellanliggande (och eventuellt uppenbart) steg är att du måste [bygga och fylla i indexet](https://docs.microsoft.com/azure/search/search-create-index-dotnet) innan du skapar en fråga. Vi nämner detta steg för att slutföra. Ett sätt att avgöra om indexet är tillgängligt är genom att kontrol lera listan index i [portalen](https://portal.azure.com).
 
-## <a name="constrain-the-query-and-trim-results"></a>Begränsa fråge- och trimresultaten
+## <a name="constrain-the-query-and-trim-results"></a>Begränsa frågan och trimma resultatet
 
-Parametrar i frågan används för att begränsa sökningen till specifika fält och sedan trimma resultaten av eventuella fält som inte är till hjälp för ditt scenario. Med tanke på målet att begränsa sökningen till fält som innehåller franska strängar använder du **sökfält** för att rikta frågan i fält som innehåller strängar på det språket. 
+Parametrar i frågan används för att begränsa sökningen till vissa fält och sedan trimma resultaten för fält som inte är användbara för ditt scenario. Baserat på ett mål för att begränsa sökningen till fält som innehåller franska strängar, använder du **searchFields** för att rikta frågan på fält som innehåller strängar på det språket. 
 
-Som standard returnerar en sökning alla fält som är markerade som hämtningsbara. Därför kanske du vill utesluta fält som inte överensstämmer med den språkspecifika sökupplevelse som du vill tillhandahålla. Om du har begränsat sökningen till ett fält med franska strängar vill du förmodligen utesluta fält med engelska strängar från resultaten. Med hjälp av **parametern $select** fråga ger du kontroll över vilka fält som returneras till det anropande programmet.
+Som standard returnerar en sökning alla fält som är markerade som hämtnings bara. Därför kanske du vill utesluta fält som inte överensstämmer med den språkspecifika Sök upplevelse som du vill tillhandahålla. Om du har begränsat sökningen till ett fält med franska strängar vill du förmodligen utesluta fält med engelska strängar från dina resultat. Med hjälp av parametern **$Select** fråga kan du styra vilka fält som returneras till det anropande programmet.
 
 ```csharp
 parameters =
@@ -58,11 +58,11 @@ parameters =
     };
 ```
 > [!Note]
-> Även om det inte finns något $filter argument i frågan, är det här användningsfallet starkt kopplat till filterbegrepp, så vi presenterar det som ett filtreringsscenario.
+> Även om det inte finns något $filter argument i frågan, är det här användnings fallet starkt kopplat till filter koncept, så det presenteras som ett filtrerings scenario.
 
 ## <a name="see-also"></a>Se även
 
-+ [Filter i Azure Cognitive Search](search-filters.md)
++ [Filter i Azure Kognitiv sökning](search-filters.md)
 + [Språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support)
 + [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
 + [REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents)

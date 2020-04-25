@@ -1,39 +1,39 @@
 ---
-title: 'Snabbstart: Skapa server - az postgres up - Azure Database for PostgreSQL - Single Server'
-description: Snabbstartsguide för att skapa Azure Database för PostgreSQL - Single Server med azure CLI (kommandoradsgränssnitt) upp kommando.
+title: 'Snabb start: skapa server-AZ postgres up-Azure Database for PostgreSQL-Single-Server'
+description: Snabb starts guide för att skapa Azure Database for PostgreSQL-enskild server med Azure CLI-kommandot (kommando rads gränssnitt).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74774840"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146813"
 ---
-# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Snabbstart: Använd ett Azure CLI-kommando, az postgres up (preview), för att skapa en Azure-databas för PostgreSQL - Single Server
+# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Snabb start: Använd ett Azure CLI-kommando, AZ postgres (för hands version), för att skapa en Azure Database for PostgreSQL-enskild server
 
 > [!IMPORTANT]
-> Kommandot [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI visas i förhandsversion.
+> [AZ postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommandot är i för hands version.
 
-Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du använder kommandot [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) för att skapa en Azure-databas för PostgreSQL-server med Azure CLI. Förutom att skapa servern `az postgres up` skapar kommandot en exempeldatabas, en rotanvändare i databasen, öppnar brandväggen för Azure-tjänster och skapar standardbrandväggsregler för klientdatorn. Dessa standardvärden bidrar till att påskynda utvecklingsprocessen.
+Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) för att skapa en Azure Database for postgresql-server med hjälp av Azure CLI. Förutom att skapa-servern skapar `az postgres up` kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Dessa standardvärden hjälper till att påskynda utvecklings processen.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Den här artikeln kräver att du kör Azure CLI version 2.0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Du måste logga in på ditt konto med kommandot [az login.](/cli/azure/authenticate-azure-cli?view=interactive-log-in) Observera **ID-egenskapen** från kommandoutdata för motsvarande prenumerationsnamn.
+Du måste logga in på ditt konto med kommandot [AZ login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) . Observera egenskapen **ID** från kommandots utdata för motsvarande prenumerations namn.
 
 ```azurecli
 az login
 ```
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account). Ersätt **prenumerations-ID-egenskapen** från **az-inloggningsutgången** för din prenumeration med platshållaren för prenumerations-ID.
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account). Ersätt egenskapen **prenumerations-ID** från **AZ-inloggnings** resultatet för din prenumeration till plats hållaren för prenumerations-ID.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -41,62 +41,62 @@ az account set --subscription <subscription id>
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server
 
-Om du vill använda kommandona installerar du [tillägget db-up.](/cli/azure/ext/db-up) Om ett fel returneras kontrollerar du att du har installerat den senaste versionen av Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du vill använda kommandona installerar du [db-up-](/cli/azure/ext/db-up) tillägget. Om ett fel returneras kontrollerar du att du har installerat den senaste versionen av Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up
 ```
 
-Skapa en Azure-databas för PostgreSQL-server med följande kommando:
+Skapa en Azure Database for PostgreSQL server med följande kommando:
 
 ```azurecli
 az postgres up
 ```
 
-Servern skapas med följande standardvärden (såvida du inte åsidosätter dem manuellt):
+Servern skapas med följande standardvärden (om du inte åsidosätter dem manuellt):
 
 **Inställning** | **Standardvärde** | **Beskrivning**
 ---|---|---
-server-name | System som genereras | Ett unikt namn som identifierar Azure Database för PostgreSQL-servern.
-resource-group | System som genereras | En ny Azure-resursgrupp.
-sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardär en General Purpose Gen5-server med 2 virtuella kärnor. Se vår [prissida](https://azure.microsoft.com/pricing/details/postgresql/) för mer information om nivåerna.
-backup-retention | 7 | Hur länge en säkerhetskopia behålls. Enheten är dagar.
+server-name | Genereras av systemet | Ett unikt namn som identifierar Azure Database för PostgreSQL-servern.
+resource-group | Genereras av systemet | En ny Azure-resurs grupp.
+sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardvärdet är en Generell användning Gen5-server med 2 virtuella kärnor. På vår [prissättnings sida](https://azure.microsoft.com/pricing/details/postgresql/) finns mer information om nivåerna.
+backup-retention | 7 | Hur länge en säkerhets kopia behålls. Enheten är dagar.
 geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
 location | westus2 | Azure-platsen för servern.
-ssl-enforcement | Disabled | Om ssl ska aktiveras eller inte för den här servern.
+ssl-enforcement | Disabled | Om TLS/SSL ska vara aktiverat eller inte för den här servern.
 storage-size | 5120 | Serverns lagringskapacitet (enheten är megabyte).
 version | 10 | Huvudversion för PostgreSQL.
-admin-user | System som genereras | Användarnamnet för administratören.
-admin-password | System som genereras | Lösenordet för administratörsanvändaren.
+admin-user | Genereras av systemet | Administratörens användar namn.
+admin-password | Genereras av systemet | Lösenordet för administratörsanvändaren.
 
 > [!NOTE]
 > Mer information om `az postgres up` kommandot och dess ytterligare parametrar finns i [Azure CLI-dokumentationen](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up).
 
-När servern har skapats levereras följande inställningar:
+När servern har skapats levereras den med följande inställningar:
 
-- En brandväggsregel som kallas "devbox" skapas. Azure CLI försöker identifiera IP-adressen för `az postgres up` den dator som kommandot körs från och vitlistar IP-adressen.
-- "Tillåt åtkomst till Azure-tjänster" är inställt på ON. Den här inställningen konfigurerar serverns brandvägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
+- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az postgres up` kommandot körs från och WHITELISTS den IP-adressen.
+- "Tillåt åtkomst till Azure-tjänster" är inställt på på. Den här inställningen konfigurerar serverns brand vägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
 - En tom databas med namnet "sampledb" skapas
-- En ny användare med namnet "root" med behörighet att "sampledb" skapas
+- En ny användare med namnet "rot" med behörighet till "sampledb" skapas
 
 > [!NOTE]
-> Azure Database för PostgreSQL kommunicerar över port 5432. När du ansluter innifrån ett företagsnätverk är det möjligt att utgående trafik via port 5432 inte tillåts av nätverkets brandvägg. Låt IT-avdelningen öppna port 5432 för att ansluta till servern.
+> Azure Database for PostgreSQL kommunicerar via port 5432. När du ansluter innifrån ett företagsnätverk är det möjligt att utgående trafik via port 5432 inte tillåts av nätverkets brandvägg. Be din IT-avdelning öppna port 5432 för att ansluta till servern.
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
-När `az postgres up` kommandot är klart returneras en lista över anslutningssträngar för populära programmeringsspråk till dig. Dessa anslutningssträngar är förkonfigurerade med specifika attribut för din nyligen skapade Azure-databas för PostgreSQL-server.
+När `az postgres up` kommandot har slutförts returneras en lista över anslutnings strängar för populära programmeringsspråk. Dessa anslutnings strängar är förkonfigurerade med de angivna attributen för den nyskapade Azure Database for PostgreSQL-servern.
 
-Du kan använda kommandot [az postgres show-connection-string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) för att lista dessa anslutningssträngar igen.
+Du kan använda kommandot [AZ postgres show-Connection-String](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) för att lista dessa anslutnings strängar igen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Rensa alla resurser som du har skapat i snabbstarten med följande kommando. Det här kommandot tar bort Azure Database för PostgreSQL-server och resursgruppen.
+Rensa alla resurser som du skapade i snabb starten med hjälp av följande kommando. Det här kommandot tar bort Azure Database for PostgreSQL-servern och resurs gruppen.
 
 ```azurecli
 az postgres down --delete-group
 ```
 
-Om du bara vill ta bort den nyskapade servern kan du köra [kommandot az postgres down.](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-down)
+Om du bara vill ta bort den nyligen skapade servern kan du köra kommandot [AZ postgres Down](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-down) .
 
 ```azurecli
 az postgres down

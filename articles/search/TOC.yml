@@ -68,6 +68,8 @@
           href: cognitive-search-tutorial-blob.md
         - name: Python
           href: cognitive-search-tutorial-blob-python.md
+    - name: Fråga från Power Apps
+      href: search-howto-powerapps.md
 - name: Exempel
   items:
     - name: 'C#-exempel'
@@ -234,8 +236,6 @@
               href: index-add-suggesters.md
             - name: Lägga till automatisk komplettering och förslag
               href: search-autocomplete-tutorial.md
-        - name: Fråga från Power Apps
-          href: search-howto-powerapps.md
         - name: Syntaxreferens
           items:
             - name: Enkel frågesyntax

@@ -1,34 +1,34 @@
 ---
 title: Övervaka din ASP.NET-livewebbapp med Azure Application Insights | Microsoft Docs
-description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET Web App för övervakning med Application Insights
+description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET-webbapp för övervakning med Application Insights
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894859"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142622"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
 Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning.  Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem.  Med hjälp av informationen du samlar in från Application Insights om appens prestanda och effektivitet kan du göra välgrundade val för att underhålla och förbättra ditt program.
 
-Den här snabbstarten visar hur du lägger till Application Insights till en befintlig ASP.NET-webbapp och börjar analysera livestatistik. Det är bara en av de olika metoderna du kan använda för att analysera din app. Om du inte har någon ASP.NET webbprogram kan du skapa en efter [snabbstarten Skapa en ASP.NET Web App](../../app-service/app-service-web-get-started-dotnet-framework.md).
+Den här snabbstarten visar hur du lägger till Application Insights till en befintlig ASP.NET-webbapp och börjar analysera livestatistik. Det är bara en av de olika metoderna du kan använda för att analysera din app. Om du inte har ett ASP.NET-webbprogram kan du skapa ett som följer snabb starten för att [skapa en ASP.NET-webbapp](../../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Krav
 För att slutföra den här snabbstarten behöver du:
 
-- Installera [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) med följande arbets belastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azur
 
 4. Välj din prenumeration och klicka på **Registrera**.
 
-5. Välj**Package-paketkälla för** > **Update**  > **Projekthanterar** > NuGet:- nuget.org uppdatera SDK-paketen Application Insights till den senaste stabila versionen. **Project**
+5. Välj **projekt** > **Hantera NuGet paket** > **Källa: NuGet.org** > **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
 
 6. Kör ditt program genom att antingen välja alternativet för att **starta felsökning** på menyn **Felsök** eller genom att trycka på tangenten F5.
 
@@ -52,7 +52,7 @@ Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azur
 
 Application Insights samlar in telemetridata för tillämpningsprogrammet oavsett var det körs. Gör så här om du vill börja granska dessa data:
 
-1. Öppna programstatistik genom att klicka på **Visa** -> andra Sök**efter Windows-programinsikter****Other Windows** -> .  Du kan se telemetrin från den aktuella sessionen.<BR><br>![Telemetri i Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Öppna Application Insights genom att klicka på **Visa** -> **andra Windows** -> **Application Insights Sök**.  Du kan se telemetrin från den aktuella sessionen.<BR><br>![Telemetri i Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Klicka på den första begäran i listan (GET Home/Index i det här exemplet) för att se mer information. Observera att både statuskoden och svarstiden ingår tillsammans med annan värdefull information om begäran.<br><br>![Svarsinformation i Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -60,7 +60,7 @@ Application Insights samlar in telemetridata för tillämpningsprogrammet oavset
 
 Nu kan du öppna Application Insights i Azure-portalen för att visa olika detaljer om programmet som körs.
 
-1. Expandera mappen **Connected Services** (moln- och plugin-ikonen) i **Lösningsutforskaren** och högerklicka sedan på mappen Application Insights och klicka på **Öppna programinsiktsportalen**.  Du ser viss information om ditt program och många andra alternativ.
+1. Expandera mappen **anslutna tjänster** (moln-och plugin-ikonen) i Solution Explorer högerklicka sedan på mappen **Application Insights** och klicka på **Öppna Application Insights Portal**.  Du ser viss information om ditt program och många andra alternativ.
 
     ![Programkarta](media/quick-monitor-portal/04-overview.png)
 
@@ -68,11 +68,11 @@ Nu kan du öppna Application Insights i Azure-portalen för att visa olika detal
 
     ![Programkarta](media/quick-monitor-portal/05-appmap.png)
 
-3. Klicka på **appanalysikonen** ![Application Map](media/quick-monitor-portal/app-viewinlogs-icon.png) **View i loggar (Analytics)** på en av programkomponenterna. Detta öppnar **Loggar (Analytics)**, som ger ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på vyn program översikt](media/quick-monitor-portal/app-viewinlogs-icon.png) för ![ **app Analytics** -ikon **i loggar (Analytics)** på en av program komponenterna. Detta öppnar **loggar (analyser)**, som innehåller ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
-    ![Analys](media/quick-monitor-portal/6viewanalytics.png)
+    ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Klicka på **Live Metrics Stream** till vänster under utredning. Här ser du livestatistik om programmet när medan det körs. Det innehåller information som antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. Du kan även granska kritiska prestandavärden, till exempel processor och minne.
+4. Klicka på **Live Metrics Stream** till vänster under Undersök. Här ser du livestatistik om programmet när medan det körs. Det innehåller information som antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. Du kan även granska kritiska prestandavärden, till exempel processor och minne.
 
     ![Direktsänd ström](media/quick-monitor-portal/7livemetrics.png)
 
@@ -101,17 +101,13 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 Mer information finns på GitHub-lagringsplatsen för vår [JavaScript-SDK med öppen källkod](https://github.com/Microsoft/ApplicationInsights-JS).
 
-## <a name="video"></a>Video
-
-* Extern steg-för-steg-video om [att konfigurera Application Insights med ett .NET-program från grunden](https://www.youtube.com/watch?v=blnGAVgMAfA).
-
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar med testningen kan du ta bort resursgruppen och alla relaterade resurser. För att göra detta följ stegen nedan.
+När du är färdig med testningen kan du ta bort resurs gruppen och alla relaterade resurser. Följ stegen nedan.
 1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
-2. På resursgruppssidan klickar du på **Ta bort,** skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.
+2. På sidan resurs grupp klickar du på **ta bort**, skriver **myResourceGroup** i text rutan och klickar sedan på **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har du aktiverat ditt program för övervakning av Azure Application Insights.  Fortsätt till självstudierna för att lära dig att använda övervakningsstatistik och identifiera problem i programmet.
+I den här snabb starten har du aktiverat ditt program för övervakning genom att Azure Application insikter.  Fortsätt till självstudierna för att lära dig att använda övervakningsstatistik och identifiera problem i programmet.
 
 > [!div class="nextstepaction"]
 > [Azure Application Insights-självstudier](tutorial-runtime-exceptions.md)

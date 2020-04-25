@@ -1,6 +1,6 @@
 ---
-title: Automatiserad VM-distribution med snabbstart för Azure App-konfiguration
-description: Den här snabbstarten visar hur du använder Azure PowerShell-modulen och Azure Resource Manager-mallarna för att distribuera ett Azure App Configuration Store. Använd sedan värdena i arkivet för att distribuera en virtuell dator.
+title: Automatisk distribution av virtuella datorer med Azure App konfigurations snabb start
+description: Den här snabb starten visar hur du använder Azure PowerShell-modulen och Azure Resource Manager mallar för att distribuera ett Azure App konfigurations lager. Använd sedan värdena i butiken för att distribuera en virtuell dator.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 04/14/2020
@@ -9,18 +9,18 @@ ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 96d09de73e8b904a8e26eb4f365d34fab1401203
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309100"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137560"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Snabbstart: Automatiserad VM-distribution med mallen AppKonfiguration och Resource Manager
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Snabb start: automatisk distribution av virtuella datorer med app Configuration och Resource Manager-mall
 
-Azure PowerShell-modulen används för att skapa och hantera Azure-resurser med hjälp av PowerShell-cmdletar eller -skript. Den här snabbstarten visar hur du använder Azure PowerShell- och Azure Resource Manager-mallar för att distribuera ett Azure App Configuration Store. Sedan får du lära dig hur du använder nyckelvärdena i arkivet för att distribuera en virtuell dator.
+Azure PowerShell-modulen används för att skapa och hantera Azure-resurser med hjälp av PowerShell-cmdletar eller -skript. Den här snabb starten visar hur du använder Azure PowerShell och Azure Resource Manager mallar för att distribuera ett Azure App konfigurations lager. Sedan får du lära dig hur du använder nyckel värden i butiken för att distribuera en virtuell dator.
 
-Du använder den nödvändiga mallen för att skapa ett App Configuration Store och sedan lägga till nyckelvärden i arkivet med Hjälp av Azure-portalen eller Azure CLI. Den primära mallen refererar till befintliga nyckelvärdeskonfigurationer från ett befintligt konfigurationsarkiv. De hämtade värdena används för att ange egenskaper för de resurser som skapas av mallen, till exempel en virtuell dator i det här exemplet.
+Du använder den nödvändiga mallen för att skapa ett konfigurations lager för appar och sedan lägga till nyckel värden i lagret med hjälp av Azure Portal eller Azure CLI. Den primära mallen refererar till befintliga nyckel värdes konfigurationer från ett befintligt konfigurations lager. De hämtade värdena används för att ange egenskaper för de resurser som skapats av mallen, t. ex. en virtuell dator i det här exemplet.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,7 +28,7 @@ Du använder den nödvändiga mallen för att skapa ett App Configuration Store 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto.](https://azure.microsoft.com/free/)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto.](https://azure.microsoft.com/free/)
 
 * Den här snabbstarten kräver Azure PowerShell-modulen. Hitta versionen som är installerad på den lokala datorn genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
@@ -41,7 +41,7 @@ Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och ange 
 Connect-AzAccount
 ```
 
-Om du har mer än en prenumeration väljer du den prenumeration som du vill använda för den här snabbstarten genom att köra följande cmdlets. Glöm inte att `<your subscription name>` ersätta med namnet på din prenumeration:
+Om du har mer än en prenumeration väljer du den prenumeration som du vill använda för den här snabb starten genom att köra följande cmdlets. Glöm inte att ersätta `<your subscription name>` med namnet på din prenumeration:
 
 ```azurepowershell-interactive
 # List all available subscriptions.
@@ -63,11 +63,11 @@ New-AzResourceGroup `
     -Location $location
 ```
 
-## <a name="deploy-an-azure-app-configuration-store"></a>Distribuera ett Azure App-konfigurationsarkiv
+## <a name="deploy-an-azure-app-configuration-store"></a>Distribuera ett Azure App konfigurations lager
 
-Innan du kan tillämpa nyckelvärden på den virtuella datorn måste du ha ett befintligt Azure App Configuration Store. I det här avsnittet beskrivs hur du distribuerar ett Azure App Configuration Store med hjälp av en Azure Resource Manager-mall. Om du redan har en app config store kan du gå vidare till nästa avsnitt i den här artikeln. 
+Innan du kan tillämpa nyckel värden på den virtuella datorn måste du ha ett befintligt Azure App konfigurations lager. I det här avsnittet beskrivs hur du distribuerar ett Azure App konfigurations lager med hjälp av en Azure Resource Manager-mall. Om du redan har ett app config-arkiv kan du gå vidare till nästa avsnitt i den här artikeln. 
 
-1. Kopiera och klistra in följande json-kod i en ny fil med namnet *prereq.azuredeploy.json*.
+1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *krav. azuredeploy. JSON*.
 
    ```json
    {
@@ -109,7 +109,7 @@ Innan du kan tillämpa nyckelvärden på den virtuella datorn måste du ha ett b
    }
    ```
 
-1. Kopiera och klistra in följande json-kod i en ny fil med namnet *prereq.azuredeploy.parameters.json*. Ersätt **GET-UNIQUE** med ett unikt namn för din Configuration Store.
+1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *krav. azuredeploy. Parameters. JSON*. Ersätt **Get-Unique** med ett unikt namn för ditt konfigurations lager.
 
    ```json
    {
@@ -123,40 +123,40 @@ Innan du kan tillämpa nyckelvärden på den virtuella datorn måste du ha ett b
    }
    ```
 
-1. I powershell-fönstret kör du följande kommando för att distribuera Azure App Configuration Store. Glöm inte att ersätta resursgruppsnamnet, sökvägen till mallfilen och sökvägen till mallparameterfilen.
+1. Kör följande kommando i PowerShell-fönstret för att distribuera Azure App konfigurations lagringen. Glöm inte att ersätta resurs gruppens namn, sökvägen till mallfilen och sökvägen till mallfilen.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
+       -ResourceGroupName "<your resource group>" `
        -TemplateFile "<path to prereq.azuredeploy.json>" `
        -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
    ```
 
-## <a name="add-vm-configuration-key-values"></a>Lägga till nyckelvärden för VM-konfiguration
+## <a name="add-vm-configuration-key-values"></a>Lägg till konfigurations nyckel för virtuell dator-värden
 
-Du kan skapa ett App Configuration Store med en Azure Resource Manager-mall, men du måste lägga till nyckelvärden med Azure-portalen eller Azure CLI. I den här snabbstarten lägger du till nyckelvärden med Azure-portalen.
+Du kan skapa ett konfigurations lager för appar med hjälp av en Azure Resource Manager mall, men du måste lägga till nyckel värden med hjälp av Azure Portal eller Azure CLI. I den här snabb starten lägger du till nyckel värden med hjälp av Azure Portal.
 
-1. När distributionen är klar navigerar du till det nyligen skapade App Configuration Store i [Azure Portal](https://portal.azure.com).
+1. När distributionen är klar navigerar du till det nyligen skapade konfigurations arkivet för appen i [Azure Portal](https://portal.azure.com).
 
-1. Välj **Inställningar** > **Access Nycklar**. Anteckna den primära skrivskyddade nyckelanslutningssträngen. Du ska använda den här anslutningssträngen senare för att konfigurera programmet så att det kommunicerar med appkonfigurationsarkivet som du skapade.
+1. Välj **Inställningar** > **åtkomst nycklar**. Anteckna den primära skrivskyddade nyckel anslutnings strängen. Du kommer att använda den här anslutnings strängen senare för att konfigurera programmet för att kommunicera med det app-konfigurations lager som du har skapat.
 
-1. Välj**Skapa konfigurationsutforskare** **Explorer** > om du vill lägga till följande nyckel-värde-par:
+1. Välj konfigurations **Utforskaren** > **skapa** för att lägga till följande nyckel/värde-par:
 
    |Nyckel|Värde|
    |-|-|
-   |windowsOsVersion|2019-Datacenter|
+   |windowsOsVersion|2019 – Data Center|
    |diskSizeGB|1023|
   
-   Ange *mall* för **Etikett**, men håll **innehållstypen** tom.
+   Ange *mall* för **etikett**, men behåll **innehålls typen** tom.
 
-## <a name="deploy-vm-using-stored-key-values"></a>Distribuera virtuell dator med lagrade nyckelvärden
+## <a name="deploy-vm-using-stored-key-values"></a>Distribuera virtuell dator med hjälp av lagrade nyckel värden
 
-Nu när du har lagt till nyckelvärden i arkivet är du redo att distribuera en virtuell dator med hjälp av en Azure Resource Manager-mall. Mallen refererar till **de windowsOsVersion-** och **diskSizeGB-nycklar** som du har skapat.
+Nu när du har lagt till nyckel värden i butiken är du redo att distribuera en virtuell dator med hjälp av en Azure Resource Manager-mall. Mallen refererar till de **windowsOsVersion** -och **diskSizeGB** -nycklar som du har skapat.
 
 > [!WARNING]
-> ARM-mallar kan inte referera till nycklar i ett App Configuration Store som har Privat länk aktiverat.
+> ARM-mallar kan inte referera till nycklar i ett program konfigurations lager som har privat länk aktiverat.
 
-1. Kopiera och klistra in följande json-kod i en ny fil med namnet *azuredeploy.json*eller hämta filen från [Azure Quickstart-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
+1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *azuredeploy. JSON*eller ladda ned filen från [Azures snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
    ```json
    {
@@ -378,7 +378,7 @@ Nu när du har lagt till nyckelvärden i arkivet är du redo att distribuera en 
    }
    ```
 
-1. Kopiera och klistra in följande json-kod i en ny fil med namnet *azuredeploy.parameters.json*eller hämta filen från [Azure Quickstart-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.parameters.json).
+1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *azuredeploy. Parameters. JSON*eller ladda ned filen från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.parameters.json).
 
    ```json
    {
@@ -417,16 +417,16 @@ Nu när du har lagt till nyckelvärden i arkivet är du redo att distribuera en 
 
    |Parameter|Värde|
    |-|-|
-   |adminPassword|Ett administratörslösenord för den virtuella datorn.|
-   |appConfigStoreName|Namnet på ditt Azure App Configuration Store.|
-   |appConfigStoreResourceGroup|Resursgruppen som innehåller appkonfigurationsarkivet.|
-   |vmSkuKey (vmSkuKey)|*windowsOSVersion (windowsOSVersion)*|
+   |adminPassword|Ett administratörs lösen ord för den virtuella datorn.|
+   |appConfigStoreName|Namnet på din Azure App konfigurations lagring.|
+   |appConfigStoreResourceGroup|Resurs gruppen som innehåller appens konfigurations arkiv.|
+   |vmSkuKey|*windowsOSVersion*|
    |diskSizeKey|*diskSizeGB*|
-   |adminUsername|Ett administratörsanvändarnamn för den virtuella datorn.|
-   |storageAccountName|Ett unikt namn för ett lagringskonto som är associerat med den virtuella datorn.|
-   |domänNamnLabel|Ett unikt domännamn.|
+   |adminUsername|Ett administratörs användar namn för den virtuella datorn.|
+   |storageAccountName|Ett unikt namn för ett lagrings konto som är kopplat till den virtuella datorn.|
+   |domainNameLabel|Ett unikt domän namn.|
 
-1. I PowerShell-fönstret kör du följande kommando för att distribuera den virtuella datorn. Glöm inte att ersätta resursgruppsnamnet, sökvägen till mallfilen och sökvägen till mallparameterfilen.
+1. Kör följande kommando i PowerShell-fönstret för att distribuera den virtuella datorn. Glöm inte att ersätta resurs gruppens namn, sökvägen till mallfilen och sökvägen till mallfilen.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
@@ -435,11 +435,11 @@ Nu när du har lagt till nyckelvärden i arkivet är du redo att distribuera en 
        -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
-Grattis! Du har distribuerat en virtuell dator med konfigurationer som lagras i Azure App Configuration.
+Grattis! Du har distribuerat en virtuell dator med konfigurationer som lagras i Azure App-konfigurationen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När det inte längre behövs tar du bort resursgruppen, App Configuration Store, VM och alla relaterade resurser. Om du planerar att använda App Configuration Store eller VM i framtiden kan du hoppa över att ta bort den. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten genom att köra följande cmdlet:
+När de inte längre behövs tar du bort resurs gruppen, konfigurations arkivet för appen, den virtuella datorn och alla relaterade resurser. Om du planerar att använda konfigurations arkivet för appen eller den virtuella datorn i framtiden kan du hoppa över borttagningen. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten genom att köra följande cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup `
@@ -448,9 +448,9 @@ Remove-AzResourceGroup `
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat en virtuell dator med hjälp av en Azure Resource Manager-mall och nyckelvärden från Azure App-konfiguration.
+I den här snabb starten har du distribuerat en virtuell dator med hjälp av en Azure Resource Manager-mall och nyckel värden från Azure App konfiguration.
 
-Om du vill veta mer om hur du skapar andra program med Azure App-konfiguration fortsätter du till följande artikel:
+Om du vill veta mer om hur du skapar andra program med Azure App konfiguration fortsätter du till följande artikel:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa en ASP.NET Core-app med Azure App-konfiguration](quickstart-aspnet-core-app.md)
+> [Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration](quickstart-aspnet-core-app.md)

@@ -1,24 +1,24 @@
 ---
 title: Vad är Azure Analysis Services? | Microsoft Docs
-description: Lär dig mer om Azure Analysis Services, en fullständigt hanterad plattform som en tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet.
+description: Lär dig mer om Azure Analysis Services, en fullständigt hanterad plattform som en tjänst (PaaS) som tillhandahåller data modeller i företags klass i molnet.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 350fd9c7057df96a4ad1abc0d9c8b5ec3871ef38
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271666"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128876"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services är en fullständigt hanterad plattform som tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet. Använd avancerade kombinations- och modelleringsfunktioner för att kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig tabellsemantisk datamodell. Datamodellen är ett enklare och snabbare sätt för användare att utföra ad hoc-dataanalys med verktyg som Power BI och Excel.
+Azure Analysis Services är en fullständigt hanterad plattform som tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet. Använd avancerade kombinations- och modelleringsfunktioner för att kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig tabellsemantisk datamodell. Data modellen är ett enklare och snabbare sätt för användare att utföra ad hoc-dataanalys med hjälp av verktyg som Power BI och Excel.
 
 ![Datakällor](./media/analysis-services-overview/aas-overview-overall.png)
 
@@ -34,11 +34,11 @@ Azure Analysis Services integreras med många Azure-tjänster vilket gör att du
 
 ## <a name="the-right-tier-when-you-need-it"></a>Rätt nivå när du behöver den
 
-Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic** och **Standard**. Inom varje nivå varierar plankostnaderna beroende på processorkraft, frågebehandlingsenheter (QIP) och minnesstorlek. När du skapar en server kan välja du en plan inom en nivå. Du kan ändra planer uppåt eller nedåt i samma nivå eller uppgradera till en högre nivå, men det går inte att nedgradera från en högre nivå till en lägre nivå.
+Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic** och **Standard**. På varje nivå varierar plan kostnaderna beroende på processor kraft, Qpu: er (Query Processing units) och minnes storlek. När du skapar en server kan välja du en plan inom en nivå. Du kan ändra planer uppåt eller nedåt i samma nivå eller uppgradera till en högre nivå, men det går inte att nedgradera från en högre nivå till en lägre nivå.
 
 ### <a name="developer-tier"></a>Developer-nivå
 
-Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Utskalning av frågereplik *är inte tillgänglig* för den här nivån. Den här nivån omfattas inte av något serviceavtal.
+Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Utskalning av frågans replik *är inte tillgängligt* för den här nivån. Den här nivån omfattas inte av något serviceavtal.
 
 |Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
@@ -47,7 +47,7 @@ Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarie
 
 ### <a name="basic-tier"></a>Basic-nivå
 
-Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Utskalning av frågereplik *är inte tillgänglig* för den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
+Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Utskalning av frågans replik *är inte tillgängligt* för den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
 
 |Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
@@ -69,8 +69,8 @@ Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kr�
 |S8v2 <sup> [1](#depr)</sup>   |    640     |    200     |
 |S9v2 <sup> [1](#depr)</sup>    |    1280    |    400     |
 
-<a name="depr">1</a> - Inte tillgängligt i alla regioner.   
-<a name="rec">2</a> - Denna plan är föråldrad. v2 rekommenderas.
+<a name="depr">1</a> – inte tillgängligt i alla regioner.   
+<a name="rec">2</a> – den här planen är föråldrad. v2 rekommenderas.
 
 
 ## <a name="availability-by-region"></a>Tillgänglighet efter region
@@ -100,7 +100,7 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Europa, norra     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Europa, norra     |    S8v2 , S9v2      |    3     |
+|Europa, norra     |    S8v2, S9v2      |    3     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa, västra     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Europa, västra    |   S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |  1  |
@@ -140,7 +140,7 @@ Azure Analysis Services är kompatibelt med många fantastiska funktioner som re
 
 Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i InMemory-läge (standard) har stöd för flera datakällor. Eftersom modelldata är mycket komprimerat och cachelagrade i minnet ger det här läget snabbast frågesvar över stora mängder data. Det ger också störst flexibilitet för komplexa datauppsättningar och frågor. Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Tack vare Azures stöd för tjänsthuvudnamn får du en flexibel oövervakad uppdatering med PowerShell, TOM, TMSL och REST, vilket innebär att du alltid kan vara säker på att dina modelldata är aktuella. 
 
-DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora datauppsättningar i enskilda SQL Server-, SQL Server-data warehouse-, Azure SQL-databas, Azure Synapse Analytics (SQL Data Warehouse), Oracle och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns också vissa begränsningar, till exempel begränsade datakälltyper, DAX-formelbegränsningar och vissa avancerade datamodelleringsfunktioner stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
+DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora data mängder i Single SQL Server, SQL Server informations lagret, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Oracle-och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns även vissa begränsningar, till exempel begränsade typer av data källor, begränsningar för DAX-formler och vissa avancerade data modellerings funktioner stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
 
 \* Funktionstillgänglighet beror på nivån.
 
@@ -150,7 +150,7 @@ Tabellmodeller i Azure Analysis Services stöder en mängd olika datakällor fr�
 
 ## <a name="compatibility-level"></a>Efterlevnadsnivå
 
-Kompatibilitetsnivå avser utgivningsspecifika beteenden i Analysis Services-motorn. Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 eller högre. Mer information finns i [Kompatibilitetsnivå för tabellmodeller](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
+Kompatibilitetsnivån avser release-/regionsspecifika beteenden i Analysis Services-motorn. Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 eller högre. Mer information finns i [kompatibilitetsnivån för tabell modeller](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## <a name="your-data-is-secure"></a>Dina data är skyddade
@@ -169,7 +169,7 @@ Användarautentisering hanteras av [Azure Active Directory (AAD)](../active-dire
 
 ### <a name="data-security"></a>Datasäkerhet
 
-Azure Analysis Services använder Azure Blob Storage för lagring och metadata för Analysis Services-databaser. Datafiler i Blob krypteras med [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). När du använder läget Direct Query lagras endast metadata. Faktiska data hämtas via krypterade protokoll från datakällan när frågan körs.
+Azure Analysis Services använder Azure Blob Storage för lagring och metadata för Analysis Services-databaser. Datafiler i BLOB krypteras med hjälp av [Azure Blob Server Side Encryption (SSE)](../storage/common/storage-service-encryption.md). När du använder läget Direct Query lagras endast metadata. Faktiska data hämtas via krypterade protokoll från datakällan när frågan körs.
 
 Du kan skydda åtkomsten till datakällor lokalt inom din organisation genom att installera och konfigurera en [Lokal datagateway](analysis-services-gateway.md). Gateways ger åtkomst till data för både DirectQuery- och InMemory-läget.
 
@@ -202,9 +202,9 @@ Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Utveckla och distribuera modeller med Visual Studio med Analysis Services-projekt. Tillägget Analysis Services-projekt innehåller mallar och guider som hjälper dig att komma upp och gå snabbt. Modellförfattare miljön i Visual Studio innehåller nu den moderna Get Data datakäll fråga och mashup funktionalitet för tabellform 1400 och högre modeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
+Utveckla och distribuera modeller med Visual Studio med Analysis Services projekt. Tillägget Analysis Services projekt innehåller mallar och guider som hjälper dig att komma igång snabbt. Modell redigerings miljön i Visual Studio innehåller nu en modern get data source-fråga och kombinations funktioner för tabell 1400 och högre modeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
 
-Microsoft Analysis Services Projects finns som ett kostnadsfritt installerbart VSIX-paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). Tillägget fungerar med alla versioner av Visual Studio 2017 och senare, inklusive den kostnadsfria Community-utgåvan.
+Microsoft Analysis Services-projekt finns som ett kostnads fritt installerbart VSIX-paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). Tillägget fungerar med valfri version av Visual Studio 2017 och senare, inklusive den kostnads fria community-versionen.
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
@@ -212,7 +212,7 @@ Hantera dina servrar och modelldatabaser med hjälp av [SQL Server Management St
 
 ### <a name="open-source-tools"></a>Verktyg med öppen källkod
 
-Analysis Services har en levande gemenskap av utvecklare som skapar verktyg. Var noga med att kolla in [Tabellredigeraren](https://tabulareditor.github.io/), ett verktyg med öppen källkod för att skapa, underhålla och hantera tabellmodeller med hjälp av en intuitiv, lätt redigerare. [DAX Studio](https://daxstudio.org/), är ett bra verktyg med öppen källkod för DAX-redigering, diagnos, prestandajustering och analys.
+Analysis Services har en levande grupp utvecklare som skapar verktyg. Se till att titta i [tabell redigeraren](https://tabulareditor.github.io/), ett verktyg med öppen källkod för att skapa, underhålla och hantera tabell modeller med en intuitiv, förenklad redigerare. [DAX Studio](https://daxstudio.org/)är ett utmärkt verktyg med öppen källkod för DAX-redigering, diagnos, prestanda justering och analys.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -230,7 +230,7 @@ Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel, Reporti
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
-Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Mer information finns i [Övervaka servermått](analysis-services-monitor.md). Registrera mått med [Azure resursdiagnostikloggar](../azure-monitor/platform/platform-logs-overview.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
+Azure Analysis Services är integrerat med Azure Monitor Mät värden, vilket ger en omfattande mängd resursbaserade mått som hjälper dig att övervaka serverns prestanda och hälsa. Mer information finns i [övervaka server statistik](analysis-services-monitor.md). Registrera mått med [resurs plattforms loggar](../azure-monitor/platform/platform-logs-overview.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
 
 Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV:s gränssnitt baseras på SQL-syntax och har en schemaraduppsättning som returnerar metadata samt övervakar information om serverinstanser.
 
@@ -238,19 +238,19 @@ Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https
 
 Dokumentation specifik för Azure Analysis Services ingår. Använd innehållsförteckningen på vänster sida av webbläsarskärmen för att hitta artiklar. 
 
-Eftersom tabellmodeller i Azure Analysis Services är ungefär desamma som tabellmodeller i SQL Server Analysis Services och Power BI Premium-datauppsättningar, finns det ett omfattande bibliotek med självstudier för delad datamodellering, konceptuella, procedurmässiga, utvecklare och referensartiklar i [Analysis Services-dokumentationen](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current). Artiklar i den delade Analysis Services-dokumentationen visar om de även gäller för Azure Analysis Services av en APPLIES TO-banderoll under rubriken. Du kan också använda versionsväljaren ovanför innehållsförteckningen för att bara se de artiklar som gäller för den plattform du använder.
+Eftersom tabell modeller i Azure Analysis Services är mycket samma som tabell modeller i SQL Server Analysis Services och Power BI Premium data uppsättningar, finns det ett omfattande bibliotek med självstudier för delade data modeller, konceptuella, procedur mässiga, utvecklings-och referens artiklar i [Analysis Services dokumentation](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current). Artiklar i den delade Analysis Services-dokumentationen visar om de också gäller för Azure Analysis Services av ett tillägg till banderollen under rubriken. Du kan också använda versions väljaren ovanför innehålls förteckningen om du bara vill se de artiklar som gäller den plattform som du använder.
 
 ![Delad dokumentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### <a name="contribute"></a>Bidra!
 
-Analysis Services-dokumentation, som den här artikeln, är en öppen källa. Mer information om hur du kan bidra finns i [docs-deltagarguiden](https://docs.microsoft.com/contribute/). 
+Analysis Services-dokumentation, som den här artikeln, är en öppen källa. Mer information om hur du kan bidra finns i Guide för [dokument bidrag](https://docs.microsoft.com/contribute/). 
 
-Dokumentation för Azure Analysis Services använder också [GitHub-problem](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Du kan lämna feedback om produkten eller dokumentationen. Använd **Feedback** längst ned i en artikel. GitHub-problem är inte aktiverade för den delade Analysis Services-dokumentationen. 
+Dokumentation för Azure Analysis Services använder också [GitHub-problem](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Du kan lämna feedback om produkten eller dokumentationen. Använd **Feedback** längst ned i en artikel. GitHub-problem har inte Aktiver ATS för den delade Analysis Services-dokumentationen. 
 
 ## <a name="blogs"></a>Bloggar
 
-Saker och ting ändras snabbt. Få den senaste informationen om [Power BI-bloggen](https://powerbi.microsoft.com/blog/category/analysis-services/) och [Azure-bloggen](https://azure.microsoft.com/blog/).
+Saker och ting ändras snabbt. Få den senaste informationen om [Power BI blogg](https://powerbi.microsoft.com/blog/category/analysis-services/) och [Azure-bloggen](https://azure.microsoft.com/blog/).
 
 ## <a name="community"></a>Community
 

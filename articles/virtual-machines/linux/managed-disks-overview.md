@@ -1,24 +1,24 @@
 ---
-title: Översikt över disklagring
-description: Översikt över Azure-hanterade diskar, som hanterar lagringskonton för dig när du använder virtuella datorer.
+title: Översikt över disk lagring
+description: Översikt över Azure Managed disks, som hanterar lagrings konton åt dig när du använder virtuella datorer.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: edcde9c5192791e88da57d158bab3e79b171bfc8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c66324841989580712d893ada9121ae40f5161a3
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944766"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147776"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed Disks
 
-Azure-hanterade diskar är lagringsvolymer på blocknivå som hanteras av Azure och används med Virtuella Azure-datorer. Hanterade diskar är som en fysisk disk i en lokal server men virtualiserad. Med hanterade diskar behöver du bara ange diskstorlek, disktyp och etablera disken. När du har etablerat disken hanterar Azure resten.
+Azure Managed disks är lagrings volymer på Block nivå som hanteras av Azure och används med Azure Virtual Machines. Hanterade diskar liknar en fysisk disk på en lokal server, men virtualiseras. Med hanterade diskar behöver du bara ange disk storlek, disk typ och etablera disken. När du har etablerat disken hanterar Azure resten.
 
-De tillgängliga typerna av diskar är ultradiskar, SSD-enheter (Premium Solid State Drives), standard-SSD-enheter och vanliga hårddiskar (HDD). Information om varje enskild disktyp finns i [Välj en disktyp för virtuella IaaS-datorer](disks-types.md).
+De tillgängliga disk typerna är Ultra disks, Premium-hårddiskar (solid-state-hårddiskar), standard-SSD och standard hård diskar (HDD). Information om varje enskild disk typ finns i [Välj en disktyp för virtuella IaaS-datorer](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

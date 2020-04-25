@@ -1,89 +1,122 @@
 ---
-title: API-referens för tal till text (REST) - Taltjänst
+title: Tal-till-text API-referens (REST) – tal service
 titleSuffix: Azure Cognitive Services
-description: Läs om hur du använder REST-API:et mellan tal och text. I den här artikeln får du lära dig mer om auktoriseringsalternativ, frågealternativ, hur du strukturerar en begäran och får ett svar.
+description: Lär dig hur du använder tal-till-text-REST API. I den här artikeln får du lära dig om behörighets alternativ, frågealternativ, hur du strukturerar en begäran och får svar.
 services: cognitive-services
-author: trevorbye
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: trbye
-ms.openlocfilehash: fbb4d114d1fee21d7950e53b06fc16c96b5c930b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/23/2020
+ms.author: yinhew
+ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400188"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131285"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
-Som ett alternativ till [Tal-SDK](speech-sdk.md)kan du med taltjänsten konvertera tal till text med hjälp av ett REST API. Varje tillgänglig slutpunkt är associerad med en region. Programmet kräver en prenumerationsnyckel för den slutpunkt som du planerar att använda. REST API är mycket begränsad, och det bör endast användas i fall var [tal SDK](speech-sdk.md) kan inte.
+Som ett alternativ till [tal-SDK](speech-sdk.md)gör röst tjänsten det möjligt för dig att konvertera tal till text med hjälp av en REST API. Varje tillgänglig slut punkt är associerad med en region. Ditt program kräver en prenumerations nyckel för den slut punkt som du planerar att använda. REST API är mycket begränsad och bör endast användas i fall där [tal-SDK: n](speech-sdk.md) inte kan användas.
 
-Innan du använder REST API för tal till text, förstå:
+Innan du använder tal-till-text-REST API förstå:
 
-* Begäranden som använder REST API och överföra ljud direkt kan bara innehålla upp till 60 sekunder av ljud.
-* REST API för tal till text returnerar endast slutresultatet. Partiella resultat tillhandahålls inte.
+* Begär Anden som använder REST API och sändning av ljud direkt får bara innehålla upp till 60 sekunders ljud.
+* Tal-till-text-REST API returnerar bara slutgiltiga resultat. Ofullständiga resultat har inte angetts.
 
-Om det är ett krav för ditt program att skicka längre ljud bör du överväga att använda [Tal-SDK](speech-sdk.md) eller ett filbaserat REST API, till [exempel batchranskription](batch-transcription.md).
+Om det är ett krav för ditt program att skicka längre ljud bör du överväga att använda [talet SDK](speech-sdk.md) eller en filbaserad REST API, t. ex. [batch-avskriftering](batch-transcription.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Regioner och slutpunkter
+## <a name="regions-and-endpoints"></a>Regioner och slut punkter
 
-Slutpunkten för REST API har följande format:
+Slut punkten för REST API har följande format:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Ersätt `<REGION_IDENTIFIER>` med identifieraren som matchar regionen för din prenumeration från den här tabellen:
+Ersätt `<REGION_IDENTIFIER>` med den identifierare som matchar regionen för din prenumeration från den här tabellen:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
-> Språkparametern måste läggas till i URL:en för att undvika att ett 4xx HTTP-fel inte tas emot. Språket som är inställt på amerikansk engelska med slutpunkten för västra USA är till exempel: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+> Språk parametern måste läggas till i URL: en för att undvika att ett HTTP-4xx-fel tas emot. Till exempel är språket inställt på amerikansk engelska med slut punkten västra USA: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ## <a name="query-parameters"></a>Frågeparametrar
 
-Dessa parametrar kan inkluderas i frågesträngen för REST-begäran.
+Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
-| Parameter | Beskrivning | Obligatoriskt/tillval |
+| Parameter | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `language` | Identifierar det talade språket som känns igen. Se [Språk som stöds](language-support.md#speech-to-text). | Krävs |
-| `format` | Anger resultatformatet. Godkända värden `simple` `detailed`är och . Enkla resultat `RecognitionStatus` `DisplayText`är `Offset`, `Duration`, och . Detaljerade svar inkluderar flera resultat med konfidensvärden och fyra olika representationer. Standardinställningen är `simple`. | Valfri |
-| `profanity` | Anger hur svordomar ska hanteras i igenkänningsresultat. Godkända värden `masked`är , som ersätter svordomar med `removed`asterisker, , som tar bort `raw`allt svordomar från resultatet, eller , vilket inkluderar svordomar i resultatet. Standardinställningen är `masked`. | Valfri |
-| `cid` | När du använder [portalen Anpassat tal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slutpunkts-ID** som finns på **distributionssidan.** Använd **slutpunkts-ID** som `cid` argument för frågesträngparametern. | Valfri |
+| `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Krävs |
+| `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed`. Enkla resultat inkluderar `RecognitionStatus`, `DisplayText`, `Offset`och `Duration`. Detaljerade svar innehåller flera resultat med konfidens värden och fyra olika representationer. Standardinställningen är `simple`. | Valfri |
+| `profanity` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `masked`, som ersätter svordomar med asterisker, `removed`som tar bort alla svordomar från resultatet, eller `raw`som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfri |
+| `pronunciationScoreParams` | Anger parametrar för visning av uttal i igenkännings resultat, som utvärderar uttal av tal ingångar, med indikatorer på precision, Fluency, fullständighet osv. Den här parametern är en Base64-kodad JSON som innehåller flera detaljerade parametrar. Se [uttal av bedömnings parametrar](#pronunciation-assessment-parameters) för hur du skapar den här parametern. | Valfri |
+| `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfri |
 
 ## <a name="request-headers"></a>Begärandehuvuden
 
-I den här tabellen visas obligatoriska och valfria rubriker för tal-till-text-begäranden.
+I den här tabellen listas obligatoriska och valfria sidhuvuden för begäran om tal till text.
 
-|Huvud| Beskrivning | Obligatoriskt/tillval |
+|Huvud| Beskrivning | Obligatorisk/valfri |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Prenumerationsnyckeln för Taltjänsten. | Antingen det `Authorization` här huvudet eller krävs. |
-| `Authorization` | En auktoriseringstoken som föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen det `Ocp-Apim-Subscription-Key` här huvudet eller krävs. |
-| `Content-type` | Beskriver formatet och codec för de angivna ljuddata. Godkända värden `audio/wav; codecs=audio/pcm; samplerate=16000` `audio/ogg; codecs=opus`är och . | Krävs |
-| `Transfer-Encoding` | Anger att segmenterade ljuddata skickas i stället för en enda fil. Använd bara det här huvudet om du segmenterar ljuddata. | Valfri |
-| `Expect` | Om du använder segmenterad överföring skickar du `Expect: 100-continue`. Taltjänsten bekräftar den ursprungliga begäran och inväntar ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
-| `Accept` | Om det tillhandahålls, `application/json`måste det vara . Taltjänsten ger resultat i JSON. Vissa ramverk för begäran ger ett inkompatibelt standardvärde. Det är god praxis `Accept`att alltid inkludera . | Valfritt, men rekommenderas. |
+| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken `Authorization` eller krävs. |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken `Ocp-Apim-Subscription-Key` eller krävs. |
+| `Content-type` | Beskriver formatet och codecen för de angivna ljud data. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus`. | Krävs |
+| `Transfer-Encoding` | Anger att segmenterade ljud data ska skickas i stället för en enda fil. Använd endast den här rubriken om du segmenterar ljuddata. | Valfri |
+| `Expect` | Skicka `Expect: 100-continue`om du använder segmenterad överföring. Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljud data. |
+| `Accept` | Om det anges måste det vara `application/json`. Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid `Accept`inkludera. | Valfritt, men rekommenderas. |
 
-## <a name="audio-formats"></a>Ljudformat
+## <a name="audio-formats"></a>Ljud format
 
-Ljud skickas i brödtexten `POST` för HTTP-begäran. Den måste vara i något av formaten i den här tabellen:
+Ljud skickas i bröd texten i HTTP- `POST` begäran. Det måste vara i något av formaten i den här tabellen:
 
-| Format | Codec | Bitrate | Exempelhastighet  |
+| Format | ADPCM | Hastigheten | Samplings frekvens  |
 |--------|-------|---------|--------------|
 | WAV    | PCM   | 16 bitar  | 16 kHz, mono |
-| Ogg    | Opus  | 16 bitar  | 16 kHz, mono |
+| OGG    | OPUS  | 16 bitar  | 16 kHz, mono |
 
 >[!NOTE]
->Ovanstående format stöds via REST API och WebSocket i taltjänsten. [Tal-SDK](speech-sdk.md) stöder för närvarande WAV-formatet med PCM-codec samt [andra format](how-to-use-codec-compressed-audio-input-streams.md).
+>Ovanstående format stöds via REST API och WebSocket i tal-tjänsten. [Talet SDK](speech-sdk.md) stöder för närvarande WAV-formatet med PCM-kodek och [andra format](how-to-use-codec-compressed-audio-input-streams.md).
 
-## <a name="sample-request"></a>Exempel på begäran
+## <a name="pronunciation-assessment-parameters"></a>Parametrar för uttal-bedömning
 
-Exemplet nedan innehåller värdnamn och obligatoriska rubriker. Det är viktigt att notera att tjänsten också förväntar sig ljuddata, som inte ingår i det här exemplet. Som tidigare nämnts rekommenderas dock inte segmentering.
+I den här tabellen listas obligatoriska och valfria parametrar för uttal-utvärdering.
+
+| Parameter | Beskrivning | Obligatorisk/valfri |
+|-----------|-------------|---------------------|
+| ReferenceText | Texten som uttalet kommer att utvärderas mot. | Krävs |
+| GradingSystem | Punkt systemet för resultat kalibrering. Godkända värden är `FivePoint` och `HundredMark`. Standardinställningen är `FivePoint`. | Valfri |
+| Precision | Utvärderings precisionen. Godkända värden är `Phoneme`, som visar poängen på den fullständiga text-, Word-och fonem- `Word`nivån, som visar poängen på den fullständiga text-och ord nivån `FullText`, som bara visar poängen på hela text nivån. Standardinställningen är `Phoneme`. | Valfri |
+| Dimension | Definierar kriterierna för utdata. Godkända värden är `Basic`, som bara visar noggrannhets poängen, `Comprehensive` visar poängen på fler dimensioner (t. ex. Fluency Poäng och total poäng på nivån full text nivå, fel typ på ord nivå). Kontrol lera [svars parametrar](#response-parameters) för att se definitioner av olika Poäng dimensioner och ord fel typer. Standardinställningen är `Basic`. | Valfri |
+| EnableMiscue | Aktiverar miscue-beräkning. Med det här alternativet kommer uttalade ord att jämföras med referens texten och markeras med utelämnanden/infogning baserat på jämförelsen. Godkända värden är `False` och `True`. Standardinställningen är `False`. | Valfri |
+| ScenarioId | Ett GUID som anger ett anpassat punkt system. | Valfri |
+
+Nedan visas ett exempel på en JSON som innehåller parametrarna för uttal-utvärdering:
+
+```json
+{
+  "ReferenceText": "Good morning.",
+  "GradingSystem": "HundredMark",
+  "Granularity": "FullText",
+  "Dimension": "Comprehensive"
+}
+```
+
+Följande exempel kod visar hur du skapar uttal-bedömnings parametrarna i URL-Frågeparametern:
+
+```csharp
+var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
+var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+```
+
+## <a name="sample-request"></a>Exempel förfrågan
+
+Exemplet nedan innehåller värd namnet och de huvuden som krävs. Det är viktigt att Observera att tjänsten också förväntar sig ljud data, som inte ingår i det här exemplet. Som nämnts tidigare rekommenderas Chunking, men det är inte obligatoriskt.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -97,21 +130,21 @@ Expect: 100-continue
 
 ## <a name="http-status-codes"></a>HTTP-statuskoder
 
-HTTP-statuskoden för varje svar anger lyckade eller vanliga fel.
+HTTP-statuskoden för varje svar visar att de lyckas eller vanliga fel.
 
 | HTTP-statuskod | Beskrivning | Möjlig orsak |
 |------------------|-------------|-----------------|
-| `100` | Fortsätt | Den ursprungliga begäran har godtagits. Fortsätt med att skicka resten av data. (Används med segmenterad överföring) |
-| `200` | OK | Begäran lyckades. svarstexten är ett JSON-objekt. |
-| `400` | Felaktig begäran | Språkkod tillhandahålls inte, inte ett språk som stöds, ogiltig ljudfil, etc. |
-| `401` | Behörighet saknas | Prenumerationsnyckel eller auktoriseringstoken är ogiltigt i det angivna området eller ogiltig slutpunkt. |
-| `403` | Förbjudet | Prenumerationsnyckel eller auktoriseringstoken saknas. |
+| `100` | Fortsätt | Den första begäran har accepterats. Fortsätt med att skicka resten av data. (Används med segmenterad överföring) |
+| `200` | OK | Begäran lyckades. svars texten är ett JSON-objekt. |
+| `400` | Felaktig begäran | Språk koden har inte angetts, inte ett språk som stöds, ogiltig ljudfil osv. |
+| `401` | Behörighet saknas | Prenumerations nyckel eller autentiseringstoken är ogiltig i den angivna regionen eller ogiltig slut punkt. |
+| `403` | Förbjudet | Prenumerations nyckel eller autentiseringstoken saknas. |
 
-## <a name="chunked-transfer"></a>Tjockarena överföring
+## <a name="chunked-transfer"></a>Segmenterad överföring
 
-Chunked transfer`Transfer-Encoding: chunked`( ) kan bidra till att minska erkännande svarstiden. Det gör att taltjänsten kan börja bearbeta ljudfilen medan den överförs. REST API ger inte partiella eller interimistiska resultat.
+Segmenterad överföring (`Transfer-Encoding: chunked`) kan hjälpa till att minska svars tiden för igenkänning. Det gör att röst tjänsten kan börja bearbeta ljud filen medan den överförs. REST API innehåller inte partiella eller interimistiska resultat.
 
-Det här kodexemplet visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljudfilens huvud. `request`är `HttpWebRequest` ett objekt som är kopplat till lämplig REST-slutpunkt. `audioFile`är sökvägen till en ljudfil på disken.
+I det här kod exemplet visas hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens rubrik. `request`är ett `HttpWebRequest` objekt som är kopplat till lämplig REST-slutpunkt. `audioFile`är sökvägen till en ljudfil på disk.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -143,45 +176,50 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>Svarsparametrar
+## <a name="response-parameters"></a>Svars parametrar
 
-Resultaten tillhandahålls som JSON. Formatet `simple` innehåller dessa fält på den översta nivån.
+Resultat tillhandahålls som JSON. `simple` Formatet innehåller dessa fält på den översta nivån.
 
 | Parameter | Beskrivning  |
 |-----------|--------------|
-|`RecognitionStatus`|Status, till `Success` exempel för ett lyckat erkännande. Se nästa bord.|
-|`DisplayText`|Den tolkade texten efter versaler, interpunktion, omvänd textnormalisering (konvertering av talad text till kortare former, till exempel 200 för "tvåhundra" eller "Dr Smith" för "doctor smith" och svordomar maskering. Närvarande endast på framgång.|
-|`Offset`|Tiden (i 100 nanosektenheter) då det erkända talet börjar i ljudströmmen.|
-|`Duration`|Varaktigheten (i 100 nanosektenheter) för det erkända talet i ljudströmmen.|
+|`RecognitionStatus`|Status, till exempel `Success` för lyckad igenkänning. Se nästa tabell.|
+|`DisplayText`|Den tolkade texten efter versaler, interpunktion, inverterad text normalisering (konvertering av talade text till kortare former, till exempel 200 för "200" eller "Dr. Smith" för "läkare Smith") och svordomar. Presentera bara på framgång.|
+|`Offset`|Den tid (i 100 – nanosekunder) som det identifierade talet börjar i ljud strömmen.|
+|`Duration`|Varaktigheten (i 100 – nanosekunder) av tal som identifieras i ljud strömmen.|
 
-Fältet `RecognitionStatus` kan innehålla följande värden:
+`RecognitionStatus` Fältet kan innehålla följande värden:
 
 | Status | Beskrivning |
 |--------|-------------|
-| `Success` | Erkännandet lyckades `DisplayText` och fältet är närvarande. |
-| `NoMatch` | Tal upptäcktes i ljudströmmen, men inga ord från målspråket matchades. Vanligtvis innebär att igenkänningsspråket är ett annat språk än det som användaren talar. |
-| `InitialSilenceTimeout` | I början av ljudströmmen fanns bara tystnad och servicen tajmades i väntan på tal. |
-| `BabbleTimeout` | I början av ljudströmmen innehöll endast brus och servicen tajmades i väntan på tal. |
-| `Error` | Igenkänningstjänsten påträffade ett internt fel och kunde inte fortsätta. Försök igen om möjligt. |
+| `Success` | Igenkänningen lyckades och `DisplayText` fältet finns. |
+| `NoMatch` | Talet identifierades i ljud strömmen, men inga ord från mål språket matchades. Det innebär vanligt vis att tolknings språket är ett annat språk än det som användaren talar. |
+| `InitialSilenceTimeout` | Starten av ljud strömmen innehöll bara tystnad, och tids gränsen för tjänsten nåddes i väntan på tal. |
+| `BabbleTimeout` | Starten av ljud strömmen innehöll bara brus, och tids gränsen för tjänsten nåddes i väntan på tal. |
+| `Error` | Ett internt fel inträffade i igenkännings tjänsten och det gick inte att fortsätta. Försök igen om möjligt. |
 
 > [!NOTE]
-> Om ljudet bara består av svordomar `profanity` och frågeparametern är inställd `remove`på returnerar tjänsten inte ett talresultat.
+> Om ljudet bara består av svordomar och `profanity` frågeparametern är inställt på `remove`, returnerar inte tjänsten ett tal resultat.
 
-Formatet `detailed` innehåller samma data `simple` som formatet, `NBest`tillsammans med , en lista över alternativa tolkningar av samma igenkänningsresultat. Dessa resultat rankas från mest sannolikt att minst sannolikt. Den första posten är samma som det huvudsakliga igenkänningsresultatet.  När du `detailed` använder `DisplayText` formatet, `Display` anges som `NBest` för varje resultat i listan.
+`detailed` Formatet innehåller samma data som `simple` formatet, tillsammans med `NBest`en lista över alternativa tolkningar av samma igenkännings resultat. De här resultaten rangordnas från de mest sannolikaste sannolika. Den första posten är samma som det huvudsakliga igenkännings resultatet.  När du använder `detailed` formatet `DisplayText` anges det som `Display` för varje resultat i `NBest` listan.
 
-Varje objekt `NBest` i listan innehåller:
+Varje objekt i `NBest` listan innehåller:
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| `Confidence` | Förtroendet poäng av posten från 0,0 (inget förtroende) till 1,0 (fullt förtroende) |
-| `Lexical` | Den lexikala formen av den tolkade texten: de faktiska orden känns igen. |
-| `ITN` | Den inverterade text-normaliserade ("kanoniska") formen av den tolkade texten, med telefonnummer, siffror, förkortningar ("doctor smith" till "dr smith" och andra omformningar tillämpas. |
-| `MaskedITN` | ITN-formuläret med svordomar maskering tillämpas, om så önskas. |
-| `Display` | Visningsformen för den tolkade texten, med interpunktion och versaler tillagda. Den här parametern `DisplayText` är densamma som `simple`när formatet är inställt på . |
+| `Confidence` | Förtroende poängen för posten från 0,0 (ingen exakthet) till 1,0 (full exakthet) |
+| `Lexical` | Den tolkade textens lexikala text: de faktiska orden som identifieras. |
+| `ITN` | Den tolkade textens ("kanoniska") form av den tolkade texten, med telefonnummer, siffror, förkortningar ("läkare Smith" till "Dr Smith") och andra transformeringar som tillämpas. |
+| `MaskedITN` | REDUNDANSVÄXLINGAR-formuläret med anspråks mask tillämpas vid begäran. |
+| `Display` | Visnings formatet för den tolkade texten, med interpunktion och Skift läge tillagda. Den här parametern är samma som `DisplayText` anges när format är inställt på `simple`. |
+| `AccuracyScore` | Poängen som anger Talts uttal. |
+| `FluencyScore` | Poängen som anger Fluency för det tal som anges. |
+| `CompletenessScore` | Poängen som indikerar att det angivna talet är klart genom att beräkna förhållandet mellan uttalade ord och hela ingången. |
+| `PronScore` | Det övergripande resultatet som anger uttal av det tal som anges. Detta beräknas från `AccuracyScore` `FluencyScore` och `CompletenessScore` med vikt. |
+| `ErrorType` | Det här värdet anger om ett ord utelämnas, infogas eller blir dåligt uttalad jämfört med `ReferenceText`. Möjliga värden är `None` (vilket innebär inget fel på det här ordet `Omission`) `Insertion` , `Mispronunciation`och. |
 
-## <a name="sample-responses"></a>Exempel på svar
+## <a name="sample-responses"></a>Exempel svar
 
-Ett typiskt `simple` svar för erkännande:
+Ett typiskt svar för `simple` igenkänning:
 
 ```json
 {
@@ -192,7 +230,7 @@ Ett typiskt `simple` svar för erkännande:
 }
 ```
 
-Ett typiskt `detailed` svar för erkännande:
+Ett typiskt svar för `detailed` igenkänning:
 
 ```json
 {
@@ -213,6 +251,45 @@ Ett typiskt `detailed` svar för erkännande:
         "ITN" : "rewind me to buy 5 pencils",
         "MaskedITN" : "rewind me to buy 5 pencils",
         "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
+Ett typiskt svar för igenkänning av uttal av uttal:
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronScore" : 84.4,
+        "AccuracyScore" : 100.0,
+        "FluencyScore" : 74.0,
+        "CompletenessScore" : 100.0,
+        "Words": [
+            {
+              "Word" : "Good",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 500000,
+              "Duration" : 2700000
+            },
+            {
+              "Word" : "morning",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 5300000,
+              "Duration" : 900000
+            }
+        ]
       }
   ]
 }

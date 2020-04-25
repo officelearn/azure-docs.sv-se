@@ -107,7 +107,7 @@
           href: ./ag/bot-protection.md
         - name: Associera en princip med en befintlig Application Gateway
           href: ./ag/associate-waf-policy-existing-gateway.md
-        - name: Diagnostikloggar
+        - name: Resursloggar
           href: ./ag/web-application-firewall-logs.md
         - name: Felsöka WAF
           href: ./ag/web-application-firewall-troubleshoot.md

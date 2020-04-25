@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: sharadag
-ms.openlocfilehash: e7e500f0459c0f5fd4039acf316d9469e1567a09
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117008"
+ms.locfileid: "82133445"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
 
@@ -42,7 +42,7 @@ Om du inte redan har en webbapp använder du följande steg för att ställa in 
 
 1. Välj **webb** > **-** webbapp.
 
-   ![Skapa en webbapp i Azure Portal](media/quickstart-create-front-door/create-web-app-for-front-door.png)
+   ![Skapa en webbapp i Azure Portal](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
 
 1. I **webbapp**väljer du den **prenumeration** som du vill använda.
 
@@ -60,7 +60,7 @@ Om du inte redan har en webbapp använder du följande steg för att ställa in 
 
 1. Välj **Granska + skapa**, granska **sammanfattningen**och välj sedan **skapa**. Det kan ta flera minuter innan distributionen har slutförts.
 
-   ![Översikt över översikten över webbapp](media/quickstart-create-front-door/summary-for-web-app-for-front-door.png)
+   ![Översikt över översikten över webbapp](media/quickstart-create-front-door/web-app-summary-azure-front-door.png)
 
 När distributionen är klar skapar du en annan webbapp. Använd samma procedur med samma värden, förutom följande värden:
 
@@ -87,7 +87,7 @@ Konfigurera Azure-frontend för att dirigera användar trafik baserat på den l�
 
 1. Ange ett globalt unikt värdnamn för **värd namn**. I det här exemplet används *contoso-frontend*. Välj **Lägg till**.
 
-   ![Lägg till en klient dels värd för Azure-front dörr](media/quickstart-create-front-door/add-frontend-host-for-front-door.png)
+   ![Lägg till en klient dels värd för Azure-front dörr](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
 
 Skapa sedan en backend-pool som innehåller dina två webbappar.
 
@@ -103,7 +103,7 @@ Skapa sedan en backend-pool som innehåller dina två webbappar.
 
 1. Välj din prenumeration, igen och välj den andra webbapp som du skapade från **Server dels värd namnet**. Välj **Lägg till**.
 
-   ![Lägg till en backend-värd i din front dörr](media/quickstart-create-front-door/add-backend-host-to-pool-for-front-door.png)
+   ![Lägg till en backend-värd i din front dörr](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
 
 Slutligen lägger du till en regel för routning. En Routningstjänst mappar klient dels värden till backend-poolen. Regeln vidarebefordrar en begäran om `contoso-frontend.azurefd.net` till **myBackendPool**.
 
@@ -116,7 +116,7 @@ Slutligen lägger du till en regel för routning. En Routningstjänst mappar kli
 
 1. Välj **Granska + skapa**och sedan **skapa**.
 
-   ![Konfigurerad Azure-front dörr](media/quickstart-create-front-door/configuration-of-front-door.png)
+   ![Konfigurerad Azure-front dörr](media/quickstart-create-front-door/configuration-azure-front-door.png)
 
 ## <a name="view-azure-front-door-in-action"></a>Visa Azures front dörr i praktiken
 
@@ -141,7 +141,7 @@ Prova följande steg för att testa den globala redundansväxlingen i praktiken:
 
 1. Uppdatera webbläsaren. Den här gången bör du se ett fel meddelande.
 
-   ![Båda instanserna av webbappen stoppades](media/quickstart-create-front-door/service-has-been-stopped.png)
+   ![Båda instanserna av webbappen stoppades](media/quickstart-create-front-door/web-app-stopped-message.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

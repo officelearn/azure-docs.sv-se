@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: c398763405472c9018a5c30d34fbd3963ecb93b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d720067b619b0d871899f2ac9025a9d8ab24d95
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938370"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82130758"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka degraderat tillstånd på Azure Traffic Manager
 
-Den här artikeln beskriver hur du felsöker en Azure Traffic Manager-profil som visar en degraderad status. Det första steget i att felsöka ett Azure-Traffic Manager degraderat tillstånd är att aktivera diagnostisk loggning.  Mer information hittar du i [Aktivera diagnostikloggar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . I det här scenariot bör du tänka på att du har konfigurerat en Traffic Manager-profil som pekar på några av dina cloudapp.net-värdbaserade tjänster. Om hälso tillståndet för Traffic Manager visar **degraderad** status kan statusen för en eller flera slut punkter **försämras**:
+Den här artikeln beskriver hur du felsöker en Azure Traffic Manager-profil som visar en degraderad status. Det första steget i att felsöka ett Azure-Traffic Manager degraderat tillstånd är att aktivera loggning.  Mer information hittar du i [Aktivera resurs loggar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . I det här scenariot bör du tänka på att du har konfigurerat en Traffic Manager-profil som pekar på några av dina cloudapp.net-värdbaserade tjänster. Om hälso tillståndet för Traffic Manager visar **degraderad** status kan statusen för en eller flera slut punkter **försämras**:
 
 ![status för degraderad slut punkt](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 

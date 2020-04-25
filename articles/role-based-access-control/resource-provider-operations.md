@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 61fb8b53d7d109fefc002b387702a240353f0dca
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117615"
+ms.locfileid: "82133166"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Åtgärder för Azure Resource Manager Resource Provider
 
@@ -4284,7 +4284,7 @@ Azure-tjänst: [Event Grid](../event-grid/index.yml)
 > |  | **domäner/privateLinkResources** |  |
 > | Åtgärd | Microsoft. EventGrid/Domains/privateLinkResources/Read | Hämta eller Visa PrivateLinkResources för domäner |
 > |  | **domäner/providers/Microsoft. Insights/logDefinitions** |  |
-> | Åtgärd | Microsoft. EventGrid/Domains/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till diagnostikloggar |
+> | Åtgärd | Microsoft. EventGrid/Domains/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till resurs loggar |
 > |  | **domäner/providers/Microsoft. Insights/metricDefinitions** |  |
 > | Åtgärd | Microsoft. EventGrid/Domains/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för domäner |
 > |  | **domäner/ämnen** |  |
@@ -4352,7 +4352,7 @@ Azure-tjänst: [Event Grid](../event-grid/index.yml)
 > | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för system ämnen |
 > | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för system ämnen |
 > |  | **systemTopics/providers/Microsoft. Insights/logDefinitions** |  |
-> | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till diagnostikloggar |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till resurs loggar |
 > |  | **systemTopics/providers/Microsoft. Insights/metricDefinitions** |  |
 > | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för system ämnen |
 > |  | **avsnitt** |  |
@@ -4376,7 +4376,7 @@ Azure-tjänst: [Event Grid](../event-grid/index.yml)
 > | Åtgärd | Microsoft. EventGrid/ämnen/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för ämnen |
 > | Åtgärd | Microsoft. EventGrid/ämnen/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för ämnen |
 > |  | **ämnen/providers/Microsoft. Insights/logDefinitions** |  |
-> | Åtgärd | Microsoft. EventGrid/ämnen/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till diagnostikloggar |
+> | Åtgärd | Microsoft. EventGrid/ämnen/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till resurs loggar |
 > |  | **ämnen/providers/Microsoft. Insights/metricDefinitions** |  |
 > | Åtgärd | Microsoft. EventGrid/ämnen/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för ämnen |
 > |  | **topictypes** |  |

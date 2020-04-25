@@ -1,53 +1,53 @@
 ---
 title: Skapa erbjudande för virtuella datorer på Azure Marketplace
-description: Visar de steg som krävs för att skapa ett nytt virtuellt datorerbjudande (VM) för Azure Marketplace.
+description: Visar de steg som krävs för att skapa ett nytt erbjudande för virtuell dator (VM) för Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a25f6877f1fb4940fb1de127b81d83975c8e835c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273995"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142712"
 ---
-# <a name="create-virtual-machine-offer"></a>Skapa erbjudande om virtuell dator
+# <a name="create-virtual-machine-offer"></a>Skapa erbjudande för virtuell dator
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
+> Med början den 13 april 2020 kommer vi att börja flytta hanteringen av dina virtuella Azure-datorer till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett erbjudande för virtuell Azure-dator](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) för att hantera dina migrerade erbjudanden.
 
-I det här avsnittet visas de steg som krävs för att skapa en ny begäran om virtuell dator (VM) för Azure Marketplace.  Varje erbjudande visas som sin egen enhet på Azure Marketplace och är associerat med en eller flera SKU:er.  Ett VM-erbjudande består av följande grupperingar av tillgångar och stödtjänster: 
+Det här avsnittet innehåller de steg som krävs för att skapa en ny virtuell dator (VM)-erbjudande förfrågan för Azure Marketplace.  Varje erbjudande visas som sin egen enhet i Azure Marketplace och är associerad med en eller flera SKU: er.  Ett virtuellt dator erbjudande består av följande grupperingar av till gångar och stöd tjänster: 
 
-![Tillgångar för ett VM-erbjudande](./media/publishvm_002.png)
+![Till gångar för ett virtuellt dator erbjudande](./media/publishvm_002.png)
 
 där:
 
-|  **Tillgångsgrupp**   |  **Beskrivning**  |
+|  **Till gångs grupp**   |  **Beskrivning**  |
 |  ---------------   |  ---------------  |
-|    SKU: er            |  Den minsta köpbara enheten i ett erbjudande. Ett enda erbjudande (produktklass) kan ha flera SKU:er associerade med det, för att skilja mellan funktioner som stöds, vm-avbildningstyper och faktureringsmodeller. |
-|  Marketplace       | Innehåller marknadsförings-, legal- och lead management-tillgångar och specifikationer.  <ul><li> Marknadsföringstillgångar inkluderar erbjudandenamn, beskrivning och logotyper</li> <li> Juridiska tillgångar inkluderar en sekretesspolicy, användarvillkor och annan juridisk dokumentation</li>  <li> Med leadhanteringsprincipen kan du ange hur leads ska hanteras från Azure Marketplace-slutanvändarportalen.</li> </ul> |
-| Support            | Innehåller supportkontakt- och policyinformation |
-| Test Drive         | Definierar tillgångar som gör det möjligt för slutanvändare att testa ditt erbjudande innan de köper det |
+|    SKU: er            |  Den minsta köpbara enheten för ett erbjudande. Ett enda erbjudande (produkt klass) kan ha flera SKU: er kopplade till sig för att skilja mellan vilka funktioner som stöds, avbildnings typer för virtuella datorer och fakturerings modeller. |
+|  Marketplace       | Innehåller till gångar och specifikationer för marknadsföring, juridiska och ledande hantering.  <ul><li> Marknadsförings till gångar innehåller namn, beskrivning och logo typer för erbjudandet</li> <li> Juridiska till gångar innehåller en sekretess policy, användnings villkor och annan juridisk dokumentation</li>  <li> Med princip för hantering av lead kan du ange hur du vill hantera leads från slut användar portalen för Azure Marketplace.</li> </ul> |
+| Support            | Innehåller support kontakt och princip information |
+| Test Drive         | Definierar till gångar som gör det möjligt för slutanvändare att testa ditt erbjudande innan de köper det |
 |  |  |
 
 
-## <a name="new-offer-form"></a>Formulär för nytt erbjudande
+## <a name="new-offer-form"></a>Nytt erbjudande formulär
 
-När du har loggat in på [Cloud Partner Portal](https://cloudpartner.azure.com/)klickar du på + Nytt **erbjudande** i det vänstra menyfältet. I den resulterande menyn klickar du på **virtuella datorer** för att visa formuläret **Nytt erbjudande** och starta processen med att definiera tillgångar för ett nytt vm-erbjudande. 
+När du har loggat in på [Cloud Partner Portal](https://cloudpartner.azure.com/)klickar du på **+ nytt erbjudande** objekt på den vänstra meny raden. I den resulterande menyn klickar du på **Virtual Machines** för att visa det **nya erbjudande** formuläret och starta processen för att definiera till gångar för ett nytt erbjudande för virtuella datorer. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
-![Ny virtuell dator erbjuder val av användargränssnitt](./media/publishvm_003.png)
+![Nytt val av användar gränssnitt för virtuell dator](./media/publishvm_003.png)
 
 > [!WARNING]
-> Om alternativet **Virtuella datorer** inte visas eller inte är aktiverat har ditt konto inte behörighet att skapa den här erbjudandetypen.  Kontrollera att du har uppfyllt alla [förutsättningar](./cpp-prerequisites.md) för den här erbjudandetypen, inklusive registrering för ett utvecklarkonto.
+> Om alternativet **Virtual Machines** inte visas eller inte är aktiverat har ditt konto inte behörighet att skapa den här erbjudande typen.  Kontrol lera att du har uppfyllt alla [krav](./cpp-prerequisites.md) för den här erbjudande typen, inklusive registrering för ett utvecklar konto.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-De efterföljande avsnitten i det här avsnittet speglar flikarna på sidan **Nytt erbjudande** (för en virtuell erbjudandetyp).  Varje artikel förklarar hur du använder den associerade fliken för att definiera tillgångsgrupper och stödtjänster för ditt nya vm-erbjudande.
+Följande avsnitt i det här avsnittet speglar flikarna på sidan **ny erbjudande** (för en typ av virtuell dator erbjudande).  I varje artikel förklaras hur du använder den associerade fliken för att definiera till gångs grupper och stöd tjänster för det nya VM-erbjudandet.
 
 - [Fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
 - [Fliken SKU:er](./cpp-skus-tab.md)

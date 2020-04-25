@@ -1,84 +1,94 @@
 ---
-title: 'Vektordatormaskin i två klasser: Modulreferens'
+title: 'Dubbelriktad Vector-dator: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen **Tvåklasssupport vector machine** i Azure Machine Learning för att skapa en modell som baseras på stödvektornsmaskinsalgoritmen.
+description: Lär dig hur du använder modulen för **dubbelriktad Vector** i Azure Machine Learning för att skapa en modell som baseras på algoritmen för att stödja Vector-datorer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: ba788518951e72c1701d99decf46350e8665dbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 912d6b80914232d1a2ed2b1fe987ebdf949a1abc
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455816"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136506"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Vektormaskinsmodul i två klasser
+# <a name="two-class-support-vector-machine-module"></a>Dubbelriktad Vector Machine-modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd den här modulen för att skapa en modell som baseras på stödvektormaskinalgoritmen. 
+Använd den här modulen för att skapa en modell som baseras på algoritmen för att stödja Vector-datorer. 
 
-Stödvektormaskiner (SVMs) är en väl underbyggd klass av övervakade inlärningsmetoder. Detta genomförande lämpar sig för förutsägelse av två möjliga resultat, baserat på antingen kontinuerliga eller kategoriska variabler.
+Support Vector Machines (SVMs) är en väl genomsökd klass med övervakade inlärnings metoder. Den här specifika implementeringen är anpassad till förutsägelse av två möjliga resultat, baserat på antingen kontinuerliga eller kategoriska variabler.
 
-När du har definierat modellparametrarna tränar du modellen med hjälp av utbildningsmodulerna och tillhandahåller en *taggad datauppsättning* som innehåller en etikett eller resultatkolumn.
+När du har definierat modell parametrarna tränar du modellen med hjälp av modulen utbildning och tillhandahåller en *Taggad data uppsättning* som innehåller en etikett eller en resultat kolumn.
 
-## <a name="about-support-vector-machines"></a>Om stöd vektordatorer
+## <a name="about-support-vector-machines"></a>Om support Vector-datorer
 
-Supportvektordatorer är bland de tidigaste maskininlärningsalgoritmerna, och SVM-modeller har använts i många program, från informationshämtning till text- och bildklassificering. SVMs kan användas för både klassificerings- och regressionsaktiviteter.
+Support vektor datorer är bland de flesta av Machine Learning-algoritmer och SVM-modeller har använts i många program, från informations hämtning till text och bild klassificering. SVMs kan användas för både klassificerings-och Regressions uppgifter.
 
-Den här SVM-modellen är en övervakad inlärningsmodell som kräver märkta data. I utbildningsprocessen analyserar algoritmen indata och känner igen mönster i ett flerdimensionellt funktionsutrymme som kallas *hyperplanet*.  Alla indataexempel representeras som punkter i det här utrymmet och mappas till utdatakategorier på ett sådant sätt att kategorierna delas av ett så brett och tydligt mellanrum som möjligt.
+Den här SVM-modellen är en övervakad utbildnings modell som kräver etiketterade data. I övnings processen analyserar algoritmen indata och identifierar mönster i ett flerdimensionellt funktions utrymme som kallas för den här *planen*.  Alla exempel på indata visas som punkter i det här utrymmet och mappas till utdata-kategorier på ett sådant sätt att kategorierna är indelade som breda och rensar en lucka som är möjlig.
 
-För förutsägelse tilldelar SVM-algoritmen nya exempel i den ena eller andra kategorin och mappar dem till samma utrymme. 
+För förutsägelse tilldelar SVM-algoritmen nya exempel till en kategori eller en annan, och mappar dem till samma utrymme. 
 
-## <a name="how-to-configure"></a>Konfigurerar du 
+## <a name="how-to-configure"></a>Så här konfigurerar du 
 
-För den här modelltypen rekommenderar vi att du normaliserar datauppsättningen innan du använder den för att träna klassificeraren.
+För den här modell typen rekommenderar vi att du normaliserar data uppsättningen innan du använder den för att träna klassificeraren.
   
-1.  Lägg till modulen Vector Machine med **två klasser** i pipelinen.  
+1.  Lägg till modulen för **dubbelriktad Vector-** modul i din pipeline.  
   
-2.  Ange hur du vill att modellen ska tränas genom att ange alternativet **Skapa träningsläge.**  
+2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enkel parameter:** Om du vet hur du vill konfigurera modellen kan du ange en specifik uppsättning värden som argument.  
+    -   **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.  
 
-    -   **Parameterintervall:** Om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [Tune Model Hyperparameters.](tune-model-hyperparameters.md) Du anger ett visst värdeintervall och tränaren itererar över flera kombinationer av inställningarna för att bestämma vilken kombination av värden som ger bäst resultat.
+    -   **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
 
-3.  För **Antal iterationer**skriver du ett tal som anger antalet iterationer som används när modellen skapas.  
+3.  För **antal iterationer**anger du ett tal som anger antalet iterationer som används när modellen skapas.  
   
-     Den här parametern kan användas för att styra avvägningen mellan träningshastighet och noggrannhet.  
+     Den här parametern kan användas för att styra kompromisser mellan inlärnings hastigheten och noggrannhet.  
   
-4.  För **Lambda**skriver du ett värde som ska användas som vikt för L1-legalisering.  
+4.  För **lambda**anger du ett värde som ska användas som vikt för L1-regulariseringshastigheten.  
   
-     Den här legaliseringskoefficienten kan användas för att justera modellen. Större värden straffar mer komplexa modeller.  
+     Den här regulariseringshastigheten-koefficienten kan användas för att finjustera modellen. Större värden bestraffa mer komplexa modeller.  
   
-5.  Välj alternativet **Normalisera funktioner**om du vill normalisera funktioner före träning.
+5.  Välj alternativet, **normalisera funktioner**om du vill normalisera funktioner innan du tränar.
   
-     Om du tillämpar normalisering, före utbildning, är datapunkter centrerade vid medelvärdet och skalas för att ha en enhet av standardavvikelse.
+     Om du använder normalisering före träning centreras data punkter på medelvärdet och skalas för att ha en enhet av standard avvikelsen.
   
-6.  Välj alternativet **Project till enhetsfären**för att normalisera koefficienter.
+6.  Välj alternativet och **projicera till enhets sfären**för att normalisera koefficienter.
   
-     Att projicera värden till enhetsutrymme innebär att datapunkterna centrerats vid 0 före träningen och skalas för att ha en enhet med standardavvikelse.
+     Projekt värden till enhets utrymme innebär att data punkter centreras på 0 och skalas för att ha en enhet av standard avvikelsen.
   
-7.  I **Slumptalsutsäde**skriver du ett heltalsvärde som ska användas som ett frö om du vill säkerställa reproducerbarhet över körningar.  Annars används ett systemklockvärde som ett frö, vilket kan resultera i lite olika resultat över körningar.
+7.  Skriv ett heltals värde som ska användas som ett Seed-värde för att säkerställa reproducerbarhet i körningar i **slumptal**.  Annars används ett värde för system klockan som ett Seed, vilket kan resultera i något annorlunda resultat mellan körningar.
   
-9. Anslut en märkt datauppsättning och en av [utbildningsmodulerna:](module-reference.md)
+9. Anslut en data uppsättning med etiketter och träna modellen:
+
+    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    -   Om du ställer in **Skapa trainer-läge** till **En parameter**använder du modulen [Tågmodell.](train-model.md)
+    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Om du skickar ett parameter intervall för att [träna modellen](train-model.md), används bara standardvärdet i listan med en parameter.  
+    > 
+    > Om du skickar en enda uppsättning parameter värden till modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) , ignorerar värdena och använder standardvärdena för eleven när den förväntar sig ett intervall med inställningar för varje parameter.  
+    > 
+    > Om du väljer alternativet **parameter intervall** och anger ett enda värde för en parameter, används det enskilda värdet som du har angett i hela svepet, även om andra parametrar ändras i ett intervall med värden.
   
 10. Skicka pipelinen.
 
 ## <a name="results"></a>Resultat
 
-Efter träningen är klar:
+När utbildningen är klar:
 
-+ Om du vill spara en ögonblicksbild av den tränade modellen väljer du fliken **Utdata** på den högra panelen i **tågmodellmodulen.** Välj ikonen **Registrera datauppsättning** om du vill spara modellen som en återanvändbar modul.
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
-+ Om du vill använda modellen för bedömning lägger du till modul **poängmodell** i en pipeline.
++ Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i en pipeline.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

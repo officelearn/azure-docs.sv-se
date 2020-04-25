@@ -1,5 +1,5 @@
 ---
-title: Uppdatera ett befintligt vm-erbjudande på Azure Marketplace
+title: Uppdatera ett befintligt VM-erbjudande på Azure Marketplace
 description: Förklarar hur du uppdaterar ett befintligt VM-erbjudande på Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,170 +7,170 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: a15ccb1de2a9ce0072d032e624ead3b4d730763b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 934be24d07c01c76c8caf5e16af4b765df79c964
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273060"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142923"
 ---
-# <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Uppdatera ett befintligt vm-erbjudande på Azure Marketplace
+# <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Uppdatera ett befintligt VM-erbjudande på Azure Marketplace
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
+> Med början den 13 april 2020 kommer vi att börja flytta hanteringen av dina virtuella Azure-datorer till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett erbjudande för virtuell Azure-dator](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln får du hjälp med de olika aspekterna av att uppdatera erbjudandet om virtuella datorer (VM) i [Cloud Partner Portal](https://cloudpartner.azure.com/) och sedan publicera erbjudandet igen. 
+Den här artikeln vägleder dig genom de olika aspekterna av att uppdatera ditt virtuella dator erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/) och sedan publicera om erbjudandet.
 
-Det finns ett antal vanliga skäl för dig att uppdatera ditt erbjudande, inklusive:
+Det finns ett antal vanliga-orsaker för att du ska kunna uppdatera erbjudandet, inklusive:
 
--  Lägga till en ny vm-avbildningsversion i befintliga SKU:er
--  Ändra regioner som en SKU är tillgänglig
--  Lägg till nya SKU:er
--  Uppdatera marknadsplatsmetadata för erbjudandet eller enskilda SKU:er
--  Uppdatera priser på erbjudanden om användningsbaserad betalning
+-  Lägg till en ny version av VM-avbildningen i befintliga SKU: er
+-  Ändra regioner en SKU är tillgänglig
+-  Lägg till nya SKU: er
+-  Uppdatera Marketplace-metadata för erbjudandet eller enskilda SKU: er
+-  Uppdatera priserna för betala per användning-erbjudandet
 
-För att hjälpa dig med dessa ändringar erbjuder portalen funktionerna **Jämför** och **historik.**  
+För att hjälpa dig i dessa ändringar erbjuder portalen funktionerna **Jämför** och **Historik** .  
 
 >[!Note]
->Opt-in (Cloud Solution Providers) partnerkanal är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) för mer information om marknadsföring ditt erbjudande via Microsoft CSP partnerkanaler.
+>Partner kanal för Cloud solution providers (CSP) är nu tillgängligt.  Se [leverantörer av moln lösningar](../../cloud-solution-providers.md) för mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner-kanaler.
 
-## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Otillåtna ändringar av VM-erbjudande eller SKU
+## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Otillåtna ändringar i VM-erbjudandet eller SKU
 
-Det finns vissa attribut för ett VM-erbjudande eller en SKU som inte kan ändras när erbjudandet är live på Azure Marketplace, främst:
+Det finns vissa attribut för ett virtuellt dator erbjudande eller SKU som inte kan ändras när erbjudandet är aktivt på Azure Marketplace, främst:
 
--  **Erbjudande-ID** och **Utgivar-ID** för erbjudandet
--  **SKU-ID** för befintliga SKU:er
--  Antal datadiskar för befintliga SKU:er
--  Ändringar av fakturerings-/licensmodell till befintliga SKU:er
--  Prishöjningar till en publicerad SKU
+-  Erbjudandets **ID** och **utgivar-ID**
+-  **SKU-ID** för befintliga SKU: er
+-  Antal data diskar för befintliga SKU: er
+-  Ändringar i fakturering/licens modell för befintliga SKU: er
+-  Priset ökar med en publicerad SKU
 
 
-## <a name="common-update-operations"></a>Vanliga uppdateringsåtgärder
+## <a name="common-update-operations"></a>Vanliga uppdaterings åtgärder
 
-Även om det finns ett brett utbud av egenskaper som du kan ändra på ett vm-erbjudande, är följande åtgärder vanliga.
+Även om det finns många olika egenskaper som du kan ändra på ett virtuellt dator erbjudande är följande åtgärder vanliga.
 
-### <a name="update-the-vm-image-version-for-a-sku"></a>Uppdatera vm-avbildningsversionen för en SKU
+### <a name="update-the-vm-image-version-for-a-sku"></a>Uppdatera VM-avbildningens version för en SKU
 
-Det är vanligt att en VM-avbildning uppdateras regelbundet med säkerhetskorrigeringar, ytterligare funktioner och så vidare.  Under sådana scenarier vill du uppdatera den VM-avbildning som SKU refererar till med hjälp av följande steg:
+Det är vanligt att en VM-avbildning uppdateras regelbundet med säkerhets korrigeringar, ytterligare funktioner och så vidare.  Under sådana scenarier vill du uppdatera den virtuella dator avbildningen som din SKU refererar till med hjälp av följande steg:
 
-1.  Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
+1.  Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-2.  Under **Alla erbjudanden**hittar du erbjudandet att uppdatera.
+2.  Under **alla erbjudanden**hittar du erbjudandet att uppdatera.
 
-3.  På fliken **SKU:er** klickar du på den SKU som är associerad med vm-avbildningen för att uppdatera.
+3.  På fliken **SKU** klickar du på den SKU som är kopplad till den virtuella dator avbildningen som ska uppdateras.
 
-4.  Under **Diskversion**klickar du på **+Ny diskversion** för att lägga till en ny vm-avbildning.
+4.  Under **disk version**klickar du på **+ ny disk version** för att lägga till en ny VM-avbildning.
 
-5.  Ange den nya **VM-avbildningsdiskversionen**. Diskversionen måste följa det [semantiska](https://semver.org/) versionsformatet. Versioner ska vara av formuläret X.Y.Z, där X, Y och Z är heltal. Kontrollera att den nya versionen som du anger är större än alla tidigare versioner. Annars visas inte den nya versionen i antingen portalen eller Azure Marketplace efter att den nya versionen har publicerats.
+5.  Ange den nya **disk versionen**för VM-avbildningar. Disk versionen måste följa det [semantiska versions](https://semver.org/) formatet. Versionerna ska vara av formatet X. Y. Z, där X, Y och Z är heltal. Kontrol lera att den nya version som du anger är större än alla tidigare versioner. annars visas inte den nya versionen i portalen eller på Azure Marketplace.
 
-6.  För **OS VHD URL**anger du den [SAS-uri (Shared Access Signature) som](./cpp-get-sas-uri.md) skapats för operativsystemets virtuella hårddisk. 
+6.  För **OS VHD-URL**anger du URL: en för [signaturen för delad åtkomst (SAS)](./cpp-get-sas-uri.md) som skapats för operativ systemets virtuella hård disk. 
 
     > [!WARNING] 
-    > Antalet datadiskar kan inte ändras mellan olika versioner av SKU. Om tidigare versioner hade konfigurerat datadiskar måste den här nya versionen också ha samma antal datadiskar.
+    > Antalet data diskar kan inte ändras mellan olika versioner av SKU: n. Om tidigare versioner hade data diskar konfigurerade måste den här nya versionen också ha samma antal data diskar.
 
-7.  Klicka på **Publicera** för att starta arbetsflödet för att publicera din nya VM-version på Azure Marketplace.
-
-
-### <a name="change-region-availability-of-a-sku"></a>Ändra regiontillgänglighet för en SKU
-
-Med tiden kanske du vill göra ditt erbjudande/SKU tillgängligt i fler regioner.  Alternativt kanske du vill sluta stödja erbjudandet/SKU i en viss region.
-Så här ändrar du tillgänglighet:
-
-1.  Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
-
-2.  Under **Alla erbjudanden** hittar du det erbjudande du vill uppdatera.
-
-3.  Klicka på den SKU som du vill ändra tillgängligheten på fliken **SKU.**
-
-4.  Klicka på knappen **Välj länder** under tillgänglighetsfältet **Land/region.**
-
-5.  I popup-fönster för regiontillgänglighet lägger du till eller tar bort regioner för den här SKU:n.
-
-6.  Klicka på **Publicera** om du vill starta publiceringsarbetsflödet för att uppdatera tillgängligheten för SKU-regionen.
-
-Om en SKU görs tillgänglig i en ny region kan du ange priser för just den regionen via funktionen **Exportera prisdata.** Om du lägger till en region tillbaka som en gång var tillgänglig tidigare, kommer du inte att kunna uppdatera dess prissättning eftersom prisändringar inte är tillåtna.
+7.  Klicka på **publicera** för att starta arbets flödet för att publicera den nya VM-versionen på Azure Marketplace.
 
 
-### <a name="add-a-new-sku"></a>Lägga till en ny SKU
+### <a name="change-region-availability-of-a-sku"></a>Ändra regions tillgänglighet för en SKU
 
-Gör en ny SKU tillgänglig för ditt befintliga erbjudande: 
+Med tiden kanske du vill göra ditt erbjudande/SKU tillgängligt i fler regioner.  Alternativt kanske du vill sluta stödja Erbjudandet/SKU: n i en specifik region.
+Använd följande steg för att ändra tillgänglighet:
 
-1.  Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
+1.  Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-2.  Under **Alla erbjudanden** hittar du det erbjudande du vill uppdatera.
+2.  Under **alla erbjudanden** hittar du det erbjudande som du vill uppdatera.
 
-3.  Under fliken **SKU:er** klickar du på **Lägg till ny SKU** och anger ett **SKU-ID** i popup-programmet.
+3.  På fliken **SKU** klickar du på den SKU som du vill ändra dess tillgänglighet.
 
-4.  Publicera om den virtuella datorn enligt beskrivningen i artikeln [Publicera en virtuell dator på Azure Marketplace](./cpp-publish-offer.md).
+4.  Klicka på knappen **Välj länder** under **tillgänglighets fältet land/region** .
 
-5.  Klicka på **Publicera** för att starta arbetsflödet för att publicera din nya SKU.
+5.  I popup-fönstret region tillgänglighet lägger du till eller tar bort regionerna för denna SKU.
 
+6.  Klicka på **publicera** för att starta publicerings arbets flödet för att uppdatera SKU-regionens tillgänglighet.
 
-### <a name="update-offer-marketplace-metadata"></a>Uppdatera metadata för erbjudandemarknadsplats
-
-Följ följande steg för att uppdatera marketplace-metadata – företagsnamn, logotyper osv.– som är kopplade till erbjudandet: 
-
-1.  Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
-
-2.  Under **Alla erbjudanden** hittar du det erbjudande du vill uppdatera.
-
-3.  Gå till fliken **Marketplace** följ sedan instruktionerna i artikeln [Publicera en virtuell dator till Azure Marketplace](./cpp-publish-offer.md) för att göra metadataändringar.
-
-4.  Klicka på **Publicera** om du vill starta arbetsflödet för att publicera ändringarna.
+Om en SKU görs tillgänglig i en ny region kan du ange prissättning för just den regionen via funktionen **Exportera pris data** . Om du lägger till en region tillbaka som var tillgänglig tidigare, kommer du inte att kunna uppdatera dess priser eftersom pris ändringar inte är tillåtna.
 
 
-### <a name="update-pricing-on-published-offers"></a>Uppdatera priser på publicerade erbjudanden
+### <a name="add-a-new-sku"></a>Lägg till en ny SKU
 
-När ditt pay-as-you-go-erbjudande har publicerats kan du inte direkt öka SKU-prissättningen.  (Du kan dock skapa en ny SKU under samma erbjudande, ta bort den gamla SKU:n och sedan publicera om erbjudandet för nya kunder.)  Däremot kan du sänka priset på ett publicerat erbjudande med hjälp av följande steg:
+Använd följande steg för att göra en ny SKU tillgänglig för ditt befintliga erbjudande: 
 
-1.  Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
+1.  Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-2.  Under **Alla erbjudanden**hittar du erbjudandet att uppdatera.
+2.  Under **alla erbjudanden** hittar du det erbjudande som du vill uppdatera.
 
-3.  Klicka på den SKU som du vill minska priserna för.
+3.  Under fliken **SKU** klickar du på **Lägg till ny SKU** och anger ett **SKU-ID** i popup-fönstret.
 
-4.  Om du har angett prissättningen i 1x1 GUI kan du ändra priset direkt i användargränssnittet. Om du anger priser via import/exportkalkylblad kan du bara sänka priserna via import-/exportfunktionen.
+4.  Publicera om den virtuella datorn enligt beskrivningen i artikeln [publicera en virtuell dator på Azure Marketplace](./cpp-publish-offer.md).
+
+5.  Klicka på **publicera** för att starta arbets flödet för att publicera den nya SKU: n.
+
+
+### <a name="update-offer-marketplace-metadata"></a>Uppdatera metadata för Marketplace för erbjudande
+
+Använd följande steg för att uppdatera Marketplace-metadata, företags namn, logo typer, etc. – som är associerade med ditt erbjudande: 
+
+1.  Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+2.  Under **alla erbjudanden** hittar du det erbjudande som du vill uppdatera.
+
+3.  Gå till **Marketplace** -fliken och följ sedan anvisningarna i artikeln [publicera en virtuell dator på Azure Marketplace](./cpp-publish-offer.md) för att göra ändringar i metadata.
+
+4.  Klicka på **publicera** för att starta arbets flödet för att publicera ändringarna.
+
+
+### <a name="update-pricing-on-published-offers"></a>Uppdatera prissättningen på publicerade erbjudanden
+
+När ditt erbjudande för att betala per användning har publicerats kan du inte öka SKU-priset direkt.  (Du kan dock skapa en ny SKU under samma erbjudande, ta bort den gamla SKU: n och sedan publicera om ditt erbjudande för nya kunder.)  Du kan däremot minska priset för ett publicerat erbjudande med följande steg:
+
+1.  Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+2.  Under **alla erbjudanden**hittar du erbjudandet att uppdatera.
+
+3.  Klicka på den SKU som du vill minska priset för.
+
+4.  Om du har angett prissättningen i 1x1-ANVÄNDARGRÄNSSNITTET kan du ändra priset direkt i användar gränssnittet. Om du ställer in prissättning via import/export-kalkylblad kan du bara minska priserna via import/export-funktionen.
 
 3.  Klicka på **Spara**.
 
-4.  Klicka på **Publicera** om du vill starta arbetsflödet för att publicera ändringarna.
+4.  Klicka på **publicera** för att starta arbets flödet för att publicera ändringarna.
 
-Den nya minskade prissättningen kommer att vara synlig för nya kunder när den är live på webbplatsen.  Det här nya priset påverkar dina kunder på följande sätt:
+Den nya minskade prissättningen visas för nya kunder när det är aktivt på webbplatsen.  Det nya priset kommer att påverka dina kunder på följande sätt:
 
-- Nya kunder kommer att debiteras denna nya kurs. 
-- För befintliga kunder kommer prissänkningen att återspeglas retroaktivt till början av faktureringscykeln under vilken prissänkningen trädde i kraft.
-Om de redan har fakturerats för den cykel under vilken en prissänkning inträffade, kommer de att få en återbetalning under nästa faktureringsperiod för att täcka det minskade priset.
+- Nya kunder debiteras det nya priset. 
+- För befintliga kunder kommer pris minskningen att avspeglas retroaktivt i början av den fakturerings period under vilken prisminskningen blev giltig.
+Om de redan har fakturerats för den cykel under vilken en prissänkning har skett, får de ett bidrag under nästa fakturerings period för att ta upp det minskade priset.
 
 
 <!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
-### <a name="simplified-currency-pricing"></a>Förenklad valutaprissättning
+### <a name="simplified-currency-pricing"></a>Pris för förenklad valuta
 
-Från och med den 1 september 2018 läggs ett nytt avsnitt med namnet **Förenklad valutaprissättning** till i portalen. Microsoft effektiviserar Azure Marketplace-verksamheten genom att möjliggöra mer förutsägbara priser och samlingar från dina kunder över hela världen. Denna rationalisering kommer att omfatta att minska antalet valutor där vi fakturerar dina kunder.
+Från och med den 1 2018 september kommer ett nytt avsnitt med namnet **förenklad valuta prissättning** att läggas till i portalen. Microsoft effektiviserar Azure Marketplace-verksamheten genom att möjliggöra mer förutsägbara priser och samlingar från dina kunder över hela världen. Den här effektiviserat omfattar att minska antalet valutor som vi fakturerar kunderna i.
 
-Det nya avsnittet kommer att ta prissättning i dessa nya valutor.När alla kunder har migrerats till dessa nya kvittningsvalutor dras det ursprungliga prisavsnittet tillbaka och endast avsnittet Förenklad valutaprissättning kommer att finnas kvar.
+Det nya avsnittet tar pris i dessa nya valutor.När alla kunder har migrerats till dessa nya kvittnings valutor kommer det ursprungliga pris avsnittet att dras tillbaka och bara pris avsnittet för förenklad valuta kommer att finnas kvar.
 
-Du har fram till den 1 november 2018 på dig att ange ett nytt pris för de regioner där kvittningsvalutan förändras. Du kommer inte att kunna höja priset för regioner där kvittningsvalutan inte ändras.
+Du kommer att ha fram till den 1 november 2018 för att ange ett nytt pris för regionerna där värdet för kvittnings valutan ändras. Du kommer inte att kunna öka priset för regioner där-kvittnings valutan inte ändras.
 
 > [!NOTE] 
-> Om du använder API:er för att publicera ditt erbjudande kan du se ett nytt avsnitt i Erbjudande-JSON. Detta skulle kommenteras `virtualMachinePricingV2` som `monthlyPricingV2`eller , beroende på vilken typ av erbjudande. 
+> Om du använder API: er för att publicera ditt erbjudande kan du se ett nytt avsnitt i erbjudandet JSON. Detta skulle kommenteras som `virtualMachinePricingV2` eller `monthlyPricingV2`, beroende på typen av erbjudande. 
 
-Om du har några frågor om den här ändringen kontaktar du [Azure Marketplace Support](../../support-azure-marketplace.md).
+Om du har några frågor om den här ändringen kan du kontakta [supporten för Azure Marketplace](../../support-azure-marketplace.md).
 
 
 ## <a name="compare-feature"></a>Jämför funktion
 
-När du gör ändringar i ett redan publicerat erbjudande kan du använda funktionen **Jämför** för att granska de ändringar som har gjorts. Gör så här för att använda funktionen:
+När du gör ändringar i ett redan publicerat erbjudande kan du utnyttja funktionen **Jämför** för att granska de ändringar som har gjorts. Gör så här för att använda funktionen:
 
-1.  När som helst i redigeringsprocessen klickar du på **knappen Jämför** för ditt erbjudande.
+1.  Klicka på knappen **Jämför** för ditt erbjudande när som helst i redigerings processen.
 
     ![Knappen Jämför funktion](./media/publishvm_037.png)
 
 
-2.  Visa versioner av marknadsföringsresurser och metadata sida vid sida.
+2.  Visa sida-vid-sida-versioner av marknadsförings till gångar och metadata.
 
 
-## <a name="history-of-publishing-actions"></a>Historia av publiceringsåtgärder
+## <a name="history-of-publishing-actions"></a>Historik för publicerings åtgärder
 
-Om du vill visa en historisk publiceringsaktivitet klickar du på **historikobjektet** i det vänstra navigeringsmenyfältet i Cloud Partner Portal. Här kan du visa tidsstämplade åtgärder som har vidtagits under livstiden för dina Azure Marketplace-erbjudanden.  
+Om du vill visa en historisk publicerings aktivitet klickar du på objektet **Historik** i det vänstra navigerings fönstret för Cloud Partner Portal. Här kommer du att kunna se tidsstämplade åtgärder som har vidtagits under Azure Marketplace-erbjudandena.  
 <!-- TD: Add after section authored: For more information, see [History page](../portal-tour/cpp-history-page.md). -->
 

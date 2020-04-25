@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528736"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131173"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 
@@ -81,7 +81,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Krav för att konfigurera TDE-skydd
 
-- TDE-skydd kan bara vara asymmetriskt, RSA 2048-eller RSA HSM 2048-nyckel.
+- TDE-skydd kan bara vara asymmetrisk, RSA eller RSA HSM-nyckel. De nyckel längder som stöds är 2048 och 3072 byte.
 
 - Aktiverings datumet (om det är inställt) måste vara datum och tid tidigare. Utgångs datum (om det anges) måste vara ett framtida datum och en framtida tidpunkt.
 

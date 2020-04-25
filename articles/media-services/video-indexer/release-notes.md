@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 07046d181e8e83e0271cb78cfb182df4e76980b5
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115524"
+ms.locfileid: "82131211"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -65,7 +65,7 @@ Under de kommande veckorna ändrar vi den och returnerar [video Indexer webbplat
     * Ersätta URL: en med en URL som pekar på API: erna för Video Indexer widget (till exempel [widgeten insikter](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Använda Video Indexer webbplats för att generera en ny inbäddad URL:
          
-         Tryck på **Play** för att komma till videons sida. > Klicka på ** &lt;bädda in&gt; ** > kopiera URL: en till ditt program:
+         Tryck på **Play** för att komma till videons sida > Klicka på ** &lt; / &gt; knappen Bädda** in – > kopiera URL: en till ditt program:
    
     De regionala URL: erna stöds inte och kommer att blockeras under de kommande veckorna.
 

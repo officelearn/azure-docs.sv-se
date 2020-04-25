@@ -1,33 +1,33 @@
 ---
 title: Sortering
-description: Sorteringstyper som stöds i Azure Synapse SQL
+description: Sorterings typer som stöds i Azure Synapse SQL
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4270677f8f5f77e1ada0b1d9385163dad762bbda
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b10aea962a31ba600deca866a8d9f7ab3b81ea8
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431545"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133664"
 ---
-# <a name="database-collation-support-for-synapse-sql"></a>Stöd för databassortering för Synapse SQL
+# <a name="database-collation-support-for-synapse-sql"></a>Stöd för databas sortering för Synapse SQL
 
-Sorteringar ger språk-, teckentabells-, sorteringsordnings- och teckenkänslighetsregler för teckenbaserade datatyper. När du har valt ärva alla kolumner och uttryck som kräver sorteringsinformation den valda sorteringen från databasinställningen. Standardarvet kan åsidosättas genom att uttryckligen ange en annan sortering för en teckenbaserad datatyp.
+Sorteringarna anger språk, tecken tabell, sorterings ordning och tecken känslighets regler för teckenbaserade data typer. När du har valt alla kolumner och uttryck som kräver sorterings information ärver du den valda sorteringen från databas inställningen. Standard arvet kan åsidosättas genom att uttryckligen ange en annan sortering för en tecken-baserad datatyp.
 
-Du kan ändra standarddatabassorteringen från Azure-portalen när du skapar en ny SQL-pooldatabas. Den här funktionen gör det ännu enklare att skapa en ny databas med hjälp av en av de 3800 databassortering som stöds.
+Du kan ändra standard databas sorteringen från Azure Portal när du skapar en ny SQL-adresspool. Den här funktionen gör det ännu enklare att skapa en ny databas med en av de 3800 databas sorteringar som stöds.
 
-Du kan ange standarddatabasen Synapse SQL on-demand-databassortering vid skapande av create database-uttryck.
+Du kan ange standard sorteringen för SQL-Synapse på begäran när den skapas med instruktionen CREATE DATABASE.
 
-## <a name="changing-collation"></a>Ändra sortering
-Om du vill ändra standardsortering för SQL-pooldatabasen uppdaterar du enkelt till fältet Sortering i etableringsupplevelsen. Om du till exempel vill ändra standardsorteringen till skiftlägeskänsliga, byter du helt enkelt namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS. 
+## <a name="changing-collation"></a>Ändrar sortering
+Om du vill ändra standard sorteringen för SQL-pool-databasen kan du enkelt uppdatera sorterings fältet i etablerings upplevelsen. Om du till exempel vill ändra standard sorteringen till Skift läges känslig, behöver du bara byta namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS. 
 
-Om du vill ändra standardsortering för SQL-databas på begäran kan du använda ALTER DATABASE-uttrycket.
+Om du vill ändra standard sorteringen för SQL på begäran-databasen kan du använda ALTER DATABASE-instruktionen.
 
-## <a name="list-of-unsupported-collation-types"></a>Lista över sorteringstyper som inte stöds
+## <a name="list-of-unsupported-collation-types"></a>Lista över sorterings typer som inte stöds
 *    Japanese_Bushu_Kakusu_140_BIN
 *    Japanese_Bushu_Kakusu_140_BIN2
 *    Japanese_Bushu_Kakusu_140_CI_AI_VSS
@@ -97,23 +97,24 @@ Om du vill ändra standardsortering för SQL-databas på begäran kan du använd
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Dessutom stöder SQL-poolen inte följande sorteringstyper:
+Dessutom stöder SQL-poolen inte följande sorterings typer:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
+*    UTF-8
 
-## <a name="checking-the-current-collation"></a>Kontrollera den aktuella sorteringen
-Om du vill kontrollera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodavsnitt:
+## <a name="checking-the-current-collation"></a>Kontrollerar den aktuella sorteringen
+Om du vill kontrol lera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodfragment:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
-När funktionen DatabasePropertyEx skickas som egenskapsparameter returneras den aktuella sorteringen för den angivna databasen. Du kan läsa mer om funktionen DatabasePropertyEx på MSDN.
+När den skickade sorteringen som egenskaps parameter returnerar funktionen DatabasePropertyEx den aktuella sorteringen för den angivna databasen. Du kan lära dig mer om DatabasePropertyEx-funktionen på MSDN.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare information om metodtips för SQL-pool och SQL på begäran finns i följande artiklar:
+Mer information om metod tips för SQL-poolen och SQL på begäran finns i följande artiklar:
 
-- [Metodtips för SQL-pool](best-practices-sql-pool.md)
-- [Metodtips för SQL på begäran](best-practices-sql-on-demand.md)
+- [Metod tips för SQL-pool](best-practices-sql-pool.md)
+- [Metod tips för SQL på begäran](best-practices-sql-on-demand.md)
 
 

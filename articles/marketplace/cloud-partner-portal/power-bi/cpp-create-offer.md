@@ -1,48 +1,48 @@
 ---
-title: Skapa ett Power BI-apperbjudande | Azure Marketplace
-description: Så här skapar du ett Power BI-apperbjudande för Microsoft AppSource Marketplace.
+title: Skapa ett erbjudande för Power BI app | Azure Marketplace
+description: Så här skapar du ett Power BI app-erbjudande för Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c8273025b92a74286d3f918289ef9f21bd992182
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984852"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143126"
 ---
-# <a name="create-a-power-bi-app-offer"></a>Skapa ett Power BI-apperbjudande
+# <a name="create-a-power-bi-app-offer"></a>Skapa ett erbjudande för Power BI app
 
 >[!Important]
->Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
+>Från och med 13 april 2020 börjar vi flytta hanteringen av dina Power BI app-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Power BI översikt över skapande av appar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln visas de steg som ska följas för att skapa ett nytt Power BI-apperbjudande för [AppSource](https://appsource.microsoft.com). Varje erbjudande visas som sin egen entitet i AppSource. När du skapar ett nytt erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/)måste du ange fyra grupper av tillgångar för ditt erbjudande.
+Den här artikeln innehåller de steg du följer för att skapa ett nytt Power BI app-erbjudande för [AppSource](https://appsource.microsoft.com). Varje erbjudande visas som sin egen entitet i AppSource. När du skapar ett nytt erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/)måste du ange fyra grupper av till gångar för ditt erbjudande.
 
-Tillgångsgrupperna beskrivs i följande tabell:
+Till gångs grupper beskrivs i följande tabell:
 
-|   Tillgångsgrupp      | Beskrivning                                                                         |
+|   Till gångs grupp      | Beskrivning                                                                         |
 | ----------------   | ----------------                                                                    |
-| Inställningar för erbjudande     | De primära identifieringarna och namnet på erbjudandet.                                      |
-| Teknisk information     | Installationsadressen som du använder för att installera appen på klientens Power BI-arbetsyta. Mer information om hur du skapar den här WEBBADRESSEN finns i [Power BI App-dokumentationen](https://go.microsoft.com/fwlink/?linkid=2028636). |
-| Information om skyltfönster | Innehåller marknadsförings-, legal- och lead management-tillgångar. Marknadsföringstillgångar inkluderar en erbjudandebeskrivning och logotyper. Juridiska tillgångar inkluderar en sekretesspolicy, användarvillkor och annan juridisk dokumentation. Med leadhanteringsprincipen kan du ange hur leads ska hanteras från AppSource-användarportalen. |
-| Contacts           | Innehåller supportkontakt- och principinformation.                                     |
+| Erbjudande inställningar     | Primär identifiering och namn för erbjudandet.                                      |
+| Teknisk information     | Installations-URL: en som du använder för att installera appen på klientens Power BI-arbetsyta. Mer information om hur du skapar den här URL: en finns i [Power BI app-dokumentation](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Butik-information | Innehåller till gångar för marknads-, juridiska-och ledar hantering. Marknadsförings till gångar innehåller en beskrivning och logo typer för erbjudandet. Juridiska till gångar innehåller en sekretess policy, användnings villkor och annan juridisk dokumentation. Med principen för hantering av lead kan du ange hur leads ska hanteras från användar portalen i AppSource. |
+| Contacts           | Innehåller support kontakt och princip information.                                     |
 
-## <a name="new-offer-form"></a>Formulär för nytt erbjudande
+## <a name="new-offer-form"></a>Nytt erbjudande formulär
 
-När du har loggat in på Cloud Partner Portal väljer du **Nytt erbjudande** i den vänstra rutan. Om du sedan vill visa formuläret Nytt erbjudande och starta processen med att definiera resurser för ett nytt apperbjudande väljer du **Power BI Apps**.
+När du har loggat in på Cloud Partner Portal väljer du **nytt erbjudande** i det vänstra fönstret. Om du sedan vill visa det nya erbjudandet och påbörja processen för att definiera till gångar för ett nytt app-erbjudande väljer du **Power BI appar**.
 
-![Menyalternativ för Power BI-erbjudande](./media/new-offer-menu.png)
+![Meny alternativ för Power BI erbjudande](./media/new-offer-menu.png)
 
 > [!NOTE] 
-> Om alternativet **Power BI Apps** inte visas eller inte är aktiverat har ditt konto inte behörighet att skapa den här erbjudandetypen. Kontrollera att du har uppfyllt alla [förutsättningar](./cpp-prerequisites.md) för den här erbjudandetypen, inklusive registrering för ett utvecklarkonto.
+> Om alternativet **Power BI Apps** inte visas eller inte är aktiverat har ditt konto inte behörighet att skapa den här erbjudande typen. Kontrol lera att du har uppfyllt alla [krav](./cpp-prerequisites.md) för den här erbjudande typen, inklusive registrering för ett utvecklar konto.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar beskrivs flikarna på sidan **Nytt erbjudande** för en Power BI-app-erbjudandetyp. I varje artikel beskrivs tillgångsgrupperna och stödtjänsterna för ditt nya Power BI-apperbjudande.
+I följande artiklar förklaras flikarna på sidan **ny erbjudande** för en Power BI program erbjudande typ. Varje artikel beskriver till gångs grupper och stöd tjänster för ditt nya Power BI app-erbjudande.
 
 -  [Fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
 -  [Fliken Teknisk information](./cpp-technical-info-tab.md)

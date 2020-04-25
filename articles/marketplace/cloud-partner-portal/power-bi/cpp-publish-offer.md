@@ -1,62 +1,62 @@
 ---
-title: Publicera Power BI-apperbjudande | Azure Marketplace
-description: Publicera ett Power BI-apperbjudande på Microsoft AppSource-marknadsplatsen.
+title: Publicera erbjudande för Power BI app | Azure Marketplace
+description: Publicera ett erbjudande för Power BI app på Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: a5eb5b652f7a419c6c2d1b3e6880c3c3003fb679
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: eb31520c81a4064edbe54a0256b694c4ad88fb49
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985532"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82141701"
 ---
-# <a name="publish-a-power-bi-app-offer"></a>Publicera ett Power BI-apperbjudande
+# <a name="publish-a-power-bi-app-offer"></a>Publicera ett erbjudande för Power BI app
 
 >[!Important]
->Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
+>Från och med 13 april 2020 börjar vi flytta hanteringen av dina Power BI app-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Power BI översikt över skapande av appar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) för att hantera dina migrerade erbjudanden.
 
-Det sista steget, när du har definierat ett erbjudande i Cloud Partner Portal och skapat tillhörande tekniska resurser, är att skicka erbjudandet för publicering. Om du vill starta den här processen väljer du **Publicera**i den vänstra rutan i fönstret **Nytt erbjudande** . Mer information finns i [Publicera Azure Marketplace och AppSource-erbjudanden](../manage-offers/cpp-publish-offer.md).
+Det sista steget, när du har definierat ett erbjudande i Cloud Partner Portal och skapat tillhör ande tekniska till gångar, är att skicka in erbjudandet om publicering. Starta den här processen genom att välja **publicera**i den vänstra rutan i fönstret **nytt erbjudande** . Mer information finns i [publicera Azure Marketplace-och AppSource-erbjudanden](../manage-offers/cpp-publish-offer.md).
 
 
-## <a name="publishing-steps"></a>Publiceringssteg
+## <a name="publishing-steps"></a>Publicerings steg
 
-Dessa är de viktigaste stegen i publiceringsprocessen:
+Dessa är de viktigaste stegen i publicerings processen:
 
-![Publiceringsprocesssteg för Power BI App-erbjudande](./media/publishing-process-steps.png)
+![Publicerings process steg för Power BI app-erbjudande](./media/publishing-process-steps.png)
 
-Den här tabellen beskriver varje steg och ger sin beräknade slutförandetid:
+I den här tabellen beskrivs varje steg och den uppskattade slut tiden visas:
 
-|   Publiceringssteg            |   Tid     |   Beskrivning                                                                  |
+|   Publicerings steg            |   Tid     |   Beskrivning                                                                  |
 | --------------------         |------------| ----------------                                                               |
-| Validera förutsättningar       | 15 minuter     | Erbjudandeinformation och erbjudandeinställningar valideras.                            |
-| Certifiering                | 1-7 dagar   | Power BI-certifieringsteamet analyserar ditt erbjudande. Teamet kör din Power BI-app genom ett manuellt verifieringstest genom att installera appen via den angivna installationsadressen. Primära valideringar utförs som en del av appcertifieringsprocessen (beskrivs senare i det här dokumentet).         |
-| Paketering                    | \<1 timme  | Erbjudandets tekniska tillgångar är förpackade för kundbruk.                        |
-| Registrering av leadgenerering | \<1 timme  | Leadsystem konfigureras och distribueras.                                      |
-| Signering av utgivare            | \-         | Du slutför en slutlig recension och bekräftelse innan erbjudandet går live. Nu har du också en länk för att förhandsgranska ditt erbjudande. När du är nöjd med hur förhandsgranskningen ser ut väljer du **Gå live** på fliken **Status.** Detta skickar en begäran till introduktionsteamet om att lista din app på AppSource.    |
-| Live                         | \<3 timmar | Ditt erbjudande är nu offentligt listat (live) på AppSource och kunder kan visa din app och distribuera den i sina Power BI-prenumerationer. Du får också en bekräftelse via e-post. I den högra kolumnen på fliken **Alla erbjudanden** kan du se status för alla dina erbjudanden. På fliken **Status** kan du se den detaljerade publiceringsflödesstatusen för ditt erbjudande. |
+| Verifiera krav       | 15 minuter     | Information om erbjudandet och erbjudande inställningarna verifieras.                            |
+| Certifiering                | 1-7 dagar   | Den Power BI certifierings gruppen analyserar ditt erbjudande. Teamet kör din Power BI-app via ett manuellt verifierings test genom att installera appen via den angivna installations-URL: en. Primära verifieringar utförs som en del av appens certifierings process (beskrivs senare i det här dokumentet).         |
+| Paketering                    | \<1 timme  | Erbjudandets tekniska till gångar är paketerade för kund användning.                        |
+| Registrering av generering av lead | \<1 timme  | Lead-system konfigureras och distribueras.                                      |
+| Publisher-signering            | \-         | Du har slutfört en slutgiltig granskning och bekräftelse innan erbjudandet går live. Nu har du också en länk för att förhandsgranska ditt erbjudande. När du är nöjd med hur din förhands granskning ser ut väljer du **Go Live** på fliken **status** . Detta skickar en begäran till onboarding-teamet för att lista din app på AppSource.    |
+| Live                         | \<3 timmar | Ditt erbjudande visas nu offentligt ("Live") på AppSource, och kunderna kan visa din app och distribuera den i sina Power BI prenumerationer. Du får också ett e-postmeddelande om bekräftelse. I den högra kolumnen på fliken **alla erbjudanden** kan du se statusen för alla dina erbjudanden. På fliken **status** kan du se den detaljerade statusen för publicerings flödet för ditt erbjudande. |
 |   |   |
 
-Tillåt upp till åtta dagar för den här processen att slutföra. När du har gått igenom de här publiceringsstegen visas ditt Power BI-apperbjudande i avsnittet [AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) Power BI-appar.
+Tillåt att den här processen slutförs på upp till åtta dagar. När du har gått igenom dessa publicerings steg visas ditt Power BI app-erbjudande i avsnittet [AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) Power BI Apps.
 
 
-### <a name="app-certification-process"></a>Processen för appcertifiering
+### <a name="app-certification-process"></a>Certifierings process för appar
 
-Microsofts introduktionsteam använder den här processen för att validera inlämning av ditt Power BI-apperbjudande:
+Microsoft onboarding-teamet använder den här processen för att verifiera att din Power BI app erbjudandet skickas:
 
-1. Granska juridiska dokument och hjälplänkar.
-2. Validera kontaktinformation för support.
-3. Använd installations-URL:en för att verifiera korrekt installation.
-4. Sök igenom appen efter skadlig kod och annat skadligt innehåll.
-5. Kontrollera att det visade innehållet matchar appens beskrivning.
-6. Kontrollera att apprelaterade åtgärder fungerar som förväntat i Power BI. Teamet öppnar rapporter och instrumentpaneler med exempeldata, ansluter till anpassade datakällor, uppdaterar data och så vidare.
+1. Granska juridiska dokument och hjälp länkar.
+2. Verifiera support kontakt information.
+3. Använd installations-URL: en för att verifiera korrekt installation.
+4. Genomsök appen efter skadlig kod och annat skadligt innehåll.
+5. Kontrol lera att det innehåll som visas matchar appens beskrivning.
+6. Kontrol lera att app-relaterade åtgärder fungerar som förväntat i Power BI. Teamet öppnar rapporter och instrument paneler med exempel data, ansluter till anpassade data källor, uppdaterar data och så vidare.
 
-Certifieringsteamet ger feedback om de hittar några problem.  Mer information om Power BI-appkrav finns i Dokumentationen till [Power BI-appen](https://go.microsoft.com/fwlink/?linkid=2028636).
+Certifierings teamet ger feedback om de hittar några problem.  Mer information om krav för Power BI appar finns i [dokumentationen för Power BI app](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi rekommenderar att du regelbundet övervakar din app på [AppSource marketplace](https://appsource.microsoft.com).  Du bör också använda [funktionen Säljarstatistik](../../cloud-partner-portal-orig/si-getting-started.md) i [Cloud Partner Portal](https://cloudpartner.azure.com/#insights) för att få insikter om dina marknadsplatskunder och appanvändning. Slutligen kan du [uppdatera ditt erbjudande](./cpp-update-existing-offer.md).
+Vi rekommenderar att du regelbundet övervakar din app på [AppSource Marketplace](https://appsource.microsoft.com).  Du bör också använda funktionen för [säljar insikter](../../cloud-partner-portal-orig/si-getting-started.md) i [Cloud Partner Portal](https://cloudpartner.azure.com/#insights) för att få insikter om dina Marketplace-kunder och app-användning. Slutligen kan du [Uppdatera ditt erbjudande](./cpp-update-existing-offer.md).

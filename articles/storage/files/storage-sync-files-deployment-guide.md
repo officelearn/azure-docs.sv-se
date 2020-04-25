@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c4e762ebf10a5ca2120c13a52750a7781d60b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268072"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137730"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -410,7 +410,7 @@ Detta möjliggör ett kraftfullt scenario, som vanligt vis kallas självbetjäni
 VSS-ögonblicksbilder och tidigare versioner fungerar oberoende av Azure File Sync. Moln nivåer måste dock vara inställt på ett kompatibelt läge. Många Azure File Sync Server-slutpunkter kan finnas på samma volym. Du måste göra följande PowerShell-anrop per volym som har till och med en server slut punkt där du planerar till eller använder moln nivåer.
 
 ```powershell
-Import-Module ‘<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll’
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
 Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]] 
 ```
 
@@ -426,7 +426,7 @@ VSS-ögonblicksbilder tas från en hel volym. Som standard kan upp till 64 ögon
 Du kan köra följande cmdlet för att se om självbetjänings återställnings kompatibilitet är aktiverat.
 
 ```powershell
-    Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
+Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 ```
 
 Den visar alla volymer på servern samt antalet kompatibla dagar för moln nivåer för var och en. Det här talet beräknas automatiskt baserat på maximalt antal möjliga ögonblicks bilder per volym och standard schema för ögonblicks bilder. Som standard kan alla tidigare versioner som presenteras för en informations arbetare användas för att återställa från. Detsamma gäller om du ändrar standardschemat för att ta fler ögonblicks bilder.

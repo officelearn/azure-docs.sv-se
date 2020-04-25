@@ -7,14 +7,8 @@
       href: Overview.md
 - name: Snabbstarter
   items:
-    - name: Använda klient-SDK
-      items:
-        - name: .NET SDK
-          href: Quickstarts/csharp-sdk.md
-        - name: Python SDK
-          href: QuickStarts/python-sdk.md
-        - name: Go SDK
-          href: QuickStarts/go-sdk.md
+    - name: Använda klientbiblioteket
+      href: Quickstarts/client-libraries.md
     - name: Använda REST API
       items:
         - name: Identifiera ansikten i en bild
@@ -45,13 +39,13 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Ansiktsspårning
       href: concepts/face-detection.md
     - name: Ansiktsigenkänning
       href: concepts/face-recognition.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Identifiera ansikten
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md

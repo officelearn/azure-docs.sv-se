@@ -1,48 +1,48 @@
 ---
-title: HTTPS-slutpunkt | Azure Marketplace
-description: Konfigurera leadhantering för en HTTPS-slutpunkt.
+title: Microsoft kommersiell marknads introduktions hantering med HTTPS
+description: Konfigurera Microsoft kommersiell marknads introduktions hantering för en HTTPS-slutpunkt.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262759"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133740"
 ---
-# <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurera leadhantering med hjälp av en HTTPS-slutpunkt
+# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Konfigurera hantering av leads med hjälp av en HTTPS-slutpunkt
 
->[!Note]
->Power Automate-kontakten som används i dessa instruktioner kräver en betald prenumeration på Power Automate. Vänligen ta hänsyn till detta innan du följer instruktionerna i detta dokument.
+>[!NOTE]
+>Den Energis par anslutning som används i dessa instruktioner kräver en betald prenumeration för att automatisera energi. Se till att du tar hänsyn till detta innan du följer anvisningarna i den här artikeln.
 
-Om ditt CRM-system (Customer Relationship Management) inte uttryckligen stöds i Partner Center för att ta emot Azure Marketplace- och AppSource-leads kan du använda en HTTPS-slutpunkt i Power Automate för att hantera dessa leads. Med en HTTPS-slutpunkt kan dessa leads skickas ut som ett e-postmeddelande eller skrivas till ett CRM-system (Customer Relationship Management) som stöds av Power Automate. Instruktionerna i den här artikeln kommer att gå igenom den grundläggande processen för att skapa ett nytt flöde med Hjälp av Power Automate, som kommer att generera HTTP POST URL som du kommer att ange i publiceringsportalen för Lead Management > **HTTPS Slutpunkt URL-fältet.** Dessutom ingår instruktioner om hur du kan testa ditt flöde med hjälp av ett verktyg som kallas [Brevbäraren](https://www.getpostman.com/downloads/) som finns på nätet.
+Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Microsoft AppSource och Azure Marketplace-leads, kan du använda en HTTPS-slutpunkt i energi automatisering för att hantera dessa leads. Med en HTTPS-slutpunkt kan de här leads skickas som ett e-postmeddelande eller de kan skrivas till ett CRM-system som stöds av Power automatisering. Anvisningarna i den här artikeln vägleder dig genom Basic-processen för att skapa ett nytt flöde med hjälp av Power gener, vilket genererar http post-URL: en som du ska ange i publicerings portalen för**https-slutpunkts-URL: en** för **hantering** > av https Här finns också anvisningar om hur du testar ditt flöde med hjälp av ett verktyg som kallas [Postman](https://www.getpostman.com/downloads/), som är tillgängligt online.
 
-## <a name="create-a-flow-using-power-automate"></a>Skapa ett flöde med Power Automate
+## <a name="create-a-flow-by-using-power-automate"></a>Skapa ett flöde med hjälp av energi automatisering
 
-1. Öppna webbsidan [Flöde.](https://flow.microsoft.com/) Välj **Logga in**, eller om du inte redan har ett konto väljer du Registrera dig **gratis** för att skapa ett fritt Flow-konto.
+1. Öppna webb sidan [automatiserad start](https://flow.microsoft.com/) . Välj **Logga in**. Om du inte redan har ett konto väljer du **Registrera dig kostnads fritt** för att skapa ett kostnads fritt energi automatiserat konto.
 
-2. Logga in och välj **Mina flöden** i menyraden.
+1. Logga in och välj **mina flöden** i menyn.
 
-3. Välj **+Automatiserad - från tom**.
+1. Välj **+ automatiserad – från Tom**.
 
-    ![Mina flöden + Automatiserad - från tomt](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+    ![Mina flöden + automatiserad – från Tom](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-4. Välj **Hoppa över**i fönstret Skapa ett *automatiskt flöde* . 
+1. I fönstret **Bygg ett automatiserat flöde** väljer du **hoppa över**. 
 
-    ![Skapa automatiserat flöde - Hoppa över](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+    ![Knappen för att sätta upp en automatisk flödes fönster](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
 
-5. Skriv "begäran" i fältet **Sökkopplingar och utlösare** för att hitta anslutningsappen För begäran.
-6. Under *Utlösare*väljer du **När en HTTP-begäran tas emot**. 
+1. I fältet **Sök anslutningar och utlösare** anger du **begäran** om att hitta begär ande anslutningen.
+1. Under **utlösare**väljer du **när en http-begäran tas emot**. 
 
-    ![begäran anslutning - Utlösare](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+    ![Menyn utlösare](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
 
-7. Kopiera och klistra in JSON-schemat nedan i textrutan **Begärandetext JSON Schema** i *när en HTTP-begäran tas emot.* Det här schemat används av Microsoft för att innehålla dina leaddata.
+1. I fönstret **när en HTTP-förfrågan tas emot** kopierar du och klistrar in följande JSON-schema i text rutan **JSON-schema för begär ande** text. Det här schemat används av Microsoft för att innehålla dina lead-data.
 
-    ![begäran anslutning - Utlösare](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+    ![Text ruta för JSON-schema för begär ande text](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
 
     **JSON-schema**
 
@@ -103,121 +103,120 @@ Om ditt CRM-system (Customer Relationship Management) inte uttryckligen stöds i
     }
     ```
 
->[!Note]
->Vid denna punkt i konfigurationen kan du välja att antingen ansluta till ett CRM-system eller konfigurera ett e-postmeddelande. Följ de återstående instruktionerna baserat på ditt val.
+>[!NOTE]
+>I det här läget i konfigurationen kan du välja att antingen ansluta till ett CRM-system eller konfigurera ett e-postmeddelande. Följ de återstående instruktionerna som du väljer.
 
-### <a name="to-connect-to-a-crm-system"></a>Så här ansluter du till ett CRM-system
+### <a name="connect-to-a-crm-system"></a>Ansluta till ett CRM-system
 
 1. Välj **+ Nytt steg**.
-2. Välj det CRM-system som du väljer genom att söka efter det där det står *Sökkopplingar och åtgärder*och välj det under avsnittet *Åtgärder* med åtgärden för att skapa en ny post. Följande skärminspelning visar **Dynamics 365 - Skapa** en ny post som ett exempel.
+1. Välj önskat CRM-system genom att söka efter det där det står **Sök anslutningar och åtgärder**. Välj den på fliken **åtgärder** med åtgärden för att skapa en ny post. Följande skärm bild visar hur du **skapar en ny post (Dynamics 365)** som exempel.
 
     ![Skapa en ny post](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
 
-3. Ange **organisationsnamnet** som är associerat med CRM-systemet. Välj **Leads** i listrutan **Enhetsnamn.**
+1. Ange **organisations namnet** som är kopplat till CRM-systemet. Välj **leads** i list rutan **entitetsnamn** .
 
     ![Välj leads](./media/commercial-marketplace-lead-management-instructions-https/select-leads.png)
 
-4. Flödet visar ett formulär för att tillhandahålla leadinformation. Du kan mappa objekt från indatabegäran genom att välja att lägga till dynamiskt innehåll. Följande skärmdump visar **OfferTitle** som ett exempel.
+1. Energis par visar ett formulär för att tillhandahålla lead-information. Du kan mappa objekt från Indataporten genom att välja att lägga till dynamiskt innehåll. Följande skärm bild visar **OfferTitle** som ett exempel.
 
     ![Lägg till dynamiskt innehåll](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Mappa de fält du vill använda och välj sedan **Spara** för att spara flödet. En HTTP POST-URL skapas och är tillgänglig i fönstret *När en HTTP-begäran tas emot.* Kopiera den här webbadressen med hjälp av kopieringskontrollen som finns till höger om HTTP POST-URL:en - detta är viktigt så att du inte av misstag missar någon del av hela webbadressen. Spara den här webbadressen som du behöver när du konfigurerar leadhantering i publiceringsportalen.
+1. Mappa de fält som du vill använda och välj sedan **Spara** för att spara ditt flöde. En HTTP POST-URL skapas och är tillgänglig i fönstret **när en HTTP-förfrågan tas emot** . Kopiera den här URL: en med hjälp av kopierings kontrollen som finns till höger om HTTP POST-URL: en. Att använda kopierings kontrollen är viktigt så att du inte saknar någon del av hela URL: en. Spara den här URL: en eftersom du behöver den när du konfigurerar hantering av leads i publicerings portalen.
 
-    ![När en HTTP-begäran tas emot.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
+    ![När en HTTP-begäran tas emot](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
-### <a name="to-set-up-email-notification"></a>Så här konfigurerar du e-postmeddelande
+### <a name="set-up-email-notification"></a>Konfigurera e-postavisering
 
-1. Nu när du har slutfört JSON-schemat väljer du **+ Nytt steg**.
-2. Under **Välj en åtgärd**väljer du **Åtgärder**.
-3. Under **Åtgärder**väljer du **Skicka ett e-postmeddelande (Office 365 Outlook)**.
+1. Nu när du har slutfört JSON-schemat väljer du **+ nytt steg**.
+1. Under **Välj en åtgärd**väljer du **åtgärder**.
+1. På fliken **åtgärder** väljer du **Skicka ett e-postmeddelande (Office 365 Outlook)**.
 
-    >[!Note]
-    >Om du vill använda en annan e-postleverantör söka efter och välj *Skicka ett e-postmeddelande (Mail)* som åtgärd i stället.
+    >[!NOTE]
+    >Om du vill använda en annan e-postprovider söker du efter och väljer **Skicka ett e-postmeddelande (e-post)** som åtgärd i stället.
 
-    ![Lägga till en e-poståtgärd](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
+    ![Lägg till en e-poståtgärd](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 
-4. Konfigurera följande obligatoriska fält i **Skicka ett e-postfönster:**
+1. I fönstret **Skicka ett e-postmeddelande** konfigurerar du följande obligatoriska fält:
 
-   - **Till** - Ange minst en giltig e-postadress, där leads kommer att skickas.
-   - **Ämne** - Flow ger dig möjlighet att lägga till dynamiskt innehåll, som **LeadSource** i följande skärmdump. Börja med att skriva in ett fältnamn följt av att klicka på listan för dynamiskt innehåll i popup-fönstret. 
+   - **Till**: ange minst en giltig e-postadress dit leads ska skickas.
+   - **Subject**: med energi alternativ får du möjlighet att lägga till dynamiskt innehåll, t. ex. **LeadSource** som visas på följande skärm bild. Börja med att ange ett fält namn. Välj sedan listan över dynamiskt innehåll i listan från popup-fönstret. 
 
-        >[!Note] 
-        > När du lägger till fältnamn kan du följa var och en med en ":" och sedan ange för att skapa en ny rad. När du har lagt till dina fältnamn kan du sedan lägga till varje associerad parameter från den dynamiska plocklistan.
+        >[!NOTE] 
+        > När du lägger till fält namn kan du följa varje namn med ett kolon (:) och välj sedan **RETUR** för att skapa en ny rad. När du har lagt till dina fält namn kan du lägga till varje associerad parameter från den dynamiska plock listan.
 
-        ![Lägga till en e-poståtgärd med dynamiskt innehåll](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
+        ![Lägg till en e-poståtgärd med hjälp av dynamiskt innehåll](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Brödtext** - Lägg till den information du vill ha i brödtexten i e-postmeddelandet i listan Över dynamiskt innehåll. Till exempel Efternamn, Förnamn, E-post och Företag. <br> <br> När du är klar med att konfigurera e-postmeddelandet ser det ut som exemplet i följande skärmdump.
+   - **Brödtext**: Lägg till den information som du vill ha i e-postmeddelandets brödtext i listan med dynamiskt innehåll. Använd till exempel LastName, FirstName, E-mail och Company. När du är klar med att konfigurera e-postmeddelandet ser det ut som exemplet på följande skärm bild.
 
 
-       ![Lägga till en e-poståtgärd](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
+       ![Exempel på e-postavisering](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Välj **Spara** för att slutföra flödet. En HTTP POST-URL skapas och är tillgänglig i fönstret *När en HTTP-begäran tas emot.* Kopiera den här webbadressen med hjälp av kopieringskontrollen som finns till höger om HTTP POST-URL:en - detta är viktigt så att du inte av misstag missar någon del av hela webbadressen. Spara den här webbadressen som du behöver när du konfigurerar leadhantering i publiceringsportalen.
+1. Välj **Spara** för att slutföra ditt flöde. En HTTP POST-URL skapas och är tillgänglig i fönstret **när en HTTP-förfrågan tas emot** . Kopiera den här URL: en med hjälp av kopierings kontrollen som finns till höger om HTTP POST-URL: en. Att använda den här kontrollen är viktigt så att du inte saknar någon del av hela URL: en. Spara den här URL: en eftersom du behöver den när du konfigurerar hantering av leads i publicerings portalen.
 
-   ![URL FÖR HTTP-INLÄGG ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
+   ![HTTP POST-URL](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
 ### <a name="testing"></a>Testning
 
-Du kan testa att allt fungerar som förväntat med hjälp av följande steg med hjälp av ett verktyg som heter [Postman](https://app.getpostman.com/app/download/win64), som kan laddas ner online. Detta är tillgängligt för Windows. 
+Du kan testa att allt fungerar som förväntat genom att använda ett verktyg som kallas [Postman](https://app.getpostman.com/app/download/win64), som kan hämtas online. Det här verktyget är tillgängligt för Windows. 
 
-1. Starta Postman och välj **Ny** > **begäran för** att ställa in testverktyget. 
+1. Starta Postman och välj **ny** > **begäran** för att ställa in ditt test verktyg. 
 
-   ![Begäran om att ställa in testverktyget](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
+   ![Förfrågan om att ställa in ditt test verktyg](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
-2. Fyll i formuläret *Spara begäran* och **spara** sedan i mappen som du skapade.
+1. Fyll i formuläret **Spara begäran** och spara sedan i den mapp som du skapade.
 
-   ![Spara begäran](./media/commercial-marketplace-lead-management-instructions-https/postman-save-to-test.png)
+   ![Formulär för att spara begäran](./media/commercial-marketplace-lead-management-instructions-https/postman-save-to-test.png)
 
-3. Välj **POST** i listrutan. 
+1. Välj **post** från den nedrullningsbara listan. 
 
    ![Testa mitt flöde](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Klistra in HTTP POST-URL:en från flödet som du skapade i Power Automate där det står *Retur-url för begäran*.
+1. Klistra in HTTP POST-URL: en från flödet som du skapade i energi spar läge där det står **Retur-URL**.
 
-   ![Klistra in HTTP POST-URL:en](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
+   ![Klistra in URL: en för HTTP-POST](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
-5. Gå tillbaka till [Flow](https://flow.microsoft.com/) och hitta flödet du skapade för att skicka leads genom att gå till **Mina flöden** från Flow-menyraden.  Markera de tre punkterna bredvid flödesnamnet och välj **Redigera**.
+1. Gå tillbaka till [Energis par automatisering](https://flow.microsoft.com/). Hitta det flöde som du skapade för att skicka leads genom att gå till **mina flöden** från meny raden för att automatisera snabb start. Välj ellipsen bredvid flödes namnet för att se fler alternativ och välj **Redigera**.
 
-   ![Mina flöden - Redigera](./media/commercial-marketplace-lead-management-instructions-https/my-flows-edit.png)
 
-6. Välj **Testa** i det övre högra hörnet, välj "Jag utför utlösaråtgärden" och välj sedan **Testa**. Du kommer att se en indikation högst upp på skärmen som anger att testet har startat
+1. Välj **test** i det övre högra hörnet, Välj **Jag vill utföra utlösnings åtgärden**och välj sedan **testa**. Du ser en indikering överst på skärmen som testet har startat.
 
-   ![Testflöde - utlösare](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
+   ![Jag utför alternativet utlösnings åtgärd](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 
-7. Gå tillbaka till postman-appen och välj **Skicka** bredvid den plats där du klistrade in HTTPS-URL:en.
+1. Gå tillbaka till din Postman-app och välj **Skicka**.
 
-   ![Testa mitt flöde - Skicka](./media/commercial-marketplace-lead-management-instructions-https/postman-send.png)
+   ![Knappen Skicka](./media/commercial-marketplace-lead-management-instructions-https/postman-send.png)
 
-8. Gå tillbaka till ditt flöde och kontrollera resultatet. Om allt fungerar som förväntat kommer du att se ett meddelande som anger att det lyckades.
+1. Gå tillbaka till ditt flöde och kontrol lera resultatet. Om allt fungerar som förväntat visas ett meddelande som anger att flödet lyckades.
 
-   ![Flöde - Kontrollera resultat](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
+   ![Kontrol lera resultat](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
 
-9. Du borde också ha fått ett e-postmeddelande. Kontrollera din e-post inkorg. 
+1. Du bör också ha fått ett e-postmeddelande. Kontrol lera din e-postinkorg. 
 
-    >[!Note] 
-    >Om du inte ser ett e-postmeddelande från testet, kontrollera sedan din spam och skräp mappar. Nedan kommer du att märka bara de fältetiketter du lagt till när du konfigurerar e-postmeddelandet. Om detta var ett verkligt lead som genereras från ditt erbjudande, skulle du också se den faktiska informationen från leadkontakten i brödtexten och i ämnesraden.
+    >[!NOTE] 
+    >Om du inte ser ett e-postmeddelande från testet kontrollerar du mapparna spam och skräp post. I följande skärm ser du bara fält etiketterna som du lade till när du konfigurerade e-postmeddelandet. Om detta var ett faktiskt lead som genererats från ditt erbjudande, skulle du också se den faktiska informationen från lead-kontakten i bröd texten och på ämnes raden.
 
-   ![Mottaget e-postmeddelande](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
+   ![E-post mottagen](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurera erbjudandet för att skicka leads till HTTPS-slutpunkten
+## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurera ditt erbjudande för att skicka leads till HTTPS-slutpunkten
 
-När du är redo att konfigurera leadhanteringsinformationen för ditt erbjudande i publiceringsportalen följer du stegen nedan:
+När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du de här stegen.
 
-1. Navigera till **inställningssidan** för Erbjudandet för ditt erbjudande.
-2. Välj **Anslut** under avsnittet LeadHantering.
-3. I popup-fönstret Anslutningsinformation väljer du **HTTPS-slutpunkt** för **leadmålet** och klistrar in HTTP POST-URL:en från flödet som du skapade genom att följa tidigare steg i **HTTPS-slutpunkts-URL-fältet.**
-4. **Kontakta e-post** - Ge e-post till personer i ditt företag som ska få e-postmeddelanden när ett nytt lead tas emot. Du kan tillhandahålla flera e-postmeddelanden genom att separera dem med ett semikolon.
-5. Välj **OK**.
+1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
+1. Välj **Anslut** under avsnittet **ledar hantering** .
+1. I popup-fönstret **anslutnings information** väljer du https- **slutpunkt** för lead- **målet**. Klistra in HTTP POST-URL: en från flödet som du skapade genom att följa tidigare steg i URL-fältet för **https-slutpunkt** .
+1. Under **Kontakta e-postadress**anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
+1. Välj **OK**.
 
-Om du vill vara säker på att du har anslutit till ett leadmål klickar du på knappen validera. Om det lyckas kommer du att ha en testledning i leaddestinationen.
+Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
 
->[!Note] 
->Du måste slutföra konfigurationen av resten av erbjudandet och publicera det innan du kan ta emot leads för erbjudandet.
+>[!NOTE] 
+>Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet.
 
-När leads genereras skickar Microsoft leads till flödet, som dirigeras till CRM-systemet eller e-postadressen som du har konfigurerat.
+När leads genereras skickar Microsoft leads till flödet. Leads dirigeras till CRM-systemet eller e-postadressen som du har konfigurerat.
 
-![Leadhantering - anslut](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+![Knappen Anslut till ledar hantering](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
 
-![Anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
+![Anslutnings information för lead-destination](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+![Anslutnings information kontakta e-post](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

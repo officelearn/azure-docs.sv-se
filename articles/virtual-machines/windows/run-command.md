@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: a0125c556789b1a1a5b11dcd16b852d7f57b6c50
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099877"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143780"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med hjälp av kommandot kör
 
@@ -58,7 +58,7 @@ The entity was not found in this Azure location
 |**EnableAdminAccount**|Kontrollerar om det lokala administratörs kontot är inaktiverat och om så är möjligt.|
 |**Config**| Visar detaljerad information om IP-adressen, nät masken och standard-gatewayen för varje nätverkskort som är kopplat till TCP/IP.|
 |**RDPSettings**|Kontrollerar register inställningar och domän princip inställningar. Föreslår princip åtgärder om datorn tillhör en domän eller ändrar inställningarna till standardvärdena.|
-|**ResetRDPCert**|Tar bort SSL-certifikatet som är kopplat till RDP-lyssnaren och återställer RDP-lyssnings säkerheten till standard. Använd det här skriptet om du ser några problem med certifikatet.|
+|**ResetRDPCert**|Tar bort TLS/SSL-certifikatet som är kopplat till RDP-lyssnaren och återställer RDP Listener Security till standard. Använd det här skriptet om du ser några problem med certifikatet.|
 |**SetRDPPort**|Anger standard port numret eller det användardefinierade port numret för fjärr skrivbords anslutningar. Aktiverar brand Väggs regler för inkommande åtkomst till porten.|
 
 ## <a name="azure-cli"></a>Azure CLI

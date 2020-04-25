@@ -1,88 +1,88 @@
 ---
-title: Uppdatera ett befintligt Azure Containers-erbjudande | Azure Marketplace
-description: Så här uppdaterar du ett befintligt behållarerbjudande på Azure Marketplace.
+title: Uppdatera ett befintligt erbjudande för Azure-behållare | Azure Marketplace
+description: Så här uppdaterar du ett befintligt behållar erbjudande på Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 650ef45e56184b67efba67810580d9d6e763a4d0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: cc378dcc1d5f777f4e81825e2f99dedd37a87f96
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271275"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143808"
 ---
-# <a name="update-an-existing-container-offer"></a>Uppdatera ett befintligt behållarerbjudande
+# <a name="update-an-existing-container-offer"></a>Uppdatera ett befintligt container erbjudande
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Container-erbjudande](https://aka.ms/CreateContainerOffer) för att hantera dina migrerade erbjudanden.
+> Från den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett Azure Container-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) för att hantera dina migrerade erbjudanden.
 
-Den här artikeln går igenom de olika aspekterna av att uppdatera ditt behållarerbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/).
+I den här artikeln beskrivs olika aspekter av att uppdatera behållar erbjudandet i [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-Det finns flera anledningar till varför du kanske vill uppdatera erbjudandet, till exempel:
+Det finns flera orsaker till varför du kanske vill uppdatera erbjudandet, till exempel:
 
--  Lägga till en ny behållaravbildningsversion i befintliga SKU:er.
--  Lägga till nya SKU: er.
--  Uppdaterar marknadsplatsmetadata för erbjudandet eller enskilda SKU:er.
+-  Lägga till en ny behållar avbildnings version i befintliga SKU: er.
+-  Lägger till nya SKU: er.
+-  Uppdaterar Marketplace-metadata för erbjudandet eller enskilda SKU: er.
 
-För att hjälpa dig med dessa ändringar tillhandahåller portalen funktionerna **Jämför** och **historik.**  
+För att hjälpa dig i dessa ändringar tillhandahåller portalen funktionerna **Jämför** och **Historik** .  
 
 
-## <a name="unpermitted-changes-to-a-container-offer-or-sku"></a>Otillåtna ändringar i ett behållarerbjudande eller SKU
+## <a name="unpermitted-changes-to-a-container-offer-or-sku"></a>Otillåtna ändringar i ett behållar erbjudande eller SKU
 
-Det finns attribut för ett behållarerbjudande eller SKU som inte kan ändras när erbjudandet är live på Azure Marketplace. Du kan inte ändra följande inställningar:
+Det finns attribut för ett behållar erbjudande eller SKU som inte kan ändras när erbjudandet är aktivt på Azure Marketplace. Du kan inte ändra följande inställningar:
 
--  **Erbjudande-ID** och **Utgivar-ID** för erbjudandet
--  **SKU-ID** för befintliga SKU:er
--  Versionstaggar, till exempel:`1.0.1`
--  Ändringar av fakturerings-/licensmodell till befintliga SKU:er
+-  Erbjudandets **ID** och **utgivar-ID**
+-  **SKU-ID** för befintliga SKU: er
+-  Versions taggar, till exempel:`1.0.1`
+-  Ändringar i fakturering/licens modell för befintliga SKU: er
 
-## <a name="common-update-operations"></a>Vanliga uppdateringsåtgärder
+## <a name="common-update-operations"></a>Vanliga uppdaterings åtgärder
 
-Följande uppdateringsåtgärder är vanliga.
+Följande uppdaterings åtgärder är vanliga.
 
-### <a name="update-container-image-version-for-a-sku"></a>Uppdatera behållaravbildningsversion för en SKU
+### <a name="update-container-image-version-for-a-sku"></a>Uppdatera behållar avbildnings version för en SKU
 
-Det är vanligt att en behållaravbildning uppdateras regelbundet med säkerhetskorrigeringar, ytterligare funktioner och så vidare. I det här fallet vill du uppdatera behållaravbildningen som SKU refererar till med hjälp av följande steg:
+Det är vanligt att en behållar avbildning uppdateras regelbundet med säkerhets korrigeringar, ytterligare funktioner och så vidare. I det här scenariot vill du uppdatera behållar avbildningen som din SKU refererar till med hjälp av följande steg:
 
-1. Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
-2. Under **Alla erbjudanden**hittar du det erbjudande du vill uppdatera.
-3. På fliken **SKU väljer** du den SKU som är associerad med behållaravbildningen som ska uppdateras.
-4. Under **Behållaravbildning**väljer du **+ Ny bildversion** om du vill lägga till en ny behållaravbildning.
-5. Ange de nya **behållaravbildningsversionerna**. Bildversionen måste följa samma riktlinjer för taggar som tidigare versioner. Versionstaggar ska vara av formuläret X.Y.Z, där X, Y och Z är heltal. Kontrollera att den nya versionen du anger är större än alla tidigare versioner.
-6. Välj **Publicera om** du vill starta arbetsflödet om du vill publicera den nya behållaravbildningsversionen på Azure Marketplace.
+1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2. Under **alla erbjudanden**hittar du det erbjudande du vill uppdatera.
+3. På fliken **SKU: er** väljer du den SKU som är kopplad till behållar avbildningen som ska uppdateras.
+4. Under **behållar avbildning**väljer du **+ ny avbildnings version** för att lägga till en ny behållar avbildning.
+5. Ange de nya behållar **avbildnings versionerna**. Avbildnings versionen måste följa rikt linjerna för taggar som tidigare versioner. Versions Taggar ska vara av formatet X. Y. Z, där X, Y och Z är heltal. Kontrol lera att den nya version som du anger är större än alla tidigare versioner.
+6. Välj **publicera** för att starta arbets flödet för att publicera den nya behållar avbildnings versionen på Azure Marketplace.
 
-### <a name="add-a-new-sku"></a>Lägga till en ny SKU
+### <a name="add-a-new-sku"></a>Lägg till en ny SKU
 
-Gör en ny SKU tillgänglig för ditt erbjudande:
+Använd följande steg för att göra en ny SKU tillgänglig för ditt erbjudande:
 
-1. Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
-2. Under **Alla erbjudanden**hittar du det erbjudande du vill uppdatera.
-3. Under fliken **SKU** väljer du **Lägg till ny SKU** och anger ett **SKU-ID** i popup-fönstret.
-4. Publicera om behållaren med hjälp av stegen som beskrivs i [Erbjudandet publicera behållare](./cpp-publish-offer.md).
-5. Välj **Publicera om** du vill starta arbetsflödet om du vill publicera den nya SKU:n.
+1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2. Under **alla erbjudanden**hittar du det erbjudande du vill uppdatera.
+3. Under fliken **SKU: er** väljer du **Lägg till ny SKU** och anger ett **SKU-ID** i popup-fönstret.
+4. Publicera om behållaren med hjälp av stegen som beskrivs i [publicera container erbjudande](./cpp-publish-offer.md).
+5. Välj **publicera** för att starta arbets flödet för att publicera den nya SKU: n.
 
-### <a name="update-offer-marketplace-metadata"></a>Uppdatera metadata för erbjudandemarknadsplats
+### <a name="update-offer-marketplace-metadata"></a>Uppdatera metadata för Marketplace för erbjudande
 
-Följ följande steg för att uppdatera marketplace-metadata som är associerade med ditt erbjudande. (Till exempel: företagsnamn, logotyper och etc.)
+Använd följande steg för att uppdatera Marketplace-metadata som är kopplade till ditt erbjudande. (Till exempel: företags namn, logo typer och så vidare)
 
-1. Logga in på [Molnpartnerportalen](https://cloudpartner.azure.com/).
-2. Under **Alla erbjudanden**hittar du det erbjudande du vill uppdatera.
-3. Gå till fliken **Marketplace.** Använd instruktionerna i erbjudandeartikeln [Publicera behållare](./cpp-publish-offer.md) för att göra metadataändringar.
-4. Välj **Publicera om** du vill starta arbetsflödet om du vill publicera ändringarna.
+1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+2. Under **alla erbjudanden**hittar du det erbjudande du vill uppdatera.
+3. Gå till **Marketplace** -fliken. Följ anvisningarna i artikeln [publicera container erbjudandet](./cpp-publish-offer.md) för att göra ändringar i metadata.
+4. Klicka på **publicera** för att starta arbets flödet för att publicera ändringarna.
 
 ## <a name="compare-feature"></a>Jämför funktion
 
-När du gör ändringar i ett publicerat erbjudande kan du använda funktionen **Jämför** för att granska de ändringar du har gjort.
+När du gör ändringar i ett publicerat erbjudande kan du använda funktionen **Jämför** för att granska de ändringar som du har gjort.
 
-### <a name="to-use-the-compare-feature"></a>Så här använder du funktionen Jämför:
+### <a name="to-use-the-compare-feature"></a>Så här använder du funktionen compare:
 
-1. När som helst i redigeringsprocessen väljer du Jämför för ditt erbjudande.
-2. Titta på sida vid sida-versioner av marknadsföringstillgångar och metadata.
+1. Välj jämför för ditt erbjudande när som helst i redigerings processen.
+2. Titta på sida-vid-sida-versioner av marknadsförings till gångar och metadata.
 
 
-## <a name="history-of-publishing-actions"></a>Historia av publicerande handlingar
+## <a name="history-of-publishing-actions"></a>Historik för publicerings åtgärder
 
-Om du vill visa historisk publiceringsaktivitet väljer du fliken **Historik** på den vänstra navigeringsmenyraden i Cloud Partner Portal. Du kan se de tidsstämplade åtgärder som vidtagits under livstiden för dina Azure Marketplace-erbjudanden.
+Om du vill se historisk publicerings aktivitet väljer du fliken **Historik** i det vänstra navigerings meny fältet i Cloud Partner Portal. Du kan se de tidsstämplade åtgärderna som vidtagits under livs längden för dina Azure Marketplace-erbjudanden.

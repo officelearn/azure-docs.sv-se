@@ -1,32 +1,32 @@
 ---
-title: Skapa tekniska resurser för ett Power BI App-erbjudande | Azure Marketplace
-description: Lista de tekniska resurser som krävs för att publicera ett Power BI-apperbjudande på Microsoft AppSource Marketplace.
+title: Skapa tekniska till gångar för ett erbjudande för Power BI app | Azure Marketplace
+description: Lista de tekniska till gångar som krävs för att publicera ett Power BI app-erbjudande på Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 90317591b2666f48363c2ee636e36822e2083ed3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1d67bd46cfc961e14ec1e1eb95fbc2d748b8a629
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984818"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143087"
 ---
-# <a name="create-power-bi-app-offer-technical-assets"></a>Skapa tekniska resurser för Power BI App-erbjudande
+# <a name="create-power-bi-app-offer-technical-assets"></a>Skapa Power BI app erbjud tekniska till gångar
 
 >[!Important]
->Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
+>Från och med 13 april 2020 börjar vi flytta hanteringen av dina Power BI app-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Power BI översikt över skapande av appar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) för att hantera dina migrerade erbjudanden.
 
-Den primära tekniska tillgång som du behöver för den här erbjudandetypen är en Power BI-app. En Power BI-app är en samling primära datauppsättningar, rapporter eller instrumentpaneler och valfria anslutna tjänster och inbäddade datauppsättningar. Det har utvecklats från en tillgångstyp som tidigare kallades ett [innehållspaket](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Mer information om hur du utvecklar den här typen av app finns i [Vad är Power BI-mallappar?](https://go.microsoft.com/fwlink/?linkid=2028636).
+Den primära tekniska till gången som du behöver för den här erbjudande typen är en Power BI app. En Power BI app är en samling primära data uppsättningar, rapporter eller instrument paneler och valfria anslutna tjänster och inbäddade data uppsättningar. Den har utvecklats från en till gångs typ som tidigare kallades ett [innehålls paket](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). För ytterligare information om hur du utvecklar den här typen av app, se [Vad är Power BI mallar för appar?](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
-## <a name="obtain-an-installation-url"></a>Skaffa en installations-URL
+## <a name="obtain-an-installation-url"></a>Hämta en installations-URL
 
-Du kan bara skapa en Power BI-app i [Power BI-tjänsten](https://powerbi.microsoft.com/). Till att börja med loggar du in med en [Power BI Pro-licens](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). När du har skapat och testat ditt tjänstprogram i Power BI sparar du webbadressen till appinstallationen som Power BI genererar. Ange slutligen webbadressen på fliken [Teknisk information](./cpp-technical-info-tab.md) i formuläret För inlämning av Cloud Partner Portal.
+Du kan bara bygga en Power BI app inom [Power BI-tjänst](https://powerbi.microsoft.com/). Du börjar med att logga in med en [Power BI Pro-licens](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). När du har skapat och testat ditt tjänst program i Power BI sparar du den URL för appens installation som Power BI genererar. Ange slutligen URL: en på fliken [teknisk information](./cpp-technical-info-tab.md) i formuläret för Cloud Partner Portal sändning.
  
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat och testat Power BI-appen och skapat det associerade erbjudandet kan du [publicera Power BI App-erbjudandet](./cpp-publish-offer.md). 
+När du har skapat och testat din Power BI-app och du har skapat det tillhör ande erbjudandet kan du [publicera det Power BI app-erbjudandet](./cpp-publish-offer.md). 

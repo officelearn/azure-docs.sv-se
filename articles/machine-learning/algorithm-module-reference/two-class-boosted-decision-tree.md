@@ -1,78 +1,88 @@
 ---
-title: 'Tvåklassade förstärkta beslutsträd: Modulreferens'
+title: 'Besluts träd med två klasser: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Tvåklassad marknadsförd beslutsträd i Azure Machine Learning för att skapa en maskininlärningsmodell som baseras på algoritmen för marknadsförda beslutsträd.
+description: Lär dig hur du använder den två klassbaserade modulen för besluts träd i Azure Machine Learning för att skapa en maskin inlärnings modell som baseras på algoritmen för bättre besluts träd.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 1d144a48f79e59b35c88c5b338747d3186ebceda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920747"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137662"
 ---
-# <a name="two-class-boosted-decision-tree-module"></a>Tvåklassad förstärkt beslutsträdmodul
+# <a name="two-class-boosted-decision-tree-module"></a>Modul för besluts träd med två klasser
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd den här modulen för att skapa en maskininlärningsmodell som baseras på algoritmen för förstärkta beslutsträd. 
+Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för besluts träd. 
 
-Ett förstärkt beslutsträd är en ensemble inlärningsmetod där det andra trädet korrigerar för fel i det första trädet, korrigerar det tredje trädet för felen i första och andra träd, och så vidare.  Förutsägelser är baserade på hela ensemblen av träd tillsammans som gör förutsägelse.
+Ett utökat besluts träd är en ensemble-utbildnings metod där det andra trädet korrigerar fel i det första trädet, och det tredje trädet korrigeras för felen i de första och andra träden och så vidare.  Förutsägelser baseras på hela ensemblen för träd som utgör förutsägelsen.
   
-När de är korrekt konfigurerade är förstärkta beslutsträd de enklaste metoderna för att få högsta prestanda på en mängd olika maskininlärningsuppgifter. Men de är också en av de mer minnesintensiva eleverna, och den nuvarande implementeringen har allt i minnet. Därför kanske en förstärkt beslutsträdmodell inte kan bearbeta de stora datauppsättningar som vissa linjära elever kan hantera.
+När rätt konfigurerade besluts träd är korrekt konfigurerade är de enkla metoder som du kan använda för att få bästa prestanda på en mängd olika Machine Learning-uppgifter. De är dock också en av de mer minnes intensiva eleverna och den aktuella implementeringen innehåller allt i minnet. Därför kanske en bättre besluts träd modell inte kan bearbeta de stora data mängderna som vissa linjära lärare kan hantera.
 
-## <a name="how-to-configure"></a>Konfigurerar du
+## <a name="how-to-configure"></a>Så här konfigurerar du
 
-Den här modulen skapar en otränad klassificeringsmodell. Eftersom klassificering är en övervakad inlärningsmetod behöver du en *taggad datauppsättning* som innehåller en etikettkolumn med ett värde för alla rader för att träna modellen.
+Den här modulen skapar en modell som inte är tränad. Eftersom klassificeringen är en övervakad inlärnings metod behöver du en *Taggad data uppsättning* som innehåller en etikett kolumn med ett värde för alla rader för att träna modellen.
 
-Du kan träna den här typen av modell med hjälp av [Tågmodell](././train-model.md). 
+Du kan träna den här typen av modell med hjälp av [träna modell](././train-model.md). 
 
-1.  I Azure Machine Learning lägger du till modulen **Marknadsfört beslutsträd** i pipelinen.
+1.  I Azure Machine Learning lägger du till modulen för **besluts träd med högre** till din pipeline.
   
-2.  Ange hur du vill att modellen ska tränas genom att ange alternativet **Skapa träningsläge.**
+2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
   
-    + **Enkel parameter:** Om du vet hur du vill konfigurera modellen kan du ange en specifik uppsättning värden som argument.
+    + **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
   
-    + **Parameterintervall:** Om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [Tune Model Hyperparameters.](tune-model-hyperparameters.md) Du anger ett visst värdeintervall och tränaren itererar över flera kombinationer av inställningarna för att bestämma vilken kombination av värden som ger bäst resultat.
+    + **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
   
-3.  För **Maximalt antal löv per träd**anger du det maximala antalet terminalnoder (löv) som kan skapas i valfritt träd.
+3.  För **maximalt antal löv per träd**, anger du det maximala antalet terminalservrar (löv) som kan skapas i alla träd.
   
-     Genom att öka detta värde, du potentiellt öka storleken på trädet och få bättre precision, med risk för övermontering och längre träningstid.
+     Genom att öka det här värdet kan du öka storleken på trädet och få bättre precision vid överanpassning och längre inlärnings tid.
   
-4.  För **Minsta antal prover per bladnod**anger du hur många fall som krävs för att skapa en terminalnod (löv) i ett träd.  
+4.  För **minsta antal exempel per lövnod**, anger du antalet fall som krävs för att skapa en terminalserversession (löv) i ett träd.  
   
-     Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler. Till exempel med standardvärdet 1 kan även ett enskilt ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste utbildningsdata innehålla minst fem fall som uppfyller samma villkor.
+     Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler. Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst fem fall som uppfyller samma villkor.
   
-5.  För **Utbildningsfrekvens**skriver du ett tal mellan 0 och 1 som definierar stegstorleken när du lär dig.  
+5.  För **inlärnings hastighet**anger du ett tal mellan 0 och 1 som definierar steg storleken under inlärningen.  
   
-     Inlärningsfrekvensen avgör hur snabbt eller långsamt eleven konvergerar på den optimala lösningen. Om stegstorleken är för stor kan du överskrida den optimala lösningen. Om stegstorleken är för liten tar träningen längre tid att konvergera på den bästa lösningen.
+     Inlärnings frekvensen avgör hur snabbt eller långsamt en elev konvergerar på den optimala lösningen. Om steg storleken är för stor kan du överskrida den optimala lösningen. Om steg storleken är för liten tar inlärningen längre tid att konvergera i den bästa lösningen.
   
-6.  För **Antal byggda träd**anger det totala antalet beslutsträd att skapa i ensemblen. Genom att skapa fler beslutsträd kan du eventuellt få bättre täckning, men träningstiden kommer att öka.
+6.  Ange det totala antalet besluts träd som ska skapas i ensemblen för **antalet skapade träd**. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
   
-     Det här värdet styr också antalet träd som visas när den tränade modellen visualiseras. Om du vill se eller skriva ut ett enda träd anger du värdet till 1. Men när du gör det produceras bara ett träd (trädet med den ursprungliga uppsättningen parametrar) och inga ytterligare iterationer utförs.
+     Det här värdet styr också antalet träd som visas vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd ställer du in värdet på 1. Men när du gör det skapas endast ett träd (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
   
-7.  För **slumptalsutsäde**anger du eventuellt ett icke-negativt heltal som ska användas som slumpmässigt frövärde. Om du anger ett frö säkerställs reproducerbarhet över körningar som har samma data och parametrar.  
+7.  För **slumpmässigt antal frön**kan du ange ett icke-negativt heltal som ska användas som det slumpmässiga startvärdet. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.  
   
-     Det slumpmässiga fröet ställs som standard in på 0, vilket innebär att det ursprungliga frövärdet erhålls från systemklockan.  Successiva körningar med hjälp av ett slumpmässigt frö kan ha olika resultat.
+     Det slumpmässiga startvärdet anges som standard till 0, vilket innebär att det första startvärdet hämtas från system klockan.  Efterföljande körningar med hjälp av ett slumpmässigt Seed kan ha olika resultat.
   
 
-9. Träna modellen.
+9. Träna modellen:
+
+    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **Skapa trainer-läge** till **En parameter**ansluter du en taggad datauppsättning och modulen [Tågmodell.](./train-model.md)  
+    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Om du skickar ett parameter intervall för att [träna modellen](train-model.md), används bara standardvärdet i listan med en parameter.  
+    > 
+    > Om du skickar en enda uppsättning parameter värden till modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) , ignorerar värdena och använder standardvärdena för eleven när den förväntar sig ett intervall med inställningar för varje parameter.  
+    > 
+    > Om du väljer alternativet **parameter intervall** och anger ett enda värde för en parameter, används det enskilda värdet som du har angett i hela svepet, även om andra parametrar ändras i ett intervall med värden.  
    
 ## <a name="results"></a>Resultat
 
-Efter träningen är klar:
+När utbildningen är klar:
 
-+ Om du vill spara en ögonblicksbild av den tränade modellen väljer du fliken **Utdata** på den högra panelen i **tågmodellmodulen.** Välj ikonen **Registrera datauppsättning** om du vill spara modellen som en återanvändbar modul.
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
-+ Om du vill använda modellen för bedömning lägger du till modul **poängmodell** i en pipeline.
++ Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i en pipeline.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

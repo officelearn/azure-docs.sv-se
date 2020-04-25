@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42abeba310e7a30364f93e998f12129a2d3c1f15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 4226a625918be378b14e14c55fe4dd4ca5c398d5
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114300"
+ms.locfileid: "82136693"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Hantera autentiseringsuppgifter i Azure Automation
 
@@ -41,7 +41,7 @@ Som en del av modulen Azure PowerShell AZ används cmdletarna i följande tabell
 
 ## <a name="activities-used-to-access-credentials"></a>Aktiviteter som används för att få åtkomst till autentiseringsuppgifter
 
-Aktiviteterna i följande tabell används för att komma åt autentiseringsuppgifter i Runbooks och DSC-konfigurationer.
+Aktiviteterna i följande tabell används för att komma åt autentiseringsuppgifter i grafiska runbooks och DSC-konfigurationer. Exempel på hur du kan använda aktiviteter finns [i grafisk redigering i Azure Automation](../automation-graphical-authoring-intro.md#activities).
 
 | Aktivitet | Beskrivning |
 |:--- |:--- |

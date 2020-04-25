@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47fede0726ff1a540a71b9c42ca0c07117865d9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9b3857a5ae845f5cc48464152bb6ca600444c1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331628"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136710"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 
@@ -34,24 +34,24 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | Krav | Beskrivning |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health är en Azure AD Premium-funktion som kräver Azure AD Premium. <br /><br />Mer information finns i [Komma igång med Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />Information om hur du startar en kostnadsfri 30-dagars utvärderingsversion finns i [Starta en utvärderingsversion.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Du måste vara en global administratör i din Azure AD för att komma igång med Azure AD Connect Health |Som standard kan endast globala administratörer installera och konfigurera hälsoagenter för att sätta igång, få åtkomst till portalen och utföra åtgärder i Azure AD Connect Health. Mer information finns i [Administrera Azure AD-katalogen](../fundamentals/active-directory-administer.md). <br /><br /> Du kan använda rollbaserad åtkomstkontroll för att ge andra användare i organisationen åtkomst till Azure AD Connect Health. Mer information finns i [Rollbaserad åtkomstkontroll för Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto. Det kan inte vara ett Microsoft-konto. Mer information finns i [Registrera dig för Azure som organisation](../fundamentals/sign-up-organization.md) |
+| Du måste vara en global administratör i din Azure AD för att komma igång med Azure AD Connect Health |Som standard kan endast globala administratörer installera och konfigurera hälsoagenter för att sätta igång, få åtkomst till portalen och utföra åtgärder i Azure AD Connect Health. Mer information finns i [Administrera Azure AD-katalogen](../fundamentals/active-directory-administer.md). <br /><br /> Du kan använda rollbaserad åtkomstkontroll för att ge andra användare i organisationen åtkomst till Azure AD Connect Health. Mer information finns i [Rollbaserad åtkomstkontroll för Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto. Det kan inte vara ett Microsoft-konto. Mer information finns i [Registrera dig för Azure som en organisation](../fundamentals/sign-up-organization.md) |
 | Azure AD Connect Health Agent installeras på varje målserver | Azure AD Connect Health kräver att hälsotillståndsagenterna är installerade och konfigurerade på målservrarna för att kunna ta emot data och tillhandahålla funktioner för övervakning och analys. <br /><br />För att exempelvis få data från AD FS-infrastrukturen måste agenten installeras på AD FS och proxyservrarna för webbappen. På samma sätt måste agenten installeras på domänkontrollanterna för att hämta data i din lokala AD DS-infrastruktur. <br /><br /> |
 | Utgående anslutning till Azure-tjänstens slutpunkter | Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om du har blockerat utgående anslutningar med Brandväggar kontrollerar du att följande slutpunkter finns med i listan över tillåtna anslutningar. Se [Utgående anslutning för webbadresser](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Utgående anslutningar baserat på IP-adresser | Information om IP-adressbaserad filtrering för brandväggar finns i [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).|
-| TLS-inspektion för utgående trafik filtreras eller inaktiveras | Agentregistreringssteget eller dataöverföringsåtgärderna kan misslyckas om det finns TLS-inspektion eller avslutning för utgående trafik på nätverkslagret. Läs mer om [hur du konfigurerar TLS-inspektion](https://technet.microsoft.com/library/ee796230.aspx) |
-| Brandväggsportar på servern som agenten körs på |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.<br /><br /><li>TCP-port 443</li><li>TCP-port 5671</li> <br />Observera att port 5671 inte längre behövs för den senaste versionen av agenten. Uppgradera till den senaste versionen så att endast port 443 krävs. Läs mer om att [aktivera brandväggsportar](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
-| Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat |Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Till exempel: https:\//sts.contoso.com</li> Läs mer om [hur du konfigurerar IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Om du har en proxy i nätverket, se anmärkningen nedan.|
+| TLS-kontroll för utgående trafik filtreras eller inaktive ras | Det kan hända att agent registrerings steget eller data överförings åtgärderna Miss lyckas om det finns en TLS-kontroll eller upphör för utgående trafik på nätverks lagret. Läs mer om [att konfigurera TLS-kontroll](https://technet.microsoft.com/library/ee796230.aspx) |
+| Brandväggsportar på servern som agenten körs på |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.<br /><br /><li>TCP-port 443</li><li>TCP-port 5671</li> <br />Observera att port 5671 inte längre krävs för den senaste versionen av agenten. Uppgradera till den senaste versionen så att endast port 443 krävs. Läs mer om att [aktivera brandväggsportar](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat |Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Till exempel: https:\//sts.contoso.com</li> Läs mer om [hur du konfigurerar IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Om du har en proxyserver i nätverket kan du läsa Obs!|
 | Kontrollera att PowerShell v4.0 eller senare har installerats | <li>Windows Server 2008 R2 levereras med PowerShell v2.0, vilket inte är tillräckligt för agenten. Uppdatera PowerShell enligt beskrivningen under [Agentinstallation på Windows Server 2008 R2-servrar](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 levereras med PowerShell v3.0, vilket inte är tillräckligt för agenten.  [Uppdatera](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 och senare levereras med en tillräckligt ny version av PowerShell.</li>|
 |Inaktivera FIPS|FIPS stöds inte av Azure AD Connect Health-agenter.|
 
 
 > [!NOTE]
-> Om du har en mycket låst och extremt begränsad miljö, skulle du behöva vitlista webbadresserna som nämns i tjänsten slutpunkt listor nedan utöver de som anges i den tillåtna IE förbättrad säkerhet konfiguration ovan. 
+> Om du har en mycket låst och mycket begränsad miljö behöver du vitlista de URL: er som anges i tjänst slut punkts listorna nedan förutom de som anges i den tillåtna säkerhets konfigurationen för förbättrad säkerhet i IE ovan. 
 >
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Utgående anslutning till Azure-tjänstens slutpunkter
 
- Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om utgående anslutning blockeras med brandväggar kontrollerar du att följande webbadresser inte blockeras som standard. Inaktivera inte säkerhetsövervakning eller inspektion av dessa webbadresser, men tillåt dem som du skulle andra internettrafik. De tillåter kommunikation med Azure AD Connect Health-tjänstslutpunkter. Lär dig hur [du checkar ut inkommande anslutning med Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om utgående anslutning blockeras med hjälp av brand väggar kontrollerar du att följande URL: er inte blockeras som standard. Inaktivera inte säkerhetsövervakning eller inspektion av dessa URL: er, men tillåt dem som andra Internet trafik. De tillåter kommunikation med Azure AD Connect Health tjänst slut punkter. Lär dig hur du [kontrollerar utgående anslutningar med test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Domänmiljö | Nödvändiga Azure-tjänsteslutpunkter |
 | --- | --- |
@@ -138,7 +138,7 @@ För att funktionen Användningsanalys ska kunna samla in och analysera data beh
 <br />   -- **Följande steg krävs bara för primära AD FS-servrar.** -- <br />
 6. Öppna snapin-modulen **AD FS-hantering**. Öppna snapin-modulen för AD FS-hantering genom att klicka på **Start**, peka på **Program**, peka på **Administrationsverktyg** och klicka på **AD FS 2.0 Management**.
 7. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
-8. Klicka på fliken Händelser i dialogrutan Egenskaper för **federationstjänst.** **Events**
+8. I dialog rutan **federationstjänst egenskaper** klickar du på fliken **händelser** .
 9. Markera kryssrutorna **Lyckade granskningar** och **Misslyckade granskningar**.
 10. Klicka på **OK**.
 
@@ -152,7 +152,7 @@ För att funktionen Användningsanalys ska kunna samla in och analysera data beh
 <br />   -- **Följande steg krävs bara för primära AD FS-servrar.** -- <br />
 6. Öppna snapin-modulen **AD FS-hantering** (klicka på Verktyg i Serverhanteraren och välj sedan AD FS-hantering).
 7. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
-8. Klicka på fliken Händelser i dialogrutan Egenskaper för **federationstjänst.** **Events**
+8. I dialog rutan **federationstjänst egenskaper** klickar du på fliken **händelser** .
 9. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Så här aktiverar du granskning för AD FS i Windows Server 2016
@@ -165,7 +165,7 @@ För att funktionen Användningsanalys ska kunna samla in och analysera data beh
 <br />   -- **Följande steg krävs bara för primära AD FS-servrar.** -- <br />
 6. Öppna snapin-modulen **AD FS-hantering** (klicka på Verktyg i Serverhanteraren och välj sedan AD FS-hantering).
 7. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
-8. Klicka på fliken Händelser i dialogrutan Egenskaper för **federationstjänst.** **Events**
+8. I dialog rutan **federationstjänst egenskaper** klickar du på fliken **händelser** .
 9. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**. Detta bör vara aktiverat som standard.
 10. Öppna ett PowerShell-fönstret och kör följande kommando: ```Set-AdfsProperties -AuditLevel Verbose```.
 
@@ -255,12 +255,12 @@ Dessa tjänster bör köras om du har slutfört konfigurationen. Annars startar 
 
 ![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
-### <a name="quick-agent-installation-in-multiple-servers"></a>Snabbagentinstallation på flera servrar
+### <a name="quick-agent-installation-in-multiple-servers"></a>Snabb agent installation på flera servrar
 
-1. Skapa ett användarkonto i Azure AD med ett lösenord.
-2. Tilldela **ägarrollen** för det här lokala AAD-kontot i Azure AD Connect Health via portalen. Följ stegen [här](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Tilldela rollen till alla tjänstinstanser. 
-3. Hämta .exe MSI-filen i den lokala domänkontrollanten för installation.
-4. Kör följande skript till registrering. Ersätt parametrarna med det nya användarkontot som skapats och dess lösenord. 
+1. Skapa ett användar konto i Azure AD med ett lösen ord.
+2. Tilldela **ägar** rollen för det här lokala AAD-kontot i Azure AD Connect Health via portalen. Följ stegen [här](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Tilldela rollen till alla tjänst instanser. 
+3. Hämta MSI-filen för. exe i den lokala domänkontrollanten för installation.
+4. Kör följande skript för att registrera dig. Ersätt parametrarna med det nya användar kontot som skapats och lösen ordet. 
 
 ```powershell
 AdHealthAddsAgentSetup.exe /quiet
@@ -270,14 +270,14 @@ $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
 import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
  
-Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $myCreds
+Register-AzureADConnectHealthADDSAgent -Credential $myCreds
 
 ```
 
-1. När du är klar kan du ta bort åtkomsten för det lokala kontot genom att göra något av följande: 
-    * Ta bort rolltilldelningen för det lokala kontot för AAD Connect Health
-    * Rotera lösenordet för det lokala kontot. 
-    * Inaktivera det lokala AAD-kontot
+1. När du är färdig kan du ta bort åtkomsten för det lokala kontot genom att göra något av följande: 
+    * Ta bort roll tilldelningen för det lokala kontot för AAD Connect Health
+    * Rotera lösen ordet för det lokala kontot. 
+    * Inaktivera lokalt AAD-konto
     * Ta bort det lokala AAD-kontot  
 
 ## <a name="agent-registration-using-powershell"></a>Agentregistrering med PowerShell
@@ -319,7 +319,7 @@ Du kan välja följande alternativ när du konfigurerar Azure AD Connect Health 
 
 > [!NOTE]
 > Du måste starta om alla Azure AD Connect Health Agent-tjänster för att proxyinställningarna ska uppdateras. Kör följande kommando:<br />
-> Omstart-Tjänst AzureADConnectHealth*
+> Restart-service AzureADConnectHealth *
 >
 >
 
@@ -384,9 +384,9 @@ Rollparametern har för närvarande följande värden:
 ## <a name="related-links"></a>Relaterade länkar
 
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Hälsoåtgärder för Azure AD Connect](how-to-connect-health-operations.md)
+* [Azure AD Connect Health-åtgärder](how-to-connect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md)
 * [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md)
 * [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](reference-connect-health-faq.md)
-* [Azure AD Connect-historik för hälsoversion](reference-connect-health-version-history.md)
+* [Azure AD Connect Health versions historik](reference-connect-health-version-history.md)

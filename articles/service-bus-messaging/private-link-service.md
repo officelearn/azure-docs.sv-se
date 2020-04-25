@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116714"
+ms.locfileid: "82141953"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrera Azure Service Bus med en privat Azure-länk (förhands granskning)
 
@@ -25,7 +25,7 @@ Mer information finns i [Vad är en privat Azure-länk?](../private-link/private
 >[!WARNING]
 > Implementering av privata slut punkter kan förhindra att andra Azure-tjänster interagerar med Service Bus.
 >
-> Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
+> Betrodda Microsoft-tjänster stöds inte när du använder virtuella nätverk.
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
 > - Integrering med Azure Event Grid
@@ -85,7 +85,7 @@ Om du redan har ett befintligt namn område kan du skapa en privat slut punkt ge
         
             ![Skapa privat slut punkt – resurs sida](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. Om du väljer **Anslut till en Azure-resurs efter resurs-ID eller alias**följer du dessa steg:
-        1. Ange **resurs-ID** eller **alias**. Det kan vara resurs-ID eller alias som någon har delat med dig.
+        1. Ange **resurs-ID** eller **alias**. Det kan vara det resurs-ID eller alias som någon har delat med dig. Det enklaste sättet att hämta resurs-ID är att navigera till Service Bus namn området i Azure Portal och kopiera del av URI: n som börjar `/subscriptions/`från. Se följande bild för ett exempel. 
         2. För **under resurs för mål**anger du **namnrymd**. Det är den typ av under resurs som din privata slut punkt kan komma åt. 
         3. valfritt Ange ett **meddelande om begäran**. Resurs ägaren ser det här meddelandet vid hantering av privat slut punkts anslutning. 
         4. Välj sedan **Nästa: konfiguration >** knappen längst ned på sidan. 

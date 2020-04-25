@@ -1,6 +1,6 @@
 ---
-title: Integrera loggar med ArcSight med Azure Monitor | Microsoft-dokument
-description: Lär dig hur du integrerar Azure Active Directory-loggar med ArcSight med Azure Monitor
+title: Integrera loggar med ArcSight med Azure Monitor | Microsoft Docs
+description: Lär dig hur du integrerar Azure Active Directory loggar med ArcSight med Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,46 +17,46 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75608388"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129234"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrera Azure Active Directory-loggar med ArcSight med Azure Monitor
 
-[Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) är en SIEM-lösning (Security Information and Event Management) som hjälper dig att upptäcka och svara på säkerhetshot i din plattform. Du kan nu dirigera Azure Active Directory (Azure AD) loggar till ArcSight med Hjälp av Azure Monitor med ArcSight-kopplingen för Azure AD. Med den här funktionen kan du övervaka din klient för säkerhetskompromiss med ArcSight.  
+[Micro Focus-ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) är en lösning för säkerhets informations-och händelse hantering (Siem) som hjälper dig att identifiera och reagera på säkerhetshot på din plattform. Nu kan du dirigera Azure Active Directory (Azure AD)-loggar till ArcSight med Azure Monitor med hjälp av ArcSight-anslutaren för Azure AD. Med den här funktionen kan du övervaka din klient för säkerhets kompromisser med ArcSight.  
 
-I den här artikeln får du lära dig hur du dirigerar Azure AD-loggar till ArcSight med Azure Monitor. 
+I den här artikeln får du lära dig hur du dirigerar Azure AD-loggar till ArcSight med hjälp av Azure Monitor. 
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här funktionen behöver du:
-* En Azure-händelsenav som innehåller Azure AD-aktivitetsloggar. Läs om hur du [streamar dina aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
-* En konfigurerad instans av ArcSight Syslog NG Daemon SmartConnector (SmartConnector) eller ArcSight Load Balancer. Om händelserna skickas till ArcSight Load Balancer skickas de därför till SmartConnector av belastningsutjämnaren.
+* En Azure Event Hub som innehåller Azure AD-aktivitets loggar. Lär dig hur du [strömmar dina aktivitets loggar till en Event Hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+* En konfigurerad instans av ArcSight syslog NG daemon SmartConnector (SmartConnector) eller ArcSight Load Balancer. Om händelserna skickas till ArcSight Load Balancer skickas de därför till SmartConnector av Load Balancer.
 
-Hämta och öppna [konfigurationsguiden för ArcSight SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Den här guiden innehåller de steg du behöver för att installera och konfigurera ArcSight SmartConnector för Azure Monitor. 
+Hämta och öppna [konfigurations guiden för ArcSight-SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Den här guiden innehåller de steg du behöver för att installera och konfigurera ArcSight-SmartConnector för Azure Monitor. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>Integrera Azure AD-loggar med ArcSight
 
-1. Slutför först stegen i avsnittet Förutsättningar i **konfigurationsguiden.** Det här avsnittet innehåller följande steg:
-    * Ange användarbehörigheter i Azure för att säkerställa att det finns en användare med **ägarrollen** för att distribuera och konfigurera kopplingen.
-    * Öppna portar på servern med Syslog NG Daemon SmartConnector, så att den är tillgänglig från Azure. 
-    * Distributionen kör ett Windows PowerShell-skript, så du måste aktivera PowerShell för att köra skript på den dator där du vill distribuera kopplingen.
+1. Slutför först stegen i avsnittet **krav** i konfigurations guiden. Det här avsnittet innehåller följande steg:
+    * Ange användar behörigheter i Azure för att se till att det finns en användare med **ägar** rollen för att distribuera och konfigurera anslutningen.
+    * Öppna portar på servern med syslog NG daemon SmartConnector, så att det går att komma åt från Azure. 
+    * Distributionen kör ett Windows PowerShell-skript, så du måste aktivera PowerShell för att köra skript på den dator där du vill distribuera anslutningen.
 
-2. Följ stegen i avsnittet **Distribuera anslutningsdelen** i konfigurationsguiden för att distribuera kopplingen. I det här avsnittet får du lära dig hur du hämtar och extraherar kopplingen, konfigurerar programegenskaper och kör distributionsskriptet från den extraherade mappen. 
+2. Följ stegen i avsnittet **distribuera anslutnings komponenten** i konfigurations guiden för att distribuera anslutningen. Det här avsnittet beskriver hur du hämtar och extraherar anslutningen, konfigurerar program egenskaper och kör distributions skriptet från den extraherade mappen. 
 
-3. Följ stegen i **verifiera distributionen i Azure** för att kontrollera att anslutningen är konfigurerad och fungerar korrekt. Kontrollera följande:
-    * De nödvändiga Azure-funktionerna skapas i din Azure-prenumeration.
+3. Använd stegen i **Verifiera distributionen i Azure** för att se till att kopplingen är inställd och fungerar som den ska. Kontrollera följande:
+    * De nödvändiga Azure Functions skapas i din Azure-prenumeration.
     * Azure AD-loggarna strömmas till rätt mål. 
-    * Programinställningarna från distributionen sparas i programinställningarna i Azure Function Apps. 
-    * En ny resursgrupp för ArcSight skapas i Azure, med ett Azure AD-program för ArcSight-anslutnings- och lagringskonton som innehåller de mappade filerna i CEF-format.
+    * Program inställningarna från distributionen sparas i program inställningarna i Azure Function-appar. 
+    * En ny resurs grupp för ArcSight skapas i Azure med ett Azure AD-program för ArcSight-anslutningen och lagrings kontona som innehåller de mappade filerna i CEF-format.
 
-4. Slutför slutligen stegen efter distributionen i **konfigurationerna efter distributionen** i konfigurationsguiden. I det här avsnittet beskrivs hur du utför ytterligare konfiguration om du använder en App Service-plan för att förhindra att funktionsapparna går inaktiva efter en timeout-period, konfigurerar direktuppspelning av diagnostikloggar från händelsehubben och uppdaterar SysLog NG Daemon SmartConnector keystore-certifikat för att associera det med det nyskapade lagringskontot.
+4. Slutligen slutför du stegen efter distribution i konfigurations guiden för konfiguration **efter distribution** . I det här avsnittet beskrivs hur du utför ytterligare konfiguration om du är på en App Service plan för att förhindra att funktionen appar går inaktiva efter en tids gräns, konfigurerar strömning av resurs loggar från händelsehubben och uppdaterar SmartConnector för SysLog NG-daemonen för att associera det med det nya lagrings kontot.
 
-5. Konfigurationsguiden förklarar också hur du anpassar anslutningsegenskaperna i Azure och hur du uppgraderar och avinstallerar kopplingen. Det finns också ett avsnitt om prestandaförbättringar, inklusive uppgradering till en [Azure-förbrukningsplan](https://azure.microsoft.com/pricing/details/functions) och konfigurera en ArcSight Load Balancer om händelsebelastningen är större än vad en enda Syslog NG Daemon SmartConnector kan hantera.
+5. I konfigurations guiden beskrivs också hur du anpassar anslutnings egenskaperna i Azure och hur du uppgraderar och avinstallerar anslutningen. Det finns också ett avsnitt om prestanda förbättringar, inklusive uppgradering till en [Azure-förbruknings plan](https://azure.microsoft.com/pricing/details/functions) och konfigurering av en ArcSight-Load Balancer om händelse inläsningen är större än vad en enda syslog ng daemon-SmartConnector kan hantera.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurationsguide för ArcSight SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)
+[Konfigurations guide för ArcSight-SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

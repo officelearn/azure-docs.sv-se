@@ -1,14 +1,14 @@
 ---
 title: Resource Manager-resurs typer som stöds
 description: Ange en lista över resurs typer för resurs hanteraren som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ms.topic: reference
-ms.openlocfilehash: 021a0d595a34bc132aa0e67f2b5485ae9c321ef3
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116646"
+ms.locfileid: "82141900"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -65,6 +65,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/konfigurationer
 - Microsoft. Automation/automationaccounts/Runbooks
+- Microsoft. autonomoussystems/arbets ytor
 - Microsoft. azconfig/configurationstores
 - Microsoft. azureactivedirectory/b2cdirectories
 - Microsoft. azuredata/datacontrollers
@@ -104,6 +105,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Cognition/syntheticsaccounts
 - Microsoft. cognitiveservices/konton
 - Microsoft. Compute/availabilitysets
+- Microsoft. Compute/diskaccesses
 - Microsoft. Compute/diskencryptionsets
 - Microsoft. Compute/disks
 - Microsoft. Compute/Galleri

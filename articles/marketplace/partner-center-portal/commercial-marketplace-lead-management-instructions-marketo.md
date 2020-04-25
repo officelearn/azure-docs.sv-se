@@ -1,91 +1,91 @@
 ---
-title: Konfigurera leadhantering i Marketo | Azure Marketplace
-description: Konfigurera leadhantering för Marketo för Azure marketplace-kunder.
+title: Konfigurera ledar hantering i Marketo | Azure Marketplace
+description: Konfigurera ledar hantering för Marketo för Azure Marketplace-kunder.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 90f42954fd4d7324a7684795fca6ec302411790c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: b142e0ab1aaa242157e207ceecf958be51bb1721
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731102"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133645"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Konfigurera leadhantering i Marketo
+# <a name="configure-lead-management-in-marketo"></a>Konfigurera ledar hantering i Marketo
 
-I den här artikeln beskrivs hur du ställer in ditt Marketo CRM-system för att bearbeta försäljningsleads från ditt marknadsplatserbjudande.
+Den här artikeln beskriver hur du konfigurerar ett Marketo CRM-system för att bearbeta försäljnings leads från ditt kommersiella Marketplace-erbjudande.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Konfigurera ditt Marketo CRM-system
 
 1. Logga in på Marketo.
 
-2. Välj **Design Studio**.
+1. Välj **Design Studio**.
 
     ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
-3.  Välj **Nytt formulär**.
+1.  Välj **nytt formulär**.
 
-    ![Marketo ny form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
+    ![Marketo-nytt formulär](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
-4.  Fyll i de obligatoriska fälten i det nya formuläret och välj sedan **Skapa**.
+1.  Fyll i de obligatoriska fälten i dialog rutan **nytt formulär** och välj sedan **skapa**.
 
-    ![Marketo skapa ny form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
+    ![Skapa nytt formulär på marknaden](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
-5.  Välj **Slutför**på Fältinformation .
+1.  På sidan **fält information** väljer du **Slutför**.
 
-    ![Marketo-slutformulär](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
+    ![Slutför formulär för Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
-6.  Godkänn och stäng.
+1.  Godkänn och Stäng.
 
-7. Välj **Bädda in kod**på fliken *MarketplaceLeadBacked* . 
+1. På fliken **MarketplaceLeadBackend** väljer du **bädda in kod**. 
 
-    ![Bädda in kod](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
+    ![Marketo Inbäddnings kod](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
-8. Marketo Embed Code visar kod som liknar följande exempel.
+1. Marketo Inbäddnings kod visar kod som liknar följande exempel.
 
     ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-9. Kopiera värdena för fälten nedan som visas i formuläret Bädda in kod. Du kommer att använda dessa värden för att konfigurera erbjudandet för att ta emot leads i nästa steg. Använd nästa exempel som en guide för att få de ID:er du behöver från exemplet Marketo Embed Code.
+1. Kopiera värdena för följande fält som visas i Inbäddnings kod formuläret. Du använder dessa värden för att konfigurera erbjudandet att ta emot leads i nästa steg. Använd nästa exempel som en guide för att hämta de ID: n du behöver från Marketo embed-kod exemplet.
 
     - Server-ID = **ys12**
-    - Munchkin ID = **123-PQR-789**
+    - Munchkin-ID = **123-PQR-789**
     - Formulär-ID = **1179**
 
-    **Ett annat sätt att räkna ut dessa värden**
+    Ett annat sätt att räkna ut dessa värden:
 
-    - Server-ID finns i URL:en för din Marketo-instans, till exempel " ".`serverID.marketo.com`
-    - Få din prenumerations Munching ID genom att gå till din Admin>Munchkin menyn i "Munchkin Konto-ID" fält, eller `https://{Munchkin ID}.mktorest.com`från den första delen av din Marketo REST API värd underdomän: .
-    - Formulär-ID är ID för formuläret Bädda in kod som du skapade i steg 7 för att dirigera leads från vår marknadsplats.
+    - Server-ID finns i URL: en för din Marketo-instans, till exempel `serverID.marketo.com`.
+    - Hämta din prenumerations Munchkin-ID genom att gå till din **Administratörs** > **Munchkin** -meny i fältet **Munchkin konto-ID** eller från den första delen av Marketo REST API värd under domän `https://{Munchkin ID}.mktorest.com`:.
+    - Formulär-ID är ID för Inbäddnings kod formuläret som du skapade i steg 7 för att dirigera leads från Marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Konfigurera ditt erbjudande för att skicka leads till Marketo
 
-När du är redo att konfigurera leadhanteringsinformationen för erbjudandet i publiceringsportalen gör du så här: 
+När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du de här stegen. 
 
-1. Navigera till **inställningssidan** för Erbjudandet för ditt erbjudande.
+1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
 
-1. Välj **Anslut** under avsnittet LeadHantering. 
+1. Välj **Anslut** under avsnittet **ledar hantering** . 
 
-    ![Leadhantering - Anslut](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    ![Knappen Anslut till hanterings avsnitt för lead](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
-1. I popup-fönstret Anslutningsinformation väljer du **Marketo** för leaddestinationen.
+1. Välj **Marketo** för **lead-målet**i popup-fönstret **anslutnings information** .
 
-    ![Välj en leaddestination](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
+    ![Välj ett mål för lead](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-4. Ange **server-ID,** **Mumskonto-ID**och **formulär-ID**.
+1. Ange **Server-ID**, **Munchkin-konto-ID**och **formulär-ID**.
 
-    > [!Note]
-    > Du måste slutföra konfigurationen av resten av erbjudandet och publicera det innan du kan ta emot leads för erbjudandet. 
+    > [!NOTE]
+    > Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet. 
 
-5. **Kontakta e-post** - Ge e-post till personer i ditt företag som ska få e-postmeddelanden när ett nytt lead tas emot. Du kan tillhandahålla flera e-postmeddelanden genom att separera dem med ett semikolon.
+1. Under **Kontakta e-postadress**anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postadresser genom att avgränsa dem med semikolon.
 
-6. Välj **OK**.
+1. Välj **OK**.
 
-   Om du vill vara säker på att du har anslutit till ett leadmål klickar du på knappen validera. Om det lyckas kommer du att ha en testledning i leaddestinationen.
+   Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
 
-   ![Anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Anslutnings information, popup-fönster](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

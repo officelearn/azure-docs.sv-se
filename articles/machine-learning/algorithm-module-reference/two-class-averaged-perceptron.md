@@ -1,62 +1,72 @@
 ---
-title: 'Beslut Forest Regression: Modul Referens'
+title: 'Besluts skogs regression: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Tvåklass medelvärde perceptron i Azure Machine Learning för att skapa en maskininlärningsmodell baserat på den genomsnittliga perceptronalgoritmen.
+description: Lär dig hur du använder den genomsnittliga Perceptron-modulen med två klasser i Azure Machine Learning för att skapa en Machine Learning-modell som baseras på den genomsnittliga Perceptron-algoritmen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 73e23dd7d350ea63e9fd8b933a525a9d8aad9e3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 53e40726a5745263ee2b3cb4ada8671bf65da963
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920781"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137679"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Medelmodul med medel perceptron i två klasser
+# <a name="two-class-averaged-perceptron-module"></a>Genomsnittlig Perceptron-modul med två klasser
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd den här modulen för att skapa en maskininlärningsmodell baserat på den genomsnittliga perceptronalgoritmen.  
+Använd den här modulen för att skapa en Machine Learning-modell som baseras på den genomsnittliga Perceptron-algoritmen.  
   
-Den här klassificeringsalgoritmen är en övervakad inlärningsmetod och kräver en *taggad datauppsättning*, som innehåller en etikettkolumn. Du kan träna modellen genom att tillhandahålla modellen och den taggade datauppsättningen som en indata till [Train Model](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya indataexemplen.  
+Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en *Taggad data uppsättning*som innehåller en etikett kolumn. Du kan träna modellen genom att tillhandahålla modellen och den taggade data uppsättningen som indata för att [träna modellen](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen.  
 
-### <a name="about-averaged-perceptron-models"></a>Om genomsnittliga perceptronmodeller
+### <a name="about-averaged-perceptron-models"></a>Om Genomsnittligt antal Perceptron-modeller
 
-Den *genomsnittliga perceptron metoden* är en tidig och enkel version av ett neuralt nätverk. I den här metoden är indata indelade i flera möjliga utdata baserat på en linjär funktion och kombineras sedan med en uppsättning vikter som härleds från funktionsvektorn – därav namnet "perceptron".
+Den *genomsnittliga Perceptron-metoden* är en tidig och enkel version av ett neurala-nätverk. I den här metoden klassificeras indata i flera möjliga utdata baserat på en linjär funktion och kombineras sedan med en uppsättning vikter som härleds från funktions vektorn, och därför namnet "Perceptron".
 
-De enklare perceptronmodellerna är anpassade för att lära sig linjärt olika mönster, medan neurala nätverk (särskilt djupa neurala nätverk) kan modellera mer komplexa klassgränser. Perceptrons är dock snabbare, och eftersom de bearbetar ärenden seriellt kan perceptrons användas med kontinuerlig träning.
+De enklare Perceptron-modellerna är lämpliga för inlärning av linjärt särskiljande mönster, medan neurala-nätverk (särskilt djup neurala-nätverk) kan modellera mer komplexa klass gränser. Perceptrons är dock snabbare, och eftersom de behandlar ärenden seriellt kan perceptrons användas med kontinuerlig utbildning.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Konfigurera medel perceptron med två klasser
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Konfigurera genomsnittlig Perceptron i två klasser
 
-1.  Lägg till modulen **Medel perceptron i två klasser** i pipelinen.  
+1.  Lägg till den **genomsnittliga Perceptron-modulen med två klasser** i din pipeline.  
 
-2.  Ange hur du vill att modellen ska tränas genom att ange alternativet **Skapa träningsläge.**  
+2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enkel parameter:** Om du vet hur du vill konfigurera modellen anger du en specifik uppsättning värden som argument.
+    -   **Enskild parameter**: Ange en viss uppsättning värden som argument om du vet hur du vill konfigurera modellen.
 
-    -   **Parameterintervall:** Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra ett parametervep. Välj ett intervall med värden som du vill iterera över, och [Tune Model Hyperparameters itererar](tune-model-hyperparameters.md) över alla möjliga kombinationer av de inställningar du angav för att bestämma de hyperparametrar som ger optimalt resultat.  
+    -   **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
   
-3.  För **utbildningsfrekvens**anger du ett värde för *utbildningsfrekvensen*. Inlärningshastighetsvärdena styr storleken på det steg som används i stokastisk gradientnedstigning varje gång modellen testas och korrigeras.
+3.  För **inlärnings frekvens**anger du ett värde för *inlärnings takten*. Inlärnings takt svärdet styr storleken på det steg som används i Stochastic gradient-brantaste varje gång modellen testas och korrigeras.
   
-     Genom att göra hastigheten mindre testar du modellen oftare, med risk för att du kan fastna i en lokal platå. Genom att göra steget större kan du konvergera snabbare, med risk för att överskrida den sanna minima.
+     Genom att göra hastigheten mindre testar du modellen oftare, med den risk att du kan fastna i en lokal platå. Genom att göra steget större kan du konvergera snabbare, vid risken för att den sanna minimi överskrids.
   
-4.  För **Maximalt antal iterationer**anger du hur många gånger du vill att algoritmen ska undersöka träningsdata.  
+4.  För **maximalt antal iterationer**anger du hur många gånger du vill att algoritmen ska undersöka tränings data.  
   
-     Stoppa tidigt ger ofta bättre generalisering. Öka antalet iterationer förbättrar montering, med risk för övermontering.
+     Att stoppa tidigt ger ofta bättre generalisering. Genom att öka antalet iterationer kan du förbättra anpassningen vid risk för överanpassning.
   
-5.  För **slumptalsutsäde**anger du eventuellt ett heltalsvärde som ska användas som utsände. Användning av ett frö rekommenderas om du vill säkerställa reproducerbarhet av rörledningen över körningar.  
+5.  Om du vill använda **slumpmässigt antal frön**kan du ange ett heltals värde som ska användas som start värde. Vi rekommenderar att du använder ett Dirigerings värde om du vill säkerställa att pipelinen löper över.  
   
-1.  Anslut en träningsdatauppsättning och en av utbildningsmodulerna:
+1.  Anslut en data uppsättning för utbildning och träna modellen:
+
+    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    -   Om du ställer in **Skapa trainer-läge** till **En parameter**använder du modulen [Tågmodell.](train-model.md)
+    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Om du skickar ett parameter intervall för att [träna modellen](train-model.md), används bara standardvärdet i listan med en parameter.  
+    > 
+    > Om du skickar en enda uppsättning parameter värden till modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) , ignorerar värdena och använder standardvärdena för eleven när den förväntar sig ett intervall med inställningar för varje parameter.  
+    > 
+    > Om du väljer alternativet **parameter intervall** och anger ett enda värde för en parameter, används det enskilda värdet som du har angett i hela svepet, även om andra parametrar ändras i ett intervall med värden.
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

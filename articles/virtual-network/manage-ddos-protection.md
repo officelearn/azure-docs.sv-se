@@ -1,7 +1,7 @@
 ---
-title: Hantera Azure DDoS Protection Standard med Azure-portalen
+title: Hantera Azure DDoS Protection standard med hjälp av Azure Portal
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du använder Azure DDoS Protection Standard telemetri i Azure Monitor för att minska en attack.
+description: Lär dig hur du använder Azure DDoS Protection standard telemetri i Azure Monitor för att minimera en attack.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -16,31 +16,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 95a70a1d0c4367adb1dd276bff1b1eb20caafc59
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 454278f0f45a73ec99f52d3f7e9e0c5ce95ecf7a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473379"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133295"
 ---
-# <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection Standard med Azure-portalen
+# <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection standard med hjälp av Azure Portal
 
-Lär dig hur du aktiverar och inaktiverar DDoS-skydd (Distributed Denial of Service) och använder telemetri för att minska en DDoS-attack med Azure DDoS Protection Standard. DDoS Protection Standard skyddar Azure-resurser som virtuella datorer, belastningsutjämnare och programgateways som har en Offentlig [Azure-IP-adress](virtual-network-public-ip-address.md) tilldelad. Mer information om DDoS Protection Standard och dess funktioner finns i [DDoS Protection Standard översikt](ddos-protection-overview.md).
+Lär dig hur du aktiverar och inaktiverar DDoS-skydd (distributed denial of Service) och använder telemetri för att minimera en DDoS-attack med Azure DDoS Protection standard. DDoS Protection standard skyddar Azure-resurser, till exempel virtuella datorer, belastningsutjämnare och programgatewayer som har tilldelats en [offentlig Azure-IP-adress](virtual-network-public-ip-address.md) . Mer information om DDoS Protection standard och dess funktioner finns i [DDoS Protection standard översikt](ddos-protection-overview.md).
 
-Innan du slutför några steg i den här https://portal.azure.com självstudien loggar du in på Azure-portalen med ett konto tilldelat till [nätverksdeltagarens](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas lämpliga åtgärder som anges i [Behörigheter](#permissions).
+Innan du slutför några steg i den här självstudien loggar du in på https://portal.azure.com Azure Portal på med ett konto som tilldelats rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="create-a-ddos-protection-plan"></a>Skapa en DDoS-skyddsplan
+## <a name="create-a-ddos-protection-plan"></a>Skapa en DDoS skydds plan
 
-En DDoS-skyddsplan definierar en uppsättning virtuella nätverk som har DDoS-skyddsstandard aktiverad, över prenumerationer. Du kan konfigurera en DDoS-skyddsplan för din organisation och länka virtuella nätverk från flera prenumerationer till samma plan. Själva DDoS-skyddsplanen är också associerad med en prenumeration som du väljer när planen skapades. DDoS-skyddsplanen fungerar i regioner och prenumerationer. Exempel -du kan skapa planen i Region Öst-USA och länka till prenumeration #1 i din klientorganisation. Samma plan kan länkas till virtuella nätverk från andra prenumerationer i olika regioner, i hela din klientorganisation. Prenumerationen som planen är kopplad till ådrar sig den månatliga återkommande fakturan för planen, samt överutnyttjandeavgifter, om antalet skyddade offentliga IP-adresser överstiger 100. Mer information om DDoS-priser finns i [prisinformation](https://azure.microsoft.com/pricing/details/ddos-protection/).
+En DDoS skydds plan definierar en uppsättning virtuella nätverk som har DDoS Protection standard aktiverat, mellan prenumerationer. Du kan konfigurera en DDoS skydds plan för din organisation och länka virtuella nätverk från flera prenumerationer till samma plan. Själva DDoS Protections planen är också kopplad till en prenumeration, som du väljer när du skapar planen. DDoS Protections planen fungerar mellan regioner och prenumerationer. Exempel – du kan skapa planen i regionen öst-USA och länka till prenumerations #1 i din klient organisation. Samma plan kan länkas till virtuella nätverk från andra prenumerationer i olika regioner över din klient organisation. Prenumerationen är associerad med den månatliga återkommande fakturan för planen, samt överförbruknings avgifter, om antalet skyddade offentliga IP-adresser överstiger 100. Mer information om DDoS-priser finns i [pris information](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
-Det krävs inte att fler än en plan skapas för de flesta organisationer. Det går inte att flytta en plan mellan prenumerationer. Om du vill ändra prenumerationen som en plan har finns i måste du [ta bort den befintliga planen](#work-with-ddos-protection-plans) och skapa en ny.
+Det krävs inte att skapa mer än en plan för de flesta organisationer. Det går inte att flytta en plan mellan prenumerationer. Om du vill ändra prenumerationen som en plan finns i måste du [ta bort den befintliga planen](#work-with-ddos-protection-plans) och skapa en ny.
 
-1. Välj **Skapa en resurs** i det övre vänstra hörnet av Azure-portalen.
-2. Sök efter *DDoS*. När **DDos-skyddsplanen** visas i sökresultaten markerar du den.
+1. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
+2. Sök efter *DDoS*. När **DDoS Protection Plan** visas i Sök resultaten väljer du den.
 3. Välj **Skapa**.
-4. Ange eller välj egna värden, eller ange, eller markera följande exempelvärden och välj sedan **Skapa:**
+4. Ange eller Välj dina egna värden eller ange eller Välj följande exempel värden och välj sedan **skapa**:
 
     |Inställning        |Värde                                              |
     |---------      |---------                                          |
@@ -51,9 +51,9 @@ Det krävs inte att fler än en plan skapas för de flesta organisationer. Det g
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Aktivera DDoS för ett nytt virtuellt nätverk
 
-1. Välj **Skapa en resurs** i det övre vänstra hörnet av Azure-portalen.
+1. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
-3. Ange eller välj egna värden, ange eller välj följande exempelvärden, acceptera de återstående standardvärdena och välj sedan **Skapa:**
+3. Ange eller Välj dina egna värden, av ange eller Välj följande exempel värden, acceptera återstående standardvärden och välj sedan **skapa**:
 
     | Inställning         | Värde                                                        |
     | ---------       | ---------                                                    |
@@ -61,184 +61,184 @@ Det krävs inte att fler än en plan skapas för de flesta organisationer. Det g
     | Prenumeration    | Välj din prenumeration.                                    |
     | Resursgrupp  | Välj **Använd befintlig**och välj sedan **myResourceGroup** |
     | Location        | USA, östra                                                      |
-    | DDos-skydd | Välj **Standard** och välj sedan **myDdosProtectionPlan**under **DDoS-skydd**. Abonnemanget du väljer kan vara i samma eller annorlunda prenumeration än det virtuella nätverket, men båda prenumerationerna måste associeras till samma Azure Active Directory-klientorganisation.|
+    | DDos skydd | Välj **standard** och välj **myDdosProtectionPlan**under **DDoS Protection**. Den plan du väljer kan vara i samma eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.|
 
-Du kan inte flytta ett virtuellt nätverk till en annan resursgrupp eller prenumeration när DDoS Standard är aktiverat för det virtuella nätverket. Om du behöver flytta ett virtuellt nätverk med DDoS Standard aktiverat inaktiverar du DDoS Standard först, flyttar det virtuella nätverket och aktiverar sedan DDoS-standarden. Efter flytten återställs de automatiskt inställda principtrösklarna för alla skyddade offentliga IP-adresser i det virtuella nätverket.
+Du kan inte flytta ett virtuellt nätverk till en annan resurs grupp eller prenumeration när DDoS standard är aktive rad för det virtuella nätverket. Om du behöver flytta ett virtuellt nätverk med DDoS standard aktiverat inaktiverar du DDoS standard först, flyttar det virtuella nätverket och aktiverar sedan DDoS standard. Efter flyttningen återställs automatiskt justerade princip tröskelvärden för alla skyddade offentliga IP-adresser i det virtuella nätverket.
 
 ## <a name="enable-ddos-for-an-existing-virtual-network"></a>Aktivera DDoS för ett befintligt virtuellt nätverk
 
-1. Skapa en DDoS-skyddsplan genom att slutföra stegen i [Skapa en DDoS-skyddsplan](#create-a-ddos-protection-plan)om du inte har en befintlig DDoS-skyddsplan.
-2. Välj **Skapa en resurs** i det övre vänstra hörnet av Azure-portalen.
-3. Ange namnet på det virtuella nätverk som du vill aktivera DDoS Protection Standard för i **rutan Sökresurser, tjänster och dokument** högst upp i portalen. När namnet på det virtuella nätverket visas i sökresultaten markerar du det.
-4. Välj **DDoS-skydd**under **INSTÄLLNINGAR**.
-5. Välj **Standard**. Under **DDoS-skyddsplan**väljer du en befintlig DDoS-skyddsplan eller planen som du skapade i steg 1 och väljer sedan **Spara**. Abonnemanget du väljer kan vara i samma eller annorlunda prenumeration än det virtuella nätverket, men båda prenumerationerna måste associeras till samma Azure Active Directory-klientorganisation.
+1. Skapa en DDoS skydds plan genom att slutföra stegen i [skapa en DDoS-skydds plan](#create-a-ddos-protection-plan), om du inte har en befintlig DDoS Protection-plan.
+2. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
+3. Ange namnet på det virtuella nätverk som du vill aktivera DDoS Protection standard för i **rutan Sök efter resurser, tjänster och dokument** högst upp i portalen. När namnet på det virtuella nätverket visas i Sök resultatet väljer du det.
+4. Välj **DDoS-skydd**under **Inställningar**.
+5. Välj **standard**. Under **DDoS Protection Plan**väljer du en befintlig DDoS-skydds plan eller den plan som du skapade i steg 1 och väljer sedan **Spara**. Den plan du väljer kan vara i samma eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.
 
 **Kommandon** 
-- Azure CLI: az network ddos-protection create Azure CLI: az network ddos-protection create Azure CLI: [az network ddos-protection create](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-create) Azure CLI
-- Powershell: [New-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0)
+- Azure CLI: [AZ Network DDoS-Protection Create](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-create)
+- PowerShell: [New-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0)
  
 
 ## <a name="disable-ddos-for-a-virtual-network"></a>Inaktivera DDoS för ett virtuellt nätverk
 
-1. Ange namnet på det virtuella nätverk som du vill inaktivera DDoS-skyddsstandard för i **rutan Sökresurser, tjänster och dokument** högst upp i portalen. När namnet på det virtuella nätverket visas i sökresultaten markerar du det.
-2. Välj **DDoS-skydd**under **INSTÄLLNINGAR**.
-3. Välj **Grundläggande** under **DDoS-skyddsplan** och välj sedan **Spara**.
+1. Ange namnet på det virtuella nätverk som du vill inaktivera DDoS-skydds standard för i **rutan Sök efter resurser, tjänster och dokument** överst i portalen. När namnet på det virtuella nätverket visas i Sök resultatet väljer du det.
+2. Välj **DDoS-skydd**under **Inställningar**.
+3. Välj **Basic** under **DDoS Protection Plan** och välj sedan **Spara**.
 
 **Kommandon** 
-- Azure CLI: az network ddos-protection delete Azure CLI: az network ddos-protection delete Azure CLI: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete) Azure CLI
-- Powershell: [Ta bort AzddosProtectionPlan](https://docs.microsoft.com/powershell/module/az.network/remove-azddosprotectionplan?view=azps-3.2.0)
+- Azure CLI: [AZ Network DDoS-Protection Delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
+- PowerShell: [Remove-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/az.network/remove-azddosprotectionplan?view=azps-3.2.0)
 
-## <a name="work-with-ddos-protection-plans"></a>Arbeta med DDoS-skyddsplaner
+## <a name="work-with-ddos-protection-plans"></a>Arbeta med DDoS-skydds planer
 
-1. Välj **Alla tjänster** högst upp till vänster om portalen.
-2. Ange *DDoS* i **rutan Filter.** När **DDoS-skyddsplaner** visas i resultaten markerar du den.
-3. Välj den skyddsplan som du vill visa i listan.
-4. Alla virtuella nätverk som är associerade med planen visas.
-5. Om du vill ta bort en plan måste du först ta bort alla virtuella nätverk från den. Om du vill ta bort en plan från ett virtuellt nätverk finns i [Inaktivera DDoS för ett virtuellt nätverk](#disable-ddos-for-a-virtual-network).
+1. Välj **alla tjänster** längst upp till vänster i portalen.
+2. Ange *DDoS* i **filter** rutan. När **DDoS skydds planer** visas i resultaten väljer du det.
+3. Välj den skydds plan som du vill visa i listan.
+4. Alla virtuella nätverk som är kopplade till planen visas i listan.
+5. Om du vill ta bort en plan måste du först koppla bort alla virtuella nätverk från det. Om du vill koppla bort en plan från ett virtuellt nätverk kan du läsa [inaktivera DDoS för ett virtuellt nätverk](#disable-ddos-for-a-virtual-network).
 
-## <a name="configure-alerts-for-ddos-protection-metrics"></a>Konfigurera aviseringar för DDoS-skyddsmått
+## <a name="configure-alerts-for-ddos-protection-metrics"></a>Konfigurera aviseringar för DDoS skydds mått
 
-Du kan välja något av de tillgängliga DDoS-skyddsmåtten för att varna dig när det finns en aktiv begränsning under en attack med hjälp av Azure Monitor-aviseringskonfigurationen. När villkoren är uppfyllda får den angivna adressen ett e-postmeddelande:
+Du kan välja något av de tillgängliga DDoS-skydds måtten för att varna dig när det finns en aktiv minskning under ett angrepp med hjälp av Azure Monitor varnings konfiguration. När villkoren är uppfyllda får den angivna adressen ett e-postmeddelande om avisering:
 
-1. Välj **Alla tjänster** högst upp till vänster om portalen.
-2. Ange *bildskärm* i rutan **Filter.** När **Monitor** visas i resultatet markerar du den.
-3. Välj **Mått** under **DELADE TJÄNSTER**.
-4. Ange eller välj egna värden, eller ange följande exempelvärden, acceptera de återstående standardvärdena och välj sedan **OK:**
+1. Välj **alla tjänster** längst upp till vänster i portalen.
+2. Ange *Monitor* i **filter** rutan. När **övervakaren** visas i resultaten väljer du den.
+3. Välj **mått** under **delade tjänster**.
+4. Ange eller Välj dina egna värden eller ange följande exempel värden, Godkänn återstående standardvärden och välj sedan **OK**:
 
     |Inställning                  |Värde                                                                                               |
     |---------                |---------                                                                                           |
     |Namn                     | myDdosAlert                                                                                        |
     |Prenumeration             | Välj den prenumeration som innehåller den offentliga IP-adress som du vill ta emot aviseringar för.        |
-    |Resursgrupp           | Välj den resursgrupp som innehåller den offentliga IP-adress som du vill ta emot aviseringar för.      |
-    |Resurs                 | Välj den offentliga IP-adress som innehåller den offentliga IP-adress som du vill ta emot aviseringar för. DDoS övervakar offentliga IP-adresser som tilldelats resurser inom ett virtuellt nätverk. Om du inte har några resurser med offentliga IP-adresser i det virtuella nätverket måste du först skapa en resurs med en offentlig IP-adress. Du kan övervaka den offentliga IP-adressen för alla resurser som distribueras via Resource Manager (inte klassisk) som anges i [virtuellt nätverk för Azure-tjänster](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), med undantag för Azure App Service-miljöer och Azure VPN Gateway. Om du vill fortsätta med den här självstudien kan du snabbt skapa en virtuell [Windows-](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Linux-dator.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)                   |
+    |Resursgrupp           | Välj den resurs grupp som innehåller den offentliga IP-adress som du vill ta emot aviseringar för.      |
+    |Resurs                 | Välj den offentliga IP-adress som innehåller den offentliga IP-adress som du vill ta emot aviseringar för. DDoS övervakar offentliga IP-adresser tilldelade till resurser i ett virtuellt nätverk. Om du inte har några resurser med offentliga IP-adresser i det virtuella nätverket måste du först skapa en resurs med en offentlig IP-adress. Du kan övervaka den offentliga IP-adressen för alla resurser som distribueras via Resource Manager (inte klassisk) i det [virtuella nätverket för Azure-tjänster](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), förutom för Azure App Service miljöer och Azure VPN gateway. Om du vill fortsätta med den här självstudien kan du snabbt skapa en virtuell [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -dator.                   |
     |Mått                   | Under DDoS-attack eller inte                                                                            |
-    |Tröskelvärde                | 1 - **1** betyder att du är under attack. **0** betyder att du inte är under attack.                         |
-    |Period                   | Välj vilket värde du väljer.                                                                   |
+    |Tröskelvärde                | 1- **1** innebär att du är utsatt för angrepp. **0** innebär att du inte är utsatt för angrepp.                         |
+    |Period                   | Välj vilket värde du vill.                                                                   |
     |Meddela via e-post         | Markera kryssrutan                                                                                  |
     |Ytterligare administratör | Ange din e-postadress om du inte är e-postägare, deltagare eller läsare för prenumerationen. |
 
-    Inom några minuter efter attackidentifiering får du ett e-postmeddelande från Azure Monitor-mått som liknar följande bild:
+    Inom ett par minuter får du ett e-postmeddelande från Azure Monitor mått som ser ut ungefär som på följande bild:
 
-    ![Varning för attack](./media/manage-ddos-protection/ddos-alert.png)
+    ![Attack avisering](./media/manage-ddos-protection/ddos-alert.png)
 
 
-Information om hur du simulerar en DDoS-attack för att validera din avisering finns i [Verifiera DDoS-identifiering](#validate-ddos-detection).
+Information om hur du simulerar en DDoS-attack för att verifiera din avisering finns i [validera DDoS-identifiering](#validate-ddos-detection).
 
-Du kan också läsa mer om [hur du konfigurerar webhooks](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [logikappar](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa aviseringar.
+Du kan också lära dig mer om hur du [konfigurerar Webhooks](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Logic Apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa aviseringar.
 
-## <a name="use-ddos-protection-telemetry"></a>Använd DDoS-skydd telemetri
+## <a name="use-ddos-protection-telemetry"></a>Använda DDoS Protection-telemetri
 
-Telemetri för en attack tillhandahålls via Azure Monitor i realtid. Telemetrin är endast tillgänglig under den tid som en offentlig IP-adress är under begränsning. Du ser inte telemetri före eller efter en attack mildras.
+Telemetri för ett angrepp tillhandahålls via Azure Monitor i real tid. Telemetri är bara tillgängligt för den varaktighet som en offentlig IP-adress är under minskning. Du ser inte telemetri före eller efter att en attack har begränsats.
 
-1. Välj **Alla tjänster** högst upp till vänster om portalen.
-2. Ange *bildskärm* i rutan **Filter.** När **Monitor** visas i resultatet markerar du den.
-3. Välj **Mått**under **DELADE TJÄNSTER**.
-4. Välj den **prenumerations-** och **resursgrupp** som innehåller den offentliga IP-adress som du vill ha telemetri för.
-5. Välj **Offentlig IP-adress** för **resurstyp**och välj sedan den specifika offentliga IP-adress som du vill ha telemetri för.
-6. En serie **tillgängliga mått** visas till vänster på skärmen. Dessa mått, när de väljs, är graferade i **Azure Monitor Metrics Chart** på översiktsskärmen.
-7. Välj **aggregeringstypen** som **Max**
+1. Välj **alla tjänster** längst upp till vänster i portalen.
+2. Ange *Monitor* i **filter** rutan. När **övervakaren** visas i resultaten väljer du den.
+3. Välj **mått**under **delade tjänster**.
+4. Välj den **prenumeration** och **resurs grupp** som innehåller den offentliga IP-adress som du vill använda telemetri för.
+5. Välj **offentlig IP-adress** för **resurs typ**och välj sedan den angivna offentliga IP-adress som du vill använda telemetri för.
+6. En serie med **tillgängliga mått** visas till vänster på skärmen. De här måtten, när de är markerade, visas i diagrammet **Azure Monitor mått diagram** på översikts skärmen.
+7. Välj **agg regerings** typen **Max**
 
-Måttnamnen presenterar olika pakettyper och byte jämfört med paket, med en grundläggande konstruktion av taggnamn på varje mått enligt följande:
+Mått namnen visar olika paket typer och byte jämfört med paket, med en grundläggande konstruktion av taggnamn på varje mått enligt följande:
 
-- **Borttagna taggnamn** (till exempel **Inkommande paket tappade DDoS**): Antalet ignorerade/skrubbas paket av DDoS-skyddssystemet.
-- **Vidarebefordrat taggnamn** (till exempel **Inkommande paket Vidarebefordrade DDoS**): Antalet paket som vidarebefordras av DDoS-systemet till mål-VIP – trafik som inte filtrerades.
-- **Inget taggnamn** (till exempel **Inkommande paket DDoS**): Det totala antalet paket som kom in i skrubbningssystemet – som representerar summan av de paket som har tappats och vidarebefordrats.
+- **Taggat taggnamn** (till exempel **inkommande paket som släppts DDoS**): antalet paket som tappas/rensas av DDoS Protection System.
+- **Namn på vidarebefordrad tagg** (t. ex. **inkommande paket vidarebefordrade DDoS**): antalet paket som vidarebefordras av DDoS-systemet till den virtuella mål-VIP – trafik som inte har filtrerats.
+- **Inget taggnamn** (till exempel **inkommande paket DDoS**): det totala antalet paket som ingår i skrubbnings systemet – som representerar summan av de paket som har släppts och vidarebefordrats.
 
-Information om hur du simulerar en DDoS-attack för att validera telemetri finns i [Verifiera DDoS-identifiering](#validate-ddos-detection).
+Information om hur du simulerar en DDoS-attack för att validera telemetri finns i [validera DDoS-identifiering](#validate-ddos-detection).
 
-## <a name="view-ddos-mitigation-policies"></a>Visa DDoS-begränsningsprinciper
+## <a name="view-ddos-mitigation-policies"></a>Visa DDoS-principer för minskning
 
-DDoS Protection Standard tillämpar tre automatiskt inställda begränsningsprinciper (TCP SYN, TCP & UDP) för varje offentlig IP-adress för den skyddade resursen, i det virtuella nätverket som har DDoS aktiverat. Du kan visa principtrösklarna genom att välja **inkommande TCP-paket för att utlösa DDoS-begränsning** och **inkommande UDP-paket för att utlösa DDoS-begränsningsmått** med **aggregeringstyp** som "Max", som visas i följande bild:
+DDoS Protection standard tillämpar tre automatiskt justerade skydds principer (TCP-SYN, TCP & UDP) för varje offentlig IP-adress för den skyddade resursen, i det virtuella nätverk där DDoS har Aktiver ATS. Du kan visa princip tröskelvärdena genom att välja de **inkommande TCP-paketen för att utlösa DDoS-minskning** och **inkommande UDP-paket för att utlösa DDoS** -hälsomått med **agg regerings** typ som "Max", som du ser i följande bild:
 
-![Visa begränsningsprinciper](./media/manage-ddos-protection/view-mitigation-policies.png)
+![Visa begränsnings principer](./media/manage-ddos-protection/view-mitigation-policies.png)
 
-Principtröskelvärden konfigureras automatiskt via Azure machine learning-based network traffic profileing. Endast när principtröskeln överskrids uppstår DDoS-begränsning för IP-adressen under attack.
+Princip tröskelvärden konfigureras automatiskt via Azure Machine Learning-baserad nätverks trafik profilering. Endast när princip tröskeln har brutits inträffar DDoS-lösningen för IP-adressen under angrepp.
 
 ## <a name="configure-ddos-attack-analytics"></a>Konfigurera analyser av DDoS-attacker
-Azure DDoS Protection-standarden ger detaljerade attackinsikter och visualisering med DDoS Attack Analytics. Kunder som skyddar sina virtuella nätverk mot DDoS-attacker har detaljerad insyn i attacktrafik och åtgärder som vidtas för att minska attacken via attackreducerande rapporter & begränsningsflödesloggar. 
+Azure DDoS Protection standard ger detaljerad information om angrepp och visualisering med DDoS-attack analys. Kunder som skyddar sina virtuella nätverk mot DDoS-attacker har detaljerad insyn i attack trafik och åtgärder som vidtas för att minska risken för angrepp med hjälp av angrepps minsknings rapporter & skydds flödes loggar. 
 
-## <a name="configure-ddos-attack-mitigation-reports"></a>Konfigurera DDoS-attackreduceringsrapporter
-Attack mitigation rapporter använder Netflow-protokolldata som aggregeras för att ge detaljerad information om attacken på din resurs. När som helst en offentlig IP-resurs är under attack, kommer rapportgenereringen att starta så snart begränsningen startar. Det kommer att finnas en inkrementell rapport som genereras var 5 minuter och en rapport efter begränsning för hela begränsningsperioden. Detta för att säkerställa att DDoS-attacken fortsätter under en längre tid, kommer du att kunna visa den senaste ögonblicksbilden av begränsningsrapporten var 5:e minut och en fullständig sammanfattning när attackreduceringen är över. 
+## <a name="configure-ddos-attack-mitigation-reports"></a>Konfigurera DDoS attack minsknings rapporter
+Rapporter om attack minskning använder de Netflow Protocol-data som sammanställs för att ge detaljerad information om angreppet på din resurs. När en offentlig IP-resurs är utsatt för angrepp startar rapportgenerering så snart som lösningen startar. Det kommer att finnas en stegvis rapport som genereras var 5: e minut och en efter minsknings rapport för hela minsknings perioden. För att säkerställa att DDoS-attacken fortsätter under en längre tid kan du Visa den senaste ögonblicks bilden av minsknings rapporten var 5: e minut och en fullständig sammanfattning när risken för attacker är över. 
 
-1. Välj **Alla tjänster** högst upp till vänster om portalen.
-2. Ange *bildskärm* i rutan **Filter.** När **Monitor** visas i resultatet markerar du den.
-3. Under **INSTÄLLNINGAR**väljer du **Diagnostikinställningar**.
-4. Välj den **prenumerations-** och **resursgrupp** som innehåller den offentliga IP-adress som du vill logga.
-5. Välj **Offentlig IP-adress** för **resurstyp**och välj sedan den specifika offentliga IP-adress som du vill logga mått för.
-6. Välj **Aktivera diagnostik för att samla in loggen DDoSMitigationReports** och välj sedan så många av följande alternativ som du behöver:
+1. Välj **alla tjänster** längst upp till vänster i portalen.
+2. Ange *Monitor* i **filter** rutan. När **övervakaren** visas i resultaten väljer du den.
+3. Under **Inställningar**väljer du **diagnostikinställningar**.
+4. Välj den **prenumeration** och **resurs grupp** som innehåller den offentliga IP-adress som du vill logga.
+5. Välj **offentlig IP-adress** för **resurs typ**och välj sedan den angivna offentliga IP-adress som du vill använda för att logga mått för.
+6. Välj **Aktivera diagnostik för att samla in DDoSMitigationReports-loggen** och välj sedan så många av följande alternativ som du behöver:
 
-    - **Arkiv till ett lagringskonto**: Data skrivs till ett Azure Storage-konto. Mer information om det här alternativet finns i [Arkivera diagnostikloggar](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Strömma till en händelsehubb**: Tillåter en loggmottagare att plocka upp loggar med hjälp av en Azure Event Hub. Händelsehubbar möjliggör integrering med Splunk- eller andra SIEM-system. Mer information om det här alternativet finns i [Strömma diagnostikloggar till en händelsehubb](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Skicka till Logganalys:** Skriver loggar till Azure Monitor-tjänsten. Mer information om det här alternativet finns [i Samla in loggar för användning i Azure Monitor-loggar](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Arkivera till ett lagrings konto**: data skrivs till ett Azure Storage-konto. Mer information om det här alternativet finns i [arkivera resurs loggar](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Strömma till en Event Hub**: tillåter att en logg mottagare hämtar loggar med hjälp av en Azure Event Hub. Event Hub möjliggör integrering med Splunk eller andra SIEM-system. Mer information om det här alternativet finns i [strömma resurs loggar till en Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Skicka till Log Analytics**: skriver loggar till tjänsten Azure Monitor. Mer information om det här alternativet finns [i samla in loggar för användning i Azure Monitor loggar](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Både de inkrementella & rapporter efter attacken innehåller följande fält
-- Attack vektorer
-- Trafikstatistik
-- Orsak till avbrutna paket
-- Berörda protokoll
-- De 10 främsta källländerna eller källregionerna
-- Topp 10 källa ASN
+Både den stegvisa & minsknings rapporter efter attacken innehåller följande fält
+- Angrepps vektorer
+- Trafik statistik
+- Orsak till ignorerade paket
+- Protokoll som ingår
+- 10 främsta käll länder eller regioner
+- ASN: er 10 främsta källa
 
-## <a name="configure-ddos-attack-mitigation-flow-logs"></a>Konfigurera DDoS-attackreducerande flödesloggar
-Attack Mitigation Flow Logs kan du granska den tappade trafiken, vidarebefordrad trafik och andra intressanta datapunkter under en aktiv DDoS-attack i nära realtid. Du kan inta den konstanta strömmen av dessa data till dina SIEM-system via händelsehubben för övervakning i nära realtid, vidta potentiella åtgärder och åtgärda behovet av dina försvarsåtgärder. 
+## <a name="configure-ddos-attack-mitigation-flow-logs"></a>Konfigurera flödes loggar för DDoS-attackens minskning
+Med anslutnings åtgärder för attackering kan du granska förlorad trafik, vidarebefordrad trafik och andra intressanta Datapoints under en aktiv DDoS-attack i nära real tid. Du kan mata in en konstant ström från dessa data till dina SIEM-system via händelsehubben för övervakning i nära real tid, vidta potentiella åtgärder och åtgärda behovet av ditt försvar. 
 
-1. Välj **Alla tjänster** högst upp till vänster om portalen.
-2. Ange *bildskärm* i rutan **Filter.** När **Monitor** visas i resultatet markerar du den.
-3. Under **INSTÄLLNINGAR**väljer du **Diagnostikinställningar**.
-4. Välj den **prenumerations-** och **resursgrupp** som innehåller den offentliga IP-adress som du vill logga.
-5. Välj **Offentlig IP-adress** för **resurstyp**och välj sedan den specifika offentliga IP-adress som du vill logga mått för.
-6. Välj **Aktivera diagnostik för att samla in Loggen DDoSMitigationFlowLogs** och välj sedan så många av följande alternativ som du behöver:
+1. Välj **alla tjänster** längst upp till vänster i portalen.
+2. Ange *Monitor* i **filter** rutan. När **övervakaren** visas i resultaten väljer du den.
+3. Under **Inställningar**väljer du **diagnostikinställningar**.
+4. Välj den **prenumeration** och **resurs grupp** som innehåller den offentliga IP-adress som du vill logga.
+5. Välj **offentlig IP-adress** för **resurs typ**och välj sedan den angivna offentliga IP-adress som du vill använda för att logga mått för.
+6. Välj **Aktivera diagnostik för att samla in DDoSMitigationFlowLogs-loggen** och välj sedan så många av följande alternativ som du behöver:
 
-    - **Arkiv till ett lagringskonto**: Data skrivs till ett Azure Storage-konto. Mer information om det här alternativet finns i [Arkivera diagnostikloggar](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Strömma till en händelsehubb**: Tillåter en loggmottagare att plocka upp loggar med hjälp av en Azure Event Hub. Händelsehubbar möjliggör integrering med Splunk- eller andra SIEM-system. Mer information om det här alternativet finns i [Strömma diagnostikloggar till en händelsehubb](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Skicka till Logganalys:** Skriver loggar till Azure Monitor-tjänsten. Mer information om det här alternativet finns [i Samla in loggar för användning i Azure Monitor-loggar](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-1. Om du vill visa flödesloggar data i Azure Analytics instrumentpanelen kan du importera exempelinstrumentpanelen frånhttps://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+    - **Arkivera till ett lagrings konto**: data skrivs till ett Azure Storage-konto. Mer information om det här alternativet finns i [arkivera resurs loggar](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Strömma till en Event Hub**: tillåter att en logg mottagare hämtar loggar med hjälp av en Azure Event Hub. Event Hub möjliggör integrering med Splunk eller andra SIEM-system. Mer information om det här alternativet finns i [strömma resurs loggar till en Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Skicka till Log Analytics**: skriver loggar till tjänsten Azure Monitor. Mer information om det här alternativet finns [i samla in loggar för användning i Azure Monitor loggar](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Om du vill visa flödes loggar data i Azure Analytics-instrumentpanelen kan du importera exempel instrument panelen frånhttps://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
-Flödesloggar har följande fält: 
+Flödes loggar har följande fält: 
 - Käll-IP-adress
 - Mål-IP-adress
 - Källport 
 - Målport 
-- Protokolltyp 
-- Åtgärder som vidtas under begränsning
+- Protokoll typ 
+- Åtgärd som vidtas under minskning
 
-Attack analytics fungerar bara om DDoS Protection Standard är aktiverad i det virtuella nätverket av den offentliga IP-adressen. 
+Attack analys fungerar bara om DDoS Protection standard är aktiverat på det virtuella nätverket för den offentliga IP-adressen. 
 
 ## <a name="validate-ddos-detection"></a>Verifiera DDoS-identifiering
 
-Microsoft samarbetar med [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) för att skapa ett gränssnitt där du kan generera trafik mot DDoS Protection-aktiverade offentliga IP-adresser för simuleringar. Med BreakPoint Cloud-simuleringen kan du:
+Microsoft samarbetar med [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) för att skapa ett gränssnitt där du kan generera trafik mot DDoS Protection-aktiverade offentliga IP-adresser för simuleringar. Med moln simulerings Bryt punkt kan du:
 
 - Verifiera hur Microsoft Azure DDoS Protection skyddar dina Azure-resurser från DDoS-attacker
-- Optimera din incidentsvarsprocess under DDoS-attack
-- Dokument DDoS-efterlevnad
-- Träna dina nätverkssäkerhetsteam
+- Optimera incident svars processen under DDoS-attack
+- Dokumentera DDoS-kompatibilitet
+- Träna dina nätverks säkerhets team
 
-## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Visa DDoS-skyddsaviseringar i Azure Security Center
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Visa DDoS-skydds varningar i Azure Security Center
 
-Azure Security Center innehåller en lista över [säkerhetsaviseringar](/azure/security-center/security-center-managing-and-responding-alerts), med information som hjälper till att undersöka och åtgärda problem. Med den här funktionen får du en enhetlig vy av aviseringar, inklusive DDoS-attackrelaterade aviseringar och de åtgärder som vidtas för att minska attacken i nära tid.
-Det finns två specifika aviseringar som du kommer att se för alla DDoS-angreppsidentifiering och begränsning:
+Azure Security Center innehåller en lista över [säkerhets aviseringar](/azure/security-center/security-center-managing-and-responding-alerts)med information som hjälper dig att undersöka och åtgärda problem. Med den här funktionen får du en enhetlig vy över aviseringar, inklusive DDoS-relaterade aviseringar och åtgärder som vidtagits för att minimera angreppet i nära tiden.
+Det finns två olika aviseringar som du kan se för identifiering och minskning av DDoS-attacker:
 
-- **DDoS-attack som identifierats för offentlig IP:** Den här aviseringen genereras när DDoS-skyddstjänsten upptäcker att en av dina offentliga IP-adresser är målet för en DDoS-attack.
-- **DDoS-attack mildras för offentlig IP:** Den här aviseringen genereras när en attack på den offentliga IP-adressen har mildrats.
-Öppna **Security Center** i Azure-portalen om du vill visa aviseringarna. Under **Skydd mot hot**väljer du **Säkerhetsvarningar**. Följande skärmbild visar ett exempel på DDoS-attackvarningar.
+- **DDoS-attack identifierad för offentlig IP**: den här aviseringen skapas när DDoS-skydds tjänsten identifierar att en av dina offentliga IP-adresser är målet för en DDoS-attack.
+- **DDoS-attack minimerad för offentlig IP**: den här aviseringen genereras när en attack på den offentliga IP-adressen har minimerats.
+Om du vill visa aviseringarna öppnar du **Security Center** i Azure Portal. Under **skydd av hot**väljer du **säkerhets aviseringar**. Följande skärm bild visar ett exempel på DDoS-attackens aviseringar.
 
 ![DDoS-avisering i Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
 
-Aviseringarna innehåller allmän information om den offentliga IP-adressen som är under attack, geo- och hotinformation och åtgärder för reparation.
+Aviseringarna inkluderar allmän information om den offentliga IP-adressen som är under attack, geo-och hot information och åtgärder.
 
 ## <a name="permissions"></a>Behörigheter
 
-Om du vill arbeta med DDoS-skyddsplaner måste ditt konto tilldelas [rollen nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som tilldelas lämpliga åtgärder i följande tabell:
+För att kunna arbeta med DDoS-skydds planer måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
 | Åtgärd                                            | Namn                                     |
 | ---------                                         | -------------                            |
-| Microsoft.Network/ddosProtectionPlans/read        | Läs en DDoS-skyddsplan              |
-| Microsoft.Network/ddosProtectionPlans/write       | Skapa eller uppdatera en DDoS-skyddsplan  |
-| Microsoft.Network/ddosProtectionPlans/delete      | Ta bort en DDoS-skyddsplan            |
-| Microsoft.Network/ddosProtectionPlans/join/action | Gå med i en DDoS-skyddsplan              |
+| Microsoft. Network/ddosProtectionPlans/Read        | Läs en DDoS skydds plan              |
+| Microsoft. Network/ddosProtectionPlans/Write       | Skapa eller uppdatera en DDoS-skydds plan  |
+| Microsoft. Network/ddosProtectionPlans/Delete      | Ta bort en DDoS skydds plan            |
+| Microsoft. Network/ddosProtectionPlans/JOIN/åtgärd | Delta i en DDoS skydds plan              |
 
-Om du vill aktivera DDoS-skydd för ett virtuellt nätverk måste ditt konto också tilldelas lämpliga [åtgärder för virtuella nätverk](manage-virtual-network.md#permissions).
+För att aktivera DDoS-skydd för ett virtuellt nätverk måste ditt konto också tilldelas lämpliga [åtgärder för virtuella nätverk](manage-virtual-network.md#permissions).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa och tillämpa [Azure-principen](policy-samples.md) för virtuella nätverk
+- Skapa och tillämpa [Azure policy](policy-samples.md) för virtuella nätverk

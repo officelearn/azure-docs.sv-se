@@ -1,6 +1,6 @@
 ---
-title: Filtrera data med hjälp av azure data lake storage-frågeacceleration (förhandsversion) | Microsoft-dokument
-description: Använd frågeacceleration (förhandsgranskning) för att hämta en delmängd data från ditt lagringskonto.
+title: Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (förhands granskning) | Microsoft Docs
+description: Använd Query acceleration (för hands version) om du vill hämta en delmängd av data från ditt lagrings konto.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: ae3dfc7681ef0d8ce3fcf679bddbd0ff195f4e3b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 22776d9498676ec77cd71845ca5e39f01926259d
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771851"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137577"
 ---
-# <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrera data med hjälp av Azure Data Lake Storage-frågeacceleration (förhandsgranskning)
+# <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (för hands version)
 
-I den här artikeln visas hur du använder frågeacceleration (förhandsversion) för att hämta en delmängd data från ditt lagringskonto. 
+Den här artikeln visar hur du använder Query acceleration (för hands version) för att hämta en delmängd av data från ditt lagrings konto. 
 
-Frågeacceleration (förhandsversion) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program och analysramverk att dramatiskt optimera databearbetning genom att hämta endast de data som de behöver för att utföra en viss åtgärd. Mer information finns i [Azure Data Lake Storage Query Acceleration (förhandsversion)](data-lake-storage-query-acceleration.md).
+Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program-och analys ramverk att dramatiskt optimera data bearbetningen genom att bara hämta de data som de behöver för att utföra en specifik åtgärd. Läs mer i [Azure Data Lake Storage Query acceleration (för hands version)](data-lake-storage-query-acceleration.md).
 
 > [!NOTE]
-> Frågeaccelerationfunktionen är i offentlig förhandsversion och är tillgänglig i regionerna Kanada Central och France Central. Information om hur du granskar begränsningar finns i artikeln [Kända problem.](data-lake-storage-known-issues.md) Om du vill registrera dig i förhandsgranskningen läser du [det här formuläret](https://aka.ms/adls/qa-preview-signup).  
+> Funktionen för acceleration av frågor finns i offentlig för hands version och är tillgänglig i regionerna Kanada, centrala och Frankrike, centrala. Information om hur du granskar begränsningar finns i artikeln om [kända problem](data-lake-storage-known-issues.md) . Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adls/qa-preview-signup).  
 
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-- Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Ett **allmänt v2-lagringskonto.** se [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
+- Ett **Allmänt-syfte v2-** lagrings konto. Se [skapa ett lagrings konto](../common/storage-quickstart-create-account.md).
 
 - [.NET SDK](https://dotnet.microsoft.com/download). 
 
 ### <a name="java"></a>[Java](#tab/java)
 
-- Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Ett **allmänt v2-lagringskonto.** se [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
+- Ett **Allmänt-syfte v2-** lagrings konto. Se [skapa ett lagrings konto](../common/storage-quickstart-create-account.md).
 
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 eller senare.
 
 - [Apache Maven](https://maven.apache.org/download.cgi). 
 
   > [!NOTE] 
-  > Den här artikeln förutsätter att du har skapat ett Java-projekt med apache Maven. Ett exempel på hur du skapar ett projekt med Apache Maven finns i [Konfigurera](storage-quickstart-blobs-java.md#setting-up).
+  > I den här artikeln förutsätter vi att du har skapat ett Java-projekt med Apache Maven. Ett exempel på hur du skapar ett projekt med hjälp av Apache maven finns i [Konfigurera](storage-quickstart-blobs-java.md#setting-up).
   
 ---
 
@@ -53,11 +53,11 @@ Frågeacceleration (förhandsversion) är en ny funktion för Azure Data Lake St
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-1. Hämta frågeaccelerationspaketen. Du kan hämta en komprimerad ZIP-fil som innehåller dessa [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net)paket med den här länken: . 
+1. Hämta accelerations paketen för frågor. Du kan hämta en komprimerad ZIP-fil som innehåller paketen med hjälp av den [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net)här länken:. 
 
-2. Extrahera innehållet i den här filen till projektkatalogen.
+2. Extrahera innehållet i den här filen till projekt katalogen.
 
-3. Öppna projektfilen (*CSPROJ*) i en textredigerare och \<\> lägg till dessa paketreferenser inuti projektelementet.
+3. Öppna projekt filen (*. CSPROJ*) i en text redigerare och Lägg till dessa paket referenser inuti \<projekt\> elementet.
 
    ```xml
    <ItemGroup>
@@ -67,13 +67,13 @@ Frågeacceleration (förhandsversion) är en ny funktion för Azure Data Lake St
    </ItemGroup>
    ```
 
-4. Återställ förhandsgransknings-SDK-paketen. Med det här exemplet återställs förhandsgransknings-SDK-paketen `dotnet restore` med kommandot . 
+4. Återställa SDK-paket för för hands versionen. I det här exempel kommandot återställs för hands versionen av SDK- `dotnet restore` paketen med hjälp av kommandot. 
 
    ```console
    dotnet restore --source C:\Users\contoso\myProject
    ```
 
-5. Återställ alla andra beroenden från den offentliga NuGet-databasen.
+5. Återställ alla andra beroenden från den offentliga NuGet-lagringsplatsen.
 
    ```console
    dotnet restore
@@ -81,16 +81,16 @@ Frågeacceleration (förhandsversion) är en ny funktion för Azure Data Lake St
 
 ### <a name="java"></a>[Java](#tab/java)
 
-1. Skapa katalog i projektets rot. Rotkatalogen är den katalog som innehåller **filen pom.xml.**
+1. Skapa en katalog i projektets rot. Rot katalogen är den katalog som innehåller filen **Pom. XML** .
 
    > [!NOTE]
-   > Exemplen i den här artikeln förutsätter att namnet på katalogen är **lib**.
+   > I exemplen i den här artikeln förutsätter vi att namnet på katalogen är **lib**.
 
-2. Hämta frågeaccelerationspaketen. Du kan hämta en komprimerad ZIP-fil som innehåller dessa [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java)paket med den här länken: . 
+2. Hämta accelerations paketen för frågor. Du kan hämta en komprimerad ZIP-fil som innehåller paketen med hjälp av den [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java)här länken:. 
 
-3. Extrahera filerna i zip-filen till den katalog som du skapade. I vårt exempel heter den katalogen **lib**. 
+3. Extrahera filerna i zip-filen till den katalog som du har skapat. I vårt exempel heter katalogen **lib**. 
 
-4. Öppna *filen pom.xml* i textredigeraren. Lägg till följande beroendeelement i beroendegruppen. 
+4. Öppna filen *Pom. XML* i text redigeraren. Lägg till följande beroende element i gruppen med beroenden. 
 
    ```xml
    <!-- Request static dependencies from Maven -->
@@ -140,12 +140,12 @@ Frågeacceleration (förhandsversion) är en ny funktion för Azure Data Lake St
 
 ---
 
-## <a name="add-statements"></a>Lägga till utdrag
+## <a name="add-statements"></a>Lägg till instruktioner
 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Lägg `using` till dessa satser överst i kodfilen.
+Lägg till `using` dessa uttryck överst i din kod fil.
 
 ```csharp
 using Azure.Storage.Blobs;
@@ -155,14 +155,14 @@ using Azure.Storage.QuickQuery;
 using Azure.Storage.QuickQuery.Models;
 ```
 
-Frågeacceleration hämtar CSV- och Json-formaterade data. Se därför till att lägga till med hjälp av satser för alla CSV- eller Json-parsningsbibliotek som du väljer att använda. Exemplen som visas i den här artikeln tolkar en CSV-fil med hjälp av [CsvHelper-biblioteket](https://www.nuget.org/packages/CsvHelper/) som är tillgängligt på NuGet. Därför lägger vi `using` till dessa satser överst i kodfilen.
+Frågans acceleration hämtar CSV-och JSON-formaterade data. Därför bör du se till att lägga till instruktioner för alla CSV-eller JSON-parsningsfel som du väljer att använda. I exemplen som visas i den här artikeln analyseras en CSV-fil med hjälp av [CsvHelper](https://www.nuget.org/packages/CsvHelper/) -biblioteket som finns på NuGet. Därför skulle vi lägga till dessa `using` instruktioner överst i kod filen.
 
 ```csharp
 using CsvHelper;
 using CsvHelper.Configuration;
 ```
 
-Om du vill sammanställa exempel som presenteras i `using` den här artikeln måste du också lägga till dessa satser också.
+För att kunna kompilera exempel som presenteras i den här artikeln måste du också lägga `using` till dessa instruktioner.
 
 ```csharp
 using System.Threading.Tasks;
@@ -174,7 +174,7 @@ using System.Linq;
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Lägg `import` till dessa satser överst i kodfilen.
+Lägg till `import` dessa uttryck överst i din kod fil.
 
 ```java
 import com.azure.storage.blob.*;
@@ -190,15 +190,15 @@ import org.apache.commons.csv.*;
 
 ## <a name="retrieve-data-by-using-a-filter"></a>Hämta data med hjälp av ett filter
 
-Du kan använda SQL för att ange radfilterpredikater och kolumnprojektioner i en begäran om frågeacceleration. Följande kod frågar en CSV-fil i lagring och returnerar alla `Hemingway, Ernest`rader med data där den tredje kolumnen matchar värdet . 
+Du kan använda SQL för att ange rad filter-predikat och kolumn projektioner i en begäran om acceleration av frågor. Följande kod frågar en CSV-fil i Storage och returnerar alla rader med data där den tredje kolumnen matchar värdet `Hemingway, Ernest`. 
 
-- I SQL-frågan används `BlobStorage` nyckelordet för att beteckna filen som efterfrågas.
+- I SQL-frågan används nyckelordet `BlobStorage` för att beteckna filen som efter frågas.
 
-- Kolumnreferenser anges som `_N` där den `_1`första kolumnen finns . Om källfilen innehåller en rubrikrad kan du referera till kolumner med det namn som anges i rubrikraden. 
+- Kolumn referenser anges som `_N` den första kolumnen. `_1` Om käll filen innehåller en rubrik rad kan du referera till kolumner med det namn som anges i rubrik raden. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Metoden async `BlobQuickQueryClient.QueryAsync` skickar frågan till frågeacceleration API och strömmar sedan resultaten tillbaka till programmet som ett [Stream-objekt.](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8)
+Metoden `BlobQuickQueryClient.QueryAsync` async skickar frågan till API för frågans acceleration och skickar sedan tillbaka resultatet till programmet som ett [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) -objekt.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -260,7 +260,7 @@ class ProgressHandler : IProgress<long>
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Metoden `BlobQuickQueryClient.openInputStream()` skickar frågan till frågeacceleration API och sedan strömmar `InputStream` resultaten tillbaka till programmet som ett objekt som kan läsas som alla andra InputStream-objekt.
+Metoden `BlobQuickQueryClient.openInputStream()` skickar frågan till API för frågans acceleration och skickar sedan tillbaka resultatet till programmet som ett `InputStream` objekt som kan läsas som andra InputStream-objekt.
 
 ```java
 static void QueryHemingway(BlobClient blobClient) {
@@ -312,11 +312,11 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
 
 ---
 
-## <a name="retrieve-specific-columns"></a>Hämta specifika kolumner
+## <a name="retrieve-specific-columns"></a>Hämta vissa kolumner
 
-Du kan begränsa resultaten till en delmängd av kolumner. På så sätt hämtar du bara de kolumner som behövs för att utföra en viss beräkning. Detta förbättrar programmets prestanda och minskar kostnaderna eftersom mindre data överförs över nätverket. 
+Du kan begränsa resultaten till en delmängd av kolumnerna. På så sätt hämtar du bara de kolumner som behövs för att utföra en specifik beräkning. Detta förbättrar programmets prestanda och minskar kostnaden eftersom mindre data överförs över nätverket. 
 
-Den här koden `PublicationYear` hämtar bara kolumnen för alla böcker i datauppsättningen. Den använder också informationen från rubrikraden i källfilen för att referera till kolumner i frågan.
+Den här koden hämtar endast `PublicationYear` kolumnen för alla böcker i data uppsättningen. Den använder också informationen från rubrik raden i käll filen för att referera till kolumner i frågan.
 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
@@ -341,7 +341,7 @@ static void QueryPublishDates(BlobClient blobClient)
 
 ---
 
-Följande kod kombinerar radfiltrering och kolumnprojektioner i samma fråga. 
+Följande kod kombinerar rad filtrering och kolumn prognoser till samma fråga. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -367,7 +367,6 @@ static void QueryMysteryBooks(BlobClient blobClient)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Registreringsformulär för frågeacceleration](https://aka.ms/adls/queryaccelerationpreview)    
-- [Azure Data Lake Storage-frågeacceleration (förhandsgranskning)](data-lake-storage-query-acceleration.md)
-- [SQL-språkreferens för frågeacceleration (förhandsgranskning)](query-acceleration-sql-reference.md)
-- REST-API-referens för frågeacceleration
+- [Registrerings formulär för fråga om acceleration](https://aka.ms/adls/queryaccelerationpreview)    
+- [Azure Data Lake Storage fråga om acceleration (för hands version)](data-lake-storage-query-acceleration.md)
+- [Språk referens för Query acceleration SQL (för hands version)](query-acceleration-sql-reference.md)

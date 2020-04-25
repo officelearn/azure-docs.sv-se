@@ -1,6 +1,6 @@
 ---
-title: Distribuera moduler från Azure CLI-kommandoraden - Azure IoT Edge
-description: Använd Azure CLI med Azure IoT-tillägget för att skicka en IoT Edge-modul från din IoT-hubb till din IoT Edge-enhet, som konfigurerats av ett distributionsmanifest.
+title: Distribuera moduler från kommando raden i Azure CLI – Azure IoT Edge
+description: Använd Azure CLI med Azure IoT-tillägget för att skicka en IoT Edge modul från din IoT Hub till din IoT Edge enhet, enligt konfigurationen i ett distributions manifest.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,35 +9,35 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 619ba7cb2d99e0137fd1834096dd5b66ffcd6ec9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd0d65624852737c424128e9125b8370b870d4d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240385"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133932"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Distribuera Azure IoT Edge-moduler med Azure CLI
 
-När du har skapat IoT Edge-moduler med din affärslogik vill du distribuera dem till dina enheter för att fungera på gränsen. Om du har flera moduler som arbetar tillsammans för att samla in och bearbeta data kan du distribuera dem alla på en gång och deklarera routningsreglerna som ansluter dem.
+När du skapar IoT Edge-moduler med din affärs logik vill du distribuera dem till dina enheter så att de körs på gränsen. Om du har flera moduler som arbetar tillsammans för att samla in och bearbeta data kan du distribuera dem samtidigt och deklarera de routningsregler som ansluter dem.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommandoradsverktyg med flera plattformar med öppen källkod för hantering av Azure-resurser som IoT Edge. Det gör att du kan hantera Azure IoT Hub-resurser, enhetsetablering tjänstinstanser och länkade hubbar ur lådan. Det nya IoT-tillägget berikar Azure CLI med funktioner som enhetshantering och fullständig IoT Edge-kapacitet.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg med öppen källkod, plattforms oberoende för hantering av Azure-resurser som IoT Edge. Det gör att du kan hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar direkt. Det nya IoT-tillägget förrikar Azure CLI med funktioner som enhets hantering och fullständig IoT Edge funktion.
 
-Den här artikeln visar hur du skapar ett JSON-distributionsmanifest och sedan använder filen för att skicka distributionen till en IoT Edge-enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [Distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor-cli.md)
+Den här artikeln visar hur du skapar ett JSON-distributions manifest och använder sedan filen för att skicka distributionen till en IoT Edge enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [distribuera och övervaka IoT Edge moduler i skala](how-to-deploy-cli-at-scale.md)
 
 ## <a name="prerequisites"></a>Krav
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration.
-* En [IoT Edge-enhet](how-to-register-device.md#register-with-the-azure-cli) med IoT Edge-körningen installerad.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Azure CLI-versionen måste vara minst 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
+* En [IoT Edge-enhet](how-to-register-device.md#register-with-the-azure-cli) med IoT Edge runtime installerad.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
 * [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-## <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributionsmanifest
+## <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
 
-Ett distributionsmanifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan modulerna och önskade egenskaper för modultvillingarna. Mer information om hur distributionsmanifest fungerar och hur du skapar dem finns i [Förstå hur IoT Edge-moduler kan användas, konfigureras och återanvändas](module-composition.md).
+Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Mer information om hur distributions manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge moduler kan användas, konfigureras och återanvändas](module-composition.md).
 
-Om du vill distribuera moduler med Azure CLI sparar du distributionsmanifestet lokalt som en .json-fil. Du kommer att använda filsökvägen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på enheten.
+Om du vill distribuera moduler med Azure CLI sparar du distributions manifestet lokalt som en JSON-fil. Du kommer att använda fil Sök vägen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på enheten.
 
-Här är ett grundläggande distributionsmanifest med en modul som exempel:
+Här är ett grundläggande distributions manifest med en modul som exempel:
 
 ```json
 {
@@ -110,23 +110,23 @@ Här är ett grundläggande distributionsmanifest med en modul som exempel:
 
 ## <a name="deploy-to-your-device"></a>Distribuera till din nya enhet
 
-Du distribuerar moduler till enheten genom att använda distributionsmanifestet som du konfigurerade med modulinformationen.
+Du distribuerar moduler till din enhet genom att använda distributions manifestet som du konfigurerade med informationen i modulen.
 
-Ändra kataloger till mappen där distributionsmanifestet sparas. Om du använde en av VS-kod-IoT `deployment.json` Edge-mallarna använder du filen i `deployment.template.json` **konfigurationsmappen** i lösningskatalogen och inte filen.
+Ändra kataloger till den mapp där distributions manifestet sparas. Om du använde en av VS Code IoT Edge-mallarna använder du `deployment.json` filen i mappen **config** i din lösnings katalog och inte `deployment.template.json` filen.
 
-Använd följande kommando för att tillämpa konfigurationen på en IoT Edge-enhet:
+Använd följande kommando för att tillämpa konfigurationen på en IoT Edge enhet:
 
    ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-Enhets-ID-parametern är skiftlägeskänslig. Innehållsparametern pekar på distributionsmanifestfilen som du sparade.
+Parametern för enhets-ID är Skift läges känslig. Innehålls parametern pekar på den distributions manifest fil som du sparade.
 
-   ![az iot kant set-moduler utgång](./media/how-to-deploy-cli/set-modules.png)
+   ![AZ IoT Edge set-moduler utdata](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Visa moduler på enheten
 
-När du har distribuerat moduler till enheten kan du visa dem alla med följande kommando:
+När du har distribuerat moduler till din enhet kan du Visa alla med följande kommando:
 
 Visa modulerna på din IoT Edge-enhet:
 
@@ -134,10 +134,10 @@ Visa modulerna på din IoT Edge-enhet:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-Enhets-ID-parametern är skiftlägeskänslig.
+Parametern för enhets-ID är Skift läges känslig.
 
-   ![az iot hub module-identity list output az iot hub module-identity list output az iot hub module-identity list output az i](./media/how-to-deploy-cli/list-modules.png)
+   ![AZ IoT Hub-modul – utdata för identitets lista](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur [du distribuerar och övervakar IoT Edge-moduler i stor skala](how-to-deploy-monitor.md)
+Lär dig hur du [distribuerar och övervakar IoT Edge moduler i stor skala](how-to-deploy-at-scale.md)

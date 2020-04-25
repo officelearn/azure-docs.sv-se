@@ -1,57 +1,26 @@
 ---
-title: Kontroll av underhåll
-description: Lär dig hur du styr när underhåll tillämpas på dina virtuella Azure-datorer med hjälp av underhållskontroll.
+title: Underhålls kontroll för virtuella Azure-datorer med CLI
+description: Lär dig hur du styr när underhåll tillämpas på dina virtuella Azure-datorer med underhålls kontroll och CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250184"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137509"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Förhandsversion: Styra uppdateringar med underhållskontroll och Azure CLI
+# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Styra uppdateringar med underhålls kontroll och Azure CLI
 
-Hantera plattformsuppdateringar, som inte kräver en omstart, med hjälp av underhållskontroll. Azure uppdaterar ofta sin infrastruktur för att förbättra tillförlitlighet, prestanda, säkerhet eller starta nya funktioner. De flesta uppdateringar är transparenta för användarna. Vissa känsliga arbetsbelastningar, som spel, mediestreaming och ekonomiska transaktioner, kan inte tolerera ens några sekunder av en vm-frysning eller frånkoppling för underhåll. Underhållskontroll ger dig möjlighet att vänta på plattformsuppdateringar och tillämpa dem inom ett rullande 35-dagars fönster. 
+Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar på dina isolerade virtuella datorer och Azure-dedikerade värdar. Det här avsnittet beskriver Azure CLI-alternativen för underhålls kontroll. Mer information om fördelarna med att använda underhålls kontroll, dess begränsningar och andra hanterings alternativ finns i [Hantera plattforms uppdateringar med underhålls kontroll](maintenance-control.md).
 
-Med underhållskontrollen kan du bestämma när du ska installera uppdateringar på dina isolerade virtuella datorer och Azure Dediced Hosts.
+## <a name="create-a-maintenance-configuration"></a>Skapa en underhålls konfiguration
 
-Med underhållskontroll kan du:
-- Batchuppdateringar till ett uppdateringspaket.
-- Vänta upp till 35 dagar med att installera uppdateringar. 
-- Automatisera plattformsuppdateringar för ditt underhållsfönster med Azure Functions.
-- Underhållskonfigurationer fungerar över prenumerationer och resursgrupper. 
-
-> [!IMPORTANT]
-> Underhållskontroll är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-## <a name="limitations"></a>Begränsningar
-
-- Virtuella datorer måste finnas på en [dedikerad värd](./linux/dedicated-hosts.md)eller skapas med en [isolerad VM-storlek](./linux/isolation.md).
-- Efter 35 dagar tillämpas en uppdatering automatiskt.
-- Användaren måste ha åtkomst till **resursdeltagare.**
-
-
-## <a name="install-the-maintenance-extension"></a>Installera underhållstillägget
-
-Om du väljer att installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) lokalt behöver du version 2.0.76 eller senare.
-
-Installera `maintenance` cli-tillägget lokalt eller i Cloud Shell. 
-
-```azurecli-interactive
-az extension add -n maintenance
-```
-
-
-## <a name="create-a-maintenance-configuration"></a>Skapa en underhållskonfiguration
-
-Används `az maintenance configuration create` för att skapa en underhållskonfiguration. I det här exemplet skapas en underhållskonfiguration med namnet *myConfig-begränsad* till värden. 
+Använd `az maintenance configuration create` för att skapa en underhålls konfiguration. I det här exemplet skapas en underhålls konfiguration med namnet *unconfig* som är begränsad till värden. 
 
 ```azurecli-interactive
 az group create \
@@ -61,16 +30,16 @@ az maintenance configuration create \
    -g myMaintenanceRG \
    --name myConfig \
    --maintenanceScope host\
-   --location  eastus
+   --location eastus
 ```
 
-Kopiera konfigurations-ID:et från utdata som ska användas senare.
+Kopiera konfigurations-ID: t från de utdata som ska användas senare.
 
-Med `--maintenanceScope host` hjälp säkerställer att underhållskonfigurationen används för att kontrollera uppdateringar av värden.
+Med `--maintenanceScope host` ser du till att underhålls konfigurationen används för att styra uppdateringar av värden.
 
-Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett felmeddelande. Konfigurationsnamnen måste vara unika för din prenumeration.
+Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din prenumeration.
 
-Du kan fråga efter tillgängliga `az maintenance configuration list`underhållskonfigurationer med .
+Du kan fråga efter tillgängliga underhålls konfigurationer `az maintenance configuration list`med.
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
@@ -78,11 +47,11 @@ az maintenance configuration list --query "[].{Name:name, ID:id}" -o table
 
 ## <a name="assign-the-configuration"></a>Tilldela konfigurationen
 
-Används `az maintenance assignment create` för att tilldela konfigurationen till din isolerade virtuella dator eller Azure Dedikerad värd.
+Använd `az maintenance assignment create` för att tilldela konfigurationen till den isolerade virtuella datorn eller den dedikerade Azure-värden.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
-Tillämpa konfigurationen på en virtuell dator med konfigurationens ID. Ange `--resource-type virtualMachines` och ange namnet på `--resource-name`den virtuella datorn för och `--resource-group`resursgruppen för den `--location`virtuella datorn i och platsen för den virtuella datorn för . 
+Tillämpa konfigurationen på en virtuell dator med hjälp av konfigurationens ID. Ange `--resource-type virtualMachines` och ange namnet på den virtuella datorn för `--resource-name`, och resurs gruppen för den virtuella datorn i `--resource-group`, och platsen för den virtuella datorn för. `--location` 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -97,9 +66,9 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
-Om du vill använda en konfiguration på `--resource-type hosts`en `--resource-parent-name` dedikerad värd måste `--resource-parent-type hostGroups`du inkludera , med namnet på värdgruppen och . 
+Om du vill tillämpa en konfiguration på en dedikerad värd måste du inkludera `--resource-type hosts`, `--resource-parent-name` med namnet på värd gruppen och `--resource-parent-type hostGroups`. 
 
-Parametern `--resource-id` är id för värden. Du kan använda [az vm-värd get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) för att få ID för din dedikerade värd.
+-Parametern `--resource-id` är värdens ID. Du kan använda [AZ VM Host get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view) för att hämta ID för den dedikerade värden.
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -114,9 +83,9 @@ az maintenance assignment create \
    --resource-parent-type hostGroups 
 ```
 
-## <a name="check-configuration"></a>Kontrollera konfigurationen
+## <a name="check-configuration"></a>Kontrol lera konfigurationen
 
-Du kan kontrollera att konfigurationen har tillämpats korrekt eller `az maintenance assignment list`kontrollera vilken konfiguration som används för tillfället med .
+Du kan kontrol lera att konfigurationen har tillämpats korrekt eller kontrol lera vilken konfiguration som tillämpas med hjälp av `az maintenance assignment list`.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -147,11 +116,11 @@ az maintenance assignment list \
 
 ## <a name="check-for-pending-updates"></a>Sök efter väntande uppdateringar
 
-Används `az maintenance update list` för att se om det finns väntande uppdateringar. Uppdatera --prenumeration för att vara ID för prenumerationen som innehåller den virtuella datorn.
+Använd `az maintenance update list` för att se om det finns väntande uppdateringar. Uppdatera--prenumerationen är ID för den prenumeration som innehåller den virtuella datorn.
 
-Om det inte finns några uppdateringar returneras ett felmeddelande som `Resource not found...StatusCode: 404`innehåller texten: .
+Om det inte finns några uppdateringar returnerar kommandot ett fel meddelande som kommer att innehålla texten: `Resource not found...StatusCode: 404`.
 
-Om det finns uppdateringar returneras bara en, även om det finns flera väntande uppdateringar. Data för den här uppdateringen returneras i ett objekt:
+Om det finns uppdateringar returneras bara en av dem, även om det finns flera väntande uppdateringar. Data för den här uppdateringen kommer att returneras i ett objekt:
 
 ```text
 [
@@ -181,7 +150,7 @@ az maintenance update list \
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
-Så här söker du efter väntande uppdateringar för en dedikerad värd. I det här exemplet formateras utdata som en tabell för läsbarhet. Ersätt värdena för resurserna med dina egna.
+För att söka efter väntande uppdateringar för en dedikerad värd. I det här exemplet formateras utdata som en tabell för läsbarhet. Ersätt värdena för resurserna med dina egna.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -197,11 +166,11 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>Tillämpa uppdateringar
 
-Används `az maintenance apply update` för att tillämpa väntande uppdateringar. När det här kommandot lyckas returneras JSON som innehåller information om uppdateringen.
+Används `az maintenance apply update` för att tillämpa väntande uppdateringar. Vid lyckad kommer det här kommandot returnera JSON som innehåller information om uppdateringen.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
-Skapa en begäran om att installera uppdateringar på en isolerad virtuell dator.
+Skapa en begäran om att tillämpa uppdateringar på en isolerad virtuell dator.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
@@ -215,7 +184,7 @@ az maintenance applyupdate create \
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
-Installera uppdateringar för en dedikerad värd.
+Tillämpa uppdateringar på en dedikerad värd.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
@@ -228,11 +197,11 @@ az maintenance applyupdate create \
    --resource-parent-type hostGroups
 ```
 
-## <a name="check-the-status-of-applying-updates"></a>Kontrollera status för att tillämpa uppdateringar 
+## <a name="check-the-status-of-applying-updates"></a>Kontrol lera status för att tillämpa uppdateringar 
 
-Du kan kontrollera hur uppdateringarna `az maintenance applyupdate get`fortskrider med . 
+Du kan kontrol lera förloppet för uppdateringarna med hjälp `az maintenance applyupdate get`av. 
 
-Du kan `default` använda som uppdateringsnamn för att se `myUpdateName` resultatet för den senaste uppdateringen eller `az maintenance applyupdate create`ersätta med namnet på uppdateringen som returnerades när du körde .
+Du kan använda `default` som uppdaterings namn för att se resultat för den senaste uppdateringen eller ersätta `myUpdateName` med namnet på den uppdatering som returnerades när du körde `az maintenance applyupdate create`.
 
 ```text
 Status         : Completed
@@ -244,7 +213,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime kommer att vara den tidpunkt då uppdateringen blev klar, antingen initieras av dig eller av plattformen om självunderhåll fönster inte användes. Om det aldrig har varit en uppdatering som tillämpas via underhållskontroll kommer det att visa standardvärdet.
+LastUpdateTime kommer att vara den tid då uppdateringen slutfördes, antingen initierad av dig eller av plattformen i fallet själv underhålls period inte användes. Om en uppdatering aldrig har tillämpats via underhålls kontrollen visas standardvärdet.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -274,9 +243,9 @@ az maintenance applyupdate get \
 ```
 
 
-## <a name="delete-a-maintenance-configuration"></a>Ta bort en underhållskonfiguration
+## <a name="delete-a-maintenance-configuration"></a>Ta bort en underhålls konfiguration
 
-Används `az maintenance configuration delete` för att ta bort en underhållskonfiguration. Om du tar bort konfigurationen tas underhållskontrollen bort från de associerade resurserna.
+Används `az maintenance configuration delete` för att ta bort en underhålls konfiguration. Om du tar bort konfigurationen tas underhålls kontrollen bort från de tillhör ande resurserna.
 
 ```azurecli-interactive
 az maintenance configuration delete \
@@ -286,4 +255,4 @@ az maintenance configuration delete \
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Underhåll och uppdateringar](maintenance-and-updates.md).
+Mer information finns i [underhåll och uppdateringar](maintenance-and-updates.md).

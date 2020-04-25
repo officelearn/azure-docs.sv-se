@@ -4,42 +4,42 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4234acb2ce32980a268e389cb31de9a57ed18e6
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71129698"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82132083"
 ---
-När du klonar konfigurationen från en annan distributionsplats kan den klonade konfigurationen redigeras. Vissa konfigurationselement följer innehållet över en swap (inte platsspecifik), medan andra konfigurationselement stannar i samma plats efter en swap (kortplatsspecifik). Följande listor visar de inställningar som ändras när du byter fack.
+När du klonar konfiguration från en annan distributions plats kan den klonade konfigurationen redige ras. Vissa konfigurations element följer innehållet i en växling (inte en viss plats), medan andra konfigurations element stannar kvar på samma plats efter en växling (plats Specific). I följande listor visas de inställningar som ändras när du byter platser.
 
-**Inställningar som byts ut:**
+**Inställningar som växlas**:
 
-* Allmänna inställningar, till exempel ramversion, 32/64-bitars, webbuttag
-* Appinställningar (kan konfigureras för att hålla sig till en plats)
-* Anslutningssträngar (kan konfigureras för att hålla sig till en plats)
-* Mappningar av hanterare
+* Allmänna inställningar, till exempel Ramverks version, 32/64-bitars, Web Sockets
+* Appinställningar (kan konfigureras för att fästa på en plats)
+* Anslutnings strängar (kan konfigureras att fästa mot en plats)
+* Mappningar för hanterare
 * Offentliga certifikat
 * WebJobs-innehåll
-* Hybridanslutningar *
+* Hybrid anslutningar *
 * Integrering av virtuella nätverk *
-* Slutpunkter för tjänsten *
-* Azure-innehållsleveransnätverk *
+* Tjänst slut punkter *
+* Azure Content Delivery Network *
 
-Funktioner som är markerade med en asterisk (*) planeras att tas bort. 
+Funktioner som har marker ATS med en asterisk (*) planeras att inte växlas. 
 
-**Inställningar som inte byts ut:**
+**Inställningar som inte har växlats**:
 
-* Publicering av slutpunkter
+* Publicerings slut punkter
 * Egna domännamn
 * Icke-offentliga certifikat och TLS/SSL-inställningar
-* Skalningsinställningar
-* WebJobs schemaläggare
+* Skalnings inställningar
+* Jobb scheman för WebJobs
 * IP-begränsningar
 * Alltid på
-* Inställningar för diagnostiklogg
-* Gemensamt för resursdelning (CORS)
+* Diagnostikinställningar
+* Resurs delning mellan ursprung (CORS)
 
 > [!NOTE]
-> Vissa appinställningar som gäller för oåtkomliga inställningar byts inte heller ut. Till exempel, eftersom diagnostiklogginställningar inte byts `WEBSITE_HTTPLOGGING_RETENTION_DAYS` `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` ut, relaterade appinställningar som och inte heller byts ut, även om de inte visas som platsinställningar.
+> Vissa inställningar för appar som tillämpas på inställningar som inte har växlats växlas inte heller. Till exempel, eftersom diagnostikinställningar inte växlas, växlas inte relaterade appinställningar, `WEBSITE_HTTPLOGGING_RETENTION_DAYS` till `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` exempel och, även om de inte visas som plats inställningar.
 >

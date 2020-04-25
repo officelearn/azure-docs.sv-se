@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: eb8e06370ecbe2b104a19c4e420b5d3ae013a00e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116323"
+ms.locfileid: "82127571"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -40,6 +40,23 @@ Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på n
 
 ## <a name="installation-and-import"></a>Installation och import
 
+* **Pip-installation: beroenden är inte garanterat konsekventa med en enskild rad installation**: 
+
+   Detta är en känd begränsning i PIP, eftersom den inte har en fungerande beroende lösare när du installerar som en enskild rad. Det första unika beroendet är det enda som det ser ut. 
+
+   I följande kod `azure-ml-datadrift` och `azureml-train-automl` båda installeras med en enda rad pip-installation. 
+     ```
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   I det här exemplet måste vi säga `azure-ml-datadrift` att version > 1,0 och `azureml-train-automl` kräver version < 1,2. Om den senaste versionen av `azure-ml-datadrift` är 1,3 uppgraderas båda paketen till 1,3, oavsett `azureml-train-automl` paket kravet för en äldre version. 
+
+   För att se till att rätt versioner är installerade för dina paket kan du installera med flera rader som i följande kod. Ordningen är inte ett problem här eftersom pip degraderas explicit som en del av nästa rad anrop. Och därmed tillämpas rätt versions beroenden.
+    
+     ```
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+     
 * **Fel meddelande: det går inte att avinstallera ' PyYAML '**
 
     Azure Machine Learning SDK för python: PyYAML är ett `distutils` installerat projekt. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta att installera SDK och ignorera det här felet använder du:
@@ -83,20 +100,6 @@ Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på n
     * Lägg `azureml-dataprep` till version 1.1.8 eller senare.
     * Lägg `pyarrow` till version 0,11 eller senare.
     
-* **Pip-installation: Dependecies är inte garanterat konsekvent med en enskild rad installation**: det här är en känd begränsning i PIP eftersom det inte har någon fungerande beroende lösare när du installerar som en enskild rad. Det första unika beroendet är det enda som det ser ut. Om du till exempel installerar Azure-ml-datadrift som kräver version > 1,0 och AzureML-träna-automl som kräver version < 1,2 och om den senaste versionen är 1,3, när användaren installerar paketen på en enda rad som visas nedan, uppgraderas allt till 1,3 även om azureml-träna-automl-paketet kräver en äldre version. 
-
-    * Du kommer att se inkonsekventa dependecies med en enda rad installation.
-    ```python
-       pip install azure-ml-datadrift, azureml-train-automl
-     ```
-   
-    * För att se till att rätt versioner är installerade för dina paket kan du installera med flera rader som i följande kod. Ordningen spelar ingen roll här.
-    
-     ```python
-        pip install azure-ml-datadrift
-        pip install azureml-train-automl 
-     ```
-     
 ## <a name="create-and-manage-workspaces"></a>Skapa och hantera arbets ytor
 
 > [!WARNING]

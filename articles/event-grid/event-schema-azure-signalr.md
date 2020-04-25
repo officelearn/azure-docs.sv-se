@@ -1,37 +1,37 @@
 ---
-title: Azure SingnalR som källa för händelserutnät
-description: Beskriver de egenskaper som tillhandahålls för Azure SignalR-händelser med Azure Event Grid
+title: Azure-signaler som Event Grid källa
+description: Beskriver de egenskaper som har angetts för Azure SignalR-händelser med Azure Event Grid
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/23/2020
 ms.author: babanisa
-ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393400"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133723"
 ---
-# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid-händelseschema för SignalR-tjänsten
+# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid händelse schema för signal tjänsten
 
-Den här artikeln innehåller egenskaper och schema för SignalR-tjänsthändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md). Det ger dig också en lista över snabbstarter och självstudier för att använda Azure SignalR som en händelsekälla.
+Den här artikeln innehåller egenskaper och schema för signalerar tjänst händelser.En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md). Du får också en lista med snabb starter och självstudier för att använda Azure SignalR som en händelse källa.
 
-## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+## <a name="event-grid-event-schema"></a>Event Grid-händelseschema
 
-### <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelse typer
 
-SignalR-tjänsten avger följande händelsetyper:
+SignalR tjänsten avger följande händelse typer:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.SignalRService.clientConnectionConnected | Utlöses när en klientanslutning är ansluten. |
-| Microsoft.SignalRService.clientConnectionDisconnected | Utlöses när en klientanslutning kopplades från. |
+| Microsoft. SignalRService. ClientConnectionConnected | Utlöses när en klient anslutning anslöts. |
+| Microsoft. SignalRService. ClientConnectionDisconnected | Utlöses när en klient anslutning kopplades från. |
 
 ### <a name="example-event"></a>Exempel händelse
 
-I följande exempel visas schemat för en klientanslutningsansluten händelse: 
+I följande exempel visas schemat för en ansluten händelse för klient anslutning: 
 
 ```json
 [{
@@ -51,7 +51,7 @@ I följande exempel visas schemat för en klientanslutningsansluten händelse:
 }]
 ```
 
-Schemat för en klientanslutning frånkopplad händelse är liknande: 
+Schemat för en frånkopplad klient anslutnings händelse är ungefär så här: 
 
 ```json
 [{
@@ -72,38 +72,38 @@ Schemat för en klientanslutning frånkopplad händelse är liknande:
 }]
 ```
 
-### <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelse egenskaper
 
-En händelse har följande data på den högsta nivån:
+En händelse har följande data på översta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
-| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
-| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
-| data | objekt | SignalR-tjänsthändelsedata. |
+| Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| id | sträng | Unikt ID för händelsen. |
+| data | objekt | Signalerar tjänstens händelse data. |
 | Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-Dataobjektet har följande egenskaper:
+Data-objektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| timestamp | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| hubName (hubName) | sträng | Navet som klientanslutningen tillhör. |
-| connectionId | sträng | Den unika identifieraren för klientanslutningen. |
-| userId | sträng | Användaridentifieraren som definierats i anspråk. |
-| Errormessage | sträng | Felet som gör att anslutningen kopplas från. |
+| timestamp | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| hubName | sträng | Hubben som klient anslutningen tillhör. |
+| connectionId | sträng | Klient anslutningens unika identifierare. |
+| userId | sträng | Användar identifieraren som definierats i anspråk. |
+| errorMessage | sträng | Det fel som gör att anslutningen kopplades från. |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 |Titel | Beskrivning |
 |---------|---------|
-| [Reagera på Azure SignalR-tjänsthändelser med hjälp av Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Översikt över integrering av Azure SignalR-tjänsten med Event Grid. |
-| [Så här skickar du Azure SignalR-tjänsthändelser till Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Visar hur du skickar Azure SignalR-tjänsthändelser till ett program via Event Grid. |
+| [Reagera på händelser i Azure SignalR service genom att använda Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Översikt över integrering av Azure SignalR service med Event Grid. |
+| [Så här skickar du Azure SignalR service-händelser till Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Visar hur du skickar Azure SignalR service-händelser till ett program via Event Grid. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
-* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).

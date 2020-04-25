@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ee80c04a6365c2cf337c4033a90df8d2993c299d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5992726893b722b0aa46c976a0167793f5ee6bb4
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76845951"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131643"
 ---
-Följande begränsningar gäller för Azure Event Grid-systemavsnitt och anpassade ämnen, *inte* händelsedomäner.
+Följande begränsningar gäller för Azure Event Grid Systems ämnen och anpassade ämnen, *inte* händelse domäner.
 
 | Resurs | Gräns |
 | --- | --- |
 | Anpassade ämnen per Azure-prenumeration | 100 |
-| Händelseprenumerationer per ämne | 500 |
-| Publiceringshastighet för ett anpassat ämne (ingående) | 5 000 händelser per sekund per ämne |
-| Publicera begäranden | 250 per sekund |
-| Händelsestorlek | 1 MB (debiteras som flera 64 KB-händelser) |
+| Händelse prenumerationer per ämne | 500 |
+| Publicerings takt för ett anpassat ämne (ingress) | 5 000 händelser per sekund per ämne |
+| Publicera begär Anden | 250 per sekund |
+| Händelse storlek | 1 MB. Åtgärder debiteras i steg om 64 KB. Händelser över 64 KB kommer därför att debiteras som om de var flera händelser. En händelse som är 130 KB skulle till exempel kunna medföra åtgärder som om det var tre separata händelser.  |
 
-Följande gränser gäller endast för händelsedomäner.
+Följande begränsningar gäller endast för händelse domäner.
 
 | Resurs | Gräns |
 | --- | --- |
-| Ämnen per händelsedomän | 100 000 |
-| Händelseprenumerationer per ämne inom en domän | 500 |
-| Domänomfattningshändelseprenumerationer | 50 |
-| Publiceringshastighet för en händelsedomän (ingående) | 5 000 händelser per sekund |
-| Publicera begäranden | 250 per sekund |
-| Händelsedomäner per Azure-prenumeration | 100 |
+| Ämnen per händelse domän | 100 000 |
+| Händelse prenumerationer per ämne i en domän | 500 |
+| Händelse prenumerationer för domän omfattning | 50 |
+| Publicerings takt för en händelse domän (ingress) | 5 000 händelser per sekund |
+| Publicera begär Anden | 250 per sekund |
+| Händelse domäner per Azure-prenumeration | 100 |

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage-frågeacceleration (förhandsgranskning)
-description: Frågeacceleration (förhandsversion) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program och analysramverk att dramatiskt optimera databearbetning genom att hämta endast de data som krävs för en bearbetning.
+title: Azure Data Lake Storage fråga om acceleration (för hands version)
+description: Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program-och analys ramverk att dramatiskt optimera data bearbetningen genom att bara hämta de data som krävs för en bearbetnings åtgärd.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,79 +8,77 @@ ms.reviewer: jamesbak
 ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 191a3280075403c8c5b57c5ffca1c7707d1ddb11
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 70a087e106e632d697052461928f3e1123a06b1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771825"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137543"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage-frågeacceleration (förhandsgranskning)
+# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage fråga om acceleration (för hands version)
 
-Frågeacceleration (förhandsversion) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program och analysramverk att dramatiskt optimera databearbetning genom att hämta endast de data som de behöver för att utföra en viss åtgärd. Detta minskar den tid och processorkraft som krävs för att få kritiska insikter i lagrade data.
+Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program-och analys ramverk att dramatiskt optimera data bearbetningen genom att bara hämta de data som de behöver för att utföra en specifik åtgärd. Detta minskar den tid och processor kraft som krävs för att få viktiga insikter om lagrade data.
 
 > [!NOTE]
-> Frågeaccelerationfunktionen är i offentlig förhandsversion och är tillgänglig i regionerna Kanada Central och France Central. Information om hur du granskar begränsningar finns i artikeln [Kända problem.](data-lake-storage-known-issues.md) Om du vill registrera dig i förhandsgranskningen läser du [det här formuläret](https://aka.ms/adls/qa-preview-signup).  
+> Funktionen för acceleration av frågor finns i offentlig för hands version och är tillgänglig i regionerna Kanada, centrala och Frankrike, centrala. Information om hur du granskar begränsningar finns i artikeln om [kända problem](data-lake-storage-known-issues.md) . Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adls/qa-preview-signup).  
 
 ## <a name="overview"></a>Översikt
 
-Frågeacceleration accepterar *filtreringspredikater* och *kolumnprojektioner* som gör det möjligt för program att filtrera rader och kolumner när data läss från disken. Endast data som uppfyller villkoren för ett predikat överförs över nätverket till programmet. Detta minskar nätverksfördröjningen och beräkningskostnaden.  
+Med frågans acceleration kan du filtrera *predikat* och *kolumn projektioner* som gör det möjligt för program att filtrera rader och kolumner vid den tidpunkt då data läses från disken. Endast de data som uppfyller villkoren i ett predikat överförs över nätverket till programmet. Detta minskar nätverks fördröjningen och beräknings kostnaderna.  
 
-Du kan använda SQL för att ange radfilterpredikater och kolumnprojektioner i en begäran om frågeacceleration. En begäran bearbetar bara en fil. Därför stöds inte avancerade relationsfunktioner i SQL, till exempel kopplingar och grupper efter aggregat. Frågeacceleration stöder CSV- och JSON-formaterade data som indata till varje begäran.
+Du kan använda SQL för att ange rad filter-predikat och kolumn projektioner i en begäran om acceleration av frågor. En begäran bearbetar bara en fil. Därför stöds inte avancerade Relations funktioner i SQL, till exempel sammanfogningar och gruppering efter AGG regeringar. Frågans acceleration stöder CSV-och JSON-formaterade data som indata till varje begäran.
 
-Frågeaccelerationsfunktionen är inte begränsad till DataSjölagring (lagringskonton som har det hierarkiska namnområdet aktiverat på dem). Frågeaccelerationen är helt kompatibel med blobbar i lagringskonton som **inte** har ett hierarkiskt namnområde aktiverat på dem. Det innebär att du kan uppnå samma minskning av nätverksfördröjning och beräkningskostnader när du bearbetar data som du redan har lagrat som blobbar i lagringskonton.
+Funktionen för frågans acceleration är inte begränsad till Data Lake Storage (lagrings konton som har det hierarkiska namn området aktiverat). Frågans acceleration är helt kompatibel med blobbar i lagrings konton som **inte** har ett hierarkiskt namn område aktiverat på dem. Det innebär att du kan uppnå samma minskning av nätverks fördröjningen och beräknings kostnaderna när du bearbetar data som du redan har lagrat som blobar i lagrings konton.
 
-Ett exempel på hur du använder frågeacceleration i ett klientprogram finns i [Filtrera data med hjälp av Azure Data Lake Storage-frågeacceleration](data-lake-storage-query-acceleration-how-to.md).
+Ett exempel på hur du använder frågans acceleration i ett klient program finns i [filtrera data med hjälp av Azure Data Lake Storage fråga acceleration](data-lake-storage-query-acceleration-how-to.md).
 
 ## <a name="data-flow"></a>Dataflöde
 
-Följande diagram illustrerar hur ett vanligt program använder frågeacceleration för att bearbeta data.
+Följande diagram illustrerar hur ett typiskt program använder Query-acceleration för att bearbeta data.
 
 > [!div class="mx-imgBorder"]
-> ![Översikt över frågeacceleration](./media/data-lake-storage-query-acceleration/query-acceleration.png)
+> ![Översikt över frågans acceleration](./media/data-lake-storage-query-acceleration/query-acceleration.png)
 
-1. Klientprogrammet begär fildata genom att ange predikater och kolumnprojektioner.
+1. Klient programmet begär fildata genom att ange predikat och kolumn projektioner.
 
-2. Frågeacceleration tolkar den angivna SQL-frågan och distribuerar arbete för att tolka och filtrera data.
+2. Med Query acceleration parsas angiven SQL-fråga och distribuerar arbete för att parsa och filtrera data.
 
-3. Processorer läser data från disken, tolkar data med hjälp av rätt format och filtrerar sedan data genom att använda de angivna predikat- och kolumnprojektionerna.
+3. Processorer läser data från disken, tolkar data med hjälp av lämpligt format och filtrerar sedan data genom att använda angivna predikat och kolumn projektioner.
 
-4. Frågeacceleration kombinerar svarssvandrarna för att strömma tillbaka till klientprogrammet.
+4. Med Query acceleration kombineras svars Shards att strömma tillbaka till klient programmet.
 
-5. Klientprogrammet tar emot och tolkar det strömmade svaret. Programmet behöver inte filtrera ytterligare data och kan använda önskad beräkning eller omvandling direkt.
+5. Klient programmet tar emot och tolkar det strömmade svaret. Programmet behöver inte filtrera ytterligare data och kan tillämpa önskad beräkning eller omvandling direkt.
 
 ## <a name="better-performance-at-a-lower-cost"></a>Bättre prestanda till en lägre kostnad
 
-Frågeacceleration optimerar prestanda genom att minska mängden data som överförs och bearbetas av ditt program.
+Med frågekörning optimeras prestanda genom att minska mängden data som överförs och bearbetas av ditt program.
 
-Om du vill beräkna ett aggregerat värde hämtar program ofta **alla** data från en fil och bearbetar och filtrerar sedan data lokalt. En analys av indata-/utdatamönster för analysarbetsbelastningar visar att program vanligtvis bara kräver 20 % av de data som de läser för att utföra en given beräkning. Denna statistik gäller även efter tillämpning av tekniker som [partition beskärning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Det innebär att 80 % av dessa data i onödan överförs över nätverket, tolkas och filtreras efter program. Det här mönstret, som huvudsakligen är utformat för att ta bort onödiga data, medför en betydande beräkningskostnad.  
+För att beräkna ett sammanställt värde hämtar program ofta **alla** data från en fil och bearbetar och filtrerar sedan data lokalt. En analys av indata/utdata-mönster för analys av arbets belastningar visar att program vanligt vis bara behöver 20% av de data som de har läst för att utföra någon bestämd beräkning. Den här statistiken är sann även när du har tillämpat metoder som [partition rensning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Det innebär att 80% av dessa data överförs onödan över nätverket, parsas och filtreras efter program. Det här mönstret, som är utformat för att ta bort onödiga data, medför en betydande beräknings kostnad.  
 
-Även om Azure har ett branschledande nätverk, både när det gäller dataflöde och svarstid, är det fortfarande dyrt att överföra data över nätverket i onödan för programprestanda. Genom att filtrera bort oönskade data under lagringsbegäran eliminerar frågeacceleration den här kostnaden.
+Även om Azure har ett branschledande nätverk, vad gäller både genom strömning och latens, är onödan överföring av data i det nätverket fortfarande kostsamt för program prestanda. Genom att filtrera bort oönskade data under lagrings förfrågan eliminerar Query acceleration denna kostnad.
 
-Dessutom kräver cpu-belastningen som krävs för att tolka och filtrera onödiga data ditt program för att etablera ett större antal och större virtuella datorer för att göra det arbete. Genom att överföra den här beräkningsbelastningen till frågeacceleration kan program uppnå betydande kostnadsbesparingar.
+Dessutom kräver CPU-belastningen som krävs för att parsa och filtrera onödiga data ditt program att tillhandahålla ett större antal och större virtuella datorer för att det ska fungera. Genom att överföra den här beräknings belastningen till fråga om acceleration kan program göra betydande kostnads besparingar.
 
-## <a name="applications-that-can-benefit-from-query-acceleration"></a>Program som kan dra nytta av frågeacceleration
+## <a name="applications-that-can-benefit-from-query-acceleration"></a>Program som kan dra nytta av frågans acceleration
 
-Frågeacceleration är utformad för distribuerade analysramverk och databehandlingsprogram. 
+Fråga om acceleration är utformad för distribuerade analys ramverk och data bearbetnings program. 
 
-Distribuerade analysramverk som Apache Spark och Apache Hive innehåller ett lagringsabstraktionslager inom ramen. Dessa motorer innehåller också frågeoptimerare som kan inbegripa kunskap om den underliggande I/O-tjänstens funktioner när du fastställer en optimal frågeplan för användarfrågor. Dessa ramverk börjar integrera frågeacceleration. Som ett resultat kommer användare av dessa ramverk att se förbättrad frågefördröjning och en lägre total ägandekostnad utan att behöva göra några ändringar i frågorna. 
+Distribuerade analys ramverk som Apache Spark och Apache Hive innehåller ett lagrings abstraktions lager i ramverket. Dessa motorer innehåller även fråge optimeringar som kan innehålla kunskaper om de underliggande I/O-tjänstens funktioner när man fastställer en optimal frågeplan för användar frågor. Dessa ramverk börjar integrera frågans acceleration. Det innebär att användare av dessa ramverk ser förbättrad svars tid för frågor och en lägre totalkostnad utan att behöva göra några ändringar i frågorna. 
 
-Frågeacceleration är också avsedd för databehandlingsprogram. Dessa typer av program utför vanligtvis storskaliga dataomvandlingar som kanske inte direkt leder till analysinsikter så att de inte alltid använder etablerade distribuerade analysramverk. Dessa program har ofta en mer direkt relation med den underliggande lagringstjänsten så att de kan dra direkt nytta av funktioner som frågeacceleration. 
+Fråga om acceleration är också utformad för data bearbetnings program. De här typerna av program utför vanligt vis storskaliga data omvandlingar som kanske inte direkt leder till analys insikter så att de inte alltid använder etablerade distribuerade analys ramverk. De här programmen har ofta en mer direkt relation med den underliggande lagrings tjänsten så att de kan dra nytta av funktioner som frågans acceleration. 
 
-Ett exempel på hur ett program kan integrera frågeacceleration finns [i Filtrera data med hjälp av Azure Data Lake Storage-frågeacceleration](data-lake-storage-query-acceleration-how-to.md).
+Ett exempel på hur ett program kan integrera frågans acceleration finns i [filtrera data med hjälp av Azure Data Lake Storage fråga acceleration](data-lake-storage-query-acceleration-how-to.md).
 
 ## <a name="pricing"></a>Prissättning
 
-På grund av den ökade beräkningsbelastningen i Azure Data Lake Storage-tjänsten skiljer sig prismodellen för att använda frågeacceleration från den normala Azure Data Lake Storage-transaktionsmodellen. Frågeacceleration tar ut en kostnad för mängden data som genomsöks samt en kostnad för mängden data som returneras till anroparen.
+På grund av den ökade beräknings belastningen i Azure Data Lake Storages tjänsten skiljer sig pris modellen för att använda frågans acceleration från den normala Azure Data Lake Storage transaktions modellen. För fråga acceleration debiteras en kostnad för mängden data som genomsöks samt en kostnad för den mängd data som returneras till anroparen.
 
-Trots ändringen av faktureringsmodellen är Frågeaccelerationens prismodell utformad för att sänka den totala ägandekostnaden för en arbetsbelastning, med tanke på minskningen av de mycket dyrare vm-kostnaderna.
+Trots ändringen av fakturerings modellen är pris sättnings modellen för frågekörning utformad för att sänka den totala ägande kostnaden för en arbets belastning, med hänsyn till minskningen av de mycket dyrare kostnaderna för virtuella datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Registreringsformulär för frågeacceleration](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrera data med hjälp av azure datasjölagringsfrågeacceleration](data-lake-storage-query-acceleration-how-to.md)
-- [SQL-språkreferens för frågeacceleration (förhandsgranskning)](query-acceleration-sql-reference.md)
-- REST-API-referens för frågeacceleration
-
+- [Registrerings formulär för fråga om acceleration](https://aka.ms/adls/qa-preview-signup)    
+- [Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (för hands version)](data-lake-storage-query-acceleration-how-to.md)
+- [Språk referens för Query acceleration SQL (för hands version)](query-acceleration-sql-reference.md)
 
 

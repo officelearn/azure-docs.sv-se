@@ -1,71 +1,71 @@
 ---
-title: SSL - Azure-databas för PostgreSQL - Single Server
-description: Instruktioner och information om hur du konfigurerar SSL-anslutning för Azure Database för PostgreSQL - Single Server.
+title: TLS – Azure Database for PostgreSQL-enskild server
+description: Instruktioner och information om hur du konfigurerar TLS-anslutning för Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 303da4dcb68a79e69254f6610afc0003bf0aa22c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0482e5205b97b5c57c41e0ba98fb9ca819e5d5f
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477008"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82141747"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Konfigurera SSL-anslutning i Azure Database för PostgreSQL - Single Server
+# <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Konfigurera TLS-anslutning i Azure Database for PostgreSQL-enskild server
 
-Azure Database for PostgreSQL föredrar att ansluta dina klientprogram till PostgreSQL-tjänsten med secure sockets layer (SSL). Genom att tillämpa SSL-anslutningar mellan databasservern och klientprogrammen kan du skydda mot "man-in-the-middle"-attacker genom att kryptera dataströmmen mellan servern och ditt program.
+Azure Database for PostgreSQL föredrar att ansluta dina klient program till PostgreSQL-tjänsten med hjälp av Transport Layer Security (TLS), tidigare kallat Secure Sockets Layer (SSL). Att framtvinga TLS-anslutningar mellan din databas server och dina klient program hjälper till att skydda mot "man-in-the-Middle"-attacker genom att kryptera data strömmen mellan servern och ditt program.
 
-Som standard är PostgreSQL-databastjänsten konfigurerad för att kräva SSL-anslutning. Du kan välja att inaktivera krav på SSL om klientprogrammet inte stöder SSL-anslutning.
+Som standard är PostgreSQL-databas tjänsten konfigurerad att kräva TLS-anslutning. Du kan välja att inaktivera krav på TLS om klient programmet inte stöder TLS-anslutning.
 
-## <a name="enforcing-ssl-connections"></a>Tvinga SSL-anslutningar
+## <a name="enforcing-tls-connections"></a>Tvinga TLS-anslutningar
 
-För alla Azure-databas för PostgreSQL-servrar som etablerats via Azure-portalen och CLI aktiveras tvingande SSL-anslutningar som standard. 
+För alla Azure Database for PostgreSQL-servrar som tillhandahålls via Azure Portal och CLI är tvingande av TLS-anslutningar aktiverat som standard. 
 
-På samma sätt innehåller anslutningssträngar som är fördefinierade i inställningarna för anslutningssträngar under servern i Azure-portalen de parametrar som krävs för att vanliga språk ska ansluta till databasservern med SSL. SSL-parametern varierar beroende på kopplingen, till exempel "ssl=true" eller "sslmode=require" eller "sslmode=required" och andra variationer.
+På samma sätt inkluderar anslutnings strängar som är fördefinierade i inställningarna "anslutnings strängar" under servern i Azure Portal de nödvändiga parametrarna för vanliga språk för att ansluta till din databas server med TLS. TLS-parametern varierar beroende på anslutningen, till exempel "SSL = true" eller "sslmode = Kräv" eller "sslmode = required" och andra variationer.
 
-## <a name="configure-enforcement-of-ssl"></a>Konfigurera tvingande efterlevnad av SSL
+## <a name="configure-enforcement-of-tls"></a>Konfigurera verk ställande av TLS
 
-Du kan också inaktivera tvingande SSL-anslutning. Microsoft Azure rekommenderar att du alltid aktiverar **tvingande SSL-anslutningsinställning** för förbättrad säkerhet.
+Du kan också inaktivera tvingande TLS-anslutning. Microsoft Azure rekommenderar att du alltid aktiverar alternativet **FRAMTVINGA SSL-anslutning** för förbättrad säkerhet.
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Besök din Azure-databas för PostgreSQL-server och klicka på **Anslutningssäkerhet**. Använd växlingsknappen för att aktivera eller inaktivera inställningen **Framtvinga SSL-anslutning.** Klicka sedan på **Spara**.
+Besök Azure Database for PostgreSQL-servern och klicka på **anslutnings säkerhet**. Använd växlings knappen för att aktivera eller inaktivera inställningen **FRAMTVINGA SSL-anslutning** . Klicka sedan på **Spara**.
 
-![Anslutningssäkerhet - Inaktivera Tvinga SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
+![Anslutnings säkerhet – inaktivera framtvinga TLS/SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
-Du kan bekräfta inställningen genom att visa sidan **Översikt** för att se statusindikatorn för **SSL-intvingning.**
+Du kan bekräfta inställningen genom att visa **översikts** sidan för att se status indikatorn för **SSL-framtvingande** .
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
-Du kan aktivera eller inaktivera **parametern ssl-enforcement** med respektive `Enabled` `Disabled` värden i Azure CLI.
+Du kan aktivera eller inaktivera **SSL-tvångs** parametern med `Enabled` respektive `Disabled` värden i Azure CLI.
 
 ```azurecli
 az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
-## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Se till att ditt program eller ramverk stöder SSL-anslutningar
+## <a name="ensure-your-application-or-framework-supports-tls-connections"></a>Se till att ditt program eller ramverk stöder TLS-anslutningar
 
-Vissa programramverk som använder PostgreSQL för sina databastjänster aktiverar inte SSL som standard under installationen. Om PostgreSQL-servern framtvingar SSL-anslutningar men programmet inte är konfigurerat för SSL kan det hända att programmet inte ansluter till databasservern. Läs programmets dokumentation om du vill lära dig hur du aktiverar SSL-anslutningar.
+Vissa program ramverk som använder PostgreSQL för sina databas tjänster aktiverar inte TLS som standard under installationen. Om din PostgreSQL-Server framtvingar TLS-anslutningar men programmet inte har kon figurer ATS för TLS, kan det hända att programmet inte kan ansluta till din databas server. Mer information om hur du aktiverar TLS-anslutningar finns i programmets dokumentation.
 
-## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>Program som kräver certifikatverifiering för SSL-anslutning
+## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Program som kräver certifikat verifiering för TLS-anslutning
 
-I vissa fall kräver program en lokal certifikatfil som genereras från en betrodd certifikatutfärdarcertifikatfil (.cer) för att ansluta säkert. Certifikatet för att ansluta till en Azure-databas för https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pemPostgreSQL-server finns på . Hämta certifikatfilen och spara den på önskad plats.
+I vissa fall kräver program en lokal certifikat fil som genereras från en betrodd certifikat utfärdare (. cer) för att ansluta på ett säkert sätt. Certifikatet för att ansluta till en Azure Database for PostgreSQL-Server finns på https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Ladda ned certifikat filen och spara den på önskad plats.
 
 ### <a name="connect-using-psql"></a>Anslut med psql
 
-I följande exempel visas hur du ansluter till Din PostgreSQL-server med hjälp av kommandoradsverktyget psql. Använd `sslmode=verify-full` inställningen för anslutningssträng för att framtvinga SSL-certifikatverifiering. Skicka sökvägen till den `sslrootcert` lokala certifikatfilen till parametern.
+I följande exempel visas hur du ansluter till PostgreSQL-servern med hjälp av kommando rads verktyget psql. Använd inställningen `sslmode=verify-full` för anslutnings strängen för att framtvinga verifiering av TLS/SSL-certifikat. Överför sökvägen till den lokala certifikat filen till `sslrootcert` -parametern.
 
-Följande kommando är ett exempel på psql-anslutningssträngen:
+Följande kommando är ett exempel på anslutnings strängen psql:
 
 ```shell
 psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=myusern@mydemoserver"
 ```
 
 > [!TIP]
-> Bekräfta att värdet `sslrootcert` som skickades till matchar filsökvägen för certifikatet som du sparade.
+> Bekräfta att värdet som skickas till `sslrootcert` matchar fil Sök vägen för det certifikat som du har sparat.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska olika programanslutningsalternativ i [anslutningsbibliotek för Azure Database för PostgreSQL](concepts-connection-libraries.md).
+Granska olika program anslutnings alternativ i [anslutnings bibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).

@@ -4,33 +4,34 @@ titlesuffix: Azure Virtual Network
 description: Läs mer om offentliga och privata IP-adresser i Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.sudbservice: ip-services
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: 9de94dab7000cee90f4448aa6d81196d3865e021
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 4a55ea00d46f46094e5d370ee707870212372198
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474407"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133849"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
 Du kan tilldela IP-adresser till Azure-resurser för att kommunicera med andra Azure-resurser, det lokala nätverket och Internet. Det finns två typer av IP-adresser som du kan använda i Azure:
 
-* **Offentliga IP-adresser**: Används för kommunikation med Internet, inklusive offentliga Azure-tjänster.
+* **Offentliga IP-adresser**: används för kommunikation med Internet, inklusive offentliga Azure-tjänster.
 * **Privata IP-adresser**: Används för kommunikation inom ett virtuellt Azure-nätverk (VNet), och ditt lokala nätverk om du använder en VPN-gateway eller ExpressRoute-krets för att utöka ditt nätverk till Azure.
 
 Du kan också skapa ett sammanhängande intervall med statiska offentliga IP-adresser via ett offentligt IP-prefix. [Läs mer om offentliga IP-prefix.](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Den här artikeln beskriver Resource Manager-distributionsmodellen, som Microsoft rekommenderar för de flesta nya distributioner i stället för [den klassiska distributionsmodellen](virtual-network-ip-addresses-overview-classic.md).
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Den här artikeln beskriver Resource Manager-distributionsmodellen, som Microsoft rekommenderar för de flesta nya distributioner i stället för [den klassiska distributionsmodellen](virtual-network-ip-addresses-overview-classic.md).
 > 
 
 Om du är bekant med den klassiska distributionsmodellen läser du artikeln om [skillnaderna i IP-adressering mellan den klassisk modellen och Resource Manager](/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic#differences-between-resource-manager-and-classic-deployments).
@@ -75,14 +76,14 @@ Offentliga IP-adresser för standard-SKU:
 - Använd alltid den statiska allokeringsmetoden.
 - Har en justerbar inkommande tidsgräns för inaktivitet i flöde på 4–30 minuter, med ett standardvärde på 4 minuter, och en fast utgående tidsgräns för inaktivitet i flöde på 4 minuter.
 - Är säkra som standard och stängda för inkommande trafik. Du måste explicit göra en lista över tillåten inkommande trafik med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups).
-- Tilldelas nätverksgränssnitt, standardiserade belastningsutjämnare eller Programgateways. Mer information om Standard Load Balancer finns i [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Tilldelad till nätverks gränssnitt, offentliga standard belastningsutjämnare eller programgatewayer. Mer information om Standard Load Balancer finns i [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zonredundant som standard och valfritt zonindelad (kan skapas zonindelad och garanteras i en specifik tillgänglighetszon). Om du vill veta mer om tillgänglighetszoner kan du läsa [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Standard Load Balancer och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
 > Inkommande kommunikation med en resurs med standard-SKU misslyckas tills du har skapat och kopplat en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups) och uttryckligen tillåtit önskad inkommande trafik.
 
 > [!NOTE]
-> Endast offentliga IP-adresser med grundläggande SKU är tillgängliga när du använder [instansmetadatatjänsten IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU stöds inte.
+> Endast offentliga IP-adresser med Basic SKU är tillgängliga när du använder [IMDS för instans-metadata](../virtual-machines/windows/instance-metadata-service.md). Standard-SKU stöds inte.
 
 ### <a name="allocation-method"></a>Allokeringsmetod
 
@@ -112,8 +113,8 @@ Du kan ange en DNS-domännamnsetikett för en offentlig IP-resurs, vilket skapar
 > Varje domännamnsetikett som skapas måste vara unik inom dess Azure-plats.  
 >
 
-### <a name="dns-best-practices"></a>Bästa metoder för DNS
-Om du någonsin behöver migrera till en annan region kan du inte migrera FQDN för din offentliga IP-adress. Du kan också använda FQDN för att skapa en anpassad CNAME-post för domän som pekar på den offentliga IP-adressen i Azure. Om du behöver flytta till en annan offentlig IP kräver den en uppdatering av CNAME-posten i stället för att behöva uppdatera FQDN manuellt till den nya adressen. Du kan använda [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) eller en extern DNS-provider för din DNS-post. 
+### <a name="dns-best-practices"></a>Metod tips för DNS
+Om du skulle behöva migrera till en annan region kan du inte migrera FQDN för din offentliga IP-adress. Som bästa praxis kan du använda det fullständiga domän namnet för att skapa en anpassad CNAME-post som pekar på den offentliga IP-adressen i Azure. Om du behöver flytta till en annan offentlig IP-adress krävs en uppdatering av CNAME-posten i stället för att manuellt uppdatera FQDN till den nya adressen. Du kan använda [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) eller en extern DNS-Provider för din DNS-post. 
 
 ### <a name="virtual-machines"></a>Virtuella datorer
 
@@ -121,7 +122,7 @@ Du kan associera en offentlig IP-adress med en [Windows](../virtual-machines/win
 
 ### <a name="internet-facing-load-balancers"></a>Internetuppkopplade lastbalanserare
 
-Du kan associera en offentlig IP-adress som skapas med en [SKU](#sku) till en [Azure Load Balancer](../load-balancer/load-balancer-overview.md) genom att tilldela den till lastbalanserarens konfiguration på **klientsidan**. Den offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en lastbalanserare. Du kan också tilldela flera offentliga IP-adresser till en front-end för belastningsutjämnare, vilket möjliggör [multi-VIP-scenarier](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som en miljö med flera innehavare med TLS-baserade webbplatser. Mer information om SKU:er för lastbalanserare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Du kan associera en offentlig IP-adress som skapas med en [SKU](#sku) till en [Azure Load Balancer](../load-balancer/load-balancer-overview.md) genom att tilldela den till lastbalanserarens konfiguration på **klientsidan**. Den offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en lastbalanserare. Du kan också tilldela flera offentliga IP-adresser till en belastnings Utjämnings klient, som möjliggör [flera VIP-](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) scenarier som en miljö med flera klienter med TLS-baserade webbplatser. Mer information om SKU:er för lastbalanserare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>VPN-gateways
 
@@ -129,7 +130,7 @@ Du kan associera en offentlig IP-adress som skapas med en [SKU](#sku) till en [A
 
 ### <a name="application-gateways"></a>Programgateways
 
-Du kan associera en offentlig IP-adress med en Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genom att tilldela den till gatewayens konfiguration på **klientsidan**. Den här offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress. Du kan bara tilldela en *dynamisk* grundläggande offentlig IP-adress till en V1-klientkonfiguration för programgateway och endast en *statisk* standard-SKU-adress till en V2-frontend-konfiguration.
+Du kan associera en offentlig IP-adress med en Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genom att tilldela den till gatewayens konfiguration på **klientsidan**. Den här offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress. Du kan endast tilldela en *dynamisk* offentlig IP-adress till en Application Gateway v1 frontend-konfiguration, och endast en *statisk* standard-SKU-adress till en v2-frontend-konfiguration.
 
 ### <a name="at-a-glance"></a>En snabb översikt
 Följande tabell visar den specifika egenskapen som kan användas för att associera en offentlig IP-adress till en resurs på den översta nivån, samt de metoder (dynamisk eller statisk) som kan användas.
@@ -152,7 +153,7 @@ I Azure Resource Manager-distributionsmodellen associeras en privat IP-adress me
 
 ### <a name="allocation-method"></a>Allokeringsmetod
 
-En privat IP-adress allokeras från adressintervallet för det virtuella undernätet som en resurs är distribuerad i. Azure reserverar de fyra första adresserna i varje undernäts adressintervall, så att adresserna inte kan tilldelas till resurser. Om undernätets adressintervall till exempel är 10.0.0.0/16 kan adresser 10.0.0.0-10.0.0.3 och 10.0.255.255 inte tilldelas resurser. IP-adresser inom undernätets adressintervall kan endast tilldelas en resurs åt gången. 
+En privat IP-adress allokeras från adressintervallet för det virtuella undernätet som en resurs är distribuerad i. Azure reserverar de fyra första adresserna i varje undernäts adressintervall, så att adresserna inte kan tilldelas till resurser. Om under nätets adress intervall till exempel är 10.0.0.0/16, kan inte adresser 10.0.0.0-10.0.0.3 och 10.0.255.255 tilldelas till resurser. IP-adresser inom undernätets adressintervall kan endast tilldelas en resurs åt gången. 
 
 En privat IP-adress kan allokeras med två metoder:
 

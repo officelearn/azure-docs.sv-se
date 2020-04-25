@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 73f79145f63e0d8afee7596f1f8231a054ef1c2e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: a407461e20eefe29dd410ac6ed547b33287a5be8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097701"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145414"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Felsöka Runbook-fel
 
@@ -180,11 +180,11 @@ At line:16 char:1
 
 ### <a name="cause"></a>Orsak
 
-Det här felet orsakas av både AzureRM-och AZ-modulens cmdlets i en Runbook. Det inträffar när du importerar AZ-modulen innan du importerar AzureRM-modulen.
+Det här felet beror förmodligen på en ofullständig migrering från AzureRM till AZ-moduler i din Runbook. Detta kan orsaka att Azure Automation startar ett Runbook-jobb med endast AzureRM-moduler och sedan startar ett annat jobb med endast AZ-moduler, vilket leder till en sand Box krasch. 
 
 ### <a name="resolution"></a>Lösning
 
-AZ-och AzureRM-cmdletar kan inte importeras och används i samma Runbook. Mer information om AZ-cmdlets i Azure Automation finns i [Hantera moduler i Azure Automation](../shared-resources/modules.md).
+Vi rekommenderar inte att du använder AZ-och AzureRM-cmdletar i samma Runbook. Mer information om hur du använder dessa moduler på rätt väg finns i [migrera till AZ-moduler](../shared-resources/modules.md#migrating-to-az-modules).
 
 ## <a name="scenario-the-runbook-fails-with-the-error-a-task-was-canceled"></a><a name="task-was-cancelled"></a>Scenario: runbooken Miss lyckas med felet: en aktivitet avbröts
 
@@ -581,7 +581,7 @@ Det finns två sätt att lösa det här felet.
 * I stället för att använda [Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)använder du [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) för att starta runbooken.
 * Försök att köra runbooken på en Hybrid Runbook Worker.
 
-Mer information om det här beteendet och andra beteenden för Azure Automation runbooks finns i [Runbook-beteende](../automation-runbook-execution.md#runbook-behavior).
+Mer information om det här beteendet och andra beteenden för Azure Automation runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
 
 ## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>Scenario: Linux Hybrid Runbook Worker tar emot ett lösen ord när en Runbook signeras
 
@@ -645,11 +645,11 @@ Möjliga orsaker till det här problemet:
 
 #### <a name="not-using-run-as-account"></a>Kör som-konto används inte
 
-Följ stegen i [steg 5 – Lägg till autentisering för att hantera Azure-resurser](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) för att se till att du använder ett Kör som-konto för att få åtkomst till Key Vault. 
+Följ [steg 5 – Lägg till autentisering för att hantera Azure-resurser](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) för att se till att du använder ett Kör som-konto för att få åtkomst till Key Vault. 
 
 #### <a name="insufficient-permissions"></a>Otillräcklig behörighet
 
-Följ stegen i [Lägg till behörigheter för Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) för att säkerställa att ditt kör som-konto har tillräcklig behörighet för att komma åt Key Vault. 
+[Lägg till behörigheter till Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) för att säkerställa att ditt kör som-konto har tillräcklig behörighet för att komma åt Key Vault. 
 
 ## <a name="my-problem-isnt-listed-above"></a><a name="other"></a>Mitt problem visas inte ovan
 
@@ -669,7 +669,7 @@ Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från 
 
 ### <a name="issues-using-az-modules"></a>Problem med AZ-moduler
 
-Det går inte att använda AZ-moduler och AzureRM-moduler i samma Automation-konto. Mer information finns i [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules) .
+Om du använder en ofullständig migrering av Runbook-modulerna från AzureRM till AZ kan det orsaka sandbox-krascher och Runbook-fel. Se [använda moduler i dina runbooks](../automation-runbook-execution.md#using-modules-in-your-runbooks).
 
 ### <a name="inconsistent-behavior-in-runbooks"></a>Inkonsekvent beteende i runbooks
 
@@ -688,10 +688,6 @@ Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt
 
 Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
-### <a name="using-az-modules"></a>Använda Az-moduler
-
-Det går inte att använda AZ-moduler och AzureRM-moduler i samma Automation-konto. Se [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules).
-
 ### <a name="using-self-signed-certificates"></a>Använda självsignerade certifikat
 
 Information om hur du använder självsignerade certifikat finns i [skapa ett nytt certifikat](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
@@ -702,6 +698,7 @@ Azure sandbox förhindrar åtkomst till alla out-of-process COM-servrar. Ett beg
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
+* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
 * [Starta en Runbook i Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Runbook-körning i Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 

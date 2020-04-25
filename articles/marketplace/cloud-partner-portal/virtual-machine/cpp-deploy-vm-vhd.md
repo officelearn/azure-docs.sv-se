@@ -1,38 +1,38 @@
 ---
-title: Distribuera en virtuell dator från dina virtuella hårddiskar för Azure Marketplace
-description: Förklarar hur du registrerar en virtuell dator från en Azure-distribuerad virtuell hårddisk.
+title: Distribuera en virtuell dator från dina virtuella hård diskar för Azure Marketplace
+description: Förklarar hur du registrerar en virtuell dator från en Azure-distribuerad virtuell hård disk.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
-ms.openlocfilehash: f13e4066137e0d76612040d9f6e5ff3d0aa399c8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b02fda545ac135735186885d7db597885bf6cc21
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273910"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147971"
 ---
-# <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina virtuella hårddiskar
+# <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina virtuella hård diskar
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi den rörliga hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i Skapa dina tekniska resurser för [din virtuella Azure-dator](https://aka.ms/AzureVMTechAsset) för att hantera dina migrerade erbjudanden.
+> Från och med 13 april 2020 börjar vi flytta hanteringen av din virtuella Azure-dator till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [skapa tekniska till gång till Azure-datorer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) för att hantera dina migrerade erbjudanden.
 
-I det här avsnittet beskrivs hur du distribuerar en virtuell dator (VM) från en Azure-distribuerad virtuell hårddisk (VHD).  Den listar de verktyg som krävs och hur du använder dem för att skapa en användare VM-avbildning och distribuera den sedan till Azure med PowerShell-skript.
+I det här avsnittet beskrivs hur du distribuerar en virtuell dator (VM) från en Azure-distribuerad virtuell hård disk (VHD).  Den innehåller en lista över de verktyg som krävs och hur du använder dem för att skapa en användar avbildning av en virtuell dator och sedan distribuera den till Azure med hjälp av PowerShell-skript
 
-När du har laddat upp dina virtuella hårddiskar – den generaliserade hårddisken i operativsystemet och noll eller fler virtuella hårddiskar för datadiskar – till ditt Azure-lagringskonto kan du registrera dem som en virtuell avbildning för användare. Då kan du testa den bilden. Eftersom operativsystemets virtuella hårddisk är generaliserad kan du inte distribuera den virtuella datorn direkt genom att ange VHD-URL:en.
+När du har laddat upp dina virtuella hård diskar (VHD: er) – det generaliserade operativ systemet VHD och noll eller flera datadisk-VHD: er till ditt Azure Storage-konto kan du registrera dem som en VM-avbildning. Sedan kan du testa avbildningen. Eftersom operativ systemets virtuella hård disk är generaliserad kan du inte distribuera den virtuella datorn direkt genom att tillhandahålla VHD-URL: en.
 
-Mer information om vm-bilder finns i följande blogginlägg:
+Mer information om VM-avbildningar finns i följande blogg inlägg:
 
-- [Arkivbild.](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM-avbildning PowerShell "Hur"](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [Avbildning av virtuell dator](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [Den virtuella dator avbildningen PowerShell ' How to '](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisite-install-the-necessary-tools"></a>Förutsättning: installera nödvändiga verktyg
 
-Om du inte redan har gjort det installerar du Azure PowerShell och Azure CLI med hjälp av följande instruktioner:
+Om du inte redan har gjort det installerar du Azure PowerShell och Azure CLI med hjälp av följande anvisningar:
 
 - [Installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -40,50 +40,50 @@ Om du inte redan har gjort det installerar du Azure PowerShell och Azure CLI med
 
 ## <a name="deployment-steps"></a>Distributionssteg
 
-Du kommer att använda följande steg för att skapa och distribuera en användare VM-avbildning:
+Du kommer att använda följande steg för att skapa och distribuera en användar avbildning av en virtuell dator:
 
-1. Skapa avbildningen av den virtuella datorn för användare, vilket innebär att bilden hämtas och generaliseras. 
-2. Skapa certifikat och lagra dem i ett nytt Azure Key Vault. Ett certifikat krävs för att upprätta en säker WinRM-anslutning till den virtuella datorn.  En Azure Resource Manager-mall och ett Azure PowerShell-skript tillhandahålls. 
-3. Distribuera den virtuella datorn från en användare VM-avbildning med hjälp av den medföljande mallen och skriptet.
+1. Skapa avbildningen av den virtuella datorn, vilket innebär att avbildningen insamlas och generaliseras. 
+2. Skapa certifikat och lagra dem i en ny Azure Key Vault. Ett certifikat krävs för att upprätta en säker WinRM-anslutning till den virtuella datorn.  En Azure Resource Manager mall och ett Azure PowerShell-skript tillhandahålls. 
+3. Distribuera den virtuella datorn från en användar avbildning av en virtuell dator med hjälp av den angivna mallen och skriptet.
 
-När den virtuella datorn har distribuerats är du redo att [certifiera avbildningen för den virtuella datorn](./cpp-certify-vm.md).
+När den virtuella datorn har distribuerats är du redo att [certifiera din VM-avbildning](./cpp-certify-vm.md).
 
-1. Klicka på **Ny** och sök efter **malldistribution**och välj sedan **Skapa en egen mall i Redigerare**.  <br/>
-   ![Skapa VHD-distributionsmall i Azure Portal](./media/publishvm_021.png)
+1. Klicka på **ny** och Sök efter **mall distribution**och välj sedan **Bygg en egen mall i redigerings programmet**.  <br/>
+   ![Skapar distributions mal len för virtuella hård diskar i Azure Portal](./media/publishvm_021.png)
 
-1. Kopiera och klistra in den här [JSON-mallen](./cpp-deploy-json-template.md) i redigeraren och klicka på **Spara**. <br/>
-   ![Spara VHD-distributionsmall i Azure Portal](./media/publishvm_022.png)
+1. Kopiera och klistra in denna [JSON-mall](./cpp-deploy-json-template.md) i redigeraren och klicka på **Spara**. <br/>
+   ![Spara distributions mal len för virtuella hård diskar i Azure Portal](./media/publishvm_022.png)
 
-1. Ange parametervärdena för de **anpassade distributionsegenskapssidorna.**
+1. Ange parameter värden för de visade egenskaps sidorna för **Anpassad distribution** .
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parametern**              |   **Beskrivning**                                                            |
+   |  **ProfileServiceApplicationProxy**              |   **Beskrivning**                                                            |
    |  -------------              |   ---------------                                                            |
-   | Namn på användarkonto för användare   | Namn på lagringskonto där den allmänna virtuella hårddisken finns                    |
-   | Behållarens namn för användarlagring | Behållarnamn där den allmänna virtuella hårddisken finns                          |
-   | DNS-namn för offentlig IP      | Offentligt IP DNS-namn. DNS-namnet är av den virtuella datorn, kommer du att definiera detta i Azure Portal, när erbjudandet distribueras.  |
-   | Administratörsanvändarnamn             | Administratörskontots användarnamn för ny virtuell dator                                  |
-   | Adminlösenord              | Administratörskontots lösenord för ny virtuell dator                                  |
-   | OS-typ                     | Operativsystemet VM: `Windows` \|`Linux`                                    |
+   | Konto namn för användar lagring   | Lagrings konto namn där den generaliserade virtuella hård disken finns                    |
+   | Namn på användar lagrings behållare | Container namn där den generaliserade virtuella hård disken finns                          |
+   | DNS-namn för offentlig IP      | DNS-namn för offentlig IP. DNS-namnet är för den virtuella datorn. du definierar detta i Azure Portal när erbjudandet har distribuerats.  |
+   | Administratörens användar namn             | Administratörs kontots användar namn för ny virtuell dator                                  |
+   | Adminlösenord              | Administratörs kontots lösen ord för ny virtuell dator                                  |
+   | OS-typ                     | Operativ system för virtuell `Windows` \| dator:`Linux`                                    |
    | Prenumerations-ID:t             | Identifierare för den valda prenumerationen                                      |
-   | Location                    | Geografisk plats för distributionen                                        |
-   | Storlek på virtuell dator                     | [Azure VM-storlek](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel`Standard_A2` |
+   | Location                    | Distributionens geografiska plats                                        |
+   | Storlek på virtuell dator                     | [Storlek på virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel`Standard_A2` |
    | Namn på offentlig IP-adress      | Namn på din offentliga IP-adress                                               |
-   | Namn på virtuell dator                     | Namnet på den nya virtuella datorn                                                           |
-   | Namn på virtuellt nätverk        | Namn på det virtuella nätverk som används av den virtuella datorn                                   |
-   | Nätverkskortsnamn                    | Namn på nätverkskortet som kör det virtuella nätverket               |
-   | VHD URL                     | Fullständig VHD-URL för OS-disk                                                     |
+   | Namn på virtuell dator                     | Namn på den nya virtuella datorn                                                           |
+   | Virtual Network namn        | Namnet på det virtuella nätverk som används av den virtuella datorn                                   |
+   | NIC-namn                    | Namnet på det nätverks gränssnitts kort som kör det virtuella nätverket               |
+   | VHD-URL                     | Fullständigt VHD-URL för OS-disk                                                     |
    |  |  |
             
-1. När du har anger dessa värden klickar du på **Köp**. 
+1. När du har angett dessa värden klickar du på **köp**. 
 
-Azure börjar distributionen: den skapar en ny virtuell dator med den angivna obearmade virtuella hårddisken, i den angivna sökvägen till lagringskontot.  Du kan spåra förloppet i Azure-portalen genom att klicka på **virtuella datorer** till vänster på portalen.  När den virtuella datorn har skapats `Starting` `Running`ändras statusen från till . 
+Azure påbörjar distributionen: den skapar en ny virtuell dator med den angivna ohanterade virtuella hård disken, i den angivna sökvägen för lagrings kontot.  Du kan följa förloppet i Azure Portal genom att klicka på **Virtual Machines** till vänster i portalen.  När den virtuella datorn har skapats ändras statusen från `Starting` till. `Running` 
 
 
 ### <a name="deploy-a-vm-from-powershell"></a>Distribuera en virtuell dator från PowerShell
 
-Om du vill distribuera en stor virtuell dator från den generaliserade vm-avbildningen som just skapats använder du följande cmdlets.
+Om du vill distribuera en stor virtuell dator från den generaliserade VM-avbildningen som precis har skapats, använder du följande cmdletar.
 
 ``` powershell
     $img = Get-AzureVMImage -ImageName "myVMImage"
@@ -96,5 +96,5 @@ Om du vill distribuera en stor virtuell dator från den generaliserade vm-avbild
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter skapar du [en avbildning](cpp-create-user-image.md) för användare vm för din lösning.
+Därefter [skapar du en virtuell användar avbildning](cpp-create-user-image.md) för din lösning.
 

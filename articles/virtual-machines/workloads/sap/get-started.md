@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 04/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe7b375ebafb1e8194b29061430d956e48f2c441
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100762"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147749"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -111,6 +111,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 04/24/2020: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med ANF på SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med ANF på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i SLES med ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) och [hög tillgänglighet för SAP NetWeaver på virtuella](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) Azure-datorer i RHEL med ANF för att lägga till information om att IP-
 - 04/22/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) för att ta `is-managed` bort meta-attributet från instruktionerna, eftersom det står i konflikt med att placera klustret i eller ur underhålls läge
 - 04/21/2020: lade till SQL Azure DB som stöd för DBMS för SAP (Hybris) Commerce Platform 1811 och senare i artiklar [vilka SAP-program som stöds för Azure-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 04/16/2020: har lagts till SAP HANA as-DBMS som stöds för SAP (Hybris) Commerce Platform i artiklar [vilka SAP-program som stöds för Azure-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)

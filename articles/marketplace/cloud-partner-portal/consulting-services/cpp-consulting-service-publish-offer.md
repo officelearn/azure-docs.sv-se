@@ -1,33 +1,33 @@
 ---
-title: Azure och Dynamics 365 konsulttjänster erbjuder publicering | Azure Marketplace
-description: Publicera ett Azure- eller Dynamics 365-konsulttjänsterbjudande i Cloud Partner Portal för Azure Marketplace eller AppSource.
+title: Publicering av erbjudanden för Azure-och Dynamics 365-konsulttjänster | Azure Marketplace
+description: Publicera ett Azure-eller Dynamics 365 Consulting service-erbjudande i Cloud Partner Portal för Azure Marketplace eller AppSource.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a06bae941c75e43a0e4ea2b66cc420e7a2467c3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c602bbee128c3338d841cb4564add26ba1c9e841
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985090"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146637"
 ---
-# <a name="publish-a-consulting-service-offer"></a>Publicera ett konsulttjänsterbjudande
+# <a name="publish-a-consulting-service-offer"></a>Publicera ett konsult tjänst erbjudande
 
 >[!Important]
->Från och med den 13 april 2020 börjar vi flytta hanteringen av dina konsulttjänster till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över att skapa tjänster](https://aka.ms/AzureCreateConsultingService) för att hantera dina migrerade erbjudanden.
+>Från den 13 april 2020 börjar vi flytta hanteringen av dina konsult tjänst erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Översikt över hur du skapar konsult tjänster](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) för att hantera dina migrerade erbjudanden.
 
-När du är klar **med erbjudandeinställningar,** **Butiksinformation**och **Kontakter**väljer du **Publicera** och anger en e-postadress. När Microsoft är redo att publicera ditt erbjudande får du ett e-postmeddelande för att förhandsgranska det innan det publiceras. Du kan när som helst gå tillbaka till portalen för att kontrollera status för ditt erbjudande.
+När du har slutfört **erbjudande inställningarna**, **butik-information**och **kontakter**väljer du **publicera** och anger en e-postadress. När Microsoft är redo att publicera ditt erbjudande får du ett e-postmeddelande om att förhandsgranska det innan det går live. Du kan gå tillbaka till portalen och kontrol lera statusen för ditt erbjudande när som helst.
 
-Erbjudanden kan visas i statusen "Publicera avbruten" eller "Publicera misslyckades" under publiceringsprocessen. Dessa beteckningar är en normal del av processen och gör det möjligt för Microsoft att göra ändringar i ditt erbjudande. Om erbjudandet visas som "Publicera avbrutet" lämnar du det som den statusen.
+Erbjudanden kan visas i statusen "Publish-avbruten" eller "publicering misslyckades" under publicerings processen. Dessa benämningar är en normal del av processen och gör att Microsoft kan redigera ditt erbjudande. Om ditt erbjudande visas som "publicering avbruten" lämnar du det som status.
 
-## <a name="lead-destination"></a>Huvudmål
+## <a name="lead-destination"></a>Lead-mål
 
-Du kan välja ett CRM-system där din leadinformation lagras. Crm-systemet du väljer här är där vi skriver information om de användare som provar din app på AppSource.
+Du kan välja ett CRM-system där din lead-information lagras. Det CRM-system du väljer här är den plats där vi skriver information om de användare som testar din app på AppSource.
 
-Baserat på vilket CRM-system du väljer väljer du motsvarande URL i följande lista för information om hur du fyller i nästa uppsättning fält.
+Baserat på det CRM-system du väljer väljer du motsvarande URL i följande lista för information om hur du fyller i nästa uppsättning fält.
 
 Välj [Azure-tabell](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) om du har något av följande CRM-system:  
 * [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)
@@ -36,4 +36,4 @@ Välj [Azure-tabell](https://docs.microsoft.com/azure/marketplace/cloud-partner-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt med att lära dig hur du publicerar ditt erbjudande.
+Fortsätt till och lär dig hur du publicerar ditt erbjudande.

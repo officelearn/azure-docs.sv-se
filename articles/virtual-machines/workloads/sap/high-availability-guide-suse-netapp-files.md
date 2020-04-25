@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/27/2020
+ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 436e9c6b8bdff42680d7aa5b941822090f668855
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
-ms.translationtype: HT
+ms.openlocfilehash: 9cde457d36154a71970a159b1c247af7b37bae82
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82127640"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148185"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program
 
@@ -152,7 +152,7 @@ SAP NetWeaver-arkitekturen som presenteras i den här artikeln använder pool f�
 
 4. Delegera ett undernät till Azure NetApp-filer enligt beskrivningen i [instruktionerna delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Distribuera Azure NetApp Files volymer genom att följa [anvisningarna för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymerna i det angivna Azure NetApp Files- [undernätet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Tänk på att Azure NetApp Files-resurser och de virtuella Azure-datorerna måste finnas i samma Azure-Virtual Network eller i peer-datorer med virtuella Azure-nätverk. I det här exemplet använder vi två Azure NetApp Files-volymer: SAP<b>QAS</b> och trans. De fil Sök vägar som monteras på motsvarande monterings punkter är/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys osv.  
+5. Distribuera Azure NetApp Files volymer genom att följa [anvisningarna för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymerna i det angivna Azure NetApp Files- [undernätet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). IP-adresserna för Azure NetApp-volymerna tilldelas automatiskt. Tänk på att Azure NetApp Files-resurser och de virtuella Azure-datorerna måste finnas i samma Azure-Virtual Network eller i peer-datorer med virtuella Azure-nätverk. I det här exemplet använder vi två Azure NetApp Files-volymer: SAP<b>QAS</b> och trans. De fil Sök vägar som monteras på motsvarande monterings punkter är/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys osv.  
 
    1. volym SAP-<b>QAS</b> (NFS://10.1.0.4/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
    2. volym SAP-<b>QAS</b> (NFS://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>ASCs)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 9723fc3ab68785c6e444647f427fcf9788792cea
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 27f86a3fa34f8029e59d11066de9ea5a25a8c5ad
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115694"
+ms.locfileid: "82147980"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsprogram för Azure Logic Apps
 
@@ -48,9 +48,6 @@ Kopplingar är tillgängliga som inbyggda utlösare och åtgärder eller som han
 
   Anslutningarna klassificeras som antingen standard eller Enterprise. [Företags anslutningar](#enterprise-connectors) ger till gång till företags system som SAP, IBM MQ och IBM 3270 för ytterligare kostnader. För att avgöra om en koppling är standard eller företag, se teknisk information på varje kopplings referens sida under [anslutnings översikt](https://docs.microsoft.com/connectors).
 
-  > [!IMPORTANT]
-  > Från och med den **1 maj 2020**kan ändringar av Google till sina [data säkerhets-och sekretess principer](https://www.blog.google/technology/safety-security/project-strobe/) påverka Logi Kap par som använder [Gmail-anslutningsprogrammet](https://docs.microsoft.com/connectors/gmail/). Om dina Logi Kap par använder Gmail-anslutningen med ett Gmail-användarkonto (e-postadress som @gmail.com slutar @googlemail.commed eller) kan dina Logi Kap par endast använda Google-godkända utlösare, åtgärder och anslutningar. Från den **15 juni 2020**inaktive ras alla icke-kompatibla arbets flöden. Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
-
   Du kan också identifiera anslutningar genom att använda dessa kategorier, även om vissa kopplingar kan korsa flera kategorier. SAP är till exempel en Enterprise Connector och en lokal anslutning:
 
   |   |   |
@@ -59,6 +56,9 @@ Kopplingar är tillgängliga som inbyggda utlösare och åtgärder eller som han
   | [**Lokala anslutningsappar**](#on-premises-connectors) | När du har installerat och konfigurerat den [lokala datagatewayen][gateway-doc]kan de här anslutningarna hjälpa dina Logi Kap par att komma åt lokala system som SQL Server, SharePoint Server, Oracle DB, fil resurser och andra. |
   | [**Anslutningar för integrationskonton**](#integration-account-connectors) | De här kopplingarna är tillgängliga när du skapar och betalar för ett integrations konto, omvandlar och validerar XML, kodar och avkodar flata filer och bearbetar Business-to-Business (B2B)-meddelanden med AS2-, EDIFACT-och X12-protokoll. |
   |||
+
+  > [!IMPORTANT]
+  > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 <a name="integration-service-environment"></a>
 

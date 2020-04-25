@@ -1,5 +1,5 @@
 ---
-title: Konfigurera den virtuella datorn som är värd för Microsoft Azure för Azure Marketplace
+title: Konfigurera den virtuella datorn med Microsoft Azure-värd för Azure Marketplace
 description: Förklarar hur du ändrar storlek, uppdaterar och generaliserar en virtuell dator som finns på Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,94 +7,94 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: f20beced7d977668d12c06375ceb8a2554c6d335
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4cb247a3e64f8d44cc64010dde40963f4e9a1993
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273434"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146100"
 ---
-# <a name="configure-the-azure-hosted-vm"></a>Konfigurera den azure-värddatorn
+# <a name="configure-the-azure-hosted-vm"></a>Konfigurera den virtuella Azure-värdbaserade datorn
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi den rörliga hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i Skapa dina tekniska resurser för [din virtuella Azure-dator](https://aka.ms/AzureVMTechAsset) för att hantera dina migrerade erbjudanden.
+> Från och med 13 april 2020 börjar vi flytta hanteringen av din virtuella Azure-dator till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [skapa tekniska till gång till Azure-datorer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln beskrivs hur du ändrar storlek, uppdaterar och generaliserar en virtuell dator (VM) som finns på Azure.  Dessa steg är nödvändiga för att förbereda din virtuella dator som ska distribueras från Azure Marketplace.
+Den här artikeln förklarar hur du ändrar storlek, uppdaterar och generaliserar en virtuell dator (VM) som finns på Azure.  Dessa steg är nödvändiga för att förbereda din virtuella dator så att den distribueras från Azure Marketplace.
 
-## <a name="sizing-the-vhds"></a>Dimensionering av virtuella hårddiskar
+## <a name="sizing-the-vhds"></a>Ändra storlek på de virtuella hård diskarna
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Om du har valt en av de virtuella datorerna förkonfigurerade med ett operativsystem (och eventuellt ytterligare tjänster), har du redan valt en standardstorlek för Virtuella Azure-datorer, enligt beskrivningen på [fliken Virtuella datorer.](./cpp-skus-tab.md)  Att starta din lösning med ett förkonfigurerat operativsystem är den rekommenderade metoden.  Men om du installerar ett operativsystem manuellt måste du ändra storleken på den primära virtuella hårddisken i vm-avbildningen:
+Om du har valt en av de virtuella datorer som är förkonfigurerade med ett operativ system (och eventuellt ytterligare tjänster) har du redan valt en standard storlek för virtuella Azure-datorer, enligt beskrivningen i [fliken SKU: er för virtuella datorer](./cpp-skus-tab.md).  Den rekommenderade metoden är att starta din lösning med ett förkonfigurerat operativ system.  Om du installerar ett operativ system manuellt måste du dock ändra den primära virtuella hård disken i din VM-avbildning:
 
-- För Windows bör operativsystemet VHD skapas som en 127-128 GB fast format VHD. 
-- För Linux bör denna virtuella hårddisk skapas som en 30-50 GB fast format VHD.
+- För Windows bör den virtuella hård disken för operativ systemet skapas som en virtuell hård disk på 127-128 GB. 
+- För Linux bör denna virtuella hård disk skapas som en virtuell hård disk på 30-50 GB.
 
-Om den fysiska storleken är mindre än 127-128 GB bör den virtuella hårddisken vara gles. De grundläggande Windows- och SQL Server-avbildningarna som redan uppfyller dessa krav, så ändra inte formatet eller storleken på den virtuella hårddisken som erhållits. 
+Om den fysiska storleken är mindre än 127-128 GB ska den virtuella hård disken vara sparse. De grundläggande Windows-och SQL Server-avbildningarna uppfyller redan dessa krav, så ändra inte formatet eller storleken på den virtuella hård disken som hämtades. 
 
-Datadiskar kan vara så stora som 1 TB. När du bestämmer hur storleken är bör du komma ihåg att kunder inte kan ändra storlek på virtuella hårddiskar i en avbildning vid tidpunkten för distributionen. Virtuella hårddiskar med datadiskar ska skapas som virtuella hårddiskar i fast format. De bör också vara glesa. Datadiskar kan inledningsvis vara tomma eller innehålla data.
+Data diskar kan vara så stora som 1 TB. Kom ihåg att kunder inte kan ändra storlek på VHD: er i en avbildning vid tidpunkten för distributionen när de bestämmer sig för deras storlek. Datadisk-VHD: er ska skapas som virtuella hård diskar med fast format. De bör också vara glesa. Data diskar kan inlednings vis vara tomma eller innehålla data.
 
 
 ## <a name="install-the-most-current-updates"></a>Installera de senaste uppdateringarna
 
-Basavbildningarna för virtuella datorer i operativsystemet innehåller de senaste uppdateringarna fram till det publicerade datumet. Innan du publicerar operativsystemet VHD du har skapat, se till att du uppdaterar operativsystemet och alla installerade tjänster med alla de senaste säkerhets- och underhållskorrigeringarna.
+De grundläggande avbildningarna av operativ systemets virtuella datorer innehåller de senaste uppdateringarna upp till Publicerings datum. Innan du publicerar den virtuella hård disk som du har skapat måste du uppdatera operativ systemet och alla installerade tjänster med alla de senaste säkerhets-och underhålls korrigeringarna.
 
-För Windows Server 2016 kör du kommandot **Sök efter uppdateringar.**  Annars läser du så här för äldre versioner av Windows, så [här hämtar du en uppdatering via Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows Update installerar automatiskt de senaste viktiga och viktiga säkerhetsuppdateringarna.
+För Windows Server 2016 kör du kommandot **Sök efter uppdateringar** .  För äldre versioner av Windows, se [hur du får en uppdatering via Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows Update kommer automatiskt att installera de senaste kritiska och viktiga säkerhets uppdateringarna.
 
-För Linux-distributioner hämtas och installeras uppdateringar ofta via ett kommandoradsverktyg eller ett grafiskt verktyg.  Ubuntu Linux tillhandahåller till exempel kommandot [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) och [uppdateringshanterarens](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) verktyg för uppdatering av operativsystemet.
-
-
-## <a name="perform-additional-security-checks"></a>Utföra ytterligare säkerhetskontroller
-
-Du bör upprätthålla en hög säkerhetsnivå för dina lösningsavbildningar på Azure Marketplace.  Följande artikel innehåller en checklista över säkerhetskonfigurationer och säkerhetsprocedurer som hjälper dig med det här målet: [Säkerhetsrekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Några av dessa rekommendationer är specifika för Linux-baserade avbildningar, men de flesta gäller för alla VM-avbildningar. 
+För Linux-distributioner hämtas och installeras uppdateringar ofta med hjälp av ett kommando rads verktyg eller grafiskt verktyg.  Till exempel tillhandahåller Ubuntu Linux [apt-get-](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) kommandot och [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) -verktyget för att uppdatera operativ systemet.
 
 
-## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Utföra anpassade konfigurations- och schemalagda aktiviteter
+## <a name="perform-additional-security-checks"></a>Utför ytterligare säkerhets kontroller
 
-Om ytterligare konfiguration behövs är den rekommenderade metoden att använda en schemalagd aktivitet som körs vid start för att göra eventuella slutliga ändringar i den virtuella datorn när den har distribuerats.  Tänk också på följande rekommendationer:
-- Om det är en run-once-aktivitet rekommenderar vi att uppgiften tas bort när den har slutförts.
-- Konfigurationer bör inte förlita sig på andra enheter än C eller D, eftersom endast dessa två enheter som alltid är garanterade att existera. Enhet C är operativsystemdisken och enhet D är den tillfälliga lokala disken.
-
-Mer information om Linux-anpassningar finns i [Tillägg och funktioner för virtuella datorer för Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux).
+Du bör ha en hög säkerhets nivå för dina lösnings avbildningar på Azure Marketplace.  Följande artikel innehåller en check lista över säkerhetskonfigurationer och procedurer som hjälper dig i det här målet: [säkerhets rekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Några av de här rekommendationerna är speciella för Linux-baserade avbildningar, men de flesta gäller för alla VM-avbildningar. 
 
 
-## <a name="generalize-the-image"></a>Generalisera bilden
+## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Utför anpassad konfiguration och schemalagda aktiviteter
 
-Alla avbildningar på Azure Marketplace måste kunna återanvändas på ett generiskt sätt. För att uppnå denna återanvändning måste operativsystemets virtuella hårddisk vara *generaliserad*, en åtgärd som tar bort alla instansspecifika identifierare och programvarudrivrutiner från en virtuell dator.
+Om ytterligare konfiguration krävs är den rekommenderade metoden att använda en schemalagd aktivitet som körs vid start för att göra eventuella slutliga ändringar i den virtuella datorn efter att den har distribuerats.  Tänk också på följande rekommendationer:
+- Om det är en körnings uppgift rekommenderar vi att du tar bort uppgiften när den har slutförts.
+- Konfigurationer bör inte förlita sig på andra enheter än C eller D, eftersom endast dessa två enheter som garanterat alltid finns. Enhet C är operativ systemets disk och enhet D är den tillfälliga lokala disken.
+
+Mer information om Linux-anpassningar finns i [tillägg och funktioner för virtuella datorer för Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux).
+
+
+## <a name="generalize-the-image"></a>Generalisera avbildningen
+
+Alla avbildningar på Azure Marketplace måste kunna återanvändas på ett generiskt sätt. För att uppnå den här omanvändbarheten måste det virtuella operativ systemet vara *generaliserat*, en åtgärd som tar bort alla instans identifierare och program driv rutiner från en virtuell dator.
 
 ### <a name="windows"></a>Windows
 
-Windows OS-diskar är generaliserade med [sysprep-verktyget](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Om du sedan uppdaterar eller konfigurerar om operativsystemet måste du köra om sysprep. 
+Windows OS-diskar generaliseras med [Sysprep-verktyget](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Om du senare uppdaterar eller omkonfigurerar operativ systemet måste du köra Sysprep igen. 
 
 > [!WARNING]
->  Eftersom uppdateringar kan köras automatiskt, när du kör sysprep, bör du stänga av den virtuella datorn tills den distribueras.  Den här avstängningen undviker efterföljande uppdateringar från att göra instansspecifika ändringar i VHD OS eller installerade tjänster.
+>  Eftersom uppdateringar kan köras automatiskt när du har kört Sysprep, bör du stänga av den virtuella datorn tills den har distribuerats.  Den här avstängningen kommer att undvika efterföljande uppdateringar från att göra instansbaserade ändringar i VHD-OS eller installerade tjänster.
 
-Mer information om hur du kör sysprep finns i [Steg för att generalisera en virtuell hårddisk](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+Mer information om hur du kör Sysprep finns i [steg för att generalisera en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 
-Följande tvåstegsprocess generaliserar en Virtuell Linux-dator och distribuerar om den som en separat virtuell dator. Dessa två steg är bara det väsentliga i processen. Mer information om dessa två steg och varför de måste göras finns i [Så här skapar du en bild av en virtuell dator eller virtuell dator](../../../virtual-machines/linux/capture-image.md). För att skapa den virtuella hårddisken för ditt Azure Marketplace-erbjudande kan du sluta när du når avsnittet "Skapa en virtuell dator från den tagna avbildningen".
+I följande två stegs process generaliserar en virtuell Linux-dator och distribuerar den igen som en separat virtuell dator. De här två stegen är bara grunderna för processen. Mer information om de här två stegen och varför de måste utföras finns i [så här skapar du en avbildning av en virtuell dator eller virtuell hård disk](../../../virtual-machines/linux/capture-image.md). För att kunna skapa den virtuella hård disken för Azure Marketplace-erbjudandet kan du stoppa när du når avsnittet "skapa en virtuell dator från avbildningen".
 
 #### <a name="remove-the-azure-linux-agent"></a>Ta bort Azure Linux-agenten
-1.  Anslut till din virtuella Linux-dator med en SSH-klient.
-2.  Skriv följande kommando i SSH-fönstret: <br/>
+1.  Anslut till din virtuella Linux-dator med hjälp av en SSH-klient.
+2.  I SSH-fönstret skriver du följande kommando: <br/>
     `sudo waagent -deprovision+user`
-3.  Skriv `y` för att fortsätta. (Du kan `-force` lägga till parametern i föregående kommando undvik det här bekräftelsesteget.)
-4.  När kommandot är klart `exit` skriver du för att stänga SSH-klienten.
+3.  Skriv `y` för att fortsätta. (Du kan lägga till `-force` parametern i föregående kommando för att undvika det här bekräftelse steget.)
+4.  När kommandot har slutförts skriver `exit` du för att stänga SSH-klienten.
 
 <!-- TD: I need to add meat and/or references to the following steps -->
-#### <a name="capture-the-image"></a>Fånga bilden
-1.  Gå till Azure-portalen, välj din resursgrupp (RG) och avallokera den virtuella datorn.
-2.  Din virtuella hårddisk är generaliserad nu och du kan skapa en ny virtuell dator med hjälp av den här virtuella hårddisken.
+#### <a name="capture-the-image"></a>Avbilda avbildningen
+1.  Gå till Azure Portal, välj din resurs grupp (RG) och ta bort den virtuella datorn.
+2.  Din virtuella hård disk är generaliserad nu och du kan skapa en ny virtuell dator med hjälp av den här virtuella hård disken.
 
 
 ## <a name="create-one-or-more-copies"></a>Skapa en eller flera kopior
 
-Det är ofta användbart att skapa kopior av den virtuella datorn för säkerhetskopiering, testning, anpassad felväxling eller belastningsutjämning, för att erbjuda olika konfigurationer av en lösning och så vidare. Information om hur du duplicerar och hämtar en primär virtuell hårddisk finns i:
+Att skapa kopior av virtuella datorer är ofta användbart för säkerhets kopiering, testning, anpassad redundans eller belastnings utjämning, för att erbjuda olika konfigurationer av en lösning och så vidare. Information om hur du duplicerar och laddar ned en primär virtuell hård disk, för att göra en ohanterad klon, finns i:
 
-- Linux VM: [Ladda ner en Linux VHD från Azure](../../../virtual-machines/linux/download-vhd.md)
-- Windows VM: [Hämta en Windows VHD från Azure](../../../virtual-machines/windows/download-vhd.md)
+- Virtuell Linux-dator: [Ladda ned en Linux-VHD från Azure](../../../virtual-machines/linux/download-vhd.md)
+- Virtuell Windows-dator: [Hämta en Windows-VHD från Azure](../../../virtual-machines/windows/download-vhd.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När den virtuella datorn har generaliserats, har tagits bort och du har skapat en avbildning av den virtuella datorn är du redo att [distribuera en virtuell dator från en virtuell hårddisk](./cpp-deploy-vm-vhd.md).
+När den virtuella datorn har generaliserats har frigjorts och du har skapat en avbildning av den virtuella datorn, är du redo att [distribuera en virtuell dator från en virtuell hård disk](./cpp-deploy-vm-vhd.md).

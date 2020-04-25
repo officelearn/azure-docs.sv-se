@@ -1,31 +1,31 @@
 ---
 title: Skapa ett Azure Key Vault-certifikat | Azure Marketplace
-description: Förklarar hur du registrerar en virtuell dator från en Azure-distribuerad virtuell hårddisk.
+description: Förklarar hur du registrerar en virtuell dator från en Azure-distribuerad virtuell hård disk.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9981f8eda174bbe04b54933528d20d270d360824
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274029"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148247"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Skapa certifikat för Azure Key Vault
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
+> Med början den 13 april 2020 kommer vi att börja flytta hanteringen av dina virtuella Azure-datorer till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Azures avbildnings certifiering för virtuella datorer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln beskrivs hur du etablerar de självsignerade certifikat som krävs för att upprätta en WinRM-anslutning (Windows Remote Management) till en virtuell virtuell dator som är värd för Azure.This article explains how to provision the self-signed certificates required to establish a Windows Remote Management (WinRM) connectivity to an Azure-hosted virtual machine (VM). Den här processen består av tre steg:
+Den här artikeln beskriver hur du etablerar de självsignerade certifikat som krävs för att upprätta en WinRM-anslutning (Windows Remote Management) till en virtuell Azure-värd dator (VM). Den här processen består av tre steg:
 
 1.    Skapa säkerhetscertifikatet. 
-2.    Skapa Azure Key Vault för att lagra det här certifikatet. 
-3.    Lagra certifikaten till det här nyckelvalvet. 
+2.    Skapa Azure Key Vault för att lagra certifikatet. 
+3.    Lagra certifikaten i det här nyckel valvet. 
 
-Du kan använda antingen en ny eller en befintlig Azure-resursgrupp för det här arbetet.  Det tidigare tillvägagångssättet används i följande förklaring.
+Du kan använda antingen en ny eller en befintlig Azure-resurs grupp för detta arbete.  Den tidigare metoden används i följande förklaring.
 
 
 
@@ -33,15 +33,15 @@ Du kan använda antingen en ny eller en befintlig Azure-resursgrupp för det hä
 
 ## <a name="create-the-certificate"></a>Skapa certifikatet
 
-Redigera och kör följande Azure Powershell-skript för att skapa certifikatfilen (.pfx) i en lokal mapp.  Du måste ersätta värdena för följande parametrar:
+Redigera och kör följande Azure PowerShell-skript för att skapa certifikat filen (. pfx) i en lokal mapp.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parametern**        |   **Beskrivning**                                                               |
+|  **ProfileServiceApplicationProxy**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
-| `$certroopath` | Lokal mapp för att spara PFX-filen i  |
-| `$location`    | En av Azure-standardge geographic locations  |
-| `$vmName`      | Namn på den planerade virtuella Azure-datorn   |
-| `$certname`    | Intygets namn. måste matcha det fullständigt kvalificerade domännamnet för den planerade virtuella datorn  |
-| `$certpassword` | Lösenord för certifikaten, måste matcha lösenordet som används för den planerade virtuella datorn  |
+| `$certroopath` | Lokal mapp för att spara. pfx-filen till  |
+| `$location`    | En av de geografiska standard platserna för Azure  |
+| `$vmName`      | Namnet på den planerade virtuella Azure-datorn   |
+| `$certname`    | Certifikatets namn. måste matcha det fullständigt kvalificerade domän namnet för den planerade virtuella datorn  |
+| `$certpassword` | Lösen ordet för certifikaten måste matcha det lösen ord som används för den planerade virtuella datorn  |
 |  |  |
 
 ```powershell
@@ -71,23 +71,23 @@ Redigera och kör följande Azure Powershell-skript för att skapa certifikatfil
 
 ```
 > [!TIP]
-> Håll samma PowerShell-konsolsession aktiv under dessa steg så att värdena för de olika parametrarna behålls.
+> Se till att PowerShell-konsolsessionen är aktiv under dessa steg så att värdena för de olika parametrarna bevaras.
 
 > [!WARNING]
-> Om du sparar skriptet lagrar du det bara på en säker plats eftersom det innehåller säkerhetsinformation (ett lösenord).
+> Om du sparar det här skriptet lagrar du det bara på en säker plats eftersom det innehåller säkerhets information (ett lösen ord).
 
 
-## <a name="create-the-key-vault"></a>Skapa nyckelvalvet
+## <a name="create-the-key-vault"></a>Skapa nyckel valvet
 
-Kopiera innehållet i [distributionsmallen för nyckelvalvet](./cpp-key-vault-deploy-template.md) till en fil på den lokala datorn. (i exempelskriptet nedan är `C:\certLocation\keyvault.json`den här resursen .)  Redigera och kör följande Azure Powershell-skript för att skapa en Azure Key Vault-instans och den associerade resursgruppen.  Du måste ersätta värdena för följande parametrar:
+Kopiera innehållet i [distributions mal len Key Vault](./cpp-key-vault-deploy-template.md) till en fil på den lokala datorn. (i exempel skriptet nedan är `C:\certLocation\keyvault.json`den här resursen.)  Redigera och kör följande Azure PowerShell-skript för att skapa en Azure Key Vault-instans och den tillhör ande resurs gruppen.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parametern**        |   **Beskrivning**                                                               |
+|  **ProfileServiceApplicationProxy**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
-| `$postfix`            | Godtycklig numerisk sträng som läggs till i distributionsidentifierare                     |
-| `$rgName`             | Azure-resursgrupp (RG) namn för att skapa                                        |
-|  `$location`          | En av Azure-standardge geographic locations                                  |
-| `$kvTemplateJson`     | Sökväg till filen (keyvault.json) som innehåller Resource Manager-mall för nyckelvalv |
-| `$kvname`             | Namn på det nya nyckelvalvet                                                       |
+| `$postfix`            | Godtycklig numerisk sträng som läggs till i distributions identifierare                     |
+| `$rgName`             | Namn på Azure Resource Group (RG) som ska skapas                                        |
+|  `$location`          | En av de geografiska standard platserna för Azure                                  |
+| `$kvTemplateJson`     | Sökväg till filen (Key Vault. JSON) som innehåller Resource Manager-mall för nyckel valv |
+| `$kvname`             | Namnet på det nya nyckel valvet                                                       |
 |  |  |
 
 ```powershell
@@ -188,7 +188,7 @@ Kopiera innehållet i [distributionsmallen för nyckelvalvet](./cpp-key-vault-de
 
 ## <a name="store-the-certificate"></a>Lagra certifikatet
 
-Du kan nu lagra certifikaten, som finns i PFX-filen, till det nya nyckelvalvet genom att köra följande skript. 
+Nu kan du lagra certifikaten, som finns i. pfx-filen, i det nya nyckel valvet genom att köra följande skript. 
 
 ```powershell
     #push certificate to key vault secret
@@ -217,4 +217,4 @@ Du kan nu lagra certifikaten, som finns i PFX-filen, till det nya nyckelvalvet g
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter kommer du att [distribuera en virtuell dator från din användare VM-avbildning](./cpp-deploy-vm-user-image.md).
+Härnäst ska du [distribuera en virtuell dator från den virtuella användar avbildningen](./cpp-deploy-vm-user-image.md).

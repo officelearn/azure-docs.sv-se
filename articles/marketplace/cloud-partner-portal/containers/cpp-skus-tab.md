@@ -1,35 +1,35 @@
 ---
-title: SKU:er för en Avbildning av Azure Containers | Azure Marketplace
-description: Konfigurera SKU:er för en Azure-behållare.
+title: 'SKU: er för en Azure Container-avbildning | Azure Marketplace'
+description: 'Konfigurera SKU: er för en Azure-behållare.'
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c5cf218632c720fd042cc5f5d4ed95d5096b5b5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 5f37d157e11b8cd7cf093fa558e81d9a1ce345a9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270204"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146189"
 ---
-# <a name="container-skus-tab"></a>Fliken Behållarskus
+# <a name="container-skus-tab"></a>Fliken container-SKU: er
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Container-erbjudande](https://aka.ms/CreateContainerOffer) för att hantera dina migrerade erbjudanden.
+> Från den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett Azure Container-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) för att hantera dina migrerade erbjudanden.
 
-På fliken **SKU:er** på sidan **Nytt erbjudande** kan du skapa en eller flera SKU:er och koppla dem till ditt nya erbjudande.  Du kan använda olika SKU:er för att skilja en lösning efter funktionsuppsättningar, faktureringsmodeller eller andra egenskaper.
+På fliken **SKU: er** på sidan **ny erbjudande** kan du skapa en eller flera SKU: er och koppla dem till ditt nya erbjudande.  Du kan använda olika SKU: er för att särskilja en lösning med hjälp av funktions uppsättningar, fakturerings modeller eller andra egenskaper.
 
 ## <a name="sku-settings"></a>SKU-inställningar
 
-När du börjar skapa ett nytt erbjudande finns det inga SKU:er som är associerade med erbjudandet. Så här skapar du en ny SKU:
+När du börjar skapa ett nytt erbjudande finns det inga SKU: er kopplade till erbjudandet. Följ dessa steg om du vill skapa en ny SKU:
 
-1. Välj **Ny SKU** på fliken SKU
+1. På fliken SKU: er väljer du **ny SKU**
 
    ![Ny SKU-prompt](./media/containers-sku-settings.png)
 
-2. Ange nödvändig SKU- och behållarinformation. Varje SKU motsvarar en behållaravbildning. Det finns två delar till en SKU:
+2. Ange nödvändig SKU och behållar information. Varje SKU motsvarar en behållar avbildning. Det finns två delar i en SKU:
 
     -   SKU-metadata
     -   Metadata för container
@@ -37,43 +37,43 @@ När du börjar skapa ett nytt erbjudande finns det inga SKU:er som är associer
 
 ### <a name="sku-metadata"></a>SKU-metadata
 
-SKU-metadata innehåller visningsinformation för butiksfönster för behållarlistan.
+SKU-metadata innehåller butik visar information om behållar listan.
 
 ![SKU-metadata](./media/containers-sku-details.png)
 
 
 ### <a name="container-metadata"></a>Metadata för container
 
-Behållarmetadata har referensinformation för information om avbildningsdatabasen i Azure Container Registry (ACR). Azure Marketplace kopierar den här avbildningen till ett Marketplace-specifikt, offentligt register och gör sedan avbildningen tillgänglig för kunder efter certifieringen. Alla begäranden från Azure-användaren om att använda en Azure Marketplace-behållaravbildning visas från Marketplaces offentliga register, inte ACR.
+Behållar-metadata innehåller referensinformation om avbildnings lagrings informationen i Azure Container Registry (ACR). Azure Marketplace kopierar avbildningen till ett Marketplace-särskilt offentligt register och gör avbildningen tillgänglig för kunder efter certifiering. Alla förfrågningar från Azure-användaren att använda en behållar avbildning för Azure Marketplace hanteras från Marketplace: s offentliga register, inte ACR.
 
 ![Metadata för container](./media/containers-image-repository.png)
     
-**Information om bilddatabasen** i föregående skärmfångst innehåller följande fält.  Obligatoriska fält åtalas av en asterisk (*).
+**Avbildnings lagrings informationen** i föregående skärm bild innehåller följande fält.  Obligatoriska fält förutsägs av en asterisk (*).
 
--   **Prenumerations-ID\* ** - Azure-prenumerations-ID där ACR finns.
--   **Resursgruppsnamn\* ** - Resursgruppnamnet för ACR.
--   **Registernamn\* ** - ACR-namnet.
--   **Databasnamn\* ** - Databasnamnet. När det här namnet har angetts kan det här värdet inte ändras. Använd ett unikt namn för att undvika en konflikt med andra erbjudanden i ditt konto.
--   **Användarnamn\* ** - Användarnamnet (admin användarnamn) i samband med ACR-avbildningen.
--   **Lösenord\* ** - Lösenordet som är associerat med ACR-avbildningen.
+-   **Prenumerations\* -ID** – ID för Azure-prenumerationen där ACR finns.
+-   **Resurs grupps\* namn** – resurs gruppens namn för ACR.
+-   **Register namn\* ** – ACR namn.
+-   **Databas namn\* ** – databasens namn. Det här värdet kan inte ändras när det här namnet har angetts. Använd ett unikt namn för att undvika konflikter med andra erbjudanden i ditt konto.
+-   **Användar\* namn** – användar namnet (administratörens användar namn) som är associerat med ACR-avbildningen.
+-   **Password\* ** – lösen ordet som är kopplat till ACR-avbildningen.
 
     >[!NOTE]
-    >Användarnamnet och lösenordet krävs för att säkerställa att partner har tillgång till den ACR som nämns i publiceringsprocessen.
+    >Användar namn och lösen ord krävs för att säkerställa att partners har åtkomst till de ACR som anges i publicerings processen.
 
 
 ### <a name="image-version"></a>Bildversion
 
-När du publicerar en behållaravbildning kan du ange en eller flera bildtaggar och SHA-sammanfattningar.
+När du publicerar en behållar avbildning kan du ange en eller flera avbildnings Taggar och SHA-sammandrag.
 
-**Bildtagg\* eller sammanfattning**
+**Bildtagg\* eller sammanfattad**
  
-- Den här taggen `latest` eller sammanfattningen måste innehålla en `xx.xx.xx-` tagg och en versionstagg (till exempel från där xx är ett tal). De bör vara [manifesttaggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla taggar som refereras av en manifesttagg måste också läggas till så att vi kan ladda upp dem. 
-- Du kan lägga till flera versioner av behållaren med hjälp av taggar. Alla manifesttaggar `latest`(utom) `X.Y-` måste `X.Y.Z-` börja med antingen eller där X, Y, Z är heltal. <br/> Om till exempel `latest` en `1.0.1-linux-x64`tagg `1.0.1-linux-arm32`pekar `1.0.1-windows-arm32`på , och dessa taggar måste läggas till här.
+- Den här taggen eller sammanfattningen måste `latest` innehålla en tagg och en versions tagg (t. `xx.xx.xx-` ex. från och med där xx är ett tal). De bör vara [manifest-Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem. 
+- Du kan lägga till flera versioner av behållare med hjälp av taggar. Alla manifest Taggar (utom `latest`) måste börja med antingen `X.Y-` eller `X.Y.Z-` där X, Y, Z är heltal. <br/> Om en `latest` tagg till exempel pekar på `1.0.1-linux-x64`, `1.0.1-linux-arm32`, och `1.0.1-windows-arm32`måste dessa taggar läggas till här.
 
 >[!NOTE]
->Kom ihåg att lägga till en **testtagg** i bilden så att du kan identifiera bilden under testningen.
+>Kom ihåg att lägga till en **test-tagg** till din avbildning så att du kan identifiera avbildningen under testningen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd [fliken Marketplace](./cpp-marketplace-tab.md) för att skapa en marknadsplatsbeskrivning för ditt erbjudande. 
+Använd [fliken Marketplace](./cpp-marketplace-tab.md) för att skapa en Marketplace-beskrivning för ditt erbjudande. 

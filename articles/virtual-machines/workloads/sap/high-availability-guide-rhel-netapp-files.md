@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: b58c24fdd7912b3e424a493932fe09b1a1f058c5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 601194d3a8cc789c51b8e127001ab2367dceeee7
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661285"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148223"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program
 
@@ -32,14 +32,14 @@ ms.locfileid: "77661285"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -97,20 +97,18 @@ Nu är det möjligt att uppnå SAP NetWeaver HA med hjälp av delad lagring, dis
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database använder virtuella värdnamn och virtuella IP-adresser. I Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. Vi rekommenderar att du använder [standard belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). I följande lista visas konfigurationen av belastningsutjämnaren med separata klient dels-IP: er för (A) SCS-och ERS.
 
-### <a name="ascs"></a>(A)SCS
+### <a name="ascs"></a>En SCS
 
 * Konfiguration av klient del
   * IP-192.168.14.9
-* Server dels konfiguration
-  * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
 * Avsöknings port
   * Port 620<strong>&lt;nr&gt;</strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 32<strong>&lt;nr&gt; </strong> TCP
+  * 36<strong>&lt;nr&gt; </strong> TCP
+  * 39<strong>&lt;nr&gt; </strong> TCP
+  * 81<strong>&lt;nr&gt; </strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -119,17 +117,18 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 
 * Konfiguration av klient del
   * IP-192.168.14.10
-* Server dels konfiguration
-  * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
 * Avsöknings port
   * Port 621<strong>&lt;nr&gt;</strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 32<strong>&lt;nr&gt; </strong> TCP
+  * 33<strong>&lt;nr&gt; </strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Server dels konfiguration
+  * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Konfigurera Azure NetApp Files-infrastrukturen 
 
@@ -147,7 +146,7 @@ Stegen förutsätter att du redan har distribuerat [Azure Virtual Network](https
 SAP NetWeaver-arkitekturen som presenteras i den här artikeln använder pool för enskild Azure NetApp Files kapacitet, Premium SKU. Vi rekommenderar Azure NetApp Files Premium SKU för SAP NetWeaver-program arbets belastning på Azure.  
 4. Delegera ett undernät till Azure NetApp-filer enligt beskrivningen i [instruktionerna delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Distribuera Azure NetApp Files volymer genom att följa [anvisningarna för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymerna i det angivna Azure NetApp Files- [undernätet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Tänk på att Azure NetApp Files-resurser och de virtuella Azure-datorerna måste finnas i samma Azure-Virtual Network eller i peer-datorer med virtuella Azure-nätverk. I det här exemplet använder vi två Azure NetApp Files-volymer: SAP<b>QAS</b> och transSAP. De fil Sök vägar som monteras på motsvarande monterings punkter är/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys osv.  
+5. Distribuera Azure NetApp Files volymer genom att följa [anvisningarna för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymerna i det angivna Azure NetApp Files- [undernätet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). IP-adresserna för Azure NetApp-volymerna tilldelas automatiskt. Tänk på att Azure NetApp Files-resurser och de virtuella Azure-datorerna måste finnas i samma Azure-Virtual Network eller i peer-datorer med virtuella Azure-nätverk. I det här exemplet använder vi två Azure NetApp Files-volymer: SAP<b>QAS</b> och transSAP. De fil Sök vägar som monteras på motsvarande monterings punkter är/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys osv.  
 
    1. volym SAP-<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
    2. volym SAP-<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>ASCs)
@@ -159,7 +158,7 @@ SAP NetWeaver-arkitekturen som presenteras i den här artikeln använder pool f�
   
 I det här exemplet använde vi Azure NetApp Files för alla fil system i SAP NetWeaver för att demonstrera hur Azure NetApp Files kan användas. SAP-filsystem som inte behöver monteras via NFS kan också distribueras som [Azure disk Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) . I det här exemplet måste <b>a-e</b> vara på Azure NetApp Files <b>och f-g</b> (det vill säga/usr/SAP/<b>QAS</b>/d<b>02</b>,/usr/SAP/<b>QAS</b>/d<b>03</b>) kan distribueras som Azure disk Storage. 
 
-### <a name="important-considerations"></a>Viktiga överväganden
+### <a name="important-considerations"></a>Att tänka på
 
 Tänk på följande viktiga överväganden när du överväger Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgänglighets arkitektur:
 
@@ -167,7 +166,7 @@ Tänk på följande viktiga överväganden när du överväger Azure NetApp File
 - Den minsta volymen är 100 GiB
 - Azure NetApp Files och alla virtuella datorer, där Azure NetApp Files volymer ska monteras, måste finnas i samma Azure-Virtual Network eller i [peer-anslutna virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region. Azure NetApp Files åtkomst över VNET-peering i samma region stöds nu. Azure NetApp-åtkomst över global peering stöds inte ännu.
 - Det valda virtuella nätverket måste ha ett undernät, delegerat till Azure NetApp Files.
-- Azure NetApp Files erbjuder [export princip](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan kontrol lera tillåtna klienter, åtkomst typ (Läs & Skriv, skrivskyddad, osv.). 
+- Azure NetApp Files erbjuder [export princip](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan kontrol lera tillåtna klienter, åtkomst typ (Läs&Skriv, skrivskyddad, osv.). 
 - Azure NetApp Files funktionen är inte en zon medveten än. För närvarande är Azure NetApp Files funktionen inte distribuerad i alla tillgänglighets zoner i en Azure-region. Var medveten om potentiella fördröjnings konsekvenser i vissa Azure-regioner. 
 - Azure NetApp Files volymer kan distribueras som NFSv3-eller NFSv 4.1-volymer. Båda protokollen stöds för SAP-program skiktet (ASCS/ERS, SAP-program servrar). 
 
@@ -177,7 +176,7 @@ I det här exemplet distribuerades resurserna manuellt via [Azure Portal](https:
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
-Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella datorerna. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i backend-poolerna.
+Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella datorerna. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i backend-poolen.
 
 1. Skapa belastningsutjämnare (intern, standard):  
    1. Skapa IP-adresser för klient delen
@@ -188,14 +187,13 @@ Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella da
          1. Klicka på OK
       1. IP-192.168.14.10 för ASCS-ERS
          * Upprepa stegen ovan under "a" för att skapa en IP-adress för ERS (till exempel **192.168.14.10** och **frontend. QAS. ERS**)
-   1. Skapa backend-pooler
-      1. Skapa en backend-pool för ASCS
-         1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
-         1. Ange namnet på den nya backend-poolen (till exempel **Server del. QAS**)
-         1. Klicka på Lägg till en virtuell dator.
-         1. Välj virtuell dator. 
-         1. Välj de virtuella datorerna i (A) SCS-klustret och deras IP-adresser.
-         1. Klicka på Lägg till
+   1. Skapa serverdelspoolen
+      1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
+      1. Ange namnet på den nya backend-poolen (till exempel **Server del. QAS**)
+      1. Klicka på Lägg till en virtuell dator.
+      1. Välj Virtuell dator. 
+      1. Välj de virtuella datorerna i (A) SCS-klustret och deras IP-adresser.
+      1. Klicka på Lägg till
    1. Skapa hälso avsökningar
       1. Port 620**00** för ASCS
          1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
@@ -223,14 +221,13 @@ Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella da
          1. Klicka på OK
       1. IP-192.168.14.10 för ASCS-ERS
          * Upprepa stegen ovan under "a" för att skapa en IP-adress för ERS (till exempel **192.168.14.10** och **frontend. QAS. ERS**)
-   1. Skapa backend-pooler
-      1. Skapa en backend-pool för ASCS
-         1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
-         1. Ange namnet på den nya backend-poolen (till exempel **Server del. QAS**)
-         1. Klicka på Lägg till en virtuell dator.
-         1. Välj den tillgänglighets uppsättning som du skapade tidigare för ASCS 
-         1. Välj virtuella datorer för (A) SCS-klustret
-         1. Klicka på OK
+   1. Skapa serverdelspoolen
+      1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
+      1. Ange namnet på den nya backend-poolen (till exempel **Server del. QAS**)
+      1. Klicka på Lägg till en virtuell dator.
+      1. Välj den tillgänglighets uppsättning som du skapade tidigare för ASCS 
+      1. Välj virtuella datorer för (A) SCS-klustret
+      1. Klicka på OK
    1. Skapa hälso avsökningar
       1. Port 620**00** för ASCS
          1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
@@ -263,10 +260,10 @@ Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella da
 
 Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp Files volymer med NFSv 4.1-protokollet. Utför konfigurationen på alla virtuella datorer, där Azure NetApp Files NFSv 4.1-volymer ska monteras.  
 
-1. Verifiera NFS-domän inställningen. Kontrol lera att domänen är konfigurerad som standard Azure NetApp Files domän, d.v.s. **`defaultv4iddomain.com`** och att mappningen är inställd på **ingen**.  
+1. Verifiera NFS-domän inställningen. Kontrol lera att domänen är konfigurerad som standard Azure NetApp Files domän, dvs. **`defaultv4iddomain.com`** mappningen är inställd på **ingen**.  
 
     > [!IMPORTANT]
-    > Se till att ange NFS-domänen i `/etc/idmapd.conf` på den virtuella datorn så att den matchar standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`** . Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (dvs. den virtuella datorn) och NFS-servern, d.v.s. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de virtuella datorerna som `nobody`.  
+    > Se till att ange att NFS-domänen `/etc/idmapd.conf` på den virtuella datorn ska matcha standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`**. Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (d.v.s. den virtuella datorn) och NFS-servern, t. ex. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de `nobody`virtuella datorerna som.  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -278,7 +275,7 @@ Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp F
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** verifiera `nfs4_disable_idmapping`. Den måste anges till **Y**. Kör monterings kommandot för att skapa katalog strukturen där `nfs4_disable_idmapping` finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
+4. **[A]** verifiera `nfs4_disable_idmapping`. Den måste anges till **Y**. Kör monterings kommandot för att `nfs4_disable_idmapping` skapa en katalog struktur där finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -292,7 +289,7 @@ Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp F
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-   Mer information om hur du ändrar `nfs4_disable_idmapping` parameter finns https://access.redhat.com/solutions/1749883.
+   Mer information om hur du ändrar `nfs4_disable_idmapping` parametern finns i https://access.redhat.com/solutions/1749883.
 
 ### <a name="create-pacemaker-cluster"></a>Skapa pacemaker-kluster
 
@@ -304,14 +301,14 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
 1. **[A]** namn matchning för värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adress och värdnamn i följande kommandon
 
     ```
     sudo vi /etc/hosts
     ```
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö
 
     ```
     # IP address of cluster node 1
@@ -766,7 +763,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo vi /etc/hosts
    ```
 
-   Infoga följande rader till/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö.
+   Infoga följande rader i/etc/hosts. Ändra IP-adress och värdnamn för att matcha din miljö.
 
    ```
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
@@ -928,7 +925,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
 
    Uppdatera den SAP HANA säkra lagringen så att den pekar på det virtuella namnet på installations programmet för SAP HANA system replikering.
 
-   Kör följande kommando för att lista posterna som \<sapsid > ADM
+   Kör följande kommando för att lista posterna som \<sapsid>ADM
 
    ```
    hdbuserstore List
@@ -1092,7 +1089,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
    [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
-   Om du bara avsluter meddelande servern en gång, startas den om genom att `sapstart`. Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
+   Om du bara avdödar meddelande servern en gång, startas den om av `sapstart`. Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
 
    ```
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
@@ -1186,7 +1183,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
    [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    ```
 
-   Om du bara kör kommandot en gång kommer `sapstart` starta om processen. Om du kör den ofta räcker det `sapstart` inte att starta om processen och resursen är i ett stoppat tillstånd. Kör följande kommandon som rot för att rensa resurs statusen för ERS-instansen efter testet.
+   Om du bara kör kommandot en gång `sapstart` startas processen om. Om du kör det tillräckligt ofta, `sapstart` startar inte om processen och resursen är i ett stoppat tillstånd. Kör följande kommandon som rot för att rensa resurs statusen för ERS-instansen efter testet.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01

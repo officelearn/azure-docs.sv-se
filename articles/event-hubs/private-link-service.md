@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: 110d4b94eda8315c20f4baa70256f7e5ed378530
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106482"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148206"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrera Azure Event Hubs med Azure Private Link (för hands version)
 Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Event Hubs, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
@@ -29,7 +29,7 @@ Mer information finns i [Vad är en privat Azure-länk?](../private-link/private
 >[!WARNING]
 > Att aktivera privata slut punkter kan förhindra att andra Azure-tjänster interagerar med Event Hubs.
 >
-> Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
+> Betrodda Microsoft-tjänster stöds inte när du använder virtuella nätverk.
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
 > - Azure Monitor (diagnostisk inställning)
@@ -86,7 +86,7 @@ Om du redan har ett Event Hubs namn område kan du skapa en privat länk anslutn
         
             ![Skapa privat slut punkt – resurs sida](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Om du väljer **Anslut till en Azure-resurs efter resurs-ID eller alias**följer du dessa steg:
-        1. Ange **resurs-ID** eller **alias**. Det kan vara resurs-ID eller alias som någon har delat med dig.
+        1. Ange **resurs-ID** eller **alias**. Det kan vara det resurs-ID eller alias som någon har delat med dig. Det enklaste sättet att hämta resurs-ID är att navigera till Event Hubs namn området i Azure Portal och kopiera del av URI: n som börjar `/subscriptions/`från. Se följande bild för ett exempel. 
         2. För **under resurs för mål**anger du **namnrymd**. Det är den typ av under resurs som din privata slut punkt kan komma åt.
         3. valfritt Ange ett **meddelande om begäran**. Resurs ägaren ser det här meddelandet vid hantering av privat slut punkts anslutning.
         4. Välj sedan **Nästa: konfiguration >** knappen längst ned på sidan.

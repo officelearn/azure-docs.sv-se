@@ -1,46 +1,46 @@
 ---
-title: Erbjudandet publicera avbildningserbjudande för Azure Containers | Azure Marketplace
-description: Så här publicerar du ett Azure-behållarerbjudande.
+title: Publicera erbjudanden för Azure containers image | Azure Marketplace
+description: Publicera ett erbjudande för Azure Container.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 8003bf1cb7905d5decf8a6267ea397f1b2c01222
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 58e096a3b25b16e54cf2f18935dcf4a2d44cd767
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270170"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146217"
 ---
 # <a name="publish-container-offer"></a>Erbjudande om att skapa containrar
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Container-erbjudande](https://aka.ms/CreateContainerOffer) för att hantera dina migrerade erbjudanden.
+> Från den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett Azure Container-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) för att hantera dina migrerade erbjudanden.
 
- När du har skapat ett nytt erbjudande på sidan **Nytt erbjudande** kan du publicera erbjudandet. Välj **Publicera** om du vill starta publiceringsprocessen.
+ När du har skapat ett nytt erbjudande med hjälp av den **nya erbjudande** sidan kan du publicera erbjudandet. Välj **publicera** för att starta publicerings processen.
 
-Följande diagram visar de viktigaste stegen i publiceringsprocessen för ett erbjudande om att "publicera".
+Följande diagram visar de huvudsakliga stegen i publicerings processen för ett erbjudande till "Go Live".
 
-![Publiceringssteg för behållarerbjudande](./media/offer-publishing-steps.png)
+![Publicerings steg för container erbjudande](./media/offer-publishing-steps.png)
 
-## <a name="detailed-description-of-publishing-steps"></a>Detaljerad beskrivning av publiceringssteg
+## <a name="detailed-description-of-publishing-steps"></a>Detaljerad beskrivning av publicerings steg
 
-I följande tabell beskrivs varje publiceringssteg. En beräknad tid att avsluta varje steg ges också.
+I följande tabell beskrivs varje publicerings steg. En uppskattad tid för att slutföra varje steg anges också.
 
 
-|  **Publiceringssteg**           | **Tid**    | **Beskrivning**                                                            |
+|  **Publicerings steg**           | **Tid**    | **Beskrivning**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Validera förutsättningar         | 15 min   | Erbjudandeinformation och erbjudandeinställningar valideras.                        |
-| Certifiering                  | 1 vecka | Erbjudandet analyseras av Azure Certification Team. Erbjudandet genomsöks efter virus, skadlig kod, säkerhetskrav och säkerhetsproblem. Erbjudandet kontrolleras för att se till att det uppfyller alla villkor för berättigande. Mer information finns i [förutsättningar](./cpp-prerequisites.md) och [förbereda dina tekniska tillgångar](./cpp-create-technical-assets.md). Feedback ges om ett problem hittas. |
-| Paketering | 1 timme  | Erbjudandets tekniska tillgångar är paketerade för kundanvändning och leadsystemen är konfigurerade och konfigurerade. |
-|  Signering av utgivare             |  -        | Slutlig utgivare granskning och bekräftelse innan erbjudandet går live. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i stegen för erbjudandeinformation) för att kontrollera att det uppfyller alla dina krav.  Välj **Gå live** så att ditt erbjudande kan gå vidare till nästa steg. |
-| Paketering                 | 1 timme | Det färdiga erbjudandet replikeras i marknadsplatsproduktionssystem och regioner. | 
-| Live                           | 4 dagar |Erbjudandet frisläpps, replikeras till de regioner som krävs och görs tillgängligt för allmänheten. |
+| Verifiera krav         | 15 min   | Information om erbjudandet och erbjudande inställningarna verifieras.                        |
+| Certifiering                  | 1 vecka | Erbjudandet analyseras av Azure-certifierings teamet. Erbjudandet genomsöks efter virus, skadlig kod, säkerhetskrav och säkerhetsproblem. Erbjudandet kontrolleras för att se till att det uppfyller alla villkor för berättigande. Mer information finns i [krav](./cpp-prerequisites.md) och [förberedelser inför dina tekniska till gångar](./cpp-create-technical-assets.md). Feedback om ett problem har påträffats. |
+| Paketering | 1 timme  | Erbjudandets tekniska till gångar är paketerade för kund användning och lead-systemen konfigureras och konfigureras. |
+|  Utgivarens utloggning             |  -        | Slutlig utgivar granskning och bekräftelse innan erbjudandet går live. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i stegen för att erbjuda information) för att kontrol lera att det uppfyller alla krav.  Välj **Go Live** så att ditt erbjudande kan gå vidare till nästa steg. |
+| Paketering                 | 1 timme | Det färdiga erbjudandet replikeras i produktions system och regioner i Marketplace. | 
+| Live                           | 4 dagar |Erbjudandet släpps, replikeras till de regioner som krävs och görs tillgängliga för allmänheten. |
 
-Tillåt upp till 10 arbetsdagar för publiceringsprocessen att slutföras och erbjudandet släpps. När du är klar med publiceringsprocessen visas ditt behållarerbjudande på [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
+Tillåt upp till 10 arbets dagar för publicerings processen att slutföras och erbjudandet släpps. När du har slutfört publicerings processen visas behållar erbjudandet i [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Uppdatera ett befintligt behållarerbjudande på Azure Marketplace](./cpp-update-existing-offer.md)
+[Uppdatera ett befintligt behållar erbjudande på Azure Marketplace](./cpp-update-existing-offer.md)

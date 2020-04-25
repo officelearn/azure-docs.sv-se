@@ -1,96 +1,100 @@
 ---
-title: Migrera från massutnrönarbiblioteket till masssupporten i Azure Cosmos DB .NET V3 SDK
-description: Lär dig hur du migrerar ditt program från att använda massutrålningsbiblioteket till masssupporten i Azure Cosmos DB SDK V3
+title: Migrera från bulk utförar-biblioteket till Mass stödet i Azure Cosmos DB .NET v3 SDK
+description: Lär dig hur du migrerar ditt program från att använda utförar-biblioteket för Mass support i Azure Cosmos DB SDK v3
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755970"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146298"
 ---
-# <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrera från massutnrönarbiblioteket till masssupporten i Azure Cosmos DB .NET V3 SDK
+# <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrera från bulk utförar-biblioteket till Mass stödet i Azure Cosmos DB .NET v3 SDK
 
-I den här artikeln beskrivs de steg som krävs för att migrera ett befintligt programs kod som använder [.NET-massutdrivarbiblioteket](bulk-executor-dot-net.md) till [masssupportfunktionen](tutorial-sql-api-dotnet-bulk-import.md) i den senaste versionen av .NET SDK.
+I den här artikeln beskrivs de steg som krävs för att migrera ett befintligt programs kod som använder [.net bulk utförar-biblioteket](bulk-executor-dot-net.md) till funktionen för [Mass stöd](tutorial-sql-api-dotnet-bulk-import.md) i den senaste versionen av .NET SDK.
 
-## <a name="enable-bulk-support"></a>Aktivera masssupport
+## <a name="enable-bulk-support"></a>Aktivera Mass stöd
 
-Aktivera massstöd `CosmosClient` för instansen via [allowbulkexecution-konfigurationen:](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution)
+Aktivera Mass support på `CosmosClient` instansen via [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) -konfigurationen:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
-## <a name="create-tasks-for-each-operation"></a>Skapa aktiviteter för varje operation
+## <a name="create-tasks-for-each-operation"></a>Skapa aktiviteter för varje åtgärd
 
-Massstöd i .NET SDK fungerar genom att utnyttja [det parallella aktivitetsbiblioteket](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) och grupperingsåtgärderna som sker samtidigt. 
+Mass support i .NET SDK fungerar genom att använda det [parallella aktivitets bibliotek](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) och de grupperings åtgärder som inträffar samtidigt. 
 
-Det finns ingen enskild metod som tar listan över dokument eller åtgärder som en indataparameter, utan du måste skapa en aktivitet för varje åtgärd som du vill köra i grupp.
+Det finns ingen enskild metod i SDK som tar din lista över dokument eller åtgärder som en indataparameter, men i stället måste du skapa en uppgift för varje åtgärd som du vill köra i bulk och sedan vänta tills de har slutförts.
 
-Om din första indata till exempel är en lista över objekt där varje objekt har följande schema:
+Om din första Indatatyp till exempel är en lista med objekt där varje objekt har följande schema:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Om du vill göra massimport (liknande med BulkExecutor.BulkImportAsync) måste du `CreateItemAsync` ha samtidiga anrop till med varje artikelvärde. Ett exempel:
+Om du vill göra Mass import (liknar att använda BulkExecutor. BulkImportAsync) måste du ha samtidiga anrop till `CreateItemAsync`. Ett exempel:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Om du vill göra *massuppdatering* (liknande med [BulkExecutor.BulkUpdateAsync)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)måste du `ReplaceItemAsync` ha samtidiga anrop till metoden när du har uppdaterat artikelvärdet. Ett exempel:
+Om du vill göra en Mass *uppdatering* (liknar att använda [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)) måste du ha samtidiga anrop till `ReplaceItemAsync` metoden efter att objektet har uppdaterats. Ett exempel:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-Och om du vill göra *massborttagning* (liknande med [BulkExecutor.BulkDeleteAsync)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)måste du `DeleteItemAsync`ha `id` samtidiga anrop till , med och partitionsnyckeln för varje objekt. Ett exempel:
+Och om du vill utföra Mass *borttagning* (liknar att använda [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)) måste du ha samtidiga anrop till `DeleteItemAsync`med `id` och-partitionerings nyckeln för varje objekt. Ett exempel:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
-## <a name="capture-task-result-state"></a>Fånga aktivitetsresultattillstånd
+## <a name="capture-task-result-state"></a>Resulterande tillstånd för inspelnings uppgift
 
-I de föregående kodexemplen har du skapat en samtidig lista `CaptureOperationResponse` över aktiviteter och anropat metoden för var och en av dessa aktiviteter. Denna metod är ett tillägg som låter oss upprätthålla ett *liknande svar schema* som BulkExecutor, genom att fånga eventuella fel och spåra begäran enheter [användning](request-units.md).
+I föregående kod exempel har vi skapat en samtidig lista med aktiviteter och anropade `CaptureOperationResponse` metoden för var och en av dessa aktiviteter. Den här metoden är ett tillägg som låter oss underhålla ett *liknande svars schema* som BulkExecutor, genom att samla in eventuella fel och spåra [användningen av enheter för programbegäran](request-units.md).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
-Om `OperationResponse` den deklareras som
+`OperationResponse` Där deklareras som:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="OperationResult":::
 
-## <a name="execute-operations-concurrently"></a>Utföra åtgärder samtidigt
+## <a name="execute-operations-concurrently"></a>Köra åtgärder samtidigt
 
-När listan över uppgifter har definierats väntar du tills alla är klara. Du kan spåra slutförandet av aktiviteterna genom att definiera omfattningen av massåtgärden enligt följande kodavsnitt:
+Vi använder den här hjälp klassen för att spåra omfattningen av hela listan med aktiviteter:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
+
+`ExecuteAsync` Metoden väntar tills alla åtgärder har slutförts och du kan använda den så här:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 
 ## <a name="capture-statistics"></a>Samla in statistik
 
-Den tidigare koden väntar tills alla åtgärder har slutförts och beräknar den statistik som krävs. Den här statistiken liknar den i bulk executor-bibliotekets [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse).
+Föregående kod väntar tills alla åtgärder har slutförts och beräknar den statistik som krävs. Den här statistiken liknar den för utförar-bibliotekets [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
-Innehåller: `BulkOperationResponse`
+`BulkOperationResponse` Innehåller:
 
-1. Den totala tid det tar att bearbeta listan över åtgärder via masssupport.
-1. Antalet lyckade operationer.
-1. Summan av begärandeenheter som förbrukats.
-1. Om det finns fel visas en lista över tupplar som innehåller undantaget och det associerade objektet för loggning och identifiering.
+1. Den totala tid det tar att bearbeta listan över åtgärder via Mass stöd.
+1. Antalet lyckade åtgärder.
+1. Totalt antal förbrukade enheter för programbegäran.
+1. Om det finns fel visas en lista med tupler som innehåller undantaget och det associerade objektet för loggning och identifiering.
 
-## <a name="retry-configuration"></a>Konfiguration för återförsök
+## <a name="retry-configuration"></a>Försök att konfigurera igen
 
-Bulk executor bibliotek hade [vägledning](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) `MaxRetryWaitTimeInSeconds` som `MaxRetryAttemptsOnThrottledRequests` nämns för att ställa in och [retryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) att `0` delegera kontroll till biblioteket.
+Bulk utförar Library hade en [vägledning](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) som nämndes att `MaxRetryWaitTimeInSeconds` ange `MaxRetryAttemptsOnThrottledRequests` och för [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) för `0` att delegera kontroll till biblioteket.
 
-För massstöd i .NET SDK finns det inget dolt beteende. Du kan konfigurera alternativen för återförsök direkt via [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) och [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+Det finns inget dolt beteende för Mass support i .NET SDK. Du kan konfigurera alternativen för återförsök direkt via [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) och [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
-> I de fall där de etablerade begärande enheterna är mycket lägre än förväntat baserat på mängden data, kanske du vill överväga att ange dessa till höga värden. Bulkoperationen tar längre tid men har en större chans att helt lyckas på grund av de högre återförsöken.
+> I de fall där de etablerade enheterna är mycket lägre än vad som förväntas utifrån mängden data, kanske du vill överväga att ange dessa till höga värden. Mass åtgärden tar längre tid, men den har en högre chans att lyckas på grund av högre återförsök.
 
 ## <a name="performance-improvements"></a>Prestandaförbättringar
 
-Precis som med andra åtgärder med .NET SDK resulterar dataflödets API:er i bättre prestanda och undviker onödig serialisering. 
+Precis som med andra åtgärder med .NET SDK ger data Ströms-API: erna bättre prestanda och undviker onödig serialisering. 
 
-Det är bara möjligt att använda strömma API:er om vilken typ av data du använder matchar en ström av byte (till exempel filströmmar). I sådana fall `CreateItemStreamAsync`ökar `ReplaceItemStreamAsync`dataflödet som kan uppnås genom att använda , eller `DeleteItemStreamAsync` metoder och arbeta med `ResponseMessage` (i stället för ). `ItemResponse`
+Det går bara att använda Stream-API: er om de data som du använder matchar data strömmens data strömmar (till exempel fil strömmar). I sådana fall ökar det data `CreateItemStreamAsync`flöde `ReplaceItemStreamAsync`som kan `DeleteItemStreamAsync` uppnås genom att `ResponseMessage` använda metoderna, `ItemResponse`, eller och arbeta med (i stället för).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om .NET SDK-versionerna finns i artikeln [Azure Cosmos DB SDK.](sql-api-sdk-dotnet.md)
-* Hämta den fullständiga [migreringskällakoden](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration) från GitHub.
-* [Ytterligare massprover på GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkSupport)
+* Mer information om .NET SDK-versioner finns i artikeln [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) .
+* Hämta den fullständiga [käll koden för migrering](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration) från GitHub.
+* [Ytterligare bulk-exempel på GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkSupport)

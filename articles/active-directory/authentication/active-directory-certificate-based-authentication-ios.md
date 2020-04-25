@@ -1,6 +1,6 @@
 ---
-title: Certifikatbaserad autentisering på iOS - Azure Active Directory
-description: Lär dig mer om scenarier som stöds och kraven för att konfigurera certifikatbaserad autentisering för Azure Active Directory i lösningar med iOS-enheter
+title: Certifikatbaserad autentisering på iOS – Azure Active Directory
+description: Lär dig mer om de scenarier som stöds och kraven för att konfigurera certifikatbaserad autentisering för Azure Active Directory i lösningar med iOS-enheter
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -10,71 +10,72 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c5e18a0bf84e96476eafd7ff35398049f1a492
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639634"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144075"
 ---
-# <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory-certifikatbaserad autentisering på iOS
+# <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory certifikatbaserad autentisering på iOS
 
-För att förbättra säkerheten kan iOS-enheter använda certifikatbaserad autentisering (CBA) för att autentisera till Azure Active Directory (Azure AD) med hjälp av ett klientcertifikat på sin enhet när de ansluter till följande program eller tjänster:
+För att förbättra säkerheten kan iOS-enheter använda certifikatbaserad autentisering (CBA) för att autentisera till Azure Active Directory (Azure AD) med hjälp av ett klient certifikat på sin enhet vid anslutning till följande program eller tjänster:
 
-* Office-mobilappar som Microsoft Outlook och Microsoft Word
+* Office Mobile-program som Microsoft Outlook och Microsoft Word
 * Exchange ActiveSync-klienter (EAS)
 
-Genom att använda certifikat elimineras behovet av att ange en kombination av användarnamn och lösenord i vissa e-post- och Microsoft Office-program på din mobila enhet.
+Med hjälp av certifikat slipper du ange en kombination av användar namn och lösen ord i vissa e-post-och Microsoft Office program på din mobila enhet.
 
-I den här artikeln beskrivs kraven och scenarierna som stöds för att konfigurera CBA på en iOS-enhet. CBA för iOS är tillgängligt i Offentliga Azure-moln, Microsoft Government Cloud, Microsoft Cloud Germany och Microsoft Azure China 21Vianet.
+Den här artikeln beskriver kraven och de scenarier som stöds för att konfigurera CBA på en iOS-enhet. CBA för iOS är tillgängligt i offentliga Azure-moln, i Microsofts offentliga moln, Microsoft Cloud Tyskland och Microsoft Azure Kina.
 
-## <a name="microsoft-mobile-applications-support"></a>Stöd för Microsoft-mobilappar
+## <a name="microsoft-mobile-applications-support"></a>Stöd för Microsoft Mobile Applications
 
 | Program | Support |
 | --- | --- |
-| Azure-appen för informationsskydd |![Markera markera som markerar service för denna applikation][1] |
-| Intune Företagsportal |![Markera markera som markerar service för denna applikation][1] |
-| Microsoft Teams |![Markera markera som markerar service för denna applikation][1] |
-| OneNote |![Markera markera som markerar service för denna applikation][1] |
-| OneDrive |![Markera markera som markerar service för denna applikation][1] |
-| Outlook |![Markera markera som markerar service för denna applikation][1] |
-| Power BI |![Markera markera som markerar service för denna applikation][1] |
-| Skype för företag |![Markera markera som markerar service för denna applikation][1] |
-| Word / Excel / PowerPoint |![Markera markera som markerar service för denna applikation][1] |
-| Yammer |![Markera markera som markerar service för denna applikation][1] |
+| Azure Information Protection app |![Bock för att ange stöd för det här programmet][1] |
+| Intune Företagsportal |![Bock för att ange stöd för det här programmet][1] |
+| Microsoft Teams |![Bock för att ange stöd för det här programmet][1] |
+| Office (mobilt) |![Bock för att ange stöd för det här programmet][1] |
+| OneNote |![Bock för att ange stöd för det här programmet][1] |
+| OneDrive |![Bock för att ange stöd för det här programmet][1] |
+| Outlook |![Bock för att ange stöd för det här programmet][1] |
+| Power BI |![Bock för att ange stöd för det här programmet][1] |
+| Skype för företag |![Bock för att ange stöd för det här programmet][1] |
+| Word/Excel/PowerPoint |![Bock för att ange stöd för det här programmet][1] |
+| Yammer |![Bock för att ange stöd för det här programmet][1] |
 
 ## <a name="requirements"></a>Krav
 
-För att använda CBA med iOS gäller följande krav och överväganden:
+Om du vill använda CBA med iOS gäller följande krav och överväganden:
 
-* Enhetens OS-version måste vara iOS 9 eller högre.
+* Enhetens OS-version måste vara iOS 9 eller senare.
 * Microsoft Authenticator krävs för Office-program på iOS.
-* En identitetsinställning måste skapas i macOS-nyckelringen som innehåller ADFS-serverns autentiserings-URL. Mer information finns [i Skapa en identitetsinställning i Nyckelringsåtkomst på Mac](https://support.apple.com/guide/keychain-access/create-an-identity-preference-kyca6343b6c9/mac).
+* En identitets inställning måste skapas i macOS-nyckel ringen som inkluderar autentiserings-URL: en för ADFS-servern. Mer information finns i [skapa en identitets inställning i nyckel rings åtkomst på Mac](https://support.apple.com/guide/keychain-access/create-an-identity-preference-kyca6343b6c9/mac).
 
-Följande ADFS-krav och överväganden (Active Directory Federation Services) gäller:
+Följande Active Directory Federation Services (AD FS) (ADFS) krav och överväganden gäller:
 
-* ADFS-servern måste vara aktiverad för certifikatautentisering och användning av federerad autentisering.
-* Certifikatet måste använda EKU (Enhanced Key Usage) och innehålla ANVÄNDARENs UPN i *ämnesalternativnamnet (NT Principal Name)*.
+* ADFS-servern måste vara aktive rad för certifikatautentisering och använda federerad autentisering.
+* Certifikatet måste använda förbättrad nyckel användning (EKU) och innehålla användarens UPN i det *alternativa ämnes namnet (NT-huvudnamn)*.
 
 ## <a name="configure-adfs"></a>Konfigurera ADFS
 
-För att Azure AD ska kunna återkalla ett klientcertifikat måste ADFS-token ha följande anspråk. Azure AD lägger till dessa anspråk i uppdateringstoken om de är tillgängliga i ADFS-token (eller någon annan SAML-token). När uppdateringstoken måste valideras används den här informationen för att kontrollera återkallandet:
+För att Azure AD ska kunna återkalla ett klient certifikat måste ADFS-token ha följande anspråk. Azure AD lägger till dessa anspråk till uppdateringstoken om de är tillgängliga i ADFS-token (eller någon annan SAML-token). När uppdateringstoken behöver verifieras används den här informationen för att kontrol lera åter kallelsen:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`- lägg till serienumret för ditt klientcertifikat
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`- lägga till strängen för utfärdaren av ditt klientcertifikat
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`– Lägg till serie numret för ditt klient certifikat
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`– Lägg till strängen för utfärdaren av klient certifikatet
 
-Du bör också uppdatera organisationens ADFS-felsidor med följande information:
+Vi rekommenderar att du också uppdaterar organisationens ADFS-felsidor med följande information:
 
-* Kravet för att installera Microsoft Authenticator på iOS.
-* Instruktioner om hur du skaffar ett användarcertifikat.
+* Kravet på att installera Microsoft Authenticator på iOS.
+* Instruktioner om hur du hämtar ett användar certifikat.
 
-Mer information finns [i Anpassa AD FS-inloggningssidan](https://technet.microsoft.com/library/dn280950.aspx).
+Mer information finns i [anpassa AD FS inloggnings sida](https://technet.microsoft.com/library/dn280950.aspx).
 
-## <a name="use-modern-authentication-with-office-apps"></a>Använda modern autentisering med Office-appar
+## <a name="use-modern-authentication-with-office-apps"></a>Använd modern autentisering med Office-appar
 
-Vissa Office-appar med modern `prompt=login` autentisering aktiverad skicka till Azure AD i sin begäran. Som standard översätter `prompt=login` Azure AD i begäran `wauth=usernamepassworduri` till ADFS som (ber ADFS `wfresh=0` att göra U/P Auth) och (ber ADFS att ignorera SSO-tillstånd och göra en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för dessa appar ändrar du standardbeteendet för Azure AD.
+Vissa Office-appar med modern autentisering har `prompt=login` Aktiver ATS skicka till Azure AD i sin begäran. Som standard översätter Azure AD `prompt=login` i begäran till ADFS som `wauth=usernamepassworduri` (uppmanar ADFS att göra U/P-autentisering) och `wfresh=0` (uppmanar ADFS att ignorera SSO-tillstånd och göra en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna ändrar du standard beteendet för Azure AD.
 
-Om du vill uppdatera standardbeteendet anger du *' PromptLoginBehavior*' i dina federerade domäninställningar till *Inaktiverat*. Du kan använda cmdleten [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) för att utföra den här uppgiften, som visas i följande exempel:
+Om du vill uppdatera standard beteendet ställer du in "*PromptLoginBehavior*" i dina federerade domän inställningar på *inaktive rad*. Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) -cmdlet: en för att utföra den här uppgiften, som du ser i följande exempel:
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled
@@ -82,11 +83,11 @@ Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disab
 
 ## <a name="support-for-exchange-activesync-clients"></a>Stöd för Exchange ActiveSync-klienter
 
-På iOS 9 eller senare stöds den inbyggda iOS-e-postklienten. Om du vill ta reda på om den här funktionen stöds för alla andra Exchange ActiveSync-program kontaktar du programutvecklaren.
+På iOS 9 eller senare stöds den inbyggda iOS-e-postklienten. Kontakta programutvecklaren för att avgöra om den här funktionen stöds för alla andra Exchange ActiveSync-program.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera certifikatbaserad autentisering i din miljö läser [du Komma igång med certifikatbaserad autentisering](active-directory-certificate-based-authentication-get-started.md) för instruktioner.
+Instruktioner för hur du konfigurerar certifikatbaserad autentisering i din miljö finns i [komma igång med certifikatbaserad autentisering](active-directory-certificate-based-authentication-get-started.md) .
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png

@@ -1,47 +1,47 @@
 ---
-title: Power BI App erbjuder förutsättningar | Azure Marketplace
-description: Ger förutsättningar för att publicera en Power BI-app till AppSource.
+title: Krav för Power BI app-erbjudandet | Azure Marketplace
+description: Innehåller förutsättningar för att publicera en Power BI-app till AppSource.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ac27a2c95789eac3e824e4ecb31138a6720868a6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f68d8cfb4a221d1f7ec5123f532e7b0bf420b123
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981655"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147694"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Krav för erbjudande för Power BI-appen
 
 >[!Important]
->Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzurePBIAppCreationOverview) för att hantera dina migrerade erbjudanden.
+>Från och med den 13 2020 april börjar vi flytta hantering av Power BI app-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Power BI översikt över skapande av appar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) för att hantera dina migrerade erbjudanden.
 
-Den här artikeln innehåller de tekniska krav och affärskrav som du måste uppfylla innan du kan publicera ett Power BI App-erbjudande på AppSource-marknadsplatsen.  Om du inte redan har gjort det läser du [Publiceringsguiden för Office 365, Dynamics 365, PowerApps och Power BI Offer](../../appsource-offer-publishing-guide.md).
+Den här artikeln innehåller de tekniska och affärs krav som du måste uppfylla innan du kan publicera ett erbjudande för Power BI app på AppSource Marketplace.  Om du inte redan har gjort det granskar du [publicerings guiden för Office 365, Dynamics 365, PowerApps och Power BI erbjudande](../../appsource-offer-publishing-guide.md).
 
 
 ## <a name="technical-requirements"></a>Tekniska krav
 
-Den viktigaste tekniska tillgången du behöver för den här erbjudandetypen är en [Power BI-app](https://go.microsoft.com/fwlink/?linkid=2028636). Mer information finns i [Skapa tekniska resurser för Power BI](./cpp-create-technical-assets.md).
+Den viktigaste tekniska till gången du behöver för den här erbjudande typen är en [Power BI app](https://go.microsoft.com/fwlink/?linkid=2028636). Mer information finns i [skapa Power BI tekniska till gångar](./cpp-create-technical-assets.md).
 
-När ditt tjänstprogram har skapats och testats i Power BI bör du spara programinstallations-URL:en som Power BI genererar. Du behöver det för att [skapa ett Power BI App-erbjudande](./cpp-create-offer.md).
+När tjänst programmet har skapats och testats i Power BI bör du spara den programinstallations-URL som Power BI genererar. Du behöver den för att [skapa ett erbjudande för Power BI app](./cpp-create-offer.md).
 
-## <a name="business-requirements"></a>Affärskrav
+## <a name="business-requirements"></a>Affärs krav
 
-Affärskraven omfattar processuella, avtalsenliga och rättsliga skyldigheter.  Du måste:
+Affärs kraven omfattar procedur mässiga, avtals liga och juridiska skyldigheter.  Du måste:
 
-- Bli en registrerad molnmarknadsplatsutgivare. Om du inte är registrerad följer du stegen i [Bli en Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Vara en registrerad Cloud Marketplace-utgivare. Om du inte har registrerat dig följer du stegen i [bli en Cloud Marketplace-utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
-    > Använd samma registreringskonto för Microsoft Developer Center för att logga in på [Cloud Partner Portal](https://cloudpartner.azure.com). Du bör ha endast ett Microsoft-konto för alla dina AppSource-erbjudanden. Konton bör inte vara specifika för enskilda tjänster eller erbjudanden.
+    > Använd samma registrerings konto för Microsoft Developer Center för att logga in på [Cloud Partner Portal](https://cloudpartner.azure.com). Du bör ha endast ett Microsoft-konto för alla dina AppSource-erbjudanden. Konton bör inte vara specifika för enskilda tjänster eller erbjudanden.
  
 - Du måste tillhandahålla teknisk support för kunderna på ett kommersiellt rimligt sätt.
-- Ange innehåll som uppfyller kriterierna för att ditt erbjudande ska visas på AppSource. Mer information finns i [Har du en app att lista på AppSource? Så här gör du.](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)
-- Följ [Microsofts sekretesspolicy](https://privacy.microsoft.com/privacystatement).
+- Ange innehåll som uppfyller kriterierna för ditt erbjudande som ska listas på AppSource. Mer information finns i [ha en app för att visa en lista på AppSource? Så här gör](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)du.
+- Följ [Microsofts sekretess policy](https://privacy.microsoft.com/privacystatement).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har uppfyllt alla krav är du redo att [skapa ett Power BI App-erbjudande](./cpp-create-offer.md) i Cloud Partner Portal.
+När du har uppfyllt alla krav är det dags att [skapa ett Power BI app-erbjudande](./cpp-create-offer.md) i Cloud Partner Portal.

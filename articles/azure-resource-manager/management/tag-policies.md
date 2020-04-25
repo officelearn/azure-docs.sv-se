@@ -1,24 +1,24 @@
 ---
-title: Principer för taggning av resurser
-description: Beskriver de Azure-principer som du kan tilldela för att säkerställa taggefterlevnad.
+title: Principer för att tagga resurser
+description: Beskriver de Azure-principer som du kan tilldela för att säkerställa taggens kompatibilitet.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e7febe4c833cefd0ee9a5c49b4b70f4901fea8d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80147023"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147856"
 ---
-# <a name="assign-policies-for-tag-compliance"></a>Tilldela principer för taggefterlevnad
+# <a name="assign-policies-for-tag-compliance"></a>Tilldela principer för tagg-kompatibilitet
 
-Du använder [Azure Policy](../../governance/policy/overview.md) för att genomdriva taggningsregler och konventioner. Genom att skapa en princip undviker du att det finns resurser som distribueras till prenumerationen och som inte har de förväntade taggarna för din organisation. I stället för att manuellt använda taggar eller söka efter resurser som inte är kompatibla skapar du en princip som automatiskt tillämpar de nödvändiga taggarna under distributionen. Taggar kan nu också tillämpas på befintliga resurser med den nya [ändra](../../governance/policy/concepts/effects.md#modify) effekten och en [reparationsaktivitet](../../governance/policy/how-to/remediate-resources.md). I följande avsnitt visas exempel på principer för taggar.
+Du använder [Azure policy](../../governance/policy/overview.md) för att tillämpa taggnings regler och konventioner. Genom att skapa en princip undviker du syftet med resurser som distribueras till din prenumeration som inte har de förväntade taggarna för din organisation. I stället för att manuellt tillämpa taggar eller söka efter resurser som inte är kompatibla, skapar du en princip som automatiskt tillämpar de taggar som krävs under distributionen. Taggar kan nu också tillämpas på befintliga resurser med den nya [ändra](../../governance/policy/concepts/effects.md#modify) -effekt och en [reparations uppgift](../../governance/policy/how-to/remediate-resources.md). I följande avsnitt visas exempel principer för taggar.
 
 ## <a name="policies"></a>Principer
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du taggar resurser finns i [Använda taggar för att ordna dina Azure-resurser](tag-resources.md).
-* Alla resurstyper stöder inte taggar. Information om du kan använda en tagg på en resurstyp finns i [Taggstöd för Azure-resurser](tag-support.md).
+* Mer information om att tagga resurser finns i [använda taggar för att ordna dina Azure-resurser](tag-resources.md).
+* Inte alla resurs typer stöder taggar. Information om hur du kan använda en tagg för en resurs typ finns i [tagga stöd för Azure-resurser](tag-support.md).

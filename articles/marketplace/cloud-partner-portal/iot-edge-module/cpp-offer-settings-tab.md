@@ -1,44 +1,44 @@
 ---
-title: Erbjudandeinställningar för en Azure IoT Edge-modul | Azure Marketplace
-description: Konfigurera erbjudandeinställningar för en IoT Edge-modul.
+title: Erbjudande inställningar för en Azure IoT Edge-modul | Azure Marketplace
+description: Konfigurera erbjudande inställningar för en IoT Edge-modul.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a35277a61217dab2982d6436903cd09abfe8c7d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d6d2306dfd44bad6e1f903c3cef3eeb4993f4cd9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984971"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148026"
 ---
-# <a name="iot-edge-module-offer-settings-tab"></a>Fliken Inställningar för IoT-kantmoduler
+# <a name="iot-edge-module-offer-settings-tab"></a>Fliken Inställningar i IoT Edge modul
 
 >[!Important]
->Från och med den 13 april 2020 börjar vi flytta hanteringen av din IoT Edge-modul till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett IoT Edge-modulerbjudande](https://aka.ms/AzureCreateIoT) för att hantera dina migrerade erbjudanden.
+>Från och med 13 april 2020 kommer vi att börja flytta hantering av IoT Edge modul-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett IoT Edge modul-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) för att hantera dina migrerade erbjudanden.
 
-**IoT Edge Modules > nya erbjudande** sidan öppnas med fokus på fliken **Erbjudandeinställningar.** 
+**IoT Edge modulerna > nya erbjudande** sidan öppnas med fokus på fliken **erbjudande inställningar** .
 
-![Ny erbjudandesida för IoT Edge-moduler](./media/iot-edge-module-offer-settings-tab.png)
+![Ny erbjudande sida för IoT Edge moduler](./media/iot-edge-module-offer-settings-tab.png)
 
 
-## <a name="offer-identity-settings"></a>Inställningar för erbjudandeidentitet
+## <a name="offer-identity-settings"></a>Ge identitets inställningar
 
-Under **Erbjudandeidentitet**måste du ange information för de fält som beskrivs i följande tabell. En asterisk (*) som läggs till i fältnamnet anger att det krävs. 
+Under **erbjudande identitet**måste du ange information för fälten som beskrivs i följande tabell. En asterisk (*) som läggs till i fält namnet visar att det är obligatoriskt. 
 
 |  **Field**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Erbjudande-ID\***       | En unik identifierare (i en utgivarprofil) för erbjudandet. Den här identifieraren visas i produkt-URL:er och insiktersrapporter. Den har en maximal längd på 50 tecken och kan använda gemener alfanumeriska tecken och streck (-). (Identifieraren kan inte sluta med ett streck.) **Anm.:** Det går inte att ändra det här fältet när ett erbjudande har live. <br> Om Contoso till exempel publicerar ett erbjudande med erbjudande-ID-exempel-iot-edge-module tilldelas `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-iot-edge-module?tab=Overview`den Azure **Marketplace-URL:en**. |
-| **Publisher\***     | Organisationens unika identifierare på Azure Marketplace. Alla dina erbjudanden ska kopplas till ditt utgivar-ID. Det går inte att ändra det här värdet när erbjudandet har sparats. |
-| **Namn\***          | Visningsnamnet för ditt erbjudande. Det här namnet visas på Azure Marketplace och i Cloud Partner Portal. Det får innehålla högst 50 tecken. Vi rekommenderar att du använder ett igenkännbart varumärke för din produkt. Ta inte med organisationens namn om det inte är så din produkt marknadsförs. Om du marknadsför detta erbjudande på andra webbplatser och publikationer, se till att namnet är exakt detsamma i alla publikationer. |
+| **Erbjudande-ID\***       | En unik identifierare (inom en utgivar profil) för erbjudandet. Den här identifieraren visas i produkt-URL: er och Insights-rapporter. Det får bestå av högst 50 tecken och kan använda gemena alfanumeriska tecken och bindestreck (-). (Identifieraren kan inte sluta med ett bindestreck.) **Obs:** Det här fältet kan inte ändras när ett erbjudande går live. <br> Om contoso till exempel publicerar ett erbjudande med ID **-exemplet-IoT-Edge-module**, tilldelas URL: en `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-iot-edge-module?tab=Overview`för Azure Marketplace. |
+| **Förläggare\***     | Organisationens unika identifierare på Azure Marketplace. Alla dina erbjudanden bör associeras med ditt utgivar-ID. Det här värdet kan inte ändras efter att erbjudandet har sparats. |
+| **Name\***          | Ditt erbjudandes visnings namn. Det här namnet visas på Azure Marketplace och i Cloud Partner Portal. Det får innehålla högst 50 tecken. Vi rekommenderar att du använder ett identifierbart varumärkes namn för din produkt. Ta inte med din organisations namn om det inte är så här som produkten marknadsförs. Om du saluför det här erbjudandet i andra webbplatser och publikationer, se till att namnet är exakt detsamma i alla publikationer. |
 |  |  |
 
 
-Välj **Spara** om du vill spara erbjudandeinställningarna.
+Spara inställningarna för erbjudandet genom att välja **Spara** .
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd fliken [SKU:er](./cpp-skus-tab.md) för att konfigurera SKU:erna för ditt erbjudande.
+Använd fliken [SKU: er](./cpp-skus-tab.md) för att konfigurera SKU: er för ditt erbjudande.

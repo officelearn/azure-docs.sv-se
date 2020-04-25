@@ -1,171 +1,191 @@
 ---
-title: Om Azure Edge-zoner – förhandsversion
-description: Lär dig mer om edge computing erbjudanden från Microsoft.
+title: Om för hands versionen av Azure Edge Zone
+description: 'Lär dig mer om Edge Computing-erbjudanden från Microsoft: Azure Edge Zone.'
 services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: aaa849633591bfd34a9fca026c820ec2f9137844
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410838"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146936"
 ---
-# <a name="about-azure-edge-zones---preview"></a>Om Azure Edge-zoner – förhandsversion
+# <a name="about-azure-edge-zone-preview"></a>Om för hands versionen av Azure Edge Zone
 
-Azure Edge Zones är en familj av erbjudanden från Microsoft Azure som möjliggör databearbetning nära användaren. Du kan distribuera virtuella datorer, behållare och andra valda Azure-tjänster till Edge Zoner för att hantera kraven på låg latens och högt dataflöde för program.
+Azure Edge Zone är en familje med erbjudanden från Microsoft Azure som möjliggör data behandling nära användaren. Du kan distribuera virtuella datorer, behållare och andra valda Azure-tjänster i gräns zoner för att hantera program med låg latens och höga data flödes krav.
 
-Typiska användningsfallsscenarier för Edge-zoner är:
+Vanliga scenarier för användnings fall för gräns zoner är:
 
-- Kommandot och kontrollen i realtid inom robotteknik
-- Analys och inferencing i realtid med artificiell intelligens och maskininlärning
-- Maskinseende
-- Fjärrrendering för mixade verklighets- och VDI-scenarier
-- Uppslukande spel för flera spelare
-- Direktuppspelning av media och leverans av innehåll
-- Övervakning och säkerhet
+- Real tids kommando och kontroll i Robotics.
+- Real tids analys och inferencing via artificiell intelligens och maskin inlärning.
+- Maskin vision.
+- Fjärrrendering för Mixad verklighet och VDI-scenarier.
+- Intensiv spel för flera personer.
+- Medie direkt uppspelning och innehålls leverans.
+- Övervakning och säkerhet.
 
-Azure Edge Zoner finns i tre diskreta erbjudanden:
+Det finns tre typer av Azure Edge-zoner:
 
 - Azure Edge-zoner
 - Azure Edge-zoner med operatör
-- Azure Private Edge-zoner
+- Azures privata gräns zoner
 
 ## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge-zoner
 
-![Kantzoner](./media/edge-zones-overview/edge-zones.png "Kantzoner")
+![Azure Edge-zoner](./media/edge-zones-overview/edge-zones.png "Azure Edge-zoner")
 
-Azure Edge Zones är små fotavtryckstillägg för Azure som placeras i befolkningscentra som ligger långt från Azure-regioner. Azure Edge Zones stöder virtuella datorer, behållare och en vald uppsättning Azure-tjänster som låter dig köra latenskänsliga och dataflödesintensiva program nära slutanvändare. Azure Edge Zones är en del av Microsofts globala nätverk och erbjuder säker, tillförlitlig och hög bandbreddsanslutning mellan program som körs i Edge-zonen nära användaren och den fullständiga uppsättningen Azure-tjänster som körs inom Azure-regioner. Azure Edge Zones ägs och drivs av Microsoft och låter dig använda samma uppsättning Azure-verktyg och portal för att hantera och distribuera tjänster till Edge Zoner.
+Azure Edge-zoner är små tillägg till Azure placerade i populations Center som är långt bort från Azure-regioner. Azure Edge Zones stöder virtuella datorer, behållare och en vald uppsättning Azure-tjänster som gör att du kan köra svars känsliga och data flödes intensiva program som ligger nära slutanvändarna. Azure Edge-zoner ingår i Microsofts globala nätverk. De tillhandahåller säker, tillförlitlig anslutning med hög bandbredd mellan program som körs i Edge-zonen nära användaren. Och de erbjuder en fullständig uppsättning Azure-tjänster som körs i Azure-regioner. Azure Edge-zoner ägs och drivs av Microsoft. Du kan använda samma uppsättning Azure-verktyg och samma Portal för att hantera och distribuera tjänster i gräns zoner.
 
-Typiska användningsfall är:
+Typiska användnings fall är:
 
-- Spel- och spelstreaming
-- Direktuppspelning av media och leverans av innehåll
-- Analys och inferencing i realtid med hjälp av artificiell intelligens och maskininlärning
-- Rendering för mixad verklighet
+- Spel-och spel strömning.
+- Medie direkt uppspelning och innehålls leverans.
+- Real tids analys och inferencing via artificiell intelligens och maskin inlärning.
+- Rendering för Mixad verklighet.
 
-Azure Edge Zones kommer att vara tillgängliga i följande tunnelbanor:
+Azure Edge-zoner är tillgängliga i följande tunnelbane områden:
 
-- New York , NY
-- Los Angeles , Kalifornien
+- New York, NY
+- Los Angeles, CA
 - Miami, FL
 
-[Kontakta Edge Zones-teamet](https://aka.ms/EdgeZones) för mer information.
+[Kontakta Edge Zone-teamet](https://aka.ms/EdgeZones) för mer information.
 
 ## <a name="azure-edge-zones-with-carrier"></a><a name="carrier"></a>Azure Edge-zoner med operatör
 
-![Kantzoner med bärare](./media/edge-zones-overview/edge-carrier.png "Kantzoner med bärare")
+![Gräns zoner med bärvåg](./media/edge-zones-overview/edge-carrier.png "Gräns zoner med bärvåg")
 
-Azure Edge Zoner med operatör är små fotavtryck tillägg av Azure placeras i mobiloperatörer datacenter i befolkningscentra. Azure Edge Zoner med carrier-infrastruktur placeras ett hopp bort från mobiloperatörens 5G-nätverk, som erbjuder under 10 millisekunder svarstid till program från mobila enheter. Azure Edge Zoner med operatör distribueras i mobiloperatörernas datacenter och är anslutna till Microsofts globala nätverk. De erbjuder säker, tillförlitlig och hög bandbreddsanslutning mellan program som körs nära användaren och den fullständiga uppsättningen Azure-tjänster som körs inom Azure-regioner. Utvecklare kan använda samma uppsättning välbekanta verktyg för att skapa och distribuera tjänster till Edge Zoner.
+Azure Edge-zoner med bärvåg är små tillägg till Azure som placeras i mobila operatörers Data Center i populations Center. Azure Edge Zone med lufttrafik infrastruktur placeras ett hopp från mobil operatörens 5G-nätverk. Den här placeringen ger svars tid på mindre än 10 millisekunder för program från mobila enheter.
 
-Typiska användningsfall är:
+Azure Edge-zoner med bärvåg distribueras i mobila operatörers Data Center och är anslutna till Microsofts globala nätverk. De tillhandahåller säker, tillförlitlig anslutning med hög bandbredd mellan program som körs nära användaren. Och de erbjuder en fullständig uppsättning Azure-tjänster som körs i Azure-regioner. Utvecklare kan använda samma uppsättning välbekanta verktyg för att skapa och distribuera tjänster i gräns zonerna.
 
-- Spel- och spelstreaming
-- Direktuppspelning av media och leverans av innehåll
-- Analys och inferencing i realtid med hjälp av artificiell intelligens och maskininlärning
-- Rendering för mixad verklighet
-- Anslutna bilar
-- Telemedicin
+Typiska användnings fall är:
 
-Edge Zones kommer att erbjudas i samarbete med följande operatörer:
+- Spel-och spel strömning.
+- Medie direkt uppspelning och innehålls leverans.
+- Real tids analys och inferencing via artificiell intelligens och maskin inlärning.
+- Rendering för Mixad verklighet.
+- Anslutna bilar.
+- Tele-medicin.
 
-- PÅ&T (Atlanta, Dallas och Los Angeles)
+Gräns zoner kommer att erbjudas i partnerskap med följande operatorer:
 
-## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Azure Private Edge-zoner
+- PÅ&T (Atlanta, Borås och Los Angeles)
 
-![Privata edge-zoner](./media/edge-zones-overview/private-edge.png "Privata edge-zoner")
+## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Azures privata gräns zoner
 
-Azure Private Edge Zones är små fotavtryckstillägg för Azure som placeras lokalt. Azure Private Edge Zones baseras på [Azure Stack Edge-plattformen](https://azure.microsoft.com/products/azure-stack/edge/) och möjliggör låg latensåtkomst till dator- och lagringstjänster som distribueras lokalt. Med Private Edge Zones kan du också distribuera virtualiserade nätverksfunktioner (VNFs) till exempel mobila paketkärnor, routrar, brandväggar och SD-WAN-enheter och program från ISVS som [Azure-hanterade program](https://azure.microsoft.com/services/managed-applications/) sida vid sida tillsammans med virtuella datorer och behållare lokalt. Azure Private Edge Zones levereras med en molnbaserad orkestreringslösning som gör att du kan hantera livscykeln för Virtualized Network Functions (VNF) och program från Azure-portalen.
+![Privata gräns zoner](./media/edge-zones-overview/private-edge.png "Privata gräns zoner")
 
-Med Azure Private Edge Zones kan du utveckla och distribuera program lokalt med samma välbekanta verktyg som används för att skapa och distribuera program i Azure. Du kan också köra privata mobilnät (privat LTE, privat 5G), säkerhetsfunktioner som brandväggar och utöka dina lokala nätverk över flera grenar och Azure med SD-WAN-enheter på samma Private Edge Zone-enheter och hantera dem från Azure.
+Azures privata gräns zoner är små tillägg till Azure som placeras lokalt. Azure Private Edge Zone baseras på [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) -plattformen. Den ger låg latens åtkomst till data behandling och lagrings tjänster som har distribuerats lokalt. Med den privata Edge-zonen kan du också distribuera program från ISV: er och virtualiserade nätverksfunktioner (VNFs) som [Azure-hanterade program](https://azure.microsoft.com/services/managed-applications/) tillsammans med virtuella datorer och behållare lokalt. Dessa VNFs kan omfatta mobila paket kärnor, routrar, brand väggar och SD-WAN-enheter. Azure Private Edge Zone levereras med en molnbaserad Orchestration-lösning som gör att du kan hantera livscykler för VNFs och program från Azure Portal.
 
-Typiska användningsfall är:
+Med Azure Private Edge Zone kan du utveckla och distribuera program lokalt genom att använda samma välkända verktyg som du använder för att skapa och distribuera program i Azure. 
 
-- Kommandot och kontrollen i realtid inom robotteknik
-- Analys och inferencing i realtid med artificiell intelligens och maskininlärning
-- Maskinseende
-- Fjärrrendering för mixade verklighets- och VDI-scenarier
-- Övervakning och säkerhet
+Du kan också: 
 
-Vi har ett rikt ekosystem av VNF-leverantörer, ISV-enheter och MSP-partner för att möjliggöra heltäckande lösningar med private edge-zoner. [Kontakta Private Edge Zones-teamet](https://aka.ms/EdgeZonesPartner) för mer information.
+- Kör privata mobila nätverk (privat LTE, privat 5G).
+- Implementera säkerhets funktioner som brand väggar.
+- Utöka dina lokala nätverk över flera grenar och Azure med hjälp av SD-WAN-installationer på samma privata Edge Zone-apparater och hantera dem från Azure.
 
-## <a name="private-edge-zones---partners"></a><a name="private-edge-partners"></a>Privata edge-zoner - Partners
+Typiska användnings fall är:
 
-![Privata Edge Zone-partner](./media/edge-zones-overview/partners.png "Privata Edge Zone-partner")
+- Real tids kommando och kontroll i Robotics.
+- Analys och inferencing i real tid med artificiell intelligens och maskin inlärning.
+- Maskin vision.
+- Fjärrrendering för Mixad verklighet och VDI-scenarier.
+- Övervakning och säkerhet.
 
-### <a name="virtualized-network-functions-vnfs"></a><a name="vnf"></a>Virtualiserade nätverksfunktioner (VNFs)
+Vi har ett omfattande eko system med VNF-leverantörer, ISV: er och MSP-partner för att möjliggöra kompletta lösningar som använder privata gräns zoner. [Kontakta den privata Edge Zone-teamet](https://aka.ms/EdgeZonesPartner) för mer information.
 
-#### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Virtualiserad utvecklad paketkärna (vEPC) för mobila nätverk
+### <a name="private-edge-zone-partners"></a><a name="private-edge-partners"></a>Privata Edge Zone-partner
+
+![Privata Edge Zone-partner](./media/edge-zones-overview/partners.png "Partners för privata gräns zoner")
+
+#### <a name="virtualized-network-functions-vnfs"></a><a name="vnf"></a>Virtualiserade nätverks funktioner (VNFs)
+
+##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Virtualiserad, utvEPCad paket kärna () för mobila nätverk
 
 - [Bekräftade nätverk](https://www.affirmednetworks.com/)
-- [Druid Programvara](https://www.druidsoftware.com/)
-- [Expeto (expeto)](https://www.expeto.io/)
-- [Mavenir (svenska)](https://mavenir.com/)
-- [Metaswitch (metaswitch)](https://www.metaswitch.com/)
-- [Nokia Digital Automation Moln](https://www.dac.nokia.com/)
+- [Druid-programvara](https://www.druidsoftware.com/)
+- [Expeto](https://www.expeto.io/)
+- [Mavenir](https://mavenir.com/)
+- [Metaswitch](https://www.metaswitch.com/)
+- [Nokia Digital Automation-moln](https://www.dac.nokia.com/)
 
-#### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Mobila radiopartners
+##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Mobila radio partners
 
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
-#### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>SD-WAN-leverantörer
+##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>SD – WAN-leverantörer
 
-- [NetFoundry (netto)](https://netfoundry.io/)
-- [NuageNetworks från Nokia](https://www.nuagenetworks.net/)
-- [VMware SD-WAN av Velocloud](https://www.velocloud.com/)
+- [Netfound](https://netfoundry.io/)
+- [Nuage-nätverk från Nokia](https://www.nuagenetworks.net/)
+- [VMware SD-WAN med Velocloud](https://www.velocloud.com/)
 
-#### <a name="router-vendors"></a><a name="router-vendors"></a>Leverantörer av router
+##### <a name="router-vendors"></a><a name="router-vendors"></a>Router-leverantörer
 
 - [Arista](https://www.arista.com/)
 
-[Kontakta Private Edge Zones-teamet](https://aka.ms/EdgeZonesPartner) för mer information om hur du blir partner.
+##### <a name="firewall-vendors"></a><a name="firewall-vendors"></a>Brand Väggs leverantörer
 
-#### <a name="firewall-vendors"></a><a name="firewall-vendors"></a>Leverantörer av brandväggar
+- [Palo Alto Networks](https://www.paloaltonetworks.com/)
 
-- Palo Alto Networks
+##### <a name="managed-solutions-providers-mobile-operators-and-global-system-integrators-gsis"></a><a name="msp-mobile"></a>Leverantörer av hanterade lösningar: mobil operatörer och globala system integrerare (GSIs)
 
-### <a name="managed-solutions-providers---mobile-operators-and-global-system-integrators"></a><a name="msp-mobile"></a>Leverantörer av managed solutions - mobiloperatörer och globala systemintegratörer
-
-| Globala betydande institut och operatörer | Mobiloperatörer |
+| GSIs och operatörer | Mobil operatörer |
 | --- | --- |
-| Amdocs (enheter)                       | Etisalat             |
-| Amerikanska tornet               | NTT Communications   |
-| Århundrade anknyter                 | Proximus             |
-| Expeto (expeto)                       | Rogers               |
-| Federerad trådlös           | SK Telekom           |
+| Amdocs                       | Etisalat             |
+| American Tower               | NTT Communications   |
+| CenturyLink                  | Proximus             |
+| Expeto                       | Rogers               |
+| Federerad trådlös           | SK telekom           |
 | Infosys                      | Telefonica           |
-| Tech Mahindra                | Telstra              |
-|        *                     | Vodafone             |
+| Teknisk Mahindra                | Telstra              |
+|                              | Vodafone             |
 
-[Kontakta Private Edge Zones-teamet](https://aka.ms/EdgeZonesPartner) för mer information om hur du blir partner.
+[Kontakta den privata Edge Zone-teamet](https://aka.ms/EdgeZonesPartner) för information om hur du blir partner.
 
-## <a name="private-edge-zones---solutions"></a><a name="solutions-private-edge"></a>Privata edge-zoner - Lösningar
+### <a name="private-edge-zone-solutions"></a><a name="solutions-private-edge"></a>Lösningar för privata Edge-zoner
 
-### <a name="private-mobile-network-on-private-edge-zones"></a><a name="private-mobile-private-edge"></a>Privat mobilnät i privata edge-zoner
+#### <a name="private-mobile-network-on-private-edge-zones"></a><a name="private-mobile-private-edge"></a>Privat mobilt nätverk i privata gräns zoner
 
-![Privat mobilnät i privata edge-zoner](./media/edge-zones-overview/mobile-networks.png "Privat mobilnät i privata edge-zoner")
+![Privat mobilt nätverk i privata gräns zoner](./media/edge-zones-overview/mobile-networks.png "Privat mobilt nätverk i privata gräns zoner")
 
-Du kan nu distribuera ett privat mobilnät i privata edge-zoner. Privata mobilnät möjliggör extremt låg latens, hög kapacitet och ett tillförlitligt och säkert trådlöst nätverk som krävs för affärskritiska program. Privata mobilnät kan möjliggöra scenarier som kommando och kontroll av automatiserade guidade fordon (AGV) i ett lager, realtidskommunikation mellan robotar i en smart fabrik och förstärkt realty och virtual reality-edge-applikationer.
+Nu kan du distribuera ett privat mobilt nätverk i privata gräns zoner. Privata mobila nätverk möjliggör extremt låg latens, hög kapacitet och det pålitliga och säkra trådlösa nätverk som krävs för affärs kritiska program. 
 
-Den virtualiserade utvecklade paketkärna (vEPC) nätverksfunktionen utgör hjärnan i ett privat mobilnät. Du kan nu distribuera en vEPC på Private Edge Zones. En lista över vEPC-partner som är tillgängliga i privata edge-zoner finns i [vEPC ISV: er](#vEPC).
+Privata mobila nätverk kan aktivera scenarier som: 
+- Kommando och kontroll över automatiserade guidade bilar (AGVs) i lager. 
+- Kommunikation i real tid mellan robots i smarta fabriker.
+- Utöknings bara verklighet och Virtual verklighet Edge-program.
 
-Distribuera en privat mobil nätverkslösning på Private Edge Zoner kräver andra komponenter såsom mobila åtkomstpunkter, SIM-kort och andra VPN-filer som routrar. Åtkomst till licensierat eller olicensierat spektrum är avgörande för att skapa ett privat mobilnät. Dessutom kan du behöva hjälp med RF-planering, fysisk layout, installation och support. En lista över partner finns i [Mobila radiopartners](#mobile-radio).
+Den virtualiserade vEPC-funktionen (virtualed Packet Core) är hjärna i ett privat mobilt nätverk. Nu kan du distribuera en vEPC i privata gräns zoner. En lista över vEPC-partner som är tillgängliga i privata gräns zoner finns i [vEPC-ISV](#vEPC): er.
 
-Microsoft tillhandahåller ett partnerekosystem som kan hjälpa till med alla aspekter av den här processen – från planering av nätverket, inköp av nödvändiga enheter, konfiguration av maskinvara till hantering av konfigurationen från Azure. Med en uppsättning validerade partner som är tätt integrerade med Microsoft kan du vara säker på att lösningen kommer att vara tillförlitlig och enkel att använda. Du kan fokusera på dina kärnscenarier, samtidigt som du förlitar dig på att Microsoft och dess partner hjälper till med resten.
+Distribution av en privat mobil nätverks lösning i privata gräns zoner kräver andra komponenter, t. ex. mobila åtkomst punkter, SIM-kort och andra VNFs som routrar. Åtkomst till licensierat eller olicensierat spektrum är viktigt för att skapa ett privat mobilt nätverk. Och du kan behöva hjälp med RF-planering, fysisk layout, installation och support. En lista över partner finns i [Mobile radio partners](#mobile-radio).
 
-### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-WAN på privata edge-zoner
+Microsoft tillhandahåller ett eko system för partner som kan hjälpa dig med alla aspekter av den här processen. Partner kan hjälpa till med att planera nätverket, köpa de nödvändiga enheterna, konfigurera maskin vara och hantera konfigurationen från Azure. En uppsättning verifierade partner som är nära integrerade med Microsoft garanterar att din lösning är tillförlitlig och lätt att använda. Du kan fokusera på dina kärn scenarier och lita på att Microsoft och dess partner kan hjälpa dig med resten.
 
-![SD-WAN på privata edge-zoner](./media/edge-zones-overview/sd-wan.png "SD-WAN på privata edge-zoner")
+#### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD – WAN i privata gräns zoner
+
+![SD – WAN i privata gräns zoner](./media/edge-zones-overview/sd-wan.png "SD – WAN i privata gräns zoner")
  
-Med SD-WAN som teknik kan du skapa WAN (Wide Area Networks) i företagsklass med ökad bandbredd, högpresterande åtkomst till molnet, tjänsteinfogning, tillförlitlighet, principhantering och omfattande nätverkssynlighet. SD-WAN tillhandahåller sömlös filialkontorsanslutning iscensatt från redundanta centrala styrenheter till lägre ägandekostnad.
-Med SD-WAN på Private Edge Zones kan du gå från capex-centrerad modell till en SaaS-modell (Software-as-a-service) för att minska IT-budgetarna. Du kan använda ditt val av SD-WAN-partners orchestrator eller controller för att aktivera nya tjänster och sprida dem i hela nätverket omedelbart.
+SD – WAN gör att du kan skapa WAN-nätverk (Wide Area Network) i företags klass som har följande fördelar:
+
+- Ökad bandbredd
+- Hög prestanda åtkomst till molnet
+- Tjänst infogning
+- Tillförlitlighet
+- Principhantering
+- Omfattande nätverks synlighet
+    
+SD-WAN ger sömlös anslutning till filial kontor som dirigeras från redundanta centrala styrenheter till lägre ägande kostnad.
+Med SD-WAN i privata gräns zoner kan du flytta från en CAPEX modell till en SaaS-modell (Software-as-a-Service) för att minska IT-budgetarna. Du kan använda ditt val av SD-WAN-partner, Orchestrator eller Controller för att aktivera nya tjänster och sprida dem i hela nätverket direkt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För mer information, kontakta följande team:
+Kontakta följande team om du vill ha mer information:
 
-* [Team för edgezoner](https://aka.ms/EdgeZones)
-* [Private Edge Zones team - att bli partner](https://aka.ms/EdgeZonesPartner)
+* [Edge Zone-team](https://aka.ms/EdgeZones)
+* [Privat Edge Zone-team för att bli en partner](https://aka.ms/EdgeZonesPartner)

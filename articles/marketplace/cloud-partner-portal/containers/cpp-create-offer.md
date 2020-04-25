@@ -1,42 +1,42 @@
 ---
-title: Skapa ett Azure Containers-erbjudande | Azure Marketplace
-description: Så här publicerar du ett nytt behållarerbjudande för Marketplace..
+title: Skapa ett erbjudande för Azure-behållare | Azure Marketplace
+description: Publicera ett nytt behållar erbjudande för Marketplace..
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 25d678ad7b8c2b786239b294de873bc1d98fa5cb
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a7266d0f32a8ac18a4a76dee7eb3c39be253f7bd
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270340"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148291"
 ---
-# <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Skapa ett nytt behållarerbjudande med Cloud Partner Portal
+# <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Skapa ett nytt container erbjudande med Cloud Partner Portal
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Container-erbjudande](https://aka.ms/CreateContainerOffer) för att hantera dina migrerade erbjudanden.
+> Från den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett Azure Container-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln beskrivs hur du skapar och publicerar en containererbjudandepost för Azure Marketplace. Varje erbjudande visas som sin egen enhet på Azure Marketplace och är associerat med en eller flera SKU:er.  Ett containererbjudande består av följande grupperingar av tillgångar och stödtjänster:
+Den här artikeln beskriver hur du skapar och publicerar ett erbjudande för behållare för Azure Marketplace. Varje erbjudande visas som sin egen enhet i Azure Marketplace och är associerad med en eller flera SKU: er.  Ett behållar erbjudande består av följande grupperingar av till gångar och stöd tjänster:
 
-|  **Tillgångsgrupp**   |  **Beskrivning**  |
+|  **Till gångs grupp**   |  **Beskrivning**  |
 |  ---------------   |  ---------------  |
-|    SKU: er            |  Den minsta deployable enheten i ett erbjudande. Ett enda erbjudande (produktklass) kan ha flera SKU:er kopplade till erbjudandet. Du kan använda SKU:er för att skilja mellan funktioner som stöds och faktureringsmodeller. |
-|  Marketplace       | Innehåller marknadsförings-, legal- och lead management-tillgångar och specifikationer.  <ul><li> Marknadsföringstillgångar inkluderar erbjudandenamn, beskrivning och logotyper</li> <li> Juridiska tillgångar inkluderar en sekretesspolicy, användarvillkor och annan juridisk dokumentation</li>  <li> Med leadhanteringsprincipen kan du ange hur leads ska hanteras från slutanvändarens portal på Azure Marketplace.</li> </ul> |
-| Support            | Innehåller supportkontakt- och policyinformation |
+|    SKU: er            |  Den minsta distributions bara enheten för ett erbjudande. Ett enda erbjudande (produkt klass) kan ha flera SKU: er kopplade till erbjudandet. Du kan använda SKU: er för att skilja mellan stödda funktioner och fakturerings modeller. |
+|  Marketplace       | Innehåller till gångar och specifikationer för marknadsföring, juridiska och ledande hantering.  <ul><li> Marknadsförings till gångar innehåller namn, beskrivning och logo typer för erbjudandet</li> <li> Juridiska till gångar innehåller en sekretess policy, användnings villkor och annan juridisk dokumentation</li>  <li> Med princip för hantering av lead kan du ange hur du vill hantera leads från slut användar portalen för Azure Marketplace.</li> </ul> |
+| Support            | Innehåller support kontakt och princip information |
 
 
-## <a name="new-offer-form"></a>Formulär för nytt erbjudande 
+## <a name="new-offer-form"></a>Nytt erbjudande formulär 
 
-Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/)och välj sedan + Nytt **erbjudande** i den vänstra menyraden. På menyn Nytt erbjudande väljer du **Behållare** för att visa formuläret **Nytt erbjudande** och starta processen med att definiera tillgångar för ett nytt behållarerbjudande.
+Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/)och välj sedan **+ nytt erbjudande** i den vänstra meny raden. På menyn ny erbjudande väljer du **behållare** för att visa det **nya erbjudande** formuläret och startar processen för att definiera till gångar för ett nytt behållar erbjudande.
 
-![Välj behållaralternativ för nytt erbjudande](./media/azure-container-offer.png)
+![Välj behållare alternativ för nytt erbjudande](./media/azure-container-offer.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-På sidan **Nytt erbjudande** för behållarerbjudandet finns en uppsättning flikar och formulärfält som du ska använda för att skapa ett nytt erbjudande. Var och en av följande artiklar förklarar hur du använder fliken för att definiera tillgångsgrupper och stödtjänster för ditt nya behållarerbjudande.
+Den **nya erbjudande** sidan för containerns erbjudande typ innehåller en uppsättning flikar och formulär fält som du använder för att skapa ett nytt erbjudande. I följande artiklar förklaras hur du använder fliken för att definiera till gångs grupper och stöd tjänster för det nya behållar erbjudandet.
 
 - [Fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
 - [Fliken SKU:er](./cpp-skus-tab.md)

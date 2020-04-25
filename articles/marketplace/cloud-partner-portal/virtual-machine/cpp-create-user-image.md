@@ -1,45 +1,45 @@
 ---
-title: Skapa en vm-avbildning för användare för Azure Marketplace
-description: Visar de steg och referenser som krävs för att skapa en avbildning av virtuella användare.
+title: Skapa en användar avbildning av en virtuell dator för Azure Marketplace
+description: Visar de steg och referenser som krävs för att skapa en användar avbildning av en virtuell dator.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 6bbee7f53cb9a61b72bdbbd941a3a0401f5b913b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9d82d50769925480d461c122096c3919d7e8940d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273961"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146573"
 ---
 # <a name="create-a-user-vm-image"></a>Skapa en användaravbildning av en virtuell dator
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi den rörliga hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i Skapa dina tekniska resurser för [din virtuella Azure-dator](https://aka.ms/AzureVMTechAsset) för att hantera dina migrerade erbjudanden.
+> Från och med 13 april 2020 börjar vi flytta hanteringen av din virtuella Azure-dator till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [skapa tekniska till gång till Azure-datorer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln beskrivs de två allmänna stegen som krävs för att skapa en ohanterad avbildning från en allmän virtuell hårddisk.  Referenser finns som guide dig genom varje steg: fånga bilden och generalisera bilden.
-
-
-## <a name="capture-the-vm-image"></a>Ta bilden av den virtuella datorn
-
-Använd instruktionerna i följande artikel om hur du hämtar den virtuella datorn som motsvarar din åtkomstmetod:
-
--  PowerShell: [Så här skapar du en ohanterd VM-avbildning från en virtuell Azure-dator](../../../virtual-machines/windows/capture-image-resource.md)
--  Azure CLI: [Så här skapar du en avbildning av en virtuell dator eller virtuell hårddisk](../../../virtual-machines/linux/capture-image.md)
--  API: [Virtuella datorer - Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
+Den här artikeln beskriver de två allmänna stegen som krävs för att skapa en ohanterad avbildning från en generaliserad virtuell hård disk.  Det finns referenser som vägleder dig genom varje steg: avbilda avbildningen och generalisera avbildningen.
 
 
-## <a name="generalize-the-vm-image"></a>Generalisera vm-avbildningen
+## <a name="capture-the-vm-image"></a>Avbilda avbildningen av den virtuella datorn
 
-Eftersom du har genererat användaravbildningen från en tidigare generaliserad virtuell hårddisk bör den också generaliseras.  Återigen väljer du följande artikel som motsvarar din åtkomstmekanism.  (Du kanske redan har generaliserat disken när du hämtade den.)
+Följ anvisningarna i följande artikel om hur du fångar den virtuella datorn som motsvarar din åtkomst metod:
 
--  PowerShell: [Generalisera den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Azure CLI: [Steg 2: Skapa vm-avbildning](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [Virtuella datorer - Generalisera](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
+-  PowerShell: [så här skapar du en ohanterad virtuell dator avbildning från en virtuell Azure-dator](../../../virtual-machines/windows/capture-image-resource.md)
+-  Azure CLI: [så här skapar du en avbildning av en virtuell dator eller virtuell hård disk](../../../virtual-machines/linux/capture-image.md)
+-  API: [Virtual Machines-Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
+
+
+## <a name="generalize-the-vm-image"></a>Generalisera VM-avbildningen
+
+Eftersom du har genererat användar avbildningen från en tidigare generaliserad virtuell hård disk bör den också generaliseras.  Välj följande artikel som motsvarar din åtkomst metod.  (Du kanske redan har generaliserat disken när du spelade in den.)
+
+-  PowerShell: [generalisera den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
+-  Azure CLI: [steg 2: skapa en VM-avbildning](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
+-  API: [Virtual Machines-generalize](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter skapar du [ett certifikat](cpp-create-key-vault-cert.md) och lagrar det i ett nytt Azure Key Vault.  Det här certifikatet krävs för att upprätta en säker WinRM-anslutning till den virtuella datorn.
+Härnäst ska du [skapa ett certifikat](cpp-create-key-vault-cert.md) och lagra det i en ny Azure Key Vault.  Detta certifikat krävs för att upprätta en säker WinRM-anslutning till den virtuella datorn.

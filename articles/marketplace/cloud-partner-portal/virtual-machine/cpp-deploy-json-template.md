@@ -1,25 +1,25 @@
 ---
-title: Distributionsmall för Azure VHD | Azure Marketplace
-description: Visar den Azure Resource Manager-mall som krävs för att distribuera en ny virtuell Azure-dator från en virtuell hårddisk för användare.
+title: Mall för Azure VHD-distribution | Azure Marketplace
+description: Listar den Azure Resource Manager mall som krävs för att distribuera en ny virtuell Azure-dator från en virtuell användar hård disk.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f3e3dc6e0d73627f49ba04a8b861253bafcddfa9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273927"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148055"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Distributionsmall för virtuell hårddisk
+# <a name="virtual-hard-disk-deployment-template"></a>Mall för distribution av virtuell hård disk
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
+> Med början den 13 april 2020 kommer vi att börja flytta hanteringen av dina virtuella Azure-datorer till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Azures avbildnings certifiering för virtuella datorer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) för att hantera dina migrerade erbjudanden.
 
-Följande Azure Resource Manager-mall definierar en ny Azure-instans (VIRTUELL) som skapats från vhd-instans (Local Virtual Virtual Hard Disk).  Den här mallen används i artikeln [Distribuera en Virtuell Azure-dator från en virtuell användar-HÅRDDISK](./cpp-deploy-vm-user-image.md). 
+Följande Azure Resource Manager mall definierar en ny virtuell Azure-dator-instans (VM) som skapats från lokal virtuell hård disk (VHD).  Den här mallen används i artikeln [distribuera en virtuell Azure-dator från en VHD-användare](./cpp-deploy-vm-user-image.md).
 
 ```json
 {

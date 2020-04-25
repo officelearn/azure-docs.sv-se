@@ -3,12 +3,12 @@ title: Översikt över Service Health | Microsoft Docs
 description: Anpassad information om hur dina Azure-appar påverkas av aktuella och framtida problem och underhåll av Azure-tjänsten.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097259"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146922"
 ---
 # <a name="service-health-overview"></a>Översikt över Service Health
 
@@ -41,6 +41,12 @@ I vyn **tjänst problem** visas eventuella pågående problem i Azure-tjänster 
 Välj fliken **potentiell påverkan** för att se den specifika listan med resurser som du äger som kan påverkas av problemet. Du kan ladda ned en CSV-lista över dessa resurser för att dela med ditt team.
 
 ![Hantera tjänst problem – påverkan](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>Se nya problem som kan påverka dina tjänster
+
+Det finns situationer när omfattande tjänst problem kan publiceras på [sidan Azure-status](https://status.azure.com) innan riktad kommunikation kan skickas till kunder som påverkas. För att säkerställa att Azure Service Health ger en omfattande vy över problem som kan påverka dig, finns det problem med Active Azures status sida i Service Health som *nya problem*. När en händelse är aktiv på sidan Azure-status finns en annons med nya problem i Service Health. Klicka på banderollen för att se all information om problemet.
+
+![Problem med nya tjänster](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Hämta länkar och nedladdnings bara förklaringar 
 

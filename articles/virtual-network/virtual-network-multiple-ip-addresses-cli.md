@@ -4,21 +4,22 @@ titlesuffix: Azure Virtual Network
 description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med hjälp av kommando rads gränssnittet för Azure (CLI).
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: kumud
-ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: cb101095aa95f9d41f7891bc3c18f7e5bfeb59db
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240228"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148099"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Tilldela flera IP-adresser till virtuella datorer med Azure CLI
 

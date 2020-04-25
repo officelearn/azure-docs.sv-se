@@ -1,25 +1,25 @@
 ---
-title: Distributionsmall för Azure Key Vault | Azure Marketplace
-description: Visar den Azure Resource Manager-mall som krävs för att distribuera en ny Azure Key Vault-instans.
+title: Mall för Azure Key Vault distribution | Azure Marketplace
+description: Visar den Azure Resource Manager mall som krävs för att distribuera en ny Azure Key Vault-instans.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 0d08caf5444216666e7296b830f0af6af606dd4f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a6e7260bb761db5cfa6884baf29317a004ab1452
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273842"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147027"
 ---
 # <a name="key-vault-deployment-template"></a>Distributionsmall för nyckelvalv
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
+> Med början den 13 april 2020 kommer vi att börja flytta hanteringen av dina virtuella Azure-datorer till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Azures avbildnings certifiering för virtuella datorer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) för att hantera dina migrerade erbjudanden.
 
-Följande Azure Resource Manager-mall definierar en ny Azure Key Vault-instans.  Den används i artikeln [Skapa nyckelvalvcertifikat](cpp-create-key-vault-cert.md). 
+Följande Azure Resource Manager mall definierar en ny Azure Key Vault instans.  Den används i artikeln [skapa Key Vault-certifikat](cpp-create-key-vault-cert.md).
 
 ```json
 {

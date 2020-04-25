@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress Contr
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 3a71666a5391194e63566d61cb2d054eed4e271c
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 27b80b1f0b6728b5ad69edae51f0d42bfac351d0
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100948"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145504"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll enhet med en statisk offentlig IP-adress i Azure Kubernetes service (AKS)
 
@@ -62,7 +62,7 @@ Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Serve
 > I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat `--set rbac.create=false` lägger du till dem i Helm-kommandona.
 
 > [!TIP]
-> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. När du använder en ingångs kontroll för att aktivera IP-konservering för klient källa fungerar inte SSL-vidarekoppling.
+> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
 
 Uppdatera följande skript med IP- **adressen** för din ingångs kontroll och ett **unikt namn** som du vill använda för prefixet FQDN:
 
@@ -287,7 +287,7 @@ certificate.cert-manager.io/tls-secret created
 
 Öppna en webbläsare till FQDN för din Kubernetes-ingångs kontroll, till exempel *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
 
-Som de här exemplen använder `letsencrypt-staging`är det utfärdade SSL-certifikatet inte betrott av webbläsaren. Godkänn varningen om du vill fortsätta till ditt program. Certifikat informationen visar att det *mellanliggande x1* -certifikatet för falska användare utfärdas av vi krypterar. Detta falska certifikat indikerar `cert-manager` att begäran bearbetades korrekt och tagits emot från providern:
+Som de här exemplen använder `letsencrypt-staging`är det utfärdade TLS/SSL-certifikatet inte betrott av webbläsaren. Godkänn varningen om du vill fortsätta till ditt program. Certifikat informationen visar att det *mellanliggande x1* -certifikatet för falska användare utfärdas av vi krypterar. Detta falska certifikat indikerar `cert-manager` att begäran bearbetades korrekt och tagits emot från providern:
 
 ![Låt oss kryptera mellanlagrings certifikat](media/ingress/staging-certificate.png)
 

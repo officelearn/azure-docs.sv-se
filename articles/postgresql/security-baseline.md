@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a38bb12577fd646b2e7abf773dbb2a3f138f58fe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: HT
+ms.openlocfilehash: eb6fc65d15ba7262b38a48e220f01d74bfcee54a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127555"
+ms.locfileid: "82146557"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Azures säkerhets bas linje för Azure Database for PostgreSQL enskild server
 
@@ -130,7 +130,7 @@ Förstå användningen av service tag i Azure Database for PostgreSQL:https://do
 
 - DDoS Protection standard ska vara aktive rad
 
-- Tvinga SSL-anslutning ska vara aktive rad för PostgreSQL-databas servrar
+- Framtvinga TLS-anslutning ska vara aktiverat för PostgreSQL-databas servrar
 
 Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -525,7 +525,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
 
-**Vägledning**: Azure Database for PostgreSQL stöder anslutning av postgresql-servern till klient program med hjälp av Secure SOCKETS Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet. Se till att "tvinga SSL-anslutning" är aktiverat för alla Azure Database for PostgreSQL-instanser som standard i Azure Portal.
+**Vägledning**: Azure Database for PostgreSQL stöder anslutning av postgresql-servern till klient program med hjälp av Transport Layer Security (TLS), tidigare kallat Secure SOCKETS Layer (SSL). Att framtvinga TLS-anslutningar mellan din databas server och dina klient program hjälper till att skydda mot "man i de mittersta" angrepp genom att kryptera data strömmen mellan servern och ditt program. Se till att "tvinga SSL-anslutning" är aktiverat för alla Azure Database for PostgreSQL-instanser som standard i Azure Portal.
 
 TLS-versionen som stöds för Azure Database for PostgreSQL är TLS 1,0, TLS 1,1, TLS 1,2.
 
@@ -794,7 +794,7 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 **Vägledning**: definiera och implementera standardkonfigurationer för dina Azure Database for PostgreSQL-instanser med Azure policy. Använd Azure Policy alias i namn området "Microsoft. DBforPostgreSQL" om du vill skapa anpassade principer för granskning eller framtvinga nätverks konfigurationen för dina Azure Database for PostgreSQL-instanser. Du kan också använda inbyggda princip definitioner som är relaterade till dina Azure Database for PostgreSQL-instanser, till exempel:
 
-- Tvinga SSL-anslutning ska vara aktive rad för PostgreSQL-databas servrar
+- Framtvinga TLS-anslutning ska vara aktiverat för PostgreSQL-databas servrar
 
 - Logg anslutningar ska vara aktiverade för PostgreSQL-databas servrar
 

@@ -1,57 +1,57 @@
 ---
-title: Distribuera en virtuell Azure-dator från en virtuell dator för användare | Azure Marketplace
-description: Förklarar hur du distribuerar en virtuell användare-avbildning för att skapa en Azure VM-instans.
+title: Distribuera en virtuell Azure-dator från en användar-VHD | Azure Marketplace
+description: Förklarar hur du distribuerar en användar-VHD-avbildning för att skapa en virtuell Azure-instans.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 79754b4ce7c3dfe2a5c549f4a39ef3160be423d8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: e3bad2dc63f6a75f52c537aabfa6e85d1846ef15
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273897"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147922"
 ---
-# <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuera en virtuell Azure-dator från en virtuell dator för användare
+# <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuera en virtuell Azure-dator från en användar-VHD
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
+> Med början den 13 april 2020 kommer vi att börja flytta hanteringen av dina virtuella Azure-datorer till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Azures avbildnings certifiering för virtuella datorer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln beskrivs hur du distribuerar en generaliserad VHD-avbildning för att skapa en ny Azure VM-resurs med hjälp av den medföljande Azure Resource Manager-mallen och Azure PowerShell-skriptet.
+Den här artikeln beskriver hur du distribuerar en generaliserad VHD-avbildning för att skapa en ny Azure VM-resurs med hjälp av den angivna Azure Resource Manager-mallen och Azure PowerShell skriptet.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="vhd-deployment-template"></a>Mall för VHD-distribution
 
-Kopiera Azure Resource Manager-mallen för [VHD-distribution](cpp-deploy-json-template.md) till en lokal fil med namnet `VHDtoImage.json`.  Redigera den här filen om du vill ange värden för följande parametrar. 
+Kopiera Azure Resource Manager-mallen för [VHD-distribution](cpp-deploy-json-template.md) till en lokal fil `VHDtoImage.json`med namnet.  Redigera den här filen för att ange värden för följande parametrar. 
 
-|  **Parametern**             |   **Beskrivning**                                                              |
+|  **ProfileServiceApplicationProxy**             |   **Beskrivning**                                                              |
 |  -------------             |   ---------------                                                              |
-| ResourceGroupName          | Befintligt Azure-resursgruppnamn.  Använd vanligtvis samma RG som är associerat med nyckelvalvet  |
-| TemplateFile               | Fullständigt sökvägsnamn till filen`VHDtoImage.json`                                    |
-| användareStoraRedovisningsnamn     | Namn på lagringskontot                                                    |
+| ResourceGroupName          | Befintligt namn på Azure-resurs gruppen.  Använder vanligt vis samma RG som är kopplad till ditt nyckel valv  |
+| TemplateFile               | Fullständig sökväg till filen`VHDtoImage.json`                                    |
+| userStorageAccountName     | Namn på lagrings kontot                                                    |
 | sNameForPublicIP           | DNS-namn för den offentliga IP-adressen. Måste vara gemener                                  |
-| subscriptionId             | Azure-prenumerationsidentifierare                                                  |
-| Location                   | Standard Azure geografisk plats för resursgruppen                       |
-| vmName                     | Namnet på den virtuella datorn                                                    |
-| vaultName (valvNamn)                  | Namnet på nyckelvalvet                                                          |
-| valvResourceGroup         | Resursgruppen för nyckelvalvet
-| certifikatUrl             | Url för certifikatet, inklusive version som lagras i nyckelvalvet, till exempel:`https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
-| vhdUrl (på)                     | URL för den virtuella hårddisken                                                   |
-| vmSize                     | Storlek på instansen för den virtuella datorn                                           |
-| publicIPAddressName        | Namnet på den offentliga IP-adressen                                                  |
+| subscriptionId             | Prenumerations-ID för Azure                                                  |
+| Location                   | Standard Azure-geografisk plats för resurs gruppen                       |
+| vmName                     | Namn på den virtuella datorn                                                    |
+| vaultName                  | Nyckel valvets namn                                                          |
+| vaultResourceGroup         | Nyckel valvets resurs grupp
+| certificateUrl             | URL för certifikatet, inklusive version som lagras i nyckel valvet, till exempel:`https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| vhdUrl                     | URL för den virtuella hård disken                                                   |
+| vmSize                     | Storlek på den virtuella dator instansen                                           |
+| publicIPAddressName        | Namn på den offentliga IP-adressen                                                  |
 | virtualNetworkName         | Namn på det virtuella nätverket                                                    |
-| nicName (nicName)                    | Namn på nätverkskortet för det virtuella nätverket                     |
-| adminUserName              | Användarnamn för administratörskontot                                          |
-| adminPassword              | Administratörslösenord                                                          |
+| nicName                    | Nätverks gränssnitts kortets namn för det virtuella nätverket                     |
+| adminUserName              | Användar namn för administratörs kontot                                          |
+| adminPassword              | Administratörs lösen ord                                                          |
 |  |  |
 
 
-## <a name="powershell-script"></a>Powershell-skript
+## <a name="powershell-script"></a>PowerShell-skript
 
-Kopiera och redigera följande skript för `$storageaccount` `$vhdUrl` att ange värden för variablerna och variablerna.  Kör den för att skapa en Azure VM-resurs från din befintliga generaliserade VIRTUELLA HÅRDDISK.
+Kopiera och redigera följande skript för att ange värden för `$storageaccount` variablerna `$vhdUrl` och.  Kör den för att skapa en Azure VM-resurs från din befintliga generaliserade virtuella hård disk.
 
 ```powershell
 # storage account of existing generalized VHD 
@@ -69,4 +69,4 @@ New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgNa
 
 ## <a name="next-steps"></a>Nästa steg
 
-När den virtuella datorn har distribuerats är du redo att [certifiera avbildningen för den virtuella datorn](./cpp-certify-vm.md).
+När den virtuella datorn har distribuerats är du redo att [certifiera din VM-avbildning](./cpp-certify-vm.md).

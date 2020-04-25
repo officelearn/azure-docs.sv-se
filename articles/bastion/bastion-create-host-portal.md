@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 14a596d78fb1f560c62013e7e439ed60d3a29b8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1fa4b6a33b055f2042c9bf941a33ae03ead6ebde
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366151"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148341"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Skapa en Azure skydds-värd med portalen
 
@@ -47,9 +47,9 @@ Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs från Azure 
     * **Namn**: namnet på den nya skydds-resursen
     * **Region**: den offentliga Azure-region som resursen ska skapas i.
     * **Virtuellt nätverk**: det virtuella nätverk där skydds-resursen ska skapas i. Du kan skapa ett nytt virtuellt nätverk i portalen under den här processen eller använda ett befintligt virtuellt nätverk. Om du använder ett befintligt virtuellt nätverk kontrollerar du att det befintliga virtuella nätverket har tillräckligt med ledigt adress utrymme för att uppfylla skydds-undernätets krav.
-    * **Undernät**: under nätet i det virtuella nätverket som den nya skydds-värd resursen ska distribueras till. Du måste skapa ett undernät med namnet Value **AzureBastionSubnet**. Med det här värdet kan Azure veta vilket undernät som skydds-resurserna ska distribueras till. Detta skiljer sig från ett Gateway-undernät. Du måste använda ett undernät på minst/27 eller större (/27,/26 osv.).
+    * **Undernät**: under nätet i det virtuella nätverket där den nya skydds-värden ska distribueras. Under nätet är dedicerat till skydds-värden och måste namnges som **AzureBastionSubnet**. Det här under nätet måste vara minst/27 eller större.
     
-       Skapa **AzureBastionSubnet** utan några routningstabeller eller delegeringar. Om du använder nätverks säkerhets grupper på **AzureBastionSubnet**, se artikeln [arbeta med NSG: er](bastion-nsg.md) .
+       **AzureBastionSubnet** har inte stöd för [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md#custom-routes), men stöder [nätverks säkerhets grupper](bastion-nsg.md).
     * **Offentlig IP-adress**: den offentliga IP-adressen för den skydds-resurs som RDP/SSH kommer att få åtkomst till (via port 443). Skapa en ny offentlig IP-adress eller Använd en befintlig. Den offentliga IP-adressen måste finnas i samma region som den skydds-resurs som du skapar.
     * **Namn på offentlig IP-adress**: namnet på den offentliga IP-adressresursen.
     * **SKU för offentlig IP-adress**: den här inställningen fylls i automatiskt **som standard.** Azure skydds använder/stöder bara standard-offentliga IP SKU.

@@ -4,12 +4,12 @@ description: Lär dig mer om nätverk i Azure Kubernetes service (AKS), inklusiv
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253941"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146062"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -131,7 +131,7 @@ I AKS kan du skapa en ingress-resurs med hjälp av något som NGINX, eller anvä
 
 En annan vanlig funktion i ingress är SSL/TLS-avslutning. I stora webb program som nås via HTTPS kan TLS-terminering hanteras av den ingående resursen i stället för i själva programmet. För att tillhandahålla automatisk generering och konfiguration av TLS-certifiering kan du konfigurera ingångs resursen så att leverantörer kan använda providers, till exempel för att kryptera. Mer information om hur du konfigurerar en NGINX ingress-styrenhet med att kryptera finns i [ingress och TLS][aks-ingress-tls].
 
-Du kan också konfigurera ingångs styrenheten för att bevara klientens käll-IP på begär anden till behållare i ditt AKS-kluster. När en klients begäran dirigeras till en behållare i ditt AKS-kluster via din ingångs kontroll, kommer den ursprungliga käll-IP: en för den begäran inte att vara tillgänglig för mål behållaren. När du aktiverar *IP-konservering för klient källa*är käll-IP: en för klienten tillgänglig i begär ande huvudet under *X-forwarded-for*. Om du använder IP-konservering för klient källa på din ingångs kontroll kan du inte använda SSL-vidarekoppling. Klientens IP-konservering och SSL-vidarekoppling kan användas med andra tjänster, till exempel *Loadbalancer* -typen.
+Du kan också konfigurera ingångs styrenheten för att bevara klientens käll-IP på begär anden till behållare i ditt AKS-kluster. När en klients begäran dirigeras till en behållare i ditt AKS-kluster via din ingångs kontroll, kommer den ursprungliga käll-IP: en för den begäran inte att vara tillgänglig för mål behållaren. När du aktiverar *IP-konservering för klient källa*är käll-IP: en för klienten tillgänglig i begär ande huvudet under *X-forwarded-for*. Om du använder IP-konservering för klient källa på din ingångs kontroll kan du inte använda TLS-vidarekoppling. Klient Källans IP-konservering och TLS-vidarekoppling kan användas med andra tjänster, till exempel *Loadbalancer* -typen.
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 

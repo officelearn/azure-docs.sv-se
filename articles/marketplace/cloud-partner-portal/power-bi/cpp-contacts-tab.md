@@ -1,45 +1,45 @@
 ---
-title: Kontaktinformation för ett Power BI-apperbjudande | Azure Marketplace
-description: Konfigurera kontaktfält för ett Power BI-apperbjudande för Microsoft AppSource Marketplace.
+title: Kontakt information för ett erbjudande för Power BI app | Azure Marketplace
+description: Konfigurera kontaktfält för ett Power BI app-erbjudande för Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b7365babd9a6cdba28da59a9113edf32d2974fb0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f3c6f3b07f878bac6e67be90947fb7109b840a3c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984835"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146754"
 ---
-# <a name="power-bi-app-contacts-tab"></a>Fliken Kontakter i Power BI-appar
+# <a name="power-bi-app-contacts-tab"></a>Fliken kontakter i Power BI app
 
 >[!Important]
->Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
+>Från och med 13 april 2020 börjar vi flytta hanteringen av dina Power BI app-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ anvisningarna i [Power BI översikt över skapande av appar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) för att hantera dina migrerade erbjudanden.
 
-Använd fliken **Kontakter** på sidan **Nytt erbjudande** för att tillhandahålla tekniska resurser och användarsupport för ditt erbjudande. Den är uppdelad i två avsnitt: **Teknik** och **kundsupport**.
+Använd fliken **kontakter** på sidan **ny erbjudande** för att ge teknisk support och support resurser för ditt erbjudande. Den är uppdelad i två delar: **teknik** och **kund support**.
 
 ![Fliken Kontakter](media/contacts-tab.png)
 
 
-## <a name="contacts-fields"></a>Fält för kontakter 
+## <a name="contacts-fields"></a>Kontaktfält 
 
-I följande tabell beskrivs syftet med varje fält.  Obligatoriska fält åtalas av en asterisk (*). 
+I följande tabell beskrivs syftet med varje fält.  Obligatoriska fält förutsägs av en asterisk (*). 
 
 |   Field               |   Beskrivning                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Teknisk kontakt* | Fungerar som en teknisk kontakt mellan AppSource och din organisation.    |
-| **Namn\***              | Namnet på den person eller grupp som fungerar som teknisk support eller teknisk support. |
-| **Email\***             | E-postadressen till denna tekniska kontakt.                                  |
-| **Telefon\***             | Telefonnumret till teknisk support.                                       |
-| *Support kontakt*     | Tar emot supportärenden som öppnats av kunder inom AppSource.            |
-| **Namn\***              | Namnet på den person eller grupp som fungerar som kundsupport.              |
-| **Email\***             | Kundsupportens e-postadress.                                        |
+| **Name\***              | Namnet på den person eller grupp som fungerar som teknisk eller teknisk support. |
+| **E-post\***             | E-postadressen till den här tekniska kontakten.                                  |
+| **Nummer\***             | Telefonnumret till teknisk support.                                       |
+| *Support kontakt*     | Tar emot support biljetter som öppnats av kunder inom AppSource.            |
+| **Name\***              | Namnet på den person eller grupp som fungerar som kund support.              |
+| **E-post\***             | E-postadressen till kund support.                                        |
 |   |   |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört ditt Power BI App-erbjudande bekräftar du att du har skapat alla associerade [tekniska resurser](./cpp-create-technical-assets.md) för erbjudandet.
+När du har slutfört ditt Power BI app-erbjudande bekräftar du att du har skapat alla tillhör ande [tekniska till gångar](./cpp-create-technical-assets.md) för erbjudandet.

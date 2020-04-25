@@ -1,51 +1,51 @@
 ---
-title: Supportinställningar för en Avbildning av Azure Containers | Azure Marketplace
-description: Konfigurera supportinställningar för en Azure-behållare.
+title: Support inställningar för en Azure containers-avbildning | Azure Marketplace
+description: Konfigurera support inställningar för en Azure-behållare.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 58845401fc14950b9c446d1481b8ac6f8ecc5523
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 8369c99c5bc44a7281c9e2072c20c723974ec83a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81269932"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146384"
 ---
-# <a name="container-support-tab"></a>Fliken Behållares support
+# <a name="container-support-tab"></a>Fliken container support
 
 > [!IMPORTANT]
-> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Container-erbjudande](https://aka.ms/CreateContainerOffer) för att hantera dina migrerade erbjudanden.
+> Från den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett Azure Container-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) för att hantera dina migrerade erbjudanden.
 
-Använd fliken **Support** på sidan **Nytt erbjudande för** att tillhandahålla tekniska resurser och användarsupport för ditt erbjudande.  Följande inmatningsområden finns i supportformuläret: **Teknisk kontakt,** **kundsupport**och **supportadresser**. En asterisk (*) som läggs till i fältnamnet anger att det krävs.
+Använd fliken **support** på sidan **ny erbjudande** för att tillhandahålla teknisk support och support resurser för ditt erbjudande.  Följande indata finns i support formuläret: **tekniker kontakt**, **kund support**och support-URL: **er**. En asterisk (*) som läggs till i fält namnet visar att det är obligatoriskt.
 
 
-## <a name="support-form-fields"></a>Formulärfält för stöd
+## <a name="support-form-fields"></a>Formulär fält för support
 
-Ange nödvändig information för fälten Teknisk kontakt och kundsupport.
+Ange den information som krävs för fälten teknisk kontakt och kund support.
 
 
 ### <a name="engineering-contact"></a>Teknisk kontakt
 
-Teknikkontakten är den tekniska kontakten mellan din organisation och Microsoft. Obligatoriska fält åtalas av en asterisk (*).
+Teknisk kontakt är den tekniska kontakten mellan din organisation och Microsoft. Obligatoriska fält förutsägs av en asterisk (*).
 
-- **Namn\* ** - Namn på den person eller grupp som fungerar som teknisk/teknisk support.
-- **E-post\* ** - E-postadress till denna tekniska kontakt.
-- **Telefon\* ** - Telefonnummer för teknisk support.
+- **Namn\* ** – namnet på den person eller grupp som fungerar som teknisk/teknisk support.
+- **E\* ** -postadress till den här tekniska kontakten.
+- **Telefon\* ** -telefonnummer för teknisk support.
 
 
-### <a name="customer-support"></a>Kundsupport
+### <a name="customer-support"></a>Kund support
 
-Kundsupportkontakten tar emot supportärenden som öppnats av kunder i Azure.  Obligatoriska fält åtalas av en asterisk (*).
+Kund support kontakten får support biljetter som kunder i Azure har öppnat.  Obligatoriska fält förutsägs av en asterisk (*).
 
-- **Namn\* ** - Namn på den person eller grupp som fungerar som kundsupport.
-- **E-post\* ** - E-postadress för denna supportkontakt.
-- **Telefon\* ** - Telefonnummer för kundsupport.
+- **Namn\* ** – namnet på den person eller grupp som fungerar som kund support.
+- **E\* ** -postadress till den här support kontakten.
+- **Telefonnummer\* ** till kund support.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har gett supportinformation är du redo att [publicera erbjudandet.](./cpp-publish-offer.md) 
+När du har slutfört support informationen är du redo att [publicera ditt erbjudande](./cpp-publish-offer.md). 
 

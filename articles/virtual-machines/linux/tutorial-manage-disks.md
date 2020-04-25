@@ -15,16 +15,16 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 1949b66ee48036163e92cb37c275e9117d6a74b4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: be2a52f1a9071e9d4bb77ab4439291fd58cd828b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460026"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129374"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Självstudiekurs – hantera Azure-diskar med Azure CLI
 
-Virtuella Azure-datorer (VM) använder diskar för att lagra de virtuella datorernas operativsystem, program och data. När du skapar en virtuell dator är det viktigt att välja en diskstorlek och konfiguration som är lämplig för den förväntade arbetsbelastningen. Den här kursen visar hur du distribuerar och hanterar diskar för virtuella datorer. Du får lära dig om:
+Virtuella Azure-datorer (VM) använder diskar för att lagra de virtuella datorernas operativsystem, program och data. När du skapar en virtuell dator är det viktigt att välja en disk storlek och konfiguration som är lämplig för den förväntade arbets belastningen. Den här kursen visar hur du distribuerar och hanterar diskar för virtuella datorer. Du får lära dig om:
 
 > [!div class="checklist"]
 > * OS-diskar och temporära diskar
@@ -32,7 +32,6 @@ Virtuella Azure-datorer (VM) använder diskar för att lagra de virtuella datore
 > * Standard- och Premium-diskar
 > * Diskprestanda
 > * Ansluta och förbereda datadiskar
-> * Ändrar storlek på diskar
 > * Ögonblicksbilder
 
 
@@ -67,9 +66,9 @@ I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås ge
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Azure Cloud Shell är ett kostnadsfritt interaktivt skal som du kan använda för att köra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
+Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt som du kan använda för att köra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
-Om du vill öppna Cloud Shell väljer du **Prova det** i det övre högra hörnet av ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/bash)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/bash)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-and-attach-disks"></a>Skapa och koppla diskar
 
@@ -177,13 +176,13 @@ Disken har konfigurerats, stäng SSH-sessionen.
 exit
 ```
 
-## <a name="take-a-disk-snapshot"></a>Ta en ögonblicksbild av en disk
+## <a name="take-a-disk-snapshot"></a>Ta en ögonblicks bild av disken
 
 När du tar en ögonblicksbild skapar Azure en skrivskyddad kopia av disken vid en viss tidpunkt. Ögonblicksbilder av virtuella Azure-datorer är användbara för att snabbt spara tillståndet hos en virtuell dator innan ändringar i konfigurationen. Om det uppstår ett problem eller fel kan den virtuella datorn återställas med en ögonblicksbild. När en virtuell dator har mer än en disk tas en ögonblicksbild av varje disk oberoende av de andra. Om programkonsekventa säkerhetskopior krävs bör den virtuella datorn stoppas innan ögonblicksbilder tas. Ett annat alternativ är att använda [Azure Backup-tjänsten](/azure/backup/) som ger möjlighet till automatiserade säkerhetskopior medan den virtuella datorn körs.
 
 ### <a name="create-snapshot"></a>Skapa en ögonblicksbild
 
-Du behöver diskens ID eller namn för att skapa en ögonblicksbild av en virtuell dator. Använd kommandot [az vm show](/cli/azure/vm#az-vm-show) för att returnera disk-ID. I det här exemplet sparas diskens ID i en variabel så det kan användas i ett senare steg.
+Du behöver diskens ID eller namn för att skapa en ögonblicksbild av en virtuell dator. Använd kommandot [AZ VM show](/cli/azure/vm#az-vm-show) för att returnera disk-ID: t. I det här exemplet sparas diskens ID i en variabel så det kan användas i ett senare steg.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -265,7 +264,6 @@ I den här kursen har du lärt dig mer om VM-diskar, till exempel:
 > * Standard- och Premium-diskar
 > * Diskprestanda
 > * Ansluta och förbereda datadiskar
-> * Ändrar storlek på diskar
 > * Ögonblicksbilder
 
 Gå vidare till nästa självstudie om du vill lära dig hur du automatiserar konfigurationen av virtuella datorer.

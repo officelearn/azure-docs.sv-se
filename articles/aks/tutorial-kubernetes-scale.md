@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 5c1cbebd671568d200321615ad34f52cb636c6c8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: f830d42ef09a60b1f9ced43250b24a68003d1e87
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878093"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129002"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
 
@@ -74,14 +74,14 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Om AKS-klustret är mindre än *1,10*installeras inte Metrics Server automatiskt. Klona GitHub-lagringsplatsen för `metrics-server` och installera exempelresursdefinitionerna. Information om att visa innehållet i dessa YAML-definitioner finns på sidan om [Metrics Server för Kuberenetes 1.8+][metrics-server-github].
+> Om ditt AKS-kluster är mindre än *1,10*installeras inte mått servern automatiskt. Mått Server installations manifest är tillgängliga som `components.yaml` till gång på mått Server versioner, vilket innebär att du kan installera dem via en URL. Mer information om dessa YAML-definitioner finns i avsnittet [distribution][metrics-server-github] i Readme.
 > 
+> Exempel på installation:
 > ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
+> kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
-Om du vill använda den automatiska skalningsenheten måste alla behållare i poddar och poddar ha CPU-begäranden och begränsningar definierade. I `azure-vote-front`-distributionen begär klientdelscontainern redan 0,25 CPU med maxgränsen 0,5 CPU. Dessa resursbegäranden och begränsningar definieras enligt följande exempelavsnitt:
+Om du vill använda autoskalning måste alla behållare i din poddar och din poddar ha tilldelade CPU-förfrågningar och-gränser. I `azure-vote-front`-distributionen begär klientdelscontainern redan 0,25 CPU med maxgränsen 0,5 CPU. Dessa resursbegäranden och begränsningar definieras enligt följande exempelavsnitt:
 
 ```yaml
 resources:
@@ -91,13 +91,13 @@ resources:
      cpu: 500m
 ```
 
-I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] för att automatiskt skala antalet poddar i *azure-vote-front*-distributionen. Om genomsnittlig CPU-användning för alla poddar överstiger 50% av deras begärda användning, ökar den automatiskaskaleringen poddar upp till högst *10* instanser. Minst *3* instanser definieras sedan för distributionen:
+I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] för att automatiskt skala antalet poddar i *azure-vote-front*-distributionen. Om Genomsnittlig CPU-belastning över alla poddar överskrider 50% av den begärda användningen, ökar autoskalning poddar upp till högst *10* instanser. Minst *3* instanser definieras sedan för distributionen:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Du kan också skapa en manifestfil för att definiera beteendet för automatisk skalning och resursgränser. Följande är ett exempel på `azure-vote-hpa.yaml`en manifestfil med namnet .
+Du kan också skapa en manifest fil för att definiera beteendet för autoskalning och resurs gränser. Följande är ett exempel på en manifest fil med namnet `azure-vote-hpa.yaml`.
 
 ```yaml
 apiVersion: autoscaling/v1
@@ -128,7 +128,7 @@ spec:
   targetCPUUtilizationPercentage: 50 # target CPU utilization
 ```
 
-Används `kubectl apply` för att tillämpa den `azure-vote-hpa.yaml` automatiska skalningsapparat som definierats i manifestfilen.
+Använd `kubectl apply` för att tillämpa autoskalning som definierats `azure-vote-hpa.yaml` i manifest filen.
 
 ```
 kubectl apply -f azure-vote-hpa.yaml
@@ -147,7 +147,7 @@ Efter några minuter, med minimal belastning på Azure Vote-appen, minskar antal
 
 ## <a name="manually-scale-aks-nodes"></a>Skala AKS-noder manuellt
 
-Om du har skapat kubernetes-klustret med hjälp av kommandona i föregående självstudie har det två noder. Du kan justera antalet noder manuellt om du planerar att ha fler eller färre containerarbetsbelastningar i klustret.
+Om du har skapat ditt Kubernetes-kluster med hjälp av kommandona i den föregående själv studie kursen har det två noder. Du kan justera antalet noder manuellt om du planerar att ha fler eller färre containerarbetsbelastningar i klustret.
 
 I följande exempel ökas antalet agentnoder till tre i Kubernetes-klustret med namn *myAKSCluster*. Det tar några minuter att slutföra kommandot.
 
@@ -192,7 +192,7 @@ Gå vidare till nästa självstudie och lär dig hur du uppdaterar program i Kub
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
+[metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
 [metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 
 <!-- LINKS - internal -->

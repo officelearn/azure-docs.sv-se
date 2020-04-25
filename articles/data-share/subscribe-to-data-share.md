@@ -1,50 +1,50 @@
 ---
-title: 'Självstudiekurs: Acceptera & ta emot data - Azure Data Share'
-description: Självstudiekurs - Acceptera och ta emot data med Azure Data Share
+title: 'Självstudie: Godkänn & ta emot data – Azure Data Share'
+description: Självstudie – acceptera och ta emot data med Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77083104"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145142"
 ---
-# <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Självstudiekurs: Acceptera och ta emot data med Azure Data Share  
+# <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Självstudie: Godkänn och ta emot data med Azure Data Share  
 
-I den här självstudien får du lära dig hur du accepterar en inbjudan datadelning med Azure Data Share. Du får lära dig hur du tar emot data som delas med dig, samt hur du aktiverar ett regelbundet uppdateringsintervall för att säkerställa att du alltid har den senaste ögonblicksbilden av de data som delas med dig. 
+I den här självstudien får du lära dig hur du godkänner en data delnings-inbjudan med Azure Data Share. Du får lära dig hur du tar emot data som delas med dig, samt hur du aktiverar ett vanligt uppdaterings intervall för att säkerställa att du alltid har den senaste ögonblicks bilden av de data som delas med dig. 
 
 > [!div class="checklist"]
-> * Så här accepterar du en Azure Data Share-inbjudan
+> * Så här godkänner du en Azure Data Share-inbjudan
 > * Skapa ett Azure Data Share-konto
 > * Ange ett mål för dina data
-> * Skapa en prenumeration på din dataresurs för schemalagd uppdatering
+> * Skapa en prenumeration på din data resurs för schemalagd uppdatering
 
 ## <a name="prerequisites"></a>Krav
-Innan du kan acceptera en inbjudan om datadelning måste du etablera ett antal Azure-resurser som visas nedan. 
+Innan du kan acceptera en inbjudan till en data resurs måste du etablera ett antal Azure-resurser som visas nedan. 
 
-Se till att alla förutsättningar är fullständiga innan du accepterar en inbjudan om datadelning. 
+Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data delning. 
 
-* Azure-prenumeration: Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* En inbjudan till datadelning: En inbjudan från Microsoft Azure med **<yourdataprovider@domain.com>** ämnet "Azure Data Share invitation from ".
-* Registrera [microsoft.DataShare-resursleverantören](concepts-roles-permissions.md#resource-provider-registration) i Azure-prenumerationen där du skapar en datadelningsresurs och Azure-prenumerationen där dina mål Azure-datalager finns.
+* Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Inbjudan till en data resurs: en inbjudan från Microsoft Azure med ett ämne med rubriken "Azure Data Share- **<yourdataprovider@domain.com>** inbjudan från".
+* Registrera [resurs leverantören Microsoft. DataShare](concepts-roles-permissions.md#resource-provider-registration) i Azure-prenumerationen där du ska skapa en data resurs resurs och Azure-prenumerationen där dina Azure-datalager finns.
 
-### <a name="receive-data-into-a-storage-account"></a>Ta emot data till ett lagringskonto: 
+### <a name="receive-data-into-a-storage-account"></a>Ta emot data till ett lagrings konto: 
 
-* Ett Azure Storage-konto: Om du inte redan har ett kan du skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Behörighet att skriva till lagringskontot, som finns i *Microsoft.Storage/storageAccounts/write*. Den här behörigheten finns i rollen Deltagare. 
-* Behörighet att lägga till rolltilldelning i lagringskontot, som finns i *Microsoft.Authorization/rolltilldelningar/skriva*. Den här behörigheten finns i rollen Ägare.  
+* Ett Azure Storage konto: om du inte redan har ett kan du skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagar rollen. 
+* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägar rollen.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Ta emot data till en SQL-baserad källa:
+### <a name="receive-data-into-a-sql-based-source"></a>Ta emot data i en SQL-baserad Källa:
 
-* Behörighet att skriva till databaser på SQL-servern, som finns i *Microsoft.Sql/servers/databases/write*. Den här behörigheten finns i rollen Deltagare. 
-* Behörighet för datadelningsresursens hanterade identitet för att komma åt Azure SQL Database eller Azure SQL Data Warehouse. Detta kan göras genom följande steg: 
-    1. Ange dig själv som Azure Active Directory Admin för SQL-servern.
-    1. Anslut till Azure SQL Database/Data Warehouse med Azure Active Directory.
-    1. Använd Frågeredigeraren (förhandsversionen) för att köra följande skript för att lägga till datadelningshanterad identitet som en "db_datareader, db_datawriter, db_ddladmin". Du måste ansluta med Active Directory och inte SQL Server-autentisering. 
+* Behörighet att skriva till databaser på SQL-servern, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen. 
+* Behörighet för data resurs resursens hanterade identitet för att komma åt Azure SQL Database eller Azure SQL Data Warehouse. Detta kan göras genom följande steg: 
+    1. Ange själv som Azure Active Directory administratör för SQL Server.
+    1. Anslut till Azure SQL Database/informations lagret med hjälp av Azure Active Directory.
+    1. Använd Frågeredigeraren (för hands version) för att köra följande skript för att lägga till den hanterade identiteten för data resursen som db_datareader, db_datawriter db_ddladmin. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -52,86 +52,88 @@ Se till att alla förutsättningar är fullständiga innan du accepterar en inbj
         exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
         exec sp_addrolemember db_ddladmin, "<share_acc_name>";
         ```      
-        Observera att *<share_acc_name>* är namnet på din datadelningsresurs. Om du ännu inte har skapat en dataresurs kan du återkomma till den här förutsättningen senare.         
+        Observera att *<share_acc_name>* är namnet på din data resurs resurs. Om du inte har skapat någon data resurs resurs ännu kan du gå tillbaka till det här kravet senare.         
 
-* Åtkomst till SQL Server-brandväggen för klienten. Detta kan göras genom följande steg: 
-    1. I SQL-servern i Azure-portalen navigerar du till *brandväggar och virtuella nätverk*
-    1. Klicka **på** växlingsknappen för att tillåta åtkomst till Azure Services.
-    1. Klicka på **+Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du tar emot data till ett SQL-mål från Azure-portalen. Du kan också lägga till ett IP-intervall. 
+* Åtkomst till klient-IP SQL Server-brandvägg. Detta kan göras genom följande steg: 
+    1. I SQL Server i Azure Portal navigerar du till *brand väggar och virtuella nätverk*
+    1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster.
+    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du tar emot data i ett SQL-mål från Azure Portal. Du kan också lägga till ett IP-intervall. 
 
 
-### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Ta emot data i ett Azure Data Explorer-kluster: 
+### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Ta emot data till ett Azure Datautforskaren-kluster: 
 
-* Ett Azure Data Explorer-kluster i samma Azure-datacenter som dataproviderns Data Explorer-kluster: Om du inte redan har ett kan du skapa ett [Azure Data Explorer-kluster](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal). Om du inte känner till Azure-datacentret i dataleverantörens kluster kan du skapa klustret senare i processen.
-* Behörighet att skriva till Azure Data Explorer-klustret, som finns i *Microsoft.Kusto/clusters/write*. Den här behörigheten finns i rollen Deltagare. 
-* Behörighet att lägga till rolltilldelning i Azure Data Explorer-klustret, som finns i *Microsoft.Authorization/role assignments/write*. Den här behörigheten finns i rollen Ägare. 
+* Ett Azure Datautforskaren-kluster i samma Azure-datacenter som data leverantörens Datautforskaren kluster: om du inte redan har ett kan du skapa ett [Azure datautforskaren-kluster](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal). Om du inte känner till Azure-datacenter i data leverantörens kluster kan du skapa klustret senare i processen.
+* Behörighet att skriva till Azure Datautforskaren-klustret, som finns i *Microsoft. Kusto/kluster/Write*. Den här behörigheten finns i deltagar rollen. 
+* Behörighet att lägga till roll tilldelning till Azure Datautforskaren-klustret, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägar rollen. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="open-invitation"></a>Öppen inbjudan
+## <a name="open-invitation"></a>Öppna inbjudan
 
-1. Kontrollera inkorgen för en inbjudan från din dataleverantör. Inbjudan kommer från Microsoft Azure med namnet **Azure Data Share invitation from <yourdataprovider@domain.com> **. Notera resursnamnet för att se till att du accepterar rätt resurs om det finns flera inbjudningar. 
+1. Du kan öppna inbjudan från e-post eller direkt från Azure Portal. 
 
-1. Välj på **Visa inbjudan** för att se din inbjudan i Azure. Detta tar dig till vyn Mottagna resurser.
+   Om du vill öppna inbjudan från e-post, kontrollerar du Inkorgen för en inbjudan från din data leverantör. Inbjudan är från Microsoft Azure, med titeln **Azure Data Share-inbjudan från <yourdataprovider@domain.com> **. Klicka på **Visa inbjudan** för att se din inbjudan i Azure. 
+
+   Du öppnar inbjudan från Azure Portal direkt genom att söka efter **inbjudningar för data delning** i Azure Portal. Då går du till listan med data resurs inbjudningar.
 
    ![Inbjudningar](./media/invitations.png "Lista över inbjudningar") 
 
 1. Välj den resurs som du vill visa. 
 
 ## <a name="accept-invitation"></a>Acceptera inbjudan
-1. Kontrollera att alla fält granskas, inklusive **användarvillkoren**. Om du godkänner användarvillkoren måste du markera rutan för att visa att du godkänner det. 
+1. Se till att alla fält har granskats, inklusive **användnings villkoren**. Om du samtycker till användnings villkoren måste du markera kryss rutan för att ange att du godkänner. 
 
    ![Villkor för användning](./media/terms-of-use.png "Användningsvillkor") 
 
-1. Under *Måldatadelningskonto*väljer du den prenumerations- och resursgrupp som du ska distribuera din dataresurs till. 
+1. Under *konto för mål data resurs*väljer du den prenumeration och resurs grupp som du ska distribuera data resursen till. 
 
-   För fältet **Datadelningskonto** väljer du **Skapa nytt** om du inte har ett befintligt datadelningskonto. Annars väljer du ett befintligt datadelningskonto som du vill acceptera din dataresurs till. 
+   För fältet **data resurs konto** väljer du **Skapa nytt** om du inte har ett befintligt data resurs konto. Annars väljer du ett befintligt data resurs konto som du vill acceptera data resursen till. 
 
-   För fältet **Mottaget aktienamn** kan du lämna standardvärdet som anges av data tillhandahållande, eller ange ett nytt namn för den mottagna resursen. 
+   I fältet **mottaget resurs namn** kan du lämna standardvärdet som anges av data ange eller ange ett nytt namn för den mottagna resursen. 
 
-   ![Måldatadelningskonto](./media/target-data-share.png "Måldatadelningskonto") 
+   ![Mål data resurs konto](./media/target-data-share.png "Mål data resurs konto") 
 
-1. När du har godkänt användarvillkoren och angett en plats för din resurs väljer du *på Acceptera och konfigurerar*. En aktieprenumeration skapas.
+1. När du har samtyckt till användnings villkoren och angett en plats för din resurs väljer du *Godkänn och konfigurera*. En resurs prenumeration kommer att skapas.
 
-   För ögonblicksbildbaserad delning kommer nästa skärm att be dig att välja ett mållagringskonto för dina data som ska kopieras till. 
+   För ögonblicks bilds-baserad delning uppmanas du på nästa skärm välja ett mål lagrings konto för dina data som ska kopieras till. 
 
-   ![Acceptera alternativ](./media/accept-options.png "Acceptera alternativ") 
+   ![Godkänn alternativ](./media/accept-options.png "Godkänn alternativ") 
 
-   Om du föredrar att acceptera inbjudan nu men konfigurerar ditt måldatalager vid ett senare tillfälle väljer du *Acceptera och konfigurerar senare*. Information om hur du fortsätter konfigurera lagringen senare finns i konfigurera sidan [datauppsättningsmappningar](how-to-configure-mapping.md) för detaljerade steg om hur du återupptar konfigurationen av datadelning. 
+   Om du vill acceptera inbjudan nu men konfigurera mål data lagret vid ett senare tillfälle väljer du *Godkänn och konfigurera senare*. Om du vill fortsätta att konfigurera lagringen senare går du till sidan [Konfigurera data uppsättnings mappningar](how-to-configure-mapping.md) för detaljerade anvisningar om hur du återupptar konfigurationen av data resurser. 
 
-   För delning på plats finns på sidan [Konfigurera datauppsättningsmappningar](how-to-configure-mapping.md) för detaljerade steg om hur du återupptar konfigurationen av datadelning. 
+   Mer information om hur du återupptar konfigurationen av data resurser finns på sidan [Konfigurera mappningar](how-to-configure-mapping.md) för data uppsättningar. 
 
-   Om du inte vill acceptera inbjudan väljer du *Avvisa*. 
+   Om du inte vill acceptera inbjudan väljer du *avvisa*. 
 
 ## <a name="configure-storage"></a>Konfigurera lagring
-1. Under *Inställningar för mållagring*väljer du det prenumerations-, resurs- och lagringskonto som du vill ta emot data till. 
+1. Under *mål lagrings inställningar*väljer du den prenumeration, resurs grupp och det lagrings konto som du vill att data ska skickas till. 
 
-   ![Inställningar för mållagring](./media/target-storage-settings.png "Mållagring") 
+   ![Mål lagrings inställningar](./media/target-storage-settings.png "Mål lagring") 
 
-1. Om du vill ta emot regelbundna uppdateringar av dina data måste du aktivera inställningarna för ögonblicksbilder. Observera att du bara ser ett schema för en ögonblicksbildinställning om dataleverantören har inkluderat det i dataresursen. 
+1. Se till att aktivera inställningarna för ögonblicks bilder för att få en regelbunden uppdatering av dina data. Observera att du bara ser ett schema för ögonblicks bilds inställningar om data leverantören har inkluderat den i data resursen. 
 
-   ![Inställningar för ögonblicksbilder](./media/snapshot-settings.png "Inställningar för ögonblicksbilder") 
+   ![Inställningar för ögonblicks bild](./media/snapshot-settings.png "Inställningar för ögonblicks bild") 
 
 1. Välj *Spara*. 
 
 > [!IMPORTANT]
-> Om du tar emot SQL-baserade data och vill ta emot dessa data i en SQL-baserad källa, kan du gå till [konfigurera en datauppsättningsmappning](how-to-configure-mapping.md) för att lära dig hur du konfigurerar en SQL Server som mål för datauppsättningen. 
+> Om du tar emot SQL-baserade data och vill ta emot dessa data till en SQL-baserad källa, kan du gå till [Konfigurera en uppsättning för data uppsättnings mappning](how-to-configure-mapping.md) för att lära dig hur du konfigurerar en SQL Server som mål för din data uppsättning. 
 
-## <a name="trigger-a-snapshot"></a>Utlösa en ögonblicksbild
-De här stegen gäller endast ögonblicksbildbaserad delning.
+## <a name="trigger-a-snapshot"></a>Utlös en ögonblicks bild
+De här stegen gäller endast för Snapshot-baserad delning.
 
-1. Du kan utlösa en ögonblicksbild på fliken Mottagna resurser -> information genom att välja **Utlösa ögonblicksbild**. Här kan du utlösa en fullständig eller inkrementell ögonblicksbild av dina data. Om det är första gången du tar emot data från din dataleverantör väljer du fullständig kopia. 
+1. Du kan utlösa en ögonblicks bild på fliken mottagna resurser – > information genom att välja **Utlös ögonblicks bild**. Här kan du utlösa en fullständig eller stegvis ögonblicks bild av dina data. Om det är första gången du tar emot data från din dataprovider väljer du fullständig kopia. 
 
-   ![Ögonblicksbild av utlösare](./media/trigger-snapshot.png "Ögonblicksbild av utlösare") 
+   ![Utlös ögonblicks bild](./media/trigger-snapshot.png "Utlös ögonblicks bild") 
 
-1. När den senaste *körningsstatusen lyckades*går du till måldatalagret för att visa mottagna data. Välj **Datauppsättningar**och klicka på länken i målsökvägen. 
+1. När den senaste körnings statusen har *slutförts*går du till mål data lagret för att Visa mottagna data. Välj **data uppsättningar**och klicka på länken i mål Sök vägen. 
 
-   ![Konsumentdatamängder](./media/consumer-datasets.png "Mappning av konsumentdatauppsättning") 
+   ![Konsument data uppsättningar](./media/consumer-datasets.png "Mappning av konsument data uppsättning") 
 
 ## <a name="view-history"></a>Visa historik
-Om du vill visa en historik över dina ögonblicksbilder navigerar du till Mottagna resurser -> historik. Här hittar du en historik över alla ögonblicksbilder som har genererats under de senaste 60 dagarna. 
+Om du vill visa en historik över dina ögonblicks bilder navigerar du till mottagna resurser-> historik. Här hittar du en historik över alla ögonblicks bilder som har genererats under de senaste 60 dagarna. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lärde du dig att acceptera och ta emot en Azure Data Share. Om du vill veta mer om Azure Data Share-begrepp fortsätter du till [Begrepp: Azure Data Share Terminologi](terminology.md).
+I den här självstudien har du lärt dig hur du godkänner och tar emot en Azure-Dataresurs. Om du vill veta mer om Azure Data Share-koncept fortsätter du till [koncept: Azure Data Share-terminologi](terminology.md).

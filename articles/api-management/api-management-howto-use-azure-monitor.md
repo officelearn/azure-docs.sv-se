@@ -2,33 +2,30 @@
 title: Övervaka publicerade API:er i Azure API Management | Microsoft Docs
 description: Följ stegen i den här kursen lär dig hur du övervakar din API i Azure API Management.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238372"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128847"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
 Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått eller loggar från resurser i Azure.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
-> * Visa diagnostikloggar
+> * Visa resurs loggar
 > * Visa mått för din API 
 > * Konfigurera en varningsregel när din API hämtar obehöriga anrop
 
@@ -39,7 +36,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 ## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
-+ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
++ Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -48,7 +45,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 
 API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i realtid i API:ernas tillstånd och hälsa. Nedan följer en sammanfattning av några tillgängliga mått:
 
-* Kapacitet: hjälper dig att fatta beslut om att uppgradera/nedgradera apim-tjänsterna. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
+* Kapacitet: hjälper dig att fatta beslut om att uppgradera/nedgradera dina APIM-tjänster. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
 * Totalt antal gatewaybegäranden: antalet API-begäranden under perioden. 
 * Slutförda gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder inklusive 304, 307 och under 301 (till exempel 200).
 * Misslyckade gatewaybegäranden: antalet API-begäranden som tog emot felaktiga HTTP-svarskoder inklusive 400 och över 500.
@@ -63,9 +60,9 @@ Så här får du åtkomst till mått:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begäranden**. 
+1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begär Anden**. 
 1. Diagrammet visar det totala antalet API-anrop.
-1. Diagrammet kan filtreras med måttet **Begärandens** dimensioner. Klicka till exempel på **Lägg till filter**, välj **Serverdsvarskod**, ange 500 som värde. Nu visar diagrammet antalet begäranden som misslyckades i API-serverdelen.   
+1. Diagrammet kan filtreras med dimensionerna för **begär** ande mått. Klicka till exempel på **Lägg till filter**, Välj **Server del svars kod**, ange 500 som värde. Nu visar diagrammet antalet begär Anden som misslyckats i API-backend-servern.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurera en aviseringsregel för obehörig begäran
 
@@ -77,28 +74,28 @@ Du kan konfigurera för att ta emot varningar baserat på mått och aktivitetslo
 
 Så här konfigurerar du varningar:
 
-1. Välj **Aviseringar** i menyraden längst ned på sidan.
+1. Välj **aviseringar** från meny raden nästan längst ned på sidan.
 
     ![aviseringar](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Klicka på en **ny aviseringsregel** för den här aviseringen.
+2. Klicka på en **ny aviserings regel** för den här aviseringen.
 3. Klicka på **Lägg till villkor**.
-4. Välj **Mått** i listrutan Signaltyp.
-5. Välj **Obehörig gateway-begäran** som signal att övervaka.
+4. Välj **mått** i list rutan signal typ.
+5. Välj **obehörig Gateway-begäran** som den signal som ska övervakas.
 
     ![aviseringar](./media/api-management-azure-monitor/signal-type.png)
 
-6. I vyn **Konfigurera signallogik** anger du ett tröskelvärde efter vilket aviseringen ska utlösas och klickar på **Klar**.
+6. I vyn **Konfigurera signal logik** anger du ett tröskelvärde efter vilken aviseringen ska utlösas och klickar på **Slutför**.
 
     ![aviseringar](./media/api-management-azure-monitor/threshold.png)
 
-7. Välj en befintlig åtgärdsgrupp eller skapa en ny. I exemplet nedan skickas ett e-postmeddelande till administratörerna. 
+7. Välj en befintlig åtgärds grupp eller skapa en ny. I exemplet nedan skickas ett e-postmeddelande till administratörerna. 
 
     ![aviseringar](./media/api-management-azure-monitor/action-details.png)
 
-8. Ange ett namn, beskrivning av varningsregeln och välj allvarlighetsgrad. 
-9. Tryck på **Skapa varningsregel**.
-10. Försök nu att anropa konferens-API:et utan en API-nyckel. Aviseringen utlöses och e-post skickas till administratörerna. 
+8. Ange ett namn, en beskrivning av varnings regeln och välj allvarlighets grad. 
+9. Tryck på **skapa aviserings regel**.
+10. Försök nu att anropa konferens-API utan API-nyckel. Aviseringen aktive ras och e-postmeddelandet skickas till administratörerna. 
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
@@ -120,20 +117,20 @@ Så här visar du aktivitetsloggar:
 
 3. Välj önskat filtreringsomfång och klicka på **Använd**.
 
-## <a name="diagnostic-logs"></a>Diagnostikloggar
+## <a name="resource-logs"></a>Resurs loggar
 
-Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit.
+Resurs loggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning samt fel söknings syfte. Resurs loggar skiljer sig från aktivitets loggar. Aktivitets loggarna ger insikter om de åtgärder som utfördes på dina Azure-resurser. Resurs loggar ger insikt om åtgärder som din resurs utfört.
 
-Så här konfigurerar du diagnostikloggar:
+Så här konfigurerar du resurs loggar:
 
 1. Välj din APIM-tjänstinstans.
 2. Klicka på **Diagnostikinställningar**.
 
-    ![diagnostikloggar](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![resurs loggar](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Klicka på **Slå på diagnostik**. Du kan arkivera diagnostikloggar tillsammans med mått i ett lagringskonto, strömma dem till en händelsehubb eller skicka dem till Azure Monitor-loggar. 
+3. Klicka på **Slå på diagnostik**. Du kan arkivera resurs loggar tillsammans med mått till ett lagrings konto, strömma dem till en Händelsehubben eller skicka dem till Azure Monitor loggar. 
 
-API Management tillhandahåller för närvarande diagnostikloggar (i batchar varje timme) om enskilda API-begäran där varje inmatning har följande schema:
+API Management tillhandahåller för närvarande resurs loggar (grupperade per timme) om individuell API-begäran med varje post med följande schema:
 
 ```json
 {  
@@ -183,15 +180,15 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 | Egenskap  | Typ | Beskrivning |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
-| time | date-time | Tidsstämpel för när gatewayen startar bearbeta begäran |
+| time | date-time | Tidsstämpeln för när gatewayen startar bearbetningen av begäran |
 | operationName | sträng | Konstantvärde ”Microsoft.ApiManagement/GatewayLogs” |
 | category | sträng | Konstantvärde ”GatewayLogs” |
-| durationMs | heltal | Antal millisekunder från det ögonblick gateway tog emot begäran tills det ögonblick svaret skickas i sin helhet. Den innehåller clienTime, cacheTime och backendTime. |
+| durationMs | heltal | Antalet millisekunder från den tidpunkt då gatewayen tog emot begäran tills det svar som har skickats fullständigt. Den innehåller clienTime, cacheTime och backendTime. |
 | callerIpAddress | sträng | IP-adress för anropare av omedelbar gateway (kan vara en mellanhand) |
 | correlationId | sträng | Unik http-begäranidentifierare tilldelad av API Management |
 | location | sträng | Namn på Azure-regionen där gatewayen som behandlade begäran hittades |
 | httpStatusCodeCategory | sträng | Kategori för http-svarsstatuskod: Lyckades (301 eller lägre eller 304 eller 307), Ej auktoriserad (401, 403, 429), Felaktig (400, mellan 500 och 600), Annat |
-| resourceId | sträng | ID för API Management-resursen\</SUBSCRIPTIONS/ prenumerationen>/RESOURCEGROUPS/\<resursgrupp>/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/namn\<> |
+| resourceId | sträng | ID för API Management Resource/SUBSCRIPTIONS/\<-prenumerationen>\</resourcegroups/Resource-Group>/providers/Microsoft. API Management/tjänst/\<namn> |
 | properties | objekt | Egenskaper för aktuell begäran |
 | metod | sträng | HTTP-metod för inkommande begäran |
 | url | sträng | URL för inkommande begäran |
@@ -214,7 +211,7 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 | apimSubscriptionId | sträng | Prenumerationsentitetsidentifierare för aktuell begäran | 
 | backendId | sträng | Serverdelentitetsidentifierare för aktuell begäran | 
 | LastError | objekt | Bearbetningsfel för senaste begäran | 
-| elapsed | heltal | Antal millisekunder som förflutit mellan när gatewayen tog emot begäran och det ögonblick då felet inträffade | 
+| elapsed | heltal | Antalet millisekunder som förflutit mellan när gatewayen tog emot begäran och tidpunkten då felet inträffade | 
 | källa | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
 | omfång | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
 | avsnitt | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
@@ -227,7 +224,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
-> * Visa diagnostikloggar
+> * Visa resurs loggar
 > * Visa mått för din API
 > * Konfigurera en varningsregel när din API hämtar obehöriga anrop
 

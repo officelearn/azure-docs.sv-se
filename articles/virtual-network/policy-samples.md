@@ -1,6 +1,6 @@
 ---
 title: Exempel på principmall | Microsoft Docs
-description: Exempel på Azure-principmall för virtuella nätverk.
+description: Azure Policy Template-exempel för Virtual Network.
 services: virtual-network
 documentationcenter: ''
 author: KumudD
@@ -16,25 +16,25 @@ ms.workload: ''
 ms.date: 05/02/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: db10520508eb0b216a59cc643394ab27fd5ffa69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d8b3852f31965099d8a46d2e095be0522c7e763
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77169881"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144567"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Azure princip exempel inbyggda för virtuella nätverk
+# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Azure Policy exempel på inbyggda program för virtuellt nätverk
 
 Följande tabell innehåller länkar till exempel för [Azure Policy](../governance/policy/overview.md). Exemplen finns i [lagringsplatsen för Azure Policy-exempel](https://github.com/Azure/azure-policy).
 
 ## <a name="network"></a>Nätverk
 
-[!INCLUDE [azure-policy-samples-policies-network](../../includes/azure-policy-samples-policies-network.md)]
+[!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
 ## <a name="tags"></a>Taggar
 
-[!INCLUDE [azure-policy-samples-policies-tags](../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [azure-policy-samples-policies-tags](../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## <a name="general"></a>Allmänt
 
-[!INCLUDE [azure-policy-samples-policies-general](../../includes/azure-policy-samples-policies-general.md)]
+[!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]

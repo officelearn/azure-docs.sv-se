@@ -1,180 +1,265 @@
 ---
-title: Fråga Azure Cognitive Search från Power Apps
+title: 'Självstudie: fråga från Power Apps'
 titleSuffix: Azure Cognitive Search
-description: Steg-för-steg-vägledning om hur du skapar anpassad koppling till Kognitiv sökning och hur du visualiserar den från en Power App
+description: Steg för steg-anvisningar om hur du skapar en Power app som ansluter till ett Azure Kognitiv sökning-index, skickar frågor och återger resultat.
 author: luiscabrer
 manager: eladz
 ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: c246f8652227a5ad2c0798880e530d6039cdeea8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.topic: tutorial
+ms.date: 04/25/2020
+ms.openlocfilehash: eafd0ced64567ec7b51ff0f8aac19668343867ea
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385120"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129784"
 ---
-# <a name="how-to-query-a-cognitive-search-index-from-power-apps"></a>Så här frågar du ett kognitivt sökindex från Power Apps
+# <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Självstudie: fråga ett Kognitiv sökning-index från Power Apps
 
-Det här dokumentet visar hur du skapar en anpassad Power Apps-anslutningsapp så att du kan hämta sökresultat från ett sökindex. Den visar också hur du utfärdar en sökfråga och visualiserar resultaten från en Power App. 
+Använd den snabba program utvecklings miljön i Power Apps för att skapa en anpassad app för det sökbara innehållet i Azure Kognitiv sökning.
+
+I den här guiden får du lära dig att:
+
+> [!div class="checklist"]
+> * Ansluta till Azure Kognitiv sökning
+> * Konfigurera en förfrågan
+> * Visualisera resultat i en app för arbets ytor
+
+Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
-*    Power Apps-kontoåtkomst med möjlighet att skapa anpassade kopplingar.
-*    Vi antar att du redan har skapat ett Azure Search Index.
 
-## <a name="create-a-custom-connector-to-query-azure-search"></a>Skapa en anpassad anslutningsapp för att fråga Azure Search
+* [Power Apps-konto](http://make.powerapps.com)
 
-Det finns två huvudsteg för att ha en PowerApp som visar Azure Cognitive Search results. Låt oss först skapa en koppling som kan fråga sökindexet. I [nästa avsnitt](#visualize-results-from-the-custom-connector) uppdaterar vi ditt Power Apps-program för att visualisera de resultat som returneras av kopplingen.
+* [Hotell-exempel index](search-get-started-portal.md)
 
-1. Gå till [make.powerapps.com](http://make.powerapps.com) och **logga in**.
+* [API-nyckel för fråga](search-security-api-keys.md#find-existing-keys)
 
-1. Sök efter**anpassade datakopplingar** **Data** > 
+## <a name="1---create-a-custom-connector"></a>1 – Skapa en anpassad anslutning
+
+En anslutning i Power Apps är en anslutning till data källan. I det här steget ska du skapa en anpassad anslutning för att ansluta till ett Sök index i molnet.
+
+1. [Logga in](http://make.powerapps.com) på Power Apps.
+
+1. Till vänster expanderar du **data** > **anpassade anslutningar**.
  
-    :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Anpassad anslutningsmeny" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menyn anpassad anslutning" border="true":::
 
-1. Klicka på **+ Ny anpassad koppling** och välj sedan Skapa från **tom**.
+1. Välj **+ ny anpassad anslutning**och välj sedan **skapa från Tom**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Skapa från tom meny" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Skapa från en tom meny" border="true":::
 
-1. Ge din anpassade koppling ett namn. (det vill än *AzureSearchQuery*) och klicka sedan på **Fortsätt**. Detta kommer att visa en guide för att skapa din nya koppling.
+1. Ge ditt anpassade anslutnings program ett namn (till exempel *AzureSearchQuery*) och klicka sedan på **Fortsätt**.
 
-1. Ange information på den allmänna sidan.
+1. Ange information på sidan Allmänt:
 
-    - Ikonbakgrundsfärg (till exempel #007ee5)
-    - Beskrivning (till exempel "En anslutning till Azure Cognitive Search")
-    - I värden måste du ange webbadressen till söktjänsten `<yourservicename>.search.windows.net`(till exempel)
-    - För grundläggande URL, skriv bara "/"
-    
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Allmän informationsdialog" border="true":::
+   * Ikon bakgrunds färg (till exempel #007ee5)
+   * Beskrivning (till exempel "en anslutning till Azure Kognitiv sökning")
+   * På värden måste du ange din Sök tjänst-URL (t. ex. `<yourservicename>.search.windows.net`)
+   * För bas-URL anger du bara "/"
 
-1. Ange *API-nyckel* som **autentiseringstyp**på säkerhetssidan, ange parameteretikett och parameternamnfält som *api-key*. För **Parameterplats**väljer du *Rubrik* som visas nedan.
- 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Alternativet Autentiseringstyp" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Dialog rutan allmän information" border="true":::
 
-1. På sidan Definitioner väljer du **+ Ny åtgärd** för att skapa en åtgärd som frågar efter indexet. Ange värdet "Fråga" för sammanfattningen och namnet på operations-ID. Ange en beskrivning som *"Frågar sökindexet"*.
- 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Nya åtgärdsalternativ" border="true":::
+1. På sidan säkerhet anger du *API-nyckel* som **Autentiseringstyp**, anger både parameter etiketten och parameter namnet till *API-nyckeln*. För **parameter plats**väljer du *sidhuvud* som visas nedan.
 
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Typ av autentiseringstyp" border="true":::
 
-1. Tryck på knappen **Importera från exempel** för att definiera parametrar och rubriker. Därefter definierar du frågebegäran.  
+1. På sidan definitioner väljer du **+ ny åtgärd** för att skapa en åtgärd som kommer att fråga indexet. Ange värdet "fråga" för sammanfattningen och namnet på åtgärds-ID: t. Ange en beskrivning som *"frågar Sök indexet"*.
 
-    * Markera verbet`GET`
-    * För URL:en anger du en exempelfråga för ditt sökindex, till exempel:
-       
-    >https://yoursearchservicename.search.windows.net/indexes/yourindexname/docs?search=*&api-version=2019-05-06-Preview
-    
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Nya åtgärds alternativ" border="true":::
 
-    **Syntaxen** används i power apps för att extrahera parametrar från frågan. Observera att vi uttryckligen definierade sökfältet. 
+1. Rulla nedåt. I förfrågningar väljer du **+ Importera från exempel** för att konfigurera en förfrågan till din Sök tjänst:
 
-    :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importera från exempel" border="false":::
+   * Välj verbet`GET`
 
-1.  Klicka på **Importera** om du vill fylla i dialogrutan Begär automatiskt.
+   * För URL: en anger du en exempel fråga för Sök indexet (`search=*` returnerar alla `$select=` dokument, låter dig välja fält). API-versionen måste anges. Fullständigt angivet kan en URL se ut så här:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
 
-    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importera från exempeldialog" border="false":::
+   * För sidhuvuden skriver `Content-Type`du. 
 
+     **Power Apps** använder syntaxen för att extrahera parametrar från frågan. Observera att Sök fältet uttryckligen definierats. 
 
-1. Slutför inställningen parametermetadata genom att klicka på **...** bredvid var och en av parametrarna.
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importera från exempel" border="true":::
 
-    - För *sökning* `*` : Ange som **standardvärde**anger du **obligatoriskt** som *falskt* och anger **synligheten** till *ingen*. 
+1. Klicka på **Importera** för att fylla begäran automatiskt. Slutför inställningen för parameter-metadata genom att klicka på **...** symbol bredvid var och en av parametrarna. Klicka på **tillbaka** för att återgå till sidan för begäran efter varje parameter uppdatering.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Metadata för sökparameter" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importera från exempel dialog" border="true":::
 
-    - För *api-version* `2019-05-06-Preview` : Ange som **standardvärde**anger du **synligheten** som intern och ställer in **obligatoriskt** för *True*.  
+1. För *sökning*: ange `*` som **Standardvärde**, ange **obligatoriskt** som *falskt* och ange **synlighet** till *ingen*. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadata för versionsparameter" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Metadata för Sök parameter" border="true":::
 
-    - På samma sätt, för *api-nyckel*, ange det **som krävs**, med *intern* **synlighet**. Ange API-nyckeln för söktjänsten som **standardvärde**.
-    
-    När du har gjort dessa ändringar växlar du till **vyn Swagger Editor.** I avsnittet parametrar bör du se följande konfiguration:    
+1. För *Välj*: ange `HotelName,Description,Address/City` som **standardvärdet**, ange **obligatoriskt** till *falskt*, och Ställ in **visibility** på *none*.  
 
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Metadata för versions parameter" border="true":::
+
+1. För *API-version*: ange `2019-05-06` som **Standardvärde**, ange **obligatorisk** till *Sant*och ange **synlighet** som *intern*.  
+
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadata för versions parameter" border="true":::
+
+1. För *innehålls typ*: inställt `application/json`på.
+
+1. När du har gjort ändringarna växlar du till vyn **Swagger-redigerare** . I avsnittet parametrar bör du se följande konfiguration:
+
+    ```JSON
+    parameters:
+      - {name: search, in: query, required: false, type: string, default: '*'}
+      - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
+      - {name: api-version, in: query, required: true, type: string, default: '2019-05-06',
+        x-ms-visibility: internal}
+      - {name: Content-Type, in: header, required: false, type: string}
     ```
-          parameters:
-          - {name: search, in: query, required: false, type: string, default: '*'}
-          - {name: api-version, in: query, required: true, type: string, default: 2019-05-06-Preview,
-            x-ms-visibility: internal}
-          - {name: api-key, in: header, required: true, type: string, default: YOURKEYGOESHERE,
-            x-ms-visibility: internal}
-    ```
 
-1. Klicka på **"Lägg till standardsvar"** i avsnittet Svar . Detta är viktigt eftersom det hjälper **Power Apps** att förstå schemat för svaret. Klistra in ett exempelsvar.
+1. Gå tillbaka till **3. **Steg för begäran och rulla ned till avsnittet svar. Klicka på **Lägg till standard svar**. Detta är viktigt eftersom det hjälper Power apps att förstå schemat för svaret. 
+
+1. Klistra in ett exempel svar. Ett enkelt sätt att avbilda ett exempel svar är via Sök Utforskaren i Azure Portal. I Sök Utforskaren ska du ange samma fråga som du gjorde för begäran, men Lägg till **$Top = 2** om du vill begränsa resultatet till bara två dokument:: `search=*&$select=HotelName,Description,Address/City&$top=2`. 
+
+   Power Apps behöver bara några få resultat för att identifiera schemat.
+
+    ```JSON
+    {
+        "@odata.context": "https://mydemo.search.windows.net/indexes('hotels-sample-index')/$metadata#docs(*)",
+        "value": [
+            {
+                "@search.score": 1,
+                "HotelName": "Arcadia Resort & Restaurant",
+                "Description": "The largest year-round resort in the area offering more of everything for your vacation – at the best value!  What can you enjoy while at the resort, aside from the mile-long sandy beaches of the lake? Check out our activities sure to excite both young and young-at-heart guests. We have it all, including being named “Property of the Year” and a “Top Ten Resort” by top publications.",
+                "Address": {
+                    "City": "Seattle"
+                }
+            },
+            {
+                "@search.score": 1,
+                "HotelName": "Travel Resort",
+                "Description": "The Best Gaming Resort in the area.  With elegant rooms & suites, pool, cabanas, spa, brewery & world-class gaming.  This is the best place to play, stay & dine.",
+                "Address": {
+                    "City": "Albuquerque"
+                }
+            }
+        ]
+    }
+    ```
 
     > [!TIP] 
-    > Det finns en teckengräns för det JSON-svar du kan ange, så du kanske vill förenkla JSON så att den innan du klistrar in den. Svarets viktiga aspektschema/format. De faktiska värdena i exempelsvaret är mindre viktiga och kan förenklas för att minska antalet tecken.
-    
+    > Det finns en tecken gräns för det JSON-svar du kan ange, så du kanske vill förenkla JSON innan du klistrar in det. Svarets schema och format är viktigare än själva värdena. Fältet Beskrivning kan till exempel vara förenklat till bara den första meningen.
 
-1.    Klicka på knappen **Skapa koppling** längst upp till höger på skärmen innan du kan testa den.
+1. Klicka på **Skapa koppling** längst upp till höger.
 
-1.  På testsidan klickar du på **+ Ny anslutning**och anger söktjänstfrågenyckeln som värde för *api-key*.
+## <a name="2---test-the-connection"></a>2 – testa anslutningen
 
-    Det här steget kan ta dig till ut ur guiden och in på sidan Anslutningar. Du kanske vill gå tillbaka till Redigeraren för anpassade anslutningar för att faktiskt testa anslutningen. Gå till **Anpassad anslutning** > Välj den nyskapade anslutnings- > *...* > **Visa egenskaper** > **Redigera** > **4. Testa** för att komma tillbaka till testsidan.
+När kopplingen först skapas måste du öppna den igen från listan anpassade anslutningar för att kunna testa den. Om du senare gör ytterligare uppdateringar kan du testa i guiden.
 
-1.    Klicka nu på **Testa för** att se till att du får resultat från indexet. Om du lyckades bör du se en 200-status, och i brödtexten i svaret bör du se JSON som beskriver dina sökresultat.
+Du behöver en [frågas-API-nyckel](search-security-api-keys.md#find-existing-keys) för den här aktiviteten. Varje gången en anslutning skapas, oavsett om ett test körs eller tas med i en app, behöver anslutningen den fråga-API-nyckel som används för att ansluta till Azure Kognitiv sökning.
 
+1. Längst till vänster klickar du på **anpassade anslutningar**.
 
+1. Sök efter anslutnings programmet efter namn (i den här självstudien är "AzureSearchQuery").
 
+1. Välj kopplingen, expandera åtgärds listan och välj **Visa egenskaper**.
 
-## <a name="visualize-results-from-the-custom-connector"></a>Visualisera resultat från den anpassade kopplingen
-Målet med den här självstudien är inte att visa dig hur du skapar snygga användarupplevelser med power-appar, så användargränssnittets layout blir minimalistisk. Nu ska vi skapa en PowerApp med en sökruta, en sökknapp och visa resultaten i en gallerikontroll.  PowerApp ansluter till vår nyligen skapade anpassade anslutningsapp för att hämta data från Azure Search.
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Visa egenskaper" border="true":::
 
-1. Skapa en ny Power App. Gå till avsnittet **Appar,** klicka på **+ Ny app**och välj **Canvas**.
+1. Välj **Redigera** längst upp till höger.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Skapa app på arbetsytan" border="true":::
+1. Välj **4. Test** för att öppna test sidan.
 
-1. Välj den typ av program du vill ha. För den här självstudien skapa en **tom app** med **telefonlayouten**. **Power Apps Studio** visas.
+1. I test åtgärd klickar du på **+ ny anslutning**.
 
-1. En gång i studion väljer du fliken **Datakällor** och klickar på den nya anslutningsappen som du just har skapat. I vårt fall kallas det *AzureSearchQuery*. Klicka på **Lägg till en anslutning**.
+1. Ange en API-nyckel för fråga. Det här är en Azure Kognitiv sökning-fråga för skrivskyddad åtkomst till ett index. Du kan [hitta nyckeln](search-security-api-keys.md#find-existing-keys) i Azure Portal. 
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="ansluta kontakten" border="true":::
+1. I åtgärder klickar du på knappen **testa åtgärd** . Om du lyckas bör du se en 200-status och i bröd texten i svaret bör du se JSON som beskriver Sök resultaten.
 
-    Nu är *AzureSearchQuery* en datakälla som är tillgänglig för användning från ditt program.
-    
-1. Navigera till **fliken Infoga**, så att vi kan lägga till några kontroller i vårt formulär.
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="JSON-svar" border="true":::
+
+## <a name="3---visualize-results"></a>3 – visualisera resultat
+
+I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett visnings område för resultatet. Power App ansluter till det nyligen skapade anpassade anslutnings programmet för att hämta data från Azure Search.
+
+1. Till vänster expanderar du **appar** > **+ ny app** > -**arbetsyta**.
+
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Skapa app för arbets yta" border="true":::
+
+1. Välj typ av program. I den här självstudien skapar du en **Tom app** med **layouten Phone**. **Power Apps Studio** visas.
+
+1. När du är i Studio väljer du fliken **data källor** och klickar på den nya anslutning som du nyss skapade. I vårt fall kallas det *AzureSearchQuery*. Klicka på **Lägg till en anslutning**.
+
+   Ange API-nyckeln för frågan.
+
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Anslut koppling" border="true":::
+
+    Nu är *AzureSearchQuery* en data källa som är tillgänglig för användning från ditt program.
+
+1. Lägg till några kontroller på arbets ytan på **fliken Infoga**.
 
     :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Infoga kontroller" border="true":::
 
-1.  Infoga följande element:
-    -   En textetikett med värdet "Fråga:"
-    -   Ett textinmatningselement (kalla det *txtQuery*, standardvärde: "*")
-    -   En knapp med texten "Sök" 
-    -   Ett lodrätt galleri som heter (kalla det *galleriResultat)*
-    
-    Formuläret ska se ut ungefär så här:
+1. Infoga följande element:
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Layouten Kontroller" border="true":::
+   * En text etikett med värdet "fråga:"
+   * Ett text inmatat element (anropa IT- *txtQuery*, standardvärde: "*")
+   * En knapp med texten "search" 
+   * Ett lodrätt galleri med namnet (anropa IT- *galleryResults*)
 
-1. Om du vill att **sökknappen** ska utfärda en fråga markerar du knappen och Klistra in följande åtgärd för att ta **på OnSelect:**
+    Arbets ytan bör se ut ungefär så här:
+
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Layout för kontroller" border="true":::
+
+1. Om du vill att **Sök knappen** ska utfärda en fråga klistrar du in följande åtgärd i **OnSelect**:
 
     ```
     If(!IsBlank(txtQuery.Text),
-        ClearCollect(azResult, AzureSearchQuery.Get({search: txtQuery.Text}).value))
+        ClearCollect(azResult, AzureSearchQuery.Query({search: txtQuery.Text}).value))
     ```
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Knappen OnSelect" border="true":::
- 
-    Den här åtgärden gör att knappen uppdaterar en ny samling som kallas *azResult* med resultatet av sökfrågan, med hjälp av texten i textrutan *txtQuery* som frågeterm.
-    
-1.  Som ett nästa steg kommer vi att länka det vertikala galleriet vi skapade till *azResult-samlingen.* Markera gallerikontrollen och utför följande åtgärder i egenskapsfönstret.
+   Följande skärm bild visar formel fältet för **OnSelect** -åtgärden.
 
-    -  Ange **DataSource** till *azResult*.
-    
-    -  Välj en **layout** som fungerar för dig baserat på typen av data i indexet. I det här fallet använde vi *titel, underrubrik och* karosslayout.
-    
-    -  **Redigera fält**och markera de fält som du vill visualisera.
+       :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
 
-    Eftersom vi gav ett exempelresultat när vi definierade kopplingen är appen medveten om de fält som är tillgängliga i ditt index.
+   Den här åtgärden gör att knappen uppdaterar en ny samling som heter *azResult* med resultatet från Sök frågan med texten i text rutan *txtQuery* som frågeterm.
+
+   > [!NOTE]
+   > Prova detta om du får ett formel-syntaxfel "funktionen" ClearCollect "har ogiltiga funktioner:
+   > 
+   > * Kontrol lera först att kopplings referensen är korrekt. Ta bort kopplings namnet och börja skriva namnet på din koppling. IntelliSense bör föreslå rätt koppling och verb.
+   > 
+   > * Om felet kvarstår tar du bort och återskapar anslutningen. Om det finns flera instanser av en koppling kanske appen använder fel en.
+   > 
+
+1. Länka den vertikala Galleri kontrollen till den *azResult* -samling som skapades när du avslutade föregående steg. 
+
+   Välj Galleri kontrollen och utför följande åtgärder i rutan Egenskaper.
+
+   * Ange **DataSource** till *azResult*.
+   * Välj en **layout** som fungerar för dig baserat på typen av data i ditt index. I det här fallet använde vi *rubrik, under rubrik och brödtext* .
+   * **Redigera fält**och välj de fält som du vill visualisera.
+
+    Eftersom vi tillhandahöll ett exempel resultat när vi definierade kopplingen, är appen medveten om de fält som är tillgängliga i ditt index.
     
     :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Gallerifält" border="true":::   
  
-1.  Tryck på **F5** för att förhandsgranska appen.  
+1. Tryck på **F5** för att förhandsgranska appen.  
 
-    Kom ihåg att fälten kan ställas in på beräknade värden.      
-    Om du till exempel anger layouten *"Bild, Titel och Undertext"* och anger *bildfunktionen* som sammanfogning av rotsökvägen för data och filnamnet (till `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`exempel) kommer resultatet nedan att ge resultatet.
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Appen är klar" border="true":::    
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Appen är klar" border="true":::        
+<!--     Remember that the fields can be set to calculated values.
+
+    For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
+
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+
+Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
+
+Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information och onlineutbildning finns i [Power Apps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started).
+Med Power Apps kan du snabbt utveckla anpassade appar. Nu när du vet hur du ansluter till ett sökindex kan du läsa mer om hur du skapar en omfattande visualiserings upplevelse i en anpassad Power app.
+
+> [!div class="nextstepaction"]
+> [Utbildnings katalog för Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
 

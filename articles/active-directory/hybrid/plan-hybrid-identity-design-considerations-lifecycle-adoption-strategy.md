@@ -1,6 +1,6 @@
 ---
-title: Hybrididentitetsdesign – strategi för livscykelanvändning Azure | Microsoft-dokument
-description: Hjälper till att definiera hybrididentitetshanteringsuppgifterna enligt de alternativ som är tillgängliga för varje livscykelfas.
+title: Hybrid Identity design – livs cykel implementering strategi Azure | Microsoft Docs
+description: Hjälper dig att definiera uppgifter för Hybrid identitets hantering enligt de alternativ som är tillgängliga för varje livs cykel fas.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,90 +18,90 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67109320"
 ---
-# <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Ta reda på strategi för antagande av hybrididentitetslivscykel
-I den här uppgiften definierar du identitetshanteringsstrategin för hybrididentitetslösningen för att uppfylla de affärskrav som du definierade i [Bestäm hybrididentitetshanteringsuppgifter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
+# <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Fastställ livs cykel för införande av hybrid identitet
+I den här uppgiften definierar du identitets hanterings strategin för din hybrid identitets lösning som uppfyller de affärs krav som du definierade i [fastställa uppgifter för Hybrid identitets hantering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
 
-Om du vill definiera hybrididentitetshanteringsuppgifterna enligt den dagliga identitetslivscykel som presenterades tidigare i det här steget måste du överväga vilka alternativ som är tillgängliga för varje livscykelfas.
+Om du vill definiera uppgifter för Hybrid identitets hantering enligt den slut punkt till slut punkt som anges tidigare i det här steget måste du överväga vilka alternativ som är tillgängliga för varje livs cykel fas.
 
-## <a name="access-management-and-provisioning"></a>Åtkomsthantering och etablering
-Med en bra lösning för hantering av kontoåtkomst kan din organisation spåra exakt vem som har åtkomst till vilken information i hela organisationen.
+## <a name="access-management-and-provisioning"></a>Åtkomst hantering och etablering
+Med en bra konto åtkomst hanterings lösning kan din organisation spåra exakt vem som har åtkomst till den information som finns i organisationen.
 
-Åtkomstkontroll är en kritisk funktion i ett centraliserat system för etablering av en punkt. Förutom att skydda känslig information exponerar åtkomstkontroller befintliga konton som inte har godkända auktoriseringar eller inte längre är nödvändiga. Om du vill kontrollera föråldrade konton länkar etableringssystemet samman kontoinformation med auktoritär information om de användare som äger kontona. Auktoritär användaridentitetsinformation finns vanligtvis i databaser och kataloger av mänskliga resurser.
+Åtkomst kontroll är en kritisk funktion för ett centraliserat etablerings system med en punkt. Utöver att skydda känslig information visar åtkomst kontroller befintliga konton som har ej godkända auktoriseringar eller som inte längre behövs. För att kontrol lera gamla konton länkar etablerings systemet samman konto information med auktoritativ information om de användare som äger kontona. Information om auktoritativ användar identitet underhålls vanligt vis i databaserna och katalogerna för personal.
 
-Konton i sofistikerade IT-företag innehåller hundratals parametrar som definierar myndigheterna, och dessa uppgifter kan kontrolleras av ditt etableringssystem. Nya användare kan identifieras med de data som du tillhandahåller från den auktoritära källan. Åtkomstbegäran godkännande kapacitet initierar de processer som godkänner (eller avvisa) resursetablering för dem.
+Konton i avancerade IT-företag innehåller hundratals parametrar som definierar myndigheterna, och dessa uppgifter kan styras av ditt etablerings system. Nya användare kan identifieras med de data som du anger från den auktoritativa källan. Funktionen för godkännande av åtkomst begär Anden initierar de processer som godkänner (eller avvisar) resurs etablering för dem.
 
-| Livscykelhanteringsfas | På plats | Molnet | Hybrid |
+| Fas för livs cykel hantering | Lokalt | Molnet | Hybrid |
 | --- | --- | --- | --- |
-| Kontohantering och etablering |Med hjälp av serverrollen Active Directory® Domain Services (AD DS) kan du skapa en skalbar, säker och hanterbar infrastruktur för användare och resurshantering och erbjuda stöd för katalogaktiverade applikationer som Microsoft® Exchange Server. <br><br> [Du kan etablera grupper i AD DS via en identitetshanterare](https://technet.microsoft.com/library/ff686261.aspx) <br>[Du kan etablera användare i AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Administratörer kan använda åtkomstkontroll för att hantera användaråtkomst till delade resurser av säkerhetsskäl. I Active Directory administreras åtkomstkontrollen på objektnivå genom att olika åtkomstnivåer eller behörigheter ställs in på objekt, till exempel Fullständig kontroll, Skriv, Läsa eller Ingen åtkomst. Åtkomstkontroll i Active Directory definierar hur olika användare kan använda Active Directory-objekt. Som standard är behörigheterna för objekt i Active Directory inställda på den säkraste inställningen. |Du måste skapa ett konto för varje användare som kommer åt en Microsoft-molntjänst. Du kan också ändra användarkonton eller ta bort dem när de inte längre behövs. Som standard har användarna inte administratörsbehörighet, men du kan också tilldela dem. <br><br> I Azure Active Directory är en av de viktigaste funktionerna möjligheten att hantera åtkomst till resurser. Dessa resurser kan vara en del av katalogen, som i fallet med behörigheter för att hantera objekt via roller i katalogen, eller resurser som är externa för katalogen såsom SaaS-program, Azure-tjänster och SharePoint-webbplatser eller lokala resurser. <br><br> I mitten av Azure Active Directorys åtkomsthanteringslösning finns säkerhetsgruppen. Resursägaren (eller administratören för katalogen) kan tilldela en grupp för att ge en viss åtkomsträtt till resurser som ägaren äger. Medlemmarna i gruppen får åtkomst och resursägaren kan delegera rätten att hantera medlemslistan för en grupp till någon annan, till exempel en avdelningschef eller en helpdesk-administratör<br> <br> Avsnittet Hantera grupper i Azure AD innehåller mer information om hur du hanterar åtkomst via grupper. |Utöka Active Directory-identiteter till molnet genom synkronisering och federation |
+| Konto hantering och etablering |Med hjälp av serverrollen Active Directory® Domain Services (AD DS) kan du skapa en skalbar, säker och hanterbar infrastruktur för användare och resurshantering och erbjuda stöd för katalogaktiverade applikationer som Microsoft® Exchange Server. <br><br> [Du kan etablera grupper i AD DS via en identitets hanterare](https://technet.microsoft.com/library/ff686261.aspx) <br>[Du kan etablera användare i AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Administratörer kan använda åtkomst kontroll för att hantera användar åtkomst till delade resurser av säkerhets synpunkt. I Active Directory administreras åtkomst kontrollen på objekt nivå genom att ange olika åtkomst nivåer eller behörigheter till objekt, till exempel fullständig behörighet, skriva, läsa eller ingen åtkomst. Åtkomst kontroll i Active Directory definierar hur olika användare kan använda Active Directory objekt. Som standard är behörigheter för objekt i Active Directory inställda på den säkraste inställningen. |Du måste skapa ett konto för varje användare som ska ha åtkomst till en moln tjänst från Microsoft. Du kan också ändra användar konton eller ta bort dem när de inte längre behövs. Som standard har användare inte administratörs behörighet, men du kan välja att tilldela dem. <br><br> I Azure Active Directory är en av de viktigaste funktionerna möjligheten att hantera åtkomst till resurser. Dessa resurser kan vara en del av katalogen, som i fallet med behörigheter för att hantera objekt via roller i katalogen, eller resurser som är externa för katalogen såsom SaaS-program, Azure-tjänster och SharePoint-webbplatser eller lokala resurser. <br><br> I mitten av Azure Active Directorys åtkomst hanterings lösning är säkerhets gruppen. Resursägaren (eller administratören för katalogen) kan tilldela en grupp för att ge en viss åtkomsträtt till resurser som ägaren äger. Medlemmarna i gruppen får åtkomst och resurs ägaren kan delegera rätten att hantera medlemmarnas lista över en grupp till någon annan – till exempel en avdelnings chef eller en supportavdelningen-administratör<br> <br> Avsnittet hantera grupper i Azure AD innehåller mer information om hur du hanterar åtkomst via grupper. |Utöka Active Directory identiteter i molnet genom synkronisering och Federation |
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
-Rollbaserad åtkomstkontroll (RBAC) använder roller och etableringsprinciper för att utvärdera, testa och tillämpa dina affärsprocesser och regler för att bevilja åtkomst till användare. Nyckeladministratörer skapar etableringsprinciper och tilldelar användare till roller och som definierar uppsättningar med berättiganden till resurser för dessa roller. RBAC utökar identitetshanteringslösningen för att använda programvarubaserade processer och minska användarhandbokens interaktion i etableringsprocessen.
-Azure AD RBAC gör det möjligt för företaget att begränsa antalet åtgärder som en individ kan göra när de har åtkomst till Azure-portalen. Genom att använda RBAC för att kontrollera åtkomsten till portalen delegerar IT-administratörer åtkomst med hjälp av följande åtkomsthanteringsmetoder:
+Rollbaserad åtkomst kontroll (RBAC) använder roller och etablerings principer för att utvärdera, testa och genomdriva affärs processer och regler för att bevilja åtkomst till användare. Nyckel administratörer skapar etablerings principer och tilldelar användare till roller och definierar uppsättningar av rättigheter till resurser för dessa roller. RBAC utökar identitets hanterings lösningen så att den använder programvarubaserade processer och minskar användar handskrivna åtgärder i etablerings processen.
+Azure AD RBAC gör det möjligt för företaget att begränsa antalet åtgärder som en enskild person kan göra när de har åtkomst till Azure Portal. Genom att använda RBAC för att kontrol lera åtkomsten till portalen, har IT-administratörerna ombuds åtkomst med hjälp av följande metoder för åtkomst hantering:
 
-* **Gruppbaserad rolltilldelning:** Du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja de befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda den delegerade grupphanteringsfunktionen i Azure AD Premium.
-* **Utnyttja inbyggda roller i Azure**: Du kan använda tre roller – Ägare, Deltagare och Läsare, för att säkerställa att användare och grupper har behörighet att bara utföra de uppgifter de behöver för att utföra sina jobb.
-* **Detaljerad åtkomst till resurser**: Du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure-resurs, till exempel en webbplats eller databas. På så sätt kan du se till att användarna har åtkomst till alla resurser de behöver och ingen åtkomst till resurser som de inte behöver hantera.
+* **Gruppbaserad roll tilldelning**: du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja de befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda funktionen delegerad grupp hantering i Azure AD Premium.
+* Använd **inbyggda roller i Azure**: du kan använda tre roller – ägare, deltagare och läsare för att säkerställa att användare och grupper har behörighet att bara utföra de uppgifter som de behöver för att utföra sina jobb.
+* **Detaljerad åtkomst till resurser**: du kan tilldela roller till användare och grupper för en viss prenumeration, resurs grupp eller en enskild Azure-resurs, till exempel en webbplats eller databas. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
 
-## <a name="provisioning-and-other-customization-options"></a>Etablering och andra anpassningsalternativ
-Ditt team kan använda affärsplaner och krav för att bestämma hur mycket som ska anpassa identitetslösningen. Ett stort företag kan till exempel kräva en stegvis utrullningsplan för arbetsflöden och anpassade kort som baseras på en tidsrad för stegvis etablering av program som används i stor utsträckning över geografiska områden. En annan anpassningsplan kan innehålla två eller flera program som ska etableras i en hel organisation, efter lyckad testning. Interaktion mellan användare och program kan anpassas och procedurer för etablering av resurser kan ändras för automatisk etablering.
+## <a name="provisioning-and-other-customization-options"></a>Etablering och andra anpassnings alternativ
+Ditt team kan använda affärs planer och-krav för att avgöra hur mycket du ska anpassa identitets lösningen. Ett stort företag kan till exempel kräva en stegvis sammanslagnings plan för arbets flöden och anpassade kort som baseras på en tids linje för stegvis etablering av program som används ofta i olika geografiska områden. En annan anpassnings plan kan tillhandahålla att två eller flera program tillhandahålls i hela organisationen efter testet. Interaktionen mellan användare och program kan anpassas och procedurer för etablering av resurser kan ändras för att anpassa automatisk etablering.
 
-Du kan avetablera för att ta bort en tjänst eller komponent. Om du till exempel avetableras av ett konto innebär det att kontot tas bort från en resurs.
+Du kan avetablera för att ta bort en tjänst eller komponent. Om du exempelvis avetablerar ett konto innebär det att kontot tas bort från en resurs.
 
-Hybridmodellen för etableringsresurser kombinerar begäranden och rollbaserade metoder, som båda stöds av Azure AD. För en delmängd av medarbetare eller hanterade system kanske ett företag vill automatisera åtkomst med rollbaserad tilldelning. Ett företag kan också hantera alla andra åtkomstbegäranden eller undantag via en begäran-baserad modell. Vissa företag kan börja med manuell tilldelning och utvecklas mot en hybridmodell, med avsikt att en helt rollbaserad distribution i framtiden.
+Hybrid modellen för etablerings resurser kombinerar begär ande och rollbaserade metoder, som båda stöds av Azure AD. För en delmängd av anställda eller hanterade system kan ett företag vilja automatisera åtkomst med rollbaserad tilldelning. Ett företag kan också hantera alla andra åtkomst begär Anden eller undantag via en förfrågnings beroende modell. Vissa företag kan börja med manuell tilldelning och utveckla sig mot en hybrid modell, med avsikt att använda en helt rollbaserad distribution vid ett senare tillfälle.
 
-Andra företag kan tycka att det är opraktiskt av affärsmässiga skäl att uppnå fullständig rollbaserad etablering, och rikta en hybrid strategi som ett önskat mål. Ytterligare andra företag kan vara nöjda med endast begäran-baserad etablering, och inte vill investera ytterligare ansträngningar för att definiera och hantera rollbaserade, automatiserade etableringsprinciper.
+Andra företag kan upptäcka att det är opraktiskt för affärs skäl att uppnå fullständig rollbaserad etablering och rikta en hybrid strategi som ett önskat mål. Även andra företag kan vara uppfyllt med endast begärd etablering och inte vill investera ytterligare arbete för att definiera och hantera rollbaserade, automatiserade etablerings principer.
 
 ## <a name="license-management"></a>Licenshantering
-Gruppbaserad licenshantering i Azure AD gör det möjligt för administratörer att tilldela användare till en säkerhetsgrupp och Azure AD automatiskt tilldelar licenser till alla medlemmar i gruppen. Om en användare senare läggs till eller tas bort från gruppen tilldelas eller tas en licens bort automatiskt.
+Med gruppbaserad licens hantering i Azure AD kan administratörer tilldela användare till en säkerhets grupp och Azure AD tilldelar automatiskt licenser till alla medlemmar i gruppen. Om en användare senare läggs till i eller tas bort från gruppen, tilldelas eller tas en licens automatiskt bort efter behov.
 
-Du kan använda grupper som du synkroniserar från lokalt AD eller hantera i Azure AD. Para ihop detta med Azure AD premium Självbetjäning Grupphantering kan du enkelt delegera licenstilldelning till lämpliga beslutsfattare. Du kan vara säker på att problem som licenskonflikter och saknade platsdata sorteras automatiskt.
+Du kan använda grupper som du synkroniserar från lokala AD eller hantera i Azure AD. Genom att para ihop detta med Azure AD Premium-gruppen för självbetjänings grupp kan du enkelt delegera licens tilldelning till rätt besluts fattare. Du kan vara säker på att problem som licens konflikter och saknade plats data automatiskt sorteras ut.
 
-## <a name="self-regulating-user-administration"></a>Självreglerande användaradministration
-När din organisation börjar etablera resurser i alla interna organisationer implementerar du den självreglerande användarens administrationskapacitet. Du kan inse fördelarna och fördelarna med att etablera användare över organisationsgränser. I den här miljön återspeglas en ändring av en användares status automatiskt i åtkomsträttigheter över organisationsgränser och geografiska områden. Du kan minska etableringskostnaderna och effektivisera åtkomst- och godkännandeprocesserna. Implementeringen förverkligar den fulla potentialen av att implementera rollbaserad åtkomstkontroll för hantering av åtkomst från till på tid i organisationen. Du kan minska de administrativa kostnaderna genom automatiska procedurer för styrning av användaretablering. Du kan förbättra säkerheten genom att automatisera efterlevnad av säkerhetsprinciper och effektivisera och centralisera användarlivscykelhantering och resursetablering för stora användargrupper.
+## <a name="self-regulating-user-administration"></a>Själv reglerande användar administration
+När din organisation börjar etablera resurser i alla interna organisationer, implementerar du den själv reglerande användar administrationen. Du kan utnyttja fördelarna och fördelarna med att tillhandahålla användare över organisationens gränser. I den här miljön avspeglas en ändring i en användares status automatiskt i åtkomst rättigheter för organisationens gränser och geografiska områden. Du kan minska etablerings kostnaderna och effektivisera åtkomst-och godkännande processerna. Implementeringen inser hela potentialen med att implementera rollbaserad åtkomst kontroll för slut punkt till slut punkts åtkomst hantering i din organisation. Du kan minska administrativa kostnader genom att automatisera procedurer för styrning av användar etablering. Du kan förbättra säkerheten genom att automatisera säkerhets principens tillämpning och effektivisera och centralisera hantering av användar livs cykeln och resurs etablering för stora användar populationer.
 
 > [!NOTE]
-> Mer information finns i Konfigurera Azure AD för självbetjäningshantering av program
+> Mer information finns i Konfigurera Azure AD för självbetjänings program åtkomst hantering
 > 
 > 
 
-Licensbaserade (berättigandebaserade) Azure AD-tjänster fungerar genom att aktivera en prenumeration i din Azure AD-katalog/tjänstklient. När prenumerationen är aktiv kan tjänstfunktionerna hanteras av katalog-/tjänstadministratörer och användas av licensierade användare. 
+Licensbaserade (berättigade) Azure AD-tjänster fungerar genom att aktivera en prenumeration i din Azure AD-katalog/tjänst klient. När prenumerationen är aktiv kan tjänst funktionerna hanteras av katalog-/tjänst administratörer och används av licensierade användare. 
 
-## <a name="integration-with-other-3rd-party-providers"></a>Integration med andra tredjepartsleverantörer
+## <a name="integration-with-other-3rd-party-providers"></a>Integrering med andra leverantörer från tredje part
 
-Azure Active Directory ger enkel inloggning och förbättrad programåtkomstsäkerhet till tusentals SaaS-program och lokala webbprogram. Mer information finns i [Integrera program med Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+Azure Active Directory ger enkel inloggning och utökad åtkomst till program åtkomst till tusentals SaaS-program och lokala webb program. Mer information finns i [integrera program med Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 
-## <a name="define-synchronization-management"></a>Definiera synkroniseringshantering
+## <a name="define-synchronization-management"></a>Definiera hantering av synkronisering
 Om du integrerar dina lokala kataloger med Azure AD kan du hjälpa dina användare att bli mer produktiva genom att tillhandahålla en gemensam identitet för åtkomst både till molnet och lokala resurser. Med den här integrationen kan användare och organisationer dra nytta av följande:
 
-* Organisationer kan ge användare en gemensam hybrididentitet för lokala eller molnbaserade tjänster som utnyttjar Windows Server Active Directory och sedan ansluter till Azure Active Directory.
-* Administratörer kan ange villkorlig åtkomst baserat på programresurs, enhets- och användaridentitet, nätverksplats och multifaktorautentisering.
-* Användare kan använda sin gemensamma identitet via konton i Azure AD till Office 365-, Intune-, SaaS-appar och program från tredje part.
-* Utvecklare kan skapa program som utnyttjar den gemensamma identitetsmodellen och integrerar program i Active Directory lokalt eller Azure för molnbaserade program
+* Organisationer kan ge användare en gemensam hybrid identitet i lokala eller molnbaserade tjänster som utnyttjar Windows Server Active Directory och sedan ansluter till Azure Active Directory.
+* Administratörer kan ge villkorlig åtkomst baserat på program resurs, enhets-och användar identitet, nätverks plats och Multi-Factor Authentication.
+* Användarna kan använda sin gemensamma identitet via konton i Azure AD till Office 365, Intune, SaaS-appar och tredjepartsprogram.
+* Utvecklare kan bygga program som utnyttjar den gemensamma identitets modellen, integrera program i Active Directory lokalt eller i Azure för molnbaserade program
 
-Följande bild har ett exempel på en vy på hög nivå för identitetssynkroniseringsprocessen.
+Följande figur innehåller ett exempel på en övergripande vy över processen för synkronisering av identiteter.
 
 ![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
-Identitetssynkroniseringsprocess
+Identitetssynkronisering process
 
-Gå igenom följande tabell för att jämföra synkroniseringsalternativen:
+Granska följande tabell för att jämföra alternativen för synkronisering:
 
-| Alternativ för synkroniseringshantering | Fördelar | Nackdelar |
+| Alternativ för hantering av synkronisering | Fördelar | Nackdelar |
 | --- | --- | --- |
-| Synkroniseringsbaserad (via DirSync eller AADConnect) |Användare och grupper synkroniserade från lokalt och moln <br>  **Principkontroll**: Kontoprinciper kan ställas in via Active Directory, vilket ger administratören möjlighet att hantera lösenordsprinciper, arbetsstation, begränsningar, lockoutkontroller med mera, utan att behöva utföra ytterligare uppgifter i molnet.  <br>  **Åtkomstkontroll:** Kan begränsa åtkomsten till molntjänsten så att tjänsterna kan nås via företagsmiljön, via onlineservrar eller båda. <br>  Minskade supportsamtal: Om användarna har färre lösenord att komma ihåg är det mindre troligt att de glömmer dem. <br>  Säkerhet: Användaridentiteter och information skyddas eftersom alla servrar och tjänster som används i enkel inloggning behärskas och kontrolleras lokalt. <br>  Stöd för stark autentisering: Du kan använda stark autentisering (kallas även tvåfaktorsautentisering) med molntjänsten. Om du använder stark autentisering måste du dock använda enkel inloggning. | |
-| Federationsbaserad (via AD FS) |Aktiverad av Security Token Service (STS). När du konfigurerar en STS för att ge enkel inloggningsåtkomst med en Microsoft-molntjänst skapar du ett federerat förtroende mellan din lokala STS och den federerade domän som du har angett i din Azure AD-klientorganisation. <br> Gör det möjligt för slutanvändare att använda samma uppsättning autentiseringsuppgifter för att få åtkomst till flera resurser <br>slutanvändarna behöver inte underhålla flera uppsättningar autentiseringsuppgifter. Ändå måste användarna ange sina autentiseringsuppgifter till var och en av de deltagande resurserna.,B2B- och B2C-scenarier som stöds. |Kräver specialiserad personal för distribution och underhåll av dedikerade på lokala AD FS-servrar. Det finns begränsningar för användning av stark autentisering om du planerar att använda AD FS för din STS. Mer information finns i [Konfigurera avancerade alternativ för AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
+| Sync-baserad (via DirSync eller AADConnect) |Användare och grupper synkroniserade lokalt och i molnet <br>  **Princip kontroll**: konto principer kan ställas in via Active Directory, vilket ger administratören möjlighet att hantera lösen ords principer, arbets stationer, begränsningar, låsnings kontroller och mycket mer, utan att behöva utföra ytterligare aktiviteter i molnet.  <br>  **Åtkomst kontroll**: kan begränsa åtkomsten till moln tjänsten så att tjänsterna kan nås via företags miljön, via Online servrar eller både och. <br>  Färre support samtal: om användare har färre lösen ord för att komma ihåg är det mindre troligt att de glömmer bort dem. <br>  Säkerhet: användar identiteter och information skyddas på grund av att alla servrar och tjänster som används i enkel inloggning är hanterade och kontrollerade lokalt. <br>  Stöd för stark autentisering: du kan använda stark autentisering (kallas även tvåfaktorautentisering) med moln tjänsten. Om du använder stark autentisering måste du dock använda enkel inloggning. | |
+| Federation-baserad (via AD FS) |Aktiverat av säkerhetstokentjänst (STS). När du konfigurerar en STS för att tillhandahålla enkel inloggning med en moln tjänst från Microsoft, kommer du att skapa ett federerat förtroende mellan din lokala STS och den federerade domän som du har angett i Azure AD-klienten. <br> Låter slutanvändare använda samma uppsättning autentiseringsuppgifter för att få åtkomst till flera resurser <br>slutanvändare behöver inte ha flera uppsättningar med autentiseringsuppgifter. Användarna måste ännu ange sina autentiseringsuppgifter för var och en av de deltagande resurserna., B2B-och B2C-scenarier stöds. |Kräver specialiserad personal för distribution och underhåll av dedikerade lokala AD FS-servrar. Det finns begränsningar för användningen av stark autentisering om du planerar att använda AD FS för din STS. Mer information finns i [Konfigurera avancerade alternativ för AD FS 2,0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]
-> Mer information finns [i Integrering av lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
+> Mer information finns i [integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
 > 
 > 
 
 ## <a name="see-also"></a>Se även
-[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
 

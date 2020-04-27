@@ -1,6 +1,6 @@
 ---
-title: Hybrid identitetsdesign - införande strategi Azure | Microsoft-dokument
-description: Med kontrollen Villkorlig åtkomst kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och får åtkomst till programmet.
+title: Implementerings strategi för Hybrid identitet, Azure | Microsoft Docs
+description: Med villkorlig åtkomst kontroll kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och beviljas åtkomst till programmet.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,201 +18,201 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67109338"
 ---
-# <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för antagande av hybrididentitet
-I den här uppgiften definierar du hybrididentitetsutförandestrategin för hybrididentitetslösningen för att uppfylla de affärskrav som diskuterades i:
+# <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införande av hybrid identitet
+I den här uppgiften definierar du strategin för att införa Hybrid identiteter för din hybrid identitets lösning som uppfyller de affärs krav som diskuterades i:
 
-* [Bestäm affärsbehov](plan-hybrid-identity-design-considerations-business-needs.md)
-* [Fastställ krav på katalogsynkronisering](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
-* [Fastställa autentiseringskrav för flera faktorer](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+* [Fastställa affärs behov](plan-hybrid-identity-design-considerations-business-needs.md)
+* [Fastställa krav för katalog synkronisering](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+* [Fastställa krav för Multi-Factor Authentication](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="define-business-needs-strategy"></a>Definiera strategi för affärsbehov
-Den första uppgiften behandlar fastställandet av organisationens affärsbehov.  Detta kan vara mycket bred och omfattning krypa kan uppstå om du inte är försiktig.  I början, hålla det enkelt men kom alltid ihåg att planera för en design som kommer att rymma och underlätta förändringar i framtiden.  Oavsett om det är en enkel design eller en extremt komplex sådan är Azure Active Directory den Microsoft Identity-plattform som stöder Office 365, Microsoft Online Services och molnmedvetna program.
+## <a name="define-business-needs-strategy"></a>Definiera strategi för affärs behov
+Den första aktivitets adressen fastställer organisationernas affärs behov.  Detta kan vara mycket brett och omfångs kryp kan uppstå om du inte är försiktig.  I början är det enkelt att komma ihåg att planera för en design som kan hantera och under lätta förändringar i framtiden.  Oavsett om det är en enkel design eller en extremt komplex, Azure Active Directory är Microsofts identitets plattform som har stöd för Office 365, Microsoft Online Services och molnbaserade program.
 
-## <a name="define-an-integration-strategy"></a>Definiera en integrationsstrategi
-Microsoft har tre huvudsakliga integrationsscenarier som är molnidentiteter, synkroniserade identiteter och federerade identiteter.  Du bör planera att anta en av dessa integrationsstrategier.  Den strategi du väljer kan variera och besluten att välja en kan innehålla, vilken typ av användarupplevelse du vill tillhandahålla, har du en befintlig infrastruktur och vad som är mest kostnadseffektivt.  
+## <a name="define-an-integration-strategy"></a>Definiera en integrerings strategi
+Microsoft har tre huvud integrerings scenarier som är moln identiteter, synkroniserade identiteter och federerade identiteter.  Du bör planera att införa en av integrerings strategierna.  Den strategi du väljer kan variera och besluten om att välja en kan innehålla, vilken typ av användar upplevelse som du vill tillhandahålla, har en befintlig infrastruktur och det som är mest kostnads effektivt.  
 
-![integrationsscenarier](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![integrations scenarier](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
-De scenarier som definieras i ovanstående figur är:
+Scenarierna som definieras i ovanstående figur är:
 
-* **Molnidentiteter**: det här är identiteter som bara finns i molnet.  När det gäller Azure AD finns de specifikt i din Azure AD-katalog.
-* **Synkroniserad**: det här är identiteter som finns lokalt och i molnet.  Med Hjälp av Azure AD Connect skapas eller kopplas dessa användare antingen till befintliga Azure AD-konton.  Användarens lösenordshöna synkroniseras från den lokala miljön till molnet i vad som kallas ett lösenordshöste.  När du använder synkroniserad en varning är att om en användare är inaktiverad i den lokala miljön, kan det ta upp till tre timmar för att kontostatus visas i Azure AD.  Detta beror på synkroniseringstidintervallet.
-* **Federerad**: dessa identiteter finns både lokalt och i molnet.  Med Hjälp av Azure AD Connect skapas eller kopplas dessa användare antingen till befintliga Azure AD-konton.  
+* **Moln identiteter**: dessa är identiteter som bara finns i molnet.  När det gäller Azure AD skulle de finnas närmare i Azure AD-katalogen.
+* **Synkroniserad**: dessa är identiteter som finns lokalt och i molnet.  Med hjälp av Azure AD Connect skapas eller kopplas dessa användare antingen till befintliga Azure AD-konton.  Användarens lösen ords-hash synkroniseras från den lokala miljön till molnet i vad som kallas för en lösen ords-hash.  När du använder Synchronized är det ett villkor att om en användare är inaktive rad i den lokala miljön, kan det ta upp till tre timmar innan konto statusen visas i Azure AD.  Detta beror på tids perioden för synkronisering.
+* **Federerad**: dessa identiteter finns både lokalt och i molnet.  Med hjälp av Azure AD Connect skapas eller kopplas dessa användare antingen till befintliga Azure AD-konton.  
 
 > [!NOTE]
-> Mer information om synkroniseringsalternativen finns i [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
+> Mer information om synkroniseringsalternativ finns i [integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
 > 
 > 
 
-Följande tabell hjälper till att fastställa fördelarna och nackdelarna med var och en av följande strategier:
+Följande tabell hjälper till att fastställa fördelarna och nack delarna med var och en av följande strategier:
 
 | Strategi | Fördelar | Nackdelar |
 | --- | --- | --- |
-| **Molnidentiteter** |Enklare att hantera för liten organisation. <br> Inget att installera lokalt. Ingen ytterligare maskinvara behövs<br>Lätt inaktiveras om användaren lämnar företaget |Användare måste logga in när de kommer åt arbetsbelastningar i molnet <br> Lösenord kan vara desamma för moln- och lokala identiteter |
-| **Synkroniseras** |Lokalt lösenord autentiserar både lokala och molnkataloger <br>Enklare att hantera för små, medelstora eller stora organisationer <br>Användare kan ha enkel inloggning (SSO) för vissa resurser <br> Microsofts metod för synkronisering <br> Enklare att hantera |Vissa kunder kan vara ovilliga att synkronisera sina kataloger med molnet på grund av specifika företagets polis |
-| **Federerade** |Användare kan ha enkel inloggning (SSO) <br>Om en användare avslutas eller lämnar, kan kontot omedelbart inaktiveras och åtkomst återkallas,<br> Stöder avancerade scenarier som inte kan utföras med synkroniserade |Fler steg för att konfigurera och konfigurera <br> Högre underhåll <br> Kan kräva ytterligare maskinvara för STS-infrastrukturen <br> Kan kräva ytterligare maskinvara för att installera federationsservern. Ytterligare programvara krävs om AD FS används <br> Kräv omfattande inställningar för SSO <br> Kritisk felpunkt om federationsservern är nere, kan användarna inte autentisera |
+| **Moln identiteter** |Enklare att hantera för små organisationer. <br> Det finns inget att installera lokalt. Ingen ytterligare maskin vara behövs<br>Du kan enkelt inaktivera om användaren lämnar företaget |Användarna måste logga in vid åtkomst till arbets belastningar i molnet <br> Lösen ord kan vara likadana för moln-och lokala identiteter |
+| **Synkronisera** |Lokalt lösen ord autentiserar både lokala och molnbaserade kataloger <br>Enklare att hantera för små, medel stora eller stora organisationer <br>Användare kan ha enkel inloggning (SSO) för vissa resurser <br> Microsofts bästa metod för synkronisering <br> Enklare att hantera |Vissa kunder kan vara ovilliga att synkronisera sina kataloger med molnet på grund av ett visst företags principer |
+| **Federerade** |Användare kan ha enkel inloggning (SSO) <br>Om en användare avslutas eller lämnas kvar, kan kontot inaktive ras omedelbart och åtkomsten återkallas<br> Har stöd för avancerade scenarier som inte kan utföras med synkroniserade |Fler steg för att konfigurera och konfigurera <br> Högre underhåll <br> Kan kräva ytterligare maskin vara för STS-infrastrukturen <br> Kan kräva ytterligare maskin vara för att installera Federations servern. Ytterligare program vara krävs om AD FS används <br> Kräv omfattande konfiguration för SSO <br> Kritisk felpunkt om Federations servern inte är igång kan användarna inte autentisera |
 
 ### <a name="client-experience"></a>Klientupplevelse
-Den strategi som du använder kommer att diktera användarens inloggningsupplevelse.  Följande tabeller ger dig information om vad användarna bör förvänta sig att deras inloggningsupplevelse ska vara.  Alla federerade identitetsleverantörer stöder inte SSO i alla scenarier.
+Den strategi du använder kommer att diktera användar inloggnings upplevelsen.  I följande tabeller får du information om vad användarna bör förvänta sig att deras inloggnings upplevelse ska vara.  Alla federerade identitets leverantörer stöder inte SSO i alla scenarier.
 
-**Doman-sammanfogade och privata nätverksprogram:**
+**Doman-anslutna och privata nätverks program**:
 
 |  | Synkroniserad identitet | Federerade identiteter |
 | --- | --- | --- |
-| Webbläsare |Formulärbaserad autentisering |enkel inloggning, ibland krävs för att tillhandahålla organisations-ID |
+| Webbläsare |Formulärbaserad autentisering |enkel inloggning, ibland krävs för att ange organisations-ID |
 | Outlook |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
-| Skype för företag (Lync) |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, snabb autentiseringsuppgifter för Exchange |
+| Skype för företag (Lync) |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, uppmaning om autentiseringsuppgifter för Exchange |
 | OneDrive för företag |Fråga efter autentiseringsuppgifter |enkel inloggning |
 | Office Pro Plus-prenumeration |Fråga efter autentiseringsuppgifter |enkel inloggning |
 
-**Externa eller ej betrodda källor:**
+**Externa eller ej betrodda källor**:
 
 |  | Synkroniserad identitet | Federerade identiteter |
 | --- | --- | --- |
 | Webbläsare |Formulärbaserad autentisering |Formulärbaserad autentisering |
 | Outlook, Skype för företag (Lync), OneDrive för företag, Office-prenumeration |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
-| Exchange ActiveSync |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, snabb autentiseringsuppgifter för Exchange |
+| Exchange ActiveSync |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, uppmaning om autentiseringsuppgifter för Exchange |
 | Mobilappar |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
 
-Om du har fastställt från uppgift 1 att du har ett IDP från tredje part eller ska använda en för att tillhandahålla federation med Azure AD, måste du vara medveten om följande funktioner som stöds:
+Om du har bestämt från uppgift 1 som du har en IdP från tredje part eller om du ska använda en för att tillhandahålla Federation med Azure AD måste du vara medveten om följande funktioner som stöds:
 
-* Alla SAML 2.0-provider som är kompatibla för SP-Lite-profilen kan stödja autentisering till Azure AD och associerade program
-* Stöder passiv autentisering, vilket underlättar autentisering till OWA, SPO, etc.
-* Exchange Online-klienter kan stödjas via SAML 2.0 Enhanced Client Profile (ECP)
+* En SAML 2,0-provider som är kompatibel för profilen SP-lite kan stödja autentisering till Azure AD och associerade program
+* Stöder passiv autentisering, vilket underlättar autentisering till OWA, SPO osv.
+* Exchange Online-klienter kan stödjas via en utökad klient profil i SAML 2,0 (ECP)
 
-Du måste också vara medveten om vilka funktioner som inte kommer att vara tillgängliga:
+Du måste också vara medveten om vilka funktioner som inte är tillgängliga:
 
-* Utan stöd för WS-Trust/Federation går alla andra aktiva klienter sönder
-  * Det innebär ingen Lync-klient, OneDrive-klient, Office-prenumeration, Office Mobile före Office 2016
-* Övergång av Office till passiv autentisering gör att de kan stödja rena SAML 2.0-IdPs, men stödet kommer fortfarande att vara på klient-för-klient-basis
+* Utan WS-Trust/Federation-support bryts alla andra aktiva klienter
+  * Det innebär att ingen Lync-klient, OneDrive-klient, Office-prenumeration, Office Mobile före Office 2016
+* Över gång av Office till passiv autentisering gör det möjligt för dem att stödja ren SAML 2,0-IDP: er, men stöd kommer fortfarande att finnas på klient-för-klient-basis
 
 > [!NOTE]
-> För den mest uppdaterade listan läs artikeln [Azure AD federation kompatibilitetslista](how-to-connect-fed-compatibility.md).
+> För den senast uppdaterade listan läser du artikeln [Azure AD Federation Compatibility List](how-to-connect-fed-compatibility.md).
 > 
 > 
 
-## <a name="define-synchronization-strategy"></a>Definiera synkroniseringsstrategi
-I den här uppgiften definierar du de verktyg som ska användas för att synkronisera organisationens lokala data till molnet och vilken topologi du ska använda.  Eftersom de flesta organisationer använder Active Directory, information om hur du använder Azure AD Connect för att ta itu med frågorna ovan finns i detalj.  För miljöer som inte har Active Directory finns det information om hur du använder FIM 2010 R2 eller MIM 2016 för att planera den här strategin.  Framtida versioner av Azure AD Connect kommer dock att stödja LDAP-kataloger, så beroende på din tidslinje kan den här informationen hjälpa till.
+## <a name="define-synchronization-strategy"></a>Definiera strategi för synkronisering
+I den här uppgiften definierar du de verktyg som ska användas för att synkronisera organisationens lokala data till molnet och vilken topologi du ska använda.  Eftersom de flesta organisationer använder Active Directory, finns det mer information om hur du använder Azure AD Connect för att hantera frågorna ovan.  För miljöer som inte har Active Directory finns det information om hur du kan planera denna strategi med hjälp av FIM 2010 R2 eller MIM 2016.  Framtida versioner av Azure AD Connect kommer dock att ha stöd för LDAP-kataloger, så beroende på din tids linje kan den här informationen hjälpa dig.
 
-### <a name="synchronization-tools"></a>Synkroniseringsverktyg
-Under årens lopp har flera synkroniseringsverktyg funnits och använts för olika scenarier.  För närvarande Azure AD Connect är gå till verktyg för val för alla scenarier som stöds.  AAD Sync och DirSync finns också kvar och kan till och med finnas i din miljö nu. 
+### <a name="synchronization-tools"></a>Verktyg för synkronisering
+Under åren har flera verktyg för synkronisering funnits och använts för olika scenarier.  För närvarande Azure AD Connect är det verktyg du väljer för alla scenarier som stöds.  AAD Sync och DirSync är också fortfarande kvar och kan även finnas i din miljö nu. 
 
 > [!NOTE]
-> Den senaste informationen om funktionerna för varje verktyg som stöds finns i [jämförelseartikeln för katalogintegrationsverktyg.](plan-hybrid-identity-design-considerations-tools-comparison.md)  
+> Den senaste informationen om vilka funktioner som stöds av varje verktyg finns i [jämförelse artikel för katalog integrerings verktyg](plan-hybrid-identity-design-considerations-tools-comparison.md) .  
 > 
 > 
 
 ### <a name="supported-topologies"></a>Topologier som stöds
-När du definierar en synkroniseringsstrategi måste topologin som används bestämmas. Beroende på den information som fastställdes i steg 2 kan du avgöra vilken topologi som är rätt att använda. Den enda skogen, en enda Azure AD-topologi är den vanligaste och består av en enda Active Directory-skog och en enda instans av Azure AD.  Detta kommer att användas i de flesta scenarier och är den förväntade topologin när du använder Azure AD Connect Express-installationen som visas i figuren nedan.
+När du definierar en strategi för synkronisering måste topologin som används fastställas. Beroende på den information som identifierades i steg 2 kan du bestämma vilken topologi som är den som ska användas. Den enda skogen är en enda Azure AD-topologi som är vanligast och består av en enda Active Directory skog och en enda instans av Azure AD.  Detta kommer att användas i en majoritet av scenarierna och är den förväntade topologin när du använder Azure AD Connect Express installation som visas i bilden nedan.
 
-![Topologier](./media/plan-hybrid-identity-design-considerations/single-forest.png) med stöd För enkel skog Det är vanligt att stora och till och med små organisationer har flera skogar, vilket visas i figur 5.
+![Scenarier för](./media/plan-hybrid-identity-design-considerations/single-forest.png) topologier med en enda skog som stöds är det vanligt för stora och till och med små organisationer att ha flera skogar, som du ser i bild 5.
 
 > [!NOTE]
-> Mer information om de olika lokala och Azure AD-topologierna med Azure AD Connect-synkronisering finns i artikeln [Topologies för Azure AD Connect](plan-connect-topologies.md).
+> Mer information om de olika lokala och Azure AD-topologierna med Azure AD Connect Sync finns i artikel [topologier för Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![flerskogstopologi](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![topologi för flera skogar](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Scenario med flera skogar
 
-Om så är fallet bör en azure AD-topologin för flera skogar beaktas om följande objekt är sanna:
+I så fall bör du överväga att använda en enda Azure AD-topologi för flera skogar om följande objekt är sanna:
 
-* Användare har bara en identitet i alla skogar – avsnittet unikt identifierande användare nedan beskriver detta mer i detalj.
-* Användaren autentiserar till skogen där deras identitet finns
-* UPN och Source Anchor (oföränderlig id) kommer från denna skog
-* Alla skogar är tillgängliga via Azure AD Connect – det innebär att den inte behöver domänkoppling och kan placeras i en DMZ om detta underlättar detta.
-* Användarna har bara en postlåda
-* Skogen som är värd för en användares postlåda har den bästa datakvaliteten för attribut som visas i DEN globala adresslistan för Exchange (GAL)
-* Om det inte finns någon postlåda på användaren kan alla skogar användas för att bidra med dessa värden
-* Om du har en länkad postlåda finns det också ett annat konto i en annan skog som används för att logga in.
+* Användare har endast 1 identitet i alla skogar – i avsnittet identifiera användare nedan beskrivs detta i mer detalj.
+* Användaren autentiseras mot den skog där deras identitet finns
+* UPN och käll ankare (oföränderliga ID) kommer från den här skogen
+* Alla skogar är tillgängliga via Azure AD Connect – det innebär att den inte behöver vara domänansluten och kan placeras i en DMZ om detta underlättar detta.
+* Användare har bara en post låda
+* Den skog som är värd för en användares post låda har den bästa data kvaliteten för attribut som visas i den globala adress listan i Exchange (GAL)
+* Om det inte finns någon post låda för användaren kan en skog användas för att bidra med dessa värden
+* Om du har en länkad post låda finns det också ett annat konto i en annan skog som används för att logga in.
 
 > [!NOTE]
-> Objekt som finns i både lokalt och i molnet är "anslutna" via en unik identifierare. I samband med katalogsynkronisering kallas den här unika identifieraren SourceAnchor. I samband med Enkel inloggning kallas detta ImmutableId. [Designkoncept för Azure AD Connect](plan-connect-design-concepts.md#sourceanchor) för mer information om användningen av SourceAnchor.
+> Objekt som finns i både lokalt och i molnet är "anslutna" via en unik identifierare. I kontexten för katalog synkronisering kallas den här unika identifieraren SourceAnchor. I samband med enkel inloggning kallas detta för ImmutableId. [Utforma begrepp för Azure AD Connect](plan-connect-design-concepts.md#sourceanchor) för mer information om användningen av SourceAnchor.
 > 
 > 
 
-Om ovanstående inte är sant och du har mer än ett aktivt konto eller mer än en postlåda, kommer Azure AD Connect att välja det ena och ignorera det andra.  Om du har länkade postlådor men inget annat konto exporteras inte dessa konton till Azure AD och den användaren kommer inte att vara medlem i några grupper.  Detta skiljer sig från hur det var tidigare med DirSync och är avsiktligt att bättre stödja dessa multi-skog scenarier. Ett scenario med flera skogar visas i figuren nedan.
+Om ovanstående inte är sant och du har fler än ett aktivt konto eller fler än en post låda, kommer Azure AD Connect att välja ett och ignorera det andra.  Om du har länkade post lådor men inga andra konton, exporteras inte dessa konton till Azure AD och den användaren är inte medlem i någon grupp.  Detta skiljer sig från hur det tidigare hade DirSync och är avsiktligt för att bättre stödja dessa scenarier med flera skogar. Ett scenario med flera skogar visas i bilden nedan.
 
 ![flera Azure AD-klienter](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
-**Flera Azure AD-scenario för flera skogar**
+**Flera skogar med flera olika Azure AD-scenarier**
 
-Vi rekommenderar att du bara har en enda katalog i Azure AD för en organisation, men det stöds en 1:1-relation hålls mellan en Azure AD Connect-synkroniseringsserver och en Azure AD-katalog.  För varje instans av Azure AD behöver du en installation av Azure AD Connect.  Dessutom azure AD, design är isolerad och användare i en instans av Azure AD kommer inte att kunna se användare i en annan instans.
+Vi rekommenderar att du bara har en enda katalog i Azure AD för en organisation, men den stöds en 1:1-relation hålls mellan en Azure AD Connect Sync-Server och en Azure AD-katalog.  För varje instans av Azure AD behöver du en installation av Azure AD Connect.  Dessutom är Azure AD efter design isolerad och användare i en instans av Azure AD kommer inte att kunna se användare i en annan instans.
 
 Det är möjligt och stöds för att ansluta en lokal instans av Active Directory till flera Azure AD-kataloger som visas i bilden nedan:
 
-![enstaka skogsfiltrering](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![filtrering av enstaka skogar](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
-**Scenario för filtrering med en skog**
+**Filtrerings scenario med en skog**
 
 För att göra detta måste följande vara sant:
 
-* Azure AD Connect-synkroniseringsservrar måste konfigureras för filtrering så att de alla har en ömsesidigt exklusiv uppsättning objekt.  Detta görs, till exempel genom att omfånga varje server till en viss domän eller organisationsenhet.
-* En DNS-domän kan bara registreras i en enda Azure AD-katalog så ATT-nätverken för användarna i den lokala AD måste använda separata namnområden
-* Användare i en instans av Azure AD kan bara se användare från sin instans.  De kommer inte att kunna se användare i andra fall
-* Endast en av Azure AD-katalogerna kan aktivera Exchange hybrid med den lokala AD
-* Ömsesidig exklusivitet gäller även för nedskrivning.  Detta gör att vissa tillbakaskrivningsfunktioner inte stöds med den här topologin eftersom dessa förutsätter en enda lokal konfiguration.  Det här omfattar:
-  * Gruppavskrivning med standardkonfiguration
-  * Tillbakaskrivning av enheter
+* Azure AD Connect Sync-servrar måste konfigureras för filtrering så att de båda har en ömsesidigt exklusiv uppsättning objekt.  Detta sker, till exempel genom att varje server omfångs till en viss domän eller ORGANISATIONSENHET.
+* En DNS-domän kan bara registreras i en enda Azure AD-katalog, så att UPN-användare i den lokala AD måste använda separata namn områden
+* Användare i en instans av Azure AD kommer bara att kunna se användare från sin instans.  De kommer inte att kunna se användare i de andra instanserna
+* Endast en av Azure AD-katalogerna kan aktivera Exchange hybrid med lokal AD
+* Ömsesidiga exklusivitet gäller även för Skriv återställning.  Detta gör att vissa skriv-och bakgrunds funktioner inte stöds med den här topologin eftersom dessa förutsätter en enda lokal konfiguration.  Det här omfattar:
+  * Skriv åtgärd för grupp med standard konfiguration
+  * Tillbakaskrivning av enhet
 
 Följande stöds inte och bör inte väljas som en implementering:
 
-* Det går inte att ha flera Azure AD Connect-synkroniseringsservrar som ansluter till samma Azure AD-katalog även om de är konfigurerade för att synkronisera ömsesidigt uteslutande uppsättning objekt
-* Det stöds inte att synkronisera samma användare till flera Azure AD-kataloger. 
-* Det stöds inte heller att göra en konfigurationsändring för att göra användare i en Azure AD att visas som kontakter i en annan Azure AD-katalog. 
-* Det är inte heller stöd att ändra Azure AD Connect-synkronisering för att ansluta till flera Azure AD-kataloger.
-* Azure AD-kataloger är avsiktligt isolerade. Det stöds inte att ändra konfigurationen av Azure AD Connect-synkronisering för att läsa data från en annan Azure AD-katalog i ett försök att skapa en gemensam och enhetlig GAL mellan katalogerna. Det stöds inte heller att exportera användare som kontakter till en annan lokal AD med Azure AD Connect-synkronisering.
+* Det går inte att ha flera Azure AD Connect Sync-servrar som ansluter till samma Azure AD-katalog även om de har kon figurer ATS för att synkronisera ömsesidigt uteslutande objekt uppsättning
+* Det går inte att synkronisera samma användare med flera Azure AD-kataloger. 
+* Det går inte heller att göra en konfigurations ändring för att användare i en Azure AD ska visas som kontakter i en annan Azure AD-katalog. 
+* Det går inte heller att ändra Azure AD Connect Sync för att ansluta till flera Azure AD-kataloger.
+* Azure AD-kataloger är design isolerade. Det finns inte stöd för att ändra konfigurationen för Azure AD Connect Sync för att läsa data från en annan Azure AD-katalog i ett försök att bygga en gemensam och enhetlig GAL mellan katalogerna. Det går inte heller att exportera användare som kontakter till en annan lokal AD med hjälp av Azure AD Connect Sync.
 
 > [!NOTE]
-> Om din organisation begränsar datorer i nätverket från att ansluta till Internet visas de slutpunkter (FQDN-, IPv4- och IPv6-adressintervall) som du bör inkludera i dina utgående tillåta listor och Internet Explorer Trusted Sites Zone of client datorer för att säkerställa att datorerna kan använda Office 365. Mer information finns i [Url:er och IP-adressintervall för Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Om din organisation begränsar datorerna i nätverket från att ansluta till Internet, visar den här artikeln de slut punkter (FQDN, IPv4 och IPv6-adress intervall) som du bör ta med i listan över utgående listor och zonen Tillförlitliga platser i Internet Explorer på klient datorer så att datorerna kan använda Office 365. Mer information finns i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 
-## <a name="define-multi-factor-authentication-strategy"></a>Definiera multifaktorautentiseringsstrategi
-I den här uppgiften definierar du den multifaktorautentiseringsstrategi som ska användas.  Azure Multi-Factor Authentication finns i två olika versioner.  Den ena är en molnbaserad och den andra är lokalt baserad med Azure MFA Server.  Baserat på utvärderingen du gjorde ovan kan du avgöra vilken lösning som är den rätta för din strategi.  Använd tabellen nedan för att avgöra vilket designalternativ som bäst uppfyller företagets säkerhetskrav:
+## <a name="define-multi-factor-authentication-strategy"></a>Definiera Multi-Factor Authentication-strategi
+I den här uppgiften ska du definiera strategin för Multi-Factor Authentication som ska användas.  Azure Multi-Factor Authentication levereras i två olika versioner.  En är en molnbaserad och den andra finns lokalt baserat på Azure MFA-servern.  Utifrån utvärderingen som du gjorde ovan kan du avgöra vilken lösning som är rätt för din strategi.  Använd tabellen nedan för att avgöra vilket design alternativ som bäst uppfyller företagets säkerhets krav:
 
-Alternativ för flerfaktorsdesign:
+Design alternativ för flera faktorer:
 
-| Tillgång för att säkra | MFA i molnet | MFA lokalt |
+| Till gång för att skydda | MFA i molnet | MFA lokalt |
 | --- | --- | --- |
 | Microsoft-appar |ja |ja |
 | Saas-appar i appgalleriet |ja |ja |
 | IIS-program publicerade via Azure AD App Proxy |ja |ja |
-| IIS-program som inte publiceras via Azure AD App Proxy |nej |ja |
+| IIS-program som inte publicerats via Azure AD App proxy |nej |ja |
 | Fjärråtkomst som VPN, RDG |nej |ja |
 
-Även om du kan ha fast på en lösning för din strategi, måste du fortfarande använda utvärderingen ovanifrån på var användarna finns.  Detta kan leda till att lösningen ändras.  Använd tabellen nedan för att hjälpa dig att avgöra detta:
+Även om du kan ha löst i en lösning för din strategi, behöver du fortfarande använda utvärderingen ovan på var användarna finns.  Detta kan orsaka att lösningen ändras.  Använd tabellen nedan för att hjälpa dig att fastställa följande:
 
-| Användarplats | Önskat designalternativ |
+| Användarplats | Önskat design alternativ |
 | --- | --- |
-| Azure Active Directory |Multifaktorautentisering i molnet |
+| Azure Active Directory |Multi-FactorAuthentication i molnet |
 | Azure AD och lokalt AD med federation med AD FS |Båda |
-| Azure AD och lokalt AD med Azure AD Connect ingen lösenordssynkronisering |Båda |
-| Azure AD och lokalt med Azure AD Connect med lösenordssynkronisering |Båda |
-| Lokalt AD |Multi-Factor Authentication Server |
+| Azure AD och lokalt AD med Azure AD Connect ingen Lösenordssynkronisering |Båda |
+| Azure AD och lokalt med hjälp av Azure AD Connect med Lösenordssynkronisering |Båda |
+| Lokal AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> Du bör också se till att designalternativet för multifaktorautentisering som du har valt stöder de funktioner som krävs för din design.  Mer information finns i [Välj säkerhetslösning för flera faktorer åt dig](../authentication/concept-mfa-howitworks.md).
+> Du bör också se till att design alternativet Multi-Factor Authentication som du har valt stöder de funktioner som krävs för din design.  Mer information finns [i välja Multi-Factor Security-lösningen för dig](../authentication/concept-mfa-howitworks.md).
 > 
 
-## <a name="multi-factor-auth-provider"></a>Multifaktor-Auth-provider
-Multifaktorautentisering är som standard tillgängligt för globala administratörer som har en Azure Active Directory-klientorganisation. Men om du vill utöka multifaktorautentisering till alla dina användare och/eller vill att dina globala administratörer ska kunna dra nytta av funktioner som hanteringsportalen, anpassade hälsningar och rapporter, måste du köpa och konfigurera Multifaktorautentiseringsprovider.
+## <a name="multi-factor-auth-provider"></a>Multi-Factor Auth-provider
+Multi-Factor Authentication är tillgängligt som standard för globala administratörer som har en Azure Active Directory-klient. Men om du vill utöka Multi-Factor Authentication till alla dina användare och/eller om du vill att dina globala administratörer ska kunna dra nytta av funktioner, till exempel hanterings portalen, anpassade hälsningar och rapporter, måste du köpa och konfigurera Multi-Factor Authentication leverantören.
 
 > [!NOTE]
-> Du bör också se till att designalternativet för multifaktorautentisering som du har valt stöder de funktioner som krävs för din design. 
+> Du bör också se till att design alternativet Multi-Factor Authentication som du har valt stöder de funktioner som krävs för din design. 
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-[Bestäm dataskyddskrav](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+[Fastställa krav för data skydd](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## <a name="see-also"></a>Se även
-[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
 

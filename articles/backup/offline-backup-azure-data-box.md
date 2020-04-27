@@ -3,19 +3,19 @@ title: Säkerhets kopiering offline med hjälp av Azure Data Box
 description: Lär dig hur du kan använda Azure Data Box för att dirigera stora första säkerhets kopierings data offline från MARS-agenten till ett Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672971"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160963"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup offline-säkerhetskopiering med Azure Data Box
 
 Du kan använda [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) för att dirigera dina säkerhets kopieringar av stora inledande Microsoft Azure Recovery Services (mars) offline (utan att använda nätverket) till ett Recovery Services-valv. Den här processen sparar tid och nätverks bandbredd som annars skulle konsumeras för att flytta stora mängder säkerhetskopierade data online över ett nätverk med hög latens. Den här förbättringen är för närvarande en för hands version. Offline-säkerhetskopiering som baseras på Azure Data Box ger två distinkta fördelar jämfört med [offline-säkerhetskopiering baserat på Azure import/export-tjänsten](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
 
-* Du behöver inte skaffa dina egna Azure-kompatibla diskar och anslutningar. Azure Data Box levererar de diskar som är associerade med den valda [data Box-enhet SKU: n](https://azure.microsoft.com/services/databox/data/).
-* Azure Backup (MARS-agent) kan skriva säkerhets kopierings data direkt till de SKU: er som stöds av Azure Data Box. Den här funktionen eliminerar behovet av att etablera en mellanlagringsplats för dina första säkerhets kopierings data. Du behöver inte heller något verktyg för att formatera och kopiera dessa data till diskarna.
+- Du behöver inte skaffa dina egna Azure-kompatibla diskar och anslutningar. Azure Data Box levererar de diskar som är associerade med den valda [data Box-enhet SKU: n](https://azure.microsoft.com/services/databox/data/).
+- Azure Backup (MARS-agent) kan skriva säkerhets kopierings data direkt till de SKU: er som stöds av Azure Data Box. Den här funktionen eliminerar behovet av att etablera en mellanlagringsplats för dina första säkerhets kopierings data. Du behöver inte heller något verktyg för att formatera och kopiera dessa data till diskarna.
 
 ## <a name="azure-data-box-with-the-mars-agent"></a>Azure Data Box med MARS-agenten
 
@@ -60,10 +60,10 @@ Processen för att dirigera data från MARS-agenten med hjälp av Azure Data Box
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure-prenumeration och nödvändiga behörigheter
 
-* Processen kräver en Azure-prenumeration.
-* Processen kräver att den användare som är utsedd för att utföra säkerhets kopierings principen offline är en ägare av Azure-prenumerationen.
-* Data Box-enhet-jobbet och Recovery Services-valvet (som data måste dirigeras till) måste finnas i samma prenumerationer.
-* Vi rekommenderar att mål lagrings kontot som är kopplat till Azure Data Box-jobbet och Recovery Services-valvet finns i samma region. Detta är dock inte nödvändigt.
+- Processen kräver en Azure-prenumeration.
+- Processen kräver att den användare som är utsedd för att utföra säkerhets kopierings principen offline är en ägare av Azure-prenumerationen.
+- Data Box-enhet-jobbet och Recovery Services-valvet (som data måste dirigeras till) måste finnas i samma prenumerationer.
+- Vi rekommenderar att mål lagrings kontot som är kopplat till Azure Data Box-jobbet och Recovery Services-valvet finns i samma region. Detta är dock inte nödvändigt.
 
 ### <a name="get-azure-powershell-370"></a>Hämta Azure PowerShell 3.7.0
 
@@ -77,7 +77,7 @@ Processen för att dirigera data från MARS-agenten med hjälp av Azure Data Box
     Get-Module -ListAvailable AzureRM*
     ```
 
-1.  Om utdata visar en högre version än 3.7.0 gör du "steg 2". Annars går du vidare till "steg 3".
+1. Om utdata visar en högre version än 3.7.0 gör du "steg 2". Annars går du vidare till "steg 3".
 
 #### <a name="step-2-uninstall-the-powershell-version"></a>Steg 2: Avinstallera PowerShell-versionen
 
@@ -99,11 +99,11 @@ Avinstallera den aktuella versionen av PowerShell.
 
 När du har kontrollerat att det inte finns några AzureRM-moduler installerar du version 3.7.0 med någon av följande metoder:
 
-* Använd [den här länken](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017)från GitHub.
+- Använd [den här länken](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017)från GitHub.
 
 Eller så kan du:
 
-* Kör följande kommando i PowerShell-fönstret:
+- Kör följande kommando i PowerShell-fönstret:
 
     ```powershell
     Install-Module -Name AzureRM -RequiredVersion 3.7.0
@@ -148,7 +148,7 @@ Om du beställde en Azure Data Box instans (upp till 100 TB) följer du stegen h
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Montera Azure Data Box-instansen som ett lokalt system
 
-MARS-agenten fungerar i det lokala systemets kontext, så den kräver att samma behörighets nivå anges för monterings Sök vägen där Azure Data Box-instansen är ansluten. 
+MARS-agenten fungerar i det lokala systemets kontext, så den kräver att samma behörighets nivå anges för monterings Sök vägen där Azure Data Box-instansen är ansluten.
 
 För att säkerställa att du kan montera din Data Box-enhet-enhet som ett lokalt system med hjälp av NFS-protokollet:
 
@@ -238,14 +238,14 @@ När säkerhets kopieringen av data har avslut ATS visas en sida på MARS-agente
 
 I det här avsnittet beskrivs de steg som du vidtar när säkerhets kopieringen av data till Azure Data Box Disk har slutförts.
 
-* Följ stegen i den här artikeln för att [leverera Azure Data Box-disken till Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Om du använde en Azure Data Box 100-TB-enhet följer du stegen nedan för att [leverera Azure Data Box-enheten till Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Följ stegen i den här artikeln för att [leverera Azure Data Box-disken till Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Om du använde en Azure Data Box 100-TB-enhet följer du stegen nedan för att [leverera Azure Data Box-enheten till Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
 
-* [Övervaka data Box-enhet jobb](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) i Azure Portal. När Azure Data Box jobbet är klart flyttar MARS-agenten automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Sedan markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
+- [Övervaka data Box-enhet jobb](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) i Azure Portal. När Azure Data Box jobbet är klart flyttar MARS-agenten automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Sedan markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
 
     >[!NOTE]
     >MARS-agenten utlöser säkerhets kopieringar vid schemalagda tidpunkter när principen skapas. Jobb flaggan "väntar på att Azure Data Box jobb ska slutföras" tills jobbet har slutförts.
 
-* När MARS-agenten har skapat en återställnings punkt som motsvarar den första säkerhets kopieringen kan du ta bort lagrings kontot eller det angivna innehållet som är kopplat till Azure Data Box jobbet.
+- När MARS-agenten har skapat en återställnings punkt som motsvarar den första säkerhets kopieringen kan du ta bort lagrings kontot eller det angivna innehållet som är kopplat till Azure Data Box jobbet.
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -307,8 +307,8 @@ Utför följande åtgärder från den server som du försöker konfigurera för 
     >[!NOTE]
     > Hämta användar-ID: t för Azure genom att utföra någon av följande åtgärder:
     >
-    >* Kör `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` kommandot från Azure-anslutna PowerShell.
-    > * Gå till registret sökväg *dator \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\DbgSettings\OnlineBackup* med namnet *CurrentUserId*.
+    >- Kör `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` kommandot från Azure-anslutna PowerShell.
+    > - Gå till register Sök vägen `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` med namnet *CurrentUserId*.
 
 6. Högerklicka på den sträng som du lade till i föregående steg och välj **ändra**. I värdet anger du tumavtrycket för det certifikat som du exporterade i steg 2. Välj **OK**.
 

@@ -4,12 +4,12 @@ description: Lär dig hur du återställer en disk och återskapar en virtuell d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 31e2645a4a627793f13c37c543d9e08240e06930
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 56410b5302611d5de3d72f727e1a4c36bd49ca7e
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82113722"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160946"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Återställa en disk och skapa en återställd virtuell dator i Azure
 
@@ -87,19 +87,20 @@ Om den säkerhetskopierade virtuella datorn har hanterade diskar och om avsikten
         --target-resource-group targetRG
     ```
 
-> [!WARNING]
-> Om mål resurs grupp inte anges kommer de hanterade diskarna att återställas som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Kunderna får bara nytta av omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange mål resurs grupps parametern och i stället ange parametern Restore-as-unmanaged-disk som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
+    > [!WARNING]
+    > Om mål resurs grupp inte anges kommer de hanterade diskarna att återställas som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Kunderna får bara nytta av omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange mål resurs grupps parametern och i stället ange parametern Restore-as-unmanaged-disk som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
 
     ```azurecli-interactive
     az backup restore restore-disks \
-        --resource-group myResourceGroup \
-        --vault-name myRecoveryServicesVault \
-        --container-name myVM \
-        --item-name myVM \
-        --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
-        --restore-as-unmanaged-disk
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --storage-account mystorageaccount \
+    --rp-name myRecoveryPointName
+    --restore-as-unmanaged-disk
     ```
+
 Detta kommer att återställa hanterade diskar som ohanterade diskar till det aktuella lagrings kontot och kommer inte att använda funktionen "direkt återställning". I framtida versioner av CLI är det obligatoriskt att ange antingen parametern-parameter-eller "Återställ-som-ohanterad-disk".
 
 ### <a name="unmanaged-disks-restore"></a>Återställning av ohanterade diskar

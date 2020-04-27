@@ -1,6 +1,6 @@
 ---
-title: Ändra storlek på kapacitetspoolen eller en volym för Azure NetApp-filer | Microsoft-dokument
-description: Beskriver hur du ändrar storleken på en kapacitetspool eller en volym.
+title: Ändra storlek på kapacitets gruppen eller en volym för Azure NetApp Files | Microsoft Docs
+description: Beskriver hur du ändrar storleken på en kapacitets uppsättning eller en volym.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,28 +15,28 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: b-juche
 ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65794618"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Ändra storlek på en kapacitetspool eller en volym
-Du kan ändra storleken på en kapacitetspool eller en volym efter behov. 
+Du kan ändra storleken på en kapacitets uppsättning eller en volym om det behövs. 
 
-## <a name="resize-the-capacity-pool"></a>Ändra storlek på kapacitetspoolen 
+## <a name="resize-the-capacity-pool"></a>Ändra storlek på kapacitets gruppen 
 
-Du kan ändra kapacitetspoolstorleken i steg om 1-TiB eller minskningar. Kapacitetens poolstorlek kan dock inte vara mindre än 4 TiB. Ändra storlek på kapacitetspoolen ändras den köpta Azure NetApp Files-kapaciteten.
+Du kan ändra storleken på TiB ökningar eller minskningar i en pool. Kapacitets bassängens storlek kan dock inte vara mindre än 4 TiB. Om du ändrar storlek på kapacitetsutnyttjandet ändras den köpta Azure NetApp Files kapaciteten.
 
-1. Klicka på den kapacitetspool som du vill ändra storlek på i bladet Hantera NetApp-konto. 
-2. Högerklicka på kapacitetspoolens namn eller klicka på "..." i slutet av kapacitetspoolens rad för att visa snabbmenyn. 
-3. Använd alternativ för snabbmeny för att ändra storlek på eller ta bort kapacitetspoolen.
+1. Från bladet hantera NetApp-konton klickar du på den kapacitets uppsättning som du vill ändra storlek på. 
+2. Högerklicka på namnet på mediepoolen eller klicka på "..." i slutet av poolens rad för att Visa snabb menyn. 
+3. Använd snabb meny alternativen för att ändra storlek på eller ta bort kapacitets gruppen.
 
 ## <a name="resize-a-volume"></a>Ändra storlek på en volym
 
-Du kan ändra storleken på en volym efter behov. En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet.
+Du kan ändra storlek på en volym om det behövs. En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet.
 
-1. Klicka på **Volymer**i bladet Hantera NetApp-konto . 
-2. Högerklicka på namnet på den volym som du vill ändra storlek på eller klicka på "..." i slutet av volymens rad för att visa snabbmenyn.
-3. Använd snabbmenyalternativen för att ändra storlek på eller ta bort volymen.
+1. Från bladet hantera NetApp-konton klickar du på **volymer**. 
+2. Högerklicka på namnet på den volym som du vill ändra storlek på eller klicka på "..." ikonen i slutet av volymens rad för att Visa snabb menyn.
+3. Använd snabb meny alternativen för att ändra storlek på eller ta bort volymen.
 

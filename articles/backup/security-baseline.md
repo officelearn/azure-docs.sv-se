@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b18463720b63f62a2ae4b19a3bdbae6862bc9985
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 9be6c174e30514ef81cd5fa020d50ffa238317be
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120735"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160895"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Azures säkerhets bas linje för säkerhets kopiering
 
@@ -140,7 +140,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: för gransknings loggning i kontroll plan aktiverar du Azure aktivitets logg diagnostikinställningar och skickar loggarna till en Log Analytics arbets yta, Azure Event Hub eller Azure Storage-konto för arkivering. Med hjälp av Azures aktivitets logg data kan du avgöra vad, vem och när som helst för Skriv åtgärder (skicka, skicka och ta bort) på kontroll Plans nivån för dina Azure-resurser.
 
-Dessutom skickas loggar via Azure Monitor för att samla in säkerhets data som genereras av Azure Backup. Använd Log Analytics arbets ytor i Azure Monitor för att fråga och utföra analyser och Använd lagrings konton för långsiktig/lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en säkerhets incident och händelse hantering från tredje part (SIEM). 
+Dessutom skickas loggar via Azure Monitor för att samla in säkerhets data som genereras av Azure Backup. Använd Log Analytics arbets ytor i Azure Monitor för att fråga och utföra analyser och Använd lagrings konton för långsiktig/lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en säkerhets incident och händelse hantering från tredje part (SIEM).
 
 - [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
@@ -248,7 +248,7 @@ Du kan också publicera en Log Analytics arbets yta till Azure Sentinel eftersom
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning**: Azure Active Directory (AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper. 
+**Vägledning**: Azure Active Directory (AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
 Support dokumentation:
 
@@ -310,7 +310,7 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
 
-**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera dina Azure Backup-aktiverade resurser. 
+**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera dina Azure Backup-aktiverade resurser.
 
 - [Arbetsstationer för privilegierad åtkomst (PAW)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -358,7 +358,7 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 
-**Vägledning**: Azure Active Directory (AD) innehåller loggar för att hjälpa dig att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
+**Vägledning**: Azure Active Directory (AD) innehåller loggar för att hjälpa dig att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst.
 
 - [Förstå Azure AD repor ting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
 
@@ -630,7 +630,7 @@ Använd dessutom Azure policy för att ange begränsningar för den typ av resur
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: övervaka för ej godkända Azure-resurser
 
-**Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i dina prenumerationer. 
+**Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i dina prenumerationer.
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenumerationer.  Se till att alla Azure-resurser som finns i miljön är godkända.
 
@@ -836,7 +836,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
 
-**Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault. 
+**Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
 - [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -858,11 +858,11 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: för skanning av filer som ska laddas upp till Azure-resurser som inte är Compute
 
-**Vägledning**: Microsoft Antimalware är aktiverat på den underliggande värden som stöder Azure-tjänster (till exempel Azure Backup), men det körs inte på ditt innehåll. 
+**Vägledning**: Microsoft Antimalware är aktiverat på den underliggande värden som stöder Azure-tjänster (till exempel Azure Backup), men det körs inte på ditt innehåll.
 
-Genomsök alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage osv. 
+Genomsök alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage osv.
 
-Använd Azure Security Center s hot identifiering för data tjänster för att identifiera skadlig kod som laddats upp till lagrings konton. 
+Använd Azure Security Center s hot identifiering för data tjänster för att identifiera skadlig kod som laddats upp till lagrings konton.
 
 - [Förstå Microsoft Antimalware för Azure Cloud Services och Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
@@ -950,7 +950,7 @@ Säkerhetskopiera kund hanterade nycklar inom Azure Key Vault.
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: skapa en incident bedömnings-och prioriterings procedur
 
-**Vägledning**: Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen. 
+**Vägledning**: Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
 
 Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod) och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser.
 

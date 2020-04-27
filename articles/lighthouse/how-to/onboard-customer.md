@@ -3,12 +3,12 @@ title: Registrera en kund för Azure-delegerad resurshantering
 description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
 ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9cadab966c4d9ae3ddbc12a75f42f69e0c12f
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146320"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161116"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -199,6 +199,8 @@ Eftersom det här är en distribution på prenumerations nivå kan den inte init
 
 > [!IMPORTANT]
 > Den här distributionen på prenumerations nivå måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen som ägarens inbyggda roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har publicerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+>
+> Om prenumerationen skapades via [Cloud Solution Provider (CSP)-programmet](../concepts/cloud-solution-provider.md), kan alla användare som har rollen [Administratörs agent](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) i din tjänst leverantörs klient utföra distributionen.
 
 ### <a name="powershell"></a>PowerShell
 

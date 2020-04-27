@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 8a287ec5cd33c9f2a96af7ad8162f7c8f54df118
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134174"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160161"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Fördelar med att använda Azure NetApp Files för elektronisk design automatisering
 
@@ -77,9 +77,9 @@ Den kompletta arbets belastningen är en blandning av pågående funktionella oc
 
 Funktions fasen består av inledande specifikationer och en logisk design. Den fysiska fasen äger rum när den logiska designen konverteras till ett fysiskt chip. Under avstängnings-och band faserna slutförs de slutliga kontrollerna och designen levereras till en gjuteri för tillverkning.  
 
-I de funktionella faserna ingår en blandning av sekventiella och slumpmässiga Läs-och skriv-I/O. De funktionella faserna är metadata intensiva, t. ex. fil stats-och åtkomst anrop. Även om metadata-åtgärder effektivt inte är i storlek utan storlek, är Läs-och skriv åtgärder mellan mindre än 1 K och 16 KB. De flesta läsningar är mellan 4 K och 16 KB.  De flesta skrivningar är 4 K eller mindre.  De fysiska faserna består av sekventiella Läs-och skriv åtgärder, med en blandning av 32 K och 64 K OP-storlekar.  
+Funktions fasen innehåller en blandning av sekventiella och slumpmässiga Läs-och skriv-I/O. Funktions fasen är metadata intensiv, t. ex. fil stats-och åtkomst anrop. Även om metadata-åtgärder effektivt inte är i storlek utan storlek, är Läs-och skriv åtgärder mellan mindre än 1 K och 16 KB. De flesta läsningar är mellan 4 K och 16 KB.  De flesta skrivningar är 4 K eller mindre. Den fysiska fasen består av sekventiella Läs-och skriv åtgärder helt och hållet med en blandning av 32 K och 64 K OP-storlekar.  
 
-I diagrammen ovan kommer merparten av data flödet att komma från de sekventiella fysiska faserna av arbets belastningen. I/O kommer från de små slumpmässiga och metadata intensiva funktionella faserna. Båda faserna sker parallellt. 
+I diagrammen ovan kommer merparten av data flödet från den sekventiella fysiska fasen av arbets belastningen. I/O kommer från den små slumpmässiga och metadata-intensiva funktions fasen. Båda faserna sker parallellt. 
 
 I slutet kan du länka Azure Compute med Azure NetApp Files för EDA-design för att få skalbar bandbredd. 
 

@@ -1,6 +1,6 @@
 ---
-title: Översikt över Microsoft Azure StorSimple Data Manager | Microsoft-dokument
-description: Ger en översikt över Tjänsten StorSimple Data Manager
+title: Översikt över Microsoft Azure StorSimple Data Manager | Microsoft Docs
+description: Ger en översikt över den StorSimple Data Manager tjänsten
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -15,37 +15,37 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67876109"
 ---
-# <a name="storsimple-data-manager-solution-overview"></a>Lösningsöversikt för StorSimple Data Manager
+# <a name="storsimple-data-manager-solution-overview"></a>Översikt över StorSimple Data Manager lösning
 
 ## <a name="overview"></a>Översikt
 
-Microsoft Azure StorSimple använder molnlagring som ett tillägg till den lokala lösningen och automatiskt nivåer data över lokal lagring och molnet. Data lagras i molnet i ett avdped och komprimerat format för maximal effektivitet och för att sänka kostnaderna. Eftersom data lagras i StorSimple-format är det inte lätt att förbrukningsbara av andra molnprogram som du kanske vill använda.
+Microsoft Azure StorSimple använder moln lagring som en förlängning av den lokala lösningen och data skiktas automatiskt i den lokala lagringen och i molnet. Data lagras i molnet i ett deduplicerat och komprimerat format för högsta möjliga effektivitet och lägre kostnader. När data lagras i StorSimple-format är det inte lätt att använda andra moln program som du kanske vill använda.
 
-Med StorSimple Data Manager kan du sömlöst komma åt och använda StorSimple-formatdata i molnet. Detta gör detta genom att omvandla StorSimple-format till inbyggda blobbar och filer, som du kan använda med andra tjänster som Azure Media Services, Azure HDInsights och Azure Machine Learning.
+Med StorSimple Data Manager kan du sömlöst komma åt och använda StorSimple-format data i molnet. Det gör detta genom att transformera StorSimple-formatet till interna blobbar och filer, som du kan använda med andra tjänster som Azure Media Services, Azure HDInsights och Azure Machine Learning.
 
-Den här artikeln innehåller en översikt över StorSimple Data Manager-lösningen. Det förklarar också hur du kan använda den här tjänsten för att skriva program som använder StorSimple-data och andra Azure-tjänster i molnet.
+Den här artikeln innehåller en översikt över den StorSimple Data Manager lösningen. Det förklarar också hur du kan använda den här tjänsten för att skriva program som använder StorSimple-data och andra Azure-tjänster i molnet.
 
 ## <a name="how-it-works"></a>Hur fungerar det?
 
-StorSimple Data Manager-tjänsten identifierar StorSimple-data i molnet från en lokal StorSimple 8000-serie. StorSimple-data i molnet är eftervakade, komprimerade StorSimple-format. Data manager-tjänsten tillhandahåller API:er för att extrahera StorSimple-formatdata och omvandla dem till andra format som Azure-blobbar och Azure-filer. Den här transformerade datan förbrukas sedan enkelt av Azure HDInsight- och Azure Media-tjänster. Dataomvandlingen gör det möjligt för dessa tjänster att fungera på de transformerade StorSimple-data från StorSimple 8000-seriens lokala enhet. Detta flöde illustreras i följande diagram.
+Tjänsten StorSimple Data Manager identifierar StorSimple-data i molnet från en lokal enhet med StorSimple 8000-serien. StorSimple-data i molnet är deduplicerad, komprimerat StorSimple-format. Tjänsten Data Manager innehåller API: er för att extrahera StorSimple-format data och omvandla dem till andra format, till exempel Azure-blobbar och Azure Files. Dessa omvandlade data används sedan lätt av Azure HDInsight och Azure Media Services. Datatransformeringen gör det möjligt för dessa tjänster att arbeta med transformerade StorSimple-data från StorSimple 8000-serien på en lokal enhet. Det här flödet illustreras i följande diagram.
 
 ![Diagram på hög nivå](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
 
-## <a name="data-manager-use-cases"></a>Användningsfall för DataHanteraren
+## <a name="data-manager-use-cases"></a>Data Manager användnings fall
 
-Du kan använda Datahanteraren med Azure Functions, Azure Automation och Azure Data Factory för att ha arbetsflöden som körs på dina data när de kommer in i StorSimple. Du kanske vill bearbeta ditt medieinnehåll som du lagrar på StorSimple med Azure Media Services, eller köra en Machine Learning-algoritm på dessa data, eller visa ett Hadoop-kluster för att analysera data som du lagrar på StorSimple. Med det stora utbudet av tjänster som finns tillgängliga på Azure i kombination med data på StorSimple kan du låsa upp kraften i dina data.
+Du kan använda Data Manager med Azure Functions, Azure Automation och Azure Data Factory för att köra arbets flöden på dina data när de kommer in i StorSimple. Du kanske vill bearbeta ditt medie innehåll som du lagrar på StorSimple med Azure Media Services, eller köra en Machine Learning algoritm på dessa data eller hämta ett Hadoop-kluster för att analysera de data som du lagrar på StorSimple. Med den stora mängden av tjänster som är tillgängliga i Azure tillsammans med data på StorSimple kan du låsa upp kraften i dina data.
 
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-StorSimple Data Manager är tillgänglig i följande 7 regioner:
+StorSimple Data Manager finns i följande 7 regioner:
 
  - Sydostasien
  - USA, östra
@@ -55,47 +55,47 @@ StorSimple Data Manager är tillgänglig i följande 7 regioner:
  - Europa, norra
  - Europa, västra
 
-StorSimple Data Manager kan dock användas för att omvandla data i följande regioner. 
+StorSimple Data Manager kan dock användas för att transformera data i följande regioner. 
 
-![Regioner tillgängliga för data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
+![Regioner som är tillgängliga för data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-Den här uppsättningen är större eftersom resursdistributionen i någon av ovanstående regioner kan ta upp omvandlingsprocessen i nedanstående regioner. Så länge dina data finns i någon av de 19 regionerna kan du omvandla dina data med den här tjänsten.
+Den här mängden är större eftersom resurs distributionen i någon av de ovanstående regionerna kan ta upp Transformations processen i regionerna nedan. Så länge dina data finns i någon av de 19 regionerna kan du omvandla dina data med hjälp av den här tjänsten.
 
 
 ## <a name="choosing-a-region"></a>Välja en region
 
 Vi rekommenderar att du:
- - Ditt källlagringskonto (det som är kopplat till din StorSimple-enhet) och mållagringskontot (där du vill att data i ursprungsformat) finns i samma Azure-region.
- - Du tar upp din Data Manager och jobbdefinition i regionen som innehåller StorSimple-lagringskontot. Om detta inte är möjligt kan du ta upp Datahanteraren i närmaste Azure-region och sedan skapa jobbdefinitionen i samma region som ditt StorSimple-lagringskonto. 
+ - Ditt käll lagrings konto (det som är associerat med din StorSimple-enhet) och mål lagrings kontot (där du vill att data i det interna formatet) ska finnas i samma Azure-region.
+ - Du tar upp din Data Manager och jobb definition i den region som innehåller StorSimple lagrings konto. Om detta inte är möjligt, så ta upp Data Manager i den närmaste Azure-regionen och skapa sedan jobb definitionen i samma region som ditt StorSimple-lagrings konto. 
 
-    Om ditt Lagringskonto i StorSimple inte finns i de 26 regioner som stöder skapandet av jobbdefinition rekommenderar vi att du inte kör StorSimple Data Manager eftersom du ser långa fördröjningar och potentiella utgående avgifter.
+    Om ditt StorSimple lagrings konto inte finns i de 26 regioner som stöder skapande av jobb definition, rekommenderar vi att du inte kör StorSimple Data Manager när du ser långa svars tider och potentiella utgående avgifter.
     
-Microsoft strävar efter att se till att Azure-tjänster alltid är tillgängliga i alla regioner. Oplanerade avbrott i tjänsten kan dock förekomma under korta perioder i en viss region. I sådana fall kan du ta upp en Data Manager och jobbdefinition i en region som inte påverkas av avbrottet och köra omvandlingsjobbet. Du kan stöta på ytterligare svarstider i ett sådant scenario, men det kan vara din återställningsstrategi i den sällsynta händelsen av ett regionalt avbrott.
+Microsoft strävar efter att se till att Azure-tjänster alltid är tillgängliga i alla regioner. Oplanerade drift avbrott kan dock inträffa under korta perioder i en viss region. I sådana fall kan du hämta en Data Manager och en jobb definition i en region som inte påverkas av avbrottet och köra Transformations jobbet. Du kan stöta på viss ytterligare svars tid i ett sådant scenario, men det kan vara din återställnings strategi i sällsynta fall av ett regionalt avbrott.
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-StorSimple Data Manager behöver krypteringsnyckeln för tjänstdata för att omvandla från StorSimple-format till ursprungsformat. Krypteringsnyckeln för tjänstdata genereras när den första enheten registreras med StorSimple-tjänsten. Mer information om den här nyckeln finns i [StorSimple security](storsimple-8000-security.md).
+StorSimple Data Manager behöver krypterings nyckeln för tjänst data som ska transformeras från StorSimple-format till ursprungligt format. Krypterings nyckeln för tjänst data genereras när den första enheten registreras med StorSimple-tjänsten. Mer information om den här nyckeln finns på [StorSimple Security](storsimple-8000-security.md).
 
-Krypteringsnyckeln för tjänstdata som tillhandahålls som en indata lagras i ett nyckelvalv som skapas när du skapar en Data Manager. Valvet finns i samma Azure-region som din StorSimple Data Manager. Den här nyckeln tas bort när du tar bort tjänsten Data Manager.
+Krypterings nyckeln för tjänst data som angavs som indata lagras i ett nyckel valv som skapas när du skapar en Data Manager. Valvet finns i samma Azure-region som din StorSimple Data Manager. Den här nyckeln tas bort när du tar bort din Data Manager-tjänst.
 
-Den här nyckeln används av beräkningsresurserna för att utföra omvandlingen. Dessa beräkningsresurser finns i samma Azure-region som jobbdefinitionen. Den här regionen kan, eller kanske inte är samma som den region där du tar upp din Data Manager.
+Den här nyckeln används av beräknings resurserna för att utföra omvandlingen. Dessa beräknings resurser finns i samma Azure-region som jobb definitionen. Den här regionen får inte vara samma som den region där du har Data Manager.
 
-Om datahanterarens region skiljer sig från projektdefinitionsregionen är det viktigt att du förstår vilka data/metadata som finns i var och en av dessa regioner. Följande diagram illustrerar effekten av att ha olika regioner för Datahanteraren och jobbdefinition.
+Om din Data Manager region skiljer sig från ditt jobb definitions område är det viktigt att du förstår vilka data/metadata som finns i var och en av dessa regioner. Följande diagram illustrerar effekterna av att ha olika regioner för Data Manager och jobb definition.
 
-![Service- och jobbdefinition i olika regioner](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+![Tjänst-och jobb definition i olika regioner](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
 ## <a name="managing-personal-information"></a>Hantera personlig information
 
-StorSimple Data Manager samlar inte in eller visar någon personlig information. Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
+StorSimple Data Manager samlar eller visar inte någon personlig information. Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
 Tjänsten har för närvarande följande begränsningar:
-- StorSimple Data Manager arbetar för närvarande inte med volymer som är bitlocker krypterade. Du kommer att se jobbfel om du försöker köra tjänsten med en krypterad enhet.
+- StorSimple Data Manager fungerar för närvarande inte med volymer som är BitLocker-krypterade. Du kommer att se jobb felen om du försöker köra tjänsten med en krypterad enhet.
 - Vissa metadata för filer (inklusive ACL: er) kommer inte att behållas i transformerade data.
 - Den här tjänsten fungerar bara med NTFS-volymer.
-- Filsökvägslängder måste vara mindre än 256 tecken annars misslyckas jobbet.
+- Fil Sök vägens längd måste vara kortare än 256 tecken. det går inte att utföra jobbet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd StorSimple Data Manager-användargränssnittet för att omvandla dina data](storsimple-data-manager-ui.md).
+[Använd StorSimple Data Manager användar gränssnitt för att transformera data](storsimple-data-manager-ui.md).

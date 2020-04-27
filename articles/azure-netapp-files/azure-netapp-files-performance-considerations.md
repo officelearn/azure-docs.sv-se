@@ -1,6 +1,6 @@
 ---
-title: Prestandaöverväganden för Azure NetApp-filer | Microsoft-dokument
-description: Beskriver prestandaöverväganden för Azure NetApp-filer.
+title: Prestanda överväganden för Azure NetApp Files | Microsoft Docs
+description: Beskriver prestanda överväganden för Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,51 +15,51 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
 ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67454144"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Saker att tänka på gällande prestanda för Azure NetApp Files
 
-[Dataflödesgränsen](azure-netapp-files-service-levels.md) för en volym bestäms av en kombination av den kvot som tilldelats volymen och den valda servicenivån. När du gör prestandaplaner om Azure NetApp-filer måste du förstå flera överväganden. 
+[Data flödes gränsen](azure-netapp-files-service-levels.md) för en volym bestäms av en kombination av den kvot som tilldelats volymen och den valda Service nivån. När du gör prestanda planer om Azure NetApp Files måste du förstå flera saker att tänka på. 
 
-## <a name="quota-and-throughput"></a>Kvot och dataflöde  
+## <a name="quota-and-throughput"></a>Kvot och data flöde  
 
-Dataflödesgränsen är bara en avgörande faktor för den faktiska prestanda som ska realiseras.  
+Data flödes gränsen är bara en Determinant av de faktiska prestanda som kommer att realiseras.  
 
-Typiska överväganden för lagringsprestanda, inklusive läs- och skrivmix, överföringsstorlek, slumpmässiga eller sekventiella mönster, och många andra faktorer kommer att bidra till den totala prestandan som levereras.  
+Vanliga överväganden för lagrings prestanda, inklusive Läs-och skriv mixning, överförings storlek, slumpmässiga eller sekventiella mönster, och många andra faktorer bidrar till den totala prestanda som levereras.  
 
-Den maximala empiriska genomströmningen som har observerats vid testning är 4 500 MiB/s.  På premiumlagringsnivån etablerar en volymkvot på 70,31 TiB en dataflödesgräns som är tillräckligt hög för att uppnå den här prestandanivån.  
+Det maximala empiriska data flödet som har observerats vid testning är 4 500 MiB/s.  På Premium Storage-nivån tillhandahåller en volym kvot på 70,31 TiB en gräns för data flöde som är tillräckligt hög för att uppnå den här prestanda nivån.  
 
-Om du funderar på att tilldela volymkvotbelopp utöver 70,31 TiB kan ytterligare kvot tilldelas en volym för lagring av ytterligare data. Den tillagda kvoten kommer dock inte att leda till en ytterligare ökning av det faktiska genomströmningen.  
+Om du överväger att tilldela volym kvots mängder utöver 70,31 TiB kan ytterligare kvot tilldelas till en volym för lagring av ytterligare data. Den tillagda kvoten kommer dock inte att resultera i en ytterligare ökning av det faktiska data flödet.  
 
-Mer [information finns i Prestandariktmärken för Azure NetApp-filer.](azure-netapp-files-performance-benchmarks.md)
+Mer information finns i [prestanda mått för Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) .
 
-## <a name="overprovisioning-the-volume-quota"></a>Överetablering av volymkvoten
+## <a name="overprovisioning-the-volume-quota"></a>Överetablera volym kvoten
 
-Om en arbetsbelastnings prestanda är begränsad till dataflöde är det möjligt att överetablera volymkvoten för att ange en högre dataflödesnivå och uppnå högre prestanda.  
+Om arbets Belastningens prestanda är data flödes gräns, är det möjligt att överetablera volym kvoten för att ange en högre data flödes nivå och uppnå högre prestanda.  
 
-Om till exempel en volym i Premium-lagringsnivån bara har 500 GiB data men kräver 128 MiB/s dataflöde, kan du ställa in kvoten till 2 TiB så att dataflödesnivån ställs in i enlighet med detta (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
+Om en volym på nivån Premium lagring till exempel bara har 500 GiB av data men kräver 128 MiB/s av data flödet, kan du ange kvoten till 2 TiB så att data flödes nivån anges enligt detta (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
 
-Om du konsekvent överetablera en volym för att uppnå ett högre dataflöde kan du överväga att använda en högre servicenivå i stället.  I exemplet ovan kan du uppnå samma dataflödesgräns med halva volymkvoten genom att använda Lagringsnivån Ultra istället (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
+Om du konsekvent överetablerar en volym för att uppnå ett högre data flöde bör du överväga att använda en högre service nivå i stället.  I exemplet ovan kan du uppnå samma data flödes gräns med hälften av volym kvoten genom att använda Ultra Storage-nivå i stället (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
 
-## <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Dynamiskt ökande eller minskande volymkvot
+## <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Öka eller minska volym kvoten dynamiskt
 
-Om dina prestandakrav är tillfälliga till sin natur, eller om du har ökade prestandabehov under en bestämd tidsperiod, kan du dynamiskt öka eller minska volymkvoten för att omedelbart justera dataflödesgränsen.  Observera följande överväganden: 
+Om dina prestanda krav är temporära i natur, eller om du har ökat prestanda behov under en viss tids period, kan du dynamiskt öka eller minska volym kvoten för att omedelbart justera data flödes gränsen.  Tänk på följande: 
 
-* Volymkvoten kan ökas eller minskas utan att i/o behöver pausas, och åtkomsten till volymen avbryts inte eller påverkas.  
+* Volym kvoten kan ökas eller minskas utan att du behöver pausa IO och åtkomst till volymen avbryts eller påverkas inte.  
 
-    Du kan justera kvoten under en aktiv I/O-transaktion mot en volym.  Observera att volymkvoten aldrig kan minskas under mängden logiska data som lagras i volymen.
+    Du kan justera kvoten under en aktiv I/O-transaktion mot en volym.  Observera att volym kvoten aldrig kan minskas under mängden logiska data som lagras i volymen.
 
-* När volymkvoten ändras är motsvarande ändring av dataflödesgränsen nästan omedelbar. 
+* När volym kvoten ändras är motsvarande förändring i data flödes gränsen nästan momentant. 
 
-    Ändringen avbryter eller påverkar inte volymåtkomsten eller I/O.  
+    Ändringen avbryter eller påverkar inte volym åtkomsten eller I/O.  
 
-* Justering av volymkvoten kräver en ändring av kapacitetspoolens storlek.  
+* Anpassning av volym kvoten kräver en ändring i storleken på kapacitets gruppen.  
 
-    Kapacitetspoolens storlek kan justeras dynamiskt och utan att påverka volymtillgängligheten eller I/O.
+    Storleken på kapacitets poolen kan justeras dynamiskt och utan att volymens tillgänglighet eller I/O påverkas.
 
 ## <a name="next-steps"></a>Nästa steg
 

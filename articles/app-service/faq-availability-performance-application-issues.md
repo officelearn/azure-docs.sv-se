@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259869"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159991"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om program prestanda för Web Apps i Azure
 
@@ -46,7 +46,7 @@ Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service
 
 Så här visar du webbappens händelse loggar:
 
-1. Logga in på din [kudu-webbplats](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
 2. I menyn väljer du **Felsök konsol** > **cmd**.
 3. Välj mappen **loggfiler** .
 4. Om du vill visa händelse loggar väljer du Penn ikonen bredvid **EventLog. XML**.
@@ -56,7 +56,7 @@ Så här visar du webbappens händelse loggar:
 
 För att avbilda en minnes dum par i användarläge för din webbapp:
 
-1. Logga in på din [kudu-webbplats](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
 2. Välj menyn **process Utforskaren** .
 3. Högerklicka på processen **W3wp. exe** eller ditt webb jobb.
 4. Välj **Ladda ned minnes dumpning** > **fullständig dump**.
@@ -69,7 +69,7 @@ Det finns två alternativ för att visa information på process nivå för din w
     1. Öppna **process Utforskaren** för webb programmet.
     2. Välj processen **W3wp. exe** om du vill se informationen.
 *   I kudu-konsolen:
-    1. Logga in på din [kudu-webbplats](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
     2. Välj menyn **process Utforskaren** .
     3. För processen **W3wp. exe** väljer du **Egenskaper**.
 

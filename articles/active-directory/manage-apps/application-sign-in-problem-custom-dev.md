@@ -1,5 +1,5 @@
 ---
-title: Problem med att logga in på ett specialutvecklat program | Microsoft-dokument
+title: Problem med att logga in till ett anpassat program som har utvecklats | Microsoft Docs
 description: Vanliga fel som kan orsaka att du inte kan logga in på ett program som du har utvecklat med Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,30 +17,30 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65825243"
 ---
-# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problem med att logga in på ett specialutvecklat program
+# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problem med att logga in till ett anpassat, utvecklat program
 
-Det finns flera fel som kan orsaka att du inte kan logga in på en app. Den största anledningen till att personer stöter på det här problemet är felkonfigurerade appar.
+Det finns flera fel som kan orsaka att du inte kan logga in på en app. Det största skälet till att människor stöter på det här problemet är felkonfigurerade appar.
 
-## <a name="errors-related-to--misconfigured-apps"></a>Fel relaterade till felkonfigurerade appar
+## <a name="errors-related-to--misconfigured-apps"></a>Fel som rör felkonfigurerade appar
 
-* Kontrollera att båda konfigurationerna i portalen matchar det du har i appen. Jämför specifikt klient-/program-ID, svarsadresser, klienthemligheter/nycklar och app-ID-URI.
+* Kontrol lera att båda konfigurationerna i portalen matchar det du har i din app. Mer specifikt jämför klient/program-ID, svars-URL: er, klient hemligheter/nycklar och app-ID-URI.
 
-* Jämför den resurs som du begär åtkomst till i kod med de konfigurerade behörigheterna på fliken **Obligatoriska resurser** för att se till att du bara begär resurser som du har konfigurerat.
+* Jämför resursen som du begär åtkomst till i kod med de konfigurerade behörigheterna på fliken **obligatoriska resurser** för att se till att du endast begär resurser som du har konfigurerat.
 
-* Se [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) för liknande fel eller problem.
+* Se [Azure AD-StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) för liknande fel eller problem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Utvecklarhandboken för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
+[Guide för Azure AD-utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Samtycka och integrera appar till Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Samtycke och integrering av appar till Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Medgivande och behörighet för Azure AD v2.0-konvergerade appar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Medgivande och behörighet för Azure AD v 2.0 konvergerade appar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD-StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

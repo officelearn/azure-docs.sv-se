@@ -1,6 +1,6 @@
 ---
-title: Hybriddesign av DRM-delsystem med Azure Media Services | Microsoft-dokument
-description: I det här avsnittet beskrivs hybriddesign av DRM-undersystem med Hjälp av Azure Media Services.
+title: Hybrid design av DRM-undersystem med Azure Media Services | Microsoft Docs
+description: I det här avsnittet beskrivs hybrid design av DRM-undersystem med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -15,41 +15,41 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975201"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159411"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Hybriddesign av DRM-delsystem 
+# <a name="hybrid-design-of-drm-subsystems"></a>Hybrid design av DRM-undersystem 
 
-I det här avsnittet beskrivs hybriddesign av DRM-undersystem med Hjälp av Azure Media Services.
+I det här avsnittet beskrivs hybrid design av DRM-undersystem med Azure Media Services.
 
 ## <a name="overview"></a>Översikt
 
-Azure Media Services ger stöd för följande tre DRM-system:
+Azure Media Services tillhandahåller stöd för följande tre DRM-system:
 
 * PlayReady
-* Widevine (Modulär)
+* Widevine (modulär)
 * FairPlay
 
-DRM-stödet omfattar DRM-kryptering (dynamisk kryptering) och licensleverans, med Azure Media Player som stöd för alla 3 DRMs som en webbläsare spelare SDK.
+DRM-stödet innehåller DRM-kryptering (dynamisk kryptering) och licens leverans, med Azure Media Player stöd för alla tre DRM: er som webb läsar-SDK: er.
 
-För en detaljerad behandling av DRM/ CENC undersystem design och implementering, se dokumentet med titeln [CENC med Multi-DRM och Access Control](media-services-cenc-with-multidrm-access-control.md).
+En detaljerad behandling av design och implementering av DRM/CENC-undersystem finns i dokumentet [med rubriken Cenc med multi-DRM och Access Control](media-services-cenc-with-multidrm-access-control.md).
 
-Även om vi erbjuder fullständig support för tre DRM-system, ibland kunder måste använda olika delar av sin egen infrastruktur / delsystem utöver Azure Media Services för att bygga en hybrid DRM delsystem.
+Även om vi erbjuder fullständigt stöd för tre DRM-system, kan kunder behöva använda olika delar av sin egen infrastruktur/under system, förutom Azure Media Services för att bygga ett hybrid DRM-undersystem.
 
-Nedan följer några vanliga frågor som ställs av kunder:
+Nedan visas några vanliga frågor som ställs av kunder:
 
-* "Kan jag använda mina egna DRM-licensservrar?" (I det här fallet har kunder investerat i DRM-licensservergrupp med inbäddad affärslogik).
-* "Kan jag bara använda din DRM-licensleverans i Azure Media Services utan att vara värd för innehåll i AMS?"
+* "Kan jag använda mina egna DRM-licensserver?" (I det här fallet har kunder investerat i en Server grupp för DRM-licenser med inbyggd affärs logik).
+* "Kan jag bara använda din leverans av DRM-licenser i Azure Media Services utan att vara värd för innehållet i AMS?"
 
-## <a name="modularity-of-the-ams-drm-platform"></a>Modularitet av AMS DRM-plattformen
+## <a name="modularity-of-the-ams-drm-platform"></a>Modulärhet för AMS DRM-plattformen
 
-Som en del av en omfattande molnvideoplattform har Azure Media Services DRM en design med flexibilitet och modularitet i åtanke. Du kan använda Azure Media Services med någon av följande olika kombinationer som beskrivs i tabellen nedan (en förklaring av notationen som används i tabellen följer). 
+Som en del av en omfattande moln video plattform har Azure Media Services DRM en design med flexibilitet och modulärhet i åtanke. Du kan använda Azure Media Services med någon av följande kombinationer som beskrivs i tabellen nedan (en förklaring av notationen som används i tabellen nedan). 
 
-|**Innehåll som är värd för & ursprung**|**Kryptering av innehåll**|**DRM-licensleverans**|
+|**Innehåll som är värd för & ursprung**|**Innehålls kryptering**|**DRM-licensleverans**|
 |---|---|---|
 |AMS|AMS|AMS|
 |AMS|AMS|Tredje part|
@@ -59,84 +59,84 @@ Som en del av en omfattande molnvideoplattform har Azure Media Services DRM en d
 
 ### <a name="content-hosting--origin"></a>Innehåll som är värd för & ursprung
 
-* AMS: videotillgång finns i AMS och streaming sker via AMS-slutpunkter för direktuppspelning (men inte nödvändigtvis dynamisk förpackning).
-* Tredje part: video är värd och levereras på en tredje part streaming plattform utanför AMS.
+* AMS: video till gång är värd för AMS och strömning är via AMS streaming-slutpunkter (men inte nödvändigt vis dynamisk paketering).
+* Tredje part: video tillhandahålls och levereras på en strömmande plattform från tredje part utanför AMS.
 
-### <a name="content-encryption"></a>Kryptering av innehåll
+### <a name="content-encryption"></a>Innehålls kryptering
 
-* AMS: innehållskryptering utförs dynamiskt/på begäran av AMS dynamisk kryptering.
-* Tredjeparts: innehållskryptering utförs utanför AMS med hjälp av ett förbearbetningsarbetsflöde.
+* AMS: innehålls kryptering utförs dynamiskt/på begäran av AMS dynamisk kryptering.
+* Tredje part: innehålls kryptering utförs utanför AMS med ett för bearbetnings arbets flöde.
 
 ### <a name="drm-license-delivery"></a>DRM-licensleverans
 
-* AMS: DRM-licensen levereras av AMS-licensleveranstjänst.
-* Tredjeparts: DRM-licensen levereras av en DRM-licensserver från tredje part utanför AMS.
+* AMS: DRM-Licens levereras av AMS licens Delivery Service.
+* Tredje part: DRM-Licens levereras av en tredjeparts-licens server utanför AMS.
 
-## <a name="configure-based-on-your-hybrid-scenario"></a>Konfigurera baserat på ditt hybridscenario
+## <a name="configure-based-on-your-hybrid-scenario"></a>Konfigurera baserat på ditt hybrid scenario
 
-### <a name="content-key"></a>Innehållsnyckel
+### <a name="content-key"></a>Innehålls nyckel
 
-Genom konfiguration av en innehållsnyckel kan du styra följande attribut för både AMS-dynamisk kryptering och AMS-licensleveranstjänst:
+Genom att konfigurera en innehålls nyckel kan du kontrol lera följande attribut för både AMS Dynamic Encryption och AMS License Delivery Service:
 
-* Innehållsnyckeln som används för dynamisk DRM-kryptering.
-* DRM-licensinnehåll som ska levereras av licensleveranstjänster: rättigheter, innehållsnyckel och begränsningar.
-* Typ av begränsning av **innehållsnyckelauktoriseringsprincip:** begränsning av öppna, IP eller token.
-* Om begränsning av **tokentyp** av **innehållsnyckelbeuktoriseringsprincip används**måste begränsningen av **behörighetsprincipen för innehållsnyckeln** uppfyllas innan en licens utfärdas.
+* Innehålls nyckeln som används för dynamisk DRM-kryptering.
+* Innehåll för DRM-licens som ska levereras av licens leverans tjänster: rättigheter, innehålls nyckel och begränsningar.
+* Typ av **princip begränsning för Auktoriseringsprinciper för innehålls nyckel**: öppna, IP eller token-begränsning.
+* Om **token** -typen för **begränsning av innehålls nycklar används**måste **begränsningen för innehålls nyckelns auktoriseringsprincip** uppfyllas innan en licens utfärdas.
 
-### <a name="asset-delivery-policy"></a>Policy för leverans av tillgångar
+### <a name="asset-delivery-policy"></a>Till gångs leverans princip
 
-Genom konfiguration av en princip för tillgångsleverans kan du styra följande attribut som används av AMS dynamisk paketerare och dynamisk kryptering av en AMS-slutpunkt för direktuppspelning:
+Genom att konfigurera en till gångs leverans princip kan du kontrol lera följande attribut som används av AMS Dynamic Packer och dynamisk kryptering av en AMS streaming-slutpunkt:
 
-* Streamingprotokoll och DRM-krypteringskombination, till exempel DASH under CENC (PlayReady och Widevine), smidig strömning under PlayReady, HLS under Widevine eller PlayReady.
-* Standard-/inbäddade licensleveransadresser för var och en av de berörda DRM-modulerna.
-* Oavsett om url:er för licensförvärv (LA_URLs) i DASH MPD- eller HLS-spellista innehåller frågesträngen med nyckel-ID (KID) för Widevine respektive FairPlay.
+* Kombination av strömnings protokoll och DRM-kryptering, till exempel bindestreck under CENC (PlayReady och Widevine), smidig strömning under PlayReady, HLS under Widevine eller PlayReady.
+* URL: en för standard-/inbäddade licens leverans för var och en av de berörda DRM: er.
+* Om URL: er för licens hämtning (LA_URLs) i en streck-eller HLS-spelnings lista innehåller frågesträng för nyckel-ID (barn) för Widevine respektive FairPlay.
 
 ## <a name="scenarios-and-samples"></a>Scenarier och exempel
 
-Baserat på förklaringarna i föregående avsnitt använder följande fem hybridscenarier respektive konfigurationskombinationer för-**tillgångsleveransprinciper** (de exempel som nämns i den sista kolumnen följer tabellen): **Content key**
+Baserat på förklaringarna i föregående avsnitt, använder följande fem hybrid scenarier respektive konfigurations kombinationer för **innehålls nyckel**-**till gångs** -och konfigurations principer (de exempel som anges i den sista kolumnen följer tabellen):
 
-|**Innehåll som är värd för & ursprung**|**DRM-kryptering**|**DRM-licensleverans**|**Konfigurera innehållsnyckel**|**Konfigurera princip för tillgångsleverans**|**Prov**|
+|**Innehåll som är värd för & ursprung**|**DRM-kryptering**|**DRM-licensleverans**|**Konfigurera innehålls nyckel**|**Konfigurera till gångs leverans princip**|**Urvalsundersökningar**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Ja|Ja|Exempel 1|
 |AMS|AMS|Tredje part|Ja|Ja|Exempel 2|
 |AMS|Tredje part|AMS|Ja|Inga|Exempel 3|
-|AMS|Tredje part|Utanför|Inga|Inga|Exempel 4|
+|AMS|Tredje part|Utanpå|Inga|Inga|Exempel 4|
 |Tredje part|Tredje part|AMS|Ja|Inga|    
 
-I exemplen fungerar PlayReady-skyddet för både DASH och smooth streaming. Video-URL:erna nedan är utjämnade strömmande webbadresser. Om du vill hämta motsvarande DASH-url:er lägger du bara till "(format=mpd-time-csf)". Du kan använda [azure media testspelaren](https://aka.ms/amtest) för att testa i en webbläsare. Det låter dig konfigurera vilket streamingprotokoll som ska användas, enligt vilken teknik. IE11 och Microsoft Edge på Windows 10 stöder PlayReady via EME. Mer information finns [i information om testverktyget](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+I exemplen fungerar PlayReady-skyddet både för streck och smidig strömning. Video-URL: erna nedan är smidiga strömmande URL: er. För att hämta motsvarande streck-URL: er lägger du bara till "(format = mpd-Time-CSF)". Du kan använda [Azure Media test Player](https://aka.ms/amtest) för att testa i en webbläsare. Det gör att du kan konfigurera vilket strömnings protokoll som ska användas, under vilka Tech. IE11 och Microsoft Edge på Windows 10 stöder PlayReady genom EME. Mer information finns i [information om test verktyget](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### <a name="sample-1"></a>Exempel 1
 
-* Url för källa (bas):https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL (DASH & slät):https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
-* Widevine LA_URL (DASH):https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
-* FairPlay LA_URL (HLS):https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
+* Källa (bas) URL:`https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest` 
+* PlayReady LA_URL (streck & smidig):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
+* Widevine LA_URL (bindestreck):`https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4` 
+* FairPlay LA_URL (HLS):`https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8` 
 
 ### <a name="sample-2"></a>Exempel 2
 
-* Url för källa (bas):https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL (DASH & slät):http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
+* Källa (bas) URL:https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* PlayReady LA_URL (streck & smidig):`http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### <a name="sample-3"></a>Exempel 3
 
-* Url till källa:https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (DASH & slät):https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* Käll-URL:https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (streck & smidig):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
 
 ### <a name="sample-4"></a>Exempel 4
 
-* Url till källa:https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (DASH & slät):https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+* Käll-URL:https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (streck & smidig):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="summary"></a>Sammanfattning
 
-Sammanfattningsvis azure media services DRM-komponenter är flexibla, kan du använda dem i ett hybridscenario genom att korrekt konfigurera innehållsnyckel och tillgångsleveransprincip, enligt beskrivningen i det här avsnittet.
+Azure Media Services DRM-komponenter är flexibla i sammanfattning, du kan använda dem i ett hybrid scenario genom att konfigurera innehålls nyckeln och till gångs leverans principen på det sätt som beskrivs i det här avsnittet.
 
 ## <a name="next-steps"></a>Nästa steg
-Visa utbildningsvägar för Media Services.
+Visa Media Services utbildnings vägar.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

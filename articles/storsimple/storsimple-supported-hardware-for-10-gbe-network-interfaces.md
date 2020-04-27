@@ -1,6 +1,6 @@
 ---
-title: Hårdvara för StorSimple 10 GbE-gränssnitt | Microsoft-dokument
-description: I artikeln beskrivs sfp-sändtagare, kablar och switchar som stöds för de 10 GbE-nätverksgränssnitten på StorSimple-enheten.
+title: Maskin vara för StorSimple 10 GbE-gränssnitt | Microsoft Docs
+description: Beskriver de anslutnings bara, kablar och växlar för de 10 GbE-nätverks gränssnitten som stöds på din StorSimple-enhet.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,23 +15,23 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965018"
 ---
-# <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Maskinvara som stöds för 10 GbE-nätverksgränssnitten på StorSimple-enheten
+# <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Maskin vara som stöds för 10 GbE Network-gränssnitt på din StorSimple-enhet
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln innehåller information om extra maskinvara som fungerar med din Microsoft Azure StorSimple-enhet.
+Den här artikeln innehåller information om extra maskin vara som fungerar med din Microsoft Azure StorSimple-enhet.
 
-## <a name="list-of-devices-tested-by-microsoft"></a>Lista över enheter som testats av Microsoft
-Microsoft har testat följande SFP-sändtagare, kablar och växlar för att säkerställa att de fungerar optimalt med enheter. (Följande tabeller uppdateras när ny maskinvara testas.)
+## <a name="list-of-devices-tested-by-microsoft"></a>Lista över enheter som har testats av Microsoft
+Microsoft har testat följande små (SFP) Sänd tagare, kablar och växlar för att säkerställa att de fungerar optimalt med enheter. (Följande tabeller kommer att uppdateras när ny maskin vara testas.)
 
-### <a name="sfp-transceivers"></a>SFP+ SFP-sändtagare
+### <a name="sfp-transceivers"></a>SFP +-Sänd tagare
 | Tillverkning | Modell |
 | --- | --- |
 | Cisco |SFP-10G-SR |
@@ -39,10 +39,10 @@ Microsoft har testat följande SFP-sändtagare, kablar och växlar för att säk
 ### <a name="cables"></a>Kablar
 | S. Nej. | Tillverkning | Modell |
 | --- | --- | --- |
-| 1. |Cisco |SFP-H10GB-CU1M |
-| 2. |Cisco |SFP-H10GB-CU2M |
-| 3. |Cisco |SFP-H10GB-CU3M |
-| 4. |Tripp-Lite |N820-05M (OM3) |
+| 1. |Cisco |SFP-H10GB – CU1M |
+| 2. |Cisco |SFP-H10GB – CU2M |
+| 3. |Cisco |SFP-H10GB – CU3M |
+| 4. |Tripp – lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Switchar
 | S. Nej. | Tillverkning | Modell |
@@ -52,78 +52,78 @@ Microsoft har testat följande SFP-sändtagare, kablar och växlar för att säk
 | 3. |Cisco |N5K-C5596UP-FA |
 
 ## <a name="list-of-devices-tested-in-the-field"></a>Lista över enheter som testats i fältet
-Det här avsnittet innehåller en lista över enheter som har distribuerats i fältet av StorSimple-kunder. Dessa har inte testats av Microsoft men kommer sannolikt att fungera med din StorSimple-enhet.
+Det här avsnittet innehåller en lista över enheter som har distribuerats i fältet av StorSimple-kunder. Dessa har inte testats av Microsoft men fungerar sannolikt med din StorSimple-enhet.
 
 | Parameter | Värde |
 | --- | --- |
-| Växla märke |Juniper |
-| Switch-modell |ex4550-32F |
-| Växla operativsystemversion |JunOS 12.3R9.4 |
-| Bladmodell |Portar ombord (BILD 0) |
-| Transceiver gör |Juniper |
-| Transceiver modell |Artikelnummer 740-021308 <br></br> Artikelnummer 740-030658 |
-| Transceiver firmware-version |Rev 01 Version 0.0 (rapporterat) |
-| Kabelmodell |Duplex bygel LC/LC 50/125μ, OM3, LSZH |
+| Byt märke |Juniper |
+| Växel modell |ex4550-32F |
+| Växla operativ systemets version |JunOS 12,3 R 9.4 |
+| Blad modell |Portar onboarding (PIC 0) |
+| Sänd tagare gör |Juniper |
+| Sänd tagare modell |Del nummer 740-021308 <br></br> Del nummer 740-030658 |
+| Version för inbyggd Sänd program vara |Rev 01 version 0,0 (rapporterad) |
+| Kabel modell |Duplex-bygel-LC/LC 50/125μ, OM3, LSZH |
 | StorSimple-modell |8600 |
-| StorSimple mjukvaruversion |6.3.9600.17491 |
+| StorSimple program varu version |6.3.9600.17491 |
 
-## <a name="list-of-devices-tested-by-oem-provider-mellanox"></a>Lista över enheter som testats av OEM-leverantör (Mellanox)
-Mellanox har testat följande SFP-sändtagare, kablar och switchar (Small Form-Factor plugable) för att säkerställa att de fungerar optimalt med Mellanox-nätverksgränssnitt som 10 GbE-nätverksgränssnitten på din StorSimple-enhet.
+## <a name="list-of-devices-tested-by-oem-provider-mellanox"></a>Lista över enheter som har testats av OEM-providern (Mellanox)
+Mellanox har testat följande små (SFP) Sänd tagare, kablar och växlar för att säkerställa att de fungerar optimalt med Mellanox-nätverks gränssnitt som de 10 GbE-nätverks gränssnitten på din StorSimple-enhet.
 
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Kablar och moduler som stöds av Mellanox
-I följande tabell visas kablar och moduler som stöds av Mellanox. Dessa har inte testats av Microsoft men kommer sannolikt att fungera med din StorSimple-enhet.
+I följande tabell visas de kablar och moduler som stöds av Mellanox. Dessa har inte testats av Microsoft men fungerar sannolikt med din StorSimple-enhet.
 
 | S. Nej. | Hastighet | Modell | Beskrivning | Tillverkning |
 | --- | --- | --- | --- | --- |
-| 1. |10 Gbe (svenska) |CAB-SFP-SFP-1M |passiv kopparkabel SFP+ 10 Gb/s 1m |Arista |
-| 2. |10 Gbe (svenska) |CAB-SFP-SFP-2M |passiv kopparkabel SFP+ 10 Gb/s 2m |Arista |
-| 3. |10 Gbe (svenska) |CAB-SFP-SFP-3M |passiv kopparkabel SFP+ 10 Gb/s 3m |Arista |
-| 4. |10 Gbe (svenska) |CAB-SFP-SFP-5M |passiv kopparkabel SFP+ 10 Gb/s 5m |Arista |
-| 5. |10 Gbe (svenska) |Cisco SFP-H10GBCU1M |Cisco SFP+-kabel |Cisco |
-| 6. |10 Gbe (svenska) |Cisco SFP-H10GBCU3M |Cisco SFP+-kabel |Cisco |
-| 7. |10 Gbe (svenska) |Cisco SFP-H10GBCU5M |Cisco SFP+-kabel |Cisco |
-| 8. |10 Gbe (svenska) |J9281B HP X242 10G |SFP+ till SFP+ 1m Direktansatt kopparkabel |Hp |
-| 9. |10 Gbe (svenska) |455883-B21 HP BLc |10 Gb SR SFP+ Opt |Hp |
-| 10. |10 Gbe (svenska) |455886-B21 HP BLc |10 Gb LR SFP+-opt |Hp |
-| 11. |10 Gbe (svenska) |487649-B21 HP BLc |SFP+ 0,5 m 10 GbE kopparkabel |Hp |
-| 12. |10 Gbe (svenska) |487652-B21 HP BLc |SFP+ 1m 10GbE kopparkabel |Hp |
-| 13. |10 Gbe (svenska) |487655-B21 HP BLc |SFP+ 3m 10GbE kopparkabel |Hp |
-| 14. |10 Gbe (svenska) |487658-B21 HP BLc |SFP+ 7m 10GbE kopparkabel |Hp |
-| 15. |10 Gbe (svenska) |537963-B21 HP BLc |SFP+ 5m 10GbE kopparkabel |Hp |
-| 16. |10 Gbe (svenska) |AP784A HP |3m C-serien passiv koppar SFP + kabel |Hp |
-| 17. |10 Gbe (svenska) |AP785A HP |5m C-serien passiv koppar SFP + kabel |Hp |
-| 18. |10 Gbe (svenska) |AP818A HP |1m B-serien Active Copper SFP + Kabel |Hp |
-| 19. |10 Gbe (svenska) |AP819A HP |3m B-serien Active Copper SFP + Kabel |Hp |
-| 20. |10 Gbe (svenska) |J9150A HP |X132 10G SFP+ LC SR-sr-sändtagare |Hp |
-| 21. |10 Gbe (svenska) |J9151A HP |X132 10G SFP+ LC LR-sändtagare |Hp |
-| 22. |10 Gbe (svenska) |J9283B HP |X242 10G SFP+ SFP+ 3m DAC-kabel |Hp |
-| 23. |10 Gbe (svenska) |J9285B HP |X242 10G SFP+ SFP+ 7m DAC-kabel |Hp |
-| 24. |10 Gbe (svenska) |JD095B HP |X240 10G SFP+ SFP+ 0,65 m DAC-kabel |Hp |
-| 25. |10 Gbe (svenska) |JD096B HP |X240 10G SFP+ SFP+ 1,2 m DAC-kabel |Hp |
-| 26. |10 Gbe (svenska) |JD097B HP |X240 10G SFP + SFP + 3m DAD Kabel |Hp |
-| 27. |10 Gbe (svenska) |MAM1Q00A-QSA Mellanox |QSFP till SFP+-adapter |Mellanox-teknik |
-| 28. |10 Gbe (svenska) |MC2309124-006 Mt |Passiv kopparkabel 1x SFP+ Till QSFP 10Gb/s 24awg 7m |Mellanox-teknik |
-| 29. |10 Gbe (svenska) |MC2309124-007 Mt |Passiv kopparkabel 1x SFP+ Till QSFP 10Gb/s 24awg 7m |Mellanox-teknik |
-| 30. |10 Gbe (svenska) |MC2309130-003 Mt |Passiv kopparkabel 1x SFP + till QSFP 10Gb / s 30awg 3m |Mellanox-teknik |
-| 31. |10 Gbe (svenska) |MC2309130-00A Mt |Passiv kopparkabel 1x SFP + till QSFP 10Gb / s 30awg 0,5 m |Mellanox-teknik |
-| 32. |10 Gbe (svenska) |MC3309124-005 Mt |Passiv kopparkabel 1x SFP+ 10Gb/s 24awg 5m |Mellanox-teknik |
-| 33. |10 Gbe (svenska) |MC3309124-007 Mt |Passiv kopparkabel 1x SFP+ 10Gb/s 24awg 7m |Mellanox-teknik |
-| 34. |10 Gbe (svenska) |MC3309130-003 Mt |Passiv kopparkabel 1x SFP+ 10Gb/s 30awg 3m |Mellanox-teknik |
-| 35. |10 Gbe (svenska) |MC3309130-00A Mt |Passiv kopparkabel 1x SFP+ 10Gb/s 30awg 0,5 m |Mellanox-teknik |
+| 1. |10 GbE |CAB-SFP-SFP-1M |passiv koppar kabel SFP + 10 GB/s 1m |Arista |
+| 2. |10 GbE |CAB-SFP-SFP-2 M |passiv koppar kabel SFP + 10 GB/s 2 m |Arista |
+| 3. |10 GbE |CAB-SFP-SFP-3M |passiv koppar kabel SFP + 10 GB/s 3m |Arista |
+| 4. |10 GbE |CAB-SFP-SFP-5 M |passiv koppar kabel SFP + 10 GB/s 5 m |Arista |
+| 5. |10 GbE |Cisco SFP-H10GBCU1M |Cisco SFP + kabel |Cisco |
+| 6. |10 GbE |Cisco SFP-H10GBCU3M |Cisco SFP + kabel |Cisco |
+| 7. |10 GbE |Cisco SFP-H10GBCU5M |Cisco SFP + kabel |Cisco |
+| 8. |10 GbE |J9281B HP X242 10G |SFP + till SFP + 1-tums direkt koppling koppar kabel |HP |
+| 9. |10 GbE |455883 – B21 HP BLc |10 GB SR SFP + opt |HP |
+| 10. |10 GbE |455886 – B21 HP BLc |10 GB LR SFP + opt |HP |
+| 11. |10 GbE |487649 – B21 HP BLc |SFP + 0,5 m 10 GbE koppar kabel |HP |
+| 12. |10 GbE |487652 – B21 HP BLc |SFP + 1 GbE koppar kabel |HP |
+| 13.4. |10 GbE |487655 – B21 HP BLc |SFP + 3mad GbE koppar kabel |HP |
+| längre. |10 GbE |487658 – B21 HP BLc |SFP + 7 Mad GbE koppar kabel |HP |
+| 15.4. |10 GbE |537963 – B21 HP BLc |SFP + 5 Mad GbE koppar kabel |HP |
+| 16. |10 GbE |AP784A HP |3m C-seriens passiva koppar med SFP + kabel |HP |
+| 43. |10 GbE |AP785A HP |5 m C-seriens passiva koppar med SFP + kabel |HP |
+| arton. |10 GbE |AP818A HP |1 miljon-seriens aktiva koppar SFP + kabel |HP |
+| 19.3. |10 GbE |AP819A HP |3m B-seriens aktiva koppar SFP + kabel |HP |
+| tjugo. |10 GbE |J9150A HP |X132 10G SFP + LC SR-sändtagaren |HP |
+| 30. |10 GbE |J9151A HP |X132 10G SFP + LC LR Sänd tagare |HP |
+| 22.2. |10 GbE |J9283B HP |X242 10G SFP + SFP + 3m DAC-kabel |HP |
+| 23. |10 GbE |J9285B HP |X242 10G SFP + SFP + 7 m DAC-kabel |HP |
+| 24.1. |10 GbE |JD095B HP |X240 10G SFP + SFP + 0.65 m DAC-kabel |HP |
+| 25.1. |10 GbE |JD096B HP |X240 10G SFP + SFP + 1.2 m DAC-kabel |HP |
+| 26. |10 GbE |JD097B HP |X240 10G SFP + SFP + 3m pappa-kabel |HP |
+| 27. |10 GbE |MAM1Q00A – uppfyller kraven enligt Mellanox |QSFP till SFP + adapter |Mellanox-tekniker |
+| senast. |10 GbE |MC2309124 – 006 MT |Passiv koppar kabel 1x SFP + till QSFP 10 GB/s 24AWG 7 m |Mellanox-tekniker |
+| 29.4. |10 GbE |MC2309124 – 007 MT |Passiv koppar kabel 1x SFP + till QSFP 10 GB/s 24AWG 7 m |Mellanox-tekniker |
+| dagar. |10 GbE |MC2309130 – 003 MT |Passiv koppar kabel 1x SFP + till QSFP 10 GB/s 30awg 3m |Mellanox-tekniker |
+| fram. |10 GbE |MC2309130 – 00A MT |Passiv koppar kabel 1x SFP + till QSFP 10 GB/s 30awg 0,5 m |Mellanox-tekniker |
+| 32. |10 GbE |MC3309124 – 005 MT |Passiv koppar kabel 1x SFP + 10 GB/s 24AWG 5 m |Mellanox-tekniker |
+| 33. |10 GbE |MC3309124 – 007 MT |Passiv koppar kabel 1x SFP + 10 GB/s 24AWG 7 m |Mellanox-tekniker |
+| 34. |10 GbE |MC3309130 – 003 MT |Passiv koppar kabel 1x SFP + 10 GB/s 30awg 3m |Mellanox-tekniker |
+| 35. |10 GbE |MC3309130 – 00A MT |Passiv koppar kabel 1x SFP + 10 GB/s 30awg 0,5 m |Mellanox-tekniker |
 
 ### <a name="switches-supported-by-mellanox"></a>Växlar som stöds av Mellanox
-I följande tabell visas de växlar som stöds av Mellanox. Dessa har inte testats av Microsoft men kommer sannolikt att fungera med din StorSimple-enhet.
+I följande tabell visas de växlar som stöds av Mellanox. Dessa har inte testats av Microsoft men fungerar sannolikt med din StorSimple-enhet.
 
 | S. Nej. | Hastighet | Modell | Beskrivning | Tillverkning |
 | --- | --- | --- | --- | --- |
-| 1. |10gbe |516733-B21 |HP ProCurve 6120XG 10 Gb Ethernet-bladbrytare |Hp |
-| 2. |10gbe |538113-B21 |HP 10Gbe genomströmningsmodul (PTM) |Hp |
-| 3. |10gbe |EN4093 |IBM PureFlex System Tyg EN4093 10 Gigabit Skalbar Switch Modul |IBM |
-| 4. |1Gbe (1 GN)1 G. |3020 |Cisco Catalyst 3020 1GbE switch blad |Cisco |
-| 5. |1Gbe (1 GN)1 G. |3020X (3020X) |Cisco Catalyst 3020X 1GbE switch blad |Cisco |
-| 6. |1Gbe (1 GN)1 G. |438030-B21 |HP 1GbE switch modul - GbE2c Layer 2/3 Ethernet Blade Switch |Hp |
-| 7. |1Gbe (1 GN)1 G. |6120G (på andra sätt) |HP ProCurve 6120G/XG 1GbE-kopplingsblad |Hp |
+| 1. |10GbE |516733 – B21 |HP ProCurve 6120XG 10 GbE Ethernet-bladswitch |HP |
+| 2. |10GbE |538113 – B21 |PTM (HP GbE-vidarekoppling) |HP |
+| 3. |10GbE |EN4093 |IBM PureFlex system Fabric EN4093 10 Gigabit skalbar switch-modul |IBM |
+| 4. |1GbE |3020 |Cisco Catalyst 3020 1GbE switch-bladet |Cisco |
+| 5. |1GbE |3020X |Cisco Catalyst 3020X 1GbE switch-bladet |Cisco |
+| 6. |1GbE |438030 – B21 |HP 1GbE switch-modul – GbE2c Layer 2/3 Ethernet-bladswitch |HP |
+| 7. |1GbE |6120G |HP ProCurve-6120G/XG 1GbE switch-bladet |HP |
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om StorSimples maskinvarukomponenter och status](storsimple-monitor-hardware-status.md).
+[Läs mer om StorSimple maskin varu komponenter och status](storsimple-monitor-hardware-status.md).
 

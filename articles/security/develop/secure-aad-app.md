@@ -1,6 +1,6 @@
 ---
-title: Utveckla ett säkert Azure AD-webbprogram | Microsoft-dokument
-description: Den här enkla exempelappen implementerar metodtips för säkerhet som förbättrar ditt program och organisationens säkerhetsposition när du utvecklar på Azure.
+title: Utveckla ett säkert Azure AD-webbprogram | Microsoft Docs
+description: Den här enkla exempel appen implementerar säkerhets metod tips som förbättrar ditt program och din organisations säkerhets position när du utvecklar på Azure.
 keywords: na
 services: security
 documentationcenter: na
@@ -15,104 +15,104 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 599c4a31840b47294b43c4c4d1f0200b17f04540
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810544"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159906"
 ---
-# <a name="develop-secure-app-for-an-azure-ad-app"></a>Utveckla säker app för en Azure AD-app
+# <a name="develop-secure-app-for-an-azure-ad-app"></a>Utveckla en säker app för en Azure AD-App
 ## <a name="overview"></a>Översikt
 
-Det här exemplet är en enkel Azure Active Directory med webbapp som länkar till säkerhetsresurser för att utveckla appar på Azure. Appen implementerar metodtips för säkerhet som kan förbättra ditt program och organisationens säkerhetsposition när du utvecklar appar på Azure.
+Det här exemplet är en enkel Azure Active Directory med en webbapp som länkar till säkerhets resurser för att utveckla appar i Azure. Appen implementerar säkerhets metoder som hjälper dig att förbättra ditt program och din organisations säkerhets position när du utvecklar appar i Azure.
 
-Distributionsskripten konfigurerar infrastrukturen. När du har kört distributionsskripten måste du göra en viss manuell konfiguration i Azure-portalen för att länka komponenterna och tjänsterna tillsammans. Det här exemplet är riktat mot erfarna utvecklare på Azure som arbetar inom detaljhandeln och vill skapa en säker Azure Active Directory med säker Azure-infrastruktur. 
+Distributions skripten konfigurerar infrastrukturen. När du har kört distributions skripten måste du göra en manuell konfiguration i Azure Portal för att länka komponenterna och tjänsterna tillsammans. Det här exemplet är riktat mot erfarna utvecklare på Azure som arbetar inom detalj handels branschen och vill bygga en skyddad Azure Active Directory med säker Azure-infrastruktur. 
 
 
-När du utvecklar och distribuerar den här appen får du lära dig hur du 
-- Skapa en Azure Key Vault-instans, lagra och hämta hemligheter från den.
-- Distribuera Azure Web App, som är dedikerad isolerad med frontend-brandväggsåtkomst. 
-- Skapa och konfigurera en Azure Application Gateway-instans med en brandvägg som använder OWASP Top 10 Ruleset. 
+När du utvecklar och distribuerar den här appen lär du dig att 
+- Skapa en Azure Key Vault instans, lagra och hämta hemligheter från den.
+- Distribuera Azure-webbappen, som är dedikerad isolerad med klient dels brand Väggs åtkomst. 
+- Skapa och konfigurera en Azure Application Gateway-instans med en brand vägg som använder OWASP 10 högsta ruleset. 
 - Aktivera kryptering av data under överföring och i vila med hjälp av Azure-tjänster. 
-- Konfigurera Azure-princip- och säkerhetscenter för att utvärdera kompatibiliteterna. 
+- Konfigurera Azure policy och Security Center för att utvärdera compliancies. 
 
-När du har utvecklat och distribuerat den här appen har du konfigurerat följande exempelwebbapp tillsammans med de konfigurations- och säkerhetsåtgärder som beskrivs.
+När du har utvecklat och distribuerat den här appen har du ställt in följande exempel-webbapp tillsammans med de konfigurations-och säkerhets åtgärder som beskrivs.
 
 ## <a name="architecture"></a>Arkitektur
-Appen är ett typiskt n-nivåprogram med tre nivåer. Frontend, baksidan och databasskiktet med integrerade övervaknings- och hemliga hanteringskomponenter visas här:
+Appen är ett typiskt n-Nivåprogram med tre nivåer. Klient delen, Server delen och databas lagret med integrerade komponenter för övervakning och hemlig hantering visas här:
 
 ![App-arkitektur](./media/secure-aad-app/architecture.png)
 
-Den här lösningen använder följande Azure-tjänster. Information om distributionsarkitekturen finns i avsnittet Distributionsarkitektur. 
+Den här lösningen använder följande Azure-tjänster. Information om distributions arkitekturen finns i avsnittet distributions arkitektur. 
 
 Arkitekturen består av dessa komponenter
 
-- [Azure Application Gateway](../../application-gateway/index.yml). Tillhandahåller gateway och brandvägg för vår programarkitektur.
-- [Programinsikter](../../azure-monitor/app/app-insights-overview.md). Tillhandahåller en utökningsbar APM-tjänst (Application Performance Management) på flera plattformar.
-- [Azure Key Vault](../../key-vault/index.yml). Lagrar och krypterar appens hemligheter och hanterar skapandet av åtkomstpolicyer runt dem.
-- [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Tillhandahåller molnbaserad identitets- och åtkomsthanteringstjänst, inloggning och åtkomstresurser.
-- [Azure-domännamnssystem](../../dns/dns-overview.md). Ange den tjänst som värd för domänen.
-- [Azure Load Balancer](../../load-balancer/load-balancer-overview.md). Ger för att skala dina program och skapa hög tillgänglighet för dina tjänster.
-- [Azure Web App](../../app-service/overview.md).  Tillhandahåller en HTTP-baserad tjänst för att vara värd för webbprogram.
-- [Azure Security Center](../../security-center/index.yml). ger avancerat skydd mot hot över dina hybridarbetsbelastningar i molnet.
-- [Azure-princip](../../governance/policy/overview.md). Ger utvärdera dina resurser för bristande efterlevnad med tilldelade principer.
+- [Azure Application Gateway](../../application-gateway/index.yml). Tillhandahåller gateway och brand vägg för vår program arkitektur.
+- [Application Insights](../../azure-monitor/app/app-insights-overview.md). Tillhandahåller en utöknings bar APM-tjänst (Application Performance Management) på flera plattformar.
+- [Azure Key Vault](../../key-vault/index.yml). Lagrar och krypterar vår Apps hemligheter och hanterar skapandet av åtkomst principer runt dem.
+- [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Tillhandahåller molnbaserad identitets-och åtkomst hanterings tjänst, logga in och få åtkomst till resurser.
+- [Azure-Domain Name System](../../dns/dns-overview.md). Ange tjänsten som värd för domänen.
+- [Azure Load Balancer](../../load-balancer/load-balancer-overview.md). Ger möjlighet att skala dina program och skapa hög tillgänglighet för dina tjänster.
+- [Azure-webbapp](../../app-service/overview.md).  Tillhandahåller en HTTP-baserad tjänst för att vara värd för webb program.
+- [Azure Security Center](../../security-center/index.yml). tillhandahåller Avancerat skydd för dina hybrid arbets belastningar i molnet.
+- [Azure policy](../../governance/policy/overview.md). Tillhandahåller utvärdering av dina resurser för inkompatibilitet med tilldelade principer.
 
-## <a name="threat-model"></a>Hotmodell
-Hotmodellering är processen att identifiera potentiella säkerhetshot mot ditt företag och program och sedan se till att en korrekt begränsningsplan finns på plats.
+## <a name="threat-model"></a>Hot modell
+Hot modellering är en process där du kan identifiera potentiella säkerhetshot för ditt företag och program och sedan se till att en lämplig minsknings plan är på plats.
 
-I det här exemplet användes [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) för att implementera hotmodellering för den säkra exempelappen. Genom att kartlägga komponenterna och dataflödena kan du identifiera problem och hot tidigt i utvecklingsprocessen. Tid och pengar kommer att sparas senare med hjälp av detta.
+Det här exemplet använde [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) för att implementera hot modellering för appen säker exempel. Genom att skriva diagram över komponenterna och data flödena kan du identifiera problem och hot tidigt i utvecklings processen. Tid och pengar kommer att sparas senare med hjälp av detta.
 
-Här är hotmodellen för exempelappen
+Här är Hot modellen för exempel appen
 
-![Hotmodell](./media/secure-aad-app/threat-model.png)
+![Hot modell](./media/secure-aad-app/threat-model.png)
 
-Vissa exempelhot och potentiella sårbarheter som verktyget för hotmodellering genererar visas i följande skärmbild. Hotmodellen ger en översikt över den exponerade attackytan och uppmanar utvecklarna att tänka på hur du kan minska problemen.
+Några exempel på hot och eventuella sårbarheter som verktyget för Threat Modeling genererar visas på följande skärm bild. Hot modellen ger en översikt över angrepps ytan som exponeras och gör det möjligt för utvecklarna att tänka på hur de kan åtgärda problemen.
 
-![Utdata för hotmodell](./media/secure-aad-app/threat-model-output.png)
+![Hot modellens utdata](./media/secure-aad-app/threat-model-output.png)
 
 ### <a name="prerequisites"></a>Krav
-För att få igång programmet måste du installera följande verktyg:
+För att komma igång med programmet måste du installera följande verktyg:
 
-- En kodredigerare för att ändra och visa programkoden. [Visual Studio Code](https://code.visualstudio.com/) är ett alternativ med öppen källkod.
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) på din utvecklingsdator.
-- [Git](https://git-scm.com/) på ditt system. Git används för att klona källkoden lokalt.
-- [jq](https://stedolan.github.io/jq/), ett UNIX-verktyg för att fråga JSON på ett användarvänligt sätt.
+- En kod redigerare för att ändra och Visa program koden. [Visual Studio Code](https://code.visualstudio.com/) är ett alternativ med öppen källkod.
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) på din utvecklings dator.
+- [Git](https://git-scm.com/) i systemet. Git används för att klona käll koden lokalt.
+- [JQ](https://stedolan.github.io/jq/), ett UNIX-verktyg för att fråga JSON på ett användarvänligt sätt.
 
-Du behöver en Azure-prenumeration för att distribuera exempelappens resurser. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) för att testa exempelappen.
+Du behöver en Azure-prenumeration för att distribuera exempel appens resurser. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) för att testa exempel appen.
 
 När du har installerat dessa verktyg är du redo att distribuera appen på Azure.
 
-### <a name="implementation-guidance"></a>Vägledning för genomförande
-Distributionsskriptet är ett skript som kan delas upp i fyra faser. Varje fas distribuerar och konfigurerar en Azure-resurs som finns i [arkitekturdiagrammet](#architecture).
+### <a name="implementation-guidance"></a>Implementerings vägledning
+Distributions skriptet är ett skript som kan delas upp i fyra faser. Varje fas distribuerar och konfigurerar en Azure-resurs som finns i [arkitektur diagrammet](#architecture).
 
 De fyra faserna är
 
 - Distribuera Azure Key Vault.
 - Distribuera Azure Web Apps.
-- Distribuera Application Gateway med brandvägg för webbprogram.
+- Distribuera Application Gateway med brand vägg för webbaserade program.
 - Konfigurera en Azure AD med distribuerad app.
 
-Varje fas bygger på den föregående med hjälp av konfiguration från tidigare distribuerade resurser.
+Varje fas bygger på föregående, med hjälp av konfiguration från de tidigare distribuerade resurserna.
 
-Kontrollera att du har installerat verktygen under [Förutsättningar](#prerequisites)för implementeringen.
+Kontrol lera att du har installerat verktygen som visas under [krav](#prerequisites)för att slutföra implementerings stegen.
 
 #### <a name="deploy-azure-key-vault"></a>Distribuera Azure Key Vault
 I det här avsnittet skapar och distribuerar du en Azure Key Vault-instans som används för att lagra hemligheter och certifikat.
 
-När du har slutfört distributionen har du en Azure Key Vault-instans distribuerad på Azure.
+När du har slutfört distributionen har du en Azure Key Vault-instans som distribuerats på Azure.
 
-Så här distribuerar du Azure Key Vault med Powershell
+Distribuera Azure Key Vault med hjälp av PowerShell
  
 1. Deklarera variablerna för Azure Key Vault.
 2. Registrera Azure Key Vault-providern.
-3. Skapa resursgruppen för instansen.
-4. Skapa Azure Key Vault-instansen i resursgruppen som skapats i steg 3.
+3. Skapa resurs gruppen för instansen.
+4. Skapa Azure Key Vault-instansen i resurs gruppen som skapades i steg 3.
 
-#### <a name="the-below-azure-ad-user-will-have-admin-permissions-to-the-key-vault"></a>Nedanstående Azure AD-användare har administratörsbehörighet till Key Vault
+#### <a name="the-below-azure-ad-user-will-have-admin-permissions-to-the-key-vault"></a>Under den här Azure AD-användaren får du administratörs behörighet till Key Vault
     $keyVaultAdminUsers = @($user1,user2)
 
-#### <a name="register-the-az-providers"></a>Registrera Az-leverantörerna
+#### <a name="register-the-az-providers"></a>Registrera AZ-providers
     Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 #### <a name="create-the-azure-key-vault-instance"></a>Skapa Azure Key Vault-instansen
@@ -121,14 +121,14 @@ Så här distribuerar du Azure Key Vault med Powershell
                 -Location 'East US'
                 -EnabledForDiskEncryption
 
-#### <a name="add-the-administrator-policies-to-the-key-vault"></a>Lägga till administratörsprinciperna i Nyckelvalvet
+#### <a name="add-the-administrator-policies-to-the-key-vault"></a>Lägg till administratörs principerna i Key Vault
     foreach ($keyVaultAdminUser in $keyVaultAdminUsers) {
     $UserObjectId = (Get-AzADUser -SearchString $keyVaultAdminUser).Id
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -ObjectId $UserObjectId 
     -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all
     }
 
-#### <a name="to-create-an-access-policy-to-allow-a-user-to-get-and-list-cryptographic-keys-certificates-and-secrets-if-you-know-the-user-principal-name"></a>Så här skapar du en åtkomstprincip så att en användare kan hämta och lista kryptografiska nycklar, certifikat och hemligheter om du känner till användarens huvudnamn:
+#### <a name="to-create-an-access-policy-to-allow-a-user-to-get-and-list-cryptographic-keys-certificates-and-secrets-if-you-know-the-user-principal-name"></a>För att skapa en åtkomst princip för att tillåta att en användare hämtar och listar kryptografiska nycklar, certifikat och hemligheter om du känner till användarens huvud namn:
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName 
                            -ResourceGroupName $resourceGroupName 
                            -UserPrincipalName 'user1@contoso.com 
@@ -136,41 +136,41 @@ Så här distribuerar du Azure Key Vault med Powershell
                            -PermissionsToKeys list, get 
                            -PermissionsToSecrets list, get 
 
-Det är en bra idé att använda hanterade identiteter för Azure-resurser i appar som använder Key Vault för att komma åt resurser. Säkerhetspositionen ökar när åtkomstnycklarna till Key Vault inte lagras i kod eller i konfiguration.
+Vi rekommenderar att du använder hanterade identiteter för Azure-resurser i appar som använder Key Vault för att få åtkomst till resurser. Din säkerhets position ökar när åtkomst nycklar till Key Vault inte lagras i koden eller i konfigurationen.
 
-Ett rotcertifikat ingår i behållaren. De åtgärder som vidtagits för att erhålla certifikatet
+Ett rot certifikat ingår i behållaren. De steg som vidtagits för att hämta certifikatet är
 
-1. Hämta certifikatfilen från [certifikatutfärdaren](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. Avkoda certifikatfilen:
+1. Ladda ned certifikat filen från [certifikat utfärdaren](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
+2. Avkoda certifikat filen:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
-Det här skriptet skapar en tilldelad identitet för App Service-instansen som kan användas med MSI för att interagera med Azure Key Vault utan hårda kodningshemligheter i kod eller konfiguration.
+Det här skriptet skapar en tilldelad identitet för App Service-instansen som kan användas med MSI för att interagera med Azure Key Vault utan hårda kodnings hemligheter i kod eller konfiguration.
 
-Gå till Azure Key Vault-instansen i portalen för att auktorisera den tilldelade identiteten på fliken åtkomstprincip. Välj **Lägg till ny åtkomstprincip**. Under **Välj huvudnamn**söker du efter programnamnet som liknar namnet på apptjänstinstansen som skapats.
-Ett huvudnamn för tjänsten som är kopplad till programmet ska vara synligt. Välj den och spara åtkomstprincipsidan, som visas i följande skärmbild.
+Gå till Azure Key Vault-instansen i portalen för att auktorisera den tilldelade identiteten på fliken åtkomst princip. Välj **Lägg till ny åtkomst princip**. Under **Välj huvud**namn söker du efter det program namn som liknar namnet på App Service-instansen som skapats.
+Ett tjänst huvud namn som är kopplat till programmet ska vara synligt. Välj den och spara åtkomst princip sidan, som du ser i följande skärm bild.
 
-Eftersom programmet bara behöver hämta nycklar väljer du behörigheten **Hämta** i hemligheterna, vilket ger åtkomst samtidigt som de privilegier som beviljas minskas.
+Eftersom programmet bara behöver hämta nycklar väljer du behörigheten **Hämta** i alternativen för hemligheter, vilket ger åtkomst samtidigt som de behörigheter som beviljats minskas.
 
-![Åtkomstprincip för nyckelvalv](./media/secure-aad-app/kv-access-policy.png)
+![Key Vault åtkomst princip](./media/secure-aad-app/kv-access-policy.png)
 
-*Skapa en princip för nyckelvalv*
+*Skapa en princip för Key Vault åtkomst*
 
-Spara åtkomstprincipen och spara sedan den nya ändringen på fliken **Åtkomstprinciper** för att uppdatera principerna.
+Spara åtkomst principen och spara sedan den nya ändringen på fliken **åtkomst principer** för att uppdatera principerna.
 
-#### <a name="deploy-application-gateway-with-web-application-firewall-enabled"></a>Distribuera Application Gateway med brandvägg för webbprogram aktiverat
-I webbappar rekommenderas inte att du exponerar tjänster direkt för omvärlden på internet.
-Belastningsutjämning och brandväggsregler ger mer säkerhet och kontroll över inkommande trafik och hjälper dig att hantera den.
+#### <a name="deploy-application-gateway-with-web-application-firewall-enabled"></a>Distribuera Application Gateway med brand vägg för webbaserade program aktive rad
+I Web Apps rekommenderar vi inte att du exponerar tjänster direkt för världen utanför Internet.
+Belastnings utjämning och brand Väggs regler ger bättre säkerhet och kontroll över inkommande trafik och hjälper dig att hantera den.
 
-Så här distribuerar du en Application Gateway-instans
+Så här distribuerar du en Application Gateway instans
 
-1. Skapa resursgruppen för att hysa programgatewayen.
-2. Etablera ett virtuellt nätverk som ska kopplas till gatewayen.
+1. Skapa resurs gruppen för att House Application Gateway.
+2. Etablera ett virtuellt nätverk att ansluta till gatewayen.
 3. Skapa ett undernät för gatewayen i det virtuella nätverket.
 4. Etablera en offentlig IP-adress.
 5. Etablera programgatewayen.
-6. Aktivera brandvägg för webbprogram i gatewayen.
+6. Aktivera brand väggen för webbaserade program på gatewayen.
 
 ```
 Connect-AzAccount
@@ -254,10 +254,10 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 
 ```
 
-#### <a name="deploy-azure-web-apps"></a>Distribuera Azure Web Apps
-Med Azure App Service kan du skapa och vara värd för webbappar med hjälp av språk som Python, Ruby, C#och Java. Azure stöder också anpassade behållare, vilket kan tillåta praktiskt taget alla programmeringsspråk att köras på Azure App Service-plattformen.
+#### <a name="deploy-azure-web-apps"></a>Distribuera Azure-Web Apps
+Med Azure App Service kan du bygga och vara värd för webbappar med hjälp av de språk som python, ruby, C# och Java. Azure stöder också anpassade behållare, vilket kan göra det möjligt för praktiskt taget alla programmeringsspråk att köras på Azure App Services plattform.
 
-#### <a name="create-an-app-service-plan-in-free-tier"></a>Skapa en apptjänstplan på den kostnadsfria nivån
+#### <a name="create-an-app-service-plan-in-free-tier"></a>Skapa en App Service plan på den kostnads fria nivån
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
 #### <a name="create-a-web-app"></a>Skapa en webbapp
@@ -266,253 +266,255 @@ Med Azure App Service kan du skapa och vara värd för webbappar med hjälp av s
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Innan du fortsätter går du till konfigurationsgränssnittet för Azure Domain https://aka.ms/appservicecustomdns Name System för din anpassade domän och följer instruktionerna för att konfigurera en CNAME-post för värdnamnet "www" och pekar på webbappens standarddomännamn
+#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Innan du fortsätter går du till ditt Azure Domain Name System konfigurations gränssnitt för din anpassade domän och följer anvisningarna https://aka.ms/appservicecustomdns i Konfigurera en CNAME-post för värd namnet "www" och pekar på webbappens standard domän namn
 
-#### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>Uppgradera App Service-planen till delad nivå (minimum krävs av anpassade domäner)
+#### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>Uppgradera App Service plan till delad nivå (minimum krävs av anpassade domäner)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
 
-#### <a name="add-a-custom-domain-name-to-the-web-app"></a>Lägga till ett eget domännamn i webbappen
+#### <a name="add-a-custom-domain-name-to-the-web-app"></a>Lägg till ett anpassat domän namn i webbappen
     Set-AzWebApp -Name $webappname -ResourceGroupName $webappname `-HostNames @($fqdn,"$webappname.azurewebsites.net")
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 
 ### <a name="network"></a>Nätverk
-När du har slutfört distributionen har du en programgateway med brandvägg för webbprogram aktiverat.
+När du har slutfört distributionen har du en Application Gateway med brand vägg för webbaserade program aktive rad.
 
-Gateway-instansen exponerar port 443 för HTTPS. Den här konfigurationen säkerställer att vår app endast är tillgänglig på port 443 till HTTPS.
+Gateway-instansen exponerar port 443 för HTTPS. Den här konfigurationen säkerställer att vår app endast är tillgänglig på port 443 via HTTPS.
 
-Att blockera oanvända portar och begränsa exponeringen på angreppsytan är en säkerhetspraxis.
+Att blockera oanvända portar och begränsa exponerings ytans exponering är en bra säkerhets rutin.
 
-#### <a name="add-network-security-groups-to-the-app-service-instance"></a>Lägga till nätverkssäkerhetsgrupper i App Service-instansen
+#### <a name="add-network-security-groups-to-the-app-service-instance"></a>Lägg till nätverks säkerhets grupper i App Service-instansen
 
-App Service-instanser kan integreras med virtuella nätverk. Med den här integreringen kan de konfigureras med principer för nätverkssäkerhetsgrupper som hanterar appens inkommande och utgående trafik.
+App Service instanser kan integreras med virtuella nätverk. Den här integrationen gör att de kan konfigureras med principer för nätverks säkerhets grupper som hanterar appens inkommande och utgående trafik.
 
-1. Om du vill aktivera den här funktionen väljer du **Nätverk**under Inställningar under **Inställningar.** Konfigurera under **VNet-integrering**i den högra rutan .
+1. Om du vill aktivera den här funktionen väljer du **nätverk**på bladet Azure App tjänst instans under **Inställningar**. Konfigurera under **VNet-integrering**i den högra rutan.
 
    ![Ny integrering av virtuella nätverk](./media/secure-web-app/app-vnet-menu.png)
 
-    *Ny integrering av virtuella nätverk för App Service*
-1. På nästa sida väljer du **Lägg till VNET (förhandsgranskning)**.
+    *Ny virtuell nätverks integrering för App Service*
+1. På nästa sida väljer du **Lägg till VNet (för hands version)**.
 
-1. På nästa meny väljer du det virtuella nätverk `aad-vnet`som skapas i distributionen som börjar med . Du kan antingen skapa ett nytt undernät eller välja ett befintligt.
-   Skapa i så fall ett nytt undernät. Ange **adressintervallet** till **10.0.3.0/24** och ge undernätet **ett appundernät**ett namn.
+1. På nästa meny väljer du det virtuella nätverk som skapades i distributionen som börjar med `aad-vnet`. Du kan antingen skapa ett nytt undernät eller välja ett befintligt.
+   I det här fallet skapar du ett nytt undernät. Ange **adress intervallet** till **10.0.3.0/24** och ge under **nätet**ett namn.
 
-   ![Konfiguration av virtuellt nätverk för App Service](./media/secure-web-app/app-vnet-config.png)
+   ![App Service konfiguration av virtuellt nätverk](./media/secure-web-app/app-vnet-config.png)
 
     *Konfiguration av virtuellt nätverk för App Service*
 
-Nu när du har aktiverat integreringen av virtuella nätverk kan du lägga till nätverkssäkerhetsgrupper i vår app.
+Nu när du har aktiverat integrering av virtuella nätverk kan du lägga till nätverks säkerhets grupper i appen.
 
-1. Använd sökrutan, sök efter **nätverkssäkerhetsgrupper**. Välj **Nätverkssäkerhetsgrupper** i resultatet.
+1. Använd Sök-rutan och Sök efter **nätverks säkerhets grupper**. Välj **nätverks säkerhets grupper** i resultatet.
 
-    ![Sök efter nätverkssäkerhetsgrupper](./media/secure-web-app/nsg-search-menu.png)
+    ![Sök efter nätverks säkerhets grupper](./media/secure-web-app/nsg-search-menu.png)
 
-    *Sök efter nätverkssäkerhetsgrupper*
+    *Sök efter nätverks säkerhets grupper*
 
-2. Välj **Lägg till**på nästa meny . Ange **namnet** på NSG och **resursgruppen** där den ska placeras. Denna NSG kommer att tillämpas på programgatewayens undernät.
+2. I nästa meny väljer du **Lägg till**. Ange **namnet** på NSG och **resurs gruppen** där den ska finnas. Den här NSG kommer att användas för application gateways undernät.
 
     ![Skapa en NSG](./media/secure-web-app/nsg-create-new.png)
 
     *Skapa en NSG*
 
-3. När NSG har skapats markerar du den. Välj Regler för inkommande **säkerhet**under **Inställningar**i bladet . Konfigurera dessa inställningar så att anslutningar som kommer in i programgatewayen över port 443.
+3. När NSG har skapats väljer du den. I sitt blad väljer du **inkommande säkerhets regler**under **Inställningar**. Konfigurera de här inställningarna så att anslutningar kommer till Application Gateway via port 443.
 
    ![Konfigurera NSG](./media/secure-web-app/nsg-gateway-config.png)
 
    *Konfigurera NSG*
 
-4. I de utgående reglerna för gateway NSG lägger du till en regel som tillåter utgående anslutningar till App Service-instansen genom att skapa en regel som är inriktad på servicetag`AppService`
+4. I utgående regler för gateway-NSG lägger du till en regel som tillåter utgående anslutningar till App Service-instansen genom att skapa en regel som är riktad mot tjänst tag gen`AppService`
 
-   ![Lägga till utgående regler för NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
+   ![Lägg till utgående regler för NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
-   *Lägga till utgående regler för NSG*
+   *Lägg till utgående regler för NSG*
 
-    Lägg till ytterligare en utgående regel så att gatewayen kan skicka utgående regler till ett virtuellt nätverk.
+    Lägg till en annan utgående regel som tillåter att gatewayen skickar utgående regler till ett virtuellt nätverk.
 
-   ![Lägga till ytterligare en utgående regel](./media/secure-web-app/nsg-outbound-vnet.png)
+   ![Lägg till en annan utgående regel](./media/secure-web-app/nsg-outbound-vnet.png)
 
-    *Lägga till ytterligare en utgående regel*
+    *Lägg till en annan utgående regel*
 
-5. På undernätsbladet i NSG väljer du **Associera**, väljer det virtuella nätverk som skapats i distributionen och väljer gateway-undernätet med namnet **gw-undernät**. NSG tillämpas på undernätet.
+5. På bladet undernät i NSG väljer du **associera**, väljer det virtuella nätverk som skapades i distributionen och väljer Gateway-undernätet med namnet **GW-undernät**. NSG tillämpas på under nätet.
 
-6. Skapa en annan NSG som i det tidigare steget, den här gången för App Service-instansen. Ge det ett namn. Lägg till inkommande regeln för port 443 som du gjorde för programgateway NSG.
+6. Skapa en annan NSG som i föregående steg, den här gången för App Service-instansen. Ge den ett namn. Lägg till regeln för inkommande trafik för port 443 som du gjorde för Application Gateway-NSG.
 
-   Om du har en App Service-instans som distribueras på en App Service Environment-instans, vilket inte är fallet för den här appen, kan du lägga till inkommande regler för att tillåta Azure Service Health-avsökningar genom att öppna portar 454-455 på de inkommande säkerhetsgrupperna för din App Service NSG. Här är konfigurationen:
+   Om du har en App Service-instans som distribuerats på en App Service-miljön-instans, vilket inte är fallet för den här appen, kan du lägga till regler för inkommande trafik som tillåter Azure Service Health avsökningar genom att öppna portarna 454-455 i App Service NSG. Här är konfigurationen:
 
-   ![Lägga till regler för Azure Service Health-avsökningar](./media/secure-web-app/nsg-create-healthprobes.png)
+   ![Lägg till regler för Azure Service Health avsökningar](./media/secure-web-app/nsg-create-healthprobes.png)
 
-    *Lägga till regler för Azure Service Health-avsökningar (endast App Service Environment)*
+    *Lägg till regler för Azure Service Health avsökningar (endast App Service-miljön)*
 
-Om du vill begränsa angreppsytan ändrar du apptjänstens nätverksinställningar så att endast programgatewayen kan komma åt programmet.
-Om du vill använda inställningarna går du till fliken App Service-nätverk, väljer fliken **IP-begränsningar** och skapar en tillåt-regel som endast tillåter att programgatewayens IP direkt kan komma åt tjänsten. Du kan hämta IP-adressen för gatewayen från dess översiktssida. På fliken **IP-adress CIDR** anger du IP-adressen i det här formatet: `<GATEWAY_IP_ADDRESS>/32`.
+Om du vill begränsa angrepps ytan ändrar du App Service nätverks inställningar så att endast programgatewayen får åtkomst till programmet.
+Om du vill tillämpa inställningarna går du till fliken App Service nätverk, väljer fliken **IP-begränsningar** och skapar en Tillåt-regel som endast tillåter programgatewayens IP att komma åt tjänsten direkt. Du kan hämta IP-adressen för gatewayen från sidan Översikt. På fliken **CIDR för IP-adress** anger du IP-adressen i följande format `<GATEWAY_IP_ADDRESS>/32`:.
 
 ![Tillåt endast gatewayen](./media/secure-web-app/app-allow-gw-only.png)
 
-*Tillåt endast gateway-IP för åtkomst till App-tjänsten*
+*Tillåt endast Gateway-IP att komma åt App Service*
 
-### <a name="azure-domain-name-system"></a>Azure-domännamnssystem 
-Azure Domain Name System, eller Azure Domain Name System, ansvarar för att översätta (eller lösa) en webbplats eller tjänstnamn till sin IP-adress. Azure Domain Namehttps://docs.microsoft.com/azure/dns/dns-overview) System( är en värdtjänst för domännamnssystemdomäner som tillhandahåller namnmatchning med Azure-infrastruktur. Genom att vara värd för domäner i Azure kan användare hantera domännamnssystemposter med samma autentiseringsuppgifter, API:er, verktyg och fakturering som andra Azure-tjänster. Azure Domain Name System stöder också privata domännamnssystemdomäner.
+### <a name="azure-domain-name-system"></a>Azure-Domain Name System 
+Azure Domain Name System eller Azure Domain Name System ansvarar för översättning (eller matchning) av en webbplats eller ett tjänst namn till dess IP-adress. Azure Domain Name System (https://docs.microsoft.com/azure/dns/dns-overview) är en värd tjänst för Domain Name System domäner som tillhandahåller namn matchning med hjälp av Azure-infrastrukturen. Genom att vara värd för domäner i Azure kan användare hantera Domain Name System poster med samma autentiseringsuppgifter, API: er, verktyg och fakturering som andra Azure-tjänster. Azure Domain Name System stöder också privata Domain Name System domäner.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-Azure Disk Encryption utnyttjar BitLocker-funktionen i Windows för att tillhandahålla volymkryptering för datadiskar. Lösningen integreras med Azure Key Vault för att styra och hantera diskkrypteringsnycklarna.
+Azure Disk Encryption utnyttjar BitLocker-funktionen i Windows för att tillhandahålla volym kryptering för data diskar. Lösningen integreras med Azure Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklarna.
 
 ### <a name="identity-management"></a>Identitetshantering
-Följande tekniker ger funktioner för att hantera åtkomst till kortinnehavarens data i Azure-miljön
-- Azure Active Directory är Microsofts molnbaserade katalog- och identitetshanteringstjänst för flera innehavare. Alla användare för den här lösningen skapas i Azure Active Directory, inklusive användare som använder Azure WebApp.
-- Azure-rollbaserad åtkomstkontroll gör det möjligt för administratörer att definiera detaljerade åtkomstbehörigheter för att bevilja endast den mängd åtkomst som användare behöver för att utföra sina jobb. I stället för att ge varje användare obegränsad behörighet för Azure-resurser kan administratörer endast tillåta vissa åtgärder för åtkomst till kortinnehavaredata. Prenumerationsåtkomsten är begränsad till prenumerationsadministratören.
-- Azure Active Directory Privilegierad identitetshantering gör det möjligt för kunder att minimera antalet användare som har åtkomst till viss information, till exempel kortinnehavaredata. Administratörer kan använda Azure Active Directory Privileged Identity Management för att identifiera, begränsa och övervaka privilegierade identiteter och deras åtkomst till resurser. Den här funktionen kan också användas för att framtvinga administrativ åtkomst på begäran, just-in-time när det behövs.
-- Azure Active Directory Identity Protection identifierar potentiella säkerhetsproblem som påverkar en organisations identiteter, konfigurerar automatiserade svar till identifierade misstänkta åtgärder relaterade till en organisations identiteter och undersöker misstänkta incidenter för att vidta lämpliga åtgärder för att lösa dem.
-### <a name="secrets-management"></a>Hantering av hemligheter
-Lösningen använder Azure Key Vault för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Följande Azure Key Vault-funktioner hjälper kunder att skydda och komma åt sådana data
-   - Principer för avancerad åtkomst konfigureras på behovsbasis.
-   - Åtkomstprinciper för Key Vault definieras med minsta möjliga behörighet till nycklar och hemligheter.
-   - Alla nycklar och hemligheter i Key Vault har utgångsdatum.
-   - Alla nycklar i Key Vault skyddas av specialiserade maskinvarusäkerhetsmoduler. Nyckeltypen är en maskinvarusäkerhetsmodul (HSM) Skyddad 2048-bitars RSA-nyckel.
-   - Med Key Vault kan du kryptera nycklar och hemligheter (t.ex. autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar. PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). 
-   - Använd Rollbaserad åtkomstkontroll (RBAC) för att tilldela behörigheter till användare, grupper och program i ett visst omfång.     
-   - Använd Key Vault för att hantera dina TLS-certifikat med autorenewal. 
-   - Diagnostikloggar för Key Vault är aktiverade med en kvarhållningsperiod på minst 365 dagar.
-   - Tillåtna kryptografiska åtgärder för nycklar är begränsade till de som krävs.
+Följande tekniker tillhandahåller funktioner för att hantera åtkomst till kort innehavares data i Azure-miljön
+- Azure Active Directory är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Alla användare för den här lösningen skapas i Azure Active Directory, inklusive användare som har åtkomst till Azure WebApp.
+- Med rollbaserad åtkomst kontroll i Azure kan administratörer definiera detaljerade åtkomst behörigheter för att endast ge åtkomst till den mängd åtkomst som användarna behöver för att utföra sina jobb. I stället för att ge varje användare obegränsad behörighet för Azure-resurser kan administratörer bara tillåta vissa åtgärder för åtkomst till data för kort innehavare. Åtkomst till prenumerationen är begränsad till prenumerations administratören.
+- Azure Active Directory Privileged Identity Management gör det möjligt för kunderna att minimera antalet användare som har åtkomst till viss information, till exempel kort korts data. Administratörer kan använda Azure Active Directory Privileged Identity Management för att identifiera, begränsa och övervaka privilegierade identiteter och deras åtkomst till resurser. Den här funktionen kan också användas för att framtvinga administrativ åtkomst just-in-Time vid behov.
+- Azure Active Directory Identity Protection identifierar potentiella sårbarheter som påverkar en organisations identiteter, konfigurerar automatiserade svar på identifierade misstänkta åtgärder som är relaterade till en organisations identiteter, och undersöker misstänkta incidenter för att vidta lämpliga åtgärder för att lösa dem.
+### <a name="secrets-management"></a>Hemligheter, hantering
+Lösningen använder Azure Key Vault för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Följande Azure Key Vault funktioner hjälper kunder att skydda och komma åt sådana data
+   - Avancerade åtkomst principer konfigureras på grund av behov.
+   - Key Vault åtkomst principer definieras med lägsta behörighet som krävs för nycklar och hemligheter.
+   - Alla nycklar och hemligheter i Key Vault har förfallo datum.
+   - Alla nycklar i Key Vault skyddas av specialiserade säkerhetsmoduler för maskin vara. Nyckel typen är en HSM-skyddad (Hardware Security Module) 2048-bitars RSA-nyckel.
+   - Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). 
+   - Använd rollbaserad Access Control (RBAC) för att tilldela behörigheter till användare, grupper och program i ett visst omfång.     
+   - Använd Key Vault för att hantera dina TLS-certifikat med autoförnyelse. 
+   - Diagnostikloggar för Key Vault aktive ras med en kvarhållningsperiod på minst 365 dagar.
+   - Tillåtna kryptografiska åtgärder för nycklar är begränsade till dem som krävs.
 ### <a name="azure-security-center"></a>Azure Security Center
-Med Azure Security Center kan kunder centralt tillämpa och hantera säkerhetsprinciper över arbetsbelastningar, begränsa exponeringen för hot och identifiera och svara på attacker. Dessutom 
-   - Azure Security Center har åtkomst till befintliga konfigurationer av Azure-tjänster för att tillhandahålla konfigurations- och tjänstrekommendationer för att förbättra säkerhetspositionen och skydda data.
-   - Azure Security Center använder en mängd olika identifieringsfunktioner för att varna kunder om potentiella attacker som är inriktade på deras miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Azure Security Center har en uppsättning fördefinierade säkerhetsaviseringar som utlöses när ett hot eller misstänkt aktivitet äger rum. Anpassade varningsregler i Azure Security Center gör det möjligt för kunder att definiera nya säkerhetsaviseringar baserat på data som redan har samlats in från deras miljö.
-   - Azure Security Center tillhandahåller prioriterade säkerhetsaviseringar och incidenter, vilket gör det enklare för kunder att upptäcka och åtgärda potentiella säkerhetsproblem. En rapport om hotinformation genereras för varje upptäckt hot för att hjälpa incidenthanteringsgrupper att utreda och åtgärda hot.
+Med Azure Security Center kan kunder centralt tillämpa och hantera säkerhets principer över arbets belastningar, begränsa exponeringen för hot och identifiera och reagera på attacker. Dessutom 
+   - Azure Security Center använder befintliga konfigurationer av Azure-tjänster för att tillhandahålla konfigurations-och tjänst rekommendationer för att förbättra säkerheten position och skydda data.
+   - Azure Security Center använder flera olika identifierings funktioner för att meddela kunder om potentiella attacker som riktar sig mot sina miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Azure Security Center har en uppsättning fördefinierade säkerhets aviseringar som utlöses när ett hot eller misstänkt aktivitet äger rum. Anpassade aviserings regler i Azure Security Center låter kunderna definiera nya säkerhets aviseringar baserat på data som redan har samlats in från deras miljö.
+   - Azure Security Center ger prioriterade säkerhets aviseringar och incidenter, vilket gör det enklare för kunderna att upptäcka och åtgärda potentiella säkerhets problem. En hot informations rapport genereras för varje identifierat hot för att hjälpa incident hanterings team att undersöka och åtgärda hot.
 ### <a name="azure-application-gateway"></a>Azure Application Gateway 
-   Arkitekturen minskar risken för säkerhetsproblem med hjälp av en Azure Application Gateway med en brandvägg för webbprogram konfigurerad och OWASP-regeluppsättningen aktiverad. Ytterligare funktioner inkluderar
-   - på TLS.
-   - Inaktivera TLS v1.0 och v1.1.
-   - Aktivera TLSv1.2.
-   - Brandvägg för webbprogram (förebyggande läge).
-   - Förebyggande läge med OWASP 3.0-regeluppsättning.
+   Arkitekturen minskar risken för säkerhets problem med en Azure Application Gateway med en brand vägg för webbaserade program konfigurerad, och OWASP-ruleset har Aktiver ATS. Ytterligare funktioner är
+   - TLS från slut punkt till slut punkt.
+   - Inaktivera TLS v 1.0 och v 1.1.
+   - Aktivera TLSv 1.2.
+   - Brand vägg för webbaserade program (skydds läge).
+   - Skydds läge med OWASP 3,0 ruleset.
    - Aktivera diagnostikloggning.
-   - Anpassade hälsoavsökningar.
-   - Azure Security Center och en Azure Advisor ger ytterligare skydd och meddelanden. Azure Security Center tillhandahåller också ett ryktessystem.
+   - Anpassade hälso avsökningar.
+   - Azure Security Center och en Azure Advisor ger ytterligare skydd och aviseringar. Azure Security Center ger också ett ryktes system.
 ### <a name="logging-and-auditing"></a>Loggning och granskning
-Azure-tjänster loggar i stor utsträckning system- och användaraktivitet samt systemhälsa:
-   - Aktivitetsloggar: [Aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger insikt i åtgärder som utförs på resurser i en prenumeration. Aktivitetsloggar kan hjälpa till att fastställa en operationsinitiator, förekomsttid och status.
-   - Diagnostikloggar: [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) innehåller alla loggar som avges av varje resurs. Dessa loggar inkluderar Windows händelsesystemloggar, Azure Storage-loggar, Key Vault granskningsloggar och Application Gateway åtkomst och brandväggsloggar. Alla diagnostikloggar skriv till ett centraliserat och krypterat Azure-lagringskonto för arkivering. Kvarhållningen är användarkonfigurerbar, upp till 730 dagar, för att uppfylla organisationsspecifika lagringskrav.
+Azure-tjänster loggar system-och användar aktiviteter i stor utsträckning, samt systemets hälso tillstånd:
+   - Aktivitets loggar: [aktivitets loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
+   - Diagnostikloggar: [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, Azure Storage loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Kvarhållning är en användare som kan konfigureras, upp till 730 dagar, för att uppfylla organisationens särskilda krav för kvarhållning.
 ### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
-   Dessa loggar konsolideras i [Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och instrumentpanelsrapportering. När data har samlats in är de ordnade i separata tabeller för varje datatyp i Log Analytics-arbetsytor, vilket gör att alla data kan analyseras tillsammans oavsett dess ursprungliga källa. Dessutom integreras Azure Security Center med Azure Monitor-loggar som gör det möjligt för kunder att använda Kusto-frågor för att komma åt sina säkerhetshändelsedata och kombinera dem med data från andra tjänster.
+   Dessa loggar konsol IDE ras i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och instrument panels rapportering. När data har samlats in ordnas de i separata tabeller för varje datatyp inom Log Analytics arbets ytor, vilket innebär att alla data kan analyseras tillsammans oavsett den ursprungliga källan. Dessutom kan Azure Security Center integreras med Azure Monitor loggar som gör det möjligt för kunder att använda Kusto-frågor för att komma åt sina säkerhets händelse data och kombinera dem med data från andra tjänster.
 
-   Följande [Azure-övervakningslösningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ingår som en del av den här arkitekturen
+   Följande lösningar för Azure- [övervakning](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ingår som en del av den här arkitekturen
 
-   - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory Health Check-lösningen utvärderar risken och hälsan för servermiljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är specifika för den distribuerade serverinfrastrukturen.
-   - [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Agent health-lösningen rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar operativa data.
-   - [Aktivitetslogganalys:](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)Lösningen för Aktivitetslogganalys hjälper till med analys av Azure-aktivitetsloggar för alla Azure-prenumerationer för en kund.
+   - [Active Directory-utvärdering](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): den Active Directory hälso kontroll lösningen utvärderar hälso-och hälso tillståndet i Server miljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
+   - [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar drift data.
+   - [Aktivitetslogganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Aktivitetslogganalys lösningen hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
 ### <a name="azure-monitor"></a>Azure Monitor
-   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender genom att göra det möjligt för organisationer att granska, skapa aviseringar och arkivera data, inklusive spårning av API-anrop i sina Azure-resurser.
+   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender genom att göra det möjligt för organisationer att granska, skapa aviseringar och arkivera data, inklusive att spåra API-anrop i sina Azure-resurser.
 ### <a name="application-insights"></a>Application Insights 
-   [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utökningsbar Application Performance Management-tjänst för webbutvecklare på flera plattformar. Application Insights identifierar prestandaavvikelser och kunder kan använda den för att övervaka live-webbprogrammet. Den innehåller kraftfulla analysverktyg som hjälper kunderna att diagnostisera problem och förstå vad användarna faktiskt gör med sin app. Den är utformad för att hjälpa kunderna att kontinuerligt förbättra prestanda och användbarhet.
+   [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utöknings bar hanterings tjänst för program prestanda för webbutvecklare på flera plattformar. Application Insights identifierar prestanda avvikelser och kunder kan använda den för att övervaka Live-webbprogrammet. Den innehåller kraftfulla analys verktyg som hjälper kunder att diagnostisera problem och förstå vad användare faktiskt gör med sina appar. Det är utformat för att hjälpa kunder att kontinuerligt förbättra prestanda och användbarhet.
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
-   Skapa ett valv för den organisation där nycklar ska lagras och ansvarsskyldighet för operativa uppgifter som nedan
+   Skapa ett valv för organisationen där du kan lagra nycklar och upprätthålla ansvaret för drift uppgifter som nedan
 
-   - Data som lagras i Key Vault inkluderar   
-   - Intraktningsnyckel för program
-   - Åtkomstnyckel för datalagring
+   - Data som lagras i Key Vault innehåller   
+   - Insikts nyckel för program
+   - Åtkomst nyckel för data lagring
    - Anslutningssträng
-   - Namn på datatabell
-   - Användarreferenser
-   - Principer för avancerad åtkomst konfigureras på behovsbasis
-   - Åtkomstprinciper för Key Vault definieras med minsta möjliga behörighet till nycklar och hemligheter
-   - Alla nycklar och hemligheter i Key Vault har utgångsdatum
-   - Alla nycklar i Key Vault skyddas av maskinvarusäkerhetsmodul (HSM) [Nyckeltyp = maskinvarusäkerhetsmodul (HSM) Skyddad       
+   - Data tabell namn
+   - Användarautentiseringsuppgifter
+   - Avancerade åtkomst principer konfigureras på grund av behov
+   - Key Vault åtkomst principer definieras med lägsta behörighet som krävs för nycklar och hemligheter
+   - Alla nycklar och hemligheter i Key Vault har förfallo datum
+   - Alla nycklar i Key Vault skyddas av maskin varu säkerhetsmodulen (HSM) [nyckel typ = inbyggd HSM-modul (Hardware Security Module)       
      2048-bitars RSA-nyckel]
-   - Alla användare/identiteter beviljas lägsta obligatoriska behörigheter med hjälp av rollbaserad åtkomstkontroll (RBAC)
-   - Program delar inte ett Key Vault om de inte litar på varandra och de behöver tillgång till samma hemligheter vid körning
-   - Diagnostikloggar för Key Vault är aktiverade med en kvarhållningsperiod på minst 365 dagar.
-   - Tillåtna kryptografiska åtgärder för nycklar är begränsade till de som krävs
+   - Alla användare/identiteter beviljas minst de behörigheter som krävs med hjälp av rollbaserad Access Control (RBAC)
+   - Program delar inte en Key Vault om de inte litar på varandra och de behöver åtkomst till samma hemligheter vid körning
+   - Diagnostikloggar för Key Vault aktive ras med en kvarhållningsperiod på minst 365 dagar.
+   - Tillåtna kryptografiska åtgärder för nycklar är begränsade till dem som krävs
 
-### <a name="vpn-and-expressroute"></a>VPN och ExpressRoute
-   En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) behövde konfigureras genom att säkert upprätta en anslutning till de resurser som distribueras som en del av den här PaaS-referensarkitekturen för webbprogram. Genom att konfigurera en VPN eller ExpressRoute på lämpligt sätt kan kunderna lägga till ett skyddslager för data under överföring.
+### <a name="vpn-and-expressroute"></a>VPN-och ExpressRoute
+   En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) som krävs för att konfigureras genom en säker upprättande av en anslutning till resurserna som distribuerats som en del av den här PaaS referens arkitektur för webb program. Genom att konfigurera en VPN-eller ExpressRoute på lämpligt sätt kan kunder lägga till ett skydds lager för data under överföring.
 
-   Genom att implementera en säker VPN-tunnel med Azure kan en virtuell privat anslutning mellan ett lokalt nätverk och ett Virtuellt Azure-nätverk skapas. Den här anslutningen sker via Internet och gör det möjligt för kunder att säkert "tunnel" information i en krypterad länk mellan kundens nätverk och Azure. Site-to-Site VPN är en säker, mogen teknik som har distribuerats av företag av alla storlekar i årtionden. IPsec-tunnelläget används i det här alternativet som en krypteringsmekanism.
+   Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och en Azure-Virtual Network. Den här anslutningen sker via Internet och gör det möjligt för kunder att på ett säkert sätt placera "tunnel"-information i en krypterad länk mellan kundens nätverk och Azure. VPN för plats-till-plats är en säker, vuxen teknik som har distribuerats av företag i alla storlekar i årtionden. IPsec-tunnelläge används i det här alternativet som en krypterings metod.
 
-   Eftersom trafiken i VPN-tunneln korsar Internet med en plats-till-plats-VPN, erbjuder Microsoft ett annat, ännu säkrare anslutningsalternativ. Azure ExpressRoute är en dedikerad WAN-länk mellan Azure och en lokal plats eller en Exchange-värdleverantör. Eftersom ExpressRoute-anslutningar inte går via Internet erbjuder dessa anslutningar mer tillförlitlighet, snabbare hastigheter, lägre fördröjningar och högre säkerhet än typiska anslutningar via Internet. Eftersom detta är en direkt anslutning till kundens telekommunikationsleverantör, färdas uppgifterna inte över Internet och är därför inte exponerade för dem.
+   Eftersom trafiken i VPN-tunneln passerar Internet med en plats-till-plats-VPN, erbjuder Microsoft en annan, ännu mer säker anslutnings möjlighet. Azure ExpressRoute är en särskild WAN-länk mellan Azure och en lokal plats eller en Exchange-värd leverantör. Eftersom ExpressRoute-anslutningar inte går via Internet, ger dessa anslutningar mer tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via Internet. Dessutom, eftersom det är en direkt anslutning till kundens teleoperatörs leverantör, överförs inte data via Internet och exponeras därför inte för den.
 
-   Metodtips för att implementera ett säkert hybridnätverk som utökar ett lokalt nätverk till Azure är [tillgängliga](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+   Metod tips för att implementera ett säkert hybrid nätverk som utökar ett lokalt nätverk till Azure är [tillgängligt](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 #### <a name="implement-azure-active-directory-oidc"></a>Implementera Azure Active Directory OIDC
 
-1. Om du vill klona källkodsdatabasen använder du det här Git-kommandot
+1. Om du vill klona käll kods databasen använder du detta git-kommando
 
  ``` git
  git clone https://github.com/Azure-Samples/AAD-Security
    ```
-## <a name="update-the-redirect-urls"></a>Uppdatera url:erna för omdirigering
-1.  Navigera tillbaka till Azure-portalen. I det vänstra navigeringsfönstret väljer du Azure Active Directory-tjänsten och väljer sedan Appregistreringar.
-2.  På den resulterande skärmen väljer du WebApp-OpenIDConnect-DotNet-code-v2-programmet.
-3.  På fliken Autentisering o I avsnittet Omdirigera URI:er väljer du Webben i kombinationsrutan och lägger till följande omdirigerings-URI:er.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.nethttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o I avsnittet Avancerade inställningar anger du utloggnings-URL tillhttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
-4.  På fliken Branding o Uppdatera webbadressen till adressen till apptjänsten, till exempel https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
+## <a name="update-the-redirect-urls"></a>Uppdatera omdirigerings-URL: erna
+1.  Gå tillbaka till Azure Portal. I det vänstra navigerings fönstret väljer du tjänsten Azure Active Directory och väljer sedan Appregistreringar.
+2.  I den resulterande skärmen väljer du programmet WebApp-OpenIDConnect-DotNet-Code-v2.
+3.  På fliken autentisering o i avsnittet omdirigerings-URI väljer du webb i kombinations rutan och lägger till följande omdirigerings-URI: er.
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc`
+    o i avsnittet Avancerade inställningar ange utloggnings-URL till`https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc`
+4.  På fliken anpassning o uppdaterar du till exempel `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`start sidans URL till adressen till din app service.
         o Spara konfigurationen.
-5.  Om ditt program anropar ett webb-API, se till att tillämpa nödvändiga ändringar på projektet appsettings.json, så det anropar den publicerade API-URL:en i stället för localhost.
+5.  Om programmet anropar ett webb-API ska du se till att tillämpa de nödvändiga ändringarna på projektet appSettings. JSON, så att den anropar den publicerade API-URL: en i stället för localhost.
 Publicera exemplet
-    1.  Ladda ned publiceringsprofilen på fliken Översikt i Apptjänsten genom att klicka på länken Hämta publiceringsprofil och spara den. Andra distributionsmekanismer, till exempel från källkontroll, kan också användas.
-    2.  Växla till Visual Studio och gå till WebApp-OpenIDConnect-DotNet-code-v2-projektet. Högerklicka på projektet i Lösningsutforskaren och välj Publicera. Klicka på Importera profil i det nedre fältet och importera publiceringsprofilen som du hämtade tidigare.
-    3.  Klicka på Konfigurera och uppdatera mål-URL:en på fliken Anslutning så att den https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.netär en https i webbadressen till startsidan, till exempel . Klicka på Nästa.
-    4.  Kontrollera att Aktivera organisationsautentisering inte är markerat på fliken Inställningar. Klicka på Spara. Klicka på Publicera på huvudskärmen.
-    5.  Visual Studio publicerar projektet och öppnar automatiskt en webbläsare för projektets URL. Om du ser projektets standardwebbsida lyckades publikationen.
-#### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementera multifaktorautentisering för Azure Active Directory
-   Administratörer måste se till att prenumerationskontona i portalen är skyddade. Prenumerationen är sårbar för attacker eftersom den hanterar de resurser som du har skapat. För att skydda prenumerationen aktiverar du multifaktorautentisering på fliken **Azure Active Directory** i prenumerationen.
+    1.  På fliken Översikt i App Service laddar du ned publicerings profilen genom att klicka på länken Hämta publicerings profil och spara den. Andra distributions metoder, till exempel från käll kontroll, kan också användas.
+    2.  Växla till Visual Studio och gå till projektet WebApp-OpenIDConnect-DotNet-Code-v2. Högerklicka på projektet i Solution Explorer och välj publicera. Klicka på Importera profil i det nedre fältet och importera den publicerings profil som du laddade ned tidigare.
+    3.  Klicka på Konfigurera och på fliken anslutning uppdaterar du mål-URL: en så att den är en https på Start sidans URL, till `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`exempel. Klicka på Nästa.
+    4.  På fliken Inställningar kontrollerar du att aktivera organisations autentisering inte är markerat. Klicka på Spara. Klicka på Publicera på huvud skärmen.
+    5.  Visual Studio kommer att publicera projektet och automatiskt öppna en webbläsare till projektets URL. Om du ser projektets standard webb sida slutfördes publikationen.
+#### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementera Multi-Factor Authentication för Azure Active Directory
+   Administratörer måste se till att prenumerations kontona i portalen är skyddade. Prenumerationen är sårbar för attacker eftersom den hanterar de resurser som du har skapat. Om du vill skydda prenumerationen aktiverar du Multi-Factor Authentication på fliken **Azure Active Directory** i prenumerationen.
 
-   En Azure AD fungerar baserat på principer som tillämpas på en användare eller grupper av användare som uppfyller vissa kriterier.
-Azure skapar en standardprincip som anger att administratörer behöver tvåfaktorsautentisering för att logga in på portalen.
-När du har aktiverat den här principen kan du uppmanas att logga ut och logga in på Azure-portalen igen.
+   En Azure AD fungerar baserat på principer som tillämpas på en användare eller grupper av användare som uppfyller ett visst kriterium.
+Azure skapar en standard princip som anger att administratörer behöver tvåfaktorautentisering för att logga in på portalen.
+När du har aktiverat den här principen kan du uppmanas att logga ut och logga in igen på Azure Portal.
 
-Så här aktiverar du MFA för administratörs inloggningar
+Aktivera MFA för admin-inloggningar
 
-   1. Gå till fliken **Azure Active Directory** i Azure-portalen
-   2. Välj villkorlig åtkomst under säkerhetskategorin. Du ser den här skärmen
+   1. Gå till fliken **Azure Active Directory** i Azure Portal
+   2. Under kategorin säkerhet väljer du villkorlig åtkomst. Du ser den här skärmen
 
-       ![Villkorlig åtkomst - principer](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Villkorlig åtkomst – principer](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Om du inte kan skapa en ny princip
 
-   1. Gå till fliken **MFA.**
-   2. Välj en azure AD Premium **Free testversion** länk för att prenumerera på den kostnadsfria utvärderingsversionen.
+   1. Gå till fliken **MFA** .
+   2. Välj en Azure AD Premium **kostnads fri utvärderings** länk för att prenumerera på den kostnads fria utvärderings versionen.
 
-   ![En kostnadsfri utvärderingsversion av Azure AD Premium](./media/secure-aad-app/ad-trial-premium.png)
+   ![En Azure AD Premium kostnads fri utvärderings version](./media/secure-aad-app/ad-trial-premium.png)
 
 Gå tillbaka till skärmen för villkorlig åtkomst.
 
-   1. Välj den nya principfliken.
+   1. Välj fliken ny princip.
    2. Ange principens namn.
-   3. Markera de användare eller grupper som du vill aktivera MFA för.
-   4. Under **Access-kontroller**väljer du fliken **Bevilja** och väljer sedan **Kräv multifaktorautentisering** (och andra inställningar om du vill).
+   3. Välj de användare eller grupper som du vill aktivera MFA för.
+   4. Under **åtkomst kontroller**väljer du fliken **beviljande** och väljer sedan **Kräv Multi-Factor Authentication** (och andra inställningar om du vill).
 
    ![Kräv MFA](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
-   Du kan aktivera principen genom att markera kryssrutan högst upp på skärmen eller göra det på fliken **Villkorlig åtkomst.** När principen är aktiverad behöver användarna MFA för att logga in på portalen.
+   Du kan aktivera principen genom att markera kryss rutan längst upp på skärmen eller göra det på fliken **villkorlig åtkomst** . När principen är aktive rad behöver användare MFA för att logga in på portalen.
 
-   Det finns en baslinjeprincip som kräver MFA för alla Azure-administratörer. Du kan aktivera den direkt i portalen. Om du aktiverar den här principen kan den aktuella sessionen bli ogiltig och du måste logga in igen.
+   Det finns en bas linje princip som kräver MFA för alla Azure-administratörer. Du kan aktivera det direkt i portalen. Om du aktiverar den här principen kan den aktuella sessionen bli ogiltig och du kan logga in igen.
 
-   Om originalprincipen inte är aktiverad
-   1.   Välj **Kräv MFA för administratörer**.
+   Om bas linje principen inte är aktive rad
+   1.   Välj **KRÄV MFA för administratörer**.
    2.   Välj **Använd princip omedelbart**.
 
    ![Välj Använd princip omedelbart](./media/secure-aad-app/ad-mfa-conditional-enable.png)
 
-#### <a name="use-azure-sentinel-to-monitor-apps-and-resources"></a>Använda Azure Sentinel för att övervaka appar och resurser
+#### <a name="use-azure-sentinel-to-monitor-apps-and-resources"></a>Övervaka appar och resurser med hjälp av Azure Sentinel
 
-   När ett program växer blir det svårt att aggregera alla säkerhetssignaler och mått som tas emot från resurser och göra dem användbara på ett åtgärdsorienterat sätt.
+   När ett program växer blir det svårt att sammanställa alla säkerhets signaler och mått som tas emot från resurser och gör dem användbara på ett åtgärds sätt.
 
-   Azure Sentinel är utformat för att samla in data, identifiera möjliga typer av hot och ge insyn i säkerhetsincidenter.
-Medan azure Sentinel väntar på manuella åtgärder kan den förlita sig på förskrivna spelböcker för att starta aviseringar och incidenthanteringsprocesser.
+   Azure Sentinel har utformats för att samla in data, identifiera de typer av hot som är möjliga och ge insyn i säkerhets incidenter.
+Även om det väntar på en manuell åtgärd kan Azure Sentinel förlita sig på fördefinierade spel böcker för att starta aviseringar och incident hanterings processer.
 
-   Exempelappen består av flera resurser som Azure Sentinel kan övervaka.
-Om du vill konfigurera Azure Sentinel måste du först skapa en Log Analytics-arbetsyta som lagrar alla data som samlas in från de olika resurserna.
+   Exempel appen består av flera resurser som Azure Sentinel kan övervaka.
+Om du vill konfigurera Azure Sentinel måste du först skapa en Log Analytics arbets yta som lagrar alla data som samlas in från de olika resurserna.
 
-Så här skapar du den här arbetsytan
+Skapa den här arbets ytan
 
-   1. Sök efter **Log Analytics**i sökrutan i Azure-portalen . Välj **Log Analytics-arbetsytor**.
+   1. Sök efter **Log Analytics**i rutan sök i Azure Portal. Välj **Log Analytics arbets ytor**.
 
-   ![Sök efter log analytics-arbetsytor](./media/secure-aad-app/sentinel-log-analytics.png)
+   ![Sök efter Log Analytics arbets ytor](./media/secure-aad-app/sentinel-log-analytics.png)
 
-   *Sök efter log analytics-arbetsytor*
+   *Sök efter Log Analytics arbets ytor*
 
-   2. På nästa sida väljer du **Lägg till** och anger sedan ett namn, en resursgrupp och en plats för arbetsytan.
+   2. På nästa sida väljer du **Lägg till** och anger sedan ett namn, en resurs grupp och en plats för arbets ytan.
    ![Skapa en Log Analytics-arbetsyta](./media/secure-aad-app/sentinel-log-analytics-create.png)
 
    *Skapa en Log Analytics-arbetsyta*
@@ -523,38 +525,38 @@ Så här skapar du den här arbetsytan
 
    *Sök efter Azure Sentinel*
 
-   4. Välj **Lägg till** och välj sedan arbetsytan Log Analytics som du skapade tidigare.
+   4. Välj **Lägg till** och välj sedan Log Analytics arbets ytan som du skapade tidigare.
 
-   ![Lägga till en log analytics-arbetsyta](./media/secure-aad-app/sentinel-workspace-add.png)
+   ![Lägg till en Log Analytics-arbetsyta](./media/secure-aad-app/sentinel-workspace-add.png)
 
-   *Lägga till en log analytics-arbetsyta*
+   *Lägg till en Log Analytics-arbetsyta*
 
-   5. Välj Datakopplingar under **Konfiguration**på sidan **Azure Sentinel - Data-anslutningsappar** . **Data connectors** Du ser en matris med Azure-tjänster som du kan länka till log Analytics-lagringsinstansen för analys i Azure Sentinel.
+   5. På sidan **Azure Sentinel-data anslutningar** väljer du **data kopplingar**under **konfiguration**. Du ser en matris med Azure-tjänster som du kan länka till Log Analytics lagrings instans för analys i Azure Sentinel.
 
-   ![Logga Analytics-dataanslutningar](./media/secure-aad-app/sentinel-connectors.png)
+   ![Log Analytics data anslutningar](./media/secure-aad-app/sentinel-connectors.png)
 
-      *Lägga till en dataanslutning i Azure Sentinel*
+      *Lägg till en data anslutning i Azure Sentinel*
 
-   Om du till exempel vill ansluta programgatewayen gör du så här:
+   Gör så här för att ansluta Application Gateway:
 
-   1. Öppna instansbladet azure application gateway.
+   1. Öppna bladet Azure Application Gateway-instans.
    2. Under **Övervakning** väljer du **Diagnostikinställningar**.
-   3. Välj **Lägg till diagnostikinställning**.
+   3. Välj **Lägg till diagnostisk inställning**.
 
-   ![Lägga till diagnostik för programgateway](./media/secure-aad-app/sentinel-gateway-connector.png)
+   ![Lägg till Application Gateway diagnostik](./media/secure-aad-app/sentinel-gateway-connector.png)
          
-   *Lägga till diagnostik för programgateway*
+   *Lägg till Application Gateway diagnostik*
 
-   4. På sidan **Diagnostikinställningar** väljer du arbetsytan Log Analytics som du har skapat och väljer sedan alla mått som du vill samla in och skicka till Azure Sentinel. Välj **Spara**.
+   4. På sidan **diagnostikinställningar** väljer du Log Analytics arbets ytan som du skapade och väljer sedan alla mått som du vill samla in och skicka till Azure Sentinel. Välj **Spara**.
 
-   ![Azure Sentinel-anslutningsinställningar](./media/secure-aad-app/sentinel-connector-settings.png)
+   ![Inställningar för Azure Sentinel Connector](./media/secure-aad-app/sentinel-connector-settings.png)
 
 
 
 ## <a name="cost-considerations"></a>Kostnadsöverväganden
-   Om du inte redan har ett Azure-konto kan du skapa ett kostnadsfritt konto. Gå till den [kostnadsfria kontosidan](https://azure.microsoft.com/free/) för att komma igång, se vad du kan göra med ett kostnadsfritt Azure-konto och lär dig vilka produkter som är lediga i 12 månader.
+   Om du inte redan har ett Azure-konto kan du skapa ett kostnads fritt. Gå till [sidan kostnads fritt konto](https://azure.microsoft.com/free/) för att komma igång, se vad du kan göra med ett kostnads fritt Azure-konto och lär dig vilka produkter som är kostnads fria i 12 månader.
 
-   Om du vill distribuera resurserna i exempelappen med säkerhetsfunktionerna måste du betala för vissa premiumfunktioner. När appen skalas och de kostnadsfria nivåer och utvärderingsversioner som erbjuds av Azure måste uppgraderas för att uppfylla programmets krav kan dina kostnader öka. Använd [Azure-priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att uppskatta dina kostnader.
+   Om du vill distribuera resurserna i exempel appen med säkerhetsfunktionerna måste du betala för vissa Premium-funktioner. När appen skalas och de kostnads fria nivåerna och utvärderingarna som erbjuds av Azure måste uppgraderas för att uppfylla program kraven kan kostnaderna öka. Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för Azure för att beräkna dina kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
    Följande artiklar kan hjälpa dig att utforma, utveckla och distribuera säkra program.

@@ -1,6 +1,6 @@
 ---
-title: Koda en tillgång med Media Encoder Standard med .NET | Microsoft-dokument
-description: Den här artikeln visar hur du använder .NET för att koda en tillgång med Media Encoder Standard.
+title: Koda en till gång med Media Encoder Standard med hjälp av .NET | Microsoft Docs
+description: Den här artikeln visar hur du använder .NET för att koda en till gång med Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -16,61 +16,61 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "69016591"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en tillgång med Media Encoder Standard med .NET  
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en till gång med Media Encoder Standard med hjälp av .NET  
 
-Kodningsjobb är en av de vanligaste bearbetningsåtgärderna i Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda den inbyggda Media Services-kodaren. Du kan också använda en kodare som tillhandahålls av en Media Services-partner. Kodare från tredje part är tillgängliga via Azure Marketplace. 
+Kodnings jobb är en av de vanligaste bearbetnings åtgärderna i Media Services. Du skapar kodnings jobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda den inbyggda medie kodare Media Services. Du kan också använda en kodare som tillhandahålls av en Media Services-partner. kodare från tredje part är tillgängliga via Azure Marketplace. 
 
-Den här artikeln visar hur du använder .NET för att koda dina tillgångar med Media Encoder Standard (MES). Media Encoder Standard är konfigurerad med hjälp av en av kodarna förinställningar som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Den här artikeln visar hur du använder .NET för att koda dina till gångar med Media Encoder Standard (marknads status). Media Encoder Standard konfigureras med hjälp av någon av de förinställda kodare som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-Vi rekommenderar att du alltid kodar källfilerna till en adaptiv bithastighet MP4-uppsättning och sedan konverterar uppsättningen till önskat format med dynamisk [förpackning](media-services-dynamic-packaging-overview.md). 
+Vi rekommenderar att alltid koda källfilerna till en MP4-uppsättning med anpassad bit hastighet och sedan konvertera uppsättningen till önskat format med hjälp av den [dynamiska packningen](media-services-dynamic-packaging-overview.md). 
 
-Om utdatatillgången är lagringskrypterad måste du konfigurera principen för tillgångsleverans. Mer information finns i [Konfigurera leveransprincip för tillgångar](media-services-dotnet-configure-asset-delivery-policy.md).
+Om din utgående till gång är krypterad, måste du konfigurera till gångs leverans princip. Mer information finns i [Konfigurera till gångs leverans princip](media-services-dotnet-configure-asset-delivery-policy.md).
 
 > [!NOTE]
-> MES skapar en utdatafil med ett namn som innehåller de första 32 tecknen i indatafilnamnet. Namnet baseras på vad som anges i den förinställda filen. Till exempel "Filnamn": "{Basename}_{Index}{Extension}". {Basename} ersätts med de första 32 tecknen i indatafilnamnet.
+> Du skapar en utdatafil med ett namn som innehåller de första 32 tecknen i indatafilens namn. Namnet baseras på vad som anges i den förinställda filen. Till exempel "FileName": "{basename} _ {index} {Extension}". {Basename} ersätts med de första 32 tecknen i indatafilens namn.
 > 
 > 
 
-### <a name="mes-formats"></a>MES-format
-[Format och codec-enheter](media-services-media-encoder-standard-formats.md)
+### <a name="mes-formats"></a>Status för status
+[Format och codecenheter](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES-förinställningar
-Media Encoder Standard är konfigurerad med hjälp av en av kodarna förinställningar som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard konfigureras med hjälp av någon av de förinställda kodare som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadata för indata och utdata
-När du kodar en indatatillgång (eller tillgångar) med MES får du en utdatatillgång när kodaktiviteten har slutförts. Utdatatillgången innehåller video, ljud, miniatyrer, manifest, etc. baserat på den kodningsförinställning du använder.
+När du kodar en inmatnings till gång (eller till gångar) med hjälp av aktiviteter får du en utmatnings till gång när du har slutfört åtgärden. Utmatnings till gången innehåller video, ljud, miniatyrer, manifest osv. baserat på den kodnings inställning som du använder.
 
-Utdatatillgången innehåller också en fil med metadata om indatatillgången. Namnet på metadata XML-filen har följande format: <asset_id>_metadata.xml (till exempel 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), där <asset_id> är AssetId-värdet för indatatillgången. Schemat för den här XML-xml:et för indatametadata beskrivs [här](media-services-input-metadata-schema.md).
+Till gången till utdata innehåller också en fil med metadata om inmatnings till gången. Namnet på XML-filen med metadata har följande format: <asset_id>_metadata. XML (till exempel 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata. xml), där <asset_id> är AssetId-värdet för indata till gången. Schemat för denna XML för indata-metadata beskrivs [här](media-services-input-metadata-schema.md).
 
-Utdatatillgången innehåller också en fil med metadata om utdatatillgången. Namnet på metadata-XML-filen har följande format: <source_file_name>_manifest.xml (till exempel BigBuckBunny_manifest.xml). Schemat för den här XML-xml:et för utdatametadata beskrivs [här](media-services-output-metadata-schema.md).
+Till gången till utdata innehåller också en fil med metadata om utmatnings till gången. Namnet på XML-filen med metadata har följande format: <source_file_name>_manifest. XML (till exempel BigBuckBunny_manifest. xml). Schemat för denna XML för utdata-metadata beskrivs [här](media-services-output-metadata-schema.md).
 
-Om du vill undersöka någon av de två metadatafilerna kan du skapa en SAS-positionerare och hämta filen till den lokala datorn. Du hittar ett exempel på hur du skapar en SAS-positionerare och hämtar en fil med hjälp av Media Services .NET SDK-tillägg.
+Om du vill undersöka någon av de två metadatafiler kan du skapa en SAS-lokaliserare och ladda ned filen till den lokala datorn. Du hittar ett exempel på hur du skapar en SAS-lokaliserare och laddar ned en fil med hjälp av Media Services .NET SDK-tillägg.
 
 ## <a name="download-sample"></a>Hämta exempel
-Du kan få och köra ett exempel som visar hur du kodar med MES [härifrån](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Du kan hämta och köra ett exempel som visar hur du kodar med hjälp av [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="net-sample-code"></a>EXEMPELkod för .NET
+## <a name="net-sample-code"></a>.NET-exempel kod
 
-I följande kodexempel används Media Services .NET SDK för att utföra följande uppgifter:
+I följande kod exempel används Media Services .NET SDK för att utföra följande uppgifter:
 
-* Skapa ett kodningsjobb.
-* Hämta en referens till Media Encoder Standard-kodaren.
-* Ange att använda förinställningen [Adaptiv direktuppspelning.](media-services-autogen-bitrate-ladder-with-mes.md) 
-* Lägg till en enskild kodningsaktivitet i jobbet. 
-* Ange den indatatillgång som ska kodas.
-* Skapa en utdatatillgång som innehåller den kodade tillgången.
-* Lägg till en händelsehanterare för att kontrollera jobbförloppet.
+* Skapa ett kodnings jobb.
+* Hämta en referens till Media Encoder Standard Encoder.
+* Ange om du vill använda för hands inställningen för [anpassad direkt uppspelning](media-services-autogen-bitrate-ladder-with-mes.md) . 
+* Lägg till en enda kodnings uppgift i jobbet. 
+* Ange den inmatade till gång som ska kodas.
+* Skapa en utgående till gång som innehåller den kodade till gången.
+* Lägg till en händelse hanterare för att kontrol lera jobb förloppet.
 * Skicka in jobbet.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel 
 
@@ -196,12 +196,12 @@ namespace MediaEncoderStandardSample
 }
 ```
 
-## <a name="advanced-encoding-features-to-explore"></a>Avancerade kodningsfunktioner för att utforska
-* [Så här skapar du miniatyrer](media-services-dotnet-generate-thumbnail-with-mes.md)
-* [Generera miniatyrer under kodning](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
-* [Beskära videor under kodning](media-services-crop-video.md)
-* [Anpassa kodningsförinställningar](media-services-custom-mes-presets-with-dotnet.md)
-* [Överlägg eller vattenstämpel en video med en bild](media-services-advanced-encoding-with-mes.md#overlay)
+## <a name="advanced-encoding-features-to-explore"></a>Avancerade kodnings funktioner som du kan utforska
+* [Så här genererar du miniatyrer](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Skapa miniatyrer under kodning](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Beskär videor under kodning](media-services-crop-video.md)
+* [Anpassa kodnings för inställningar](media-services-custom-mes-presets-with-dotnet.md)
+* [Överlagra eller lägga till en video med en bild](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -210,6 +210,6 @@ namespace MediaEncoderStandardSample
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-[Så här skapar du miniatyrer med Media Encoder Standard med .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services Encoding Overview](media-services-encode-asset.md)
+[Så här skapar du en miniatyr med Media Encoder Standard med .net](media-services-dotnet-generate-thumbnail-with-mes.md)
+[Media Services kodnings översikt](media-services-encode-asset.md)
 

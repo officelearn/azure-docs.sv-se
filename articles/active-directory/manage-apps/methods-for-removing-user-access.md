@@ -1,5 +1,5 @@
 ---
-title: Så här tar du bort en användares åtkomst till ett program | Microsoft-dokument
+title: Så här tar du bort en användares åtkomst till ett program | Microsoft Docs
 description: Förstå hur du tar bort en användares åtkomst till ett program
 services: active-directory
 documentationcenter: ''
@@ -16,59 +16,59 @@ ms.date: 10/17/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b69502995eff88df53af3671a8e611809f83e59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65826101"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Så här tar du bort en användares åtkomst till ett program
 
 Den här artikeln hjälper dig att förstå hur du tar bort en användares åtkomst till ett program.
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Jag vill ta bort en viss användares eller grupps tilldelning till ett program
+## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Jag vill ta bort tilldelningen för en specifik användare eller grupp till ett program
 
-Om du vill ta bort en användar- eller grupptilldelning till ett program följer du stegen i artikeln [Ta bort en användare eller grupp från en företagsapp i Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal)
+Om du vill ta bort en användare eller grupp tilldelning till ett program följer du stegen i artikeln [ta bort en användare eller grupp tilldelning från en företags app i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artikeln.
 
 ## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Jag vill inaktivera all åtkomst till ett program för varje användare
 
-Om du vill inaktivera alla användarloggningar till ett program följer du stegen i artikeln [Inaktivera användarloggningar för en företagsapp i Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal)
+Om du vill inaktivera alla användar inloggningar till ett program följer du stegen i avsnittet [Inaktivera användar inloggningar för en Enterprise-App i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artikeln.
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Jag vill ta bort ett program helt
 
-Så här tar du **bort ett program:**
+Om du vill **ta bort ett program**följer du dessa anvisningar:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Markera det program som du vill ta bort.
+6. Välj det program som du vill ta bort.
 
-7. När programmet har läses in klickar du på **Ikonen Ta bort** från det övre programmets **översiktsfönster.**
+7. När programmet har lästs in klickar du på **ta bort** ikon i det översta programmets **översikts** fönster.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Jag vill inaktivera alla framtida åtgärder för användarsamtycke till alla program
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Jag vill inaktivera alla framtida åtgärder för användar medgivande till alla program
 
-Om du inaktiverar användarens medgivande för hela katalogen hindra slutanvändare från att samtycka till något program. Administratörer kan fortfarande medgivande för användarens räkning. Mer information om programmets medgivande och varför du kanske eller kanske inte vill göra detta, [läs Förstå användarens och administratörens samtycke](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Se även [Behörigheter och medgivande](../develop/v2-permissions-and-consent.md).
+Om du inaktiverar användar medgivande för hela katalogen kan slutanvändarna inte godkänna något program. Administratörer kan fortfarande godkänna användarens räkning. Om du vill ha mer information om program medgivande och varför du kanske inte vill göra detta, Läs [förstå användar-och administratörs medgivande](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Se även [behörigheter och medgivande](../develop/v2-permissions-and-consent.md).
 
-Om du vill **inaktivera alla framtida åtgärder för användarmedgivande i hela katalogen**följer du dessa instruktioner:
+Följ dessa instruktioner om du vill **inaktivera alla framtida användar medgivande åtgärder i hela katalogen**:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** 
+2.  Öppna **tillägget Azure Active Directory** 
 
-3.  Klicka på **Företagsprogram** på navigeringsmenyn.
+3.  Klicka på **företags program** på navigerings menyn.
 
-5.  Klicka på **Användarinställningar**.
+5.  Klicka på **användar inställningar**.
 
-6.  Ange **att användarna kan tillåta appar att komma åt företagsdata för deras räkning** växla till **Nej** och klicka på knappen Spara.
+6.  Ange att **användarna ska kunna tillåta att appar får åtkomst till företags data för deras räkning** , växla till **Nej** och klicka på knappen Spara.
 
 
 ## <a name="next-steps"></a>Nästa steg

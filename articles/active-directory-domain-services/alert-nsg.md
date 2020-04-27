@@ -1,6 +1,6 @@
 ---
-title: Lösa aviseringar för nätverkssäkerhetsgrupper i Azure AD DS | Microsoft-dokument
-description: Lär dig hur du felsöker och löser konfigurationsaviseringar för nätverkssäkerhetsgrupper för Azure Active Directory Domain Services
+title: Lösa aviseringar om nätverks säkerhets grupper i Azure AD DS | Microsoft Docs
+description: Lär dig hur du felsöker och löser konfigurations aviseringar för nätverks säkerhets grupper för Azure Active Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,36 +12,36 @@ ms.topic: troubleshooting
 ms.date: 09/19/2019
 ms.author: iainfou
 ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71257991"
 ---
-# <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Kända problem: Nätverkskonfigurationsaviseringar i Azure Active Directory Domain Services
+# <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar om nätverks konfiguration i Azure Active Directory Domain Services
 
-Om du vill att program och tjänster ska kommunicera korrekt med Azure Active Directory Domain Services (Azure AD DS) måste specifika nätverksportar vara öppna för att trafik ska kunna flöda. I Azure styr du trafikflödet med hjälp av nätverkssäkerhetsgrupper. Hälsostatusen för en Azure AD DS-hanterad domän visar en avisering om de nödvändiga nätverkssäkerhetsgruppreglerna inte finns på plats.
+För att program och tjänster ska kunna kommunicera korrekt med Azure Active Directory Domain Services (Azure AD DS) måste särskilda nätverks portar vara öppna för att tillåta trafik att flöda. I Azure styr du trafik flödet med hjälp av nätverks säkerhets grupper. Hälso status för en Azure AD DS-hanterad domän visar en avisering om de nödvändiga reglerna för nätverks säkerhets grupper inte finns på plats.
 
-Den här artikeln hjälper dig att förstå och lösa vanliga aviseringar för konfigurationsproblem för nätverkssäkerhetsgrupper.
+Den här artikeln hjälper dig att förstå och lösa vanliga aviseringar för konfigurations problem med nätverks säkerhets grupper.
 
-## <a name="alert-aadds104-network-error"></a>Avisering AADDS104: Nätverksfel
+## <a name="alert-aadds104-network-error"></a>Aviserings AADDS104: nätverks fel
 
-### <a name="alert-message"></a>Varningsmeddelande
+### <a name="alert-message"></a>Aviserings meddelande
 
-*Microsoft kan inte nå domänkontrollanterna för den här hanterade domänen. Detta kan inträffa om en nätverkssäkerhetsgrupp (NSG) som konfigurerats på det virtuella nätverket blockerar åtkomsten till den hanterade domänen. En annan möjlig orsak är om det finns en användardefinierad väg som blockerar inkommande trafik från Internet.*
+*Microsoft kan inte komma åt domän kontrol Lanterna för den här hanterade domänen. Detta kan inträffa om en nätverks säkerhets grupp (NSG) som kon figurer ATS i ditt virtuella nätverk blockerar åtkomsten till den hanterade domänen. En annan möjlig orsak är om det finns en användardefinierad väg som blockerar inkommande trafik från Internet.*
 
-Ogiltiga regler för nätverkssäkerhetsgrupper är den vanligaste orsaken till nätverksfel för Azure AD DS. Nätverkssäkerhetsgruppen för det virtuella nätverket måste tillåta åtkomst till specifika portar och protokoll. Om dessa portar är blockerade kan Azure-plattformen inte övervaka eller uppdatera den hanterade domänen. Synkroniseringen mellan Azure AD-katalogen och Azure AD DS-hanterad domän påverkas också. Se till att du håller standardportarna öppna för att undvika avbrott i drift.
+Ogiltiga regler för nätverks säkerhets grupper är den vanligaste orsaken till nätverks fel för Azure AD DS. Nätverks säkerhets gruppen för det virtuella nätverket måste tillåta åtkomst till vissa portar och protokoll. Om dessa portar blockeras kan Azure-plattformen inte övervaka eller uppdatera den hanterade domänen. Synkroniseringen mellan Azure AD-katalogen och den hanterade domänen i Azure AD DS påverkas också. Se till att du behåller standard portarna öppna för att undvika avbrott i tjänsten.
 
 ## <a name="default-security-rules"></a>Standardsäkerhetsregler
 
-Följande standardregler för inkommande och utgående säkerhetsregler tillämpas på nätverkssäkerhetsgruppen för en Azure AD DS-hanterad domän. Dessa regler håller Azure AD DS säkert och gör det möjligt för Azure-plattformen att övervaka, hantera och uppdatera den hanterade domänen. Du kan också ha ytterligare en regel som tillåter inkommande trafik om du [konfigurerar säker LDAP][configure-ldaps].
+Följande standard säkerhets regler för inkommande och utgående trafik tillämpas på nätverks säkerhets gruppen för en hanterad Azure AD DS-domän. De här reglerna skyddar Azure AD DS och ger Azure-plattformen möjlighet att övervaka, hantera och uppdatera den hanterade domänen. Du kan också ha en ytterligare regel som tillåter inkommande trafik om du [konfigurerar säker LDAP][configure-ldaps].
 
 ### <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
-| Prioritet | Namn | Port | Protokoll | Källa | Mål | Åtgärd |
+| Prioritet | Name | Port | Protokoll | Källa | Mål | Åtgärd |
 |----------|------|------|----------|--------|-------------|--------|
 | 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Alla | Tillåt |
-| 201      | AllowRD (Tillåt) | 3389 | TCP | CorpNetSaw (2000/90 | Alla | Tillåt |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Alla | Tillåt |
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Alla | Tillåt |
 | 65000    | AllVnetInBound | Alla | Alla | VirtualNetwork | VirtualNetwork | Tillåt |
 | 65001    | AllowAzureLoadBalancerInBound | Alla | Alla | AzureLoadBalancer | Alla | Tillåt |
@@ -49,41 +49,41 @@ Följande standardregler för inkommande och utgående säkerhetsregler tillämp
 
 ### <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
 
-| Prioritet | Namn | Port | Protokoll | Källa | Mål | Åtgärd |
+| Prioritet | Name | Port | Protokoll | Källa | Mål | Åtgärd |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Alla | Alla | VirtualNetwork | VirtualNetwork | Tillåt |
-| 65001    | TillåtAzureLoadBalancerOutBound | Alla | Alla |  Alla | Internet | Tillåt |
+| 65001    | AllowAzureLoadBalancerOutBound | Alla | Alla |  Alla | Internet | Tillåt |
 | 65500    | DenyAllOutBound | Alla | Alla | Alla | Alla | Neka |
 
 >[!NOTE]
 > Azure AD DS behöver obegränsad utgående åtkomst från det virtuella nätverket. Vi rekommenderar inte att du skapar några ytterligare regler som begränsar utgående åtkomst för det virtuella nätverket.
 
-## <a name="verify-and-edit-existing-security-rules"></a>Verifiera och redigera befintliga säkerhetsregler
+## <a name="verify-and-edit-existing-security-rules"></a>Verifiera och redigera befintliga säkerhets regler
 
-Så här verifierar du de befintliga säkerhetsreglerna och kontrollerar att standardportarna är öppna:
+För att kontrol lera de befintliga säkerhets reglerna och se till att standard portarna är öppna, utför du följande steg:
 
-1. Sök efter och välj **Nätverkssäkerhetsgrupper**i Azure-portalen .
-1. Välj den nätverkssäkerhetsgrupp som är associerad med den hanterade domänen, till exempel *AADDS-contoso.com-NSG*.
-1. På sidan **Översikt** visas de befintliga inkommande och utgående säkerhetsreglerna.
+1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
+1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*.
+1. På sidan **Översikt** visas befintliga inkommande och utgående säkerhets regler.
 
-    Granska reglerna för inkommande och utgående och utgående och jämför med listan över obligatoriska regler i föregående avsnitt. Om det behövs markerar du och tar sedan bort alla anpassade regler som blockerar nödvändig trafik. Om någon av de nödvändiga reglerna saknas lägger du till en regel i nästa avsnitt.
+    Granska reglerna för inkommande och utgående trafik och jämför med listan över nödvändiga regler i föregående avsnitt. Om det behövs markerar du och tar bort eventuella anpassade regler som blockerar nödvändig trafik. Om någon av de nödvändiga reglerna saknas lägger du till en regel i nästa avsnitt.
 
-    När du har lagt till eller tagit bort regler som tillåter den nödvändiga trafiken uppdateras azure AD DS-hanterade domänens hälsa automatiskt inom två timmar och tar bort aviseringen.
+    När du har lagt till eller tagit bort regler för att tillåta den nödvändiga trafiken uppdateras Azure AD DS-hanterad domän hälsa automatiskt inom två timmar och aviseringen tas bort.
 
 ### <a name="add-a-security-rule"></a>Lägg till en säkerhetsregel
 
-Så här lägger du till en säkerhetsregel som saknas:
+Slutför följande steg för att lägga till en säkerhets regel som saknas:
 
-1. Sök efter och välj **Nätverkssäkerhetsgrupper**i Azure-portalen .
-1. Välj den nätverkssäkerhetsgrupp som är associerad med den hanterade domänen, till exempel *AADDS-contoso.com-NSG*.
-1. Under **Inställningar** på den vänstra panelen klickar du på *Inkommande säkerhetsregler* eller *Utgående säkerhetsregler* beroende på vilken regel du behöver lägga till.
-1. Välj **Lägg till**och skapa sedan den regel som krävs baserat på porten, protokollet, riktningen osv. När du är klar väljer du **OK**.
+1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
+1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*.
+1. Under **Inställningar** i den vänstra panelen klickar du på *inkommande säkerhets regler* eller *utgående säkerhets regler* , beroende på vilken regel du behöver lägga till.
+1. Välj **Lägg till**och skapa sedan den nödvändiga regeln baserat på porten, protokollet, riktningen osv. När du är klar väljer du **OK**.
 
-Det tar en stund innan säkerhetsregeln läggs till och visas i listan.
+Det tar en stund för säkerhets regeln att läggas till och visas i listan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du fortfarande har problem [öppnar du en Azure-supportbegäran för][azure-support] ytterligare felsökningshjälp.
+Om du fortfarande har problem [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

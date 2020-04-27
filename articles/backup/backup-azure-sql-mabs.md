@@ -1,156 +1,155 @@
 ---
-title: Säkerhetskopiera SQL Server med hjälp av Azure Backup Server
-description: I den här artikeln lär du dig konfigurationen för att säkerhetskopiera SQL Server-databaser med hjälp av Microsoft Azure Backup Server (MABS).
+title: Säkerhetskopiera SQL Server med Azure Backup Server
+description: I den här artikeln får du lära dig hur du säkerhetskopierar SQL Server databaser med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505942"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159258"
 ---
-# <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Säkerhetskopiera SQL Server till Azure med hjälp av Azure Backup Server
+# <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Säkerhetskopiera SQL Server till Azure med Azure Backup Server
 
-Den här artikeln hjälper dig att konfigurera säkerhetskopior av SQL Server-databaser med hjälp av Microsoft Azure Backup Server (MABS).
+Den här artikeln hjälper dig att konfigurera säkerhets kopieringar av SQL Server databaser med hjälp av Microsoft Azure Backup Server (MABS).
 
-Så här säkerhetskopierar du en SQL Server-databas och återställer den från Azure:
+Säkerhetskopiera en SQL Server-databas och återställa den från Azure:
 
-1. Skapa en princip för säkerhetskopiering för att skydda SQL Server-databaser i Azure.
-1. Skapa säkerhetskopior på begäran i Azure.
-1. Återställa databasen i Azure.
+1. Skapa en säkerhets kopierings princip för att skydda SQL Server databaser i Azure.
+1. Skapa säkerhets kopior på begäran i Azure.
+1. Återställ databasen i Azure.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du börjar bör du se till att du har [installerat och förberett Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+Innan du börjar bör du kontrol lera att du har [installerat och för berett Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-## <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy 
+## <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
 
-Om du vill skydda SQL Server-databaser i Azure skapar du först en princip för säkerhetskopiering:
+För att skydda SQL Server databaser i Azure måste du först skapa en princip för säkerhets kopiering:
 
-1. Välj arbetsytan **Skydd** i Azure Backup Server.
-1. Välj **Ny** om du vill skapa en skyddsgrupp.
+1. I Azure Backup Server väljer du arbets ytan **skydd** .
+1. Välj **ny** för att skapa en skydds grupp.
 
-    ![Skapa en skyddsgrupp i Azure Backup Server](./media/backup-azure-backup-sql/protection-group.png)
-1. På startsidan går du igenom vägledningen om hur du skapar en skyddsgrupp. Välj sedan **Nästa**.
-1. För skyddsgrupptypen väljer du **Servrar**.
+    ![Skapa en skydds grupp i Azure Backup Server](./media/backup-azure-backup-sql/protection-group.png)
+1. På sidan Start granskar du vägledningen om hur du skapar en skydds grupp. Välj sedan **Nästa**.
+1. För typ av skydds grupp väljer du **servrar**.
 
-    ![Välj grupptyp för servrarskydd](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expandera SQL Server-datorn där de databaser som du vill säkerhetskopiera finns. Du ser de datakällor som kan säkerhetskopieras från den servern. Expandera **alla SQL-resurser** och välj sedan de databaser som du vill säkerhetskopiera. I det här exemplet väljer vi ReportServer$MSDPM2012 och ReportServer$MSDPM2012TempDB. Välj **Nästa**.
+    ![Välj typ av skydds grupp för servrar](./media/backup-azure-backup-sql/pg-servers.png)
+1. Expandera den SQL Server dator där de databaser som du vill säkerhetskopiera finns. Du ser de data källor som kan säkerhets kopie ras från den servern. Expandera **alla SQL-resurser** och välj sedan de databaser som du vill säkerhetskopiera. I det här exemplet väljer du ReportServer $ MSDPM2012 och ReportServer $ MSDPM2012TempDB. Välj **Nästa**.
 
-    ![Välja en SQL Server-databas](./media/backup-azure-backup-sql/pg-databases.png)
-1. Namnge skyddsgruppen och välj **sedan Jag vill ha onlineskydd**.
+    ![Välj en SQL Server databas](./media/backup-azure-backup-sql/pg-databases.png)
+1. Ge skydds gruppen ett namn och välj sedan **Jag vill ha onlineskydd**.
 
-    ![Välj en dataskyddsmetod – kortvarig diskskydd eller Azure-skydd online](./media/backup-azure-backup-sql/pg-name.png)
-1. På sidan **Ange kortsiktiga mål** ska du inkludera de indata som krävs för att skapa säkerhetskopieringspunkter på disken.
+    ![Välj en data skydds metod – kortvarigt disk skydd eller online Azure-skydd](./media/backup-azure-backup-sql/pg-name.png)
+1. På sidan **Ange kortsiktiga mål** inkluderar du nödvändiga indata för att skapa säkerhets kopierings punkter på disken.
 
-    I det här exemplet är **kvarhållningsintervallet** inställt på *5 dagar*. Frekvensen för **säkerhetskopiering synkronisering** är inställd på en gång var *15:e minut*. **Express Full Backup** är satt till *20:00*.
+    I det här exemplet är **kvarhållningsintervallet** inställt på *5 dagar*. **Frekvensen för synkronisering** av säkerhets kopiering är en gång var *15: e minut*. **Fullständig snabb säkerhets kopiering** har värdet *8:00 PM*.
 
-    ![Ställ in kortsiktiga mål för säkerhetskopieringsskydd](./media/backup-azure-backup-sql/pg-shortterm.png)
+    ![Konfigurera kortsiktiga mål för säkerhets kopierings skydd](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > I det här exemplet skapas en säkerhetskopieringspunkt klockan 20:00 varje dag. De data som har ändrats sedan föregående dags säkerhetskopieringspunkt för 8:00 överförs. Den här processen kallas **Express Full Backup**. Även om transaktionsloggarna synkroniseras var 15:e minut, om vi behöver återställa databasen klockan 21:00, skapas punkten genom att spela upp loggarna från den sista express fullständiga säkerhetskopieringspunkten, vilket är 20:00 i det här exemplet.
+   > I det här exemplet skapas en säkerhets kopierings punkt på 8:00 PM varje dag. De data som har ändrats sedan den föregående dagen för 8:00 PM-säkerhetskopiering överförs. Den här processen kallas **snabb och fullständig säkerhets kopiering**. Även om transaktions loggarna synkroniseras var 15: e minut, om vi behöver återställa databasen kl. 9:00, så skapas punkten genom att logga in loggarna från den senaste fullständiga snabb säkerhets kopierings punkten, som är 8:00 PM i det här exemplet.
    >
    >
 
-1. Välj **Nästa**. MABS visar det totala tillgängliga lagringsutrymmet. Den visar också det potentiella diskutrymmesutnyttjandet.
+1. Välj **Nästa**. MABS visar det övergripande tillgängliga lagrings utrymmet. Det visar även den potentiella användningen av disk utrymme.
 
-    ![Ställ in diskallokering i MABS](./media/backup-azure-backup-sql/pg-storage.png)
+    ![Konfigurera diskallokering i MABS](./media/backup-azure-backup-sql/pg-storage.png)
 
-    Som standard skapar MABS en volym per datakälla (SQL Server-databas). Volymen används för den första säkerhetskopian. I den här konfigurationen begränsar LDM (Logical Disk Manager) MABS-skydd till 300 datakällor (SQL Server-databaser). Du kan komma runt den här begränsningen genom att välja **Samuppvakningsdata i DPM Storage Pool**. Om du använder det här alternativet använder MABS en enskild volym för flera datakällor. Med den här inställningen kan MABS skydda upp till 2 000 SQL Server-databaser.
+    Som standard skapar MABS en volym per data källa (SQL Server databas). Volymen används för den första säkerhets kopian. I den här konfigurationen begränsar LDM (Logical Disk Manager) MABS-skydd till 300-data källor (SQL Server databaser). Undvik den här begränsningen genom att välja **samplacera data i DPM-lagringspool**. Om du använder det här alternativet använder MABS en enda volym för flera data källor. Med den här installationen kan MABS skydda upp till 2 000 SQL Server-databaser.
 
-    Om du väljer **Öka volymerna automatiskt**kan MABS ta hänsyn till den ökade säkerhetskopieringsvolymen när produktionsdata växer. Om du inte väljer **Öka volymerna automatiskt**begränsar MABS säkerhetskopieringslagringen till datakällorna i skyddsgruppen.
-1. Om du är administratör kan du välja att överföra den första säkerhetskopian **automatiskt via nätverket** och välja tid för överföringen. Eller välj att **manuellt** överföra säkerhetskopian. Välj sedan **Nästa**.
+    Om du väljer **utöka volymerna automatiskt**, kan Mabs konto för den ökade säkerhets kopierings volymen eftersom produktions data växer. Om du inte väljer **utöka volymerna automatiskt**, begränsar Mabs lagringen av säkerhets kopiorna till data källorna i skydds gruppen.
+1. Om du är administratör kan du välja att överföra den första säkerhets kopieringen **automatiskt över nätverket** och välja överförings tiden. Eller Välj att **manuellt** överföra säkerhets kopian. Välj sedan **Nästa**.
 
-    ![Välj en metod för att skapa repliker i MABS](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Välj en metod för att skapa en replik i MABS](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Den första säkerhetskopian kräver överföring av hela datakällan (SQL Server-databasen). Säkerhetskopieringsdata flyttas från produktionsservern (SQL Server-datorn) till MABS. Om säkerhetskopian är stor kan överföring av data över nätverket orsaka överbelastning av bandbredden. Därför kan administratörer välja att använda flyttbara media för att överföra den första säkerhetskopian **manuellt**. Eller så kan de överföra data **automatiskt över nätverket** vid en viss tidpunkt.
+    Den första säkerhets kopian kräver överföring av hela data källan (SQL Server Database). Säkerhetskopierade data flyttas från produktions servern (SQL Server dator) till MABS. Om den här säkerhets kopian är stor kan överföring av data över nätverket orsaka överbelastning av bandbredd. Av den anledningen kan administratörer välja att använda flyttbara media för att överföra den första säkerhets kopieringen **manuellt**. Du kan också överföra data **automatiskt via nätverket** vid en viss tidpunkt.
 
-    När den första säkerhetskopian är klar fortsätter säkerhetskopiorna stegvis på den första säkerhetskopian. Inkrementella säkerhetskopior tenderar att vara små och överförs enkelt över nätverket.
-1. Välj när du vill köra en konsekvenskontroll. Välj sedan **Nästa**.
+    När den första säkerhets kopieringen är klar fortsätter säkerhets kopieringarna stegvis på den första säkerhets kopian. Stegvisa säkerhets kopieringar tenderar att vara små och överförs enkelt över nätverket.
+1. Välj när du vill köra en konsekvens kontroll. Välj sedan **Nästa**.
 
-    ![Välj när en konsekvenskontroll ska köras](./media/backup-azure-backup-sql/pg-consistent.png)
+    ![Välj när du vill köra en konsekvens kontroll](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    MABS kan köra en konsekvenskontroll av säkerhetskopiornas integritet. Den beräknar kontrollsumman för säkerhetskopian på produktionsservern (SQL Server-datorn i det här exemplet) och säkerhetskopierade data för filen i MABS. Om kontrollen hittar en konflikt antas den säkerhetskopierade filen i MABS vara skadad. MABS åtgärdar säkerhetskopierade data genom att skicka block som motsvarar kontrollsumman matchar inte. Eftersom konsekvenskontrollen är en prestandaintensiv åtgärd kan administratörer välja att schemalägga konsekvenskontrollen eller köra den automatiskt.
-1. Välj de datakällor som ska skyddas i Azure. Välj sedan **Nästa**.
+    MABS kan köra en konsekvens kontroll på säkerhets kopierings punktens integritet. Den beräknar säkerhets kopian för säkerhets kopian på produktions servern (SQL Server datorn i det här exemplet) och de säkerhetskopierade data för filen i MABS. Om kontrollen hittar en konflikt antas den säkerhetskopierade filen i MABS vara skadad. MABS åtgärdar säkerhetskopierade data genom att skicka block som motsvarar matchnings fel för kontroll summan. Eftersom konsekvens kontrollen är en prestanda intensiv åtgärd kan administratörer välja att schemalägga konsekvens kontrollen eller köra den automatiskt.
+1. Välj de data källor som ska skyddas i Azure. Välj sedan **Nästa**.
 
-    ![Välj datakällor som ska skyddas i Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
-1. Om du är administratör kan du välja säkerhetskopieringsscheman och bevarandeprinciper som passar organisationens principer.
+    ![Välj data källor som ska skyddas i Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
+1. Om du är administratör kan du välja säkerhets kopierings scheman och lagrings principer som passar organisationens principer.
 
-    ![Välj scheman och bevarandeprinciper](./media/backup-azure-backup-sql/pg-schedule.png)
+    ![Välj scheman och bevarande principer](./media/backup-azure-backup-sql/pg-schedule.png)
 
-    I det här exemplet tas säkerhetskopior dagligen klockan 12:00 och 20:00.
+    I det här exemplet tas säkerhets kopiorna dagligen med 12:00 PM och 8:00 PM.
 
     > [!TIP]
-    > För snabb återställning, hålla några kortsiktiga återställningspunkter på din disk. Dessa återställningspunkter används för operativ återställning. Azure fungerar som en bra plats på annan plats, vilket ger högre serviceavtal och garanterad tillgänglighet.
+    > Spara några kortsiktiga återställnings punkter på disken för snabb återställning. De här återställnings punkterna används för drift återställning. Azure fungerar som en annan plats, vilket ger högre service avtal och garanterad tillgänglighet.
     >
-    > Använd DPM (Data Protection Manager) för att schemalägga Azure-säkerhetskopior när de lokala disksäkerhetskopiorna är klara. När du följer den här övningen kopieras den senaste disksäkerhetskopieras till Azure.
+    > Använd Data Protection Manager (DPM) för att schemalägga Azure-säkerhetskopieringar när säkerhets kopieringen av lokala diskar slutförts. När du följer den här övningen kopieras den senaste säkerhets kopian av disken till Azure.
     >
 
+1. Välj schema för bevarande princip. Mer information om hur bevarande principen fungerar finns i [använda Azure Backup för att ersätta din band infrastruktur](backup-azure-backup-cloud-as-tape.md).
 
-1. Välj schemat för bevarandeprincipen. Mer information om hur bevarandeprincipen fungerar finns i [Använda Azure Backup för att ersätta din bandinfrastruktur](backup-azure-backup-cloud-as-tape.md).
-
-    ![Välj en bevarandeprincip i MABS](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Välj en bevarande princip i MABS](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     I det här exemplet:
 
-    * Säkerhetskopior tas dagligen kl 12:00 och 20:00. De har hållits i 180 dagar.
-    * Förstärkningen på lördag klockan 12:00 hålls i 104 veckor.
-    * Förstärkningen från den sista lördagen i månaden klockan 12:00 hålls i 60 månader.
-    * Förstärkningen från den sista lördagen i mars kl 12:00 hålls i 10 år.
+    * Säkerhets kopieringar tas dagligen med 12:00 PM och 8:00 PM. De behålls i 180 dagar.
+    * Säkerhets kopian på lördag på 12:00 är kvar i 104 veckor.
+    * Säkerhets kopieringen från den sista lördagen i månaden vid 12:00 är kvar i 60 månader.
+    * Säkerhets kopieringen från den sista lördagen i mars kl. 12:00 sparas i 10 år.
 
-    När du har valt en bevarandeprincip väljer du **Nästa**.
-1. Välj hur du överför den första säkerhetskopian till Azure.
+    När du har valt en bevarande princip väljer du **Nästa**.
+1. Välj hur du vill överföra den första säkerhets kopian till Azure.
 
-    * Alternativet **Automatiskt över nätverket** följer ditt säkerhetskopieringsschema för att överföra data till Azure.
-    * Mer information om **offlinesäkerhetskopiering**finns i [Översikt över offlinesäkerhetskopiering](offline-backup-overview.md).
+    * Alternativet **automatiskt över nätverket** följer ditt schema för säkerhets kopiering för att överföra data till Azure.
+    * Mer information om **säkerhets kopiering offline**finns i [Översikt över säkerhets kopiering offline](offline-backup-overview.md).
 
-    När du har valt en överföringsmekanism väljer du **Nästa**.
-1. På sidan **Sammanfattning** går du igenom policyinformationen. Välj sedan **Skapa grupp**. Du kan välja **Stäng** och titta på jobbförloppet på arbetsytan **Övervakning.**
+    När du har valt en överförings funktion väljer du **Nästa**.
+1. Granska princip informationen på sidan **Sammanfattning** . Välj sedan **Skapa grupp**. Du kan välja **Stäng** och titta på jobb förloppet i arbets ytan **övervakning** .
 
-    ![Utvecklingen av skapandet av skyddsgrupper](./media/backup-azure-backup-sql/pg-summary.png)
+    ![Förloppet för skapandet av skydds gruppen](./media/backup-azure-backup-sql/pg-summary.png)
 
-## <a name="create-on-demand-backup-copies-of-a-sql-server-database"></a>Skapa säkerhetskopior på begäran av en SQL Server-databas
+## <a name="create-on-demand-backup-copies-of-a-sql-server-database"></a>Skapa säkerhets kopior på begäran av en SQL Server databas
 
-En återställningspunkt skapas när den första säkerhetskopieringen sker. I stället för att vänta på att schemat ska köras kan du manuellt utlösa skapandet av en återställningspunkt:
+En återställnings punkt skapas när den första säkerhets kopieringen sker. I stället för att vänta på att schemat ska köras kan du manuellt utlösa skapandet av en återställnings punkt:
 
-1. Kontrollera att databasstatusen är **OK**i skyddsgruppen .
+1. Kontrol lera att databasens status är **OK**i skydds gruppen.
 
-    ![En skyddsgrupp som visar databasstatus](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
-1. Högerklicka på databasen och välj sedan **Skapa återställningspunkt**.
+    ![En skydds grupp som visar databasens status](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
+1. Högerklicka på databasen och välj sedan **skapa återställnings punkt**.
 
-    ![Välj att skapa en återställningspunkt online](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-1. Välj **Onlineskydd**i den nedrullningsbara menyn . Välj sedan **OK** för att starta skapandet av en återställningspunkt i Azure.
+    ![Välj att skapa en onlineåterställningspunkt](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
+1. I den nedrullningsbara menyn väljer du **onlineskydd**. Välj **OK** för att starta skapandet av en återställnings punkt i Azure.
 
-    ![Börja skapa en återställningspunkt i Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-1. Du kan visa jobbstatus på arbetsytan **Övervakning.** 
+    ![Börja skapa en återställnings punkt i Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
+1. Du kan visa jobb förloppet i arbets ytan **övervakning** .
 
-    ![Visa jobbstatus i övervakningskonsolen](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
+    ![Visa jobb förlopp i övervaknings konsolen](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
-## <a name="recover-a-sql-server-database-from-azure"></a>Återställa en SQL Server-databas från Azure
+## <a name="recover-a-sql-server-database-from-azure"></a>Återställa en SQL Server databas från Azure
 
-Så här återställer du en skyddad entitet, till exempel en SQL Server-databas, från Azure:
+Återställa en skyddad entitet, till exempel en SQL Server databas, från Azure:
 
-1. Öppna DPM-serverhanteringskonsolen. Gå till arbetsytan **Återställning** för att se de servrar som DPM säkerhetskopierar. Välj databasen (i det här exemplet ReportServer$MSDPM2012). Välj en **återställningstid** som slutar med **Online**.
+1. Öppna DPM-serverns hanterings konsol. Gå till arbets ytan **återställning** för att se de servrar som DPM säkerhetskopierar. Välj databasen (i det här exemplet ReportServer $ MSDPM2012). Välj en **återställnings tid** som slutar med **online**.
 
     ![Välja en återställningspunkt](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-1. Högerklicka på databasnamnet och välj **Återställ**.
+1. Högerklicka på databas namnet och välj **Återställ**.
 
     ![Återställa en databas från Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. DPM visar information om återställningspunkten. Välj **Nästa**. Om du vill skriva över databasen väljer du **återställningstypen Återställ till den ursprungliga instansen av SQL Server**. Välj sedan **Nästa**.
+1. DPM visar information om återställnings punkten. Välj **Nästa**. Om du vill skriva över databasen väljer du återställnings typen **Återställ till den ursprungliga instansen av SQL Server**. Välj sedan **Nästa**.
 
-    ![Återställa en databas till den ursprungliga platsen](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
+    ![Återställa en databas till dess ursprungliga plats](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    I det här exemplet tillåter DPM återställning av databasen till en annan SQL Server-instans eller till en fristående nätverksmapp.
-1. På sidan **Ange återställningsalternativ** kan du välja återställningsalternativ. Du kan till exempel välja **Begränsning av nätverksbandbreddsanvändning** för att begränsa den bandbredd som återställningen använder. Välj sedan **Nästa**.
-1. På sidan **Sammanfattning** visas den aktuella återställningskonfigurationen. Välj **Återställ**.
+    I det här exemplet tillåter DPM återställning av databasen till en annan SQL Server instans eller till en fristående nätverksmapp.
+1. På sidan **Ange återställnings alternativ** kan du välja återställnings alternativ. Du kan till exempel välja **nätverks bandbredds begränsning** för att begränsa bandbredden som används i återställningen. Välj sedan **Nästa**.
+1. På sidan **Sammanfattning** visas den aktuella återställnings konfigurationen. Välj **Återställ**.
 
-    Återställningsstatusen visar databasen som återställs. Du kan välja **Stäng** för att stänga guiden och visa förloppet på arbetsytan **Övervakning.**
+    Återställnings status visar den databas som återställs. Du kan välja **Stäng** om du vill stänga guiden och se förloppet i arbets ytan **övervakning** .
 
-    ![Starta återställningsprocessen](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
+    ![Starta återställnings processen](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
-    När återställningen är klar överensstämmer den återställda databasen med programmet.
+    När återställningen är klar är den återställda databasen konsekvent med programmet.
 
 ### <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Vanliga frågor och svar om Azure Backup](backup-azure-backup-faq.md).
+Mer information finns i [vanliga frågor och svar om Azure Backup](backup-azure-backup-faq.md).

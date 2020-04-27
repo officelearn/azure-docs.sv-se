@@ -1,6 +1,6 @@
 ---
-title: Skala automatiskt upp dataflödesenheter – Azure Event Hubs | Microsoft-dokument
-description: Aktivera Automatisk uppblåsning på ett namnområde för att automatiskt skala upp dataflödesenheter.
+title: Skala automatiskt upp data flödes enheter – Azure Event Hubs | Microsoft Docs
+description: Aktivera automatisk ökning på ett namn område för att automatiskt skala upp data flödes enheter.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -16,67 +16,67 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: dc6edaebebe89b6d4a35ada58d40795f86a935d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72264468"
 ---
-# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
-Azure Event Hubs är en mycket skalbar dataströmningsplattform. Därför ökar användningen av eventhubbar ofta när tjänsten har startats. Sådan användning kräver att öka de förutbestämda [dataflödesenheterna](event-hubs-scalability.md#throughput-units) för att skala eventhubbar och hantera större överföringshastigheter. Funktionen **För automatisk uppblåsning** i Event Hubs skalas automatiskt upp genom att öka antalet dataflödesenheter för att uppfylla användningsbehoven. Genomströmningsenheter förhindrar begränsningsscenarier, där:
+# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs data flödes enheter
+Azure Event Hubs är en mycket skalbar data strömnings plattform. Därför ökar Event Hubs användningen ofta när tjänsten har startats. Sådan användning kräver att fördefinierade [data flödes enheter](event-hubs-scalability.md#throughput-units) ökar för att skala Event Hubs och hantera större överföringshastigheter. Funktionen för **Automatisk** ökning i Event Hubs skalas automatiskt upp genom att öka antalet data flödes enheter för att möta användnings behoven. Ökande data flödes enheter förhindrar begränsnings scenarier där:
 
-* Datainträngningshastigheten överskrider inställda dataflödesenheter.
-* Datautgående begäranhetsfrekvens överskrider angivna dataflödesenheter.
+* Data ingångs frekvensen överskrider den angivna data flödes enheten.
+* Taxan för utgående begär Anden överskrider mängd enheter för data flöde.
 
-Event Hubs-tjänsten ökar dataflödet när belastningen ökar utöver minimitröskeln, utan att några begäranden misslyckas med ServerBusy-fel.
+Event Hubs tjänsten ökar data flödet när belastningen ökar utöver minimi tröskelvärdet, utan att begär Anden som misslyckats med ServerBusy-fel uppstår.
 
-## <a name="how-auto-inflate-works"></a>Så här fungerar Automatisk uppblåsning
+## <a name="how-auto-inflate-works"></a>Så här fungerar allt automatiskt
 
-Event Hubs-trafiken styrs av [dataflödesenheter](event-hubs-scalability.md#throughput-units). En enda dataflödesenhet tillåter 1 MB per sekund ingående och dubbelt så mycket utgående. Standardhändelsehubbar kan konfigureras med 1-20 dataflödesenheter. Automatisk uppblåsning gör att du kan börja i liten skala med de minsta nödvändiga dataflödesenheterna du väljer. Funktionen skalas sedan automatiskt till den maximala gränsen för dataflödesenheter du behöver, beroende på ökningen av din trafik. Automatisk uppblåsning ger följande fördelar:
+Event Hubs trafik styrs av [data flödes enheter](event-hubs-scalability.md#throughput-units). Med en enda data flödes enhet kan 1 MB per sekund i ingress och dubbelt så mycket utgående. Standard händelse hubbar kan konfigureras med 1-20-dataflödes enheter. Med automatisk ökning kan du starta små med de minsta nödvändiga data flödes enheter som du väljer. Funktionen skalas sedan automatiskt till den maximala gränsen för de data flödes enheter du behöver, beroende på ökningen av trafiken. Automatiskt öknings kraftigt ger följande fördelar:
 
-- En effektiv skalningsmekanism för att börja i liten skala och skala upp när du växer.
-- Skala automatiskt till den angivna övre gränsen utan begränsningsproblem.
-- Mer kontroll över skalning, eftersom du styr när och hur mycket du ska skala.
+- En effektiv skalnings funktion för att starta små och skala upp när du växer.
+- Skala automatiskt till den angivna övre gränsen utan begränsnings problem.
+- Mer kontroll över skalning, eftersom du styr när och hur mycket som ska skalas.
 
-## <a name="enable-auto-inflate-on-a-namespace"></a>Aktivera Automatisk uppblåsning på ett namnområde
+## <a name="enable-auto-inflate-on-a-namespace"></a>Aktivera automatisk ökning på ett namn område
 
-Du kan aktivera eller inaktivera Automatisk uppblåsning på ett namnområde för händelsehubbar på standardnivå med någon av följande metoder:
+Du kan aktivera eller inaktivera automatisk ökning på en standard-nivå Event Hubs namn område genom att använda någon av följande metoder:
 
-- [Azure-portalen](https://portal.azure.com).
+- [Azure Portal](https://portal.azure.com).
 - En [Azure Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
 > [!NOTE]
-> Namnområden för grundläggande nivåhändelsehubbar stöder inte automatisk uppblåsning.
+> Basic-nivån Event Hubs namn områden har inte stöd för automatisk ökning.
 
-### <a name="enable-auto-inflate-through-the-portal"></a>Aktivera Automatisk uppblåsning via portalen
+### <a name="enable-auto-inflate-through-the-portal"></a>Aktivera automatiskt ökning via portalen
 
 
-#### <a name="enable-at-the-time-of-creation"></a>Aktivera vid tidpunkten för skapandet 
-Du kan aktivera funktionen Blås upp **automatiskt när du skapar ett namnområde för händelsehubbar:**
+#### <a name="enable-at-the-time-of-creation"></a>Aktivera vid skapande tillfället 
+Du kan aktivera funktionen för automatisk ökning **när du skapar en Event Hubs namnrymd**:
  
-![Aktivera automatisk uppblåsning när händelsehubben skapas](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Aktivera automatiskt bred huvud vid skapande av händelsehubben](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Med det här alternativet aktiverat kan du börja i liten skala med dataflödesenheterna och skala upp när användningsbehoven ökar. Den övre gränsen för inflation påverkar inte omedelbart prissättningen, vilket beror på antalet dataflödesenheter som används per timme.
+När det här alternativet är aktiverat kan du starta litet med dina data flödes enheter och skala upp när användnings behoven ökar. Den övre gränsen för inflation påverkar inte direkt prissättningen, vilket beror på antalet data flödes enheter som används per timme.
 
-#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Aktivera automatisk uppblåsning för ett befintligt händelsenav
-Du kan också aktivera funktionen Blåupplåsning automatiskt och ändra dess inställningar med hjälp av följande instruktioner: 
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Aktivera automatisk ökning för en befintlig händelsehubben
+Du kan också aktivera funktionen för automatisk ökning och ändra dess inställningar med hjälp av följande anvisningar: 
  
-1. På sidan **Namnrymdsnamnområde för händelsehubbar** väljer du **Inaktiverad** under **Automatisk uppblåsning av dataflödesenheter**.  
+1. På sidan **Event Hubs namn område** väljer du **inaktive rad** under autoöknings **data flödes enheter**.  
 
-    ![Välj dataflödesenheter på namnområdessidan för händelsehubbar](./media/event-hubs-auto-inflate/select-throughput-units.png)
-2. Markera kryssrutan för **Aktivera** på sidan **Skalningsinställningar** (om funktionen för automatisk skalning inte var aktiverad).
+    ![Välj data flödes enheter på sidan Event Hubs namn område](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. På sidan **skalnings inställningar** markerar du kryss rutan för **Aktivera** (om funktionen för autoskalning inte är aktive rad).
 
     ![Välj Aktivera](./media/event-hubs-auto-inflate/scale-settings.png)
-3. Ange det **maximala** antalet dataflödesenheter eller använd rullningslisten för att ange värdet. 
-4. (valfritt) Uppdatera det **minsta** antalet dataflödesenheter högst upp på den här sidan. 
+3. Ange det **maximala** antalet data flödes enheter eller Använd rullnings listen för att ange värdet. 
+4. valfritt Uppdatera det **minsta** antalet data flödes enheter högst upp på den här sidan. 
 
 
 > [!NOTE]
-> När du använder konfigurationen för automatisk uppblåsning för att öka dataflödesenheterna avger tjänsten Event Hubs diagnostikloggar som ger dig information om varför och när dataflödet ökade. Om du vill aktivera diagnostikloggning för en händelsehubb väljer du **Diagnostikinställningar** på den vänstra menyn på sidan Event Hub i Azure-portalen. Mer information finns i [Konfigurera diagnostikloggar för en Azure-händelsehubb](event-hubs-diagnostic-logs.md). 
+> När du använder konfigurationen för automatisk ökning för att öka data flödes enheter, genererar Event Hubs tjänsten diagnostikloggar som ger dig information om varför och när data flödet har ökat. Om du vill aktivera diagnostikloggning för en Event Hub väljer du **diagnostikinställningar** på den vänstra menyn på sidan Event hub i Azure Portal. Mer information finns i [Konfigurera diagnostikloggar för en Azure Event Hub](event-hubs-diagnostic-logs.md). 
 
-### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera Automatisk uppblåsning med hjälp av en Azure Resource Manager-mall
+### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk ökning med en Azure Resource Manager-mall
 
-Du kan aktivera Automatisk uppblåsning under en Azure Resource Manager-malldistribution. Ange till exempel `isAutoInflateEnabled` egenskapen till `maximumThroughputUnits` **true** och ange 10. Ett exempel:
+Du kan aktivera automatisk ökning under en Azure Resource Manager mall-distribution. Ange till exempel `isAutoInflateEnabled` egenskapen till **Sant** och inställd `maximumThroughputUnits` på 10. Ett exempel:
 
 ```json
 "resources": [
@@ -119,7 +119,7 @@ Du kan aktivera Automatisk uppblåsning under en Azure Resource Manager-malldist
     ]
 ```
 
-Den fullständiga mallen finns i [namnområdet Skapa händelsehubbar och aktivera uppblåsningsmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) på GitHub.
+En fullständig mall finns i [skapa Event Hubs namnrymd och aktivera bred mitt](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) på GitHub.
 
 
 ## <a name="next-steps"></a>Nästa steg

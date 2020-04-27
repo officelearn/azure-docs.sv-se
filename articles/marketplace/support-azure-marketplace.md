@@ -1,54 +1,54 @@
 ---
-title: Stöd till den kommersiella marknaden | Azure Marketplace
-description: Supportinformation och länkar för Azure Marketplace och AppSource
+title: Stöd för den kommersiella Marketplace | Azure Marketplace
+description: Support information och länkar för Azure Marketplace och AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681388"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159923"
 ---
-# <a name="support-for-the-marketplace"></a>Stöd för Marketplace
+# <a name="support-for-the-marketplace"></a>Support för Marketplace
 
-Här är en lista över supportalternativ för Marketplace.  
+Här är en lista över support alternativ för Marketplace.  
 
-Dessutom kan du få många av dina frågor besvarade i [Marketplace-kanalen för C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Dessutom kan du få många av dina frågor besvarade på [Marketplace-kanalen för C + AI community-forumet](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## <a name="onboarding"></a>Publicering
 
-Öppna en biljett med [Microsoft Marketplace-utgivares support](https://aka.ms/marketplacepublishersupport) för problem med introduktion och komma igång.
+Öppna ett ärende med Microsoft [Marketplace Publisher-stöd](https://partner.microsoft.com/support/v2/?stage=1) för problem med onboarding och komma igång.
 
-## <a name="partner-center"></a>Partnercenter   
+## <a name="partner-center"></a>Partner Center   
 
 | Supportkanal | Beskrivning | Tillgänglighet |  
 |:--- |:--- |:--- |  
-| Om du behöver hjälp kan du besöka sidan Skapa en incident som finns på [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Stöd för Partner Center. | Support tillhandahålls 24x5. |  
+| Om du behöver hjälp kan du gå till sidan Skapa en incident som finns på [Marketplace-support](https://partner.microsoft.com/support/v2/?stage=1)</li> </ul> | Support för partner Center. | Support tillhandahålls 24x5. |  
 
 ## <a name="technical"></a>Teknik  
 
 | Supportkanal | Beskrivning |  
 |:--- |:--- |  
-| MSDN forum: Marketplace ligger på [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network forum. |  
-| Stack-spill: Azure finns på [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-miljön för att få lösningar och ställa frågor om allt som har med Azure Marketplace att göra.<ul> <li>Stack-spill: Azure Marketplace finns på [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack-spill: Azure Resource Manager finns på [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack-spill: Virtuella datorer på Azure finns på [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stacköverflöde: Behållare på Azure finns på [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
+| MSDN-Forum: Marketplace som finns på [social.msdn.Microsoft.com/forums/Azure/Home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum för Microsoft Developer Network. |  
+| Stack Overflow: Azure finns på [StackOverflow.com/Questions/Tagged/Azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflows miljö för att få lösningar och ställa frågor om allt som är relaterat till Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace finns på [StackOverflow.com/Questions/Tagged/Azure-Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager finns på [StackOverflow.com/Questions/Tagged/Azure-Resource-Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines på Azure finns på [StackOverflow.com/Questions/Tagged/Azure-Virtual-Machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: behållare på Azure finns på [StackOverflow.com/search?q=Azure+Container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
-## <a name="marketing-resources"></a>Marknadsföringsresurser  
+## <a name="marketing-resources"></a>Marknadsförings resurser  
 
 | Supportkanal | Beskrivning | Tillgänglighet |  
 |:--- |:--- |:--- |  
-| Email:[cosell@microsoft.com](mailto:cosell@microsoft.com) | Stöd för introduktionsprocesser och frågor relaterade till Co-Sell-programmet. | Baserat i stillahavstidszonen. |  
-| Email:[gtm@microsoft.com](mailto:gtm@microsoft.com) | Stöd för GTM fördelar och frågor program. | Kontorstid finns i stillahavstidszonen. |  
-| Email:[cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Svar på frågor om användning för Azure-logotyper och varumärkesprofilering. |  |  
+| Åtkomst[cosell@microsoft.com](mailto:cosell@microsoft.com) | Stöd för onboarding-processer och frågor relaterade till samförsäljnings programmet. | Baserat på Stilla havs området. |  
+| Åtkomst[gtm@microsoft.com](mailto:gtm@microsoft.com) | Stöd för GTM-förmåner och program frågor. | Kontors tid är i Stilla havs området. |  
+| Åtkomst[cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Svar på frågor om användning för Azure-logotyper och varumärke. |  |  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Besök den [kommersiella marknadsplatsen förläggare guide sida](https://docs.microsoft.com/azure/marketplace/).
-* Läs mer om [stöd för det kommersiella marknadsplatsprogrammet i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Besök [sidan för Publishers Publisher-guide](https://docs.microsoft.com/azure/marketplace/).
+* Läs mer om [Support för programmet för kommersiella marknads platser i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
 
 ---

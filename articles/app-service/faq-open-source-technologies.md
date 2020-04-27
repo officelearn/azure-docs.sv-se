@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor om öppen källkod
+title: Vanliga frågor och svar om öppen källkod
 description: Få svar på vanliga frågor om tekniker med öppen källkod i Azure App Service.
 author: genlin
 manager: dcscontentpm
@@ -9,126 +9,126 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672433"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159974"
 ---
-# <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Vanliga frågor om öppen källkod för webbappar i Azure
+# <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om öppen källkod för Web Apps i Azure
 
-Den här artikeln innehåller svar på vanliga frågor och svar om problem med tekniker med öppen källkod för [funktionen Webbappar](https://azure.microsoft.com/services/app-service/web/)i Azure App Service .
+Den här artikeln innehåller svar på vanliga frågor och svar om problem med tekniker med öppen källkod för [Web Apps funktionen i Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>Hur aktiverar jag PHP-loggning för att felsöka PHP-problem?
+## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>Hur gör jag för att aktiverar PHP-loggning för att felsöka PHP-problem?
 
 Så här aktiverar du PHP-loggning:
 
-1. Logga in på din [Kudu-webbplats.](https://*yourwebsitename*.scm.azurewebsites.net)
-2. Välj **Felsök konsol** > **CMD**på den övre menyn .
-3. Markera mappen **Plats.**
-4. Välj **wwwroot-mappen.**
-5. Markera **+** ikonen och välj sedan **Ny fil**.
-6. Ange filnamnet till **.user.ini**.
-7. Välj pennikonen bredvid **.user.ini**.
+1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
+2. På den översta menyn väljer du **Felsök konsol** > **cmd**.
+3. Välj mappen **plats** .
+4. Välj mappen **wwwroot** .
+5. Välj **+** ikonen och välj sedan **ny fil**.
+6. Ange fil namnet till **. user. ini**.
+7. Välj Penn ikonen bredvid **. user. ini**.
 8. Lägg till den här koden i filen:`log_errors=on`
 9. Välj **Spara**.
-10. Välj pennikonen bredvid **wp-config.php**.
+10. Välj Penn ikonen bredvid **wp-config. php**.
 11. Ändra texten till följande kod:
     ```php
     //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
     //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
     ```
-12. Starta om webbappen på webbapp-menyn i Azure-portalen.
+12. I Azure Portal, i menyn webbapp, startar du om din webbapp.
 
-Mer information finns i [Aktivera WordPress-felloggar](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Mer information finns i [Aktivera fel loggar för WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
-## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>Hur loggar jag Python-programfel i appar som finns i App Service?
+## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>Hur gör jag för att logga python-programfel i appar som finns i App Service?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
-## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>Hur ändrar jag versionen av nod.js-programmet som finns i App Service?
+## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>Hur gör jag för att ändra den version av Node. js-programmet som finns i App Service?
 
-Om du vill ändra versionen av nod.js-programmet kan du använda något av följande alternativ:
+Om du vill ändra versionen för Node. js-programmet kan du använda något av följande alternativ:
 
-* Använd **App-inställningar**i Azure-portalen .
-  1. Gå till din webbapp i Azure-portalen.
-  2. Välj **Programinställningar**på bladet **Inställningar** .
-  3. I **Appinställningar**kan du inkludera WEBSITE_NODE_DEFAULT_VERSION som nyckel och den version av Node.js du vill ha som värde.
-  4. Gå till din [Kudu-konsol](https://*yourwebsitename*.scm.azurewebsites.net).
-  5. Om du vill kontrollera nod.js-versionen anger du följande kommando:  
+* Använd **appinställningar**i Azure Portal.
+  1. I Azure Portal går du till din webbapp.
+  2. Välj **program inställningar**på bladet **Inställningar** .
+  3. I **appinställningar**kan du inkludera WEBSITE_NODE_DEFAULT_VERSION som nyckel och den version av Node. js som du vill använda som värde.
+  4. Gå till **kudu-konsolen** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+  5. Om du vill kontrol lera Node. js-versionen anger du följande kommando:  
      ```
      node -v
      ```
-* Ändra filen iisnode.yml. Om du ändrar nod.js-versionen i filen iisnode.yml anges bara körningsmiljön som iisnode använder. Din Kudu-cmd och andra använder fortfarande nod.js-versionen som anges i **appinställningarna** i Azure-portalen.
+* Ändra filen iisnode. yml. Om du ändrar Node. js-versionen i filen iisnode. yml anges bara den körnings miljö som iisnode använder. Kudu cmd och andra använder fortfarande Node. js-versionen som anges i **appinställningar** i Azure Portal.
 
-  Om du vill ange iisnode.yml manuellt skapar du en iisnode.yml-fil i appens rotmapp. I filen ska du inkludera följande rad:
+  Om du vill ange iisnode. yml manuellt skapar du en iisnode. YML-fil i rotmappen för din app. I filen inkluderar du följande rad:
   ```yml
   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
   ```
    
-* Ange filen iisnode.yml med package.json under distribution av källkontroll.
-  Distributionen av Azure-källkontroll omfattar följande steg:
+* Ange filen iisnode. yml med hjälp av Package. JSON under käll kontroll distributionen.
+  Distributions processen för Azure käll kontroll omfattar följande steg:
   1. Flyttar innehåll till Azure-webbappen.
-  2. Skapar ett standarddistributionsskript om det inte finns ett (deploy.cmd, .deployment files) i webbapprotmappen.
-  3. Kör ett distributionsskript där en iisnode.yml-fil skapas om du nämner node.js-versionen i filen package.json >-motorn`"engines": {"node": "5.9.1","npm": "3.7.3"}`
-  4. Filen iisnode.yml har följande kodrad:
+  2. Skapar ett standard skript för distribution, om det inte finns en (Deploy. cmd,. distributions-filer) i rotmappen för webbappar.
+  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node. js-versionen i filen Package. JSON-fil > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. Filen iisnode. yml har följande kodrad:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
       ```
 
-## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Jag ser meddelandet "Fel att upprätta en databasanslutning" i min WordPress-app som finns i App Service. Hur felsöker jag detta?
+## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Jag ser meddelandet "Det gick inte att upprätta en databas anslutning" i min WordPress-app som finns App Service. Hur gör jag för att felsöka detta?
 
-Om du ser det här felet i din Azure WordPress-app, för att aktivera php_errors.log och debug.log, slutför du stegen som beskrivs i [Aktivera WordPress-felloggar](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Om du ser det här felet i din Azure WordPress-app för att aktivera php_errors. log och debug. log, slutför du stegen som beskrivs i [Aktivera fel loggar för WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
-När loggarna är aktiverade återskapar du felet och kontrollerar sedan loggarna för att se om du har på anslutningar:
+När loggarna är aktiverade kan du återskapa felet och sedan kontrol lera loggarna för att se om du har slut på anslutningar:
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```
 
-Om det här felet visas i filerna debug.log eller php_errors.log överskrider appen antalet anslutningar. Om du är värd för ClearDB kontrollerar du antalet anslutningar som är tillgängliga i [serviceplanen](https://www.cleardb.com/pricing.view).
+Om du ser det här felet i fel söknings. log-eller php_errors. log-filerna överskrider din app antalet anslutningar. Om du är värd för ClearDB kontrollerar du antalet anslutningar som är tillgängliga i din [service plan](https://www.cleardb.com/pricing.view).
 
-## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Hur felsöker jag en Node.js-app som finns i App Service?
+## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Hur gör jag för att felsöka en Node. js-app som finns i App Service?
 
-1.  Gå till din [Kudu-konsol](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole).
-2.  Gå till mappen programloggar (D:\home\LogFiles\Application).
-3.  Kontrollera om det finns innehåll i filen logging_errors.txt.
+1.  Gå till **kudu-konsolen** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`).
+2.  Gå till mappen program loggar (D:\home\LogFiles\Application).
+3.  I filen logging_errors. txt söker du efter innehåll.
 
-## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>Hur installerar jag inbyggda Python-moduler i en App Service-webbapp eller API-app?
+## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>Hur gör jag för att installera inbyggda python-moduler i en App Service webbapp eller API-app?
 
-Vissa paket kanske inte installeras med pip i Azure. Paketet kanske inte är tillgängligt på Python Package Index, eller så kan en kompilator krävas (en kompilator är inte tillgänglig på datorn som kör webbappen i App Service). Information om hur du installerar inbyggda moduler i App Service-webbappar och API-appar finns [i Installera Python-moduler i App Service](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/).
+Vissa paket kan inte installeras med hjälp av pip i Azure. Paketet är kanske inte tillgängligt i python-paketets index, eller så kan en kompilator krävas (en kompilator är inte tillgänglig på den dator som kör-webbappen i App Service). Information om hur du installerar inbyggda moduler i App Service Web Apps och API Apps finns [i installera Python-moduler i App Service](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/).
 
-## <a name="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python"></a>Hur distribuerar jag en Django-app till App Service med Git och den nya versionen av Python?
+## <a name="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python"></a>Hur gör jag för att du distribuera en django-app till App Service med hjälp av Git och den nya versionen av python?
 
-Information om hur du installerar Django finns i [Distribuera en Django-app till App Service](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
+Information om hur du installerar django finns i [distribuera en django-app till App Service](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
 
 ## <a name="where-are-the-tomcat-log-files-located"></a>Var finns Tomcat-loggfilerna?
 
 För Azure Marketplace och anpassade distributioner:
 
-* Mappplats: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
-* Filer av intresse:
-    * Catalina. *yyy-mm-dd*.log
-    * värdansvarig. *yyy-mm-dd*.log
-    * Localhost. *yyy-mm-dd*.log
-    * Manager. *yyy-mm-dd*.log
-    * site_access_log. *yyy-mm-dd*.log
+* Plats för mapp: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
+* Intressanta filer:
+    * catalina. *åååå-mm-dd*. log
+    * Host Manager. *åååå-mm-dd*. log
+    * värd. *åååå-mm-dd*. log
+    * Cachehanteraren. *åååå-mm-dd*. log
+    * site_access_log. *åååå-mm-dd*. log
 
 
-För **distributioner av portalappinställningar:**
+För distributioner av Portal **app-inställningar** :
 
-* Mappplats: D:\home\LogFiles
-* Filer av intresse:
-    * Catalina. *yyy-mm-dd*.log
-    * värdansvarig. *yyy-mm-dd*.log
-    * Localhost. *yyy-mm-dd*.log
-    * Manager. *yyy-mm-dd*.log
-    * site_access_log. *yyy-mm-dd*.log
+* Plats för mapp: D:\home\LogFiles
+* Intressanta filer:
+    * catalina. *åååå-mm-dd*. log
+    * Host Manager. *åååå-mm-dd*. log
+    * värd. *åååå-mm-dd*. log
+    * Cachehanteraren. *åååå-mm-dd*. log
+    * site_access_log. *åååå-mm-dd*. log
 
-## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hur felsöker jag anslutningsfel för JDBC-drivrutiner?
+## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hur gör jag för att felsöka anslutnings fel för JDBC-drivrutin?
 
-Följande meddelande kan visas i Tomcat-loggarna:
+Du kan se följande meddelande i dina Tomcat-loggar:
 
 ```
 The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak,the JDBC Driver has been forcibly unregistered
@@ -136,9 +136,9 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 Så här löser du felet:
 
-1. Ta bort filen sqljdbc*.jar från mappen app/lib.
-2. Om du använder den anpassade Tomcat- eller Azure Marketplace Tomcat-webbservern kopierar du den här JAR-filen till mappen Tomcat lib.
-3. Om du aktiverar Java från Azure-portalen (välj **Java 1.8** > **Tomcat-server**) kopierar du sqljdbc.*-jarfilen i mappen som är parallell med appen. Lägg sedan till följande klasssökvägsinställning i filen web.config:
+1. Ta bort filen sqljdbc*. jar från mappen app/lib.
+2. Om du använder den anpassade Tomcat eller Tomcat webb server för Azure Marketplace kopierar du den här jar-filen till mappen Tomcat lib.
+3. Om du aktiverar Java från Azure Portal (Välj **Java 1,8** > **Tomcat-Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
 
     ```xml
     <httpPlatform>
@@ -149,9 +149,9 @@ Så här löser du felet:
     </httpPlatform>
     ```
 
-## <a name="why-do-i-see-errors-when-i-attempt-to-copy-live-log-files"></a>Varför visas fel när jag försöker kopiera loggfiler?
+## <a name="why-do-i-see-errors-when-i-attempt-to-copy-live-log-files"></a>Varför visas fel när jag försöker kopiera Live-loggfiler?
 
-Om du försöker kopiera liveloggfiler för en Java-app (till exempel Tomcat) kan det här FTP-felet visas:
+Om du försöker kopiera Live-loggfiler för en Java-app (till exempel Tomcat) kan du se följande FTP-fel:
 
 ```
 Error transferring file [filename] Copying files from remote side failed.
@@ -159,57 +159,57 @@ Error transferring file [filename] Copying files from remote side failed.
 The process cannot access the file because it is being used by another process.
 ```
 
-Felmeddelandet kan variera beroende på FTP-klienten.
+Fel meddelandet kan variera beroende på FTP-klienten.
 
-Alla Java-appar har det här låsproblemet. Endast Kudu stöder nedladdning av den här filen medan appen körs.
+Detta låsnings problem har inaktuella Java-appar. Endast kudu stöder nedladdning av den här filen medan appen körs.
 
-Om du stoppar appen kan FTP-åtkomst till dessa filer.
+Om du stoppar appen tillåts FTP-åtkomst till dessa filer.
 
-En annan lösning är att skriva ett WebJob som körs enligt ett schema och kopierar dessa filer till en annan katalog. Ett exempelprojekt finns i [CopyLogsJob-projektet.](https://github.com/kamilsykora/CopyLogsJob)
+En annan lösning är att skriva ett webb jobb som körs enligt ett schema och kopierar filerna till en annan katalog. Ett exempel projekt finns i [CopyLogsJob](https://github.com/kamilsykora/CopyLogsJob) -projektet.
 
-## <a name="where-do-i-find-the-log-files-for-jetty"></a>Var hittar jag loggfilerna för Brygga?
+## <a name="where-do-i-find-the-log-files-for-jetty"></a>Var hittar jag loggfilerna för Jetty?
 
-För Marketplace och anpassade distributioner finns loggfilen i mappen D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Observera att mappplatsen beror på vilken version av Brygga du använder. Till exempel är den väg som anges här för Brygga 9.1.2. Leta efter jetty_*YYYY_MM_DD*.stderrout.log.
+För Marketplace och anpassade distributioner finns logg filen i mappen D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Observera att mappens plats beror på vilken version av Jetty du använder. Till exempel är sökvägen som visas här för Jetty 9.1.2. Leta efter jetty_*YYYY_MM_DD*. stderrout. log.
 
-För distributioner av portalappinställningar finns loggfilen i D:\home\LogFiles. Leta efter jetty_*YYYY_MM_DD*.stderrout.log
+För Portal App Settings-distributioner är logg filen i D:\home\LogFiles. Sök efter jetty_*YYYY_MM_DD*. stderrout. log
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>Kan jag skicka e-post från min Azure-webbapp?
 
-App Service har ingen inbyggd e-postfunktion. Några bra alternativ för att skicka e-post från din app finns i den här [diskussionen om stackspill.](https://stackoverflow.com/questions/17666161/sending-email-from-azure)
+App Service har ingen inbyggd e-postfunktion. En del användbara alternativ för att skicka e-post från din app finns i den här [Stack Overflow diskussionen](https://stackoverflow.com/questions/17666161/sending-email-from-azure).
 
-## <a name="why-does-my-wordpress-site-redirect-to-another-url"></a>Varför omdirigeras min WordPress-webbplats till en annan webbadress?
+## <a name="why-does-my-wordpress-site-redirect-to-another-url"></a>Varför omdirigeras min WordPress-webbplats till en annan URL?
 
-Om du nyligen har migrerat till Azure kan WordPress omdirigera till den gamla domänadressen. Detta orsakas av en inställning i MySQL-databasen.
+Om du nyligen har migrerat till Azure kan WordPress omdirigera till den gamla domän-URL: en. Detta orsakas av en inställning i MySQL-databasen.
 
-WordPress Buddy+ är ett Azure-webbplatstillägg som du kan använda för att uppdatera omdirigeringsadressen direkt i databasen. Mer information om hur du använder WordPress Buddy+, se [WordPress-verktyg och MySQL-migrering med WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+WordPress kompis + är ett Azure-webbplats tillägg som du kan använda för att uppdatera URL: en för omdirigering direkt i databasen. Mer information om hur du använder WordPress kompis + finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Alternativt, om du föredrar att manuellt uppdatera omdirigering URL med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: Omdirigera till fel URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Alternativt, om du vill uppdatera omdirigerings-URL: en manuellt med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: omdirigera till fel URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
-## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Hur ändrar jag mitt WordPress-inloggningslösenord?
+## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Hur gör jag för att ändra inloggnings lösen ordet för ditt WordPress?
 
-Om du har glömt ditt WordPress-inloggningslösenord kan du använda WordPress Buddy+ för att uppdatera det. Om du vill återställa ditt lösenord installerar du Site Extension för WordPress Buddy+ Azure och slutför sedan stegen som beskrivs i [WordPress-verktyg och MySQL-migrering med WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Om du har glömt ditt lösen ord för WordPress-inloggning kan du använda WordPress kompis + för att uppdatera det. Om du vill återställa lösen ordet installerar du WordPress kompis + Azure Site extension och slutför sedan stegen som beskrivs i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>Jag kan inte logga in på WordPress. Hur gör jag för att lösa det?
 
-Om du befinner dig utelåst från WordPress efter nyligen installera en plugin, kan du ha en felaktig plugin. WordPress Buddy + är en Azure Site Extension som kan hjälpa dig att inaktivera plugins i WordPress. Mer information finns i [WordPress-verktyg och MySQL-migrering med WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
+Om du upptäcker att du har låst av WordPress efter att du nyligen har installerat ett plugin-program kan du ha en felaktig plugin. WordPress kompis + är ett Azure-webbplats tillägg som kan hjälpa dig att inaktivera plugin-program i WordPress. Mer information finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-## <a name="how-do-i-migrate-my-wordpress-database"></a>Hur migrerar jag min WordPress-databas?
+## <a name="how-do-i-migrate-my-wordpress-database"></a>Hur gör jag för att migrera min WordPress-databas?
 
 Du har flera alternativ för att migrera MySQL-databasen som är ansluten till din WordPress-webbplats:
 
-* Utvecklare: Använd [kommandotolken eller PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Icke-utvecklare: Använd [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* Utvecklare: använda [kommando tolken eller phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Icke-utvecklare: Använd [WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
-## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hur hjälper jag till att göra WordPress säkrare?
+## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hur gör jag för att hjälp till att göra WordPress säkrare?
 
-Mer information om metodtips för säkerhet för WordPress finns [i Metodtips för WordPress-säkerhet i Azure](https://blogs.msdn.microsoft.com/azureossds/2016/12/26/best-practices-for-wordpress-security-on-azure/).
+Information om rekommenderade säkerhets metoder för WordPress finns i [metod tips för säkerhet för WordPress i Azure](https://blogs.msdn.microsoft.com/azureossds/2016/12/26/best-practices-for-wordpress-security-on-azure/).
 
-## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>Jag försöker använda PHPMyAdmin, och jag ser meddelandet "Access nekas." Hur gör jag för att lösa det?
+## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>Jag försöker använda PHPMyAdmin och jag ser meddelandet "åtkomst nekad". Hur gör jag för att lösa det?
 
-Det här problemet kan uppstå om MySQL-funktionen i appen inte körs ännu i den här App Service-instansen. Försök att komma åt din webbplats för att lösa problemet. Detta startar de processer som krävs, inklusive MySQL-processen i appen. Kontrollera att MySQL i appen körs i Process Explorer och se till att mysqld.exe visas i processerna.
+Det här problemet kan uppstå om funktionen MySQL in-app inte körs ännu i App Service-instansen. Försök att komma åt din webbplats för att lösa problemet. Detta startar de nödvändiga processerna, inklusive MySQL in-app processen. För att kontrol lera att MySQL in-app körs i Process Explorer kontrollerar du att mysqld. exe är listad i processerna.
 
-När du har försäkrat att MySQL i appen körs kan du försöka använda PHPMyAdmin.
+När du har säkerställt att MySQL in-app körs försöker du använda PHPMyAdmin.
 
-## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Jag får ett HTTP 403-fel när jag försöker importera eller exportera min MySQL-databas i appen med PHPMyadmin. Hur gör jag för att lösa det?
+## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Jag får ett HTTP 403-fel när jag försöker importera eller exportera MySQL in-app-databasen med hjälp av PHPMyadmin. Hur gör jag för att lösa det?
 
-Om du använder en äldre version av Chrome kan det bero på ett känt fel. Lös problemet genom att uppgradera till en nyare version av Chrome. Prova också att använda en annan webbläsare, till exempel Internet Explorer eller Microsoft Edge, där problemet inte uppstår.
+Om du använder en äldre version av Chrome kan du ha en känd bugg. Lös problemet genom att uppgradera till en nyare version av Chrome. Prova också att använda en annan webbläsare, till exempel Internet Explorer eller Microsoft Edge, där problemet inte uppstår.

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 4b166af219c8983e5765ef4c884ced7eb0689f54
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 1cd536f4a7c3751e2b85f40e582c1eb1c5bf2c74
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106686"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160519"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor och svar om Microsofts kommersiella marknadsplats
 
@@ -57,8 +57,9 @@ Med Azure Marketplace kan kunderna identifiera tekniska program som skapats för
 Azure Marketplace-erbjudanden kan köpas via:
 
 * [Den webbaserade butik](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure Portal](https://portal.azure.com) <br>
-[!Note] Kräver ett Azure-konto. Om du inte har något omdirigeras du till sidan **Välkommen till Azure** för att skapa en.  
+* [Azure Portal](https://portal.azure.com) <br> 
+>[!Note]
+>Kräver ett Azure-konto. Om du inte har något omdirigeras du till sidan **Välkommen till Azure** för att skapa en.  
 * [Kommando rads gränssnittet för Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -336,7 +337,7 @@ Leads är kunder som distribuerar dina produkter från Marketplace. Oavsett om p
 
 **Var kan jag få hjälp med att ställa in mitt lead-mål?**
 
-Läs mer i [partner Center – hämta dokumentation om kund ledare](./partner-center-portal/commercial-marketplace-get-customer-leads.md) eller skicka ett support ärende genom [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) att välja din erbjudande typ och lead-hantering.
+Läs mer i [partner Center – hämta dokumentation om kund ledare](./partner-center-portal/commercial-marketplace-get-customer-leads.md) eller skicka in ett support ärende via [Hjälp och support](https://partner.microsoft.com/support/v2/?stage=1) genom att välja din erbjudande typ och lead-hantering.
 
 **Är jag tvungen att konfigurera ett lead-mål för att publicera ett erbjudande på Marketplace?**
 

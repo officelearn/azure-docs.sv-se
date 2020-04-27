@@ -210,7 +210,7 @@
       items:
         - name: Konfigurera aviseringar baserat på mått
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-        - name: Konfigurera aviseringar baserat på diagnostikloggar
+        - name: Konfigurera aviseringar baserat på resursloggar
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Konfigurera paketinsamlingar
       href: packet-capture.md

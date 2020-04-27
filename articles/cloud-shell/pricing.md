@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell-priser | Microsoft-dokument
-description: Översikt över priser på Azure Cloud Shell
+title: Azure Cloud Shell prissättning | Microsoft Docs
+description: Översikt över prissättningen för Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
 ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60199422"
 ---
 # <a name="pricing"></a>Prissättning
-Bash i Cloud Shell och PowerShell i Cloud Shell är föremål för information nedan.
+Bash i Cloud Shell och PowerShell i Cloud Shell omfattas av informationen nedan.
 
-## <a name="compute-cost"></a>Beräkna kostnad
-Azure Cloud Shell körs på en dator som tillhandahålls gratis av Azure, men kräver en Azure-filresurs att använda. 
+## <a name="compute-cost"></a>Beräknings kostnad
+Azure Cloud Shell körs på en dator som tillhandahålls kostnads fritt av Azure, men kräver att en Azure-filresurs används. 
 
-## <a name="storage-cost"></a>Lagringskostnad
-Cloud Shell kräver att en ny eller befintlig Azure-filresurs monteras för att spara filer över sessioner. Lagring medför regelbundna kostnader.
+## <a name="storage-cost"></a>Lagrings kostnad
+Cloud Shell kräver att en ny eller befintlig Azure Files resurs monteras för att spara filer mellan sessioner. Storage medför regelbundna kostnader.
 
-Mer [information om Azure Files-kostnader finns här.](https://azure.microsoft.com/pricing/details/storage/files/) 
+[Mer information om Azure Files kostnader finns här](https://azure.microsoft.com/pricing/details/storage/files/). 

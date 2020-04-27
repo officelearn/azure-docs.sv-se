@@ -219,7 +219,7 @@
           href: stream-analytics-troubleshoot-output.md
         - name: Frågelogik
           href: stream-analytics-troubleshoot-query.md
-        - name: Aktivitets- och diagnostikloggar
+        - name: Aktivitets- och resursloggar
           href: stream-analytics-job-diagnostic-logs.md
         - name: Datafel
           href: data-errors.md

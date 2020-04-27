@@ -4,7 +4,7 @@
   items:
     - name: Vad är Cost Management och fakturering?
       href: ../cost-management-billing-overview.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Kostnadsfritt konto
@@ -85,7 +85,7 @@
           href: ea-portal-get-started.md
         - name: EA-roller i Azure
           href: understand-ea-roles.md
-        - name: Azure EA-portaladministration
+        - name: Administration i Azure EA-portalen
           href: ea-portal-administration.md
         - name: EA-uppgifter i Microsoft-kundavtal
           href: mca-enterprise-operations.md
@@ -107,7 +107,7 @@
       href: billing-troubleshoot-azure-payment-issues.md
     - name: Nekat kort
       href: troubleshoot-declined-card.md
-    - name: Inloggningsproblem
+    - name: Registreringsproblem för Azure-konton
       href: troubleshoot-azure-sign-up.md
     - name: Problem med prenumerationsinloggning
       href: troubleshoot-sign-in-issue.md
@@ -117,7 +117,7 @@
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Exempel
   items:
-    - name: REST API
+    - name: REST-API
       items:
         - name: Granska Enterprise-kostnader
           href: review-enterprise-billing.md

@@ -1,0 +1,33 @@
+- name: Konfidentiell databehandling i Azure
+  href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa på Azure Portal
+      href: quick-create-portal.md
+    - name: Skapa med Marketplace
+      href: quick-create-marketplace.md
+- name: Begrepp
+  expanded: true
+  items:
+    - name: Lösningar på Virtual Machines
+      href: virtual-machine-solutions.md
+- name: Resurser
+  expanded: true
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md
+    - name: Feedback om konfidentiell databehandling
+      href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
+    - name: StackOverflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
+    - name: Öppna Enclave SDK
+      href: 'https://aka.ms/oesdkGitHubRepo'
+    - name: Konfidentiell databehandlingskonsortium
+      href: 'https://confidentialcomputing.io/'
+    - name: Virtual Machines på Azure
+      href: 'https://docs.microsoft.com/azure/virtual-machines/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2'
+    - name: Regioner
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines'

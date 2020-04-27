@@ -44,6 +44,9 @@
     - name: Visa och hantera kunder
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Ta bort åtkomst till en delegering
+      displayName: 'delete, undelegate'
+      href: ./how-to/remove-delegation.md
     - name: Azure Monitor-integrering
       items:
         - name: Använda Azure Monitor-loggar i stor skala

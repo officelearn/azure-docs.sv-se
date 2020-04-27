@@ -320,8 +320,6 @@
           href: troubleshoot/troubleshoot-synapse-studio.md
         - name: Felsöka Synapse Analytics Studio med PowerShell
           href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-        - name: Integrera med Power BI
-          items: null
 - name: Gör så här för att
   items:
     - name: Skydda

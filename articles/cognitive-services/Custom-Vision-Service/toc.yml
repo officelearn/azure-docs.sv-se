@@ -13,30 +13,14 @@
       items:
         - name: Använda webbportalen
           href: getting-started-build-a-classifier.md
-        - name: Använda .NET SDK
-          href: csharp-tutorial.md
-        - name: Använda Python SDK
-          href: python-tutorial.md
-        - name: Använda Java SDK
-          href: java-tutorial.md
-        - name: Använda SDK för Node.js
-          href: node-tutorial.md
-        - name: Använda SDK för Go
-          href: go-tutorial.md
+        - name: Använda Custom Vision SDK
+          href: quickstarts/image-classification.md
     - name: Skapa en objektidentifierare
       items:
         - name: Använda webbportalen
           href: get-started-build-detector.md
-        - name: Använda .NET SDK
-          href: csharp-tutorial-od.md
-        - name: Använda Python SDK
-          href: python-tutorial-od.md
-        - name: Använda Java SDK
-          href: java-tutorial-od.md
-        - name: Använda SDK för Node.js
-          href: node-tutorial-object-detection.md
-        - name: Använda SDK för Go
-          href: go-tutorial-object-detection.md
+        - name: Använda Custom Vision SDK
+          href: quickstarts/object-detection.md
 - name: Självstudier
   items:
     - name: Rapportera visuellt tillstånd på IoT-enhet

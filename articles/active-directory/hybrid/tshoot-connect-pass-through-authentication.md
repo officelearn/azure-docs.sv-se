@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Felsöka direktautentisering | Microsoft-dokument'
-description: I den här artikeln beskrivs hur du felsöker Azure Active Directory (Azure AD) direktautentisering.
+title: 'Azure AD Connect: Felsök direktautentisering | Microsoft Docs'
+description: Den här artikeln beskriver hur du felsöker Azure Active Directory (Azure AD) genom strömnings-autentisering.
 services: active-directory
-keywords: Felsöka Azure AD Connect Pass-through-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Enkel inloggning
+keywords: Felsök Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,123 +17,123 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60456175"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
-Den här artikeln hjälper dig att hitta felsökningsinformation om vanliga problem med Azure AD-direktautentisering.
+Den här artikeln hjälper dig att hitta felsöknings information om vanliga problem i samband med Azure AD-direktautentisering.
 
 >[!IMPORTANT]
->Om du står inför användarinloggningsproblem med direktautentisering ska du inte inaktivera funktionen eller avinstallera autentiseringsagenter för direktutströmning utan att ha ett globalt administratörskonto för molnet att falla tillbaka på. Läs mer om hur du [lägger till ett globalt administratörskonto för molnet](../active-directory-users-create-azure-portal.md). Att göra det här steget är kritiskt och ser till att du inte blir utelåst från din klient.
+>Om du har problem med att logga in användare med direkt autentisering inaktiverar du inte funktionen eller avinstallerar direktautentisering genom att inte ha ett globalt administratörs konto för molnet för att gå vidare. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../active-directory-users-create-azure-portal.md). Det här steget är kritiskt och säkerställer att du inte blir utelåst från din klient.
 
 ## <a name="general-issues"></a>Allmänna frågor
 
-### <a name="check-status-of-the-feature-and-authentication-agents"></a>Kontrollera status för funktionen och autentiseringsagenter
+### <a name="check-status-of-the-feature-and-authentication-agents"></a>Kontrol lera status för funktionen och autentiserings agenter
 
-Kontrollera att direktautentiseringsfunktionen fortfarande är **aktiverad** på din klientorganisation och statusen för autentiseringsagenter visar **Aktiv**och inte **inaktiv**. Du kan kontrollera status genom att gå till **Azure AD Connect-bladet** i [Administrationscentret](https://aad.portal.azure.com/)för Azure Active Directory .
+Se till att funktionen för direkt autentisering fortfarande är **aktive rad** på din klient och statusen för Autentiseringstjänsten visar **aktiv**och inte **inaktiv**. Du kan kontrol lera status genom att gå till bladet **Azure AD Connect** på [Azure Active Directory administrations Center](https://aad.portal.azure.com/).
 
-![Administrationscenter för Azure Active Directory – Azure AD Connect-blad](./media/tshoot-connect-pass-through-authentication/pta7.png)
+![Azure Active Directory administrations Center – Azure AD Connect bladet](./media/tshoot-connect-pass-through-authentication/pta7.png)
 
-![Administrationscenter för Azure Active Directory – Bladet Direktautentisering](./media/tshoot-connect-pass-through-authentication/pta11.png)
+![Azure Active Directory administrations Center – pass-through Authentication-bladet](./media/tshoot-connect-pass-through-authentication/pta11.png)
 
-### <a name="user-facing-sign-in-error-messages"></a>Felmeddelanden om användarinriktad inloggning
+### <a name="user-facing-sign-in-error-messages"></a>Inloggnings fel meddelanden som riktas mot användare
 
-Om användaren inte kan logga in med direktautentisering kan de se något av följande användarinriktade fel på inloggningsskärmen för Azure AD: 
+Om användaren inte kan logga in med hjälp av direktautentisering kan de se något av följande problem med användaren på Azure AD-inloggnings skärmen: 
 
 |Fel|Beskrivning|Lösning
 | --- | --- | ---
-|AADSTS80001|Det går inte att ansluta till Active Directory|Kontrollera att agentservrar är medlemmar i samma AD-skog som de användare vars lösenord måste valideras och de kan ansluta till Active Directory.  
-|AADSTS8002|En timeout uppstod som ansluter till Active Directory|Kontrollera att Active Directory är tillgängligt och svarar på begäranden från agenterna.
-|AADSTS80004|Användarnamnet som skickades till agenten var ogiltigt|Se till att användaren försöker logga in med rätt användarnamn.
-|AADSTS80005|Validering påträffade oförutsägbar webexception|Ett tillfälligt fel. Försök igen. Om det fortsätter att misslyckas kontaktar du Microsoft-supporten.
-|AADSTS80007|Ett fel uppstod när det kommunicerade med Active Directory|Kontrollera agentloggarna för mer information och kontrollera att Active Directory fungerar som förväntat.
+|AADSTS80001|Det går inte att ansluta till Active Directory|Se till att agent servrar är medlemmar i samma AD-skog som de användare vars lösen ord måste verifieras och att de kan ansluta till Active Directory.  
+|AADSTS8002|En timeout uppstod vid anslutning till Active Directory|Kontrol lera att Active Directory är tillgänglig och svarar på begär Anden från agenterna.
+|AADSTS80004|Det användar namn som skickades till agenten var inte giltigt|Se till att användaren försöker logga in med rätt användar namn.
+|AADSTS80005|Verifieringen påträffade en oförutsägbar WebException|Ett tillfälligt fel. Gör om begäran. Kontakta Microsoft-supporten om den fortsätter att fungera.
+|AADSTS80007|Ett fel uppstod vid kommunikation med Active Directory|Mer information finns i agent loggarna och kontrol lera att Active Directory fungerar som förväntat.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Orsaker till inloggningsfel i administrationscentret för Azure Active Directory (behöver Premium-licens)
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Orsaker till inloggnings försök i Azure Active Directory administrations Center (kräver Premium-licens)
 
-Om din klient har en Azure AD Premium-licens kopplad till sig kan du också titta på [inloggningsaktivitetsrapporten i](../reports-monitoring/concept-sign-ins.md) [Administrationscentret](https://aad.portal.azure.com/)för Azure Active Directory .
+Om din klient har en Azure AD Premium licens som är kopplad till den, kan du också titta på [inloggnings aktivitets rapporten](../reports-monitoring/concept-sign-ins.md) i [Azure Active Directory administrations centret](https://aad.portal.azure.com/).
 
-![Administrationscenter för Azure Active Directory – rapporten Inloggningar](./media/tshoot-connect-pass-through-authentication/pta4.png)
+![Rapporten Azure Active Directory administrations center-inloggnings program](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Navigera till Azure Active -> **Directory-inloggningar i Administrationscentret** för [Azure Active Directory](https://aad.portal.azure.com/) och klicka på en viss användares inloggningsaktivitet. **Azure Active Directory** Leta efter fältet **INLOGGNINGSFELKOD.** Mappa värdet för det fältet till en felorsak och lösning med hjälp av följande tabell:
+Navigera till **Azure Active Directory** -> **inloggningar** i [Azure Active Directory administrations Center](https://aad.portal.azure.com/) och klicka på en enskild användares inloggnings aktivitet. Leta efter fältet **fel kod för inloggning** . Mappa värdet i det fältet till en felorsak och lösning med hjälp av följande tabell:
 
-|Felkod för inloggning|Orsaken till inloggningsfel|Lösning
+|Felkod för inloggning|Orsak till inloggnings försök|Lösning
 | --- | --- | ---
-| 50144 | Användarens Active Directory-lösenord har upphört att gälla. | Återställ användarens lösenord i den lokala Active Directory.
-| 80001 | Ingen autentiseringsagent är tillgänglig. | Installera och registrera en autentiseringsagent.
-| 80002 | Den tillåtna tiden för autentiseringsagentens lösenordsvalidering överskreds. | Kontrollera om Active Directory kan nås från autentiseringsagenten.
-| 80003 | Ogiltigt svar har tagits emot av autentiseringsagenten. | Om problemet konsekvent kan återskapas mellan flera användare kontrollerar du Active Directory-konfigurationen.
-| 80004 | Felaktig UPN (User Principal Name) används i begäran om inloggning. | Be användaren att logga in med rätt användarnamn.
-| 80005 | Autentiseringsagent: Fel uppstod. | Övergående fel. Försök igen senare.
-| 80007 | Det gick inte att ansluta autentiseringsagenten till Active Directory. | Kontrollera om Active Directory kan nås från autentiseringsagenten.
-| 80010 | Autentiseringsagenten kan inte dekryptera lösenordet. | Om problemet är konsekvent reproducerbart installerar och registrerar du en ny autentiseringsagent. Och avinstallera den nuvarande. 
-| 80011 | Autentiseringsagenten kunde inte hämta dekrypteringsnyckeln. | Om problemet är konsekvent reproducerbart installerar och registrerar du en ny autentiseringsagent. Och avinstallera den nuvarande.
+| 50144 | Användarens Active Directory-lösenord har upphört att gälla. | Återställ användarens lösen ord i din lokala Active Directory.
+| 80001 | Ingen autentiseringsagent är tillgänglig. | Installera och registrera en agent för autentisering.
+| 80002 | Den tillåtna tiden för autentiseringsagentens lösenordsvalidering överskreds. | Kontrol lera om din Active Directory kan kommas åt från Authentication agent.
+| 80003 | Ogiltigt svar har tagits emot av autentiseringsagenten. | Om problemet ständigt reproduceras över flera användare, kontrollerar du Active Directory konfiguration.
+| 80004 | Felaktig UPN (User Principal Name) används i begäran om inloggning. | Be användaren att logga in med rätt användar namn.
+| 80005 | Autentiseringsagent: Fel uppstod. | Tillfälligt fel. Försök igen senare.
+| 80007 | Det gick inte att ansluta autentiseringsagenten till Active Directory. | Kontrol lera om din Active Directory kan kommas åt från Authentication agent.
+| 80010 | Autentiseringsagenten kan inte dekryptera lösenordet. | Om problemet ständigt är reproducerat, installerar och registrerar du en ny autentiseringstjänst. Och avinstallera den aktuella. 
+| 80011 | Autentiseringsagenten kunde inte hämta dekrypteringsnyckeln. | Om problemet ständigt är reproducerat, installerar och registrerar du en ny autentiseringstjänst. Och avinstallera den aktuella.
 
 >[!IMPORTANT]
->Direktautentiseringsagenter autentiserar Azure AD-användare genom att verifiera deras användarnamn och lösenord mot Active Directory genom att anropa [Win32 LogonUser-API:et](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Om du har ställt in inställningen "Inloggning till" i Active Directory för att begränsa åtkomsten till arbetsstationsinloggning måste du också lägga till servrar som är värdar för direktautentiseringsagenter i listan över "Inloggning till"-servrar. Om du inte gör detta blockeras dina användare från att logga in på Azure AD.
+>Direkt autentiserings agenter autentiserar Azure AD-användare genom att verifiera sina användar namn och lösen ord mot Active Directory genom att anropa [Win32 LogonUser-API: et](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Det innebär att om du har ställt in inställningen "logga in på" i Active Directory för att begränsa åtkomsten till arbets stationer måste du lägga till servrar som är värdar för direktautentisering till listan över "inloggningar till"-servrar. Om du inte gör det blockeras användarna från att logga in på Azure AD.
 
-## <a name="authentication-agent-installation-issues"></a>Installationsproblem för autentiseringsagent
+## <a name="authentication-agent-installation-issues"></a>Installations problem för autentiserings agent
 
-### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel uppstod
+### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel har uppstått
 
-[Samla in agentloggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft Support med ditt problem.
+[Samla in agent loggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft support med ditt problem.
 
-## <a name="authentication-agent-registration-issues"></a>Registreringsproblem för autentiseringsagent
+## <a name="authentication-agent-registration-issues"></a>Registrerings problem för autentiserings agent
 
-### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Registreringen av autentiseringsagenten misslyckades på grund av blockerade portar
+### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Det gick inte att registrera Authentication agent på grund av blockerade portar
 
-Kontrollera att den server där autentiseringsagenten har installerats kan kommunicera med våra tjänstadresser och portar som anges [här](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+Se till att den server där Autentiseringstjänsten har installerats kan kommunicera med URL: er och portar för tjänsten som anges [här](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 
-### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Registreringen av autentiseringsagenten misslyckades på grund av token- eller kontoauktoriseringsfel
+### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Det gick inte att registrera Authentication agent på grund av token eller konto verifierings fel
 
-Se till att du använder ett globalt administratörskonto endast för molnet för alla Azure AD Connect- eller fristående installations- och registreringsåtgärder för autentiseringsagent. Det finns ett känt problem med MFA-aktiverade globala administratörskonton. stänga av MFA tillfälligt (endast för att slutföra åtgärderna) som en lösning.
+Se till att du använder ett globalt administratörs konto med endast ett moln för alla Azure AD Connect eller fristående autentiserings-och registrerings åtgärder. Det finns ett känt problem med MFA-aktiverade globala administratörs konton. Stäng av MFA tillfälligt (endast för att slutföra åtgärderna) som en lösning.
 
-### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel uppstod
+### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel har uppstått
 
-[Samla in agentloggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft Support med ditt problem.
+[Samla in agent loggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft support med ditt problem.
 
-## <a name="authentication-agent-uninstallation-issues"></a>Problem med avinstallation av autentiseringsagent
+## <a name="authentication-agent-uninstallation-issues"></a>Problem med avinstallation av autentiseringsfel
 
-### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Varningsmeddelande vid avinstallation av Azure AD Connect
+### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Varnings meddelande när du avinstallerar Azure AD Connect
 
-Om du har direktautentisering aktiverat på din klientorganisation och du försöker avinstallera Azure AD Connect visas följande varningsmeddelande: "Användare kan inte logga in på Azure AD om du inte har andra direktautentiseringsagenter installerade på andra servrar."
+Om du har direkt autentisering aktive rad på klienten och försöker avinstallera Azure AD Connect, visas följande varnings meddelande: "användarna kommer inte att kunna logga in på Azure AD om du inte har andra direktautentisering installerade på andra servrar."
 
-Se till att din konfiguration är [mycket tillgänglig](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) innan du avinstallerar Azure AD Connect för att undvika att bryta användarinloggning.
+Se till att installations programmet har [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) innan du avinstallerar Azure AD Connect för att undvika att dela in användar inloggning.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problem med att aktivera funktionen
 
-### <a name="enabling-the-feature-failed-because-there-were-no-authentication-agents-available"></a>Det gick inte att aktivera funktionen eftersom det inte fanns några autentiseringsagenter tillgängliga
+### <a name="enabling-the-feature-failed-because-there-were-no-authentication-agents-available"></a>Det gick inte att aktivera funktionen eftersom det inte fanns några tillgängliga autentiseringsscheman
 
-Du måste ha minst en aktiv autentiseringsagent för att aktivera direktautentisering på din klientorganisation. Du kan installera en autentiseringsagent genom att antingen installera Azure AD Connect eller en fristående autentiseringsagent.
+Du måste ha minst en aktiv autentiserings agent för att aktivera direktautentisering på din klient. Du kan installera en agent för autentisering genom att antingen installera Azure AD Connect eller en fristående autentiseringstjänst.
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>Det gick inte att aktivera funktionen på grund av blockerade portar
 
-Kontrollera att servern där Azure AD Connect är installerat kan kommunicera med våra tjänstadresser och portar som anges [här](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+Se till att den server där Azure AD Connect har installerats kan kommunicera med URL: er och portar för tjänsten som anges [här](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 
-### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Det gick inte att aktivera funktionen på grund av fel på token- eller kontoauktorisering
+### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Det gick inte att aktivera funktionen på grund av token eller konto auktoriseringsfel
 
-Se till att du använder ett globalt administratörskonto endast för molnet när du aktiverar funktionen. Det finns ett känt problem med MFA-aktiverade globala administratörskonton (Multi Factor Authentication). stänga av MFA tillfälligt (endast för att slutföra åtgärden) som en lösning.
+Se till att du använder ett globalt administratörs konto i molnet när du aktiverar funktionen. Det finns ett känt problem med MFA-aktiverade (Multi-Factor Authentication) globala administratörs konton. Inaktivera MFA tillfälligt (endast för att slutföra åtgärden) som en lösning.
 
-## <a name="collecting-pass-through-authentication-agent-logs"></a>Samla in direktautentiseringsagentloggar
+## <a name="collecting-pass-through-authentication-agent-logs"></a>Samla in loggar för strömnings agenter
 
-Beroende på vilken typ av problem du kan ha måste du leta på olika platser för direktautentiseringsagentloggar.
+Beroende på vilken typ av problem du kan ha måste du titta på olika platser för vidarekoppling av loggar med direkt autentisering.
 
-### <a name="azure-ad-connect-logs"></a>Azure AD Connect-loggar
+### <a name="azure-ad-connect-logs"></a>Azure AD Connect loggar
 
-Om det finns fel relaterade till installationen kontrollerar du Azure AD Connect-loggarna på **%ProgramData%\AADConnect\trace-\*.log**.
+Om du har fel som rör installationen kontrollerar du Azure AD Connect loggarna på **\*%programdata%\AADConnect\trace-. log**.
 
-### <a name="authentication-agent-event-logs"></a>Händelseloggar för autentiseringsagent
+### <a name="authentication-agent-event-logs"></a>Händelse loggar för Authentication agent
 
-Om du vill ha fel som är relaterade till autentiseringsagenten öppnar du Loggboken-programmet på servern och kontrollerar under **Program- och tjänstloggar\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
+Om du har fel som rör Autentiseringstjänsten öppnar du Loggboken-programmet på-servern och kontrollerar under **program-och tjänst Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
-För detaljerad analys aktiverar du loggen "Session" (högerklickar i Loggboken för att hitta det här alternativet). Kör inte autentiseringsagenten med den här loggen aktiverad under normala åtgärder. endast användas för felsökning. Logginnehållet visas bara när loggen har inaktiverats igen.
+För detaljerad analys aktiverar du loggen "session" (Högerklicka i Loggboken programmet för att hitta det här alternativet). Kör inte Authentication agent med den här loggen aktive rad under normal drift; Använd endast för fel sökning. Logg innehållet visas bara när loggen har inaktiverats igen.
 
-### <a name="detailed-trace-logs"></a>Detaljerade spårningsloggar
+### <a name="detailed-trace-logs"></a>Detaljerade spårnings loggar
 
-Om du vill felsöka inloggningsfel för användare letar du efter spårningsloggar på **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Dessa loggar innehåller orsaker till att en viss användarloggning misslyckades med funktionen Direktautentisering. Dessa fel mappas också till de inloggningsfelsorsaker som visas i tabellen för föregående inloggningsfel. Följande är ett exempel loggpost:
+Felsök användar inloggnings fel genom att leta efter spårnings loggar på **%programdata%\MICROSOFT\AZURE AD Connect Authentication Agent\Trace\\**. Dessa loggar innehåller orsaker till varför en speciell användar inloggning misslyckades med hjälp av funktionen för direkt autentisering. De här felen mappas också till de inloggnings fel orsaker som visas i tabellen närmast föregående fel orsaken till inloggningen. Följande är en exempel logg post:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -141,7 +141,7 @@ Om du vill felsöka inloggningsfel för användare letar du efter spårningslogg
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Du kan få beskrivande information om felet ("1328" i föregående exempel) genom att öppna kommandotolken och köra följande kommando (Obs: Ersätt '1328' med det faktiska felnumret som du ser i dina loggar):
+Du kan få beskrivande information om felet ("1328" i föregående exempel) genom att öppna kommando tolken och köra följande kommando (Obs! Ersätt "1328" med det faktiska fel numret som visas i loggarna:
 
 `Net helpmsg 1328`
 
@@ -149,7 +149,7 @@ Du kan få beskrivande information om felet ("1328" i föregående exempel) geno
 
 ### <a name="domain-controller-logs"></a>Loggar för domänkontrollant
 
-Om granskningsloggning är aktiverat finns ytterligare information i domänkontrollanternas säkerhetsloggar. Ett enkelt sätt att fråga inloggningsbegäranden som skickas av direktautentiseringsagenter är följande:
+Om gransknings loggning har Aktiver ATS finns ytterligare information i domän kontrol Lanternas säkerhets loggar. Ett enkelt sätt att fråga inloggnings begär Anden som skickas av direktautentisering är följande:
 
 ```
     <QueryList>
@@ -159,11 +159,11 @@ Om granskningsloggning är aktiverat finns ytterligare information i domänkontr
     </QueryList>
 ```
 
-## <a name="performance-monitor-counters"></a>Räknare för prestandaövervakare
+## <a name="performance-monitor-counters"></a>Prestanda övervaknings räknare
 
-Ett annat sätt att övervaka autentiseringsagenter är att spåra specifika prestandaövervakarräknare på varje server där autentiseringsagenten är installerad. Använd följande globala räknare (**# PTA-autentiseringar,** **#PTA misslyckade autentiseringar** och **#PTA lyckade autentiseringar)** och felräknare (**# PTA-autentiseringsfel):**
+Ett annat sätt att övervaka autentiseringsprinciper är att spåra vissa räknare för prestanda övervakaren på varje server där Authentication agent är installerad. Använd följande globala räknare (**# PTA-autentiseringar**, **#PTA misslyckade autentiseringar** och **#PTA lyckade autentiseringar**) och fel räknare (**# PTA Authentication errors**):
 
-![Övervakarräknare för direktautentiseringsprestanda](./media/tshoot-connect-pass-through-authentication/pta12.png)
+![Prestanda övervaknings räknare för direktautentisering](./media/tshoot-connect-pass-through-authentication/pta12.png)
 
 >[!IMPORTANT]
->Direktautentisering ger hög tillgänglighet med hjälp av flera autentiseringsagenter och _inte_ belastningsutjämning. Beroende på din konfiguration får _inte_ alla dina autentiseringsagenter ungefär _lika många_ begäranden. Det är möjligt att en specifik autentiseringsagent inte tar emot någon trafik alls.
+>Direktautentisering ger hög tillgänglighet med hjälp av flera autentiseringsmekanismer och _inte_ belastnings utjämning. Beroende på din konfiguration får _inte_ alla dina autentiseringsbegäranden ungefär _lika_ många begär Anden. Det är möjligt att en specific Authentication agent inte tar emot någon trafik alls.

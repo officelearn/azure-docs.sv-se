@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure Media Services-telemetri med .NET| Microsoft-dokument
-description: Den här artikeln visar hur du använder Azure Media Services-telemetrin med .NET SDK.
+title: Konfigurera Azure Media Services telemetri med .NET | Microsoft Docs
+description: Den här artikeln visar hur du använder Azure Media Services telemetri med .NET SDK.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61464954"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>Konfigurera Azure Media Services-telemetri med .NET 
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>Konfigurera Azure Media Services telemetri med .NET 
 
-I den här artikeln beskrivs allmänna steg som du kan vidta när du konfigurerar Azure Media Services-telemetrin (AMS) med .NET SDK. 
+I den här artikeln beskrivs allmänna steg som du kan vidta när du konfigurerar telemetri för Azure Media Services (AMS) med hjälp av .NET SDK. 
 
 >[!NOTE]
->Detaljerad förklaring av vad som är AMS-telemetri och hur du konsumerar den finns i [översiktsartikeln.](media-services-telemetry-overview.md)
+>En detaljerad förklaring av vad är AMS telemetri och hur du använder det finns i [översikts](media-services-telemetry-overview.md) artikeln.
 
 Du kan använda telemetridata på något av följande sätt:
 
-- Läs data direkt från Azure Table Storage (till exempel med hjälp av Storage SDK). Beskrivning av lagringstabeller för telemetri finns i **information om hur du konsumerar telemetri** i den [här](https://msdn.microsoft.com/library/mt742089.aspx) artikeln.
+- Läs data direkt från Azure Table Storage (till exempel med hjälp av Storage SDK). Beskrivning av tabeller för telemetri-lagring finns i informationen om att använda **telemetri** i [den här](https://msdn.microsoft.com/library/mt742089.aspx) artikeln.
 
 Eller
 
-- Använd stödet i Media Services .NET SDK för att läsa lagringsdata. Den här artikeln visar hur du aktiverar telemetri för det angivna AMS-kontot och hur du frågar måtten med Hjälp av Azure Media Services .NET SDK.  
+- Använd supporten i Media Services .NET SDK för att läsa lagrings data. Den här artikeln visar hur du aktiverar telemetri för det angivna AMS-kontot och hur du frågar måtten med hjälp av Azure Media Services .NET SDK.  
 
-## <a name="configuring-telemetry-for-a-media-services-account"></a>Konfigurera telemetri för ett Media Services-konto
+## <a name="configuring-telemetry-for-a-media-services-account"></a>Konfigurera telemetri för ett Media Services konto
 
-Följande steg behövs för att aktivera telemetri:
+Följande steg krävs för att aktivera telemetri:
 
-- Hämta autentiseringsuppgifterna för lagringskontot som är kopplat till Media Services-kontot. 
-- Skapa en slutpunkt för meddelanden med **EndPointType** inställd på **AzureTable** och endPointAddress som pekar på lagringstabellen.
+- Hämta autentiseringsuppgifterna för det lagrings konto som är kopplat till Media Services kontot. 
+- Skapa en meddelande slut punkt med **EndPointType** inställt på **AzureTable** och endPointAddress som pekar på lagrings tabellen.
 
 ```csharp
         INotificationEndPoint notificationEndPoint = 
@@ -50,7 +50,7 @@ Följande steg behövs för att aktivera telemetri:
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 ```
 
-- Skapa en övervakningskonfigurationsinställning för de tjänster som du vill övervaka. Det är inte mer än en konfigurationsinställning för övervakning tillåten. 
+- Skapa en övervaknings konfigurations inställning för de tjänster som du vill övervaka. Det går inte att ange fler än en övervaknings konfiguration. 
 
 ```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
@@ -61,15 +61,15 @@ Följande steg behövs för att aktivera telemetri:
             });
 ```
 
-## <a name="consuming-telemetry-information"></a>Konsumerar telemetriinformation
+## <a name="consuming-telemetry-information"></a>Förbrukar telemetri information
 
-Information om hur du konsumerar telemetriinformation finns i [den här](media-services-telemetry-overview.md) artikeln.
+Information om hur du förbrukar telemetri finns i [den här](media-services-telemetry-overview.md) artikeln.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
+1. Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
-2. Lägg till följande element i **appSettings** som definierats i filen app.config:
+2. Lägg till följande-element i **appSettings** som definierats i din app. config-fil:
 
     ```xml
         <add key="StorageAccountName" value="storage_name" />
@@ -77,7 +77,7 @@ Information om hur du konsumerar telemetriinformation finns i [den här](media-s
  
 ## <a name="example"></a>Exempel  
     
-I följande exempel visas hur du aktiverar telemetri för det angivna AMS-kontot och hur du frågar måtten med Hjälp av Azure Media Services .NET SDK.  
+I följande exempel visas hur du aktiverar telemetri för det angivna AMS-kontot och hur du frågar måtten med hjälp av Azure Media Services .NET SDK.  
 
 ```csharp
 using System;

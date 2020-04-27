@@ -1,6 +1,6 @@
 ---
-title: Importpaket för fjärrövervakningslösning – Azure | Microsoft-dokument
-description: I den här artikeln beskrivs hur du importerar ett automatiskt enhetshanteringspaket till lösningsacceleratorn för fjärrövervakning
+title: Import paket för fjärrövervakning – Azure | Microsoft Docs
+description: I den här artikeln beskrivs hur du importerar ett automatiskt enhets hanterings paket till den fjärrstyrda lösnings acceleratorn
 author: dominicbetts
 manager: philmea
 ms.author: dobett
@@ -9,56 +9,56 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61443453"
 ---
-# <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importera ett automatiskt enhetshanteringspaket till lösningsacceleratorn för fjärrövervakning
+# <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importera ett automatiskt enhets hanterings paket till din lösnings Accelerator för fjärr styrning
 
-En automatisk enhetshanteringskonfiguration definierar konfigurationsändringarna för distribution till en grupp enheter. Den här artikeln förutsätter att en utvecklare i organisationen redan har skapat en automatisk enhetshanteringskonfiguration. Mer information om hur en utvecklare skapar en konfiguration finns i någon av följande IoT Hub-instruktioner:
+En automatisk enhets hanterings konfiguration definierar de konfigurations ändringar som ska distribueras till en grupp av enheter. Den här artikeln förutsätter att en utvecklare i din organisation redan har skapat en automatisk enhets hanterings konfiguration. Information om hur en utvecklare skapar en konfiguration finns i något av följande IoT Hub instruktions artiklar:
 
-- [Konfigurera och övervaka IoT-enheter i stor skala med Azure-portalen](../iot-hub/iot-hub-auto-device-config.md)
-- [Konfigurera och övervaka IoT-enheter i stor skala med Hjälp av Azure CLI](../iot-hub/iot-hub-auto-device-config-cli.md)
+- [Konfigurera och övervaka IoT-enheter i skala med hjälp av Azure Portal](../iot-hub/iot-hub-auto-device-config.md)
+- [Konfigurera och övervaka IoT-enheter i skala med Azure CLI](../iot-hub/iot-hub-auto-device-config-cli.md)
 
-En utvecklare skapar och testar en automatisk enhetshanteringskonfiguration i en utvecklingsmiljö. När du är redo kan du importera konfigurationen till lösningsacceleratorn för fjärrövervakning.
+En utvecklare skapar och testar en automatisk enhets hanterings konfiguration i en utvecklings miljö. När du är klar kan du importera konfigurationen till din lösnings Accelerator för fjärr styrning.
 
 ## <a name="export-a-configuration"></a>Exportera en konfiguration
 
-Använd Azure-portalen för att exportera den automatiska enhetshanteringskonfigurationen från utvecklingsmiljön:
+Använd Azure Portal för att exportera den automatiska enhets hanterings konfigurationen från utvecklings miljön:
 
-1. I Azure-portalen navigerar du till IoT-hubben som du använder för att utveckla och testa dina IoT-enheter. Klicka på **IoT-enhetskonfiguration:**
+1. I Azure Portal navigerar du till IoT-hubben som du använder för att utveckla och testa dina IoT-enheter. Klicka på **IoT-enhets konfiguration**:
 
-    [![Konfiguration av IoT-enhet](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
+    [![IoT-enhets konfiguration](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
 
-1. Klicka på den konfiguration som du vill använda. Sidan **Information om enhetskonfiguration** visas:
+1. Klicka på den konfiguration som du vill använda. Sidan **enhets konfigurations information** visar:
 
-    [![Konfigurationsinformation för IoT-enheten](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
-1. Klicka på **Hämta konfigurationsfil:**
+    [![Konfigurations information för IoT-enheter](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
+1. Klicka på **Hämta konfigurations fil**:
 
-    [![Hämta konfigurationsfil](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
+    [![Ladda ned konfigurations fil](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
 
-1. Spara JSON-filen som en lokal fil som heter **configuration.json**.
+1. Spara JSON-filen som en lokal fil med namnet **Configuration. JSON**.
 
-Nu har du en fil som innehåller den automatiska enhetshanteringskonfigurationen. I nästa avsnitt importerar du den här konfigurationen som ett paket till lösningen för fjärrövervakning.
+Nu har du en fil som innehåller konfigurationen för automatisk enhets hantering. I nästa avsnitt importerar du den här konfigurationen som ett paket i lösningen för fjärrövervakning.
 
 ## <a name="import-a-package"></a>Importera ett paket
 
-Följ stegen nedan för att importera en automatisk enhetshanteringskonfiguration som ett paket till din lösning:
+Följ stegen nedan för att importera en automatisk enhets hanterings konfiguration som ett paket till din lösning:
 
-1. Navigera till sidan **Paket** i webbgränssnittet ![för fjärrövervakning: Paket](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
+1. Gå till sidan **paket** på sidan för webb gränssnitt för fjärrövervakning ![: Sidan paket](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
-1. Klicka på **+ Nytt paket**, välj **Konfiguration** som pakettyp och klicka på **Bläddra** för att välja **filen configuration.json** som du sparade i föregående avsnitt:
+1. Klicka på **+ nytt paket**, Välj **konfiguration** som paket typ och klicka på **Bläddra** för att välja den **Configuration. JSON** -fil som du sparade i föregående avsnitt:
 
     ![Välj konfiguration](media/iot-accelerators-remote-monitoring-import-adm-package/uploadpackage.png)
 
-1. Klicka på **Ladda upp** om du vill lägga till paketet i lösningen för fjärrövervakning:
+1. Klicka på **överför** för att lägga till paketet i lösningen för fjärrövervakning:
 
-    ![Uppladdat paket](media/iot-accelerators-remote-monitoring-import-adm-package/uploadedpackage.png)
+    ![Överfört paket](media/iot-accelerators-remote-monitoring-import-adm-package/uploadedpackage.png)
 
-Du har nu laddat upp en automatisk enhetshanteringskonfiguration som ett paket. På sidan **Distributioner** kan du distribuera det här paketet till dina anslutna enheter.
+Du har nu laddat upp en automatisk enhets hanterings konfiguration som ett paket. På sidan **distributioner** kan du distribuera det här paketet till dina anslutna enheter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du skapar ett konfigurationspaket och importerar det till lösningen för fjärrövervakning är nästa steg att lära dig hur du [hanterar enheter som är anslutna till fjärrövervakning i bulk](iot-accelerators-remote-monitoring-bulk-configuration-update.md).
+Nu när du har lärt dig hur du skapar ett konfigurations paket och importerar det till från lösningen för fjärrövervakning är nästa steg att lära dig hur du [hanterar enheter som är anslutna till fjärrövervakning i bulk](iot-accelerators-remote-monitoring-bulk-configuration-update.md).

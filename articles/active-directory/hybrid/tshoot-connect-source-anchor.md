@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Felsöka problem med källankare under installationen | Microsoft-dokument'
-description: Det här avsnittet innehåller steg för felsÃ¶kning av problem med källankaret under installationen.
+title: 'Azure AD Connect: Felsöka problem med käll ankare under installationen | Microsoft Docs'
+description: Det här avsnittet innehåller anvisningar för hur du felsöker problem med käll ankaret under installationen.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,38 +11,38 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "62114164"
 ---
-# <a name="troubleshooting-source-anchor-issues-during-installation"></a>Felsöka problem med källankare under installationen
-I den här artikeln beskrivs de olika källankarerelaterade problem som kan uppstå under installationen och erbjuder sätt att lösa dessa problem.
+# <a name="troubleshooting-source-anchor-issues-during-installation"></a>Felsöka problem med käll ankare under installationen
+I den här artikeln förklaras olika käll fäst punkter för problem som kan uppstå under installationen och som kan lösa problemen.
 
-## <a name="invalid-source-anchor-in-azure-active-directory"></a>Ogiltigt källankare i Azure Active Directory
+## <a name="invalid-source-anchor-in-azure-active-directory"></a>Ogiltigt käll ankare i Azure Active Directory
 
 ### <a name="custom-installation"></a>Anpassad installation
 
-Under anpassad installation läser Azure AD Connect källankarprincipen från Azure Active Directory. Om principen finns i Azure Active Directory tillämpar Azure AD Connect samma princip om den inte åsidosätts av kunden. Guiden informerar dig om vilket attribut som har lästs. Dessutom varnar guiden om du försöker åsidosätta källankareprincipen.
+Vid anpassad installation läser Azure AD Connect käll fäst punkts princip från Azure Active Directory. Om principen finns i Azure Active Directory, Azure AD Connect tillämpar samma princip om den inte åsidosätts av kunden. Guiden informerar dig om vilket attribut som har lästs. Dessutom varnar guiden om du försöker åsidosätta käll fäst punkten.
 
-Under den här läsåtgärden är det möjligt att källankareprincipen i Azure Active Directory är oväntad. I det här fallet vet Inte Azure AD Connect vad källankaret ska använda och behöver manuell åsidosättning.</br>
-![Oväntade](media/tshoot-connect-source-anchor/source1.png)
+Under den här Läs åtgärden är det möjligt att käll fäst punkten i Azure Active Directory är oväntad. I det här fallet vet Azure AD Connect inte vad käll ankaret ska använda och kräver manuellt åsidosättning.</br>
+![ett](media/tshoot-connect-source-anchor/source1.png)
 
-Lös problemet genom att manuellt åsidosätta källankaret genom att välja ett specifikt attribut. Fortsätt med det här alternativet om och endast om du är säker på vilket attribut du ska välja. Om du inte är säker kontaktar du [Microsofts support](https://support.microsoft.com/contactus/) för vägledning. Om du ändrar principen för källankare kan den bryta kopplingen mellan lokala användare och deras associerade Azure-resurser.</br>
-![Oväntade](media/tshoot-connect-source-anchor/source2.png)
+För att lösa det här problemet kan du manuellt åsidosätta käll fäst punkten genom att välja ett speciellt attribut. Fortsätt med det här alternativet om och bara om du är säker på vilket attribut som ska väljas. Om du inte är säker kontaktar du [Microsoft Support](https://support.microsoft.com/contactus/) om du behöver hjälp. Om du ändrar käll fäst punkts principen kan den bryta kopplingen mellan dina lokala användare och deras associerade Azure-resurser.</br>
+![ett](media/tshoot-connect-source-anchor/source2.png)
 
 ### <a name="express-installation"></a>Snabb installation
-Under expressinstallation läser Azure AD Connect källankareprincipen från Azure Active Directory. Om principen finns i Azure Active Directory tillämpar Azure AD Connect samma princip. Det finns inget alternativ att göra manuell åsidosättning.
+Under snabb installationen läser Azure AD Connect käll fäst punkts princip från Azure Active Directory. Om principen finns i Azure Active Directory, Azure AD Connect tillämpar samma princip. Det finns inget alternativ för manuell åsidosättning.
 
-Under den här läsåtgärden är det möjligt att källankareprincipen i Azure Active Directory är oväntad. I det här fallet vet Inte Azure AD Connect vad källankaret ska vara.</br>
-![Oväntade](media/tshoot-connect-source-anchor/source3.png)
+Under den här Läs åtgärden är det möjligt att käll fäst punkten i Azure Active Directory är oväntad. I det här fallet vet Azure AD Connect inte vad käll fäst punkten ska vara.</br>
+![ett](media/tshoot-connect-source-anchor/source3.png)
 
-För att lösa problemet måste du installera om med det anpassade läget och manuellt åsidosätta källankaret genom att välja ett visst attribut. Fortsätt med det här alternativet om och endast om du är säker på vilket attribut du ska välja. Om du inte är säker kontaktar du [Microsofts support](https://support.microsoft.com/contactus/) för vägledning. Om du ändrar principen för källankare kan den bryta kopplingen mellan lokala användare och deras associerade Azure-resurser.
+För att lösa det här problemet måste du installera på nytt med det anpassade läget och åsidosätta käll ankaret manuellt genom att välja ett särskilt attribut. Fortsätt med det här alternativet om och bara om du är säker på vilket attribut som ska väljas. Om du inte är säker kontaktar du [Microsoft Support](https://support.microsoft.com/contactus/) om du behöver hjälp. Om du ändrar käll fäst punkts principen kan den bryta kopplingen mellan dina lokala användare och deras associerade Azure-resurser.
 
-### <a name="invalid-source-anchor-in-sync-engine"></a>Ogiltigt källankare i synkroniseringsmotorn
-Under installationen är det möjligt azure AD Connect försök att konfigurera synkroniseringsmotorn med hjälp av en ogiltig källa ankare. Den här åtgärden är troligen ett produktproblem och installationen av Azure AD Connect misslyckas. Kontakta [Microsoft-supporten](https://support.microsoft.com/contactus/) om du stöter på det här problemet.</br>
-![Oväntade](media/tshoot-connect-source-anchor/source4.png)
+### <a name="invalid-source-anchor-in-sync-engine"></a>Ogiltigt käll ankare i Synkroniseringsmotorn
+Under installationen är det möjligt att Azure AD Connect försöker konfigurera Synkroniseringsmotorn med en ogiltig käll-ankare. Den här åtgärden är förmodligen ett produkt problem och installationen av Azure AD Connect kommer att Miss förväntas. Kontakta [Microsoft-supporten](https://support.microsoft.com/contactus/) om du kör på det här problemet.</br>
+![ett](media/tshoot-connect-source-anchor/source4.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

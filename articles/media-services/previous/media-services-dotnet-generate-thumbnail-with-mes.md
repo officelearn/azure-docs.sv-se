@@ -1,6 +1,6 @@
 ---
 title: Så här genererar du miniatyrer med Media Encoder Standard med .NET
-description: Det här avsnittet visar hur du använder .NET för att koda en tillgång och generera miniatyrer samtidigt med Media Encoder Standard.
+description: Det här avsnittet visar hur du använder .NET för att koda en till gång och skapa miniatyrer samtidigt med hjälp av Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,25 +15,25 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61244237"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET 
 
-Du kan använda Media Encoder Standard för att generera en eller flera miniatyrer från indatavideon i [JPEG-,](https://en.wikipedia.org/wiki/JPEG) [PNG-](https://en.wikipedia.org/wiki/Portable_Network_Graphics)eller [BMP-bildfilformat.](https://en.wikipedia.org/wiki/BMP_file_format) Du kan skicka uppgifter som bara producerar bilder eller kombinera miniatyrgenerering med kodning. Den här artikeln innehåller några exempel på XML- och JSON-miniatyrförinställningar för sådana scenarier. I slutet av artikeln finns det ett [exempel på kod](#code_sample) som visar hur du använder Media Services .NET SDK för att utföra kodningsuppgiften.
+Du kan använda Media Encoder Standard för att generera en eller flera miniatyrer från indata-videon i bild fil formaten [JPEG](https://en.wikipedia.org/wiki/JPEG), [png](https://en.wikipedia.org/wiki/Portable_Network_Graphics)eller [BMP](https://en.wikipedia.org/wiki/BMP_file_format) . Du kan skicka uppgifter som bara producerar bilder, eller så kan du kombinera miniatyrer med kodning. Den här artikeln innehåller några exempel på XML-och JSON-miniatyrer för sådana scenarier. I slutet av artikeln finns det en [exempel kod](#code_sample) som visar hur du använder Media Services .NET SDK för att utföra kodnings uppgiften.
 
-Mer information om de element som används i exempelförinställningar bör du läsa [Media Encoder Standard-schemat](media-services-mes-schema.md).
+Om du vill ha mer information om elementen som används i exempel för för inställningar bör du granska [Media Encoder Standard schema](media-services-mes-schema.md).
 
-Se till att granska avsnittet [Överväganden.](media-services-dotnet-generate-thumbnail-with-mes.md#considerations)
+Se till att gå igenom avsnittet [överväganden](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
     
-## <a name="example-of-a-single-png-file-preset"></a>Exempel på en "enskild PNG-fil"-förinställning
+## <a name="example-of-a-single-png-file-preset"></a>Exempel på en "enskild PNG-fil"-förinställd
 
-Följande JSON och XML förinställda kan användas för att producera en enda utgång PNG-fil från de första sekunderna av indatavideo, där kodaren gör ett bästa försök att hitta en "intressant" ram. Observera att utdatabilddimensionerna har angetts till 100 %, vilket innebär att dessa matchar dimensionerna för indatavideon. Observera också hur inställningen "Format" i "Utdata" krävs för att matcha användningen av "PngLayers" i avsnittet "Codecs". 
+Följande JSON-och XML-förinställning kan användas för att skapa en PNG-fil med en enda utdata från de första sekunderna i indata-videon, där kodaren gör ett bästa försök att hitta en "intressant" ram. Observera att måtten för utgående bilder har angetts till 100%, vilket innebär att dessa matchar måtten för inmatnings videon. Observera också hur inställningen "format" i "utdata" krävs för att matcha användningen av "PngLayers" i avsnittet "codecs". 
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
 
 ```json
     {
@@ -62,7 +62,7 @@ Följande JSON och XML förinställda kan användas för att producera en enda u
     }
 ```
     
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
 
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
@@ -85,11 +85,11 @@ Följande JSON och XML förinställda kan användas för att producera en enda u
     </Preset>
 ```
 
-## <a name="example-of-a-series-of-jpeg-images-preset"></a>Exempel på en förinställning för "serie JPEG-bilder"
+## <a name="example-of-a-series-of-jpeg-images-preset"></a>Exempel på en "serie med JPEG-bilder"-förval
 
-Följande JSON- och XML-förinställning kan användas för att skapa en uppsättning med 10 bilder med tidsstämplar på 5 %, 15 %, ..., 95 % av indatatidslinjen, där bildstorleken anges vara en fjärdedel av indatavideon.
+Följande JSON-och XML-förinställning kan användas för att skapa en uppsättning 10 bilder vid tidsstämplar på 5%, 15%,..., 95% av tids linjen för indata, där bild storleken anges som en fjärdedel av indata-videon.
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
 
 ```json
     {
@@ -121,7 +121,7 @@ Följande JSON- och XML-förinställning kan användas för att skapa en uppsät
     }
 ```
 
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
     
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
@@ -145,11 +145,11 @@ Följande JSON- och XML-förinställning kan användas för att skapa en uppsät
     </Preset>
 ```
 
-## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exempel på förinställningen "en bild vid en viss tidsstämpel"
+## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exempel på en för inställning för "en bild vid en speciell tidsstämpel"
 
-Följande JSON- och XML-förinställning kan användas för att skapa en enda JPEG-bild vid 30-sekundersmärket för indatavideon. Den här förinställningen förväntar sig att indatavideon ska vara mer än 30 sekunder lång (annars misslyckas jobbet).
+Följande JSON-och XML-förinställning kan användas för att skapa en JPEG-bild med det 30 andra märket av indata-videon. Den här inställningen förväntar sig att Indataporten ska vara mer än 30 sekunder lång (annars Miss lyckas jobbet).
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
 
 ```json
     {
@@ -181,7 +181,7 @@ Följande JSON- och XML-förinställning kan användas för att skapa en enda JP
     }
 ```
 
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -204,13 +204,13 @@ Följande JSON- och XML-förinställning kan användas för att skapa en enda JP
     </Preset>
 ```
 
-## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Exempel på förinställningen "miniatyrer med olika upplösningar"
+## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Exempel på en inställning för "miniatyrer med olika upplösningar"
 
-Följande förinställning kan användas för att generera miniatyrer med olika upplösningar i en uppgift. I exemplet, vid positionerna 5%, 15%, ..., 95% av indata tidslinjen, genererar kodaren två bilder - en på 100% av indatavideoupplösningen och den andra på 50%.
+Följande för inställningar kan användas för att generera miniatyrer med olika upplösningar i en aktivitet. I exemplet i positionerna 5%, 15%,..., 95% av ingångs tids linjen, genererar kodaren två bilder – en till 100% av video upplösningen och den andra vid 50%.
 
-Observera användningen av makrot {Resolution} i filnamnet. Det anger för kodaren att använda den bredd och höjd som du angav i kodningsavsnittet i förinställningen samtidigt som filnamnet på utdatabilderna skapas. Detta hjälper dig också att enkelt skilja mellan de olika bilderna
+Observera att {resolution}-makro används i fil namnet; den anger att kodaren ska använda den bredd och höjd som du angav i avsnittet kodning i förvalet när du genererar fil namnet för de utgående bilderna. Detta gör det också lättare att skilja mellan olika avbildningar
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
 
 ```json
     {
@@ -249,7 +249,7 @@ Observera användningen av makrot {Resolution} i filnamnet. Det anger för kodar
     }
 ```
 
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -277,11 +277,11 @@ Observera användningen av makrot {Resolution} i filnamnet. Det anger för kodar
     </Preset>
 ```
 
-## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Exempel på att generera en miniatyrbild medan kodning
+## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Exempel på att skapa en miniatyr vid kodning
 
-Även om alla ovanstående exempel har diskuterat hur du kan skicka in en kodningsuppgift som bara producerar bilder, kan du också kombinera video/ljudkodning med miniatyrgenerering. Följande JSON- och XML-förinställning talar om för **Media Encoder Standard** att en miniatyrbild ska skapas under kodningen.
+Även om alla ovanstående exempel har diskuterat hur du kan skicka en kodnings uppgift som bara genererar bilder, kan du också kombinera video-/ljud kodning med en miniatyr bild. Följande JSON-och XML-förinställning instruerar **Media Encoder Standard** att generera en miniatyr under kodning.
 
-### <a name="json-preset"></a><a id="json"></a>JSON förinställda
+### <a name="json-preset"></a><a id="json"></a>JSON-förinställning
 Information om schema finns i [den här](https://msdn.microsoft.com/library/mt269962.aspx) artikeln.
 
 ```json
@@ -346,7 +346,7 @@ Information om schema finns i [den här](https://msdn.microsoft.com/library/mt26
     }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>XML-förinställning
+### <a name="xml-preset"></a><a id="xml"></a>XML-förinställd
 Information om schema finns i [den här](https://msdn.microsoft.com/library/mt269962.aspx) artikeln.
 
 ```csharp
@@ -403,21 +403,21 @@ Information om schema finns i [den här](https://msdn.microsoft.com/library/mt26
 
 ## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>Koda video och generera miniatyr med .NET
 
-I följande kodexempel används Media Services .NET SDK för att utföra följande uppgifter:
+I följande kod exempel används Media Services .NET SDK för att utföra följande uppgifter:
 
-* Skapa ett kodningsjobb.
-* Hämta en referens till Media Encoder Standard-kodaren.
-* Läs in den förinställda [XML-](media-services-dotnet-generate-thumbnail-with-mes.md#xml) eller [JSON-koden](media-services-dotnet-generate-thumbnail-with-mes.md#json) som innehåller kodningsförinställningen samt information som behövs för att generera miniatyrer. Du kan spara [XML eller](media-services-dotnet-generate-thumbnail-with-mes.md#xml) [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) i en fil och använda följande kod för att läsa in filen.
+* Skapa ett kodnings jobb.
+* Hämta en referens till Media Encoder Standard Encoder.
+* Läs in den förinställda [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) eller [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) som innehåller kodnings för inställningen samt information som behövs för att generera miniatyrer. Du kan spara den här [XML-](media-services-dotnet-generate-thumbnail-with-mes.md#xml) filen eller [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) -filen i en fil och använda följande kod för att läsa in filen.
   
         // Load the XML (or JSON) from the local file.
         string configuration = File.ReadAllText(fileName);  
-* Lägg till en enskild kodningsaktivitet i jobbet. 
-* Ange den indatatillgång som ska kodas.
-* Skapa en utdatatillgång som innehåller den kodade tillgången.
-* Lägg till en händelsehanterare för att kontrollera jobbförloppet.
+* Lägg till en enda kodnings uppgift i jobbet. 
+* Ange den inmatade till gång som ska kodas.
+* Skapa en utgående till gång som innehåller den kodade till gången.
+* Lägg till en händelse hanterare för att kontrol lera jobb förloppet.
 * Skicka in jobbet.
 
-Se [medietjänstutvecklingen med .NET-artikeln](media-services-dotnet-how-to-use.md) för anvisningar om hur du konfigurerar din utvecklingsmiljö.
+I artikeln [Media Services utveckling med .net](media-services-dotnet-how-to-use.md) finns anvisningar om hur du konfigurerar din utvecklings miljö.
 
 ```csharp
 using System;
@@ -548,22 +548,22 @@ namespace EncodeAndGenerateThumbnails
 ## <a name="considerations"></a>Överväganden
 Följande gäller:
 
-* Användningen av explicita tidsstämplar för Start/Steg/Intervall förutsätter att indatakällan är minst 1 minut lång.
-* Element för jpg/png/bmpimage har strängattribut för Start, Steg och Intervall – dessa kan tolkas som:
+* Om du använder explicita tidsstämplar för start/steg/intervall antas att Indatakällan är minst 1 minut.
+* Jpg/png/BmpImage-element har Start-, steg-och intervall sträng-attribut – dessa kan tolkas som:
   
-  * Bildrutenummer om de är icke-negativa heltal, till exempel "Start": "120",
-  * I förhållande till källans varaktighet om den uttrycks som %-suffixerad, till exempel "Start": "15%", ELLER
-  * Tidsstämpel om den uttrycks som HH:MM:SS... . Till exempel "Start": "00:01:00"
+  * Ram nummer om de är icke-negativa heltal, till exempel "Start": "120",
+  * I förhållande till käll varaktigheten om den uttrycks som% suffix, till exempel "Start": "15%" eller
+  * Tidsstämpel om den uttrycks som HH: MM: SS... . Till exempel "Start": "00:01:00"
     
-    Du kan blanda och matcha notationer som du vill.
+    Du kan blanda och matcha notationer på samma sätt som du.
     
-    Dessutom stöder Start också ett speciellt makro:{Bäst}, som försöker fastställa den första "intressanta" bildrutan i innehållet OBS: (Steg och intervall ignoreras när Start är inställt på {Best})
-  * Standardvärden: Start:{Bäst}
-* Utdataformat måste uttryckligen anges för varje bildformat: Jpg/Png/BmpFormat. När det är dags matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar ett nytt bildcodec-specifikt makro: {Index}, som måste finnas (en gång och bara en gång) för bildutdataformat.
+    Dessutom stöder start också ett särskilt makro: {Best}, som försöker bestämma den första "intressanta" ramen för innehålls anteckningen: (steg och intervall ignoreras när start är inställt på {Best})
+  * Standardvärden: Start: {Best}
+* Utmatnings formatet måste anges explicit för varje bild format: jpg/png/BmpFormat. När den är tillgänglig matchar JpgVideo till JpgFormat och så vidare. OutputFormat introducerar ett nytt bild-codec-särskilt makro: {index}, som måste finnas (en gång och bara en gång) för bild format.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan kontrollera [jobbstatus](media-services-check-job-progress.md) medan kodningsjobbet väntar.
+Du kan kontrol lera [jobb förloppet](media-services-check-job-progress.md) medan kodnings jobbet väntar.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -572,5 +572,5 @@ Du kan kontrollera [jobbstatus](media-services-check-job-progress.md) medan kodn
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Översikt över kodning av Media Services](media-services-encode-asset.md)
+[Översikt över Media Services kodning](media-services-encode-asset.md)
 

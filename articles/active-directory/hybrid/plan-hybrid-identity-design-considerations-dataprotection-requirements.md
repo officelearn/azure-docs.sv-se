@@ -1,6 +1,6 @@
 ---
-title: Hybrididentitetsdesign – dataskyddskrav Azure | Microsoft-dokument
-description: När du planerar din hybrididentitetslösning ska du identifiera dataskyddskraven för ditt företag och vilka alternativ som är tillgängliga för att bäst uppfylla dessa krav.
+title: Hybrid Identity design – data skydds krav Azure | Microsoft Docs
+description: När du planerar din hybrid identitets lösning ska du identifiera kraven för data skydd för ditt företag och vilka alternativ som är tillgängliga för att uppfylla de här kraven bäst.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,69 +18,69 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64918783"
 ---
-# <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planera för att förbättra datasäkerheten genom en stark identitetslösning
-Det första steget för att skydda data är att identifiera vem som kan komma åt dessa data. Du måste också ha en identitetslösning som kan integreras med ditt system för att tillhandahålla autentiserings- och auktoriseringsfunktioner. Autentisering och auktorisering förväxlas ofta med varandra och deras roller missförstås. I verkligheten är de olika, vilket visas i figuren nedan:
+# <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planera för att öka data säkerheten via en stark identitets lösning
+Det första steget i att skydda data är att identifiera vem som har åtkomst till dessa data. Du måste också ha en identitets lösning som kan integreras med systemet för att tillhandahålla funktioner för autentisering och auktorisering. Autentisering och auktorisering förväxlas ofta med varandra och deras roller är feltolkade. I verkligheten är de olika, som du ser i bilden nedan:
 
-![livscykel för mobila enheter](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![livs cykel för mobila enheter](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Livscykelstadier för hantering av mobila enheter**
 
-När du planerar din hybrididentitetslösning måste du förstå dataskyddskraven för ditt företag och vilka alternativ som är tillgängliga för att bäst uppfylla dessa krav.
+När du planerar din hybrid identitets lösning måste du förstå kraven på data skydd för ditt företag och vilka alternativ som är tillgängliga för att bäst uppfylla dessa krav.
 
 > [!NOTE]
-> När du är klar med planeringen för datasäkerhet läser du [Bestäm multifaktorautentiseringskrav](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md) för att säkerställa att dina val om multifaktorautentiseringskrav inte påverkades av de beslut du fattade i det här avsnittet.
+> När du har slutfört planeringen av data säkerhet kan du granska [kraven för Multi-Factor Authentication](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md) för att se till att dina val av krav på Multi-Factor Authentication inte påverkades av de beslut som du gjorde i det här avsnittet.
 > 
 > 
 
-## <a name="determine-data-protection-requirements"></a>Bestäm dataskyddskrav
-I mobilitetsåldern har de flesta företag ett gemensamt mål: att göra det möjligt för användarna att vara produktiva på sina mobila enheter, medan de är lokala eller på distans från var som helst för att öka produktiviteten. Företag som har sådana krav kommer också att vara oroade över antalet hot som måste mildras för att hålla företagets data säkra och upprätthålla användarens integritet. Varje företag kan ha olika krav i detta avseende; olika efterlevnadsregler som kommer att variera beroende på vilken bransch företaget agerar kommer att leda till olika designbeslut. 
+## <a name="determine-data-protection-requirements"></a>Fastställa krav för data skydd
+Hos de flesta företag har de flesta företag ett gemensamt mål: gör det möjligt för användarna att vara produktiva på sina mobila enheter, samtidigt som de är lokalt, eller via fjärr anslutning från var som helst, för att öka produktiviteten. Företag som har sådana krav kommer också att bekymra sig om antalet hot som måste minskas för att skydda företagets data och upprätthålla användarens sekretess. Varje företag kan ha olika krav i detta hänseende. olika regler för efterlevnad som varierar beroende på vilken bransch företaget agerar kommer att leda till olika design beslut. 
 
-Det finns dock vissa säkerhetsaspekter som bör undersökas och valideras, oavsett bransch.
+Det finns dock vissa säkerhets aspekter som bör utforskas och verifieras, oavsett bransch.
 
-## <a name="data-protection-paths"></a>Sökvägar för dataskydd
-![dataskyddsvägar](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+## <a name="data-protection-paths"></a>Data skydds vägar
+![data skydds vägar](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
-**Sökvägar för dataskydd**
+**Data skydds vägar**
 
-I diagrammet ovan blir identitetskomponenten den första som verifieras innan data används. Dessa data kan dock vara i olika lägen under den tid som de användes. Varje nummer i det här diagrammet representerar en sökväg där data kan placeras någon gång i tiden. Dessa siffror förklaras nedan:
+I diagrammet ovan är identitets komponenten den första som ska verifieras innan data nås. Dessa data kan dock finnas i olika tillstånd under den tid som den har öppnats. Varje nummer i diagrammet representerar en sökväg där data kan finnas vid en viss tidpunkt. Dessa siffror förklaras nedan:
 
-1. Dataskydd på enhetsnivå.
-2. Dataskydd under transporten.
-3. Dataskydd i vila lokalt.
-4. Dataskydd medan du vilar i molnet.
+1. Data skydd på enhets nivå.
+2. Data skydd under överföring.
+3. Data skydd i vila lokalt.
+4. Data skydd i vila i molnet.
 
-Det är nödvändigt att hybrididentitetslösningen kan utnyttja både lokala och molnidentitetshanteringsresurser för att identifiera användaren innan den ger åtkomst till data. När du planerar din hybrididentitetslösning ska du se till att följande frågor besvaras enligt organisationens krav:
+Det är nödvändigt att hybrid identitets lösningen kan använda både lokala och molnbaserade identitets hanterings resurser för att identifiera användaren innan den beviljar åtkomst till data. När du planerar din hybrid identitets lösning bör du se till att följande frågor besvaras enligt organisationens krav:
 
-## <a name="data-protection-at-rest"></a>Dataskydd i vila
-Oavsett var data är i vila (enhet, moln eller lokalt) är det viktigt att göra en bedömning för att förstå organisationens behov i detta avseende. På detta område bör du se till att följande frågor ställs:
+## <a name="data-protection-at-rest"></a>Data skydd i vila
+Oavsett var datan finns i vila (enhet, moln eller lokalt) är det viktigt att utföra en utvärdering för att förstå organisationens behov i detta hänseende. Se till att följande frågor visas för det här avsnittet:
 
-* Behöver ditt företag skydda data i vila?
-  * Om ja, kan hybrididentitetslösningen integreras med din nuvarande lokala infrastruktur?
-  * Om ja, kan hybrididentitetslösningen integreras med dina arbetsbelastningar i molnet?
-* Kan molnidentitetshanteringen skydda användarens autentiseringsuppgifter och andra data som lagras i molnet?
+* Behöver företaget skydda data i vila?
+  * Om ja, är hybrid identitets lösningen som kan integreras med din aktuella lokala infrastruktur?
+  * Om ja, är hybrid identitets lösningen som kan integreras med dina arbets belastningar som finns i molnet?
+* Kan moln identitets hanteringen skydda användarens autentiseringsuppgifter och andra data som lagras i molnet?
 
-## <a name="data-protection-in-transit"></a>Dataskydd under transitering
-Data som överförs mellan enheten och datacentret eller mellan enheten och molnet måste skyddas. Att vara i transit innebär dock inte nödvändigtvis en kommunikationsprocess med en komponent utanför molntjänsten. Den rör sig internt, till exempel mellan två virtuella nätverk. På detta område bör du se till att följande frågor ställs:
+## <a name="data-protection-in-transit"></a>Data skydd under överföring
+Data som överförs mellan enheten och data centret eller mellan enheten och molnet måste skyddas. Dock är det inte nödvändigt vis en kommunikations process med en komponent utanför moln tjänsten. den flyttas internt, även mellan två virtuella nätverk. Se till att följande frågor visas för det här avsnittet:
 
-* Behöver ditt företag skydda data under transport?
-  * Om ja, kan hybrididentitetslösningen integreras med säkra kontroller som SSL/TLS?
-* Håller molnidentitetshanteringen trafiken till och inom katalogarkivet (inom och mellan datacenter) signerad?
+* Behöver företaget skydda data under överföring?
+  * Om ja, är hybrid identitets lösningen som kan integreras med säkra kontroller som SSL/TLS?
+* Håller moln identitets hanteringen trafiken till och i katalog arkivet (inom och mellan data Center) signerade?
 
 ## <a name="compliance"></a>Efterlevnad
-Regler, lagar och regelefterlevnadskrav varierar beroende på hur branschen ditt företag tillhör. Företag i högt reglerade branscher måste ta itu med identitetshanteringsfrågor i samband med efterlevnadsfrågor. Förordningar som Sarbanes-Oxley (SOX), Health Insurance Portability and Accountability Act (HIPAA), Gramm-Leach-Bliley Act (GLBA) och Payment Card Industry Data Security Standard (PCI DSS) är strikta när det gäller identitet och åtkomst. Hybrid identitetslösning som ditt företag kommer att anta måste ha de grundläggande funktioner som kommer att uppfylla kraven i en eller flera av dessa förordningar. På detta område bör du se till att följande frågor ställs:
+Reglerna, lagar och regler för efterlevnad varierar beroende på vilken bransch företaget tillhör. Företag i högreglerade branscher måste hantera identitets hanterings problem som rör problem med efterlevnad. Förordningar som Sarbanes-Oxley (SOX), Health Insurance-och ansvars Act (HIPAA), för-Leach (Bliley) och Payment Card Industry Data Security Standard (PCI DSS) är strikta för identitet och åtkomst. Den hybrid identitets lösning som företaget kommer att anta måste ha de kärn funktioner som uppfyller kraven i en eller flera av dessa regler. Se till att följande frågor visas för det här avsnittet:
 
-* Är hybrididentitetslösningen kompatibel med lagstadgade krav för ditt företag?
-* Har hybrididentitetslösningen byggt 
-* funktioner som gör det möjligt för ditt företag att uppfylla lagstadgade krav? 
+* Är hybrid identitets lösningen kompatibel med myndighets krav för verksamheten?
+* Har hybrid identitets lösningen skapats 
+* i funktioner som gör det möjligt för företaget att vara kompatibelt med bestämmelser om krav? 
 
 > [!NOTE]
-> Skriv ner varje svar och försök förstå anledningen till svaret. [Definiera dataskyddsstrategi](plan-hybrid-identity-design-considerations-data-protection-strategy.md) kommer att gå igenom de tillgängliga alternativen och fördelar / nackdelar med varje alternativ.  Genom att ha svarat på dessa frågor väljer du vilket alternativ som bäst passar dina affärsbehov.
+> Skriv ner varje svar och försök förstå anledningen till svaret. [Definiera data skydds strategi](plan-hybrid-identity-design-considerations-data-protection-strategy.md) går över tillgängliga alternativ och fördelar/nack delar med varje alternativ.  Genom att ha besvarat dessa frågor väljer du det alternativ som passar dina affärs behov bäst.
 > 
 > 
 
@@ -88,5 +88,5 @@ Regler, lagar och regelefterlevnadskrav varierar beroende på hur branschen ditt
  [Fastställa krav för innehållshantering](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Se även
-[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
 

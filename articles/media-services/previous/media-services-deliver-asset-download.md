@@ -1,6 +1,6 @@
 ---
-title: Ladda ned Media Services-resurser till din dator – Azure | Microsoft-dokument
-description: Läs om hur du hämtar resurser till datorn. Kodexempel skrivs i C# och använder Media Services SDK för .NET.
+title: Ladda ned Media Services-tillgångar till datorn – Azure | Microsoft Docs
+description: Lär dig mer om att ladda ned till gångar till din dator. Kod exempel skrivs i C# och använder Media Services SDK för .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61465668"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Så här: Leverera en tillgång genom nedladdning  
-I den här artikeln beskrivs alternativ för att leverera medietillgångar som överförs till Media Services. Du kan leverera Media Services-innehåll i många programscenarier. När du har kodat hämtar du de genererade medietillgångarna eller kommer åt dem med hjälp av en direktuppspelningspositionerare. För förbättrad prestanda och skalbarhet kan du även leverera innehåll med hjälp av ett CDN (Content Delivery Network).
+# <a name="how-to-deliver-an-asset-by-download"></a>Gör så här: leverera en till gång genom att ladda ned  
+Den här artikeln beskriver alternativ för att leverera media till gångar som har överförts till Media Services. Du kan leverera Media Services innehåll i flera olika program scenarier. Efter kodningen kan du hämta de genererade medie till gångarna eller komma åt dem med hjälp av en strömmande positionerare. För bättre prestanda och skalbarhet kan du även leverera innehåll med hjälp av en Content Delivery Network (CDN).
 
-I det här exemplet visas hur du hämtar medietillgångar från Media Services till den lokala datorn. Koden frågar jobben som är associerade med Media Services-kontot efter jobb-ID och har åtkomst till dess **OutputMediaAssets-samling** (som är uppsättningen med en eller flera utdatamedietillgångar som är resultatet av att köra ett jobb). I det här exemplet visas hur du hämtar utdatamedietillgångar från ett jobb, men du kan använda samma metod för att hämta andra resurser.
+Det här exemplet visar hur du hämtar medie till gångar från Media Services till din lokala dator. Koden frågar jobben som associeras med Media Services-kontot efter jobb-ID och får åtkomst till sin **OutputMediaAssets** -samling (som är en uppsättning av ett eller flera medie till gångar som resulterar i att ett jobb körs). I det här exemplet visas hur du hämtar utdata till medie till gångar från ett jobb, men du kan använda samma metod för att ladda ned andra till gångar.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att finnas kvar under en längre tid (principer som inte är uppladdningsprinciper). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte uppladdas). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory hybrid identitetsdesign överväganden - översikt | Microsoft-dokument
-description: Översikts- och innehållskarta över guide för hybrididentitetsdesign
+title: Design överväganden för Azure Active Directory hybrid identitet – översikt | Microsoft Docs
+description: Översikt över och innehålls kartor för Hybrid identitets guide för utformning
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,51 +17,51 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60381489"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Hybrid Identity designöverväganden
-Konsumentbaserade enheter sprider sig i företagsvärlden, och molnbaserade SaaS-program (Software-as-a-Service) är lätta att använda. Därför är det svårt att behålla kontrollen över användarnas programåtkomst över interna datacenter och molnplattformar.  
+Konsumentbaserade enheter är av samma nivå som företags världen och SaaS-program (program vara som en tjänst) är enkla att anta. Därför är det svårt att upprätthålla kontroll över användarnas program åtkomst över interna Data Center och moln plattformar.  
 
-Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Detta begrepp kallas Hybrid Identity. Det finns olika design- och konfigurationsalternativ för hybrididentitet med hjälp av Microsoft-lösningar, och i vissa fall kan det vara svårt att avgöra vilken kombination som bäst uppfyller organisationens behov. 
+Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Det här begreppet kallas hybrid identitet. Det finns olika design-och konfigurations alternativ för Hybrid identitet med Microsoft-lösningar, och i vissa fall kan det vara svårt att avgöra vilken kombination som passar bäst för din organisation. 
 
-Denna Hybrid Identity Design Considerations Guide hjälper dig att förstå hur du utformar en hybrididentitetslösning som bäst passar företagets och teknikens behov för din organisation.  Den här guiden beskriver en rad steg och uppgifter som du kan följa för att hjälpa dig att utforma en hybrididentitetslösning som uppfyller organisationens unika krav. Under hela stegen och uppgifterna kommer guiden att presentera relevanta tekniker och funktionsalternativ som är tillgängliga för organisationer för att uppfylla funktions- och tjänstkvalitet (t.ex. tillgänglighet, skalbarhet, prestanda, hanterbarhet och säkerhet) Krav. 
+Den här hand boken för Hybrid identitets utformning hjälper dig att förstå hur du utformar en hybrid identitets lösning som bäst passar affärs-och teknik behoven för din organisation.  Den här guiden innehåller information om en serie steg och uppgifter som du kan följa för att utforma en hybrid identitets lösning som uppfyller organisationens unika krav. I alla steg och aktiviteter visar guiden relevanta tekniker och funktions alternativ som är tillgängliga för organisationer för att uppfylla funktions-och kvalitets krav (till exempel tillgänglighet, skalbarhet, prestanda, hantering och säkerhet). 
 
-Närmare bestämt är hybrid identitetsdesign överväganden guide mål att svara på följande frågor: 
+Mer specifikt är hybrid identitys utformnings guide målen för att besvara följande frågor: 
 
-* Vilka frågor behöver jag ställa och svara för att driva en hybrididentitetsspecifik design för en teknik- eller problemdomän som bäst uppfyller mina krav?
-* Vilken sekvens av aktiviteter ska jag slutföra för att utforma en hybrididentitetslösning för teknik- eller problemdomänen? 
-* Vilka hybrididentitetsteknik och konfigurationsalternativ finns tillgängliga för att hjälpa mig att uppfylla mina krav? Vilka är kompromisserna mellan dessa alternativ så att jag kan välja det bästa alternativet för mitt företag?
+* Vilka frågor behöver jag ställa och svara på att köra en hybrid identitets bestämd design för en teknik eller problem domän som bäst uppfyller mina krav?
+* Vilken sekvens av aktiviteter bör jag slutföra för att designa en hybrid identitets lösning för teknik-eller problem domänen? 
+* Vilken hybrid identitets teknik och vilka konfigurations alternativ finns tillgängliga för att hjälpa mig uppfylla kraven? Vad sker mellan dessa alternativ så att jag kan välja det bästa alternativet för mitt företag?
 
 ## <a name="who-is-this-guide-intended-for"></a>Vem riktar sig den här handboken till?
- CIO, CITO, Chief Identity Architects, Enterprise Architects och IT Architects med ansvar för att utforma en hybrididentitetslösning för medelstora eller stora organisationer.
+ CIO, CITO, Chief Identity Architects, Enterprise Architects och IT-arkitekter som ansvarar för att utforma en hybrid identitets lösning för medel stora eller stora organisationer.
 
 ## <a name="how-can-this-guide-help-you"></a>Hur kan den här handboken hjälpa dig?
-Du kan använda den här guiden för att förstå hur du utformar en hybrididentitetslösning som kan integrera ett molnbaserat identitetshanteringssystem med din aktuella lokala identitetslösning. 
+Du kan använda den här guiden för att lära dig att utforma en hybrid identitets lösning som kan integrera ett molnbaserad identitets hanterings system med din aktuella lokala identitets lösning. 
 
-Följande bild visar ett exempel på en hybrididentitetslösning som gör det möjligt för IT-administratörer att hantera att integrera sin nuvarande Windows Server Active Directory-lösning som finns lokalt med Microsoft Azure Active Directory så att användare kan använda Enkel inloggning ( SSO) över program som finns i molnet och lokalt.
+Följande bild visar ett exempel på en hybrid identitets lösning som gör det möjligt för IT-administratörer att hantera den aktuella Windows Server Active Directory-lösningen som finns lokalt med Microsoft Azure Active Directory för att göra det möjligt för användare att använda enkel inloggning (SSO) över program som finns i molnet och lokalt.
 
 ![Exempel](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 
-Ovanstående illustration är ett exempel på en hybrididentitetslösning som utnyttjar molntjänster för att integrera med lokala funktioner för att ge en enda upplevelse till slutanvändarens autentiseringsprocess och för att underlätta IT-hantering av dessa Resurser. Även om det här exemplet kan vara ett vanligt scenario, är varje organisations hybrididentitetsdesign sannolikt annorlunda än det exempel som visas i figur 1 på grund av olika krav. 
+Illustrationen ovan är ett exempel på en hybrid identitets lösning som använder moln tjänster för att integrera med lokala funktioner för att tillhandahålla en enskild upplevelse för processen för slutanvändare och för att under lätta hanteringen av dessa resurser. Även om det här exemplet kan vara ett vanligt scenario är alla organisationens hybrid Identitets design förmodligen annorlunda än exemplet som illustreras i bild 1 på grund av olika krav. 
 
-Den här guiden innehåller en serie steg och uppgifter som du kan följa för att utforma en hybrididentitetslösning som uppfyller organisationens unika krav. Under de följande stegen och uppgifterna visar guiden relevanta tekniker och funktionsalternativ som är tillgängliga för att uppfylla kraven på funktionell och servicekvalitetsnivå för din organisation.
+Den här guiden innehåller en serie steg och uppgifter som du kan följa för att utforma en hybrid identitets lösning som uppfyller organisationens unika krav. I följande steg och uppgifter presenterar guiden de relevanta tekniker och funktions alternativ som finns tillgängliga för att uppfylla kraven på funktions-och service kvalitets nivå för din organisation.
 
-**Antaganden:** Du har viss erfarenhet av Windows Server, Active Directory Domain Services och Azure Active Directory. I det här dokumentet antas att du letar efter hur dessa lösningar kan uppfylla dina affärsbehov på egen hand, eller i en integrerad lösning.
+**Antaganden**: du har viss erfarenhet av Windows Server, Active Directory Domain Services och Azure Active Directory. I det här dokumentet förutsätts att du söker efter hur dessa lösningar kan uppfylla dina affärs behov på egen hand eller i en integrerad lösning.
 
-## <a name="design-considerations-overview"></a>Översikt över designöverväganden
-Det här dokumentet innehåller en uppsättning steg och uppgifter som du kan följa för att utforma en hybrididentitetslösning som bäst uppfyller dina krav. Stegen visas i tur och ordning. Designöverväganden du lär dig i senare steg kan kräva att du ändrar beslut som du har fattat i tidigare steg, men på grund av motstridiga designval. Varje försök görs att varna dig för potentiella designkonflikter i hela dokumentet. 
+## <a name="design-considerations-overview"></a>Översikt över design överväganden
+Det här dokumentet innehåller en uppsättning steg och uppgifter som du kan följa för att utforma en hybrid identitets lösning som bäst uppfyller dina krav. Stegen visas i tur och ordning. Design överväganden som du lär dig i senare steg kan kräva att du ändrar beslut som du har gjort i tidigare steg, på grund av motstridiga design alternativ. Varje försök görs att varna dig om potentiella design konflikter i hela dokumentet. 
 
-Du kommer fram till den design som bäst uppfyller dina krav först efter iterering genom stegen så många gånger som behövs för att införliva alla överväganden i dokumentet. 
+Du kommer till den design som bäst uppfyller dina krav endast efter att du har gått igenom stegen så många gånger som behövs för att ta med alla överväganden i dokumentet. 
 
-| Hybrid identitetsfas | Ämneslista |
+| Hybrid identitets fas | Ämnes lista |
 | --- | --- |
-| Fastställa identitetskrav |[Bestäm affärsbehov](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Fastställ krav på katalogsynkronisering](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Fastställa autentiseringskrav för flera faktorer](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Definiera en strategi för antagande av hybrididentitet](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
-| Planera för att förbättra datasäkerheten genom stark identitetslösning |[Bestäm dataskyddskrav](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Fastställa krav för innehållshantering](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Fastställa åtkomstkontrollkrav](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Fastställa krav för incidenthantering](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Definiera dataskyddsstrategi](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
-| Planera för hybrididentitetslivscykeln |[Ta reda på hybrididentitetshanteringsuppgifter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Hantering av synkronisering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Ta reda på strategi för antagande av hybrididentitetshantering](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
+| Fastställa identitetskrav |[Fastställa affärs behov](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Fastställa krav för katalog synkronisering](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Fastställa krav för Multi-Factor Authentication](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Definiera en strategi för införande av hybrid identitet](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
+| Planera för att öka data säkerheten via stark identitets lösning |[Fastställa krav för data skydd](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Fastställa krav för innehållshantering](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Fastställa åtkomstkontrollkrav](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Fastställa krav för incidenthantering](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Definiera strategi för data skydd](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
+| Planera för hybrididentitetslivscykeln |[Fastställa uppgifter för Hybrid identitets hantering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Hantering av synkronisering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Fastställ strategi för införande av hybrid identitets hantering](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
 ## <a name="next-steps"></a>Efterföljande moment
 [Fastställa identitetskrav](plan-hybrid-identity-design-considerations-business-needs.md)

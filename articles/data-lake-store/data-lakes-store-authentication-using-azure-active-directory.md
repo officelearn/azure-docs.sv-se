@@ -1,6 +1,6 @@
 ---
-title: Autentisering i Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft-dokument
-description: Lär dig hur du autentiserar med Azure Data Lake Storage Gen1 med Azure Active Directory
+title: Autentisering i Azure Data Lake Storage Gen1 som använder Azure Active Directory | Microsoft Docs
+description: Lär dig hur du autentiserar med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,40 +12,40 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60193602"
 ---
-# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
+# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med Azure Data Lake Storage Gen1 som använder Azure Active Directory
 
-Azure Data Lake Storage Gen1 använder Azure Active Directory för autentisering. Innan du redigerar ett program som fungerar med Data Lake Storage Gen1 måste du bestämma hur du autentiserar ditt program med Azure Active Directory (Azure AD).
+Azure Data Lake Storage Gen1 använder Azure Active Directory för autentisering. Innan du redigerar ett program som fungerar med Data Lake Storage Gen1 måste du bestämma hur du vill autentisera ditt program med Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 
-* **Autentisering av slutanvändare** – En slutanvändares Azure-autentiseringsuppgifter används för att autentisera med Data Lake Storage Gen1. Programmet som du skapar för att arbeta med Data Lake Storage Gen1 frågar efter dessa användarautentiseringsuppgifter. Därför är den här autentiseringsmekanismen *interaktiv* och programmet körs i den inloggade användarens kontext. Mer information och instruktioner finns i [Slutanvändarens autentisering för Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Autentisering** med slutanvändare – en slutanvändares Azure-autentiseringsuppgifter används för att autentisera med data Lake Storage gen1. Det program som du skapar för att arbeta med Data Lake Storage Gen1 prompter för dessa användarautentiseringsuppgifter. Detta innebär att denna autentiseringsmekanism är *interaktiv* och att programmet körs i den inloggade användarens kontext. Mer information och instruktioner finns i [slut användar autentisering för data Lake Storage gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Autentisering från service till tjänst** – Använd det här alternativet om du vill att ett program ska autentisera sig själv med Data Lake Storage Gen1. I sådana fall skapar du ett AD-program (Azure Active Directory) och använder nyckeln från Azure AD-programmet för att autentisera med Data Lake Storage Gen1. Därför är den här autentiseringsmekanismen *icke-interaktiv*. Mer information och instruktioner finns i Autentisering från [Service-to-service för Gen1 för datasjölagring](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Tjänst-till-tjänst-autentisering** – Använd det här alternativet om du vill att ett program ska autentisera sig själv med data Lake Storage gen1. I sådana fall skapar du ett Azure Active Directory (AD)-program och använder nyckeln från Azure AD-programmet för att autentisera med Data Lake Storage Gen1. Detta innebär att denna autentiseringsmekanism *inte är interaktiv*. Mer information och instruktioner finns i [tjänst-till-tjänst-autentisering för data Lake Storage gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-Följande tabell visar hur autentiseringsmekanismer för slutanvändare och service till tjänst stöds för Data Lake Storage Gen1. Så här läser du tabellen.
+I följande tabell visas hur autentisering med slutanvändare och tjänst-till-tjänst stöds för Data Lake Storage Gen1. Så här läser du tabellen.
 
-* Symbolen ✔* anger att autentiseringsalternativ stöds och länkar till en artikel som visar hur du använder autentiseringsalternativet. 
-* Symbolen ✔ anger att autentiseringsalternativet stöds. 
-* De tomma cellerna anger att autentiseringsalternativet inte stöds.
+* Symbolen ✔ * anger att autentiseringsalternativet stöds och länkar till en artikel som visar hur du använder alternativet autentisering. 
+* ✔ Symbolen anger att autentiseringsalternativet stöds. 
+* De tomma cellerna anger att alternativet autentisering inte stöds.
 
 
 |Använd det här autentiseringsalternativet med...                   |.NET         |Java     |PowerShell |Azure CLI | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|Slutanvändare (utan MFA**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(föråldrad)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
-|Slutanvändare (med MFA)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
-|Service-till-tjänst (med klientnyckel)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
-|Service-till-tjänst (med klientcertifikat) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
+|Slutanvändare (utan MFA * *)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(inaktuell)     |    **[✔ *](data-lake-store-end-user-authenticate-rest-api.md)**    |
+|Slutanvändare (med MFA)                           |    **[✔ *](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔ *](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔ *](data-lake-store-get-started-cli-2.0.md)**      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
+|Tjänst-till-tjänst (med klient nyckel)         |    **[✔ *](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔ *](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔ *](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔ *](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
+|Tjänst-till-tjänst (med klient certifikat) |    **[✔ *](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
 <i>* Klicka på <b>✔\* </b> symbolen. Det är en länk.</i><br>
-<i>** MFA står för multifaktorautentisering</i>
+<i>* * MFA står för Multi-Factor Authentication</i>
 
-Mer information om hur du använder Azure Active Directory för autentisering finns i [Autentiseringsscenarier för Azure Active Directory.](../active-directory/develop/authentication-scenarios.md)
+Mer information om hur du använder Azure Active Directory för autentisering finns i [scenarier för autentisering för Azure Active Directory](../active-directory/develop/authentication-scenarios.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 

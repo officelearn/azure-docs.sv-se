@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60403371"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
@@ -33,7 +33,7 @@ Du kommer att få lära dig följande:
 
 I den här självstudiekursen kommer du att skapa och köra flernivåappen i en molntjänst för Azure. Klientdelen är en ASP.NET MVC-webbroll och serverdelen en arbetsroll som använder en Service Bus-kö. Du kan skapa samma flernivåapp med klientdelen som ett webbprojekt som distribueras till en Azure-webbplats i stället för till en molntjänst. Du kan också prova att gå igenom självstudiekursen [.NET-hybridapp lokalt/i molnet](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-Följande skärmbild visar det slutförda programmet.
+Följande skärm bild visar det färdiga programmet.
 
 ![][0]
 
@@ -50,7 +50,7 @@ Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för d
 
 * **Tidsbestämd frikoppling.** Med mönstret för asynkrona meddelanden behöver producenter och konsumenter inte vara online samtidigt. Service Bus lagrar meddelanden på ett säkert sätt tills den konsumerande parten är redo att ta emot dem. Detta gör att komponenterna i den distribuerade appen kan frikopplas, antingen frivilligt, till exempel för underhåll, eller på grund av en komponentkrasch, utan att detta påverkar hela systemet. Dessutom behöver den konsumerande appen endast kopplas upp och vara online under vissa tider på dagen.
 * **Belastningsutjämning.** I många program varierar systembelastningen beroende på tidpunkten, medan den bearbetningstid som krävs för varje arbetsenhet vanligtvis är konstant. Medlingen mellan meddelandeproducenter och -konsumenter med hjälp av en kö innebär att den konsumerande appen (arbetaren) endast måste konfigureras för att kunna hantera en genomsnittlig belastning i stället för mycket hög belastning vid vissa tider. Köns djup växer och dras samman allt eftersom den inkommande belastningen varierar. Detta sparar direkt pengar eftersom den mängd infrastruktur som krävs för att underhålla programbelastningen blir mindre.
-* **Nätverksbelastning.** Allt eftersom belastningen ökar kan fler arbetsprocesser läggas till för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom gör den här pull-baserade belastningsbalanseringen att du får en optimal användning av arbetsdatorerna. Detta gäller även om arbetsdatorerna har olika processorkraft: de kommer att hämta meddelanden med den hastighet som var och en av dem klarar av. Det här mönstret kallas ofta för ett *konkurrerande konsument*-mönster.
+* **Belastnings utjämning.** Allt eftersom belastningen ökar kan fler arbetsprocesser läggas till för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom gör den här pull-baserade belastningsbalanseringen att du får en optimal användning av arbetsdatorerna. Detta gäller även om arbetsdatorerna har olika processorkraft: de kommer att hämta meddelanden med den hastighet som var och en av dem klarar av. Det här mönstret kallas ofta för ett *konkurrerande konsument*-mönster.
   
   ![][2]
 
@@ -58,7 +58,7 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 
-Det första steget är att skapa ett *namnområde*och hämta en [SAS-nyckel (Shared Access Signature)](service-bus-sas.md) för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa ett *namn område*och hämta en nyckel för [signatur för delad åtkomst (SAS)](service-bus-sas.md) för denna namnrymd. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 

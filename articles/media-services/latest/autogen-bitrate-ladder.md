@@ -1,6 +1,6 @@
 ---
-title: Koda videor med Standardkodare i Media Services - Azure | Microsoft-dokument
-description: Det här avsnittet visar hur du använder standardkodaren i Media Services för att koda en indatavideo med en automatiskt genererad bithastighetsstege, baserat på indataupplösningen och bithastigheten.
+title: Koda videor med standard-kodare i Media Services-Azure | Microsoft Docs
+description: Det här avsnittet visar hur du använder standard-kodaren i Media Services för att koda en indataport med en automatiskt genererad bit hastighets steg, baserat på inlösningen för inläsning och bit hastighet.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,32 +15,32 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60733325"
 ---
-#  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Koda med en automatiskt genererad bithastighetsstege
+#  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Koda med en automatiskt genererad bit hastighets steg
 
 ## <a name="overview"></a>Översikt
 
-I den här artikeln beskrivs hur du använder standardkodaren i Media Services för att koda en indatavideo till en automatiskt genererad bithastighetsstege (bitrate-resolution-par) baserat på indataupplösningen och bithastigheten. Den här inbyggda kodarinställningen, eller förinställningen, överskrider aldrig indataupplösningen och bithastigheten. Om indata till exempel är 720p vid 3 Mbit/s är utdata i bästa fall 720p och börjar med lägre hastigheter än 3 Mbit/s.
+I den här artikeln förklaras hur du använder standard-kodaren i Media Services för att koda en inmatad video till en automatiskt genererad bit hastighets steg (bit upplösnings par) utifrån inlösningen och bit hastigheten. Den här inbyggda kodarens inställning, eller för inställning, kommer aldrig att överskrida den angivna upplösningen och bit hastigheten. Om indata t. ex. är 720p vid 3 Mbit/s, är utmatningen översatt till bästa och kommer att starta med lägre taxa än 3 Mbit/s.
 
-### <a name="encoding-for-streaming"></a>Kodning för direktuppspelning
+### <a name="encoding-for-streaming"></a>Kodning för strömning
 
-När du använder förinställningen **AdaptiveStreaming** i **Transform**får du en utdata som är lämplig för leverans via direktuppspelningsprotokoll som HLS och DASH. När du använder den här förinställningen bestämmer tjänsten på ett intelligent sätt hur många videolager som ska genereras och vilken bithastighet och upplösning. Utdatainnehållet innehåller MP4-filer där AAC-kodat ljud och H.264-kodad video inte är interfolierad.
+När du använder **AdaptiveStreaming** -förinställningen i **Transform**får du en utmatning som passar för leverans via strömmande protokoll som HLS och tank streck. När du använder den här för inställningen bestämmer tjänsten intelligent hur många video lager som ska genereras och med vilken bit hastighet och upplösning. Utdata-innehållet innehåller MP4-filer där AAC-kodad ljud-och H. 264-kodad video inte är överlagrad.
 
-Ett exempel på hur den här förinställningen används finns i [Strömma en fil](stream-files-dotnet-quickstart.md).
+Om du vill se ett exempel på hur denna för inställning används, se [strömma en fil](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Resultat
 
-I det här avsnittet visas tre exempel på utdatavideolager som produceras av Media Services-kodaren som ett resultat av kodning med **förinställningen AdaptiveStreaming.** I samtliga fall innehåller utdata en MP4-fil med endast ljudkoda på 128 kbit/s.
+Det här avsnittet innehåller tre exempel på de video lager för utdata som produceras av Media Services Encoder som ett resultat av kodning med **AdaptiveStreaming** -förinställningen. I samtliga fall innehåller utdata en MP4-fil med stereo ljud som är kodad med 128 kbps.
 
 ### <a name="example-1"></a>Exempel 1
-Källa med höjd "1080" och framerate "29.970" producerar 6 videolager:
+Källa med höjden "1080" och RAM hastighet "29,970" producerar 6 video lager:
 
-|Lager|Höjd|Bredd|Bithastighet (kbit/s)|
+|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -50,9 +50,9 @@ Källa med höjd "1080" och framerate "29.970" producerar 6 videolager:
 |6|180|320|380|
 
 ### <a name="example-2"></a>Exempel 2
-Källa med höjd "720" och framerate "23.970" producerar 5 videolager:
+Källa med höjden "720" och RAM hastighet "23,970" producerar 5 video lager:
 
-|Lager|Höjd|Bredd|Bithastighet (kbit/s)|
+|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -61,9 +61,9 @@ Källa med höjd "720" och framerate "23.970" producerar 5 videolager:
 |5|180|320|320|
 
 ### <a name="example-3"></a>Exempel 3
-Källa med höjd "360" och framerate "29.970" producerar 3 videolager:
+Källa med höjden "360" och RAM hastighet "29,970" producerar 3 video lager:
 
-|Lager|Höjd|Bredd|Bithastighet (kbit/s)|
+|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

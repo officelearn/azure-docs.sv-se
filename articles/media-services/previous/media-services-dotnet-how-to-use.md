@@ -1,6 +1,6 @@
 ---
-title: Konfigurera dator för utveckling av mediatjänster med .NET
-description: Läs mer om förutsättningarna för Media Services med Media Services SDK för .NET. Lär dig också hur du skapar en Visual Studio-app.
+title: Konfigurera en dator för Media Services utveckling med .NET
+description: Läs om kraven för Media Services med hjälp av Media Services SDK för .NET. Lär dig också hur du skapar en Visual Studio-app.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,57 +15,57 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64724118"
 ---
-# <a name="media-services-development-with-net"></a>Utveckling av mediatjänster med .NET 
+# <a name="media-services-development-with-net"></a>Media Services utveckling med .NET 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-I den här artikeln beskrivs hur du börjar utveckla Media Services-program med .NET.
+Den här artikeln beskriver hur du börjar utveckla Media Services program med hjälp av .NET.
 
-**Med Azure Media Services .NET SDK-biblioteket** kan du programmera mot Media Services med .NET. För att göra det ännu enklare att utveckla med .NET tillhandahålls **Azure Media Services .NET SDK Extensions-biblioteket.** Det här biblioteket innehåller en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar .NET-koden. Båda biblioteken är tillgängliga via **NuGet** och **GitHub**.
+Med **Azure Media Services .NET SDK** Library kan du program mera Media Services med .net. För att göra det ännu enklare att utveckla med .NET, finns **Azure Media Services .NET SDK-tillägg** . Det här biblioteket innehåller en uppsättning tilläggs metoder och hjälp funktioner som fören klar din .NET-kod. Båda biblioteken är tillgängliga via **NuGet** och **GitHub**.
 
 ## <a name="prerequisites"></a>Krav
-* Ett Media Services-konto i en ny eller befintlig Azure-prenumeration. Se artikeln [Hur du skapar ett Media Services-konto](media-services-portal-create-account.md).
-* Operativsystem: Windows 10, Windows 7, Windows 2008 R2 eller Windows 8.
-* .NET Framework 4.5 eller senare.
+* Ett Media Services-konto i en ny eller befintlig Azure-prenumeration. Se artikeln [så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* Operativ system: Windows 10, Windows 7, Windows 2008 R2 eller Windows 8.
+* .NET Framework 4,5 eller senare.
 * Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
-I det här avsnittet visas hur du skapar ett projekt i Visual Studio och konfigurerar det för utveckling av Media Services.  I det här fallet är projektet ett C# Windows-konsolprogram, men samma inställningssteg som visas här gäller för andra typer av projekt som du kan skapa för Media Services-program (till exempel ett Windows-formulärprogram eller ett ASP.NET webbprogram).
+I det här avsnittet visas hur du skapar ett projekt i Visual Studio och konfigurerar det för Media Services utveckling.  I det här fallet är projektet ett C#-program i Windows-konsolen, men samma installations steg som visas här gäller för andra typer av projekt som du kan skapa för Media Services program (till exempel ett Windows Forms program eller ett ASP.NET-webbprogram).
 
-I det här avsnittet visas hur du använder **NuGet** för att lägga till Media Services .NET SDK-tillägg och andra beroende bibliotek.
+Det här avsnittet visar hur du använder **NuGet** för att lägga till Media Services .NET SDK-tillägg och andra beroende bibliotek.
 
-Du kan också hämta de senaste Media Services .NET SDK-bitarna från GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) eller [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), skapa lösningen och lägga till referenser till klientprojektet. Alla nödvändiga beroenden hämtas och extraheras automatiskt.
+Du kan också hämta de senaste Media Services .NET SDK-bitarna från GitHub ([GitHub.com/Azure/Azure-SDK-for-Media-Services](https://github.com/Azure/azure-sdk-for-media-services) eller [GitHub.com/Azure/Azure-SDK-for-Media-Services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), skapa lösningen och lägga till referenserna till klient projektet. Alla nödvändiga beroenden hämtas och extraheras automatiskt.
 
-1. Skapa ett nytt C#-konsolprogram i Visual Studio. Ange **namn,** **plats**och **lösningsnamn**och klicka sedan på OK.
+1. Skapa ett nytt C#-konsolprogram i Visual Studio. Ange **namn**, **plats**och **lösnings namn**och klicka sedan på OK.
 2. Skapa lösningen.
-3. Använd **NuGet** för att installera och lägga till **Azure Media Services .NET SDK-tillägg** **(windowsazure.mediaservices.extensions**). När du installerar det här paketet installeras även **Media Services .NET SDK** och lägger till alla andra nödvändiga beroenden.
+3. Använd **NuGet** för att installera och lägga till **Azure Media Services .NET SDK-tillägg** (**windowsazure. Media Services. Extensions**). När du installerar det här paketet installeras även **Media Services .NET SDK** och lägger till alla andra nödvändiga beroenden.
    
-    Se till att du har den senaste versionen av NuGet installerad. Mer information och installationsanvisningar finns i [NuGet](https://nuget.codeplex.com/).
+    Se till att du har den senaste versionen av NuGet installerad. Mer information och Installationsinstruktioner finns i [NuGet](https://nuget.codeplex.com/).
 
-    1. Högerklicka på namnet på projektet i Solution Explorer och välj **Hantera NuGet-paket**.
+    1. I Solution Explorer högerklickar du på namnet på projektet och väljer **Hantera NuGet-paket**.
 
     2. Dialogrutan Hantera NuGet-paket öppnas.
 
-    3. Sök efter Azure MediaServices-tillägg i galleriet Online, välj **Azure Media Services .NET SDK-tillägg** **(windowsazure.mediaservices.extensions**) och klicka sedan på knappen **Installera.**
+    3. I Onlinegalleri, Sök efter Azure Media Services-tillägg, Välj **Azure Media Services .NET SDK-tillägg** (**windowsazure. Media Services. Extensions**) och klicka sedan på knappen **Installera** .
    
-    4. Projektet ändras och referenser till Media Services .NET SDK-tillägg, Media Services .NET SDK och andra beroende sammansättningar läggs till.
-4. För att främja en renare utvecklingsmiljö, överväga att aktivera NuGet Package Restore. Mer information finns i [NuGet Package Restore"](https://docs.nuget.org/consume/package-restore).
-5. Lägg till en referens till **System.Configuration-sammansättning.** Den här sammansättningen innehåller System.Configuration. **ConfigurationManager-klass** som används för att komma åt konfigurationsfiler (till exempel App.config).
+    4. Projektet ändras och refererar till Media Services .NET SDK-tillägg, Media Services .NET SDK och andra beroende sammansättningar läggs till.
+4. Överväg att aktivera återställning av NuGet-paket för att främja en renare utvecklings miljö. Mer information finns i [NuGet Package Restore "](https://docs.nuget.org/consume/package-restore).
+5. Lägg till en referens till **system. Configuration** -sammansättningen. Den här sammansättningen innehåller system. Configuration. **ConfigurationManager** -klass som används för att komma åt konfigurationsfiler (till exempel App. config).
    
-    1. Om du vill lägga till referenser med dialogrutan Hantera referenser högerklickar du på projektnamnet i Lösningsutforskaren. Klicka sedan på **Lägg till**och sedan på **Referens...**.
+    1. Om du vill lägga till referenser med hjälp av dialog rutan hantera referenser högerklickar du på projekt namnet i Solution Explorer. Klicka sedan på **Lägg till**och sedan på **referens...**.
    
-    2. Dialogrutan Hantera referenser visas.
-    3. Leta reda på och välj monteringen System.Configuration under .NET framework assemblies och tryck på **OK**.
-6. Öppna filen App.config och lägg till ett **avsnittet appSettings** i filen. Ange de värden som behövs för att ansluta till API:et för Medietjänster. Mer information finns [i Komma åt Azure Media Services API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+    2. Dialog rutan hantera referenser visas.
+    3. Under .NET Framework-sammansättningar kan du söka efter och välja system. Configuration-sammansättningen och trycka på **OK**.
+6. Öppna filen app. config och Lägg till avsnittet **appSettings** i filen. Ange de värden som krävs för att ansluta till Media Services API. Mer information finns i [få åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    Ange de värden som behövs för att ansluta med **tjänstens huvudautentiseringsmetod.**
+    Ange de värden som behövs för att ansluta med hjälp av autentiseringsmetoden för **tjänstens huvud namn** .
 
         ```csharp
                 <configuration>
@@ -79,8 +79,8 @@ Du kan också hämta de senaste Media Services .NET SDK-bitarna från GitHub ([g
                 </configuration>
         ```
 
-7. Lägg till **systemkonfigurationsreferensen** i projektet.
-8. Skriv över befintliga **med hjälp av** satser i början av Program.cs filen med följande kod:
+7. Lägg till **system. Configuration** -referensen i projektet.
+8. Skriv över de befintliga **using** -instruktionerna i början av program.cs-filen med följande kod:
 
     ```csharp      
             using System;
@@ -96,7 +96,7 @@ Du kan också hämta de senaste Media Services .NET SDK-bitarna från GitHub ([g
 
 ## <a name="example"></a>Exempel
 
-Här är ett litet exempel som ansluter till AMS API och listar alla tillgängliga medieprocessorer.
+Här är ett litet exempel som ansluter till AMS-API: et och visar en lista över alla tillgängliga medie processorer.
 
 ```csharp
         class Program
@@ -135,7 +135,7 @@ Här är ett litet exempel som ansluter till AMS API och listar alla tillgängli
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu [kan du ansluta till AMS API](media-services-use-aad-auth-to-access-ams-api.md) och börja [utveckla](media-services-dotnet-get-started.md).
+Nu [kan du ansluta till AMS-API: et](media-services-use-aad-auth-to-access-ams-api.md) och börja [utveckla](media-services-dotnet-get-started.md).
 
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning

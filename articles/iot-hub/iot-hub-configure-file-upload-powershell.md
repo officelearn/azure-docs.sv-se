@@ -1,6 +1,6 @@
 ---
-title: Använd Azure PowerShell för att konfigurera filöverföring | Microsoft-dokument
-description: Så här använder du Azure PowerShell-cmdletar för att konfigurera IoT-hubben för att aktivera filöverföringar från anslutna enheter. Innehåller information om hur du konfigurerar azure-lagringskontot för målet.
+title: Använd Azure PowerShell för att konfigurera fil uppladdning | Microsoft Docs
+description: Använda Azure PowerShell-cmdletar för att konfigurera IoT Hub för att aktivera fil överföringar från anslutna enheter. Innehåller information om hur du konfigurerar målets Azure Storage-konto.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60318468"
 ---
-# <a name="configure-iot-hub-file-uploads-using-powershell"></a>Konfigurera uppladdningar av IoT Hub-filer med PowerShell
+# <a name="configure-iot-hub-file-uploads-using-powershell"></a>Konfigurera IoT Hub fil överföringar med PowerShell
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Om du vill använda [filöverföringsfunktionen i IoT Hub](iot-hub-devguide-file-upload.md)måste du först associera ett Azure-lagringskonto med din IoT-hubb. Du kan använda ett befintligt lagringskonto eller skapa ett nytt.
+Om du vill använda [fil uppladdnings funktionen i IoT Hub](iot-hub-devguide-file-upload.md)måste du först associera ett Azure Storage-konto med IoT Hub. Du kan använda ett befintligt lagrings konto eller skapa ett nytt.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -27,11 +27,11 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 * En Azure IoT-hubb. Om du inte har en IoT-hubb kan du använda [cmdleten New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) för att skapa en eller använda portalen för att [skapa en IoT-hubb](iot-hub-create-through-portal.md).
 
-* Ett Azure-lagringskonto. Om du inte har ett Azure-lagringskonto kan du använda [Azure Storage PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.storage/) för att skapa ett eller använda portalen för att [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md)
+* Ett Azure-lagringskonto. Om du inte har ett Azure Storage-konto kan du använda [Azure Storage PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.storage/) för att skapa en eller använda portalen för att [skapa ett lagrings konto](../storage/common/storage-create-storage-account.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Logga in och ange ditt Azure-konto
 
@@ -43,24 +43,24 @@ Logga in på ditt Azure-konto och välj din prenumeration.
     Connect-AzAccount
     ```
 
-2. Om du har flera Azure-prenumerationer ger inloggning till Azure dig åtkomst till alla Azure-prenumerationer som är associerade med dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationer som är tillgängliga för dig att använda:
+2. Om du har flera Azure-prenumerationer ger du till gång till alla Azure-prenumerationer som är kopplade till dina autentiseringsuppgifter genom att logga in på Azure. Använd följande kommando för att lista de Azure-prenumerationer som du kan använda:
 
     ```powershell
     Get-AzSubscription
     ```
 
-    Använd följande kommando för att välja den prenumeration som du vill använda för att köra kommandona för att hantera din IoT-hubb. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
+    Använd följande kommando för att välja den prenumeration som du vill använda för att köra kommandona för att hantera IoT-hubben. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
 
     ```powershell
     Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-## <a name="retrieve-your-storage-account-details"></a>Hämta dina lagringskontouppgifter
+## <a name="retrieve-your-storage-account-details"></a>Hämta information om lagrings kontot
 
-Följande steg förutsätter att du har skapat ditt lagringskonto med hjälp av **Resurshanterarens** distributionsmodell och inte den **klassiska** distributionsmodellen.
+Följande steg förutsätter att du har skapat ditt lagrings konto med distributions modellen **Resource Manager** och inte den **klassiska** distributions modellen.
 
-Om du vill konfigurera filöverföringar från dina enheter behöver du anslutningssträngen för ett Azure-lagringskonto. Lagringskontot måste finnas i samma prenumeration som din IoT-hubb. Du behöver också namnet på en blob-behållare i lagringskontot. Använd följande kommando för att hämta dina lagringskontonycklar:
+Om du vill konfigurera fil överföringar från dina enheter behöver du anslutnings strängen för ett Azure Storage-konto. Lagrings kontot måste finnas i samma prenumeration som din IoT Hub. Du behöver också namnet på en BLOB-behållare i lagrings kontot. Använd följande kommando för att hämta dina lagrings konto nycklar:
 
 ```powershell
 Get-AzStorageAccountKey `
@@ -68,11 +68,11 @@ Get-AzStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-Anteckna nyckelvärdet för key1-lagringskontot. **key1** Du behöver det i följande steg.
+Anteckna värdet för lagrings kontots **KEY1** . Du behöver den i följande steg.
 
-Du kan antingen använda en befintlig blob-behållare för filöverföringar eller skapa en ny:
+Du kan antingen använda en befintlig BLOB-behållare för dina fil överföringar eller skapa en ny:
 
-* Om du vill visa de befintliga blob-behållarna i ditt lagringskonto använder du följande kommandon:
+* Om du vill visa en lista över befintliga BLOB-behållare i ditt lagrings konto använder du följande kommandon:
 
     ```powershell
     $ctx = New-AzStorageContext `
@@ -81,7 +81,7 @@ Du kan antingen använda en befintlig blob-behållare för filöverföringar ell
     Get-AzStorageContainer -Context $ctx
     ```
 
-* Om du vill skapa en blob-behållare i ditt lagringskonto använder du följande kommandon:
+* Använd följande kommandon för att skapa en BLOB-behållare i ditt lagrings konto:
 
     ```powershell
     $ctx = New-AzStorageContext `
@@ -93,23 +93,23 @@ Du kan antingen använda en befintlig blob-behållare för filöverföringar ell
         -Context $ctx
     ```
 
-## <a name="configure-your-iot-hub"></a>Konfigurera din IoT-hubb
+## <a name="configure-your-iot-hub"></a>Konfigurera din IoT Hub
 
-Du kan nu konfigurera IoT-hubben för att [ladda upp filer till IoT-hubben](iot-hub-devguide-file-upload.md) med hjälp av dina lagringskontouppgifter.
+Nu kan du konfigurera din IoT Hub för att [Ladda upp filer till IoT Hub](iot-hub-devguide-file-upload.md) med hjälp av informationen om lagrings kontot.
 
 Konfigurationen kräver följande värden:
 
-* **Lagringsbehållare**: En blob-behållare i ett Azure-lagringskonto i din aktuella Azure-prenumeration för att associera med din IoT-hubb. Du har hämtat nödvändig lagringskontoinformation i föregående avsnitt. IoT Hub genererar automatiskt SAS-urier med skrivbehörighet till den här blob-behållaren för enheter som ska användas när de laddar upp filer.
+* **Lagrings behållare**: en BLOB-behållare i ett Azure Storage-konto i din aktuella Azure-prenumeration som ska associeras med IoT-hubben. Du har hämtat den nödvändiga lagrings konto informationen i föregående avsnitt. IoT Hub skapar automatiskt SAS-URI: er med Skriv behörighet till den här BLOB-behållaren för enheter som ska användas när de laddar upp filer.
 
-* **Ta emot meddelanden för uppladdade filer**: Aktivera eller inaktivera meddelanden om filöverföring.
+* **Ta emot meddelanden om överförda filer**: Aktivera eller inaktivera meddelanden om fil uppladdning.
 
-* **SAS TTL**: Den här inställningen är tid att leva på SAS-URI:er som returneras till enheten av IoT Hub. Ställ in på en timme som standard.
+* **SAS-TTL**: den här inställningen är TTL-värdet för de SAS-URI: er som returnerades till enheten med IoT Hub. Ange en timme som standard.
 
-* **Filmeddelandeinställningar standard TTL:** Tid till live för en filuppladdning meddelande innan den har löpt ut. Ställ in på en dag som standard.
+* **Inställningar för fil meddelanden standard TTL: TTL-värde**för fil överföring innan det upphör att gälla. Ange en dag som standard.
 
-* **Antal maximala leveransleveranser**för filmeddelanden : Antalet gånger IoT Hub försöker leverera ett meddelande om filöverföring. Ange till 10 som standard.
+* **Maximalt antal leveranser för fil meddelanden**: antalet gånger som IoT Hub försöker leverera ett meddelande om fil överföring. Ange till 10 som standard.
 
-Använd följande PowerShell-cmdlet för att konfigurera inställningarna för filöverföring på IoT-hubben:
+Använd följande PowerShell-cmdlet för att konfigurera fil överförings inställningarna på din IoT-hubb:
 
 ```powershell
 Set-AzIotHub `
@@ -125,16 +125,16 @@ Set-AzIotHub `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om filöverföringsfunktionerna i IoT Hub finns i [Ladda upp filer från en enhet](iot-hub-devguide-file-upload.md).
+Mer information om fil överförings funktionerna i IoT Hub finns i [överföra filer från en enhet](iot-hub-devguide-file-upload.md).
 
-Följ de här länkarna om du vill veta mer om hur du hanterar Azure IoT Hub:
+Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub-mått](iot-hub-metrics.md)
+* [IoT Hub mått](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
-Mer information om hur du utforskar funktionerna i IoT Hub finns i:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Utvecklarhandledning för IoT Hub](iot-hub-devguide.md)
+* [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
 * [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Säkra din IoT-lösning från grunden](../iot-fundamentals/iot-security-ground-up.md)
+* [Skydda din IoT-lösning från grunden](../iot-fundamentals/iot-security-ground-up.md)

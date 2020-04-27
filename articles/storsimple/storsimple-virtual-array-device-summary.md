@@ -1,6 +1,6 @@
 ---
-title: Sammanfattningsblad för StorSimple Virtual Array-enhet | Microsoft-dokument
-description: Beskriver enhetssammanfattningsbladet för StorSimple Device Manager och förklarar hur du använder det för att övervaka hälsotillståndet för den virtuella storsimple-matrisen.
+title: Sammanfattnings blad för StorSimple virtuell mat ris enhet | Microsoft Docs
+description: Beskriver bladet enhets Sammanfattning för StorSimple Enhetshanteraren och förklarar hur du använder det för att övervaka hälso tillståndet för din virtuella StorSimple-matris.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 9edc0b552f5c2f38e646bc4b44dd8df5c16b0457
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61408514"
 ---
-# <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Använda enhetssammanfattningsbladet för StorSimple Device Manager som är ansluten till StorSimple Virtual Array
+# <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Använd bladet enhets Sammanfattning för StorSimple Enhetshanteraren som är anslutet till StorSimple virtuella matris
 
 ## <a name="overview"></a>Översikt
 
-StorSimple Device Manager-enhetsbladet ger en sammanfattande vy över en StorSimple Virtual Array som är registrerad med en viss StorSimple Enhetshanteraren, vilket belyser de enhetsproblem som behöver en systemadministratörs uppmärksamhet. Den här självstudien introducerar enhetssammanfattningsbladet, förklarar innehållet och funktionen och beskriver de uppgifter som du kan utföra från det här bladet.
+Bladet StorSimple Enhetshanteraren enhet innehåller en sammanfattning av en StorSimple-virtuell matris som har registrerats med en specifik StorSimple Enhetshanteraren och som markerar de enhets problem som behöver en system administratörs uppmärksamhet. Den här självstudien presenterar bladet enhets sammanfattning, förklarar innehållet och funktionen och beskriver de uppgifter som du kan utföra från det här bladet.
 
-Enhetssammanfattningsbladet visar följande information:
+Bladet enhets Sammanfattning visar följande information:
 
 ![Instrumentpanel för enhet](./media/storsimple-virtual-array-device-summary/device-blade.png)
 
@@ -35,25 +35,25 @@ Enhetssammanfattningsbladet visar följande information:
 
 ## <a name="management"></a>Hantering
 
-I StorSimple-enhetens blad ser du alternativen för att hantera din StorSimple-enhet. Du ser hanteringskommandona över bladets överkant och på vänster sida. Använd de här alternativen om du vill lägga till resurser eller volymer, eller uppdatera eller växla över den virtuella matrisen.
+På bladet StorSimple enhet ser du alternativen för att hantera din StorSimple-enhet. Du ser hanterings kommandona överst på bladet och på den vänstra sidan. Använd de här alternativen om du vill lägga till resurser eller volymer eller uppdatera eller redundansväxla den virtuella matrisen.
 
-Essentials-området fångar några av de viktiga egenskaperna, till exempel status, modell, programvaruversion samt en länk till **matrisens webbgränssnitt.** Om du befinner dig i ett internt nätverk kan du starta det [lokala webbgränssnittet](storsimple-ova-web-ui-admin.md) direkt för att administrera den virtuella matrisen.
+Området Essentials fångar upp några av de viktiga egenskaperna, till exempel, status, modell, program varu version samt en länk till **webb gränssnittet** för matrisen. Om du är i ett internt nätverk kan du direkt starta det [lokala webb gränssnittet](storsimple-ova-web-ui-admin.md) för att administrera din virtuella matris.
 
-![Det väsentliga enhetsdespekterna](./media/storsimple-virtual-array-device-summary/device-essentials.png)
+![Enhets Essentials](./media/storsimple-virtual-array-device-summary/device-essentials.png)
 
-## <a name="storsimple-device-summary"></a>Sammanfattning av StorSimple-enheten
+## <a name="storsimple-device-summary"></a>Sammanfattning av StorSimple-enhet
 
-* Panelen **Aviseringar** innehåller en ögonblicksbild av alla aktiva aviseringar för den virtuella matrisen, grupperad efter allvarlighetsgrad för aviseringar. Klicka på panelen för att öppna bladet **Aviseringar** och klicka sedan på en enskild avisering för att visa ytterligare information om den aviseringen, inklusive rekommenderade åtgärder. Du kan också rensa aviseringen om problemet har lösts.
+* Panelen **aviseringar** innehåller en ögonblicks bild av alla aktiva aviseringar för den virtuella matrisen, grupperade efter aviserings allvarlighets grad. Klicka på panelen för att öppna bladet **aviseringar** och klicka sedan på en enskild avisering om du vill visa mer information om aviseringen, inklusive eventuella rekommenderade åtgärder. Du kan också ta bort aviseringen om problemet har lösts.
 
-* Panelen **Kapacitet** visar den primära lagring som har etablerats och som finns kvar över den virtuella enheten i förhållande till det totala lagringsutrymme som är tillgängligt för samma. **Etablerat** avser mängden lagringsutrymme som förbereds och allokeras för användning, **Återstående** refererar till den återstående kapaciteten som kan etableras över den här enheten. **Återstående nivåindelad** kapacitet är den tillgängliga kapacitet som kan etableras inklusive molnet, medan **återstående lokal** är den kapacitet som finns kvar på diskarna som är kopplade till den här virtuella matrisen.
+* I panelen **kapacitet** visas den primära lagrings enheten som är etablerad och kvar på den virtuella enheten i förhållande till det totala lagrings utrymmet som är tillgängligt för samma. Med avseende på den mängd lagrings utrymme som är för beredd och tilldelad för användning **, refererar** **återstående** till den återstående kapacitet som kan tillhandahållas på den här enheten. Den **återstående** kapacitets kapaciteten är den tillgängliga kapacitet som kan tillhandahållas inklusive molnet, medan **återstående lokala** kapacitet är den kapacitet som återstår på diskarna som är anslutna till den virtuella matrisen.
 
-* I **användningsdiagrammet** kan du visa den primära lagring som används i den virtuella matrisen, samt den molnlagring som förbrukats under de senaste 7 dagarna, standardperioden. Använd alternativet **Redigera** i diagrammets övre högra hörn för att välja en annan tidsskala.
+* I **användnings** diagrammet kan du Visa det primära lagrings utrymmet som används i den virtuella matrisen, samt moln lagring som förbrukas under de senaste 7 dagarna, standard tids perioden. Använd alternativet **Redigera** i det övre högra hörnet i diagrammet om du vill välja en annan tids skala.
 
-* Panelen **Resurser** eller **Volymer** innehåller en sammanfattning av antalet resurser eller volymer i enheten grupperade efter status. Klicka på panelen för att öppna listbladet **Resurser** eller **Volymer** och klicka sedan på en enskild resurs eller volym för att visa eller ändra dess egenskaper. Mer information finns i hur du [hanterar resurser](storsimple-virtual-array-manage-shares.md) eller [hanterar volymer](storsimple-virtual-array-manage-volumes.md).
+* Panelen **resurser** eller **volymer** innehåller en översikt över antalet resurser eller volymer i enheten grupperade efter status. Klicka på panelen för att öppna bladet **resurser** eller **volymer** och klicka sedan på en enskild resurs eller volym för att visa eller ändra dess egenskaper. Mer information finns i [Hantera resurser](storsimple-virtual-array-manage-shares.md) eller [Hantera volymer](storsimple-virtual-array-manage-volumes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig att:
-- [Hantera resurser på en storsimple virtuell matris](storsimple-virtual-array-manage-shares.md)
+- [Hantera resurser på en virtuell StorSimple-matris](storsimple-virtual-array-manage-shares.md)
     
-- [Hantera volymer på en storsimple virtuell array](storsimple-virtual-array-manage-volumes.md)
+- [Hantera volymer på en virtuell StorSimple-matris](storsimple-virtual-array-manage-volumes.md)
 

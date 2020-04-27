@@ -1,6 +1,6 @@
 ---
-title: Ändra DATA 0-inställningar på StorSimple 8000-seriens enhet | Microsoft-dokument
-description: Lär dig hur du använder Windows PowerShell för StorSimple för att konfigurera om DATA 0-nätverksgränssnittet på din StorSimple-enhet.
+title: Ändra DATA 0-inställningar på StorSimple 8000-seriens enhet | Microsoft Docs
+description: Lär dig hur du använder Windows PowerShell för StorSimple för att konfigurera om DATA 0-nätverks gränssnittet på din StorSimple-enhet.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,58 +15,58 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60631591"
 ---
-# <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Ändra inställningarna för DATA 0-nätverksgränssnittet på storsimple 8000-serien
+# <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Ändra inställningarna för nätverks gränssnittet för DATA 0 på din StorSimple 8000-serie enhet
 
 ## <a name="overview"></a>Översikt
 
-Din Microsoft Azure StorSimple-enhet har sex nätverksgränssnitt, från DATA 0 till DATA 5. DATA 0-gränssnittet konfigureras alltid via Windows PowerShell-gränssnittet eller seriekonsolen och är automatiskt molnaktiverat. Observera att du inte kan konfigurera DATA 0-nätverksgränssnittet via Azure-portalen.
+Din Microsoft Azure StorSimple-enhet har sex nätverks gränssnitt, från DATA 0 till DATA 5. DATA 0-gränssnittet konfigureras alltid via Windows PowerShell-gränssnittet eller serie konsolen och är automatiskt moln aktiverat. Observera att du inte kan konfigurera nätverks gränssnittet för DATA 0 via Azure Portal.
 
-DATA 0-gränssnittet konfigureras först via installationsguiden under den första distributionen av StorSimple-enheten. När enheten är i driftläge kan du behöva konfigurera om DATA 0-inställningar. Den här självstudien innehåller två metoder för att ändra DATA 0-nätverksinställningar, både via Windows PowerShell för StorSimple.
+DATA 0-gränssnittet konfigureras först via installations guiden under den första distributionen av StorSimple-enheten. När enheten är i drift läge kan du behöva konfigurera om DATA 0-inställningar. Den här självstudien innehåller två metoder för att ändra nätverks inställningar för DATA 0, både via Windows PowerShell för StorSimple.
 
-Efter att ha läst den här guiden kommer du att kunna:
+När du har läst den här självstudien kommer du att kunna:
 
-* Ändra data 0-nätverksinställning via installationsguiden
-* Ändra data 0-nätverksinställningar via `Set-HcsNetInterface` cmdlet
+* Ändra nätverks inställningen DATA 0 via installations guiden
+* Ändra nätverks inställningar för `Set-HcsNetInterface` data 0 via cmdleten
 
-## <a name="modify-data-0-network-settings-through-setup-wizard"></a>Ändra nätverksinställningar för DATA 0 via installationsguiden
-Du kan konfigurera om DATA 0-nätverksinställningarna genom att ansluta till Windows PowerShell-gränssnittet på Din StorSimple-enhet och starta en installationsguidesession. Gör följande för att ändra INställningarna för DATA 0:
+## <a name="modify-data-0-network-settings-through-setup-wizard"></a>Ändra nätverks inställningar för DATA 0 via installations guiden
+Du kan konfigurera om DATA 0 nätverks inställningar genom att ansluta till Windows PowerShell-gränssnittet för StorSimple-enheten och starta en session med installations guiden. Utför följande steg för att ändra inställningarna för DATA 0:
 
-#### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Så här ändrar du nätverksinställningar för DATA 0 via installationsguiden
-1. I den seriella konsolmenyn väljer du alternativ 1, **Logga in med full åtkomst**. Ange lösenordet **för enhetsadministratören**när du uppmanas att ange. Standardlösenordet är `Password1`.
+#### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Ändra nätverks inställningar för DATA 0 via installations guiden
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. När du uppmanas ange **enhetens administratörs lösen ord**. Standard lösen ordet är `Password1`.
 2. Skriv följande i kommandotolken:
    
     `Invoke-HcsSetupWizard`
-3. En installationsguide visas för att konfigurera enhetens DATA 0-gränssnitt. Ange nya värden för IP-adressen, gatewayen och nätmasken.
+3. En installations guide visas för att hjälpa dig att konfigurera enhetens DATA 0-gränssnitt. Ange nya värden för IP-adressen, gatewayen och nät masken.
 
 > [!NOTE]
-> De fasta kontrollanternas IPs måste konfigureras om via **nätverksinställningsbladet** för StorSimple-enheten i Azure-portalen. Mer information finns i [Ändra nätverksgränssnitt](storsimple-8000-modify-device-config.md#modify-network-interfaces).
+> De fasta styrenheterna för IP-adresser måste konfigureras om via bladet **nätverks inställningar** på StorSimple-enheten i Azure Portal. Mer information finns i [ändra nätverks gränssnitt](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 
-## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Ändra DATA 0-nätverksinställningar via Set-HcsNetInterface cmdlet
-Ett alternativt sätt att konfigurera om DATA 0-nätverksgränssnittet är med hjälp av cmdleten. `Set-HcsNetInterface` Cmdleten körs från Windows PowerShell-gränssnittet på Din StorSimple-enhet. När du använder den här proceduren kan styrenhetens fasta IPs också konfigureras här. Gör följande för att ändra INställningarna för DATA 0: 
+## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Ändra nätverks inställningar för DATA 0 via set-HcsNetInterface-cmdleten
+Ett annat sätt att konfigurera om DATA 0-nätverks gränssnittet är genom att använda `Set-HcsNetInterface` cmdleten. Cmdleten körs från Windows PowerShell-gränssnittet på din StorSimple-enhet. När du använder den här proceduren kan styrenhetens fasta IP-adresser också konfigureras här. Utför följande steg för att ändra inställningarna för DATA 0: 
 
-#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Så här ändrar du data 0-nätverksinställningar via cmdlet set-hcsNetInterface
-1. I den seriella konsolmenyn väljer du alternativ 1, **Logga in med full åtkomst**. Ange lösenordet för enhetsadministratören när du uppmanas att ange. Standardlösenordet är `Password1`.
+#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Ändra nätverks inställningarna för DATA 0 via cmdleten Set-HcsNetInterface
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. När du uppmanas ange enhetens administratörs lösen ord. Standard lösen ordet är `Password1`.
 2. Skriv följande i kommandotolken:
    
     `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
    
-    Skriv följande värden för DATA 0 i de vinklade parenteserna:
+    I vinkelparenteser anger du följande värden för DATA 0:
    
    * IPv4-adress
-   * IPv4-gateway
+   * IPv4-Gateway
    * IPv4-nätmask
-   * Fast IPv4-adress för Controller 0
-   * Fast IPv4-adress för Controller 1
+   * Fast IPv4-adress för styrenhet 0
+   * Fast IPv4-adress för styrenhet 1
      
-     Mer information om hur du använder den här cmdleten finns i [Windows PowerShell för StorSimple cmdlet-referens](https://technet.microsoft.com/library/dn688161.aspx).
+     Om du vill ha mer information om hur du använder denna cmdlet går du till [Windows PowerShell för StorSimple cmdlet-referens](https://technet.microsoft.com/library/dn688161.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill konfigurera andra nätverksgränssnitt än DATA 0 kan du använda [konfigurera nätverksinställningarna i Azure-portalen](storsimple-8000-modify-device-config.md). 
-* Om du får problem när du konfigurerar nätverksgränssnitten läser du [Felsöka distributionsproblem](storsimple-troubleshoot-deployment.md).
+* Om du vill konfigurera andra nätverks gränssnitt än DATA 0 kan du använda [Konfigurera nätverks inställningar i Azure Portal](storsimple-8000-modify-device-config.md). 
+* Om du får problem när du konfigurerar nätverks gränssnitten kan du läsa [Felsök distributions problem](storsimple-troubleshoot-deployment.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Använd rollbaserad åtkomstkontroll för StorSimple | Microsoft-dokument
-description: Beskriver hur du använder RBAC (Azure Role-based Access Control) i samband med StorSimple.
+title: Använd rollbaserad Access Control för StorSimple | Microsoft Docs
+description: Beskriver hur du använder Azure Role-baserade Access Control (RBAC) i kontexten för StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,34 +15,34 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "66159134"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>Rollbaserad åtkomstkontroll för StorSimple
+# <a name="role-based-access-control-for-storsimple"></a>Rollbaserad Access Control för StorSimple
 
-Den här artikeln innehåller en kort beskrivning av hur RBAC (Azure Role-Based Access Control) kan användas för din StorSimple-enhet. RBAC erbjuder finkornig åtkomsthantering för Azure. Använd RBAC för att ge precis rätt åtkomst till StorSimple-användarna för att göra sitt jobb istället för att ge alla obegränsad åtkomst. Mer information om grunderna för åtkomsthantering i Azure finns i [Komma igång med rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
+Den här artikeln innehåller en kort beskrivning av hur du kan använda RBAC (Azure Role-based Access Control) för din StorSimple-enhet. RBAC har detaljerad åtkomst hantering för Azure. Använd RBAC för att bevilja enbart rätt åtkomst till StorSimple-användare för att utföra sina jobb i stället för att ge alla obegränsad åtkomst. Mer information om grunderna i åtkomst hantering i Azure finns i [komma igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
 
-Den här artikeln gäller StorSimple 8000-seriens enheter som kör Uppdatering 3.0 eller senare i Azure-portalen.
+Den här artikeln gäller för enheter med StorSimple 8000-serien som kör uppdatering 3,0 eller senare i Azure Portal.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rbac-roles-for-storsimple"></a>RBAC-roller för StorSimple
 
-RBAC kan tilldelas baserat på rollerna. Rollerna säkerställer vissa behörighetsnivåer baserat på tillgängliga resurser i miljön. Det finns två typer av roller som StorSimple-användare kan välja mellan: inbyggd eller anpassad.
+RBAC kan tilldelas baserat på roller. Rollerna säkerställer vissa behörighets nivåer baserat på tillgängliga resurser i miljön. Det finns två typer av roller som StorSimple användare kan välja bland: inbyggda eller anpassade.
 
-* **Inbyggda roller** – De inbyggda rollerna kan vara ägare, deltagare, läsare eller administratör för användaråtkomst. Mer information finns [i Inbyggda roller för Azure-rollbaserad åtkomstkontroll](../role-based-access-control/built-in-roles.md).
+* **Inbyggda roller** – de inbyggda rollerna kan vara ägare, deltagare, läsare eller användar åtkomst administratör. Mer information finns i [inbyggda roller för Azure Role-baserade Access Control](../role-based-access-control/built-in-roles.md).
 
-* **Anpassade roller** - Om de inbyggda rollerna inte passar dina behov kan du skapa anpassade RBAC-roller för StorSimple. Om du vill skapa en anpassad RBAC-roll börjar du med en inbyggd roll, redigerar den och importerar den sedan tillbaka i miljön. Hämtningen och överföringen av rollen hanteras med antingen Azure PowerShell eller Azure CLI. Mer information finns i [Skapa anpassade roller för rollbaserad åtkomstkontroll](../role-based-access-control/custom-roles.md).
+* **Anpassade roller** – om de inbyggda rollerna inte passar dina behov kan du skapa anpassade RBAC-roller för StorSimple. Om du vill skapa en anpassad RBAC-roll börjar du med en inbyggd roll, redigerar den och importerar den sedan i miljön igen. Hämtning och uppladdning av rollen hanteras med hjälp av antingen Azure PowerShell eller Azure CLI. Mer information finns i [skapa anpassade roller för rollbaserad Access Control](../role-based-access-control/custom-roles.md).
 
-Om du vill visa de olika roller som är tillgängliga för en StorSimple-enhetsanvändare i Azure-portalen går du till tjänsten StorSimple Device Manager och går sedan till **Access Control (IAM) > Roles**.
+Om du vill visa de olika rollerna som är tillgängliga för en StorSimple enhets användare i Azure Portal går du till StorSimple Enhetshanteraren-tjänsten och går sedan till **åtkomst kontroll (IAM) > roller**.
 
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Skapa en anpassad roll för StorSimple Infrastructure Administrator
 
-I följande exempel börjar vi med den inbyggda **rollläsaren** som tillåter användare att visa alla resursomfattningar men inte redigera dem eller skapa nya. Vi utökar sedan den här rollen för att skapa en ny anpassad roll StorSimple Infrastructure admin. Den här rollen tilldelas användare som kan hantera infrastrukturen för StorSimple-enheterna.
+I följande exempel börjar vi med den inbyggda roll **läsaren** som gör att användarna kan se alla resurs omfattningar, men inte redigera dem eller skapa nya. Vi utökar sedan den här rollen för att skapa en ny anpassad roll StorSimple infrastruktur administratör. Den här rollen tilldelas till användare som kan hantera infrastrukturen för StorSimple-enheter.
 
 1. Kör Windows PowerShell som administratör.
 
@@ -50,7 +50,7 @@ I följande exempel börjar vi med den inbyggda **rollläsaren** som tillåter a
 
     `Connect-AzAccount`
 
-3. Exportera reader-rollen som en JSON-mall på datorn.
+3. Exportera rollen läsare som en JSON-mall på din dator.
 
     ```powershell
     Get-AzRoleDefinition -Name "Reader"
@@ -58,21 +58,21 @@ I följande exempel börjar vi med den inbyggda **rollläsaren** som tillåter a
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Öppna JSON-filen i Visual Studio. Du ser att en typisk RBAC-roll består av tre huvudavsnitt, **Åtgärder,** **NotActions**och **AssignableScopes**.
+4. Öppna JSON-filen i Visual Studio. Du ser att en typisk RBAC-roll består av tre huvud avsnitt, **åtgärder**, **NotActions**och **AssignableScopes**.
 
-    I avsnittet **Åtgärd** visas alla tillåtna åtgärder för den här rollen. Varje åtgärd tilldelas från en resursprovider. Använd resursleverantören för `Microsoft.StorSimple` en StorSimple-infrastrukturadministratör.
+    I avsnittet **åtgärd** visas alla tillåtna åtgärder för den här rollen. Varje åtgärd tilldelas från en resurs leverantör. För en infrastruktur administratör för StorSimple använder du `Microsoft.StorSimple` resurs leverantören.
 
-    Använd PowerShell för att se alla resursleverantörer som är tillgängliga och registrerade i din prenumeration.
+    Använd PowerShell för att se alla tillgängliga resurs leverantörer i din prenumeration.
 
     `Get-AzResourceProvider`
 
-    Du kan också söka efter alla tillgängliga PowerShell-cmdletar för att hantera resursleverantörerna.
+    Du kan också söka efter alla tillgängliga PowerShell-cmdletar för att hantera resurs leverantörer.
 
-    I avsnitten **NotActions** visas alla begränsade åtgärder för en viss RBAC-roll. I det här exemplet är inga åtgärder begränsade.
+    I avsnittet **NotActions** visas alla begränsade åtgärder för en viss RBAC-roll. I det här exemplet är inga åtgärder begränsade.
     
-    Under **AssignableScopes**visas prenumerations-ID:na. Kontrollera att RBAC-rollen innehåller det explicita prenumerations-ID där det används. Om rätt prenumerations-ID inte har angetts får du inte importera rollen i prenumerationen.
+    Prenumerations-ID: n visas under **AssignableScopes**. Se till att RBAC-rollen innehåller det explicita prenumerations-ID där den används. Om rätt prenumerations-ID inte har angetts får du inte importera rollen i din prenumeration.
 
-    Redigera filen med tanke på föregående överväganden.
+    Redigera filen genom att tänka på föregående överväganden.
 
     ```json
     {
@@ -107,13 +107,13 @@ I följande exempel börjar vi med den inbyggda **rollläsaren** som tillåter a
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
-Den här rollen ska nu visas i listan över roller i **bladet Åtkomstkontroll.**
+Den här rollen bör nu visas i listan över roller i **åtkomst kontroll** bladet.
 
 ![Visa RBAC-roller](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-Mer information finns i [Anpassade roller](../role-based-access-control/custom-roles.md).
+Mer information finns i [anpassade roller](../role-based-access-control/custom-roles.md).
 
-### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Exempel på utdata för att skapa anpassade roller via PowerShell
+### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Exempel på utdata för att skapa en anpassad roll via PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -161,37 +161,37 @@ NotActions       : {}
 AssignableScopes : {/subscriptions/<subscription_ID>/}
 ```
 
-## <a name="add-users-to-the-custom-role"></a>Lägga till användare i den anpassade rollen
+## <a name="add-users-to-the-custom-role"></a>Lägg till användare i den anpassade rollen
 
-Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När du ger åtkomst bör du tänka på att åtkomsten som beviljas vid den överordnade noden ärvs av den underordnade. Mer information finns i [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
+Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När du ger åtkomst måste du tänka på att åtkomsten som beviljats på den överordnade noden ärvs av den underordnade noden. Mer information finns i [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md).
 
-1. Gå till **åtkomstkontroll (IAM)**. Klicka på **+ Lägg till** på bladet För åtkomstkontroll.
+1. Gå till **åtkomst kontroll (IAM)**. Klicka på **+ Lägg till** på bladet åtkomst kontroll.
 
-    ![Lägga till åtkomst till RBAC-rollen](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Lägg till åtkomst till RBAC-rollen](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
-2. Välj den roll som du vill tilldela, i det här fallet är det **StorSimple Infrastructure Admin**.
+2. Välj den roll som du vill tilldela, i det här fallet är det **StorSimple Infrastructure admin**.
 
 3. Välj den användare, den grupp eller det program i katalogen som du vill bevilja åtkomst till. Du kan söka i katalogen med visningsnamn, e-postadresser och objektidentifierare.
 
-4. Välj **Spara** om du vill skapa tilldelningen.
+4. Klicka på **Spara** för att skapa tilldelningen.
 
-    ![Lägga till behörigheter i RBAC-rollen](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Lägg till behörigheter för RBAC-rollen](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
-Ett **tilläggsanvändarmeddelande** spårar förloppet. När användaren har lagts till uppdateras listan över användare i Åtkomstkontrollen.
+Om du **lägger till ett användar** meddelande spåras förloppet. När användaren har lagts till uppdateras listan över användare i åtkomst kontrollen.
 
 ## <a name="view-permissions-for-the-custom-role"></a>Visa behörigheter för den anpassade rollen
 
-När den här rollen har skapats kan du visa behörigheterna som är associerade med den här rollen i Azure-portalen.
+När den här rollen har skapats kan du Visa de behörigheter som är associerade med den här rollen i Azure Portal.
 
-1. Om du vill visa de behörigheter som är associerade med den här rollen går du till **IAM (Access control) > Roles > StorSimple Infrastructure Admin**. Listan över användare i den här rollen visas.
+1. Om du vill visa de behörigheter som är associerade med den här rollen går du till **åtkomst kontroll (IAM) > roller > StorSimple Infrastructure admin**. Listan med användare i den här rollen visas.
 
-2. Välj en StorSimple Infrastructure Admin-användare och klicka på **Behörigheter**.
+2. Välj en StorSimple infrastruktur administratörs användare och klicka på **behörigheter**.
 
-    ![Visa behörigheter för rollen StorSimple Infra Admin](./media/storsimple-8000-role-based-access-control/rbac-roles-view-permissions.png)
+    ![Visa behörigheter för StorSimple-infraröd administratörs roll](./media/storsimple-8000-role-based-access-control/rbac-roles-view-permissions.png)
 
 3. Behörigheterna som är associerade med den här rollen visas.
 
-    ![Visa användare i rollen StorSimple Infra Admin](./media/storsimple-8000-role-based-access-control/rbac-infra-admin-permissions1.png)
+    ![Visa användare i rollen StorSimple-infraröd administratör](./media/storsimple-8000-role-based-access-control/rbac-infra-admin-permissions1.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

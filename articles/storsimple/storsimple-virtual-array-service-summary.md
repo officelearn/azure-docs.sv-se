@@ -1,6 +1,6 @@
 ---
-title: Sammanfattningsblad för StorSimple Virtual Array-tjänsten | Microsoft-dokument
-description: Beskriver servicesammanfattningsbladet för StorSimple Device Manager och förklarar hur du använder det för att övervaka hälsotillståndet för den virtuella storsimple-matrisen.
+title: Bladet StorSimple Virtual Array service Summary | Microsoft Docs
+description: Beskriver bladet för tjänst Sammanfattning för StorSimple Enhetshanteraren och förklarar hur du använder det för att övervaka hälso tillståndet för din virtuella StorSimple-matris.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,36 +15,36 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9c05bddaeb3c34400db1ec75c624ef00a85d9444
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "64720734"
 ---
-# <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Använda servicesammanfattningsbladet för StorSimple Device Manager som är ansluten till StorSimple Virtual Array
+# <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Använd bladet för tjänst Sammanfattning för StorSimple Enhetshanteraren som är anslutet till StorSimple virtuella matris
 ## <a name="overview"></a>Översikt
-Servicesammanfattningsbladet för StorSimple-enhetshanteraren ger en sammanfattande vy över De virtuella storsimple-matriserna (kallas även Lokala virtuella enheter eller virtuella enheter för StorSimple) som är anslutna till din tjänst och belyser dem som behöver ett system administratörens uppmärksamhet. Den här självstudien introducerar bladet för servicesammanfattning, förklarar innehållet och funktionen och beskriver de uppgifter som du kan utföra från det här bladet.
+Bladet för tjänst Sammanfattning för StorSimple-Enhetshanteraren innehåller en sammanfattningsvy för virtuella StorSimple-matriser (även kallade StorSimple lokala virtuella enheter eller virtuella enheter) som är anslutna till din tjänst och som markerar de som behöver en system administratörs uppmärksamhet. I den här självstudien presenterar vi bladet för tjänst sammanfattning, förklarar innehållet och funktionen och beskriver de uppgifter som du kan utföra från det här bladet.
 
-![Instrumentpanel för tjänst](./media/storsimple-virtual-array-service-summary/service-blade.png)
+![Instrument panel för tjänsten](./media/storsimple-virtual-array-service-summary/service-blade.png)
 
-## <a name="management-commands-and-essentials"></a>Ledningskommandon och väsentligheter
-I sammanfattningsbladet StorSimple visas alternativen för att hantera tjänsten StorSimple Device Manager samt de virtuella matriser som är registrerade för den här tjänsten. Du ser hanteringskommandona över bladets överkant och på vänster sida.
+## <a name="management-commands-and-essentials"></a>Hanterings kommandon och Essentials
+På bladet StorSimple Summary ser du alternativen för att hantera din StorSimple Enhetshanteraren-tjänst samt de virtuella matriser som har registrerats för den här tjänsten. Du ser hanterings kommandona överst på bladet och på den vänstra sidan.
 
 Använd de här alternativen för att utföra olika åtgärder, till exempel lägga till resurser eller volymer, eller övervaka de olika jobb som körs på de virtuella matriserna.
 
-Essentials-området fångar några av de viktiga egenskaperna, till exempel resursgruppen, platsen och prenumerationen där Din StorSimple-enhetshanteraren skapades.
+I avsnittet Essentials samlas några av de viktiga egenskaperna, till exempel, resurs gruppen, platsen och prenumerationen där din StorSimple Enhetshanteraren skapades.
 
-## <a name="storsimple-device-manager-service-summary"></a>Sammanfattning av Tjänsten StorSimple Enhetshanteraren
-* Panelen **Aviseringar** innehåller en ögonblicksbild av alla aktiva aviseringar på alla virtuella enheter, grupperade efter allvarlighetsgrad för aviseringar. Om du klickar på panelen öppnas bladet **Aviseringar,** där du kan klicka på en enskild avisering för att visa ytterligare information om den aviseringen, inklusive rekommenderade åtgärder. Du kan också rensa aviseringen om problemet har lösts.
-* På panelen **Kapacitet** visas den primära lagring som har etablerats och som finns kvar på alla virtuella enheter i förhållande till den totala tillgängliga lagringen på alla virtuella enheter. **Etablerat** refererar till mängden lagringsutrymme som förbereds och allokeras för användning, **Återstående** refererar till den återstående kapaciteten som kan etableras över alla virtuella enheter. **Återstående nivåindelad** kapacitet är den tillgängliga kapacitet som kan etableras inklusive molnet, medan **återstående lokal** är den kapacitet som finns kvar på diskarna som är kopplade till de virtuella matriserna.
-* I **användningsdiagrammet** kan du se relevanta mått för dina virtuella enheter. Du kan visa den primära lagring som används på alla virtuella enheter, samt molnlagring som förbrukas av virtuella enheter under de senaste 7 dagarna, standardperioden. Använd alternativet **Redigera** i diagrammets övre högra hörn för att välja en annan tidsskala.
-* Panelen **Enheter** innehåller en sammanfattning av antalet virtuella matriser i StorSimple-enhetshanteraren grupperade efter enhetsstatus. Klicka på den här panelen om du vill öppna listbladet **Enheter** och sedan på en enskild enhet för att öka enhetssammanfattningen som är specifik för enheten. Du kan också utföra enhetsspecifika åtgärder från ett visst enhetssammanfattningsblad. Mer information om enhetssammanfattningsbladet finns i [Sammanfattningsblad för enhet](storsimple-virtual-array-device-summary.md).
+## <a name="storsimple-device-manager-service-summary"></a>Sammanfattning av StorSimple Enhetshanteraren-tjänsten
+* Panelen **aviseringar** innehåller en ögonblicks bild av alla aktiva aviseringar på alla virtuella enheter, grupperade efter aviserings allvarlighets grad. Om du klickar på panelen öppnas **varnings** bladet där du kan klicka på en enskild avisering om du vill visa mer information om aviseringen, inklusive eventuella rekommenderade åtgärder. Du kan också ta bort aviseringen om problemet har lösts.
+* Panelen **kapacitet** visar den primära lagring som tillhandahålls och är kvar på alla virtuella enheter i förhållande till det totala lagrings utrymmet som är tillgängligt för alla virtuella enheter. Med den mängd lagrings utrymme som är för beredd och tilldelad för användning **, refererar** **återstående** till den återstående kapacitet som kan tillhandahållas på alla virtuella enheter. Den **återstående** kapacitets kapaciteten är den tillgängliga kapacitet som kan tillhandahållas inklusive molnet, medan **återstående lokala** kapacitet är den kapacitet som återstår på diskarna som är anslutna till de virtuella matriserna.
+* I **användnings** diagrammet kan du se relevanta mått för dina virtuella enheter. Du kan visa den primära lagringen som används för alla virtuella enheter, samt den moln lagring som förbrukas av virtuella enheter under de senaste 7 dagarna, standard tids perioden. Använd alternativet **Redigera** i det övre högra hörnet i diagrammet om du vill välja en annan tids skala.
+* Panelen **enheter** innehåller en översikt över antalet virtuella matriser i din StorSimple-Enhetshanteraren grupperade efter enhets status. Klicka på den här panelen för att öppna bladet **med enhets listan och** klicka sedan på en enskild enhet för att öka detalj nivån för enhetens Sammanfattning. Du kan också utföra enhetsspecifika åtgärder från ett angivet enhets sammanfattnings blad. Mer information om bladet enhets sammanfattning finns på [bladet enhets Sammanfattning](storsimple-virtual-array-device-summary.md).
 
-## <a name="view-the-activity-logs"></a>Visa aktivitetsloggarna
-Om du vill visa de olika åtgärder som utförs i StorSimple-enhetshanteraren klickar du på länken **Aktivitetsloggar** till vänster om sammanfattningsbladet för StorSimple-tjänsten. Detta tar dig till **bladet Aktivitetsloggar,** där du kan se en sammanfattning av de senaste åtgärderna som utförts.
+## <a name="view-the-activity-logs"></a>Visa aktivitets loggarna
+Om du vill visa de olika åtgärder som utförs i StorSimple Enhetshanteraren klickar du på länken **aktivitets loggar** till vänster på bladet StorSimple service Summary. Då går du till bladet **aktivitets loggar** där du kan se en sammanfattning av de senaste åtgärderna som utförts.
 
 ![Aktivitetsloggar](./media/storsimple-virtual-array-service-summary/activity-log.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [använder det lokala webbgränssnittet för att administrera din StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Lär dig hur du [använder det lokala webb gränssnittet för att administrera din virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Cloud Shell-redigeraren | Microsoft-dokument
-description: Översikt över hur du använder Azure Cloud Shell-redigeraren.
+title: Använda Azure Cloud Shell redigeraren | Microsoft Docs
+description: Översikt över hur du använder Azure Cloud Shell redigeraren.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60199232"
 ---
-# <a name="using-the-azure-cloud-shell-editor"></a>Använda Azure Cloud Shell-redigeraren
+# <a name="using-the-azure-cloud-shell-editor"></a>Använda Azure Cloud Shell redigeraren
 
-Azure Cloud Shell innehåller en integrerad filredigerare byggd från [Monaco](https://github.com/Microsoft/monaco-editor)Editor med öppen källkod . Cloud Shell-redigeringsprogrammet stöder funktioner som språkmarkering, kommandopaletten och en filutforskare.
+Azure Cloud Shell innehåller ett integrerat fil redigerings program som skapats från Monaco- [redigeraren](https://github.com/Microsoft/monaco-editor)med öppen källkod. Cloud Shell-redigeringsprogrammet stöder funktioner som språkmarkering, kommandopaletten och en filutforskare.
 
-![Redigerare för Cloud Shell](media/using-cloud-shell-editor/open-editor.png)
+![Cloud Shell redigerare](media/using-cloud-shell-editor/open-editor.png)
 
-## <a name="opening-the-editor"></a>Öppna redaktören
+## <a name="opening-the-editor"></a>Öppna redigeraren
 
 Om du vill kunna skapa och redigera filer enkelt startar du redigeringsprogrammet genom att köra `code .` i Cloud Shell-terminalen. Då öppnas redigeringsprogrammet med den aktiva arbetskatalogen i terminalen.
 
@@ -35,22 +35,22 @@ Om du vill öppna en fil direkt för snabb redigering kör du `code <filename>` 
 
 Om du vill öppna redigeringsprogrammet med en knapp i användargränssnittet klickar du på ikonen för `{}`-redigeringsprogrammet i verktygsfältet. Då öppnas redigeringsprogrammet och katalogen `/home/<user>` används som standard i filutforskaren.
 
-## <a name="closing-the-editor"></a>Stänga redigeraren
+## <a name="closing-the-editor"></a>Stänger redigeraren
 
-Om du vill stänga `...` redigeraren öppnar du åtgärdspanelen längst upp till höger i redigeraren och väljer `Close editor`.
+Om du vill stänga redigeraren öppnar `...` du Åtgärds panelen längst upp till höger i redigeraren `Close editor`och väljer.
 
-![Stäng redigeraren](media/using-cloud-shell-editor/close-editor.png)
+![Stäng redigerings programmet](media/using-cloud-shell-editor/close-editor.png)
 
-## <a name="command-palette"></a>Kommandopalett
+## <a name="command-palette"></a>Kommando palett
 
-Om du vill starta kommandopaletten `F1` använder du nyckeln när fokus är inställt på redigeraren. Om du öppnar kommandopaletten kan du också göra via åtgärdspanelen.
+Om du vill starta kommando paletten använder `F1` du nyckeln när fokus har angetts i redigeraren. Det går även att öppna kommando paletten via Åtgärds panelen.
 
-![Komdpalett](media/using-cloud-shell-editor/cmd-palette.png)
+![CMD-palett](media/using-cloud-shell-editor/cmd-palette.png)
 
-## <a name="contributing-to-the-monaco-editor"></a>Bidra till Monaco Editor
+## <a name="contributing-to-the-monaco-editor"></a>Bidra till Monaco-redigeraren
 
-Stöd för språkhöjd i Cloud Shell-redigeraren stöds genom uppströmsfunktioner i [Monaco-redigerarens](https://github.com/Microsoft/monaco-editor)användning av Monarch-syntaxdefinitioner. Om du vill veta hur du gör bidrag, läs [Monaco contributor guide](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
+Stöd för språk markering i Cloud Shell-redigeraren stöds via överordnade funktioner i [Monaco-redigerarens](https://github.com/Microsoft/monaco-editor)användning av Monarch-syntaxen. Information om hur du gör bidrag finns i [hand boken för Monaco Contributor](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[Prova snabbstarten för Bash i Cloud Shell](quickstart.md)
-[Visa den fullständiga listan över integrerade Cloud Shell-verktyg](features.md)
+[Prova snabb starten för bash i Cloud Shell](quickstart.md)
+[Visa en fullständig lista över integrerade Cloud Shell-verktyg](features.md)

@@ -1,6 +1,6 @@
 ---
-title: StorSimple övervakningsindikatorer | Microsoft-dokument
-description: Beskriver de lysdioder (lysdioder) och hörbara larm som används för att övervaka StorSimple-enhetens status.
+title: StorSimple övervaknings indikatorer | Microsoft Docs
+description: Beskriver de ljusbaserade dioderna (lysdioder) och akustiska larm som används för att övervaka status för StorSimple-enheten.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,234 +15,234 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60630656"
 ---
-# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Använd StorSimple-övervakningsindikatorer för att hantera din enhet
+# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Använd StorSimple övervaknings indikatorer för att hantera din enhet
 
 
 ## <a name="overview"></a>Översikt
-Din StorSimple-enhet innehåller lysdioder (lysdioder) och larm som du kan använda för att övervaka Modulerna och storsimple-enhetens övergripande status. Övervakningsindikatorerna finns på maskinvarukomponenterna i enhetens primära kapsling och EBOD-kapslingen. Övervakningsindikatorerna kan vara antingen lysdioder eller hörbara larm.
+Din StorSimple-enhet innehåller ljus avsända dioder (lysdioder) och larm som du kan använda för att övervaka moduler och övergripande status för StorSimple-enheten. Övervaknings indikatorerna finns på maskin varu komponenterna i enhetens primära hölje och EBOD-höljet. Övervaknings indikatorerna kan vara antingen indikatorer eller akustiska larm.
 
-Det finns tre LED-lägen som används för att ange status för en modul: grön, blinkande grön till röd-gul, eller röd-gul.  
+Det finns tre LED lägen som används för att visa status för en modul: grön, blinkar grön till röd-gul eller röd-gul.  
 
-* Gröna lysdioder representerar en felfri driftsstatus.  
-* Blinkande grönt till röd-gult lysdioder representerar förekomsten av icke-kritiska förhållanden som kan kräva åtgärder från användaren.  
-* Röd-gula lysdioder indikerar att det finns ett kritiskt fel i modulen.  
+* Gröna indikatorer representerar en felfri drift status.  
+* Blinkande grön-till röd-gul lysdioder visar förekomsten av icke-kritiska villkor som kan kräva åtgärder från användaren.  
+* Röda-gul-lampor indikerar att det finns ett allvarligt fel i modulen.  
 
-Resten av den här artikeln beskriver de olika övervakningsindikatorlysdioderna, deras platser på StorSimple-enheten, enhetens status baserat på LED-tillstånd och eventuella tillhörande hörbara larm.
+I resten av den här artikeln beskrivs de olika övervaknings indikator lamporna, deras platser på StorSimple-enheten, enhetens status baserat på LYSDIODernas tillstånd och eventuella tillhör ande akustiska larm.
 
-## <a name="front-panel-indicator-leds"></a>Indikatorlysdioder på frontpanelen
-Frontpanelen, även känd som *operationspanelen* eller *ops-panelen,* visar den sammanlagda statusen för alla moduler i systemet. Frontpanelen är identisk på StorSimple-primärt och EBOD-kapslingen och illustreras nedan.  
+## <a name="front-panel-indicator-leds"></a>Indikator lampor på Front panelen
+På Front panelen, som även kallas för *drift panelen* eller *ops panelen*, visas sammanställd status för alla moduler i systemet. Front panelen är identisk med den primära StorSimple-och EBOD-höljet och illustreras nedan.  
 
-   ![Enhetens frontpanel][1]
+   ![Enhets Front Panel][1]
 
-Frontpanelen innehåller följande indikatorer:  
+Front panelen innehåller följande indikatorer:  
 
-1. Ljudavstängning
-2. Strömindikator LED (grön/röd-gulfärgad)
-3. Modulfelindikator LED (PÅ röd-gul/AV)
-4. LyolystindikatorLAMPA (PÅ röd-gul/AV
-5. Enhets-ID-skärm  
+1. Knappen ljud av
+2. Indikator för ström indikator (grön/röd – gul)
+3. Indikator för modul Fels indikator (på röd-gul/av)
+4. Indikator för logisk fel indikator (på röd-gul/av
+5. Visning av enhets-ID  
 
-Den största skillnaden mellan frontpanelens lysdioder för enheten och de för EBOD-höljet är **systemenhetens identifieringsnummer** som visas på LED-displayen. Standardenhets-ID som visas på enheten är **00**, medan standardenhets-ID som visas på EBOD-höljet är **01**. På så sätt kan du snabbt skilja mellan enheten och EBOD-höljet när enheten är påslagen. Om enheten är avstängd använder du informationen i [Aktivera en ny enhet](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) för att skilja enheten från EBOD-höljet.  
+Den största skillnaden mellan lampor på Front panelen för enheten och de för EBOD-höljet är **system enhetens identifierings nummer** som visas på lampan. Standardenhets-ID som visas på enheten är **00**, medan standardenhets-ID: t som visas i EBOD-kammaren är **01**. På så sätt kan du snabbt skilja mellan enheten och EBOD-höljet när enheten är påslagen. Om enheten är inaktive rad kan du använda den information som finns i [Aktivera på en ny enhet](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) för att skilja enheten från EBOD-höljet.  
 
-## <a name="front-panel-led-status"></a>LED-status på frontpanelen
-Använd följande tabell för att identifiera den status som anges av lysdioderna på frontpanelen för enheten eller EBOD-höljet.  
+## <a name="front-panel-led-status"></a>Status för front panel
+Använd följande tabell för att identifiera den status som anges av lysdioderna på Front panelen för enheten eller EBOD-höljet.  
 
-| Systemström | Modul fel | Logiskt fel | Larm | Status |
+| Systemets strömförsörjning | Modul-fel | Logiskt fel | Varningar | Status |
 | --- | --- | --- | --- | --- |
-| Röd-gul |OFF |OFF |Ej tillämpligt |Strömström som gått förlorad, drift på reservkraft eller ström på och styrenhetsmodulerna togs bort. |
-| Grön |ON |ON |Ej tillämpligt |Ops-panel påslagningstillstånd (5s) |
-| Grön |OFF |OFF |Ej tillämpligt |Slå på, alla funktioner bra |
-| Grön |ON |Ej tillämpligt |PCM-fel lysdioder, fläktfel lysdioder |Alla PCM-fel, fläktfel, över eller under temperatur |
-| Grön |ON |Ej tillämpligt |I/O-modullysdioder |Fel på alla styrenhetsmoduler |
-| Grön |ON |Ej tillämpligt |Ej tillämpligt |Fel på höljelogik |
-| Grön |Flash |Ej tillämpligt |Modulstatus LED på styrenhetsmodul. PCM-fel lysdioder, fläktfel lysdioder |Okänd styrenhetsmodultyp installerad, I2C-bussfel, styrenhetsmodulskonfigurationsfel för viktiga produktdata (VPD) |
+| Röd-gul |OFF |OFF |Ej tillämpligt |Ström spar läge går förlorat, körs på säkerhets kopiering eller LIKSTRÖMs drift och Controller-modulerna har tagits bort. |
+| Grön |ON |ON |Ej tillämpligt |Test status för OPS-panelens start på (5 SEK) |
+| Grön |OFF |OFF |Ej tillämpligt |Slå på, alla funktioner är effektiva |
+| Grön |ON |Ej tillämpligt |Fel lampor för PCM, fläkt Fels lampor |Ett PCM-fel, fläkt fel, över eller under temperatur |
+| Grön |ON |Ej tillämpligt |I/O-modulens lampor |Ett fel i styrenhets module |
+| Grön |ON |Ej tillämpligt |Ej tillämpligt |Kabinett logiskt fel |
+| Grön |Utvecklingsverktyget |Ej tillämpligt |INDIKATOR för modulens status i Controller-modulen. Fel lampor för PCM, fläkt Fels lampor |Okänd modultyp har installerats, I2C Bus-fel, konfigurations fel i kontrollantens vitala produkt data (VPD) |
 
-## <a name="power-cooling-module-pcm-indicator-leds"></a>Pcm-indikatorlysdioder (Power Cooling Module)
-PCM-indikatorlysdioder (Power Cooling Module) finns på baksidan av det primära höljet eller EBOD-höljet på varje PCM-modul. I det här avsnittet beskrivs hur du använder följande lysdioder för att övervaka statusen för din StorSimple-enhet.  
+## <a name="power-cooling-module-pcm-indicator-leds"></a>Indikator lampor för Power kylning module (PCM)
+Indikator lampor för Power kylning module (PCM) finns på bak sidan av den primära inne slutningen eller EBOD-kammaren på varje PCM-modul. I det här avsnittet beskrivs hur du använder följande indikatorer för att övervaka status för din StorSimple-enhet.  
 
-* PCM-lysdioder för primärhöljet
-* PCM-lysdioder för EBOD-höljet
+* PCM-indikatorer för den primära inne slutningen
+* PCM-lampor för EBOD-höljet
 
-## <a name="pcm-leds-for-the-primary-enclosure"></a>PCM-lysdioder för primärhöljet
-StorSimple-enheten har en 764W PCM-modul med ett extra batteri. Följande bild visar LED-panelen för enheten.  
+## <a name="pcm-leds-for-the-primary-enclosure"></a>PCM-indikatorer för den primära inne slutningen
+StorSimple-enheten har en 764W PCM-modul med ett extra batteri. Följande bild visar indikator panelen för enheten.  
 
-   ![PCM-lysdioder på det primära höljet][2]
+   ![PCM-indikatorer på den primära inne slutningen][2]
 
-LED-förklaring:
+LED text förklaring:
 
-1. Strömavbrott
-2. Fläktfel
-3. Batterifel
+1. AC-strömavbrott
+2. Fläkt haveri
+3. Batteri fel
 4. PCM OK
-5. DC-fel
-6. Batteriet bra  
+5. DC-haveri
+6. Batteriet är utmärkt  
 
-PCM:s status anges på LED-panelen. Enheten PCM LED-panel har sex lysdioder. Fyra av dessa lysdioder visar strömförsörjningens och fläktens status. De återstående två lysdioderna anger status för reservbatterimodulen i PCM. Du kan använda följande tabeller för att fastställa pcm-statusen.  
+Status för PCM visas på indikator panelen. Indikator lampan för enhets-PCM har sex lampor. Fyra av de här lysdioderna visar statusen för strömförsörjningen och fläkten. De återstående två lysdioderna visar status för modulen för säkerhets kopierings batteri i PCM. Du kan använda följande tabeller för att fastställa status för PCM.  
 
-### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>PCM-indikatorlysdioder för strömförsörjning och fläkt
-| Status | PCM OK (grön) | AC-fel (gult) | Fläkten misslyckas (gul) | DC misslyckas (gul) |
+### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>PCM-indikator lampor för strömförsörjning och fläkt
+| Status | PCM OK (grönt) | Växel ström (gul) | Fläkten fungerar inte (gul) | DC-misslyckande (gul) |
 | --- | --- | --- | --- | --- |
-| Ingen växelström (till hölje) |OFF |OFF |OFF |OFF |
-| Ingen växelström (endast denna PCM) |OFF |ON |OFF |ON |
-| AC nuvarande PCM ON - OK |ON |OFF |OFF |OFF |
-| PCM misslyckas (fläkten misslyckas) |OFF |OFF |ON |Ej tillämpligt |
-| PCM-fel (över förstärkare, överspänning, över ström) |OFF |ON |ON |ON |
-| PCM (fläkt av tolerans) |ON |OFF |OFF |ON |
-| Passningsläge |Blinkande |OFF |OFF |OFF |
-| PCM firmware nedladdning |OFF |Blinkande |Blinkande |Blinkande |
+| Ingen växel ström (till kabinett) |OFF |OFF |OFF |OFF |
+| Ingen växel ström (endast denna PCM) |OFF |ON |OFF |ON |
+| AC-presentera PCM på OK |ON |OFF |OFF |OFF |
+| PCM-misslyckande (fläkt misslyckande) |OFF |OFF |ON |Ej tillämpligt |
+| PCM-fel (via amp, överspänning, över aktuella) |OFF |ON |ON |ON |
+| PCM (från tolerans) |ON |OFF |OFF |ON |
+| Vänte läge |Blinkande |OFF |OFF |OFF |
+| Nedladdning av inbyggd PCM-programvara |OFF |Blinkande |Blinkande |Blinkande |
 
-### <a name="pcm-indicator-leds-for-the-backup-battery"></a>PCM-indikatorlysdioder för reservbatteriet
-| Status | Batteriet bra (grönt) | Batterifel (gult) |
+### <a name="pcm-indicator-leds-for-the-backup-battery"></a>PCM-indikator lampor för säkerhets kopierings batteriet
+| Status | Batteriet är utmärkt (grönt) | Batteri fel (gul) |
 | --- | --- | --- |
-| Batteriet finns inte |OFF |OFF |
-| Batteri som finns och laddas |ON |OFF |
-| Laddning eller underhåll urladdning av batteriet |Blinkande |OFF |
-| Batteri "mjuk" fel (återvinningsbar) |OFF |Blinkande |
-| Batteri "hårt" fel (kan inte återvinnas) |OFF |ON |
-| Batteriet avväpnas |Blinkande |OFF |
+| Batteriet är inte tillgängligt |OFF |OFF |
+| Batteri som finns och debiteras |ON |OFF |
+| Batteri laddning eller underhålls urladdning |Blinkande |OFF |
+| Batteri "Soft"-fel (återställnings Bart) |OFF |Blinkande |
+| Batteri "hård"-fel (det går inte att återskapa) |OFF |ON |
+| Avmilitärt batteri |Blinkande |OFF |
 
-## <a name="pcm-leds-for-the-ebod-enclosure"></a>PCM-lysdioder för EBOD-höljet
-EBOD-höljet har en 580W PCM och inget extra batteri. PCM-panelen för EBOD-höljet har endast indikatorlysdioder för nätaggregat och fläkt. Följande bild visar dessa lysdioder.
+## <a name="pcm-leds-for-the-ebod-enclosure"></a>PCM-lampor för EBOD-höljet
+EBOD-kabinettet har en 580W PCM och inget extra batteri. EBOD-Kabinettets PCM-panel har indikator lampor för strömförsörjning och fläkt. Följande bild visar lysdioderna.
 
-   ![PCM-lysdioder på EBOD-höljet][3] 
+   ![PCM-lampor på EBOD-höljet][3] 
 
-Du kan använda följande tabell för att fastställa pcm-statusen.  
+Du kan använda följande tabell för att fastställa status för PCM.  
 
-| Status | PCM OK (grön) | AC-fel (gult) | Fläkten misslyckas (gul) | DC misslyckas (gul) |
+| Status | PCM OK (grönt) | Växel ström (gul) | Fläkten fungerar inte (gul) | DC-misslyckande (gul) |
 | --- | --- | --- | --- | --- |
-| Ingen växelström (till hölje) |OFF |OFF |OFF |OFF |
-| Ingen växelström (endast denna PCM) |OFF |ON |OFF |ON |
-| AC nuvarande PCM PÅ - OK |ON |OFF |OFF |OFF |
-| PCM misslyckas (fläkten misslyckas) |OFF |OFF |ON |X |
-| PCM-fel (överspänning, överspänning, överström |OFF |ON |ON |ON |
-| PCM (fläkt av tolerans) |ON |OFF |OFF |ON |
-| Standby-modell |Blinkande |OFF |OFF |OFF |
-| PCM firmware nedladdning |OFF |Blinkande |Blinkande |Blinkande |
+| Ingen växel ström (till kabinett) |OFF |OFF |OFF |OFF |
+| Ingen växel ström (endast denna PCM) |OFF |ON |OFF |ON |
+| AC presentera PCM på – OK |ON |OFF |OFF |OFF |
+| PCM-misslyckande (fläkt misslyckande) |OFF |OFF |ON |X |
+| PCM-fel (via amp, överspänning, över aktuella |OFF |ON |ON |ON |
+| PCM (från tolerans) |ON |OFF |OFF |ON |
+| Vänte läges modell |Blinkande |OFF |OFF |OFF |
+| Nedladdning av inbyggd PCM-programvara |OFF |Blinkande |Blinkande |Blinkande |
 
-## <a name="controller-module-indicator-leds"></a>Indikatorlysdioder för styrenhetsmodul
-StorSimple-enheten innehåller lysdioder för den primära styrenheten och EBOD-styrenheterna.   
+## <a name="controller-module-indicator-leds"></a>Indikator lampor för Controller-modulen
+StorSimple-enheten innehåller lampor för den primära styrenheten och modulerna för EBOD Controller.   
 
-### <a name="monitoring-leds-for-the-primary-controller"></a>Övervakningslysdioder för den primära styrenheten
-Följande bild hjälper dig att identifiera lysdioderna på den primära styrenheten. (Alla komponenter är listade för att underlätta orienteringen.)  
+### <a name="monitoring-leds-for-the-primary-controller"></a>Övervaknings indikatorer för den primära styrenheten
+Följande bild hjälper dig att identifiera lysdioderna på den primära kontroll enheten. (Alla komponenter listas för att hjälpa till med orientering.)  
 
-   ![Övervakningslysdioder - primär styrenhet][4]
+   ![Övervaknings indikatorer – primär kontrollant][4]
 
-Använd följande tabell för att avgöra om styrenhetsmodulen fungerar korrekt.  
+Använd följande tabell för att avgöra om Controller-modulen fungerar som den ska.  
 
-### <a name="controller-indicator-leds"></a>Styrindikator lysdioder
-| Ledde | Beskrivning |
+### <a name="controller-indicator-leds"></a>Indikator lampor för kontrollant
+| SPOLNING | Beskrivning |
 | --- | --- |
-| ID LED (blå) |Anger att modulen identifieras. Om den blå lysdioden blinkar på en löpstyrenhet är handkontrollen den aktiva handkontrollen och den andra är standby-styrenheten. Mer information finns i [Identifiera den aktiva handkontrollen på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| Fellampa (gul) |Indikerar ett fel i handkontrollen. |
-| OK LED (grön) |Stadigt grönt indikerar att handkontrollen är OK. Blinkande grönt indikerar ett VPD-konfigurationsfel för styrenheten. |
-| SAS aktivitetslysdioder (grön) |Stadigt grönt indikerar en anslutning utan aktuell aktivitet. Blinkande grönt indikerar att anslutningen har pågående aktivitet. |
-| Ethernet-status lysdioder |Höger sida anger länk/nätverksaktivitet: (stadig grön) länk aktiv, (blinkande grön) nätverksaktivitet. Vänster sida anger nätverkshastighet: (gul) 1000 Mb/s, (grön) 100 Mb/s och (OFF) 10 Mb/s. Beroende på komponentmodellen kan den här lampan blinka även om nätverksgränssnittet inte är aktiverat. |
-| POST LYSDIODER |Anger startstatus när handkontrollen är påslagen. Om StorSimple-enheten inte startar hjälper den här lysdioden Microsoft Support att identifiera den punkt i startprocessen där felet uppstod. |
+| Indikator för ID (blå) |Anger att modulen identifieras. Om den blå INDIKATORn blinkar på en styrenhet som körs, är kontrollanten den aktiva styrenheten och den andra är vänte läges styrenheten. Mer information finns i [identifiera den aktiva kontrollanten på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| Fel indikator (gul) |Indikerar ett fel i kontrollanten. |
+| Indikator för OK (grönt) |Stadig grön visar att kontrollanten är OK. Blinkande grönt indikerar ett konfigurations fel för styrenhetens VPD. |
+| Indikatorer för SAS-aktivitet (grönt) |Stadig grön indikerar en anslutning utan aktuell aktivitet. Blinkande grönt indikerar att anslutningen har pågående aktivitet. |
+| Ethernet-status lampor |Höger indikerar länk-/nätverks aktivitet: (stadig grön) länk aktiv, (blinkar grön) nätverks aktivitet. Vänster sida indikerar nätverks hastighet: (gul) 1000 MB/s, (grönt) 100 MB/s, och (av) 10 MB/s. Beroende på komponent modellen kan det här ljuset blinka även om nätverks gränssnittet inte är aktiverat. |
+| PUBLICERA LED |Anger start förloppet när kontroll enheten aktive ras. Om StorSimple-enheten inte kan starta kan den här INDIKATORn hjälpa Microsoft Support att identifiera den punkt i Start processen där felet uppstod. |
 
 > [!IMPORTANT]
-> Om fellampan lyser är det problem med styrenhetsmodulen som kan lösas genom att du startar om styrenheten. Kontakta Microsoft Support om det inte går att lösa problemet med att starta om handkontrollen.  
+> Om fel INDIKATORn är tänd, finns det ett problem med Controller-modulen som kan lösas genom att starta om kontrollanten. Kontakta Microsoft Support om du inte kan lösa problemet genom att starta om kontrollanten.  
 > 
 > 
 
-### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>Övervakningslysdioder för EBOD (EBOD-kapsling)
-Var och en av DE 6 GB/s SAS EBOD-styrenheterna har lysdioder som anger dess status enligt följande bild.  
+### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>Övervaknings lampor för EBOD (EBOD-kabinettet)
+Var och en av de 6 GB/s SAS-EBOD styrenheter har lysdioder som anger dess status som visas i följande bild.  
 
-  ![Övervakningslysdioder - EBOD-kapsling][5]
+  ![Övervaknings lampor – EBOD hölje][5]
 
-Använd följande tabell för att avgöra om EBOD-styrenheten fungerar normalt.  
+Använd följande tabell för att avgöra om modulen EBOD Controller fungerar normalt.  
 
-### <a name="ebod-controller-module-indicator-leds"></a>EBOD controller modul indikator lysdioder
-| Status | I/O-modul OK (grön) | I/O-modulfel (gult) | Värdportaktivitet (grön) |
+### <a name="ebod-controller-module-indicator-leds"></a>Indikator lampor för EBOD Controller-modulen
+| Status | I/O-modul OK (grön) | I/O-modulens fel (gul) | Värd ports aktivitet (grön) |
 | --- | --- | --- | --- |
-| Controller modul OK |ON |OFF |- |
-| Fel på styrenhetsmodul |OFF |ON |- |
-| Ingen extern värdportanslutning |- |- |OFF |
-| Extern värdportanslutning – ingen aktivitet |- |- |ON |
-| Extern värdportanslutning - aktivitet |- |- |Blinkande |
-| Metadatafel för kontrollmodul |Blinkande |- |- |
+| Kontrollant-modul OK |ON |OFF |- |
+| Fel i styrenhets modul |OFF |ON |- |
+| Ingen anslutning till extern värd port |- |- |OFF |
+| Port anslutning för extern värd – ingen aktivitet |- |- |ON |
+| Anslutning till extern värd port-aktivitet |- |- |Blinkande |
+| Metadata för kontrollant-modul |Blinkande |- |- |
 
-## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Lysdioder för diskenhetsindikator för det primära höljet och EBOD-höljet
-StorSimple-enheten har hårddiskar som finns i både den primära höljet och EBOD-höljet. Varje diskenhet innehåller övervakningsindikatorlysdioder, enligt beskrivningen i det här avsnittet. 
+## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Indikator lampor för disk enheten för den primära inne slutningen och EBOD-höljet
+StorSimple-enheten har disk enheter som finns i både den primära och EBOD-höljet. Varje disk enhet innehåller övervaknings indikator lampor, enligt beskrivningen i det här avsnittet. 
 
-För diskenheterna indikeras enhetens status med en grön lysdiod och en röd-gul LED monterad på framsidan av varje drivhållaremodul. Följande bild visar dessa lysdioder.
+För disk enheterna visas enhetens status med en grön indikator och en röd-gul lampa monterad på fram sidan av varje enhets transport modul. Följande bild visar lysdioderna.
 
-  ![Lysdioder för diskenhet][6]
+  ![Indikatorer för disk enhet][6]
 
-Använd följande tabell för att bestämma tillståndet för varje diskenhet, vilket i sin tur påverkar den övergripande led-statusen på frontpanelen.  
+Använd följande tabell för att fastställa tillståndet för varje disk enhet, vilket i sin tur påverkar den övergripande indikator statusen för Front panelen.  
 
-### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Lysdioder för diskenhetsindikator för EBOD-höljet
-| Status | Aktivitet OK LED (grön) | Fellysdiod (röd-gul) | Led-lampa för tillhörande ops-panel |
+### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Indikator lampor för disk enheten för EBOD-höljet
+| Status | Indikator för aktivitets OK (grön) | Fel LED (röd-gul) | Indikator för tillhör ande Ops-panel |
 | --- | --- | --- | --- |
-| Ingen enhet installerad |OFF |OFF |Inget |
-| Enhet installerad och i drift |Blinkar på/av med aktivitet |X |Inget |
-| SE-enhetsidentitetsuppsättning (SCSI Enclosure Services) |ON |Blinkande 1 sekund på / 1 sekund bort |Inget |
-| SES-enhetsfelbituppsättning |ON |ON |Logiskt fel (rött) |
-| Strömavbrottsbrytare |OFF |ON |Modulfel (röd) |
+| Ingen enhet installerad |OFF |OFF |Ingen |
+| Enhet installerad och drift |Blinkar på/av med aktivitet |X |Ingen |
+| SES (SCSI Enclosure Services) enhets identitets uppsättning |ON |Blinkar 1 sekund på/1 sekund av |Ingen |
+| SES enhets fel bit uppsättning |ON |ON |Logiskt fel (rött) |
+| Ström styrnings krets-problem |OFF |ON |Module-fel (röd) |
 
-## <a name="audible-alarms"></a>Hörbara larm
-En StorSimple-enhet innehåller hörbara larm som är kopplade till både den primära inneslutningen och EBOD-höljet. Ett hörbart larm finns på frontpanelen (även känd som ops-panelen) i båda kapslingarna. Det hörbara larmet indikerar när ett feltillstånd föreligger. Följande villkor aktiverar larmet:  
+## <a name="audible-alarms"></a>Akustiska larm
+En StorSimple-enhet innehåller akustiska larm som är kopplade till både den primära inne slutningen och EBOD-höljet. Ett akustiskt larm finns på Front panelen (även kallat ops-panelen) för båda höljen. Akustiskt larm anger när ett fel tillstånd föreligger. Följande villkor aktiverar larmet:  
 
-* Fläktfel eller fel
-* Spänning utanför räckhåll
-* Över eller under temperaturtillstånd
-* Termisk överskridande
-* Systemfel
+* Fläkt fel eller fel
+* Spänning utanför intervallet
+* Över eller under temperatur villkor
+* Termisk buffertöverskridning
+* System fel
 * Logiskt fel
-* Fel vid strömförsörjning
-* Borttagning av en effektkylmodul (PCM)  
+* El försörjnings fel
+* Borttagning av en Power kylning module (PCM)  
 
-I följande tabell beskrivs de olika larmtillstånden.  
+I följande tabell beskrivs de olika larm tillstånden.  
 
-### <a name="alarm-states"></a>Larmtillstånd
-| Larmtillstånd | Åtgärd | Åtgärden med knappen Ljud av är intryckt |
+### <a name="alarm-states"></a>Larm tillstånd
+| Larm tillstånd | Åtgärd | Åtgärd med knappen Muted nedtryckt |
 | --- | --- | --- |
-| S0 |Normalt läge: tyst |Pip två gånger |
-| S1 |Felläge: 1 sekund på/1 sekund av |Övergång till S2 eller S3 (se anteckningar) |
-| S2 |Påminnläge: intermittent pip |Inget |
-| S3 |Avstängt läge: tyst |Inget |
-| S4 |Kritiskt felläge: kontinuerligt larm |Inte tillgängligt: ljud av inte aktiv |
+| S0 |Normal läge: tyst |PIP två gånger |
+| S1 |Fel läge: 1 sekund på/1 sekund av |Över gång till S2 eller S3 (se kommentarer) |
+| S2 |Påminn-läge: återkommande ljud signal |Ingen |
+| S3 |Tyst läge: tyst |Ingen |
+| S4 |Kritiskt fel läge: kontinuerligt larm |Inte tillgängligt: Inaktivera inte aktiverat |
 
 > [!NOTE]
-> * I larmtillstånd S1, om du inte trycker på mute inom 2 minuter, övergår tillståndet automatiskt till S2 eller S3.  
-> * Larmet säger att S1 till S4 återgår till S0 efter att felet var åtgärdat.  
-> * Kritiskt feltillstånd S4 kan anges från vilket annat tillstånd som helst.  
+> * I alarm State S1, om du inte trycker på ljud av igen inom 2 minuter, övergår läget automatiskt till S2 eller S3.  
+> * Larm tillstånd S1 till S4 återgår till S0 när fel tillståndet har rensats.  
+> * Tillstånd för kritiska fel i S4 kan anges från alla andra tillstånd.  
 
 
-Du kan stänga av det hörbara larmet genom att trycka på ljudavstängningsknappen på ops-panelen. Automatisk avstängning sker efter två minuter om mute-brytaren inte manövreras manuellt. När alarmet är avstängt fortsätter det att ljuda med korta intermittenta pip för att indikera att det fortfarande finns ett problem. Larmet kommer att vara tyst när alla problem är klara.
+Du kan stänga av ljud larmet genom att trycka på ljud av-knappen på ops-panelen. Automatisk ljud avstängning sker efter två minuter om växeln MUTE inte körs manuellt. När larmet är avstängt fortsätter det att köras med korta tillfälliga signaler för att indikera att det fortfarande finns ett problem. Larmet kommer att vara tyst när alla problem är avmarkerade.
 
-I följande tabell beskrivs de olika larmförhållandena.
+I följande tabell beskrivs de olika larm villkoren.
 
-### <a name="alarm-conditions"></a>Larmförhållanden
-| Status | Severity | Larm | Ops panel LED |
+### <a name="alarm-conditions"></a>Larm villkor
+| Status | Severity | Varningar | Indikator för OPS-panel |
 | --- | --- | --- | --- |
-| PCM-varning – förlust av DC-ström från en enda PCM |Fel – ingen förlust av redundans |S1 |Modul fel |
-| PCM-varning – förlust av DC-ström från en enda PCM |Fel – förlust av uppsägning |S1 |Modul fel |
-| PCM-fläkt misslyckas |Fel – förlust av uppsägning |S1 |Modul fel |
-| SBB-modul upptäckt PCM-fel |Fel |S1 |Modul fel |
-| PCM bort |Konfigurationsfel |Inget |Modul fel |
-| Konfigurationsfel för inneslutning |Fel – kritisk |S1 |Modul fel |
-| Varning för låg varning |Varning |S1 |Modul fel |
-| Hög varningstemperaturvarning |Varning |S1 |Modul fel |
-| Över temperaturlarm |Fel – kritisk |S1 |Modul fel |
-| I2C buss fel |Fel – förlust av uppsägning |S1 |Modul fel |
-| Kommunikationsfel på Ops-panelen (I2C) |Fel – kritisk |S1 |Modul fel |
-| Fel på kontrollanten |Fel – kritisk |S1 |Modul fel |
-| Fel på SBB-gränssnittsmodul |Fel – kritisk |S1 |Modul fel |
-| SBB-gränssnittsmodulfel – Inga fungerande moduler kvar |Fel – kritisk |S4 |Modul fel |
-| SBB-gränssnittsmodulen har tagits bort |Varning |Inget |Modul fel |
-| Fel på drivströmkontroll |Varning – ingen förlust av drivan |S1 |Modul fel |
-| Fel på drivströmkontroll |Fel – kritisk; förlust av drivande effekt |S1 |Modul fel |
-| Enheten har tagits bort |Varning |Inget |Modul fel |
-| Otillräcklig ström tillgänglig |Varning |ingen |Modul fel |
+| PCM-avisering – förlust av LIKSTRÖMs kraft från en enda PCM |Fel – ingen förlust av redundans |S1 |Modul-fel |
+| PCM-avisering – förlust av LIKSTRÖMs kraft från en enda PCM |Fel – förlust av redundans |S1 |Modul-fel |
+| PCM-fläkten fungerar inte |Fel – förlust av redundans |S1 |Modul-fel |
+| MITTPLANSSAMMANKOPPLING-modulen identifierade PCM-fel |Problemet |S1 |Modul-fel |
+| PCM borttaget |Konfigurations fel |Ingen |Modul-fel |
+| Kabinett konfigurations fel |Fel – kritiskt |S1 |Modul-fel |
+| Varning om låg varnings temperatur |Varning |S1 |Modul-fel |
+| Varning om hög varnings temperatur |Varning |S1 |Modul-fel |
+| Larm för över temperatur |Fel – kritiskt |S1 |Modul-fel |
+| I2C Bus-haveri |Fel – förlust av redundans |S1 |Modul-fel |
+| Kommunikations fel i OPS-panel (I2C) |Fel – kritiskt |S1 |Modul-fel |
+| Fel i styrenhet |Fel – kritiskt |S1 |Modul-fel |
+| Fel i MITTPLANSSAMMANKOPPLING-gränssnitt |Fel – kritiskt |S1 |Modul-fel |
+| Fel i MITTPLANSSAMMANKOPPLING-gränssnitt – inga fungerande moduler återstår |Fel – kritiskt |S4 |Modul-fel |
+| MITTPLANSSAMMANKOPPLING-modulen har tagits bort |Varning |Ingen |Modul-fel |
+| Enhetens energi kontroll fel |Varning – ingen förlust av enhets strömförsörjning |S1 |Modul-fel |
+| Enhetens energi kontroll fel |Fel – kritiskt; förlust av enhets kraft |S1 |Modul-fel |
+| Enheten har tagits bort |Varning |Ingen |Modul-fel |
+| Otillräcklig ström tillgänglig |Varning |ingen |Modul-fel |
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [StorSimples maskinvarukomponenter och status](storsimple-8000-monitor-hardware-status.md).
+Läs mer om [StorSimple maskin varu komponenter och status](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

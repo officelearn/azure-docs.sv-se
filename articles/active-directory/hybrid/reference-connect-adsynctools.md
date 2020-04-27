@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: ADSyncTools PowerShell-referens | Microsoft-dokument'
-description: Det här dokumentet innehåller referensinformation för ADSyncTools.psm1 PowerShell-modulen.
+title: 'Azure AD Connect: ADSyncTools PowerShell-referens | Microsoft Docs'
+description: Det här dokumentet innehåller referensinformation för PowerShell-modulen ADSyncTools. psm1.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60454667"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell-referens
-Följande dokumentation innehåller referensinformation för ADSyncTools.psm1 PowerShell-modulen som ingår i Azure AD Connect.
+Följande dokumentation innehåller referensinformation för PowerShell-modulen ADSyncTools. psm1 som ingår i Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Rensa mS-Ds-ConsistencyGuid från AD-användare
+Rensa mS-DS-ConsistencyGuid från AD-användare
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -32,7 +32,7 @@ Clear-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Rensa värdet i mS-Ds-ConsistencyGuid för mål-AD-användaren
+Rensa värdet i mS-DS-ConsistencyGuid för mål-AD-användaren
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -49,7 +49,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-user"></a>-User
-Rikta in användaren i AD för att ställa in
+Mål användare i AD att ange
 
 ```yaml
 Type: Object
@@ -65,12 +65,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-adsynctoolsadmoduleloaded"></a>Bekräfta-ADSyncToolsADModuleLoaded
+## <a name="confirm-adsynctoolsadmoduleloaded"></a>Bekräfta – ADSyncToolsADModuleLoaded
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-{{Fyll i Synopsis}}
+{{Fyll i sammanfattningen}}
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -88,12 +88,12 @@ Confirm-ADSyncToolsADModuleLoaded
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Lägg till exempelbeskrivning här }}
+{{Lägg till exempel beskrivning här}}
 
-## <a name="connect-adsyncdatabase"></a>Connect-AdSyncDatabase
+## <a name="connect-adsyncdatabase"></a>Anslut – AdSyncDatabase
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-{{Fyll i Synopsis}}
+{{Fyll i sammanfattningen}}
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -112,12 +112,12 @@ Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <S
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Lägg till exempelbeskrivning här }}
+{{Lägg till exempel beskrivning här}}
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-database"></a>-Databas
-{{Fyllningsdatabasbeskrivning}}
+#### <a name="-database"></a>– Databas
+{{Fill Database Description}}
 
 ```yaml
 Type: String
@@ -132,7 +132,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-instance"></a>-Instans
-{{Beskrivning av fyllningsinstans}}
+{{Fill instance Description}}
 
 ```yaml
 Type: String
@@ -147,7 +147,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-password"></a>-Password
-{{Beskrivning av fyllningslösenord}}
+{{Fill Password Description}}
 
 ```yaml
 Type: String
@@ -162,7 +162,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-server"></a>-Server
-{{Beskrivning av fyllningsserver}}
+{{Fill server-beskrivning}}
 
 ```yaml
 Type: String
@@ -177,7 +177,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-username"></a>-UserName
-{{Beskrivning av användarnamn för fyllning}}
+{{{Fill UserName Description}}
 
 ```yaml
 Type: String
@@ -193,12 +193,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
+## <a name="export-adsynctoolsconsistencyguidmigration"></a>Exportera – ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Export konsekvensguidrapport
+Exportera ConsistencyGuid-rapport
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -208,7 +208,7 @@ Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipal
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Genererar en ConsistencyGuid-rapport baserad på en import-CSV-fil från Import-ADSyncToolsImmutableIdMigration
+Genererar en ConsistencyGuid-rapport som baseras på en importerad CSV-fil från import-ADSyncToolsImmutableIdMigration
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -255,7 +255,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-immutableidguid"></a>-ImmutableIdGUID
-Oföränderligidguid
+ImmutableIdGUID
 
 ```yaml
 Type: String
@@ -269,8 +269,8 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-output"></a>-Utdata
-Filnamn för CSV- och LOG-filer
+#### <a name="-output"></a>– Utdata
+Utdata-filnamn för CSV-och LOGGFILer
 
 ```yaml
 Type: String
@@ -286,12 +286,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="get-adsyncsqlbrowserinstances"></a>Få-ADSyncSQLBrowserInstances
+## <a name="get-adsyncsqlbrowserinstances"></a>Get-ADSyncSQLBrowserInstances
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-{{Fyll i Synopsis}}
+{{Fyll i sammanfattningen}}
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -309,12 +309,12 @@ Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Lägg till exempelbeskrivning här }}
+{{Lägg till exempel beskrivning här}}
 
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-hostname"></a>-hostName
-{{Beskrivning av värdnamn för fyllning}}
+{{Fill-värdnamn, beskrivning}}
 
 ```yaml
 Type: String
@@ -340,7 +340,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Returnerar ett AD-objekt ATT GÖRA: Stöd för flera skogar
+Returnerar ett AD-objekt att göra: stöd för flera skogar
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -357,7 +357,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-user"></a>-User
-Rikta in användaren i AD för att ställa in ConsistencyGuid
+Mål användare i AD för att ange ConsistencyGuid
 
 ```yaml
 Type: Object
@@ -373,12 +373,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## <a name="get-adsynctoolsconsistencyguid"></a>Get-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Hämta mS-Ds-ConsistencyGuid från AD-användare
+Hämta mS-DS-ConsistencyGuid från AD-användaren
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -387,7 +387,7 @@ Get-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Returnerar värdet i attributet mS-Ds-ConsistencyGuid för mål-AD-användaren i GUID-format
+Returnerar värdet i mS-DS-ConsistencyGuid-attributet för mål-AD-användaren i GUID-format
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -404,7 +404,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-user"></a>-User
-Rikta in användaren i AD för att ställa in
+Mål användare i AD att ange
 
 ```yaml
 Type: Object
@@ -420,12 +420,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="get-adsynctoolsobjectguid"></a>Hämta ADSyncToolsObjectGuid
+## <a name="get-adsynctoolsobjectguid"></a>Get-ADSyncToolsObjectGuid
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Hämta ObjectGuid från AD-användare
+Hämta ObjectGuid från AD-användaren
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -434,7 +434,7 @@ Get-ADSyncToolsObjectGuid [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Returnerar värdet i ObjectGUID-attributet för mål-AD-användaren i GUID-format
+Returnerar värdet i attributet ObjectGUID för mål-AD-användaren i GUID-format
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -451,7 +451,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-user"></a>-User
-Rikta in användaren i AD för att ställa in
+Mål användare i AD att ange
 
 ```yaml
 Type: Object
@@ -467,12 +467,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="get-adsynctoolsrunhistory"></a>Hämta ADSyncToolsRunHistory
+## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Få AAD Connect Run Historik
+Hämta historik för AAD Connect-körning
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -481,7 +481,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktion som returnerar AAD Connect Run History i XML-format
+Funktion som returnerar AAD Connect-körnings historik i XML-format
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -498,7 +498,7 @@ Get-ADSyncToolsRunHistory -Days 1
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-days"></a>-Dagar
-{{Beskrivning av fyllningsdagar}}
+{{Fill Days Description}}
 
 ```yaml
 Type: Int32
@@ -514,12 +514,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## <a name="get-adsynctoolssourceanchorchanged"></a>Get-ADSyncToolsSourceAnchorChanged
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Få användare med SourceAnchor ändrade fel
+Hämta användare med SourceAnchor ändrade fel
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -528,7 +528,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionsfrågor AAD Connect Run Historik och exporterar alla användare som rapporterar felet: "SourceAnchor attributet has changed."
+Funktions frågor AAD Connect körnings historik och exporterar alla användare som rapporterar felet: "SourceAnchor-attributet har ändrats".
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -537,9 +537,9 @@ Funktionsfrågor AAD Connect Run Historik och exporterar alla användare som rap
 #Required Parameters
 ```
 
-$sourcePath = Läsvärd -Fråga "Ange sökvägen till loggfilen med\<filnamnet"\>#" Source_Path " $outputPath = Läs-host -Fråga "Ange\<din utefilsökväg med filnamn" #" Out_Path\>"
+$sourcePath = Read-Host-prompt "Ange sökvägen till logg filen med fil namnet" # "\<Source_Path\>" $OutputPath = Read-Host-prompt "Ange din fil Sök väg med fil namnet" # "\<Out_Path\>"
  
- Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
+ Get-ADSyncToolsUsersSourceAnchorChanged-sourcePath $sourcePath-outputPath $outputPath
 
 #### <a name="example-2"></a>EXEMPEL 2
 ```
@@ -549,7 +549,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-sourcepath"></a>-sourcePath
-{{Beskrivning av fyllnings sourcePath}}
+{{Fill sourcePath-Beskrivning}}
 
 ```yaml
 Type: Object
@@ -563,8 +563,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-outputpath"></a>-utdatapath
-{{Fyllning av utdatapathbeskrivning}}
+#### <a name="-outputpath"></a>– outputPath
+{{Fill outputPath-Beskrivning}}
 
 ```yaml
 Type: Object
@@ -580,12 +580,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
+## <a name="import-adsynctoolsimmutableidmigration"></a>Importera – ADSyncToolsImmutableIdMigration
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Importera OföränderligtID från AAD
+Importera ImmutableID från AAD
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -595,7 +595,7 @@ Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFrom
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Genererar en fil med alla Azure AD-synkroniserade användare som innehåller ImmutableID-värdet i GUID-format Krav: MSOnline PowerShell-modul
+Genererar en fil med alla Azure AD-synkroniserade användare som innehåller ImmutableID-värdet i GUID-format krav: MSOnline PowerShell-modul
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -611,8 +611,8 @@ Another example of how to use this cmdlet
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-output"></a>-Utdata
-Utdata-CSV-fil
+#### <a name="-output"></a>– Utdata
+Utgående CSV-fil
 
 ```yaml
 Type: String
@@ -627,7 +627,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-includesyncusersfromrecyclebin"></a>-IncludeSyncUsersFromRecycleBin
-Hämta synkroniserade användare från Azure AD-papperskorgen
+Hämta synkroniserade användare från Azure AD-pappers korgen
 
 ```yaml
 Type: SwitchParameter
@@ -643,13 +643,13 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-## <a name="invoke-adsyncdatabasequery"></a>Anropa-AdSyncDatabaseQuery
+## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-{{Fyll i Synopsis}}
+{{Fyll i sammanfattningen}}
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -667,12 +667,12 @@ Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] 
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Lägg till exempelbeskrivning här }}
+{{Lägg till exempel beskrivning här}}
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-query"></a>-Fråga
-{{Fyllningsfrågabeskrivning}}
+#### <a name="-query"></a>– Fråga
+{{Fill Query Description}}
 
 ```yaml
 Type: String
@@ -686,8 +686,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-sqlconnection"></a>-SqlConnection
-{{Fyll sqlconnection-beskrivning}}
+#### <a name="-sqlconnection"></a>– SqlConnection
+{{Fill SqlConnection-Beskrivning}}
 
 ```yaml
 Type: SqlConnection
@@ -703,12 +703,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="remove-adsynctoolsexpiredcertificates"></a>Ta bort-ADSyncToolsExpirerade certifikat
+## <a name="remove-adsynctoolsexpiredcertificates"></a>Remove-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Skript för att ta bort utgångna certifikat från UserCertificate-attribut
+Skript för att ta bort utgångna certifikat från attributet UserCertificate
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -718,10 +718,10 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Det här skriptet tar alla objekt från en målorganisationsenhet i Active Directory-domänen – filtrerade efter objektklass (användare/dator) och tar bort alla utgångna certifikat som finns i attributet UserCertificate.
-Som standard (BackupOnly-läge) säkerhetskopierar den endast utgångna certifikat till en fil och gör inga ändringar i AD.
-Om du använder -BackupOnly $false tas alla utgångna certifikat som finns i UserCertificate-attributet för dessa objekt bort från AD efter att ha kopierats till filen.
-Varje certifikat säkerhetskopieras till ett avgränsat filnamn: ObjectClass_ObjectGUID_CertThumprint.cer Skriptet skapar också en loggfil i CSV-format som visar alla användare med certifikat som antingen är giltiga eller utgångna, inklusive den faktiska åtgärden som vidtagits (Skipped/Exported/Deleted).
+Det här skriptet tar alla objekt från en mål organisations enhet i Active Directory domän-filtrerad efter objekt klass (användare/dator) och tar bort alla utgångna certifikat som finns i UserCertificate-attributet.
+Som standard är det bara att säkerhetskopiera certifikat som gått ut till en fil och inte göra några ändringar i AD.
+Om du använder-Auto$false tas eventuella utgångna certifikat som finns i attributet UserCertificate bort från AD efter att de har kopierats till filen.
+Varje certifikat säkerhets kopie ras till ett avgränsat fil namn: ObjectClass_ObjectGUID_CertThumprint. cer. skriptet skapar även en loggfil i CSV-format som visar alla användare med certifikat som antingen är giltiga eller har upphört att gälla, inklusive den faktiska åtgärden som har vidtagits (hoppades över/exporter ATS/tagits bort).
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -730,19 +730,19 @@ Varje certifikat säkerhetskopieras till ett avgränsat filnamn: ObjectClass_Obj
 Check all users in target OU - Expired Certificates will be copied to separated files and no certificates will be removed
 ```
 
-Ta bort-ADSyncToolsExpiredCertificates -TargetOU "OU=Users,OU=Corp,DC=Contoso,DC=com" -ObjectClass-användare
+Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = användare, OU = Corp, DC = contoso, DC = com"-ObjectClass användare
 
 #### <a name="example-2"></a>EXEMPEL 2
 ```
 Delete Expired Certs from all Computer objects in target OU - Expired Certificates will be copied to files and removed from AD
 ```
 
-Ta bort-ADSyncToolsExpiredCertificates -TargetOU "OU=Datorer,OU=Corp,DC=Contoso,DC=com" -ObjectClass-dator -BackupOnly $false
+Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = Computers, OU = Corp, DC = contoso, DC = com"-ObjectClass dator-åtgärd vid $false
 
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-targetou"></a>-TargetOU
-Målou att söka efter AD-objekt
+Mål ORGANISATIONSENHET för sökning efter AD-objekt
 
 ```yaml
 Type: String
@@ -756,8 +756,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-backuponly"></a>-BackupOnly
-BackupOnly tar inte bort några certifikat från AD
+#### <a name="-backuponly"></a>– Efter
+Vid borttagning tas inga certifikat bort från AD
 
 ```yaml
 Type: Boolean
@@ -771,8 +771,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-objectclass"></a>-ObjectClass (Objektklass)
-Filter för objektklass
+#### <a name="-objectclass"></a>-ObjectClass
+Objekt klass filter
 
 ```yaml
 Type: String
@@ -788,9 +788,9 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="repair-adsynctoolsautoupgradestate"></a>Reparation-ADSyncToolsAutoUpgradeState
+## <a name="repair-adsynctoolsautoupgradestate"></a>Reparera – ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Kort beskrivning
@@ -816,10 +816,10 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-## <a name="resolve-adsynchostaddress"></a>Lös-ADSyncHostAddress
+## <a name="resolve-adsynchostaddress"></a>Lös – ADSyncHostAddress
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-{{Fyll i Synopsis}}
+{{Fyll i sammanfattningen}}
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -837,12 +837,12 @@ Resolve-ADSyncHostAddress [[-hostName] <String>]
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Lägg till exempelbeskrivning här }}
+{{Lägg till exempel beskrivning här}}
 
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-hostname"></a>-hostName
-{{Beskrivning av värdnamn för fyllning}}
+{{Fill-värdnamn, beskrivning}}
 
 ```yaml
 Type: String
@@ -856,10 +856,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates Restore-ADSyncToolsExpiredCertificates Restore-ADSyncToolsExpiredCertificates Restore-
+## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-(ATT GÖRA) Återställer AD UserCertificate-attribut från en certifikatfil
+(ATT GÖRA) Återställer AD UserCertificate-attribut från en certifikat fil
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -885,7 +885,7 @@ Another example of how to use this cmdlet
 ## <a name="set-adsynctoolsconsistencyguid"></a>Set-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Ange mS-Ds-ConsistencyGuid på AD-användare
+Ange mS-DS-ConsistencyGuid på AD-användare
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -894,7 +894,7 @@ Set-ADSyncToolsConsistencyGuid [-User] <Object> [-Value] <Object> [<CommonParame
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Ange ett värde i attributet mS-Ds-ConsistencyGuid för ad-användaren
+Ange ett värde i mS-DS-ConsistencyGuid-attributet för mål-AD-användaren
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -911,7 +911,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-user"></a>-User
-Rikta in användaren i AD för att ställa in ConsistencyGuid
+Mål användare i AD för att ange ConsistencyGuid
 
 ```yaml
 Type: Object
@@ -926,7 +926,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-value"></a>-Värde
-ImmutableId (byte array, GUID, GUID sträng eller Base64 sträng)
+ImmutableId (byte mat ris, GUID, GUID-sträng eller Base64-sträng)
 
 ```yaml
 Type: Object
@@ -942,12 +942,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## <a name="test-adsyncnetworkport"></a>Test-ADSyncNetworkPort
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-{{Fyll i Synopsis}}
+{{Fyll i sammanfattningen}}
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -965,12 +965,12 @@ Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Lägg till exempelbeskrivning här }}
+{{Lägg till exempel beskrivning här}}
 
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-hostname"></a>-hostName
-{{Beskrivning av värdnamn för fyllning}}
+{{Fill-värdnamn, beskrivning}}
 
 ```yaml
 Type: String
@@ -984,8 +984,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-port"></a>-port
-{{Beskrivning av fyllningsport}}
+#### <a name="-port"></a>-Port
+{{Fill port Description}}
 
 ```yaml
 Type: String
@@ -999,10 +999,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="trace-adsynctoolsadimport"></a>Trace-ADSyncToolsADImport
+## <a name="trace-adsynctoolsadimport"></a>Spåra ADSyncToolsADImport
 
 ### <a name="synopsis"></a>SAMMANFATTNING
-Skapar en spårningsfil från och AD-importsteg
+Skapar en spårnings fil från och AD-import-steget
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -1012,7 +1012,7 @@ Trace-ADSyncToolsADImport [[-ADConnectorXML] <String>] [[-dc] <String>] [[-rootD
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Spårar alla ldap-frågor för en AAD Connect AD Import som körs från en viss AD-vattenstämpelkontrollpunkt (partitionscookie). Skapar en spårningsfil '.\ADimportTrace_yyyyMMddHHmmss.log' i den aktuella mappen.
+Spår alla LDAP-frågor om en AAD Connect AD-import körs från en angiven kontroll punkt för AD-vattenstämpel (partitions-cookie). Skapar en spårnings fil '. \ ADimportTrace_yyyyMMddHHmmss. log ' i den aktuella mappen.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -1029,7 +1029,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
-{{Fyll adconnectorxml-beskrivning}}
+{{Fill ADConnectorXML-Beskrivning}}
 
 ```yaml
 Type: String
@@ -1043,8 +1043,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dc"></a>-dc (st)
-XML-fil för AD-anslutningsexport
+#### <a name="-dc"></a>-DC
+XML-fil för AD Connector-export
 
 ```yaml
 Type: String
@@ -1059,7 +1059,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-rootdn"></a>-rootDN
-Måldomänkontrollant
+Måldomänkontrollanten
 
 ```yaml
 Type: String
@@ -1074,7 +1074,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-filter"></a>-filter
-Skogsrot DN
+Skogs rotens DN
 
 ```yaml
 Type: String
@@ -1089,7 +1089,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipcredentials"></a>-SkipCredentials
-Typer av AD-objekt som ska spåras \> * = alla objekttyper
+Typer av AD-objekt som \> ska spåras * = alla objekt typer
 
 ```yaml
 Type: SwitchParameter
@@ -1104,8 +1104,8 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adwatermark"></a>-ADwatermark
-Om du redan kör som domänadministratör behöver du inte ange AD-autentiseringsuppgifter.
-Manuell ingång av vattenstämpel, i stället för XML-fil t.ex. $ADwatermark = "TVNEUwMAAAAAXyK9ir1zSAQAAAAAAAAAAAa(...)"
+Om det redan körs som domän administratör behöver du inte ange AD-autentiseringsuppgifter.
+Manuell indata från vattenstämpel, i stället för XML-fil, t. ex. $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA (...)"
 
 ```yaml
 Type: String
@@ -1121,9 +1121,9 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
+## <a name="trace-adsynctoolsldapquery"></a>Spåra ADSyncToolsLdapQuery
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Kort beskrivning
@@ -1152,8 +1152,8 @@ Another example of how to use this cmdlet
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-context"></a>-Sammanhang
-Informationsbeskrivning för Param1
+#### <a name="-context"></a>– Kontext
+Beskrivning av param1-hjälp
 
 ```yaml
 Type: String
@@ -1168,7 +1168,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-server"></a>-Server
-Informationsbeskrivning för Param2
+Beskrivning av param2-hjälp
 
 ```yaml
 Type: String
@@ -1183,7 +1183,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-port"></a>-Port
-Informationsbeskrivning för Param2
+Beskrivning av param2-hjälp
 
 ```yaml
 Type: Int32
@@ -1198,7 +1198,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-filter"></a>-Filter
-Informationsbeskrivning för Param2
+Beskrivning av param2-hjälp
 
 ```yaml
 Type: String
@@ -1214,9 +1214,9 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="update-adsynctoolsconsistencyguidmigration"></a>Uppdatering-ADSyncToolsConsistencyGuidMigration
+## <a name="update-adsynctoolsconsistencyguidmigration"></a>Uppdatera – ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Uppdaterar användare med den nya ConsistencyGuid (ImmutableId)
@@ -1229,7 +1229,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Uppdaterar användare med det nya ConsistencyGuid-värdet (ImmutableId) som hämtats från ConsistencyGuid-rapporten Den här funktionen stöder WhatIf-växeln Obs: ConsistencyGuid-rapporten måste importeras med Tab Demiliter
+Uppdaterar användare med det nya ConsistencyGuid-värdet (ImmutableId) som tas från ConsistencyGuid-rapporten den här funktionen stöder växeln WhatIf switch: ConsistencyGuid-rapporten måste importeras med tab Demiliter
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -1245,8 +1245,8 @@ Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsCons
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-distinguishedname"></a>-DistinguishedName
-Unikt namn
+#### <a name="-distinguishedname"></a>– DistinguishedName
+DistinguishedName
 
 ```yaml
 Type: String
@@ -1261,7 +1261,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-immutableidguid"></a>-ImmutableIdGUID
-Oföränderligidguid
+ImmutableIdGUID
 
 ```yaml
 Type: String
@@ -1290,8 +1290,8 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-output"></a>-Utdata
-Filnamn för UTdata för LOGGfiler
+#### <a name="-output"></a>– Utdata
+Utdata-filnamn för LOGGFILer
 
 ```yaml
 Type: String
@@ -1338,4 +1338,4 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).

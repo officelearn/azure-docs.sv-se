@@ -1,6 +1,6 @@
 ---
-title: Klona en Säkerhetskopia av StorSimple Virtual Array | Microsoft-dokument
-description: Lär dig hur du klonar en säkerhetskopia och återställer en fil från den virtuella storsimple-matrisen.
+title: Klona en säkerhets kopia av en StorSimple-virtuell matris | Microsoft Docs
+description: Lär dig hur du klonar en säkerhets kopia och återställer en fil från din virtuella StorSimple-matris.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,127 +15,127 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60580939"
 ---
-# <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klona från en säkerhetskopia av storsimple-virtual array
+# <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klona från en säkerhets kopia av din virtuella StorSimple-matris
 
 ## <a name="overview"></a>Översikt
 
-I den här artikeln beskrivs steg för steg hur du klonar en säkerhetskopia av dina resurser eller volymer på din Microsoft Azure StorSimple Virtual Array. Den klonade säkerhetskopian används för att återställa en borttagen eller förlorad fil. Artikeln innehåller också detaljerade steg för att utföra en återställning på objektnivå på den virtuella storsimple-matrisen som konfigurerats som en filserver.
+Den här artikeln beskriver steg för steg hur du klonar en säkerhets kopia av dina resurser eller volymer på din Microsoft Azure StorSimple virtuella matrisen. Den klonade säkerhets kopian används för att återställa en borttagen eller förlorad fil. Artikeln innehåller också detaljerade steg för att utföra en återställning på objekt nivå på din virtuella StorSimple-matris som kon figurer ATS som en fil server.
 
 ## <a name="clone-shares-from-a-backup-set"></a>Klona resurser från en uppsättning säkerhetskopior
 
-**Innan du försöker klona resurser måste du se till att du har tillräckligt med utrymme på enheten för att slutföra den här åtgärden.** Om du vill klona från en säkerhetskopia utför du följande steg i [Azure-portalen.](https://portal.azure.com/)
+**Innan du försöker klona resurser måste du kontrol lera att det finns tillräckligt med utrymme på enheten för att slutföra den här åtgärden.** Om du vill klona från en säkerhets kopia går du till [Azure Portal](https://portal.azure.com/)och utför följande steg.
 
-#### <a name="to-clone-a-share"></a>Så här klonar du en resurs
+#### <a name="to-clone-a-share"></a>Klona en resurs
 
-1. Bläddra till **bladet Enheter.** Markera och klicka på enheten och klicka sedan på **Resurser**. Markera den resurs som du vill klona och högerklicka på resursen för att anropa snabbmenyn. Välj **Klona**.
+1. Bläddra till **enhets** bladet. Markera och klicka på enheten och sedan på **resurser**. Välj den resurs som du vill klona, högerklicka på resursen för att anropa snabb menyn. Välj **Klona**.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/cloneshare1.png)
-2. Klicka på **Säkerhetskopiera > markera i** **bladet Klon** och gör sedan följande: 
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare1.png)
+2. På bladet **klona** klickar du på **säkerhets kopierings > väljer** och gör sedan följande: 
    
-   a.    Filtrera en säkerhetskopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **senaste 7 dagarna,** **senaste 30 dagarna**och **Föregående år.**
+   a.    Filtrera en säkerhets kopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **de senaste 7 dagarna**, **senaste 30 dagarna**och **föregående år**.
    
-   b.    I listan över filtrerade säkerhetskopior som visas väljer du en säkerhetskopia att klona från.
+   b.    I listan över filtrerade säkerhets kopior som visas väljer du en säkerhets kopia att klona från.
    
    c.    Klicka på **OK**.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/cloneshare3.png)
-3. Klicka på **Målinställningar i** **bladet Klon** och gör sedan följande:
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare3.png)
+3. Klicka på **mål inställningar** på bladet **klona** och gör sedan följande:
    
-   a.    Ange ett resursnamn. Resursnamnet måste innehålla 3-127 tecken.
+   a.    Ange ett resurs namn. Resurs namnet måste innehålla 3-127 tecken.
    
    b.    Du kan också ange en beskrivning av den klonade resursen.
    
-   c.    Du kan inte ändra typen av resurs som du återställer till. En nivåindelad resurs klonas som en nivåindelade och en lokalt fäst resurs som lokalt fäst.
+   c.    Du kan inte ändra typ av resurs som du återställer till. En nivå resurs klonas som en nivå och en lokalt fäst resurs som lokalt fäst.
    
-   d.    Kapaciteten är inställd som lika med storleken på den resurs du klonar från.
+   d.    Kapaciteten anges som lika med storleken på den resurs som du klonar från.
    
-   e.    Tilldela administratörerna för den här resursen. Du kommer att kunna ändra resursegenskaperna via Utforskaren när klonen är klar.
+   e.    Tilldela administratörerna för den här resursen. Du kommer att kunna ändra resurs egenskaperna via Utforskaren när kloningen har slutförts.
    
    f.    Klicka på **OK**.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
-4. Klicka på **Klona** om du vill starta ett klonjobb. När jobbet är klart startar klonåtgärden och du meddelas. Om du vill övervaka klonens förlopp går du till bladet **Jobb** och klickar på jobbet för att visa jobbinformation.
-5. När klonen har skapats navigerar du tillbaka till bladet **Resurser** på enheten.
-6. Nu kan du visa den nya klonade resursen i listan över resurser på enheten. En nivåindelad resurs klonas som nivåindelade och en lokalt fäst resurs som en lokalt fäst resurs.
+4. Starta ett klonings jobb genom att klicka på **klona** . När jobbet har slutförts startar klonings åtgärden och du meddelas. Om du vill övervaka förloppet för kloningen går du till bladet **jobb** och klickar på jobbet för att visa jobb information.
+5. När klonen har skapats går du tillbaka till bladet **resurser** på enheten.
+6. Nu kan du Visa den nya klonade resursen i listan över resurser på enheten. En nivå resurs klonas som en nivå och en lokalt fäst resurs som en lokalt fäst resurs.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## <a name="clone-volumes-from-a-backup-set"></a>Klona volymer från en uppsättning säkerhetskopior
 
-Om du vill klona från en säkerhetskopia måste du i Azure-portalen utföra steg som liknar de när du klonar en resurs. Klonåtgärden klonar säkerhetskopian till en ny volym på samma virtuella enhet. Du kan inte klona till en annan enhet.
+Om du vill klona från en säkerhets kopia måste du i Azure Portal utföra steg som liknar dem när du klonar en resurs. Klonings åtgärden klonar säkerhets kopian till en ny volym på samma virtuella enhet. Det går inte att klona till en annan enhet.
 
-#### <a name="to-clone-a-volume"></a>Så här klonar du en volym
+#### <a name="to-clone-a-volume"></a>Klona en volym
 
-1. Bläddra till **bladet Enheter.** Markera och klicka på enheten och klicka sedan på **Volymer**. Markera den volym som du vill klona och högerklicka på volymen för att anropa snabbmenyn. Välj **Klona**.
+1. Bläddra till **enhets** bladet. Markera och klicka på enheten och sedan på **volymer**. Välj den volym som du vill klona, högerklicka på volymen för att anropa snabb menyn. Välj **Klona**.
    
    ![Klona en volym](./media/storsimple-virtual-array-clone/clonevolume1.png)
-2. Klicka på **Säkerhetskopiering** i **bladet Klon** och gör sedan följande: 
+2. På bladet **klona** klickar du på **säkerhets kopiering** och gör sedan följande: 
    
-   a.    Filtrera en säkerhetskopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **senaste 7 dagarna,** **senaste 30 dagarna**och **Föregående år.** 
+   a.    Filtrera en säkerhets kopia på den här enheten baserat på tidsintervallet. Du kan välja mellan **de senaste 7 dagarna**, **senaste 30 dagarna**och **föregående år**. 
    
-   b.    I listan över filtrerade säkerhetskopior som visas väljer du en säkerhetskopia att klona från.
+   b.    I listan över filtrerade säkerhets kopior som visas väljer du en säkerhets kopia att klona från.
    
    c.    Klicka på **OK**.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/clonevolume3.png)
-3. Klicka på **Målvolyminställningar** i **bladet Klon** och gör sedan följande:In the Clone blade, click Target volume settings and then do the following::
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume3.png)
+3. På bladet **klona** klickar du på **mål volym inställningar** och gör sedan följande::
    
-   a. Enhetsnamnet fylls i automatiskt.
+   a. Enhets namnet fylls i automatiskt.
    
-   b. Ange ett volymnamn för den **klonade volymen**. Volymnamnet måste innehålla 3 till 127 tecken.
+   b. Ange ett volym namn för den **klonade volymen**. Volym namnet måste innehålla mellan 3 och 127 tecken.
    
-   c. Volymtypen ställs automatiskt in på den ursprungliga volymen. En nivåindelad volym klonas som nivåindelade och en lokalt fäst volym som lokalt fäst.
+   c. Volym typen ställs automatiskt in på den ursprungliga volymen. En nivå volym klonas i nivå och en lokalt fäst volym som fästs lokalt.
    
-   d. För **anslutna värdar**klickar du på **Välj**.
+   d. För de **anslutna värdarna**klickar du på **Välj**.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/clonevolume4.png)
-4. I bladet **Anslutna värdar** väljer du från en befintlig ACR eller lägger till en ny ACR. Om du vill lägga till en ny ACR måste du ange ett ACR-namn och värden IQN. Klicka på **Markera**.
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume4.png)
+4. På bladet **anslutna värdar** väljer du från en befintlig ACR eller lägger till en ny ACR. Om du vill lägga till en ny ACR måste du ange ett ACR-namn och värd-IQN. Klicka på **Välj**.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/clonevolume5.png)
-5. Klicka på **Klon för** att starta ett klonjobb.
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume5.png)
+5. Klicka på **klona** för att starta ett klonings jobb.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/clonevolume6.png)  
-6. När klonjobbet har skapats startar kloningen. När klonen har skapats visas den på bladet Volymer på enheten. Observera att en nivåindelad volym klonas som nivåindelade och att en lokalt fäst volym klonas som en lokalt fäst volym.
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+6. När klonings jobbet har skapats startar kloningen. När klonen har skapats visas den på bladet volymer på enheten. Observera att en nivå volym klonas i nivå och att en lokalt fäst volym klonas som en lokalt fäst volym.
    
-   ![Klona en säkerhetskopia](./media/storsimple-virtual-array-clone/clonevolume8.png)
-7. När volymen visas online i volymlistan är volymen tillgänglig för användning. Uppdatera listan över mål i fönstret iSCSI-initieraregenskaper i iSCSI-initieraren. Ett nytt mål som innehåller det klonade volymnamnet ska visas som "inaktivt" under statuskolumnen.
-8. Markera målet och klicka på **Anslut**. När initieraren är ansluten till målet ska statusen ändras till **Ansluten**.
-9. I fönstret **Diskhantering** visas de monterade volymerna som visas i följande bild. Högerklicka på den identifierade volymen (klicka på diskens namn) och klicka sedan på **Online**.
+   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume8.png)
+7. När volymen visas online i listan över volymer, är volymen tillgänglig för användning. Uppdatera listan över mål i fönstret Egenskaper för iSCSI-initierare på iSCSI-initierarens värd. Ett nytt mål som innehåller det klonade volym namnet ska visas som "inaktiv" i kolumnen Status.
+8. Välj mål och klicka på **Anslut**. När initieraren är ansluten till målet ska statusen ändras till **ansluten**.
+9. I fönstret **disk hantering** visas monterade volymer på det sätt som visas i följande bild. Högerklicka på den identifierade volymen (klicka på diskens namn) och klicka sedan på **Online**.
 
 > [!IMPORTANT]
-> När du försöker klona en volym eller en resurs från en säkerhetskopia, om klonjobbet misslyckas, kan en målvolym eller resurs fortfarande skapas i portalen. Det är viktigt att du tar bort den här målvolymen eller resursen i portalen för att minimera eventuella framtida problem som uppstår till följd av det här elementet.
+> När du försöker klona en volym eller en resurs från en säkerhets kopia kan en målvolym eller resurs fortfarande skapas i portalen om klonings jobbet Miss lyckas. Det är viktigt att du tar bort den här mål volymen eller resursen i portalen för att minimera eventuella framtida problem som uppstår på grund av det här elementet.
 > 
 > 
 
 ## <a name="item-level-recovery-ilr"></a>Återställning på objektnivå (ILR)
 
-Den här versionen introducerar återställning på objektnivå (ILR) på en StorSimple Virtual Array som konfigurerats som en filserver. Funktionen kan du göra detaljerad återställning av filer och mappar från en molnsäkerhetskopia av alla resurser på StorSimple-enheten. Du kan hämta borttagna filer från de senaste säkerhetskopiorna med hjälp av en självbetjäningsmodell.
+I den här versionen introduceras återställningen på objekt nivå (ILR) på en StorSimple virtuell matris som kon figurer ATS som en fil server. Med funktionen kan du göra en detaljerad återställning av filer och mappar från en moln säkerhets kopia av alla resurser på StorSimple-enheten. Du kan hämta borttagna filer från de senaste säkerhets kopiorna med en självbetjänings modell.
 
-Varje resurs har en *.backups-mapp* som innehåller de senaste säkerhetskopiorna. Du kan navigera till önskad säkerhetskopia, kopiera relevanta filer och mappar från säkerhetskopian och återställa dem. Den här funktionen eliminerar anrop till administratörer för att återställa filer från säkerhetskopior.
+Varje resurs har en *. backups* -mapp som innehåller de senaste säkerhets kopiorna. Du kan navigera till önskad säkerhets kopia, kopiera relevanta filer och mappar från säkerhets kopian och återställa dem. Den här funktionen eliminerar anrop till administratörer för att återställa filer från säkerhets kopior.
 
-1. När du utför ILR kan du visa säkerhetskopiorna via Utforskaren. Klicka på den specifika resurs som du vill titta på säkerhetskopian för. Du kommer att se en *.backups-mapp* som skapats under resursen som lagrar alla säkerhetskopior. Expandera mappen *.backups* för att visa säkerhetskopiorna. Mappen visar den uppdelade vyn för hela säkerhetskopieringshierarkin. Den här vyn skapas på begäran och tar vanligtvis bara ett par sekunder att skapa.
+1. När du utför ILR kan du se säkerhets kopiorna via Utforskaren. Klicka på den resurs som du vill titta på säkerhets kopian för. Du kommer att se en *. backups* -mapp som skapats under resursen som lagrar alla säkerhets kopior. Expandera mappen *. backups* för att Visa säkerhets kopiorna. Mappen visar den expanderade vyn för hela den säkerhetskopierade hierarkin. Den här vyn skapas på begäran och tar vanligt vis bara några sekunder att skapa.
    
-   De senaste fem säkerhetskopiorna visas på det här sättet och kan användas för att utföra en återställning på objektnivå. De fem senaste säkerhetskopiorna innehåller både standardplanerade och manuella säkerhetskopior.
+   De sista fem säkerhets kopiorna visas på det här sättet och kan användas för att utföra en återställning på objekt nivå. De fem senaste säkerhets kopiorna omfattar både standard schemalagda och manuella säkerhets kopieringar.
    
-   * **Schemalagda säkerhetskopior** namngivna som &lt;Enhetsnamnet&gt;DailySchedule-YYYMMDD-HHMMSS-UTC.
-   * **Manuella säkerhetskopior** som namnges som Ad-hoc-YYYMMDD-HHMMSS-UTC.
+   * **Schemalagda säkerhets kopior** som &lt;heter&gt;enhets namn DAILYSCHEDULE-ÅÅÅÅMMDD-HHMMSS-UTC.
+   * **Manuella säkerhets kopior** som heter ad hoc-ÅÅÅÅMMDD-HHMMSS-UTC.
      
      ![](./media/storsimple-virtual-array-clone/image14.png)
 
-2. Identifiera säkerhetskopian som innehåller den senaste versionen av den borttagna filen. Även om mappnamnet innehåller en UTC-tidsstämpel i vart och ett av föregående fall, är den tidpunkt då mappen skapades den faktiska enhetstiden när säkerhetskopieringen startade. Använd mapptidsstämpeln för att hitta och identifiera säkerhetskopiorna.
+2. Identifiera säkerhets kopian som innehåller den senaste versionen av den borttagna filen. Även om mappnamnet innehåller en UTC-tidsstämpel i vart och ett av de föregående fallen, är tiden då mappen skapades den faktiska enhets tiden när säkerhets kopieringen startades. Använd mappens tidstämpel för att hitta och identifiera säkerhets kopiorna.
 
-3. Leta reda på mappen eller filen som du vill återställa i säkerhetskopian som du identifierade i föregående steg. Du kan bara visa de filer eller mappar som du har behörighet för. Om du inte kan komma åt vissa filer eller mappar kontaktar du en resursadministratör. Administratören kan använda Utforskaren för att redigera resursbehörigheterna och ge dig åtkomst till den specifika filen eller mappen. Det rekommenderas att resursadministratören är en användargrupp i stället för en enskild användare.
+3. Leta upp mappen eller filen som du vill återställa i säkerhets kopian som du identifierade i föregående steg. Obs! Du kan bara visa de filer eller mappar som du har behörighet för. Om du inte kan komma åt vissa filer eller mappar kan du kontakta en resurs administratör. Administratören kan använda Utforskaren för att redigera resurs behörigheter och ge dig åtkomst till den angivna filen eller mappen. Det är en rekommenderad metod att resurs administratören är en användar grupp i stället för en enskild användare.
 
 4. Kopiera filen eller mappen till lämplig resurs på StorSimple-filservern.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du [administrerar den virtuella storsimple-matrisen med hjälp av det lokala webbgränssnittet](storsimple-ova-web-ui-admin.md).
+Lär dig mer om hur du [administrerar den virtuella StorSimple-matrisen med hjälp av det lokala webb gränssnittet](storsimple-ova-web-ui-admin.md).
 

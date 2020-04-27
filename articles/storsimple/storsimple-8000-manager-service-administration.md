@@ -1,6 +1,6 @@
 ---
-title: Tjänstadministration för StorSimple Enhetshanteraren | Microsoft-dokument
-description: Lär dig hur du hanterar din StorSimple-enhet med hjälp av Tjänsten StorSimple Device Manager i Azure-portalen.
+title: StorSimple Enhetshanteraren tjänst administration | Microsoft Docs
+description: Lär dig hur du hanterar din StorSimple-enhet med hjälp av tjänsten StorSimple Enhetshanteraren i Azure Portal.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,77 +15,77 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60723314"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Använda Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet
+# <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Använd tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet
 
 ## <a name="overview"></a>Översikt
 
-I den här artikeln beskrivs tjänstgränssnittet i StorSimple Device Manager, inklusive hur du ansluter till det, de olika tillgängliga alternativen och länkar ut till de specifika arbetsflöden som kan utföras via det här användargränssnittet. Denna vägledning är tillämplig på båda. storSimples fysiska enhet och molnapparaten.
+I den här artikeln beskrivs StorSimple-Enhetshanteraren tjänst gränssnittet, inklusive hur du ansluter till det, de olika alternativen är tillgängliga och länkar till de olika arbets flöden som kan utföras via det här användar gränssnittet. Den här vägledningen gäller för båda. den fysiska StorSimple-enheten och moln installationen.
 
-Efter att ha läst den här artikeln får du lära dig att:
+När du har läst den här artikeln får du lära dig att:
 
-* Ansluta till Tjänsten StorSimple Device Manager
-* Administrera din StorSimple-enhet via StorSimple Device Manager-tjänsten
+* Ansluta till StorSimple Enhetshanteraren-tjänsten
+* Administrera din StorSimple-enhet via tjänsten StorSimple Enhetshanteraren
 
-## <a name="connect-to-storsimple-device-manager-service"></a>Ansluta till Tjänsten StorSimple Device Manager
+## <a name="connect-to-storsimple-device-manager-service"></a>Ansluta till StorSimple Enhetshanteraren-tjänsten
 
-Tjänsten StorSimple Device Manager körs i Microsoft Azure och ansluter till flera StorSimple-enheter. Du använder en central Microsoft Azure-portal som körs i en webbläsare för att hantera dessa enheter. Gör följande om du vill ansluta till Tjänsten StorSimple Device Manager.
+Tjänsten StorSimple Enhetshanteraren körs i Microsoft Azure och ansluter till flera StorSimple-enheter. Du kan använda en central Microsoft Azure-portalen som körs i en webbläsare för att hantera dessa enheter. Gör så här för att ansluta till StorSimple-Enhetshanteraren tjänsten:
 
 #### <a name="to-connect-to-the-service"></a>Så här ansluter du till tjänsten
-1. Navigera [https://portal.azure.com/](https://portal.azure.com/)till .
-2. Logga in på Microsoft Azure-portalen med dina Microsoft-kontouppgifter (längst upp till höger i fönstret).
-3. Bläddra nedåt i det vänstra navigeringsfönstret för att komma åt Tjänsten StorSimple Device Manager.
+1. Navigera till [https://portal.azure.com/](https://portal.azure.com/).
+2. Logga in på Microsoft Azure-portalen (som finns längst upp till höger i fönstret) med dina Microsoft-konto autentiseringsuppgifter.
+3. Bläddra nedåt i det vänstra navigerings fönstret för att få åtkomst till StorSimple Enhetshanteraren-tjänsten.
 
 
-## <a name="administer-storsimple-device-using-storsimple-device-manager-service"></a>Administrera StorSimple-enhet med StorSimple Enhetshanteraren
+## <a name="administer-storsimple-device-using-storsimple-device-manager-service"></a>Administrera StorSimple-enheten med StorSimple Enhetshanteraren-tjänsten
 
-I följande tabell visas en sammanfattning av alla vanliga hanteringsuppgifter och komplexa arbetsflöden som kan utföras inom tjänstgränssnittet för StorSimple-enhetshanteraren. Dessa uppgifter är ordnade baserat på de gränssnittsblad som de initieras på.
+I följande tabell visas en översikt över alla vanliga hanterings uppgifter och komplexa arbets flöden som kan utföras i StorSimple-Enhetshanteraren tjänstens användar gränssnitt. De här uppgifterna organiseras baserat på de GRÄNSSNITTs blad som de initieras på.
 
-Om du vill ha mer information om varje arbetsflöde klickar du på lämplig procedur i tabellen.
+Klicka på lämplig procedur i tabellen om du vill ha mer information om varje arbets flöde.
 
-#### <a name="storsimple-device-manager-workflows"></a>Arbetsflöden för StorSimple-Enhetshanteraren
+#### <a name="storsimple-device-manager-workflows"></a>StorSimple Enhetshanteraren arbets flöden
 
-| Om du vill göra detta ... | Använd den här proceduren. |
+| Om du vill göra det här... | Använd den här proceduren. |
 | --- | --- |
-| Skapa en tjänst</br>Ta bort en tjänst</br>Hämta tjänstregistreringsnyckel</br>Återskapa tjänstregistreringsnyckel |[Distribuera en StorSimple Enhetshanteraren-tjänst](storsimple-8000-manage-service.md) |
-| Visa aktivitetsloggarna |[Använda servicesammanfattningen för Enhetshanteraren i StorSimple](storsimple-8000-service-dashboard.md) |
-| Ändra krypteringsnyckeln för tjänstdata</br>Visa åtgärdsloggarna |[Använda tjänstinstrumentpanelen För StorSimple-enhetshanteraren](storsimple-8000-service-dashboard.md) |
+| Skapa en tjänst</br>Ta bort en tjänst</br>Hämta tjänst registrerings nyckel</br>Återskapa tjänst registrerings nyckel |[Distribuera en StorSimple Enhetshanteraren-tjänst](storsimple-8000-manage-service.md) |
+| Visa aktivitets loggarna |[Använda StorSimple för Enhetshanteraren tjänsten](storsimple-8000-service-dashboard.md) |
+| Ändra krypterings nyckeln för tjänst data</br>Visa åtgärds loggarna |[Använd instrument panelen för StorSimple-Enhetshanteraren-tjänsten](storsimple-8000-service-dashboard.md) |
 | Inaktivera en enhet</br>Ta bort en enhet |[Inaktivera eller ta bort en enhet](storsimple-8000-deactivate-and-delete-device.md) |
-| Läs mer om katastrofåterställning och redundans för enheter</br>Redundans till en fysisk enhet</br>Redundans till en virtuell enhet</br>Återställning av haveuliker för affärskontinuitet (BCDR) |[Redundans- och haveriberedskap för Din StorSimple-enhet](storsimple-8000-device-failover-disaster-recovery.md) |
-| Lista säkerhetskopior för en volym</br>Välj en säkerhetskopia</br>Ta bort en säkerhetskopia |[Hantera säkerhetskopior](storsimple-8000-manage-backup-catalog.md) |
+| Läs mer om haveri beredskap och enhets växling vid fel</br>Redundans till en fysisk enhet</br>Redundans till en virtuell enhet</br>Katastrof återställning av affärs kontinuitet (BCDR) |[Redundansväxling och haveri beredskap för din StorSimple-enhet](storsimple-8000-device-failover-disaster-recovery.md) |
+| Lista säkerhets kopior för en volym</br>Välj en säkerhets kopierings uppsättning</br>Ta bort en säkerhets kopia |[Hantera säkerhetskopior](storsimple-8000-manage-backup-catalog.md) |
 | Klona en volym |[Klona en volym](storsimple-8000-clone-volume-u2.md) |
-| Återställa en säkerhetskopia |[Återställa en säkerhetskopia](storsimple-8000-restore-from-backup-set-u2.md) |
-| Om lagringskonton</br>Lägga till ett lagringskonto</br>Redigera ett lagringskonto</br>Ta bort ett lagringskonto</br>Nyckelrotation av lagringskonton |[Hantera lagringskonton](storsimple-8000-manage-storage-accounts.md) |
-| Om bandbreddsmallar</br>Lägga till en bandbreddsmall</br>Redigera en bandbreddsmall</br>Ta bort en bandbreddsmall</br>Använda en standardbandbreddsmall</br>Skapa en bandbreddsmall hela dagen som startar vid en viss tidpunkt |[Hantera bandbreddsmallar](storsimple-8000-manage-bandwidth-templates.md) |
-| Om åtkomstkontrollposter</br>Skapa en åtkomstkontrollpost</br>Redigera en åtkomstkontrollpost</br>Ta bort en åtkomstkontrollpost |[Hantera åtkomstkontrollposter](storsimple-8000-manage-acrs.md) |
+| Återställa en säkerhets kopia |[Återställa en säkerhets kopia](storsimple-8000-restore-from-backup-set-u2.md) |
+| Om lagrings konton</br>Lägg till ett lagrings konto</br>Redigera ett lagrings konto</br>Ta bort ett lagringskonto</br>Nyckel rotation för lagrings konton |[Hantera lagringskonton](storsimple-8000-manage-storage-accounts.md) |
+| Om bandbredds-mallar</br>Lägg till en bandbredds mall</br>Redigera en bandbredds mall</br>Ta bort en bandbredds mall</br>Använd en mall för standard bandbredd</br>Skapa en mall för bandbredd som startar vid en viss tidpunkt |[Hantera bandbreddsmallar](storsimple-8000-manage-bandwidth-templates.md) |
+| Om åtkomst kontroll poster</br>Skapa en åtkomst kontroll post</br>Redigera en åtkomst kontroll post</br>Ta bort en åtkomst kontroll post |[Hantera åtkomst kontroll poster](storsimple-8000-manage-acrs.md) |
 | Visa jobbinformation</br>Avbryta ett jobb |[Hantera jobb](storsimple-8000-manage-jobs-u2.md) |
 | Få varningsmeddelanden</br>Hantera aviseringar</br>Granska aviseringar |[Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md) |
-| Skapa övervakningsdiagram |[Övervaka din StorSimple-enhet](storsimple-monitor-device.md) |
-| Lägga till en volymbehållare</br>Ändra en volymbehållare</br>Ta bort en volymbehållare |[Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md) |
-| Lägga till en volym</br>Ändra en volym</br>Koppla från en volym</br>Ta bort en volym</br>Övervaka en volym |[Hantera volymer](storsimple-8000-manage-volumes-u2.md) |
-| Ändra enhetsinställningar</br>Ändra tidsinställningar</br>Ändra DNS.md inställningar</br>Konfigurera nätverksgränssnitt |[Ändra enhetskonfiguration för Din StorSimple-enhet](storsimple-8000-modify-device-config.md) |
-| Visa inställningar för webbproxy |[Konfigurera webbproxy för enheten](storsimple-8000-configure-web-proxy.md) |
-| Ändra lösenord för enhetsadministratör</br>Ändra lösenord för StorSimple Snapshot Manager |[Ändra StorSimple-lösenord](storsimple-8000-change-passwords.md) |
-| Konfigurera fjärrhantering |[Ansluta på distans till din StorSimple-enhet](storsimple-8000-remote-connect.md) |
-| Konfigurera varningsinställningar |[Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md) |
-| Konfigurera CHAP för StorSimple-enheten |[Konfigurera CHAP för StorSimple-enheten](storsimple-configure-chap.md) |
-| Lägga till en säkerhetskopieringspolicy</br>Lägga till eller ändra ett schema</br>Ta bort en princip för säkerhetskopiering</br>Gör en manuell säkerhetskopiering</br>Skapa en anpassad princip för säkerhetskopiering med flera volymer och scheman |[Hantera säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md) |
-| Stoppa enhetsstyrenheter</br>Starta om enhetsstyrenheter</br>Stänga av enhetsstyrenheter</br>Återställa enheten till fabriksinställningar</br>(Ovan är endast för lokal enhet) |[Hantera StorSimple-enhetsstyrenhet](storsimple-8000-manage-device-controller.md) |
-| Läs mer om LagringSimples maskinvarukomponenter</br>Övervaka maskinvarustatus</br>(Ovan är endast för lokal enhet) |[Övervaka maskinvarukomponenter](storsimple-8000-monitor-hardware-status.md) |
-| Skapa ett supportpaket |[Skapa och hantera ett supportpaket](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
-| Installera programuppdateringar |[Uppdatera din enhet](storsimple-update-device.md) |
+| Skapa övervaknings diagram |[Övervaka din StorSimple-enhet](storsimple-monitor-device.md) |
+| Lägg till en volym behållare</br>Ändra en volym behållare</br>Ta bort en volym behållare |[Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md) |
+| Lägg till en volym</br>Ändra en volym</br>Koppla från en volym</br>Ta bort en volym</br>Övervaka en volym |[Hantera volymer](storsimple-8000-manage-volumes-u2.md) |
+| Ändra enhets inställningar</br>Ändra tids inställningar</br>Ändra inställningar för DNS.md</br>Konfigurera nätverks gränssnitt |[Ändra enhets konfigurationen för din StorSimple-enhet](storsimple-8000-modify-device-config.md) |
+| Visa webbproxy-inställningar |[Konfigurera webbproxy för din enhet](storsimple-8000-configure-web-proxy.md) |
+| Ändra enhetens administratörs lösen ord</br>Ändra StorSimple Snapshot Manager-lösenord |[Ändra StorSimple-lösenord](storsimple-8000-change-passwords.md) |
+| Konfigurera fjärrhantering |[Fjärrans luta till din StorSimple-enhet](storsimple-8000-remote-connect.md) |
+| Konfigurera aviserings inställningar |[Visa och hantera StorSimple-aviseringar](storsimple-8000-manage-alerts.md) |
+| Konfigurera CHAP för din StorSimple-enhet |[Konfigurera CHAP för din StorSimple-enhet](storsimple-configure-chap.md) |
+| Lägga till en säkerhetskopieringspolicy</br>Lägg till eller ändra ett schema</br>Ta bort en princip för säkerhets kopiering</br>Gör en manuell säkerhets kopiering</br>Skapa en anpassad säkerhets kopierings princip med flera volymer och scheman |[Hantera säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md) |
+| Stoppa enhets styrenheter</br>Starta om enhets styrenheter</br>Stänga av enhets styrenheter</br>Återställa enheten till fabriks inställningarna</br>(Ovan gäller endast för lokala enheter) |[Hantera StorSimple enhets styrenhet](storsimple-8000-manage-device-controller.md) |
+| Lär dig mer om StorSimple maskin varu komponenter</br>Övervaka maskinvarustatus</br>(Ovan gäller endast för lokala enheter) |[Övervaka maskin varu komponenter](storsimple-8000-monitor-hardware-status.md) |
+| Skapa ett support paket |[Skapa och hantera ett support paket](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
+| Installera program uppdateringar |[Uppdatera din enhet](storsimple-update-device.md) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du får problem med den dagliga driften av Din StorSimple-enhet eller med någon av dess maskinvarukomponenter läser du:
+Om du får problem med den dagliga driften av din StorSimple-enhet eller med någon av dess maskin varu komponenter, se:
 
-* [Felsöka med diagnostikverktyget](storsimple-8000-diagnostics.md)
-* [Använd StorSimple-övervakningsindikatorlysdioder](storsimple-monitoring-indicators.md)
+* [Felsöka med hjälp av diagnostik-verktyget](storsimple-8000-diagnostics.md)
+* [Använda indikatorer för StorSimple-övervakning](storsimple-monitoring-indicators.md)
 
-Om du inte kan lösa problemen och behöver skapa en tjänstbegäran läser du [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+Om du inte kan lösa problemen och behöver skapa en tjänstbegäran, se [kontakt Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 

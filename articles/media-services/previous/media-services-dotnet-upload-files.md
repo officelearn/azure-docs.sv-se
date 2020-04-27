@@ -1,6 +1,6 @@
 ---
-title: Ladda upp filer till ett Media Services-konto med .NET | Microsoft-dokument
-description: Läs om hur du får in medieinnehåll i Media Services genom att skapa och ladda upp resurser.
+title: Ladda upp filer till ett Media Services-konto med hjälp av .NET | Microsoft Docs
+description: Lär dig hur du hämtar medie innehåll i Media Services genom att skapa och ladda upp till gångar.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64869471"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Ladda upp filer till ett Media Services-konto med .NET 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-I Media Services överför du (eller för in) dina digitala filer till en tillgång. **Asset-entiteten** kan innehålla video- ljud, ljud, bilder, miniatyrsamlingar, textspår och filer med dold text (och metadata om dessa filer.)  När filerna har laddats upp lagras ditt innehåll säkert i molnet för vidare bearbetning och streaming.
+I Media Services överför du (eller för in) dina digitala filer till en tillgång. **Till gångs** enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.)  När filerna har laddats upp lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
-Filerna i tillgången kallas **Tillgångsfiler**. **AssetFile-förekomsten** och den faktiska mediefilen är två olika objekt. AssetFile-instansen innehåller metadata om mediefilen, medan mediefilen innehåller det faktiska medieinnehållet.
+Filerna i tillgången kallas **Tillgångsfiler**. **AssetFile** -instansen och den faktiska medie filen är två distinkta objekt. AssetFile-instansen innehåller metadata om medie filen, medan medie filen innehåller det faktiska medie innehållet.
 
 ## <a name="considerations"></a>Överväganden
 
 Följande gäller:
  
- * Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL:er för direktuppspelningsinnehållet (till exempel http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Därför är procentkodning inte tillåtet. Värdet för egenskapen **Name** kan inte ha något av följande [procent-kodningsreservat tecken:](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)!*'();:@&=+$,/?%#[]". Dessutom kan det bara finnas en "." för filnamnstillägget.
-* Namnets längd får inte vara större än 260 tecken.
+ * Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömmande innehåll (till exempel http://{AMSAccount}. ORIGIN. Media Services. Windows. net/{GUID}/{IAssetFile. name}/streamingParameters.) Därför är procent kodning inte tillåtet. Värdet för **namn** egenskapen får inte ha något av följande [%-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! * ' ();: @ &= + $,/?% # [] ". Det kan också finnas en "." för fil namns tillägget.
+* Längden på namnet får inte vara längre än 260 tecken.
 * Det finns en gräns för maximal filstorlek för bearbetning i Media Services. Information om filstorleksbegränsningen finns i [den här](media-services-quotas-and-limitations.md) artikeln.
 * Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
-När du skapar resurser kan du ange följande krypteringsalternativ:
+När du skapar till gångar kan du ange följande krypterings alternativ:
 
-* **Ingen** – Ingen kryptering används. Detta är standardvärdet. När du använder det här alternativet är ditt innehåll inte skyddat under överföring eller i vila i lagring.
-  Om du planerar att leverera en MP4 med progressiv nedladdning använder du det här alternativet: 
-* **CommonEncryption** - Använd det här alternativet om du laddar upp innehåll som redan har krypterats och skyddats med gemensam kryptering eller PlayReady DRM (till exempel Smooth Streaming skyddas med PlayReady DRM).
-* **KuvertEnkrypterad** – Använd det här alternativet om du laddar upp HLS krypterad med AES. Observera att filerna måste ha kodats och krypterats av Transform Manager.
-* **StorageEncrypted** - Krypterar ditt rensa innehåll lokalt med AES-256-bitars kryptering och överför det sedan till Azure Storage där det lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
+* **Ingen** – Ingen kryptering används. Detta är standardvärdet. När du använder det här alternativet skyddas inte innehållet i överföring eller i vila i lagring.
+  Använd det här alternativet om du planerar att leverera en MP4 med progressiv nedladdning: 
+* **CommonEncryption** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddas med common Encryption eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
+* **EnvelopeEncrypted** – Använd det här alternativet om du överför HLS som krypteras med AES. Observera att filerna måste ha kodats och krypterats av Transform Manager.
+* **StorageEncrypted** – krypterar ditt rensade innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
   
-    Media Services tillhandahåller lagringskryptering på disk för dina tillgångar, inte over-the-wire som Digital Rights Manager (DRM).
+    Media Services tillhandahåller kryptering på disk lagring för dina till gångar, inte över-kabeln som Digital Rights Manager (DRM).
   
-    Om tillgången är lagringskrypterad måste du konfigurera principen för tillgångsleverans. Mer information finns i [Konfigurera leveransprincip för tillgångar](media-services-dotnet-configure-asset-delivery-policy.md).
+    Om tillgången är lagringskrypterad måste du konfigurera principen för tillgångsleverans. Mer information finns i [Konfigurera till gångs leverans princip](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Om du anger att tillgången ska krypteras med ett **CommonEncrypted-alternativ,** eller ett **kuvertkrypterat** alternativ, måste du associera din tillgång med en **ContentKey**. Mer information finns i [Så här skapar du en ContentKey](media-services-dotnet-create-contentkey.md). 
+Om du anger att till gången ska krypteras med ett **CommonEncrypted** -alternativ eller ett **EnvelopeEncrypted** -alternativ måste du associera din till gång med en **ContentKey**. Mer information finns i [så här skapar du en ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Om du anger att tillgången ska krypteras med alternativet **StorageEncrypted** skapas en **StorageEncrypted** **ContentKey** för din tillgång.
+Om du anger att din till gång ska krypteras med ett **StorageEncrypted** -alternativ, skapar Media Services SDK för .net en **StorageEncrypted** - **ContentKey** för din till gång.
 
-Den här artikeln visar hur du använder Media Services .NET SDK samt Media Services .NET SDK-tillägg för att ladda upp filer till en Media Services-tillgång.
+Den här artikeln visar hur du använder Media Services .NET SDK samt Media Services tillägg för .NET SDK för att ladda upp filer till en Media Services till gång.
 
-## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Ladda upp en enda fil med Media Services .NET SDK
+## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Ladda upp en enstaka fil med Media Services .NET SDK
 
-Följande kod använder .NET för att ladda upp en enda fil. AccessPolicy och Locator skapas och förstörs av upload-funktionen. 
+I följande kod används .NET för att ladda upp en enda fil. Access policy och Locator skapas och förstörs av uppladdnings funktionen. 
 
 ```csharp
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -86,19 +86,19 @@ Följande kod använder .NET för att ladda upp en enda fil. AccessPolicy och Lo
 
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Ladda upp flera filer med Media Services .NET SDK
-Följande kod visar hur du skapar en tillgång och laddar upp flera filer.
+Följande kod visar hur du skapar en till gång och laddar upp flera filer.
 
 Koden gör följande:
 
-* Skapar en tom tillgång med metoden CreateEmptyAsset som definierats i föregående steg.
-* Skapar en **AccessPolicy-instans** som definierar behörigheter och varaktighet för åtkomst till tillgången.
-* Skapar en **positionerarinstans** som ger åtkomst till tillgången.
-* Skapar en **BlobTransferClient-instans.** Den här typen representerar en klient som fungerar på Azure-blobbar. I det här exemplet övervakar klienten överföringsstatusen. 
-* Räknar upp filer i den angivna katalogen och skapar en **AssetFile-instans** för varje fil.
-* Överför filerna till Media Services med metoden **UploadAsync.** 
+* Skapar en tom till gång med CreateEmptyAsset-metoden som definierades i föregående steg.
+* Skapar en **Access policy** -instans som definierar behörigheter och varaktighet för åtkomst till till gången.
+* Skapar en **lokaliserings** instans som ger åtkomst till till gången.
+* Skapar en **BlobTransferClient** -instans. Den här typen representerar en klient som fungerar på Azure-blobar. I det här exemplet övervakar klienten uppladdnings förloppet. 
+* Räknar upp genom filer i den angivna katalogen och skapar en **AssetFile** -instans för varje fil.
+* Överför filerna till Media Services med **UploadAsync** -metoden. 
 
 > [!NOTE]
-> Använd metoden UploadAsync för att se till att samtalen inte blockerar och att filerna överförs parallellt.
+> Använd UploadAsync-metoden för att se till att anropen inte blockeras och att filerna överförs parallellt.
 > 
 > 
 
@@ -161,22 +161,22 @@ Koden gör följande:
 ```
 
 
-När du laddar upp ett stort antal tillgångar bör du tänka på följande:
+Tänk på följande när du överför ett stort antal till gångar:
 
-* Skapa ett nytt **CloudMediaContext-objekt** per tråd. Klassen **CloudMediaContext** är inte trådsäker.
-* Öka AntalConcurrentTransfers från standardvärdet 2 till ett högre värde som 5. Om du anger den här egenskapen påverkas alla instanser av **CloudMediaContext**. 
-* Behåll ParallelTransferThreadCount till standardvärdet 10.
+* Skapa ett nytt **CloudMediaContext** -objekt per tråd. **CloudMediaContext** -klassen är inte tråd säker.
+* Öka NumberOfConcurrentTransfers från standardvärdet 2 till ett högre värde, t. ex. 5. Att ange den här egenskapen påverkar alla instanser av **CloudMediaContext**. 
+* Behåll ParallelTransferThreadCount med standardvärdet 10.
 
-## <a name="ingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Intag av tillgångar i bulk med Media Services .NET SDK
-Att ladda upp stora tillgångsfiler kan vara en flaskhals när tillgången skapas. Intag av tillgångar i bulk eller "Bulk intag", innebär frikoppling tillgång skapas från uppladdningsprocessen. Om du vill använda en massinmattningsmetod skapar du ett manifest (IngestManifest) som beskriver tillgången och dess associerade filer. Använd sedan den överförmetod du väljer för att överföra associerade filer till manifestets blob-behållare. Microsoft Azure Media Services bevakar blob-behållaren som är associerad med manifestet. När en fil har överförts till blob-behållaren slutför Microsoft Azure Media Services skapandet av tillgångar baserat på konfigurationen av tillgången i manifestet (IngestManifestAsset).
+## <a name="ingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Mata in till gångar i bulk med Media Services .NET SDK
+Överföring av stora till gångar-filer kan vara en Flask hals under skapandet av till gångar. Genom att mata in till gångar i bulk eller "Mass inmatning", kan du koppla ifrån till gångs skapande från uppladdnings processen. Om du vill använda en Mass inmatnings metod skapar du ett manifest (IngestManifest) som beskriver till gången och tillhör ande filer. Använd sedan överförings metoden som du väljer för att överföra de associerade filerna till Manifestets BLOB-behållare. Microsoft Azure Media Services bevakar BLOB-behållaren som är associerad med manifestet. När en fil har överförts till BLOB-behållaren, Microsoft Azure Media Services slutföra till gångs skapandet baserat på konfigurationen av till gången i manifestet (IngestManifestAsset).
 
-Om du vill skapa en ny IngestManifest anropar du metoden Skapa som exponeras av samlingen IngestManifests på CloudMediaContext. Den här metoden skapar en ny IngestManifest med manifestnamnet som du anger.
+Om du vill skapa en ny IngestManifest anropar du metoden Create som exponeras av IngestManifests-samlingen på CloudMediaContext. Den här metoden skapar en ny IngestManifest med det manifest namn som du anger.
 
 ```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
 ```
 
-Skapa de tillgångar som är associerade med bulk IngestManifest. Konfigurera önskade krypteringsalternativ på tillgången för massintag.
+Skapa de till gångar som är associerade med bulk-IngestManifest. Konfigurera önskade krypterings alternativ på till gången för Mass inmatning.
 
 ```csharp
     // Create the assets that will be associated with this bulk ingest manifest
@@ -184,9 +184,9 @@ Skapa de tillgångar som är associerade med bulk IngestManifest. Konfigurera ö
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 ```
 
-En IngestManifestAsset associerar en tillgång med en bulk IngestManifest för bulk intag. Den associerar också AssetFiles som utgör varje tillgång. Om du vill skapa en IngestManifestAsset använder du metoden Skapa på serverkontexten.
+En IngestManifestAsset kopplar ihop en till gång med en Mass IngestManifest för Mass inmatning. Den associerar också AssetFiles som utgör varje till gång. Använd Create-metoden i Server kontexten om du vill skapa en IngestManifestAsset.
 
-I följande exempel visas att du lägger till två nya IngestManifestAssets som associerar de två tillgångar som tidigare skapats till bulkintationmaniten. Varje IngestManifestAsset associerar också en uppsättning filer som överförs för varje tillgång under massintag.  
+I följande exempel visas hur du lägger till två nya IngestManifestAssets som associerar de två till gångarna som tidigare har skapats till Mass inläsnings manifestet Varje IngestManifestAsset associerar också en uppsättning filer som överförs för varje till gång under Mass inmatning.  
 
 ```csharp
     string filename1 = _singleInputMp4Path;
@@ -197,9 +197,9 @@ I följande exempel visas att du lägger till två nya IngestManifestAssets som 
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-Du kan använda alla höghastighetsklientprogram som kan ladda upp tillgångsfilerna till uri-behållaren blob storage som tillhandahålls av **egenskapen IIngestManifest.BlobStorageUriForUpload för** IngestManifest. 
+Du kan använda valfritt höghastighets klient program som kan överföra till gångs filen till Blob Storage-behållarens URI som tillhandahålls av egenskapen **IIngestManifest. BlobStorageUriForUpload** för IngestManifest. 
 
-Följande kod visar hur du använder .NET SDK för att ladda upp resursfilerna.
+Följande kod visar hur du använder .NET SDK för att ladda upp till gångar-filerna.
 
 ```csharp
     static void UploadBlobFile(string containerName, string filename)
@@ -226,7 +226,7 @@ Följande kod visar hur du använder .NET SDK för att ladda upp resursfilerna.
     }
 ```
 
-Koden för att ladda upp tillgångsfilerna för exemplet som används i den här artikeln visas i följande kodexempel:
+Koden för att överföra till gångs filen för det exempel som används i den här artikeln visas i följande kod exempel:
 
 ```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
@@ -234,9 +234,9 @@ Koden för att ladda upp tillgångsfilerna för exemplet som används i den här
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
 ```
 
-Du kan bestämma hur massintag för alla tillgångar som är associerade med en **IngestManifest** fortskrider genom att avsöka egenskapen Statistik för **IngestManifest**. För att uppdatera statusinformation måste du använda en ny **CloudMediaContext** varje gång du avsöker egenskapen Statistik.
+Du kan bestämma förloppet för Mass inmatningen för alla till gångar som är associerade med en **IngestManifest** genom att avsöka statistik egenskapen för **IngestManifest**. För att kunna uppdatera statusinformation måste du använda en ny **CloudMediaContext** varje gång du avsöker statistik egenskapen.
 
-Följande exempel visar röstning en IngestManifest av dess **ID**.
+I följande exempel demonstreras avsökning av en IngestManifest med hjälp av dess **ID**.
 
 ```csharp
     static void MonitorBulkManifest(string manifestID)
@@ -274,7 +274,7 @@ Följande exempel visar röstning en IngestManifest av dess **ID**.
 
 
 ## <a name="upload-files-using-net-sdk-extensions"></a>Ladda upp filer med .NET SDK-tillägg
-I följande exempel visas hur du laddar upp en enda fil med .NET SDK-tillägg. I det här fallet används **metoden CreateFromFile,** men den asynkrona versionen är också tillgänglig (**CreateFromFileAsync**). Med metoden **CreateFromFile** kan du ange filnamn, krypteringsalternativ och en motringning för att rapportera filens överföringsförlopp.
+I följande exempel visas hur du laddar upp en enstaka fil med .NET SDK-tillägg. I det här fallet används metoden **CreateFromFile** , men den asynkrona versionen är även tillgänglig (**CreateFromFileAsync**). Med **CreateFromFile** -metoden kan du ange fil namn, krypterings alternativ och ett återanrop för att rapportera uppladdnings förloppet för filen.
 
 ```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -293,7 +293,7 @@ I följande exempel visas hur du laddar upp en enda fil med .NET SDK-tillägg. I
     }
 ```
 
-I följande exempel anropas UploadFile-funktionen och lagringskrypteringen anges som alternativet att skapa tillgångar.  
+I följande exempel anropar funktionen UploadFile och anger lagrings kryptering som alternativet för att skapa till gångar.  
 
 ```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
@@ -312,7 +312,7 @@ Du kan också använda Azure Functions för att utlösa ett kodningsjobb baserat
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Nästa steg
-Nu när du har laddat upp en tillgång till Media Services går du till artikeln [Så här hämtar du en medieprocessor.][How to Get a Media Processor]
+Nu när du har överfört en till gång till Media Services går du till artikeln [så här hämtar du en medie processor][How to Get a Media Processor] .
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
 

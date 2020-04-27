@@ -1,6 +1,6 @@
 ---
-title: Åtkomstkontrollkrav för hybrididentitetsdesign Azure | Microsoft-dokument
-description: Täcker identitetspelarna och identifierar åtkomstkrav för resurser för användare i en hybridmiljö.
+title: Krav för åtkomst kontroll för Hybrid Identitets design Azure | Microsoft Docs
+description: Omfattar en identitets pelare och identifiera åtkomst krav för resurser för användare i en hybrid miljö.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,63 +18,63 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60295151"
 ---
-# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Fastställ åtkomstkontrollkrav för din hybrididentitetslösning
-När en organisation utformar sin hybrididentitetslösning kan de också använda den här möjligheten för att granska åtkomstkraven för de resurser som de planerar att göra den tillgänglig för användare. Dataåtkomsten korsar alla fyra identitetspelare, som är:
+# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav för åtkomst kontroll för din hybrid identitets lösning
+När en organisation utformar sin hybrid identitets lösning kan de också använda den här möjligheten för att granska åtkomst kraven för de resurser som de planerar att göra den tillgänglig för användare. Data åtkomsten mellan alla fyra pelare för identiteter, som är:
 
 * Administration
 * Autentisering
 * Auktorisering
 * Granskning
 
-De avsnitt som följer täcker autentisering och auktorisering i mer information, administration och granskning är en del av hybrididentitetslivscykeln. Läs [Ta reda på hybrididentitetshanteringsuppgifter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) för mer information om dessa funktioner.
+Avsnitten som följer beskriver autentisering och auktorisering i mer information, administration och granskning är en del av livs cykeln för Hybrid identiteter. Läs [se uppgifter om hybrid identitets hantering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) för mer information om dessa funktioner.
 
 > [!NOTE]
-> Läs [De fyra pelarna i identitet - Identitetshantering i Age of Hybrid IT](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) för mer information om var och en av dessa pelare.
+> Mer information om var och en av dessa tre pelare finns [i de fyra pelaren med identitets identitets hantering](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) .
 > 
 > 
 
 ## <a name="authentication-and-authorization"></a>Autentisering och auktorisering
-Det finns olika scenarier för autentisering och auktorisering, dessa scenarier har specifika krav som måste uppfyllas av hybrididentitetslösningen som företaget ska anta. Scenarier som involverar kommunikation mellan företag (Företag till företag) kan lägga till en extra utmaning för IT-administratörer eftersom de måste se till att autentiserings- och auktoriseringsmetoden som används av organisationen kan kommunicera med sina affärspartners. Under designprocessen för autentiserings- och auktoriseringskrav ska du se till att följande frågor besvaras:
+Det finns olika scenarier för autentisering och auktorisering. de här scenarierna har särskilda krav som måste uppfyllas av den hybrid identitets lösning som företaget ska anta. Scenarier som involverar kommunikation mellan företag och företag (B2B) kan lägga till en extra utmaning för IT-administratörer eftersom de måste se till att metoden för autentisering och auktorisering som används av organisationen kan kommunicera med sina affärs partner. Under utformnings processen för krav på autentisering och auktorisering kontrollerar du att följande frågor besvaras:
 
-* Autentiserar och auktoriserar din organisation endast användare som finns i deras identitetshanteringssystem?
-  * Finns det några planer för B2B scenarier?
-  * Om ja, vet du redan vilka protokoll (SAML, OAuth, Kerberos eller Certifikat) som kommer att användas för att ansluta båda företagen?
-* Stöder hybrididentitetslösningen som du ska anta dessa protokoll?
+* Kommer din organisation att autentisera och auktorisera endast användare som finns i identitets hanterings systemet?
+  * Finns det några planer för B2B-scenarier?
+  * Om ja, vet du redan vilka protokoll (SAML, OAuth, Kerberos eller certifikat) som ska användas för att ansluta båda företagen?
+* Använder du den hybrid identitets lösning som du ska använda för att införa stöd för dessa protokoll?
 
-En annan viktig punkt att tänka på är var autentiseringsdatabasen som ska användas av användare och partner kommer att finnas och den administrativa modellen som ska användas. Tänk på följande två huvudalternativ:
+En annan viktig punkt att tänka på är var i vilken databas för autentisering som kommer att användas av användare och partners och vilken administrativ modell som ska användas. Överväg följande två Core-alternativ:
 
-* Centraliserad: I den här modellen kan användarens autentiseringsuppgifter, principer och administration centraliseras lokalt eller i molnet.
-* Hybrid: I den här modellen kommer användarens autentiseringsuppgifter, principer och administration att centraliseras lokalt och replikeras i molnet.
+* Centraliserad: i den här modellen kan användarens autentiseringsuppgifter, principer och administration vara centraliserade lokalt eller i molnet.
+* Hybrid: i den här modellen kommer användarens autentiseringsuppgifter, principer och administration att centraliseras lokalt och replikeras i molnet.
 
-Vilken modell din organisation ska anta varierar beroende på deras affärskrav, du vill svara på följande frågor för att identifiera var identitetshanteringssystemet ska finnas och det administrativa läget som ska användas:
+Vilken modell din organisation kommer att använda varierar beroende på deras affärs krav, du vill besvara följande frågor för att identifiera var identitets hanterings systemet kommer att finnas och vilket administrativt läge som ska användas:
 
-* Har din organisation för närvarande en identitetshantering lokalt?
-  * Om ja, planerar de att behålla det?
-  * Finns det några reglerings- eller efterlevnadskrav som din organisation måste följa som avgör var identitetshanteringssystemet ska finnas?
+* Har din organisation för närvarande en identitets hantering lokalt?
+  * Om ja, planerar du att behålla det?
+  * Finns det några bestämmelser om reglering eller efterlevnad som din organisation måste följa för att bestämma var identitets hanterings systemet ska finnas?
 * Använder din organisation enkel inloggning för appar som finns lokalt eller i molnet?
-  * Om ja, påverkar antagandet av en hybrididentitetsmodell den här processen?
+  * Om ja, påverkar implementeringen av en hybrid identitets modell den här processen?
 
 ## <a name="access-control"></a>Åtkomstkontroll
-Autentisering och auktorisering är centrala element för att möjliggöra åtkomst till företagsdata genom användarens validering, men det är också viktigt att kontrollera åtkomstnivån som dessa användare kommer att ha och nivån på åtkomstadministratörerna kommer att ha över resurserna som de hanterar. Din hybrididentitetslösning måste kunna ge detaljerad åtkomst till resurser, delegering och rollbasåtkomstkontroll. Se till att följande fråga besvaras om åtkomstkontroll:
+Autentisering och auktorisering är kärn element för att ge åtkomst till företags data via användarens verifiering, men det är också viktigt att kontrol lera den åtkomst nivå som användarna kommer att ha och nivån av åtkomst administratörer kommer att ha över de resurser som de hanterar. Din hybrid identitets lösning måste kunna ge detaljerad åtkomst till resurser, delegering och roll bas åtkomst kontroll. Se till att följande fråga besvaras om åtkomst kontroll:
 
-* Har ditt företag mer än en användare med förhöjd behörighet att hantera ditt identitetssystem?
-  * Om ja, behöver varje användare samma åtkomstnivå?
-* Skulle ditt företag behöva delegera åtkomst till användare för att hantera specifika resurser?
+* Har företaget fler än en användare med utökade privilegier för att hantera ditt identitets system?
+  * Om ja, behöver varje användare samma åtkomst nivå?
+* Skulle företaget behöva Delegera åtkomst till användare för att kunna hantera vissa resurser?
   * Om ja, hur ofta detta händer?
-* Skulle ditt företag behöva integrera åtkomstkontrollfunktioner mellan lokala resurser och molnresurser?
-* Skulle ditt företag behöva begränsa tillgången till resurser enligt vissa villkor?
-* Skulle ditt företag har något program som behöver anpassad kontroll tillgång till vissa resurser?
-  * Om ja, var finns dessa appar (lokalt eller i molnet)?
-  * Om ja, var finns dessa målresurser (lokalt eller i molnet)?
+* Behöver företaget integrera åtkomst kontroll funktioner mellan lokala och molnbaserade resurser?
+* Behöver företaget begränsa åtkomsten till resurser i enlighet med vissa villkor?
+* Skulle företaget ha något program som behöver anpassad kontroll till vissa resurser?
+  * Om ja, var finns apparna (lokalt eller i molnet)?
+  * Om ja, var finns de mål resurserna (lokalt eller i molnet)?
 
 > [!NOTE]
-> Skriv ner varje svar och försök förstå anledningen till svaret. [Definiera dataskyddsstrategi](plan-hybrid-identity-design-considerations-data-protection-strategy.md) kommer att gå igenom de tillgängliga alternativen och fördelar / nackdelar med varje alternativ.  Genom att svara på dessa frågor väljer du vilket alternativ som bäst passar dina affärsbehov.
+> Skriv ner varje svar och försök förstå anledningen till svaret. [Definiera data skydds strategi](plan-hybrid-identity-design-considerations-data-protection-strategy.md) går över tillgängliga alternativ och fördelar/nack delar med varje alternativ.  Genom att besvara frågorna väljer du vilket alternativ som passar dina affärs behov bäst.
 > 
 > 
 
@@ -82,5 +82,5 @@ Autentisering och auktorisering är centrala element för att möjliggöra åtko
 [Fastställa krav för incidenthantering](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## <a name="see-also"></a>Se även
-[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
 

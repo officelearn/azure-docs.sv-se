@@ -1,20 +1,20 @@
 ---
 title: Felsöka distributioner
-description: Lär dig hur du övervakar och felsöker Azure Resource Manager-malldistributioner. Visar aktivitetsloggar och distributionshistorik.
+description: Lär dig hur du övervakar och felsöker distributioner av Azure Resource Manager mallar. Visar aktivitets loggar och distributions historik.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239242"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185004"
 ---
-# <a name="tutorial-troubleshoot-arm-template-deployments"></a>Självstudiekurs: Felsöka distributioner av ARM-mallar
+# <a name="tutorial-troubleshoot-arm-template-deployments"></a>Självstudie: Felsöka distributioner av ARM-mallar
 
-Lär dig hur du felsöker distributionsfel i Azure Resource Manager (ARM). I den här självstudien konfigurerar du två fel i en mall och lär dig hur du använder aktivitetsloggar och distributionshistoriken för att lösa problemen.
+Lär dig hur du felsöker distributions fel i ARM-mallar (Azure Resource Manager). I den här självstudien konfigurerar du två fel i en mall och lär dig hur du använder aktivitetsloggar och distributionshistoriken för att lösa problemen.
 
 Det finns två typer av fel som rör malldistribution:
 
@@ -26,45 +26,45 @@ Båda typerna av fel returnerar en felkod som du använder för att felsöka dis
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa en problemmall
-> * Felsöka valideringsfel
-> * Felsöka vanliga distributionsfel
-> * Rensa resurser
+> - Skapa en problemmall
+> - Felsöka valideringsfel
+> - Felsöka vanliga distributionsfel
+> - Rensa resurser
 
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio-kod med resurshanterarens verktygstillägg. Se [Använda Visual Studio-kod för att skapa ARM-mallar](use-vs-code-to-create-template.md).
+- Visual Studio Code med Resource Manager Tools-tillägg. Se [använda Visual Studio Code för att skapa arm-mallar](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Skapa en problemmall
 
-Öppna en mall som heter [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto) från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/) och konfigurera två mallfel.
+Öppna en mall som heter [skapa ett standard lagrings konto](https://azure.microsoft.com/resources/templates/101-storage-account-create/) från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)och konfigurera två problem med mallar.
 
-1. Välj **Öppna**>**fil**i Visual Studio-kod .
+1. Från Visual Studio **Code väljer**>du**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Välj **Öppna** för att öppna filen.
 4. Ändra raden **apiVersion** till följande rad:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1** är ett ogiltigt elementnamn. Det är ett valideringsfel.
     - API-versionen ska vara ”2018-07-01”.  Det är ett distributionsfel.
 
-5. Välj **Spara fil**>**som** om du vill spara filen som **azuredeploy.json** på den lokala datorn.
+5. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy. JSON** på den lokala datorn.
 
 ## <a name="troubleshoot-the-validation-error"></a>Felsöka valideringsfelet
 
-Se avsnittet [Distribuera mallen](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) för distribution av mallen.
+Se avsnittet [Distribuera mallen](template-tutorial-create-multiple-instances.md#deploy-the-template) för distribution av mallen.
 
 Du bör få ett fel i gränssnittet som liknar:
 
@@ -78,7 +78,7 @@ Använd Visual Studio Code för att åtgärda problemet genom att ändra **apiVe
 
 ## <a name="troubleshoot-the-deployment-error"></a>Felsöka distributionsfelet
 
-Se avsnittet [Distribuera mallen](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) för distribution av mallen.
+Se avsnittet [Distribuera mallen](template-tutorial-create-multiple-instances.md#deploy-the-template) för distribution av mallen.
 
 Du bör få ett fel i gränssnittet som liknar:
 
@@ -108,7 +108,7 @@ Distributionsfelet kan hittas i Azure-portalen med följande procedur:
 Du kan även hitta felet i aktivitetsloggarna:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **övervakaraktivitetslogg** > **Activity log**.
+2. Välj **övervaka** > **aktivitets logg**.
 3. Använd filtren för att hitta loggen.
 
     ![Självstudie om att felsöka Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
@@ -121,11 +121,11 @@ En lista över vanliga fel finns i avsnittet om att [felsöka vanliga Azure-dist
 
 När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen.
 
-1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
+1. Från Azure Portal väljer du **resurs grupp** på den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
 3. Välj resursgruppens namn.  Du bör se totalt sex resurser i resursgruppen.
-4. Välj **Ta bort resursgrupp** på den övre menyn.
+4. Välj **ta bort resurs grupp** på den översta menyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien fick du lära dig felsöka distributionsfel för ARM-mall.  Mer information finns i avsnittet om att [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](common-deployment-errors.md).
+I den här självstudien har du lärt dig hur du felsöker distributions fel för ARM-mallar.  Mer information finns i avsnittet om att [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](common-deployment-errors.md).

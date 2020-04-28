@@ -1,58 +1,58 @@
 ---
-title: (FÖRÅLDRAD) Övervaka Azure DC/OS-kluster - Dynatrace
-description: Övervaka ett DC/OS-kluster för Azure Container Service med Dynatrace. Distribuera Dynatrace OneAgent med hjälp av DC/OS-instrumentpanelen.
+title: FÖRÅLDRAD Övervaka Azure DC/OS-kluster – dynaTrace
+description: Övervaka ett Azure Container Service DC/OS-kluster med dynaTrace. Distribuera dynaTrace-OneAgent med hjälp av DC/OS-instrumentpanelen.
 author: MartinGoodwell
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab6bb116c93aad8501da21dc5688d7e39f4195fe
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277750"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166197"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(FÖRÅLDRAD) Övervaka ett DC/OS-kluster för Azure-behållartjänsten med Dynatrace SaaS/Managed
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>FÖRÅLDRAD Övervaka ett Azure Container Service DC/OS-kluster med dynaTrace SaaS/Managed
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-I den här artikeln visar vi hur du distribuerar [Dynatrace](https://www.dynatrace.com/) OneAgent för att övervaka alla agentnoder i azure container service-klustret. Du behöver ett konto hos Dynatrace SaaS/Managed för den här konfigurationen. 
+I den här artikeln visar vi hur du distribuerar [dynaTrace](https://www.dynatrace.com/) -OneAgent för att övervaka alla agent-noder i Azure Container Service klustret. Du behöver ett konto med dynaTrace SaaS/Managed för den här konfigurationen. 
 
-## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed
-Dynatrace är en molnbaserad övervakningslösning för mycket dynamiska behållare- och klustermiljöer. Det gör att du bättre kan optimera dina behållardistributioner och minnesallokeringar med hjälp av användningsdata i realtid. Den kan automatiskt identifiera program- och infrastrukturproblem genom att tillhandahålla automatiserad baselining, problemkorrelation och identifiering av grundorsak.
+## <a name="dynatrace-saasmanaged"></a>DynaTrace SaaS/Managed
+DynaTrace är en molnbaserad övervaknings lösning för hög dynamisk behållare och kluster miljöer. Det gör att du bättre kan optimera dina behållar distributioner och minnes tilldelningar genom att använda real tids användnings data. Den kan automatiskt lokalisera program-och infrastruktur problem genom att tillhandahålla automatiserade bas linje, problem korrelation och rotor Saks identifiering.
 
-Följande bild visar Dynatrace UI:
+Följande bild visar dynaTrace-gränssnittet:
 
-![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
+![DynaTrace-gränssnitt](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Krav 
-[Distribuera](container-service-deployment.md) och [ansluta](./../container-service-connect.md) till ett kluster som konfigurerats av Azure Container Service. Utforska [Marathon UI](container-service-mesos-marathon-ui.md). Gå [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) till för att skapa ett Dynatrace SaaS-konto.  
+[Distribuera](container-service-deployment.md) och [Anslut](./../container-service-connect.md) till ett kluster som kon figurer ATS av Azure Container Service. Utforska [Marathon-användargränssnittet](container-service-mesos-marathon-ui.md). Gå till [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) om du vill konfigurera ett dynaTrace SaaS-konto.  
 
-## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Konfigurera en Dynatrace-distribution med Marathon
-De här stegen visar hur du konfigurerar och distribuerar Dynatrace-program till ditt kluster med Marathon.
+## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Konfigurera en dynaTrace-distribution med Marathon
+De här stegen visar hur du konfigurerar och distribuerar dynaTrace-program till ditt kluster med Marathon.
 
-1. Få tillgång till dc/os-användargränssnittet via [http://localhost:80/](http://localhost:80/). En gång i DC / OS UI, navigera till **fliken Universum** och sedan söka efter **Dynatrace**.
+1. Få åtkomst till ditt DC/OS `http://localhost:80/`-gränssnitt via. I användar gränssnittet för DC/OS går du till fliken **universum** och söker efter **dynaTrace**.
 
-    ![Dynatrace i DC/OS Universe](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
+    ![DynaTrace i DC/OS-universum](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 
-2. För att slutföra konfigurationen behöver du ett Dynatrace SaaS-konto eller ett kostnadsfritt utvärderingskonto. När du har loggat in på Dynatrace-instrumentpanelen väljer du **Distribuera Dynatrace**.
+2. För att slutföra konfigurationen behöver du ett dynaTrace SaaS-konto eller ett kostnads fritt utvärderings konto. När du har loggat in på dynaTrace-instrumentpanelen väljer du **distribuera dynaTrace**.
 
-    ![Dynatrace Konfigurera PaaS-integrering](./media/container-service-monitoring-dynatrace/setup-paas.png)
+    ![DynaTrace konfigurera PaaS-integrering](./media/container-service-monitoring-dynatrace/setup-paas.png)
 
-3. Välj **Konfigurera PaaS-integrering**på sidan . 
+3. På sidan väljer du **Konfigurera PaaS-integrering**. 
 
-    ![Api-token för Dynatrace](./media/container-service-monitoring-dynatrace/api-token.png) 
+    ![DynaTrace-API-token](./media/container-service-monitoring-dynatrace/api-token.png) 
 
-4. Ange din API-token i Dynatrace OneAgent-konfigurationen i DC/OS-universumet. 
+4. Ange din API-token i dynaTrace OneAgent-konfigurationen i DC/OS-universum. 
 
-    ![Dynatrace OneAgent-konfiguration i DC/OS-universumet](./media/container-service-monitoring-dynatrace/dynatrace-config.png)
+    ![DynaTrace OneAgent-konfiguration i DC/OS-universum](./media/container-service-monitoring-dynatrace/dynatrace-config.png)
 
-5. Ange instanserna till antalet noder som du tänker köra. Ange ett högre nummer fungerar också, men DC / OS kommer att fortsätta att försöka hitta nya instanser tills det numret faktiskt nås. Om du vill kan du också ställa in detta till ett värde som 1000000. I det här fallet, när en ny nod läggs till i klustret, distribuerar Dynatrace automatiskt en agent till den nya noden, till priset av DC/OS som ständigt försöker distribuera ytterligare instanser.
+5. Ställ in instanserna på antalet noder som du vill köra. Att ställa in en högre siffra fungerar också, men DC/OS fortsätter att försöka hitta nya instanser tills numret faktiskt har nåtts. Om du vill kan du också ställa in det på ett värde som 1000000. I det här fallet, när en ny nod läggs till i klustret, distribuerar dynaTrace automatiskt en agent till den nya noden, till priset för DC/OS försöker hela tiden att distribuera ytterligare instanser.
 
-    ![Dynatrace-konfigurationen i DC/OS Universe-instanserna](./media/container-service-monitoring-dynatrace/dynatrace-config2.png)
+    ![DynaTrace konfiguration i universum för DC/OS-instanser](./media/container-service-monitoring-dynatrace/dynatrace-config2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har installerat paketet navigerar du tillbaka till Dynatrace-instrumentpanelen. Du kan utforska de olika användningsmåtten för behållarna i klustret. 
+När du har installerat paketet går du tillbaka till dynaTrace-instrumentpanelen. Du kan utforska de olika användnings måtten för behållarna i klustret. 

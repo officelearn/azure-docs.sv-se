@@ -1,15 +1,17 @@
 ---
+title: ta med fil
+description: ta med fil
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feea9696316723a2750be6fc1e13001224320324
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75752206"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865607"
 ---
 Med den betydande tillväxten av virtuella datorer som finns i Azure är det viktigt att identifiera prestanda- och hälsoproblem som påverkar program och infrastrukturtjänster som de stöder. Grundläggande övervakning levereras som standard med Azure av måtttyperna CPU-användning, diskanvändning, minnesanvändning och nätverkstrafik som samlas in av värdens hypervisor. Ytterligare mått- och loggdata kan samlas in med [tillägg](../articles/virtual-machines/windows/extensions-features.md) för att konfigurera diagnostik på dina virtuella datorer från gästoperativsystemet.
 
@@ -68,7 +70,7 @@ Några av de saker du kan göra med diagnostikloggar är:
 
 För synlighet för programmet eller tjänsten som stöds av Azure VM och virtuella dator skalningsuppsättningar, identifiering av problem med gästoperativsystemet eller arbetsbelastning som körs i den virtuella datorn för att förstå om det påverkar tillgänglighet eller prestanda för programmet, eller är ett problem med programmet, aktivera både [Azure Monitor för virtuella datorer](../articles/azure-monitor/insights/vminsights-overview.md) och Application [Insights](../articles/azure-monitor/app/app-insights-overview.md).
 
-Azure Monitor för virtuella datorer övervakar dina virtuella Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsa för dina virtuella Windows- och Linux-datorer, inklusive de olika processer och sammankopplade beroenden på andra resurser och externa processer som Upptäcker. Den innehåller flera trendprestandadiagram för att hjälpa till under undersökning av problem och bedöma kapaciteten hos dina virtuella datorer. Beroendekartan visar övervakade och oövervakade datorer, misslyckade och aktiva nätverksanslutningar mellan processer och dessa datorer och visar trenddiagram med standardmått för nätverksanslutning. Kombinerat med Application Insights övervakar du ditt program och fångar in telemetri som HTTP-begäranden, undantag osv. Konfigurera [Azure Monitor-aviseringar](../articles/azure-monitor/platform/alerts-overview.md) för att varna dig om viktiga villkor som upptäckts från övervakningsdata som samlats in av Azure Monitor för virtuella datorer.
+Azure Monitor för virtuella datorer övervakar dina virtuella Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsa för dina virtuella Windows- och Linux-datorer, inklusive de olika processer och sammankopplade beroenden på andra resurser och externa processer som upptäcks. Den innehåller flera trendprestandadiagram för att hjälpa till under undersökning av problem och bedöma kapaciteten hos dina virtuella datorer. Beroendekartan visar övervakade och oövervakade datorer, misslyckade och aktiva nätverksanslutningar mellan processer och dessa datorer och visar trenddiagram med standardmått för nätverksanslutning. Kombinerat med Application Insights övervakar du ditt program och fångar in telemetri som HTTP-begäranden, undantag osv. Konfigurera [Azure Monitor-aviseringar](../articles/azure-monitor/platform/alerts-overview.md) för att varna dig om viktiga villkor som upptäckts från övervakningsdata som samlats in av Azure Monitor för virtuella datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 

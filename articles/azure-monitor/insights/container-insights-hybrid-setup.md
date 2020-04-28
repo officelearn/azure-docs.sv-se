@@ -2,17 +2,37 @@
 title: Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare för att övervaka Kubernetes-kluster som finns på Azure Stack eller annan miljö.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: c0dbbf9f65aa96db1ebcd0b03552bba8d1f91863
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.date: 04/22/2020
+ms.openlocfilehash: a0008f7a2d6b808a8ff55d85330801305361d7c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82143178"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185973"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare
 
 Azure Monitor for containers innehåller omfattande övervaknings upplevelse för Azure Kubernetes service (AKS) och [AKS-motorn på Azure](https://github.com/Azure/aks-engine), som är ett självhanterat Kubernetes-kluster som finns på Azure. I den här artikeln beskrivs hur du aktiverar övervakning av Kubernetes-kluster som finns utanför Azure och uppnår en liknande övervaknings upplevelse.
+
+## <a name="supported-configurations"></a>Konfigurationer som stöds
+
+Följande stöds officiellt i Azure Monitor for containers.
+
+* Utrymmen 
+
+    * Kubernetes lokalt
+    
+    * AKS-motorn på Azure och Azure Stack. Mer information finns i [AKS-motorn på Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    
+    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) , version 4 och högre, lokalt eller i andra moln miljöer.
+
+* Versioner av Kubernetes och support policy är samma som versioner av [AKS som stöds](../../aks/supported-kubernetes-versions.md).
+
+* Container Runtime: Docker, Moby och CRI-kompatibla körningar som CRI-O och container.
+
+* Linux OS-version för Master and arbetaded Nodes: Ubuntu (18,04 LTS och 16,04 LTS) och Red Hat Enterprise Linux Core 43,81.
+
+* Åtkomst kontroll som stöds: Kubernetes RBAC och icke-RBAC
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,10 +53,9 @@ Kontrol lera att du har följande innan du börjar:
 * Följande konfigurations information för proxy och brand väggar krävs för den behållar version av Log Analytics-agenten för Linux för att kunna kommunicera med Azure Monitor:
 
     |Agentresurs|Portar |
-    |------|---------|   
-    |*.ods.opinsights.azure.com |Port 443 |  
-    |*.oms.opinsights.azure.com |Port 443 |  
-    |*.blob.core.windows.net |Port 443 |  
+    |------|---------|
+    |*.ods.opinsights.azure.com |Port 443 |
+    |*.oms.opinsights.azure.com |Port 443 |
     |*. dc.services.visualstudio.com |Port 443 |
 
 * Den behållare som har `cAdvisor secure port: 10250` behållar agenten kräver Kubelet eller `unsecure port :10255` öppnas på alla noder i klustret för att samla in prestanda mått. Vi rekommenderar att du `secure port: 10250` konfigurerar på Kubelet-cAdvisor om den inte redan har kon figurer ATS.
@@ -45,16 +64,6 @@ Kontrol lera att du har följande innan du börjar:
 
 >[!IMPORTANT]
 >Den lägsta agent version som stöds för övervakning av hybrid Kubernetes-kluster är ciprod10182019 eller senare.
-
-## <a name="supported-configurations"></a>Konfigurationer som stöds
-
-Följande stöds officiellt i Azure Monitor for containers.
-
-- Miljöer: Kubernetes on-premises, AKS-motorn på Azure och Azure Stack. Mer information finns i [AKS-motorn på Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Versioner av Kubernetes och support policy är samma som versioner av [AKS som stöds](../../aks/supported-kubernetes-versions.md).
-- Container Runtime: Docker och Moby
-- Linux OS-version för Master and arbetaded Nodes: Ubuntu (18,04 LTS och 16,04 LTS)
-- Åtkomst kontroll som stöds: Kubernetes RBAC och icke-RBAC
 
 ## <a name="enable-monitoring"></a>Aktivera övervakning
 
@@ -242,7 +251,7 @@ För att först identifiera det fullständiga resurs-ID: t för din Log Analytic
 ## <a name="install-the-chart"></a>Installera diagrammet
 
 >[!NOTE]
->Följande kommandon gäller endast för Helm version 2. Användning av parametern--name kan inte användas med Helm version 3.
+>Följande kommandon gäller endast för Helm version 2. `--name` Parametern kan inte användas med Helm version 3.
 
 Gör så här för att aktivera HELM-diagrammet:
 
@@ -272,6 +281,28 @@ Gör så här för att aktivera HELM-diagrammet:
     $ helm install --name myrelease-1 \
     --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
+
+### <a name="enable-the-helm-chart-using-the-api-model"></a>Aktivera Helm-diagrammet med API-modellen
+
+Du kan ange ett tillägg i JSON-filen för AKS-motorns kluster specifikation, även kallat API-modellen. I det här tillägget anger du den base64-kodade versionen av `WorkspaceGUID` och `WorkspaceKey` på arbets ytan Log Analytics där de insamlade övervaknings data lagras.
+
+API-definitioner som stöds för Azure Stack Hub-klustret finns i det här exemplet- [Kubernetes-container-monitoring_existing_workspace_id_and_key. JSON](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Mer specifikt hittar du egenskapen **addons** i **kubernetesConfig**:
+
+```json
+"orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## <a name="configure-agent-data-collection"></a>Konfigurera agent data insamling
 

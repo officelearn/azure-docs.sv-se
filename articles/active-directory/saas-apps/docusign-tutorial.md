@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med DocuSign | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DocuSign.
 services: active-directory
 documentationCenter: na
@@ -12,232 +12,243 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 02b0d8290e279b6ed4de08d074597154208cac6b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76983669"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184000"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med DocuSign
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign
 
 I den här självstudien får du lära dig hur du integrerar DocuSign med Microsoft Azure Active Directory (Azure AD). När du integrerar DocuSign med Azure AD kan du:
 
-* Använd Azure AD för att styra vem som har åtkomst till DocuSign.
+* Använd Azure AD för att kontrol lera vem som har åtkomst till DocuSign.
 * Aktivera automatisk inloggning till DocuSign för dina användare via deras Azure AD-konton.
-* Hantera dina konton på en central plats: Azure-portalen.
+* Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om integrering av SaaS-appar (Software as a Service) med Azure AD finns [i Enkel inloggning till program i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [enkel inloggning till program i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* En DocuSign-prenumeration som är enkel inloggning (SSO) aktiverad.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* En DocuSign-prenumeration som är enkel inloggning aktive rad (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö för att verifiera att:
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö för att kontrol lera att:
 
-* DocuSign stöder serviceprovider (SP)-initierad SSO.
+* DocuSign stöder Service Provider (SP)-initierad SSO.
 
-* DocuSign stöder *just-in-time-användaretablering.*
+* DocuSign stöder **just-in-Time-** etablering av användare.
 
-* DocuSign stöder [automatisk användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
-* När du har konfigurerat DocuSign kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du tillämpar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* DocuSign stöder [Automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* När du har konfigurerat DocuSign kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Lägga till DocuSign från galleriet
 
 Om du vill konfigurera integreringen av DocuSign i Azure AD måste du lägga till DocuSign från galleriet i listan över hanterade SaaS-appar:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med hjälp av ett arbets- eller skolkonto eller med hjälp av ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i navigeringsfönstret till vänster.
-1. Gå till **Företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **DocuSign** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **DocuSign** på resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto, eller genom att använda en personlig Microsoft-konto.
+1. I navigerings fönstret till vänster väljer du tjänsten **Azure Active Directory** .
+1. Gå till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **DocuSign** i sökrutan.
+1. Välj **DocuSign** på panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>Konfigurera och testa en azure AD-inloggning för DocuSign
+## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>Konfigurera och testa enkel inloggning med Azure AD för DocuSign
 
-Konfigurera och testa Azure AD SSO med DocuSign med hjälp av en testanvändare med namnet **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och motsvarande användare i DocuSign.
+Konfigurera och testa Azure AD SSO med DocuSign med hjälp av en test användare med namnet **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och motsvarande användare i DocuSign.
 
-Så här konfigurerar och testar du Azure AD SSO med DocuSign:
+Om du vill konfigurera och testa Azure AD SSO med DocuSign, slutför du följande Bygg stenar:
 
 1. [Konfigurera Azure AD SSO](#configure-azure-ad-sso) så att användarna kan använda den här funktionen.
-    1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa Azure AD enkel inloggning med B.Simon.
-    1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) för att aktivera B.Simon att använda Azure AD enkel inloggning.
-1. [Konfigurera DocuSign SSO](#configure-docusign-sso) för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. [Skapa en DocuSign-testanvändare](#create-docusign-test-user) för att generera en motsvarighet till B.Simon i DocuSign som är länkad till Azure AD-representationen för användaren.
-1. [Testa SSO](#test-sso) för att kontrollera att konfigurationen fungerar.
+    1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning i Azure AD med B. Simon.
+    1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+1. [Konfigurera DOCUSIGN SSO](#configure-docusign-sso) för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. [Skapa en DocuSign-test användare](#create-docusign-test-user) för att generera en motsvarighet till B. Simon i DocuSign som är länkad till Azure AD-representation av användaren.
+1. [Testa SSO](#test-sso) för att verifiera att konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Så här aktiverar du Azure AD SSO i Azure-portalen:
+Följ dessa steg om du vill aktivera Azure AD SSO i Azure Portal:
 
-1. Leta reda på avsnittet Hantera på sidan **Hantera** på sidan [Azure-portalen](https://portal.azure.com/)och välj sedan **enkel inloggning**. **Manage**
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **DocuSign** , letar reda på avsnittet **Hantera** och väljer sedan **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Gör så här i avsnittet **Grundläggande SAML-konfiguration:**
+1. I avsnittet **grundläggande SAML-konfiguration** följer du dessa steg:
 
-    a. Ange en WEBBADRESS i rutan **Logga in på WEBBADRESS** med följande mönster:`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+    a. I text rutan för **inloggnings-URL** anger du en URL med hjälp av följande mönster:
 
-    b. Ange en URL med följande mönster i rutan **Identifierare (enhets-ID):**`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+
+    b. I text rutan **identifierare (enhets-ID)** anger du en URL med hjälp av följande mönster:
+
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+
+    c. I text rutan **svars-URL** anger du en URL med följande mönster:
+    
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
 
     > [!NOTE]
-    > Dessa parentesvärden är platshållare. Ersätt dem med värdena i den faktiska inloggnings-URL:en och identifieraren. Dessa uppgifter förklaras i avsnittet "Visa SAML 2.0-slutpunkter" senare i den här självstudien.
+    > Dessa hakparenteser är plats hållare. Ersätt dem med värdena i den faktiska inloggnings-URL: en, identifierare och svars-URL. Informationen beskrivs i avsnittet "Visa SAML 2,0-slutpunkter" senare i den här självstudien.
 
-1. Sök upp **certifikat (Base64)** i avsnittet **SAML Signering Certificate** på sidan Konfigurera enkel inloggning med **SAML.** Välj **Hämta** om du vill hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **certifikat (base64)**. Välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera DocuSign** kopierar du lämplig URL (eller webbadresser) baserat på dina behov.
+1. I avsnittet **Konfigurera DocuSign** kopierar du lämplig URL (eller URL: er) baserat på dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare med namnet B.Simon i Azure-portalen.
+I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure Portal.
 
-1. I den vänstra rutan i Azure-portalen väljer du **Azure Active Directory**, väljer **Användare**och väljer sedan **Alla användare**.
-1. Högst upp på skärmen väljer du **Ny användare**.
-1. Gör så här i egenskaperna **Användare:**
-   1. Ange **B.Simon**i fältet **Namn** .  
-   1. Ange `<username>@<companydomain>.<extension>`i fältet **Användarnamn** . Till exempel: `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och notera sedan värdet som visas i rutan **Lösenord.**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Överst på skärmen väljer du **ny användare**.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I fältet **namn** anger du **B. Simon**.  
+   1. I fältet **användar namn** anger `<username>@<companydomain>.<extension>`du. Till exempel: `B.Simon@contoso.com`.
+   1. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du ge B.Simon åtkomst till DocuSign så att den här användaren kan använda Azure enkel inloggning.
+I det här avsnittet beviljar du B. Simon-åtkomst till DocuSign så att den här användaren kan använda enkel inloggning i Azure.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **DocuSign**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **DocuSign**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **Användare och grupper**i dialogrutan Lägg till **tilldelning** .
+1. Välj **Lägg till användare**och välj sedan **användare och grupper**i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan **Användare** och trycker sedan på **knappen Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och trycker sedan på **knappen Välj** längst ned på skärmen.
-1. Välj knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan **användare** och trycker sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och trycker sedan på knappen **Välj** längst ned på skärmen.
+1. I dialog rutan **Lägg till tilldelning** väljer du knappen **tilldela** .
 
 ## <a name="configure-docusign-sso"></a>Konfigurera DocuSign SSO
 
-1. Om du vill automatisera konfigurationen i DocuSign måste du installera webbläsartillägget Installera säker inloggning genom att välja **Installera tillägget**.
+1. Om du vill automatisera konfigurationen i DocuSign måste du installera webb läsar tillägget Mina appar med säker inloggning genom att välja **installera tillägget**.
 
-    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
 
-2. När du har lagt till tillägget i webbläsaren väljer du **Konfigurera DocuSign**. Du dirigeras till DocuSign-programmet. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på DocuSign. Webbläsartillägget konfigurerar automatiskt programmet och automatiserar steg 3 till 5.
+2. När du har lagt till tillägget i webbläsaren väljer du **Setup DocuSign**. Du är dirigerad till DocuSign-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på DocuSign. Webb läsar tillägget konfigurerar automatiskt programmet och automatiserar steg 3 till 5.
 
-    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
+    ![Konfigurera konfiguration](common/setup-sso.png)
 
-3. Om du vill konfigurera DocuSign manuellt öppnar du ett nytt webbläsarfönster och loggar in på docusign-företagets webbplats som administratör.
+3. Om du vill konfigurera DocuSign manuellt öppnar du ett nytt webbläsarfönster och loggar in på din DocuSign-företags webbplats som administratör.
 
-4. I det övre högra hörnet på sidan markerar du profillogotypen och väljer sedan **Gå till Admin**.
+4. I det övre högra hörnet på sidan väljer du profil logo typ och väljer sedan **gå till administratör**.
   
-    ![Gå till Admin under Profil][51]
+    ![Gå till administratör under profil][51]
 
-5. Välj Domäner på sidan **domänlösningar**.
+5. På sidan domän lösningar väljer du **domäner**.
 
-    ![Domänlösningar/domäner][50]
+    ![Domän lösningar/domäner][50]
 
-6. Välj **ANSPRÅKSDOMÄN I**avsnittet **Domäner** .
+6. I avsnittet **domäner** väljer du **anspråks domän**.
 
-    ![Alternativet Anspråksdomän][52]
+    ![Anspråk domän alternativ][52]
 
-7. Skriv företagsdomänen i rutan **Domännamn** i dialogrutan **Begär en domän** och välj sedan **ANSPRÅK**. Kontrollera att du verifierar domänen och att dess status är aktiv.
+7. I dialog rutan Ange **en domän** i dialog rutan **domän namn** anger du din företags domän och väljer sedan **anspråk**. Kontrol lera att du verifierar domänen och att dess status är aktiv.
 
-    ![Göra anspråk på dialogrutan Domännamn][53]
+    ![Anspråks dialog rutan för domän/domän namn][53]
 
-8. På sidan domänlösningar väljer du **Identitetsleverantörer**.
+8. På sidan domän lösningar väljer du **identitets leverantörer**.
   
-    ![Alternativ för identitetsleverantörer][54]
+    ![Alternativet identitets leverantörer][54]
 
-9. I avsnittet **Identitetsleverantörer** väljer du **ADD IDENTITY PROVIDER**.
+9. I avsnittet **identitets leverantörer** väljer du **Lägg till identitets leverantör**.
 
     ![Alternativet Lägg till identitetsprovider][55]
 
-10. Gör så här på sidan **Inställningar för identitetsprovider:**
+10. Följ dessa steg på sidan **Inställningar för identitetsprovider** :
 
-    ![Inställningar för identitetsprovider][56]
+    ![Fält för identitets leverantörs inställningar][56]
 
-    a. Skriv ett unikt namn för konfigurationen i rutan **Namn.** Använd inte mellanslag.
+    a. I rutan **namn** anger du ett unikt namn för din konfiguration. Använd inte blank steg.
 
-    b. Klistra in azure **AD-identifierare** i **rutan Identitetsproviderutfärdare,** som du kopierade från Azure-portalen.
+    b. I **rutan utfärdande av identitets leverantör**klistrar du in värdet för **Azure AD-identifieraren** , som du kopierade från Azure Portal.
 
-    c. I rutan **Url för inloggningsadress för identitetsprovider** klistrar du in värdet **för inloggningsadressen,** som du kopierade från Azure-portalen.
+    c. I rutan **inloggnings webb adress för identitets leverantör** klistrar du in värdet för **inloggnings-URL** , som du kopierade från Azure Portal.
 
-    d. I **url:en för identitetsproviderloggning** klistrar du in värdet **för url för utloggning**, som du kopierade från Azure-portalen.
+    d. I rutan **Logga in URL för identitets leverantör** klistrar du in värdet för **URL för utloggning**som du kopierade från Azure Portal.
 
-    e. Välj **Sign AuthN-begäran**.
+    e. Välj **signera authn-begäran**.
 
-    f. För **Skicka AuthN-begäran av**väljer du **POST**.
+    f. För **Skicka authn-begäran av**väljer du **post**.
 
-    g. För **Skicka utloggningsbegäran av**väljer du **GET**.
+    g. För **Skicka utloggnings förfrågan från**väljer du **Hämta**.
 
-    h. I avsnittet **Anpassad attributmappning** väljer du **LÄGG TILL NY MAPPNING**.
+    h. I avsnittet **Mappning av anpassade attribut** väljer du **Lägg till ny mappning**.
 
-       ![Användargränssnitt för anpassad attributmappning][62]
+       ![GRÄNSSNITT för mappning av anpassade attribut][62]
 
-    i. Välj det fält som du vill mappa till Azure AD-anspråket. I det här exemplet mappas **anspråket för e-postadress** med värdet för `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. Det är standardanspråksnamnet från Azure AD för e-postanspråket. Välj **SPARA**.
+    i. Välj det fält som du vill mappa till Azure AD-anspråket. I det här exemplet mappas **EmailAddress** -anspråket till värdet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. Det är standard anspråks namnet från Azure AD för e-postanspråket. Välj **Spara**.
 
-       ![Fält för anpassad attributmappning][57]
+       ![Mappnings fält för anpassat attribut][57]
 
        > [!NOTE]
-       > Använd lämplig **användaridentifierare** för att mappa användaren från Azure AD till DocuSign-användarmappning. Välj rätt fält och ange lämpligt värde baserat på organisationens inställningar.
+       > Använd rätt **användar identifierare** för att mappa användaren från Azure AD till DocuSign användar mappning. Välj fältet korrekt och ange lämpligt värde baserat på organisations inställningarna.
 
-    j. I avsnittet **Identitetsprovidercertifikat** väljer du **LÄGG TILL CERTIFIKAT**, överför certifikatet som du hämtade från Azure AD-portalen och väljer **SPARA**.
+    j. I avsnittet **certifikat för identitetsprovider** väljer du **Lägg till certifikat**, laddar upp det certifikat som du laddade ned från Azure AD Portal och väljer **Spara**.
 
-       ![Identitetsprovidercertifikat/Lägg till certifikat][58]
+       ![Certifikat för identitets leverantör/Lägg till certifikat][58]
 
-    k. I avsnittet **Identitetsprovider** väljer du **ÅTGÄRDER**och väljer sedan **Slutpunkter**.
+    k. I avsnittet **identitets leverantörer** väljer du **åtgärder**och väljer sedan **slut punkter**.
 
-       ![Identitetsleverantörer/slutpunkter][59]
+       ![Identitets leverantörer/slut punkter][59]
 
-    l. Gör så här i avsnittet **Visa SAML 2.0-slutpunkter** i DocuSign-administratörsportalen:
-       1. Kopiera **URL:en för serviceproviderutfärdaren**och klistra sedan in den i rutan **Identifierare** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    l. I avsnittet **Visa SAML 2,0-slutpunkter** i administrations portalen för DocuSign följer du de här stegen:
 
-       1. Kopiera **tjänstens inloggningsadress**och klistra sedan in den i rutan Logga in **url** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+       ![Visa SAML 2,0-slutpunkter][60]
+       
+       1. Kopiera **URL: en för service providerns utfärdare**och klistra in den i rutan **identifierare** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+       
+       1. Kopiera **URL: en till tjänste leverantörens intyg om försäkrans konsument tjänst**och klistra in den i rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+       
+       1. Kopiera **inloggnings-URL: en för tjänst leverantören**och klistra in den i rutan för **INLOGGNINGs-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
        1. Välj **Stäng**.
 
-       ![Visa SAML 2.0-slutpunkter][60]
+### <a name="create-docusign-test-user"></a>Skapa DocuSign test användare
 
-### <a name="create-docusign-test-user"></a>Skapa DocuSign-testanvändare
+I det här avsnittet skapas en användare som heter B. Simon i DocuSign. DocuSign stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i DocuSign skapas en ny efter autentiseringen.
 
-I det här avsnittet skapas en användare med namnet B.Simon i DocuSign. DocuSign stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i DocuSign skapas en ny efter autentisering.
-
->[!Note]
->Om du behöver skapa en användare manuellt kontaktar du [DocuSign-supportteamet](https://support.docusign.com/).
+> [!Note]
+> Kontakta [DocuSign support-teamet](https://support.docusign.com/)om du behöver skapa en användare manuellt.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
-När du väljer panelen DocuSign på åtkomstpanelen bör du automatiskt loggas in på den DocuSign-instans som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen DocuSign på åtkomst panelen, bör du loggas in automatiskt på DocuSign-instansen som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Självstudier om hur du integrerar SaaS-appar med Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning i Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning i Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova DocuSign med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

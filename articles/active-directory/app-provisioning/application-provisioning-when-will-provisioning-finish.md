@@ -1,6 +1,6 @@
 ---
-title: Användaretablering till Azure AD Gallery-appen tar timmar eller mer
-description: Så här tar du reda på varför etableringen till din ansökan kan ta längre tid än förväntat
+title: Användar etablering i Azure AD Gallery-appen tar flera timmar eller mer
+description: Så här tar du reda på varför etableringen av programmet kan ta längre tid än förväntat
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,23 +17,23 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb22d19733fbeb162fba55dd732c10e552879c78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77522653"
 ---
-# <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Användaretablering till ett Azure AD Gallery-program tar timmar eller mer
+# <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer
 
-När du först aktiverar automatisk etablering för ett program kan den inledande cykeln ta allt från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. 
+När du först aktiverar automatisk etablering för ett program kan den första cykeln ta var som helst från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. 
 
-Efterföljande synkroniseringar efter den inledande cykeln går snabbare, eftersom etableringstjänsten lagrar vattenstämplar som representerar tillståndet för båda systemen efter den inledande cykeln, vilket förbättrar prestanda för efterföljande synkroniseringar.
+Efterföljande synkroniseringar efter den första cykeln går snabbare, eftersom etablerings tjänsten lagrar vattenstämplar som representerar båda systemens tillstånd efter den första cykeln, vilket förbättrar prestandan för efterföljande synkroniseringar.
 
-## <a name="how-to-improve-provisioning-performance"></a>Så här förbättrar du etableringsprestanda
+## <a name="how-to-improve-provisioning-performance"></a>Förbättra etablerings prestanda
 
-Om den inledande cykeln tar mer än några timmar, det finns en sak du kan göra för att förbättra prestanda:
+Om den första cykeln tar längre tid än några timmar kan du förbättra prestandan genom att göra något av följande:
 
--   **Användarformningsfilter.** Med omfångsfilter kan du finjustera de data som etableringstjänsten extraherar från Azure AD genom att filtrera bort användare baserat på specifika attributvärden. Mer information om omfångsfilter finns i [Attributbaserad programetablering med omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+-   **Användar omfångs filter.** Med omfångs filter kan du finjustera de data som etablerings tjänsten extraherar från Azure AD genom att filtrera ut användare baserat på särskilda attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

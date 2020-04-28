@@ -14,10 +14,10 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425552"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Vad är nytt för Azure Active Directory i Microsoft 365 myndigheter
@@ -51,7 +51,7 @@ Tidigare kunde kunder logga in med de internationella Azure-portal.azure.com-och
 
 I följande tabell visas slut punkterna för alla kunder:
 
-| Namn | Slut punkts information |
+| Name | Slut punkts information |
 |------|------------------|
 | Portaler |Microsoft Azure Government:https://portal.azure.us<p>Microsoft 365 myndigheter – GCC hög:https://portal.office365.us<p>Microsoft 365 myndigheter – DoD:https://portal.apps.mil |
 | Slut punkt för Azure Active Directory utfärdare | https://login.microsoftonline.us |

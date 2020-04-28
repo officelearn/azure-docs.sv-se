@@ -1,6 +1,6 @@
 ---
-title: (FÖRÅLDRAD) Kanariefågelversion med Vamp i Azure DC/OS-kluster
-description: Så här använder du Vamp för canary release-tjänster och tillämpar smart trafikfiltrering i ett AZURE Container Service DC/OS-kluster
+title: FÖRÅLDRAD Kanarie release med vamp på Azure DC/OS-kluster
+description: Använda vamp till Kanarie release Services och använda Smart trafik filtrering på ett Azure Container Service DC/OS-kluster
 author: gggina
 ms.service: container-service
 ms.topic: conceptual
@@ -8,61 +8,61 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77189117"
 ---
-# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(FÖRÅLDRAD) Mikrotjänster för canary-frisläppning med Vamp i ett DC/OS-kluster för Azure Container Service
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>FÖRÅLDRAD Kanarie release-mikrotjänster med vamp på ett Azure Container Service DC/OS-kluster
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-I den här genomgången konfigurerar vi Vamp på Azure Container Service med ett DC/OS-kluster. Vi kanariefågel släppa Vamp demo tjänst "sava", och sedan lösa en inkompatibilitet av tjänsten med Firefox genom att tillämpa smart trafik filtrering. 
+I den här genom gången ställer vi in vamp på Azure Container Service med ett DC/OS-kluster. Vi lanserar vamp demo-tjänsten "Sava" och löser sedan en inkompatibilitet för tjänsten med Firefox genom att använda Smart trafik filtrering. 
 
 > [!TIP] 
-> I den här genomgången körs Vamp på ett DC/OS-kluster, men du kan också använda Vamp med Kubernetes som orchestrator.
+> I den här genom gången körs vamp i ett DC/OS-kluster, men du kan också använda vamp med Kubernetes som Orchestrator.
 >
 
-## <a name="about-canary-releases-and-vamp"></a>Om kanariefågel utgåvor och Vamp
+## <a name="about-canary-releases-and-vamp"></a>Om Kanarie-versioner och vamp
 
 
-[Canary release](https://martinfowler.com/bliki/CanaryRelease.html) är en smart distributionsstrategi som antagits av innovativa organisationer som Netflix, Facebook och Spotify. Det är en strategi som är vettigt, eftersom det minskar problem, introducerar skyddsnät och ökar innovationen. Så varför är inte alla företag som använder det? Att utöka en CI/CD-pipeline till att omfatta kanariefågelstrategier ger komplexitet och kräver omfattande kunskap och erfarenhet. Det räcker för att blockera mindre företag och företag innan de ens kommer igång. 
+En miljö [fri släppning](https://martinfowler.com/bliki/CanaryRelease.html) är en strategi för smart distribution som antas av innovativa organisationer som Netflix, Facebook och Spotify. Det är en metod som passar bra eftersom det minskar problem, introducerar säkerhets nät och ökar innovationer. Varför använder de inte alla företag? Att utöka en CI/CD-pipeline för att innefatta Kanarie strategier ökar komplexiteten och kräver omfattande DevOps-kunskaper och erfarenhet. Det räcker med att blockera mindre företag och företag innan de kommer igång. 
 
-[Vamp](https://vamp.io/) är ett system med öppen källkod som utformats för att underlätta denna övergång och få kanariefågel släppa funktioner till din föredragna behållare schemaläggare. Vamp's canary funktionalitet går utöver procent-baserade utrullningar. Trafiken kan filtreras och delas på en mängd olika förhållanden, till exempel för att rikta specifika användare, IP-intervall eller enheter. Vamp spårar och analyserar prestandamått, vilket möjliggör automatisering baserat på verkliga data. Du kan ställa in automatisk återställning på fel eller skala enskilda tjänstvarianter baserat på belastning eller svarstid.
+[Vamp](https://vamp.io/) är ett system med öppen källkod som har utformats för att under lätta den här över gången och ta fram funktioner för att få kontroll över en vald container Scheduler. Vamps Kanarie-funktioner går utöver procentbaserade distributioner. Trafiken kan filtreras och delas upp i en mängd olika villkor, till exempel för att rikta in specifika användare, IP-intervall eller enheter. Vamp spårar och analyserar prestanda mått, vilket möjliggör automatisering baserat på verkliga data. Du kan ställa in automatisk återställning vid fel eller skala enskilda varianter utifrån belastnings-eller svars tider.
 
 ## <a name="set-up-azure-container-service-with-dcos"></a>Konfigurera Azure Container Service med DC/OS
 
 
 
-1. [Distribuera ett DC/OS-kluster](container-service-deployment.md) med en huvudhanterare och två agenter av standardstorlek. 
+1. [Distribuera ett DC/OS-kluster](container-service-deployment.md) med en huvud server och två agenter som standard storlek. 
 
-2. [Skapa en SSH-tunnel](../container-service-connect.md) för att ansluta till DC/OS-klustret. Den här artikeln förutsätter att du tunnel till klustret på lokal port 80.
+2. [Skapa en SSH-tunnel](../container-service-connect.md) för att ansluta till DC/OS-klustret. Den här artikeln förutsätter att du tunnlar till klustret på den lokala porten 80.
 
 
-## <a name="set-up-vamp"></a>Ställ in Vamp
+## <a name="set-up-vamp"></a>Konfigurera vamp
 
-Nu när du har ett DC/OS-kluster som körs kan du installera\/Vamp från DC/OS-användargränssnittet (http: /localhost:80). 
+Nu när du har ett DC/OS-kluster som kör kan du installera vamp från DC/OS-gränssnittet (http\/:/localhost: 80). 
 
 ![DC/OS-gränssnitt:](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
-Installationen sker i två steg:
+Installationen görs i två steg:
 
-1. **Distribuera Elasticsearch**.
+1. **Distribuera ElasticSearch**.
 
-2. Distribuera sedan **Vamp** genom att installera Vamp DC/OS-universumpaketet.
+2. **Distribuera sedan vamp** genom att installera paketet vamp DC/OS universum.
 
-### <a name="deploy-elasticsearch"></a>Distribuera elasticsearch
+### <a name="deploy-elasticsearch"></a>Distribuera ElasticSearch
 
-Vamp kräver Elasticsearch för statistikinsamling och aggregering. Du kan använda [magneticio Docker-avbildningarna](https://hub.docker.com/r/magneticio/elastic/) för att distribuera en kompatibel Vamp Elasticsearch-stack.
+Vamp kräver ElasticSearch för insamling och insamling av mått. Du kan använda [Magneticio Docker-avbildningar](https://hub.docker.com/r/magneticio/elastic/) för att distribuera en kompatibel vamp ElasticSearch-stack.
 
-1. Gå till **Tjänster** i DC/OS-användargränssnittet och klicka på **Distribuera tjänst**.
+1. I användar gränssnittet för DC/OS går du till **tjänster** och klickar på **distribuera tjänst**.
 
-2. Välj **JSON-läge** i **popup-programmet Distribuera ny tjänst.**
+2. Välj **JSON-läge** från popup-fönstret **distribuera ny tjänst** .
 
    ![Välj JSON-läge](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
 
-3. Klistra in följande JSON. Den här konfigurationen kör behållaren med 1 GB RAM och en grundläggande hälsokontroll av Elasticsearch-porten.
+3. Klistra in i följande JSON. Den här konfigurationen kör behållaren med 1 GB RAM-minne och en grundläggande hälso kontroll på ElasticSearch-porten.
   
    ```JSON
    {
@@ -93,49 +93,49 @@ Vamp kräver Elasticsearch för statistikinsamling och aggregering. Du kan anvä
 
 3. Klicka på **Distribuera**.
 
-   DC/OS distribuerar Elasticsearch-behållaren. Du kan följa förloppet på sidan **Tjänster.**  
+   DC/OS distribuerar ElasticSearch-behållaren. Du kan följa förloppet på sidan **tjänster** .  
 
-   ![distribuera e? Elasticsearch (Elasticsearch)](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
+   ![vill du distribuera e? ElasticSearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
-### <a name="deploy-vamp"></a>Distribuera Vamp
+### <a name="deploy-vamp"></a>Distribuera vamp
 
-När Elasticsearch rapporterar som **Löpning**kan du lägga till Paketet Vamp DC/OS Universe. 
+När ElasticSearch rapporter har **körts**kan du lägga till paketet vamp DC/OS universum. 
 
-1. Gå till **universum** och söka efter **vampyr.** 
-   ![Vamp på DC / OS universum](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
+1. Gå till **universum** och Sök efter **vamp**. 
+   ![Vamp på DC/OS-universum](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
 
-2. Klicka på **Installera** bredvid vampyrpaketet och välj **Avancerad installation**.
+2. Klicka på **Installera** bredvid vamp-paketet och välj **Avancerad installation**.
 
-3. Bläddra nedåt och ange följande elasticsearch-url: `http://elasticsearch.marathon.mesos:9200`. 
+3. Rulla ned och ange följande ElasticSearch-URL: `http://elasticsearch.marathon.mesos:9200`. 
 
-   ![Ange URL för elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
+   ![Ange ElasticSearch-URL](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
-4. Klicka på **Granska och installera**och sedan på **Installera** för att starta distributionen.  
+4. Klicka på **Granska och installera**och klicka sedan på **Installera** för att starta distributionen.  
 
-   DC/OS distribuerar alla nödvändiga Vamp-komponenter. Du kan följa förloppet på sidan **Tjänster.**
+   DC/OS distribuerar alla nödvändiga vamp-komponenter. Du kan följa förloppet på sidan **tjänster** .
   
-   ![Distribuera Vamp som universumpaket](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
+   ![Distribuera vamp som universum-paket](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
   
-5. När distributionen är klar kan du komma åt Vamp-användargränssnittet:
+5. När distributionen har slutförts kan du komma åt vamp-gränssnittet:
 
    ![Vamp-tjänst på DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
-   ![Vamp UI](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
+   ![Vamp-gränssnitt](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
 
 ## <a name="deploy-your-first-service"></a>Distribuera din första tjänst
 
-Nu när Vamp är igång, distribuera en tjänst från en ritning. 
+Nu när vamp är igång kan du distribuera en tjänst från en skiss. 
 
-I det enklaste formuläret beskriver en [Vamp-skiss](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) slutpunkter (gateways), kluster och tjänster som ska distribueras. Vamp använder kluster för att gruppera olika varianter av samma tjänst i logiska grupper för kanariefågelfrisläppning eller A/B-testning.  
+I sin enklaste form beskriver en [vamp skiss](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) vilka slut punkter (gateways), kluster och tjänster som ska distribueras. Vamp använder kluster för att gruppera olika varianter av samma tjänst i logiska grupper för kontroll av Kanarie-eller A-B-test.  
 
-Det här scenariot använder ett exempel monolitisk program som kallas [**sava**](https://github.com/magneticio/sava), som finns på version 1.0. Monoliten är förpackad i en Docker-behållare, som ligger i Docker Hub under magneticio/sava:1.0.0. Appen körs normalt på port 8080, men du vill exponera den under port 9050 i det här fallet. Distribuera appen via Vamp med hjälp av en enkel skiss.
+I det här scenariot används ett exempel på ett monolitisk-program som kallas [**Sava**](https://github.com/magneticio/sava), som är i version 1,0. Monolit paketeras i en Docker-behållare, som finns i Docker Hub under magneticio/Sava: 1.0.0. Appen körs normalt på Port 8080, men du vill visa den under port 9050 i det här fallet. Distribuera appen via vamp med hjälp av en enkel skiss.
 
-1. Gå till **Distributioner**.
+1. Gå till **distributioner**.
 
 2. Klicka på **Lägg till**.
 
-3. Klistra in följande skiss YAML. Den här skissen innehåller ett kluster med endast en tjänstvariant, som vi ändrar i ett senare steg:
+3. Klistra in i följande skiss YAML. Den här skissen innehåller ett kluster med endast en variant för tjänsten som vi ändrar i ett senare steg:
 
    ```YAML
    name: sava                        # deployment name
@@ -151,53 +151,53 @@ Det här scenariot använder ett exempel monolitisk program som kallas [**sava**
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. Klicka på **Spara**. Vamp initierar utplaceringen.
+4. Klicka på **Spara**. Vamp initierar distributionen.
 
-Distributionen visas på sidan **Distributioner.** Klicka på distributionen för att övervaka dess status.
+Distributionen visas på sidan **distributioner** . Klicka på distributionen för att övervaka dess status.
 
-![Vamp UI - distribuera sava](./media/container-service-dcos-vamp-canary-release/09_sava100.png)
+![Vamp UI – distribuera Sava](./media/container-service-dcos-vamp-canary-release/09_sava100.png)
 
-![sava service i Vamp UI](./media/container-service-dcos-vamp-canary-release/09a_sava100.png)
+![Sava-tjänst i vamp-ANVÄNDARGRÄNSSNITTET](./media/container-service-dcos-vamp-canary-release/09a_sava100.png)
 
-Två gateways skapas som visas på sidan **Gateways:**
+Två gateways skapas, som visas på sidan **gatewayer** :
 
-* en stabil slutpunkt för att komma åt den tjänst som körs (port 9050) 
-* en Vamp-hanterad intern gateway (mer om den här gatewayen senare). 
+* en stabil slut punkt för att komma åt den aktiva tjänsten (port 9050) 
+* en vamp-hanterad intern Gateway (mer på denna gateway senare). 
 
-![Vamp UI - sava gateways](./media/container-service-dcos-vamp-canary-release/10_vamp_sava_gateways.png)
+![Vamp UI – Sava-gatewayer](./media/container-service-dcos-vamp-canary-release/10_vamp_sava_gateways.png)
 
-Sava-tjänsten har nu distribuerats, men du kan inte komma åt den externt eftersom Azure Load Balancer inte vet att vidarebefordra trafik till den ännu. Uppdatera Azure-nätverkskonfigurationen för att komma åt tjänsten.
-
-
-## <a name="update-the-azure-network-configuration"></a>Uppdatera Azure-nätverkskonfigurationen
-
-Vamp distribuerade sava-tjänsten på DC/OS-agentnoderna och avslöjade en stabil slutpunkt vid port 9050. Om du vill komma åt tjänsten utanför DC/OS-klustret gör du följande ändringar i Azure-nätverkskonfigurationen i klusterdistributionen: 
-
-1. **Konfigurera Azure Load Balancer** för agenter (resursen **dcos-agent-lb-xxxx)** med en hälsoavsökning och en regel för att vidarebefordra trafik på port 9050 till sava-instanserna. 
-
-2. **Uppdatera nätverkssäkerhetsgruppen** för offentliga agenter (resursen **XXXX-agent-public-nsg-XXXX)** för att tillåta trafik på port 9050.
-
-Detaljerade steg för att slutföra dessa uppgifter med Azure-portalen finns i [Aktivera offentlig åtkomst till ett Azure Container Service-program](container-service-enable-public-access.md). Ange port 9050 för alla portinställningar.
+Sava-tjänsten har nu distribuerats, men du kan inte komma åt den externt eftersom Azure Load Balancer inte vet att vidarebefordra trafik till den ännu. Uppdatera konfigurationen av Azure-nätverk för att få åtkomst till tjänsten.
 
 
-När allt har skapats går du till **överblickbladet** för belastningsutjämnaren DC/OS-agenten (resursen **dcos-agent-lb-xxxx**). Hitta den **offentliga IP-adressen**och använd adressen för att komma åt sava i port 9050.
+## <a name="update-the-azure-network-configuration"></a>Uppdatera konfigurationen av Azure-nätverket
 
-![Azure portal - få offentlig IP-adress](./media/container-service-dcos-vamp-canary-release/18_public_ip_address.png)
+Vamp distribuerade Sava-tjänsten på DC/OS-agent-noderna som exponerar en stabil slut punkt på port 9050. Om du vill komma åt tjänsten från en plats utanför DC/OS-klustret gör du följande ändringar i Azure-nätverks konfigurationen i kluster distributionen: 
 
-![Sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
+1. **Konfigurera Azure Load Balancer** för agenterna (resursen med namnet **DCOS-Agent-LB-xxxx**) med en hälso avsökning och en regel för att vidarebefordra trafik på port 9050 till Sava-instanserna. 
+
+2. **Uppdatera nätverks säkerhets gruppen** för offentliga agenter (resursen med namnet **xxxx-agent-Public-NSG-xxxx**) för att tillåta trafik på port 9050.
+
+Detaljerade anvisningar för att utföra dessa uppgifter med hjälp av Azure Portal finns i [Aktivera offentlig åtkomst till ett Azure Container Service program](container-service-enable-public-access.md). Ange port 9050 för alla port inställningar.
 
 
-## <a name="run-a-canary-release"></a>Kör en kanariefågel release
+När allt har skapats går du till **översikts** bladet för BELASTNINGSUTJÄMNAREN för DC/OS-agenten (resursen med namnet **DCOS-Agent-LB-xxxx**). Hitta den **offentliga IP-adressen**och Använd adressen för att få åtkomst till Sava på port 9050.
 
-Anta att du har en ny version av det här programmet som du vill kanariefågel release i produktion. Du har det containerized som magneticio/sava:1.1.0 och är redo att gå. Med Vamp kan du enkelt lägga till nya tjänster i den löpande distributionen. Dessa "sammanslagna" tjänster distribueras tillsammans med befintliga tjänster i klustret och tilldelas en vikt på 0 %. Ingen trafik dirigeras till en nyligen sammanslagen tjänst förrän du justerar trafikdistributionen. Viktreglaget i Vamp UI ger dig fullständig kontroll över fördelningen, vilket möjliggör inkrementella justeringar (kanariefågel release) eller en omedelbar återställning.
+![Azure Portal-Hämta offentlig IP-adress](./media/container-service-dcos-vamp-canary-release/18_public_ip_address.png)
 
-### <a name="merge-a-new-service-variant"></a>Slå samman en ny tjänstvariant
+![sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
 
-Så här sammanfogar du den nya sava 1.1-tjänsten med den driftsbaserad distributionen:
 
-1. Klicka på **Ritningar**i användargränssnittet i Vamp.
+## <a name="run-a-canary-release"></a>Köra en Kanarie-version
 
-2. Klicka på **Lägg till** och klistra in i följande skiss YAML: Den här skissen beskriver en ny tjänstvariant (sava:1.1.0) som ska distribueras i det befintliga klustret (sava_cluster).
+Anta att du har en ny version av det här programmet som du vill att Kanarie-versionen ska vara i produktion. Du har den behållare som magneticio/Sava: 1.1.0 och är redo att sätta igång. Med vamp kan du enkelt lägga till nya tjänster i distributionen. Dessa "sammanfogade" tjänster distribueras tillsammans med befintliga tjänster i klustret och tilldelas en vikt på 0%. Ingen trafik dirigeras till en nyligen sammanslagen tjänst tills du justerar trafik distributionen. Skjutreglaget viktning i vamp-ANVÄNDARGRÄNSSNITTET ger dig fullständig kontroll över distributionen, vilket möjliggör stegvisa justeringar (Kanarie release) eller en omedelbar återställning.
+
+### <a name="merge-a-new-service-variant"></a>Sammanfoga en ny tjänst variant
+
+Så här sammanfogar du den nya Sava 1,1-tjänsten med den pågående distributionen:
+
+1. Klicka på **ritningar**i vamp-användargränssnittet.
+
+2. Klicka på **Lägg till** och klistra in i följande skiss yaml: den här skissen beskriver en ny variant av tjänsten (Sava: 1.1.0) som ska distribueras inom det befintliga klustret (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name
@@ -211,85 +211,85 @@ Så här sammanfogar du den nya sava 1.1-tjänsten med den driftsbaserad distrib
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Klicka på **Spara**. Skissen lagras och visas på sidan **Skisser.**
+3. Klicka på **Spara**. Skissen lagras och visas på sidan **ritningar** .
 
-4. Öppna åtgärdsmenyn på skissen sava:1.1 och klicka på **Sammanfoga till**.
+4. Öppna åtgärds menyn i skissen Sava: 1.1 och klicka på **sammanfoga till**.
 
-   ![Vamp UI - ritningar](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
+   ![Vamp UI-ritningar](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
 
-5. Markera **sava-distributionen** och klicka på **Koppla**.
+5. Välj **Sava** -distributionen och klicka på **sammanfoga**.
 
-   ![Vamp UI - koppla skiss till distribution](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
+   ![Vamp UI-sammanfoga skiss till distribution](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
 
-Vamp distribuerar den nya sava:1.1.0-tjänstvarianten som beskrivs i skissen tillsammans med sava:1.0.0 i **sava_cluster** för den löpande distributionen. 
+Vamp distribuerar den nya Sava: 1.1.0 som beskrivs i skissen jämte Sava: 1.0.0 i **sava_cluster** av distributionen som körs. 
 
-![Vamp UI - uppdaterad sava-distribution](./media/container-service-dcos-vamp-canary-release/22_sava_cluster.png)
+![Vamp-gränssnitt – uppdaterad Sava-distribution](./media/container-service-dcos-vamp-canary-release/22_sava_cluster.png)
 
-**Sava/sava_cluster/webport-gatewayen** (klusterslutpunkten) uppdateras också och en väg läggs till i den nyligen distribuerade sava:1.1.0. Vid denna punkt, ingen trafik dirigeras här **(vikt** är inställd på 0%).
+**Sava/sava_cluster/webport** -gatewayen (kluster slut punkten) uppdateras också och lägger till en väg till den nyligen distribuerade Sava: 1.1.0. I det här läget dirigeras ingen trafik här ( **vikten** anges till 0%).
 
-![Vamp UI - klustergateway](./media/container-service-dcos-vamp-canary-release/23_sava_cluster_webport.png)
+![Vamp UI – kluster-Gateway](./media/container-service-dcos-vamp-canary-release/23_sava_cluster_webport.png)
 
-### <a name="canary-release"></a>Kanariefågel release
+### <a name="canary-release"></a>Kanarie-version
 
-Med båda versionerna av sava som distribueras i samma kluster justerar du fördelningen av trafik mellan dem genom att flytta reglaget **VIKT.**
+Med båda versionerna av Sava distribuerade i samma kluster justerar du trafiken mellan dem genom att flytta skjutreglaget för **vikt** .
 
-1. Klicka ![på Vamp](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) UI - redigera **bredvid VIKT**.
+1. Klicka ![på vamp UI-](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) Redigera bredvid **vikt**.
 
-2. Ställ in viktfördelningen till 50 %/50 % och klicka på **Spara**.
+2. Ange viktnings fördelningen till 50%/50% och klicka på **Spara**.
 
-   ![Vamp UI - gateway vikt skjutreglage](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
+   ![Vamp UI – skjutreglage för gateway-viktning](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
-3. Gå tillbaka till din webbläsare och uppdatera sava sidan några gånger. Sava-programmet växlar nu mellan en sava:1.0 sida och en sava:1.1 sida.
+3. Gå tillbaka till webbläsaren och uppdatera Sava-sidan några gånger. Sava-programmet växlar nu mellan en Sava: 1.0-sida och en Sava: 1.1-sida.
 
-   ![alternerande sava1.0- och sava1.1-tjänster](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
+   ![alternerande Sava 1.0-och Sava 1.1-tjänster](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
 
 
   > [!NOTE]
-  > Denna växling av sidan fungerar bäst med "Incognito" eller "Anonym" läge i din webbläsare på grund av cachelagring av statiska tillgångar.
+  > Den här växlingen av sidan fungerar bäst med läget "Incognito" eller "Anonym" i din webbläsare på grund av cachelagringen av statiska till gångar.
   >
 
 ### <a name="filter-traffic"></a>Filtrera trafik
 
-Antag att efter distributionen att du upptäckte en inkompatibilitet i sava:1.1.0 som orsakar visningsproblem i Firefox webbläsare. Du kan ställa in Vamp för att filtrera inkommande trafik och styra alla Firefox-användare tillbaka till den kända stabila sava:1.0.0. Detta filter löser omedelbart störningar för Firefox-användare, medan alla andra fortsätter att dra nytta av den förbättrade sava:1.1.0.
+Anta efter distributionen att du har identifierat inkompatibilitet i Sava: 1.1.0 som orsakar visnings problem i Firefox-webbläsare. Du kan ange vamp för att filtrera inkommande trafik och dirigera alla Firefox-användare tillbaka till den kända stabila Sava: 1.0.0. Med det här filtret kan du snabbt lösa störningar för Firefox-användare, medan alla andra fortsätter att njuta av fördelarna med den förbättrade Sava: 1.1.0.
 
-Vamp använder **villkor** för att filtrera trafik mellan vägar i en gateway. Trafiken filtreras först och dirigeras enligt de villkor som gäller för varje rutt. All återstående trafik fördelas enligt inställningen för gatewayens vikt.
+Vamp använder **villkor** för att filtrera trafik mellan vägar i en gateway. Trafiken filtreras först och dirigeras enligt de villkor som tillämpas på varje väg. All återstående trafik distribueras enligt inställningen för gateway-viktning.
 
-Du kan skapa ett villkor för att filtrera alla Firefox-användare och hänvisa dem till den gamla sava:1.0.0:
+Du kan skapa ett villkor för att filtrera alla Firefox-användare och dirigera dem till den gamla Sava: 1.0.0:
 
-1. På sidan sava/sava_cluster/webport **Gateways** klickar ![du på Vamp](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) UI - redigera för att lägga till ett **VILLKOR** i rutten sava/sava_cluster/sava:1.0.0/webport. 
+1. På sidan Sava/sava_cluster/webport- **gatewayer** klickar du ![på vamp UI-](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) Edit för att lägga till ett **villkor** i Route Sava/sava_cluster/Sava: 1.0.0/webport. 
 
-2. Ange villkoret **användaragent ==** ![Firefox och klicka](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png)på Vamp UI - spara .
+2. Ange villkoret **User-Agent = = Firefox** och klicka ![på vamp UI-](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png)Save.
 
-   Vamp lägger till villkoret med en standardstyrka på 0%. Om du vill börja filtrera trafik måste du justera tillståndsstyrkan.
+   Vamp lägger till villkoret med en standard styrka på 0%. Om du vill börja filtrera trafik måste du justera villkors styrkan.
 
-3. Klicka ![på Vamp](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) UI - redigera om du vill ändra **styrkan** som används på villkoret.
+3. Klicka ![på vamp UI-](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) Edit för att ändra **styrkan** som tillämpas på villkoret.
  
-4. Ställ in **STYRKAN** på 100% och klicka på ![Vamp UI - spara](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) för att spara.
+4. Ange **styrkan** till 100% och klicka på ![vamp UI – spara](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) för att spara.
 
-   Vamp skickar nu all trafik som matchar villkoret (alla Firefox-användare) till sava:1.0.0.
+   Vamp skickar nu all trafik som matchar villkoret (alla Firefox-användare) till Sava: 1.0.0.
 
-   ![Vamp UI - tillämpa villkor för gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
+   ![Vamp UI – tillämpa villkor för gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
 
-5. Slutligen justera gateway vikt för att skicka all återstående trafik (alla icke-Firefox-användare) till den nya sava:1.1.0. Klicka ![på Vamp](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) UI - redigera **bredvid VIKT** och ange viktfördelningen så att 100% riktas till rutten sava/sava_cluster/sava:1.1.0/webport.
+5. Slutligen justerar du Gateway-viktningen för att skicka all återstående trafik (alla användare som inte är Firefox) till den nya Sava: 1.1.0. Klicka ![på vamp UI-](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) Redigera bredvid **vikt** och Ställ in viktnings fördelningen så att 100% dirigeras till vägen Sava/sava_cluster/Sava: 1.1.0/webport.
 
-   All trafik som inte filtreras efter villkoret dirigeras nu till den nya sava:1.1.0.
+   All trafik som inte filtrerats av villkoret dirigeras nu till den nya Sava: 1.1.0.
 
-6. För att se filtret i aktion, öppna två olika webbläsare (en Firefox och en annan webbläsare) och få tillgång till sava-tjänsten från båda. Alla Firefox-förfrågningar skickas till sava:1.0.0, medan alla andra webbläsare dirigeras till sava:1.1.0.
+6. Öppna två olika webbläsare (en Firefox och en annan webbläsare) och få åtkomst till Sava-tjänsten från båda för att se hur filtreringen fungerar. Alla Firefox-begäranden skickas till Sava: 1.0.0, medan alla andra webbläsare dirigeras till Sava: 1.1.0.
 
-   ![Vamp UI - filtrera trafik](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
+   ![Vamp UI – filter trafik](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
 
-## <a name="summing-up"></a>Sammanfattningsvis
+## <a name="summing-up"></a>Summering
 
-Den här artikeln var en snabb introduktion till Vamp på en DC / OS kluster. Till att börja med har du Vamp igång på ditt AZURE Container Service DC/OS-kluster, distribuerade en tjänst med en Vamp-skiss och kom åt den vid den exponerade slutpunkten (gatewayen).
+Den här artikeln var en snabb introduktion till vamp på ett DC/OS-kluster. För starter har du vamp igång på ditt Azure Container Service DC/OS-kluster, distribuerat en tjänst med en vamp-skiss och till gång till den med exponerad slut punkt (Gateway).
 
-Vi berörde också några kraftfulla funktioner i Vamp: sammanslagning av en ny tjänstvariant till den löpande distributionen och införande av den stegvis, sedan filtrering av trafik för att lösa en känd inkompatibilitet.
+Vi har också använt några kraftfulla funktioner i vamp: sammanslagning av en ny tjänst-variant till den pågående distributionen och introducerar den stegvis, och filtrerar sedan trafiken för att lösa en känd inkompatibilitet.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att hantera Vamp åtgärder genom [Vamp REST API](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
+* Lär dig mer om att hantera vamp-åtgärder via [vamp-REST API](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Bygg Vamp automation skript i Node.js och köra dem som [Vamp arbetsflöden](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
+* Skapa vamp Automation-skript i Node. js och kör dem som [vamp-arbetsflöden](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Se ytterligare [VAMP tutorials](https://docs.vamp.io/tutorials/).
+* Se ytterligare [vamp-självstudier](https://docs.vamp.io/tutorials/).
 

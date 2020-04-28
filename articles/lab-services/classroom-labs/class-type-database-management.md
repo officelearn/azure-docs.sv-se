@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ett labb för att lära ut databashantering för relationsdatabaser | Microsoft-dokument
-description: Lär dig hur du konfigurerar ett labb för att lära ut hanteringen av relationsdatabaser.
+title: Konfigurera ett labb för att lära databas hantering för Relations databaser | Microsoft Docs
+description: Lär dig hur du konfigurerar ett labb för att lära dig att hantera Relations databaser.
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -14,65 +14,65 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
 ms.openlocfilehash: 4c375487b30595251753021033c98cf0ca1e8dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469926"
 ---
-# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Konfigurera ett labb för att lära ut databashantering för relationsdatabaser
+# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Konfigurera ett labb för att lära databas hantering för Relations databaser
 
-I den här artikeln beskrivs hur du konfigurerar ett labb för en grundläggande databashanteringsklass i Azure Lab Services. Databaskoncept är en av de introduktionskurser som undervisas vid de flesta datavetenskapliga avdelningar på college. SQL (Structured Query Language) är en internationell standard. SQL är standardspråket för relationsdatabashantering, inklusive att lägga till, komma åt och hantera innehåll i en databas.  Det är mest känt för sin snabba bearbetning, beprövad tillförlitlighet, lätthet och flexibilitet i användningen.
+Den här artikeln beskriver hur du konfigurerar ett labb för en grundläggande hanterings klass för databaser i Azure Lab Services. Databas koncept är en av de introduktions kurser som finns i de flesta av dator vetenskaps avdelningarna på hög skola. Structured Query Language (SQL) är en internationell standard. SQL är standard språket för Relations databas hantering, inklusive tillägg, åtkomst och hantering av innehåll i en databas.  De är mest noterade för snabb bearbetning, beprövad tillförlitlighet, enkel och flexibel användning.
 
-I den här artikeln visar vi hur du konfigurerar en mall för virtuella datorer i ett labb med både MySQL Database Server och SQL Server 2019-servern.  [MySQL](https://www.mysql.com/) är ett fritt tillgängligt relationsdatabashanteringssystem med öppen källkod (RDBMS).  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) är den senaste versionen av Microsofts RDBMS.
+I den här artikeln visar vi hur du konfigurerar en mall för virtuella datorer i ett labb med både MySQL Database Server och SQL Server 2019-Server.  [MySQL](https://www.mysql.com/) är ett program med relations databas hantering med öppen källkod som är fritt tillgängligt.  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) är den senaste versionen av Microsofts RDBMS.
 
-## <a name="lab-configuration"></a>Labbkonfiguration
+## <a name="lab-configuration"></a>Labb konfiguration
 
-För att konfigurera det här labbet behöver du en Azure-prenumeration och labbkonto för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. När du har fått en Azure-prenumeration kan du skapa ett nytt labbkonto i Azure Lab Services. Mer information om hur du skapar ett nytt labbkonto finns i [Självstudiekurs för att konfigurera ett labbkonto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labbkonto.
+För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labb konto.
 
-### <a name="lab-account-settings"></a>Inställningar för labbkonto
+### <a name="lab-account-settings"></a>Labb konto inställningar
 
-Aktivera inställningarna som beskrivs i tabellen nedan för labbkontot. Mer information om hur du aktiverar marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labbskapare](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
 
-| Inställning av labbkonto | Instruktioner |
+| Inställning för labb konto | Instruktioner |
 | ------------------- | ------------ |
-|Marketplace-bild| Aktivera avbildningen "SQL Server 2019 Standard på Windows Server 2019" för användning i ditt labbkonto.|
+|Marketplace-avbildning| Aktivera avbildningen "SQL Server 2019-standard på Windows Server 2019" för användning i ditt labb konto.|
 
-### <a name="lab-settings"></a>Labbinställningar
+### <a name="lab-settings"></a>Labb inställningar
 
-Använd inställningarna i tabellen nedan när du konfigurerar ett klassrumslabb.  Mer information om hur du skapar ett klassrumslabb finns i [konfigurera en självstudiekurs för klassrumslabb](tutorial-setup-classroom-lab.md).
+Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums labb.  Mer information om hur du skapar ett klass rums labb finns i [Konfigurera en labb Guide för klass rummet](tutorial-setup-classroom-lab.md).
 
-| Labbinställningar | Värde/instruktioner |
+| Labb inställningar | Värde/anvisningar |
 | ------------ | ------------------ |
-|Storlek på virtuell dator| Medel. Den här storleken passar bäst för relationsdatabaser, cachelagring i minnet och analyser.|
-|Bild av virtuell dator| SQL Server 2019 Standard på Windows Server 2019|
+|Storlek på virtuell dator| Medel. Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys.|
+|Avbildning av virtuell dator| SQL Server 2019 standard på Windows Server 2019|
 
-## <a name="template-machine-configuration"></a>Konfiguration av mallmaskin
+## <a name="template-machine-configuration"></a>Mall dator konfiguration
 
-Om du vill installera MySQL på Windows Server 2019 kan du följa stegen i [Installera och kör MySQL Community Server på en virtuell dator](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Om du vill installera MySQL på Windows Server 2019 kan du följa stegen i [Installera och köra MySQL Community Server på en virtuell dator](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
-SQL Server 2019 är förinstallerat i den virtuella datoravbildning vi valde när du skapade det nya labbet.
+SQL Server 2019 är förinstallerat i den virtuella dator avbildningen som du valde när du skapade det nya labbet.
 
-## <a name="cost-estimate"></a>Kostnadsuppskattning
+## <a name="cost-estimate"></a>Kostnads uppskattning
 
-Låt oss täcka en möjlig kostnadsuppskattning för den här klassen.  Vi använder en klass på 25 elever.  Det finns 20 timmars schemalagd lektionstid.  Dessutom får varje elev 10 timmars kvot för läxor eller uppgifter utanför schemalagd lektionstid.  Den virtuella maskinen storlek vi valde var medium, vilket är 42 lab enheter.
+Vi ska se en möjlig kostnads uppskattning för den här klassen.  Vi använder en klass av 25 studenter.  Det finns 20 timmar med den schemalagda klass tiden.  Dessutom får varje student en kvot på 10 timmar för läxor eller tilldelningar utanför schemalagda klass tider.  Storleken på den virtuella datorn som vi valde var medel, vilket är 42 lab-enheter.
 
-Här är ett exempel på en möjlig kostnadsuppskattning för den här klassen:
+Här är ett exempel på en möjlig kostnads uppskattning för den här klassen:
 
-25 \* studenter (20 schemalagda timmar + \* 10 kvottimmar) 0,42 USD per timme = 315,00 USD
+25 studenter \* (20 schemalagda timmar + 10 kvot timmar \* ) 0,42 USD per timme = 315,00 USD
 
-Mer information om prissättning finns i [Azure Lab Services Prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
+Mer detaljerad information om priser finns [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Slutsats
 
-I den här artikeln gick du igenom de steg som krävs för att skapa ett labb för grundläggande databashanteringskoncept med både MySQL och SQL Server. Du kan använda en liknande inställning för andra databasklasser.
+Den här artikeln gick dig igenom de steg som krävs för att skapa ett labb för grundläggande koncept för databas hantering med hjälp av både MySQL och SQL Server. Du kan använda en liknande installation för andra databas klasser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg är vanliga för att konfigurera ett labb.
+Nästa steg är vanliga för att ställa in alla labb.
 
 - [Skapa och hantera en mall](how-to-create-manage-template.md)
 - [Lägg till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Ange kvot](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ange ett schema](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Länkar till e-postregistrering till studenter](how-to-configure-student-usage.md#send-invitations-to-users)
+- [E-postregistrering länkar till studenter](how-to-configure-student-usage.md#send-invitations-to-users)

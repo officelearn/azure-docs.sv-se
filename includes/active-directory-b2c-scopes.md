@@ -6,34 +6,34 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78183403"
 ---
 #### <a name="applications"></a>[Program](#tab/applications/)
 
 1. Välj **program**.
-1. Välj *webapi1-programmet* för att öppna sidan **Egenskaper.**
-1. Välj **Publicerade omfång**. Publicerade scope kan användas för att ge ett klientprogram vissa behörigheter till webb-API:et.
-1. Ange **för** `demo.read`SCOPE och **beskrivning** `Read access to the web API`.
-1. Ange **för** `demo.write`SCOPE och **beskrivning** `Write access to the web API`.
+1. Välj *webapi1* -programmet för att öppna dess **egenskaps** sida.
+1. Välj **Publicerade omfång**. Publicerade omfattningar kan användas för att ge ett klient program vissa behörigheter till webb-API: et.
+1. För **omfattning**, ange `demo.read`och för **Beskrivning**anger `Read access to the web API`du.
+1. För **omfattning**, ange `demo.write`och för **Beskrivning**anger `Write access to the web API`du.
 1. Välj **Spara**.
 
-#### <a name="app-registrations-preview"></a>[Appregistreringar (förhandsversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Välj **Appregistreringar (förhandsgranskning)**.
-1. Välj *webapi1-programmet* för att öppna sidan **Översikt.**
-1. Under **Hantera**väljer du **Exponera ett API**.
-1. Välj länken **Ange** bredvid **Program-ID.**
-1. Ersätt standardvärdet (ett GUID) med `api`och välj sedan **Spara**. Den fullständiga URI visas, och bör `https://your-tenant-name.onmicrosoft.com/api`vara i formatet . När webbprogrammet begär en åtkomsttoken för API:et bör den lägga till den här URI:n som prefix för varje scope som du definierar för API:et.
-1. Under **Scope som definieras av det här API:et**väljer du Lägg till ett **scope**.
-1. Ange följande värden för att skapa ett scope som definierar läsåtkomst till API:et och välj sedan **Lägg till scope:**
-    1. **Namn på omfattning:**`demo.read`
-    1. **Visningsnamn för administratörsmedgivande:**`Read access to demo API`
-    1. **Beskrivning av administratörssamtycke:**`Allows read access to the demo API`
-1. Välj **Lägg till ett scope,** ange följande värden för att lägga till ett scope som definierar skrivåtkomst till API:et och välj sedan Lägg till **scope:**
-    1. **Namn på omfattning:**`demo.write`
-    1. **Visningsnamn för administratörsmedgivande:**`Write access to demo API`
-    1. **Beskrivning av administratörssamtycke:**`Allows write access to the demo API`
+1. Välj **Appregistreringar (för hands version)**.
+1. Välj *webapi1* -programmet för att öppna dess **översikts** sida.
+1. Under **Hantera**väljer du **exponera ett API**.
+1. Välj länken **mängd** bredvid **program-ID-URI**.
+1. Ersätt standardvärdet (ett GUID) med `api`och välj sedan **Spara**. Den fullständiga URI: n visas och ska ha formatet `https://your-tenant-name.onmicrosoft.com/api`. När ditt webb program begär en åtkomsttoken för API: et ska den lägga till denna URI som prefix för varje omfång som du definierar för API: et.
+1. Under **omfattningar som definieras av detta API**väljer du **Lägg till ett omfång**.
+1. Ange följande värden för att skapa ett omfång som definierar Läs åtkomst till API: et och välj sedan **Lägg till omfång**:
+    1. **Omfattnings namn**:`demo.read`
+    1. **Visnings namn för administratörs medgivande**:`Read access to demo API`
+    1. **Beskrivning av administratörs medgivande**:`Allows read access to the demo API`
+1. Välj **Lägg till ett omfång**, ange följande värden för att lägga till ett omfång som definierar skriv åtkomst till API: et och välj sedan **Lägg till omfång**:
+    1. **Omfattnings namn**:`demo.write`
+    1. **Visnings namn för administratörs medgivande**:`Write access to demo API`
+    1. **Beskrivning av administratörs medgivande**:`Allows write access to the demo API`

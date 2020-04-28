@@ -6,28 +6,28 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: mimart
 ms.openlocfilehash: ef08f1adc15475cd5dd38548ed39dc57532c0ef5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78185851"
 ---
-## <a name="guidelines-for-using-javascript"></a>Riktlinjer för användning av JavaScript
+## <a name="guidelines-for-using-javascript"></a>Rikt linjer för att använda Java Script
 
-Följ dessa riktlinjer när du anpassar gränssnittet för ditt program med JavaScript:
+Följ dessa rikt linjer när du anpassar gränssnittet för ditt program med hjälp av Java Script:
 
-- Bind inte en klickhändelse `<a>` på HTML-element.
-- Ta inte ett beroende av Azure AD B2C-kod eller kommentarer.
-- Ändra inte ordningen eller hierarkin för Azure AD B2C HTML-element. Använd en Azure AD B2C-princip för att styra ordningen på gränssnittselementen.
-- Du kan ringa alla RESTful-tjänster med dessa överväganden:
-    - Du kan behöva ställa in din RESTful-tjänst CORS så att HTTP-anrop på klientsidan tillåts.
-    - Kontrollera att din RESTful-tjänst är säker och använder endast HTTPS-protokollet.
-    - Använd inte JavaScript direkt för att anropa Azure AD B2C-slutpunkter.
-- Du kan bädda in ditt JavaScript eller länka till externa JavaScript-filer. När du använder en extern JavaScript-fil ska du se till att använda den absoluta WEBBADRESSEN och inte en relativ URL.
+- Bind inte en klick händelse på `<a>` HTML-element.
+- Ta inte ett beroende på Azure AD B2C kod eller kommentarer.
+- Ändra inte ordningen eller hierarkin för Azure AD B2C HTML-element. Använd en Azure AD B2C-princip för att kontrol lera ordningen på GRÄNSSNITTs elementen.
+- Du kan anropa en RESTful-tjänst med följande överväganden:
+    - Du kan behöva ange din RESTful-tjänst-CORS för att tillåta HTTP-anrop på klient sidan.
+    - Kontrol lera att din RESTful-tjänst är säker och använder endast HTTPS-protokollet.
+    - Använd inte Java Script direkt för att anropa Azure AD B2C slut punkter.
+- Du kan bädda in Java Script eller länka till externa JavaScript-filer. När du använder en extern JavaScript-fil ska du se till att använda den absoluta URL: en och inte en relativ URL.
 - JavaScript-ramverk:
-    - Azure AD B2C använder en specifik version av jQuery. Ta inte med en annan version av jQuery. Om du använder mer än en version på samma sida kan det orsaka problem.
-    - Att använda RequireJS stöds inte.
+    - Azure AD B2C använder en angiven version av jQuery. Ta inte med en annan version av jQuery. Om du använder mer än en version på samma sida uppstår problem.
+    - Användning av RequireJS stöds inte.
     - De flesta JavaScript-ramverk stöds inte av Azure AD B2C.
-- Azure AD B2C-inställningar kan `window.SETTINGS` `window.CONTENT` läsas genom att anropa , objekt, till exempel det aktuella användargränssnittsspråket. Ändra inte värdet på dessa objekt.
-- Om du vill anpassa felmeddelandet Azure AD B2C använder du lokalisering i en princip.
-- Om något kan uppnås med hjälp av en princip, i allmänhet är det det rekommenderade sättet.
+- Azure AD B2C inställningar kan läsas genom att anropa `window.SETTINGS`, `window.CONTENT` objekt, till exempel det aktuella gränssnitts språket. Ändra inte värdet för dessa objekt.
+- Om du vill anpassa Azure AD B2C fel meddelandet använder du lokalisering i en princip.
+- Om något kan uppnås med hjälp av en princip är det vanligt vis det rekommenderade sättet.

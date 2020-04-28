@@ -1,5 +1,5 @@
 ---
-title: Aktivera mina Azure AD-roller i PIM - Azure Active Directory | Microsoft-dokument
+title: Aktivera mina Azure AD-roller i PIM-Azure Active Directory | Microsoft Docs
 description: Lär dig hur du aktiverar Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,26 +15,26 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f95a1a08189668e5b6f88941069566b00a73bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77499216"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktivera mina Azure AD-roller i PIM
 
-Azure Active Directory (Azure AD) Privilegierad identitetshantering (PIM) förenklar hur företag hanterar privilegierad åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.  
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör det enklare för företag att hantera privilegie rad åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.  
 
-Om du har blivit kvalificerad för en administrativ roll kan du aktivera den rollen när du behöver utföra privilegierade åtgärder. Om du till exempel ibland hanterar Office 365-funktioner kanske organisationens privilegierade rolladministratörer inte gör dig till en permanent global administratör, eftersom den rollen påverkar även andra tjänster. I stället gör de dig kvalificerad för Azure AD-roller som Exchange Online-administratör. Du kan begära att aktivera rollen när du behöver dess behörigheter, och sedan har du administratörskontroll för en förutbestämd tidsperiod.
+Om du har gjorts berättigad till en administrativ roll innebär det att du kan aktivera rollen när du behöver utföra privilegierade åtgärder. Om du till exempel ibland hanterar Office 365-funktioner kanske organisationens privilegierade roll administratörer inte gör en permanent global administratör, eftersom rollen även påverkar andra tjänster. De gör i stället att du är berättigade till Azure AD-roller som Exchange Online-administratör. Du kan begära att aktivera rollen när du behöver dess behörigheter och sedan har du administratörs behörighet för en fördefinierad tids period.
 
-Den här artikeln är för administratörer som behöver aktivera sin Azure AD-roll i Privilegierad identitetshantering.
+Den här artikeln är för administratörer som behöver aktivera sin Azure AD-roll i Privileged Identity Management.
 
-## <a name="determine-your-version-of-pim"></a>Bestäm din version av PIM
+## <a name="determine-your-version-of-pim"></a>Fastställ din version av PIM
 
-Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity Management till en ny version som matchar upplevelserna för Azure-resursroller. Detta skapar ytterligare funktioner samt [ändringar i det befintliga API:et](azure-ad-roles-features.md#api-changes). Medan den nya versionen distribueras, vilka procedurer som du följer i den här artikeln beror på vilken version av privilegierad identitetshantering du har för närvarande. Följ stegen i det här avsnittet för att avgöra vilken version av privilegierad identitetshantering du har. När du känner till din version av Privilegierad identitetshantering kan du välja de procedurer i den här artikeln som matchar den versionen.
+Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity Management till en ny version som matchar upplevelserna för Azures resurs roller. Detta skapar ytterligare funktioner samt [ändringar i det befintliga API: et](azure-ad-roles-features.md#api-changes). Även om den nya versionen publiceras, vilka procedurer som du följer i den här artikeln beror på vilken version av Privileged Identity Management du för närvarande har. Följ stegen i det här avsnittet för att ta reda på vilken version av Privileged Identity Management du har. När du känner till din version av Privileged Identity Management kan du välja de procedurer i den här artikeln som matchar den versionen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/) med [rollen Privilegierad rolladministratör.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
-1. Öppna **Azure AD-privilegierad identitetshantering**. Om du har en banderoll högst upp på översiktssidan följer du instruktionerna på fliken **Ny version** i den här artikeln. Annars följer du instruktionerna på fliken **Föregående version.**
+1. Logga in på [Azure Portal](https://portal.azure.com/) med rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
     [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -42,212 +42,212 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 
-När du behöver ta på dig en Azure AD-roll kan du begära aktivering med navigeringsalternativet **Mina roller** i Privilegierad identitetshantering.
+När du behöver anta en Azure AD-roll kan du begära aktivering genom att använda navigerings alternativet **Mina roller** i Privileged Identity Management.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Öppna **Azure AD-privilegierad identitetshantering**. Information om hur du lägger till panelen Privilegierad identitetshantering på instrumentpanelen finns i [Börja använda Privilegierad identitetshantering](pim-getting-started.md).
+1. Öppna **Azure AD Privileged Identity Management**. Information om hur du lägger till panelen Privileged Identity Management på instrument panelen finns i [börja använda Privileged Identity Management](pim-getting-started.md).
 
-1. Välj **Mina roller**och välj sedan Azure **AD-roller** för att se en lista över dina kvalificerade Azure AD-roller.
+1. Välj **Mina roller**och välj sedan **Azure AD-roller** för att se en lista över dina kvalificerade Azure AD-roller.
 
-    ![Sidan Mina roller som visar roller som du kan aktivera](./media/pim-how-to-activate-role/my-roles.png)
+    ![Sidan mina roller med roller som du kan aktivera](./media/pim-how-to-activate-role/my-roles.png)
 
-1. Leta reda på den roll du vill aktivera i listan **Azure AD-roller.**
+1. Leta upp den roll som du vill aktivera i listan **Azure AD-roller** .
 
-    ![Azure AD-roller – listan Mina kvalificerade roller](./media/pim-how-to-activate-role/activate-link.png)
+    ![Azure AD-roller – listan Mina berättigade roller](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Välj **Aktivera** om du vill öppna fönstret Aktivera.
+1. Välj **Aktivera** för att öppna fönstret aktivera.
 
-    ![Azure AD-roller – aktiveringssidan innehåller varaktighet och omfattning](./media/pim-how-to-activate-role/activate-page.png)
+    ![Azure AD-roller – aktiverings sidan innehåller varaktighet och omfång](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Om din roll kräver multifaktorautentisering väljer du **Verifiera din identitet innan du fortsätter**. Du behöver bara autentisera en gång per session.
+1. Om din roll kräver Multi-Factor Authentication väljer du **Verifiera din identitet innan du fortsätter**. Du behöver bara autentisera en gång per session.
 
-    ![Verifiera min identitet med MFA före rollaktivering](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![Verifiera min identitet med MFA innan du aktiverar rollen](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
-1. Välj **Verifiera min identitet** och följ instruktionerna för att tillhandahålla ytterligare säkerhetsverifiering.
+1. Välj **verifiera min identitet** och följ instruktionerna för att tillhandahålla ytterligare säkerhets verifiering.
 
-    ![Skärm för att tillhandahålla säkerhetsverifiering, till exempel en PIN-kod](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![Skärm för att tillhandahålla säkerhets verifiering, till exempel en PIN-kod](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. Om du vill ange ett minskat scope väljer du **Scope** för att öppna filterfönstret. I filterfönstret kan du ange de Azure AD-resurser som du behöver åtkomst till. Det är en bra idé att begära åtkomst till endast de resurser du behöver.
+1. Om du vill ange ett reducerat omfång väljer du **omfång** för att öppna filter fönstret. I fönstret filter kan du ange de Azure AD-resurser som du behöver åtkomst till. Det är en bra idé att begära åtkomst till de resurser du behöver.
 
-1. Om det behövs anger du en anpassad starttid för aktivering. Azure AD-rollen aktiveras efter den valda tiden.
+1. Vid behov kan du ange en start tid för anpassad aktivering. Azure AD-rollen aktive ras efter den valda tiden.
 
-1. Ange orsaken till aktiveringsbegäran i rutan **Orsak.**
+1. Ange orsaken till aktiverings förfrågan i rutan **orsak** .
 
 1. Välj **Aktivera**.
 
-    Om rollen inte kräver godkännande aktiveras den och läggs till i listan över aktiva roller. Om du vill använda rollen följer du stegen i nästa avsnitt.
+    Om rollen inte kräver godkännande aktive ras den och läggs till i listan över aktiva roller. Följ stegen i nästa avsnitt om du vill använda rollen.
 
-    ![Fönstret Aktivera slutförd med omfattning, starttid, varaktighet och orsak](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
+    ![Slutfört aktiverings fönster med omfång, start tid, varaktighet och orsak](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
 
-    Om [rollen kräver godkännande](pim-resource-roles-approval-workflow.md) för att aktiveras visas ett meddelande i det övre högra hörnet i webbläsaren och informerar dig om att begäran väntar på godkännande.
+    Om [rollen kräver godkännande](pim-resource-roles-approval-workflow.md) för att aktive ras visas ett meddelande i det övre högra hörnet i webbläsaren som informerar dig om att begäran väntar på godkännande.
 
-    ![Aktiveringsbegäran väntar på godkännandemeddelande](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![Begäran om aktivering väntar på godkännande](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="use-a-role-immediately-after-activation"></a>Använda en roll direkt efter aktivering
+## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
 
-I händelse av fördröjning efter aktivering följer du dessa steg när du har aktiverat för att använda dina Azure AD-roller omedelbart.
+Om du har aktiverat en fördröjning efter aktiveringen följer du de här stegen när du har aktiverat för att använda dina Azure AD-roller direkt.
 
-1. Öppna Azure AD-privilegierad identitetshantering.
+1. Öppna Azure AD Privileged Identity Management.
 
-1. Välj **Mina roller** om du vill visa en lista över dina kvalificerade Azure AD-roller och Azure-resursroller.
+1. Välj **Mina roller** om du vill se en lista över dina kvalificerade Azure AD-roller och Azure-resurs roller.
 
 1. Välj **Azure AD-roller**.
 
-1. Välj fliken **Aktiva roller.**
+1. Välj fliken **aktiva roller** .
 
 1. När rollen är aktiv loggar du ut från portalen och loggar in igen.
 
-    Rollen bör nu vara tillgänglig att använda.
+    Rollen bör nu vara tillgänglig för användning.
 
-## <a name="view-the-status-of-your-requests"></a>Visa status för dina begäranden
+## <a name="view-the-status-of-your-requests"></a>Visa status för dina begär Anden
 
-Du kan visa status för väntande begäranden som ska aktiveras.
+Du kan visa statusen för väntande begär Anden att aktivera.
 
-1. Öppna Azure AD-privilegierad identitetshantering.
+1. Öppna Azure AD Privileged Identity Management.
 
-1. Välj **Mina begäranden om** du vill visa en lista över dina Azure AD-roll- och Azure-resursrollsförfrågningar.
+1. Välj **Mina begär Anden** om du vill se en lista över dina Azure AD-roller och Azure-resurs roll förfrågningar.
 
-    ![Mina begäranden - Azure AD-sida som visar dina väntande begäranden](./media/pim-how-to-activate-role/my-requests-page.png)
+    ![Mina begär Anden – Azure AD-sida som visar dina väntande förfrågningar](./media/pim-how-to-activate-role/my-requests-page.png)
 
-1. Bläddra åt höger för att visa kolumnen **Begärandestatus.**
+1. Bläddra till höger för att visa kolumnen **status för begäran** .
 
-## <a name="cancel-a-pending-request"></a>Avbryta en väntande begäran
+## <a name="cancel-a-pending-request"></a>Avbryt en väntande begäran
 
 Om du inte behöver aktivera en roll som kräver godkännande kan du när som helst avbryta en väntande begäran.
 
-1. Öppna Azure AD-privilegierad identitetshantering.
+1. Öppna Azure AD Privileged Identity Management.
 
-1. Välj **Mina begäranden**.
+1. Välj **Mina begär Anden**.
 
-1. Välj länken **Avbryt** för den roll som du vill avbryta.
+1. För den roll som du vill avbryta väljer du länken **Avbryt** .
 
     När du väljer Avbryt avbryts begäran. Om du vill aktivera rollen igen måste du skicka in en ny begäran om aktivering.
 
-   ![Min lista över begäranden med Åtgärden Avbryt markerad](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![Listan Mina begär Anden med avbrotts åtgärd markerad](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 
-När du aktiverar en roll i Privilegierad identitetshantering kanske aktiveringen inte omedelbart sprids till alla portaler som kräver den privilegierade rollen. Ibland kan webbcachelagringen i en portal resultera i att ändringen inte börjar gälla omedelbart, även om ändringen har spridits. Om din aktivering är försenad, här är vad du bör göra.
+När du aktiverar en roll i Privileged Identity Management kan aktiveringen inte genast spridas till alla portaler som kräver den privilegierade rollen. Ibland kan webbcachelagringen i en portal resultera i att ändringen inte börjar gälla omedelbart, även om ändringen har spridits. Om aktiveringen fördröjs, är det vad du ska göra.
 
 1. Logga ut från Azure-portalen och logga sedan in igen.
 
-    När du aktiverar en Azure AD-roll ser du stadierna i din aktivering. När alla steg har slutförts visas länken **Logga ut**. Du kan använda den här länken för att logga ut. Detta kommer att lösa de flesta fall för aktiveringsfördröjning.
+    När du aktiverar en Azure AD-roll visas stegen i aktiveringen. När alla steg har slutförts visas länken **Logga ut**. Du kan använda den här länken för att logga ut. Detta kommer att lösa de flesta fall för aktiverings fördröjning.
 
-1. I Privilegierad identitetshantering kontrollerar du att du är listad som medlem i rollen.
+1. I Privileged Identity Management kontrollerar du att du är listad som medlem i rollen.
 
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 
-När du behöver ta på dig en Azure AD-roll kan du begära aktivering med navigeringsalternativet **Mina roller** i Privilegierad identitetshantering.
+När du behöver utföra en Azure AD-roll kan du begära aktivering genom att använda navigerings alternativet **Mina roller** i Privileged Identity Management.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Öppna **Azure AD-privilegierad identitetshantering**. Information om hur du lägger till panelen Privilegierad identitetshantering på instrumentpanelen finns i [Börja använda Privilegierad identitetshantering](pim-getting-started.md).
+1. Öppna **Azure AD Privileged Identity Management**. Information om hur du lägger till panelen Privileged Identity Management på instrument panelen finns i [börja använda Privileged Identity Management](pim-getting-started.md).
 
 1. Klicka på **Azure AD-roller**.
 
-1. Klicka på **Mina roller** om du vill visa en lista över dina kvalificerade Azure AD-roller.
+1. Klicka på **Mina roller** om du vill se en lista över dina berättigade Azure AD-roller.
 
-    ![Azure AD-roller - Mina roller som visar listan över kvalificerade eller aktiva roller](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD-roller – mina roller visar listan med berättigade eller aktiva roller](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Hitta en roll som du vill aktivera.
 
-    ![Azure AD-roller - Min lista över kvalificerade roller som visar länken Aktivera](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD-roller – listan Mina berättigade roller visar aktiverings länken](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
-1. Klicka på **Aktivera** om du vill öppna informationsfönstret för rollaktivering.
+1. Klicka på **Aktivera** för att öppna fönstret roll aktiverings information.
 
-1. Om din roll kräver MFA (Multifaktorautentisering) klickar du på **Verifiera din identitet innan du fortsätter**. Du behöver bara autentisera en gång per session.
+1. Om din roll kräver Multi-Factor Authentication (MFA), klickar **du på verifiera din identitet innan du fortsätter**. Du behöver bara autentisera en gång per session.
 
-    ![Verifiera min identitetsfönster med MFA före rollaktivering](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![Verifiera mitt identitets fönster med MFA innan roll aktivering](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
-1. Klicka på **Verifiera min identitet** och följ instruktionerna för att tillhandahålla ytterligare säkerhetsverifiering.
+1. Klicka på **verifiera min identitet** och följ instruktionerna för att tillhandahålla ytterligare säkerhets verifiering.
 
-    ![Ytterligare säkerhetsverifieringssida som frågar hur du kontaktar dig](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Sidan ytterligare säkerhets verifiering där du tillfrågas om hur du kontaktar dig](./media/pim-how-to-activate-role/additional-security-verification.png)
 
-1. Öppna aktiveringsfönstret genom att klicka på **Aktivera.**
+1. Klicka på **Aktivera** för att öppna aktiverings fönstret.
 
-    ![Aktiveringsfönster för att ange starttid, varaktighet, biljett och orsak](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![Aktiverings fönstret för att ange start tid, varaktighet, biljett och orsak](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
-1. Om det behövs anger du en anpassad starttid för aktivering.
+1. Vid behov kan du ange en start tid för anpassad aktivering.
 
-1. Ange aktiveringstiden.
+1. Ange varaktighet för aktivering.
 
-1. Ange orsaken till aktiveringsbegäran i rutan **Aktiveringsorsak.** Vissa roller kräver att du anger ett problembiljettnummer.
+1. I rutan **aktiverings orsak** anger du orsaken till aktiverings förfrågan. Vissa roller kräver att du anger ett fel biljett nummer.
 
-    ![Fönstret Slutförd aktivering med anpassad starttid, varaktighet, biljett och orsak](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![Slutfört aktiverings fönster med anpassad start tid, varaktighet, biljett och orsak](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
 1. Klicka på **Aktivera**.
 
-    Om rollen inte kräver godkännande visas ett **aktiveringsstatusfönster** som visar aktiveringens status.
+    Om rollen inte kräver godkännande visas fönstret **aktiverings status** som visar status för aktiveringen.
 
-    ![Sidan Aktiveringsstatus som visar de tre aktiveringsfaserna](./media/pim-how-to-activate-role/activation-status.png)
+    ![Sidan aktiverings status med de tre aktiverings stegen](./media/pim-how-to-activate-role/activation-status.png)
 
-    När alla steg är klara klickar du på länken **Logga ut** för att logga ut från Azure-portalen. När du loggar in igen på portalen kan du nu använda rollen.
+    När alla steg har slutförts klickar du på länken **Logga ut** för att logga ut från Azure Portal. När du loggar in på portalen igen kan du nu använda rollen.
 
-    Om [rollen kräver godkännande](./azure-ad-pim-approval-workflow.md) för att aktivera visas ett Azure-meddelande i det övre högra hörnet i din webbläsare och informerar dig om att begäran väntar på godkännande.
+    Om [rollen kräver godkännande](./azure-ad-pim-approval-workflow.md) för att aktivera, visas ett Azure-meddelande i det övre högra hörnet i webbläsaren som informerar dig om att begäran väntar på godkännande.
 
-## <a name="view-the-status-of-your-requests"></a>Visa status för dina begäranden
+## <a name="view-the-status-of-your-requests"></a>Visa status för dina begär Anden
 
-Du kan visa status för väntande begäranden som ska aktiveras.
+Du kan visa statusen för väntande begär Anden att aktivera.
 
-1. Öppna Azure AD-privilegierad identitetshantering.
+1. Öppna Azure AD Privileged Identity Management.
 
 1. Klicka på **Azure AD-roller**.
 
-1. Klicka på **Mina begäranden** om du vill visa en lista över dina begäranden.
+1. Klicka på **Mina förfrågningar** om du vill se en lista över dina begär Anden.
 
-    ![Azure AD-roller - Listan Mina begäranden](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD-roller – listan Mina begär Anden](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Inaktivera en roll
 
-När en roll har aktiverats inaktiveras den automatiskt när dess tidsgräns (stödberättigande varaktighet) har uppnåtts.
+När en roll har Aktiver ATS inaktive ras den automatiskt när tids gränsen (den kvalificerade varaktigheten) har nåtts.
 
-Om du slutför dina administratörsuppgifter tidigt kan du också inaktivera en roll manuellt i Azure AD Privileged Identity Management.
+Om du slutför dina administratörs aktiviteter tidigt kan du också inaktivera en roll manuellt i Azure AD Privileged Identity Management.
 
-1. Öppna Azure AD-privilegierad identitetshantering.
+1. Öppna Azure AD Privileged Identity Management.
 
 1. Klicka på **Azure AD-roller**.
 
 1. Klicka på **Mina roller**.
 
-1. Klicka på **Aktiva roller** om du vill visa listan över aktiva roller.
+1. Klicka på **aktiva roller** om du vill se en lista över aktiva roller.
 
-1. Hitta den roll du har gjort med och klicka sedan på **Inaktivera**.
+1. Hitta den roll du är klar med och klicka sedan på **inaktivera**.
 
-## <a name="cancel-a-pending-request"></a>Avbryta en väntande begäran
+## <a name="cancel-a-pending-request"></a>Avbryt en väntande begäran
 
 Om du inte behöver aktivera en roll som kräver godkännande kan du när som helst avbryta en väntande begäran.
 
-1. Öppna Azure AD-privilegierad identitetshantering.
+1. Öppna Azure AD Privileged Identity Management.
 
 1. Klicka på **Azure AD-roller**.
 
-1. Klicka på **Mina begäranden**.
+1. Klicka på **Mina förfrågningar**.
 
 1. Klicka på knappen **Avbryt** för den roll som du vill avbryta.
 
     När du klickar på Avbryt avbryts begäran. Om du vill aktivera rollen igen måste du skicka in en ny begäran om aktivering.
 
-   ![Listan Mina begäranden med knappen Avbryt markerad](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![Listan Mina begär Anden med knappen Avbryt markerad](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 
-När du aktiverar en roll i Privilegierad identitetshantering kanske aktiveringen inte omedelbart sprids till alla portaler som kräver den privilegierade rollen. Ibland kan webbcachelagringen i en portal resultera i att ändringen inte börjar gälla omedelbart, även om ändringen har spridits. Om din aktivering är försenad, här är vad du bör göra.
+När du aktiverar en roll i Privileged Identity Management kan aktiveringen inte genast spridas till alla portaler som kräver den privilegierade rollen. Ibland kan webbcachelagringen i en portal resultera i att ändringen inte börjar gälla omedelbart, även om ändringen har spridits. Om aktiveringen fördröjs, är det vad du ska göra.
 
 1. Logga ut från Azure-portalen och logga sedan in igen.
 
-    När du aktiverar en Azure AD-roll ser du stadierna i din aktivering. När alla steg har slutförts visas länken **Logga ut**. Du kan använda den här länken för att logga ut. Detta kommer att lösa de flesta fall för aktiveringsfördröjning.
+    När du aktiverar en Azure AD-roll visas stegen i aktiveringen. När alla steg har slutförts visas länken **Logga ut**. Du kan använda den här länken för att logga ut. Detta kommer att lösa de flesta fall för aktiverings fördröjning.
 
-1. I Privilegierad identitetshantering kontrollerar du att du är listad som medlem i rollen.
+1. I Privileged Identity Management kontrollerar du att du är listad som medlem i rollen.
 
  ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera mina Azure AD-roller i privilegierad identitetshantering](pim-how-to-activate-role.md)
+- [Aktivera mina Azure AD-roller i Privileged Identity Management](pim-how-to-activate-role.md)

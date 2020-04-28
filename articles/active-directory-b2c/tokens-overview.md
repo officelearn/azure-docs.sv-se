@@ -1,6 +1,6 @@
 ---
-title: Översikt över tokens - Azure Active Directory B2C
-description: Lär dig mer om de token som används i Azure Active Directory B2C.
+title: Översikt över tokens – Azure Active Directory B2C
+description: Lär dig mer om de tokens som används i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,105 +11,105 @@ ms.date: 08/27/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186496"
 ---
-# <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över token i Azure Active Directory B2C
+# <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över tokens i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) avger flera typer av säkerhetstoken när den bearbetar varje [autentiseringsflöde](application-types.md). I det här dokumentet beskrivs format, säkerhetsegenskaper och innehåll för varje typ av token.
+Azure Active Directory B2C (Azure AD B2C) genererar flera typer av säkerhetstoken när de bearbetar varje [autentiseringspaket](application-types.md). I det här dokumentet beskrivs format, säkerhets egenskaper och innehåll för varje typ av token.
 
-## <a name="token-types"></a>Tokentyper
+## <a name="token-types"></a>Token-typer
 
-Azure AD B2C stöder [OAuth 2.0- och OpenID Connect-protokollen](protocols-overview.md), som använder token för autentisering och säker åtkomst till resurser. Alla token som används i Azure AD B2C är [JSON-webbtoken (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) som innehåller påståenden om information om innehavaren och ämnet för token.
+Azure AD B2C stöder [protokollen OAuth 2,0 och OpenID Connect](protocols-overview.md), som använder token för autentisering och säker åtkomst till resurser. Alla tokens som används i Azure AD B2C är [JSON Web tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) som innehåller information om innehavaren och ämnet för token.
 
-Följande token används i kommunikation med Azure AD B2C:
+Följande tokens används i kommunikationen med Azure AD B2C:
 
-- *ID-token* - En JWT som innehåller anspråk som du kan använda för att identifiera användare i ditt program. Den här token skickas säkert i HTTP-begäranden om kommunikation mellan två komponenter i samma program eller tjänst. Du kan använda anspråken i en ID-token som du vill. De används ofta för att visa kontoinformation eller för att fatta beslut om åtkomstkontroll i ett program. ID-token är signerade, men de är inte krypterade. När ditt program eller API tar emot en ID-token måste den validera signaturen för att bevisa att token är äkta. Ditt program eller API måste också validera några anspråk i token för att bevisa att det är giltigt. Beroende på scenariokraven kan anspråk som valideras av ett program variera, men ditt program måste utföra några vanliga anspråksvalideringar i varje scenario.
-- *Åtkomsttoken* – En JWT som innehåller anspråk som du kan använda för att identifiera de beviljade behörigheterna till dina API:er. Åtkomsttoken är signerade, men de är inte krypterade. Åtkomsttoken används för att ge åtkomst till API:er och resursservrar.  När ditt API tar emot en åtkomsttoken måste den validera signaturen för att bevisa att token är äkta. Ditt API måste också validera några anspråk i token för att bevisa att det är giltigt. Beroende på scenariokraven kan anspråk som valideras av ett program variera, men ditt program måste utföra några vanliga anspråksvalideringar i varje scenario.
-- *Uppdatera token* - Uppdatera token används för att hämta nya ID-token och åtkomsttoken i ett OAuth 2.0-flöde. De ger ditt program långsiktig åtkomst till resurser för användarnas räkning utan att kräva interaktion med dessa användare. Uppdatera token är ogenomskinliga för ditt program. De utfärdas av Azure AD B2C och kan endast inspekteras och tolkas av Azure AD B2C. De är långlivade, men ditt program bör inte skrivas med förväntningen att en uppdateringstoken kommer att pågå under en viss tidsperiod. Uppdatera token kan ogiltigförklaras när som helst av olika skäl. Det enda sättet för ditt program att veta om en uppdateringstoken är giltig är att försöka lösa in den genom att göra en tokenbegäran till Azure AD B2C. När du löser in en uppdateringstoken för en ny token får du en ny uppdateringstoken i tokensvaret. Spara den nya uppdateringstoken. Den ersätter den uppdateringstoken som du tidigare använde i begäran. Den här åtgärden hjälper till att garantera att dina uppdateringstoken förblir giltiga så länge som möjligt.
+- *ID-token* – ett JWT som innehåller anspråk som du kan använda för att identifiera användare i ditt program. Den här token skickas säkert i HTTP-begäranden för kommunikation mellan två komponenter i samma program eller tjänst. Du kan använda anspråken i en ID-token när du ser anpassa. De används ofta för att Visa konto information eller för att fatta beslut om åtkomst kontroll i ett program. ID-token är signerade, men de krypteras inte. När ditt program eller API tar emot en ID-token måste den verifiera signaturen för att bevisa att token är autentisk. Ditt program eller API måste också verifiera ett fåtal anspråk i token för att bevisa att det är giltigt. Beroende på scenario kraven kan anspråk som verifierats av ett program variera, men programmet måste utföra några vanliga anspråks valideringar i varje scenario.
+- *Åtkomsttoken* – ett JWT som innehåller anspråk som du kan använda för att identifiera de beviljade behörigheterna för dina API: er. Åtkomsttoken signeras, men de krypteras inte. Åtkomsttoken används för att ge åtkomst till API: er och resurs servrar.  När ditt API tar emot en åtkomsttoken måste den verifiera signaturen för att bevisa att token är autentisk. Ditt API måste också verifiera ett fåtal anspråk i token för att bevisa att det är giltigt. Beroende på scenario kraven kan anspråk som verifierats av ett program variera, men programmet måste utföra några vanliga anspråks valideringar i varje scenario.
+- *Refresh token* -Refresh tokens används för att hämta nya ID-token och åtkomsttoken i ett OAuth 2,0-flöde. De tillhandahåller ditt program med långsiktig åtkomst till resurser på uppdrag av användare utan att det krävs någon interaktion med dessa användare. Uppdatering av tokens är ogenomskinlig för ditt program. De utfärdas av Azure AD B2C och kan bara granskas och tolkas av Azure AD B2C. De är långa, men programmet bör inte skrivas med förväntat att en uppdateringstoken kommer att vara sist under en viss tids period. Du kan när som helst välja att inte validera token för en mängd olika orsaker. Det enda sättet för ditt program att veta om en uppdateringstoken är giltig för att försöka lösa in den genom att göra en Tokenbegäran att Azure AD B2C. När du löser in en uppdateringstoken för en ny token får du en ny uppdateringstoken i svaret från token. Spara den nya uppdateringstoken. Den ersätter den uppdateringstoken som du tidigare använde i begäran. Den här åtgärden hjälper till att garantera att uppdateringstoken är giltiga så länge som möjligt.
 
 ## <a name="endpoints"></a>Slutpunkter
 
-Ett [registrerat program](tutorial-register-applications.md) tar emot token och kommunicerar med Azure AD B2C genom att skicka begäranden till dessa slutpunkter:
+Ett [registrerat program](tutorial-register-applications.md) tar emot tokens och kommunicerar med Azure AD B2C genom att skicka begär anden till dessa slut punkter:
 
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-Säkerhetstoken som ditt program tar emot från Azure `/authorize` `/token` AD B2C kan komma från slutpunkterna eller. När ID-token hämtas `/authorize` från slutpunkten görs det med det [implicita flödet](implicit-flow-single-page-application.md), som ofta används för användare som loggar in på JavaScript-baserade webbprogram. När ID-token hämtas `/token` från slutpunkten görs det med hjälp av [auktoriseringskodflödet](openid-connect.md#get-a-token), vilket håller token dold från webbläsaren.
+Säkerhetstoken som programmet tar emot från Azure AD B2C kan komma från- `/authorize` eller `/token` -slut punkterna. När ID-token har hämtats `/authorize` från slut punkten görs det med det [implicita flödet](implicit-flow-single-page-application.md), som ofta används för användare som loggar in på JavaScript-baserade webb program. När ID-token har hämtats `/token` från slut punkten görs det med hjälp av [flödet för auktoriseringskod](openid-connect.md#get-a-token), som gör att token är dold i webbläsaren.
 
 ## <a name="claims"></a>Anspråk
 
-När du använder Azure AD B2C har du finkornig kontroll över innehållet i dina tokens. Du kan konfigurera [användarflöden](user-flow-overview.md) och [anpassade principer](custom-policy-overview.md) för att skicka vissa uppsättningar med användardata i anspråk som krävs för ditt program. Dessa anspråk kan innehålla standardegenskaper som **displayName** och **emailAddress**. Dina program kan använda dessa anspråk för att autentisera användare och begäranden på ett säkert sätt.
+När du använder Azure AD B2C har du detaljerad kontroll över innehållet i dina tokens. Du kan konfigurera [användar flöden](user-flow-overview.md) och [anpassade principer](custom-policy-overview.md) för att skicka vissa uppsättningar användar data i anspråk som krävs för ditt program. Dessa anspråk kan innehålla standard egenskaper som **DisplayName** och **EmailAddress**. Dina program kan använda dessa anspråk för att autentisera användare och förfrågningar på ett säkert sätt.
 
-Anspråken i ID-token returneras inte i någon särskild ordning. Nya anspråk kan introduceras i ID-token när som helst. Din ansökan bör inte brytas när nya anspråk införs. Du kan också inkludera [anpassade användarattribut](user-flow-custom-attributes.md) i dina anspråk.
+Anspråk i ID-token returneras inte i någon särskild ordning. Nya anspråk kan introduceras i ID-token när som helst. Programmet bör inte brytas när nya anspråk införs. Du kan också inkludera [anpassade användarattribut](user-flow-custom-attributes.md) i dina anspråk.
 
-I följande tabell visas de anspråk som du kan förvänta dig i ID-token och åtkomsttoken som utfärdats av Azure AD B2C.
+I följande tabell visas de anspråk som du kan förväntar dig i ID-token och åtkomsttoken som utfärdats av Azure AD B2C.
 
-| Namn | Begär | Exempelvärde | Beskrivning |
+| Name | Begär | Exempelvärde | Beskrivning |
 | ---- | ----- | ------------- | ----------- |
-| Målgrupp | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifierar den avsedda mottagaren av token. För Azure AD B2C är målgruppen program-ID. Ditt program bör validera det här värdet och avvisa token om den inte matchar. Publiken är synonymt med resurs. |
-| Utfärdare | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifierar säkerhetstokentjänsten (STS) som konstruerar och returnerar token. Den identifierar också katalogen där användaren autentiserades. Ditt program bör validera utfärdarens anspråk för att se till att token kom från rätt slutpunkt. |
-| Utfärdat på | `iat` | `1438535543` | Den tidpunkt då token utfärdades, representerad i epoktid. |
-| Utgångstid | `exp` | `1438539443` | Den tidpunkt då token blir ogiltig, representerad i epoktid. Ditt program bör använda det här anspråket för att verifiera giltigheten för tokenlivslängden. |
-| Inte före | `nbf` | `1438535543` | Den tidpunkt då token blir giltig, representerad i epoktid. Den här gången är vanligtvis samma som den tidpunkt då token utfärdades. Ditt program bör använda det här anspråket för att verifiera giltigheten för tokenlivslängden. |
+| Målgrupp | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifierar den avsedda mottagaren för token. För Azure AD B2C är mål gruppen program-ID: t. Programmet bör validera det här värdet och avvisa token om det inte matchar. Mål gruppen är synonym med resursen. |
+| Utfärdare | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifierar säkerhetstokentjänst som konstruerar och returnerar token. Den identifierar även den katalog där användaren autentiserades. Ditt program bör verifiera utfärdarens anspråk för att se till att token kommer från lämplig slut punkt. |
+| Utfärdat | `iat` | `1438535543` | Tiden då token utfärdades, representeras i epok tid. |
+| Förfallo tid | `exp` | `1438539443` | Tiden då token blir ogiltig, representeras i epok tid. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. |
+| Inte före | `nbf` | `1438535543` | Tiden då token börjar gälla, representeras i epok tiden. Den här tiden är vanligt vis samma som den tidpunkt då token utfärdades. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. |
 | Version | `ver` | `1.0` | Versionen av ID-token, som definieras av Azure AD B2C. |
-| Kodh hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | En kodhh som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-auktoriseringskod. En kodhh kan användas för att verifiera äktheten av en auktoriseringskod. Mer information om hur du utför den här valideringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html).  |
-| Åtkomsttokenhh | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | En åtkomsttokenhh som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomsttokenhh kan användas för att verifiera äktheten hos en åtkomsttoken. Mer information om hur du utför den här valideringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html)  |
-| Nonce | `nonce` | `12345` | En nonce är en strategi som används för att minska token repris attacker. Ditt program kan ange en nonce i `nonce` en auktoriseringsbegäran med hjälp av frågeparametern. Värdet som du anger i begäran avges `nonce` inte ändras i anspråk på en ID-token. Med det här anspråket kan ditt program verifiera värdet mot det värde som anges på begäran. Programmet ska utföra den här valideringen under valideringsprocessen för ID-token. |
-| Subjekt | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Huvudbeloppet som token bekräftar information om, till exempel användaren av ett program. Det här värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls ämnesanspråket med användarens objekt-ID i katalogen. |
-| Referens för autentiseringskontextklass | `acr` | Inte tillämpligt | Används endast med äldre principer. |
-| Politik för förtroenderamar | `tfp` | `b2c_1_signupsignin1` | Namnet på principen som användes för att hämta ID-token. |
-| Autentiseringstid | `auth_time` | `1438535543` | Den tidpunkt då en användare senast angav autentiseringsuppgifter, representerad i epoktid. Det finns ingen diskriminering mellan att autentisering är en ny inloggning, en enda inloggningssession (SSO) eller en annan inloggningstyp. Det `auth_time` är sista gången programmet (eller användaren) initierade ett autentiseringsförsök mot Azure AD B2C. Den metod som används för att autentisera är inte differentierad. |
-| Omfång | `scp` | `Read`| De behörigheter som beviljas resursen för en åtkomsttoken. Flera beviljade behörigheter avgränsas med ett blanksteg. |
-| Godkänd part | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | **Program-ID** för klientprogrammet som initierade begäran. |
+| Kod-hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | En kod-hash som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2,0-auktoriseringskod. En kod-hash kan användas för att verifiera äktheten för en auktoriseringskod. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Hash för åtkomsttoken | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | En hash för åtkomsttoken ingår bara i en ID-token när token utfärdas tillsammans med en OAuth 2,0-åtkomsttoken. En hash för åtkomsttoken kan användas för att verifiera äktheten för en åtkomsttoken. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html)  |
+| Nnär | `nonce` | `12345` | En nonce är en strategi som används för att minimera repetitions attacker. Ditt program kan ange en nonce i en auktoriseringsbegäran med hjälp av `nonce` Frågeparametern. Värdet som du anger i begäran genereras oförändrat i `nonce` anspråk för en ID-token. Detta påstående gör att ditt program kan verifiera värdet mot det värde som anges i begäran. Programmet bör utföra den här verifieringen under validerings processen för ID-token. |
+| Subjekt | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Den huvudprincip som token förutsätter information för, t. ex. användaren av ett program. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra verifierings kontroller på ett säkert sätt, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen. |
+| Klass referens för autentiserings kontext | `acr` | Inte tillämpligt | Används endast med äldre principer. |
+| Princip för förtroende ramverk | `tfp` | `b2c_1_signupsignin1` | Namnet på den princip som användes för att hämta ID-token. |
+| Autentiserings tid | `auth_time` | `1438535543` | Den tid då användaren senast angav autentiseringsuppgifter, som representeras i epok tid. Det finns ingen diskriminering mellan den autentiseringen som en ny inloggning, en enkel inloggnings-eller SSO-session eller en annan typ av inloggning. `auth_time` Är den senaste gången som programmet (eller användaren) initierade ett autentiseringsförsök mot Azure AD B2C. Den metod som används för autentisering skiljer sig inte åt. |
+| Omfång | `scp` | `Read`| De behörigheter som tilldelats resursen för en åtkomsttoken. Flera beviljade behörigheter avgränsas med ett blank steg. |
+| Auktoriserad part | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | **Program-ID** för det klient program som initierade begäran. |
 
 ## <a name="configuration"></a>Konfiguration
 
-Följande egenskaper används för att [hantera livstider för säkerhetstoken](configure-tokens.md) som avges av Azure AD B2C:
+Följande egenskaper används för att [Hantera livs längder för säkerhetstoken](configure-tokens.md) som genereras av Azure AD B2C:
 
-- **Åtkomst & ID-tokenlivstid (minuter)** - Livslängden för OAuth 2.0-innehavartoken som används för att få åtkomst till en skyddad resurs. Standardvärdet är 60 minuter. Det minsta (inklusive) är 5 minuter. Den maximala (inklusive) är 1440 minuter.
+- **Åtkomst &-ID-token livs längd (minuter)** – livstiden för OAuth 2,0 Bearer-token som används för att få åtkomst till en skyddad resurs. Standardvärdet är 60 minuter. Minimivärdet (inklusive) är 5 minuter. Det maximala antalet (inklusive) är 1440 minuter.
 
-- **Uppdatera tokenlivstid (dagar)** - Den maximala tidsperioden före vilken en uppdateringstoken kan användas för att hämta en ny åtkomst eller ID-token. Tidsperioden omfattar även att hämta en ny uppdateringstoken om ditt program har beviljats scopet. `offline_access` Standardvärdet är 14 dagar. Det minsta (inklusive) är en dag. Den maximala (inklusive) är 90 dagar.
+- **Giltighets tid för token (dagar)** – den maximala tids period som en uppdateringstoken kan användas för att hämta en ny åtkomst-eller ID-token. Tids perioden omfattar också hämtning av `offline_access` en ny uppdateringstoken om ditt program har beviljats omfånget. Standardvärdet är 14 dagar. Minimivärdet (inklusive) är en dag. Det största (inklusive) är 90 dagar.
 
-- **Uppdatera token glidande fönster livstid (dagar)** - Efter denna tidsperiod förflutit användaren tvingas att återuthenticate, oavsett giltighetsperioden för den senaste uppdateringstoken som förvärvats av programmet. Det kan endast tillhandahållas om växeln är inställd **på Begränsad**. Den måste vara större än eller lika med värdet **uppdatera tokenlivslängd (dagar).** Om växeln är inställd på **Obunden**kan du inte ange ett specifikt värde. Standardvärdet är 90 dagar. Det minsta (inklusive) är en dag. Den maximala (inklusive) är 365 dagar.
+- **Uppdatera token glidande fönster livs längd (dagar)** – när den här tids perioden går ut tvingas användaren att autentisera igen, oberoende av giltighets perioden för den senaste uppdateringstoken som hämtats av programmet. Den kan bara anges om växeln är inställd på **Bounded**. Det måste vara större än eller lika med värdet för **uppdateringstoken för uppdateringstoken (dagar)** . Om växeln är **obunden**kan du inte ange ett angivet värde. Standardvärdet är 90 dagar. Minimivärdet (inklusive) är en dag. Det största (inklusive) är 365 dagar.
 
-Följande användningsfall är aktiverade med hjälp av dessa egenskaper:
+Följande användnings fall är aktiverade med följande egenskaper:
 
-- Tillåt att en användare förblir inloggad på en mobilapp på obestämd tid, så länge användaren är kontinuerligt aktiv i programmet. Du kan ställa in livslängden för **skjutfönstret Uppdatera token (dagar)** till Obegränsad i ditt **inloggningsanvändarflöde.**
-- Uppfylla branschens säkerhets- och efterlevnadskrav genom att ange lämpliga åtkomsttokens livstider.
+- Tillåt att en användare förblir inloggad i ett mobilt program under obegränsad tid, så länge användaren alltid är aktiv i programmet. Du kan ställa in **livs längden för skjutreglaget för att uppdatera token (dagar)** till **avgränsade** i ditt inloggnings användar flöde.
+- Uppfylla din branschs krav på säkerhet och efterlevnad genom att ange lämpliga livs längder för åtkomst-token.
 
-Dessa inställningar är inte tillgängliga för användarflöden för återställning av lösenord.
+De här inställningarna är inte tillgängliga för användar flöden för lösen ords återställning.
 
 ## <a name="compatibility"></a>Kompatibilitet
 
-Följande egenskaper används för att [hantera tokenkompatibilitet:](configure-tokens.md)
+Följande egenskaper används för att [Hantera token-kompatibilitet](configure-tokens.md):
 
-- **Utfärdare (iss) anspråk** - Den här egenskapen identifierar Azure AD B2C-klienten som utfärdade token. Standardvärdet är `https://<domain>/{B2C tenant GUID}/v2.0/`. Värdet för `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` inkluderar ID:er för både Azure AD B2C-klienten och användarflödet som användes i tokenbegäran. Om ditt program eller bibliotek behöver Azure AD B2C för att vara kompatibelt med [OpenID Connect Discovery 1.0-specifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html)använder du det här värdet.
+- Certifikat **utfärdare (ISS)-anspråk** – den här egenskapen identifierar den Azure AD B2C klient som utfärdade token. Standardvärdet är `https://<domain>/{B2C tenant GUID}/v2.0/`. Värdet för `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` innehåller ID: n för både den Azure AD B2C klienten och det användar flöde som användes i Tokenbegäran. Om ditt program eller bibliotek behöver Azure AD B2C vara kompatibelt med [OpenID Connect Discovery Discovery 1,0-specifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html)använder du det här värdet.
 
-- **Ämnesanspråk (under) anspråk** - Den här egenskapen identifierar den enhet för vilken token bekräftar information. Standardvärdet är **ObjectID**, som `sub` fyller i anspråket i token med användarens objekt-ID. Värdet **För** bakåtkompatibilitet anges inte. Vi rekommenderar att du byter till **ObjectID** så snart du kan.
+- **Subject (sub)-anspråk** – den här egenskapen identifierar den entitet som token kontrollerar information om. Standardvärdet är **ObjectID**, som fyller på `sub` anspråket i token med objekt-ID: t för användaren. Värdet som **inte stöds** anges bara för bakåtkompatibilitet. Vi rekommenderar att du växlar till **ObjectID** så snart du kan.
 
-- **Anspråk som representerar princip-ID** - Den här egenskapen identifierar den anspråkstyp som principnamnet som används i tokenbegäran är ifyllt. Standardvärdet är `tfp`. Värdet av `acr` anges endast för bakåtkompatibilitet.
+- **Anspråk som representerar princip-ID** – den här egenskapen identifierar anspråks typen där princip namnet som används i Tokenbegäran fylls i. Standardvärdet är `tfp`. Värdet för `acr` anges bara för bakåtkompatibilitet.
 
 ## <a name="pass-through"></a>Direkt
 
-När en användarresa startar får Azure AD B2C en åtkomsttoken från en identitetsprovider. Azure AD B2C använder den token för att hämta information om användaren. Du [aktiverar ett anspråk i ditt användarflöde](idp-pass-through-user-flow.md) eller [definierar ett anspråk i din anpassade princip](idp-pass-through-custom.md) för att skicka token till de program som du registrerar i Azure AD B2C. Ditt program måste använda ett [v2-användarflöde](user-flow-versions.md) för att dra nytta av att skicka token som ett anspråk.
+När en användar resa startar, Azure AD B2C ta emot en åtkomsttoken från en identitets leverantör. Azure AD B2C använder denna token för att hämta information om användaren. Du [aktiverar ett anspråk i ditt användar flöde](idp-pass-through-user-flow.md) eller [definierar ett anspråk i den anpassade principen](idp-pass-through-custom.md) för att skicka token till de program som du registrerar i Azure AD B2C. Ditt program måste använda ett [v2-användar flöde](user-flow-versions.md) för att dra nytta av att skicka token som ett anspråk.
 
-Azure AD B2C stöder för närvarande endast att skicka åtkomsttoken för OAuth 2.0-identitetsleverantörer, som inkluderar Facebook och Google. För alla andra identitetsleverantörer returneras anspråket tomt.
+Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för OAuth 2,0-identitets leverantörer, som innehåller Facebook och Google. För alla andra identitets leverantörer returneras anspråket tomt.
 
 ## <a name="validation"></a>Validering
 
-För att validera en token bör ditt program kontrollera både signaturen och anspråken på token. Många bibliotek med öppen källkod är tillgängliga för validering av gemensamma tillsynsmaskiner, beroende på vilket språk du föredrar. Vi rekommenderar att du utforskar dessa alternativ i stället för att implementera din egen valideringslogik.
+För att validera en token bör programmet kontrol lera både signaturen och anspråk för token. Många bibliotek med öppen källkod är tillgängliga för att verifiera JWTs, beroende på vilket språk du föredrar. Vi rekommenderar att du utforskar dessa alternativ i stället för att implementera din egen verifierings logik.
 
 ### <a name="validate-signature"></a>Verifiera signatur
 
-En JVT innehåller tre segment, ett *huvud,* en *brödtext*och en *signatur*. Signatursegmentet kan användas för att verifiera äktheten av token så att den kan lita på ditt program. Azure AD B2C-token signeras med hjälp av asymmetriska krypteringsalgoritmer av branschstandard, till exempel RSA 256.
+En JWT innehåller tre segment, ett *sidhuvud*, en *brödtext*och en *signatur*. Du kan använda signatur segmentet för att verifiera tokens äkthet så att den kan vara betrodd av ditt program. Azure AD B2C tokens signeras med hjälp av algoritmer för asymmetrisk kryptering i bransch standard, till exempel RSA 256.
 
-Tokenhuvudet innehåller information om nyckel- och krypteringsmetoden som används för att signera token:
+Rubriken för token innehåller information om nyckeln och krypterings metoden som används för att signera token:
 
 ```
 {
@@ -119,35 +119,35 @@ Tokenhuvudet innehåller information om nyckel- och krypteringsmetoden som anvä
 }
 ```
 
-Värdet för **alg-anspråket** är den algoritm som användes för att signera token. Värdet för **barnanspråket** är den offentliga nyckel som användes för att signera token. Azure AD B2C kan när som helst signera en token med hjälp av något av en uppsättning offentliga-privata nyckelpar. Azure AD B2C roterar den möjliga uppsättningen nycklar med jämna mellanrum. Din ansökan ska skrivas för att hantera dessa nyckeländringar automatiskt. En rimlig frekvens för att söka efter uppdateringar av de offentliga nycklar som används av Azure AD B2C är var 24:e timme.
+Värdet för **alg** -anspråket är algoritmen som användes för att signera token. Värdet för **barn** -anspråket är den offentliga nyckel som användes för att signera token. Vid en angiven tidpunkt kan Azure AD B2C signera en token med hjälp av någon av en uppsättning offentliga privata nyckel par. Azure AD B2C roterar den möjliga uppsättningen nycklar med jämna mellanrum. Programmet ska skrivas för att hantera dessa nycklar automatiskt. En rimlig frekvens för att söka efter uppdateringar av de offentliga nycklar som används av Azure AD B2C är var 24: e timme.
 
-Azure AD B2C har en Endpoint för OpenID Connect-metadata. Med den här slutpunkten kan program begära information om Azure AD B2C vid körning. Den här informationen omfattar slutpunkter, tokeninnehåll och tokensigneringsnycklar. Din Azure AD B2C-klient innehåller ett JSON-metadatadokument för varje princip. Metadatadokumentet är ett JSON-objekt som innehåller flera användbara informationsdelar. Metadata innehåller **jwks_uri**, vilket ger platsen för den uppsättning offentliga nycklar som används för att signera token. Den platsen finns här, men det är bäst att hämta platsen dynamiskt med hjälp av metadatadokumentet och tolkning **jwks_uri:**
+Azure AD B2C har en slut punkt för OpenID Connect-metadata. Med den här slut punkten kan program begära information om Azure AD B2C vid körning. Den här informationen omfattar slut punkter, token innehåll och signerings nycklar för token. Din Azure AD B2C klient innehåller ett JSON-Metadatadokumentet för varje princip. Metadatadokumentet är ett JSON-objekt som innehåller flera användbara informations delar. Metadata innehåller **jwks_uri**, vilket ger platsen för den uppsättning offentliga nycklar som används för att signera token. Platsen finns här, men det är bäst att hämta platsen dynamiskt med hjälp av Metadatadokumentet och parsa **jwks_uri**:
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
 ```
-JSON-dokumentet som finns på den här webbadressen innehåller all offentlig nyckelinformation som används vid en viss tidpunkt. Din app kan `kid` använda anspråket i JWT-huvudet för att välja den offentliga nyckeln i JSON-dokumentet som används för att signera en viss token. Den kan sedan utföra signaturvalidering med rätt offentlig nyckel och den angivna algoritmen.
+JSON-dokumentet som finns på den här URL: en innehåller all information om den offentliga nyckeln som används vid en viss tidpunkt. Din app kan använda `kid` anspråket i JWT-huvudet för att välja den offentliga nyckeln i JSON-dokumentet som används för att signera en viss token. Den kan sedan utföra verifiering av signaturen med hjälp av rätt offentlig nyckel och angiven algoritm.
 
-Metadatadokumentet `B2C_1_signupsignin1` för principen `contoso.onmicrosoft.com` i klienten finns på:
+Metadatadokumentet för `B2C_1_signupsignin1` principen i `contoso.onmicrosoft.com` klienten finns på:
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
 ```
 
-För att avgöra vilken princip som användes för att signera en token (och vart du ska gå för att begära metadata) har du två alternativ. Först inkluderas principnamnet i `acr` anspråket i token. Du kan tolka anspråk ur kroppen av JWT genom bas-64 avkodning kroppen och deserializing JSON strängen som resultat. Anspråket `acr` är namnet på den princip som användes för att utfärda token. Det andra alternativet är att koda principen `state` i parameterns värde när du utfärdar begäran och sedan avkoda den för att avgöra vilken princip som användes. Båda metoderna är giltiga.
+För att avgöra vilken princip som användes för att signera en token (och var du ska begära metadata) har du två alternativ. Först ingår princip namnet i `acr` anspråk i token. Du kan parsa anspråk från bröd texten i JWT genom Base-64-avkodning av texten och Avserialiserar den JSON-sträng som resulterar. `acr` Anspråket är namnet på den princip som användes för att utfärda token. Det andra alternativet är att koda principen i värdet för `state` parametern när du utfärdar begäran och sedan avkoda den för att avgöra vilken princip som användes. Antingen är metoden giltig.
 
-En beskrivning av hur du utför signaturverifiering ligger utanför dokumentets omfattning. Många bibliotek med öppen källkod är tillgängliga för att hjälpa dig att validera en token.
+En beskrivning av hur du utför signaturverifiering är utanför det här dokumentets omfattning. Många bibliotek med öppen källkod är tillgängliga som hjälper dig att validera en token.
 
 ### <a name="validate-claims"></a>Validera anspråk
 
-När dina program eller API tar emot en ID-token bör den också utföra flera kontroller mot anspråken i ID-token. Följande påståenden bör kontrolleras:
+När dina program eller API: er får en ID-token bör det också utföra flera kontroller mot anspråk i ID-token. Följande anspråk bör kontrol leras:
 
-- **målgrupp** - Verifierar att ID-token var avsedd att ges till ditt program.
-- **inte före** och **utgångsdatum** - Verifierar att ID-token inte har upphört att gälla.
-- **utfärdare** - Verifierar att token har utfärdats till ditt program av Azure AD B2C.
-- **nonce** - En strategi för token replay attack mitigation.
+- **mål grupp** – kontrollerar att ID-token är avsedd att ges till ditt program.
+- **inte före** och **utgångs tid** – verifierar att ID-token inte har gått ut.
+- **utfärdare** – kontrollerar att token har utfärdats till ditt program av Azure AD B2C.
+- **nonce** – en strategi för repetition av attack attacker för token.
 
-En fullständig lista över valideringar som ditt program ska utföra finns i [OpenID Connect-specifikationen](https://openid.net).
+En fullständig lista över vilka valideringar programmet ska utföra finns i [OpenID Connect-specifikationen](https://openid.net).
 
 ## <a name="next-steps"></a>Nästa steg
 

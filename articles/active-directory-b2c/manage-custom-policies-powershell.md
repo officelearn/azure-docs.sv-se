@@ -1,7 +1,7 @@
 ---
 title: Hantera anpassade principer med PowerShell
 titleSuffix: Azure AD B2C
-description: Använd Azure Active Directory (Azure AD) PowerShell-cmdlet för programmatisk hantering av dina anpassade Azure AD B2C-principer. Skapa, läsa, uppdatera och ta bort anpassade principer med PowerShell.
+description: Använd PowerShell-cmdleten Azure Active Directory (Azure AD) för programmerings hantering av dina Azure AD B2C anpassade principer. Skapa, läsa, uppdatera och ta bort anpassade principer med PowerShell.
 author: msmimart
 manager: celestedg
 ms.service: active-directory
@@ -11,33 +11,33 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187414"
 ---
-# <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Hantera anpassade Azure AD B2C-principer med Azure PowerShell
+# <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Hantera Azure AD B2C anpassade principer med Azure PowerShell
 
-Azure PowerShell innehåller flera cmdlets för kommandorads- och skriptbaserad anpassad principhantering i din Azure AD B2C-klient. Lär dig hur du använder Azure AD PowerShell-modulen för att:
+Azure PowerShell innehåller flera cmdletar för kommando rads-och skriptbaserade anpassade princip hantering i din Azure AD B2C klient. Lär dig hur du använder Azure AD PowerShell-modulen för att:
 
-* Lista anpassade principer i en Azure AD B2C-klient
-* Hämta en princip från en klientorganisation
-* Uppdatera en befintlig princip genom att skriva över dess innehåll
+* Lista de anpassade principerna i en Azure AD B2C-klient
+* Hämta en princip från en klient
+* Uppdatera en befintlig princip genom att skriva över innehållet
 * Ladda upp en ny princip till din Azure AD B2C-klient
 * Ta bort en anpassad princip från en klient
 
 ## <a name="prerequisites"></a>Krav
 
-* [Azure AD B2C-klient och](tutorial-create-tenant.md)autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF-principadministratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
-* [Anpassade principer](custom-policy-get-started.md) som överförs till din klientorganisation
-* [**Förhandsmodulen** Azure AD PowerShell för graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Anpassade principer](custom-policy-get-started.md) har laddats upp till din klient
+* [Modul för för **hands version** av Azure AD PowerShell för diagram](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
-## <a name="connect-powershell-session-to-b2c-tenant"></a>Ansluta PowerShell-session till B2C-klient
+## <a name="connect-powershell-session-to-b2c-tenant"></a>Ansluta PowerShell-sessionen till B2C-klienten
 
-Om du vill arbeta med anpassade principer i din Azure AD B2C-klient måste du först ansluta din PowerShell-session till klienten med kommandot [Connect-AzureAD.][Connect-AzureAD]
+Om du vill arbeta med anpassade principer i din Azure AD B2C-klient måste du först ansluta PowerShell-sessionen till klienten med hjälp av kommandot [Connect-AzureAD][Connect-AzureAD] .
 
-Kör följande kommando och `{b2c-tenant-name}` ersätt med namnet på din Azure AD B2C-klientorganisation. Logga in med ett konto som har tilldelats [B2C IEF-principadministratörsrollen](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) i katalogen.
+Kör följande kommando och Ersätt `{b2c-tenant-name}` med namnet på din Azure AD B2C-klient. Logga in med ett konto som har tilldelats rollen [B2C IEF-princip administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) i katalogen.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
@@ -53,9 +53,9 @@ Account               Environment TenantId                             TenantDom
 azureuser@contoso.com AzureCloud  00000000-0000-0000-0000-000000000000 contosob2c.onmicrosoft.com   User
 ```
 
-## <a name="list-all-custom-policies-in-the-tenant"></a>Lista alla anpassade principer i klienten
+## <a name="list-all-custom-policies-in-the-tenant"></a>Visa en lista med alla anpassade principer i klienten
 
-Genom att identifiera anpassade principer kan en Azure AD B2C-administratör granska, hantera och lägga till affärslogik i sina verksamheter. Använd kommandot [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] för att returnera en lista över ID:erna för anpassade principer i en Azure AD B2C-klientorganisation.
+Genom att identifiera anpassade principer kan en Azure AD B2C administratör granska, hantera och lägga till affärs logik i deras verksamhet. Använd kommandot [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] för att returnera en lista med ID: n för de anpassade principerna i en Azure AD B2C klient.
 
 ```PowerShell
 Get-AzureADMSTrustFrameworkPolicy
@@ -75,15 +75,15 @@ B2C_1A_ProfileEdit
 B2C_1A_PasswordReset
 ```
 
-## <a name="download-a-policy"></a>Ladda ned en policy
+## <a name="download-a-policy"></a>Hämta en princip
 
-När du har granskat listan över princip-ID:n kan du rikta in dig på en specifik princip med [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] för att hämta innehållet.
+När du har granskat listan med princip-ID: n kan du ange en speciell princip med [Get-AzureADMSTrustFrameworkPolicy][Get-AzureADMSTrustFrameworkPolicy] för att hämta innehållet.
 
 ```PowerShell
 Get-AzureADMSTrustFrameworkPolicy [-Id <policyId>]
 ```
 
-I det här exemplet hämtas principen med ID *B2C_1A_signup_signin:*
+I det här exemplet hämtas principen med ID *B2C_1A_signup_signin* :
 
 ```Console
 PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
@@ -112,9 +112,9 @@ PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 </TrustFrameworkPolicy>
 ```
 
-Om du vill redigera principinnehållet lokalt skrivs `-OutputFilePath` kommandot ut till en fil med argumentet och öppnar sedan filen i favoritredigeraren.
+Om du vill redigera princip innehållet lokalt går du till kommandots utdata till en fil `-OutputFilePath` med argumentet och öppnar sedan filen i din favorit redigerare.
 
-Exempelkommando som skickar utdata till en fil:
+Exempel kommando som skickar utdata till en fil:
 
 ```PowerShell
 # Download and send policy output to a file
@@ -123,9 +123,9 @@ Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -OutputFilePath C:\RP
 
 ## <a name="update-an-existing-policy"></a>Uppdatera en befintlig princip
 
-När du har redigerat en principfil som du har skapat eller hämtat kan du publicera den uppdaterade principen till Azure AD B2C med kommandot [Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
+När du har redigerat en princip fil som du har skapat eller hämtat, kan du publicera den uppdaterade principen till Azure AD B2C med hjälp av kommandot [set-AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] .
 
-Om du `Set-AzureADMSTrustFrameworkPolicy` utfärdar kommandot med ID:n för en princip som redan finns i din Azure AD B2C-klient, skrivs innehållet i den principen över.
+Om du utfärdar `Set-AzureADMSTrustFrameworkPolicy` kommandot med ID: t för en princip som redan finns i din Azure AD B2C klient, skrivs innehållet i den principen över.
 
 ```PowerShell
 Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
@@ -138,11 +138,11 @@ Exempel kommando:
 Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
 ```
 
-Fler exempel finns i kommandoreferensen [Set-AzureADMSTrustFrameworkPolicy.][Set-AzureADMSTrustFrameworkPolicy]
+Fler exempel finns i kommando referensen [set-AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] .
 
-## <a name="upload-a-new-policy"></a>Ladda upp en ny policy
+## <a name="upload-a-new-policy"></a>Ladda upp en ny princip
 
-När du gör en ändring av en anpassad princip som körs i produktion kanske du vill publicera flera versioner av principen för reserv- eller A/B-testscenarier. Du kanske vill göra en kopia av en befintlig princip, ändra den med några små ändringar och sedan ladda upp den som en ny princip för användning av ett annat program.
+När du gör en ändring i en anpassad princip som körs i produktion kanske du vill publicera flera versioner av principen för återställnings-eller A/B-testnings scenarier. Eller så kanske du vill göra en kopia av en befintlig princip, ändra den med några små ändringar och sedan ladda upp den som en ny princip för användning av ett annat program.
 
 Använd kommandot [New-AzureADMSTrustFrameworkPolicy][New-AzureADMSTrustFrameworkPolicy] för att ladda upp en ny princip:
 
@@ -159,9 +159,9 @@ New-AzureADMSTrustFrameworkPolicy -InputFilePath C:\SignUpOrSignInv2.xml
 
 ## <a name="delete-a-custom-policy"></a>Ta bort en anpassad princip
 
-För att upprätthålla en ren verksamhet livscykel, rekommenderar vi att du regelbundet ta bort oanvända anpassade principer. Du kanske till exempel vill ta bort gamla principversioner när du har utfört en migrering till en ny uppsättning principer och verifierat de nya principernas funktioner. Om du försöker publicera en uppsättning anpassade principer och får ett felmeddelande kan det dessutom vara klokt att ta bort de principer som skapades som en del av den misslyckade versionen.
+För att upprätthålla livs cykeln för en ren åtgärd rekommenderar vi att du regelbundet tar bort oanvända anpassade principer. Du kanske till exempel vill ta bort gamla princip versioner när du har genomfört en migrering till en ny uppsättning principer och verifierar de nya princip funktionerna. Dessutom kan det vara klokt att ta bort principerna som har skapats som en del av den misslyckade versionen om du försöker publicera en uppsättning anpassade principer och får ett fel meddelande.
 
-Använd kommandot [Ta bort AzureADMSTrustFrameworkPolicy][Remove-AzureADMSTrustFrameworkPolicy] för att ta bort en princip från din klientorganisation.
+Använd kommandot [Remove-AzureADMSTrustFrameworkPolicy][Remove-AzureADMSTrustFrameworkPolicy] för att ta bort en princip från din klient organisation.
 
 ```PowerShell
 Remove-AzureADMSTrustFrameworkPolicy -Id <policyId>
@@ -174,11 +174,11 @@ Exempel kommando:
 Remove-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 ```
 
-## <a name="troubleshoot-policy-upload"></a>Felsöka principuppladdning
+## <a name="troubleshoot-policy-upload"></a>Felsöka princip uppladdning
 
-När du försöker publicera en ny anpassad princip eller uppdatera en befintlig princip kan felaktig XML-formatering och fel i principfilens arvskedja orsaka verifieringsfel.
+När du försöker publicera en ny anpassad princip eller uppdatera en befintlig princip, kan felaktig XML-formatering och fel i princip filen arvs kedja orsaka verifierings fel.
 
-Här är till exempel ett försök att uppdatera en princip med innehåll som innehåller felaktig XML (utdata trunkeras för korthet):
+Här är till exempel ett försök att uppdatera en princip med innehåll som innehåller felaktig XML-kod (utdata trunkeras för det kortfattat):
 
 ```Console
 PS C:\> Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
@@ -191,11 +191,11 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Information om felsökning av anpassade principer finns i [Felsöka anpassade principer för Azure AD B2C och Identity Experience Framework](active-directory-b2c-guide-troubleshooting-custom.md).
+Information om hur du felsöker anpassade principer finns i [felsöka Azure AD B2C anpassade principer och identitets miljö](active-directory-b2c-guide-troubleshooting-custom.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du använder PowerShell för att distribuera anpassade principer som en del av en kontinuerlig ci/cd-pipeline (integration/kontinuerlig leverans) finns i [Distribuera anpassade principer från en Azure DevOps-pipeline](deploy-custom-policies-devops.md).
+Information om hur du använder PowerShell för att distribuera anpassade principer som en del av en pipeline för kontinuerlig integrering/kontinuerlig leverans (CI/CD) finns i [distribuera anpassade principer från en Azure DevOps-pipeline](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy

@@ -1,6 +1,6 @@
 ---
-title: Kända problem med SCIM 2.0-protokollefterlevnad – Azure AD
-description: Så här löser du vanliga problem med protokollkompatibilitet när du lägger till ett program som inte är galleri som stöder SCIM 2.0 i Azure AD
+title: Kända problem med SCIM 2,0-protokollets kompatibilitet – Azure AD
+description: Så här löser du vanliga kompatibilitetsproblem med att lägga till ett program som inte är en galleri som stöder SCIM 2,0 till Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,101 +17,101 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dff0d4f8f0062c00351b60174c63d9c19bdfa15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77522942"
 ---
-# <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2.0-protokollefterlevnad för Azure AD-tjänsten för användaretablering
+# <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering
 
-Azure Active Directory (Azure AD) kan automatiskt etablera användare och grupper till alla program eller system som frontas av en webbtjänst med gränssnittet som definieras i [SCIM-specifikationen (System for Cross-Domain Identity Management).](https://tools.ietf.org/html/draft-ietf-scim-api-19) 
+Azure Active Directory (Azure AD) kan automatiskt etablera användare och grupper för program eller system som är uppkopplade av en webb tjänst med det gränssnitt som definierats i [systemet för scim (Cross-Domain Identity Management) 2,0 protokoll specifikation](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-Azure AD:s stöd för SCIM 2.0-protokollet beskrivs i [Använda SYSTEM för SCIM (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md), som listar de specifika delar av protokollet som implementeras för att automatiskt etablera användare och grupper från Azure AD till program som stöder SCIM 2.0.
+Azure AD: s stöd för SCIM 2,0-protokollet beskrivs i [använda system för scim (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md), som listar de delar av protokollet som det implementerar för att automatiskt etablera användare och grupper från Azure AD till program som stöder scim 2,0.
 
-I den här artikeln beskrivs aktuella och tidigare problem med Azure AD-användarens etableringstjänsts efterlevnad av SCIM 2.0-protokollet och hur du kan lösa dessa problem.
+I den här artikeln beskrivs aktuella och tidigare problem med Azure AD-tjänsten för användar etablering i SCIM 2,0-protokollet och hur du kan lösa problemen.
 
 > [!IMPORTANT]
-> Den senaste uppdateringen av AZURE AD-användarens etableringstjänst SCIM-klient gjordes den 18 december 2018. Den här uppdateringen åtgärdade de kända kompatibilitetsproblem som anges i tabellen nedan. Mer information om den här uppdateringen finns i de vanligaste frågorna nedan.
+> Den senaste uppdateringen av SCIM-klienten för Azure AD-tjänsten för användar etablering gjordes den 18 december 2018. Den här uppdateringen åtgärdade kända kompatibilitetsproblem som anges i tabellen nedan. Mer information om den här uppdateringen finns i vanliga frågor och svar nedan.
 
-## <a name="scim-20-compliance-issues-and-status"></a>FRÅGOR och status för överensstämmelse och status för SCIM 2.0
+## <a name="scim-20-compliance-issues-and-status"></a>SCIM 2,0-kompatibilitetsproblem och status
 
-| **Överensstämmelseproblem för SCIM 2.0** |  **Fast?** | **Åtgärda datum**  |  
+| **SCIM 2,0-kompatibilitetsproblem** |  **Fastsatt?** | **Åtgärds datum**  |  
 |---|---|---|
-| Azure AD kräver att "/scim" är i roten till programmets SCIM-slutpunkts-URL  | Ja  |  den 18 december 2018 | 
-| Tilläggsattribut använder punkt "." notation före attributnamn i stället för kolon ":" notation |  Ja  | den 18 december 2018  | 
-|  Korrigeringsbegäranden för attribut med flera värden innehåller ogiltig sökvägsfiltersyntax | Ja  |  den 18 december 2018  | 
-|  Begäranden om gruppskapande innehåller en ogiltig schema-URI | Ja  |  den 18 december 2018  |  
+| Azure AD kräver att "/scim" finns i roten för programmets SCIM-slutpunkts-URL  | Ja  |  18 december 2018 | 
+| Attributen för tillägg använder punkt "."-notation före attributnamn i stället för kolon ":"-notation |  Ja  | 18 december 2018  | 
+|  Uppdaterings begär Anden för flervärdesattribut innehåller ogiltig syntax för Sök vägs filter | Ja  |  18 december 2018  | 
+|  Begär Anden om att skapa grupper innehåller en ogiltig schema-URI | Ja  |  18 december 2018  |  
 
-## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Har de tjänster som beskrivs automatiskt tillämpas på min befintliga SCIM-app?
+## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Har tjänsterna korrigeringar som beskrivs automatiskt tillämpade på min befintliga SCIM-app?
 
-Nej. Eftersom det skulle ha utgjort en brytande förändring av SCIM-appar som kodades för att fungera med det äldre beteendet, tillämpades inte ändringarna automatiskt på befintliga appar.
+Nej. Eftersom den skulle ha gjort en större ändring i SCIM-appar som har kodats för att fungera med det äldre beteendet, tillämpades inte ändringarna automatiskt på befintliga appar.
 
-Ändringarna tillämpas på alla nya [SCIM-appar som inte är gallerier](../manage-apps/configure-single-sign-on-non-gallery-applications.md) som konfigurerats i Azure-portalen efter korrigeringsdatumet.
+Ändringarna tillämpas på alla nya [icke-Galleri scim-appar](../manage-apps/configure-single-sign-on-non-gallery-applications.md) som kon figurer ats i Azure Portal efter datumet för korrigeringen.
 
-Information om hur du migrerar ett befintligt jobb för användaretablering till de senaste korrigeringarna finns i nästa avsnitt.
+Information om hur du migrerar ett befintligt etablerings jobb för användare för att inkludera de senaste korrigeringarna finns i nästa avsnitt.
 
-## <a name="can-i-migrate-an-existing-scim-based-user-provisioning-job-to-include-the-latest-service-fixes"></a>Kan jag migrera ett befintligt SCIM-baserat användaretableringsjobb för att inkludera de senaste tjänstkorrigeringarna?
+## <a name="can-i-migrate-an-existing-scim-based-user-provisioning-job-to-include-the-latest-service-fixes"></a>Kan jag migrera ett befintligt SCIM-baserat användar etablerings jobb för att inkludera de senaste tjänst korrigeringarna?
 
-Ja. Om du redan använder den här programinstansen för enkel inloggning och behöver migrera det befintliga etableringsjobbet för att inkludera de senaste korrigeringarna följer du proceduren nedan. I den här proceduren beskrivs hur du använder Microsoft Graph API och Microsoft Graph API Explorer för att ta bort ditt gamla etableringsjobb från din befintliga SCIM-app och skapa en ny som uppvisar det nya beteendet.
+Ja. Om du redan använder den här program instansen för enkel inloggning och behöver migrera det befintliga etablerings jobbet för att inkludera de senaste korrigeringarna följer du stegen nedan. Den här proceduren beskriver hur du använder Microsoft Graph API och Microsoft Graph API Explorer för att ta bort ditt gamla etablerings jobb från din befintliga SCIM-app och skapa en ny som visar det nya beteendet.
 
 > [!NOTE]
-> Om ditt program fortfarande är under utveckling och ännu inte har distribuerats för antingen enkel inloggning eller användaretablering, är den enklaste lösningen att ta bort programposten i Azure **Active Directory > Enterprise Applications** i Azure-portalen och helt enkelt lägga till en ny post för programmet med alternativet Skapa program > **Icke-galleri.** Detta är ett alternativ till att köra proceduren nedan.
+> Om ditt program fortfarande är i utvecklings läge och ännu inte har distribuerats för enkel inloggning eller användar etablering, är den enklaste lösningen att ta bort program posten i avsnittet **Azure Active Directory > företags program** i Azure Portal och bara lägga till en ny post för programmet med alternativet **skapa program > icke-Galleri** . Detta är ett alternativ till att köra proceduren nedan.
  
-1. Logga in på https://portal.azure.comAzure-portalen på .
-2. Leta upp och välja ditt befintliga SCIM-program i avsnittet **Azure Active Directory > Enterprise Applications** i Azure Active Directory i Azure Active Directory i Azure-programmet i Azure Active Directory i Azure-portalen.
-3. Kopiera **objekt-ID:et i**avsnittet **Egenskaper** i din befintliga SCIM-app .
-4. I ett nytt webbläsarfönster https://developer.microsoft.com/graph/graph-explorer går du till och loggar in som administratör för Azure AD-klienten där appen läggs till.
-5. I Graph Explorer kör du kommandot nedan för att hitta ID:et för etableringsjobbet. Ersätt "[object-id]" med tjänstens huvud-ID (objekt-ID) som kopierats från det tredje steget.
+1. Logga in på Azure Portal på https://portal.azure.com.
+2. I avsnittet **Azure Active Directory > företags program** i Azure Portal letar du reda på och väljer ditt befintliga scim-program.
+3. I avsnittet **Egenskaper** i din befintliga scim-app kopierar du **objekt-ID: t**.
+4. I ett nytt webbläsarfönster går du till https://developer.microsoft.com/graph/graph-explorer och loggar in som administratör för Azure AD-klienten där appen läggs till.
+5. I Graph Explorer kör du kommandot nedan för att hitta ID: t för ditt etablerings jobb. Ersätt "[Object-ID]" med tjänstens huvud namns-ID (objekt-ID) som har kopierats från det tredje steget.
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Få jobb](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Få jobb") 
+   ![Hämta jobb](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Hämta jobb") 
 
 
-6. I resultaten kopierar du den fullständiga "ID"-strängen som börjar med antingen "customappsso" eller "scim".
-7. Kör kommandot nedan för att hämta konfigurationen för attributmappning, så att du kan göra en säkerhetskopia. Använd samma [object-id] som tidigare och ersätt [job-id] med etableringsjobb-ID som kopierats från det sista steget.
+6. I resultatet kopierar du den fullständiga "ID"-strängen som börjar med antingen "customappsso" eller "scim".
+7. Kör kommandot nedan för att hämta konfigurationen för attributet-mappning så att du kan göra en säkerhets kopia. Använd samma [objekt-ID] som tidigare och Ersätt [Job-ID] med etablerings jobbets ID som har kopierats från det sista steget.
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
    ![Hämta schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Hämta schema") 
 
-8. Kopiera JSON-utdata från det sista steget och spara det i en textfil. Detta innehåller alla anpassade attributmappningar som du har lagt till i din gamla app och bör vara ungefär några tusen rader JSON.
-9. Kör kommandot nedan om du vill ta bort etableringsjobbet:
+8. Kopiera JSON-utdata från det sista steget och spara den i en textfil. Detta innehåller anpassade attribut-mappningar som du har lagt till i din gamla app och bör vara cirka några tusen rader med JSON.
+9. Kör kommandot nedan för att ta bort etablerings jobbet:
  
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
-10. Kör kommandot nedan för att skapa ett nytt etableringsjobb som har de senaste tjänstkorrigeringarna.
+10. Kör kommandot nedan för att skapa ett nytt etablerings jobb som har de senaste tjänst korrigeringarna.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   templateId: "scim"   }`
    
-11. I resultatet av det sista steget kopierar du den fullständiga "ID"-strängen som börjar med "scim". Du kan också tillämpa dina gamla attributmappningar genom att köra kommandot nedan, ersätta [nytt jobb-ID] med det nya jobb-ID som du just kopierade och ange JSON-utdata från steg #7 som begärandetext.
+11. I resultatet för det sista steget kopierar du den fullständiga "ID"-strängen som börjar med "scim". Du kan också tillämpa dina gamla attribut mappningar på nytt genom att köra kommandot nedan, ersätta [New-Job-ID] med det nya jobb-ID som du precis kopierat och ange JSON-utdata från steg #7 som begär ande texten.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
 
-12. Gå tillbaka till det första webbläsarfönstret och välj fliken **Etablering** för ditt program.
-13. Verifiera konfigurationen och starta etableringsjobbet. 
+12. Gå tillbaka till det första webbläsarfönstret och välj fliken **etablering** för ditt program.
+13. Verifiera konfigurationen och starta sedan etablerings jobbet. 
 
-## <a name="can-i-add-a-new-non-gallery-app-that-has-the-old-user-provisioning-behavior"></a>Kan jag lägga till en ny app som inte är gallerid som har det gamla användarens etableringsbeteende?
+## <a name="can-i-add-a-new-non-gallery-app-that-has-the-old-user-provisioning-behavior"></a>Kan jag lägga till en ny app som inte är en galleri som har den gamla användar etablerings funktionen?
 
-Ja. Om du hade kodat ett program till det gamla beteendet som fanns före korrigeringarna och behöver distribuera en ny instans av det följer du proceduren nedan. I den här proceduren beskrivs hur du använder Microsoft Graph API och Microsoft Graph API Explorer för att skapa ett SCIM-etableringsjobb som uppvisar det gamla beteendet.
+Ja. Om du har kodat ett program till det gamla beteende som fanns före korrigeringarna och behöver distribuera en ny instans av det, följer du anvisningarna nedan. Den här proceduren beskriver hur du använder Microsoft Graph API och Microsoft Graph API Explorer för att skapa ett SCIM etablerings jobb som visar det gamla beteendet.
  
-1. Logga in på https://portal.azure.comAzure-portalen på .
-2. i **Azure Active Directory > Enterprise Applications > Skapa programavsnittet** i **Azure-portalen** skapar du ett nytt program som inte är galleri.
-3. Kopiera **objekt-ID:t i**avsnittet **Egenskaper** i den nya anpassade appen .
-4. I ett nytt webbläsarfönster https://developer.microsoft.com/graph/graph-explorer går du till och loggar in som administratör för Azure AD-klienten där appen läggs till.
-5. I Graph Explorer kör du kommandot nedan för att initiera etableringskonfigurationen för din app.
-   Ersätt "[object-id]" med tjänstens huvud-ID (objekt-ID) som kopierats från det tredje steget.
+1. Logga in på Azure Portal på https://portal.azure.com.
+2. i avsnittet **Azure Active Directory > företags program > Skapa program** i Azure Portal skapar du ett nytt program **utanför galleriet** .
+3. I avsnittet **Egenskaper** i din nya anpassade app kopierar du **objekt-ID: t**.
+4. I ett nytt webbläsarfönster går du till https://developer.microsoft.com/graph/graph-explorer och loggar in som administratör för Azure AD-klienten där appen läggs till.
+5. I Graph Explorer kör du kommandot nedan för att initiera etablerings konfigurationen för din app.
+   Ersätt "[Object-ID]" med tjänstens huvud namns-ID (objekt-ID) som har kopierats från det tredje steget.
 
    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
    `{   templateId: "customappsso"   }`
  
-6. Gå tillbaka till det första webbläsarfönstret och välj fliken **Etablering** för ditt program.
-7. Slutför konfigurationen för användaretablering som vanligt.
+6. Gå tillbaka till det första webbläsarfönstret och välj fliken **etablering** för ditt program.
+7. Slutför konfigurationen för användar etablering precis som vanligt.
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om etablering och avetablering till SaaS-program](user-provisioning.md)
+[Lär dig mer om etablering och avetablering för SaaS-program](user-provisioning.md)
 

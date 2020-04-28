@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: ecd5d8bae22d67f8d9f5b99d5c94eecf54a4a1f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77166017"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Säker åtkomst till lokala API: er med Azure AD-programproxy
@@ -169,7 +169,7 @@ Om du vill konfigurera den interna appen så att den ansluter till Azure Active 
 
 När du har konfigurerat parametrarna skapar och kör du den inbyggda appen. När du väljer knappen **Logga in** kan du använda appen för att logga in och sedan Visa skärmen lyckades för att bekräfta att den har anslutits till SecretAPI.
 
-![Lyckades](./media/application-proxy-secure-api-access/success.png)
+![Klart](./media/application-proxy-secure-api-access/success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

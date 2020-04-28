@@ -1,6 +1,6 @@
 ---
-title: Definiera anpassade attribut i Azure Active Directory B2C | Microsoft-dokument
-description: Definiera anpassade attribut för ditt program i Azure Active Directory B2C för att samla in information om dina kunder.
+title: Definiera anpassade attribut i Azure Active Directory B2C | Microsoft Docs
+description: Definiera anpassade attribut för ditt program i Azure Active Directory B2C om du vill samla in information om dina kunder.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7b1ecfba0435f827c7c7a4d05da619998140bc6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186057"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definiera anpassade attribut i Azure Active Directory B2C
 
- Varje kundinriktad applikation har unika krav på den information som behöver samlas in. Din Azure Active Directory B2C-klient (Azure AD B2C) levereras med en inbyggd uppsättning information som lagras i attribut, till exempel förnamn, efternamn, ort och postnummer. Med Azure AD B2C kan du utöka uppsättningen attribut som lagras på varje kundkonto.
+ Varje kundriktad app har unika krav för den information som behöver samlas in. Din Azure Active Directory B2C (Azure AD B2C) har en inbyggd uppsättning information som lagras i attribut, t. ex. namn, efter namn, stad och post nummer. Med Azure AD B2C kan du utöka uppsättningen med attribut som lagras på varje kund konto.
 
- Du kan skapa anpassade attribut i [Azure-portalen](https://portal.azure.com/) och använda dem i dina registreringsanvändarflöden, registrerings- eller inloggningsanvändarflöden eller profilredigering användarflöden. Du kan också läsa och skriva dessa attribut med hjälp av [Microsoft Graph API](manage-user-accounts-graph-api.md).
+ Du kan skapa anpassade attribut i [Azure Portal](https://portal.azure.com/) och använda dem i dina registrering användar flöden, registrering eller inloggnings användar flöden eller profil redigering av användar flöden. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](manage-user-accounts-graph-api.md).
 
 ## <a name="create-a-custom-attribute"></a>Skapa ett anpassat attribut
 
@@ -32,23 +32,23 @@ ms.locfileid: "78186057"
 
     Välj den katalog som innehåller din klient.
 
-    ![B2C-klient markerad i katalog- och prenumerationsfilter](./media/user-flow-custom-attributes/select-directory.PNG)
+    ![B2C-klient har marker ATS i katalog-och prenumerations filter](./media/user-flow-custom-attributes/select-directory.PNG)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. Välj **Användarattribut**och välj sedan **Lägg till**.
+4. Välj **användarattribut och välj sedan** **Lägg till**.
 5. Ange ett **namn** för det anpassade attributet (till exempel "ShoeSize")
-6. Välj en **datatyp**. Endast **Sträng,** **Booleska**och **Int** är tillgängliga.
-7. Du kan också ange en **beskrivning** i informationssyfte.
+6. Välj en **datatyp**. Endast **String**, **Boolean**och **int** är tillgängliga.
+7. Alternativt kan du ange en **Beskrivning** i informations syfte.
 8. Klicka på **Skapa**.
 
-Det anpassade attributet är nu tillgängligt i listan över **användarattribut** och för användning i dina användarflöden. Ett anpassat attribut skapas bara första gången det används i ett användarflöde och inte när du lägger till det i listan över **användarattribut**.
+Det anpassade attributet är nu tillgängligt i listan över **användarattribut** och för användning i dina användar flöden. Ett anpassat attribut skapas bara första gången det används i alla användar flöden och inte när du lägger till **det i listan med användarattribut**.
 
-## <a name="use-a-custom-attribute-in-your-user-flow"></a>Använda ett anpassat attribut i användarflödet
+## <a name="use-a-custom-attribute-in-your-user-flow"></a>Använd ett anpassat attribut i ditt användar flöde
 
-1. I din Azure AD B2C-klient väljer du **Användarflöden**.
+1. Välj **användar flöden**i Azure AD B2C klient.
 1. Välj din princip (till exempel "B2C_1_SignupSignin") för att öppna den.
-1. Välj **Användarattribut** och välj sedan det anpassade attributet (till exempel "ShoeSize"). Klicka på **Spara**.
-1. Välj **Programanspråk** och välj sedan det anpassade attributet.
+1. Välj **användarattribut och välj** sedan det anpassade attributet (till exempel "ShoeSize"). Klicka på **Spara**.
+1. Välj **program anspråk** och välj sedan det anpassade attributet.
 1. Klicka på **Spara**.
 
-När du har skapat en ny användare med hjälp av ett användarflöde som använder det nyskapade anpassade attributet kan objektet efterfrågas i Utforskaren i [Microsoft Graph.](https://developer.microsoft.com/graph/graph-explorer) Alternativt kan du använda funktionen [Kör användarflöde](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) på användarflödet för att verifiera kundupplevelsen. Du bör nu se **ShoeSize** i listan över attribut som samlats in under registreringsresan och se den i den token som skickas tillbaka till ditt program.
+När du har skapat en ny användare med hjälp av ett användar flöde som använder det nyligen skapade anpassade attributet, kan du frågas om objektet i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också använda funktionen [Kör användar flöde](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) i användar flödet för att verifiera kund upplevelsen. Nu bör du se **ShoeSize** i listan över attribut som samlats in under registreringen och se den i den token som skickas tillbaka till ditt program.

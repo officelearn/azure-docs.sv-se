@@ -1,6 +1,6 @@
 ---
-title: Språkanpassning i Azure Active Directory B2C
-description: Läs mer om hur du anpassar språkupplevelsen i dina användarflöden.
+title: Språk anpassning i Azure Active Directory B2C
+description: Lär dig mer om att anpassa språk upplevelsen i dina användar flöden.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,78 +11,78 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5b3af812b2b78c276b5345b9b19226e6e1dba80b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78185768"
 ---
-# <a name="language-customization-in-azure-active-directory-b2c"></a>Språkanpassning i Azure Active Directory B2C
+# <a name="language-customization-in-azure-active-directory-b2c"></a>Språk anpassning i Azure Active Directory B2C
 
-Med språkanpassning i Azure Active Directory B2C (Azure AD B2C) kan ditt användarflöde anpassas till olika språk som passar dina kunders behov. Microsoft tillhandahåller översättningar för [36 språk,](#supported-languages)men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse endast tillhandahålls för ett enda språk kan du anpassa all text på sidorna.
+Med språk anpassning i Azure Active Directory B2C (Azure AD B2C) kan ditt användar flöde anpassa olika språk så att de passar dina kund behov. Microsoft tillhandahåller översättningarna för [36-språk](#supported-languages), men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse bara är avsedd för ett enda språk kan du anpassa valfri text på sidorna.
 
-## <a name="how-language-customization-works"></a>Så här fungerar språkanpassning
+## <a name="how-language-customization-works"></a>Så här fungerar språk anpassning
 
-Du använder språkanpassning för att välja vilka språk ditt användarflöde är tillgängligt i. När funktionen har aktiverats kan du ange `ui_locales`frågesträngparametern från programmet. När du ringer till Azure AD B2C översätts sidan till det språk som du har angett. Den här typen av konfiguration ger dig fullständig kontroll över språken i användarflödet och ignorerar språkinställningarna i kundens webbläsare.
+Du kan använda språk anpassning för att välja vilka språk som ditt användar flöde är tillgängligt i. När funktionen är aktive rad kan du ange `ui_locales`frågesträngparametern, från ditt program. När du anropar Azure AD B2C översätts sidan till det språk som du har angett. Den här typen av konfiguration ger dig fullständig kontroll över språken i ditt användar flöde och ignorerar språk inställningarna i kundens webbläsare.
 
-Du kanske inte behöver den nivån av kontroll över vilka språk kunden ser. Om du inte tillhandahåller `ui_locales` en parameter styrs kundens upplevelse av webbläsarens inställningar. Du kan fortfarande styra vilka språk ditt användarflöde översätts till genom att lägga till det som ett språk som stöds. Om en kunds webbläsare är inställd på att visa ett språk som du inte vill stödja visas det språk som du valde som standard i kulturer som stöds i stället.
+Du kanske inte behöver den kontroll nivån över vilka språk som din kund ser. Om du inte anger en `ui_locales` parameter, styrs kundens upplevelse av webbläsarens inställningar. Du kan fortfarande styra vilka språk som ditt användar flöde ska översättas till genom att lägga till det som ett språk som stöds. Om en kunds webbläsare är inställd på att visa ett språk som du inte vill ha stöd för, visas det språk som du valde som standard i en kultur som stöds i stället.
 
-* **ui-språk angivna språk:** När du har aktiverat språkanpassning översätts användarflödet till det språk som anges här.
-* **Webbläsarbeläst**språk `ui_locales` : Om ingen parameter har angetts översätts ditt användarflöde till det webbläsarbestävnade språket, *om språket stöds*.
-* **Standardspråk för principen**: Om webbläsaren inte anger ett språk, eller anger ett språk som inte stöds, översätts användarflödet till standardspråket för användarflödet.
+* **UI – lokala språk**: när du har aktiverat språk anpassning översätts ditt användar flöde till det språk som anges här.
+* **Webbläsare-begärt språk**: om ingen `ui_locales` parameter har angetts översätts ditt användar flöde till det begärda språket, *om språket stöds*.
+* **Standard språk för principen**: om webbläsaren inte anger något språk, eller om det anger ett språk som inte stöds, översätts användar flödet till standard språket för användar flödet.
 
 > [!NOTE]
-> Om du använder anpassade användarattribut måste du ange dina egna översättningar. Mer information finns i [Anpassa strängarna](#customize-your-strings).
+> Om du använder anpassade användarattribut måste du ange dina egna översättningar. Mer information finns i [Anpassa dina strängar](#customize-your-strings).
 
-## <a name="support-requested-languages-for-ui_locales"></a>Stöd begärda språk för ui_locales
+## <a name="support-requested-languages-for-ui_locales"></a>Stöd för begärda språk för ui_locales
 
-Principer som skapades före den allmänna tillgängligheten för språkanpassning måste aktivera den här funktionen först. Principer och användarflöden som har skapats efter att språkanpassning aktiverat som standard.
+Principer som skapades innan den allmänna tillgängligheten för språk anpassning måste aktivera den här funktionen först. Principer och användar flöden som har skapats efter att språk anpassning har Aktiver ATS som standard.
 
-När du aktiverar språkanpassning på ett användarflöde kan du styra `ui_locales` språket i användarflödet genom att lägga till parametern.
+När du aktiverar språk anpassning för ett användar flöde kan du kontrol lera språket för användar flödet genom att lägga till `ui_locales` parametern.
 
-1. I din Azure AD B2C-klient väljer du **Användarflöden**.
-1. Klicka på det användarflöde som du vill aktivera för översättningar.
+1. Välj **användar flöden**i Azure AD B2C klient.
+1. Klicka på det användar flöde som du vill aktivera för översättningar.
 1. Välj **språk**.
-1. Välj **Aktivera språkanpassning**.
+1. Välj **Aktivera språk anpassning**.
 
-## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Välj vilka språk i användarflödet som är aktiverade
+## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Välj vilka språk i ditt användar flöde som är aktiverade
 
-Aktivera en uppsättning språk för ditt användarflöde som ska översättas `ui_locales` till på begäran av webbläsaren utan parametern.
+Aktivera en uppsättning språk som ditt användar flöde ska översättas till när den begärs av webbläsaren utan `ui_locales` parametern.
 
-1. Kontrollera att ditt användarflöde har aktiverat språkanpassning från tidigare instruktioner.
-1. På sidan **Språk** för användarflödet väljer du ett språk som du vill stödja.
-1. Ändra Aktiverad till **Ja**i **egenskapsfönstret** .
-1. Välj **Spara** högst upp i egenskapsfönstret.
+1. Se till att ditt användar flöde har aktiverat språk anpassning från föregående instruktioner.
+1. På sidan **språk** för användar flödet väljer du ett språk som du vill stödja.
+1. I fönstret Egenskaper ändrar du **aktiverat** till **Ja**.
+1. Välj **Spara** överst i fönstret Egenskaper.
 
 >[!NOTE]
->Om `ui_locales` en parameter inte anges översätts sidan till kundens webbläsarspråk endast om den är aktiverad.
+>Om en `ui_locales` parameter inte anges översätts sidan till kundens webb läsar språk endast om den är aktive rad.
 >
 
 ## <a name="customize-your-strings"></a>Anpassa dina strängar
 
-Med språkanpassning kan du anpassa valfri sträng i användarflödet.
+Med språk anpassning kan du anpassa en sträng i ditt användar flöde.
 
-1. Kontrollera att ditt användarflöde har aktiverat språkanpassning från föregående instruktioner.
-1. På sidan **Språk** för användarflödet väljer du det språk som du vill anpassa.
-1. Markera den sida som du vill redigera under **filer på sidnivå**och resurser.
+1. Se till att ditt användar flöde har aktiverat språk anpassning från föregående instruktioner.
+1. På sidan **språk** för användar flödet väljer du det språk som du vill anpassa.
+1. Under **filer på sidan filnivå – resurser**väljer du den sida som du vill redigera.
 1. Välj **Hämta standardvärden** (eller **Hämta åsidosättningar** om du tidigare har redigerat det här språket).
 
 De här stegen ger dig en JSON-fil som du kan använda för att börja redigera dina strängar.
 
-### <a name="change-any-string-on-the-page"></a>Ändra en sträng på sidan
+### <a name="change-any-string-on-the-page"></a>Ändra valfri sträng på sidan
 
 1. Öppna JSON-filen som hämtats från tidigare instruktioner i en JSON-redigerare.
-1. Leta reda på det element som du vill ändra. Du kan `StringId` hitta för strängen du letar efter `Value` eller leta efter det attribut som du vill ändra.
+1. Hitta det element som du vill ändra. Du kan söka `StringId` efter den sträng som du söker eller leta efter det `Value` attribut som du vill ändra.
 1. Uppdatera `Value` attributet med det du vill visa.
-1. För varje sträng som du `Override` vill `true`ändra ändrar du till .
-1. Spara filen och ladda upp ändringarna. (Du hittar uppladdningskontrollen på samma plats som där du hämtade JSON-filen.)
+1. Ändra `Override` till `true`för varje sträng som du vill ändra.
+1. Spara filen och överför ändringarna. (Du kan hitta överförings kontrollen på samma plats som du laddade ned JSON-filen.)
 
 > [!IMPORTANT]
-> Om du behöver åsidosätta en sträng `Override` måste `true`du ange värdet till . Om värdet inte ändras ignoreras posten.
+> Om du behöver åsidosätta en sträng, se till att ange `Override` värdet till. `true` Om värdet inte ändras ignoreras posten.
 
-### <a name="change-extension-attributes"></a>Ändra tilläggsattribut
+### <a name="change-extension-attributes"></a>Ändra attribut för tillägg
 
-Om du vill ändra strängen för ett anpassat användarattribut, eller om du vill lägga till ett i JSON, är den i följande format:
+Om du vill ändra strängen för ett anpassat användarattribut, eller om du vill lägga till ett i JSON, är det i följande format:
 
 ```JSON
 {
@@ -98,13 +98,13 @@ Om du vill ändra strängen för ett anpassat användarattribut, eller om du vil
 }
 ```
 
-Ersätt `<ExtensionAttribute>` med namnet på ditt anpassade användarattribut.
+Ersätt `<ExtensionAttribute>` med namnet på ditt anpassade användar-attribut.
 
-Ersätt `<ExtensionAttributeValue>` med den nya sträng som ska visas.
+Ersätt `<ExtensionAttributeValue>` med den nya strängen som ska visas.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Ange en lista med värden med hjälp av LocalizedCollections
 
-Om du vill ange en uppsättning lista med värden `LocalizedCollections` för svar måste du skapa ett attribut. `LocalizedCollections`är en `Name` samling `Value` och par. Ordern för artiklarna blir den ordning de visas. Så `LocalizedCollections`här lägger du till :
+Om du vill ange en uppsättning värden för svar måste du skapa ett `LocalizedCollections` -attribut. `LocalizedCollections`är en matris med `Name` och `Value` par. Ordningen för objekten visas i den ordning som de visas. Använd följande `LocalizedCollections`format för att lägga till:
 
 ```JSON
 {
@@ -128,131 +128,131 @@ Om du vill ange en uppsättning lista med värden `LocalizedCollections` för sv
 }
 ```
 
-* `ElementId`är det användarattribut som det här `LocalizedCollections` attributet är ett svar på.
-* `Name`är det värde som visas för användaren.
+* `ElementId`är det användar-attribut som `LocalizedCollections` det här attributet är ett svar på.
+* `Name`är värdet som visas för användaren.
 * `Value`är vad som returneras i anspråket när det här alternativet är markerat.
 
-### <a name="upload-your-changes"></a>Ladda upp dina ändringar
+### <a name="upload-your-changes"></a>Överför dina ändringar
 
-1. När du har slutfört ändringarna i din JSON-fil går du tillbaka till din B2C-klient.
-1. Välj **Användarflöden** och klicka på det användarflöde som du vill aktivera för översättningar.
+1. När du har slutfört ändringarna i JSON-filen går du tillbaka till B2C-klienten.
+1. Välj **användar flöden** och klicka på det användar flöde som du vill aktivera för översättningar.
 1. Välj **språk**.
 1. Välj det språk som du vill översätta till.
-1. Välj den sida där du vill tillhandahålla översättningar.
-1. Markera mappikonen och välj den JSON-fil som ska laddas upp.
+1. Välj den sida där du vill ge översättningar.
+1. Välj mappikonen och välj den JSON-fil som ska överföras.
 
-Ändringarna sparas automatiskt i användarflödet.
+Ändringarna sparas automatiskt i ditt användar flöde.
 
-## <a name="customize-the-page-ui-by-using-language-customization"></a>Anpassa sidgränssnittet med hjälp av språkanpassning
+## <a name="customize-the-page-ui-by-using-language-customization"></a>Anpassa sid gränssnittet med hjälp av språk anpassning
 
-Det finns två sätt att lokalisera HTML-innehållet. Ett sätt är att aktivera [språkanpassning](user-flow-language-customization.md). Om du aktiverar den här funktionen kan Azure AD `ui-locales`B2C vidarebefordra Parametern OpenID Connect till slutpunkten. Innehållsservern kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som är språkspecifika.
+Det finns två sätt att lokalisera ditt HTML-innehåll. Ett sätt är att aktivera [språk anpassning](user-flow-language-customization.md). Om du aktiverar den här funktionen kan Azure AD B2C vidarebefordra OpenID Connect- `ui-locales`parametern till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som är språkspecifika.
 
-Du kan också hämta innehåll från olika platser baserat på det språk som används. I den CORS-aktiverade slutpunkten kan du ställa in en mappstruktur som värd för innehåll för specifika språk. Du ringer den rätta om du använder `{Culture:RFC5646}`jokertecknets värde. Anta till exempel att det här är din anpassade URI:a sida:
+Du kan också hämta innehåll från olika platser baserat på de nationella inställningar som används. I din CORS-aktiverade slut punkt kan du ställa in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}`. Anta till exempel att det här är din anpassade sid-URI:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
 
-Du kan läsa `fr`in sidan i . När sidan hämtar HTML- och CSS-innehåll drar den från:
+Du kan läsa in sidan i `fr`. När sidan hämtar HTML-och CSS-innehåll, hämtas de från:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-languages"></a>Lägga till anpassade språk
+## <a name="add-custom-languages"></a>Lägg till anpassade språk
 
-Du kan också lägga till språk som Microsoft för närvarande inte tillhandahåller översättningar för. Du måste ange översättningar för alla strängar i användarflödet. Språk- och språkkoder är begränsade till dem i ISO 639-1-standarden.
+Du kan också lägga till språk som Microsoft för närvarande inte tillhandahåller översättningar för. Du måste ange översättningarna för alla strängar i användar flödet. Språk-och lands koder är begränsade till dem i ISO 639-1-standarden.
 
-1. I din Azure AD B2C-klient väljer du **Användarflöden**.
-2. Klicka på användarflödet där du vill lägga till egna språk och klicka sedan på **Språk**.
-3. Välj **Lägg till anpassat språk** högst upp på sidan.
-4. I kontextfönstret som öppnas identifierar du vilket språk du tillhandahåller översättningar för genom att ange en giltig språkkod.
-5. För varje sida kan du hämta en uppsättning åsidosättningar för engelska och arbeta med översättningarna.
+1. Välj **användar flöden**i Azure AD B2C klient.
+2. Klicka på det användar flöde där du vill lägga till anpassade språk och klicka sedan på **språk**.
+3. Välj **Lägg till anpassat språk** överst på sidan.
+4. I kontext fönstret som öppnas identifierar du vilket språk som du tillhandahåller översättningar för genom att ange en giltig språkkod.
+5. För varje sida kan du ladda ned en uppsättning åsidosättningar för engelska och arbeta med översättningarna.
 6. När du är klar med JSON-filerna kan du ladda upp dem för varje sida.
-7. Välj **Aktivera**och ditt användarflöde kan nu visa det här språket för användarna.
+7. Välj **Aktivera**och ditt användar flöde kan nu visa det här språket för dina användare.
 8. Spara språket.
 
 >[!IMPORTANT]
->Du måste antingen aktivera de anpassade språken eller ladda upp åsidosättningar för det innan du kan spara.
+>Du måste antingen aktivera de anpassade språken eller överföra åsidosättningar för det innan du kan spara.
 
 ## <a name="additional-information"></a>Ytterligare information
 
-### <a name="page-ui-customization-labels-as-overrides"></a>Anpassningsetiketter för sidgränssnitt som åsidosättningar
+### <a name="page-ui-customization-labels-as-overrides"></a>Sid gränssnitt anpassnings etiketter som åsidosättningar
 
-När du aktiverar språkanpassning sparas dina tidigare redigeringar för etiketter med anpassning av sidgränssnittet i en JSON-fil för engelska (sv). Du kan fortsätta att ändra etiketter och andra strängar genom att ladda upp språkresurser i språkanpassningen.
+När du aktiverar språk anpassning behålls dina tidigare redigeringar av etiketter med anpassning av sid gränssnitt i en JSON-fil för engelska (en). Du kan fortsätta att ändra dina etiketter och andra strängar genom att överföra språk resurser i språk anpassning.
 
 ### <a name="up-to-date-translations"></a>Aktuella översättningar
 
-Microsoft strävar efter att tillhandahålla de senaste översättningarna för din användning. Microsoft förbättrar kontinuerligt översättningar och håller dem i överensstämmelse för dig. Microsoft identifierar buggar och ändringar i den globala terminologin och gör uppdateringar som fungerar sömlöst i ditt användarflöde.
+Microsoft strävar efter att tillhandahålla de senaste översättningarna för din användning. Microsoft förbättrar kontinuerligt översättningarna och ser till att de är kompatibla. Microsoft kommer att identifiera buggar och ändringar i global terminologi och göra uppdateringar som fungerar sömlöst i ditt användar flöde.
 
-### <a name="support-for-right-to-left-languages"></a>Stöd för språk från höger till vänster
+### <a name="support-for-right-to-left-languages"></a>Stöd för höger-till-vänster-språk
 
-Microsoft tillhandahåller för närvarande inte stöd för språk som inte är till vänster. Du kan åstadkomma detta genom att använda anpassade språk och använda CSS för att ändra hur strängarna visas. Om du behöver den här funktionen kan du rösta på den på [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft tillhandahåller för närvarande inte stöd för språk som skrivs från höger till vänster. Du kan göra detta med hjälp av anpassade språk och använda CSS för att ändra hur strängarna visas. Om du behöver den här funktionen kan du rösta på [Azure feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 
-### <a name="social-identity-provider-translations"></a>Översättningar av leverantörer av social identitet
+### <a name="social-identity-provider-translations"></a>Översättningar av sociala identitets leverantörer
 
-Microsoft tillhandahåller `ui_locales` OIDC-parametern till sociala inloggningar. Men vissa sociala identitetsleverantörer, inklusive Facebook och Google, hedrar dem inte.
+Microsoft tillhandahåller `ui_locales` OIDC-parametern för sociala inloggningar. Men vissa sociala identitets leverantörer, inklusive Facebook och Google, följer inte dem.
 
-### <a name="browser-behavior"></a>Beteende i webbläsaren
+### <a name="browser-behavior"></a>Webb läsar beteende
 
-Chrome och Firefox båda begäran om deras fasta språk. Om det är ett språk som stöds visas det före standardvärdet. Microsoft Edge begär för närvarande inte ett språk och går direkt till standardspråket.
+Chrome och Firefox båda förfrågningarna om deras inställda språk. Om det är ett språk som stöds visas det före standardvärdet. Microsoft Edge begär för närvarande inte ett språk och går direkt till standard språket.
 
 ## <a name="supported-languages"></a>Språk som stöds
 
-Azure AD B2C innehåller stöd för följande språk. Användarflödesspråk tillhandahålls av Azure AD B2C. MFA-meddelandespråken (multifaktorautentisering) tillhandahålls av [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C har stöd för följande språk. Användar flödes språk tillhandahålls av Azure AD B2C. Meddelande språken för Multi-Factor Authentication (MFA) tillhandahålls av [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Språk              | Språkkod | Användarflöden         | MFA-meddelanden  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
-| Arabiska                | Ar            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Bulgariska             | Bg            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Bangla                | Bn            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Katalanska               | ca ( ca )            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Tjeckiska                 | Cs            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Arabiska                | bakre            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Bulgariska             | Bulgarien            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Bangla                | bn            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Katalanska               | onlinecertifikatutfärdare            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Tjeckiska                 | östasiatisk            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Danska                | da            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Tyska                | de            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Grekiska                 | El            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Svenska               | en            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Spanska               | ES            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Estniska              | Et            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Baskiska                | Eu            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Estniska              | ge            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Baskiska                | gemenskaps            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Finska               | fi            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Franska                | fr            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Galiciska              | Gl            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Gujarati              | Gu            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Hebreiska                | Han            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Galiciska              | huvud            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Gujarati              | gu            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Hebreiska                | producenten            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Hindi                 | Hej            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Kroatiska              | tim            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Ungerska             | Hu            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Ungerska             | HU            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Indonesiska            | id            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Italienska               | it            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Japanska              | ja            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Kazakiska                | Kk            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Kannada               | Kn            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Kazakiska                | kk            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Kannada               | 5,0            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
 | Koreansk                | Ko            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Litauiska            | Lt            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Lettiska               | Lv            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Malayalam             | Ml            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Litauiska            | långsiktiga            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Lettiska               | LV            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Malayalam             | ml            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
 | Marathi               | Mr            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Malajiska                 | Ms            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Norska Bokmal      | Nb            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Malajiska                 | millisekund            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Norska bokmål      | Anm            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
 | Nederländska                 | nl            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Norska             | nej            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Punjabi               | Pa            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Polska                | Pl            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Punjabi               | PA            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Polska                | pl            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Portugisiska – Brasilien   | pt-br         | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Portugisiska – Portugal | pt-pt         | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Rumänska              | Ro            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Rumänska              | ro            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Ryska               | ru            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Slovakiska                | Sk            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Slovenska             | Sl            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Serbiska - kyrilliska    | sr-cryl-cs    | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Serbiska - latin       | sr-latn-cs    | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Slovakiska                | sk            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Slovenska             | SL            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Serbiska-kyrilliska    | SR-cryl-CS    | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Serbiska-Latin       | SR-latn-CS    | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Svenska               | sv            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Tamilska                 | ta            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Telugu                | te            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Thailändska                  | Th            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Turkiska               | Tr            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Tamilska                 | layout            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Telugu                | &            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
+| Thailändska                  | i:te            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Turkiska               | TR            | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
 | Ukrainska             | Storbritannien            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Vietnamesiska            | vi            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Kinesiska - förenklad  | zh-hans (olikartade)       | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Kinesiska - Traditionell | zh-hant (olika)       | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Vietnamesiska            | Vi            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Kinesiska – Förenklad  | zh-hans       | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |
+| Kinesiska (traditionell) | zh-Hant       | ![ja](./media/user-flow-language-customization/yes.png) | ![ja](./media/user-flow-language-customization/yes.png) |

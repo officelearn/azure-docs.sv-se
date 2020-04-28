@@ -1,5 +1,5 @@
 ---
-title: Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB SDK:er
+title: 'Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB SDK: er'
 description: Lär dig hur du registrerar och anropar lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB SDK:er
 author: markjbrown
 ms.service: cosmos-db
@@ -7,28 +7,28 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: mjbrown
 ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77582508"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registrera och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
-SQL API i Azure Cosmos DB har stöd för registrering och anrop av lagrade procedurer, utlösare och användardefinierade funktioner (UDF) som har skrivits i JavaScript. Du kan använda SQL API [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [JavaScript](sql-api-sdk-java.md), [Node.js](sql-api-sdk-node.md)eller [Python](sql-api-sdk-python.md) SDK:er för att registrera och anropa de lagrade procedurerna. [JavaScript](sql-api-sdk-node.md) När du har definierat en eller flera lagrade procedurer, utlösare och användardefinierade funktioner kan du läsa in och visa dem i [Azure-portalen](https://portal.azure.com/) med hjälp av datautforskaren.
+SQL API i Azure Cosmos DB har stöd för registrering och anrop av lagrade procedurer, utlösare och användardefinierade funktioner (UDF) som har skrivits i JavaScript. Du kan använda SQL API [.net](sql-api-sdk-dotnet.md), [.net Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [Java Script](sql-api-sdk-node.md), [Node. js](sql-api-sdk-node.md)eller [python](sql-api-sdk-python.md) SDK: er för att registrera och anropa de lagrade procedurerna. När du har definierat en eller flera lagrade procedurer, utlösare och användardefinierade funktioner kan du läsa in och visa dem i [Azure-portalen](https://portal.azure.com/) med hjälp av datautforskaren.
 
 ## <a name="how-to-run-stored-procedures"></a><a id="stored-procedures"></a>Köra lagrade procedurer
 
-Lagrade procedurer är skrivna med JavaScript. De kan skapa, uppdatera, läsa, fråga och ta bort objekt i en Azure Cosmos-container. Mer information om hur du skriver lagrade procedurer i Azure Cosmos DB finns [i Så här skriver du lagrade procedurer i Azure Cosmos DB-artikel.](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures)
+Lagrade procedurer är skrivna med JavaScript. De kan skapa, uppdatera, läsa, fråga och ta bort objekt i en Azure Cosmos-container. Mer information om hur du skriver lagrade procedurer i Azure Cosmos DB finns i [så här skriver du lagrade procedurer i Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) artikeln.
 
 Följande exempel visar hur du registrerar och anropar en lagrad procedur med hjälp av Azure Cosmos DB SDK:er. Se [Skapa ett dokument](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) eftersom källan till denna lagrade procedur är sparad som `spCreateToDoItem.js`.
 
 > [!NOTE]
 > När du kör en lagrad procedur med partitionerade containrar måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
 
-### <a name="stored-procedures---net-sdk-v2"></a>Lagrade procedurer - .NET SDK V2
+### <a name="stored-procedures---net-sdk-v2"></a>Lagrade procedurer – .NET SDK v2
 
-I följande exempel visas hur du registrerar en lagrad procedur med hjälp av .NET SDK V2:
+I följande exempel visas hur du registrerar en lagrad procedur med hjälp av .NET SDK v2:
 
 ```csharp
 string storedProcedureId = "spCreateToDoItem";
@@ -42,7 +42,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-Följande kod visar hur du anropar en lagrad procedur med hjälp av .NET SDK V2:
+Följande kod visar hur du anropar en lagrad procedur med hjälp av .NET SDK v2:
 
 ```csharp
 dynamic newItem = new
@@ -58,9 +58,9 @@ RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("P
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
 ```
 
-### <a name="stored-procedures---net-sdk-v3"></a>Lagrade procedurer - .NET SDK V3
+### <a name="stored-procedures---net-sdk-v3"></a>Lagrade procedurer – .NET SDK v3
 
-I följande exempel visas hur du registrerar en lagrad procedur med hjälp av .NET SDK V3:
+I följande exempel visas hur du registrerar en lagrad procedur med .NET SDK v3:
 
 ```csharp
 StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
@@ -70,7 +70,7 @@ StoredProcedureResponse storedProcedureResponse = await client.GetContainer("dat
 });
 ```
 
-Följande kod visar hur du anropar en lagrad procedur med hjälp av .NET SDK V3:
+Följande kod visar hur du anropar en lagrad procedur med .NET SDK v3:
 
 ```csharp
 dynamic[] newItems = new dynamic[]
@@ -204,9 +204,9 @@ Vid körning skickas förutlösare i RequestOptions-objektet genom att ange `Pre
 > [!NOTE]
 > Även om namnet på utlösaren skickas som en lista kan du fortfarande endast köra en utlösare per åtgärd.
 
-### <a name="pre-triggers---net-sdk-v2"></a>Förutlösare - .NET SDK V2
+### <a name="pre-triggers---net-sdk-v2"></a>För-utlösare – .NET SDK v2
 
-Följande kod visar hur du registrerar en förutlösare med .NET SDK V2:
+Följande kod visar hur du registrerar en för utlösare med .NET SDK v2:
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -221,7 +221,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-Följande kod visar hur du anropar en förutlösare med .NET SDK V2:
+Följande kod visar hur du anropar en för utlösare med .NET SDK v2:
 
 ```csharp
 dynamic newItem = new
@@ -237,9 +237,9 @@ RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new Lis
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
 
-### <a name="pre-triggers---net-sdk-v3"></a>Förutlösare - .NET SDK V3
+### <a name="pre-triggers---net-sdk-v3"></a>För-utlösare – .NET SDK v3
 
-Följande kod visar hur du registrerar en förutlösare med .NET SDK V3:
+Följande kod visar hur du registrerar en för utlösare med .NET SDK v3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -251,7 +251,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-Följande kod visar hur du anropar en förutlösare med .NET SDK V3:
+Följande kod visar hur du anropar en för utlösare med .NET SDK v3:
 
 ```csharp
 dynamic newItem = new
@@ -357,9 +357,9 @@ client.CreateItem(container_link, item, {
 
 Följande exempel visar hur du registrerar en efterutlösare med hjälp av Azure Cosmos DB SDK:er. Se [Exempel på efterutlösare](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) eftersom källan till denna efterutlösare är sparad som `trgPostUpdateMetadata.js`.
 
-### <a name="post-triggers---net-sdk-v2"></a>Efterutlösare - .NET SDK V2
+### <a name="post-triggers---net-sdk-v2"></a>Efter utlösare – .NET SDK v2
 
-Följande kod visar hur du registrerar en post-trigger med .NET SDK V2:
+Följande kod visar hur du registrerar en post-utlösare med hjälp av .NET SDK v2:
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
@@ -374,7 +374,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-Följande kod visar hur du anropar en post-trigger med .NET SDK V2:
+Följande kod visar hur du anropar en post-utlösare med .NET SDK v2:
 
 ```csharp
 var newItem = { 
@@ -388,9 +388,9 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.createDocumentAsync(containerUri, newItem, options);
 ```
 
-### <a name="post-triggers---net-sdk-v3"></a>Efterutlösare - .NET SDK V3
+### <a name="post-triggers---net-sdk-v3"></a>Efter utlösare – .NET SDK v3
 
-Följande kod visar hur du registrerar en post-trigger med .NET SDK V3:
+Följande kod visar hur du registrerar en efter utlösare med .NET SDK v3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -402,7 +402,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-Följande kod visar hur du anropar en post-trigger med .NET SDK V3:
+Följande kod visar hur du anropar en post-utlösare med .NET SDK v3:
 
 ```csharp
 var newItem = { 
@@ -504,9 +504,9 @@ client.CreateItem(container_link, item, {
 
 Följande exempel visar hur du registrerar en användardefinierad funktion med hjälp av Azure Cosmos DB SDK:er. Se [Exempel på användardefinierad funktion](how-to-write-stored-procedures-triggers-udfs.md#udfs) eftersom källan till denna användardefinierade funktion är sparad som `udfTax.js`.
 
-### <a name="user-defined-functions---net-sdk-v2"></a>Användardefinierade funktioner - .NET SDK V2
+### <a name="user-defined-functions---net-sdk-v2"></a>Användardefinierade funktioner – .NET SDK v2
 
-Följande kod visar hur du registrerar en användardefinierad funktion med .NET SDK V2:
+Följande kod visar hur du registrerar en användardefinierad funktion med hjälp av .NET SDK v2:
 
 ```csharp
 string udfId = "Tax";
@@ -521,7 +521,7 @@ await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-Följande kod visar hur du anropar en användardefinierad funktion med .NET SDK V2:
+Följande kod visar hur du anropar en användardefinierad funktion med hjälp av .NET SDK v2:
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -533,9 +533,9 @@ foreach (var result in results)
 }
 ```
 
-### <a name="user-defined-functions---net-sdk-v3"></a>Användardefinierade funktioner - .NET SDK V3
+### <a name="user-defined-functions---net-sdk-v3"></a>Användardefinierade funktioner – .NET SDK v3
 
-Följande kod visar hur du registrerar en användardefinierad funktion med .NET SDK V3:
+Följande kod visar hur du registrerar en användardefinierad funktion med .NET SDK v3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
@@ -545,7 +545,7 @@ await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunc
 });
 ```
 
-Följande kod visar hur du anropar en användardefinierad funktion med .NET SDK V3:
+Följande kod visar hur du anropar en användardefinierad funktion med .NET SDK v3:
 
 ```csharp
 var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");

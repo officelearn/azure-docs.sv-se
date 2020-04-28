@@ -1,24 +1,24 @@
 ---
 title: Variabler i mallar
-description: Beskriver hur du definierar variabler i en Azure Resource Manager-mall.
+description: Beskriver hur du definierar variabler i en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75483822"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variabler i Azure Resource Manager-mall
+# <a name="variables-in-azure-resource-manager-template"></a>Variabler i Azure Resource Manager mall
 
-I den här artikeln beskrivs hur du definierar och använder variabler i din Azure Resource Manager-mall. Du använder variabler för att förenkla mallen. I stället för att upprepa komplicerade uttryck i hela mallen definierar du en variabel som innehåller det komplicerade uttrycket. Sedan refererar du till den variabeln efter behov i hela mallen.
+I den här artikeln beskrivs hur du definierar och använder variabler i din Azure Resource Manager-mall. Du kan använda variabler för att förenkla din mall. I stället för att upprepa komplexa uttryck i hela mallen definierar du en variabel som innehåller det komplexa uttrycket. Sedan kan du referera till variabeln efter behov i hela mallen.
 
-Resource Manager matchar variabler innan distributionsåtgärderna startas. Var variabeln än används i mallen ersätter Resource Manager den med det lösta värdet.
+Resource Manager löser variabler innan distributions åtgärderna påbörjas. Oavsett var variabeln används i mallen ersätter Resource Manager den med det matchade värdet.
 
 ## <a name="define-variable"></a>Definiera variabel
 
-I följande exempel visas en variabel definition. Det skapar ett strängvärde för ett lagringskontonamn. Den använder flera mallfunktioner för att få ett parametervärde och sammanfogar det till en unik sträng.
+I följande exempel visas en variabel definition. Det skapar ett sträng värde för ett lagrings konto namn. Den använder flera mallar för att hämta ett parameter värde och sammanfogar dem till en unik sträng.
 
 ```json
 "variables": {
@@ -26,11 +26,11 @@ I följande exempel visas en variabel definition. Det skapar ett strängvärde f
 },
 ```
 
-Du kan inte använda [referensfunktionen](template-functions-resource.md#reference) eller någon av [listfunktionerna](template-functions-resource.md#list) i variabelavsnittet. Dessa funktioner får körningstillståndet för en resurs och kan inte köras före distributionen när variabler har lösts.
+Du kan inte använda funktionen [Reference](template-functions-resource.md#reference) eller någon av [list](template-functions-resource.md#list) funktionerna i avsnittet Variables. Dessa funktioner hämtar körnings status för en resurs och kan inte utföras före distributionen när variablerna är lösta.
 
 ## <a name="use-variable"></a>Använd variabel
 
-I mallen refererar du till parameterns värde med hjälp av [variabelfunktionen.](template-functions-deployment.md#variables) I följande exempel visas hur du använder variabeln för en resursegenskap.
+I mallen refererar du till värdet för parametern med hjälp av funktionen [variabler](template-functions-deployment.md#variables) . I följande exempel visas hur du använder variabeln för en resurs egenskap.
 
 ```json
 "resources": [
@@ -42,9 +42,9 @@ I mallen refererar du till parameterns värde med hjälp av [variabelfunktionen.
 ]
 ```
 
-## <a name="configuration-variables"></a>Konfigurationsvariabler
+## <a name="configuration-variables"></a>Variabler för konfiguration
 
-Du kan definiera variabler som innehåller relaterade värden för att konfigurera en miljö. Du definierar variabeln som ett objekt med värdena. I följande exempel visas ett objekt som innehåller värden för två miljöer - **testa** och **prod**.
+Du kan definiera variabler som innehåller relaterade värden för att konfigurera en miljö. Du definierar variabeln som ett objekt med värdena. I följande exempel visas ett objekt som innehåller värden för två miljöer – **test** och **Prod**.
 
 ```json
 "variables": {
@@ -61,7 +61,7 @@ Du kan definiera variabler som innehåller relaterade värden för att konfigure
 },
 ```
 
-I parametrar skapar du ett värde som anger vilka konfigurationsvärden som ska användas.
+I parametrar skapar du ett värde som anger vilka konfigurations värden som ska användas.
 
 ```json
 "parameters": {
@@ -75,7 +75,7 @@ I parametrar skapar du ett värde som anger vilka konfigurationsvärden som ska 
 },
 ```
 
-Om du vill hämta inställningar för den angivna miljön använder du variabeln och parametern tillsammans.
+Använd variabeln och parametern tillsammans för att hämta inställningarna för den angivna miljön.
 
 ```json
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
@@ -87,11 +87,11 @@ Följande exempel visar scenarier för att använda variabler.
 
 |Mall  |Beskrivning  |
 |---------|---------|
-| [variabla definitioner](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Visar de olika typerna av variabler. Mallen distribuerar inga resurser. De konstruerar variabla värden och returnerar dessa värden. |
-| [konfigurationsvariabel](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Visar användningen av en variabel som definierar konfigurationsvärden. Mallen distribuerar inga resurser. De konstruerar variabla värden och returnerar dessa värden. |
-| [nätverkssäkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) och [parameterfil](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Konstruerar en matris i rätt format för att tilldela säkerhetsregler till en nätverkssäkerhetsgrupp. |
+| [variabel definitioner](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Visar de olika typerna av variabler. Mallen distribuerar inga resurser. Den skapar variabel värden och returnerar dessa värden. |
+| [konfigurations variabel](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Visar användningen av en variabel som definierar konfigurations värden. Mallen distribuerar inga resurser. Den skapar variabel värden och returnerar dessa värden. |
+| [nätverks säkerhets regler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) och [parameter fil](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Skapar en matris i rätt format för att tilldela säkerhets regler till en nätverks säkerhets grupp. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om tillgängliga egenskaper för variabler finns [i Förstå strukturen och syntaxen för Azure Resource Manager-mallar](template-syntax.md).
-* Rekommendationer om hur du skapar variabler finns i [Metodtips - variabler](template-best-practices.md#variables).
+* Mer information om tillgängliga egenskaper för variabler finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
+* Rekommendationer om hur du skapar variabler finns i [metod tips – variabler](template-best-practices.md#variables).

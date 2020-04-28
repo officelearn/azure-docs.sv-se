@@ -6,112 +6,112 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 02373da114b6dc4663cd3ffc9a0780ac6a7a9e23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75482990"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Konfigurera regler och hantera aviseringar
 
-Med Azure FarmBeats kan du skapa regler baserat på affärslogiken, förutom sensordata som flödar från sensorer och enheter som distribueras i din servergrupp. Reglerna utlöser varningar i systemet när sensorvärden korsar ett tröskelvärde. Genom att visa och analysera aviseringar som skapats efter tröskelvärdena kan du snabbt agera på alla problem och få nödvändiga lösningar.
+Med Azure FarmBeats kan du skapa regler baserade på affärs logiken, förutom de sensor data som flödar från sensorer och enheter som distribueras i Server gruppen. Reglerna utlöser aviseringar i systemet när sensor värden korsar ett tröskelvärde. Genom att visa och analysera aviseringar som skapats efter tröskelvärdena kan du snabbt agera på eventuella problem och få nödvändiga lösningar.
 
 ## <a name="create-rule"></a>Skapa regel
 
-1. Gå till **Regler**på startsidan .
-2. Välj **Ny regel**. Fönstret Ny regel visas.
+1. På Start sidan går du till **regler**.
+2. Välj **ny regel**. Fönstret ny regel visas.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
 
-3. Ange **regelnamn** och **regelbeskrivning** och välj sedan en servergrupp på listrutan **Välj servergrupp.**
-4. Skriv servergruppens namn för att välja avsnittet **Servergrupp** och Villkor visas i samma fönster.  
+3. Ange **regel namn** och **regel Beskrivning** och välj sedan en Server grupp på list menyn **Välj grupp** .
+4. Ange gruppens namn för att välja avsnittet Server grupp och **villkor** visas i samma fönster.  
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
 
-5. I **Villkor**anger du värdena för **Measure**, **Operator** och **Value**.
-6. Skriv måttnamnet på listrutan **Mät.**
-7. Välj **+Lägg till villkor** om du vill lägga till fler villkor i regeln.
-8. Välj **allvarlighetsgrad**.
-9. I **Åtgärd**aktiverar du knappen **Skicka e-post** för att aktivera e-postaviseringar.
+5. I **villkor**anger du värden för **mått**, **operator** och **värde**.
+6. Skriv mått namnet i den nedrullningsbara menyn **mått** .
+7. Välj **+ Lägg till villkor** om du vill lägga till fler villkor i regeln.
+8. Välj **allvarlighets grad**.
+9. I **åtgärd**, växlar du till knappen för **e-** postaktiverad växling för att aktivera e-postaviseringar.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
 
-10. Ange de **e-postadresser** som du vill skicka e-postaviseringen till, tillsammans med **e-postämnet** och **ytterligare anteckningar**.  
-11. Aktivera eller inaktivera regeln **Enabled** i **regelstatusen.**
-    Du kan visa antalet enheter som påverkas av regeln.
-12. Välj **Använd** om du vill skapa regeln.
+10. Ange de **e-postadresser** som du vill skicka e-postaviseringen till, tillsammans med **e-** postmeddelandets ämne och **ytterligare anteckningar**.  
+11. I **regel status**växlar du till den **aktiverade** växlings knappen för att aktivera eller inaktivera regeln.
+    Du kan visa antalet enheter som kommer att påverkas av regeln.
+12. Välj **Använd** för att skapa regeln.
 
 ## <a name="view-rule"></a>Visa regel
 
-På **sidan Servering** visas en lista över tillgängliga regler. Välj ett **regelnamn**. I ett fönster visas följande information som gäller för den valda regeln:
+**Server grupp** sidan visar listan över tillgängliga regler. Välj ett **regel namn**. Ett fönster visar följande information som gäller för den valda regeln:
  - Regelnamn
- - Länk till den servergrupp som regeln är associerad med
- - Skapat datum
- - Senast uppdaterat datum
+ - Länk till den server grupp som regeln är kopplad till
+ - Skapad datum
+ - Datum för senaste uppdatering
  - Allvarlighetsgrad
- - Regelstatus
+ - Regel status
  - Lista över villkor  
  - Antal enheter som påverkas av regeln
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
 
 ## <a name="edit-rule"></a>Redigera regel
 
-Så här redigerar du en regel:
+Följ dessa steg om du vill redigera en regel:
 
-1. Välj **Regler** på startsidan på den vänstra navigeringsmenyn.
-   Regelfönstret visas.
-2. Välj den regel som du vill redigera för.
+1. På sidan start väljer du **regler** på den vänstra navigerings menyn.
+   Fönstret regler visas.
+2. Välj den regel som du vill redigera.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
 
-3. Välj **Redigera** i åtgärdsfältet visas fönstret **Redigera regel.**
+3. Välj **Redigera** i åtgärds fältet, fönstret **Redigera regel** visas.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
-4. Ändra **regelnamn**och **regelbeskrivning** och välj sedan en servergrupp på listrutan **Välj servergrupp.**
-5. Skriv servergruppens namn för att välja servergruppen och **Villkor** visas i samma fönster.  
-6. I **Villkor**redigerar **du Mått**, **Operator** och **Värde**.
-7. Skriv måttnamnet på listrutan **Mät.**
-8. Välj **+Lägg till villkor** om du vill lägga till/redigera villkor i reglerna.
+4. Ändra **regel namnet**och **regel beskrivningen** och välj sedan en Server grupp på list menyn **Välj grupp** .
+5. Ange server gruppens namn för att välja Server gruppen och **villkoren** visas i samma fönster.  
+6. I **villkor**, redigera **mått**, **operator** och **värde**.
+7. Skriv mått namnet i den nedrullningsbara menyn **mått** .
+8. Välj **+ Lägg till villkor** för att lägga till/redigera villkor i reglerna.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
 
-9.  Välj **allvarlighetsgrad**.  
-10. I **Åtgärd**aktiverar du knappen **Skicka e-post** för att aktivera e-postaviseringar.
-11. Redigera de **e-postadresser** som du vill skicka e-postaviseringen tillsammans med **e-postämnet** och **ytterligare anteckningar**.  
-12. Aktivera eller inaktivera regeln **Enabled** i **regelstatusen.**
-Du kan visa antalet enheter som påverkas av den här regeln.
-13. Välj **Använd** om du vill redigera regeln.
+9.  Välj **allvarlighets grad**.  
+10. I **åtgärd**, växlar du till knappen för **e-** postaktiverad växling för att aktivera e-postaviseringar.
+11. Redigera **e-postadresserna** som du vill skicka e-postaviseringen för, tillsammans med **e-** postmeddelandets ämne och **ytterligare anteckningar**.  
+12. I **regel status**växlar du till den **aktiverade** växlings knappen för att aktivera eller inaktivera regeln.
+Du kan visa antalet enheter som kommer att påverkas av den här regeln.
+13. Välj **Använd** för att redigera regeln.
 
-## <a name="change-rule-status"></a>Ändra regelstatus
+## <a name="change-rule-status"></a>Ändra regel status
 
-Så här ändrar du status för en regel:
+Följ dessa steg om du vill ändra status för en regel:
 
-1. Välj **Regler** på startsidan på den vänstra navigeringsmenyn. Regelfönstret visas.
+1. På sidan start väljer du **regler** på den vänstra navigerings menyn. Fönstret regler visas.
 2. Välj den regel som du vill ändra status för.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
 
-3. Välj **Ändra status** i åtgärdsfältet. Fönstret **Ändra status** visas.
+3. Välj **ändra status** i åtgärds fältet. Fönstret **ändra status** visas.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
 
-3. Ändra regelstatus med växlingsknappen **Ändra status.**
-   Du kan visa antalet enheter som påverkas av regeln.
-4. Välj **Använd** om du vill ändra regelstatus.
+3. Ändra regel statusen med växlings knappen **ändra status** .
+   Du kan visa antalet enheter som kommer att påverkas av regeln.
+4. Välj **tillämpa** för att ändra regelns status.
 
 ## <a name="delete-rule"></a>Ta bort regel
 
-Så här tar du bort en regel:
+Följ dessa steg om du vill ta bort en regel:
 
-1. Välj **Regler** på startsidan på den vänstra navigeringsmenyn. Regelfönstret visas.
+1. På sidan start väljer du **regler** på den vänstra navigerings menyn. Fönstret regler visas.
 2. Välj den regel som du vill ta bort.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
 
-3. Välj **Ta bort** i åtgärdsfältet.
+3. Välj **ta bort** från åtgärds fältet.
 
-    ![Projekt Farm Beats](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-1.png)
+    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-1.png)
 
-4. Dialogrutan **Ta bort regel** visas. Välj **Ta bort**.
+4. Dialog rutan **ta bort regel** visas. Välj **Ta bort**.

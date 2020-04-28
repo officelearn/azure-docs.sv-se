@@ -1,47 +1,47 @@
 ---
-title: Utforska Azure Stream Analytics-jobb i Visual Studio-kod
-description: Den här artikeln visar hur du exporterar ett Azure Stream Analytics-jobb till ett lokalt projekt, listar jobb och visar jobbentiteter.
+title: Utforska Azure Stream Analytics jobb i Visual Studio Code
+description: Den här artikeln visar hur du exporterar ett Azure Stream Analytics jobb till ett lokalt projekt, listar jobb och Visa jobb enheter.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 05/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d3a02d3778f9b4113767c5f755d675aeadd901b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75479246"
 ---
-# <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Utforska Azure Stream Analytics med Visual Studio-kod (förhandsversion)
+# <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Utforska Azure Stream Analytics med Visual Studio Code (för hands version)
 
-Azure Stream Analytics för Visual Studio-kodtillägg ger utvecklare en lätt upplevelse för att hantera sina Stream Analytics-jobb. Den kan användas på Windows, Mac och Linux. Med Azure Stream Analytics-tillägget kan du:
+Azure Stream Analytics för kod tillägget Visual Studio ger utvecklare en smidig upplevelse för att hantera sina Stream Analytics-jobb. Den kan användas i Windows, Mac och Linux. Med Azure Stream Analytics-tillägget kan du:
 
-- [Skapa,](quick-create-vs-code.md)starta och stoppa jobb
+- [Skapa](quick-create-vs-code.md), starta och stoppa jobb
 - Exportera befintliga jobb till ett lokalt projekt
-- Lista jobb och visa jobbentiteter
+- Visa lista över jobb och Visa jobb enheter
 
 ## <a name="export-a-job-to-a-local-project"></a>Exportera ett jobb till ett lokalt projekt
 
-Om du vill exportera ett jobb till ett lokalt projekt letar du reda på det jobb som du vill exportera i **Stream Analytics Explorer** i Visual Studio-kod. Välj sedan en mapp för projektet. Projektet exporteras till den mapp du väljer och du kan fortsätta att hantera jobbet från Visual Studio Code. Mer information om hur du använder Visual Studio-kod för att hantera Stream Analytics-jobb finns i [snabbstarten](quick-create-vs-code.md)för Visual Studio-kod .
+Om du vill exportera ett jobb till ett lokalt projekt letar du reda på det jobb som du vill exportera i **Stream Analytics Explorer** i Visual Studio Code. Välj sedan en mapp för projektet. Projektet exporteras till den mapp du väljer och du kan fortsätta att hantera jobbet från Visual Studio Code. Mer information om hur du använder Visual Studio Code för att hantera Stream Analytics-jobb finns i [snabb](quick-create-vs-code.md)starten för Visual Studio Code.
 
-![Exportera ASA-jobb i Visual Studio-kod](./media/vscode-explore-jobs/export-job.png)
+![Exportera ASA-jobb i Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
 
-## <a name="list-job-and-view-job-entities"></a>Lista jobb- och visa jobbentiteter
+## <a name="list-job-and-view-job-entities"></a>List jobb och Visa jobb enheter
 
-Du kan använda jobbvyn för att interagera med Azure Stream Analytics-jobb från Visual Studio.
+Du kan använda vyn jobb för att interagera med Azure Stream Analytics-jobb från Visual Studio.
 
 
-1. Klicka på **Azure-ikonen** i Aktivitetsfältet för Visual Studio-kod och expandera sedan **Noden Stream Analytics**. Dina jobb ska visas under dina prenumerationer.
+1. Klicka på **Azure** -ikonen i aktivitets fältet i Visual Studio Code och expandera **Stream Analytics Node**. Dina jobb bör visas under prenumerationerna.
 
-   ![Öppna Utforskaren för Utforskaren för Öppna Stream Analytics](./media/vscode-explore-jobs/open-explorer.png)
+   ![Öppna Stream Analytics Explorer](./media/vscode-explore-jobs/open-explorer.png)
 
-2. Expandera jobbnoden, du kan öppna och visa jobbfrågan, konfiguration, indata, utdata och funktioner. 
+2. Expandera noden jobb kan du öppna och Visa jobb fråga, konfiguration, indata, utdata och funktioner. 
 
-3. Högerklicka på jobbnoden och välj **noden Öppna jobbvy i portalen** för att öppna jobbvyn i Azure-portalen.
+3. Högerklicka på noden jobb och välj **vyn öppna jobb i noden Portal** för att öppna jobb visningen i Azure Portal.
 
-   ![Öppna jobbvyn i portalen](./media/vscode-explore-jobs/open-job-view.png)
+   ![Öppna jobb visning i portalen](./media/vscode-explore-jobs/open-job-view.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett Azure Stream Analytics-molnjobb i Visual Studio-kod (förhandsversion)](quick-create-vs-code.md)
+* [Skapa ett Azure Stream Analytics moln jobb i Visual Studio Code (för hands version)](quick-create-vs-code.md)

@@ -1,43 +1,43 @@
 ---
-title: Paketera en befintlig körbar till Azure Service Fabric
-description: Lär dig mer om hur du paketerar ett befintligt program som en körbar gäst, så att det kan distribueras till ett Service Fabric-kluster.
+title: Paketera en befintlig körbar fil till Azure Service Fabric
+description: Lär dig mer om att paketera ett befintligt program som en körbar gäst fil, så att det kan distribueras till ett Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457828"
 ---
-# <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuera en befintlig körbar till Service Fabric
-Du kan köra alla typer av kod, till exempel Node.js, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser dessa typer av tjänster som gäst körbara filer.
+# <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuera en befintlig körbar fil till Service Fabric
+Du kan köra vilken typ av kod som helst, till exempel Node. js, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program.
 
-Gästblanter behandlas av Service Fabric som tillståndslösa tjänster. Därför placeras de på noder i ett kluster, baserat på tillgänglighet och andra mått. I den här artikeln beskrivs hur du paketerar och distribuerar en gäst körbar till ett Service Fabric-kluster med hjälp av Visual Studio eller ett kommandoradsverktyg.
+Körbara gäst program behandlas av Service Fabric som tillstånds lösa tjänster. Det innebär att de placeras på noder i ett kluster, baserat på tillgänglighet och andra mått. Den här artikeln beskriver hur du paketerar och distribuerar en körbar gäst fil till ett Service Fabric kluster med hjälp av Visual Studio eller ett kommando rads verktyg.
 
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Fördelar med att köra en gäst körbar i Service Fabric
-Det finns flera fördelar med att köra en gäst körbar i ett Service Fabric-kluster:
+## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Fördelar med att köra en körbar gäst fil i Service Fabric
+Det finns flera fördelar med att köra en körbar gäst fil i ett Service Fabric kluster:
 
-* Hög tillgänglighet. Program som körs i Service Fabric görs mycket tillgängliga. Service Fabric säkerställer att instanser av ett program körs.
-* Hälsoövervakning. Hälsoövervakning av tjänst fabric identifierar om ett program körs och tillhandahåller diagnostikinformation om det finns ett fel.   
-* Hantering av programmets livscykel. Förutom att tillhandahålla uppgraderingar utan driftstopp, ger Service Fabric automatisk återställning till den tidigare versionen om det finns en dålig hälsohändelse som rapporterats under en uppgradering.    
-* Densitet. Du kan köra flera program i ett kluster, vilket eliminerar behovet för varje program att köras på sin egen maskinvara.
-* Upptäckbarhet: Med REST kan du ringa tjänsten Service Fabric Naming för att hitta andra tjänster i klustret. 
+* Hög tillgänglighet. Program som körs i Service Fabric görs med hög tillgänglighet. Service Fabric garanterar att instanser av ett program körs.
+* Hälso övervakning. Service Fabric hälso övervakning identifierar om ett program körs och innehåller diagnostikinformation om det uppstår ett fel.   
+* Hantering av program livs cykel. Förutom att tillhandahålla uppgraderingar utan avbrott ger Service Fabric automatisk återställning till den tidigare versionen om det finns en skadad hälso händelse som rapporteras under en uppgradering.    
+* Innebär. Du kan köra flera program i ett kluster, vilket eliminerar behovet av att varje program ska köras på sin egen maskin vara.
+* Identifierings möjlighet: med hjälp av REST kan du anropa Service Fabric Naming Service för att hitta andra tjänster i klustret. 
 
 ## <a name="samples"></a>Exempel
-* [Prov för att paketera och distribuera en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exempel på två körbara gästar (C# och nodejs) som kommunicerar via namngivningstjänsten med REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Exempel på paketering och distribution av en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exempel på två körbara gäst program (C# och NodeJS) som kommunicerar via namngivnings tjänsten med REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="overview-of-application-and-service-manifest-files"></a>Översikt över program- och tjänstmanifestfiler
-Som en del av distributionen av en körbar gäst är det användbart att förstå paketerings- och distributionsmodellen för Service Fabric enligt beskrivningen i [programmodellen](service-fabric-application-model.md). Paketeringsmodellen Service Fabric är beroende av två XML-filer: program- och tjänstmanifesten. Schemadefinitionen för filerna ApplicationManifest.xml och ServiceManifest.xml installeras med Service Fabric SDK i *C:\Program Files\Microsoft SDK\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+## <a name="overview-of-application-and-service-manifest-files"></a>Översikt över filer för program-och tjänst manifest
+Som en del av distributionen av en körbar gäst är det bra att förstå Service Fabric förpackning och distributions modell enligt beskrivningen i [program modellen](service-fabric-application-model.md). Service Fabric-förpacknings modellen förlitar sig på två XML-filer: program-och tjänst manifest. Schema definitionen för ApplicationManifest. xml-och ServiceManifest. XML-filerna installeras med Service Fabric SDK i *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-* **Ansökan manifest** Programmanifestet används för att beskriva programmet. Den listar de tjänster som utgör den och andra parametrar som används för att definiera hur en eller flera tjänster ska distribueras, till exempel antalet instanser.
+* **Program manifest** Applikations manifestet används för att beskriva programmet. Den listar de tjänster som utgör den och andra parametrar som används för att definiera hur en eller flera tjänster ska distribueras, till exempel antalet instanser.
 
-  I Service Fabric är ett program en enhet för distribution och uppgradering. Ett program kan uppgraderas som en enda enhet där potentiella fel och potentiella återställningar hanteras. Service Fabric garanterar att uppgraderingsprocessen antingen lyckas eller, om uppgraderingen misslyckas, inte lämnar programmet i ett okänt eller instabilt tillstånd.
-* **Servicemanifest** Tjänstmanifestet beskriver komponenterna i en tjänst. Den innehåller data, till exempel namn och typ av tjänst, och dess kod och konfiguration. Tjänstmanifestet innehåller också några ytterligare parametrar som kan användas för att konfigurera tjänsten när den har distribuerats.
+  I Service Fabric är ett program en enhet för distribution och uppgradering. Ett program kan uppgraderas som en enda enhet där eventuella problem och eventuella återställningar hanteras. Service Fabric garanterar att uppgraderings processen lyckades, eller om uppgraderingen Miss lyckas, lämna inte programmet i ett okänt eller instabilt tillstånd.
+* **Tjänst manifest** Tjänst manifestet beskriver komponenterna i en tjänst. Den innehåller data, till exempel namn och typ av tjänst, samt dess kod och konfiguration. Tjänst manifestet innehåller också några ytterligare parametrar som kan användas för att konfigurera tjänsten när den har distribuerats.
 
-## <a name="application-package-file-structure"></a>Filstruktur för programpaket
-Om du vill distribuera ett program till Service Fabric bör programmet följa en fördefinierad katalogstruktur. Följande är ett exempel på denna struktur.
+## <a name="application-package-file-structure"></a>Fil struktur för programpaket
+För att distribuera ett program till Service Fabric ska programmet följa en fördefinierad katalog struktur. Följande är ett exempel på strukturen.
 
 ```
 |-- ApplicationPackageRoot
@@ -51,14 +51,14 @@ Om du vill distribuera ett program till Service Fabric bör programmet följa en
     |-- ApplicationManifest.xml
 ```
 
-ApplicationPackageRoot innehåller filen ApplicationManifest.xml som definierar programmet. En underkatalog för varje tjänst som ingår i programmet används för att innehålla alla artefakter som tjänsten kräver. Dessa underkataloger är ServiceManifest.xml och, vanligtvis, följande:
+ApplicationPackageRoot innehåller den ApplicationManifest. XML-fil som definierar programmet. En under katalog för varje tjänst som ingår i programmet används för att innehålla alla artefakter som krävs av tjänsten. Dessa under kataloger är ServiceManifest. xml och, vanligt vis följande:
 
-* *Kod*. Den här katalogen innehåller servicekoden.
-* *Config*. Den här katalogen innehåller en Settings.xml-fil (och andra filer om det behövs) som tjänsten kan komma åt vid körning för att hämta specifika konfigurationsinställningar.
-* *Data*. Detta är ytterligare en katalog för att lagra ytterligare lokala data som tjänsten kan behöva. Data bör endast användas för att lagra efemära data. Service Fabric kopierar eller replikerar inte ändringar i datakatalogen om tjänsten måste flyttas (till exempel under redundans).
+* *Kod*. Den här katalogen innehåller Service koden.
+* *Config*. Den här katalogen innehåller en Settings. XML-fil (och andra filer om det behövs) som tjänsten kan komma åt vid körning för att hämta vissa konfigurations inställningar.
+* *Data*. Detta är ytterligare en katalog där du kan lagra ytterligare lokala data som tjänsten kan behöva. Data ska endast användas för att lagra tillfälliga data. Service Fabric kopierar eller replikerar inte ändringar i data katalogen om tjänsten måste flyttas (till exempel under redundans).
 
 > [!NOTE]
-> Du behöver inte skapa `config` och `data` kataloger om du inte behöver dem.
+> Du behöver inte skapa `config` och `data` -katalogerna om du inte behöver dem.
 >
 >
 
@@ -66,7 +66,7 @@ ApplicationPackageRoot innehåller filen ApplicationManifest.xml som definierar 
 Se följande artiklar för relaterad information och uppgifter.
 * [Distribuera en körbar gäst](service-fabric-deploy-existing-app.md)
 * [Distribuera flera körbara gäster](service-fabric-deploy-multiple-apps.md)
-* [Skapa ditt första körbara gästprogram med Visual Studio](quickstart-guest-app.md)
-* [Prov för att paketera och distribuera en körbar gäst,](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)inklusive en länk till föruteasen av förpackningsverktyget
-* [Exempel på två körbara gästar (C# och nodejs) som kommunicerar via namngivningstjänsten med REST](https://github.com/Azure-Samples/service-fabric-containers)
+* [Skapa ditt första körbara gäst program med Visual Studio](quickstart-guest-app.md)
+* [Exempel på paketering och distribution av en körbar gäst fil](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), inklusive en länk till för hands versionen av packnings verktyget
+* [Exempel på två körbara gäst program (C# och NodeJS) som kommunicerar via namngivnings tjänsten med REST](https://github.com/Azure-Samples/service-fabric-containers)
 

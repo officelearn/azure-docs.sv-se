@@ -1,6 +1,6 @@
 ---
-title: Modellering av relationer i Azure Table Storage Design | Microsoft-dokument
-description: Förstå modelleringsprocessen när du utformar din tabelllagringslösning.
+title: Modellerings relationer i Azure Table Storage design | Microsoft Docs
+description: Förstå modell processen när du utformar din lösning för tabell lagring.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,36 +9,36 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457560"
 ---
 # <a name="modeling-relationships"></a>Modellera relationer
-I den här artikeln beskrivs modelleringsprocessen som hjälper dig att utforma dina Azure Table-lagringslösningar.
+I den här artikeln beskrivs modell processen som hjälper dig att utforma dina lagrings lösningar för Azure-tabeller.
 
-Att bygga domänmodeller är ett viktigt steg i utformningen av komplexa system. Vanligtvis använder du modelleringsprocessen för att identifiera entiteter och relationerna mellan dem som ett sätt att förstå affärsdomänen och informera systemets design. Det här avsnittet fokuserar på hur du kan översätta några av de vanliga relationstyperna som finns i domänmodeller till design för table-tjänsten. Processen att mappa från en logisk datamodell till en fysisk NoSQL-baserad datamodell skiljer sig från den som används när en relationsdatabas utformas. Relationsdatabaser design förutsätter vanligtvis en datanormaliseringsprocess optimerad för att minimera redundans - och en deklarativ frågefunktion som abstraherar hur implementeringen av hur databasen fungerar.  
+Att skapa domän modeller är ett viktigt steg i utformningen av komplexa system. Normalt använder du modellerings processen för att identifiera entiteter och relationerna mellan dem som ett sätt att förstå företags domänen och informera utformningen av ditt system. Det här avsnittet fokuserar på hur du kan översätta några av de vanliga Relations typerna i domän modeller till design för Table service. Processen för att mappa från en logisk data modell till en fysisk NoSQL-baserad data modell skiljer sig från den som användes när du skapar en Relations databas. Design av Relations databaser förutsätter vanligt vis en data normaliserings process som är optimerad för att minimera redundans – och en deklarativ fråge funktion som sammanfattar hur databasen fungerar.  
 
 ## <a name="one-to-many-relationships"></a>En-till-många-relationer
-1:N-relationer mellan affärsdomänobjekt förekommer ofta: till exempel har en avdelning många anställda. Det finns flera sätt att implementera 1:00-relationer i tabelltjänsten var och en med för- och nackdelar som kan vara relevanta för det specifika scenariot.  
+En-till-många-relationer mellan företags domän objekt inträffar ofta: till exempel är en avdelning många anställda. Det finns flera sätt att implementera en-till-många-relationer i Table service var och en med-och nack delar som kan vara relevanta för det specifika scenariot.  
 
-Tänk på exemplet med ett stort multinationellt företag med tiotusentals avdelningar och anställda enheter där varje avdelning har många anställda och varje anställd som associeras med en viss avdelning. En metod är att lagra separata avdelnings- och medarbetarenheter som dessa:  
+Överväg exemplet på ett stort företag med flera nationella organisationer med tusentals avdelningar och personal enheter där varje avdelning har många anställda och varje medarbetare som är kopplad till en speciell avdelning. En metod är att lagra separata avdelnings-och anställdas enheter, till exempel följande:  
 
 
-![Lagra separata avdelnings- och medarbetarenheter](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
+![Lagra separata avdelnings-och personal enheter](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
 
-I det här exemplet visas en implicit 1:1-relation mellan typerna baserat på **partitionsnyckelvärdet.** Varje avdelning kan ha många anställda.  
+Det här exemplet visar en implicit en-till-många-relation mellan typerna baserat på **PartitionKey** -värdet. Varje avdelning kan ha många anställda.  
 
-I det här exemplet visas också en avdelningsentitet och dess relaterade medarbetarentiteter i samma partition. Du kan välja att använda olika partitioner, tabeller eller till och med lagringskonton för de olika entitetstyperna.  
+I det här exemplet visas även en avdelnings enhet och dess relaterade anställdas entiteter i samma partition. Du kan välja att använda olika partitioner, tabeller eller till och med lagrings konton för de olika enhets typerna.  
 
-En alternativ metod är att denormalisera dina data och lagra endast medarbetare med denormaliserade avdelningsdata som visas i följande exempel. I det här scenariot kanske den här denormaliserade metoden inte är den bästa om du har ett krav på att kunna ändra information om en avdelningschef eftersom du måste uppdatera alla medarbetare på avdelningen för att göra detta.  
+En annan metod är att avnormalisera dina data och lagra endast anställdas enheter med avnormaliserade avdelnings data som visas i följande exempel. I det här scenariot kanske det här avnormaliserade tillvägagångs sättet inte är det bästa om du har ett krav för att kunna ändra informationen om en avdelnings hanterare, eftersom du måste uppdatera varje anställd på avdelningen för att göra detta.  
 
-![Medarbetarentitet](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
+![Anställd entitet](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
-Mer information finns i [denormaliseringsmönstret](table-storage-design-patterns.md#denormalization-pattern) senare i den här guiden.  
+Mer information finns i avsnittet om [avnormaliserings mönster](table-storage-design-patterns.md#denormalization-pattern) senare i den här hand boken.  
 
-I följande tabell sammanfattas för- och nackdelarna för var och en av de metoder som beskrivs ovan för lagring av medarbetare och avdelningsentiteter som har en en-till-många-relation. Du bör också överväga hur ofta du förväntar dig att utföra olika åtgärder: det kan vara acceptabelt att ha en design som innehåller en dyr åtgärd om den åtgärden bara sker sällan.  
+I följande tabell sammanfattas de olika metoderna och nack delar med var och en av de metoder som beskrivs ovan för att lagra personal-och avdelnings enheter som har en en-till-många-relation. Du bör också fundera över hur ofta du förväntar dig att utföra olika åtgärder: det kan vara acceptabelt att ha en design som innehåller en dyr åtgärd om åtgärden bara sker sällan.  
 
 <table>
 <tr>
@@ -50,79 +50,79 @@ I följande tabell sammanfattas för- och nackdelarna för var och en av de meto
 <td>Separata entitetstyper, samma partition, samma tabell</td>
 <td>
 <ul>
-<li>Du kan uppdatera en avdelningsentitet med en enda åtgärd.</li>
-<li>Du kan använda en EGT för att upprätthålla konsekvens om du har ett krav på att ändra en avdelningsentitet när du uppdaterar/infogar/tar bort en medarbetarentitet. Om du till exempel har ett antal medarbetare på avdelningen för varje avdelning.</li>
+<li>Du kan uppdatera en avdelnings enhet med en enda åtgärd.</li>
+<li>Du kan använda en EGT för att upprätthålla konsekvens om du har ett krav på att ändra en avdelnings enhet när du uppdaterar/infogar/tar bort en anställds entitet. Om du till exempel underhåller ett antal anställda för varje avdelning.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Du kan behöva hämta både en medarbetare och en avdelningsenhet för vissa klientaktiviteter.</li>
-<li>Lagringsåtgärder sker i samma partition. Vid stora transaktionsvolymer kan detta resultera i en hotspot.</li>
+<li>Du kan behöva hämta både en anställd och en avdelnings enhet för vissa klient aktiviteter.</li>
+<li>Lagrings åtgärder sker i samma partition. På hög transaktions volymer kan detta resultera i ett hotspot-område.</li>
 <li>Du kan inte flytta en medarbetare till en ny avdelning med hjälp av en EGT.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Separata entitetstyper, olika partitioner eller tabeller eller lagringskonton</td>
+<td>Separata entitetstyper, olika partitioner eller tabeller eller lagrings konton</td>
 <td>
 <ul>
-<li>Du kan uppdatera en avdelningsentitet eller entitet med en enda operation.</li>
-<li>Vid höga transaktionsvolymer kan detta hjälpa till att sprida belastningen över fler partitioner.</li>
+<li>Du kan uppdatera en avdelnings enhet eller en anställds entitet med en enda åtgärd.</li>
+<li>På hög transaktions volymer kan detta hjälpa till att sprida belastningen över flera partitioner.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Du kan behöva hämta både en medarbetare och en avdelningsenhet för vissa klientaktiviteter.</li>
-<li>Du kan inte använda EGTs för att upprätthålla konsekvens när du uppdaterar/infogar/tar bort en medarbetare och uppdaterar en avdelning. Till exempel uppdatera ett antal medarbetare i en avdelningsentitet.</li>
+<li>Du kan behöva hämta både en anställd och en avdelnings enhet för vissa klient aktiviteter.</li>
+<li>Du kan inte använda EGTs för att upprätthålla konsekvens när du uppdaterar/infogar/tar bort en medarbetare och uppdaterar en avdelning. Du kan till exempel uppdatera ett antal anställda i en avdelnings enhet.</li>
 <li>Du kan inte flytta en medarbetare till en ny avdelning med hjälp av en EGT.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Denormalisera till enentitetstyp</td>
+<td>Avnormalisera till en enhets typ</td>
 <td>
 <ul>
-<li>Du kan hämta all information du behöver med en enda begäran.</li>
+<li>Du kan hämta all information som du behöver med en enskild begäran.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Det kan vara dyrt att upprätthålla konsekvens om du behöver uppdatera avdelningsinformation (detta skulle kräva att du uppdaterar alla anställda på en avdelning).</li>
+<li>Det kan vara dyrt att upprätthålla konsekvens om du behöver uppdatera avdelnings information (Detta kräver att du uppdaterar alla anställda på en avdelning).</li>
 </ul>
 </td>
 </tr>
 </table>
 
-Hur du väljer mellan dessa alternativ, och vilka av för-och nackdelar som är mest betydande, beror på dina specifika programscenarier. Hur ofta ändrar du till exempel avdelningsentiteter. behöver alla dina medarbetarfrågor ytterligare avdelningsinformation. Hur nära är du skalbarhetsgränserna för dina partitioner eller ditt lagringskonto?  
+Hur du väljer mellan dessa alternativ och vilka av-och nack delar som är mest signifikanta beror på dina specifika program scenarier. Till exempel hur ofta ändrar du avdelnings enheter. behöver alla dina anställda-frågor ytterligare avdelnings information. hur nära är du på skalbarhets gränserna för dina partitioner eller ditt lagrings konto?  
 
 ## <a name="one-to-one-relationships"></a>En-till-en-relationer
-Domänmodeller kan innehålla en-till-en-relationer mellan entiteter. Om du behöver implementera en 1:1-relation i tabelltjänsten måste du också välja hur du vill länka de två relaterade entiteterna när du behöver hämta dem båda. Den här länken kan antingen vara implicit, baserat på en konvention i nyckelvärdena eller explicit genom att lagra en länk i form av **PartitionKey-** och **RowKey-värden** i varje entitet till dess relaterade entitet. En diskussion om du ska lagra relaterade entiteter i samma partition finns i avsnittet [1:1:1-relationer](#one-to-many-relationships).  
+Domän modeller kan innehålla en-till-en-relationer mellan entiteter. Om du behöver implementera en en-till-en-relation i Table service måste du också välja hur du länkar de två relaterade entiteterna när du behöver hämta dem. Den här länken kan vara antingen implicit, baserat på en konvention i nyckel värden eller explicit genom att en länk lagras i form av **PartitionKey** -och **RowKey** -värden i varje entitet till dess relaterade entitet. En beskrivning av huruvida du bör lagra relaterade entiteter i samma partition finns i avsnittet [en-till-många-relationer](#one-to-many-relationships).  
 
-Det finns också implementeringsöverväganden som kan leda till att du implementerar en-till-en-relationer i tabelltjänsten:  
+Det finns också implementerings överväganden som kan leda till att du implementerar en-till-en-relationer i Table service:  
 
-* Hantering av stora entiteter (mer information finns i [Mönster för stora entiteter](table-storage-design-patterns.md#large-entities-pattern)).  
-* Implementera åtkomstkontroller (mer information finns i Kontrollera åtkomst med signaturer för delad åtkomst).  
+* Hantering av stora entiteter (mer information finns i [mönster för stora entiteter](table-storage-design-patterns.md#large-entities-pattern)).  
+* Implementera åtkomst kontroller (mer information finns i kontrol lera åtkomst med signaturer för delad åtkomst).  
 
-## <a name="join-in-the-client"></a>Gå med i klienten
-Även om det finns sätt att modellera relationer i tabelltjänsten bör du inte glömma att de två främsta skälen till att använda tabelltjänsten är skalbarhet och prestanda. Om du upptäcker att du modellerar många relationer som äventyrar lösningens prestanda och skalbarhet bör du fråga dig själv om det är nödvändigt att skapa alla datarelationer i tabelldesignen. Du kanske kan förenkla designen och förbättra lösningens skalbarhet och prestanda om du låter klientprogrammet utföra nödvändiga kopplingar.  
+## <a name="join-in-the-client"></a>Anslut till klienten
+Även om det finns olika sätt att modellera relationer i Table service bör du inte glömma att de två huvudsakliga orsakerna till att använda Table service är skalbarhet och prestanda. Om du hittar flera relationer som äventyrar prestanda och skalbarhet för din lösning, bör du fråga dig själv om det är nödvändigt att bygga alla data relationer i tabell designen. Du kanske kan förenkla designen och förbättra skalbarheten och prestandan för din lösning om du låter klient programmet utföra alla nödvändiga kopplingar.  
 
-Om du till exempel har små tabeller som innehåller data som inte ändras ofta kan du hämta dessa data en gång och cachelagra dem på klienten. På så sätt kan du undvika upprepade tur- och returturer för att hämta samma data. I de exempel som vi har tittat på i den här guiden, är uppsättningen avdelningar i en liten organisation sannolikt liten och ändra sällan gör det till en bra kandidat för data som klientprogrammet kan ladda ner en gång och cache som slå upp data.  
+Om du till exempel har små tabeller som innehåller data som inte ändras ofta kan du hämta dessa data en gång och cachelagra den på klienten. Detta kan undvika upprepade turer för att hämta samma data. I exemplen som vi har tittat på i den här hand boken är en uppsättning avdelningar i en liten organisation troligt vis liten och ändra sällan så att det blir en bra kandidat för data som klient programmet kan ladda ned en gång och cachelagra som att slå upp data.  
 
-## <a name="inheritance-relationships"></a>Arvsrelationer
-Om klientprogrammet använder en uppsättning klasser som ingår i en arvsrelation för att representera affärsentiteter kan du enkelt spara dessa entiteter i tabelltjänsten. Du kan till exempel ha följande uppsättning klasser definierade i klientprogrammet där **Person** är en abstrakt klass.
+## <a name="inheritance-relationships"></a>Arvs relationer
+Om klient programmet använder en uppsättning klasser som utgör en del av en arvs relation som representerar affär senheter, kan du enkelt spara dessa entiteter i Table service. Du kan till exempel ha följande uppsättning klasser definierade i klient programmet där **personen** är en abstrakt klass.
 
 ![Abstrakt person klass](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
 
-Du kan behålla instanser av de två betongklasserna i tabelltjänsten med hjälp av en enda persontabell med entiteter i den där ut ser ut så här:  
+Du kan spara instanser av de två konkreta klasserna i Table service med hjälp av en enda person tabell med hjälp av entiteter i som ser ut så här:  
 
-![Tabell person](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
+![Person tabell](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Mer information om hur du arbetar med flera entitetstyper i samma tabell i klientkoden finns i avsnittet Arbeta med heterogena entitetstyper senare i den här guiden. Detta ger exempel på hur du känner igen entitetstypen i klientkoden.  
+Mer information om hur du arbetar med flera olika entitetstyper i samma tabell i klient koden finns i avsnittet arbeta med heterogena entitetstyper senare i den här hand boken. Detta ger exempel på hur du kan identifiera enhets typen i klient koden.  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Mönster för tabelldesign](table-storage-design-patterns.md)
 - [Utforma för frågor](table-storage-design-for-query.md)
-- [Kryptera tabelldata](table-storage-design-encrypt-data.md)
+- [Kryptera tabell data](table-storage-design-encrypt-data.md)
 - [Utforma för dataändring](table-storage-design-for-modification.md)

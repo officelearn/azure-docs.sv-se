@@ -1,22 +1,22 @@
 ---
-title: Fel i reserverat resursnamn
-description: Beskriver hur du löser fel när du tillhandahåller ett resursnamn som innehåller ett reserverat ord.
+title: Reserverat resurs namn fel
+description: Beskriver hur du löser fel när du tillhandahåller ett resurs namn som innehåller ett reserverat ord.
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75477634"
 ---
-# <a name="resolve-reserved-resource-name-errors"></a>Lösa fel på reserverade resursnamn
+# <a name="resolve-reserved-resource-name-errors"></a>Lös fel med reserverat resurs namn
 
-I den här artikeln beskrivs felet som uppstår när du distribuerar en resurs som innehåller ett reserverat ord i dess namn.
+I den här artikeln beskrivs ett fel som uppstår när du distribuerar en resurs som innehåller ett reserverat ord i sitt namn.
 
 ## <a name="symptom"></a>Symptom
 
-När du distribuerar en resurs som är tillgänglig via en offentlig slutpunkt kan följande felmeddelande visas:
+När du distribuerar en resurs som är tillgänglig via en offentlig slut punkt kan du få följande fel meddelande:
 
 ```
 Code=ReservedResourceName;
@@ -25,46 +25,46 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## <a name="cause"></a>Orsak
 
-Resurser som har en offentlig slutpunkt kan inte använda reserverade ord eller varumärken i namnet.
+Resurser som har en offentlig slut punkt kan inte använda reserverade ord eller varumärken i namnet.
 
 Följande ord är reserverade:
 
 * ÅTKOMST
-* Azure
-* Bing
-* Bizspark
-* Biztalk
-* Cortana
-* Directx
-* Dotnet
-* Dynamics
+* AZURE
+* Bestäm
+* BIZSPARK
+* INKÖPSOFFERTFÖRFRÅGAN
+* CORTANA
+* DIRECTX
+* DOTNET
+* DYNAMICS
 * EXCEL
-* Exchange
-* Forefront
-* Groove
-* HOLOLENS (
-* HYPERV (HYPERV)
-* Kinect
-* Lync
+* UTVÄXLA
+* FOREFRONT
+* GROOVE
+* HOLOLENS
+* HYPERV
+* KINECT
+* LYNC
 * MSDN
 * O365
-* Office
+* OFFICE
 * OFFICE365
-* ONEDRIVE (PÅ ETT SÄTT)
-* Onenote
-* Outlook
-* Powerpoint
-* Sharepoint
-* Skype
-* Visio
-* Visualstudio
+* ONEDRIVE
+* ANTECKNINGAR
+* OUTLOOK
+* LERA
+* TEAM
+* VIA
+* VISION
+* VISUALSTUDIO
 
-Följande ord kan inte användas som antingen ett helt ord eller en delsträng i namnet:
+Följande ord kan inte användas som antingen ett helt ord eller en under sträng i namnet:
 
-* Logga in
-* Microsoft
+* GÄST
+* UTFORSKAREN
 * WINDOWS
-* Xbox
+* XBOX
 
 ## <a name="solution"></a>Lösning
 

@@ -1,62 +1,62 @@
 ---
-title: Diagnostisera vanliga kodpaketfel med hjälp av Service Fabric
-description: Lär dig hur du felsöker vanliga kodpaketfel med Azure Service Fabric
+title: Diagnostisera vanliga kod paket fel med hjälp av Service Fabric
+description: Lär dig hur du felsöker vanliga kod paket fel med Azure Service Fabric
 author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
 ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463111"
 ---
-# <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnostisera vanliga kodpaketfel med hjälp av Service Fabric
+# <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnostisera vanliga kod paket fel med hjälp av Service Fabric
 
-I den här artikeln beskrivs vad det innebär för ett kodpaket att avsluta oväntat. Det ger insikt i möjliga orsaker till vanliga felkoder, tillsammans med felsökningssteg.
+I den här artikeln beskrivs vad det innebär att ett kod paket avslutas utan förvarning. Den ger inblick i möjliga orsaker till vanliga felkoder, tillsammans med fel söknings steg.
 
-## <a name="when-does-a-process-or-container-terminate-unexpectedly"></a>När avslutas en process eller behållare oväntat?
+## <a name="when-does-a-process-or-container-terminate-unexpectedly"></a>När avslutas en process eller behållare oväntad?
 
-När Azure Service Fabric tar emot en begäran om att starta ett kodpaket börjar den förbereda miljön på det lokala systemet enligt alternativen i App- och tjänstmanifesten. Dessa förberedelser kan omfatta att reservera nätverksslutpunkter eller resurser, konfigurera brandväggsregler eller ställa in resursstyrningsbegränsningar. 
+När Azure Service Fabric tar emot en begäran om att starta ett kod paket börjar den förbereda miljön på det lokala systemet enligt de alternativ som anges i app-och tjänst manifesten. Dessa förberedelser kan vara att reservera nätverks slut punkter eller resurser, konfigurera brand Väggs regler eller konfigurera resurs styrnings begränsningar. 
 
-När miljön har konfigurerats korrekt försöker Service Fabric att hämta kodpaketet. Det här steget anses vara framgångsrikt om operativsystemet eller behållaren runtime rapporterar att processen eller behållaren har aktiverats. Om aktiveringen misslyckas bör du se ett hälsomeddelande i SFX som liknar följande:
+När miljön har kon figurer ATS korrekt försöker Service Fabric att ta fram kod paketet. Det här steget anses vara slutfört om operativ systemet eller behållar körningen rapporterar att processen eller containern har Aktiver ATS. Om aktiveringen Miss lyckas bör du se ett hälso meddelande i SFX som liknar följande:
 
 ```
 There was an error during CodePackage activation. Service host failed to activate. Error: 0xXXXXXXXX
 ```
 
-När kodpaketet har aktiverats börjar Service Fabric övervaka dess livstid. Vid denna punkt kan en process eller behållare avslutas när som helst av flera skäl. Det kan till exempel ha misslyckats med att initiera en DLL, eller så kan operativsystemet ha på skrivbordshögutrymme. Om kodpaketet har avslutats bör du se följande hälsomeddelande i SFX:
+När kod paketet har Aktiver ATS börjar Service Fabric att övervaka dess livs längd. I det här läget kan en process eller container avslutas när som helst av flera orsaker. Det kan till exempel hända att det inte gick att initiera en DLL eller att operativ systemet har slut på heap-utrymmet på Skriv bordet. Om ditt kod paket har avslut ATS bör du se följande hälso meddelande i SFX:
 
 ```
 The process/container terminated with exit code: XXXXXXXX. Please look at your application logs/dump or debug your code package for more details. For information about common termination errors, please visit https://aka.ms/service-fabric-termination-errors
 ```
 
-Avslutningskoden i det här hälsomeddelandet är den enda ledtråden som processen eller behållaren ger om varför den avslutades. Det kan genereras av någon nivå i stacken. Den här avslutningskoden kan till exempel vara relaterad till ett OS-fel eller ett .NET-problem, eller så kan den ha tagits upp av koden. Använd den här artikeln som utgångspunkt för att diagnostisera källan till avslutningskoder och möjliga lösningar. Men tänk på att det här är allmänna lösningar på vanliga scenarier och kanske inte gäller för felet du ser.
+Avslutnings koden i det här hälso meddelandet är den enda LED texten som processen eller behållaren tillhandahåller om varför den avslutades. Den kan genereras av vilken nivå som helst i stacken. Den här avsluts koden kan till exempel vara relaterad till ett OS-fel eller ett .NET-problem, eller så kan den ha Aktiver ATS av din kod. Använd den här artikeln som utgångs punkt för att diagnosticera källan till avslutnings koderna och möjliga lösningar. Men kom ihåg att dessa är allmänna lösningar på vanliga scenarier och kanske inte gäller för det fel som du ser.
 
-## <a name="how-can-i-tell-if-service-fabric-terminated-my-code-package"></a>Hur vet jag om Service Fabric har avslutat mitt kodpaket?
+## <a name="how-can-i-tell-if-service-fabric-terminated-my-code-package"></a>Hur kan jag avgöra om Service Fabric avslutat mitt kod paket?
 
-Service Fabric kan vara ansvarig för att avsluta ditt kodpaket av olika skäl. Det kan till exempel besluta att placera kodpaketet på en annan nod för belastningsutjämning. Du kan kontrollera att Service Fabric har avslutat kodpaketet om du ser någon av stängningskoderna i följande tabell.
+Service Fabric kan vara ansvarig för att avsluta ditt kod paket av olika orsaker. Det kan till exempel bestämmas att placera kod paketet på en annan nod för belastnings utjämning. Du kan kontrol lera att Service Fabric avslutat kod paketet om du ser någon av slut koderna i följande tabell.
 
 >[!NOTE]
-> Om din process eller behållare avslutas med en annan avslutningskod än koderna i följande tabell ansvarar inte Service Fabric för att avsluta den.
+> Om din process eller behållare slutar med en annan slutkod än koden i följande tabell, är Service Fabric inte ansvarig för att avsluta den.
 
 Slutkod | Beskrivning
 --------- | -----------
-7147 | Anger att Service Fabric på ett smidigt sätt stänger av processen eller behållaren genom att skicka en Ctrl+C-signal.
-7148 | Anger att Service Fabric har avslutat processen eller behållaren. Ibland anger den här felkoden att processen eller behållaren inte svarade i tid efter att ha skickat en Ctrl+C-signal och den måste avslutas.
+7147 | Indikerar att Service Fabric stänga av processen eller behållaren korrekt genom att skicka en CTRL + C-signal.
+7148 | Anger att Service Fabric avslutade processen eller containern. Den här felkoden indikerar ibland att processen eller containern inte svarade i tid efter att ha skickat en CTRL + C-signal och måste avslutas.
 
 
-## <a name="other-common-error-codes-and-their-potential-fixes"></a>Andra vanliga felkoder och deras potentiella korrigeringar
+## <a name="other-common-error-codes-and-their-potential-fixes"></a>Andra vanliga felkoder och eventuella korrigeringar
 
-Slutkod | Hexadecimalt värde | Kort beskrivning | Rotorsak | Potentiell korrigering
+Slutkod | HEXADECIMALT värde | Kort beskrivning | Rotorsak | Möjlig åtgärd
 --------- | --------- | ----------------- | ---------- | -------------
-3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Det här felet innebär ibland att datorn har på skrivbordshögutrymme. Den här orsaken är särskilt troligt om du har många processer som tillhör ditt program som körs på noden. | Om programmet inte har byggts för att svara på Ctrl+C-signaler kan du aktivera inställningen **AktiveraActivateNoWindow** i klustermanifestet. Om du aktiverar den här inställningen körs kodpaketet utan guidningsfönster och Ctrl+C-signaler inte. Den här åtgärden minskar också mängden skrivbordshögutrymme som varje process förbrukar. Om kodpaketet behöver ta emot Ctrl+C-signaler kan du öka storleken på nodens skrivbordshög.
-3762504530 | 0xe0434352 | Ej tillämpligt | Det här värdet representerar felkoden för ett ohanterat undantag från hanterad kod (det vill ha .NET). | Den här avslutningskoden anger att ditt program har tagit upp ett undantag som förblir ohanterat och som avslutade processen. Som det första steget för att avgöra vad som utlöste det här felet, felsöka programmets loggar och dumpa filer.
+3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Det här felet innebär ibland att datorn har slut på heap-utrymmet på Skriv bordet. Den här orsaken är särskilt sannolik om du har flera processer som hör till ditt program som körs på noden. | Om programmet inte har skapats för att svara på CTRL + C-signaler kan du aktivera inställningen **EnableActivateNoWindow** i kluster manifestet. Att aktivera den här inställningen innebär att kod paketet körs utan ett GUI-fönster och inte får CTRL + C-signaler. Den här åtgärden minskar också mängden Skriv bords utrymme som varje process förbrukar. Om ditt kod paket måste ta emot CTRL + C-signaler kan du öka storleken på nodens Skriv bords heap.
+3762504530 | 0xe0434352 | Ej tillämpligt | Det här värdet representerar felkoden för ett ohanterat undantag från hanterad kod (det vill säga .NET). | Den här avslutnings koden visar att ditt program utlöste ett undantag som inte hanteras och som avbröt processen. I det första steget när du avgör vad som utlöste det här felet kan du felsöka programmets loggar och dumpfiler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [att diagnostisera andra vanliga scenarier](service-fabric-diagnostics-common-scenarios.md).
-* Få en mer detaljerad översikt över Azure Monitor-loggar och vad de erbjuder genom att läsa [Azure Monitor översikt](../operations-management-suite/operations-management-suite-overview.md).
-* Läs mer om Azure Monitor-loggar [som varnar](../log-analytics/log-analytics-alerts.md) för hjälp med identifiering och diagnostik.
-* Bekanta dig med [loggsöknings- och frågefunktionerna](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor-loggar.
+* Lär dig mer om att [diagnostisera andra vanliga scenarier](service-fabric-diagnostics-common-scenarios.md).
+* Få en mer detaljerad översikt över Azure Monitor loggar och vad de erbjuder genom att läsa [Azure Monitor översikt](../operations-management-suite/operations-management-suite-overview.md).
+* Lär dig mer om Azure Monitor loggar [varningar](../log-analytics/log-analytics-alerts.md) för hjälp vid identifiering och diagnostik.
+* Bekanta dig med [loggs ökningen och fråge](../log-analytics/log-analytics-log-searches.md) funktionerna som ingår i Azure Monitor loggar.

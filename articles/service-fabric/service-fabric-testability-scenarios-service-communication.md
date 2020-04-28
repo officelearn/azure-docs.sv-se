@@ -1,50 +1,50 @@
 ---
-title: 'Testbarhet: Servicekommunikation'
-description: Service-to-service-kommunikation är en kritisk integrationspunkt för ett Service Fabric-program. I den här artikeln beskrivs designöverväganden och testtekniker.
+title: 'Testning: tjänst kommunikation'
+description: Tjänst-till-tjänst-kommunikation är en viktig integrations plats för ett Service Fabric program. Den här artikeln beskriver design överväganden och testnings tekniker.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75465558"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Testbarhetsscenarier för tjänst fabricering: Servicekommunikation
-Mikrotjänster och serviceorienterade arkitektoniska stilar finns naturligt i Azure Service Fabric. I dessa typer av distribuerade arkitekturer består komponentiserade mikrotjänstprogram vanligtvis av flera tjänster som behöver prata med varandra. I även de enklaste fallen har du i allmänhet åtminstone en tillståndslös webbtjänst och en tillståndskänslig datalagringstjänst som behöver kommunicera.
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric testnings scenarier: tjänst kommunikation
+Mikrotjänster och tjänsteorienterad arkitektur format yta naturligt i Azure Service Fabric. I den här typen av distribuerade arkitekturer består komponentbaserade mikrotjänstprogram vanligt vis av flera tjänster som måste kommunicera med varandra. I de enklaste fallen har du vanligt vis minst en tillstånds lös webb tjänst och en tillstånds känslig data lagrings tjänst som behöver kommunicera.
 
-Service-to-service-kommunikation är en kritisk integrationspunkt för ett program, eftersom varje tjänst exponerar ett fjärr-API för andra tjänster. Att arbeta med en uppsättning API-gränser som involverar I/O kräver i allmänhet viss omsorg, med en bra mängd testning och validering.
+Tjänst-till-tjänst-kommunikation är en kritisk integrations punkt för ett program eftersom varje tjänst exponerar ett fjärr-API till andra tjänster. Att arbeta med en uppsättning API-gränser som involverar I/O kräver vanligt vis lite vård, med en stor mängd tester och validering.
 
-Det finns många överväganden att göra när dessa tjänstegränser är kopplade tillsammans i ett distribuerat system:
+Det finns flera saker att tänka på när dessa tjänst gränser är kabelanslutna i ett distribuerat system:
 
-* *Transportprotokoll*. Kommer du att använda HTTP för ökad interoperabilitet, eller ett anpassat binärt protokoll för maximalt dataflöde?
-* *Felhantering*. Hur hanteras permanenta och tillfälliga fel? Vad händer när en tjänst flyttas till en annan nod?
-* *Tidsutgångar och svarstid*. I multitiered program, hur kommer varje tjänst lager hantera svarstid genom stacken och till användaren?
+* *Transport protokoll*. Kommer du att använda HTTP för ökad interoperabilitet, eller ett anpassat binärt protokoll för maximalt data flöde?
+* *Fel hantering*. Hur hanteras permanenta och tillfälliga fel? Vad händer när en tjänst flyttas till en annan nod?
+* *Tids gränser och latens*. Hur hanteras varje tjänst skikts svars tid via stacken och till användaren i program med flera nivåer?
 
-Oavsett om du använder en av de inbyggda tjänstkommunikationskomponenterna som tillhandahålls av Service Fabric eller om du bygger dina egna, är det viktigt att testa interaktionerna mellan dina tjänster för att säkerställa återhämtning i ditt program.
+Oavsett om du använder någon av de inbyggda tjänst kommunikations komponenterna som tillhandahålls av Service Fabric eller skapar en egen, är det viktigt att testa interaktionerna mellan dina tjänster för att säkerställa återhämtning i ditt program.
 
-## <a name="prepare-for-services-to-move"></a>Förbered för tjänster att flytta
-Tjänstinstanser kan röra sig över tid. Detta gäller särskilt när de konfigureras med belastningsmått för skräddarsydd optimal resursbalansering. Service Fabric flyttar dina tjänstinstanser för att maximera deras tillgänglighet även under uppgraderingar, redundans, utskalning och andra situationer som uppstår under ett distribuerat systems livstid.
+## <a name="prepare-for-services-to-move"></a>Förbered för tjänster som ska flyttas
+Tjänst instanser kan flyttas över tid. Detta gäller särskilt när de konfigureras med inläsnings mått för anpassad, anpassad, optimal resurs utjämning. Service Fabric flyttar tjänst instanserna för att maximera tillgängligheten även under uppgraderingar, redundans, skalbarhet och andra situationer som inträffar under ett distribuerat Systems livs längd.
 
-När tjänster flyttas i klustret bör dina klienter och andra tjänster vara beredda att hantera två scenarier när de talar med en tjänst:
+När tjänster flyttas runt i klustret, bör dina klienter och andra tjänster vara för beredda för att hantera två scenarier när de pratar med en tjänst:
 
-* Tjänstinstansen eller partitionsrepliken har flyttats sedan du senast pratade med den. Detta är en normal del av en tjänstlivscykel och det bör förväntas ske under programmets livstid.
-* Tjänstinstansen eller partitionsrepliken håller på att flyttas. Även om redundans av en tjänst från en nod till en annan sker mycket snabbt i Service Fabric, kan det finnas en fördröjning i tillgänglighet om kommunikationskomponenten i tjänsten är långsam att starta.
+* Tjänst instansen eller diskpartitionen har flyttats sedan den senaste gången du talat. Detta är en normal del av livs cykeln för tjänsten och den bör förväntas ske under programmets livs längd.
+* Tjänst instansen eller partitionen håller på att flyttas. Även om redundansväxlingen av en tjänst från en nod till en annan inträffar mycket snabbt i Service Fabric, kan det finnas en fördröjning i tillgänglighet om kommunikations komponenten för tjänsten är långsam att starta.
 
-Hantering av dessa scenarier på ett smidigt sätt är viktigt för ett smidigt system. Tänk på följande:
+Att hantera de här scenarierna är vanligt för ett system som körs smidigt. Tänk på följande:
 
-* Varje tjänst som kan anslutas till har en *adress* som den lyssnar på (till exempel HTTP eller WebSockets). När en tjänstinstans eller partition flyttas ändras adressslutpunkten. (Den flyttas till en annan nod med en annan IP-adress.) Om du använder de inbyggda kommunikationskomponenterna hanterar de omlösande serviceadresser åt dig.
-* Det kan finnas en tillfällig ökning av servicefördröjningen när tjänstinstansen startar lyssnaren igen. Detta beror på hur snabbt tjänsten öppnar lyssnaren när tjänstinstansen har flyttats.
-* Alla befintliga anslutningar måste stängas och öppnas igen när tjänsten öppnas på en ny nod. En graciös nod avstängning eller omstart ger tid för befintliga anslutningar som ska stängas av graciöst.
+* Varje tjänst som kan anslutas till har en *adress* som den lyssnar på (till exempel http eller WebSockets). När en tjänst instans eller partition flyttas ändras dess adress slut punkt. (Den flyttas till en annan nod med en annan IP-adress.) Om du använder de inbyggda kommunikations komponenterna, kommer de att hantera tjänst adresser som du kan använda för att lösa dem.
+* Det kan finnas en temporär ökning av tjänst fördröjningen eftersom tjänst instansen startar sin lyssnare igen. Detta beror på hur snabbt tjänsten öppnar lyssnaren när tjänst instansen har flyttats.
+* Alla befintliga anslutningar måste stängas och öppnas igen när tjänsten har öppnats på en ny nod. En korrekt avstängning eller omstart av en nod gör att befintliga anslutningar kan stängas av på ett smidigt sätt.
 
-### <a name="test-it-move-service-instances"></a>Testa det: Flytta tjänstinstanser
-Genom att använda Service Fabric testability verktyg kan du skapa ett testscenario för att testa dessa situationer på olika sätt:
+### <a name="test-it-move-service-instances"></a>Testa det: flytta tjänst instanser
+Genom att använda Service Fabric verktyg för test verktyg kan du skapa ett test scenario för att testa dessa situationer på olika sätt:
 
-1. Flytta en tillståndskänslig tjänsts primära replik.
+1. Flytta en tillstånds känslig tjänsts primära replik.
    
-    Den primära repliken för en tillståndskänslig tjänstpartition kan flyttas av många orsaker. Använd detta för att rikta den primära repliken av en viss partition för att se hur dina tjänster reagerar på flytten på ett mycket kontrollerat sätt.
+    Den primära repliken av en tillstånds känslig tjänst partition kan flyttas av valfritt antal orsaker. Använd detta för att rikta in den primära repliken av en speciell partition för att se hur dina tjänster reagerar på flytten på ett mycket kontrollerat sätt.
    
     ```powershell
    
@@ -53,9 +53,9 @@ Genom att använda Service Fabric testability verktyg kan du skapa ett testscena
     ```
 2. Stoppa en nod.
    
-    När en nod stoppas flyttar Service Fabric alla tjänstinstanser eller partitioner som fanns på noden till en av de andra tillgängliga noderna i klustret. Använd detta för att testa en situation där en nod går förlorad från klustret och alla tjänstinstanser och repliker på den noden måste flytta.
+    När en nod stoppas flyttar Service Fabric alla tjänst instanser eller partitioner som fanns på noden till en av de andra tillgängliga noderna i klustret. Använd detta för att testa en situation där en nod förloras från klustret och alla tjänst instanser och repliker på noden måste flyttas.
    
-    Du kan stoppa en nod med hjälp av PowerShell **Stop-ServiceFabricNode** cmdlet:
+    Du kan stoppa en nod med PowerShell-cmdleten **Stop-ServiceFabricNode** :
    
     ```powershell
    
@@ -64,14 +64,14 @@ Genom att använda Service Fabric testability verktyg kan du skapa ett testscena
     ```
 
 ## <a name="maintain-service-availability"></a>Underhåll tjänstens tillgänglighet
-Som plattform är Service Fabric utformat för att ge hög tillgänglighet till dina tjänster. Men i extrema fall kan underliggande infrastrukturproblem fortfarande orsaka otillgänglighet. Det är viktigt att testa för dessa scenarier också.
+Som plattform är Service Fabric utformad för att tillhandahålla hög tillgänglighet för dina tjänster. Men i extrema fall kan underliggande infrastruktur problem fortfarande orsaka otillgänglighet. Det är viktigt att testa även för dessa scenarier.
 
-Tillståndskänsliga tjänster använder ett kvorumbaserat system för att replikera tillstånd för hög tillgänglighet. Det innebär att kvorum av repliker måste vara tillgängliga för att utföra skrivåtgärder. I sällsynta fall, till exempel ett omfattande maskinvarufel, kanske inte kvorum av repliker är tillgängliga. I dessa fall kommer du inte att kunna utföra skrivåtgärder, men du kommer fortfarande att kunna utföra läsåtgärder.
+Tillstånds känsliga tjänster använder ett kvorum-baserat system för att replikera tillstånd för hög tillgänglighet. Det innebär att ett kvorum med repliker måste vara tillgängligt för att utföra Skriv åtgärder. I sällsynta fall, till exempel ett omfattande maskin varu haveri, är det inte säkert att ett kvorum med repliker är tillgängligt. I dessa fall kommer du inte att kunna utföra Skriv åtgärder, men du kommer fortfarande att kunna utföra Läs åtgärder.
 
-### <a name="test-it-write-operation-unavailability"></a>Testa det: Skriv drift otillgänglighet
-Genom att använda testitetsverktygen i Service Fabric kan du injicera ett fel som framkallar kvorumförlust som ett test. Även om ett sådant scenario är sällsynt, är det viktigt att klienter och tjänster som är beroende av en tillståndskänslig tjänst är beredda att hantera situationer där de inte kan göra skrivbegäranden till den. Det är också viktigt att den statsmedvetna tjänsten själv är medveten om denna möjlighet och kan graciöst kommunicera den till de som ringer.
+### <a name="test-it-write-operation-unavailability"></a>Testa det: Skriv åtgärden är inte tillgänglig
+Genom att använda test verktyg i Service Fabric kan du mata in ett fel som inducerar kvorum som ett test. Även om ett sådant scenario är sällsynt är det viktigt att klienter och tjänster som är beroende av en tillstånds känslig tjänst förbereds för att hantera situationer där de inte kan göra Skriv förfrågningar till den. Det är också viktigt att den tillstånds känsliga tjänsten själva är medveten om den här möjligheten och kan kommunicera på ett smidigt sätt till anropare.
 
-Du kan inducera kvorumförlust med hjälp av cmdleten PowerShell **Invoke-ServiceFabricPartitionQuorumLoss:**
+Du kan inducera kvorum genom att använda PowerShell **Invoke-ServiceFabricPartitionQuorumLoss-** cmdlet:
 
 ```powershell
 
@@ -79,10 +79,10 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-I det här `QuorumLossMode` exemplet `QuorumReplicas` anger vi att vi vill inducera kvorumförlust utan att ta bort alla repliker. På så sätt är läsåtgärder fortfarande möjliga. Om du vill testa ett scenario där en hel `AllReplicas`partition inte är tillgänglig kan du ställa in den här växeln på .
+I det här exemplet anger `QuorumLossMode` vi för `QuorumReplicas` att indikera att vi vill inducera kvorum utan att ta bort alla repliker. På så sätt är Läs åtgärder fortfarande möjliga. Om du vill testa ett scenario där en hel partition inte är tillgänglig kan du ange den här `AllReplicas`växeln till.
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om testbarhetsåtgärder](service-fabric-testability-actions.md)
+[Läs mer om testnings åtgärder](service-fabric-testability-actions.md)
 
-[Läs mer om testabilityscenarier](service-fabric-testability-scenarios.md)
+[Lär dig mer om testnings scenarier](service-fabric-testability-scenarios.md)
 

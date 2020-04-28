@@ -1,48 +1,48 @@
 ---
-title: Nätverksmönster för Azure Service Fabric
-description: Beskriver vanliga nätverksmönster för Service Fabric och hur du skapar ett kluster med hjälp av Azure-nätverksfunktioner.
+title: Nätverks mönster för Azure Service Fabric
+description: Beskriver vanliga nätverks mönster för Service Fabric och hur du skapar ett kluster med hjälp av funktioner i Azure-nätverk.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75466287"
 ---
-# <a name="service-fabric-networking-patterns"></a>Nätverksmönster för service fabric
-Du kan integrera ditt Azure Service Fabric-kluster med andra Azure-nätverksfunktioner. I den här artikeln visar vi hur du skapar kluster som använder följande funktioner:
+# <a name="service-fabric-networking-patterns"></a>Service Fabric nätverks mönster
+Du kan integrera ditt Azure Service Fabric-kluster med andra funktioner i Azure-nätverk. I den här artikeln visar vi hur du skapar kluster som använder följande funktioner:
 
-- [Befintligt virtuellt nätverk eller befintligt undernät](#existingvnet)
+- [Befintligt virtuellt nätverk eller undernät](#existingvnet)
 - [Statisk offentlig IP-adress](#staticpublicip)
-- [Belastningsutjämnad intern lastbalanserare](#internallb)
+- [Intern belastningsutjämnare](#internallb)
 - [Intern och extern belastningsutjämnare](#internalexternallb)
 
-Service Fabric körs i en standarduppsättning för virtuella datorer. Alla funktioner som du kan använda i en skalningsuppsättning för virtuella datorer kan du använda med ett Service Fabric-kluster. Nätverksavsnitten i Azure Resource Manager-mallarna för skalningsuppsättningar för virtuella datorer och Service Fabric är identiska. När du har distribuerat till ett befintligt virtuellt nätverk är det enkelt att införliva andra nätverksfunktioner, till exempel Azure ExpressRoute, Azure VPN Gateway, en nätverkssäkerhetsgrupp och virtuell nätverks peering.
+Service Fabric körs i en standard skalnings uppsättning för virtuella datorer. Alla funktioner som du kan använda i en skalnings uppsättning för virtuella datorer kan du använda med ett Service Fabric-kluster. Nätverks avsnitten i Azure Resource Manager mallar för skalnings uppsättningar för virtuella datorer och Service Fabric är identiska. När du har distribuerat till ett befintligt virtuellt nätverk är det enkelt att använda andra nätverksfunktioner, t. ex. Azure ExpressRoute, Azure VPN Gateway, en nätverks säkerhets grupp och virtuell nätverks-peering.
 
-### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Så att resursprovidern för Service Fabric kan fråga klustret
+### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Låta Service Fabric Resource Provider köra en fråga till klustret
 
-Service Fabric är unikt från andra nätverksfunktioner i en aspekt. [Azure-portalen](https://portal.azure.com) använder internt resursleverantören Service Fabric för att ringa till ett kluster för att få information om noder och program. Resursleverantören Service Fabric kräver allmänt tillgänglig inkommande åtkomst till HTTP-gatewayporten (port 19080, som standard) på hanteringsslutpunkten. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) använder hanteringsslutpunkten för att hantera klustret. Service Fabric-resursprovidern använder också den här porten för att fråga information om klustret, för att visas i Azure-portalen. 
+Service Fabric är unikt för andra nätverksfunktioner i en aspekt. [Azure Portal](https://portal.azure.com) använder internt Service Fabric resurs leverantören för att anropa ett kluster för att få information om noder och program. Service Fabric Resource Provider kräver offentligt tillgänglig inkommande åtkomst till HTTP Gateway-porten (port 19080 som standard) på hanterings slut punkten. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) använder hanterings slut punkten för att hantera klustret. Den Service Fabric Resource providern använder också den här porten för att fråga efter information om klustret, för att visa i Azure Portal. 
 
-Om port 19080 inte är tillgänglig från resursleverantören Service Fabric visas ett meddelande som Noder som *inte hittas* i portalen och noden och programlistan visas tomma. Om du vill se ditt kluster i Azure-portalen måste belastningsutjämningen visa en offentlig IP-adress och nätverkssäkerhetsgruppen måste tillåta inkommande port 19080-trafik. Om din konfiguration inte uppfyller dessa krav visar Azure-portalen inte status för klustret.
+Om Port 19080 inte går att komma åt från Service Fabric Resource Provider, visas ett meddelande som *noder som inte hittas* i portalen, och din nod och program lista visas som tom. Om du vill se klustret i Azure Portal måste belastningsutjämnaren exponera en offentlig IP-adress och nätverks säkerhets gruppen måste tillåta inkommande trafik på port 19080. Om din installation inte uppfyller dessa krav, visar Azure Portal inte klustrets status.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Mallar
 
-Alla Service Fabric-mallar finns i [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Du bör kunna distribuera mallarna enligt följande PowerShell-kommandon. Om du distribuerar den befintliga Azure Virtual Network-mallen eller den statiska offentliga IP-mallen läser du först avsnittet [Inledande installation i](#initialsetup) den här artikeln.
+Alla Service Fabric mallar är i [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Du bör kunna distribuera mallarna med hjälp av följande PowerShell-kommandon. Om du distribuerar den befintliga Azure Virtual Network-mallen eller den statiska offentliga IP-mallen läser du först avsnittet [inledande konfiguration](#initialsetup) i den här artikeln.
 
 <a id="initialsetup"></a>
-## <a name="initial-setup"></a>Inledande installation
+## <a name="initial-setup"></a>Första konfigurationen
 
 ### <a name="existing-virtual-network"></a>Befintligt virtuellt nätverk
 
-I följande exempel börjar vi med ett befintligt virtuellt nätverk med namnet ExistingRG-vnet i resursgruppen **ExistingRG.** Undernätet heter standard. Dessa standardresurser skapas när du använder Azure-portalen för att skapa en virtuell standarddator (VM). Du kan skapa det virtuella nätverket och undernätet utan att skapa den virtuella datorn, men huvudsyftet med att lägga till ett kluster i ett befintligt virtuellt nätverk är att tillhandahålla nätverksanslutning till andra virtuella datorer. Att skapa den virtuella datorn ger ett bra exempel på hur ett befintligt virtuellt nätverk vanligtvis används. Om service fabric-klustret bara använder en intern belastningsutjämnare, utan en offentlig IP-adress, kan du använda den virtuella datorn och dess offentliga IP som en säker *hoppruta*.
+I följande exempel börjar vi med ett befintligt virtuellt nätverk med namnet ExistingRG-VNet, i resurs gruppen **ExistingRG** . Under nätet kallas default. Dessa standard resurser skapas när du använder Azure Portal för att skapa en virtuell standard dator (VM). Du kan skapa det virtuella nätverket och under nätet utan att skapa den virtuella datorn, men huvud målet med att lägga till ett kluster i ett befintligt virtuellt nätverk är att tillhandahålla nätverks anslutning till andra virtuella datorer. När du skapar den virtuella datorn får du ett användbart exempel på hur ett befintligt virtuellt nätverk vanligt vis används. Om ditt Service Fabric kluster bara använder en intern belastningsutjämnare, utan en offentlig IP-adress, kan du använda den virtuella datorn och dess offentliga IP-adress som en säker *hopp ruta*.
 
 ### <a name="static-public-ip-address"></a>Statisk offentlig IP-adress
 
-En statisk offentlig IP-adress är i allmänhet en dedikerad resurs som hanteras separat från den virtuella datorn eller virtuella datorer som den har tilldelats. Den etableras i en dedikerad nätverksresursgrupp (i motsats till i själva resursgruppen Service Fabric-klusterresurs). Skapa en statisk offentlig IP-adress med namnet staticIP1 i samma ExistingRG-resursgrupp, antingen i Azure-portalen eller med PowerShell:
+En statisk offentlig IP-adress är vanligt vis en dedikerad resurs som hanteras separat från den virtuella datorn eller de virtuella datorer som den är tilldelad till. Den är etablerad i en dedikerad nätverks resurs grupp (till skillnad från i själva Service Fabric själva kluster resurs gruppen). Skapa en statisk offentlig IP-adress med namnet staticIP1 i samma ExistingRG-resurs grupp, antingen i Azure Portal eller med hjälp av PowerShell:
 
 ```powershell
 PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
@@ -66,14 +66,14 @@ DnsSettings              : {
                            }
 ```
 
-### <a name="service-fabric-template"></a>Mall för Service Fabric
+### <a name="service-fabric-template"></a>Service Fabric mall
 
-I exemplen i den här artikeln använder vi mallen Service Fabric.json. Du kan använda standardportalguiden för att hämta mallen från portalen innan du skapar ett kluster. Du kan också använda en av [exempelmallarna,](https://github.com/Azure-Samples/service-fabric-cluster-templates)till exempel det [säkra servicetyrklustret med fem noder](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
+I exemplen i den här artikeln använder vi Service Fabric Template. JSON. Du kan använda standard Portal guiden för att ladda ned mallen från portalen innan du skapar ett kluster. Du kan också använda en av [exempel mallarna](https://github.com/Azure-Samples/service-fabric-cluster-templates), t. ex. ett [säkert Service Fabric kluster med fem noder](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
-## <a name="existing-virtual-network-or-subnet"></a>Befintligt virtuellt nätverk eller befintligt undernät
+## <a name="existing-virtual-network-or-subnet"></a>Befintligt virtuellt nätverk eller undernät
 
-1. Ändra parametern undernät till namnet på det befintliga undernätet och lägg sedan till två nya parametrar för att referera till det befintliga virtuella nätverket:
+1. Ändra under näts parametern till namnet på det befintliga under nätet och Lägg sedan till två nya parametrar för att referera till det befintliga virtuella nätverket:
 
     ```json
         "subnet0Name": {
@@ -100,20 +100,20 @@ I exemplen i den här artikeln använder vi mallen Service Fabric.json. Du kan a
             },*/
     ```
 
-2. Kommentar `nicPrefixOverride` ut `Microsoft.Compute/virtualMachineScaleSets`attribut för , eftersom du använder befintliga undernät och du har inaktiverat den här variabeln i steg 1.
+2. Kommentera ut `nicPrefixOverride` attributet av `Microsoft.Compute/virtualMachineScaleSets`, eftersom du använder ett befintligt undernät och du har inaktiverat den här variabeln i steg 1.
 
     ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
-3. Ändra `vnetID` variabeln så att den pekar på det befintliga virtuella nätverket:
+3. Ändra `vnetID` variabeln så att den pekar mot det befintliga virtuella nätverket:
 
     ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-4. Ta `Microsoft.Network/virtualNetworks` bort från dina resurser, så att Azure inte skapar ett nytt virtuellt nätverk:
+4. Ta `Microsoft.Network/virtualNetworks` bort från dina resurser så att Azure inte skapar ett nytt virtuellt nätverk:
 
     ```json
     /*{
@@ -143,7 +143,7 @@ I exemplen i den här artikeln använder vi mallen Service Fabric.json. Du kan a
     },*/
     ```
 
-5. Kommentera det virtuella nätverket `dependsOn` från `Microsoft.Compute/virtualMachineScaleSets`attributet , så att du inte är beroende av att skapa ett nytt virtuellt nätverk:
+5. Kommentera det virtuella nätverket från `dependsOn` attributet för `Microsoft.Compute/virtualMachineScaleSets`, så du är inte beroende av att skapa ett nytt virtuellt nätverk:
 
     ```json
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -164,20 +164,20 @@ I exemplen i den här artikeln använder vi mallen Service Fabric.json. Du kan a
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
-    Efter distributionen bör det virtuella nätverket innehålla de nya virtuella skaluppsättningarna. Nodtypen för virtuell datorskala bör visa det befintliga virtuella nätverket och undernätet. Du kan också använda RDP (Remote Desktop Protocol) för att komma åt den virtuella datorn som redan fanns i det virtuella nätverket och pinga de nya skaluppsättningen virtuella datorer:
+    Efter distributionen bör det virtuella nätverket innehålla de nya virtuella datorerna med skalnings uppsättningen. Nodtypen för skalnings uppsättningen för den virtuella datorn bör visa det befintliga virtuella nätverket och under nätet. Du kan också använda Remote Desktop Protocol (RDP) för att få åtkomst till den virtuella datorn som redan finns i det virtuella nätverket och för att pinga de nya virtuella datorerna med skalnings uppsättningar:
 
     ```
     C:>\Users\users>ping 10.0.0.5 -n 1
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Ett annat exempel finns [i ett som inte är specifikt för Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Ett annat exempel finns i [en som inte är unik för Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
 
 
 <a id="staticpublicip"></a>
 ## <a name="static-public-ip-address"></a>Statisk offentlig IP-adress
 
-1. Lägg till parametrar för namnet på den befintliga statiska IP-resursgruppen, namnet och fullständigt kvalificerade domännamnet (FQDN):
+1. Lägg till parametrar för namnet på befintlig statisk IP-adressresurs, namn och fullständigt kvalificerat domän namn (FQDN):
 
     ```json
     "existingStaticIPResourceGroup": {
@@ -191,7 +191,7 @@ Ett annat exempel finns [i ett som inte är specifikt för Service Fabric](https
     }
     ```
 
-2. Ta `dnsName` bort parametern. (Den statiska IP-adressen har redan en.)
+2. Ta bort `dnsName` parametern. (Den statiska IP-adressen har redan en.)
 
     ```json
     /*
@@ -207,7 +207,7 @@ Ett annat exempel finns [i ett som inte är specifikt för Service Fabric](https
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
-4. Ta `Microsoft.Network/publicIPAddresses` bort från dina resurser, så att Azure inte skapar en ny IP-adress:
+4. Ta `Microsoft.Network/publicIPAddresses` bort från dina resurser så att Azure inte skapar någon ny IP-adress:
 
     ```json
     /*
@@ -229,7 +229,7 @@ Ett annat exempel finns [i ett som inte är specifikt för Service Fabric](https
     }, */
     ```
 
-5. Kommentera IP-adressen från `dependsOn` attributet , så att du inte är beroende av `Microsoft.Network/loadBalancers`att skapa en ny IP-adress:
+5. Kommentera ut IP-adressen från `dependsOn` attributet för `Microsoft.Network/loadBalancers`, så du är inte beroende av att skapa en ny IP-adress:
 
     ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
@@ -243,7 +243,7 @@ Ett annat exempel finns [i ett som inte är specifikt för Service Fabric](https
     "properties": {
     ```
 
-6. I `Microsoft.Network/loadBalancers` resursen ändrar du elementet `publicIPAddress` `frontendIPConfigurations` för att referera till den befintliga statiska IP-adressen i stället för en nyskapade:
+6. I `Microsoft.Network/loadBalancers` resursen ändrar du `publicIPAddress` elementet för `frontendIPConfigurations` att referera till den befintliga statiska IP-adressen i stället för en nyligen skapad:
 
     ```json
                 "frontendIPConfigurations": [
@@ -259,7 +259,7 @@ Ett annat exempel finns [i ett som inte är specifikt för Service Fabric](https
                     ],
     ```
 
-7. I `Microsoft.ServiceFabric/clusters` resursen `managementEndpoint` ändrar du till DNS FQDN för den statiska IP-adressen. Om du använder ett säkert kluster kontrollerar du att du ändrar *http://* till *https://*. (Observera att det här steget endast gäller för Service Fabric-kluster. Om du använder en skalningsuppsättning för virtuella datorer hoppar du över det här steget.)
+7. I `Microsoft.ServiceFabric/clusters` resursen ändrar `managementEndpoint` du till DNS-FQDN för den statiska IP-adressen. Om du använder ett säkert kluster ser du till att ändra *http://* till *https://*. (Observera att det här steget endast gäller för Service Fabric kluster. Hoppa över det här steget om du använder en skalnings uppsättning för virtuella datorer.)
 
     ```json
                     "fabricSettings": [],
@@ -279,14 +279,14 @@ Ett annat exempel finns [i ett som inte är specifikt för Service Fabric](https
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
-Efter distributionen kan du se att din belastningsutjämnare är bunden till den offentliga statiska IP-adressen från den andra resursgruppen. Slutpunkten för klientanslutningen för Service Fabric och [slutpunkten för Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) pekar på DNS FQDN för den statiska IP-adressen.
+Efter distributionen kan du se att belastningsutjämnaren är kopplad till den offentliga statiska IP-adressen från den andra resurs gruppen. Slut punkten för Service Fabric klient anslutningen och [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) slut punkts punkt till DNS-FQDN för den statiska IP-adressen.
 
 <a id="internallb"></a>
-## <a name="internal-only-load-balancer"></a>Belastningsutjämnad intern lastbalanserare
+## <a name="internal-only-load-balancer"></a>Intern belastningsutjämnare
 
-Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen Service Fabric med en intern belastningsutjämnare. Se [tidigare i artikeln](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) om konsekvenser för Azure-portalen och för resursleverantören Service Fabric.
+Det här scenariot ersätter den externa belastningsutjämnaren i standard Service Fabric-mallen med en intern belastningsutjämnare. Se [tidigare i artikeln](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) för att få konsekvenser för Azure Portal och för Service Fabric resurs leverantör.
 
-1. Ta `dnsName` bort parametern. (Det behövs inte.)
+1. Ta bort `dnsName` parametern. (Det behövs inte.)
 
     ```json
     /*
@@ -296,7 +296,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
     */
     ```
 
-2. Om du använder en statisk allokeringsmetod kan du också lägga till en statisk IP-adressparameter. Om du använder en dynamisk allokeringsmetod behöver du inte göra det här steget.
+2. Om du använder en statisk tilldelnings metod kan du också lägga till en statisk IP-adress parameter. Om du använder en dynamisk tilldelnings metod behöver du inte göra det här steget.
 
     ```json
             "internalLBAddress": {
@@ -305,7 +305,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
             }
     ```
 
-3. Ta `Microsoft.Network/publicIPAddresses` bort från dina resurser, så att Azure inte skapar en ny IP-adress:
+3. Ta `Microsoft.Network/publicIPAddresses` bort från dina resurser så att Azure inte skapar någon ny IP-adress:
 
     ```json
     /*
@@ -327,7 +327,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
     }, */
     ```
 
-4. Ta bort `dependsOn` IP-adressattributet för , så att du inte är beroende av `Microsoft.Network/loadBalancers`att skapa en ny IP-adress. Lägg till `dependsOn` attributet för virtuellt nätverk eftersom belastningsutjämnaren nu beror på undernätet från det virtuella nätverket:
+4. Ta bort IP- `dependsOn` adressprefixet för `Microsoft.Network/loadBalancers`, så du är inte beroende av att skapa en ny IP-adress. Lägg till attributet för `dependsOn` det virtuella nätverket eftersom belastningsutjämnaren nu är beroende av under nätet från det virtuella nätverket:
 
     ```json
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -340,7 +340,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
                 ],
     ```
 
-5. Ändra belastningsutjämnarens `frontendIPConfigurations` `publicIPAddress`inställning från att använda `privateIPAddress`ett , till att använda ett undernät och . `privateIPAddress`använder en fördefinierad statisk intern IP-adress. Om du vill använda en `privateIPAddress` dynamisk IP-adress tar du bort elementet och ändrar `privateIPAllocationMethod` sedan till **Dynamisk**.
+5. Ändra belastnings Utjämnings `frontendIPConfigurations` inställningen från att använda en `publicIPAddress`, för att använda ett undernät `privateIPAddress`och. `privateIPAddress`använder en fördefinierad statisk intern IP-adress. Om du vill använda en dynamisk IP-adress `privateIPAddress` tar du bort elementet och `privateIPAllocationMethod` ändrar sedan till **dynamiskt**.
 
     ```json
                 "frontendIPConfigurations": [
@@ -361,7 +361,7 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
                     ],
     ```
 
-6. I `Microsoft.ServiceFabric/clusters` resursen `managementEndpoint` ändrar du så att den pekar på den interna belastningsutjämnarens adress. Om du använder ett säkert kluster kontrollerar du att du ändrar *http://* till *https://*. (Observera att det här steget endast gäller för Service Fabric-kluster. Om du använder en skalningsuppsättning för virtuella datorer hoppar du över det här steget.)
+6. I `Microsoft.ServiceFabric/clusters` resursen ändrar `managementEndpoint` du till att peka på den interna belastnings Utjämnings adressen. Om du använder ett säkert kluster ser du till att ändra *http://* till *https://*. (Observera att det här steget endast gäller för Service Fabric kluster. Hoppa över det här steget om du använder en skalnings uppsättning för virtuella datorer.)
 
     ```json
                     "fabricSettings": [],
@@ -377,16 +377,16 @@ Det här scenariot ersätter den externa belastningsutjämnaren i standardmallen
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
-Efter distributionen använder din belastningsutjämnare den privata statiska 10.0.0.250 IP-adressen. Om du har en annan dator i samma virtuella nätverk kan du gå till den interna [slutpunkten för Service Fabric Explorer.](service-fabric-visualizing-your-cluster.md) Observera att den ansluter till en av noderna bakom belastningsutjämnaren.
+Efter distributionen använder belastningsutjämnaren den privata statiska 10.0.0.250-IP-adressen. Om du har en annan dator i samma virtuella nätverk kan du gå till den interna [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) slut punkten. Observera att den ansluter till en av noderna bakom belastningsutjämnaren.
 
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>Intern och extern belastningsutjämnare
 
-I det här fallet börjar du med den befintliga ennodtypen extern belastningsutjämnare och lägger till en intern belastningsutjämnare för samma nodtyp. En backend-port som är kopplad till en backend-adresspool kan endast tilldelas en enda belastningsutjämnare. Välj vilken belastningsutjämnare som ska ha dina programportar och vilken belastningsutjämnare som har hanteringsslutpunkterna (portarna 19000 och 19080). Om du placerar hanteringsslutpunkterna på den interna belastningsutjämnaren bör du tänka på de resursproviderbegränsningar för Tjänst fabric som beskrivs [tidigare i artikeln](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). I exemplet som vi använder finns hanteringsslutpunkterna kvar på den externa belastningsutjämnaren. Du kan också lägga till en port 80-programport och placera den på den interna belastningsutjämnaren.
+I det här scenariot börjar du med den befintliga typen av externa belastningsutjämnare med en nod och lägger till en intern belastningsutjämnare för samma nodtyp. En backend-port som är ansluten till en backend-adresspool kan bara tilldelas en enda belastningsutjämnare. Välj vilken belastningsutjämnare som ska ha dina program portar och vilka belastningsutjämnare som ska hantera slut punkterna (portarna 19000 och 19080). Om du har slut på hanterings slut punkter i den interna belastningsutjämnaren bör du tänka på Service Fabric Resource Provider-begränsningar som beskrivs [ovan i artikeln](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). I exemplet som vi använder finns hanterings slut punkterna kvar på den externa belastningsutjämnaren. Du kan också lägga till en port 80-programport och placera den på den interna belastningsutjämnaren.
 
-I ett kluster av tvånodtyp finns en nodtyp på den externa belastningsutjämnaren. Den andra nodtypen finns på den interna belastningsutjämnaren. Om du vill använda ett kluster av tvånodtyp växlar du den andra belastningsutjämnaren till en intern belastningsutjämnare i mallen för portalen skapade tvånodtyp (som levereras med två belastningsutjämnare). Mer information finns i avsnittet [Intern belastningsutjämnad.](#internallb)
+I ett kluster med två noder-typ finns en nodtyp på den externa belastningsutjämnaren. Den andra nodtypen finns på den interna belastningsutjämnaren. Om du vill använda ett kluster med två noder, i portalen-skapade mall för två noder (som medföljer två belastningsutjämnare) växlar du den andra belastningsutjämnaren till en intern belastningsutjämnare. Mer information finns i avsnittet [intern belastnings utjämning](#internallb) .
 
-1. Lägg till den statiska ip-adressparametern för intern belastningsutjämning. (För anteckningar relaterade till att använda en dynamisk IP-adress finns i tidigare avsnitt i den här artikeln.)
+1. Lägg till IP-parametern statisk intern belastningsutjämnare. (Mer information om hur du använder en dynamisk IP-adress finns i tidigare avsnitt i den här artikeln.)
 
     ```json
             "internalLBAddress": {
@@ -395,9 +395,9 @@ I ett kluster av tvånodtyp finns en nodtyp på den externa belastningsutjämnar
             }
     ```
 
-2. Lägg till en programport 80-parameter.
+2. Lägg till en program port 80-parameter.
 
-3. Så här lägger du till interna versioner av de befintliga nätverksvariablerna genom att kopiera och klistra in dem och lägger till "-Int" i namnet:
+3. Om du vill lägga till interna versioner av befintliga nätverks variabler kopierar du och klistrar in dem och lägger till "-int" i namnet:
 
     ```json
     /* Add internal load balancer networking variables */
@@ -410,7 +410,7 @@ I ett kluster av tvånodtyp finns en nodtyp på den externa belastningsutjämnar
             /* Internal load balancer networking variables end */
     ```
 
-4. Om du börjar med den portalgenererade mallen som använder programport 80 läggs Standardportalmallen till AppPort1 (port 80) på den externa belastningsutjämnaren. I det här fallet tar du bort `loadBalancingRules` AppPort1 från den externa belastningsutjämnaren och avsökningarna, så att du kan lägga till den i den interna belastningsutjämnaren:
+4. Om du börjar med den Portal-genererade mallen som använder program port 80, lägger standard Portal mal len till AppPort1 (port 80) i den externa belastningsutjämnaren. I det här fallet tar du bort AppPort1 från den externa belastningsutjämnaren `loadBalancingRules` och avsökningar, så att du kan lägga till den i den interna belastningsutjämnaren:
 
     ```json
     "loadBalancingRules": [
@@ -487,7 +487,7 @@ I ett kluster av tvånodtyp finns en nodtyp på den externa belastningsutjämnar
     "inboundNatPools": [
     ```
 
-5. Lägg till `Microsoft.Network/loadBalancers` en andra resurs. Det liknar den interna belastningsutjämnaren som skapats i avsnittet [Intern belastningsutjämnad,](#internallb) men den använder variablerna "-Int" belastningsutjämnare och implementerar endast programporten 80. Detta tar `inboundNatPools`också bort , för att hålla RDP-slutpunkter på den offentliga belastningsutjämnaren. Om du vill ha RDP på `inboundNatPools` den interna belastningsutjämnaren flyttar du från den externa belastningsutjämnaren till den här interna belastningsutjämnaren:
+5. Lägg till en `Microsoft.Network/loadBalancers` andra resurs. Den ser ut ungefär som den interna belastningsutjämnaren som skapats i avsnittet [intern belastnings utjämning](#internallb) , men använder belastnings Utjämnings variablerna "-int" och implementerar bara program porten 80. Detta tar också `inboundNatPools`bort för att behålla RDP-slutpunkter på den offentliga belastningsutjämnaren. Om du vill använda RDP på den interna belastningsutjämnaren flyttar `inboundNatPools` du från den externa belastningsutjämnaren till den här interna belastningsutjämnaren:
 
     ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
@@ -594,14 +594,14 @@ I ett kluster av tvånodtyp finns en nodtyp på den externa belastningsutjämnar
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
-Efter distributionen kan du se två belastningsutjämnare i resursgruppen. Om du bläddrar i belastningsutjämnare kan du se de offentliga IP-adress- och hanteringsslutpunkterna (portarna 19000 och 19080) som tilldelats den offentliga IP-adressen. Du kan också se den statiska interna IP-adressen och programslutpunkten (port 80) som tilldelats den interna belastningsutjämnaren. Båda belastningsutjämnare använder samma virtuella datorskala som backend-pool.
+Efter distributionen kan du se två belastningsutjämnare i resurs gruppen. Om du bläddrar i belastningsutjämnare kan du se den offentliga IP-adressen och hanterings slut punkter (portarna 19000 och 19080) som är kopplade till den offentliga IP-adressen. Du kan också se den statiska interna IP-adressen och program slut punkten (port 80) som har tilldelats till den interna belastningsutjämnaren. Båda belastnings utjämningarna använder samma pool för skalnings uppsättning för virtuella datorer.
 
-## <a name="notes-for-production-workloads"></a>Anteckningar för produktionsarbetsbelastningar
+## <a name="notes-for-production-workloads"></a>Kommentarer till produktions arbets belastningar
 
-Ovanstående GitHub-mallar är utformade för att fungera med standard-SKU för Azure Standard Load Balancer (SLB), Basic SKU. Detta SLB har inget SLA, så för produktionsarbetsbelastningar bör standard-SKU användas. Mer information om detta finns i [översikten över Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Alla Service Fabric-kluster som använder Standard SKU för SLB måste se till att varje nodtyp har en regel som tillåter utgående trafik på port 443. Detta är nödvändigt för att slutföra klusterkonfigurationen och all distribution utan en sådan regel misslyckas. I ovanstående exempel på en "intern endast" belastningsutjämnare måste ytterligare en extern belastningsutjämnare läggas till i mallen med en regel som tillåter utgående trafik för port 443.
+Ovanstående GitHub-mallar är utformade för att fungera med standard-SKU: n för Azure Standard Load Balancer (SLB), den grundläggande SKU: n. Detta SLB har inget service avtal för produktions arbets belastningar som standard-SKU: n ska användas. Mer information finns i [Översikt över Azure-standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Alla Service Fabric kluster som använder standard-SKU: n för SLB måste se till att varje nodtyp har en regel som tillåter utgående trafik på port 443. Detta är nödvändigt för att slutföra kluster installationen och alla distributioner utan sådan regel kommer att Miss lyckas. I exemplet ovan i en "intern" belastningsutjämnare måste ytterligare en extern belastningsutjämnare läggas till i mallen med en regel som tillåter utgående trafik för port 443.
 
 ## <a name="next-steps"></a>Nästa steg
 [Skapa ett kluster](service-fabric-cluster-creation-via-arm.md)
 
-Efter distributionen kan du se två belastningsutjämnare i resursgruppen. Om du bläddrar i belastningsutjämnare kan du se de offentliga IP-adress- och hanteringsslutpunkterna (portarna 19000 och 19080) som tilldelats den offentliga IP-adressen. Du kan också se den statiska interna IP-adressen och programslutpunkten (port 80) som tilldelats den interna belastningsutjämnaren. Båda belastningsutjämnare använder samma virtuella datorskala som backend-pool.
+Efter distributionen kan du se två belastningsutjämnare i resurs gruppen. Om du bläddrar i belastningsutjämnare kan du se den offentliga IP-adressen och hanterings slut punkter (portarna 19000 och 19080) som är kopplade till den offentliga IP-adressen. Du kan också se den statiska interna IP-adressen och program slut punkten (port 80) som har tilldelats till den interna belastningsutjämnaren. Båda belastnings utjämningarna använder samma pool för skalnings uppsättning för virtuella datorer.
 

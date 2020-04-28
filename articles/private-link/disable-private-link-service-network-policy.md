@@ -1,6 +1,6 @@
 ---
-title: 'Inaktivera nätverksprinciper för AZURE Private Link-tjänstkällans IP-adress '
-description: Lär dig hur du inaktiverar nätverksprinciper för Azure private Link
+title: 'Inaktivera nätverks principer för Azures tjänst källa IP-adress för privat länk '
+description: Lär dig hur du inaktiverar nätverks principer för privat Azure-länk
 services: private-link
 author: malopMSFT
 ms.service: private-link
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75452997"
 ---
-# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Inaktivera nätverksprinciper för PRIVATE Link-tjänstkällaNS IP
+# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Inaktivera nätverks principer för tjänst Källans IP-adress för privata länkar
 
-För att välja en käll-IP-adress för din `privateLinkServiceNetworkPolicies` Private Link-tjänst krävs en explicit inaktiverande inställning i undernätet. Den här inställningen gäller endast för den specifika privata IP-adress som du valde som käll-IP för tjänsten Private Link. För andra resurser i undernätet kontrolleras åtkomsten baserat på NSG-säkerhetsregler (Network Security Groups). 
+För att kunna välja en käll-IP-adress för din privata länk tjänst krävs en explicit `privateLinkServiceNetworkPolicies` inaktivera inställning i under nätet. Den här inställningen gäller bara för den angivna privata IP-adressen som du valde som käll-IP för den privata länk tjänsten. För andra resurser i under nätet styrs åtkomsten baserat på säkerhets regel definitionen för nätverks säkerhets grupper (NSG). 
  
-När du använder en Azure-klient (PowerShell, CLI eller mallar) krävs ytterligare ett steg för att ändra den här egenskapen. Du kan inaktivera principen med hjälp av molngränssnittet från Azure-portalen eller lokala installationer av Azure PowerShell, Azure CLI eller använda Azure Resource Manager-mallar.  
+När du använder en Azure-klient (PowerShell, CLI eller mallar) krävs ett ytterligare steg för att ändra den här egenskapen. Du kan inaktivera principen med hjälp av Cloud Shell från Azure Portal eller lokala installationer av Azure PowerShell, Azure CLI eller använda Azure Resource Manager mallar.  
  
-Följ stegen nedan för att inaktivera principer för privata länktjänstnätverk för ett virtuellt nätverk med namnet *myVirtualNetwork* med ett *standardundernät* i en resursgrupp med namnet *myResourceGroup*. 
+Följ stegen nedan om du vill inaktivera nätverks principer för privata Länkar för ett virtuellt nätverk med namnet *myVirtualNetwork* med ett *standard* -undernät som finns i en resurs grupp med namnet *myResourceGroup*. 
 
 ## <a name="using-azure-powershell"></a>Använda Azure PowerShell
-I det här avsnittet beskrivs hur du inaktiverar privata slutpunktsprinciper för undernät med Azure PowerShell.
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Använda Azure CLI
-I det här avsnittet beskrivs hur du inaktiverar privata slutpunktsprinciper för undernät med Azure CLI.
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure CLI.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -44,7 +44,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true 
 ```
 ## <a name="using-a-template"></a>Använda en mall
-I det här avsnittet beskrivs hur du inaktiverar privata slutpunktsprinciper för undernät med Azure Resource Manager-mallen.
+I det här avsnittet beskrivs hur du inaktiverar privata slut punkts principer för undernät med Azure Resource Manager-mall.
 ```json
 { 
     "name": "myVirtualNetwork", 
@@ -71,5 +71,5 @@ I det här avsnittet beskrivs hur du inaktiverar privata slutpunktsprinciper fö
  
 ```
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Azure Private Endpoint](private-endpoint-overview.md)
+- Läs mer om [privat Azure-slutpunkt](private-endpoint-overview.md)
  

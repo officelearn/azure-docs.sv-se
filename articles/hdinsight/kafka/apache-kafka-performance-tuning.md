@@ -1,6 +1,6 @@
 ---
 title: Optimera prestanda för Apache Kafka HDInsight-kluster
-description: Ger en översikt över tekniker för att optimera Apache Kafka-arbetsbelastningar på Azure HDInsight.
+description: Ger en översikt över tekniker för att optimera Apache Kafka arbets belastningar i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,77 +8,77 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75494920"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimera prestanda för Apache Kafka HDInsight-kluster
 
-Den här artikeln innehåller några förslag på hur du optimerar prestandan för dina Apache Kafka-arbetsbelastningar i HDInsight. Fokus ligger på att justera producent- och mäklarkonfigurationen. Det finns olika sätt att mäta prestanda, och de optimeringar som du använder beror på dina affärsbehov.
+Den här artikeln innehåller förslag på hur du kan optimera prestanda för dina Apache Kafka-arbetsbelastningar i HDInsight. Fokus är på anpassning av konfigurationen av Producer och Broker. Det finns olika sätt att mäta prestanda och de optimeringar som du använder beror på dina affärs behov.
 
 ## <a name="architecture-overview"></a>Översikt över arkitekturen
 
-Kafka-ämnen används för att ordna poster. Poster produceras av producenter, och används av konsumenter. Producenter skickar poster till Kafka mäklare, som sedan lagrar data. Varje arbetsnod i HDInsight-klustret är en asynkron Kafka-meddelandekö.
+Kafka ämnen används för att organisera poster. Poster produceras av producenter, och används av konsumenter. Producenter skickar poster till Kafka-utjämnare som sedan lagrar data. Varje arbetsnod i HDInsight-klustret är en asynkron Kafka-meddelandekö.
 
 Ämnen delar upp poster över meddelandeköer. När du förbrukar poster, kan du använda en konsument per partition för att uppnå parallell bearbetning av data.
 
-Replikering används för att duplicera partitioner över noder. Detta skyddar mot nod (mäklare) avbrott. En enda partition mellan gruppen av repliker betecknas som partitionsledare. Producenttrafik dirigeras till varje ledande nod med det tillstånd som hanteras av ZooKeeper.
+Replikering används för att duplicera partitioner mellan noder. Detta skyddar mot avbrott i Node (Broker). En enda partition mellan gruppen med repliker utses som partition ledare. Producenttrafik dirigeras till varje ledande nod med det tillstånd som hanteras av ZooKeeper.
 
 ## <a name="identify-your-scenario"></a>Identifiera ditt scenario
 
-Apache Kafka prestanda har två huvudsakliga aspekter - dataflöde och latens. Dataflöde är den maximala hastighet med vilken data kan bearbetas. Högre dataflöde är oftast bättre. Svarstid är den tid det tar för data som ska lagras eller hämtas. Lägre latens är oftast bättre. Det kan vara svårt att hitta rätt balans mellan dataflöde, svarstid och kostnaden för programmets infrastruktur. Dina prestandakrav matchar sannolikt en av följande tre vanliga situationer, baserat på om du behöver högt dataflöde, låg latens eller både och:
+Apache Kafka prestanda har två huvud aspekter – data flöde och svars tid. Data flödet är den högsta hastigheten med vilken data kan bearbetas. Högre data flöde är vanligt vis bättre. Svars tiden är den tid det tar för data att lagras eller hämtas. Lägre latens är vanligt vis bättre. Det kan vara svårt att hitta rätt balans mellan genomflödet, svars tid och kostnaden för programmets infrastruktur. Dina prestanda krav kommer förmodligen att matcha något av följande tre vanliga situationer, baserat på om du behöver högt data flöde, låg latens eller båda:
 
-* Hög dataflöde, låg latens. Det här scenariot kräver både högt dataflöde och låg latens (~100 millisekunder). Ett exempel på den här typen av program är övervakning av tjänsttillgänglighet.
-* Hög dataflöde, hög latens. Det här scenariot kräver högt dataflöde (~1,5 GBps) men kan tolerera högre latens (< 250 ms). Ett exempel på den här typen av program är telemetridatainmatning för nära realtidsprocesser som säkerhets- och intrångsidentifieringsprogram.
-* Låg dataflöde, låg latens. Det här scenariot kräver låg latens (< 10 ms) för bearbetning i realtid, men kan tolerera lägre dataflöde. Ett exempel på den här typen av program är stavnings- och grammatikkontroller online.
+* Högt data flöde, låg latens. Det här scenariot kräver både högt data flöde och låg latens (~ 100 millisekunder). Ett exempel på den här typen av program är övervakning av tjänst tillgänglighet.
+* Högt data flöde, hög latens. Det här scenariot kräver högt data flöde (~ 1,5 Gbit/s) men kan tolerera högre latens (< 250 MS). Ett exempel på den här typen av program är telemetri data inmatning för nära real tids processer som säkerhets-och intrångs identifierings program.
+* Lågt data flöde, låg latens. Det här scenariot kräver låg latens (< 10 ms) för bearbetning i real tid, men kan tolerera lägre data flöde. Ett exempel på den här typen av program är online-kontroller för stavnings-och grammatikkontroll.
 
-## <a name="producer-configurations"></a>Producentkonfigurationer
+## <a name="producer-configurations"></a>Producerande konfigurationer
 
-Följande avsnitt kommer att belysa några av de viktigaste konfigurationsegenskaperna för att optimera prestanda för dina Kafka-producenter. En detaljerad förklaring av alla konfigurationsegenskaper finns i [Apache Kafka-dokumentation om producentkonfigurationer](https://kafka.apache.org/documentation/#producerconfigs).
+I följande avsnitt visas några av de viktigaste konfigurations egenskaperna för att optimera prestanda för dina Kafka-tillverkare. En detaljerad förklaring av alla konfigurations egenskaper finns i [Apache Kafka dokumentation om producerande konfigurationer](https://kafka.apache.org/documentation/#producerconfigs).
 
 ### <a name="batch-size"></a>Batchstorlek
 
-Apache Kafka-producenter samlar grupper av meddelanden (så kallade batchar) som skickas som en enhet som ska lagras i en enda lagringspartition. Batchstorlek avser antalet byte som måste finnas innan den gruppen överförs. Om `batch.size` du ökar parametern kan du öka dataflödet, eftersom bearbetningen minskar omkostnaderna från nätverks- och IO-begäranden. Under lätt belastning kan ökad batchstorlek öka Kafka-sändningstiden när tillverkaren väntar på att ett parti ska vara klart. Under tung belastning rekommenderas att öka batchstorleken för att förbättra dataflödet och svarstiden.
+Apache Kafka producenter sammansätter grupper av meddelanden (kallas batchar) som skickas som en enhet som ska lagras i en enda diskpartition. Batchstorlek innebär antalet byte som måste finnas innan gruppen överförs. Om du `batch.size` ökar parametern kan data flödet öka genom strömningen, eftersom bearbetningen minskar från nätverks-och IO-begäranden. Under låg belastning kan ökad batchstorlek öka Kafka skicka latens när producenten väntar på att en batch ska bli klar. Under hög belastning rekommenderar vi att du ökar batchstorleken för att förbättra data flödet och svars tiden.
 
-### <a name="producer-required-acknowledgments"></a>Producent krävs bekräftelser
+### <a name="producer-required-acknowledgments"></a>Tillverkare som behöver bekräftelser
 
-Den konfiguration `acks` som krävs för tillverkare bestämmer antalet bekräftelser som krävs av partitionsledaren innan en skrivbegäran anses vara slutförd. Den här inställningen påverkar datatillförlitligheten `0` `1`och `-1`värdena för , eller . Värdet på `-1` innebär att en bekräftelse måste tas emot från alla repliker innan skrivningen är klar. Inställningen `acks = -1` ger starkare garantier mot dataförlust, men det resulterar också i högre svarstid och lägre dataflöde. Om dina programkrav kräver högre `acks = 0` dataflöde provar du att ange eller `acks = 1`. Tänk på att om du inte erkänner alla repliker kan datatillförlitligheten minskas.
+Konfigurationen av den `acks` obligatoriska tillverkaren avgör hur många bekräftelser som krävs av partitionsstrukturen innan en skrivbegäran anses vara slutförd. Den här inställningen påverkar data tillförlitligheten och använder värdena `0`, `1`, eller `-1`. Värdet för `-1` innebär att en bekräftelse måste tas emot från alla repliker innan skrivningen har slutförts. Inställningen `acks = -1` ger starkare garantier mot data förlust, men ger även högre latens och lägre data flöde. Om din program krav kräver högre data flöde kan du `acks = 0` prova `acks = 1`att ange eller. Tänk på att inte att bekräfta att alla repliker kan minska data säkerheten.
 
 ### <a name="compression"></a>Komprimering
 
-En Kafka-producent kan konfigureras för att komprimera meddelanden innan de skickas till mäklare. Inställningen `compression.type` anger vilken komprimeringscodec som ska användas. Komprimeringskoderna som stöds är "gzip", "snappy" och "lz4". Komprimering är fördelaktigt och bör övervägas om det finns en begränsning av diskkapacitet.
+En Kafka-producent kan konfigureras för att komprimera meddelanden innan de skickas till utjämnare. `compression.type` Inställningen anger vilken komprimerings-codec som ska användas. Komprimerings-codecar som stöds är "gzip", "fästfunktionen" och "lz4". Komprimering är fördelaktigt och bör övervägas om det finns en begränsning på disk kapaciteten.
 
-Bland de två vanliga komprimeringskoderna `gzip` och `snappy`har `gzip` ett högre kompressionsförhållande, vilket resulterar i lägre diskanvändning till priset av högre CPU-belastning. Codec `snappy` ger mindre komprimering med mindre CPU-omkostnader. Du kan bestämma vilken codec som ska användas baserat på mäklare disk eller producent CPU begränsningar. `gzip`komprimera data med en hastighet `snappy`som är fem gånger högre än .
+Bland de två ofta använda komprimerings- `gzip` `snappy`codecarna `gzip` och har en högre komprimerings grad, vilket leder till lägre disk användning till kostnaden för högre CPU-belastning. `snappy` Codecen ger mindre komprimering med mindre processor belastning. Du kan bestämma vilken codec som ska användas baserat på Service Broker-disk eller tillverkarenas CPU-begränsningar. `gzip`kan komprimera data med en hastighet som är fem gånger `snappy`högre än.
 
-Om du använder datakomprimering ökar antalet poster som kan lagras på en disk. Det kan också öka CPU overhead i fall där det finns en obalans mellan komprimeringsformat som används av producenten och mäklaren. eftersom data måste komprimeras innan de skickas och sedan expanderas före bearbetning.
+Genom att använda data komprimering ökar antalet poster som kan lagras på en disk. Det kan också öka processor belastningen i fall där det finns ett matchnings fel mellan de komprimerings format som används av producenten och Broker. eftersom data måste komprimeras innan de skickas och expanderas innan bearbetningen.
 
-## <a name="broker-settings"></a>Mäklarinställningar
+## <a name="broker-settings"></a>Service Broker-inställningar
 
-Följande avsnitt kommer att belysa några av de viktigaste inställningarna för att optimera prestanda för dina Kafka mäklare. En detaljerad förklaring av alla mäklarinställningar finns i [Apache Kafka-dokumentation om producentkonfigurationer](https://kafka.apache.org/documentation/#producerconfigs).
+I följande avsnitt visas några av de viktigaste inställningarna för att optimera prestandan hos Kafka-utjämnare. En detaljerad förklaring av alla Service Broker-inställningar finns i [Apache Kafka dokumentation om producerande konfigurationer](https://kafka.apache.org/documentation/#producerconfigs).
 
 ### <a name="number-of-disks"></a>Antal diskar
 
-Lagringsdiskar har begränsad IOPS (Input/Output Operations Per Sekund) och läs-/skrivbyte per sekund. När du skapar nya partitioner lagrar Kafka varje ny partition på disken med minst antal befintliga partitioner för att balansera dem över de tillgängliga diskarna. Trots lagringsstrategi, när du bearbetar hundratals partitionsrepliker på varje disk, kan Kafka enkelt mätta det tillgängliga diskdataflödet. Avvägningen här är mellan dataflöde och kostnad. Om ditt program kräver större dataflöde skapar du ett kluster med fler hanterade diskar per mäklare. HDInsight stöder för närvarande inte att lägga till hanterade diskar i ett kluster som körs. Mer information om hur du konfigurerar antalet hanterade diskar finns i [Konfigurera lagring och skalbarhet för Apache Kafka på HDInsight](apache-kafka-scalability.md). Förstå kostnadskonsekvenserna av att öka lagringsutrymmet för noderna i klustret.
+Lagrings diskarna har begränsad IOPS (antal inkommande/utgående åtgärder per sekund) och lästa/skrivna byte per sekund. När du skapar nya partitioner lagrar Kafka varje ny partition på disken med minst ett antal befintliga partitioner för att utjämna dem över de tillgängliga diskarna. Trots lagrings strategin, vid bearbetning av hundratals partition repliker på varje disk, kan Kafka enkelt fylla tillgängliga disk data flöde. Kompromissen här är mellan data flöde och kostnad. Om programmet kräver större data flöde skapar du ett kluster med fler hanterade diskar per Broker. HDInsight har för närvarande inte stöd för att lägga till hanterade diskar i ett kluster som körs. Mer information om hur du konfigurerar antalet hanterade diskar finns i [Konfigurera lagring och skalbarhet för Apache Kafka i HDInsight](apache-kafka-scalability.md). Förstå kostnads konsekvenserna av att öka lagrings utrymmet för noderna i klustret.
 
 ### <a name="number-of-topics-and-partitions"></a>Antal ämnen och partitioner
 
-Kafka producenter skriver till ämnen. Kafka konsumenter läsa från ämnen. Ett ämne associeras med en logg, som är en datastruktur på disken. Kafka lägger till poster från en eller flera tillverkare till slutet av en ämneslogg. En ämneslogg består av många partitioner som är spridda över flera filer. Dessa filer är i sin tur spridda över flera Kafka klusternoder. Konsumenterna läser från Kafka ämnen på sin kadens och kan välja sin position (offset) i ämnet loggen.
+Kafka-tillverkare skriver till ämnen. Kafka-konsumenter läser från ämnen. Ett ämne är associerat med en logg, som är en data struktur på disk. Kafka lägger till poster från en eller flera tillverkare i slutet av en ämnes logg. En ämnes logg består av många partitioner som är spridda över flera filer. De här filerna är i sin tur spridda över flera Kafka-klusternoder. Konsumenter läser från Kafka ämnen på sina takt och kan välja sin position (förskjutning) i ämnes loggen.
 
-Varje Kafka-partition är en loggfil i systemet, och producenttrådar kan skriva till flera loggar samtidigt. På samma sätt, eftersom varje konsumenttråd läser meddelanden från en partition, hanteras även tidskrävande från flera partitioner parallellt.
+Varje Kafka-partition är en loggfil på systemet och producent trådar kan skriva till flera loggar samtidigt. På samma sätt, eftersom varje konsument tråd läser meddelanden från en partition, hanteras de också parallellt med flera partitioner.
 
-Om du ökar partitionsdensiteten (antalet partitioner per mäklare) läggs en overhead som är relaterad till metadataåtgärder och per partitionsbegäran/svar mellan partitionsledaren och dess följare. Även i avsaknad av data som flödar igenom hämtar partitionsrepliker fortfarande data från ledare, vilket resulterar i extra bearbetning för att skicka och ta emot begäranden via nätverket.
+Om du ökar partitionens densitet (antalet partitioner per Broker) läggs en kostnad som rör metadata-åtgärder och per partitions förfrågan/svar mellan partitionsstrukturen och dess följare. Även om data inte flödar över, kommer partitions repliker fortfarande att hämta data från ledare, vilket resulterar i extra bearbetning för att skicka och ta emot begär anden över nätverket.
 
-För Apache Kafka kluster 1.1 och högre i HDInsight, rekommenderar vi att du har högst 1000 partitioner per mäklare, inklusive repliker. Öka antalet partitioner per mäklare minskar dataflödet och kan också orsaka ämnet otillgänglighet. Mer information om stöd för Kafka-partitionen finns [i det officiella blogginlägget från Apache Kafka om ökningen av antalet partitioner som stöds i version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). Mer information om hur du ändrar ämnen finns i [Apache Kafka: ändra ämnen](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
+För Apache Kafka kluster 1,1 och senare i HDInsight rekommenderar vi att du har högst 1000 partitioner per Broker, inklusive repliker. Om du ökar antalet partitioner per Broker minskas data flödet och det kan också leda till att ämnet inte är tillgängligt. Mer information om stöd för Kafka partition finns i [det officiella Apache Kafka blogg inlägget på antalet partitioner som stöds i version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). Mer information om hur du ändrar ämnen finns i [Apache Kafka: ändra ämnen](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
 
 ### <a name="number-of-replicas"></a>Antal repliker
 
-Högre replikeringsfaktor resulterar i ytterligare begäranden mellan partitionsledaren och följare. Följaktligen förbrukar en högre replikeringsfaktor mer disk och CPU för att hantera ytterligare begäranden, vilket ökar skrivsvarstiden och minskar dataflödet.
+Högre replikeringsrelation resulterar i ytterligare förfrågningar mellan partitionsstrukturen och följare. Det innebär att en högre replikeringsrelation förbrukar mer disk och CPU för att hantera ytterligare förfrågningar, öka Skriv fördröjningen och minska data flödet.
 
-Vi rekommenderar att du använder minst 3x replikering för Kafka i Azure HDInsight. De flesta Azure-regioner har tre feldomäner, men i regioner med endast två feldomäner bör användare använda 4x-replikering.
+Vi rekommenderar att du använder minst 3x-replikering för Kafka i Azure HDInsight. De flesta Azure-regioner har tre fel domäner, men i regioner med endast två fel domäner ska användarna använda 4x replikering.
 
-Mer information om replikering finns i [Apache Kafka: replication](https://kafka.apache.org/documentation/#replication) och [Apache Kafka: ökande replikeringsfaktor](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
+Mer information om replikering finns i [Apache Kafka: replikering](https://kafka.apache.org/documentation/#replication) och [Apache Kafka: öka replikeringsrelationen](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
 
 ## <a name="next-steps"></a>Nästa steg
 

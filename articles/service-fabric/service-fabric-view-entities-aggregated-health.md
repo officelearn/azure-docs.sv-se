@@ -1,29 +1,29 @@
 ---
-title: Så här visar du Azure Service Fabric-entiteternas aggregerade hälsotillstånd
-description: Beskriver hur du frågar, visar och utvärderar Azure Service Fabric-entiteternas aggregerade hälsotillstånd, genom hälsofrågor och allmänna frågor.
+title: Så här visar du Azure Service Fabric entiteternas aggregerade hälso tillstånd
+description: Beskriver hur du frågar, visar och utvärderar Azure Service Fabric entiteternas samlade hälso tillstånd, via hälso frågor och allmänna frågor.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464127"
 ---
-# <a name="view-service-fabric-health-reports"></a>Visa hälsorapporter för Service Fabric
-Azure Service Fabric introducerar en [hälsomodell](service-fabric-health-introduction.md) med hälsoentiteter där systemkomponenter och watchdogs kan rapportera lokala villkor som de övervakar. [Hälsoarkivet](service-fabric-health-introduction.md#health-store) sammanställer alla hälsodata för att avgöra om entiteter är felfria.
+# <a name="view-service-fabric-health-reports"></a>Visa Service Fabric hälso rapporter
+Azure Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) med hälsoentiteter där system komponenter och övervaknings enheter kan rapportera lokala villkor som de övervakar. [Hälso arkivet](service-fabric-health-introduction.md#health-store) sammanställer alla hälso data för att avgöra om entiteterna är felfria.
 
-Klustret fylls automatiskt med hälsorapporter som skickas av systemkomponenterna. Läs mer på [Använd systemhälsorapporter för felsökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Klustret fylls i automatiskt med hälso rapporter som skickas av system komponenterna. Felsök genom att läsa mer i [använda system hälso rapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric erbjuder flera sätt att få aggregerad hälsa för entiteterna:
+Service Fabric ger flera sätt att hämta enheternas aggregerade hälso tillstånd:
 
-* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) eller andra visualiseringsverktyg
-* Hälsofrågor (via PowerShell, API eller REST)
-* Allmänna frågor som returnerar en lista över entiteter som har hälsotillstånd som en av egenskaperna (via PowerShell, API eller REST)
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) eller andra visualiserings verktyg
+* Hälso frågor (via PowerShell, API eller REST)
+* Allmänna frågor som returnerar en lista över entiteter som har hälso tillstånd som en av egenskaperna (via PowerShell, API eller REST)
 
-Om du vill demonstrera dessa alternativ ska vi använda ett lokalt kluster med fem noder och [programmet fabric:/WordCount](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). **Fabric:/WordCount-programmet** innehåller två standardtjänster, en tillståndskänslig tjänst av `WordCountServiceType`typen `WordCountWebServiceType`och en tillståndslös tjänst av typen . Jag ändrade `ApplicationManifest.xml` att kräva sju mål repliker för tillståndskänsliga tjänsten och en partition. Eftersom det bara finns fem noder i klustret rapporterar systemkomponenterna en varning på tjänstpartitionen eftersom den ligger under antalet mål.
+För att demonstrera de här alternativen ska vi använda ett lokalt kluster med fem noder och [Fabric:/WORDCOUNT-programmet](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). Programmet **Fabric:/WORDCOUNT** innehåller två standard tjänster, en tillstånds känslig tjänst av typen `WordCountServiceType`och en tillstånds lös tjänst av typen `WordCountWebServiceType`. Jag ändrade för `ApplicationManifest.xml` att kräva sju mål repliker för den tillstånds känsliga tjänsten och en partition. Eftersom det bara finns fem noder i klustret, rapporterar system komponenterna en varning på-tjänstepartitionen eftersom den är lägre än antalet mål.
 
 ```xml
 <Service Name="WordCountService">
@@ -33,14 +33,14 @@ Om du vill demonstrera dessa alternativ ska vi använda ett lokalt kluster med f
 </Service>
 ```
 
-## <a name="health-in-service-fabric-explorer"></a>Hälsoinformationsinformation i serviceinfrastruktur
+## <a name="health-in-service-fabric-explorer"></a>Hälso tillstånd i Service Fabric Explorer
 Service Fabric Explorer ger en visuell vy av klustret. I bilden nedan kan du se att:
 
-* **Programstrukturen:/WordCount** är röd (av misstag) eftersom den har en felhändelse som rapporterats av **MyWatchdog** för egenskapen **Tillgänglighet**.
-* En av dess tjänster, **fabric:/WordCount/WordCountService** är gul (i varning). Tjänsten är konfigurerad med sju repliker och klustret har fem noder, så två repliker kan inte placeras. Även om det inte visas här, är tjänstpartitionen `System.FM` gul `Partition is below target replica or instance count`på grund av en systemrapport från att säga att . Den gula partitionen utlöser den gula tjänsten.
+* Application **Fabric:/WORDCOUNT** är rött (i fel) eftersom det innehåller en fel händelse som rapporteras av min **övervaknings** enhet för egenskaps **tillgänglighet**.
+* En av dess tjänster, **Fabric:/WORDCOUNT/WordCountService** är gult (i varning). Tjänsten har kon figurer ATS med sju repliker och klustret innehåller fem noder, så det går inte att placera två repliker. Även om den inte visas här är tjänstepartitionen gul på grund av en system rapport från `System.FM` att säga `Partition is below target replica or instance count`att. Den gula partitionen utlöser den gula tjänsten.
 * Klustret är rött på grund av det röda programmet.
 
-Utvärderingen använder standardprinciper från klustermanifestet och programmanifestet. De är strikta politiska åtgärder och tolererar inte något misslyckande.
+Utvärderingen använder standard principer från kluster manifestet och applikations manifestet. De är strikta principer och tolererar inte eventuella problem.
 
 Vy över klustret med Service Fabric Explorer:
 
@@ -54,48 +54,48 @@ Vy över klustret med Service Fabric Explorer:
 >
 >
 
-## <a name="health-queries"></a>Hälsofrågor
-Service Fabric exponerar hälsofrågor för var och en av de [entitetstyper](service-fabric-health-introduction.md#health-entities-and-hierarchy)som stöds . De kan nås via API: et med metoder på [FabricClient.HealthManager,](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet)PowerShell-cmdlets och REST. Dessa frågor returnerar fullständig hälsoinformation om entiteten: aggregerat hälsotillstånd, entitetshälsohändelser, underordnade hälsotillstånd (i förekommande fall), felaktiga utvärderingar (när entiteten inte är felfri) och barnhälsostatistik (när tillämpliga).
+## <a name="health-queries"></a>Hälso frågor
+Service Fabric exponerar hälso frågor för var och en av de [typer av enheter](service-fabric-health-introduction.md#health-entities-and-hierarchy)som stöds. De kan nås via API: et med metoder på [FabricClient. HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell-cmdletar och rest. Dessa frågor returnerar fullständig hälso information om entiteten: det sammanställda hälso tillståndet, hälso tillstånds händelser för enheter, underordnade hälso tillstånd (i förekommande fall), felaktiga utvärderingar (om enheten inte är felfri) och hälso statistik för barn (i förekommande fall).
 
 > [!NOTE]
-> En hälsoentitet returneras när den är helt ifylld i hälsoarkivet. Entiteten måste vara aktiv (inte borttagen) och ha en systemrapport. Dess överordnade entiteter i hierarkikedjan måste också ha systemrapporter. Om något av dessa villkor inte är uppfyllda returnerar hälsofrågorna ett [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) med [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` som visar varför entiteten inte returneras.
+> En hälsoentitet returneras när den är fullständigt ifylld i hälso lagret. Entiteten måste vara aktiv (inte borttagen) och ha en system rapport. De överordnade entiteterna i hierarkin kedjan måste också ha system rapporter. Om något av dessa villkor inte är uppfyllt returnerar hälso frågorna en [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) med [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` som visar varför entiteten inte returneras.
 >
 >
 
-Hälsofrågorna måste passera i entitetsidentifieraren, vilket beror på entitetstypen. Frågorna accepterar valfria hälsoprincipparametrar. Om inga hälsoprinciper anges används [hälsoprinciperna](service-fabric-health-introduction.md#health-policies) från klustret eller programmanifestet för utvärdering. Om manifesten inte innehåller någon definition för hälsoprinciper används standardhälsoprinciperna för utvärdering. Standardhälsoprinciperna tolererar inga fel. Frågorna accepterar också filter för att returnera endast partiella underordnade eller händelser - de som respekterar de angivna filtren. Ett annat filter gör det möjligt att utesluta barnstatistik.
+Hälso frågorna måste klara i enhets-ID: n, vilket beror på entitetstypen. Frågorna accepterar valfria parametrar för hälso principer. Om inga hälso principer anges används [hälso principerna](service-fabric-health-introduction.md#health-policies) från klustret eller applikations manifestet för utvärdering. Om manifesten inte innehåller en definition för hälso principer används standard hälso principerna för utvärdering. Standard hälso principerna kan inte tolerera fel. Frågorna accepterar också filter för att enbart returnera delvis underordnade eller händelser – de som följer de angivna filtren. Ett annat filter tillåter utesluta underordnade statistik.
 
 > [!NOTE]
-> Utdatafiltren används på serversidan, så meddelandesvarsstorleken minskas. Vi rekommenderar att du använder utdatafiltren för att begränsa de returnerade data, i stället för att använda filter på klientsidan.
+> Utdatafilter används på Server sidan så att meddelandets svars storlek minskas. Vi rekommenderar att du använder utgående filter för att begränsa vilka data som returneras, i stället för att använda filter på klient sidan.
 >
 >
 
-En entitets hälsotillstånd innehåller:
+En entitets hälso tillstånd innehåller:
 
-* Entitetens aggregerade hälsotillstånd. Beräknad av hälsoarkivet baserat på entitetshälsorapporter, underordnade hälsotillstånd (i förekommande fall) och hälsoprinciper. Läs mer om [utvärdering av entitetshälsa](service-fabric-health-introduction.md#health-evaluation).  
-* Hälsohändelserna på entiteten.
-* Insamling av hälsotillstånd för alla barn för de entiteter som kan få barn. Hälsotillstånden innehåller entitetsidentifierare och det aggregerade hälsotillståndet. Om du vill ha fullständig hälsotillstånd för ett barn anropar du frågehälsan för den underordnade entitetstypen och skickar in den underordnade identifieraren.
-* De felaktiga utvärderingar som pekar på rapporten som utlöste tillståndet för entiteten, om entiteten inte är felfri. Utvärderingarna är rekursiva och innehåller de hälsoutvärderingar för barn som utlöste det aktuella hälsotillståndet. En watchdog rapporterade till exempel ett fel mot en replik. Programhälsan visar en felaktig utvärdering på grund av en felaktig tjänst. tjänsten är felfritt på grund av en partition av misstag; partitionen är felfritt på grund av en replik av misstag; repliken är felfritt på grund av hälsorapporten för watchdog-fel.
-* Hälsostatistiken för alla underordnade typer av entiteter som har barn. Klusterhälsa visar till exempel det totala antalet program, tjänster, partitioner, repliker och distribuerade entiteter i klustret. Tjänstens hälsotillstånd visar det totala antalet partitioner och repliker under den angivna tjänsten.
+* Enhetens sammanställda hälso tillstånd. Beräknas av hälso lagret baserat på enhetens hälso rapporter, underordnade hälso tillstånd (om tillämpligt) och hälso principer. Läs mer om [utvärdering av enhets hälsa](service-fabric-health-introduction.md#health-evaluation).  
+* Hälso händelser för entiteten.
+* Insamling av hälso tillstånd för alla underordnade för entiteter som kan ha underordnade. Hälso tillstånden innehåller enhets identifierare och det aggregerade hälso tillståndet. För att få fullständig hälsa för ett underordnat certifikat, anropar du frågans hälso tillstånd för den underordnade entitetstypen och skickar den underordnade-ID: t.
+* De defekta utvärderingarna som pekar på rapporten som utlöste status för entiteten, om entiteten inte är felfri. Utvärderingarna är rekursiva och innehåller de underordnade hälso utvärderingen som utlöste det aktuella hälso tillståndet. En övervaknings enhet rapporterade till exempel ett fel mot en replik. Program hälsan visar en felaktig utvärdering på grund av en skadad tjänst. tjänsten är inte felfri på grund av en felaktig partition. partitionen är inte felfri på grund av ett fel i en replik. repliken är inte felfri på grund av hälso rapporten för övervaknings enheten.
+* Hälso statistik för alla underordnade typer av entiteter som har underordnade objekt. Kluster hälsa visar till exempel det totala antalet program, tjänster, partitioner, repliker och distribuerade entiteter i klustret. Tjänstens hälsa visar det totala antalet partitioner och repliker under den angivna tjänsten.
 
-## <a name="get-cluster-health"></a>Hämta klusterhälsa
-Returnerar hälsotillståndet för klusterentiteten och innehåller hälsotillstånden för program och noder (underordnade kluster). Indata:
+## <a name="get-cluster-health"></a>Hämta kluster hälsa
+Returnerar hälso tillståndet för klustrets entitet och innehåller hälso tillståndet för program och noder (underordnade kluster). Indata:
 
-* [Valfritt] Klusterhälsoprincipen som används för att utvärdera noderna och klusterhändelserna.
-* [Valfritt] Programhälsoprincipmappningen med hälsoprinciper som används för att åsidosätta programmanifestprinciperna.
-* [Valfritt] Filter för händelser, noder och program som anger vilka poster som är av intresse och ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser, noder och program används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
-* [Valfritt] Filtrera för att utesluta hälsostatistik.
-* [Valfritt] Filtrera för att inkludera fabric:/Systemhälsostatistik i hälsostatistiken. Endast tillämpligt när hälsostatistiken inte är utesluten. Som standard omfattar hälsostatistiken endast statistik för användarprogram och inte systemprogrammet.
+* Valfritt Kluster hälso principen som används för att utvärdera noderna och kluster händelserna.
+* Valfritt Princip kartan för program hälsa med de hälso principer som används för att åsidosätta program manifest principerna.
+* Valfritt Filter för händelser, noder och program som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser, noder och program används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
+* Valfritt Filtrera för att undanta hälso statistik.
+* Valfritt Filter för att inkludera infrastruktur resurser:/hälso statistik i hälso statistik. Endast tillämpligt om hälso statistik inte är exkluderad. Hälso statistiken innehåller som standard endast statistik för användar program och inte system tillämpningen.
 
 ### <a name="api"></a>API
-Skapa en `FabricClient` och anropa metoden [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) för att få klusterhälsa och anropa metoden GetClusterHealthAsync på sin **HealthManager**.
+För att få kluster hälsa skapar du `FabricClient` en och anropar [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) -metoden på dess **HealthManager**.
 
-Följande anrop får klusterhälsan:
+Följande anrop hämtar kluster tillståndet:
 
 ```csharp
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-Följande kod får klustrets hälsotillstånd med hjälp av en anpassad klusterhälsoprincip och filter för noder och program. Den anger att hälsostatistiken omfattar statistiken för infrastrukturen:/Systemstatistik. Det skapar [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), som innehåller indatainformation.
+Följande kod hämtar kluster hälsan genom att använda en anpassad kluster hälso princip och filter för noder och program. Det anger att hälso statistiken omfattar infrastruktur resursen:/system statistik. Den skapar [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), som innehåller information om indata.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -127,11 +127,11 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Cmdleten för att få klusterhälsan är [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Cmdleten för att hämta kluster hälsan är [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Klustrets tillstånd är fem noder, systemprogrammet och infrastrukturen:/WordCount konfigurerad enligt beskrivningen.
+Klustrets tillstånd är fem noder, system programmet och Fabric:/WordCount som kon figurer ATS enligt beskrivningen.
 
-Följande cmdlet får klusterhälsa med hjälp av standardhälsoprinciper. Det aggregerade hälsotillståndet är varning, eftersom fabric:/WordCount-programmet är i varning. Observera hur de felaktiga utvärderingarna innehåller information om de villkor som utlöste den aggregerade hälsan.
+Följande cmdlet får kluster hälsa genom att använda standard hälso principer. Det sammanställda hälso tillståndet är varning eftersom Fabric:/WordCount-programmet är i varning. Observera att utvärderings kraven ger information om de villkor som utlöste den aggregerade hälsan.
 
 ```xml
 PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
@@ -188,7 +188,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
-Följande PowerShell-cmdlet får hälsotillståndet för klustret med hjälp av en anpassad programprincip. Den filtrerar resultat för att bara få program och noder i fel eller varning. Därför returneras inga noder, eftersom de alla är felfria. Endast fabric:/WordCount-programmet respekterar programfiltret. Eftersom den anpassade principen anger att varningar ska betraktas som fel för fabric:/WordCount-programmet utvärderas programmet som av misstag, och det gör även klustret.
+Följande PowerShell-cmdlet hämtar hälso tillståndet för klustret med hjälp av en anpassad användnings princip. Den filtrerar resultaten så att endast program och noder visas i fel eller varning. Därför returneras inga noder, eftersom de är felfria. Endast programmet Fabric:/WordCount respekterar program filtret. Eftersom den anpassade principen anger att varningar ska övervägas som fel för programmet Fabric:/WordCount, utvärderas programmet som i fel och så är klustret.
 
 ```powershell
 PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -225,25 +225,25 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-Du kan få klusterhälsa med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan få kluster hälsa med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="get-node-health"></a>Få nodhälsa
-Returnerar hälsotillståndet för en nodentitet och innehåller hälsohändelser som rapporterats på noden. Indata:
+## <a name="get-node-health"></a>Hämta nods hälsa
+Returnerar hälsan för en nod-entitet och innehåller de hälso händelser som rapporter ATS på noden. Indata:
 
-* [Krävs] Nodnamnet som identifierar noden.
-* [Valfritt] De klusterhälsoprincipinställningar som används för att utvärdera hälsotillstånd.
-* [Valfritt] Filter för händelser som anger vilka transaktioner som är av intresse och ska returneras i resultatet (till exempel fel eller både varningar och fel). Alla händelser används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
+* Kunna Det nodnamn som identifierar noden.
+* Valfritt Princip inställningarna för kluster hälsa som används för att utvärdera hälsan.
+* Valfritt Filter för händelser som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
 
 ### <a name="api"></a>API
-För att få nodhälsa genom `FabricClient` API: et skapar du en och anropar [Metoden GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) på dess HealthManager.
+Om du vill hämta en nods hälsa genom API: `FabricClient` et skapar du en och anropar [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) -metoden på dess HealthManager.
 
-Följande kod får nodhälsan för det angivna nodnamnet:
+Följande kod hämtar nodens hälsa för angivet nodnamn:
 
 ```csharp
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-Följande kod får nodhälsan för det angivna nodnamnet och passerar i händelsefilter och anpassad princip via [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+Följande kod hämtar nodens hälsa för angivet nodnamn och skickar händelse filtret och den anpassade principen till [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -256,8 +256,8 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-Cmdleten för att få nodens hälsa är [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
-Följande cmdlet får nodens hälsotillstånd med hjälp av standardhälsoprinciper:
+Cmdleten för att hämta nodens hälsa är [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
+Följande cmdlet hämtar nodens hälsa genom att använda standard hälso principer:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNodeHealth _Node_1
@@ -279,7 +279,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 4:40:47 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-Följande cmdlet får hälsotillståndet för alla noder i klustret:
+Följande cmdlet hämtar hälso tillståndet för alla noder i klustret:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
@@ -294,26 +294,26 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-Du kan få nodhälsa med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan få en nods hälsa med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) eller en post- [begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="get-application-health"></a>Få programmets hälsa
-Returnerar hälsotillståndet för en programentitet. Den innehåller hälsotillstånden för de distribuerade program- och tjänstbarnen. Indata:
+## <a name="get-application-health"></a>Hämta program hälsa
+Returnerar hälsan för en program enhet. Den innehåller hälso tillståndet för det distribuerade programmet och underordnad tjänst. Indata:
 
-* [Krävs] Programnamnet (URI) som identifierar programmet.
-* [Valfritt] Programmets hälsoprincip som används för att åsidosätta programmanifestprinciperna.
-* [Valfritt] Filter för händelser, tjänster och distribuerade program som anger vilka poster som är av intresse och ska returneras i resultatet (till exempel fel eller både varningar och fel). Alla händelser, tjänster och distribuerade program används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
-* [Valfritt] Filtrera för att utesluta hälsostatistiken. Om det inte anges innehåller hälsostatistiken ok, varning och felantal för alla programmed underordnade program: tjänster, partitioner, repliker, distribuerade program och distribuerade tjänstpaket.
+* Kunna Det program namn (URI) som identifierar programmet.
+* Valfritt Den program hälso princip som används för att åsidosätta program manifest principerna.
+* Valfritt Filter för händelser, tjänster och distribuerade program som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser, tjänster och distribuerade program används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
+* Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges innehåller hälso statistik antalet OK, varning och fel för alla program underordnade: tjänster, partitioner, repliker, distribuerade program och distribuerade tjänst paket.
 
 ### <a name="api"></a>API
-Skapa en `FabricClient` och anropa metoden [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) på hälsohanten för att få programhälsa.
+Skapa en `FabricClient` och anropa [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) -metoden på dess HealthManager för att få program hälsan.
 
-Följande kod hämtar programmets hälsotillstånd för det angivna programnamnet (URI):
+Följande kod hämtar program hälsan för angivet program namn (URI):
 
 ```csharp
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-Följande kod hämtar programmets hälsotillstånd för det angivna programnamnet (URI), med filter och anpassade principer som anges via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+Följande kod hämtar program hälsan för angivet program namn (URI) med filter och anpassade principer som anges via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -342,9 +342,9 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-Den cmdlet att få ansökan hälsa är [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Cmdleten för att hämta program hälsan är [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Följande cmdlet returnerar hälsotillståndet för **programmet fabric:/WordCount:**
+Följande cmdlet returnerar hälso tillståndet för **Fabric:/WORDCOUNT-** programmet:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount
@@ -412,7 +412,7 @@ HealthStatistics                :
                                   DeployedApplication   : 5 Ok, 0 Warning, 0 Error
 ```
 
-Följande PowerShell-cmdlet passerar i anpassade principer. Det filtrerar också barn och händelser.
+Följande PowerShell-cmdlet skickar i anpassade principer. Den filtrerar också underordnade och händelser.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error -ExcludeHealthStatistics
@@ -440,26 +440,26 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-Du kan få programhälsa med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan få program hälsa med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="get-service-health"></a>Få tjänstens hälsa
-Returnerar hälsotillståndet för en tjänstentitet. Den innehåller hälsotillstånden för partitionen. Indata:
+## <a name="get-service-health"></a>Hämta tjänstens hälsa
+Returnerar hälsan för en tjänste enhet. Den innehåller hälso tillståndet för partitionen. Indata:
 
-* [Krävs] Tjänstnamnet (URI) som identifierar tjänsten.
-* [Valfritt] Programmets hälsoprincip som används för att åsidosätta programmanifestprincipen.
-* [Valfritt] Filter för händelser och partitioner som anger vilka poster som är av intresse och ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser och partitioner används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
-* [Valfritt] Filtrera för att utesluta hälsostatistik. Om det inte anges visar hälsostatistiken ok- och varnings- och felantalet för alla partitioner och repliker av tjänsten.
+* Kunna Tjänst namnet (URI) som identifierar tjänsten.
+* Valfritt Den program hälso princip som används för att åsidosätta program manifest principen.
+* Valfritt Filter för händelser och partitioner som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser och partitioner används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
+* Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges visar hälso statistik antalet OK, varning och fel för alla partitioner och repliker av tjänsten.
 
 ### <a name="api"></a>API
-Skapa en `FabricClient` och anropa [metoden GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) på hälsohantverket för att få tjänstens hälsotillstånd via API:et.
+Om du vill hämta tjänstens hälso tillstånd genom API `FabricClient` : et skapar du en och anropar [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) -metoden på dess HealthManager.
 
-I följande exempel får du hälsotillståndet för en tjänst med angivet tjänstnamn (URI):
+Följande exempel hämtar hälso tillståndet för en tjänst med angivet tjänste namn (URI):
 
 ```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-Följande kod hämtar tjänstens hälsotillstånd för det angivna tjänstnamnet (URI), som anger filter och anpassade principer via [ServiceHealthQueryDescription:](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription)
+Följande kod hämtar tjänst hälsan för angivet tjänste namn (URI) och anger filter och anpassad princip via [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -472,9 +472,9 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Cmdleten för att få tjänstens hälsa är [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Cmdleten för att hämta tjänstens hälsa är [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Följande cmdlet får tjänstens hälsotillstånd genom att använda standardhälsoprinciper:
+Följande cmdlet hämtar tjänst hälsan genom att använda standard hälso principer:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
@@ -512,27 +512,27 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Du kan få tjänstens hälsotillstånd med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan få service Health med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="get-partition-health"></a>Få partitionshälsa
-Returnerar hälsotillståndet för en partitionentitet. Den innehåller repliken hälsotillstånd. Indata:
+## <a name="get-partition-health"></a>Hämta partitionera hälsa
+Returnerar hälsan för en partition-entitet. Den innehåller replikens hälso tillstånd. Indata:
 
-* [Krävs] Partitions-ID (GUID) som identifierar partitionen.
-* [Valfritt] Programmets hälsoprincip som används för att åsidosätta programmanifestprincipen.
-* [Valfritt] Filter för händelser och repliker som anger vilka poster som är av intresse och ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser och repliker används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
-* [Valfritt] Filtrera för att utesluta hälsostatistik. Om det inte anges visar hälsostatistiken hur många repliker som finns i ok, varning och feltillstånd.
+* Kunna Partitions-ID (GUID) som identifierar partitionen.
+* Valfritt Den program hälso princip som används för att åsidosätta program manifest principen.
+* Valfritt Filter för händelser och repliker som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser och repliker används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
+* Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges visar hälso statistiken hur många repliker som är i OK, varning och fel tillstånd.
 
 ### <a name="api"></a>API
-Skapa en `FabricClient` och anropa metoden [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) på hälsohanten för att få partitionshälsa genom API:et. Om du vill ange valfria parametrar skapar du [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Om du vill hämta partitionens hälso tillstånd genom API `FabricClient` : et skapar du en och anropar [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) -metoden på dess HealthManager. Skapa [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription)om du vill ange valfria parametrar.
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-Cmdleten för att få partitionen hälsa är [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Cmdleten för att hämta partitionens hälso tillstånd är [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Följande cmdlet får hälsotillståndet för alla partitioner i **infrastrukturen:/WordCount/WordCountService-tjänsten** och filtrerar bort replikhälsotillstånd:
+Följande cmdlet hämtar hälso tillståndet för alla partitioner i tjänsten **Fabric:/WORDCOUNT/WordCountService** och filtrerar bort replik hälso tillstånd:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
@@ -604,26 +604,26 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Du kan få partitionshälsa med en [GET-begäran](/rest/api/servicefabric/sfclient-api-getpartitionhealth) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan få partitionera hälsa med en [Get-begäran](/rest/api/servicefabric/sfclient-api-getpartitionhealth) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="get-replica-health"></a>Hämta replikhälsa
-Returnerar hälsotillståndet för en tillståndskänslig tjänstreplik eller en tillståndslös tjänstinstans. Indata:
+## <a name="get-replica-health"></a>Hämta replik hälsa
+Returnerar hälsan för en tillstånds känslig tjänst replik eller en tillstånds lös tjänst instans. Indata:
 
-* [Krävs] Partitions-ID (GUID) och replik-ID som identifierar repliken.
-* [Valfritt] Programhälsoprincipparametrarna som används för att åsidosätta programmanifestprinciperna.
-* [Valfritt] Filter för händelser som anger vilka transaktioner som är av intresse och ska returneras i resultatet (till exempel fel eller både varningar och fel). Alla händelser används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
+* Kunna Partitions-ID (GUID) och replik-ID som identifierar repliken.
+* Valfritt Princip parametrarna för program hälso tillstånd som används för att åsidosätta program manifest principerna.
+* Valfritt Filter för händelser som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
 
 ### <a name="api"></a>API
-För att få repliken hälsa `FabricClient` genom API, skapa en och anropa [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) metoden på sin HealthManager. Om du vill ange avancerade parametrar använder du [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+Om du vill hämta replik hälsan genom API: et skapar `FabricClient` du en och anropar [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) -metoden på dess HealthManager. Använd [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription)om du vill ange avancerade parametrar.
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-Den cmdlet för att få replika hälsa är [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Cmdleten för att hämta replik hälsan är [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Följande cmdlet får hälsotillståndet för den primära repliken för alla partitioner i tjänsten:
+Följande cmdlet hämtar hälso tillståndet för den primära repliken för alla partitioner i tjänsten:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -647,18 +647,18 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Du kan hämta replikhälsa med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan få replik hälsa med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="get-deployed-application-health"></a>Hämta e-programmets hälsotillstånd
-Returnerar hälsotillståndet för ett program som distribueras på en nodentitet. Den innehåller hälsotillstånden för det distribuerade tjänstpaketet. Indata:
+## <a name="get-deployed-application-health"></a>Hämta distribuerad program hälsa
+Returnerar hälso tillståndet för ett program som har distribuerats på en Node-entitet. Den innehåller de distribuerade tjänst paketens hälso tillstånd. Indata:
 
-* [Krävs] Programnamnet (URI) och nodnamnet (strängen) som identifierar det distribuerade programmet.
-* [Valfritt] Programmets hälsoprincip som används för att åsidosätta programmanifestprinciperna.
-* [Valfritt] Filter för händelser och distribuerade tjänstpaket som anger vilka transaktioner som är av intresse och ska returneras i resultatet (till exempel fel eller både varningar och fel). Alla händelser och distribuerade tjänstpaket används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
-* [Valfritt] Filtrera för att utesluta hälsostatistik. Om det inte anges visar hälsostatistiken antalet distribuerade tjänstpaket i ok,varning och felhälsotillstånd.
+* Kunna Det program namn (URI) och nodnamn (sträng) som identifierar det distribuerade programmet.
+* Valfritt Den program hälso princip som används för att åsidosätta program manifest principerna.
+* Valfritt Filter för händelser och distribuerade tjänst paket som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser och distribuerade tjänst paket används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
+* Valfritt Filtrera för att undanta hälso statistik. Om detta inte anges visar hälso statistik antalet distribuerade tjänst paket i hälso tillstånden OK, varning och fel.
 
 ### <a name="api"></a>API
-Om du vill få hälsotillståndet för ett program `FabricClient` som distribueras på en nod via API:et skapar du en och anropar metoden [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) på dess HealthManager. Om du vill ange valfria parametrar använder du [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+Om du vill få hälso tillståndet för ett program som distribuerats på en nod via API: `FabricClient` et, skapar du en och anropar [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) -metoden på dess HealthManager. Använd [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription)om du vill ange valfria parametrar.
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -666,9 +666,9 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Cmdlet för att hämta den distribuerade programhälsan är [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Om du vill ta reda på var ett program distribueras kör du [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) och tittar på de distribuerade programbarnen.
+Cmdleten för att hämta det distribuerade programmets hälsa är [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Om du vill ta reda på var ett program distribueras kör du [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) och tittar på de distribuerade programmens underordnade.
 
-Följande cmdlet får hälsotillståndet för **fabric:/WordCount-programmet** som distribueras på **_Node_2**.
+Följande cmdlet hämtar hälso tillståndet för **Fabric:/WORDCOUNT-** programmet som distribueras på **_Node_2**.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
@@ -706,17 +706,17 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-Du kan få distribuerade programhälsa med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan få distribuerad program hälsa med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="get-deployed-service-package-health"></a>Få hälsa för distribuerade tjänstpaket
-Returnerar hälsotillståndet för en distribuerad tjänstpaketentitet. Indata:
+## <a name="get-deployed-service-package-health"></a>Hämta hälso tillstånd för distribuerade tjänst paket
+Returnerar hälsan för en distribuerad tjänst paket enhet. Indata:
 
-* [Krävs] Programnamnet (URI), nodnamnet (strängen) och tjänstmanifestnamnet (strängen) som identifierar det distribuerade tjänstpaketet.
-* [Valfritt] Programmets hälsoprincip som används för att åsidosätta programmanifestprincipen.
-* [Valfritt] Filter för händelser som anger vilka transaktioner som är av intresse och ska returneras i resultatet (till exempel fel eller både varningar och fel). Alla händelser används för att utvärdera entiteten aggregerade hälsa, oavsett filtret.
+* Kunna Det program namn (URI), nodnamn (sträng) och tjänst manifest namn (sträng) som identifierar det distribuerade tjänst paketet.
+* Valfritt Den program hälso princip som används för att åsidosätta program manifest principen.
+* Valfritt Filter för händelser som anger vilka poster som är av intresse och som ska returneras i resultatet (till exempel endast fel eller både varningar och fel). Alla händelser används för att utvärdera enhetens sammanlagda hälso tillstånd, oavsett filtret.
 
 ### <a name="api"></a>API
-Om du vill ha hälsotillståndet för ett `FabricClient` distribuerat tjänstpaket via API:et skapar du en och anropar metoden [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) på dess HealthManager. Om du vill ange valfria parametrar använder du [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+Om du vill hämta hälsan för ett distribuerat tjänst paket via API: et skapar `FabricClient` du en och anropar [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) -metoden på dess HealthManager. Använd [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription)om du vill ange valfria parametrar.
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -724,9 +724,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-Cmdlet för att hämta den distribuerade tjänstpaketet hälsotillstånd är [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Om du vill se var ett program distribueras kör du [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) och tittar på de distribuerade programmen. Om du vill se vilka tjänstpaket som finns i ett program tittar du på de distribuerade tjänstpaketen som är underordnade i [Get-ServiceFabricDeployedApplicationHealth-utdata.](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)
+Cmdleten för att hämta det distribuerade tjänst paketets hälso tillstånd är [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Om du vill se var ett program har distribuerats kör du [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) och tittar på de distribuerade programmen. Om du vill se vilka service packs som finns i ett program tittar du på de distribuerade tjänst paketets underordnade i [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) -utdata.
 
-Följande cmdlet får hälsotillståndet för **WordCountServicePkg-tjänstpaketet** för **fabric:/WordCount-programmet** som distribueras på **_Node_2**. Entiteten har **System.Hosting-rapporter** för lyckad aktivering av servicepaket och startpunkt och registrering av tjänsttyp.
+Följande cmdlet hämtar hälso tillståndet för **WordCountServicePkg** -tjänst paketet för programmet **Fabric:/WORDCOUNT** som distribueras på **_Node_2**. Entiteten har **system. hosting** -rapporter för lyckad aktivering av service-paket och start punkt och lyckad registrering av tjänst typ.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -776,44 +776,44 @@ HealthEvents               :
 ```
 
 ### <a name="rest"></a>REST
-Du kan få åtkomstbeställd tjänstpakethälsa med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i brödtexten.
+Du kan hämta det distribuerade tjänst paketets hälsa med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) som innehåller hälso principer som beskrivs i bröd texten.
 
-## <a name="health-chunk-queries"></a>Frågor om hälsosegment
-Hälsosegmentfrågorna kan returnera flera klusterbarn (rekursivt), per indatafilter. Den stöder avancerade filter som tillåter stor flexibilitet i valet av barn som ska returneras. Filtren kan ange underordnade med den unika identifieraren eller andra gruppidentifierare och/eller hälsotillstånd. Som standard inkluderas inga underordnade, i motsats till hälsokommandon som alltid innehåller underordnade första nivån.
+## <a name="health-chunk-queries"></a>Hälso segments frågor
+Hälso segment frågor kan returnera kluster underordnade med flera nivåer (rekursivt), per inkommande filter. Det stöder avancerade filter som ger mycket flexibilitet när du väljer de underordnade som ska returneras. Filtren kan ange underordnade med den unika identifieraren eller av andra grupp identifierare och/eller hälso tillstånd. Som standard ingår inga underordnade, i stället för hälso kommandon som alltid innehåller underordnade på den första nivån.
 
-[Hälsofrågorna returnerar](service-fabric-view-entities-aggregated-health.md#health-queries) endast underordnade på första nivån för den angivna entiteten per obligatoriska filter. För att få barnen till barnen måste du ringa ytterligare hälso-API:er för varje enhet av intresse. På samma sätt, för att få hälsotillståndet för specifika entiteter, måste du anropa ett hälso-API för varje önskad entitet. Med avancerad filtrering av segmentfrågan kan du begära flera objekt av intresse i en fråga, vilket minimerar meddelandestorleken och antalet meddelanden.
+[Hälso frågorna](service-fabric-view-entities-aggregated-health.md#health-queries) returnerar bara underordnade objekt på första nivån för den angivna entiteten enligt de filter som krävs. Du måste anropa ytterligare hälso-API: er för varje enhet av intresse för att få underordnade objekt. På samma sätt måste du anropa ett hälso-API för varje önskad entitet för att få hälso tillståndet för vissa entiteter. Med avancerad filtrering i segment frågan kan du begära flera intressanta objekt i en fråga, vilket minimerar meddelande storleken och antalet meddelanden.
 
-Värdet för segmentfrågan är att du kan få hälsotillstånd för fler klusterentiteter (eventuellt alla klusterentiteter som börjar vid obligatorisk rot) i ett anrop. Du kan uttrycka komplexa hälsofrågor som:
+Värdet för segment frågan är att du kan hämta hälso tillstånd för fler kluster enheter (eventuellt alla kluster enheter som börjar vid nödvändig rot) i ett anrop. Du kan uttrycka komplexa hälso frågor som:
 
-* Returnera endast program av misstag, och för dessa program inkluderar alla tjänster i varning eller fel. För returnerade tjänster, inkludera alla partitioner.
-* Returnera endast hälsotillståndet för fyra program, som anges av deras namn.
-* Returnera endast hälsotillståndet för program av önskad programtyp.
-* Returnera alla distribuerade entiteter på en nod. Returnerar alla program, alla distribuerade program på den angivna noden och alla distribuerade tjänstpaket på den noden.
-* Returnera alla repliker av misstag. Returnerar alla program, tjänster, partitioner och endast repliker av misstag.
-* Returnera alla program. För en angiven tjänst, inkludera alla partitioner.
+* Returnera endast program med fel och för dessa program ingår alla tjänster i varnings-eller fel. Inkludera alla partitioner för returnerade tjänster.
+* Returnera endast hälsan för fyra program, som anges med deras namn.
+* Returnera endast hälso tillståndet för program av önskad program typ.
+* Returnera alla distribuerade entiteter på en nod. Returnerar alla program, alla distribuerade program på den angivna noden och alla distribuerade tjänst paket på den noden.
+* Returnera alla repliker i fel. Returnerar alla program, tjänster, partitioner och endast repliker i fel.
+* Returnera alla program. Inkludera alla partitioner för en angiven tjänst.
 
-För närvarande är hälsosegmentfrågan endast exponerad för klusterentiteten. Den returnerar ett klusterhälsosegment som innehåller:
+Hälso segment frågan exponeras för närvarande endast för entiteten kluster. Den returnerar ett kluster hälso segment, som innehåller:
 
-* Klustret aggregerade hälsotillståndet.
-* Listan över hälsotillståndssegment med noder som respekterar indatafilter.
-* Listan över hälsotillståndssegment för program som respekterar indatafilter. Varje program hälsotillstånd segment innehåller en segment lista med alla tjänster som respekterar indatafilter och en segment lista med alla distribuerade program som respekterar filtren. Samma för barn till tjänster och distribuerade program. På så sätt kan alla entiteter i klustret returneras om så önskas, på ett hierarkiskt sätt.
+* Klustrets sammanlagda hälso tillstånd.
+* Listan med hälso tillstånds segment för noder som följer indatafilter.
+* Segment listan över hälso tillstånd för program som respekterar indatafilter. Varje program hälso tillstånds segment innehåller en segment lista med alla tjänster som följer filter för indata och en segment lista med alla distribuerade program som följer filtren. Samma för underordnade tjänster och distribuerade program. På så sätt kan alla entiteter i klustret eventuellt returneras om de begärs hierarkiskt.
 
-### <a name="cluster-health-chunk-query"></a>Klustrets kurluststråfn
-Returnerar hälsotillståndet för klusterentiteten och innehåller hierarkiska hälsotillståndssegment för obligatoriska underordnade. Indata:
+### <a name="cluster-health-chunk-query"></a>Segment fråga för kluster hälsa
+Returnerar hälso tillståndet för klustrets entitet och innehåller de hierarkiska hälso tillstånds segment som krävs för underordnade. Indata:
 
-* [Valfritt] Klusterhälsoprincipen som används för att utvärdera noderna och klusterhändelserna.
-* [Valfritt] Programhälsoprincipmappningen med hälsoprinciper som används för att åsidosätta programmanifestprinciperna.
-* [Valfritt] Filter för noder och program som anger vilka transaktioner som är av intresse och ska returneras i resultatet. Filtren är specifika för en entitet/grupp av entiteter eller är tillämpliga på alla entiteter på den nivån. Listan över filter kan innehålla ett allmänt filter och/eller filter för specifika identifierare för finkorniga entiteter som returneras av frågan. Om de är tomma returneras inte barnen som standard.
-  Läs mer om filtren på [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) och [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). Programfiltren kan rekursivt ange avancerade filter för underordnade.
+* Valfritt Kluster hälso principen som används för att utvärdera noderna och kluster händelserna.
+* Valfritt Princip kartan för program hälsa med de hälso principer som används för att åsidosätta program manifest principerna.
+* Valfritt Filter för noder och program som anger vilka poster som är av intresse och som ska returneras i resultatet. Filtren är speciella för en entitet/grupp av entiteter eller gäller för alla entiteter på den nivån. Listan med filter kan innehålla ett allmänt filter och/eller filter för vissa identifierare för att identifiera entiteter som returneras av frågan. Om den är tom returneras inte underordnade som standard.
+  Läs mer om filtren på [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) och [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). Program filter kan rekursivt ange avancerade filter för underordnade.
 
-Segmentet resultatet inkluderar de underordnade som respekterar filtren.
+Segment resultatet innehåller de underordnade objekten som respekterar filtren.
 
-För närvarande returnerar segmentfrågan inte felaktiga utvärderingar eller entitetshändelser. Den extra informationen kan erhållas med hjälp av den befintliga klusterhälsofrågan.
+För närvarande returnerar segment frågan inte felfria utvärderingar eller enhets händelser. Den extra informationen kan hämtas med hjälp av den befintliga kluster hälso frågan.
 
 ### <a name="api"></a>API
-Om du vill hämta `FabricClient` klusterhälsosegmentet skapar du en och anropar [metoden GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) på sin **HealthManager**. Du kan skicka in [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) för att beskriva hälsoprinciper och avancerade filter.
+Om du vill hämta klustrets hälso tillstånd `FabricClient` skapar du ett och anropar [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) -metoden på dess **HealthManager**. Du kan skicka in [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) för att beskriva hälso principer och avancerade filter.
 
-Följande kod hämtar klusterhälsosegment med avancerade filter.
+Följande kod hämtar ett kluster hälso segment med avancerade filter.
 
 ```csharp
 var queryDescription = new ClusterHealthChunkQueryDescription();
@@ -857,9 +857,9 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-Cmdleten för att få klusterhälsan är [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Cmdleten för att hämta kluster hälsan är [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Anslut först till klustret med hjälp av cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Följande kod får noder endast om de är i Fel med undantag för en viss nod, som alltid ska returneras.
+Följande kod hämtar bara noder om de är i fel syfte, förutom för en speciell nod, som alltid ska returneras.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -885,7 +885,7 @@ NodeHealthStateChunks        :
 ApplicationHealthStateChunks : None
 ```
 
-Följande cmdlet hämtar klustersegment med programfilter.
+Följande cmdlet hämtar kluster segment med program filter.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -1007,54 +1007,54 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-Du kan hämta klusterhälsosegment med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) som innehåller hälsoprinciper och avancerade filter som beskrivs i brödtexten.
+Du kan hämta kluster hälso segment med en [Get-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) eller en [post-begäran](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) som innehåller hälso principer och avancerade filter som beskrivs i bröd texten.
 
 ## <a name="general-queries"></a>Allmänna frågor
-Allmänna frågor returnerar en lista över Service Fabric-entiteter av en angiven typ. De exponeras via API:et (via metoderna **fabricclient.querymanager),** PowerShell-cmdlets och REST. Dessa frågor aggregera underfrågor från flera komponenter. En av dem är [hälsoarkivet](service-fabric-health-introduction.md#health-store), som fyller i det aggregerade hälsotillståndet för varje frågeresultat.  
+Allmänna frågor returnerar en lista med Service Fabric entiteter av en angiven typ. De exponeras via API: et (via metoderna på **FabricClient. QueryManager**), PowerShell-cmdletar och rest. Dessa frågor sammanställer under frågor från flera komponenter. En av dem är [hälso arkivet](service-fabric-health-introduction.md#health-store), som fyller i det sammanställda hälso tillståndet för varje frågeresultat.  
 
 > [!NOTE]
-> Allmänna frågor returnerar aggregerade hälsotillstånd för entiteten och innehåller inte omfattande hälsodata. Om en entitet inte är felfri kan du följa upp med hälsofrågor för att få all hälsoinformation, inklusive händelser, barnhälsotillstånd och felaktiga utvärderingar.
+> Allmänna frågor returnerar det sammanställda hälso tillståndet för entiteten och innehåller inte omfattande hälso data. Om en entitet inte är felfri kan du följa upp med hälso frågor för att få all hälso information, inklusive händelser, underordnade hälso tillstånd och utvärderingar som inte är felfria.
 >
 >
 
-Om allmänna frågor returnerar ett okänt hälsotillstånd för en entitet är det möjligt att hälsoarkivet inte har fullständiga data om entiteten. Det är också möjligt att en underavdelning till hälsobutiken inte lyckades (till exempel uppstod ett kommunikationsfel eller så begränsades hälsoarkivet). Följ upp med en hälsofråga för entiteten. Om underfrågan påträffade tillfälliga fel, till exempel nätverksproblem, kan den här uppföljningsfrågan lyckas. Det kan också ge dig mer information från hälsobutiken om varför entiteten inte exponeras.
+Om allmänna frågor returnerar ett okänt hälso tillstånd för en entitet, är det möjligt att hälso lagret inte har fullständiga data om entiteten. Det är också möjligt att en under fråga till hälso lagret inte lyckades (till exempel ett kommunikations fel eller att hälso lagret har begränsats). Följ upp med en hälso fråga för entiteten. Om under frågan påträffade tillfälliga fel, t. ex. nätverks problem, kan denna uppföljnings fråga lyckas. Du kan också få mer information från Health Store om varför enheten inte visas.
 
-De frågor som innehåller **HealthState** för entiteter är:
+Frågorna **som innehåller** hälsoattribut för entiteter är:
 
-* Nodlista: Returnerar listnoderna i klustret (sökt).
-  * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
-  * PowerShell: Get-ServiceFabricNode
-* Programlista: Returnerar listan över program i klustret (sökt).
-  * API: [FabricClient.QueryClient.getApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
-  * PowerShell: Get-ServiceFabricApplication
-* Tjänstlista: Returnerar listan över tjänster i ett program (sökt).
-  * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * PowerShell: Get-ServiceFabricService
-* Partitionslista: Returnerar listan över partitioner i en tjänst (sökt).
-  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
-  * PowerShell: Get-ServiceFabricPartition
-* Repliklista: Returnerar listan över repliker i en partition (sidst).
-  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
-  * PowerShell: Get-ServiceFabricReplica
-* Distribuerad programlista: Returnerar listan över distribuerade program på en nod.
-  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
-  * PowerShell: Get-ServiceFabricDeployedApplication
-* Distribuerad tjänstpaketlista: Returnerar listan över tjänstpaket i ett distribuerat program.
-  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
-  * PowerShell: Get-ServiceFabricDeployedApplication
+* Node-lista: returnerar List-noderna i klustret (växlat).
+  * API: [FabricClient. QueryClient. GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+  * PowerShell: get-ServiceFabricNode
+* Program lista: returnerar listan över program i klustret (växlat).
+  * API: [FabricClient. QueryClient. GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+  * PowerShell: get-ServiceFabricApplication
+* Tjänst lista: returnerar listan över tjänster i ett program (växlat).
+  * API: [FabricClient. QueryClient. GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+  * PowerShell: get-ServiceFabricService
+* Partition lista: returnerar listan över partitioner i en tjänst (växlad).
+  * API: [FabricClient. QueryClient. GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+  * PowerShell: get-ServiceFabricPartition
+* Replik lista: returnerar listan över repliker i en partition (växlad).
+  * API: [FabricClient. QueryClient. GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+  * PowerShell: get-Removeservicefabricreplica
+* Distribuerad program lista: returnerar listan över distribuerade program på en nod.
+  * API: [FabricClient. QueryClient. GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * PowerShell: get-ServiceFabricDeployedApplication
+* Distribuerad Service Pack-lista: returnerar listan över tjänst paket i ett distribuerat program.
+  * API: [FabricClient. QueryClient. GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+  * PowerShell: get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Vissa frågor returnerar växlingsresultat. Returen av dessa frågor är en lista som härleds från [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Om resultaten inte stämmer av ett meddelande returneras bara en sida och en ContinuationToken som spårar var uppräkningen stoppas. Fortsätt att anropa samma fråga och skicka in fortsättningstoken från föregående fråga för att få nästa resultat.
+> Några av frågorna returnerar växlade resultat. Returen av dessa frågor är en lista som härletts från [\<PagedList T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Om resultatet inte passar ett meddelande returneras bara en sida och en ContinuationToken som spårar där uppräkningen stoppas. Fortsätt att anropa samma fråga och skicka i fortsättnings-token från föregående fråga för att få nästa resultat.
 
 ### <a name="examples"></a>Exempel
-Följande kod hämtar de felaktiga programmen i klustret:
+Följande kod hämtar felaktiga program i klustret:
 
 ```csharp
 var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Where(
   app => app.HealthState == HealthState.Error);
 ```
 
-Följande cmdlet hämtar programinformation för fabric:/WordCount-programmet. Observera att hälsotillståndet är på varning.
+Följande cmdlet hämtar programinformationen för programmet Fabric:/WordCount. Observera att hälso tillståndet är vid varning.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
@@ -1074,7 +1074,7 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-Följande cmdlet hämtar tjänsterna med ett hälsotillstånd:
+Följande cmdlet hämtar tjänsterna med hälso tillståndet fel:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Error"}
@@ -1090,14 +1090,14 @@ ServiceStatus          : Active
 HealthState            : Error
 ```
 
-## <a name="cluster-and-application-upgrades"></a>Kluster- och programuppgraderingar
-Under en övervakad uppgradering av klustret och programmet kontrollerar Service Fabric hälsotillståndet för att säkerställa att allt förblir felfritt. Om en entitet är felfritt som utvärderas med hjälp av konfigurerade hälsoprinciper, tillämpar uppgraderingen uppgraderingsspecifika principer för att avgöra nästa åtgärd. Uppgraderingen kan pausas för att tillåta användarinteraktion (t.ex. åtgärda felvillkor eller ändra principer), eller så kan den automatiskt återställa till den tidigare bra versionen.
+## <a name="cluster-and-application-upgrades"></a>Kluster-och program uppgraderingar
+Under en övervakad uppgradering av klustret och programmet kontrollerar Service Fabric hälso tillståndet för att se till att allt förblir felfritt. Om en entitet inte är felfri som utvärderas med hjälp av konfigurerade hälso principer, tillämpar uppgraderingen de uppgraderings bara principerna för att fastställa nästa åtgärd. Uppgraderingen kan pausas för att tillåta användar interaktion (till exempel att åtgärda fel villkor eller ändra principer), eller så kan den automatiskt återställas till den tidigare versionen.
 
-Under *cluster* en klusteruppgradering kan du hämta statusen klusteruppgradering. Uppgraderingsstatusen innehåller felaktiga utvärderingar, som pekar på vad som är felfritt i klustret. Om uppgraderingen återställs på grund av hälsoproblem kommer uppgraderingsstatusen ihåg de senaste felaktiga orsakerna. Den här informationen kan hjälpa administratörer att undersöka vad som gick fel efter att uppgraderingen återställts eller stoppats.
+Under en *kluster* uppgradering kan du hämta uppgraderings status för klustret. Uppgraderings statusen innehåller felaktiga utvärderingar som pekar på vad som är skadat i klustret. Om uppgraderingen återställs på grund av hälso problem, kommer uppgraderings statusen att återställa de senaste Felaktiga orsakerna. Den här informationen kan hjälpa administratörer att undersöka vad som gick fel efter att uppgraderingen har återställts eller stoppats.
 
-På samma sätt *application* finns eventuella felaktiga utvärderingar i programuppgraderingsstatusen under en programuppgradering.
+På samma sätt ingår eventuella utvärderingar som är felaktiga i program uppgraderings status under en *program* uppgradering.
 
-Följande visar programuppgraderingsstatusen för ett modifierat fabric:/WordCount-program. En watchdog rapporterade ett fel på en av dess repliker. Uppgraderingen rullas tillbaka eftersom hälsokontrollerna inte respekteras.
+Följande visar program uppgraderings status för ett ändrat Fabric:/WordCount-program. En övervaknings enhet rapporterade ett fel på en av dess repliker. Uppgraderingen återställs eftersom hälso kontrollerna inte följs.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -1151,12 +1151,12 @@ ForceRestart                  : False
 UpgradeReplicaSetCheckTimeout : 00:15:00
 ```
 
-Läs mer om uppgraderingen av [Service Fabric-programmet](service-fabric-application-upgrade.md).
+Läs mer om [uppgraderingen av Service Fabric-programmet](service-fabric-application-upgrade.md).
 
-## <a name="use-health-evaluations-to-troubleshoot"></a>Använd hälsoutvärderingar för felsökning
-När det finns ett problem med klustret eller ett program, titta på klustret eller programmets hälsa för att identifiera vad som är fel. De felaktiga utvärderingarna ger information om vad som utlöste det aktuella felaktiga tillståndet. Om du behöver kan du öka detaljnivån i felaktiga underordnade enheter för att identifiera grundorsaken.
+## <a name="use-health-evaluations-to-troubleshoot"></a>Felsöka med hjälp av hälso utvärderingar
+När det uppstår ett problem med klustret eller ett program tittar du på klustret eller program hälsan för att hitta det som är fel. Utvärderingarna av felaktiga fel ger information om vad som utlöste det aktuella hälso tillståndet. Om du behöver kan du öka detalj nivån för underordnade entiteter som inte är felfria för att identifiera rotor saken.
 
-Tänk till exempel på ett program som inte är fel eftersom det finns en felrapport på en av dess repliker. Följande Powershell-cmdlet visar de felaktiga utvärderingarna:
+Anta till exempel att ett program inte är felfritt eftersom det finns en fel rapport på någon av dess repliker. Följande PowerShell-cmdlet visar de felaktiga utvärderingarna:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -1184,7 +1184,7 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-Du kan titta på repliken för att få mer information:
+Du kan titta på repliken om du vill ha mer information:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricReplicaHealth -ReplicaOrInstanceId 131444422260002646 -PartitionId af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -1223,17 +1223,17 @@ HealthEvents          :
 ```
 
 > [!NOTE]
-> De felaktiga utvärderingarna visar den första orsaken till att entiteten utvärderas till aktuellt hälsotillstånd. Det kan finnas flera andra händelser som utlöser det här tillståndet, men de återspeglas inte i utvärderingarna. Om du vill ha mer information bör du öka detaljnivån i hälsoentiteterna för att ta reda på alla felaktiga rapporter i klustret.
+> Utvärderingarna visar den första anledningen som entiteten utvärderas till det aktuella hälso tillståndet. Det kan finnas flera andra händelser som utlöser detta tillstånd, men de visas inte i utvärderingarna. Om du vill ha mer information kan du öka detalj nivån i hälsoentiteterna för att ta reda på om det finns felaktiga rapporter i klustret.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
 [Felsök med hjälp av systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Lägga till anpassade hälsorapporter för Service Fabric](service-fabric-report-health.md)
+[Lägg till anpassade Service Fabric hälso rapporter](service-fabric-report-health.md)
 
-[Så här rapporterar och kontrollerar du tjänstens hälsa](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Rapportera och kontrol lera tjänstens hälsa](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Uppgradering av Service Fabric-programmet](service-fabric-application-upgrade.md)
+[Service Fabric program uppgradering](service-fabric-application-upgrade.md)

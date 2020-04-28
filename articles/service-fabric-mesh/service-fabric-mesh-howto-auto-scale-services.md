@@ -1,33 +1,33 @@
 ---
-title: Skala en app automatiskt som körs i Azure Service Fabric Mesh
-description: Lär dig hur du konfigurerar principer för automatisk skalning för tjänsterna i ett Service Fabric Mesh-program.
+title: Skala automatiskt en app som körs i Azure Service Fabric nät
+description: Lär dig hur du konfigurerar principer för automatisk skalning för tjänsterna i ett Service Fabric nätprogram.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75461975"
 ---
-# <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Skapa principer för automatisk skalning för ett Service Fabric Mesh-program
-En av de största fördelarna med att distribuera program till Service Fabric Mesh är möjligheten för dig att enkelt skala dina tjänster in eller ut. Detta bör användas för att hantera varierande mängd belastning på dina tjänster, eller förbättra tillgängligheten. Du kan skala dina tjänster manuellt in eller ut eller ställa in principer för automatisk skalning.
+# <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Skapa principer för autoskalning för ett Service Fabric nätprogram
+En av de största fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster i eller ut. Detta bör användas för att hantera olika belastnings mängder på dina tjänster eller förbättra tillgängligheten. Du kan skala dina tjänster manuellt i eller ut eller konfigurera principer för automatisk skalning.
 
-[Med automatisk skalning](service-fabric-mesh-scalability.md#autoscaling-service-instances) kan du dynamiskt skala antalet tjänstinstanser (vågrät skalning). Automatisk skalning ger stor elasticitet och möjliggör etablering eller borttagning av tjänstinstanser baserat på CPU- eller minnesanvändning.
+Med [automatisk skalning](service-fabric-mesh-scalability.md#autoscaling-service-instances) kan du skala upp antalet tjänst instanser dynamiskt (vågrät skalning). Automatisk skalning ger bra elastiskhet och möjliggör etablering eller borttagning av tjänst instanser baserat på processor-eller minnes användning.
 
-## <a name="options-for-creating-an-auto-scaling-policy-trigger-and-mechanism"></a>Alternativ för att skapa en automatisk skalningsprincip, utlösare och mekanism
-En princip för automatisk skalning har definierats för varje tjänst som du vill skala. Principen definieras antingen i YAML-tjänstresursfilen eller JSON-distributionsmallen. Varje skalningsprincip består av två delar: en utlösare och en skalningsmekanism.
+## <a name="options-for-creating-an-auto-scaling-policy-trigger-and-mechanism"></a>Alternativ för att skapa en princip för automatisk skalning, utlösare och mekanism
+En princip för automatisk skalning definieras för varje tjänst som du vill skala. Principen definieras i antingen YAML-tjänstens resurs fil eller i mallen för JSON-distribution. Varje skalnings princip består av två delar: en utlösare och en skalnings funktion.
 
-Utlösaren definierar när en princip för automatisk skalning anropas.  Ange vilken typ av utlösare (genomsnittlig belastning) och måttet som ska övervakas (CPU eller minne).  Övre och nedre belastningströsklar som anges som en procentsats. Skalintervallet definierar hur ofta (i sekunder) det angivna utnyttjandet (t.ex. genomsnittlig CPU-belastning) ska kontrolleras (i sekunder) för alla tjänstinstanser som för närvarande distribueras.  Mekanismen utlöses när det övervakade måttet sjunker under det nedre tröskelvärdet eller ökar över det övre tröskelvärdet.  
+Utlösaren definierar när en princip för automatisk skalning anropas.  Ange typen av utlösare (genomsnittlig inläsning) och måttet som ska övervakas (CPU eller minne).  De övre och nedre tröskelvärdena för inläsning anges i procent. Skalnings intervallet definierar hur ofta den angivna användningen (i sekunder) ska kontrol leras (till exempel Genomsnittlig CPU-belastning) över alla aktuella distribuerade tjänst instanser.  Mekanismen utlöses när det övervakade måttet sjunker under den nedre tröskeln eller ökar över det övre tröskelvärdet.  
 
-Skalningsmekanismen definierar hur skalningsåtgärden ska utföras när principen utlöses.  Ange typ av mekanism (lägg till/ta bort replik), det lägsta och högsta antalet repliker (som heltal).  Antalet tjänstrepliker skalas aldrig under minimiantalet eller över det maximala antalet.  Ange också skalningssteget som ett heltal, vilket är antalet repliker som ska läggas till eller tas bort i en skalningsåtgärd.  
+Skalnings mekanismen definierar hur du utför skalnings åtgärden när principen utlöses.  Ange typen av mekanism (Lägg till/ta bort replik), antalet lägsta och högsta antal repliker (som heltal).  Antalet tjänst repliker skalas aldrig under det lägsta antalet eller över det högsta antalet.  Ange också skalnings ökningen som ett heltal, vilket är antalet repliker som ska läggas till eller tas bort i en skalnings åtgärd.  
 
 ## <a name="define-an-auto-scaling-policy-in-a-json-template"></a>Definiera en princip för automatisk skalning i en JSON-mall
 
-I följande exempel visas en princip för automatisk skalning i en JSON-distributionsmall.  Principen för automatisk skalning deklareras i en egenskap för den tjänst som ska skalas.  I det här exemplet definieras en processormedelvärdebelastningsutlösare.  Mekanismen utlöses om den genomsnittliga CPU-belastningen för alla distribuerade instanser sjunker under 0,2 (20%) eller går över 0,8 (80%).  CPU-belastningen kontrolleras var 60:e sekund.  Skalningsmekanismen har definierats för att lägga till eller ta bort instanser om principen utlöses.  Tjänstinstanser läggs till eller tas bort i steg om en.  Ett minsta instansantal på en och ett maximalt instansantal på 40 definieras också.
+I följande exempel visas en princip för automatisk skalning i en mall för JSON-distribution.  Principen för automatisk skalning deklareras i en egenskap för tjänsten som ska skalas.  I det här exemplet definieras en PROCESSORs genomsnittliga belastnings utlösare.  Mekanismen aktive ras om den genomsnittliga CPU-belastningen för alla distribuerade instanser sjunker under 0,2 (20%) eller hamnar ovanför 0,8 (80%).  CPU-belastningen kontrol leras var 60 sekund.  Skalnings mekanismen definieras för att lägga till eller ta bort instanser om principen utlöses.  Tjänst instanser läggs till eller tas bort i steg om en.  Ett minsta antal instanser av ett och maximalt antal instanser av 40 har också definierats.
 
 ```json
 {
@@ -79,8 +79,8 @@ I följande exempel visas en princip för automatisk skalning i en JSON-distribu
 }
 ```
 
-## <a name="define-an-autoscale-policy-in-a-serviceyaml-resource-file"></a>Definiera en princip för automatisk skalning i en resource-fil för tjänst.yaml
-I följande exempel visas en princip för automatisk skalning i en YAML-fil (Service Resource).  Principen för automatisk skalning deklareras som en egenskap för den tjänst som ska skalas.  I det här exemplet definieras en processormedelvärdebelastningsutlösare.  Mekanismen utlöses om den genomsnittliga CPU-belastningen för alla distribuerade instanser sjunker under 0,2 (20%) eller går över 0,8 (80%).  CPU-belastningen kontrolleras var 60:e sekund.  Skalningsmekanismen har definierats för att lägga till eller ta bort instanser om principen utlöses.  Tjänstinstanser läggs till eller tas bort i steg om en.  Ett minsta instansantal på en och ett maximalt instansantal på 40 definieras också.
+## <a name="define-an-autoscale-policy-in-a-serviceyaml-resource-file"></a>Definiera en princip för autoskalning i en tjänst. yaml-resurs fil
+I följande exempel visas en princip för automatisk skalning i en tjänst resurs fil (YAML).  Principen för automatisk skalning deklareras som en egenskap för tjänsten som ska skalas.  I det här exemplet definieras en PROCESSORs genomsnittliga belastnings utlösare.  Mekanismen aktive ras om den genomsnittliga CPU-belastningen för alla distribuerade instanser sjunker under 0,2 (20%) eller hamnar ovanför 0,8 (80%).  CPU-belastningen kontrol leras var 60 sekund.  Skalnings mekanismen definieras för att lägga till eller ta bort instanser om principen utlöses.  Tjänst instanser läggs till eller tas bort i steg om en.  Ett minsta antal instanser av ett och maximalt antal instanser av 40 har också definierats.
 
 ```yaml
 ## Service definition ##

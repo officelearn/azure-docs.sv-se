@@ -1,6 +1,6 @@
 ---
-title: Felsöka distribution av virtuella datorer på grund av fristående diskar | Microsoft-dokument
-description: Felsöka distribution av virtuella datorer på grund av fristående diskar
+title: Felsök distribution av virtuella datorer på grund av frånkopplade diskar | Microsoft Docs
+description: Felsök distribution av virtuella datorer på grund av frånkopplade diskar
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 10/31/2019
 ms.author: vaaga
 ms.openlocfilehash: e049a2b914cbf9c4f0ca0f3a1dd0281d58f881b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75486825"
 ---
-# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Felsöka distribution av virtuella datorer på grund av fristående diskar
+# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Felsök distribution av virtuella datorer på grund av frånkopplade diskar
 
 ## <a name="symptom"></a>Symptom
 
-NÃ¤r du fÃ¶rsÃ¶r att uppdatera en virtuell dator vars tidigare datadisk inte Ã¤r Ã¤r Ã¶r kunde du komma in i den hÃ¤r felkoden.
+När du försöker uppdatera en virtuell dator vars tidigare data disk kopplades från, kan du komma över den här fel koden.
 
 ```
 Code=\"AttachDiskWhileBeingDetached\" 
@@ -32,9 +32,9 @@ Message=\"Cannot attach data disk '{disk ID}' to virtual machine '{vmName}' beca
 
 ## <a name="cause"></a>Orsak
 
-Det här felet inträffar när du försöker återfästa en datadisk vars senaste frånskilja-åtgärd misslyckades. Det bästa sättet att komma ur detta tillstånd är att koppla bort den felaktiga disken.
+Det här felet inträffar när du försöker koppla en datadisk till den senaste återkopplings åtgärden. Det bästa sättet att ta bort det här tillståndet är att ta bort den felaktiga disken.
 
-## <a name="solution-1-powershell"></a>Lösning 1: Powershell
+## <a name="solution-1-powershell"></a>Lösning 1: PowerShell
 
 ### <a name="step-1-get-the-virtual-machine-and-disk-details"></a>Steg 1: Hämta information om den virtuella datorn och disken
 
@@ -51,23 +51,23 @@ diskSizeGB   : 8
 toBeDetached : False 
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Steg 2: Ställ in flaggan för felaktiga diskar till "true".
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Steg 2: ange flaggan för att återställa diskar till "true".
 
-Hämta matrisindexet för den felaktiga disken och ange **flaggan toBeDetached** för den felaktiga disken (som **AttachDiskWhileBeingDetached-felet** uppstod för) till "true". Den här inställningen innebär att disken tas bort från den virtuella datorn. Det felaktiga disknamnet finns i **errorMessage**.
+Hämta mat ris indexet för den felaktiga disken och ange flaggan **toBeDetached** för den felande disken (för vilket **AttachDiskWhileBeingDetached** -fel har inträffat) till "true". Den här inställningen innebär att disken kopplas bort från den virtuella datorn. Det går inte att hitta namnet på disken i **errormessage**.
 
-> ! API-versionen som angetts för Hämta och placera anrop måste vara 2019-03-01 eller senare.
+> ! OBS! den angivna API-versionen för get-och parkera-anrop måste vara 2019-03-01 eller högre.
 
 ```azurepowershell-interactive
 PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true 
 ```
 
-Alternativt kan du också koppla från den här disken med kommandot nedan, vilket kommer att vara användbart för användare som använder API-versioner före den 1 mars 2019.
+Alternativt kan du också koppla från disken med kommandot nedan, vilket kan vara till hjälp för användare som använder API-versioner före den 01 mars 2019.
 
 ```azurepowershell-interactive
 PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "<disk ID>" 
 ```
 
-### <a name="step-3-update-the-virtual-machine"></a>Steg 3: Uppdatera den virtuella datorn
+### <a name="step-3-update-the-virtual-machine"></a>Steg 3: uppdatera den virtuella datorn
 
 ```azurepowershell-interactive
 PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm 
@@ -75,17 +75,17 @@ PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm
 
 ## <a name="solution-2-rest"></a>Lösning 2: REST
 
-### <a name="step-1-get-the-virtual-machine-payload"></a>Steg 1: Hämta nyttolasten för den virtuella datorn.
+### <a name="step-1-get-the-virtual-machine-payload"></a>Steg 1: Hämta nytto lasten för den virtuella datorn.
 
 ```azurepowershell-interactive
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView&api-version=2019-03-01
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Steg 2: Ställ in flaggan för felaktiga diskar till "true".
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Steg 2: ange flaggan för att återställa diskar till "true".
 
-Ange att flaggan **toBeDetached** för att inte kunna vara true i nyttolasten som returneras i steg 1. Observera: API-versionen som angetts för Hämta `2019-03-01` och sätta samtal måste vara eller större.
+Ange flaggan **toBeDetached** för att återställa disken till true i den nytto last som returnerades i steg 1. OBS! den API-version som anges för get-och parkera-anrop `2019-03-01` måste vara eller större.
 
-**Exempel på begärantext**
+**Exempel på begär ande text**
 
 ```azurepowershell-interactive
 {
@@ -143,11 +143,11 @@ Ange att flaggan **toBeDetached** för att inte kunna vara true i nyttolasten so
 }
 ```
 
-Alternativt kan du också ta bort den felaktiga datadisken från ovanstående nyttolast, vilket är användbart för användare som använder API-versioner före den 1 mars 2019.
+Alternativt kan du också ta bort den felaktiga data disken från nytto lasten ovan, vilket är användbart för användare som använder API-versioner före den 01 mars 2019.
 
-### <a name="step-3-update-the-virtual-machine"></a>Steg 3: Uppdatera den virtuella datorn
+### <a name="step-3-update-the-virtual-machine"></a>Steg 3: uppdatera den virtuella datorn
 
-Använd nyttolasten för begäran i steg 2 och uppdatera den virtuella datorn enligt följande:
+Använd nytto lasten för begär ande texten i steg 2 och uppdatera den virtuella datorn på följande sätt:
 
 ```azurepowershell-interactive
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2019-03-01
@@ -232,6 +232,6 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-Om du har problem med att ansluta till den virtuella datorn läser [du Felsöka RDP-anslutningar till en Azure VM](troubleshoot-rdp-connection.md).
+Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](troubleshoot-rdp-connection.md).
 
-Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med programanslutning på en Windows VM](troubleshoot-app-connection.md).
+Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på en virtuell Windows-dator](troubleshoot-app-connection.md).

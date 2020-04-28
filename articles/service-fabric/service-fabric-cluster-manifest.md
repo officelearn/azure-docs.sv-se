@@ -1,32 +1,32 @@
 ---
 title: Konfigurera ditt fristående Azure Service Fabric-kluster
-description: Lär dig hur du konfigurerar ditt fristående eller lokala Azure Service Fabric-kluster.
+description: Lär dig hur du konfigurerar ett fristående eller lokalt Azure Service Fabric-kluster.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458370"
 ---
-# <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurationsinställningar för ett fristående Windows-kluster
-I den här artikeln beskrivs konfigurationsinställningar för ett fristående Azure Service Fabric-kluster som kan anges i *filen ClusterConfig.json.* Du kommer att använda den här filen för att ange information om klustrets noder, säkerhetskonfigurationer samt nätverkstopologin när det gäller fel- och uppgraderingsdomäner.  När du har ändrat eller lagt till konfigurationsinställningar kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller uppgradera [konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
+# <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurations inställningar för ett fristående Windows-kluster
+I den här artikeln beskrivs konfigurations inställningar för ett fristående Azure Service Fabric-kluster som kan ställas in i filen *ClusterConfig. JSON* . Du kommer att använda den här filen för att ange information om klustrets noder, säkerhetskonfigurationer och nätverks sto pol Ogin vad gäller fel-och uppgraderings domäner.  När du har ändrat eller lagt till konfigurations inställningar kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
-När du [hämtar det fristående Service Fabric-paketet](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)ingår även ClusterConfig.json-exempel. Exemplen som har "DevCluster" i sina namn skapar ett kluster med alla tre noder på samma dator med hjälp av logiska noder. Av dessa noder måste minst en markeras som en primär nod. Den här typen av kluster är användbart för utvecklings- eller testmiljöer. Det stöds inte som ett produktionskluster. Exemplen som har "MultiMachine" i sina namn hjälper till att skapa kluster av produktionsresultat, med varje nod på en separat dator. Antalet primära noder för dessa kluster baseras på klustrets [tillförlitlighetsnivå](#reliability). I utgåva 5.7, API Version 05-2017, tog vi bort egenskapen tillförlitlighetsnivå. I stället beräknar vår kod den mest optimerade tillförlitlighetsnivån för ditt kluster. Försök inte att ange ett värde för den här egenskapen i version 5.7 och framåt.
+När du [hämtar det fristående Service Fabric-paketet](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)ingår även ClusterConfig. JSON-exempel. Exemplen som har "DevCluster" i sina namn skapar ett kluster med alla tre noderna på samma dator med hjälp av logiska noder. Av de här noderna måste minst en vara markerad som en primär nod. Den här typen av kluster är användbar för utvecklings-eller test miljöer. Det stöds inte som ett produktions kluster. Exemplen med "MultiMachine" i sina namn hjälper till att skapa produktions klass kluster, med varje nod på en separat dator. Antalet primära noder för dessa kluster baseras på klustrets [Tillförlitlighets nivå](#reliability). I version 5,7, API-version 05-2017, tog vi bort egenskapen Tillförlitlighets nivå. I stället beräknar vår kod den mest optimerade Tillförlitlighets nivån för klustret. Försök inte att ange ett värde för den här egenskapen i version 5,7 och senare.
 
-* ClusterConfig.Unsecure.DevCluster.json och ClusterConfig.Unsecure.MultiMachine.json visar hur du skapar ett osäkert test eller produktionskluster.
+* ClusterConfig. unsecure. DevCluster. JSON och ClusterConfig. unsecure. MultiMachine. JSON visar hur du skapar ett oskyddat test-eller produktions kluster.
 
-* ClusterConfig.Windows.DevCluster.json och ClusterConfig.Windows.MultiMachine.json visar hur du skapar test- eller produktionskluster som skyddas med hjälp av [Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig. Windows. DevCluster. JSON och ClusterConfig. Windows. MultiMachine. JSON visar hur du skapar test-eller produktions kluster som skyddas med hjälp av [Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.json och ClusterConfig.X509.MultiMachine.json visar hur du skapar test- eller produktionskluster som är säkrade med hjälp av [X509 certifikatbaserad säkerhet](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig. X509. DevCluster. JSON och ClusterConfig. X509. MultiMachine. JSON visar hur du skapar test-eller produktions kluster som skyddas med hjälp av [X509-certifikatbaserad säkerhet](service-fabric-windows-cluster-x509-security.md).
 
-Nu ska vi undersöka de olika delarna av en ClusterConfig.json-fil.
+Nu ska vi undersöka de olika avsnitten i en ClusterConfig. JSON-fil.
 
 ## <a name="general-cluster-configurations"></a>Allmänna klusterkonfigurationer
-Allmänna klusterkonfigurationer täcker de breda klusterspecifika konfigurationerna, vilket visas i följande JSON-kodavsnitt:
+Allmänna klusterkonfigurationer behandlar de breda klustrade konfigurationerna, som du ser i följande JSON-kodfragment:
 
 ```json
     "name": "SampleCluster",
@@ -34,10 +34,10 @@ Allmänna klusterkonfigurationer täcker de breda klusterspecifika konfiguration
     "apiVersion": "01-2017",
 ```
 
-Du kan ge ditt servicetyg-kluster vilket eget namn som helst genom att tilldela det till namnvariabeln. ClusterConfigurationVersion är versionsnumret för klustret. Öka den varje gång du uppgraderar servicetyg-klustret. Lämna apiVersion inställt på standardvärdet.
+Du kan ge ditt Service Fabric-kluster ett eget namn genom att tilldela det till variabeln Name. ClusterConfigurationVersion är versions numret för klustret. Öka det varje gång du uppgraderar Service Fabric klustret. Lämna API version inställt på standardvärdet.
 
 ## <a name="nodes-on-the-cluster"></a>Noder i klustret
-Du kan konfigurera noderna i Service Fabric-klustret med hjälp av avsnittet noder, som följande utdrag visar:
+Du kan konfigurera noderna i Service Fabric-klustret med hjälp av noden noder, som följande kod avsnitt visar:
 ```json
 "nodes": [{
     "nodeName": "vm0",
@@ -60,24 +60,24 @@ Du kan konfigurera noderna i Service Fabric-klustret med hjälp av avsnittet nod
 }],
 ```
 
-Ett Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till fler noder i det här avsnittet enligt din konfiguration. I följande tabell förklaras konfigurationsinställningarna för varje nod:
+Ett Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till fler noder i det här avsnittet enligt din installation. I följande tabell förklaras konfigurations inställningar för varje nod:
 
 | **Nodkonfiguration** | **Beskrivning** |
 | --- | --- |
-| nodeNamn |Du kan ge noden vilket eget namn som helst. |
-| Ip |Ta reda på IP-adressen för din nod `ipconfig`genom att öppna ett kommandofönster och skriva . Observera IPV4-adressen och tilldela den till variabeln iPAddress. |
-| nodeTypeRef |Varje nod kan tilldelas en annan nodtyp. [Nodtyperna](#node-types) definieras i följande avsnitt. |
-| felDomän |Feldomäner gör det möjligt för klusteradministratörer att definiera de fysiska noder som kan misslyckas samtidigt på grund av delade fysiska beroenden. |
-| uppgraderaDomain |Uppgraderingsdomäner beskriver uppsättningar noder som stängs av för uppgraderingar av Service Fabric vid ungefär samma tidpunkt. Du kan välja vilka noder som ska tilldelas vilka uppgraderingsdomäner, eftersom de inte begränsas av några fysiska krav. |
+| nodeName |Du kan ge noden ett eget namn. |
+| Adresser |Ta reda på IP-adressen för din nod genom att öppna ett kommando fönster `ipconfig`och skriva. Anteckna IPV4-adressen och tilldela den till variabeln iPAddress. |
+| nodeTypeRef |Varje nod kan tilldelas en annan nodtyp. [Node-typerna](#node-types) definieras i följande avsnitt. |
+| Faulydomain |Fel domäner gör det möjligt för kluster administratörer att definiera de fysiska noder som kan sluta fungera på samma tid på grund av delade fysiska beroenden. |
+| upgradeDomain |Uppgraderings domäner beskriver uppsättningar av noder som stängs för Service Fabric uppgraderingar på ungefär samma tid. Du kan välja vilka noder som ska tilldelas till vilka uppgraderings domäner, eftersom de inte begränsas av fysiska krav. |
 
-## <a name="cluster-properties"></a>Klusteregenskaper
-Egenskapsavsnittet i ClusterConfig.json används för att konfigurera klustret enligt bilden:
+## <a name="cluster-properties"></a>Kluster egenskaper
+Avsnittet Egenskaper i ClusterConfig. JSON används för att konfigurera klustret som det visas:
 
 ### <a name="reliability"></a>Tillförlitlighet
-Begreppet tillförlitlighetNivå definierar antalet repliker eller instanser av Service Fabric-systemtjänsterna som kan köras på klustrets primära noder. Den bestämmer tillförlitligheten hos dessa tjänster och därmed klustret. Värdet beräknas av systemet vid skapande och uppgradering av kluster.
+Begreppet reliabilityLevel definierar antalet repliker eller instanser av Service Fabric system tjänster som kan köras på de primära noderna i klustret. Den fastställer tillförlitligheten för dessa tjänster och därmed klustret. Värdet beräknas av systemet när klustret skapas och uppgraderings tiden.
 
 ### <a name="diagnostics"></a>Diagnostik
-I avsnittet diagnosticsStore kan du konfigurera parametrar för diagnostik och felsökning av nod- eller klusterfel, vilket visas i följande kodavsnitt: 
+I avsnittet diagnosticsStore kan du konfigurera parametrar för att aktivera diagnostik och felsöka nod-eller kluster fel, som du ser i följande kodfragment: 
 
 ```json
 "diagnosticsStore": {
@@ -89,7 +89,7 @@ I avsnittet diagnosticsStore kan du konfigurera parametrar för diagnostik och f
 }
 ```
 
-Metadata är en beskrivning av klusterdiagnostiken och kan ställas in enligt din konfiguration. Dessa variabler hjälper till att samla in ETW-spårningsloggar och kraschdumpar samt prestandaräknare. Mer information om ETW-spårningsloggar finns i [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) och [ETW tracing](https://msdn.microsoft.com/library/ms751538.aspx). Alla loggar, inklusive [kraschdumpar](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) och [prestandaräknare,](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)kan dirigeras till mappen connectionString på datorn. Du kan också använda AzureStorage för att lagra diagnostik. Se följande exempelavsnitt:
+Metadata är en beskrivning av kluster diagnosen och kan ställas in enligt din installation. Dessa variabler bidrar till att samla in ETW-spårnings loggar och krasch dum par samt prestanda räknare. Mer information om ETW-spårnings loggar finns i [tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) och [ETW-spårning](https://msdn.microsoft.com/library/ms751538.aspx). Alla loggar, inklusive [krasch dum par](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) och [prestanda räknare](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), kan dirigeras till ConnectionString-mappen på din dator. Du kan också använda AzureStorage för att lagra diagnostik. Se följande exempel-kodfragment:
 
 ```json
 "diagnosticsStore": {
@@ -102,7 +102,7 @@ Metadata är en beskrivning av klusterdiagnostiken och kan ställas in enligt di
 ```
 
 ### <a name="security"></a>Säkerhet
-Säkerhetsavsnittet är nödvändigt för ett säkert fristående Service Fabric-kluster. Följande kodavsnitt visar en del av det här avsnittet:
+Säkerhets avsnittet är nödvändigt för ett säkert fristående Service Fabric-kluster. I följande fragment visas en del av det här avsnittet:
 
 ```json
 "security": {
@@ -113,10 +113,10 @@ Säkerhetsavsnittet är nödvändigt för ett säkert fristående Service Fabric
 }
 ```
 
-Metadata är en beskrivning av ditt säkra kluster och kan ställas in enligt din konfiguration. ClusterCredentialType och ServerCredentialType bestämmer vilken typ av säkerhet som klustret och noderna implementerar. De kan ställas in på antingen *X509* för en certifikatbaserad säkerhet eller *Windows* för Active Directory-baserad säkerhet. Resten av säkerhetsavsnittet baseras på typen av säkerhet. Information om hur du fyller i resten av säkerhetsavsnittet finns [i Certifikatbaserad säkerhet i ett fristående kluster](service-fabric-windows-cluster-x509-security.md) eller [Windows-säkerhet i ett fristående kluster](service-fabric-windows-cluster-windows-security.md).
+Metadata är en beskrivning av ditt säkra kluster och kan ställas in enligt din installation. ClusterCredentialType och ServerCredentialType bestämmer vilken typ av säkerhet som klustret och noderna implementerar. De kan ställas in på antingen *X509* för en certifikatbaserad säkerhet eller *Windows* för Active Directory-baserad säkerhet. Resten av säkerhets avsnittet baseras på typen av säkerhet. Information om hur du fyller i resten av säkerhets avsnittet finns i [certifikat-baserad säkerhet i ett fristående kluster](service-fabric-windows-cluster-x509-security.md) eller [Windows-säkerhet i ett fristående kluster](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Nodtyper
-Avsnittet nodeTypes beskriver vilken typ av noder som klustret har. Minst en nodtyp måste anges för ett kluster, vilket visas i följande kodavsnitt: 
+I avsnittet nodeTypes beskrivs vilken typ av noder som ditt kluster har. Minst en nodtyp måste anges för ett kluster, vilket visas i följande kodfragment: 
 
 ```json
 "nodeTypes": [{
@@ -139,20 +139,20 @@ Avsnittet nodeTypes beskriver vilken typ av noder som klustret har. Minst en nod
 }]
 ```
 
-Namnet är det egna namnet för den här nodtypen. Om du vill skapa en nod av den här nodtypen tilldelar du dess eget namn till nodenTypeRef-variabeln för den noden, som [tidigare nämnts](#nodes-on-the-cluster). För varje nodtyp definierar du de anslutningsslutpunkter som används. Du kan välja valfritt portnummer för dessa anslutningsslutpunkter, så länge de inte står i konflikt med några andra slutpunkter i det här klustret. I ett multinodkluster finns det en eller flera primära noder (det vill ha is, isPrimary är inställt på *true),* beroende på [tillförlitlighetenNivå](#reliability). Mer information om primära och icke-primära nodtyper finns i [Service Fabric kluster kapacitetsplanering överväganden](service-fabric-cluster-capacity.md) för information om nodeTypes och tillförlitlighetLevel. 
+Namnet är det egna namnet för den här nodtypen. Om du vill skapa en nod av den här nodtypen tilldelar du det egna namnet till variabeln nodeTypeRef för noden, som [tidigare nämnts](#nodes-on-the-cluster). Definiera de anslutnings slut punkter som används för varje nodtyp. Du kan välja ett port nummer för dessa anslutnings slut punkter, så länge de inte står i konflikt med andra slut punkter i klustret. I ett kluster med flera noder finns det en eller flera primära noder (det vill säga isPrimary är inställt på *Sant*), beroende på [reliabilityLevel](#reliability). Mer information om primära och andra typer av noder finns i [Service Fabric överväganden för kluster kapacitets planering](service-fabric-cluster-capacity.md) för information om NodeTypes och reliabilityLevel. 
 
-#### <a name="endpoints-used-to-configure-the-node-types"></a>Slutpunkter som används för att konfigurera nodtyperna
-* clientConnectionEndpointPort är den port som används av klienten för att ansluta till klustret när klient-API:er används. 
-* clusterConnectionEndpointPort är den port där noderna kommunicerar med varandra.
-* leaseDriverEndpointPort är den port som används av klusterhyresdrivrutinen för att ta reda på om noderna fortfarande är aktiva. 
-* serviceConnectionEndpointPort är den port som används av de program och tjänster som distribueras på en nod för att kommunicera med Service Fabric-klienten på den specifika noden.
+#### <a name="endpoints-used-to-configure-the-node-types"></a>Slut punkter som används för att konfigurera nodtyper
+* clientConnectionEndpointPort är den port som klienten använder för att ansluta till klustret när klient-API: er används. 
+* clusterConnectionEndpointPort är porten där noderna kommunicerar med varandra.
+* leaseDriverEndpointPort är den port som används av kluster låne driv rutinen för att ta reda på om noderna fortfarande är aktiva. 
+* serviceConnectionEndpointPort är den port som används av de program och tjänster som distribueras på en nod för att kommunicera med Service Fabric-klienten på en viss nod.
 * httpGatewayEndpointPort är den port som används av Service Fabric Explorer för att ansluta till klustret.
-* efemäraportar åsidosätter de [dynamiska portar som används av operativsystemet](https://support.microsoft.com/kb/929851). Service Fabric använder en del av dessa portar som programportar och de återstående är tillgängliga för operativsystemet. Det här området mappar också det här intervallet till det befintliga intervallet som finns i operativsystemet, så för alla ändamål kan du använda de intervall som anges i exempeljsonfilerna. Se till att skillnaden mellan start- och slutportarna är minst 255. Du kan stöta på konflikter om skillnaden är för låg, eftersom det här intervallet delas med operativsystemet. Om du vill se det `netsh int ipv4 show dynamicport tcp`konfigurerade dynamiska portintervallet kör du .
-* applicationPorts är de portar som används av Service Fabric-programmen. Programportintervallet bör vara tillräckligt stort för att täcka slutpunktskravet för dina program. Det här intervallet bör vara exklusivt från det dynamiska portintervallet på datorn, det vill säga efemäraportintervallet som anges i konfigurationen. Service Fabric använder dessa portar när nya portar krävs och tar hand om att öppna brandväggen för dessa portar. 
-* reverseProxyEndpointPort är en valfri omvänd proxyslutpunkt. Mer information finns i [Omvänd proxy för Service Fabric.](service-fabric-reverseproxy.md) 
+* ephemeralPorts åsidosätter de [dynamiska portar som används av operativ systemet](https://support.microsoft.com/kb/929851). Service Fabric använder en del av dessa portar som program portar och återstående är tillgängliga för operativ systemet. Den mappar även det här intervallet till det befintliga intervallet som finns i operativ systemet, så i alla syfte kan du använda de intervall som anges i JSON-exempelfilerna. Se till att skillnaden mellan start-och slut portarna är minst 255. Du kan stöta på konflikter om skillnaden är för låg, eftersom intervallet delas med operativ systemet. Om du vill se det konfigurerade dynamiska port intervallet `netsh int ipv4 show dynamicport tcp`kör du.
+* Applicationports får är de portar som används av Service Fabric-program. Program ports intervallet bör vara tillräckligt stort för att kunna användas för att fastställa slut punkts kravet för dina program. Intervallet ska vara exklusiv från det dynamiska port intervallet på datorn, det vill säga ephemeralPorts-intervallet som angetts i konfigurationen. Service Fabric använder dessa portar när nya portar krävs och tar hand om att öppna brand väggen för dessa portar. 
+* reverseProxyEndpointPort är en valfri reverse proxy-slutpunkt. Mer information finns i [Service Fabric omvänd proxy](service-fabric-reverseproxy.md). 
 
-### <a name="log-settings"></a>Logginställningar
-I avsnittet fabricSettings kan du ställa in rotkataloger för Service Fabric-data och loggar. Du kan bara anpassa dessa kataloger under den första klusterskapandet. Se följande exempelavsnitt i det här avsnittet:
+### <a name="log-settings"></a>Logg inställningar
+I avsnittet fabricSettings kan du ange rot kataloger för Service Fabric data och loggar. Du kan bara anpassa dessa kataloger när du skapar det första klustret. Se följande exempel avsnitt:
 
 ```json
 "fabricSettings": [{
@@ -166,10 +166,10 @@ I avsnittet fabricSettings kan du ställa in rotkataloger för Service Fabric-da
 }]
 ```
 
-Vi rekommenderar att du använder en icke-OS-enhet som FabricDataRoot och FabricLogRoot. Det ger mer tillförlitlighet när du undviker situationer när operativsystemet slutar svara. Om du bara anpassar dataroten placeras loggroten en nivå under dataroten.
+Vi rekommenderar att du använder en icke-OS-enhet som FabricDataRoot och FabricLogRoot. Den ger mer tillförlitlighet i att undvika situationer när operativ systemet slutar svara. Om du bara anpassar data roten placeras logg roten en nivå under data roten.
 
-### <a name="stateful-reliable-services-settings"></a>Tillståndskänsliga inställningar för tillförlitliga tjänster
-I avsnittet KtlLogger kan du ställa in de globala konfigurationsinställningarna för tillförlitliga tjänster. Mer information om dessa inställningar finns i [Konfigurera tillståndskänsliga tillförlitliga tjänster](service-fabric-reliable-services-configuration.md). I följande exempel visas hur du ändrar loggen för delade transaktioner som skapas för att stödja alla tillförlitliga samlingar för tillståndskänsliga tjänster:
+### <a name="stateful-reliable-services-settings"></a>Tillstånds känsliga Reliable Services inställningar
+I avsnittet KtlLogger kan du ange globala konfigurations inställningar för Reliable Services. Mer information om de här inställningarna finns i [Konfigurera tillstånds känslig Reliable Services](service-fabric-reliable-services-configuration.md). I följande exempel visas hur du ändrar den delade transaktions loggen som skapas för att återställa pålitliga samlingar för tillstånds känsliga tjänster:
 
 ```json
 "fabricSettings": [{
@@ -181,8 +181,8 @@ I avsnittet KtlLogger kan du ställa in de globala konfigurationsinställningarn
 }]
 ```
 
-### <a name="add-on-features"></a>Tilläggsfunktioner
-Konfigurera apiVersion som 04-2017 eller högre om du vill konfigurera tilläggsfunktioner och konfigurera tilläggen enligt nedan:
+### <a name="add-on-features"></a>Tilläggs funktioner
+Konfigurera tilläggs funktioner genom att konfigurera API version som 04-2017 eller högre och konfigurera addonFeatures som visas här:
 
 ```json
 "apiVersion": "04-2017",
@@ -193,15 +193,15 @@ Konfigurera apiVersion som 04-2017 eller högre om du vill konfigurera tilläggs
     ]
 }
 ```
-Alla tillgängliga tilläggsfunktioner kan ses i [Service Fabric REST API Reference](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
+Alla tillgängliga tilläggs funktioner kan visas i [Service Fabric REST API-referensen](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Stöd för containrar
-Om du vill aktivera behållarstöd för både Windows Server-behållare och Hyper-V-behållare för fristående kluster måste dnsservice-tilläggsfunktionen vara aktiverad.
+Om du vill aktivera stöd för behållare för både Windows Server-behållare och Hyper-V-behållare för fristående kluster måste DNS service-tilläggs funktionen vara aktive rad.
 
 ## <a name="next-steps"></a>Nästa steg
-När du har konfigurerat en komplett *ClusterConfig.json-fil* enligt din fristående klusterkonfiguration kan du distribuera klustret. Följ stegen i [Skapa ett fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). 
+När du har en fullständig *ClusterConfig. JSON* -fil konfigurerad enligt den fristående kluster konfigurationen kan du distribuera klustret. Följ stegen i [skapa ett fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). 
 
-Om du har ett fristående kluster distribuerat kan du också [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
+Om du har ett fristående kluster distribuerat kan du också [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Lär dig hur du [visualiserar klustret med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Lär dig hur du [visualiserar ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 

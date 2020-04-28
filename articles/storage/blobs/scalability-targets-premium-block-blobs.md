@@ -1,7 +1,7 @@
 ---
-title: Skalbarhetsmål för premiumblockbloblagringskonton
+title: Skalbarhets mål för Premium Block Blob Storage-konton
 titleSuffix: Azure Storage
-description: Läs mer om premium-prestanda block blob lagringskonton. Block blob storage-konton är optimerade för program som använder mindre, kilobyte-intervall objekt.
+description: Läs mer om Premium-prestanda Block Blob Storage-konton. Block Blob Storage-konton är optimerade för program som använder mindre, KB-intervall objekt.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 948b0f411e64fadc1e4e48c08f427e5ce4b2229d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75486032"
 ---
-# <a name="scalability-targets-for-premium-block-blob-storage-accounts"></a>Skalbarhetsmål för premiumblockbloblagringskonton
+# <a name="scalability-targets-for-premium-block-blob-storage-accounts"></a>Skalbarhets mål för Premium Block Blob Storage-konton
 
-Ett premium-prestanda block blob storage-konto är optimerad för program som använder mindre, kilobyte-intervall objekt. Den är idealisk för program som kräver hög transaktionsfrekvens eller konsekvent lagring med låg latens. Premium prestanda block blob lagring är utformad för att skala med dina program. Om ditt scenario kräver att du distribuerar program som kräver hundratusentals begäranden per sekund eller petabyte lagringskapacitet kontaktar du Microsoft genom att skicka en supportbegäran i [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Ett Blob Storage-konto med Premium-prestanda är optimerat för program som använder mindre KB-intervall objekt. Det är perfekt för program som kräver höga transaktions priser eller konsekvent lagring med låg latens. Förstklassigt prestanda Block Blob Storage är utformat för att skalas med dina program. Om ditt scenario kräver att du distribuerar program som kräver hundratals tusen förfrågningar per sekund eller petabyte lagrings kapacitet, kontaktar du Microsoft genom att skicka in en support förfrågan i [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

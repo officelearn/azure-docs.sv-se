@@ -1,6 +1,6 @@
 ---
-title: Designa Azure Table Storage för frågor | Microsoft-dokument
-description: Designtabeller för frågor i Azure Table storage.
+title: Designa Azure Table Storage för frågor | Microsoft Docs
+description: Design tabeller för frågor i Azure Table Storage.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,96 +9,96 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457640"
 ---
 # <a name="design-for-querying"></a>Utforma för frågor
-Tabelltjänstlösningar kan läsas intensivt, skriva intensivt eller en blandning av de två. Den här artikeln fokuserar på de saker du bör tänka på när du utformar tabelltjänsten för att stödja läsåtgärder effektivt. Vanligtvis är en design som stöder läsåtgärder effektivt också effektiv för skrivåtgärder. Det finns dock ytterligare överväganden att tänka på när man utformar för att stödja skrivåtgärder, som beskrivs i artikeln [Design för dataändring](table-storage-design-for-modification.md).
+Table service lösningar kan vara av intensiv, skriv intensiv eller en blandning av de två. Den här artikeln fokuserar på saker som du bör tänka på när du utformar Table service som stöder Läs åtgärder effektivt. Vanligt vis är en design som stöder Läs åtgärder effektiv för Skriv åtgärder. Det finns dock ytterligare saker att tänka på när du utformar för att stödja Skriv åtgärder, som beskrivs i artikeln [design för data ändringar](table-storage-design-for-modification.md).
 
-En bra utgångspunkt för att utforma din tabelltjänstlösning så att du kan läsa data effektivt är att fråga "Vilka frågor behöver mitt program köra för att hämta de data som behövs från tabelltjänsten?"  
+En bra utgångs punkt för att utforma din Table service-lösning så att du kan läsa data effektivt är att fråga "vilka frågor som mitt program måste köra för att hämta de data som krävs från Table service?"  
 
 > [!NOTE]
-> Med table-tjänsten är det viktigt att få designen korrekt på framsidan eftersom det är svårt och dyrt att ändra den senare. I en relationsdatabas är det till exempel ofta möjligt att åtgärda prestandaproblem genom att helt enkelt lägga till index i en befintlig databas: det här är inte ett alternativ med tabelltjänsten.  
+> Med Table service är det viktigt att du får fram rätt design eftersom det är svårt och dyrt att ändra det senare. I en Relations databas är det ofta möjligt att åtgärda prestanda problem genom att lägga till index i en befintlig databas: Detta är inte ett alternativ med Table service.  
 > 
 > 
 
-Det här avsnittet fokuserar på de viktigaste problem som du måste ta itu med när du utformar tabellerna för frågor. De ämnen som behandlas i det här avsnittet är:
+Det här avsnittet fokuserar på de viktiga problem som du måste åtgärda när du utformar dina tabeller för frågor. De avsnitt som beskrivs i det här avsnittet är:
 
-* [Hur ditt val av PartitionKey och RowKey påverkar frågeprestanda](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
+* [Hur du väljer PartitionKey och RowKey påverkar frågans prestanda](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
 * [Välja en lämplig PartitionKey](#choosing-an-appropriate-partitionkey)
-* [Optimera frågor för tabelltjänsten](#optimizing-queries-for-the-table-service)
-* [Sortera data i tabelltjänsten](#sorting-data-in-the-table-service)
+* [Optimera frågor för Table service](#optimizing-queries-for-the-table-service)
+* [Sortera data i Table service](#sorting-data-in-the-table-service)
 
-## <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>Hur ditt val av PartitionKey och RowKey påverkar frågeprestanda
-Följande exempel förutsätter att tabelltjänsten lagrar medarbetarentiteter med följande struktur (de flesta av exemplen utelämnar egenskapen **Tidsstämpel** för tydlighet):  
+## <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>Hur du väljer PartitionKey och RowKey påverkar frågans prestanda
+I följande exempel förutsätts att tabell tjänsten lagrar anställdas entiteter med följande struktur (de flesta exempel utesluter egenskapen **timestamp** för klarhet):  
 
-| *Kolumnnamn* | *Datatyp* |
+| *Kolumn namn* | *Datatyp* |
 | --- | --- |
-| **PartitionKey** (avdelningsnamn) |String |
-| **RowKey** (medarbetar-ID) |String |
-| **Förnamn** |String |
-| **Efternamn** |String |
+| **PartitionKey** (avdelnings namn) |Sträng |
+| **RowKey** (medarbetar-ID) |Sträng |
+| **FirstName** |Sträng |
+| **LastName** |Sträng |
 | **Ålder** |Integer |
-| **Emailaddress** |String |
+| **EmailAddress** |Sträng |
 
-I artikeln [Azure Table Storage Overview](table-storage-overview.md) beskrivs några av de viktigaste funktionerna i Azure Table-tjänsten som har en direkt inverkan på utformningen av frågor. Dessa resulterar i följande allmänna riktlinjer för att utforma tabelltjänstfrågor. Observera att filtersyntaxen som används i exemplen nedan kommer från REST API:et för tabelltjänsten, mer information finns [i Fråga entiteter](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
+I artikeln [Översikt över Azure Table Storage](table-storage-overview.md) beskrivs några av de viktigaste funktionerna i Azure Table service som direkt påverkar utformningen av frågor. Detta resulterar i följande allmänna rikt linjer för att utforma Table service frågor. Observera att den filter-syntax som används i exemplen nedan är från Table service REST API. mer information finns i [fråga om entiteter](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 
-* En ***punktfråga*** är den mest effektiva sökningen som ska användas och rekommenderas att användas för uppslag eller uppslag med stora volymer som kräver lägsta svarstid. En sådan fråga kan använda indexen för att hitta en enskild enhet mycket effektivt genom att ange både **PartitionKey-** och **RowKey-värdena.** Till exempel: $filter=(PartitionKey eq 'Sales') och (RowKey eq '2')  
-* Näst bäst är en ***områdesfråga*** som använder **PartitionKey** och filtrerar på ett intervall med **RowKey-värden** för att returnera mer än en entitet. **PartitionKey-värdet** identifierar en specifik partition och **RowKey-värdena** identifierar en delmängd av entiteterna i den partitionen. Till exempel: $filter=PartitionKey eq 'Sales' och RowKey ge 'S' och RowKey lt 'T'  
-* Tredje bästa är en ***partitionsgenomsökning*** som använder **PartitionKey** och filtrerar på en annan icke-nyckelgenskap och som kan returnera mer än en entitet. **PartitionKey-värdet** identifierar en specifik partition och egenskapsvärdena väljer för en delmängd av entiteterna i partitionen. Till exempel: $filter=PartitionKey eq 'Sales' och LastName eq 'Smith'  
-* En ***tabell genomsökning*** innehåller inte **PartitionKey** och är mycket ineffektiv eftersom den söker alla partitioner som utgör din tabell i sin tur för alla matchande entiteter. Det kommer att utföra en tabell genomsökning oavsett om ditt filter använder **RowKey**. Till exempel: $filter=Efternamn eq 'Jones'  
-* Frågor som returnerar flera entiteter returnerar dem sorterade i **PartitionKey** och **RowKey** ordning. Om du vill undvika att tillgripa entiteterna i klienten väljer du en **RowKey** som definierar den vanligaste sorteringsordningen.  
+* En ***punkt fråga*** är den mest effektiva sökningen som ska användas och rekommenderas för att använda stora volymer eller sökningar som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både **PartitionKey** -och **RowKey** -värden. Exempel: $filter = (PartitionKey EQ ' Sales ') och (RowKey EQ 2)  
+* Det andra bästa är en ***intervall fråga*** som använder **PartitionKey** och filter på ett intervall med **RowKey** -värden för att returnera mer än en entitet. **PartitionKey** -värdet identifierar en viss partition och **RowKey** -värdena identifierar en delmängd av entiteterna i den partitionen. Exempel: $filter = PartitionKey EQ ' Sales ' och RowKey ge ' och RowKey lt '  
+* Det tredje bästa är en ***partitions ökning*** som använder **PartitionKey** och filter på en annan icke-nyckel egenskap och som kan returnera fler än en entitet. **PartitionKey** -värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Exempel: $filter = PartitionKey EQ ' Sales ' och LastName ' Svensson '  
+* En ***tabells ökning*** inkluderar inte **PartitionKey** och är väldigt ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen i tur och följd för alla matchande entiteter. En tabells ökning utförs oavsett om filtret använder **RowKey**eller inte. Exempel: $filter = LastName EQ ' Johansson '  
+* Frågor som returnerar flera entiteter returnerar dem sorterade i **PartitionKey** -och **RowKey** -ordningen. Välj en **RowKey** som definierar den vanligaste sorterings ordningen för att undvika att enheterna i klienten används.  
 
-Observera att om du använder ett "**eller**" för att ange ett filter baserat på **RowKey-värden** resulterar i en partitionsgenomsökning och behandlas inte som en intervallfråga. Därför bör du undvika frågor som använder filter som: $filter=PartitionKey eq 'Sales' och (RowKey eq '121' eller RowKey eq '322')  
+Observera att om du använder en "**eller**" för att ange ett filter baserat på **RowKey** -värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Därför bör du undvika frågor som använder filter som: $filter = PartitionKey EQ ' Sales ' och (RowKey EQ ' 121 ' eller RowKey EQ ' 322 ')  
 
-Exempel på kod på klientsidan som använder storage-klientbiblioteket för att köra effektiva frågor finns i:  
+Exempel på kod på klient sidan som använder lagrings klient biblioteket för att köra effektiva frågor finns i:  
 
-* [Köra en punktfråga med lagringsklientbiblioteket](table-storage-design-patterns.md#executing-a-point-query-using-the-storage-client-library)
+* [Köra en punkt fråga med lagrings klient biblioteket](table-storage-design-patterns.md#executing-a-point-query-using-the-storage-client-library)
 * [Hämta flera entiteter med LINQ](table-storage-design-patterns.md#retrieving-multiple-entities-using-linq)
-* [Projektion på serversidan](table-storage-design-patterns.md#server-side-projection)  
+* [Projektion på Server Sidan](table-storage-design-patterns.md#server-side-projection)  
 
-Exempel på kod på klientsidan som kan hantera flera entitetstyper som lagras i samma tabell finns i:  
+Exempel på kod på klient sidan som kan hantera flera enhets typer som lagras i samma tabell finns i:  
 
 * [Arbeta med heterogena entitetstyper](table-storage-design-patterns.md#working-with-heterogeneous-entity-types)  
 
 ## <a name="choosing-an-appropriate-partitionkey"></a>Välja en lämplig PartitionKey
-Ditt val av **PartitionKey** bör balansera behovet av att aktivera användningen av EGTs (för att säkerställa konsekvens) mot kravet att distribuera dina entiteter över flera partitioner (för att säkerställa en skalbar lösning).  
+Valet av **PartitionKey** bör balansera behovet av att möjliggöra användningen av EGTs (för att säkerställa konsekvens) mot kravet att distribuera dina entiteter över flera partitioner (för att säkerställa en skalbar lösning).  
 
-På en extrem kan du lagra alla dina entiteter i en enda partition, men det kan begränsa skalbarheten för din lösning och förhindra att tabelltjänsten kan belastningsutjämna begäranden. På den andra extrema kan du lagra en entitet per partition, vilket skulle vara mycket skalbart och som gör att tabelltjänsten kan belastningsbalansbegäranden, men som skulle hindra dig från att använda entitetsgruppstransaktioner.  
+Med en extrem enhet kan du lagra alla entiteter i en enda partition, men detta kan begränsa din lösnings skalbarhet och förhindra att tabell tjänsten kan läsa in-balans-begäranden. På de andra Extreme kan du lagra en entitet per partition, som skulle vara mycket skalbar och som gör det möjligt för tabell tjänsten att belastningsutjämna begär Anden, men som hindrar dig från att använda enhets grupp transaktioner.  
 
-En idealisk **PartitionKey** är en som gör att du kan använda effektiva frågor och som har tillräckligt med partitioner för att säkerställa att din lösning är skalbar. Vanligtvis kommer du att upptäcka att dina entiteter kommer att ha en lämplig egenskap som distribuerar dina entiteter över tillräckliga partitioner.
+En idealisk **PartitionKey** är en som gör att du kan använda effektiva frågor och som har tillräckligt med partitioner för att säkerställa att din lösning är skalbar. Normalt kommer du att se att dina entiteter har en lämplig egenskap som distribuerar dina entiteter över tillräckligt många partitioner.
 
 > [!NOTE]
-> I ett system som lagrar information om användare eller anställda kan UserID till exempel vara en bra PartitionKey. Du kan ha flera entiteter som använder ett visst UserID som partitionsnyckel. Varje entitet som lagrar data om en användare grupperas i en enda partition, så dessa entiteter är tillgängliga via entitetsgrupptransaktioner, samtidigt som de är mycket skalbara.
+> I ett system som lagrar information om användare eller anställda kan UserID till exempel vara en felfri PartitionKey. Du kan ha flera entiteter som använder ett angivet UserID som partitionsnyckel. Varje entitet som lagrar data om en användare grupperas i en enda partition, så dessa entiteter är tillgängliga via enhets grupp transaktioner, samtidigt som de fortfarande är mycket skalbara.
 > 
 > 
 
-Det finns ytterligare överväganden i ditt val av **PartitionKey** som relaterar till hur du ska infoga, uppdatera och ta bort entiteter. Mer information finns i [Utforma tabeller för dataändring](table-storage-design-for-modification.md).  
+Det finns ytterligare saker du behöver tänka på när du väljer **PartitionKey** som relaterar till hur du ska infoga, uppdatera och ta bort entiteter. Mer information finns i [utforma tabeller för data ändring](table-storage-design-for-modification.md).  
 
-## <a name="optimizing-queries-for-the-table-service"></a>Optimera frågor för tabelltjänsten
-Tabelltjänsten indexerar automatiskt dina entiteter med hjälp av **partitionsnyckel-** och **RowKey-värdena** i ett enda grupperat index, därav anledningen till att punktfrågor är de mest effektiva att använda. Det finns dock inga andra index än index på det klustrade indexet på **PartitionKey** och **RowKey**.
+## <a name="optimizing-queries-for-the-table-service"></a>Optimera frågor för Table service
+Table service indexerar automatiskt dina entiteter med hjälp av värdena **PartitionKey** och **RowKey** i ett enda grupperat index, och därför är orsaken till att frågor är den mest effektiva att använda. Det finns dock inga andra index än det i det grupperade indexet på **PartitionKey** och **RowKey**.
 
-Många designer måste uppfylla kraven för att aktivera uppslag av entiteter baserat på flera kriterier. Till exempel att hitta medarbetarentiteter baserat på e-post, medarbetar-ID eller efternamn. De mönster som beskrivs i [Tabelldesignmönster](table-storage-design-patterns.md) behandlar dessa typer av krav och beskriver olika sätt att arbeta runt det faktum att tabelltjänsten inte tillhandahåller sekundära index:  
+Många design komponenter måste uppfylla kraven för att kunna söka efter entiteter baserat på flera kriterier. Du kan till exempel hitta anställdas entiteter baserat på e-post, medarbetar-ID eller efter namn. Mönstren som beskrivs i [tabell design mönster](table-storage-design-patterns.md) behandlar de här typerna av krav och beskriver olika sätt att arbeta runt det faktum att Table service inte tillhandahåller sekundära index:  
 
-* [Sekundärt indexmönster inom partitionen](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Lagra flera kopior av varje entitet med hjälp av olika **RowKey-värden** (i samma partition) för att möjliggöra snabba och effektiva sökninger och alternativa sorteringsorder med hjälp av olika **RowKey-värden.**  
-* [Sekundärt indexmönster mellan partitioner](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Lagra flera kopior av varje entitet med olika **RowKey-värden** i separata partitioner eller i separata tabeller för att möjliggöra snabba och effektiva sökninger och alternativa sorteringsorder med hjälp av olika **RowKey-värden.**  
-* [Indexentiteter Mönster](table-storage-design-patterns.md#index-entities-pattern) - Underhåll indexentiteter för att möjliggöra effektiva sökningar som returnerar listor över entiteter.  
+* [Sekundärt index mönster för sekundär partition](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) – lagra flera kopior av varje entitet med olika **RowKey** -värden (i samma partition) för att möjliggöra snabba och effektiva sökningar och alternativa sorterings ordningar genom att använda olika **RowKey** -värden.  
+* [Sekundärt index mönster mellan partitioner](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) – lagra flera kopior av varje entitet med olika **RowKey** -värden i separata partitioner eller i separata tabeller för att möjliggöra snabba och effektiva sökningar och alternativa sorterings ordningar genom att använda olika **RowKey** -värden.  
+* [Mönster för index entiteter](table-storage-design-patterns.md#index-entities-pattern) – underhålla index enheter för att möjliggöra effektiva sökningar som returnerar listor med entiteter.  
 
-## <a name="sorting-data-in-the-table-service"></a>Sortera data i tabelltjänsten
-Tabelltjänsten returnerar entiteter sorterade i stigande ordning baserat på **PartitionKey** och sedan efter **RowKey**. Dessa tangenter är strängvärden och för att säkerställa att numeriska värden sorteras korrekt bör du konvertera dem till en fast längd och pad dem med nollor. Om till exempel det medarbetar-ID-värde som du använder som **RowKey** är ett heltalsvärde, bör du konvertera medarbetar-ID **123** till **00000123**.  
+## <a name="sorting-data-in-the-table-service"></a>Sortera data i Table service
+Table service returnerar entiteter sorterade i stigande ordning baserat på **PartitionKey** och sedan efter **RowKey**. Dessa nycklar är sträng värden och säkerställer att numeriska värden sorteras korrekt genom att konvertera dem till en fast längd och fylla dem med nollor. Om till exempel det medarbetar-ID-värde som du använder som **RowKey** är ett heltals värde, bör du konvertera anställnings-ID **123** till **00000123**.  
 
-Många program har krav på att använda data sorterade i olika order: till exempel sortera medarbetare efter namn eller genom att ansluta datum. Följande mönster behandlar hur du växlar order för dina entiteter:  
+Många program har krav för att använda data sorterade i olika ordningar: till exempel att sortera anställda efter namn eller genom att ansluta till datum. Följande mönster hanterar hur du kan använda alternativa sorterings ordningar för dina entiteter:  
 
-* [Sekundärt indexmönster inom partitionen](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Lagra flera kopior av varje entitet med hjälp av olika RowKey-värden (i samma partition) för att möjliggöra snabba och effektiva sökninger och alternativa sorteringsorder med hjälp av olika RowKey-värden.  
-* [Sekundärt indexmönster mellan partitioner](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Lagra flera kopior av varje entitet med olika RowKey-värden i separata partitioner i separata tabeller för att möjliggöra snabba och effektiva sökninger och alternativa sorteringsorder med hjälp av olika RowKey-värden.
-* [Log tail pattern](table-storage-design-patterns.md#log-tail-pattern) - Hämta n-entiteterna som senast lades till i en partition med hjälp av ett *n* **RowKey-värde** som sorteras i omvänd datum och tidsordning.  
+* [Sekundärt index mönster för sekundär partition](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) – lagra flera kopior av varje entitet med olika RowKey-värden (i samma partition) för att möjliggöra snabba och effektiva sökningar och alternativa sorterings ordningar genom att använda olika RowKey-värden.  
+* [Sekundärt index mönster mellan partitioner](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) – lagra flera kopior av varje entitet med olika RowKey-värden i separata partitioner i separata tabeller för att möjliggöra snabba och effektiva sökningar och alternativa sorterings ordningar genom att använda olika RowKey-värden.
+* [Logg änden-mönster](table-storage-design-patterns.md#log-tail-pattern) – hämta de *n* entiteter som senast har lagts till i en partition med hjälp av ett **RowKey** -värde som sorterar efter omvänt datum-och tids ordning.  
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Mönster för tabelldesign](table-storage-design-patterns.md)
 - [Modellera relationer](table-storage-design-modeling.md)
-- [Kryptera tabelldata](table-storage-design-encrypt-data.md)
+- [Kryptera tabell data](table-storage-design-encrypt-data.md)
 - [Utforma för dataändring](table-storage-design-for-modification.md)

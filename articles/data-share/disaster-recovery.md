@@ -1,40 +1,40 @@
 ---
-title: Haveriberedskap för Azure Data Share
-description: Haveriberedskap för Azure Data Share
+title: Haveri beredskap för Azure Data Share
+description: Haveri beredskap för Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: a736e3ddfcf785f9ce27140eed58374a0732c1f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75483185"
 ---
-# <a name="disaster-recovery-for-azure-data-share"></a>Haveriberedskap för Azure Data Share
+# <a name="disaster-recovery-for-azure-data-share"></a>Haveri beredskap för Azure Data Share
 
-I den här artikeln går vi igenom hur du konfigurerar en katastrofåterställningsmiljö för Azure Data Share. Avbrott i Azure-datacenter är sällsynta, men kan pågå allt från några minuter till timmar. Avbrott i Data center kan orsaka avbrott i miljöer som förlitar sig på data som delas av dataleverantören. Genom att följa stegen i den här artikeln kan dataleverantörer fortsätta att dela data med sina datakonsumenter i händelse av ett datacenteravbrott för den primära regionen som är värd för din dataresurs. 
+I den här artikeln går vi igenom hur du konfigurerar en katastrof återställnings miljö för Azure Data Share. Avbrott i Azure Data Center är sällsynt, men kan gå från några minuter till timmar. Avbrott i data centret kan orsaka avbrott i miljöer som förlitar sig på att data delas av data leverantören. Genom att följa stegen i den här artikeln kan data leverantörer fortsätta att dela data med sina data konsumenter i händelse av ett avbrott i data centret för den primära region som är värd för din data resurs. 
 
-## <a name="achieving-business-continuity-for-azure-data-share"></a>Uppnå affärskontinuitet för Azure Data Share
+## <a name="achieving-business-continuity-for-azure-data-share"></a>Uppnå affärs kontinuitet för Azure Data Share
 
-Dataprovidern kan ha en dataresursmiljö etablerad i en sekundär region för att förberedas för ett avbrott i datacenter. Det finns åtgärder som kan vidtas som säkerställer en smidig redundans i händelse av att ett datacenteravbrott inträffar. 
+För att förbereda för ett avbrott i data centret kan dataprovidern ha en data resurs miljö etablerad i en sekundär region. Det finns mått som kan vidtas som säkerställer en smidig redundansväxling i händelse av att ett avbrott i data centret inträffar. 
 
-Dataleverantörer kan etablera sekundära Azure Data Share-resurser i ytterligare en region. Dessa datadelningsresurser kan konfigureras så att de innehåller datauppsättningar som finns i den primära dataresursmiljön. Datakonsumenter kan läggas till i dataresursen när de konfigurerar DR-miljön, eller läggs till vid en senare tidpunkt (dvs. som en del av manuella redundanssteg).
+Data leverantörer kan etablera sekundära Azure-dataresurser i en annan region. Dessa data resurs resurser kan konfigureras för att inkludera data uppsättningar som finns i den primära data resurs miljön. Data konsumenter kan läggas till i data resursen när du konfigurerar DR-miljön eller läggs till i en senare tidpunkt (dvs. som en del av stegen för manuell redundans).
 
-Om datakonsumenterna har en aktiv aktieprenumeration i en sekundär miljö som etablerats för DR-ändamål, kan de aktivera ögonblicksbildschemat som en del av en redundans. Om de datakonsumenter inte vill prenumerera på en sekundär region för DR-ändamål kan de bjudas in till den sekundära dataresursen vid ett senare tillfälle. 
+Om data konsumenter har en aktiv resurs prenumeration i en sekundär miljö som har skapats för DR, kan de aktivera ögonblicks bilds schemat som en del av en redundansväxling. Om data konsumenter inte vill prenumerera på en sekundär region i DR-syfte, kan de bjudas in till den sekundära data resursen vid ett senare tillfälle. 
 
-Datakonsumenter kan antingen ha en aktiv delningsprenumeration som är inaktiv för DR-ändamål, eller så kan dataleverantörer lägga till dem vid en senare tidpunkt som en del av manuella redundansprocedurer. 
+Data konsumenter kan antingen ha en aktiv resurs prenumeration som är inaktiv i DR-syfte, eller så kan data leverantörer lägga till dem i en senare tidpunkt som en del av manuella redundans-procedurer. 
 
 ## <a name="related-information"></a>Relaterad information
 
-- [Kontinuitet i verksamheten och katastrofåterställning](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+- [Verksamhets kontinuitet och haveri beredskap](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
 - [Bygg in hög tillgänglighet i din BCDR-strategi](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du börjar dela data fortsätter du till [att dela din datahandledning.](share-your-data.md)
+Om du vill lära dig hur du börjar dela data fortsätter du till kursen [dela data](share-your-data.md) .
 
 
 

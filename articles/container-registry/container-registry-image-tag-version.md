@@ -1,71 +1,71 @@
 ---
-title: Metodtips för bildtagg
-description: Metodtips för att tagga och versionsbehöra Docker-behållaravbildningar när du trycker av avbildningar till och hämtar avbildningar från ett Azure-behållarregister
+title: Metod tips för avbildnings Taggar
+description: Metod tips för taggning och versioner av Docker-behållar avbildningar vid överföring av bilder till och från ett Azure Container Registry
 author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445743"
 ---
-# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Rekommendationer för taggning och versionshantering av behållaravbildningar
+# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Rekommendationer för taggning och versions behållar avbildningar
 
-När du trycker på distribution av behållaravbildningar till ett behållarregister och sedan distribuerar dem behöver du en strategi för avbildningstaggning och versionshantering. I den här artikeln beskrivs två metoder och var och en passar under behållarens livscykel:
+När du distribuerar behållar avbildningar till ett behållar register och sedan distribuerar dem måste du ha en strategi för avbildnings taggning och versions hantering. I den här artikeln beskrivs två metoder och var de passar under livs cykel livs cykeln:
 
-* **Stabila taggar** - Taggar som du återanvänder, till exempel för att ange en större eller delversion som *mycontainerimage:1.0*.
-* **Unika taggar** - En annan tagg för varje bild som du skickar till ett register, till exempel *mycontainerimage:abc123*.
+* **Stabila Taggar** – taggar som du återanvänder, till exempel för att ange en större eller mindre version, till exempel *mycontainerimage: 1.0*.
+* **Unika Taggar** – en annan tagg för varje bild som du skickar till ett register, till exempel *mycontainerimage: vi abc123*.
 
-## <a name="stable-tags"></a>Stabila taggar
+## <a name="stable-tags"></a>Stabila Taggar
 
-**Rekommendation**: Använd stabila taggar för att underhålla **basavbildningar** för behållarbyggena. Undvik distributioner med stabila taggar, eftersom dessa taggar fortsätter att ta emot uppdateringar och kan införa inkonsekvenser i produktionsmiljöer.
+**Rekommendation**: Använd stabila taggar för att underhålla **bas avbildningar** för dina behållar versioner. Undvik distributioner med stabila taggar, eftersom dessa taggar fortsätter att ta emot uppdateringar och kan leda till inkonsekvenser i produktions miljöer.
 
-*Stabila taggar* innebär att en utvecklare, eller ett byggsystem, kan fortsätta att hämta en specifik tagg, som fortsätter att hämta uppdateringar. Stabil betyder inte att innehållet är fryst. Snarare innebär stabil bilden bör vara stabil för avsikten med den versionen. För att förbli "stabil" kan det vara bearbetat att använda säkerhetskorrigeringar eller ramuppdateringar.
+*Stabila Taggar* innebär en utvecklare, eller ett build-system, kan fortsätta att hämta en speciell tagg, vilket fortsätter att hämta uppdateringar. Stabilt innebär inte att innehållet är fryst. Stabilt innebär i stället att avbildningen bör vara stabil för avsikten med den versionen. För att hålla "stabil" kan det vara en service att tillämpa säkerhets korrigeringar eller Ramverks uppdateringar.
 
 ### <a name="example"></a>Exempel
 
-Ett ramteam levereras version 1.0. De vet att de kommer att leverera uppdateringar, inklusive mindre uppdateringar. För att stödja stabila taggar för en viss större och mindre version har de två uppsättningar stabila taggar.
+Ett Ramverks team levereras version 1,0. De vet att de kommer att leverera uppdateringar, inklusive mindre uppdateringar. För att stödja stabila taggar för en specifik och mindre version, har de två uppsättningar av stabila taggar.
 
-* `:1`– en stabil tagg för huvudversionen. `1`representerar den "nyaste" eller "senaste" 1.* versionen.
-* `:1.0`- En stabil tagg för version 1.0, så att en utvecklare att binda till uppdateringar av 1.0, och inte rullas fram till 1.1 när den släpps.
+* `:1`– en stabil tagg för huvud versionen. `1`representerar den nyaste eller senaste 1. * versionen.
+* `:1.0`– en stabil tagg för version 1,0, så att en utvecklare kan binda till uppdateringar av 1,0 och inte skickas vidare till 1,1 när den släpps.
 
-Teamet använder också `:latest` taggen, som pekar på den senaste stabila taggen, oavsett vad den aktuella huvudversionen är.
+Teamet använder också `:latest` taggen, som pekar på den senaste stabila taggen, oavsett vad den aktuella huvud versionen är.
 
-När basavbildningsuppdateringar är tillgängliga, eller någon typ av underhållsutgåva av ramverket, uppdateras avbildningar med stabila taggar till den senaste sammandraget som representerar den senaste stabila versionen av den versionen.
+När bas avbildnings uppdateringar är tillgängliga, eller någon typ av service version av ramverket, uppdateras bilder med de stabila taggarna till den senaste Digest som representerar den senaste stabila versionen av den versionen.
 
-I det här fallet servas kontinuerligt både de större och mindre taggarna. Från ett basavbildningsscenario gör detta det möjligt för avbildningsägaren att tillhandahålla servade avbildningar.
+I det här fallet betjänas både huvud-och del taggarna kontinuerligt. I ett scenario med en bas avbildning kan avbildningens ägare tillhandahålla tjänst avbildningar.
 
 ### <a name="delete-untagged-manifests"></a>Ta bort otaggade manifest
 
-Om en bild med en stabil tagg uppdateras är den tidigare taggade bilden otaggad, vilket resulterar i en överbliven bild. Den föregående avbildningens manifest och unika lagerdata finns kvar i registret. Om du vill behålla registerstorleken kan du med jämna mellanrum ta bort otaggade manifest som härrör från stabila avbildningsuppdateringar. Ta till exempel bort otaggade manifest [som](container-registry-auto-purge.md) är äldre än en angiven varaktighet automatiskt eller ange en [bevarandeprincip](container-registry-retention-policy.md) för otaggade manifest.
+Om en bild med en stabil tagg uppdateras, är den tidigare taggade bilden omärkt, vilket resulterar i en överbliven bild. Föregående bilds manifest och unika lager data finns kvar i registret. För att upprätthålla din register storlek kan du regelbundet ta bort otaggade manifest som orsakas av stabila avbildnings uppdateringar. Du kan t. ex. [Rensa](container-registry-auto-purge.md) otaggade manifest som är äldre än en angiven varaktighet eller ange en [bevarande princip](container-registry-retention-policy.md) för otaggade manifest.
 
-## <a name="unique-tags"></a>Unika taggar
+## <a name="unique-tags"></a>Unika Taggar
 
-**Rekommendation**: Använd unika taggar för **distributioner,** särskilt i en miljö som kan skalas på flera noder. Du vill förmodligen ha avsiktliga distributioner av en konsekvent version av komponenter. Om behållaren startas om eller en orchestrator skalar ut fler instanser hämtar inte värdarna av misstag en nyare version, som inte är i förhållande till de andra noderna.
+**Rekommendation**: Använd unika taggar för **distributioner**, särskilt i en miljö som kan skalas på flera noder. Du vill förmodligen avsiktliga distributioner av en konsekvent version av komponenter. Om din behållare startar om eller om en Orchestrator skalar ut fler instanser, kan dina värdar inte oavsiktligt hämta en nyare version, inkonsekvent med de andra noderna.
 
-Unik taggning innebär helt enkelt att varje bild som skjuts till ett register har en unik tagg. Taggar återanvänds inte. Det finns flera mönster du kan följa för att generera unika taggar, inklusive:
+Unik taggning innebär bara att varje bild som flyttas till ett register har en unik tagg. Taggar återanvänds inte. Det finns flera mönster som du kan följa för att generera unika taggar, inklusive:
 
-* **Datum-tid stämpel** - Detta tillvägagångssätt är ganska vanligt, eftersom du tydligt kan berätta när bilden byggdes. Men, hur korrelera tillbaka det till din bygga system? Måste du hitta den bygga som slutfördes samtidigt? Vilken tidszon är du i? Är alla dina byggsystem kalibrerade till UTC?
-* **Git commit** – Den här metoden fungerar tills du börjar stödja basavbildningsuppdateringar. Om en basavbildningsuppdatering sker startar ditt byggsystem med samma Git-commit som den tidigare versionen. Basbilden har dock nytt innehåll. I allmänhet ger en Git commit en *semi-stabil*tagg.
-* **Manifestsammanfattning** - Varje behållaravbildning som skjuts till ett behållarregister är associerad med ett manifest som identifieras av en unik SHA-256-hash eller sammanfattning. Medan unik, är smälta lång, svår att läsa, och okorrelerad med din bygga miljö.
-* **Build ID** - Det här alternativet kan vara bäst eftersom det är sannolikt inkrementellt, och det gör att du kan korrelera tillbaka till den specifika versionen för att hitta alla artefakter och loggar. Men som en uppenbar smälta, kan det vara svårt för en människa att läsa.
+* **Datum-** tidstämpel – den här metoden är ganska vanlig, eftersom du tydligt kan se när avbildningen har skapats. Men hur kan du korrelera tillbaka till ditt versions system? Måste du hitta versionen som slutfördes samtidigt? Vilken tidszon är du i? Är alla dina Bygg system kalibrerade för UTC?
+* **Git-incheckning** – den här metoden fungerar tills du har startat stöd för bas avbildnings uppdateringar. Om en bas avbildnings uppdatering sker, kommer ditt build-system att sätta igång med samma git-incheckning som den tidigare versionen. Bas avbildningen har dock nytt innehåll. I allmänhet tillhandahåller en git-incheckning en *halv*stabil tagg.
+* **Manifest Sammanfattning** -varje behållar avbildning som skickas till ett behållar register är associerad med ett manifest som identifieras av en unik SHA-256-hash eller Digest. När det är unikt är sammanfattningen lång, svår att läsa och korrelerad med din build-miljö.
+* **Build-ID** – det här alternativet kan vara bäst eftersom det är troligt vis stegvist, och det gör att du kan korrelera tillbaka till den specifika versionen för att hitta alla artefakter och loggar. Men liksom en manifest sammandrag kan det vara svårt för en mänsklig att läsa.
 
-  Om din organisation har flera byggsystem är det en variant av det `<build-system>-<build-id>`här alternativet om du förefixar taggen med byggsystemnamnet: . Du kan till exempel skilja byggen från API-teamets Jenkins-byggsystem och webbteamets Azure Pipelines-byggsystem.
+  Om din organisation har flera build-system, är prefixet med build-systemnamnet en variant av detta alternativ: `<build-system>-<build-id>`. Du kan till exempel särskilja builds från API-teamets Jenkins build-system och webb teamets Azure pipelines build system.
 
-### <a name="lock-deployed-image-tags"></a>Låsa distribuerade bildtaggar
+### <a name="lock-deployed-image-tags"></a>Lås distribuerade avbildnings Taggar
 
-Vi rekommenderar att du [låser](container-registry-image-lock.md) alla distribuerade avbildningstaggar genom att ange attributet `write-enabled` på `false`. Den här metoden förhindrar att du oavsiktligt tar bort en avbildning från registret och eventuellt stör dina distributioner. Du kan inkludera låssteget i versionspipelinen.
+Som bästa praxis rekommenderar vi att du [låser](container-registry-image-lock.md) alla distribuerade avbildnings etiketter genom att ställa in dess `write-enabled` attribut till `false`. Den här metoden hindrar dig från att oavsiktligt ta bort en avbildning från registret och eventuellt störa dina distributioner. Du kan inkludera låsnings steget i din versions pipeline.
 
-Om du låser en distribuerad avbildning kan du fortfarande ta bort andra, odeployed avbildningar från registret med hjälp av Azure Container Registry-funktioner för att underhålla registret. Du kan till exempel [rensa](container-registry-auto-purge.md) otaggade manifest eller olåsta bilder som är äldre än en angiven varaktighet automatiskt, eller ange en [bevarandeprincip](container-registry-retention-policy.md) för otaggade manifest.
+Genom att låsa en distribuerad avbildning kan du fortfarande ta bort andra, icke distribuerade avbildningar från registret med hjälp av Azure Container Registry funktioner för att underhålla registret. Ta till exempel [automatiskt bort](container-registry-auto-purge.md) otaggade manifest eller olåsta bilder som är äldre än en angiven varaktighet eller ange en [bevarande princip](container-registry-retention-policy.md) för otaggade manifest.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En mer detaljerad diskussion om begreppen i den här artikeln finns i blogginlägget [Docker-taggning: Metodtips för taggning och versionshantering av dockerbilder](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
+En mer detaljerad beskrivning av begreppen i den här artikeln finns i blogg inlägget [Docker-taggning: metod tips för taggning och versioner av Docker-avbildningar](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 
-Information om hur du maximerar prestanda och kostnadseffektiv användning av ditt Azure-behållarregister finns [i Metodtips för Azure Container Registry](container-registry-best-practices.md).
+Information om hur du maximerar prestanda och kostnads effektiv användning av Azure Container Registry finns i [metod tips för Azure Container Registry](container-registry-best-practices.md).
 
 <!-- IMAGES -->
 

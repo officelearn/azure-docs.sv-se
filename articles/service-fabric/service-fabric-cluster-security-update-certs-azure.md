@@ -1,60 +1,60 @@
 ---
 title: Hantera certifikat i ett Azure Service Fabric-kluster
-description: I artikeln beskrivs hur du lägger till nya certifikat, överrullningscertifikat och tar bort certifikat till eller från ett Service Fabric-kluster.
+description: Beskriver hur du lägger till nya certifikat, förnyar certifikat och tar bort certifikat till eller från ett Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: a3c92e1b39261af32085e4d9b6cb2462d5c0eb64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458346"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för ett Service Fabric-kluster i Azure
-Vi rekommenderar att du bekantar dig med hur Service Fabric använder X.509-certifikat och är bekant med [klustersäkerhetsscenarierna](service-fabric-cluster-security.md). Du måste förstå vad ett klustercertifikat är och vad som används för, innan du fortsätter vidare.
+Vi rekommenderar att du bekantar dig med hur Service Fabric använder X. 509-certifikat och känner till [kluster säkerhets scenarier](service-fabric-cluster-security.md). Du måste förstå vad ett kluster certifikat är och vad som används för, innan du fortsätter.
 
-Azure Service Fabrics SDK:s standardbeteende för certifikatinläsning är att distribuera och använda det definierade certifikatet med utgångsdatum längst in i framtiden. oberoende av deras primära eller sekundära konfigurationsdefinition. Att falla tillbaka till det klassiska beteendet är en inte rekommenderad avancerad åtgärd och kräver att inställningsparametervärdet "UseSecondaryIfNewer" ställs in på false i `Fabric.Code` konfigurationen.
+Azure Service Fabric SDK: s standard beteende för certifikat inläsning är att distribuera och använda det definierade certifikatet med förfallo datum längst fram i framtiden. oavsett primär eller sekundär konfigurations definition. Att återgå till det klassiska beteendet är en rekommenderad avancerad åtgärd och kräver att värdet för parametern "UseSecondaryIfNewer" anges till false i `Fabric.Code` konfigurationen.
 
-Med tjänstinfrastruktur kan du ange två klustercertifikat, en primär och en sekundär, när du konfigurerar certifikatsäkerhet när klustret skapas, förutom klientcertifikat. Se skapa [ett azure-kluster via portal](service-fabric-cluster-creation-via-portal.md) eller skapa ett [azure-kluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) för information om hur du konfigurerar dem vid skapandet. Om du bara anger ett klustercertifikat vid skapandetid används det som primärt certifikat. När klustret har skapats kan du lägga till ett nytt certifikat som ett sekundärt.
+Med Service Fabric kan du ange två kluster certifikat, en primär och en sekundär, när du konfigurerar certifikat säkerhet när klustret skapas, förutom klient certifikat. Se hur du [skapar ett Azure-kluster via portalen](service-fabric-cluster-creation-via-portal.md) eller [skapar ett Azure-kluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) för information om hur du konfigurerar dem i Create Time. Om du bara anger ett kluster certifikat vid skapande tillfället används det som primärt certifikat. När klustret har skapats kan du lägga till ett nytt certifikat som sekundärt.
 
 > [!NOTE]
-> För ett säkert kluster behöver du alltid minst ett giltigt (inte återkallat och inte utgånget) klustercertifikat (primärt eller sekundärt) som distribueras (om inte, klustret slutar fungera). 90 dagar innan alla giltiga certifikat upphör att gälla genererar systemet en varningsspårning och även en varningshälsohändelse på noden. Det finns för närvarande ingen e-post eller något annat meddelande som Service Fabric skickar ut på den här artikeln. 
+> För ett säkert kluster behöver du alltid minst ett giltigt kluster certifikat (inte återkallat och inte förfallet) (primär eller sekundär) distribuerat (om inte klustret slutar fungera). 90 dagar innan alla giltiga certifikat når förfallo datum, genererar systemet en varnings spårning och även en varnings hälso händelse på noden. Det finns för närvarande inget e-postmeddelande eller något annat meddelande som Service Fabric skickar ut den här artikeln. 
 > 
 > 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Lägga till ett sekundärt klustercertifikat med portalen
-Sekundärt klustercertifikat kan inte läggas till via Azure-portalen, med Azure powershell. Processen beskrivs senare i det här dokumentet.
+## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Lägga till ett sekundärt kluster certifikat med hjälp av portalen
+Det går inte att lägga till ett sekundärt kluster certifikat via Azure Portal. Använd Azure PowerShell. Processen beskrivs senare i det här dokumentet.
 
-## <a name="remove-a-cluster-certificate-using-the-portal"></a>Ta bort ett klustercertifikat med portalen
-För ett säkert kluster behöver du alltid minst ett giltigt certifikat (inte återkallat och inte upphört att gälla). Certifikatet som distribueras längst in i det framtida utgångsdatumet används och om du tar bort det stoppas klustret. se till att endast ta bort certifikatet som har upphört att gälla, eller ett oanvänt certifikat som löper ut den tidigaste.
+## <a name="remove-a-cluster-certificate-using-the-portal"></a>Ta bort ett kluster certifikat med hjälp av portalen
+För ett säkert kluster behöver du alltid minst ett giltigt certifikat (inte återkallat och inte förfallet). Det certifikat som distribueras med det sista datumet för förfallo datumet används och om du tar bort det kommer klustret att sluta fungera. Se till att endast ta bort certifikatet som har upphört att gälla, eller ett oanvänt certifikat som upphör att gälla närmast.
 
-Om du vill ta bort ett oanvänt klustersäkerhetscertifikat navigerar du till avsnittet Säkerhet och väljer alternativet Ta bort från snabbmenyn på det oanvända certifikatet.
+Om du vill ta bort ett oanvänt kluster säkerhets certifikat går du till avsnittet säkerhet och väljer alternativet ta bort från snabb menyn i det oanvända certifikatet.
 
-Om din avsikt är att ta bort certifikatet som är markerat primärt måste du distribuera ett sekundärt certifikat med ett utgångsdatum längre in i framtiden än det primära certifikatet, vilket aktiverar det automatiska överrullningsbeteendet. ta bort det primära certifikatet när den automatiska överrullningen har slutförts.
+Om avsikten är att ta bort det certifikat som är markerat som primärt, måste du distribuera ett sekundärt certifikat med ett utgångs datum längre fram i framtiden än det primära certifikatet, vilket aktiverar beteendet för automatisk förnyelse. ta bort det primära certifikatet efter att den automatiska förnyelsen har slutförts.
 
-## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Lägga till ett sekundärt certifikat med Powershell i Resurshanteraren
+## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Lägga till ett sekundärt certifikat med Resource Manager PowerShell
 > [!TIP]
-> Det finns nu ett bättre och enklare sätt att lägga till ett sekundärt certifikat med hjälp av [cmdleten Add-AzServiceFabricClusterCertificate.](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) Du behöver inte följa resten av stegen i det här avsnittet.  Du behöver inte heller den mall som ursprungligen användes för att skapa och distribuera klustret när du använder cmdleten [Add-AzServiceFabricClusterCertificate.](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate)
+> Nu finns det ett bättre och enklare sätt att lägga till ett sekundärt certifikat med hjälp av cmdleten [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) . Du behöver inte följa resten av stegen i det här avsnittet.  Du behöver inte heller den mall som ursprungligen användes för att skapa och distribuera klustret när du använder cmdleten [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) .
 
-De här stegen förutsätter att du är bekant med hur Resource Manager fungerar och har distribuerat minst ett Service Fabric-kluster med hjälp av en Resource Manager-mall och har den mall som du använde för att konfigurera klustret till hands. Det antas också att du är bekväm med att använda JSON.
+De här stegen förutsätter att du är bekant med hur Resource Manager fungerar och har distribuerat minst ett Service Fabric kluster med hjälp av en Resource Manager-mall och att du har den mall som du använde för att konfigurera klustret är praktiskt. Det förutsätts också att du är van att använda JSON.
 
 > [!NOTE]
-> Om du letar efter en exempelmall och parametrar som du kan använda för att följa med eller som utgångspunkt, sedan ladda ner den från denna [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample). 
+> Om du letar efter en exempel-mall och parametrar som du kan använda för att följa eller som en start punkt, laddar du ned den från den här [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample). 
 > 
 > 
 
-### <a name="edit-your-resource-manager-template"></a>Redigera mallen Resurshanteraren
+### <a name="edit-your-resource-manager-template"></a>Redigera din Resource Manager-mall
 
-För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_Step2.JSON alla redigeringar vi kommer att göra. provet finns tillgängligt på [git-repo.](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)
+För att under lätta för följande och, exempel 5-VM-1-NodeTypes-Secure_Step2. JSON innehåller alla ändringar vi gör. exemplet finns tillgängligt på [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
 
 **Se till att följa alla steg**
 
-1. Öppna den Resource Manager-mall som du använde för att distribuera klustret åt dig. (Om du har hämtat exemplet från föregående repa använder du 5-VM-1-NodeTypes-Secure_Step1.JSON för att distribuera ett säkert kluster och sedan öppna mallen).
+1. Öppna den Resource Manager-mall som du använde för att distribuera klustret. (Om du har hämtat exemplet från föregående lagrings platsen använder du 5-VM-1-NodeTypes-Secure_Step1. JSON för att distribuera ett säkert kluster och sedan öppna mallen.
 
-2. Lägg till **två nya parametrar** "secCertificateThumbprint" och "secCertificateUrlValue" av typen "string" i parameteravsnittet i mallen. Du kan kopiera följande kodavsnitt och lägga till det i mallen. Beroende på mallens källa kanske du redan har definierat dessa, om så går du vidare till nästa steg. 
+2. Lägg till **två nya parametrar** "secCertificateThumbprint" och "secCertificateUrlValue" av typen "String" i avsnittet parameter i mallen. Du kan kopiera följande kodfragment och lägga till det i mallen. Beroende på din malls källa kanske du redan har definierat dessa, om du vill gå vidare till nästa steg. 
  
     ```json
        "secCertificateThumbprint": {
@@ -72,7 +72,7 @@ För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_
     
     ```
 
-3. Gör ändringar i **Microsoft.ServiceFabric/clusters-resursen** – Leta reda på resursdefinitionen "Microsoft.ServiceFabric/clusters" i mallen. Under egenskaperna för den definitionen hittar du "Certificate" JSON-taggen, som ska se ut ungefär som följande JSON-utdrag:
+3. Gör ändringar i resursen **Microsoft. ServiceFabric/Clusters** -leta upp resurs definitionen "Microsoft. ServiceFabric/Clusters" i mallen. Under egenskaperna för den definitionen hittar du "Certificate"-JSON-tagg, som bör se ut ungefär som följande JSON-kodfragment:
    
     ```JSON
           "properties": {
@@ -82,9 +82,9 @@ För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_
          }
     ``` 
 
-    Lägg till en ny tagg "tumavtryckKonsekund" och ge den ett värde "[parameters('secCertificateThumbprint')]".  
+    Lägg till en ny tagg "thumbprintSecondary" och ge den värdet "[parameters (' secCertificateThumbprint ')]".  
 
-    Så nu resursdefinitionen ska se ut så här (beroende på din källa till mallen, kan det inte vara exakt som utdrag nedan). 
+    Nu bör resurs definitionen se ut så här (beroende på din malls källa, men det kanske inte är exakt likadant som kodfragmentet nedan). 
 
     ```JSON
           "properties": {
@@ -95,7 +95,7 @@ För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_
          }
     ``` 
 
-    Om du vill **rulla över certifikatet**anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta resulterar i att ditt nuvarande primära certifikat övervältras till det nya certifikatet i ett distributionssteg.
+    Om du vill **rulla över certifikatet**anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta leder till att det aktuella primära certifikatet överförs till det nya certifikatet i ett distributions steg.
     
     ```JSON
           "properties": {
@@ -106,13 +106,13 @@ För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_
          }
     ``` 
 
-4. Gör ändringar i **alla** **microsoft.Compute/virtualMachineScaleSets-resursdefinitioner** – Leta reda på resursdefinitionen för Microsoft.Compute/virtualMachineScaleSets. Bläddra till "utgivaren": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
+4. Gör ändringar i **alla** resurs definitioner för **Microsoft. Compute/VirtualMachineScaleSets** – leta upp resurs definitionen Microsoft. Compute/virtualMachineScaleSets. Bläddra till "utgivare": "Microsoft. Azure. ServiceFabric" under "virtualMachineProfile".
 
-    I publiceringsinställningarna för Service Fabric bör du se något liknande.
+    I inställningarna för Service Fabric Publisher bör du se något som liknar detta.
     
     ![Json_Pub_Setting1][Json_Pub_Setting1]
     
-    Lägga till de nya certposterna i den
+    Lägg till de nya certifikat posterna
     
     ```json
                    "certificateSecondary": {
@@ -123,11 +123,11 @@ För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_
     
     ```
 
-    Fastigheterna ska nu se ut så här
+    Egenskaperna bör nu se ut så här
     
     ![Json_Pub_Setting2][Json_Pub_Setting2]
     
-    Om du vill **rulla över certifikatet**anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta resulterar i att ditt nuvarande certifikat övervältras till det nya certifikatet i ett distributionssteg.     
+    Om du vill **rulla över certifikatet**anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta resulterar i förnyelsen av det aktuella certifikatet till det nya certifikatet i ett distributions steg.     
 
     ```json
                    "certificate": {
@@ -141,14 +141,14 @@ För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_
                       },
     ```
 
-    Fastigheterna ska nu se ut så här    
+    Egenskaperna bör nu se ut så här    
     ![Json_Pub_Setting3][Json_Pub_Setting3]
 
-5. Gör ändringar i **alla** **microsoft.compute/virtualMachineScaleSets-resursdefinitioner** – Leta reda på resursdefinitionen för Microsoft.Compute/virtualMachineScaleSets. Bläddra till "vaultCertificates": , under "OSProfile". det ska se ut ungefär så här.
+5. Gör ändringar i **alla** resurs definitioner för **Microsoft. Compute/VirtualMachineScaleSets** – leta upp resurs definitionen Microsoft. Compute/virtualMachineScaleSets. Rulla till "vaultCertificates":, under "OSProfile". Det bör se ut ungefär så här.
 
     ![Json_Pub_Setting4][Json_Pub_Setting4]
     
-    Lägg till secCertificateUrlValue i den. Använd följande kodavsnitt:
+    Lägg till secCertificateUrlValue i den. Använd följande kodfragment:
     
     ```json
                       {
@@ -157,19 +157,19 @@ För att underlätta att följa med innehåller exempel 5-VM-1-NodeTypes-Secure_
                       }
     
     ```
-    Nu ska den resulterande Json se ut ungefär så här.
+    Nu bör den resulterande JSON se ut ungefär så här.
     ![Json_Pub_Setting5][Json_Pub_Setting5]
 
 
 > [!NOTE]
-> Kontrollera att du har upprepade steg 4 och 5 för alla nodetyper/Microsoft.Compute/virtualMachineScaleSets-resursdefinitioner i mallen. Om du missar en av dem installeras inte certifikatet på den virtuella datorns skalningsuppsättning och du får oförutsägbara resultat i klustret, inklusive att klustret går nedåt (om du inte får några giltiga certifikat som klustret kan använda för säkerhet. Så dubbelkolla, innan du fortsätter vidare.
+> Kontrol lera att du har upprepat steg 4 och 5 för alla resurs definitioner Nodetypes/Microsoft. Compute/virtualMachineScaleSets i mallen. Om du saknar någon av dem kommer certifikatet inte att installeras på den virtuella datorns skalnings uppsättning och du får oförutsägbara resultat i klustret, inklusive klustret som går ned (om du har ett giltigt certifikat som klustret kan använda för säkerhet. Dubbel kontroll, innan du fortsätter.
 > 
 > 
 
-### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Redigera mallfilen så att den återspeglar de nya parametrarna som du har lagt till ovan
-Om du använder exemplet från [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) att följa med, kan du börja göra ändringar i exemplet 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON 
+### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Redigera mallfilen så att de visar de nya parametrarna som du lade till ovan
+Om du använder exemplet från [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) för att följa med, kan du börja göra ändringar i exemplet 5-VM-1-NodeTypes-Secure. PARAMETERS_STEP2. JSON 
 
-Redigera parameterparametern Resource Manager Template File, lägg till de två nya parametrarna för secCertificateThumbprint och secCertificateUrlValue. 
+Redigera din parameter fil för Resource Manager-mallen, Lägg till de två nya parametrarna för secCertificateThumbprint och secCertificateUrlValue. 
 
 ```JSON
     "secCertificateThumbprint": {
@@ -183,8 +183,8 @@ Redigera parameterparametern Resource Manager Template File, lägg till de två 
 
 ### <a name="deploy-the-template-to-azure"></a>Distribuera mallen till Azure
 
-- Du är nu redo att distribuera mallen till Azure. Öppna en kommandotolk för Azure PS version 1+.
-- Logga in på ditt Azure-konto och välj den specifika azure-prenumerationen. Detta är ett viktigt steg för personer som har tillgång till mer än en azure-prenumeration.
+- Nu är du redo att distribuera din mall till Azure. Öppna en Azure PS version 1 + kommando tolk.
+- Logga in på ditt Azure-konto och välj den aktuella Azure-prenumerationen. Det här är ett viktigt steg för folk som har åtkomst till fler än en Azure-prenumeration.
 
 ```powershell
 Connect-AzAccount
@@ -192,17 +192,17 @@ Select-AzSubscription -SubscriptionId <Subscription ID>
 
 ```
 
-Testa mallen innan du distribuerar den. Använd samma resursgrupp som klustret för närvarande har distribuerats till.
+Testa mallen innan du distribuerar den. Använd samma resurs grupp som ditt kluster för närvarande är distribuerat till.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Distribuera mallen till resursgruppen. Använd samma resursgrupp som klustret för närvarande har distribuerats till. Kör kommandot New-AzResourceGroupDeployment. Du behöver inte ange läget, eftersom standardvärdet är **inkrementellt**.
+Distribuera mallen till resurs gruppen. Använd samma resurs grupp som ditt kluster för närvarande är distribuerat till. Kör kommandot New-AzResourceGroupDeployment. Du behöver inte ange läget eftersom standardvärdet är ett **stegvist**värde.
 
 > [!NOTE]
-> Om du ställer in Läge till Slutför kan du av misstag ta bort resurser som inte finns i mallen. Så använd den inte i det här scenariot.
+> Om du anger att läget ska slutföras, kan du oavsiktligt ta bort resurser som inte finns i mallen. Använd den inte i det här scenariot.
 > 
 > 
 
@@ -210,7 +210,7 @@ Distribuera mallen till resursgruppen. Använd samma resursgrupp som klustret f�
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Här är ett ifyllt exempel på samma powershell.
+Här är ett ifyllt exempel på samma PowerShell.
 
 ```powershell
 $ResourceGroup2 = "chackosecure5"
@@ -221,9 +221,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParame
 
 ```
 
-När distributionen är klar ansluter du till klustret med det nya certifikatet och utför vissa frågor. Om du kan göra. Sedan kan du ta bort det gamla certifikatet. 
+När distributionen är klar ansluter du till klustret med det nya certifikatet och utför några frågor. Om du kan göra det. Sedan kan du ta bort det gamla certifikatet. 
 
-Om du använder ett självsignerat certifikat ska du inte glömma att importera dem till ditt lokala TrustedPeople-cert-arkiv.
+Om du använder ett självsignerat certifikat ska du inte glömma att importera dem till det lokala certifikat arkivet i TrustedPeople.
 
 ```powershell
 ######## Set up the certs on your local box
@@ -245,46 +245,46 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My
 ```
-För snabb referens här är kommandot för att få kluster hälsa
+För snabb referens här är kommandot för att hämta kluster hälsa
 
 ```powershell
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>Distribuera klientcertifikat till klustret.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Distribuera klient certifikat till klustret.
 
-Du kan använda samma steg som beskrivs i föregående steg 5 för att få certifikaten distribuerade från en keyvault till noderna. Du behöver bara definiera och använda olika parametrar.
-
-
-## <a name="adding-or-removing-client-certificates"></a>Lägga till eller ta bort klientcertifikat
-
-Förutom klustercertifikaten kan du lägga till klientcertifikat för att utföra hanteringsåtgärder i ett Service Fabric-kluster.
-
-Du kan lägga till två typer av klientcertifikat - Admin eller Skrivskyddad. Dessa kan sedan användas för att styra åtkomsten till administratörsåtgärderna och frågeåtgärderna i klustret. Som standard läggs klustercertifikaten till i listan över tillåtna administratörscertifikat.
-
-Du kan ange valfritt antal klientcertifikat. Varje tillägg/borttagning resulterar i en konfigurationsuppdatering av Service Fabric-klustret
+Du kan använda samma steg som beskrivs i föregående steg 5 om du vill att certifikaten ska distribueras från ett nyckel valv till noderna. Du behöver bara definiera och använda olika parametrar.
 
 
-### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Lägga till klientcertifikat – administratör eller skrivskyddad via portal
+## <a name="adding-or-removing-client-certificates"></a>Lägga till eller ta bort klient certifikat
 
-1. Navigera till avsnittet Säkerhet och välj knappen +Autentisering ovanpå säkerhetsavsnittet.
-2. I avsnittet Lägg till autentisering väljer du "Autentiseringstyp" - "Skrivskyddad klient" eller "Administratörsklient"
-3. Välj nu auktoriseringsmetoden. Detta anger för Service Fabric om det ska slå upp det här certifikatet med hjälp av ämnesnamnet eller tumavtrycket. I allmänhet är det inte en god säkerhetspraxis att använda auktoriseringsmetoden för ämnesnamn. 
+Förutom kluster certifikat kan du lägga till klient certifikat för att utföra hanterings åtgärder på ett Service Fabric kluster.
 
-![Lägg till klientcertifikat][Add_Client_Cert]
+Du kan lägga till två typer av klient certifikat – admin eller skrivskyddad. Dessa kan sedan användas för att styra åtkomsten till de administrativa åtgärderna och frågans åtgärder i klustret. Som standard läggs kluster certifikaten till i listan över tillåtna administratörs certifikat.
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Radering av klientcertifikat - Administratör eller skrivskyddad med hjälp av portalen
+Du kan ange valfritt antal klient certifikat. Varje tillägg/borttagning-resultat i en konfigurations uppdatering av Service Fabric-klustret
 
-Om du vill ta bort ett sekundärt certifikat från att användas för klustersäkerhet navigerar du till avsnittet Säkerhet och väljer alternativet Ta bort på snabbmenyn på det specifika certifikatet.
 
-## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>Lägga till programcertifikat i en skalningsuppsättning för virtuella datorer
+### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Lägga till klient certifikat – admin eller skrivskyddad via portalen
 
-Information om hur du distribuerar ett certifikat som du använder för dina program till klustret finns [i det här exemplet powershell-skriptet](scripts/service-fabric-powershell-add-application-certificate.md).
+1. Gå till avsnittet säkerhet och välj knappen "+ autentisering" överst i avsnittet säkerhet.
+2. I avsnittet Lägg till autentisering väljer du "autentiseringstyp"-' skrivskyddad klient ' eller ' admin-klient '
+3. Välj en autentiseringsmetod. Detta visar Service Fabric om det ska söka efter certifikatet med hjälp av ämnes namnet eller tumavtrycket. I allmänhet är det inte en bra säkerhets rutin att använda autentiseringsmetoden för ämnes namn. 
+
+![Lägg till klient certifikat][Add_Client_Cert]
+
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Borttagning av klient certifikat – admin eller skrivskyddad med portalen
+
+Om du vill ta bort ett sekundärt certifikat från att användas för kluster säkerhet navigerar du till avsnittet säkerhet och väljer alternativet ta bort på snabb menyn för det aktuella certifikatet.
+
+## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>Lägga till program certifikat till en skalnings uppsättning för virtuella datorer
+
+Information om hur du distribuerar ett certifikat som du använder för dina program till klustret finns i [det här exemplet på PowerShell-skript](scripts/service-fabric-powershell-add-application-certificate.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Läs de här artiklarna för mer information om klusterhantering:
+Läs de här artiklarna om du vill ha mer information om kluster hantering:
 
-* [Uppgraderingsprocessen för Service Fabric Cluster och förväntningar från dig](service-fabric-cluster-upgrade.md)
+* [Service Fabric kluster uppgraderings process och förväntningar från dig](service-fabric-cluster-upgrade.md)
 * [Konfigurera rollbaserad åtkomst för klienter](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->

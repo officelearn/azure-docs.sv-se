@@ -1,102 +1,102 @@
 ---
-title: Schemalägga återkommande uppgifter och arbetsflöden
-description: Schemalägga och kör återkommande automatiserade uppgifter och arbetsflöden med utlösaren Återkommande i Azure Logic Apps
+title: Schemalägg återkommande uppgifter och arbets flöden
+description: Schemalägg och kör återkommande automatiserade uppgifter och arbets flöden med upprepnings utlösaren i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: a9c167c5767a4156147e13a1e4ae21162e506474
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445861"
 ---
-# <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Skapa, schemalägga och köra återkommande uppgifter och arbetsflöden med utlösaren Återkommande i Azure Logic Apps
+# <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Skapa, Schemalägg och kör återkommande uppgifter och arbets flöden med upprepnings utlösaren i Azure Logic Apps
 
-Om du regelbundet vill köra uppgifter, processer eller jobb enligt ett visst schema kan du starta logikapparbetsflödet med den inbyggda **återkommande - schemautlösaren.** Du kan ange ett datum och en tid samt en tidszon för att starta arbetsflödet och en upprepning för att upprepa arbetsflödet. Om upprepningar av någon anledning missas fortsätter den här utlösaren att upprepas vid nästa schemalagda intervall. Mer information om de inbyggda schedule-utlösarena och åtgärderna finns i [Schemalägga och köra återkommande automatiserade, uppgifter och arbetsflöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+För att regelbundet köra aktiviteter, processer eller jobb enligt ett särskilt schema kan du starta ditt Logic app-arbetsflöde med den inbyggda **upprepnings schema** utlösaren. Du kan ange datum och tid samt en tidszon för att starta arbets flödet och en upprepning för att upprepa det arbets flödet. Om upprepningar missas av någon anledning fortsätter den här utlösaren att upprepas vid nästa schemalagda intervall. Mer information om inbyggda schema utlösare och åtgärder finns i [schemalägga och köra återkommande automatiserade uppgifter och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-Här är några mönster som den här utlösaren stöder tillsammans med mer avancerade upprepningar och komplexa scheman:
+Här följer några mönster som denna utlösare stöder tillsammans med mer avancerade upprepningar och komplexa scheman:
 
 * Kör omedelbart och upprepa varje *n* antal sekunder, minuter, timmar, dagar, veckor eller månader.
 
-* Börja vid ett visst datum och en viss tid och kör och upprepa sedan varje *n* antal sekunder, minuter, timmar, dagar, veckor eller månader.
+* Starta vid ett visst datum och klock slag, kör och upprepa varje *n* sekunder, minuter, timmar, dagar, veckor eller månader.
 
-* Kör och upprepa vid en eller flera gånger varje dag, till exempel klockan 8:00 och 17:00.
+* Kör och upprepa en eller flera gånger varje dag, till exempel kl. 8:00 och 5:00 PM.
 
-* Kör och upprepa varje vecka, men bara för specifika dagar, till exempel lördag och söndag.
+* Kör och upprepa varje vecka, men endast för vissa dagar, till exempel lördag och söndag.
 
-* Kör och upprepa varje vecka, men bara för specifika dagar och tider, till exempel måndag till fredag klockan 8:00 och 17:00.
+* Kör och upprepa varje vecka, men endast för vissa dagar och tidpunkter, som måndag till fredag kl. 8:00 och 5:00 PM.
 
-Skillnader mellan den här utlösaren och utlösaren sliding window eller mer information om schemaläggning av återkommande arbetsflöden finns i [Schemalägga och köra återkommande automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+För skillnader mellan den här utlösaren och den glidande fönster utlösaren eller mer information om schemaläggning av återkommande arbets flöden, se [schemalägga och köra återkommande automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 > [!TIP]
-> Om du bara vill utlösa logikappen och köra en gång i framtiden läser du [Kör jobb en gång](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
+> Om du vill utlösa din Logic app och bara köra en gång i framtiden, se [Kör jobb en gång](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Grundläggande kunskaper om [logikappar](../logic-apps/logic-apps-overview.md). Om du inte har tidigare i logikappar kan du läsa om hur du [skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Grundläggande kunskaper om [Logic Apps](../logic-apps/logic-apps-overview.md). Lär dig [hur du skapar din första Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)om du inte har använt Logic Apps igen.
 
-## <a name="add-recurrence-trigger"></a>Lägga till utlösare för återkommande
+## <a name="add-recurrence-trigger"></a>Lägg till upprepnings utlösare
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
-1. När Logic App Designer visas anger `recurrence` du som filter i sökrutan. Välj den här utlösaren som det första steget i logikapparbetsflödet i listan **utlösare: Upprepning**
+1. När Logic Apps Designer visas går du till rutan Sök och anger `recurrence` som filter. Välj den här utlösaren i listan utlösare som det första steget i ditt Logic app-arbetsflöde: **upprepning**
 
-   ![Välj utlösare för återkommande](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Välj utlösare för upprepning](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
-1. Ange intervall och frekvens för upprepningen. I det här exemplet anger du att dessa egenskaper ska köra arbetsflödet varje vecka.
+1. Ange intervall och frekvens för upprepningen. I det här exemplet anger du dessa egenskaper för att köra arbets flödet varje vecka.
 
    ![Ange intervall och frekvens](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på frekvensen. Här är de lägsta och högsta intervallen: <p>- Månad: 1-16 månader </br>- Dag: 1-500 dagar </br>- Timme: 1-12 000 timmar </br>- Minut: 1-72 000 minuter </br>- Andra: 1-9,999,999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "Månad", är upprepningen var sjätte månad. |
-   | **Frekvens** | `frequency` | Ja | String | Tidsenheten för upprepningen: **Sekund**, **Minut,** **Timme,** **Dag,** **Vecka**eller **Månad** |
+   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
    ||||||
 
    > [!IMPORTANT]
-   > När upprepningar inte anger avancerade schemaläggningsalternativ baseras framtida upprepningar på den senaste körningstiden.
-   > Starttiderna för dessa upprepningar kan drivas på grund av faktorer som svarstid under lagringsanrop. Om du vill vara säker på att logikappen inte missar en upprepning, särskilt när frekvensen är i dagar eller längre, använder du något av följande alternativ:
+   > När upprepningar inte anger avancerade alternativ för schemaläggning baseras framtida upprepningar på den senaste körnings tiden.
+   > Start tiderna för dessa upprepningar kan uppstå på grund av faktorer som svars tid under lagrings anrop. För att se till att din Logi Kap par inte saknar upprepning, särskilt när frekvensen är i dagar eller längre, använder du ett av följande alternativ:
    > 
-   > * Ange en starttid för upprepningen.
+   > * Ange en start tid för upprepningen.
    > 
-   > * Ange timmar och minuter för när upprepningen ska köras med hjälp av egenskaperna **Vid dessa timmar** och vid dessa **minuter.**
+   > * Ange i hur många timmar och minuter som upprepningen ska köras med hjälp av alternativen **vid följande tidpunkter** och **i minuter** .
    > 
-   > * Använd [utlösaren skjutfönster](../connectors/connectors-native-sliding-window.md)i stället för utlösaren För återkommande.
+   > * Använd den [glidande fönster utlösaren](../connectors/connectors-native-sliding-window.md)i stället för upprepnings utlösaren.
 
-1. Om du vill ange avancerade schemaläggningsalternativ öppnar du listan **Lägg till ny parameter.** Alla alternativ som du väljer visas på utlösaren efter markeringen.
+1. Om du vill ange avancerade alternativ för schemaläggning öppnar du listan **Lägg till ny parameter** . Alla alternativ som du väljer visas i utlösaren efter val.
 
-   ![Avancerade schemaläggningsalternativ](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
+   ![Avancerade alternativ för schemaläggning](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | **Tidszon** | `timeZone` | Inga | String | Gäller endast när du anger en starttid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Markera den tidszon som du vill använda. |
-   | **Starttid** | `startTime` | Inga | String | Ange ett startdatum och en starttid i det här formatet: <p>YYYY-MM-DDThh:mm:ss om du väljer en tidszon <p>ELLER <p>Å ÅYY-MM-DDThh:mm:ssZ om du inte väljer en tidszon <p>Så om du till exempel vill ha 18 september 2017 klockan 14:00 anger du "2017-09-18T14:00:00" och väljer en tidszon som Stillahavsstandardtid. Du kan också ange "2017-09-18T14:00:00Z" utan tidszon. <p>**Anm.:** Denna starttid har högst 49 år i framtiden och måste följa [ISO 8601 datum tidsspecifikationen](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC datumtid format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blanksteg. Detta "Z" avser motsvarande [nautisk tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är starttiden den första förekomsten, medan utlösaren inte utlöses tidigare än starttiden för komplexa scheman. [*Vilka sätt kan jag använda startdatum och starttid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **Dessa dagar** | `weekDays` | Inga | Sträng- eller strängmatris | Om du väljer "Vecka" kan du välja en eller flera dagar när du vill köra arbetsflödet: **måndag,** **tisdag,** **onsdag,** **torsdag,** **fredag,** **lördag**och **söndag** |
-   | **Vid dessa timmar** | `hours` | Inga | Heltals- eller heltalsmatris | Om du väljer "Dag" eller "Vecka" kan du välja ett eller flera heltal från 0 till 23 som timmar på dagen för när du vill köra arbetsflödet. <p><p>Om du till exempel anger "10", "12" och "14" får du 10,00, 12.00 och 14.00 för dygnets timmar, men dagens minuter beräknas baserat på när upprepningen startar. Om du vill ställa in dagens minuter anger du värdet för egenskapen **At these minutes.** |
-   | **Vid dessa minuter** | `minutes` | Inga | Heltals- eller heltalsmatris | Om du väljer "Dag" eller "Vecka" kan du välja ett eller flera heltal från 0 till 59 som minuter i timmen när du vill köra arbetsflödet. <p>Du kan till exempel ange "30" som minutmarkering och använda föregående exempel under timmar på dagen får du 10:30, 12:30 och 14:30. |
+   | **Tidszon** | `timeZone` | Inga | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
+   | **Starttid** | `startTime` | Inga | Sträng | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Dessa dagar** | `weekDays` | Inga | Sträng eller sträng mat ris | Om du väljer "vecka" kan du välja en eller flera dagar när du vill köra arbets flödet: **måndag**, **tisdag**, **onsdag**, **torsdag**, **fredag**, **lördag**och **söndag** |
+   | **Vid dessa timmar** | `hours` | Inga | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 23 som de timmar på dagen då du vill köra arbets flödet. <p><p>Om du t. ex. anger "10", "12" och "14", får du 10 AM, 12 PM och 2 PM för timmar på dagen, men minuterna beräknas baserat på när upprepningen startar. Ange värdet för egenskapen **vid följande minuter** om du vill ange minuter på dagen. |
+   | **Vid dessa minuter** | `minutes` | Inga | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 59 som minuter i timmen när du vill köra arbets flödet. <p>Du kan till exempel ange "30" som minut märke och använda föregående exempel för timmar på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. |
    |||||
 
-   Anta till exempel att det i dag är måndagen den 4 september 2017. Följande återkommande utlösare utlöses inte *tidigare* än startdatum och starttid, vilket är måndag, september 18, 2017 kl 8:00 PST. Upprepningsschemat är dock inställt för 10:30, 12:30 och 14:30 endast på måndagar. Så första gången som utlösaren utlöses och skapar en logikapp arbetsflödesinstans är klockan 10:30. Mer information om hur starttider fungerar finns i de här [exempel på starttid](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   Anta till exempel att dagens datum är måndag, 4 september 2017. Följande upprepnings utlösare utlöses inte *tidigare* än start datum och-tid, vilket är måndag, 18 september 2017 kl. 8:00 PST. Däremot anges upprepnings schema för 10:30, 12:30 PM och 2:30 PM endast på måndagar. Första gången utlösaren utlöses och skapar en arbets flödes instans för logi Kap par är 10:30. Mer information om hur start tiden fungerar finns i [exemplen för start tid](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
-   Framtida körningar sker klockan 12:30 och 14:30 samma dag. Varje upprepning skapar sin egen arbetsflödesinstans. Därefter upprepas hela schemat igen nästa måndag. [*Vad är några andra exempel förekomster?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
+   Framtida körningar sker vid 12:30 PM och 2:30 PM samma dag. Varje upprepning skapar en egen arbets flödes instans. Därefter upprepas hela schemat igen nästa måndag. [*Vad är några andra exempel på förekomster?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
    ![Exempel på avancerad schemaläggning](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
 
    > [!NOTE]
-   > Utlösaren visar en förhandsgranskning för din angivna upprepning endast när du väljer "Dag" eller "Vecka" som frekvens.
+   > Utlösaren visar en för hands version för den angivna upprepningen bara när du väljer "dag" eller "vecka" som frekvens.
 
-1. Bygg nu ditt återstående arbetsflöde med andra åtgärder. Fler åtgärder som du kan lägga till finns i [Kopplingar för Azure Logic Apps](../connectors/apis-list.md).
+1. Nu ska du bygga ditt återstående arbets flöde med andra åtgärder. Fler åtgärder som du kan lägga till finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md).
 
-## <a name="workflow-definition---recurrence"></a>Arbetsflödesdefinition - Upprepning
+## <a name="workflow-definition---recurrence"></a>Arbets flödes definition-upprepning
 
-I logikappens underliggande arbetsflödesdefinition, som använder JSON, kan du visa [definitionen för återkommande utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) med de alternativ som du har valt. Om du vill visa den här definitionen väljer du **Kodvy**i verktygsfältet Designer . Om du vill återgå till designern väljer du i designerverktygsfältet **Designer**.
+I din Logic Apps underliggande arbets flödes definition, som använder JSON, kan du Visa [definitionen av upprepnings utlösaren](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) med de alternativ som du har valt. Om du vill visa den här definitionen väljer du **kodvyn**i verktygsfältet designer. Om du vill gå tillbaka till designern väljer du verktygsfältet designer, **Designer**.
 
-I det här exemplet visas hur en definition av återkommande utlösare kan se ut i en underliggande arbetsflödesdefinition:
+Det här exemplet visar hur en definition för upprepnings utlösare kan se ut i en underliggande arbets flödes definition:
 
 ``` json
 "triggers": {
@@ -127,5 +127,5 @@ I det här exemplet visas hur en definition av återkommande utlösare kan se ut
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Pausa arbetsflöden med fördröjningsåtgärder](../connectors/connectors-native-delay.md)
+* [Pausa arbets flöden med fördröjnings åtgärder](../connectors/connectors-native-delay.md)
 * [Anslutningsappar för Logic Apps](../connectors/apis-list.md)

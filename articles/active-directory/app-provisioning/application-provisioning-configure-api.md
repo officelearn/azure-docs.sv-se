@@ -1,6 +1,6 @@
 ---
-title: Använda Microsoft Graph API:er för att konfigurera etablering – Azure Active Directory | Microsoft-dokument
-description: Behöver du ställa in etablering för flera instanser av ett program? Lär dig hur du sparar tid genom att använda Microsoft Graph API:er för att automatisera konfigurationen av automatisk etablering.
+title: 'Använd Microsoft Graph-API: er för att konfigurera etablering-Azure Active Directory | Microsoft Docs'
+description: 'Behöver du konfigurera etablering för flera instanser av ett program? Lär dig hur du sparar tid genom att använda Microsoft Graph API: er för att automatisera konfigurationen av automatisk etablering.'
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,43 +17,43 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481474"
 ---
-# <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurera etablering med Hjälp av Microsoft Graph API:er
+# <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurera etablering med hjälp av Microsoft Graph API: er
 
-Azure-portalen är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals – instanser av ett program kan det vara enklare att automatisera skapandet och konfigurationen av appar med Microsoft Graph API:er. I den här artikeln beskrivs hur du automatiserar etableringskonfigurationen via API:er. Denna metod används ofta för program som [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
+Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals instanser av ett program, kan det vara lättare att automatisera skapandet och konfigurationen av appar med Microsoft Graph API: er. Den här artikeln beskriver hur du automatiserar etablering av konfigurationen via API: er. Den här metoden används ofta för program som [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
-**Översikt över steg för att använda Microsoft Graph API:er för att automatisera etableringskonfigurationen**
+**Översikt över steg för att använda Microsoft Graph API: er för att automatisera etablerings konfigurationen**
 
 
 |Steg  |Information  |
 |---------|---------|
-|[Steg 1. Skapa galleriprogrammet](#step-1-create-the-gallery-application)     |Logga in på API-klienten <br> Hämta mallen galleriprogram <br> Skapa galleriprogrammet         |
-|[Steg 2. Skapa etableringsjobb baserat på mall](#step-2-create-the-provisioning-job-based-on-the-template)     |Hämta mallen för etableringskopplingen <br> Skapa etableringsjobbet         |
-|[Steg 3. Auktorisera åtkomst](#step-3-authorize-access)     |Testa anslutningen till programmet <br> Spara autentiseringsuppgifterna         |
-|[Steg 4. Starta etableringsjobb](#step-4-start-the-provisioning-job)     |Starta jobbet         |
-|[Steg 5. Övervaka etablering](#step-5-monitor-provisioning)     |Kontrollera status för etableringsjobbet <br> Hämta etableringsloggarna         |
+|[Steg 1. Skapa Galleri programmet](#step-1-create-the-gallery-application)     |Logga in på API-klienten <br> Hämta Galleri program mal len <br> Skapa Galleri programmet         |
+|[Steg 2. Skapa etablerings jobb baserat på mall](#step-2-create-the-provisioning-job-based-on-the-template)     |Hämta mallen för etablerings anslutningen <br> Skapa etablerings jobbet         |
+|[Steg 3. Ge åtkomst](#step-3-authorize-access)     |Testa anslutningen till programmet <br> Spara autentiseringsuppgifterna         |
+|[Steg 4. Starta etablerings jobb](#step-4-start-the-provisioning-job)     |Starta jobbet         |
+|[Steg 5. Övervaka etablering](#step-5-monitor-provisioning)     |Kontrol lera status för etablerings jobbet <br> Hämta etablerings loggarna         |
 
 > [!NOTE]
-> Svarsobjekten som visas i den här artikeln kan förkortas för läsbarhet. Alla egenskaper returneras från ett verkligt anrop.
+> Svars objekt som visas i den här artikeln kan bli kortare för läsbarhet. Alla egenskaper kommer att returneras från ett faktiskt anrop.
 
-## <a name="step-1-create-the-gallery-application"></a>Steg 1: Skapa galleriet programmet
+## <a name="step-1-create-the-gallery-application"></a>Steg 1: skapa Galleri programmet
 
-### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Logga in på Microsoft Graph Explorer (rekommenderas), Brevbärare eller någon annan API-klient som du använder
+### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Logga in på Microsoft Graph Explorer (rekommenderas), Postman eller någon annan API-klient som du använder
 
-1. Starta [Utforskaren för Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)
-1. Välj knappen "Logga in med Microsoft" och logga in med Azure AD-globala administratörs- eller appadministratörsuppgifter.
+1. Starta [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+1. Välj knappen "logga in med Microsoft" och logga in med Azure AD global Administrator eller app admin-autentiseringsuppgifter.
 
-    ![Logga in i diagram](./media/application-provisioning-configure-api/wd_export_02.png)
+    ![Graph-inloggning](./media/application-provisioning-configure-api/wd_export_02.png)
 
-1. När du har loggat in visas information om användarkontot i den vänstra rutan.
+1. Vid lyckad inloggning visas användar konto informationen i den vänstra rutan.
 
-### <a name="retrieve-the-gallery-application-template-identifier"></a>Hämta mallidentifieraren för galleriprogram
-Program i Azure AD-programgalleriet har var och en en [programmall](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) som beskriver metadata för det programmet. Med den här mallen kan du skapa en instans av programmet och tjänstens huvudnamn i din klient för hantering.
+### <a name="retrieve-the-gallery-application-template-identifier"></a>Hämta mall-ID för Galleri program
+Program i Azure AD-programgalleriet har en [Programmall](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) som beskriver metadata för programmet. Med den här mallen kan du skapa en instans av programmet och tjänstens huvud namn i din klient organisation för hantering.
 
 #### <a name="request"></a>*Förfrågan*
 
@@ -103,9 +103,9 @@ Content-type: application/json
 }
 ```
 
-### <a name="create-the-gallery-application"></a>Skapa galleriprogrammet
+### <a name="create-the-gallery-application"></a>Skapa Galleri programmet
 
-Använd mall-ID som hämtats för ditt program i det sista steget för att [skapa en instans](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) av programmets och tjänstens huvudnamn i din klientorganisation.
+Använd det mall-ID som hämtades för ditt program i det sista steget för att [skapa en instans](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) av programmet och tjänstens huvud namn i din klient organisation.
 
 #### <a name="request"></a>*Förfrågan*
 
@@ -170,11 +170,11 @@ Content-type: application/json
 }
 ```
 
-## <a name="step-2-create-the-provisioning-job-based-on-the-template"></a>Steg 2: Skapa etableringsjobbet baserat på mallen
+## <a name="step-2-create-the-provisioning-job-based-on-the-template"></a>Steg 2: skapa ett etablerings jobb baserat på mallen
 
-### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Hämta mallen för etableringskopplingen
+### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Hämta mallen för etablerings anslutningen
 
-Program i galleriet som är aktiverade för etablering har mallar för att effektivisera konfigurationen. Använd begäran nedan för att [hämta mallen för etableringskonfigurationen](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Observera att du måste ange ID. ID:et refererar till föregående resurs, som i det här fallet är ServicePrincipal. 
+Program i galleriet som är aktiverade för etablering har mallar för att effektivisera konfigurationen. Använd begäran nedan för att [Hämta mallen för etablerings konfigurationen](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Observera att du måste ange ID: t. ID: t refererar till föregående resurs, som i det här fallet är ServicePrincipal. 
 
 #### <a name="request"></a>*Förfrågan*
 
@@ -211,8 +211,8 @@ HTTP/1.1 200 OK
 }
 ```
 
-### <a name="create-the-provisioning-job"></a>Skapa etableringsjobbet
-Om du vill aktivera etablering måste du först [skapa ett jobb](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Använd begäran nedan för att skapa ett etableringsjobb. Använd templateId från föregående steg när du anger mallen som ska användas för jobbet.
+### <a name="create-the-provisioning-job"></a>Skapa etablerings jobbet
+Om du vill aktivera etablering måste du först [skapa ett jobb](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Använd begäran nedan för att skapa ett etablerings jobb. Använd templateId från föregående steg när du anger den mall som ska användas för jobbet.
 
 #### <a name="request"></a>*Förfrågan*
 <!-- {
@@ -262,11 +262,11 @@ Content-type: application/json
 }
 ```
 
-## <a name="step-3-authorize-access"></a>Steg 3: Auktorisera åtkomst
+## <a name="step-3-authorize-access"></a>Steg 3: ge åtkomst
 
 ### <a name="test-the-connection-to-the-application"></a>Testa anslutningen till programmet
 
-Testa anslutningen med tredjepartsprogrammet. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje applikation har sina krav. Program använder ofta BaseAddress i stället för ClientSecret. Om du vill ta reda på vilka autentiseringsuppgifter din app kräver navigerar du till konfigurationssidan för etablering för ditt program och i utvecklarläge klickar du på testanslutning. Nätverkstrafiken visar de parametrar som används för autentiseringsuppgifter. Den fullständiga listan med autentiseringsuppgifter finns [här](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
+Testa anslutningen till programmet från tredje part. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje program har sina krav på krav. Program använder ofta ClientSecret i stället för. För att avgöra vilka autentiseringsuppgifter appen kräver, navigerar du till etablerings konfigurations sidan för ditt program och i utvecklarläge klickar du på Testa anslutning. Nätverks trafiken visar de parametrar som används för autentiseringsuppgifter. Du hittar en fullständig lista över autentiseringsuppgifter [här](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
 
 #### <a name="request"></a>*Förfrågan*
 ```msgraph-interactive
@@ -290,7 +290,7 @@ HTTP/1.1 204 No Content
 
 ### <a name="save-your-credentials"></a>Spara dina autentiseringsuppgifter
 
-Konfigurera etablering kräver att ett förtroende upprättas mellan Azure AD och programmet. Auktorisera åtkomst till tredjepartsprogrammet. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje applikation har sina krav. Granska [API-dokumentationen](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) för att se tillgängliga alternativ. 
+När du konfigurerar etableringen måste du upprätta ett förtroende mellan Azure AD och programmet. Ge åtkomst till programmet från tredje part. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje program har sina krav på krav. Läs [API-dokumentationen](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) för att se tillgängliga alternativ. 
 
 #### <a name="request"></a>*Förfrågan*
 ```msgraph-interactive
@@ -314,8 +314,8 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 HTTP/1.1 204 No Content
 ```
 
-## <a name="step-4-start-the-provisioning-job"></a>Steg 4: Starta etableringsjobbet
-Nu när etableringsjobbet är konfigurerat använder du följande kommando för att [starta jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
+## <a name="step-4-start-the-provisioning-job"></a>Steg 4: starta etablerings jobbet
+Nu när etablerings jobbet har kon figurer ATS använder du följande kommando för att [starta jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
 
 
 #### <a name="request"></a>*Förfrågan*
@@ -338,11 +338,11 @@ HTTP/1.1 204 No Content
 ```
 
 
-## <a name="step-5-monitor-provisioning"></a>Steg 5: Övervaka etablering
+## <a name="step-5-monitor-provisioning"></a>Steg 5: övervaka etablering
 
-### <a name="monitor-the-provisioning-job-status"></a>Övervaka etableringsjobbstatus
+### <a name="monitor-the-provisioning-job-status"></a>Övervaka status för etablerings jobb
 
-Nu när etableringsjobbet körs använder du följande kommando för att spåra förloppet för den aktuella etableringscykeln samt statistik hittills, till exempel antalet användare och grupper som har skapats i målsystemet. 
+Nu när etablerings jobbet körs använder du följande kommando för att följa förloppet för den aktuella etablerings cykeln samt statistik till datum, till exempel antalet användare och grupper som har skapats i mål systemet. 
 
 #### <a name="request"></a>*Förfrågan*
 <!-- {
@@ -396,8 +396,8 @@ Content-length: 2577
 ```
 
 
-### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>Övervaka etableringshändelser med hjälp av etableringsloggarna
-Förutom att övervaka status för etableringsjobbet kan du använda [etableringsloggarna](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) för att fråga efter alla händelser som inträffar (t.ex. fråga efter en viss användare och avgöra om de har etablerats).
+### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>Övervaka etablerings händelser med hjälp av etablerings loggarna
+Förutom att övervaka status för etablerings jobbet kan du använda [etablerings loggarna](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) för att fråga efter alla händelser som inträffar (t. ex. fråga efter en viss användare och fastställa om de har skapats).
 
 #### <a name="request"></a>*Förfrågan*
 ```msgraph-interactive
@@ -531,5 +531,5 @@ Content-type: application/json
 ```
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Granska dokumentationen för synkroniseringen av Microsoft Graph](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Läs dokumentationen om synkronisering Microsoft Graph](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrera en anpassad SCIM-app med Azure AD](use-scim-to-provision-users-and-groups.md)

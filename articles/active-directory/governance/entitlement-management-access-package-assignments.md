@@ -1,6 +1,6 @@
 ---
-title: Visa, lägga till och ta bort tilldelningar för ett åtkomstpaket i Azure AD-berättigandehantering - Azure Active Directory
-description: Lär dig hur du visar, lägger till och tar bort tilldelningar för ett åtkomstpaket i Azure Active Directory-berättigandehantering.
+title: Visa, lägga till och ta bort tilldelningar för ett Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
+description: Lär dig att visa, lägga till och ta bort tilldelningar för ett Access-paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,100 +17,100 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12e3b86f41e7188778393ab717554907ef5d44ec
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631733"
 ---
-# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa, lägga till och ta bort tilldelningar för ett åtkomstpaket i Azure AD-berättigandehantering
+# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa, lägga till och ta bort tilldelningar för ett Access-paket i hantering av Azure AD-rättigheter
 
-I Azure AD-berättigandehantering kan du se vem som har tilldelats åtkomstpaket, deras princip och status. Om ett åtkomstpaket har en lämplig princip kan du också direkt tilldela användaren till ett åtkomstpaket. I den här artikeln beskrivs hur du visar, lägger till och tar bort tilldelningar för åtkomstpaket.
+I hantering av Azure AD-rättigheter kan du se vem som har tilldelats åtkomst till paket, deras principer och status. Om ett Access-paket har en lämplig princip kan du också direkt tilldela användare till ett Access-paket. Den här artikeln beskriver hur du visar, lägger till och tar bort tilldelningar för åtkomst paket.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda hantering av Azure AD-berättigande och tilldela användare åtkomstpaket måste du ha någon av följande licenser:
+Om du vill använda hantering av Azure AD-rättigheter och tilldela användare åtkomst till paket måste du ha någon av följande licenser:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5-licens
 
 ## <a name="view-who-has-an-assignment"></a>Visa vem som har en tilldelning
 
-**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
-1. Klicka på **Access-paket** på menyn till vänster och öppna sedan åtkomstpaketet.
+1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på **Tilldelningar** om du vill visa en lista över aktiva tilldelningar.
+1. Klicka på **tilldelningar** för att visa en lista över aktiva tilldelningar.
 
-    ![Lista över tilldelningar till ett åtkomstpaket](./media/entitlement-management-access-package-assignments/assignments-list.png)
+    ![Lista över tilldelningar till ett Access-paket](./media/entitlement-management-access-package-assignments/assignments-list.png)
 
-1. Klicka på en viss tilldelning om du vill se ytterligare information.
+1. Klicka på en uppgift om du vill visa mer information.
 
-1. Om du vill visa en lista över tilldelningar som inte har alla resursroller korrekt etablerade klickar du på filterstatusen och väljer **Leverera**.
+1. Om du vill se en lista över tilldelningar som inte har alla resurs roller korrekt etablerade klickar du på filter status och väljer **leverera**.
 
-    Du kan se ytterligare information om leveransfel genom att hitta användarens motsvarande begäran på sidan **Begäranden.**
+    Du kan se ytterligare information om leverans fel genom att leta upp användarens motsvarande begäran på sidan **begär Anden** .
 
-1. Om du vill visa utgångna tilldelningar klickar du på filterstatus och väljer **Utgånget**.
+1. Om du vill se förfallna tilldelningar klickar du på filter status och väljer **upphör att gälla**.
 
-1. Om du vill hämta en CSV-fil i den filtrerade listan klickar du på **Hämta**.
+1. Klicka på **Hämta**om du vill ladda ned en CSV-fil för den filtrerade listan.
 
-### <a name="viewing-assignments-programmatically"></a>Visa tilldelningar programmässigt
+### <a name="viewing-assignments-programmatically"></a>Visa tilldelningar program mässigt
 
-Du kan också hämta tilldelningar i ett åtkomstpaket med Hjälp av Microsoft Graph.  En användare i en lämplig roll med `EntitlementManagement.ReadWrite.All` ett program som har delegerad behörighet kan anropa API:et för att [lista accessPackageAssignments](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
+Du kan också hämta tilldelningar i ett Access-paket med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [Visa accessPackageAssignments](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
 ## <a name="directly-assign-a-user"></a>Tilldela en användare direkt
 
-I vissa fall kanske du vill tilldela specifika användare direkt till ett åtkomstpaket så att användarna inte behöver gå igenom processen med att begära åtkomstpaketet. För att direkt tilldela användare måste åtkomstpaketet ha en princip som tillåter administratörsdirekta tilldelningar.
+I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-paket så att användarna inte behöver gå igenom processen för att begära åtkomst paketet. För att kunna tilldela användare direkt måste åtkomst paketet ha en princip som tillåter administratörs direkta tilldelningar.
 
-**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
-1. Klicka på **Access-paket** på menyn till vänster och öppna sedan åtkomstpaketet.
+1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på **Tilldelningar**på den vänstra menyn.
+1. Klicka på **tilldelningar**på den vänstra menyn.
 
-1. Klicka på **Ny tilldelning** om du vill öppna Lägg till användare för att komma åt paketet.
+1. Klicka på **ny tilldelning** för att öppna Lägg till användare för att komma åt paketet.
 
-    ![Tilldelningar - Lägg till användare för att komma åt paketet](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
+    ![Tilldelningar – Lägg till användare till Access-paket](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Klicka på Lägg till **användare** om du vill välja vilka användare du vill tilldela det här åtkomstpaketet till.
+1. Klicka på **Lägg till användare** för att välja de användare som du vill tilldela det här åtkomst paketet till.
 
-1. I listan **Välj princip** väljer du en princip som användarnas framtida begäranden och livscykel ska styras och spåras av. Om du vill att de markerade användarna ska ha olika principinställningar kan du klicka på **Skapa en ny princip** för att lägga till en ny princip.
+1. I listan **Välj princip** väljer du en princip som användarnas framtida begär Anden och livs cykel ska styras av och spåras av. Om du vill att de valda användarna ska ha olika princip inställningar kan du klicka på **Skapa ny princip** för att lägga till en ny princip.
 
-1. Ange datum och tid som du vill att de valda användarnas tilldelning ska starta och avslutas. Om inget slutdatum anges används principens livscykelinställningar.
+1. Ange datum och tid då du vill att de valda användarnas tilldelning ska starta och sluta. Om inget slutdatum anges används principens livs cykel inställningar.
 
-1. Du kan också ange en motivering för din direkta tilldelning för registrering.
+1. Du kan också ange en motivering för den direkta tilldelningen för post hållning.
 
-1. Klicka på **Lägg till** om du vill tilldela de markerade användarna direkt till åtkomstpaketet.
+1. Klicka på **Lägg till** för att tilldela de valda användarna direkt till åtkomst paketet.
 
-    Efter en stund klickar du på **Uppdatera** om du vill se användarna i listan Tilldelningar.
+    Efter en liten stund klickar du på **Uppdatera** för att se användarna i listan tilldelningar.
 
-### <a name="directly-assigning-users-programmatically"></a>Direkt tilldela användare programmässigt
+### <a name="directly-assigning-users-programmatically"></a>Direkt tilldela användare program mässigt
 
-Du kan också direkt tilldela en användare till ett åtkomstpaket med Hjälp av Microsoft Graph.  En användare i en lämplig roll med `EntitlementManagement.ReadWrite.All` ett program som har delegerad behörighet kan anropa API:et för att [skapa en accessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
+Du kan också tilldela en användare direkt till ett Access-paket med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [skapa en accessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
 
 ## <a name="remove-an-assignment"></a>Ta bort en tilldelning
 
-**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
-1. Klicka på **Access-paket** på menyn till vänster och öppna sedan åtkomstpaketet.
+1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på **Tilldelningar**på den vänstra menyn.
+1. Klicka på **tilldelningar**på den vänstra menyn.
  
-1. Klicka på kryssrutan bredvid den användare vars tilldelning du vill ta bort från åtkomstpaketet. 
+1. Klicka på kryss rutan bredvid den användare vars tilldelning du vill ta bort från åtkomst paketet. 
 
-1. Klicka på knappen **Ta bort** högst upp i den vänstra rutan. 
+1. Klicka på knappen **ta bort** högst upp i det vänstra fönstret. 
  
-    ![Tilldelningar - Ta bort användare från åtkomstpaketet](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+    ![Tilldelningar – ta bort användare från Access-paket](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
 
-    Ett meddelande visas som informerar dig om att tilldelningen har tagits bort. 
+    Ett meddelande visas som talar om att tilldelningen har tagits bort. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Ändra begäran och inställningarna för ett åtkomstpaket](entitlement-management-access-package-request-policy.md)
+- [Ändringsbegäran och inställningar för ett Access-paket](entitlement-management-access-package-request-policy.md)
 - [Visa rapporter och loggar](entitlement-management-reports.md)

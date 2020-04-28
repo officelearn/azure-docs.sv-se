@@ -1,6 +1,6 @@
 ---
-title: Självgranskning av ett åtkomstpaket i Azure AD-berättigandehantering
-description: Lär dig hur du granskar användaråtkomst för åtkomstpaket för berättigandehantering i Azure Active Directory-åtkomstgranskningar (förhandsversion).
+title: Själv granskning av ett Access-paket i hantering av Azure AD-rättigheter
+description: Lär dig hur du granskar användar åtkomst till åtkomst paket för rättighets hantering i Azure Active Directory åtkomst granskningar (för hands version).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,49 +17,49 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78967760"
 ---
-# <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Självgranskning av ett åtkomstpaket i Azure AD-berättigandehantering
+# <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Själv granskning av ett Access-paket i hantering av Azure AD-rättigheter
 
-Azure AD-berättigandehantering förenklar hur företag hanterar åtkomst till grupper, program och SharePoint-webbplatser. I den här artikeln beskrivs hur en användare gör en självgranskning av sina tilldelade åtkomstpaket.
+Hantering av Azure AD-rättigheten fören klar hur företag hanterar åtkomst till grupper, program och SharePoint-webbplatser. I den här artikeln beskrivs hur en användare gör en själv granskning av de tilldelade åtkomst paketen.
 
-## <a name="open-the-access-review"></a>Öppna åtkomstgranskningen
+## <a name="open-the-access-review"></a>Öppna åtkomst granskningen
 
-Om du vill göra en åtkomstgranskning måste du först öppna åtkomstgranskningen. Använd följande procedur för att hitta och öppna åtkomstgranskningen:
+Om du vill göra en åtkomst granskning måste du först öppna åtkomst granskningen. Använd följande procedur för att hitta och öppna åtkomst granskningen:
 
-1. Du kan få ett e-postmeddelande från Microsoft som ber dig granska åtkomsten. Leta reda på e-postmeddelandet för att öppna åtkomstgranskningen. Här är ett exempel på ett e-postmeddelande som begär en granskning av åtkomst: 
+1. Du kan få ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Leta upp e-postmeddelandet för att öppna åtkomst granskningen. Här är ett exempel på ett e-postmeddelande som begär en granskning av åtkomst: 
     
-    ![E-post för åtkomstgranskning](./media/entitlement-management-access-reviews-review-access/self-review-reviewer-email.png)
+    ![Åtkomst granskning självbetjäning e-post](./media/entitlement-management-access-reviews-review-access/self-review-reviewer-email.png)
 
-1. Klicka på länken **Granska åtkomst.**
+1. Klicka på länken **Granska åtkomst** .
 
-1. Du kan också https://myaccess.microsoft.com gå direkt till för att hitta dina väntande åtkomstrecensioner om du inte får ett e-postmeddelande.  (För amerikanska regeringen, använd `https://myaccess.microsoft.us` istället.)
+1. Du kan också gå direkt till https://myaccess.microsoft.com för att hitta dina väntande åtkomst granskningar om du inte får ett e-postmeddelande.  (För amerikanska myndigheter använder `https://myaccess.microsoft.us` du i stället.)
 
-1. Klicka på **Access-granskningar** i det vänstra navigeringsfältet om du vill visa en lista över väntande åtkomstgranskningar som tilldelats dig.
+1. Klicka på **åtkomst granskningar** i det vänstra navigerings fältet för att se en lista över väntande åtkomst granskningar som har tilldelats dig.
 
 
-1.  Klicka på den recension som du vill börja med.
+1.  Klicka på den granskning som du vill börja.
 
-## <a name="perform-the-access-review"></a>Utför åtkomstgranskningen
+## <a name="perform-the-access-review"></a>Utför åtkomst granskningen
 
-När du har öppnat åtkomstgranskningen kan du se din åtkomst. Använd följande procedur för att göra åtkomstgranskningen:
+När du har öppnat åtkomst granskningen kan du se din åtkomst. Använd följande procedur för att göra åtkomst granskningen:
 
-1.  Bestäm om du fortfarande behöver åtkomst till åtkomstpaketet. Projektet du arbetar med är till exempel inte slutfört, så du behöver fortfarande åtkomst för att fortsätta arbeta med projektet.
+1.  Bestäm om du fortfarande behöver åtkomst till Access-paketet. Projektet du arbetar med är till exempel inte slutfört, så du behöver fortfarande åtkomst för att fortsätta arbeta med projektet.
 
-1.  Klicka på **Ja** om du vill behålla åtkomsten eller klicka på **Nej** om du vill ta bort åtkomsten.
+1.  Klicka på **Ja** om du vill behålla åtkomsten eller på **Nej** om du vill ta bort åtkomsten.
     >[!NOTE]
-    >Om du uppgav att du inte längre behöver åtkomst tas du inte bort från åtkomstpaketet omedelbart. Du tas bort från åtkomstpaketet när granskningen avslutas eller om en administratör stoppar granskningen.
+    >Om du angav att du inte längre behöver åtkomst, tas du inte bort från Access-paketet direkt. Du kommer att tas bort från åtkomst paketet när granskningen upphör eller om en administratör stoppar granskningen.
 
-1.  Om du klickade på **Ja**kan du behöva inkludera en motiveringssats i rutan **Orsak.**
+1.  Om du klickade på **Ja**kan du behöva ta med en motiverings instruktion i rutan **orsak** .
 
 1.  Klicka på **Skicka**.
 
-Du kan återgå till granskningen om du ändrar dig och bestämmer dig för att ändra ditt svar före slutet av granskningen.
+Du kan gå tillbaka till granskningen om du ändrar dig och bestämmer dig för att ändra ditt svar innan du går igenom gransknings slutet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Granska åtkomsten till åtkomstpaket](entitlement-management-access-reviews-review-access.md) 
+- [Granska åtkomsten till åtkomst paket](entitlement-management-access-reviews-review-access.md) 

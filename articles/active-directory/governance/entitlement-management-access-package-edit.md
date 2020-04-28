@@ -1,6 +1,6 @@
 ---
-title: Dölja eller ta bort åtkomstpaket i rättighetshantering - Azure AD
-description: Lär dig hur du döljer eller tar bort ett åtkomstpaket i Azure Active Directory-berättigandehantering.
+title: Dölj eller ta bort åtkomst paket i hantering av rättigheter – Azure AD
+description: Lär dig att dölja eller ta bort ett Access-paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,53 +17,53 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf410db5a483fc4f5d9efc1a6bd5c6202694ef4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79262001"
 ---
-# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Dölja eller ta bort ett åtkomstpaket i Azure AD-berättigandehantering
+# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Dölja eller ta bort ett Access-paket i hantering av Azure AD-rättigheter
 
-Åtkomstpaket kan identifieras som standard. Det innebär att om en princip tillåter en användare att begära åtkomstpaketet, kommer de automatiskt att se åtkomstpaketet som anges i min åtkomstportal. Du kan dock ändra inställningen **Dold** så att åtkomstpaketet inte visas i användarens My Access-portal.
+Åtkomst paketen kan identifieras som standard. Det innebär att om en princip tillåter att en användare begär åtkomst paketet, ser de automatiskt Access-paketet som anges i deras åtkomst Portal. Du kan dock ändra den **dolda** inställningen så att Access-paketet inte visas i användarens min åtkomst Portal.
 
-I den här artikeln beskrivs hur du döljer eller tar bort ett åtkomstpaket.
+I den här artikeln beskrivs hur du döljer eller tar bort ett Access-paket.
 
-## <a name="change-the-hidden-setting"></a>Ändra inställningen Dold
+## <a name="change-the-hidden-setting"></a>Ändra den dolda inställningen
 
-Följ dessa steg för att ändra inställningen **Dold** för ett åtkomstpaket.
+Följ dessa steg om du vill ändra den **dolda** inställningen för ett Access-paket.
 
-**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
-1. Klicka på **Access-paket** på menyn till vänster och öppna sedan åtkomstpaketet.
+1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på **Redigera**på sidan Översikt.
+1. På sidan Översikt klickar du på **Redigera**.
 
-1. Ställ in inställningen **Dold.**
+1. Ange den **dolda** inställningen.
 
-    Om det är inställt på **Nej**visas åtkomstpaketet i användarens My Access-portal.
+    Om värdet är **Nej**visas Access-paketet i användarens Mina åtkomst Portal.
 
-    Om det är inställt på **Ja**visas inte åtkomstpaketet i användarens My Access-portal. Det enda sättet för en användare att visa åtkomstpaketet är om de har den direkta **My Access-portallänken** till åtkomstpaketet. Mer information finns i [Dela länk för att begära ett åtkomstpaket](entitlement-management-access-package-settings.md).
+    Om det är inställt på **Ja**visas inte Access-paketet i användarens min åtkomst Portal. Det enda sättet som en användare kan visa åtkomst paketet är om de har länken Direct **My Access Portal** till Access-paketet. Mer information finns i [Dela länk för att begära ett Access-paket](entitlement-management-access-package-settings.md).
 
-## <a name="delete-an-access-package"></a>Ta bort ett åtkomstpaket
+## <a name="delete-an-access-package"></a>Ta bort ett Access-paket
 
-Ett åtkomstpaket kan bara tas bort om det inte har några aktiva användartilldelningar. Följ dessa steg för att ta bort ett åtkomstpaket.
+Ett Access-paket kan bara tas bort om det inte har några aktiva användar tilldelningar. Följ dessa steg om du vill ta bort ett Access-paket.
 
-**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
-1. Klicka på **Access-paket** på menyn till vänster och öppna sedan åtkomstpaketet.
+1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på **Tilldelningar** på den vänstra menyn och ta bort åtkomst för alla användare.
+1. Klicka på **tilldelningar** på den vänstra menyn och ta bort åtkomsten för alla användare.
 
-1. Klicka på **Översikt** på den vänstra menyn och sedan på **Ta bort**.
+1. I den vänstra menyn klickar du på **Översikt** och sedan på **ta bort**.
 
-1. Klicka på **Ja**i borttagningsmeddelandet som visas .
+1. Klicka på **Ja**i det borttagnings meddelande som visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa, lägga till och ta bort tilldelningar för ett åtkomstpaket](entitlement-management-access-package-assignments.md)
+- [Visa, lägga till och ta bort tilldelningar för ett Access-paket](entitlement-management-access-package-assignments.md)
 - [Visa rapporter och loggar](entitlement-management-reports.md)

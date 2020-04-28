@@ -1,7 +1,7 @@
 ---
-title: Definiera en teknisk profil för Application Insights i en anpassad princip
+title: Definiera en Application Insights teknisk profil i en anpassad princip
 titleSuffix: Azure AD B2C
-description: Definiera en teknisk profil för Application Insights i en anpassad princip i Azure Active Directory B2C.
+description: Definiera en Application Insights teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,29 +12,29 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f50373b0841b7626bc405f121015c15ae1587a97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80108580"
 ---
-# <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för Application Insights i en anpassad Azure AD B2C-princip
+# <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Application Insights teknisk profil i en Azure AD B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) stöder att skicka händelsedata direkt till [Application Insights](../azure-monitor/app/app-insights-overview.md) med hjälp av instrumenteringsnyckeln som tillhandahålls till Azure AD B2C.  Med en teknisk profil för Application Insights kan du få detaljerade och anpassade händelseloggar för dina användarresor till:
+Azure Active Directory B2C (Azure AD B2C) stöder sändning av händelse data direkt till [Application Insights](../azure-monitor/app/app-insights-overview.md) med hjälp av Instrumentation-nyckeln som är avsedd att Azure AD B2C.  Med en Application Insights teknisk profil kan du hämta detaljerade och anpassade händelse loggar för dina användar resor till:
 
-* Få insikter om användarbeteende.
-* Felsöka dina egna principer i utveckling eller i produktion.
+* Få insikter om användar beteende.
+* Felsök dina egna principer i utvecklingen eller i produktionen.
 * Mät prestanda.
 * Skapa meddelanden från Application Insights.
 
 
 ## <a name="protocol"></a>Protokoll
 
-**Attributet Name** för **protokollelementet** måste `Proprietary`anges till . **Hantarattributet** måste innehålla det fullständigt kvalificerade namnet på protokollhanterarsammansättningen som används av Azure AD B2C for Application Insights:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterarens sammansättning som används av Azure AD B2C för Application Insights:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-I följande exempel visas den gemensamma tekniska profilen Application Insights. Andra tekniska profiler för Application Insights inkluderar AzureInsights-Common för att utnyttja konfigurationen.  
+I följande exempel visas den vanliga Application Insights tekniska profilen. Andra Application Insights tekniska profiler är AzureInsights-common för att utnyttja konfigurationen.  
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">
@@ -43,9 +43,9 @@ I följande exempel visas den gemensamma tekniska profilen Application Insights.
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Ingående anspråk
+## <a name="input-claims"></a>Inmatade anspråk
 
-Elementet **InputClaims** innehåller en lista över anspråk som ska skickas till Application Insights. Du kan också mappa namnet på ditt anspråk till ett namn som du föredrar att visas i Application Insights. I följande exempel visas hur du skickar telemetri till Application Insights. Egenskaper för en händelse läggs `{property:NAME}`till i syntaxen , där NAME läggs till i händelsen. DefaultValue kan vara antingen ett statiskt värde eller ett värde som matchas av en av de [anspråkslösare](claim-resolver-overview.md)som stöds .
+**InputClaims** -elementet innehåller en lista över anspråk att skicka till Application Insights. Du kan också mappa namnet på anspråket till ett namn som du vill ska visas i Application Insights. I följande exempel visas hur du skickar telemetrivärden till Application Insights. Egenskaperna för en händelse läggs till via syntaxen `{property:NAME}`där namn är egenskapen som läggs till i händelsen. DefaultValue kan vara antingen ett statiskt värde eller ett värde som har lösts av en av de [anspråk matchare](claim-resolver-overview.md)som stöds.
 
 ```XML
 <InputClaims>
@@ -56,31 +56,31 @@ Elementet **InputClaims** innehåller en lista över anspråk som ska skickas ti
 </InputClaims>
 ```
 
-Elementet **InputClaimsTransformations** kan innehålla en samling **InputClaimsTransformation-element** som används för att ändra indataanspråken eller generera nya innan de skickas till Application Insights.
+**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till Application Insights.
 
-## <a name="persist-claims"></a>Kvarstår anspråk
+## <a name="persist-claims"></a>Kvarhåll anspråk
 
-Elementet PersistedClaims används inte.
+PersistedClaims-elementet används inte.
 
-## <a name="output-claims"></a>Utgående fordringar
+## <a name="output-claims"></a>Utgående anspråk
 
-Elementen OutputClaims och OutputClaimsTransformations används inte.
+OutputClaims-och OutputClaimsTransformations-elementen används inte.
 
-## <a name="cryptographic-keys"></a>Krypteringsnycklar
+## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
-Elementet CryptographicKeys används inte.
+CryptographicKeys-elementet används inte.
 
 
 ## <a name="metadata"></a>Metadata
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Instrumenteringsnyckel| Ja | [Instrumenteringsnyckeln](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)Application Insights , som ska användas för att logga händelserna. | 
-| UtvecklareMode| Inga | En boolesk som anger om utvecklarläget är aktiverat. Möjliga `true` värden: `false` eller (standard). Dessa metadata styr hur händelser buffras. I en utvecklingsmiljö med minimal händelsevolym resulterar det händelser som skickas direkt till Application Insights när utvecklarläget aktiveras.|  
-|InaktiveraLtlemmetri |Inga |En boolesk som anger om telemetri ska aktiveras eller inte. Möjliga `true` värden: `false` eller (standard).| 
+| InstrumentationKey| Ja | Application Insights [Instrumentation-nyckeln](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)som används för att logga händelser. | 
+| DeveloperMode| Inga | Ett booleskt värde som anger om utvecklarläge är aktiverat. Möjliga värden: `true` eller `false` (standard). Dessa metadata styr hur händelser buffras. I en utvecklings miljö med minimal händelse volym aktiverar du utvecklarläge om du vill att händelser skickas direkt till Application Insights.|  
+|DisableTelemetry |Inga |Ett booleskt värde som anger om telemetri ska vara aktiverat eller inte. Möjliga värden: `true` eller `false` (standard).| 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en application insights-resurs](../azure-monitor/app/create-new-resource.md)
-- Lär dig hur du [spårar användarbeteende i Azure Active Directory B2C med application insights](analytics-with-application-insights.md)
+- [Skapa en Application Insights resurs](../azure-monitor/app/create-new-resource.md)
+- Lär dig hur du [spårar användar beteende i Azure Active Directory B2C att använda Application Insights](analytics-with-application-insights.md)

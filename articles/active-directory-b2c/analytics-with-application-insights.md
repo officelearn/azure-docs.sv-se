@@ -1,7 +1,7 @@
 ---
-title: Spåra användarbeteende med Application Insights
+title: Spåra användar beteende med Application Insights
 titleSuffix: Azure AD B2C
-description: Lär dig hur du aktiverar händelseloggar i Application Insights från Azure AD B2C-användarresor med hjälp av anpassade principer.
+description: Lär dig hur du aktiverar händelse loggar i Application Insights från Azure AD B2C användar resor med anpassade principer.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,57 +12,57 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 25e62e7c6865f91daa242a33a0f491f8015be41a
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80672525"
 ---
-# <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användarbeteende i Azure Active Directory B2C med hjälp av Application Insights
+# <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användar beteende i Azure Active Directory B2C att använda Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure Active Directory B2C (Azure AD B2C) stöder att skicka händelsedata direkt till [Application Insights](../azure-monitor/app/app-insights-overview.md) med hjälp av instrumenteringsnyckeln som tillhandahålls till Azure AD B2C.  Med en teknisk profil för Application Insights kan du få detaljerade och anpassade händelseloggar för dina användarresor till:
+Azure Active Directory B2C (Azure AD B2C) stöder sändning av händelse data direkt till [Application Insights](../azure-monitor/app/app-insights-overview.md) med hjälp av Instrumentation-nyckeln som är avsedd att Azure AD B2C.  Med en Application Insights teknisk profil kan du hämta detaljerade och anpassade händelse loggar för dina användar resor till:
 
-* Få insikter om användarbeteende.
-* Felsöka dina egna principer i utveckling eller i produktion.
+* Få insikter om användar beteende.
+* Felsök dina egna principer i utvecklingen eller i produktionen.
 * Mät prestanda.
 * Skapa meddelanden från Application Insights.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Den tekniska profilen [Application Insights](application-insights-technical-profile.md) definierar en händelse från Azure AD B2C. Profilen anger namnet på händelsen, anspråken som registreras och instrumenteringsnyckeln. Om du vill bokföra en händelse läggs den tekniska profilen sedan till som ett orchestration-steg i en [användarfärd](userjourneys.md).
+[Application Insights](application-insights-technical-profile.md) teknisk profil definierar en händelse från Azure AD B2C. Profilen anger namnet på händelsen, anspråken som registreras och Instrumentation-nyckeln. Om du vill publicera en händelse läggs den tekniska profilen till som ett Orchestration-steg i en [användar resa](userjourneys.md).
 
-Application Insights kan förena händelserna genom att använda ett korrelations-ID för att spela in en användarsession. Application Insights gör händelsen och sessionen tillgänglig inom några sekunder och presenterar många visualiserings-, export- och analysverktyg.
+Application Insights kan förena händelserna genom att använda ett korrelations-ID för att registrera en användarsession. Application Insights gör händelsen och sessionen tillgänglig inom några sekunder och visar många visualiserings-, export-och analys verktyg.
 
 ## <a name="prerequisites"></a>Krav
 
-Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
+Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
-När du använder Application Insights med Azure AD B2C behöver du bara skapa en resurs och hämta instrumenteringsnyckeln. Information finns i [Skapa en programinsiktsresurs](../azure-monitor/app/create-new-resource.md)
+När du använder Application Insights med Azure AD B2C behöver du bara skapa en resurs och hämta Instrumentation-nyckeln. Mer information finns i [skapa en Application Insights resurs](../azure-monitor/app/create-new-resource.md)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Kontrollera att du använder katalogen som innehåller din Azure-prenumeration genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din prenumeration. Den här klienten är inte din Azure AD B2C-klient.
-3. Välj **Skapa en resurs** i det övre vänstra hörnet på Azure-portalen och sök sedan efter och välj **Programinsikter**.
+2. Kontrol lera att du använder den katalog som innehåller din Azure-prenumeration genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din prenumeration. Den här klienten är inte din Azure AD B2C klient.
+3. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Application Insights**.
 4. Klicka på **Skapa**.
 5. Ange ett **namn** för resursen.
-6. För **programtyp**väljer du **ASP.NET webbprogram**.
-7. För **Resursgrupp**väljer du en befintlig grupp eller anger ett namn för en ny grupp.
+6. För **program typ**väljer du **ASP.NET-webbprogram**.
+7. För **resurs grupp**väljer du en befintlig grupp eller anger ett namn för en ny grupp.
 8. Klicka på **Skapa**.
-4. När du har skapat application insights-resursen öppnar du den, expanderar **Essentials**och kopierar instrumenteringsnyckeln.
+4. När du har skapat Application Insights-resursen öppnar du den, expanderar **Essentials**och kopierar Instrumentation-nyckeln.
 
-![Översikt över programinsikter och instrumenteringsnyckel](./media/analytics-with-application-insights/app-insights.png)
+![Application Insights översikt och Instrumentation-nyckel](./media/analytics-with-application-insights/app-insights.png)
 
 ## <a name="define-claims"></a>Definiera anspråk
 
-Ett anspråk ger en tillfällig lagring av data under en Azure AD B2C-principkörning. [Skadeschemat](claimsschema.md) är den plats där du deklarerar dina anspråk.
+Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körning. [Anspråks schema](claimsschema.md) är den plats där du deklarerar dina anspråk.
 
-1. Öppna filen för tillägg i principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
-1. Sök efter elementet [BuildingBlocks.](buildingblocks.md) Om elementet inte finns lägger du till det.
-1. Leta reda på elementet [ClaimsSchema.](claimsschema.md) Om elementet inte finns lägger du till det.
-1. Lägg till följande anspråk i elementet **ClaimsSchema.** 
+1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
+1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
+1. Lägg till följande anspråk i **ClaimsSchema** -elementet. 
 
 ```xml
 <ClaimType Id="EventType">
@@ -102,16 +102,16 @@ Ett anspråk ger en tillfällig lagring av data under en Azure AD B2C-principkö
 
 ## <a name="add-new-technical-profiles"></a>Lägg till nya tekniska profiler
 
-Tekniska profiler kan betraktas som funktioner i Identity Experience Framework i Azure AD B2C. Den här tabellen definierar de tekniska profiler som används för att öppna en session och publicera händelser.
+Tekniska profiler kan betraktas som funktioner i Azure AD B2C för identitets upplevelsen. I den här tabellen definieras de tekniska profiler som används för att öppna en session och publicera händelser.
 
 | Teknisk profil | Aktivitet |
 | ----------------- | -----|
-| AppInsights-Common | Den gemensamma uppsättningen parametrar som ska ingå i alla tekniska azure insights-profiler. |
-| AppInsights-SignInRequest | Registrerar `SignInRequest` en händelse med en uppsättning anspråk när en inloggningsbegäran har tagits emot. |
-| AppInights-UserSignUp | Registrerar `UserSignUp` en händelse när användaren utlöser registreringsalternativet i en registrerings-/inloggningsresa. |
-| AppInsights-SignInComplete | Registrerar `SignInComplete` en händelse när en autentisering har slutförts när en token har skickats till det förlitande part-programmet. |
+| AppInsights – common | Den gemensamma uppsättningen parametrar som ska ingå i alla Azure Insights-tekniska profiler. |
+| AppInsights – SignInRequest | Registrerar en `SignInRequest` händelse med en uppsättning anspråk när en inloggnings förfrågan har mottagits. |
+| AppInsights – UserSignUp | Registrerar en `UserSignUp` händelse när användaren utlöser inloggnings alternativet i en inloggnings-eller inloggnings resa. |
+| AppInsights – SignInComplete | Registrerar en `SignInComplete` händelse när en autentisering har slutförts, när en token har skickats till det förlitande part programmet. |
 
-Lägg till profilerna i filen *TrustFrameworkExtensions.xml* från startpaketet. Lägg till dessa element i elementet **ClaimsProviders:**
+Lägg till profilerna i *TrustFrameworkExtensions. XML-* filen från start paketet. Lägg till dessa element i **ClaimsProviders** -elementet:
 
 ```xml
 <ClaimsProvider>
@@ -163,11 +163,11 @@ Lägg till profilerna i filen *TrustFrameworkExtensions.xml* från startpaketet.
 ```
 
 > [!IMPORTANT]
-> Ändra instrumenteringsnyckeln i den `AppInsights-Common` tekniska profilen till det GUID som application insights-resursen tillhandahåller.
+> Ändra Instrumentation-nyckeln i den `AppInsights-Common` tekniska profilen till det GUID som Application Insights resursen tillhandahåller.
 
-## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Lägg till de tekniska profilerna som orchestration-steg
+## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Lägg till de tekniska profilerna som Orchestration-steg
 
-Anropa `AppInsights-SignInRequest` som orkestrering steg 2 för att spåra att en inloggnings-/registreringsbegäran har tagits emot:
+Anropa `AppInsights-SignInRequest` som dirigerings steg 2 för att spåra att en begäran om inloggning/registrering har tagits emot:
 
 ```xml
 <!-- Track that we have received a sign in request -->
@@ -178,7 +178,7 @@ Anropa `AppInsights-SignInRequest` som orkestrering steg 2 för att spåra att e
 </OrchestrationStep>
 ```
 
-Omedelbart *before* före `SendClaims` orchestration-steget lägger du `AppInsights-UserSignup`till ett nytt steg som anropar . Den utlöses när användaren väljer registreringsknappen i en registrerings-/inloggningsresa.
+Omedelbart *före* Orchestration `SendClaims` -steget lägger du till ett nytt steg som anropar `AppInsights-UserSignup`. Den utlöses när användaren väljer knappen Registrera i en resa för registrering/inloggning.
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
@@ -200,7 +200,7 @@ Omedelbart *before* före `SendClaims` orchestration-steget lägger du `AppInsig
 </OrchestrationStep>
 ```
 
-Omedelbart efter `SendClaims` orchestration-steget `AppInsights-SignInComplete`ringer du . Det här steget visar en lyckad färd.
+Direkt efter `SendClaims` Orchestration-steget anropa `AppInsights-SignInComplete`. Det här steget visar att resan har slutförts.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
@@ -212,26 +212,26 @@ Omedelbart efter `SendClaims` orchestration-steget `AppInsights-SignInComplete`r
 ```
 
 > [!IMPORTANT]
-> När du har lagt till de nya orchestration-stegen numrerar du om stegen sekventiellt utan att hoppa över några heltal från 1 till N.
+> När du har lagt till de nya stegen för dirigering kan du numrera om stegen sekventiellt utan att hoppa över heltal från 1 till N.
 
 
-## <a name="upload-your-file-run-the-policy-and-view-events"></a>Ladda upp filen, kör principen och visa händelser
+## <a name="upload-your-file-run-the-policy-and-view-events"></a>Ladda upp filen, kör principen och Visa händelser
 
-Spara och ladda upp *filen TrustFrameworkExtensions.xml.* Anropa sedan den förlitande partprincipen från ditt program eller använd **Kör nu** i Azure-portalen. I sekunder är dina händelser tillgängliga i Application Insights.
+Spara och ladda upp filen *TrustFrameworkExtensions. XML* . Anropa sedan den förlitande part principen från programmet eller Använd **Kör nu** i Azure Portal. I sekunder är dina händelser tillgängliga i Application Insights.
 
-1. Öppna **application insights-resursen** i din Azure Active Directory-klient.
-2. Välj **användningshändelser** > **Events**.
-3. Ställ in **under** till **sista timmen** och **med** till **3 minuter**.  Du kan behöva välja **Uppdatera för** att visa resultat.
+1. Öppna **Application Insights** resursen i Azure Active Directory klient organisationen.
+2. Välj **användnings** > **händelser**.
+3. Anges **under** till **sista timmen** och **med** **3 minuter**.  Du kan behöva välja **Uppdatera** för att visa resultatet.
 
-![Programinsikter ANVÄNDNING-Händelser Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
+![Application Insights användning – händelser Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
-## <a name="optional-collect-more-data"></a>[Valfritt] Samla in mer data
+## <a name="optional-collect-more-data"></a>Valfritt Samla in mer data
 
-Lägg till anspråkstyper och händelser i din användarresa för att passa dina behov. Du kan använda [anspråkslösare](claim-resolver-overview.md) eller någon sträng anspråkstyp, lägga till anspråk genom att lägga till ett **indataanspråkselement** i application insights-händelsen eller i den tekniska profilen AppInsights-Common.
+Lägg till anspråks typer och händelser till din användar resa för att passa dina behov. Du kan använda [anspråks matchare](claim-resolver-overview.md) eller valfri typ av sträng anspråk, lägga till anspråken genom att lägga till ett **indatamängds** element i Application Insights-händelsen eller till AppInsights-vanliga tekniska profiler.
 
-- **ClaimTypeReferenceId** är referensen till en anspråkstyp.
-- **PartnerClaimType** är namnet på egenskapen som visas i Azure Insights. Använd syntaxen `{property:NAME}`för `NAME` , var är egenskapen läggs till i händelsen.
-- **DefaultValue** använder vilket strängvärde eller anspråksmatcharen som helst.
+- **ClaimTypeReferenceId** är referensen till en anspråks typ.
+- **PartnerClaimType** är namnet på den egenskap som visas i Azure Insights. Använd syntaxen för `{property:NAME}`, där `NAME` är egenskapen som läggs till i händelsen.
+- **Standardvärde** Använd valfritt sträng värde eller anspråks lösare.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
@@ -241,4 +241,4 @@ Lägg till anspråkstyper och händelser i din användarresa för att passa dina
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om den tekniska profilen [för Application Insights](application-insights-technical-profile.md) i IEF-referensen. 
+- Läs mer om [Application Insights](application-insights-technical-profile.md) teknisk profil i IEF-referensen. 

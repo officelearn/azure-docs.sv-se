@@ -1,6 +1,6 @@
 ---
-title: Begär ett åtkomstpaket – hantering av Azure AD-berättigande
-description: Lär dig hur du använder My Access-portalen för att begära åtkomst till ett åtkomstpaket i Azure Active Directory-berättigandehantering.
+title: Begär ett åtkomst paket – hantering av Azure AD-berättigande
+description: Lär dig hur du använder min åtkomst Portal för att begära åtkomst till ett Access-paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,111 +17,111 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b1ccde2f1f92237978ab4e68acaa26393bbb9d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261754"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Begär åtkomst till ett åtkomstpaket i Azure AD-berättigandehantering
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter
 
-Med Azure AD-berättigandehantering möjliggör ett åtkomstpaket en engångsinställning av resurser och principer som automatiskt administrerar åtkomst under åtkomstpaketets livstid. 
+Med hantering av Azure AD-behörighet kan du använda ett Access-paket för att konfigurera resurser och principer som automatiskt administrerar åtkomst för åtkomst paketets livs längd. 
 
-En åtkomstpakethanterare kan konfigurera principer för att kräva godkännande för användare att ha åtkomst till åtkomstpaket. En användare som behöver åtkomst till ett åtkomstpaket kan skicka en begäran om att få åtkomst. I den här artikeln beskrivs hur du skickar en åtkomstbegäran.
+En Access Package Manager kan konfigurera principer för att kräva att användare får åtkomst till paket. En användare som behöver åtkomst till ett Access-paket kan skicka en begäran om att få åtkomst. Den här artikeln beskriver hur du skickar en åtkomstbegäran.
 
-## <a name="sign-in-to-the-my-access-portal"></a>Logga in på My Access-portalen
+## <a name="sign-in-to-the-my-access-portal"></a>Logga in på portalen för åtkomst
 
-Det första steget är att logga in på My Access-portalen där du kan begära åtkomst till ett åtkomstpaket.
+Det första steget är att logga in på min åtkomst portal där du kan begära åtkomst till ett Access-paket.
 
-**Viktig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
-1. Leta efter ett e-postmeddelande eller ett meddelande från projektet eller affärschefen som du arbetar med. E-postmeddelandet ska innehålla en länk till det åtkomstpaket som du behöver tillgång till. Länken börjar `myaccess`med , innehåller en katalog ledtråd och slutar med ett åtkomstpaket-ID.  (För den amerikanska regeringen `https://myaccess.microsoft.us` kan domänen vara i stället.)
+1. Sök efter ett e-postmeddelande eller ett meddelande från projektet eller Business Manager som du arbetar med. E-postmeddelandet ska innehålla en länk till åtkomst paketet som du behöver åtkomst till. Länken börjar med `myaccess`, innehåller ett katalog tips och slutar med ett Access-paket-ID.  (För amerikanska myndigheter kan domänen vara `https://myaccess.microsoft.us` i stället.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
 1. Öppna länken.
 
-1. Logga in på My Access-portalen.
+1. Logga in på portalen för åtkomst.
 
-    Se till att du använder ditt organisationskonto (arbete eller skola). Om du är osäker kontaktar du projektet eller affärschefen.
+    Se till att du använder ditt organisations konto (arbets-eller skol konto). Om du är osäker kan du kontakta projektet eller Business Manager.
 
-## <a name="request-an-access-package"></a>Begär ett åtkomstpaket
+## <a name="request-an-access-package"></a>Begär ett Access-paket
 
-När du har hittat åtkomstpaketet i My Access-portalen kan du skicka en begäran.
+När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran.
 
-**Viktig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
-1. Hitta åtkomstpaketet i listan.  Om det behövs kan du söka genom att skriva en söksträng och sedan välja **filtret Namn,** **katalog**eller **Resurser.**
+1. Hitta Access-paketet i listan.  Om det behövs kan du söka genom att skriva en Sök sträng och sedan välja filtret **namn**, **katalog**eller **resurser** .
 
-    ![My Access-portal - Resurssökning](./media/entitlement-management-request-access/my-access-resource-search.png)
+    ![Min åtkomst Portal – resurs sökning](./media/entitlement-management-request-access/my-access-resource-search.png)
 
-1. Markera åtkomstpaketet genom att klicka på bocken.
+1. Klicka på bock markeringen för att välja Access-paketet.
 
-1. Klicka på **Begär åtkomst** för att öppna fönstret Begär åtkomst.
+1. Klicka på **begär åtkomst** för att öppna fönstret begär åtkomst.
 
-    ![My Access-portal - Access-paket](./media/entitlement-management-request-access/my-access-request-access-button.png)
+    ![Åtkomst till Portal – åtkomst paket](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
-1. Om rutan **Affärsmotivering** visas skriver du en motivering för att behöva åtkomst.
+1. Om rutan **affärs justering** visas anger du en motivering för att ha åtkomst.
 
-1. Om **Begäran för viss period?** **Yes** **No**
+1. Välj **Ja** eller **Nej**om **begäran om angiven period?** är aktive rad.
 
-1. Om det behövs anger du startdatum och slutdatum.
+1. Ange vid behov start datum och slutdatum.
 
-    ![My Access-portal - Åtkomst för begäran](./media/entitlement-management-shared/my-access-request-access.png)
+    ![Min åtkomst Portal – begär åtkomst](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. När du är klar klickar du på **Skicka** för att skicka din begäran.
+1. När du är färdig klickar du på **Skicka** för att skicka in din begäran.
 
-1. Klicka på **Begär historik** om du vill visa en lista över dina begäranden och status.
+1. Klicka på **begär ande historik** om du vill se en lista över dina begär Anden och status.
 
-    Om åtkomstpaketet kräver godkännande är begäran nu i ett väntande godkännandetillstånd.
+    Om åtkomst paketet kräver godkännande är begäran nu i ett tillstånd som väntar på godkännande.
 
 ### <a name="select-a-policy"></a>Välj en princip
 
-Om du begär åtkomst till ett åtkomstpaket som har flera principer som gäller kan du bli ombedd att välja en princip. En åtkomstpakethanterare kan till exempel konfigurera ett åtkomstpaket med två principer för två grupper av interna medarbetare. Den första principen kan ge åtkomst i 60 dagar och kräva godkännande. Den andra principen kan ge åtkomst i 2 dagar och inte kräver godkännande. Om du stöter på det här scenariot måste du välja den princip som du vill använda.
+Om du begär åtkomst till ett Access-paket som har flera principer som gäller kan du bli ombedd att välja en princip. Till exempel kan en Access Package Manager Konfigurera ett Access-paket med två principer för två grupper av interna anställda. Den första principen kan ge åtkomst i 60 dagar och kräver godkännande. Den andra principen kan tillåta åtkomst i 2 dagar och kräver inte godkännande. Om du stöter på det här scenariot måste du välja den princip som du vill använda.
 
-![My Access-portal - Begärandeåtkomst - flera principer](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+![Min åtkomst Portal – begär åtkomst – flera principer](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## <a name="resubmit-a-request"></a>Skicka en begäran igen
 
-När du begär åtkomst till ett åtkomstpaket kan din begäran nekas eller din begäran upphör att gälla om godkännare inte svarar i tid. Om du behöver åtkomst kan du försöka igen och skicka in din begäran igen. I följande procedur beskrivs hur du skickar en begäran om åtkomst igen:
+När du begär åtkomst till ett Access-paket kan din begäran nekas eller så kan din begäran gå ut om god kännare inte svarar i tid. Om du behöver åtkomst kan du försöka igen och skicka din begäran igen. Följande procedur beskriver hur du skickar en åtkomstbegäran igen:
 
-**Viktig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
-1. Logga in på **My Access-portalen.**
+1. Logga in på portalen för **åtkomst** .
 
-1. Klicka på **Begär historik** från navigeringsmenyn till vänster.
+1. Klicka på **begär historik** på navigerings menyn till vänster.
 
-1. Leta reda på det åtkomstpaket som du skickar en begäran till igen.
+1. Hitta det åtkomst paket som du skickar en begäran till.
 
-1. Markera åtkomstpaketet genom att klicka på bocken.
+1. Klicka på kryss markeringen för att välja Access-paketet.
 
-1. Klicka på den blå **visa** länken till höger om det valda åtkomstpaketet.
+1. Klicka på länken för den blåa **vyn** till höger om det valda åtkomst paketet.
     
-    ![Välj åtkomstpaket och visa länk](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+    ![Välj Access-paket och Visa länk](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
 
-    En ruta öppnas till höger med åtkomstpaketets begäranhistorik.
+    Ett fönster öppnas till höger med förfrågnings historiken för Access-paketet.
     
-    ![Knappen Välj skicka igen](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+    ![Välj knappen Skicka igen](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
 
 1. Klicka på knappen **Skicka igen** längst ned i fönstret.
 
-## <a name="cancel-a-request"></a>Avbryta en begäran
+## <a name="cancel-a-request"></a>Avbryt en begäran
 
-Om du skickar en åtkomstbegäran och begäran fortfarande är i **det väntande godkännandetillståndet** kan du avbryta begäran.
+Om du skickar en åtkomstbegäran och begäran fortfarande har statusen **väntar på godkännande** kan du avbryta begäran.
 
-**Viktig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
-1. Klicka på **Begär historik** till vänster i Portalen Min Åtkomst för att se en lista över dina begäranden och status.
+1. I portalen My Access klickar du på **begär ande historik** för att se en lista över dina begär Anden och status.
 
 1. Klicka på länken **Visa** för den begäran som du vill avbryta.
 
-1. Om begäran fortfarande är i **väntande godkännandeläge** kan du klicka på **Avbryt begäran om** att avbryta begäran.
+1. Om begäran fortfarande har statusen väntar på **godkännande** kan du klicka på **Avbryt begäran** om du vill avbryta begäran.
 
-    ![My Access-portal - Avbryt begäran](./media/entitlement-management-request-access/my-access-cancel-request.png)
+    ![Min åtkomst Portal-Avbryt förfrågan](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
-1. Klicka på **Begär historik** för att bekräfta att begäran har avbrutits.
+1. Klicka på **begär ande historik** för att bekräfta att begäran avbröts.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Godkänna eller neka åtkomstbegäranden](entitlement-management-request-approve.md)
-- [Begär process- och e-postaviseringar](entitlement-management-process.md)
+- [Godkänn eller neka åtkomst begär Anden](entitlement-management-request-approve.md)
+- [Begär process och e-postmeddelanden](entitlement-management-process.md)

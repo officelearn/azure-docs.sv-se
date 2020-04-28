@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD-direktautentisering: versionsversionshistorik | Microsoft-dokument'
-description: I den här artikeln visas alla versioner av Azure AD-direktautentiseringsagenten
+title: 'Direkt autentisering i Azure AD: versions historik | Microsoft Docs'
+description: Den här artikeln innehåller alla versioner av Azure AD-direktautentisering
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,76 +13,76 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81379908"
 ---
-# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD-direktautentiseringsagent: Versionsversionshistorik 
+# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD-direktautentisering: versions historik 
  
-De agenter som installeras lokalt och som möjliggör direktautentisering uppdateras regelbundet för att tillhandahålla nya funktioner. I den här artikeln visas de versioner och funktioner som läggs till när nya funktioner introduceras. Direktautentiseringsagenter uppdateras automatiskt när en ny version släpps. 
+Agenterna som är installerade lokalt och som möjliggör direktautentisering uppdateras regelbundet för att tillhandahålla nya funktioner. Den här artikeln innehåller de versioner och funktioner som läggs till när nya funktioner lanseras. Direkt autentiserings agenter uppdateras automatiskt när en ny version släpps. 
 
 Här är relaterade ämnen: 
 
-- [Användarloggning med Azure AD-direktautentisering](how-to-connect-pta.md) 
-- [Azure AD-installation av autentiseringsagent](how-to-connect-pta-quick-start.md) 
+- [Användar inloggning med Azure AD-direktautentisering](how-to-connect-pta.md) 
+- [Installation av Azure AD-direktautentisering](how-to-connect-pta-quick-start.md) 
 
 ## <a name="1517420"></a>1.5.1742.0
-### <a name="release-status"></a>Utgivningsstatus: 
-2020-04-09: Släppt för nedladdning
+### <a name="release-status"></a>Versions status: 
+04/09/2020: har släppts för nedladdning
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-- Lade till stöd för inriktning av molnmiljöer vid installationen. Paketet kan fästas på en viss molnmiljö.
+- Stöd har lagts till för mål moln miljöer vid installation. Paketet kan fästas i en specifik moln miljö.
 
 
 
 ## <a name="1510070"></a>1.5.1007.0 
 ### <a name="release-status"></a>Versionsstatus 
-2019-01-22: Släppt för nedladdning  
+1/22/2019: har släppts för nedladdning  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
-- Lagt till stöd för Service Bus tillförlitliga kanaler för att lägga till ytterligare ett lager av anslutning återhämtning för utgående anslutningar 
-- Framtvinga TLS 1.2 under agentregistrering 
+- Stöd har lagts till för Service Bus pålitliga kanaler för att lägga till ett annat lager av anslutnings återhämtning för utgående anslutningar 
+- Genomdriva TLS 1,2 under agent registreringen 
 
 ## <a name="156430"></a>1.5.643.0 
 ### <a name="release-status"></a>Versionsstatus 
-2018-04-10: Släppt för nedladdning  
+4/10/2018: har släppts för nedladdning  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
-- Stöd för webbuttagsanslutning 
-- Ange TLS 1.2 som standardprotokoll för agenten 
+- Stöd för WebSocket-anslutning 
+- Ange TLS 1,2 som standard protokoll för agenten 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Versionsstatus 
-2018-01-31: Släppt för nedladdning  
+1/31/2018: har släppts för nedladdning  
 ### <a name="fixed-issues"></a>Åtgärdade problem 
 
-- Fixade en bugg som orsakade några minnesläckor i agenten. 
-- Uppdaterade Azure Service Bus-versionen, som innehåller en felkorrigering för tidsgränsen för anslutning. 
+- En bugg har åtgärd ATS som orsakade minnes läckor i agenten. 
+- Den Azure Service Bus versionen har uppdaterats, vilket innehåller en fel korrigering för anslutnings-timeout-problem. 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Versionsstatus 
-2017-11-26: Släppt för nedladdning  
+11/26/2017: har släppts för nedladdning  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
-- Lade till stöd för websocketbaserade anslutningar mellan agent- och Azure AD-tjänster för att förbättra anslutningens återhämtningsförmåga 
+- Stöd har lagts till för WebSocket-baserade anslutningar mellan agenten och Azure AD-tjänster för att förbättra anslutnings återhämtning 
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Versionsstatus 
-2017-11-25: Släppt för nedladdning  
+11/25/2017: har släppts för nedladdning  
 ### <a name="fixed-issues"></a>Åtgärdade problem 
-- Fasta fel relaterade till DNS-cachen för standardproxyscenarier 
+- Fasta buggar som är relaterade till DNS-cachen för standard scenarier för proxy 
  
 ## <a name="153890"></a>1.5.389.0 
 ### <a name="release-status"></a>Versionsstatus 
-2017-10-17: Släppt för nedladdning  
+10/17/2017: har släppts för nedladdning  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
-- Lade till DNS-cachefunktioner för utgående anslutningar för att lägga till återhämtning från DNS-fel 
+- Funktioner för DNS-cache har lagts till för utgående anslutningar för att lägga till återhämtning från DNS-problem 
  
 ## <a name="152610"></a>1.5.261.0 
 ### <a name="release-status"></a>Versionsstatus 
-2017-08-31: Släppt för nedladdning  
+08/31/2017: har släppts för nedladdning  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
-- GA-versionen av Azure AD-direktautentiseringsagenten 
+- GA-version av Azure AD-direktautentisering 
 
 ## <a name="next-steps"></a>Nästa steg
 

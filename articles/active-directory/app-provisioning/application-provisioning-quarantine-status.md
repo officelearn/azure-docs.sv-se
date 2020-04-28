@@ -1,6 +1,6 @@
 ---
-title: Ansökan etablering status karantän | Microsoft-dokument
-description: När du har konfigurerat ett program för automatisk användaretablering kan du läsa om vad en etableringsstatus för karantän innebär och hur du rensar den.
+title: Status för program etablering för karantän | Microsoft Docs
+description: När du har konfigurerat ett program för automatisk användar etablering, lär du dig vad en etablerings status för karantän innebär och hur du avmarkerar den.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,60 +17,60 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154635"
 ---
-# <a name="application-provisioning-in-quarantine-status"></a>Etablering av program i karantänstatus
+# <a name="application-provisioning-in-quarantine-status"></a>Program etablering i karantän status
 
-Azure AD-etableringstjänsten övervakar hälsotillståndet för din konfiguration och placerar felaktiga appar i ett "karantäntillstånd". Om de flesta eller alla anrop som görs mot målsystemet konsekvent misslyckas på grund av ett fel, till exempel ogiltiga administratörsautentiseringsuppgifter, markeras etableringsjobbet som i karantän.
+Azure AD Provisioning-tjänsten övervakar hälso tillståndet för din konfiguration och placerar appar utan hälso tillstånd i karantän. Om de flesta eller alla anrop som görs mot mål systemet fungerar konsekvent på grund av ett fel, till exempel ogiltiga administratörsautentiseringsuppgifter, markeras etablerings jobbet som i karantän.
 
-Medan i karantän, frekvensen av inkrementella cykler gradvis minskas till en gång per dag. Etableringsjobbet tas bort från karantänen när alla fel har åtgärdats och nästa synkroniseringscykel startar. Om etableringsjobbet förblir i karantän i mer än fyra veckor inaktiveras etableringsjobbet (slutar köras).
+I karantän sänks frekvensen för stegvisa cykler gradvis till en gång per dag. Etablerings jobbet tas bort från karantän när alla fel har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor, är etablerings jobbet inaktiverat (slutar att köras).
 
-## <a name="how-do-i-know-if-my-application-is-in-quarantine"></a>Hur vet jag om min ansökan är i karantän?
+## <a name="how-do-i-know-if-my-application-is-in-quarantine"></a>Hur gör jag för att vet du om mitt program finns i karantän?
 
-Det finns tre sätt att kontrollera om ett program är i karantän:
+Det finns tre sätt att kontrol lera om ett program finns i karantän:
   
-- I Azure-portalen navigerar du till **Azure Active Directory** > **Enterprise-programprogramnamn** > &lt;*application name*&gt; > **Etablering** och bläddrar till förloppsindikatorn längst ned.  
+- I Azure Portal navigerar du till **Azure Active Directory** > *program namns*&gt; > **etablering** för**företags program** > &lt;och bläddrar till förlopps indikatorn längst ned.  
 
-  ![Statusfält för etablering som visar karantänstatus](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
+  ![Status fältet för etablering visar karantän status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- I Azure-portalen navigerar du till **Azure Active Directory** > **Audit Logs** > filter på **Aktivitet: Karantän** och granska karantänhistoriken. Medan vyn i förloppsindikatorn enligt beskrivningen ovan visar om etableringen för närvarande är i karantän, kan du i granskningsloggarna se karantänhistoriken för ett program. 
+- I Azure Portal navigerar du till **Azure Active Directory** > **gransknings loggar** > filtrera på **aktivitet: karantän** och granska karantän historiken. Vyn i förlopps indikatorn enligt beskrivningen ovan visar om etableringen för närvarande finns i karantän, men gransknings loggarna gör att du kan se karantän historiken för ett program. 
 
-- Använd Microsoft Graph-begäran [Hämta synkroniseringJobb](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) för att programmässigt hämta status för etableringsjobbet:
+- Använd Microsoft Graph begäran [Hämta synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) för att program mässigt Hämta status för etablerings jobbet:
 
         `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
 
-- Gå igenom din e-post. När ett program placeras i karantän skickas ett e-postmeddelande med en engångsavisering. Om karantänsorsaken ändras skickas ett uppdaterat e-postmeddelande som visar den nya orsaken till karantänen. Om du inte ser något e-postmeddelande:
+- Gå igenom din e-post. När ett program placeras i karantän skickas ett e-postmeddelande med en Time-avisering. Om karantäns orsaken ändras skickas en uppdaterad e-postadress som visar den nya orsaken till karantänen. Om du inte ser något e-postmeddelande:
 
-  - Kontrollera att du har angett ett giltigt **meddelandemeddelandemeddelande** i etableringskonfigurationen för programmet.
-  - Kontrollera att det inte finns någon skräppostfiltrering i e-postkorgen för anmälan.
-  - Se till att du inte har avslutat prenumerationen på e-postmeddelanden.
+  - Kontrol lera att du har angett en giltig **e-postadress för aviseringar** i etablerings konfigurationen för programmet.
+  - Se till att det inte finns någon skräp filtrering på Inkorgen för e-postavisering.
+  - Se till att du inte har avbrutit prenumerationen på e-postmeddelanden.
 
-## <a name="why-is-my-application-in-quarantine"></a>Varför är min ansökan i karantän?
+## <a name="why-is-my-application-in-quarantine"></a>Varför är mitt program i karantän?
 
-En Microsoft Graph-begäran om att få status för etableringsjobbet visar följande orsak till karantän:
+En Microsoft Graph begäran om att hämta status för etablerings jobbet visar följande orsak för karantänen:
 
-- `EncounteredQuarantineException`anger att ogiltiga autentiseringsuppgifter har angetts. Etableringstjänsten kan inte upprätta en anslutning mellan källsystemet och målsystemet.
+- `EncounteredQuarantineException`indikerar att ogiltiga autentiseringsuppgifter har angetts. Etablerings tjänsten kan inte upprätta en anslutning mellan käll systemet och mål systemet.
 
-- `EncounteredEscrowProportionThreshold`anger att avsättningen överskred spärrtröskeln. Det här villkoret uppstår när mer än 60 % av etableringshändelserna misslyckades.
+- `EncounteredEscrowProportionThreshold`anger att etableringen överskred tröskelvärdet för depositions. Det här tillståndet inträffar när mer än 60% av etablerings händelserna misslyckades.
 
-- `QuarantineOnDemand`innebär att vi har upptäckt ett problem med ditt program och manuellt har ställt in det till karantän.
+- `QuarantineOnDemand`innebär att vi har identifierat ett problem med ditt program och har ställt in det manuellt på karantän.
 
-## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Hur får jag min ansökan ur karantän?
+## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Hur gör jag för att hämta mitt program från karantänen?
 
-Lös först problemet som gjorde att programmet placerades i karantän.
+Först löser du problemet som gjorde att programmet placerades i karantän.
 
-- Kontrollera programmets etableringsinställningar för att kontrollera att du har [angett giltiga administratörsautentiseringsuppgifter](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD måste kunna upprätta ett förtroende med målprogrammet. Kontrollera att du har angett giltiga autentiseringsuppgifter och att ditt konto har de behörigheter som krävs.
+- Kontrol lera programmets etablerings inställningar för att kontrol lera att du har [angett giltiga autentiseringsuppgifter för admin](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD måste kunna upprätta ett förtroende med mål programmet. Kontrol lera att du har angett giltiga autentiseringsuppgifter och att ditt konto har de behörigheter som krävs.
 
-- Granska [etableringsloggarna](../reports-monitoring/concept-provisioning-logs.md) för att ytterligare undersöka vilka fel som orsakar karantän och åtgärda felet. Få tillgång till etableringsloggarna i Azure-portalen genom att gå till **Azure Active Directory** &gt; **Enterprise AppsTables** &gt; **Provisioning logs (preview)** i avsnittet **Aktivitet.**
+- Granska [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md) för att ytterligare undersöka vilka fel som orsakar karantän och åtgärda felet. Få åtkomst till etablerings loggarna i Azure Portal genom att gå till **Azure Active Directory** &gt; etablerings loggar för **företags appar** &gt; **(för hands version)** i avsnittet **aktivitet** .
 
-När du har löst problemet startar du om etableringsjobbet. Vissa ändringar av programmets etableringsinställningar, till exempel attributmappningar eller omfångsfilter, startas automatiskt om etableringen åt dig. Förloppsindikatorn på programmets **etableringssida** anger när etableringen senast startades. Om du behöver starta om etableringsjobbet manuellt använder du någon av följande metoder:  
+När du har löst problemet startar du om etablerings jobbet. Vissa ändringar av programmets etablerings inställningar, till exempel attribut mappningar eller omfångs filter, startar automatiskt om etablering. Förlopps indikatorn på programmets **etablerings** sida anger när etableringen senast startades. Om du behöver starta om etablerings jobbet manuellt kan du använda någon av följande metoder:  
 
-- Använd Azure-portalen för att starta om etableringsjobbet. På programmets **etableringssida** under **Inställningar**väljer du **Rensa tillstånd och starta om synkroniseringen** och ange **etableringsstatus** **till På**. Den här åtgärden startar om etableringstjänsten helt, vilket kan ta lite tid. En fullständig inledande cykel körs igen, vilket rensar spärrar, tar bort appen från karantänen och rensar alla vattenstämplar.
+- Använd Azure Portal för att starta om etablerings jobbet. På programmets **etablerings** sida under **Inställningar**väljer du **Rensa tillstånd och startar om synkronisering** och ställer in **etablerings status** på **på**. Den här åtgärden startar om etablerings tjänsten helt, vilket kan ta lite tid. En fullständig första cykel körs igen, vilket rensar escrows, tar bort appen från karantänen och tar bort alla vattenstämplar.
 
-- Använd Microsoft Graph för att [starta om etableringsjobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har full kontroll över vad du startar om. Du kan välja att rensa spärrade (för att starta om spärrräknaren som ackumuleras mot karantänstatus), rensa karantän (för att ta bort programmet från karantän) eller rensa vattenstämplar. Använd följande begäran:
+- Använd Microsoft Graph för att [starta om etablerings jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa escrows (om du vill starta om depositions-räknaren som påförs i karantäns status), rensa karantän (för att ta bort programmet från karantän) eller rensa vattenstämplar. Använd följande begäran:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

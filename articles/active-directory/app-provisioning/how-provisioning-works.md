@@ -1,5 +1,5 @@
 ---
-title: Förstå hur Azure AD-etablering fungerar | Microsoft-dokument
+title: Förstå hur Azure AD-etablering fungerar | Microsoft Docs
 description: Förstå hur Azure AD-etablering fungerar
 services: active-directory
 documentationcenter: ''
@@ -16,179 +16,179 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884893"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
-Automatisk etablering avser att skapa användaridentiteter och roller i molnprogrammen som användarna behöver åtkomst till. Förutom att skapa användaridentiteter, automatisk etablering inkluderar underhåll och borttagning av användaridentiteter som status eller roller förändras. Innan du startar en distribution kan du granska den här artikeln om du vill veta hur Azure AD-etablering fungerar och få konfigurationsrekommendationer. 
+Automatisk etablering syftar på att skapa användar identiteter och roller i de moln program som användare behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Innan du påbörjar en distribution kan du läsa den här artikeln för att lära dig hur Azure AD etablerar fungerar och hur du får konfigurations rekommendationer. 
 
-**Azure AD-etableringstjänsten etablerar** användare till SaaS-appar och andra system genom att ansluta till ett SYSTEM för struken domänkontrollidentitetshantering (SCIM) 2.0-användarhanterings-API-slutpunkt som tillhandahålls av programleverantören. Med den här SCIM-slutpunkten kan Azure AD programmässigt skapa, uppdatera och ta bort användare. För valda program kan etableringstjänsten också skapa, uppdatera och ta bort ytterligare identitetsrelaterade objekt, till exempel grupper och roller. Kanalen som används för etablering mellan Azure AD och programmet krypteras med HTTPS TLS-kryptering.
+**Azure AD Provisioning-tjänsten** tillhandahåller användare till SaaS-appar och andra system genom att ansluta till ett system för scim (Cross-Domain Identity Management) 2,0 användar hanterings-API: n som tillhandahålls av program leverantören. Den här SCIM-slutpunkten låter Azure AD program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller. Den kanal som används för etablering mellan Azure AD och programmet krypteras med hjälp av HTTPS TLS-kryptering.
 
 
-![Azure AD-etableringstjänst](./media/how-provisioning-works/provisioning0.PNG)
-*Figur 1: Azure AD-etableringstjänsten*
+![Azure AD Provisioning service](./media/how-provisioning-works/provisioning0.PNG)
+-*bild 1: Azure AD Provisioning-tjänsten*
 
-![Arbetsflöde för utgående](./media/how-provisioning-works/provisioning1.PNG)
-användaretablering*Bild 2: Arbetsflöde för utgående användare etablerar från Azure AD till populära SaaS-program*
+![Utgående användar etablering arbets flöde](./media/how-provisioning-works/provisioning1.PNG)
+*bild 2: "utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program*
 
-![Arbetsflöde för inkommande](./media/how-provisioning-works/provisioning2.PNG)
-användaretablering Figur*3: "Inkommande" arbetsflöde för användaretablering från populära HCM-program (Human Capital Management) till Azure Active Directory och Active Directory för Windows Server*
+![Inkommande användar etablering arbets flöde](./media/how-provisioning-works/provisioning2.PNG)
+*bild 3: "inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
 
-## <a name="provisioning-using-scim-20"></a>Etablering med SCIM 2.0
+## <a name="provisioning-using-scim-20"></a>Etablering med SCIM 2,0
 
-Azure AD-etableringstjänsten använder [SCIM 2.0-protokollet](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) för automatisk etablering. Tjänsten ansluter till SCIM-slutpunkten för programmet och använder SCIM-användarobjektschema och REST-API:er för att automatisera etablering och avetablering av användare och grupper. En SCIM-baserad etableringsappen tillhandahålls för de flesta program i Azure AD-galleriet. När du skapar appar för Azure AD kan utvecklare använda SCIM 2.0-användarhanterings-API:et för att skapa en SCIM-slutpunkt som integrerar Azure AD för etablering. Mer information finns i [Skapa en SCIM-slutpunkt och konfigurera användaretablering](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+Azure AD Provisioning-tjänsten använder [SCIM 2,0-protokollet](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) för automatisk etablering. Tjänsten ansluter till SCIM-slutpunkten för programmet och använder SCIM för användar objekt och REST-API: er för att automatisera etableringen och inaktive ring av användare och grupper. En SCIM etablerings anslutning tillhandahålls för de flesta program i Azure AD-galleriet. När du skapar appar för Azure AD kan utvecklare använda API: et för SCIM 2,0-användar hantering för att skapa en SCIM-slutpunkt som integrerar Azure AD för etablering. Mer information finns i [Bygg en scim-slutpunkt och konfigurera användar etablering](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-Om du vill begära en automatisk Azure AD-etableringsappen för en app som för närvarande inte har en, fyller du i en [Azure Active Directory Application Request](https://aka.ms/aadapprequest).
+Om du vill begära en automatisk Azure AD Provisioning-anslutning för en app som för närvarande inte har en, fyller du i en [Azure Active Directory program förfrågan](https://aka.ms/aadapprequest).
 
 ## <a name="authorization"></a>Auktorisering
 
-Autentiseringsuppgifter krävs för att Azure AD ska kunna ansluta till programmets API för användarhantering. När du konfigurerar om automatisk användaretablering för ett program måste du ange giltiga autentiseringsuppgifter. Du kan hitta autentiseringsuppgifter typer och krav för programmet genom att hänvisa till app självstudien. I Azure-portalen kan du testa autentiseringsuppgifterna genom att låta Azure AD försöka ansluta till appens etableringsapp med hjälp av de angivna autentiseringsuppgifterna.
+Autentiseringsuppgifter krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. När du konfigurerar automatisk användar etablering för ett program måste du ange giltiga autentiseringsuppgifter. Du kan hitta autentiseringstypen och kraven för programmet genom att titta på själv studie kursen. I Azure Portal kan du testa autentiseringsuppgifterna genom att låta Azure AD försöka ansluta till appens etablerings app med de angivna autentiseringsuppgifterna.
 
-Om SAML-baserad enkel inloggning också är konfigurerad för programmet är Azure AD:s interna lagringsgräns per program 1024 byte. Den här gränsen omfattar alla certifikat, hemliga token, autentiseringsuppgifter och relaterade konfigurationsdata som är associerade med en enda instans av ett program (kallas även en tjänsthuvudpost i Azure AD). När SAML-baserad enkel inloggning är konfigurerad förbrukar certifikatet som används för att signera SAML-token ofta över 50 % procent av utrymmet. Alla ytterligare objekt (hemliga token, URI:er, e-postadresser för meddelanden, användarnamn och lösenord) som du anger under installationen av användarens etablering kan överskrida lagringsgränsen. Mer information finns i [Spara administratörsautentiseringsuppgifter när du konfigurerar användaretablering](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Om SAML-baserad enkel inloggning också har kon figurer ATS för programmet, är Azure ADs interna lagrings gräns per program 1024 byte. Den här gränsen omfattar alla certifikat, hemliga tokens, autentiseringsuppgifter och relaterade konfigurations data som är kopplade till en enda instans av ett program (kallas även för en tjänst huvud post i Azure AD). När SAML-baserad enkel inloggning har kon figurer ATS förbrukar certifikatet som används för att signera SAML-token ofta över 50% procent av utrymmet. Eventuella ytterligare objekt (hemliga token, URI: er, e-postadresser för meddelanden, användar namn och lösen ord) som du anger under etablering av användar etablering kan överskrida lagrings gränsen. Mer information finns i problem med att [Spara administratörs behörighet när du konfigurerar användar etablering](../manage-apps/application-provisioning-config-problem-storage-limit.md).
 
-## <a name="mapping-attributes"></a>Mappa attribut
+## <a name="mapping-attributes"></a>Mappar attribut
 
-När du aktiverar användaretablering för ett SaaS-program från tredje part styr Azure-portalen sina attributvärden via attributmappningar. Mappningar bestämmer de användarattribut som flödar mellan Azure AD och målprogrammet när användarkonton etableras eller uppdateras.
+När du aktiverar användar etablering för ett SaaS-program från tredje part styr Azure Portal dess attributvärden genom mappningar av attribut. Mappningar bestämmer vilka användarattribut som flödar mellan Azure AD och mål programmet när användar konton är etablerade eller uppdaterade.
 
-Det finns en förkonfigurerad uppsättning attribut och attributmappningar mellan Azure AD-användarobjekt och varje SaaS-apps användarobjekt. Vissa appar hanterar andra typer av objekt tillsammans med användare, till exempel Grupper.
+Det finns en förkonfigurerad uppsättning attribut och mappningar av attribut mellan Azure AD-användarkonton och varje SaaS-Apps användar objekt. Vissa appar hanterar andra typer av objekt tillsammans med användare, t. ex. grupper.
 
-När du ställer in etablering är det viktigt att granska och konfigurera attributmappningar och arbetsflöden som definierar vilka användaregenskaper (eller gruppegenskaper) som flödar från Azure AD till programmet. Granska och konfigurera den matchande egenskapen (**Matcha objekt med det här attributet**) som används för att unikt identifiera och matcha användare/grupper mellan de två systemen.
+När du konfigurerar etablering är det viktigt att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Granska och konfigurera den matchande egenskapen (**matcha objekt med det här attributet**) som används för att unikt identifiera och matcha användare/grupper mellan de två systemen.
 
-Du kan anpassa standardattributmappningarna efter dina affärsbehov. Du kan därför ändra eller ta bort befintliga attributmappningar eller skapa nya attributmappningar. Mer information finns i [Anpassa användares etablering av attributmappningar för SaaS-program](../manage-apps/customize-application-attributes.md).
+Du kan anpassa standardattributen – mappningar efter dina affärs behov. Så du kan ändra eller ta bort befintliga attribut-mappningar eller skapa nya attribut-mappningar. Mer information finns i [Anpassa användar etablering attribut-mappningar för SaaS-program](../manage-apps/customize-application-attributes.md).
 
-När du konfigurerar etablering till ett SaaS-program är en av de typer av attributmappningar som du kan ange en uttrycksmappning. För dessa mappningar måste du skriva ett skriptliknande uttryck som gör att du kan omvandla användarnas data till format som är mer acceptabla för SaaS-programmet. Mer information finns i [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md).
+När du konfigurerar etablering till ett SaaS-program är en av de typer av mappningar av attribut som du kan ange en uttrycks mappning. För dessa mappningar måste du skriva ett skript liknande uttryck som gör att du kan omvandla dina användares data till format som är mer acceptabla för SaaS-programmet. Mer information finns i [skriva uttryck för mappning av attribut](functions-for-customizing-application-data.md).
 
-## <a name="scoping"></a>Miljöprövningens 
-### <a name="assignment-based-scoping"></a>Tilldelningsbaserad omfång
+## <a name="scoping"></a>Omfångsdefinierande 
+### <a name="assignment-based-scoping"></a>Tilldelning baserad omfattning
 
-För utgående etablering från Azure AD till ett SaaS-program [är](../manage-apps/assign-user-or-group-access-portal.md) det vanligaste sättet att avgöra vilka användare som är i omfång för etablering. Eftersom användartilldelningar också används för att aktivera enkel inloggning kan samma metod användas för att hantera både åtkomst och etablering. Tilldelningsbaserad omfång gäller inte för inkommande etableringsscenarier som Workday och Successfactors.
+För utgående etablering från Azure AD till ett SaaS-program är det vanligaste sättet att avgöra [vilka användare som](../manage-apps/assign-user-or-group-access-portal.md) befinner sig i omfång för etablering. Eftersom användar tilldelningar också används för att aktivera enkel inloggning, kan samma metod användas för att hantera både åtkomst och etablering. Tilldelnings omfång gäller inte för inkommande etablerings scenarier som Workday och SuccessFactors.
 
-* **Grupper.** Med en Azure AD Premium-licensplan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etableringsomfånget sedan är inställt på **Synkronisera endast tilldelade användare och grupper**etablerar azure AD-etableringstjänsten användare eller avetableringsanvändare baserat på om de är medlemmar i en grupp som har tilldelats programmet. Själva gruppobjektet etableras inte om inte programmet stöder gruppobjekt. Kontrollera att grupper som tilldelats ditt program har egenskapen "SecurityEnabled" inställd på "False".
+* **Användargrupp.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper**, etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt. Kontrol lera att de grupper som har tilldelats ditt program har egenskapen "SecurityEnabled" inställd på "false".
 
-* **Dynamiska grupper.** Azure AD-tjänsten för användaretablering kan läsa och etablera användare i [dynamiska grupper](../users-groups-roles/groups-create-rule.md). Tänk på dessa varningar och rekommendationer:
+* **Dynamiska grupper.** Azure AD-tjänsten för användar etablering kan läsa och etablera användare i [dynamiska grupper](../users-groups-roles/groups-create-rule.md). Tänk på dessa varningar och rekommendationer i åtanke:
 
-  * Dynamiska grupper kan påverka prestanda för heltäckande etablering från Azure AD till SaaS-program.
+  * Dynamiska grupper kan påverka prestanda för etablering från slut punkt till slut punkt från Azure AD till SaaS-program.
 
-  * Hur snabbt en användare i en dynamisk grupp etableras eller avetableras i ett SaaS-program beror på hur snabbt den dynamiska gruppen kan utvärdera medlemskapsändringar. Information om hur du kontrollerar bearbetningsstatus för en dynamisk grupp finns i [Kontrollera bearbetningsstatus för en medlemskapsregel](../users-groups-roles/groups-create-rule.md).
+  * Hur snabbt en användare i en dynamisk grupp etableras eller avetableras i ett SaaS-program beror på hur snabbt den dynamiska gruppen kan utvärdera medlemskaps ändringar. Information om hur du kontrollerar bearbetnings statusen för en dynamisk grupp finns i [kontrol lera bearbetnings status för en medlemskaps regel](../users-groups-roles/groups-create-rule.md).
 
-  * När en användare förlorar medlemskap i den dynamiska gruppen betraktas det som en avetableringshändelse. Tänk på det här scenariot när du skapar regler för dynamiska grupper.
+  * När en användare förlorar medlemskap i den dynamiska gruppen betraktas den som en avetablerings händelse. Tänk på det här scenariot när du skapar regler för dynamiska grupper.
 
-* **Kapslade grupper.** Azure AD-användaretableringstjänsten kan inte läsa eller etablera användare i kapslade grupper. Tjänsten kan bara läsa och etablera användare som är omedelbara medlemmar i en uttryckligen tilldelad grupp. Den här begränsningen av "gruppbaserade tilldelningar till program" påverkar också enkel inloggning (se [Använda en grupp för att hantera åtkomst till SaaS-program](../users-groups-roles/groups-saasapps.md)). I stället direkt tilldela eller på annat sätt [omfattning i](define-conditional-rules-for-provisioning-user-accounts.md) de grupper som innehåller de användare som behöver etableras.
+* **Kapslade grupper.** Azure AD-tjänsten för användar etablering kan inte läsa eller etablera användare i kapslade grupper. Tjänsten kan bara läsa och etablera användare som är omedelbara medlemmar i en uttryckligen tilldelad grupp. Den här begränsningen av "gruppbaserade tilldelningar till program" påverkar också enkel inloggning (se [använda en grupp för att hantera åtkomst till SaaS-program](../users-groups-roles/groups-saasapps.md)). I stället kan du direkt tilldela eller ändra [omfång i](define-conditional-rules-for-provisioning-user-accounts.md) grupper som innehåller de användare som ska vara etablerade.
 
-### <a name="attribute-based-scoping"></a>Attributbaserad omfång 
+### <a name="attribute-based-scoping"></a>Attribut-baserat omfång 
 
-Du kan använda omfångsfilter för att definiera attributbaserade regler som avgör vilka användare som etableras i ett program. Den här metoden används ofta för inkommande etablering från HCM-program till Azure AD och Active Directory. Omfångsfilter konfigureras som en del av attributmappningarna för varje Azure AD-användaretableringskoppling. Mer information om hur du konfigurerar attributbaserade omfångsfilter finns i [Attributbaserad programetablering med omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
+Du kan använda definitions områdes filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program. Den här metoden används ofta för inkommande etablering från HCM-program till Azure AD och Active Directory. Definitions områdes filter konfigureras som en del av mappningar av mappar för varje Azure AD-anslutning för användar etablering. Mer information om hur du konfigurerar attributbaserade definitions områdes filter finns i [attribut-baserad program etablering med omfångs filter](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ### <a name="b2b-guest-users"></a>B2B-användare (gäst)
 
-Det är möjligt att använda Azure AD-användarens etableringstjänst för att etablera B2B-användare (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med Azure AD måste SaaS-programmet ha sin SAML-baserade enkel inloggningsfunktion konfigurerad på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete](../b2b/configure-saas-apps.md).
+Det går att använda Azure AD-tjänsten för användar etablering för att etablera B2B (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med hjälp av Azure AD, måste dock SaaS-programmet ha sin SAML-baserade enkel inloggnings funktion som kon figurer ATS på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete](../b2b/configure-saas-apps.md).
 
-Observera att userPrincipalName för en gästanvändare ofta lagras som@domain.com"alias#EXT# ". När userPrincipalName ingår i attributmappningarna som ett källattribut tas #EXT# bort från userPrincipalName. Om du kräver att #EXT# finns ersätter du userPrincipalName med originalUserPrincipalName som källattribut. 
+Observera att userPrincipalName för en gäst användare ofta lagras som "alias # EXT #@domain.com". När userPrincipalName inkluderas i dina attributmappning som ett källattribut, tas #EXT # bort från userPrincipalName. Om du kräver att #EXT # ska vara kvar ersätter du userPrincipalName med originalUserPrincipalName som källattribut. 
 
-## <a name="provisioning-cycles-initial-and-incremental"></a>Etableringscykler: Inledande och inkrementell
+## <a name="provisioning-cycles-initial-and-incremental"></a>Etablerings cykler: initial och stegvis
 
-När Azure AD är källsystemet använder etableringstjänsten [frågan Använd delta för att spåra ändringar i Microsoft Graph-data](https://docs.microsoft.com/graph/delta-query-overview) för att övervaka användare och grupper. Etableringstjänsten kör en inledande cykel mot källsystemet och målsystemet, följt av periodiska inkrementella cykler.
+När Azure AD är käll systemet använder etablerings tjänsten [use delta-frågan för att spåra ändringar i Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview) för övervakning av användare och grupper. Etablerings tjänsten kör en första cykel mot käll systemet och mål systemet, följt av periodiska stegvisa cykler.
 
-### <a name="initial-cycle"></a>Inledande cykel
+### <a name="initial-cycle"></a>Första cykeln
 
-När etableringstjänsten startas kommer den första cykeln att:
+När etablerings tjänsten startas kommer den första cykeln att:
 
-1. Fråga alla användare och grupper från källsystemet och hämta alla attribut som definierats i [attributmappningarna](customize-application-attributes.md).
+1. Fråga alla användare och grupper från käll systemet och hämta alla attribut som definierats i [mappningarna för attribut](customize-application-attributes.md).
 
-2. Filtrera de användare och grupper som returneras med hjälp av alla konfigurerade [tilldelningar](../manage-apps/assign-user-or-group-access-portal.md) eller [attributbaserade omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
+2. Filtrera de användare och grupper som returneras med hjälp av eventuella konfigurerade [tilldelningar](../manage-apps/assign-user-or-group-access-portal.md) eller [attributbaserade definitions filter](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. När en användare tilldelas eller är i omfattning för etablering, frågar tjänsten målsystemet för en matchande användare med hjälp av de angivna [matchande attributen](customize-application-attributes.md#understanding-attribute-mapping-properties). Exempel: Om användarenPrincipnamn i källsystemet är det matchande attributet och mappar till userName i målsystemet, frågar etableringstjänsten målsystemet för användarnamn som matchar användarenPrincipnamnvärden i källsystemet.
+3. När en användare tilldelas eller omfånget för etablering, frågar tjänsten mål systemet efter en matchande användare med de angivna [matchande attributen](customize-application-attributes.md#understanding-attribute-mapping-properties). Exempel: om namnet på userPrincipal i käll systemet är det matchande attributet och mappar till användar namn i mål systemet, frågar etablerings tjänsten mål systemet efter användar namn som matchar userPrincipal-namnens värden i käll systemet.
 
-4. Om en matchande användare inte hittas i målsystemet skapas den med hjälp av attributen som returneras från källsystemet. När användarkontot har skapats identifierar och cachelagrar etableringstjänsten målsystemets ID för den nya användaren. Det här ID:t används för att köra alla framtida åtgärder för den användaren.
+4. Om en matchande användare inte hittas i mål systemet, skapas den med hjälp av de attribut som returneras från käll systemet. När användar kontot har skapats identifierar och cachelagrar etablerings tjänsten mål systemets ID för den nya användaren. Detta ID används för att köra alla framtida åtgärder på den användaren.
 
-5. Om en matchande användare hittas uppdateras den med hjälp av attributen som tillhandahålls av källsystemet. När användarkontot har matchats identifierar och cachelagrar etableringstjänsten målsystemets ID för den nya användaren. Det här ID:t används för att köra alla framtida åtgärder för den användaren.
+5. Om det finns en matchande användare uppdateras den med hjälp av de attribut som anges av käll systemet. När användar kontot har matchats identifierar och cachelagrar etablerings tjänsten mål systemets ID för den nya användaren. Detta ID används för att köra alla framtida åtgärder på den användaren.
 
-6. Om attributmappningarna innehåller "referensattribut" gör tjänsten ytterligare uppdateringar på målsystemet för att skapa och länka de refererade objekten. En användare kan till exempel ha attributet "Manager" i målsystemet, som är länkat till en annan användare som skapats i målsystemet.
+6. Om attribut mappningarna innehåller "Reference"-attribut gör tjänsten ytterligare uppdateringar i mål systemet för att skapa och länka de refererade objekten. En användare kan till exempel ha ett "Manager"-attribut i mål systemet, som är länkat till en annan användare som skapats i mål systemet.
 
-7. Framhärdar en vattenstämpel i slutet av den inledande cykeln, vilket ger utgångspunkten för de senare inkrementella cyklerna.
+7. Behåll en vattenstämpel i slutet av den första cykeln, som ger start punkten för de senare stegvisa cyklerna.
 
-Vissa program som ServiceNow, G Suite och Box stöder inte bara etablering av användare, utan även etableringsgrupper och deras medlemmar. I dessa fall, om gruppetablering är aktiverat i [mappningarna,](customize-application-attributes.md)synkroniserar etableringstjänsten användarna och grupperna och synkroniserar sedan gruppmedlemskapen senare.
+Vissa program som ServiceNow, G Suite och Box stöder inte bara etablering av användare, utan även etablering av grupper och medlemmar. I dessa fall, om grupp etablering är aktiverat i [mappningarna](customize-application-attributes.md), synkroniserar etablerings tjänsten användarna och grupperna och synkroniserar sedan grupp medlemskapen senare.
 
-### <a name="incremental-cycles"></a>Inkrementella cykler
+### <a name="incremental-cycles"></a>Stegvisa cykler
 
-Efter den inledande cykeln kommer alla andra cykler:
+Efter den första cykeln kommer alla andra cykler att:
 
-1. Fråga källsystemet för alla användare och grupper som har uppdaterats sedan den senaste vattenstämpeln lagrades.
+1. Fråga käll systemet efter användare och grupper som har uppdaterats sedan den senaste vattenstämpeln lagrades.
 
-2. Filtrera de användare och grupper som returneras med hjälp av alla konfigurerade [tilldelningar](../manage-apps/assign-user-or-group-access-portal.md) eller [attributbaserade omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
+2. Filtrera de användare och grupper som returneras med hjälp av eventuella konfigurerade [tilldelningar](../manage-apps/assign-user-or-group-access-portal.md) eller [attributbaserade definitions filter](define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. När en användare tilldelas eller är i omfattning för etablering, frågar tjänsten målsystemet för en matchande användare med hjälp av de angivna [matchande attributen](customize-application-attributes.md#understanding-attribute-mapping-properties).
+3. När en användare tilldelas eller omfånget för etablering, frågar tjänsten mål systemet efter en matchande användare med de angivna [matchande attributen](customize-application-attributes.md#understanding-attribute-mapping-properties).
 
-4. Om en matchande användare inte hittas i målsystemet skapas den med hjälp av attributen som returneras från källsystemet. När användarkontot har skapats identifierar och cachelagrar etableringstjänsten målsystemets ID för den nya användaren. Det här ID:t används för att köra alla framtida åtgärder för den användaren.
+4. Om en matchande användare inte hittas i mål systemet, skapas den med hjälp av de attribut som returneras från käll systemet. När användar kontot har skapats identifierar och cachelagrar etablerings tjänsten mål systemets ID för den nya användaren. Detta ID används för att köra alla framtida åtgärder på den användaren.
 
-5. Om en matchande användare hittas uppdateras den med hjälp av attributen som tillhandahålls av källsystemet. Om det är ett nyligen tilldelat konto som matchas identifierar och cachelagrar etableringstjänsten målsystemets ID för den nya användaren. Det här ID:t används för att köra alla framtida åtgärder för den användaren.
+5. Om det finns en matchande användare uppdateras den med hjälp av de attribut som anges av käll systemet. Om det är ett nyligen tilldelat konto som matchas identifierar och cachelagrar etablerings tjänsten mål systemets ID för den nya användaren. Detta ID används för att köra alla framtida åtgärder på den användaren.
 
-6. Om attributmappningarna innehåller "referensattribut" gör tjänsten ytterligare uppdateringar på målsystemet för att skapa och länka de refererade objekten. En användare kan till exempel ha attributet "Manager" i målsystemet, som är länkat till en annan användare som skapats i målsystemet.
+6. Om attribut mappningarna innehåller "Reference"-attribut gör tjänsten ytterligare uppdateringar i mål systemet för att skapa och länka de refererade objekten. En användare kan till exempel ha ett "Manager"-attribut i mål systemet, som är länkat till en annan användare som skapats i mål systemet.
 
-7. Om en användare som tidigare var i omfång för etablering tas bort från omfånget, inklusive att inte tilldelas, inaktiverar tjänsten användaren i målsystemet via en uppdatering.
+7. Om en användare som tidigare var i omfång för etablering tas bort från omfattningen, inklusive att den inte har tilldelats, inaktiverar tjänsten användaren i mål systemet via en uppdatering.
 
-8. Om en användare som tidigare var i omfång för etablering är inaktiverad eller mjuk-tas bort i källsystemet, tjänsten inaktiverar användaren i målsystemet via en uppdatering.
+8. Om en användare som tidigare var i omfång för etablering är inaktive rad eller mjuk raderas i käll systemet, inaktiverar tjänsten användaren i mål systemet via en uppdatering.
 
-9. Om en användare som tidigare var i omfång för etablering är hårt borttagen i källsystemet, tar tjänsten bort användaren i målsystemet. I Azure AD tas användare bort hårt 30 dagar efter att de har tagits bort för alla.
+9. Om en användare som tidigare var i omfång för etablering är hårt borttagen i käll systemet, tar tjänsten bort användaren i mål systemet. I Azure AD tar användarna bort 30 dagar efter att de har mjuk borttagning.
 
-10. Framhärdar en ny vattenstämpel i slutet av den inkrementella cykeln, som ger utgångspunkten för de senare inkrementella cyklerna.
+10. Spara en ny vattenstämpel i slutet av den stegvisa cykeln, som ger start punkten för de senare stegvisa cyklerna.
 
 > [!NOTE]
-> Du kan också inaktivera åtgärderna **Skapa,** **Uppdatera**eller **Ta bort** med hjälp av kryssrutorna **Målobjektåtgärder** i avsnittet [Mappningar.](customize-application-attributes.md) Logiken för att inaktivera en användare under en uppdatering styrs också via en attributmappning från ett fält som "accountEnabled".
+> Du kan välja att inaktivera åtgärderna **skapa**, **Uppdatera**eller **ta bort** genom att använda kryss rutorna **mål objekt åtgärder** i avsnittet [mappningar](customize-application-attributes.md) . Logiken för att inaktivera en användare under en uppdatering styrs också via en attributmappning från ett fält som "accountEnabled".
 
-Etableringstjänsten fortsätter att köra inkrementella stegcykler på obestämd tid, med intervall som definieras i [självstudien som är specifik för varje program](../saas-apps/tutorial-list.md). Inkrementella cykler fortsätter tills någon av följande händelser inträffar:
+Etablerings tjänsten fortsätter att köra stegvisa stegvisa cykler på obestämd tid, med intervall som definierats i [självstudien som är specifik för varje program](../saas-apps/tutorial-list.md). Stegvisa cykler fortsätter tills någon av följande händelser inträffar:
 
-- Tjänsten stoppas manuellt med hjälp av Azure-portalen eller med hjälp av lämpligt Microsoft Graph API-kommando.
-- En ny inledande cykel utlöses med alternativet **Rensa tillstånd och omstart** i Azure-portalen eller med hjälp av lämpligt Microsoft Graph API-kommando. Den här åtgärden rensar alla lagrade vattenstämpel och gör att alla källobjekt utvärderas igen.
-- En ny inledande cykel utlöses på grund av en ändring av attributmappningar eller omfångsfilter. Den här åtgärden rensar också alla lagrade vattenstämpel och gör att alla källobjekt utvärderas igen.
-- Etableringsprocessen går i karantän (se nedan) på grund av en hög felfrekvens och förblir i karantän i mer än fyra veckor. I så fall inaktiveras tjänsten automatiskt.
+- Tjänsten stoppas manuellt med Azure Portal eller med lämpligt Microsoft Graph API-kommando.
+- En ny första cykel utlöses med alternativet **Rensa tillstånd och starta om** i Azure Portal, eller med lämpligt Microsoft Graph API-kommando. Den här åtgärden rensar en lagrad vattenstämpel och gör så att alla käll objekt utvärderas igen.
+- En ny första cykel utlöses på grund av en ändring av attributens mappningar eller omfångs filter. Den här åtgärden tar också bort alla lagrade vattenstämplar och gör så att alla käll objekt utvärderas igen.
+- Etablerings processen placeras i karantän (se nedan) på grund av en hög fel frekvens och finns kvar i karantän i mer än fyra veckor. I så fall kommer tjänsten att inaktive ras automatiskt.
 
-### <a name="errors-and-retries"></a>Fel och återförsök
+### <a name="errors-and-retries"></a>Fel och försök
 
-Om ett fel i målsystemet förhindrar att en enskild användare läggs till, uppdateras eller tas bort i målsystemet görs åtgärden på nytt i nästa synkroniseringscykel. Om användaren fortsätter att misslyckas börjar återförsöken ske med en reducerad frekvens, vilket gradvis skalas ned till bara ett försök per dag. För att lösa felet måste administratörer kontrollera [etableringsloggarna](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) för att fastställa grundorsaken och vidta lämpliga åtgärder. Vanliga fel kan vara:
+Om ett fel i mål systemet förhindrar att en enskild användare läggs till, uppdateras eller tas bort i mål systemet, görs ett nytt försök vid nästa synkronisering. Om användaren fortsätter att Miss lyckas kommer Återförsöken att ske med minskad frekvens, vilket gradvis skalar tillbaka till bara ett försök per dag. För att lösa felet måste administratörerna kontrol lera [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) för att fastställa rotor saken och vidta lämpliga åtgärder. Vanliga problem kan vara:
 
-- Användare som inte har ett attribut ifyllt i källsystemet som krävs i målsystemet
-- Användare som har ett attributvärde i källsystemet för vilka det finns en unik begränsning i målsystemet och samma värde finns i en annan användarpost
+- Användare som inte har något attribut ifyllt i käll systemet som krävs i mål systemet
+- Användare som har ett attributvärde i käll systemet där det finns en unik begränsning i mål systemet, och samma värde finns i en annan användar post
 
-Lös dessa fel genom att justera attributvärdena för den berörda användaren i källsystemet eller genom att justera attributmappningarna så att de inte orsakar konflikter.
+Lös de här felen genom att justera attributvärdena för den berörda användaren i käll systemet, eller genom att justera mappningarna för attribut så att de inte orsakar konflikter.
 
 ### <a name="quarantine"></a>Karantän
 
-Om de flesta eller alla anrop som görs mot målsystemet konsekvent misslyckas på grund av ett fel (till exempel ogiltiga administratörsautentiseringsuppgifter) går etableringsjobbet in i ett "karantäntillstånd". Det här tillståndet anges i [komredovisningsrapporten](../manage-apps/check-status-user-account-provisioning.md) för etablering och via e-post om e-postmeddelanden har konfigurerats i Azure-portalen.
+Om de flesta eller alla anrop som görs mot mål systemet inte fungerar konsekvent på grund av ett fel (till exempel ogiltiga administratörsautentiseringsuppgifter), försätts etablerings jobbet i "karantän". Det här läget anges i [sammanfattnings rapporten för etablering](../manage-apps/check-status-user-account-provisioning.md) och via e-post om e-postaviseringar har kon figurer ats i Azure Portal.
 
-När i karantän, frekvensen av inkrementella cykler gradvis minskas till en gång per dag.
+När den är i karantän minskas frekvensen för stegvisa cykler till en gång per dag.
 
-Etableringsjobbet avslutar karantänen när alla fel som inte har åtgärdats och nästa synkroniseringscykel startar. Om etableringsjobbet förblir i karantän i mer än fyra veckor inaktiveras etableringsjobbet. Läs mer här om karantänstatus [här](../manage-apps/application-provisioning-quarantine-status.md).
+Etablerings jobbet avslutar karantän när alla fel som är felaktiga har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor inaktive ras etablerings jobbet. Läs mer här om karantän status [här](../manage-apps/application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Hur lång tid tar etableringen?
 
-Prestanda beror på om etableringsjobbet kör en inledande etableringscykel eller en inkrementell cykel. Mer information om hur lång etablering tar och hur du övervakar etableringstjänstens status finns i [Kontrollera status för användaretablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+Prestanda beror på om ditt etablerings jobb kör en inledande etablerings cykel eller en stegvis cykel. Mer information om hur lång etablering tar och hur du övervakar etablerings tjänstens status finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
 
-### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Så här tar du upp om användarna etableras på rätt sätt
+### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Så här ser du om användarna är korrekt etablerade
 
-Alla åtgärder som körs av tjänsten för användaretablering registreras i Azure [AD-etableringsloggarna (förhandsversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Loggarna innehåller alla läs- och skrivåtgärder som görs till käll- och målsystemen och användardata som lästes eller skrevs under varje åtgärd. Information om hur du läser etableringsloggarna i Azure-portalen finns i [rapporteringsguiden](../manage-apps/check-status-user-account-provisioning.md)för etablering .
+Alla åtgärder som körs av användar etablerings tjänsten registreras i Azure AD [-etablerings loggarna (för hands version)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Loggarna omfattar alla Läs-och skriv åtgärder som gjorts för käll-och mål systemen och de användar data som lästs eller skrevs under varje åtgärd. Information om hur du läser etablerings loggar i Azure Portal finns i [rapport guiden för etablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Avetablering
 
-Azure AD-etableringstjänsten håller käll- och målsystem synkroniserade genom att avetableringskonton när användare inte längre ska ha åtkomst. 
+Azure AD Provisioning-tjänsten håller käll-och mål systemen synkroniserade genom att inaktivera etablerings konton när användarna inte ska ha åtkomst längre. 
 
-Azure AD-etableringstjänsten tar bort en användare i ett program när programmet suupportar mjuka borttagningar (uppdateringsbegäran med aktiv = false) och någon av följande händelser inträffar:
+Azure AD Provisioning-tjänsten kommer att ta bort en användare i ett program när programmet suupports Soft Deletes (uppdaterings förfrågan med Active = false) och någon av följande händelser inträffar:
 
-* Användarkontot tas bort i Azure AD
-*   Användaren avtilldelas från programmet
-*   Användaren uppfyller inte längre ett omfångsfilter och går utanför omfånget
-    * Som standard tar Azure AD-etableringstjänsten bort eller inaktiverar användare som inte omfattas. Om du vill åsidosätta det här standardbeteendet kan du ange en flagga för att [hoppa över borttagningar utanför scopet](../app-provisioning/skip-out-of-scope-deletions.md).
-*   Egenskapen AccountEnabled är inställd på Falskt
+* Användar kontot tas bort i Azure AD
+*   Användaren är inte tilldelad från programmet
+*   Användaren uppfyller inte längre ett omfångs filter och hamnar utanför räckvidden
+    * Som standard tar Azure AD Provisioning-tjänsten bort eller inaktiverar användare som omfattas av omfånget. Om du vill åsidosätta det här standard beteendet kan du ange en flagga som [hoppar över borttagningar utanför omfattning](../app-provisioning/skip-out-of-scope-deletions.md).
+*   Egenskapen AccountEnabled har angetts till false
 
-Om en av ovanstående fyra händelser inträffar och målprogrammet inte stöder mjuka borttagningar, skickar etableringstjänsten en DELETE-begäran om att ta bort användaren permanent från appen. 
+Om någon av ovanstående fyra händelser inträffar och mål programmet inte stöder mjuka borttagningar, skickar etablerings tjänsten en BORTTAGNINGs förfrågan för att permanent ta bort användaren från appen. 
 
-30 dagar efter att en användare har tagits bort i Azure AD tas de bort permanent från klienten. Nu skickar etableringstjänsten en DELETE-begäran om att ta bort användaren permanent i programmet. När som helst under 30-dagarsfönstret kan du [manuellt ta bort en användare permanent](../fundamentals/active-directory-users-restore.md), som skickar en borttagningsbegäran till programmet.
+30 dagar efter att en användare har tagits bort i Azure AD kommer de att tas bort permanent från klienten. I det här läget skickar etablerings tjänsten en begäran om borttagning för att permanent ta bort användaren i programmet. Du kan när som helst under perioden på 30 dagar [manuellt ta bort en användare permanent](../fundamentals/active-directory-users-restore.md), som skickar en begäran om borttagning till programmet.
 
-Om du ser ett attribut som är IsSoftDeleted i attributmappningarna används det för att fastställa användarens tillstånd och om en uppdateringsbegäran ska skickas med aktiv = false för att ta bort användaren mjukt. 
+Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
 
 ## <a name="next-steps"></a>Efterföljande moment
 
@@ -196,6 +196,6 @@ Om du ser ett attribut som är IsSoftDeleted i attributmappningarna används det
 
 [Konfigurera etablering för en galleriapp](../manage-apps/configure-automatic-user-provisioning-portal.md)
 
-[Skapa en SCIM-slutpunkt och konfigurera etablering när du skapar en egen app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+[Skapa en SCIM-slutpunkt och konfigurera etablering när du skapar din egen app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Felsöka problem med att konfigurera och etablera användare i ett program](../manage-apps/application-provisioning-config-problem.md).
+[Felsök problem med att konfigurera och tillhandahålla användare till ett program](../manage-apps/application-provisioning-config-problem.md).

@@ -1,7 +1,7 @@
 ---
 title: Hantera användare med Microsoft Graph API
 titleSuffix: Azure AD B2C
-description: Hantera användare i en Azure AD B2C-klient genom att anropa Microsoft Graph API och använda en programidentitet för att automatisera processen.
+description: Så här hanterar du användare i en Azure AD B2C klient genom att anropa Microsoft Graph API och använda en program identitet för att automatisera processen.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,60 +12,60 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637330"
 ---
-# <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C-användarkonton med Microsoft Graph
+# <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C användar konton med Microsoft Graph
 
-Med Microsoft Graph kan du hantera användarkonton i din Azure AD B2C-katalog genom att tillhandahålla metoder för att skapa, läsa, uppdatera och ta bort i Microsoft Graph API. Du kan migrera ett befintligt användararkiv till en Azure AD B2C-klientorganisation och utföra andra hanteringsåtgärder för användarkonton genom att anropa Microsoft Graph API.
+Med Microsoft Graph kan du hantera användar konton i din Azure AD B2C katalog genom att tillhandahålla metoder för att skapa, läsa, uppdatera och ta bort i Microsoft Graph API. Du kan migrera ett befintligt användar arkiv till en Azure AD B2C-klient och utföra andra åtgärder för användar konto hantering genom att anropa Microsoft Graph-API: et.
 
-I de avsnitt som följer presenteras de viktigaste aspekterna av Azure AD B2C-användarhantering med Microsoft Graph API. Microsoft Graph API-åtgärder, typer och egenskaper som presenteras här är en delmängd av dem som visas i referensdokumentationen för Microsoft Graph API.
+I avsnitten nedan visas viktiga aspekter av Azure AD B2C användar hantering med Microsoft Graph-API: et. Microsoft Graph API-åtgärder, typer och egenskaper som visas här är en del av den som visas i referens dokumentationen för Microsoft Graph API.
 
-## <a name="register-a-management-application"></a>Registrera ett hanteringsprogram
+## <a name="register-a-management-application"></a>Registrera ett hanterings program
 
-Innan ett användarhanteringsprogram eller skript som du skriver kan interagera med resurserna i din Azure AD B2C-klient behöver du en programregistrering som ger behörigheterna att göra det.
+Innan ett användar hanterings program eller skript som du skriver kan interagera med resurserna i din Azure AD B2C klient, behöver du en program registrering som ger behörighet att göra detta.
 
-Följ stegen i den här artikeln om du vill skapa en programregistrering som hanteringsprogrammet kan använda:
+Följ stegen i den här instruktions artikeln för att skapa en program registrering som hanterings programmet kan använda:
 
 [Hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md)
 
-## <a name="user-management-microsoft-graph-operations"></a>Microsoft Graph-åtgärder för användarhantering
+## <a name="user-management-microsoft-graph-operations"></a>Microsoft Graph åtgärder för användar hantering
 
-Följande användarhanteringsåtgärder är tillgängliga i [Microsoft Graph API:](https://docs.microsoft.com/graph/api/resources/user)
+Följande användar hanterings åtgärder är tillgängliga i [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user):
 
 - [Hämta en lista över användare](https://docs.microsoft.com/graph/api/user-list)
 - [Skapa en användare](https://docs.microsoft.com/graph/api/user-post-users)
-- [Skaffa en användare](https://docs.microsoft.com/graph/api/user-get)
+- [Hämta en användare](https://docs.microsoft.com/graph/api/user-get)
 - [Uppdatera en användare](https://docs.microsoft.com/graph/api/user-update)
 - [Ta bort en användare](https://docs.microsoft.com/graph/api/user-delete)
 
 ## <a name="user-properties"></a>Användaregenskaper
 
-### <a name="display-name-property"></a>Egenskapen Visa namn
+### <a name="display-name-property"></a>Egenskapen visnings namn
 
-Det `displayName` är namnet som ska visas i Azure Portal-användarhantering för användaren och i åtkomsttoken Azure AD B2C returnerar till programmet. Boendet är obligatoriskt.
+`displayName` Är namnet som ska visas i Azure Portal användar hantering för användaren och i åtkomsttoken Azure AD B2C återgår till programmet. Den här egenskapen är obligatorisk.
 
-### <a name="identities-property"></a>Egenskapen Identiteter
+### <a name="identities-property"></a>Identiteter-egenskapen
 
-Ett kundkonto, som kan vara en konsument, partner eller medborgare, kan associeras med dessa identitetstyper:
+Ett kund konto, som kan vara en konsument, partner eller medborgare, kan associeras med dessa identitets typer:
 
-- **Lokal** identitet - Användarnamnet och lösenordet lagras lokalt i Azure AD B2C-katalogen. Vi kallar ofta dessa identiteter för "lokala konton".
-- **Federerad** identitet – Även ett *socialt* konton eller *företagskonton* hanteras användarens identitet av en federerad identitetsleverantör som Facebook, Microsoft, ADFS eller Salesforce.
+- **Lokal** identitet – användar namn och lösen ord lagras lokalt i Azure AD B2C-katalogen. Vi refererar ofta till dessa identiteter som "lokala konton".
+- **Federerad** identitet – även kallat *sociala* eller *företags* konton, användarens identitet hanteras av en federerad identitets leverantör som Facebook, Microsoft, ADFS eller Salesforce.
 
-En användare med ett kundkonto kan logga in med flera identiteter. Användarnamn, e-post, medarbetar-ID, myndighets-ID och andra. Ett enda konto kan ha flera identiteter, både lokala och sociala, med samma lösenord.
+En användare med ett kund konto kan logga in med flera identiteter. Till exempel användar namn, e-post, medarbetar-ID, myndighets-ID och andra. Ett enda konto kan ha flera identiteter, både lokala och sociala, med samma lösen ord.
 
-I Microsoft Graph API lagras både lokala och federerade `identities` identiteter i användarattributet, som är av typen [objectIdentity][graph-objectIdentity]. Samlingen `identities` representerar en uppsättning identiteter som används för att logga in på ett användarkonto. Med den här samlingen kan användaren logga in på användarkontot med någon av dess associerade identiteter.
+I Microsoft Graph API lagras både lokala och federerade identiteter i attributet User `identities` , som är av typen [objectIdentity][graph-objectIdentity]. `identities` Samlingen representerar en uppsättning identiteter som används för att logga in på ett användar konto. Den här samlingen gör att användaren kan logga in på användar kontot med någon av dess associerade identiteter.
 
 | Egenskap   | Typ |Beskrivning|
 |:---------------|:--------|:----------|
-|signInType|sträng| Anger typerna för användarloggning i katalogen. För lokalt `emailAddress`konto: `emailAddress2` `emailAddress3`, `userName` `emailAddress1`, , , eller någon annan typ som du gillar. Socialt konto måste `federated`ställas in på .|
-|utfärdare|sträng|Anger utfärdaren av identiteten. För lokala konton (där **signInType** inte `federated`är ) är den här egenskapen det lokala B2C-klientstandarddomännamnet, till exempel `contoso.onmicrosoft.com`. För social identitet (där `federated` **signInType** är) är värdet namnet på utfärdaren, till exempel`facebook.com`|
-|emittentTilldeladeId|sträng|Anger den unika identifierare som tilldelats användaren av utfärdaren. Kombinationen av **utfärdare** och **utfärdareTilldeladeId** måste vara unik i din klientorganisation. För lokalt konto, när **signInType** är inställt på `emailAddress` eller `userName`representerar det inloggningsnamnet för användaren.<br>När **signInType** är inställt på: <ul><li>`emailAddress`(eller börjar `emailAddress` `emailAddress1`med liknande) **utfärdareTilldeladeId** måste vara en giltig e-postadress</li><li>`userName`(eller något annat värde) måste **utfärdareTilldeladeId** vara en giltig [lokal del av en e-postadress](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`representerar **utfärdarTilldeladeId** den unika identifieraren för federerade kontot</li></ul>|
+|signInType|sträng| Anger användarnas inloggnings typer i din katalog. För lokalt konto: `emailAddress`, `emailAddress1` `emailAddress2` `emailAddress3` `userName`,,, eller någon annan typ som du vill ha. Socialt konto måste anges till `federated`.|
+|utfärdare|sträng|Anger utfärdarens identitet. För lokala konton (där **signInType** inte `federated`är det) är den här egenskapen namnet på den lokala B2C-klientens standard `contoso.onmicrosoft.com`domän, till exempel. För sociala identiteter ( **signInType** där signInType `federated`är) är värdet namnet på utfärdaren, till exempel`facebook.com`|
+|issuerAssignedId|sträng|Anger den unika identifierare som användaren har tilldelats av utfärdaren. Kombinationen av **utfärdare** och **issuerAssignedId** måste vara unik inom din klient organisation. För lokalt konto, när **signInType** är `emailAddress` inställt `userName`på eller, representerar det inloggnings namnet för användaren.<br>När **signInType** är inställt på: <ul><li>`emailAddress`(eller börjar med `emailAddress` like `emailAddress1`) **issuerAssignedId** måste vara en giltig e-postadress</li><li>`userName`(eller något annat värde) måste **issuerAssignedId** vara en giltig [lokal del av en e-postadress](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`representerar **issuerAssignedId** det federerade kontots unika identifierare</li></ul>|
 
-Följande **identitetsegenskap,** med en lokal kontoidentitet med inloggningsnamn, en e-postadress som inloggning och med en social identitet. 
+Följande **identiteter** -egenskap, med en lokal konto identitet med ett inloggnings namn, en e-postadress som inloggning och med en social identitet. 
 
  ```JSON
  "identities": [
@@ -87,13 +87,13 @@ Följande **identitetsegenskap,** med en lokal kontoidentitet med inloggningsnam
    ]
  ```
 
-För federerade identiteter, beroende på identitetsprovidern, är **utfärdarenAssignedId** ett unikt värde för en viss användare per program eller utvecklingskonto. Konfigurera Azure AD B2C-principen med samma program-ID som tidigare tilldelats av den sociala providern eller ett annat program inom samma utvecklingskonto.
+För federerade identiteter, beroende på identitets leverantören, är **issuerAssignedId** ett unikt värde för en viss användare per program eller utvecklings konto. Konfigurera Azure AD B2C principen med samma program-ID som tidigare har tilldelats av den sociala leverantören eller något annat program inom samma utvecklings konto.
 
-### <a name="password-profile-property"></a>Egenskapen Lösenordsprofil
+### <a name="password-profile-property"></a>Egenskap för lösen ords profil
 
-För en lokal identitet krävs **egenskapen passwordProfile** och innehåller användarens lösenord. Egenskapen `forceChangePasswordNextSignIn` måste `false`anges till .
+För en lokal identitet är egenskapen **passwordProfile** obligatorisk och innehåller användarens lösen ord. `forceChangePasswordNextSignIn` Egenskapen måste anges till `false`.
 
-För en federerad (social) identitet krävs inte **egenskapen passwordProfile.**
+För en federerad (social) identitet krävs inte egenskapen **passwordProfile** .
 
 ```JSON
 "passwordProfile" : {
@@ -102,21 +102,21 @@ För en federerad (social) identitet krävs inte **egenskapen passwordProfile.**
   }
 ```
 
-### <a name="password-policy-property"></a>Egenskapen Lösenordsprincip
+### <a name="password-policy-property"></a>Egenskap för lösen ords princip
 
-Lösenordsprincipen för Azure AD B2C (för lokala konton) baseras på principen för azure Active [Directory-stark lösenordsstyrka.](../active-directory/authentication/concept-sspr-policy.md) Azure AD B2C-registrerings- eller inloggnings- och lösenordsåterställningsprinciperna kräver den här starka lösenordsstyrkan och upphör inte att gälla lösenord.
+Azure AD B2C lösen ords princip (för lokala konton) baseras på principen för Azure Active Directory [stark lösen ords styrka](../active-directory/authentication/concept-sspr-policy.md) . Principerna Azure AD B2C för registrering eller inloggning och lösen ords återställning kräver den här starka lösen ords styrkan och upphör aldrig att gälla lösen ord.
 
-I scenarier för användarmigrering, om de konton som du vill migrera har svagare lösenordsstyrka än den [starka lösenordsstyrka](../active-directory/authentication/concept-sspr-policy.md) som tillämpas av Azure AD B2C, kan du inaktivera det starka lösenordskravet. Om du vill ändra standardlösenordsprincipen anger du egenskapen `passwordPolicies` till `DisableStrongPassword`. Du kan till exempel ändra användarbegäran på följande sätt:
+Om de konton som du vill migrera har en mindre lösen ords styrka än den [starka lösen ords styrkan](../active-directory/authentication/concept-sspr-policy.md) som tillämpas av Azure AD B2C, kan du inaktivera kravet på starkt lösen ord i scenarier med användar migrering. Ange `passwordPolicies` egenskapen till `DisableStrongPassword`om du vill ändra standard lösen ords principen. Du kan till exempel ändra begäran om att skapa användare på följande sätt:
 
 ```JSON
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
-### <a name="extension-properties"></a>Egenskaper för tillägg
+### <a name="extension-properties"></a>Tilläggs egenskaper
 
-Varje kundinriktad applikation har unika krav på att informationen ska samlas in. Din Azure AD B2C-klient levereras med en inbyggd uppsättning information som lagras i egenskaper, till exempel förnamn, efternamn, ort och postnummer. Med Azure AD B2C kan du utöka uppsättningen egenskaper som lagras i varje kundkonto. Mer information om hur du definierar anpassade attribut finns i [anpassade attribut (användarflöden)](user-flow-custom-attributes.md) och [anpassade attribut (anpassade principer).](custom-policy-custom-attributes.md)
+Varje kundriktad app har unika krav för att informationen ska samlas in. Din Azure AD B2C klient har en inbyggd uppsättning information som lagras i egenskaper, t. ex. namn, efter namn, stad och post nummer. Med Azure AD B2C kan du utöka uppsättningen med egenskaper som lagras i varje kund konto. Mer information om hur du definierar anpassade attribut finns i [anpassade attribut (användar flöden)](user-flow-custom-attributes.md) och [anpassade attribut (anpassade principer)](custom-policy-custom-attributes.md).
 
-Microsoft Graph API stöder att skapa och uppdatera en användare med tilläggsattribut. Tilläggsattribut i Graph API namnges `extension_ApplicationObjectID_attributename`med hjälp av konventionen . Ett exempel:
+Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_ApplicationObjectID_attributename`. Ett exempel:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -124,19 +124,19 @@ Microsoft Graph API stöder att skapa och uppdatera en användare med tilläggsa
 
 ## <a name="code-sample"></a>Kodexempel
 
-Det här kodexemplet är ett .NET Core-konsolprogram som använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) för att interagera med Microsoft Graph API. Dess kod visar hur du anropar API:et för att programmässigt hantera användare i en Azure AD B2C-klientorganisation.
-Du kan [hämta exempelarkivet](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*.zip), [bläddra i databasen](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) på GitHub eller klona databasen:
+Det här kod exemplet är ett .NET Core-konsolprogram som använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) för att interagera med Microsoft Graph API. Koden visar hur du anropar API: et för att hantera användare program mässigt i en Azure AD B2C klient organisation.
+Du kan [Ladda ned exempel arkivet](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [Bläddra i lagrings platsen](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) på GitHub eller klona lagrings platsen:
 
 ```cmd
 git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management.git
 ```
 
-När du har fått kodexemplet konfigurerar du det för din miljö och skapar sedan projektet:
+När du har fått kod exemplet konfigurerar du det för din miljö och skapar sedan projektet:
 
-1. Öppna projektet i [Visual Studio](https://visualstudio.microsoft.com) eller Visual [Studio Code](https://code.visualstudio.com).
+1. Öppna projektet i [Visual Studio](https://visualstudio.microsoft.com) eller [Visual Studio Code](https://code.visualstudio.com).
 1. Öppna `src/appsettings.json`.
-1. I `appSettings` avsnittet ersätter `your-b2c-tenant` du med namnet `Application (client) ID` på `Client secret` din klient och och med värdena för registreringen av hanteringsprogrammet (se avsnittet [Registrera en hanteringsapplikation i](#register-a-management-application) den här artikeln).
-1. Öppna ett konsolfönster i din lokala klon av `src` repo, växla till katalogen och bygg sedan projektet:
+1. `appSettings` I avsnittet ersätter `your-b2c-tenant` du med namnet på din klient och `Application (client) ID` och `Client secret` med värdena för registreringen av hanterings programmet (se avsnittet [Registrera ett hanterings program](#register-a-management-application) i den här artikeln).
+1. Öppna ett konsol fönster i din lokala klon av lagrings platsen, växla till `src` katalogen och skapa projektet:
     ```console
     cd src
     dotnet build
@@ -147,19 +147,19 @@ När du har fått kodexemplet konfigurerar du det för din miljö och skapar sed
     dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
     ```
 
-Programmet visar en lista över kommandon som du kan köra. Hämta till exempel alla användare, hämta en enskild användare, ta bort en användare, uppdatera en användares lösenord och massimport.
+Programmet visar en lista över kommandon som du kan köra. Du kan till exempel hämta alla användare, hämta en enskild användare, ta bort en användare, uppdatera en användares lösen ord och Mass import.
 
 ### <a name="code-discussion"></a>Kod diskussion
 
-Exempelkoden använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), som är utformat för att förenkla byggandet av högkvalitativa, effektiva och elastiska program som får åtkomst till Microsoft Graph.
+Exempel koden använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), som är utformad för att förenkla skapandet av högkvalitativa, effektiva och elastiska program som har åtkomst till Microsoft Graph.
 
-Alla förfrågningar till Microsoft Graph API kräver en åtkomsttoken för autentisering. Lösningen använder sig av [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet-paketet som tillhandahåller ett autentiseringsscenariobaserat omslag av Microsoft Authentication Library (MSAL) för användning med Microsoft Graph SDK.
+Alla begär anden till Microsoft Graph API kräver en åtkomsttoken för autentisering. Lösningen använder sig av [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet-paketet som tillhandahåller ett gränssnitts scenario baserat på Microsoft Authentication Library (MSAL) för användning med Microsoft Graph SDK.
 
-Metoden `RunAsync` i _Program.cs-filen:_
+`RunAsync` Metoden i _program.cs_ -filen:
 
-1. Läser programinställningar från _filen appsettings.json_
-1. Initierar auth-providern med [OAuth 2.0-klientautentiseringsbidragsflödet.](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) Med tilldelningsflödet för klientuppgifter kan appen hämta en åtkomsttoken för att anropa Microsoft Graph API.
-1. Konfigurerar Microsoft Graph-tjänstklienten med auth-providern:
+1. Läser program inställningar från filen _appSettings. JSON_
+1. Initierar auth-providern med hjälp av [OAuth 2,0-klientens autentiseringsuppgifter för tilldelnings](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) flöde. Med hjälp av flödet för tilldelning av klientautentiseringsuppgifter kan appen Hämta en åtkomsttoken för att anropa Microsoft Graph-API: et.
+1. Konfigurerar Microsoft Graph tjänst klienten med auth-providern:
 
     ```csharp
     // Read application settings from appsettings.json (tenant ID, app ID, client secret, etc.)
@@ -177,7 +177,7 @@ Metoden `RunAsync` i _Program.cs-filen:_
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-Den initierade *GraphServiceClient* används sedan i _UserService.cs_ för att utföra användarhanteringsåtgärder. Till exempel att få en lista över användarkonton i klienten:
+Den initierade *GraphServiceClient* används sedan i _UserService.cs_ för att utföra användar hanterings åtgärder. Du kan till exempel hämta en lista över användar kontona i klienten:
 
 ```csharp
 public static async Task ListUsers(GraphServiceClient graphClient)
@@ -202,11 +202,11 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Ringa API-anrop med hjälp av Microsoft Graph SDK:er](https://docs.microsoft.com/graph/sdks/create-requests) `$select` innehåller information om hur du läser och skriver `$filter` `$orderBy` information från Microsoft Graph, använder för att styra de egenskaper som returneras, tillhandahålla anpassade frågeparametrar och använda parametrarna och fråga.
+[Gör API-anrop med hjälp av Microsoft Graph SDK: er](https://docs.microsoft.com/graph/sdks/create-requests) innehåller information om hur du läser och skriver information `$select` från Microsoft Graph, använder för att kontrol lera de egenskaper som returneras, tillhandahålla `$filter` anpassade `$orderBy` frågeparametrar och använda parametrarna och.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ett fullständigt index över Microsoft Graph API-åtgärder som stöds för Azure AD B2C-resurser finns i [Microsoft Graph-åtgärder som är tillgängliga för Azure AD B2C](microsoft-graph-operations.md).
+Ett fullständigt index för de Microsoft Graph API-åtgärder som stöds för Azure AD B2C resurser finns i [Microsoft Graph åtgärder som är tillgängliga för Azure AD B2C](microsoft-graph-operations.md).
 
 <!-- LINK -->
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus som event grid-källa
-description: Beskriver de egenskaper som tillhandahålls för Service Bus-händelser med Azure Event Grid
+title: Azure Service Bus som Event Grid källa
+description: Beskriver de egenskaper som har angetts för Service Bus händelser med Azure Event Grid
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: babanisa
 ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393243"
 ---
-# <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus som en händelserutnätskälla
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus som en Event Grid källa
 
-Den här artikeln innehåller egenskaper och schema för Service Bus-händelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för Service Bus händelser.En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+## <a name="event-grid-event-schema"></a>Event Grid-händelseschema
 
-### <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelse typer
 
-Service Bus avger följande händelsetyper:
+Service Bus avger följande händelse typer:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.ServiceBus.ActiveMessagesTillgängligMedNoListeners | Utlöses när det finns aktiva meddelanden i en kö eller prenumeration och inga mottagare lyssnar. |
-| Microsoft.ServiceBus.DeadletterMessagesTillgängligMedNoListener | Utlöses när det finns aktiva meddelanden i en kö för obeställbara meddelanden och inga aktiva lyssnare. |
+| Microsoft. Service Bus. ActiveMessagesAvailableWithNoListeners | Utlöses när det finns aktiva meddelanden i en kö eller prenumeration och inga mottagare lyssnar. |
+| Microsoft. Service Bus. DeadletterMessagesAvailableWithNoListener | Utlöses när det finns aktiva meddelanden i en kö för obeställbara meddelanden och inga aktiva lyssnare. |
 
 ### <a name="example-event"></a>Exempel händelse
 
-I följande exempel visas schemat för aktiva meddelanden utan lyssnare händelse:
+I följande exempel visas schemat för aktiva meddelanden utan Listener-händelse:
 
 ```json
 [{
@@ -53,7 +53,7 @@ I följande exempel visas schemat för aktiva meddelanden utan lyssnare händels
 }]
 ```
 
-Schemat för en köhändelse för obeställbara meddelanden är liknande:
+Schemat för en händelse av obeställbara meddelanden liknar följande:
 
 ```json
 [{
@@ -75,41 +75,41 @@ Schemat för en köhändelse för obeställbara meddelanden är liknande:
 }]
 ```
 
-### <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelse egenskaper
 
-En händelse har följande data på den högsta nivån:
+En händelse har följande data på översta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
-| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
-| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
-| data | objekt | Händelsedata för bloblagring. |
+| Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| id | sträng | Unikt ID för händelsen. |
+| data | objekt | Händelse data för Blob Storage. |
 | Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-Dataobjektet har följande egenskaper:
+Data-objektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| namespaceName | sträng | Den servicebussnamnområde som resursen finns i. |
-| begärUri | sträng | Uri till den specifika kön eller prenumerationen som avger händelsen. |
-| entityType (entityType) | sträng | Typen av Service Bus-enhet som avger händelser (kö eller prenumeration). |
-| queueName (queueName) | sträng | Kön med aktiva meddelanden om du prenumererar på en kö. Värde null om du använder ämnen / prenumerationer. |
-| topicName (ämnesnamn) | sträng | Ämnet servicebussprenumerationen med aktiva meddelanden tillhör. Värde null om du använder en kö. |
-| subscriptionName | sträng | Service Bus-prenumerationen med aktiva meddelanden. Värde null om du använder en kö. |
+| namespaceName | sträng | Service Bus namn området som resursen finns i. |
+| requestUri | sträng | URI: n till den angivna kön eller prenumerationen som avger händelsen. |
+| entityType | sträng | Typ av Service Bus enhet som avger händelser (kö eller prenumeration). |
+| queueName | sträng | Kön med aktiva meddelanden om prenumererar på en kö. Värdet null om du använder ämnen/prenumerationer. |
+| topicName | sträng | Avsnittet Service Bus prenumerationen med aktiva meddelanden tillhör. Värdet null om du använder en kö. |
+| subscriptionName | sträng | Service Bus prenumerationen med aktiva meddelanden. Värdet null om du använder en kö. |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 |Titel  |Beskrivning  |
 |---------|---------|
-| [Självstudiekurs: Exempel på integrering av Azure Service Bus till Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-avsnittet för att fungera app och logikapp. |
-| [Azure Service Bus to Event Grid-integrering](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över att integrera Service Bus med Event Grid. |
+| [Självstudie: Azure Service Bus till Azure Event Grid integrations exempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus ämne till att fungera som app-och Logic-appen. |
+| [Azure Service Bus att Event Grid-integrering](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över att integrera Service Bus med Event Grid. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
-* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).
-* Mer information om hur du använder Azure Event Grid med Service Bus finns i [översikten över integrering av Service Bus till Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md).
-* Prova [att ta emot Service Bus-händelser med funktioner eller Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json).
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).
+* Mer information om hur du använder Azure Event Grid med Service Bus finns i [Service Bus till Event Grid integrations översikt](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md).
+* Försök att [ta emot Service Bus händelser med Functions eller Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json).

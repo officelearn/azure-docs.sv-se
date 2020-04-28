@@ -1,7 +1,7 @@
 ---
 title: Definiera en teknisk profil för en SAML-utfärdare i en anpassad princip
 titleSuffix: Azure AD B2C
-description: Definiera en teknisk profil för en SAML-utfärdare (Security Assertion Markup Language) i en anpassad princip i Azure Active Directory B2C.
+description: Definiera en teknisk profil för en Security Assertion Markup Language token-utfärdare (SAML) i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,23 +12,23 @@ ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c35f85b9ec5d86d1cd61f165b891c576c06a03db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78967276"
 ---
-# <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en SAML-tokenutfärdare i en anpassad Azure Active Directory B2C-princip
+# <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en SAML-token utfärdare i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) avger flera typer av säkerhetstoken när den bearbetar varje autentiseringsflöde. En teknisk profil för en SAML-tokenutfärdare avger en SAML-token som returneras tillbaka till det förlitande part-programmet (tjänsteleverantör). Vanligtvis är denna tekniska profil det sista orchestration-steget i användarresan.
+Azure Active Directory B2C (Azure AD B2C) genererar flera typer av säkerhetstoken när de bearbetar varje autentiseringspaket. En teknisk profil för en SAML-token utfärdare genererar en SAML-token som returneras tillbaka till den förlitande part appen (tjänst leverantören). Vanligt vis är den här tekniska profilen det sista Orchestration-steget i användar resan.
 
 ## <a name="protocol"></a>Protokoll
 
-**Attributet Name** för **protokollelementet** måste `None`anges till . Ange elementet **OutputTokenFormat** till `SAML2`.
+Namnattributet **för** **protokoll** elementet måste anges till `None`. Ange **OutputTokenFormat** -elementet till `SAML2`.
 
-I följande exempel visas `Saml2AssertionIssuer`en teknisk profil för:
+I följande exempel visas en teknisk profil för `Saml2AssertionIssuer`:
 
 ```XML
 <TechnicalProfile Id="Saml2AssertionIssuer">
@@ -48,32 +48,32 @@ I följande exempel visas `Saml2AssertionIssuer`en teknisk profil för:
 </TechnicalProfile>
 ```
 
-## <a name="input-output-and-persist-claims"></a>Indata, utdata och kvarstående anspråk
+## <a name="input-output-and-persist-claims"></a>Indata, utdata och beständiga anspråk
 
-Elementen **InputClaims**, **OutputClaims**och **PersistClaims** är tomma eller frånvarande. **InutputClaimsTransformations** och **OutputClaimsTransformations** element är också frånvarande.
+**InputClaims**-, **OutputClaims**-och **PersistClaims** -elementen är tomma eller saknas. **InutputClaimsTransformations** -och **OutputClaimsTransformations** -element saknas också.
 
 ## <a name="metadata"></a>Metadata
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| EmittentUri | Inga | Utfärdarnamnet som visas i SAML-svaret. Värdet ska vara samma namn som konfigurerats i det förlitande partprogrammet. |
+| IssuerUri | Inga | Utfärdarens namn som visas i SAML-svaret. Värdet ska vara samma namn som det som kon figurer ATS i programmet för förlitande part. |
 
-## <a name="cryptographic-keys"></a>Krypteringsnycklar
+## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
-Elementet CryptographicKeys innehåller följande attribut:
+CryptographicKeys-elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MetadataSignera | Ja | X509-certifikatet (RSA-nyckeluppsättning) som ska användas för att signera SAML-metadata. Azure AD B2C använder den här nyckeln för att signera metadata. |
-| SamlMessageSignera| Ja| Ange det X509-certifikat (RSA-nyckeluppsättning) som ska användas för att signera SAML-meddelanden. Azure AD B2C använder den `<samlp:Response>` här nyckeln för att signera svaret skicka till den förlitande parten.|
+| MetadataSigning | Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-metadata. Azure AD B2C använder den här nyckeln för att signera metadata. |
+| SamlMessageSigning| Ja| Ange det X509-certifikat (RSA-nyckel uppsättning) som ska användas för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att signera `<samlp:Response>` svaret som skickas till den förlitande parten.|
 
 ## <a name="session-management"></a>Sessionshantering
 
-Om du vill konfigurera Azure AD B2C SAML-sessioner `UseTechnicalProfileForSessionManagement` mellan ett förlitande part-program, attributet för elementet, referens till [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) SSO-session.
+För att konfigurera Azure AD B2C SAML-sessioner mellan ett förlitande part program, attribut för `UseTechnicalProfileForSessionManagement` -elementet, referens till [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) SSO-session.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artikel om du till exempel använder en teknisk profil för SAML-utfärdare:
+Se följande artikel till exempel om du använder en teknisk profil för SAML Issuer:
 
 - [Registrera ett SAML-program i Azure AD B2C](connect-with-saml-service-providers.md)
 

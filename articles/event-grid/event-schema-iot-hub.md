@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub som källa för händelserutnät
-description: Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. Den visar tillgängliga händelsetyper, en exempelhändelse och händelseegenskaper.
+title: Azure IoT Hub som Event Grid källa
+description: Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. Den innehåller en lista över tillgängliga händelse typer, exempel händelser och händelse egenskaper.
 services: iot-hub
 documentationcenter: ''
 author: spelluru
@@ -10,34 +10,34 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393332"
 ---
-# <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub som en händelserutnätskälla
-Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md). 
+# <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub som en Event Grid källa
+Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md). 
 
-## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+## <a name="event-grid-event-schema"></a>Event Grid-händelseschema
 
-### <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelse typer
 
-Azure IoT Hub avger följande händelsetyper:
+Azure IoT Hub avger följande händelse typer:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceSkapad | Publicerad när en enhet är registrerad på en IoT-hubb. |
-| Microsoft.Devices.DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. | 
-| Microsoft.Devices.DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
-| Microsoft.Devices.DeviceDisconnected Microsoft.DevicesDisconnected Microsoft.Devices.DeviceDisconnected Microsoft.Devices. | Publicerad när en enhet kopplas från en IoT-hubb. | 
-| Microsoft.Devices.DeviceTelemetry | Publicerat när ett telemetrimeddelande skickas till en IoT-hubb. |
+| Microsoft. devices. DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
+| Microsoft. devices. DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. | 
+| Microsoft. devices. DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
+| Microsoft. devices. DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. | 
+| Microsoft. devices. DeviceTelemetry | Publicerad när ett telemetri skickas till en IoT-hubb. |
 
-Alla enhetshändelser utom enhetstelemetrihändelser är allmänt tillgängliga i alla regioner som stöds av Event Grid. Enhetstelemetrihändelsen är i offentlig förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government,](../azure-government/documentation-government-welcome.md) [Azure China 21Vianet](/azure/china/china-welcome)och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Alla enhets händelser utom Device telemetri-händelser är allmänt tillgängliga i alla regioner som stöds av Event Grid. Händelsen enhets telemetri är i offentlig för hands version och är tillgänglig i alla regioner utom USA, västra USA, västra Europa, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure Kina 21Vianet](/azure/china/china-welcome)och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ### <a name="example-event"></a>Exempel händelse
 
-Schemat för DeviceConnected och DeviceDisconnected-händelser har samma struktur. Den här exempelhändelsen visar schemat för en händelse som utlöses när en enhet är ansluten till en IoT-hubb:
+Schemat för DeviceConnected-och DeviceDisconnected-händelser har samma struktur. Den här exempel händelsen visar schemat för en händelse som aktive ras när en enhet är ansluten till en IoT-hubb:
 
 ```json
 [{
@@ -60,7 +60,7 @@ Schemat för DeviceConnected och DeviceDisconnected-händelser har samma struktu
 }]
 ```
 
-DeviceTelemetry-händelsen utlöses när en telemetrihändelse skickas till en IoT Hub. Nedan visas ett exempelschema för den här händelsen.
+DeviceTelemetry-händelsen utlöses när en telemetri-händelse skickas till en IoT Hub. Ett exempel schema för den här händelsen visas nedan.
 
 ```json
 [{
@@ -94,7 +94,7 @@ DeviceTelemetry-händelsen utlöses när en telemetrihändelse skickas till en I
 }]
 ```
 
-Schemat för DeviceCreated- och DeviceDeleted-händelser har samma struktur. Den här exempelhändelsen visar schemat för en händelse som utlöses när en enhet registreras i en IoT-hubb:
+Schemat för DeviceCreated-och DeviceDeleted-händelser har samma struktur. Den här exempel händelsen visar schemat för en händelse som aktive ras när en enhet registreras till en IoT-hubb:
 
 ```json
 [{
@@ -142,76 +142,76 @@ Schemat för DeviceCreated- och DeviceDeleted-händelser har samma struktur. Den
 }]
 ```
 
-### <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelse egenskaper
 
-Alla händelser innehåller samma data på den översta nivån: 
+Alla händelser innehåller samma data på översta nivån: 
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| id | sträng | Unik identifierare för händelsen. |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
-| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| id | sträng | Unikt ID för händelsen. |
+| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
-| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| data | objekt | IoT Hub-händelsedata.  |
+| Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| data | objekt | IoT Hub händelse data.  |
 | Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-För alla IoT Hub-händelser innehåller dataobjektet följande egenskaper:
+Data-objektet innehåller följande egenskaper för alla IoT Hub-händelser:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| hubName (hubName) | sträng | Namn på IoT Hub där enheten skapades eller togs bort. |
-| deviceId | sträng | Enhetens unika identifierare. Den här skiftlägeskänsliga strängen kan vara upp till 128 tecken lång och stöder ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| hubName | sträng | Namnet på den IoT Hub där enheten skapades eller togs bort. |
+| deviceId | sträng | Enhetens unika identifierare. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande `- : . + % _ # * ? ! ( ) , = @ ; $ '`specialtecken:. |
 
-Innehållet i dataobjektet är olika för varje händelseutgivare. 
+Innehållet i data-objektet skiljer sig åt för varje händelse utgivare. 
 
-För IoT-hubbhändelser med **enhetsansluten** och **frånkopplad enhet** innehåller dataobjektet följande egenskaper:
+Om **enheten är ansluten** och **enheten frånkopplade** IoT Hub händelser, innehåller dataobjektet följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| moduleId (modulId) | sträng | Modulens unika identifierare. Det här fältet är endast utdata för modulenheter. Den här skiftlägeskänsliga strängen kan vara upp till 128 tecken lång och stöder ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| deviceConnectionStateEventInfo | objekt | Händelseinformation om enhetsanslutningstillstånd
-| sequenceNumber (sequenceNumber) | sträng | Ett nummer som hjälper till att ange ordningen på enhetsanslutna eller enhetsfrånkopplade händelser. Den senaste händelsen har ett sekvensnummer som är högre än föregående händelse. Detta antal kan ändras med mer än 1, men ökar strikt. Se [hur du använder sekvensnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+| moduleId | sträng | Den unika identifieraren för modulen. Det här fältet är endast utdata för modul enheter. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande `- : . + % _ # * ? ! ( ) , = @ ; $ '`specialtecken:. |
+| deviceConnectionStateEventInfo | objekt | Händelse information för status för enhets anslutning
+| sequenceNumber | sträng | Ett tal som visar ordningen på enheter som är anslutna eller enheter som är frånkopplade. Den senaste händelsen kommer att ha ett sekvensnummer som är högre än föregående händelse. Det här antalet kan ändras med mer än 1, men det är en strikt ökning. Se [hur du använder Sequence Number](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-För **enhetstelmetri-IoT** Hub-händelse innehåller dataobjektet meddelandet enhet till moln i [IoT-hubbmeddelandeformat](../iot-hub/iot-hub-devguide-messages-construct.md) och har följande egenskaper:
+För **telemetri** IoT Hub händelse innehåller dataobjektet enhets-till-moln-meddelandet i [IoT Hub-meddelande formatet](../iot-hub/iot-hub-devguide-messages-construct.md) och har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | body | sträng | Innehållet i meddelandet från enheten. |
-| properties | sträng | Programegenskaper är användardefinierade strängar som kan läggas till i meddelandet. Dessa fält är valfria. |
-| systemegenskaper | sträng | [Systemegenskaper](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) hjälper till att identifiera innehållet och källan till meddelandena. Enhetstelemetrimeddelandet måste vara i ett giltigt JSON-format med contentType inställd på JSON och contentEncoding inställt på UTF-8 i meddelandesystemets egenskaper. Om detta inte är inställt skriver IoT Hub meddelandena i bas 64-kodat format.  |
+| properties | sträng | Program egenskaperna är användardefinierade strängar som kan läggas till i meddelandet. Dessa fält är valfria. |
+| system egenskaper | sträng | [System egenskaper](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) hjälper till att identifiera innehåll och källa för meddelandena. Telemetriprocessor för enheten måste vara i ett giltigt JSON-format med contentType inställt på JSON och contentEncoding inställd på UTF-8 i meddelande systemets egenskaper. Om detta inte anges kommer IoT Hub att skriva meddelanden i bas 64-kodat format.  |
 
-För **enhetsskapade** och **enhetsuttagna** IoT Hub-händelser innehåller dataobjektet följande egenskaper:
+För att enheten ska kunna **skapas** och **enheten tas bort** IoT Hub händelser, innehåller dataobjektet följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Twin | objekt | Information om enhetstvillingen, som är molnrepresentationen av metadata för programenheter. | 
-| Deviceid | sträng | Den unika identifieraren för enhetstvillingen. | 
-| Etag | sträng | En validerare för att säkerställa konsekvens i uppdateringar till en enhetstvilling. Varje etag är garanterat unik per enhet twin. |  
-| deviceEtag| sträng | En validerare för att säkerställa konsekvens i uppdateringar av ett enhetsregister. Varje deviceEtag är garanterat unik per enhetsregister. |
-| status | sträng | Om enhetstvillingen är aktiverad eller inaktiverad. | 
-| statusUpdateTime | sträng | Tidsstämpeln ISO8601 för den senaste enhets twin statusuppdateringen. |
-| connectionState (anslutningsstat) | sträng | Om enheten är ansluten eller frånkopplad. | 
-| lastActivityTime | sträng | TIDsstämpeln ISO8601 för den senaste aktiviteten. | 
-| cloudToDeviceMessageCount | heltal | Antal moln-till enhetsmeddelanden som skickas till den här enheten. | 
-| authenticationType | sträng | Autentiseringstyp som används `SAS` `SelfSigned`för `CertificateAuthority`den här enheten: antingen , eller . |
-| x509Thumbprint | sträng | Tumavtrycket är ett unikt värde för x509-certifikatet, som ofta används för att hitta ett visst certifikat i ett certifikatarkiv. Tumavtrycket genereras dynamiskt med SHA1-algoritmen och finns inte fysiskt i certifikatet. | 
-| primärTumbtryck | sträng | Primärt tumavtryck för x509-certifikatet. |
-| sekundärTavtryck | sträng | Sekundärt tumavtryck för x509-certifikatet. | 
-| version | heltal | Ett heltal som ökas med ett varje gång enhetstvillingen uppdateras. |
-| Önskad | objekt | En del av egenskaperna som bara kan skrivas av programmets backend och läsas av enheten. | 
-| Rapporterade | objekt | En del av egenskaperna som bara kan skrivas av enheten och läsas av programmets backend. |
-| lastUpdated | sträng | Tidsstämpeln ISO8601 för den senaste enhets twin-egenskapsuppdateringen. | 
+| Noble | objekt | Information om enheten, som är moln representation av metadata för program enheten. | 
+| deviceID | sträng | Enhetens unika identifierare. | 
+| etag | sträng | En verifierare för att säkerställa konsekvensen av uppdateringar på en enhet. Varje etag garanteras vara unik per enhet. |  
+| deviceEtag| sträng | En verifierare för att säkerställa konsekvensen av uppdateringar av ett enhets register. Varje deviceEtag garanteras vara unik per enhets register. |
+| status | sträng | Om enheten är delad eller inaktive rad. | 
+| statusUpdateTime | sträng | ISO8601 tidsstämpel för den senaste enhetens dubbla status uppdatering. |
+| connectionState | sträng | Om enheten är ansluten eller frånkopplad. | 
+| lastActivityTime | sträng | ISO8601 tidsstämpel för den senaste aktiviteten. | 
+| cloudToDeviceMessageCount | heltal | Antal moln till enhets meddelanden som skickats till den här enheten. | 
+| authenticationType | sträng | Autentiseringstyp som används för den här enheten: `SAS` `SelfSigned`, eller `CertificateAuthority`. |
+| x509Thumbprint | sträng | Tumavtrycket är ett unikt värde för x509-certifikatet, som ofta används för att hitta ett visst certifikat i ett certifikat arkiv. Tumavtrycket genereras dynamiskt med SHA1-algoritmen och finns inte fysiskt i certifikatet. | 
+| primaryThumbprint | sträng | Primärt tumavtryck för x509-certifikatet. |
+| secondaryThumbprint | sträng | Sekundärt tumavtryck för x509-certifikatet. | 
+| version | heltal | Ett heltal som ökas med ett värde varje gången enheten är i ett uppdaterat. |
+| dina | objekt | En del av egenskaperna som bara kan skrivas av program Server delen och läsas av enheten. | 
+| ovänta | objekt | En del av egenskaperna som bara kan skrivas av enheten och som läses av programmets backend-server. |
+| lastUpdated | sträng | ISO8601 tidsstämpel för den senaste enhetens dubbla egenskaps uppdatering. | 
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 |Titel  |Beskrivning  |
 |---------|---------|
-| [Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En logikapp skickar ett e-postmeddelande varje gång en enhet läggs till i din IoT Hub. |
-| [Reagera på IoT Hub-händelser med hjälp av Händelserutnät för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md) | Översikt över integrering av IoT Hub med Event Grid. |
-| [Beställa enhetsansluten och frånkopplad enhet](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Visar hur du beställer enhetsanslutningstillståndshändelser. |
+| [Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En Logic App skickar ett e-postmeddelande varje gång en enhet läggs till i din IoT Hub. |
+| [Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md) | Översikt över att integrera IoT Hub med Event Grid. |
+| [Beställ enhet ansluten och avkopplade enhets händelser](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Visar hur du beställer händelser i enhetens anslutnings tillstånd. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
-* Mer information om hur IoT Hub och Event Grid fungerar tillsammans finns i [Reagera på IoT Hub-händelser med hjälp av Event Grid för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md).
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
+* Information om hur IoT Hub och Event Grid arbetar tillsammans finns i [reagera på att IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md).

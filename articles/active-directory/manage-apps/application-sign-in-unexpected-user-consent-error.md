@@ -1,6 +1,6 @@
 ---
-title: Oväntat fel när du gör medgivande till ett program | Microsoft-dokument
-description: I artikeln beskrivs fel som kan uppstå under processen att godkänna ett program och vad du kan göra åt dem
+title: Ett oväntat fel inträffade vid godkännande av ett program | Microsoft Docs
+description: Diskuterar fel som kan uppstå under bearbetningen av ett program och vad du kan göra med dem
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,69 +17,69 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80519710"
 ---
-# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Oväntat fel när du gör medgivande till ett program
+# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ett oväntat fel inträffade vid godkännande av ett program
 
-I den här artikeln beskrivs fel som kan uppstå under processen för att godkänna ett program. Om du felsöker oväntade medgivandemeddelanden som inte innehåller några felmeddelanden läser du [Autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+I den här artikeln beskrivs fel som kan uppstå under bearbetningen av ett program. Om du felsöker oväntade meddelanden om medgivande som inte innehåller några fel meddelanden, se [autentiserings scenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Många program som integreras med Azure Active Directory kräver behörigheter för att komma åt andra resurser för att fungera. När dessa resurser också är integrerade med Azure Active Directory, begärs behörigheter för att komma åt dem ofta med hjälp av common consent framework. En medgivandefråga visas, som vanligtvis inträffar första gången ett program används men kan också uppstå vid en senare användning av programmet.
+Många program som integreras med Azure Active Directory måste ha behörighet att komma åt andra resurser för att kunna fungera. När dessa resurser också är integrerade med Azure Active Directory begärs behörighet att komma åt dem ofta med hjälp av det gemensamma medgivande ramverket. En medgivande-prompt visas, vilket vanligt vis inträffar första gången ett program används, men det kan också ske i en senare användning av programmet.
 
-Vissa villkor måste vara sanna för att en användare ska kunna godkänna de behörigheter som ett program kräver. Om dessa villkor inte uppfylls kan följande fel uppstå.
+Vissa villkor måste vara uppfyllda för att en användare ska kunna godkänna de behörigheter som ett program kräver. Om dessa villkor inte uppfylls kan följande fel uppstå.
 
-## <a name="requesting-not-authorized-permissions-error"></a>Begär inte auktoriserat behörighetsfel
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; begär en eller flera behörigheter som du inte har behörighet att bevilja. Kontakta en administratör som kan godkänna det här programmet för din räkning.
-* **AADSTS90094:** &lt;clientAppDisplayName&gt; behöver behörighet för att komma åt resurser i organisationen som bara en administratör kan bevilja. Be en administratör att bevilja behörighet till den här appen innan du använder den.
+## <a name="requesting-not-authorized-permissions-error"></a>Begär inte behörighets fel
+* **AADSTS90093:** &lt;clientAppDisplayName&gt; begär en eller flera behörigheter som du inte har behörighet att bevilja. Kontakta en administratör, som kan godkänna det här programmet åt dig.
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; behöver behörighet för att få åtkomst till resurser i din organisation som bara en administratör kan bevilja. Be en administratör att bevilja behörighet till den här appen innan du använder den.
 
-Det här felet uppstår när en användare som inte är företagsadministratör försöker använda ett program som begär behörigheter som bara en administratör kan bevilja. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet på uppdrag av sin organisation.
+Felet uppstår när en användare som inte är en företags administratör försöker använda ett program som begär behörigheter som bara en administratör kan bevilja. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet för organisationens räkning.
 
-Det här felet kan också uppstå när en användare hindras från att godkänna ett program på grund av att Microsoft upptäcker att behörighetsbegäran är riskabel. I det här fallet loggas en granskningshändelse också med en kategori av "ApplicationManagement", Aktivitetstyp för "Samtycke till ansökan" och Statusorsaken till "Riskfyllt program upptäckt".
+Det här felet kan också inträffa när en användare hindras från att komma åt ett program på grund av att det finns risk för behörighets förfrågan. I det här fallet loggas även en gransknings händelse med en kategori av typen "ApplicationManagement", aktivitets typen "medgivande till program" och status orsaken "riskfylld program upptäcktes".
 
-## <a name="policy-prevents-granting-permissions-error"></a>Princip förhindrar att behörighetsfel beviljas
-* **AADSTS90093:** En administratör &lt;för tenantDisplayName&gt; har angett en princip &lt;som&gt; hindrar dig från att bevilja namnet på appen de behörigheter som den begär. Kontakta en &lt;administratör för&gt;tenantDisplayName , som kan bevilja behörigheter till den här appen för din räkning.
+## <a name="policy-prevents-granting-permissions-error"></a>Princip förhindrar beviljande av behörighets fel
+* **AADSTS90093:** En administratör för &lt;tenantDisplayName&gt; har angett en princip som förhindrar att du &lt;beviljar&gt; namn på appen de behörigheter som begärs. Kontakta en administratör för &lt;tenantDisplayName&gt;, som kan ge behörighet till den här appen för din räkning.
 
-Det här felet uppstår när en företagsadministratör inaktiverar möjligheten för användare att godkänna program, och sedan försöker en användare som inte är administratör att använda ett program som kräver samtycke. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet på uppdrag av sin organisation.
+Det här felet uppstår när en företags administratör stänger av möjligheten för användare att samtycka till program, och en icke-administratör försöker använda ett program som kräver medgivande. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet för organisationens räkning.
 
-## <a name="intermittent-problem-error"></a>Återkommande problemfel
-* **AADSTS90090:** Det ser ut som inloggningsprocessen stött på ett återkommande problem registrera &lt;de behörigheter&gt;du försökte bevilja till clientAppDisplayName . försök igen senare.
+## <a name="intermittent-problem-error"></a>Tillfälligt problem fel
+* **AADSTS90090:** Det verkar som om inloggnings processen påträffade ett tillfälligt problem med att registrera de behörigheter som du försökte &lt;bevilja&gt;till clientAppDisplayName. försök igen senare.
 
-Det här felet indikerar att ett återkommande servicesidans problem har uppstått. Det kan lösas genom att försöka samtycka till programmet igen.
+Det här felet indikerar att det har uppstått ett problem med en service sida. Den kan lösas genom att försöka godkänna programmet igen.
 
-## <a name="resource-not-available-error"></a>Resursen är inte tillgänglig fel
-* **AADSTS65005:** AppklientenAppDisplayName &lt;&gt; begärde behörigheter &lt;för åtkomst till&gt; en resursresursAppDisplayName som inte är tillgänglig. 
+## <a name="resource-not-available-error"></a>Resurs inte tillgängligt-fel
+* **AADSTS65005:** Appen &lt;clientAppDisplayName&gt; begärde behörigheter för åtkomst till en &lt;resurs&gt; -resourceAppDisplayName som inte är tillgänglig. 
 
 Kontakta apputvecklaren.
 
-##  <a name="resource-not-available-in-tenant-error"></a>Resursen är inte tillgänglig i klientfel
-* **AADSTS65005:** &lt;&gt; clientAppDisplayName begär åtkomst till &lt;en resursresursAppDisplayName&gt; som &lt;inte är&gt;tillgängligt i organisationen TenantDisplayName . 
+##  <a name="resource-not-available-in-tenant-error"></a>Resursen är inte tillgänglig vid klient fel
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; &lt;begär åtkomst till en resurs-resourceAppDisplayName&gt; som inte är tillgänglig i din organisations&gt; &lt;tenantDisplayName. 
 
-Kontrollera att den här resursen &lt;är tillgänglig&gt;eller kontakta en administratör för tenantDisplayName .
+Se till att resursen är tillgänglig eller kontakta en administratör för &lt;tenantDisplayName&gt;.
 
-## <a name="permissions-mismatch-error"></a>Fel i behörigheterna matchar inte
-* **AADSTS65005:** Appen begärde samtycke till &lt;åtkomst till&gt;resursresursAppDisplayName . Den här begäran misslyckades eftersom den inte matchar hur appen förkonfigurerades under appregistreringen. Kontakta appleverantören.**
+## <a name="permissions-mismatch-error"></a>Fel vid matchning av behörigheter
+* **AADSTS65005:** Appen begärde medgivande för att få &lt;åtkomst&gt;till Resource resourceAppDisplayName. Den här begäran misslyckades eftersom den inte matchar hur appen förkonfigurerades under registreringen av appen. Kontakta appens tillverkare. * *
 
-Dessa fel uppstår när programmet en användare försöker samtycka till begär behörigheter för att komma åt ett resursprogram som inte finns i organisationens katalog (klient). Denna situation kan uppstå av flera skäl:
+Felen inträffar när programmet som en användare försöker godkänna för att begära åtkomst till ett resurs program som inte kan hittas i organisationens katalog. Den här situationen kan uppstå av flera olika orsaker:
 
--   Klientprogramutvecklaren har konfigurerat sitt program felaktigt, vilket gör att den begär åtkomst till en ogiltig resurs. I det här fallet måste programutvecklaren uppdatera konfigurationen av klientprogrammet för att lösa problemet.
+-   Klient program utvecklaren har konfigurerat sitt program på ett felaktigt sätt, vilket gör att det kan begära åtkomst till en ogiltig resurs. I det här fallet måste programutvecklaren uppdatera konfigurationen av klient programmet för att lösa problemet.
 
--   Ett tjänsthuvudnamn som representerar målresursprogrammet finns inte i organisationen eller finns tidigare men har tagits bort. För att lösa problemet måste ett tjänsthuvudnamn för resursprogrammet etableras i organisationen så att klientprogrammet kan begära behörigheter till det. Servicehuvudstaden kan etableras på flera olika sätt, beroende på vilken typ av program det rör sig om, bland annat:
+-   Ett huvud namn för tjänsten som representerar mål resurs programmet finns inte i organisationen, eller fanns tidigare, men har tagits bort. För att lösa det här problemet måste ett tjänst huvud namn för resurs programmet vara etablerad i organisationen så att klient programmet kan begära behörigheter till det. Tjänstens huvud namn kan tillhandahållas på flera olika sätt, beroende på typ av program, inklusive:
 
-    -   Skaffa en prenumeration för resursprogrammet (Microsoft publicerade program)
+    -   Skaffa en prenumeration för resurs programmet (Microsoft-publicerade program)
 
-    -   Samtycke till resursprogrammet
+    -   Godkänner resurs programmet
 
-    -   Bevilja programbehörigheter via Azure-portalen
+    -   Bevilja program behörigheter via Azure Portal
 
-    -   Lägga till programmet från Azure AD Application Gallery
+    -   Lägga till programmet från Azure AD-programgalleriet
 
 ## <a name="next-steps"></a>Nästa steg 
 
 [Appar, behörigheter och medgivande i Azure Active Directory (v1-slutpunkt)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
-[Scope, behörigheter och medgivande i Azure Active Directory (v2.0-slutpunkten)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+[Omfång, behörigheter och medgivande i Azure Active Directory (v 2.0-slutpunkt)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

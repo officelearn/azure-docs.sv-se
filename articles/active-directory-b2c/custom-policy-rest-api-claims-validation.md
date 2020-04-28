@@ -1,7 +1,7 @@
 ---
-title: REST API hävdar utbyten som validering
+title: REST API anspråks utbyten som verifiering
 titleSuffix: Azure AD B2C
-description: En genomgång för att skapa en Azure AD B2C-användarresa som interagerar med RESTful-tjänster.
+description: En genom gång för att skapa en Azure AD B2C användar resa som samverkar med RESTful-tjänster.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,32 +12,32 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80330825"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Genomgång: Integrera REST API-anspråksutbyten i din Azure AD B2C-användarresa för att validera användarindata
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa för att verifiera användarindata
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Identity Experience Framework (IEF) som ligger till grund för Azure Active Directory B2C (Azure AD B2C) gör det möjligt för identitetsutvecklare att integrera en interaktion med ett RESTful API i en användarresa.  I slutet av den här genomgången kan du skapa en Azure AD B2C-användarresa som interagerar med [RESTful-tjänster](custom-policy-rest-api-intro.md) för att validera användarindata.
+IEF (Identity Experience Framework) som unders Azure Active Directory B2C (Azure AD B2C) gör det möjligt för identitet utvecklare att integrera en interaktion med ett RESTful-API i en användar resa.  I slutet av den här genom gången kan du skapa en Azure AD B2C användar resa som interagerar med RESTful- [tjänster](custom-policy-rest-api-intro.md) för att verifiera användarindata.
 
-I det här fallet lägger vi till möjligheten för användare att ange ett förmånsnummer på azure AD B2C-registreringssidan. Vi validerar om den här kombinationen av e-post och förmånsnummer mappas till en kampanjkod genom att skicka dessa data till ett REST API. Om REST API hittar en kampanjkod för den här användaren returneras den till Azure AD B2C. Slutligen infogas kampanjkoden i tokenanspråken för att programmet ska förbrukas.
+I det här scenariot lägger vi till möjligheten för användarna att ange ett förmåns nummer i Azure AD B2C registrerings sida. Vi verifierar om den här kombinationen av e-post och lojalitets nummer är mappad till en kampanj kod genom att skicka dessa data till en REST API. Om REST API hittar en kampanj kod för den här användaren kommer den att returneras till Azure AD B2C. Slutligen kommer kampanj koden att infogas i token-anspråk för att programmet ska förbruka.
 
-Du kan också utforma interaktionen som ett orchestration-steg. Detta är lämpligt när REST API inte kommer att validera data på skärmen, och alltid returnera fordringar. Mer information finns i [Genomgång: Integrera REST API-anspråksutbyten i din Azure AD B2C-användarresa som ett orchestration-steg](custom-policy-rest-api-claims-exchange.md).
+Du kan också utforma interaktionen som ett Orchestration-steg. Detta är lämpligt när REST API inte kommer att verifiera data på skärmen och alltid returnera anspråk. Mer information finns i [genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som ett Dirigerings steg](custom-policy-rest-api-claims-exchange.md).
 
 ## <a name="prerequisites"></a>Krav
 
-- Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
-- Lär dig hur du [integrerar REST API-anspråksutbyten i din anpassade princip för Azure AD B2C](custom-policy-rest-api-intro.md).
+- Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
+- Lär dig hur du [integrerar REST API Claims-utbyten i din Azure AD B2C anpassade princip](custom-policy-rest-api-intro.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Förbereda en REST API-slutpunkt
 
-För den här genomgången bör du ha ett REST API som validerar om en e-postadress är registrerad i ditt serverdelssystem med ett förmåns-ID. Om REST API-API:et är registrerat ska det returnera en registreringskampanjkod som kunden kan använda för att köpa varor i din ansökan. I annat fall ska REST API:et returnera ett HTTP 409-felmeddelande: "Lojalitets-ID '{loyalty ID} är inte associerat med e-postadressen {email}.".
+I den här genom gången ska du ha en REST API som kontrollerar om en e-postadress är registrerad i backend-systemet med ett förmåns-ID. Om det är registrerat bör REST API returnera en kod för registrering av registrering som kunden kan använda för att köpa varor i ditt program. Annars ska REST API returnera ett HTTP 409-fel meddelande: "förmåns-ID {lojalitets-ID} är inte kopplat till e-postadressen {email}.".
 
-Följande JSON-kod illustrerar de data som Azure AD B2C skickar till din REST API-slutpunkt. 
+Följande JSON-kod illustrerar data Azure AD B2C skickas till din REST API-slutpunkt. 
 
 ```json
 {
@@ -47,7 +47,7 @@ Följande JSON-kod illustrerar de data som Azure AD B2C skickar till din REST AP
 }
 ```
 
-När REST API validerar data måste det returnera en HTTP 200 (Ok), med följande JSON-data:
+När REST API verifierar data måste den returnera en HTTP 200 (OK), med följande JSON-data:
 
 ```json
 {
@@ -55,7 +55,7 @@ När REST API validerar data måste det returnera en HTTP 200 (Ok), med följand
 }
 ```
 
-Om valideringen misslyckades måste REST API returnera en HTTP 409 (Konflikt), med `userMessage` JSON-elementet. IEF förväntar `userMessage` sig påståendet att REST API returnerar. Det här anspråket visas som en sträng för användaren om valideringen misslyckas.
+Om verifieringen misslyckades måste REST API returnera en HTTP 409 (konflikt) med `userMessage` JSON-elementet. IEF förväntar sig `userMessage` det anspråk som REST API returnerar. Detta anspråk visas som en sträng för användaren om valideringen Miss lyckas.
 
 ```json
 {
@@ -65,16 +65,16 @@ Om valideringen misslyckades måste REST API returnera en HTTP 409 (Konflikt), m
 }
 ```
 
-Inställningen av REST API-slutpunkten ligger utanför den här artikelns omfattning. Vi har skapat ett [Azure Functions-exempel.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Du kan komma åt den fullständiga Azure-funktionskoden på [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+Installationen av REST API slut punkten ligger utanför omfånget för den här artikeln. Vi har skapat ett [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) -exempel. Du kan komma åt den fullständiga Azure Function-koden på [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definiera anspråk
 
-Ett anspråk ger tillfällig lagring av data under en Azure AD B2C-principkörning. Du kan deklarera anspråk i avsnittet [anspråksschema.](claimsschema.md) 
+Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körning. Du kan deklarera anspråk i avsnittet [anspråks schema](claimsschema.md) . 
 
-1. Öppna filen för tillägg i principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
-1. Sök efter elementet [BuildingBlocks.](buildingblocks.md) Om elementet inte finns lägger du till det.
-1. Leta reda på elementet [ClaimsSchema.](claimsschema.md) Om elementet inte finns lägger du till det.
-1. Lägg till följande anspråk i elementet **ClaimsSchema.**  
+1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
+1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
+1. Lägg till följande anspråk i **ClaimsSchema** -elementet.  
 
 ```xml
 <ClaimType Id="loyaltyId">
@@ -93,9 +93,9 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C-principkörni
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Konfigurera den tekniska PROFILEN för RESTful API 
+## <a name="configure-the-restful-api-technical-profile"></a>Konfigurera teknisk profil för RESTful-API 
 
-En [vilsam teknisk profil](restful-technical-profile.md) ger stöd för gränssnitt till din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i `InputClaims` `OutputClaims` en samling och tar emot data tillbaka i en samling. Hitta elementet **ClaimsProviders** och lägg till en ny anspråksleverantör enligt följande:
+En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för att rikta in dig mot din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en `InputClaims` samling och tar emot data tillbaka i `OutputClaims` en samling. Hitta **ClaimsProviders** -elementet och Lägg till en ny anspråks leverantör enligt följande:
 
 ```xml
 <ClaimsProvider>
@@ -128,17 +128,17 @@ En [vilsam teknisk profil](restful-technical-profile.md) ger stöd för gränssn
 </ClaimsProvider>
 ```
 
-I det här `userLanguage` exemplet skickas rest-tjänsten `lang` som inom JSON-nyttolasten. Värdet för `userLanguage` anspråket innehåller det aktuella användarspråks-ID:t. Mer information finns i [anspråkslösare](claim-resolver-overview.md).
+I det här exemplet `userLanguage` skickas till rest-tjänsten som `lang` i JSON-nyttolasten. Värdet för `userLanguage` anspråket innehåller det aktuella användarens språk-ID. Mer information finns i [anspråk lösare](claim-resolver-overview.md).
 
-Kommentarerna ovan `AuthenticationType` `AllowInsecureAuthInProduction` och ange ändringar som du bör göra när du flyttar till en produktionsmiljö. Mer information om hur du skyddar dina RESTful API:er för produktion finns i [Secure RESTful API](secure-rest-api.md).
+Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` anger ändringar som du bör göra när du flyttar till en produktions miljö. Information om hur du skyddar dina RESTful-API: er för produktion finns i [Secure RESTful API](secure-rest-api.md).
 
-## <a name="validate-the-user-input"></a>Validera indata för användaren
+## <a name="validate-the-user-input"></a>Verifiera användarindata
 
-Om du vill ha användarens förmånsnummer under registreringen måste du tillåta användaren att ange dessa data på skärmen. Lägg till anspråk på **loyaltyId-utdata** på registreringssidan genom att lägga `OutputClaims` till det i det befintliga avsnittet registrera teknisk profil element. Ange hela listan över utdataanspråk för att styra den ordning som anspråken visas på skärmen.  
+Om du vill hämta användarens lojalitets nummer under registreringen måste du tillåta att användaren anger dessa data på skärmen. Lägg till **loyaltyId** utgående anspråk på registrerings sidan genom att lägga till den i det befintliga avsnittet `OutputClaims` för registrering av tekniska profiler. Ange hela listan med utgående anspråk för att kontrol lera i vilken ordning anspråken visas på skärmen.  
 
-Lägg till den tekniska profilreferensen för validering i `REST-ValidateProfile`den tekniska profilen för registrering, som anropar . Den nya tekniska profilen för validering läggs `<ValidationTechnicalProfiles>` till överst i samlingen som definieras i basprincipen. Det här problemet innebär att Azure AD B2C först efter lyckad validering går vidare för att skapa kontot i katalogen.   
+Lägg till den tekniska referensen för verifiering i den tekniska profilen för registrering, som anropar `REST-ValidateProfile`. Den nya verifierings tekniska profilen läggs till överst i `<ValidationTechnicalProfiles>` samlingen som definieras i bas principen. Det här beteendet innebär att endast efter lyckad verifiering, Azure AD B2C flyttar till för att skapa kontot i katalogen.   
 
-1. Leta reda på elementet **ClaimsProviders.** Lägg till en ny anspråksleverantör enligt följande:
+1. Hitta **ClaimsProviders** -elementet. Lägg till en ny anspråks leverantör enligt följande:
 
     ```xml
     <ClaimsProvider>
@@ -192,7 +192,7 @@ Lägg till den tekniska profilreferensen för validering i `REST-ValidateProfile
 
 ## <a name="include-a-claim-in-the-token"></a>Inkludera ett anspråk i token 
 
-Om du vill returnera anspråket för kampanjkod tillbaka till <em> `SocialAndLocalAccounts/` </em> det förlitande part-programmet lägger du till ett utdataanspråk i filen. Utdataanspråket gör att anspråket kan läggas till i token efter en lyckad användarresa och skickas till programmet. Ändra det tekniska profilelementet i avsnittet `promoCode` förlitande part för att lägga till utdataanspråket.
+Om du vill returnera kampanj koden anspråk tillbaka till den förlitande parten, lägger du till ett utgående <em> `SocialAndLocalAccounts/` </em> anspråk till filen. Utgående anspråk gör att anspråk läggs till i token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga `promoCode` till som ett utgående anspråk.
  
 ```xml
 <RelyingParty>
@@ -218,16 +218,16 @@ Om du vill returnera anspråket för kampanjkod tillbaka till <em> `SocialAndLoc
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Kontrollera att du använder katalogen som innehåller din Azure AD-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din Azure AD-klientorganisation.
-1. Välj **Alla tjänster** i det övre vänstra hörnet på Azure-portalen och sök sedan efter och välj **Appregistreringar**.
-1. Välj **Identity Experience Framework**.
-1. Välj **Ladda upp anpassad princip**och ladda sedan upp de principfiler som du har ändrat: *TrustFrameworkExtensions.xml*och *SignUpOrSignin.xml*. 
-1. Välj den registrerings- eller inloggningsprincip som du har laddat upp och klicka på knappen **Kör nu.**
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
+1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
+1. Välj **ramverk för identitets upplevelse**.
+1. Välj **överför anpassad princip**och överför sedan de principfiler som du ändrade: *TrustFrameworkExtensions. XML*och *SignUpOrSignin. XML*. 
+1. Välj den registrerings-eller inloggnings princip som du laddade upp och klicka på knappen **Kör nu** .
 1. Du bör kunna registrera dig med en e-postadress.
-1. Klicka på länken **Registrera dig nu.**
-1. Skriv 1234 i **ditt förmåns-ID**och klicka på **Fortsätt**. Nu bör du få ett felmeddelande om validering.
+1. Klicka på länken **Registrera dig nu** .
+1. I **ditt lojalitets-ID**skriver du 1234 och klickar på **Fortsätt**. Nu bör du få ett verifierings fel meddelande.
 1. Ändra till ett annat värde och klicka på **Fortsätt**.
-1. Token som skickas tillbaka till `promoCode` din ansökan innehåller anspråket.
+1. Den token som skickas tillbaka till programmet inkluderar `promoCode` anspråket.
 
 ```json
 {
@@ -255,8 +255,8 @@ Om du vill returnera anspråket för kampanjkod tillbaka till <em> `SocialAndLoc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du skyddar API:erna finns i följande artiklar:
+Information om hur du skyddar dina API: er finns i följande artiklar:
 
-- [Genomgång: Integrera REST API-anspråksutbyten i din Azure AD B2C-användarresa som ett orchestration-steg](custom-policy-rest-api-claims-exchange.md)
-- [Skydda ditt RESTful API](secure-rest-api.md)
+- [Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som ett Orchestration-steg](custom-policy-rest-api-claims-exchange.md)
+- [Skydda ditt RESTful-API](secure-rest-api.md)
 - [Referens: RESTful teknisk profil](restful-technical-profile.md)

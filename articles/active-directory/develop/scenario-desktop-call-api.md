@@ -1,6 +1,6 @@
 ---
-title: Anropa webb-API:er från en skrivbordsapp – Microsoft identity platform | Azure
-description: Lär dig hur du skapar en skrivbordsapp som anropar webb-API:er
+title: 'Anropa webb-API: er från en Skriv bords app – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,13 +12,13 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882972"
 ---
-# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Skrivbordsapp som anropar webb-API:er: Anropa ett webb-API
+# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Stationär app som anropar webb-API: er: anropa ett webb-API
 
 Nu när du har en token kan du anropa ett skyddat webb-API.
 
@@ -60,13 +60,13 @@ if(responseCode != HttpURLConnection.HTTP_OK) {
 JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
 ```
 
-# <a name="macos"></a>[Macos](#tab/macOS)
+# <a name="macos"></a>[MacOS](#tab/macOS)
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Anropa ett webb-API i MSAL för iOS och macOS
 
-Metoderna för att hämta `MSALResult` token returnerar ett objekt. `MSALResult`exponerar `accessToken` en egenskap som kan användas för att anropa ett webb-API. Lägg till en åtkomsttoken i HTTP-auktoriseringshuvudet innan du ringer anropet för att komma åt det skyddade webb-API:et.
+Metoderna för att hämta tokens returnerar ett `MSALResult` objekt. `MSALResult`exponerar en `accessToken` egenskap som kan användas för att anropa ett webb-API. Lägg till en åtkomsttoken till HTTP Authorization-huvudet innan du gör ett anrop för att få åtkomst till det skyddade webb-API: et.
 
-Mål C:
+Mål-C:
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -80,7 +80,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-Swift:
+Införliva
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -92,9 +92,9 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Anropa flera API:er: Inkrementellt medgivande och villkorlig åtkomst
+## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Anropa flera API: er: stegvist medgivande och villkorlig åtkomst
 
-Om du vill anropa flera API:er för samma användare `AcquireTokenSilent`anropar du när du har skaffat en token för det första API:et . Du får en token för de andra API:erna tyst för det mesta.
+Om du vill anropa flera API: er för samma användare när du har skaffat en token för `AcquireTokenSilent`det första API: et, anropa. Du får en token för de andra API: erna i bakgrunden av tiden.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -106,8 +106,8 @@ result = await app.AcquireTokenSilent("scopeApi2")
 
 Interaktion krävs när:
 
-- Användaren samtyckte till det första API:et men måste nu godkänna fler scope. Denna typ av samtycke kallas inkrementellt samtycke.
-- Det första API:et krävde inte multifaktorautentisering, men nästa gör det.
+- Den användare som har skickat för det första API: et, men som nu måste godkänna för fler omfattningar. Den här typen av medgivande kallas för ett stegvist godkännande.
+- Det första API: t krävde inte multifaktorautentisering, men nästa gör.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

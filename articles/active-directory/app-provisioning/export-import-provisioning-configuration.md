@@ -1,6 +1,6 @@
 ---
-title: Exportera etableringskonfigurationen och återställ till ett fungerande tillstånd för haveriberedskap.| Microsoft-dokument
-description: Lär dig hur du exporterar etableringskonfigurationen och återställer till ett fungerande tillstånd för haveriberedskap.
+title: Exportera konfigurationen för etablering och Återställ till ett känt fungerande tillstånd för haveri beredskap. | Microsoft Docs
+description: Lär dig hur du exporterar etablerings konfigurationen och återställer till ett känt fungerande tillstånd för haveri beredskap.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -16,87 +16,87 @@ ms.date: 03/19/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051317"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Exportera etableringskonfigurationen och återställ till ett känt bra tillstånd
+# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Exportera etablerings konfigurationen och återställa till ett känt fungerande tillstånd
 
-## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Exportera och importera etableringskonfigurationen från Azure-portalen
+## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Exportera och importera etablerings konfigurationen från Azure Portal
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>Hur exporterar jag min etableringskonfiguration?
+### <a name="how-can-i-export-my-provisioning-configuration"></a>Hur kan jag exportera etablerings konfigurationen?
 Så här exporterar du konfigurationen:
-1. Välj Azure Active Directory på den vänstra navigeringspanelen i [Azure-portalen](https://portal.azure.com/). **Azure Active Directory**
-2. I fönstret **Azure Active Directory** väljer du **Enterprise-program** och väljer ditt program.
-3. Välj **etablering**i det vänstra navigeringsfönstret . Från etableringskonfigurationssidan klickar du på **attributmappningar**och visar sedan **avancerade alternativ**och granskar slutligen **schemat**. Detta tar dig till schemaredigeraren. 
-5. Klicka på hämta i kommandofältet högst upp på sidan för att ladda ner ditt schema.
+1. Välj **Azure Active Directory**på den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com/).
+2. I fönstret **Azure Active Directory** väljer du **företags program** och väljer ditt program.
+3. I det vänstra navigerings fönstret väljer du **etablering**. På sidan etablerings konfiguration klickar du på **mappningar för attribut**, sedan på **Visa avancerade alternativ**och slutligen på **granska schemat**. Det tar dig till schema redigeraren. 
+5. Klicka på Hämta i kommando fältet längst upp på sidan för att ladda ned schemat.
 
-### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Katastrofåterställning - rulla tillbaka till ett känt bra tillstånd
-När du exporterar och sparar konfigurationen kan du återställa till en tidigare version av konfigurationen. Vi rekommenderar att du exporterar etableringskonfigurationen och sparar den för senare användning när du gör en ändring av attributmappningar eller omfångsfilter. Allt du behöver göra är att öppna upp JSON-filen som du hämtade i stegen ovan, kopiera hela innehållet i JSON-filen, ersätta hela innehållet i JSON-nyttolasten i schemaredigeraren och spara sedan. Om det finns en aktiv etableringscykel slutförs den och nästa cykel kommer att använda det uppdaterade schemat. Nästa cykel kommer också att vara en inledande cykel, som omvärderar varje användare och grupp baserat på den nya konfigurationen. Tänk på följande när du går tillbaka till en tidigare konfiguration:
-* Användare utvärderas igen för att avgöra om de ska vara i omfattning. Om omfångsfiltren har ändrats är en användare inte längre i omfattning. Även om detta är det önskade beteendet i de flesta fall finns det tillfällen där du kanske vill förhindra detta och kan använda [funktionen hoppa utanför scopeborttagningarna.](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) 
-* Om du ändrar etableringskonfigurationen startas tjänsten om och en [inledande cykel utlöses](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Haveri beredskap – återställning till ett känt fungerande tillstånd
+Genom att exportera och spara konfigurationen kan du återställa till en tidigare version av din konfiguration. Vi rekommenderar att du exporterar etablerings konfigurationen och sparar den för senare användning när du gör en ändring i attributets mappningar eller omfångs filter. Allt du behöver göra är att öppna JSON-filen som du laddade ned i stegen ovan, kopiera hela innehållet i JSON-filen, ersätta hela innehållet i JSON-nyttolasten i schema redigeraren och sedan Spara. Om det finns en aktiv etablerings cykel slutförs den och nästa cykel kommer att använda det uppdaterade schemat. Nästa cykel kommer också att vara en första cykel som utvärderar varje användare och grupp baserat på den nya konfigurationen. Tänk på följande när du återställer till en tidigare konfiguration:
+* Användarna kommer att utvärderas igen för att avgöra om de ska vara i omfånget. Om omfångs filtren har ändrat att en användare inte är inom omfånget kommer de att inaktive ras. Detta är det önskade beteendet i de flesta fall, men det finns tillfällen då du kanske vill förhindra detta och kan använda funktionen [hoppa över borttagning av omfattning](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
+* Om du ändrar etablerings konfigurationen startas tjänsten om och en [första cykel](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental)utlöses.
 
 
-## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportera och importera etableringskonfigurationen med hjälp av Microsoft Graph API
-Du kan använda Microsoft Graph API och Microsoft Graph Explorer för att exportera attributmappningar och schema för användare till en JSON-fil och importera tillbaka den till Azure AD. Du kan också använda stegen som fångas här för att skapa en säkerhetskopia av etableringskonfigurationen. 
+## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportera och importera etablerings konfigurationen med hjälp av Microsoft Graph API
+Du kan använda Microsoft Graph-API: t och Microsoft Graph Explorer för att exportera mappningar och schemat för användar etablerings attribut till en JSON-fil och importera tillbaka dem till Azure AD. Du kan också använda stegen som beskrivs här för att skapa en säkerhets kopia av etablerings konfigurationen. 
 
-### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Steg 1: Hämta ditt etableringsapptjänsthuvudhuvuden-ID (object ID)
+### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Steg 1: Hämta etablerings App Serviceens huvud-ID (objekt-ID)
 
-1. Starta [Azure-portalen](https://portal.azure.com)och navigera till avsnittet Egenskaper i etableringsprogrammet. Om du till exempel vill exportera din *arbetsdag till AD-användare etablering programmappning* navigera till egenskapen i den appen. 
-1. Kopiera GUID-värdet som är associerat med fältet *Objekt-ID* i avsnittet Egenskaper i etableringsappen. Det här värdet kallas också **ServicePrincipalId** för din app och används i Microsoft Graph Explorer-åtgärder.
+1. Starta [Azure Portal](https://portal.azure.com)och navigera till avsnittet Egenskaper i ditt etablerings program. Om du till exempel vill exportera en *arbets dag till AD User Provisioning* -programmappning navigerar du till avsnittet Egenskaper i appen. 
+1. I avsnittet Egenskaper i din etablerings app kopierar du det GUID-värde som är associerat med fältet *objekt-ID* . Det här värdet kallas även **ServicePrincipalId** för din app och används i Microsoft Graph Explorer-åtgärder.
 
-   ![Huvud-ID för tjänsten Workday-tjänsten](./media/export-import-provisioning-configuration/wd_export_01.png)
+   ![Workday App Service huvud-ID](./media/export-import-provisioning-configuration/wd_export_01.png)
 
 ### <a name="step-2-sign-into-microsoft-graph-explorer"></a>Steg 2: Logga in på Microsoft Graph Explorer
 
-1. Starta [Utforskaren i Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)
-1. Klicka på knappen "Logga in med Microsoft" och logga in med Azure AD Global Admin- eller App Admin-autentiseringsuppgifter.
+1. Starta [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+1. Klicka på knappen "logga in med Microsoft" och logga in med Azure AD global admin-eller app admin-autentiseringsuppgifter.
 
-    ![Inloggning i Microsoft Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Microsoft Graph inloggning](./media/export-import-provisioning-configuration/wd_export_02.png)
 
-1. När du har loggat in igen visas information om användarkontot i den vänstra rutan.
+1. Vid lyckad inloggning visas användar konto informationen i den vänstra rutan.
 
-### <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>Steg 3: Hämta etableringsjobb-ID:t för etableringsappen
+### <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>Steg 3: Hämta etablerings jobb-ID: t för etablerings appen
 
-I Utforskaren i Microsoft Graph kör du följande GET-fråga som ersätter [servicePrincipalId] med **ServicePrincipalId** som extraherats från [steg 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
+Kör följande GET-fråga i Microsoft Graph Explorer och Ersätt [servicePrincipalId] med **servicePrincipalId** som extraherats från [steg 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
 ```
 
-Du kommer att få ett svar som visas nedan. Kopiera det "id-attribut" som finns i svaret. Det här värdet är **ProvisioningJobId** och används för att hämta de underliggande schemametadata.
+Du får ett svar på det sätt som visas nedan. Kopiera "ID-attributet" som finns i svaret. Det här värdet är **ProvisioningJobId** och kommer att användas för att hämta underliggande metadata för schemat.
 
-   [![Etablering av jobb-ID](./media/export-import-provisioning-configuration/wd_export_03.png)](./media/export-import-provisioning-configuration/wd_export_03.png#lightbox)
+   [![Jobb-ID för etablering](./media/export-import-provisioning-configuration/wd_export_03.png)](./media/export-import-provisioning-configuration/wd_export_03.png#lightbox)
 
-### <a name="step-4-download-the-provisioning-schema"></a>Steg 4: Hämta etableringsschemat
+### <a name="step-4-download-the-provisioning-schema"></a>Steg 4: Ladda ned etablerings schema
 
-I Utforskaren i Microsoft Graph kör du följande GET-fråga och ersätter [servicePrincipalId] och [ProvisioningJobId] med ServicePrincipalId och ProvisioningJobId som hämtats i föregående steg.
+Kör följande GET-fråga i Microsoft Graph Explorer och Ersätt [servicePrincipalId] och [ProvisioningJobId] med ServicePrincipalId och ProvisioningJobId som hämtades i föregående steg.
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
 ```
 
-Kopiera JSON-objektet från svaret och spara det i en fil för att skapa en säkerhetskopia av schemat.
+Kopiera JSON-objektet från svaret och spara det i en fil för att skapa en säkerhets kopia av schemat.
 
-### <a name="step-5-import-the-provisioning-schema"></a>Steg 5: Importera etableringsschemat
+### <a name="step-5-import-the-provisioning-schema"></a>Steg 5: importera etablerings schema
 
 > [!CAUTION]
-> Utför bara det här steget om du behöver ändra schemat för konfiguration som inte kan ändras med Azure-portalen eller om du behöver återställa konfigurationen från en tidigare säkerhetskopierad fil med giltigt och fungerande schema.
+> Utför bara det här steget om du behöver ändra schemat för konfigurationen som inte kan ändras med hjälp av Azure Portal eller om du behöver återställa konfigurationen från en tidigare säkerhetskopierad fil med ett giltigt och fungerande schema.
 
-I Utforskaren i Microsoft Graph konfigurerar du följande PUT-fråga och ersätter [servicePrincipalId] och [ProvisioningJobId] med ServicePrincipalId och ProvisioningJobId som hämtats i föregående steg.
+I Microsoft Graph Explorer konfigurerar du följande skicka fråga, ersätter [servicePrincipalId] och [ProvisioningJobId] med ServicePrincipalId och ProvisioningJobId som hämtades i föregående steg.
 
 ```http
     PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
 ```
 
-Kopiera innehållet i JSON-schemafilen på fliken "Begärandeförkropp".
+På fliken "begär ande text" kopierar du innehållet i JSON-schemafilen.
 
    [![Begärandetext](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
 
-Lägg till rubrikattributet innehållstyp på fliken "Begär sidhuvud" med värdet "application/json"
+På fliken "begär ande rubriker" lägger du till attributet Content-Type Head med värdet "Application/JSON"
 
-   [![Begär rubriker](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
+   [![Begärandehuvuden](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Klicka på knappen "Kör fråga" för att importera det nya schemat.
+Klicka på knappen Kör fråga för att importera det nya schemat.

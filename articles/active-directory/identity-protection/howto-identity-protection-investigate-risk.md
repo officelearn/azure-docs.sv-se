@@ -1,5 +1,5 @@
 ---
-title: Undersöka risken azure Active Directory Identity Protection
+title: Undersök risk Azure Active Directory Identity Protection
 description: Lär dig hur du undersöker riskfyllda användare, identifieringar och inloggningar i Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
@@ -12,84 +12,84 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253486"
 ---
-# <a name="how-to-investigate-risk"></a>Så här: Undersök risker
+# <a name="how-to-investigate-risk"></a>Gör så här: Undersök risker
 
-Identity Protection ger organisationer tre rapporter som de kan använda för att undersöka identitetsrisker i sin miljö. Dessa rapporter är **riskfyllda användare,** **riskfyllda inloggningar**och **riskidentifieringar**. Utredning av händelser är nyckeln till bättre förståelse och identifiera eventuella svaga punkter i din säkerhetsstrategi.
+Identitets skydd ger organisationer med tre rapporter som de kan använda för att undersöka identitets risker i sin miljö. Dessa rapporter är **riskfyllda användare**, **riskfyllda inloggningar**och **risk identifieringar**. Undersökningen av händelser är en nyckel för att bättre förstå och identifiera svaga punkter i din säkerhets strategi.
 
-Alla tre rapporter gör det möjligt att ladda ner händelser i . CSV-format för vidare analys utanför Azure-portalen. De riskfyllda användarna och riskfyllda inloggningsrapporter gör det möjligt att hämta de senaste 2500 posterna, medan rapporten riskidentifiering gör det möjligt att hämta de senaste 5000 posterna.
+I alla tre rapporter kan du hämta händelser i. CSV-format för ytterligare analys utanför Azure Portal. Rapporterna riskfyllda användare och riskfyllda inloggningar gör det möjligt att hämta de senaste 2500 posterna, medan rapporten risk identifieringar gör det möjligt att hämta de senaste 5000-posterna.
 
-Organisationer kan dra nytta av Microsoft Graph API-integreringar för att aggregera data med andra källor som de kan ha åtkomst till som organisation.
+Organisationer kan dra nytta av Microsoft Graph API-integreringar för att samla in data med andra källor som de kan ha åtkomst till som en organisation.
 
-De tre rapporterna finns i **Azure Portal** > **Azure Active Directory** > **Security**.
+De tre rapporterna finns i **Azure Portal** > **Azure Active Directory** > **säkerhet**.
 
 ## <a name="navigating-the-reports"></a>Navigera i rapporterna
 
-Varje rapport startas med en lista över alla identifieringar för perioden som visas högst upp i rapporten. Varje rapport gör det möjligt att lägga till eller ta bort kolumner baserat på administratörsinställningar. Administratörer kan välja att hämta data i . CSV eller . JSON-format. Rapporter kan filtreras med hjälp av filtren överst i rapporten.
+Varje rapport öppnas med en lista över alla identifieringar för den period som visas överst i rapporten. Varje rapport gör det möjligt att lägga till eller ta bort kolumner baserat på administratörs preferenser. Administratörer kan välja att hämta data i. CSV eller. JSON-format. Rapporter kan filtreras med filtren högst upp i rapporten.
 
-Om du väljer enskilda poster kan det aktiveras ytterligare poster högst upp i rapporten, till exempel möjligheten att bekräfta en inloggning som komprometterad eller säker, bekräfta en användare som komprometterad eller avvisa användarrisk.
+Om du väljer enskilda poster kan ytterligare poster visas överst i rapporten, till exempel möjligheten att bekräfta att en inloggning är komprometterad eller säker, bekräfta en användare som komprometterad eller ignorera användar risken.
 
-Om du väljer enskilda poster expanderas ett informationsfönster under identifieringarna. Med informationsvyn kan administratörer undersöka och utföra åtgärder på varje identifiering. 
+Om du väljer enskilda poster expanderas ett informations fönster under identifieringarna. I vyn information kan administratörer undersöka och utföra åtgärder för varje identifiering. 
 
-![Exempel på identitetsskyddsrapport som visar riskfyllda inloggningar och information](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
+![Exempel på identitets skydds rapport som visar riskfyllda inloggningar och information](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
 
 ## <a name="risky-users"></a>Riskfyllda användare
 
-Med den information som tillhandahålls av rapporten för riskfyllda användare kan administratörer hitta:
+Med den information som rapporteras av riskfyllda användare kan administratörerna hitta:
 
-- Vilka användare är i riskzonen, har haft risk avhjälpt eller har haft risk avfärdas?
+- Vilka användare är utsatta för risker har de haft risk åtgärdade eller har haft risk har avslagits?
 - Information om identifieringar
 - Historik över alla riskfyllda inloggningar
-- Riskhistorik
+- Risk historik
  
 Administratörer kan sedan välja att vidta åtgärder för dessa händelser. Administratörer kan välja att:
 
-- Återställa användarlösenordet
-- Bekräfta en kompromettering av användare
-- Avvisa användarrisk
+- Återställ användar lösen ordet
+- Bekräfta komprometterade användare
+- Ignorera användar risk
 - Blockera användare från att logga in
-- Undersöka vidare med Azure ATP
+- Undersök ytterligare med Azure ATP
 
 ## <a name="risky-sign-ins"></a>Riskfyllda inloggningar
 
-Rapporten riskfyllda inloggningar innehåller filterbara data i upp till de senaste 30 dagarna (1 månad).
+Rapporten över riskfyllda inloggningar innehåller filtrerings bara data för upp till de senaste 30 dagarna (1 månad).
 
-Med den information som tillhandahålls av rapporten riskfyllda inloggningar kan administratörer hitta:
+Med informationen i rapporten om riskfyllda inloggningar kan administratörerna hitta:
 
-- Vilka inloggningar klassificeras som i riskzonen, bekräftas äventyras, bekräftas säker, ogillas eller åtgärdas.
-- Risknivåer i realtid och aggregerad i samband med inloggningsförsök.
-- Identifieringstyper som utlöses
-- Principer för villkorlig åtkomst tillämpas
-- MFA-detaljer
-- Enhetsinformation
+- Vilka inloggningar som klassificeras som risk, bekräftat, bekräftat, bekräftat, avstängda eller åtgärdade.
+- Real tids-och sammanställda risk nivåer kopplade till inloggnings försök.
+- Utlösta identifierings typer
+- Tillämpade principer för villkorlig åtkomst
+- MFA-information
+- Enhets information
 - Programinformation
-- Platsinformation
+- Plats information
 
 Administratörer kan sedan välja att vidta åtgärder för dessa händelser. Administratörer kan välja att:
 
-- Bekräfta kompromettering av inloggning
-- Bekräfta inloggningen säker
+- Bekräfta inloggnings problem
+- Bekräfta inloggning på ett säkert sätt
 
 ## <a name="risk-detections"></a>Riskidentifieringar
 
-Riskidentifieringsrapporten innehåller filterbara data i upp till de senaste 90 dagarna (3 månader).
+Rapporten risk identifieringar innehåller filtrerings bara data för upp till de senaste 90 dagarna (tre månader).
 
-Med den information som tillhandahålls av rapporten om riskidentifieringar kan administratörer hitta:
+Med den information som tillhandahålls av rapporten risk identifiering kan administratörerna hitta:
 
-- Information om varje riskidentifiering inklusive typ.
-- Andra risker som utlöses samtidigt
-- Plats för inloggningsförsök
-- Länka ut till mer information från Microsoft Cloud App Security (MCAS).
+- Information om varje risk identifiering, inklusive typ.
+- Andra risker som utlöses på samma tid
+- Plats för inloggnings försök
+- Länka till mer information från Microsoft Cloud App Security (MCAS).
 
-Administratörer kan sedan välja att återgå till användarens risk- eller inloggningsrapport för att vidta åtgärder baserat på insamlad information.
+Administratörer kan sedan välja att återgå till användarens risk-eller inloggnings rapport för att vidta åtgärder baserat på insamlad information.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Policyer tillgängliga för att minska riskerna](concept-identity-protection-policies.md)
+- [Principer som är tillgängliga för att minimera risker](concept-identity-protection-policies.md)
 
-- [Aktivera principer för inloggning och användarrisk](howto-identity-protection-configure-risk-policies.md)
+- [Aktivera inloggnings-och användar risk principer](howto-identity-protection-configure-risk-policies.md)

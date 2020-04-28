@@ -1,6 +1,6 @@
 ---
-title: RADIANS i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL-systemfunktionen RADIANS i Azure Cosmos DB.
+title: RADIANer i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system Function RADIANer i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302244"
 ---
-# <a name="radians-azure-cosmos-db"></a>RADIANS (Azure Cosmos DB)
+# <a name="radians-azure-cosmos-db"></a>RADIANer (Azure Cosmos DB)
  Returnerar radianer när ett numeriskt uttryck i grader anges.  
   
 ## <a name="syntax"></a>Syntax
@@ -28,13 +28,13 @@ RADIANS (<numeric_expr>)
 *numeric_expr*  
    Är ett numeriskt uttryck.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
   Returnerar ett numeriskt uttryck.  
   
 ## <a name="examples"></a>Exempel
   
-  Följande exempel tar några vinklar som indata och returnerar motsvarande radianvärden.  
+  Följande exempel tar några vinklar som inmatade värden och returnerar motsvarande radian-värden.  
   
 ```sql
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
@@ -54,10 +54,10 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer inte att använda indexet.
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Matematiska funktioner Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

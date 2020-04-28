@@ -1,6 +1,6 @@
 ---
-title: Så här aktiverar du SSO över flera appar på Android med ADAL | Microsoft-dokument
-description: Så här använder du funktionerna i ADAL SDK för att aktivera enkel inloggning i dina program.
+title: Aktivera enkel inloggning mellan appar på Android med ADAL | Microsoft Docs
+description: Hur du använder funktionerna i ADAL SDK för att aktivera enkel inloggning i dina program.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -16,60 +16,60 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b87a9cd0ae29281faad4209f4449d547921835d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154822"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Så här aktiverar du SSO över flera appar på Android med ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Gör så här: aktivera enkel inloggning mellan appar på Android med ADAL
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Med enkel inloggning (SSO) kan användare bara ange sina autentiseringsuppgifter en gång och låta dessa autentiseringsuppgifter automatiskt arbeta mellan program och på olika plattformar som andra program kan använda (till exempel Microsoft-konton eller ett arbetskonto från Microsoft 365) fråga förlaget.
+Enkel inloggning (SSO) gör det möjligt för användare att bara ange sina autentiseringsuppgifter en gång och låta dessa autentiseringsuppgifter automatiskt fungera mellan program och mellan plattformar som andra program kan använda (till exempel Microsoft-konton eller ett arbets konto från Microsoft 365) oavsett utgivaren.
 
-Microsofts identitetsplattform, tillsammans med SDK:erna, gör det enkelt att aktivera SSO i din egen serie av appar, eller med mäklarfunktionen och Authenticator-programmen, över hela enheten.
+Microsofts identitets plattform, tillsammans med SDK: er, gör det enkelt att aktivera SSO i din egen uppsättning appar, eller med funktionerna för Service Broker och autentiserare över hela enheten.
 
-I det här programmet får du lära dig hur du konfigurerar SDK i programmet så att SSO får till dina kunder.
+I den här instruktionen får du lära dig hur du konfigurerar SDK i ditt program för att tillhandahålla enkel inloggning till dina kunder.
 
 ## <a name="prerequisites"></a>Krav
 
-Detta instruktioner förutsätter att du vet hur man:
+Den här instruktionen förutsätter att du vet hur du:
 
-- Etablera din app med den äldre portalen för Azure Active Directory (Azure AD). Mer information finns i [Registrera en app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+- Etablera din app med hjälp av den äldre portalen för Azure Active Directory (Azure AD). Mer information finns i [Registrera en app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 - Integrera ditt program med [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
-## <a name="single-sign-on-concepts"></a>Enstaka inloggningsbegrepp
+## <a name="single-sign-on-concepts"></a>Koncept för enkel inloggning
 
-### <a name="identity-brokers"></a>Identitetsmäklare
+### <a name="identity-brokers"></a>Identitets hanterare
 
-Microsoft tillhandahåller program för varje mobil plattform som möjliggör överbryggande av autentiseringsuppgifter mellan program från olika leverantörer och för förbättrade funktioner som kräver en enda säker plats varifrån autentiseringsuppgifterna kan valideras. Dessa kallas **mäklare**.
+Microsoft tillhandahåller program för alla mobila plattformar som gör det möjligt att överbrygga autentiseringsuppgifter mellan program från olika leverantörer och för förbättrade funktioner som kräver en säker plats varifrån autentiseringsuppgifterna ska verifieras. Dessa kallas för- **hanterare**.
 
-På iOS och Android tillhandahålls mäklare via nedladdningsbara program som kunder antingen installerar självständigt eller skjuts till enheten av ett företag som hanterar vissa, eller alla, enheter för sina anställda. Mäklare stöder hantering av säkerhet bara för vissa program eller hela enheten baserat på IT-administratörskonfiguration. I Windows tillhandahålls den här funktionen av en kontoväljare inbyggd i operativsystemet, tekniskt känd som Webbautentiseringsmäklaren.
+På iOS och Android tillhandahålls utbetalningar genom nedladdnings bara program som kunder antingen installerar oberoende eller som skickas till enheten av ett företag som hanterar vissa, eller alla, av enheterna för sina anställda. Utjämnare stöder hantering av säkerhet för vissa program eller hela enheten baserat på IT-administratörens konfiguration. I Windows tillhandahålls den här funktionen av en konto väljare som är inbyggd i operativ systemet, vilket är känt tekniskt som Web Authentication Broker.
 
-#### <a name="broker-assisted-login"></a>Mäklare assisterad inloggning
+#### <a name="broker-assisted-login"></a>Service Broker-inloggning
 
-Broker-assisted inloggningar är inloggningsupplevelser som uppstår inom mäklaren ansökan och använda lagring och säkerhet för mäklaren att dela autentiseringsuppgifter över alla program på enheten som tillämpar identitetsplattformen. Innebörden är dina program kommer att förlita sig på mäklaren att logga in användare. På iOS och Android tillhandahålls dessa mäklare via nedladdningsbara program som kunder antingen installerar självständigt eller kan skickas till enheten av ett företag som hanterar enheten för sin användare. Ett exempel på den här typen av program är Microsoft Authenticator-programmet på iOS. I Windows tillhandahålls den här funktionen av en kontoväljare inbyggd i operativsystemet, tekniskt känd som Webbautentiseringsmäklaren.
-Upplevelsen varierar beroende på plattform och kan ibland vara störande för användarna om den inte hanteras korrekt. Du är förmodligen mest bekant med detta mönster om du har Facebook-programmet installerat och använda Facebook Connect från ett annat program. Identitetsplattformen använder samma mönster.
+Service Broker-assisterade inloggningar är inloggnings upplevelser som inträffar i Service Broker-programmet och använder tjänstens lagring och säkerhet för att dela autentiseringsuppgifter i alla program på enheten som använder identitets plattformen. Indirekt som dina program kommer att förlita sig på att logga in användare i. På iOS och Android tillhandahålls dessa mäklare genom nedladdnings bara program som kunder antingen installerar oberoende eller som kan skickas till enheten av ett företag som hanterar enheten för sin användare. Ett exempel på den här typen av program är Microsoft Authenticator-programmet på iOS. I Windows tillhandahålls den här funktionen av en konto väljare som är inbyggd i operativ systemet, vilket är känt tekniskt som Web Authentication Broker.
+Upplevelsen varierar beroende på plattform och kan ibland vara störande för användare om de inte hanteras korrekt. Du är förmodligen bekant med det här mönstret om du har Facebook-programmet installerat och använder Facebook Connect från ett annat program. Identitets plattformen använder samma mönster.
 
-På Android visas kontoväljaren ovanpå ditt program, vilket är mindre störande för användaren.
+På Android visas konto väljaren ovanpå ditt program, vilket är mindre störande för användaren.
 
-#### <a name="how-the-broker-gets-invoked"></a>Hur mäklaren blir åberopad
+#### <a name="how-the-broker-gets-invoked"></a>Hur Broker anropas
 
-Om en kompatibel mäklare är installerad på enheten, som Microsoft Authenticator-programmet, kommer identitets-SDK:erna automatiskt att göra jobbet för att anropa mäklaren åt dig när en användare anger att de vill logga in med ett konto från identitetsplattformen.
+Om en kompatibel Broker är installerad på enheten, t. ex. Microsoft Authenticator programmet, kommer identitets-SDK: er automatiskt att utföra Service Broker åt dig när en användare anger att de vill logga in med ett konto från identitets plattformen.
 
-#### <a name="how-microsoft-ensures-the-application-is-valid"></a>Så här säkerställer Microsoft att programmet är giltigt
+#### <a name="how-microsoft-ensures-the-application-is-valid"></a>Hur Microsoft ser till att programmet är giltigt
 
-Behovet av att säkerställa identiteten på ett program som ringer mäklaren är avgörande för säkerheten i mäklare assisterade inloggningar. iOS och Android framtvingar inte unika identifierare som är giltiga endast för ett visst program, så skadliga program kan "förfalska" en legitim programs identifierare och ta emot de token som är avsedda för det legitima programmet. För att säkerställa att Microsoft alltid kommunicerar med rätt program vid körning ombeds utvecklaren att tillhandahålla en anpassad redirectURI när de registrerar sitt program hos Microsoft. **Hur utvecklare ska skapa den här omdirigera URI:n diskuteras i detalj nedan.** Denna anpassade redirectURI innehåller programmets certifikattumavtryck och säkerställs att det är unikt för programmet av Google Play Store. När ett program anropar mäklaren ber mäklaren Operativsystemet Android att förse det med certifikatets tumavtryck som kallas mäklaren. Mäklaren tillhandahåller det här certifikatets tumavtryck till Microsoft i anropet till identitetssystemet. Om certifikatets tumavtryck för programmet inte matchar certifikatets tumavtryck som tillhandahålls oss av utvecklaren under registreringen nekas åtkomst till token för den resurs som programmet begär. Den här kontrollen säkerställer att endast det program som registrerats av utvecklaren tar emot token.
+Behovet av att se till att identiteten för ett program som anropar Service Broker är avgörande för den säkerhet som anges i Service Broker-inloggningar. iOS och Android tillämpar inte unika identifierare som endast är giltiga för ett angivet program, så att skadliga program kan "falska" ett legitimt programs ID och ta emot de token som är avsedda för det legitima programmet. För att säkerställa att Microsoft alltid kommunicerar med rätt program vid körning uppmanas utvecklaren att tillhandahålla en anpassad redirectURI när de registrerar sitt program hos Microsoft. **Hur utvecklare bör utforma denna omdirigerings-URI beskrivs i detalj nedan.** Den här anpassade redirectURI innehåller certifikatets tumavtryck för programmet och är säkerställt att vara unikt för programmet av Google Play Butik. När ett program anropar koordinatorn ber Service Broker operativ systemet Android att tillhandahålla det med det tumavtryck för certifikatet som anropade Service Broker. Service Broker innehåller det här certifikatets tumavtryck till Microsoft i anropet till identitets systemet. Om certifikatets tumavtryck för programmet inte matchar certifikatets tumavtryck som tillhandahölls av utvecklaren under registreringen, nekas åtkomst till de token för resursen som programmet begär. Den här kontrollen säkerställer att endast det program som har registrerats av utvecklaren tar emot tokens.
 
-Förmedlade SSO-inloggningar har följande fördelar:
+Brokered-SSO-inloggningar har följande fördelar:
 
-* Användarupplevelser SSO i alla sina program oavsett leverantör.
-* Ditt program kan använda mer avancerade affärsfunktioner som villkorlig åtkomst och stödja Intune-scenarier.
-* Ditt program kan stödja certifikatbaserad autentisering för företagsanvändare.
-* Säkrare inloggningsupplevelse som programmets identitet och användaren verifieras av mäklarprogrammet med ytterligare säkerhetsalgoritmer och kryptering.
+* Användare upplever enkel inloggning för alla sina program oavsett leverantör.
+* Ditt program kan använda mer avancerade företags funktioner, till exempel villkorlig åtkomst och stöd för Intune-scenarier.
+* Programmet har stöd för certifikatbaserad autentisering för företags användare.
+* Säkrare inloggnings upplevelse som identitet för programmet och användaren verifieras av Service Broker-programmet med ytterligare säkerhetsalgoritmer och kryptering.
 
-Här är en representation av hur SDK fungerar med mäklaren applikationer för att aktivera SSO:
+Här är en representation av hur SDK: er fungerar med Broker-programmen för att aktivera SSO:
 
 ```
 +------------+ +------------+   +-------------+
@@ -96,41 +96,41 @@ Här är en representation av hur SDK fungerar med mäklaren applikationer för 
 
 ```
 
-### <a name="turning-on-sso-for-broker-assisted-sso"></a>Aktivera SSO för mäklare assisterad SSO
+### <a name="turning-on-sso-for-broker-assisted-sso"></a>Aktivera SSO för Service Broker via enkel inloggning
 
-Möjligheten för ett program att använda alla mäklare som är installerade på enheten är inaktiverad som standard. För att kunna använda ditt program med mäklaren måste du göra ytterligare konfiguration och lägga till lite kod till ditt program.
+Möjligheten för ett program att använda en Service Broker som är installerad på enheten är inaktive rad som standard. För att kunna använda programmet med Service Broker måste du göra ytterligare konfiguration och lägga till kod i programmet.
 
-Stegen att följa är:
+De steg du följer är:
 
-1. Aktivera mäklarläge i programkodens anrop till MS SDK
-2. Upprätta en ny omdirigera URI och ge det till både appen och din appregistrering
-3. Ställa in rätt behörigheter i Android-manifestet
+1. Aktivera Broker-läge i program kodens anrop till MS SDK
+2. Upprätta en ny omdirigerings-URI och ange att både appen och appens registrering
+3. Konfigurera rätt behörigheter i Android-manifestet
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Steg 1: Aktivera mäklarläge i ditt program
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Steg 1: Aktivera Broker-läge i ditt program
 
-Möjligheten för ditt program att använda mäklaren är aktiverad när du skapar "inställningar" eller första installationen av din autentiseringsinstans. Så här gör du i appen:
+Möjligheten för ditt program att använda Service Broker aktive ras när du skapar inställningarna "Settings" eller den första konfigurationen av din autentiserings instans. Så här gör du i appen:
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Steg 2: Upprätta en ny omdirigera URI med ditt URL-schema
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Steg 2: upprätta en ny omdirigerings-URI med URL-schemat
 
-För att säkerställa att rätt program tar emot de returnerade autentiseringstoken, finns det ett behov av att se till att samtalet tillbaka till ditt program på ett sätt som Operativsystemet Android kan verifiera. Operativsystemet Android använder hash-värdet för certifikatet i Google Play Store. Detta hash-certifikat kan inte förfalskas av en otillåten ansökan. Tillsammans med URI för mäklarprogrammet ser Microsoft till att token returneras till rätt program. En unik omdirigerings-URI måste registreras i programmet.
+För att säkerställa att rätt program tar emot de returnerade autentiseringsuppgifterna, måste du se till att anropa programmet på ett sätt som kan verifieras av Android-operativsystemet. Android-operativsystemet använder hash-värdet för certifikatet i Google Play-butiken. Denna hash för certifikatet kan inte manipuleras av ett falskt program. Tillsammans med URI: n för Service Broker-programmet säkerställer Microsoft att tokens returneras till rätt program. En unik omdirigerings-URI måste registreras i programmet.
 
-Din omdirigera URI måste vara i rätt form av:
+Din omdirigerings-URI måste ha rätt format:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+till exempel: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Du kan registrera den här omdirigerings-URI:n i appregistreringen med [Azure-portalen](https://portal.azure.com/). Mer information om registrering av Azure AD-appar finns i [Integrera med Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Du kan registrera denna omdirigerings-URI i appens registrering med hjälp av [Azure Portal](https://portal.azure.com/). Mer information om registrering av Azure AD-appar finns i [integrera med Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Steg 3: Konfigurera rätt behörigheter i ditt program
 
-Mäklarprogrammet i Android använder funktionen Accounts Manager i Android OS för att hantera autentiseringsuppgifter över program. För att kunna använda mäklaren i Android måste ditt appmanifest ha behörighet att använda AccountManager-konton. Dessa behörigheter beskrivs i detalj i [Googles dokumentation för Account Manager här](https://developer.android.com/reference/android/accounts/AccountManager.html)
+Service Broker-programmet i Android använder funktionen Accounts Manager i Android-OS för att hantera autentiseringsuppgifter mellan program. För att kunna använda Service Broker i Android måste appens manifest ha behörighet att använda AccountManager-konton. Dessa behörigheter beskrivs i detalj i Google- [dokumentationen för konto hanteraren här](https://developer.android.com/reference/android/accounts/AccountManager.html)
 
-Dessa behörigheter är särskilt följande:
+Dessa behörigheter är särskilt:
 
 ```
 GET_ACCOUNTS
@@ -140,7 +140,7 @@ MANAGE_ACCOUNTS
 
 ### <a name="youve-configured-sso"></a>Du har konfigurerat SSO!
 
-Nu kommer identiteten SDK automatiskt både dela autentiseringsuppgifter över dina program och anropa mäklaren om det finns på deras enhet.
+Nu kommer Identity SDK automatiskt att både dela autentiseringsuppgifter i dina program och anropa Service Broker om den finns på deras enhet.
 
 ## <a name="next-steps"></a>Nästa steg
 

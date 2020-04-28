@@ -1,6 +1,6 @@
 ---
-title: 'Fjärrarbete med P2S: Azure VPN Gateway'
-description: På den här sidan beskrivs hur du kan utnyttja VPN Gateway för att möjliggöra fjärrarbete på grund av COVID-19-pandemin.
+title: 'Fjärrhantering med P2S: Azure VPN Gateway'
+description: Den här sidan beskriver hur du kan utnyttja VPN Gateway för att aktivera fjärr anslutning på grund av COVID-19-Pandemic.
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -8,66 +8,66 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: alzam
 ms.openlocfilehash: 2d07a13c654f30e48c37d2e8d3e801166e26f4f4
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886593"
 ---
-# <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Fjärrarbete med Azure VPN Gateway Point-to-site
+# <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Fjärran sluten arbete med Azure VPN Gateway punkt-till-plats
 
 >[!NOTE]
->I den här artikeln beskrivs hur du kan utnyttja Azure VPN Gateway, Azure, Microsoft-nätverket och Azure-partnerekosystemet för att arbeta på distans och minska nätverksproblem som du står inför på grund av COVID-19-krisen.
+>Den här artikeln beskriver hur du kan använda Azure VPN Gateway, Azure, Microsoft Network och Azure-partnerns eko system för att arbeta med fjärrnätverket och minimera nätverks problem som du riktar sig till på grund av COVID-19-krisen.
 >
 
-I den här artikeln beskrivs de alternativ som är tillgängliga för organisationer för att konfigurera fjärråtkomst för sina användare eller för att komplettera sina befintliga lösningar med ytterligare kapacitet under COVID-19-epidemin.
+I den här artikeln beskrivs de alternativ som är tillgängliga för organisationer för att ställa in fjärråtkomst för sina användare eller för att komplettera sina befintliga lösningar med ytterligare kapacitet under COVID-19-epidemin.
 
-Azure point-to-site-lösningen är molnbaserad och kan etableras snabbt för att tillgodose den ökade efterfrågan hos användare att arbeta hemifrån. Den kan skalas upp enkelt och stängas av lika enkelt och snabbt när den ökade kapaciteten inte behövs längre.
+Azure-lösningen för punkt-till-plats är molnbaserad och kan tillhandahållas snabbt för att tillgodose det ökade efter frågan av användare att arbeta hemifrån. Det kan skalas enkelt och inaktive ras precis lika enkelt och snabbt när den ökade kapaciteten inte behövs längre.
 
-## <a name="about-point-to-site-vpn"></a><a name="p2s"></a>Om VPN från punkt till plats
+## <a name="about-point-to-site-vpn"></a><a name="p2s"></a>Om punkt-till-plats-VPN
 
-Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är användbar för distansarbetare som vill ansluta till Azure-virtuella nätverk eller lokala datacenter från en fjärrplats, till exempel hemifrån eller en konferens. I den här artikeln beskrivs hur du gör det möjligt för användare att arbeta på distans baserat på olika scenarier.
+Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är användbar för kunder som vill ansluta till Azure-virtuella nätverk eller lokala data Center från en annan plats, t. ex. hemifrån eller från en konferens. Den här artikeln beskriver hur du gör det möjligt för användare att arbeta fjärran slutet baserat på olika scenarier.
 
-Tabellen nedan visar klientoperativsystemen och de autentiseringsalternativ som är tillgängliga för dem. Det skulle vara bra att välja autentiseringsmetoden baserat på klientoperativsystemet som redan används. Välj till exempel OpenVPN med certifikatbaserad autentisering om du har en blandning av klientoperativsystem som behöver ansluta. Observera också att punkt-till-plats-VPN endast stöds på ruttbaserade VPN-gateways.
+Tabellen nedan visar de klient operativ system och de autentiseringsalternativ som är tillgängliga för dem. Det skulle vara bra att välja autentiseringsmetoden baserat på klientens operativ system som redan används. Välj till exempel OpenVPN med certifikatbaserad autentisering om du har en blandning av klient operativ system som måste anslutas. Observera också att punkt-till-plats-VPN endast stöds på vägbaserade VPN-gatewayer.
 
 ![punkt-till-plats](./media/working-remotely-support/ostable.png "Operativsystem")
 
-## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Scenario 1 - Användare behöver endast åtkomst till resurser i Azure
+## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Scenario 1 – användare behöver enbart åtkomst till resurser i Azure
 
-I det här fallet behöver fjärranvändarna bara komma åt resurser som finns i Azure.
+I det här scenariot behöver fjärran vändarna bara komma åt resurser i Azure.
 
 ![punkt-till-plats](./media/working-remotely-support/scenario1.png "Scenario 1")
 
-På en hög nivå krävs följande steg för att användarna ska kunna ansluta till Azure-resurser på ett säkert sätt:
+På hög nivå krävs följande steg för att göra det möjligt för användare att ansluta till Azure-resurser på ett säkert sätt:
 
 1. Skapa en virtuell nätverksgateway (om det inte finns någon).
 2. Konfigurera punkt-till-plats-VPN på gatewayen.
 
-   * Följ [den här länken](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw)för certifikatautentisering .
+   * För certifikatautentisering följer du [den här länken](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
    * För OpenVPN följer du [den här länken](vpn-gateway-howto-openvpn.md).
    * För Azure AD-autentisering följer du [den här länken](openvpn-azure-ad-tenant.md).
-   * Om du vill felsöka point-to-site-anslutningar följer du [den här länken](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
-3. Ladda ned och distribuera VPN-klientkonfigurationen.
-4. Distribuera certifikaten (om certifikatautentisering är markerat) till klienterna.
+   * Följ [den här länken](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)för att felsöka punkt-till-plats-anslutningar.
+3. Hämta och distribuera VPN-klientkonfiguration.
+4. Distribuera certifikaten (om certifikatautentisering har valts) till klienterna.
 5. Anslut till Azure VPN.
 
-## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a><a name="scenario2"></a>Scenario 2 – Användare behöver åtkomst till resurser i Azure- och/eller on-prem-resurser
+## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a><a name="scenario2"></a>Scenario 2 – användare behöver åtkomst till resurser i Azure-och/eller lokal resurser
 
-I det här fallet måste fjärranvändarna komma åt resurser som finns i Azure och i lokala datacenter.
+I det här scenariot behöver fjärran vändarna åtkomst till resurser i Azure och i lokala data Center (er).
 
 ![punkt-till-plats](./media/working-remotely-support/scenario2.png "Scenario 2")
 
-På en hög nivå krävs följande steg för att användarna ska kunna ansluta till Azure-resurser på ett säkert sätt:
+På hög nivå krävs följande steg för att göra det möjligt för användare att ansluta till Azure-resurser på ett säkert sätt:
 
 1. Skapa en virtuell nätverksgateway (om det inte finns någon).
-2. Konfigurera punkt-till-plats-VPN på gatewayen (se [scenario 1](#scenario1)).
-3. Konfigurera en plats-till-plats-tunnel på Azure-gatewayen för virtuella nätverk med BGP aktiverat.
-4. Konfigurera den lokala enheten för att ansluta till Azure virtuell nätverksgateway.
-5. Hämta point-to-site-profilen från Azure-portalen och distribuera till klienter
+2. Konfigurera punkt-till-plats-VPN på gatewayen (se [Scenario 1](#scenario1)).
+3. Konfigurera en plats-till-plats-tunnel på den virtuella Azure-Nätverksgatewayen där BGP är aktiverat.
+4. Konfigurera den lokala enheten för att ansluta till Azures virtuella nätverksgateway.
+5. Hämta punkt-till-plats-profilen från Azure Portal och distribuera till klienter
 
-Mer information om hur du konfigurerar en VPN-tunnel från plats till plats finns i [den här länken](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Information om hur du konfigurerar en plats-till-plats-VPN-tunnel finns i [den här länken](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Vanliga frågor och svar om inbyggd Azure-certifikatautentisering
+## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Vanliga frågor och svar om intern Azure-certifikatautentisering
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
@@ -77,10 +77,10 @@ Mer information om hur du konfigurerar en VPN-tunnel från plats till plats finn
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-* [Konfigurera en P2S-anslutning - Azure AD-autentisering](openvpn-azure-ad-tenant.md)
+* [Konfigurera en P2S-anslutning – Azure AD-autentisering](openvpn-azure-ad-tenant.md)
 
-* [Konfigurera en P2S-anslutning - RADIUS-autentisering](point-to-site-how-to-radius-ps.md)
+* [Konfigurera en P2S-anslutning – RADIUS-autentisering](point-to-site-how-to-radius-ps.md)
 
-* [Konfigurera en P2S-anslutning – Azure-autentisering av inbyggt certifikat](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Konfigurera en P2S-anslutning – autentisering med internt Azure-certifikat](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **"OpenVPN" är ett varumärke som tillhör OpenVPN Inc.**

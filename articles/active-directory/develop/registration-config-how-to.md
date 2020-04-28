@@ -1,6 +1,6 @@
 ---
 title: Konfigurera slutpunkter
-description: Så här hittar du autentiseringsslutpunkterna för ett anpassat program som du utvecklar eller registrerar med Azure AD.
+description: Hur du hittar autentiserings slut punkter för ett anpassat program som du utvecklar eller registrerar med Azure AD.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: 28d85736019a6fea6d977d813fdc1c9be6429748
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883278"
 ---
-# <a name="how-to-configure-endpoints"></a>Konfigurera slutpunkter
+# <a name="how-to-configure-endpoints"></a>Konfigurera slut punkter
 
-Du hittar autentiseringsslutpunkterna för ditt program i [Azure-portalen](https://portal.azure.com).
+Du kan hitta autentiserings slut punkter för ditt program i [Azure Portal](https://portal.azure.com).
 
--   Navigera till [Azure-portalen](https://portal.azure.com).
+-   Navigera till [Azure Portal](https://portal.azure.com).
 
--   Klicka på **Azure Active Directory**i det vänstra navigeringsfönstret .
+-   Klicka på **Azure Active Directory**i det vänstra navigerings fönstret.
 
--   Klicka på **Appregistreringar** och välj **Slutpunkter**.
+-   Klicka på **app-registreringar** och välj **slut punkter**.
 
--   Då öppnas sidan **Slutpunkter,** som listar alla autentiseringsslutpunkter för din klient.
+-   Då öppnas sidan **slut punkter** , som visar en lista över alla autentiserings slut punkter för din klient.
 
--   Använd den slutpunkt som är specifik för det autentiseringsprotokoll du använder, tillsammans med program-ID:et för att skapa den autentiseringsbegäran som är specifik för ditt program.
+-   Använd den slut punkt som är specifik för det autentiseringsprotokoll som du använder, tillsammans med program-ID: t för att skapa en autentiserings förfrågan som är specifik för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg
 [Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

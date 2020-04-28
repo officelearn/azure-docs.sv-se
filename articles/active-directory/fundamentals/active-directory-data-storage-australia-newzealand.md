@@ -1,6 +1,6 @@
 ---
-title: Identitetsdatalagring för australiska kunder - Azure AD
-description: Läs om var Azure Active Directory lagrar identitetsrelaterade data för sina australiska kunder.
+title: Identitets data lagring för australiska kunder – Azure AD
+description: Lär dig mer om var Azure Active Directory lagrar identitets-relaterade data för sina australiska kunder.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -13,27 +13,27 @@ ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0dc659f3d580646c1e86e5e97940268311e5546f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460542"
 ---
-# <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Identitetsdatalagring för kunder i Australien och Nya Zeeland i Azure Active Directory
+# <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Identitets data lagring för australiska och nya Zeeland-kunder i Azure Active Directory
 
-Identitetsdata lagras av Azure AD på en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar på en Microsoft Online-tjänst som Office 365 och Azure. Om du vill ha information om var dina identitetskunddata lagras kan du använda avsnittet [Var finns dina data i](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Microsoft Trust Center.
+Identitets data lagras av Azure AD på en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar på en Microsoft Online-tjänst, till exempel Office 365 och Azure. Information om var dina identitets kunddata lagras, kan du använda avsnittet var finns [dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) i Microsoft säkerhets Center.
 
 > [!NOTE]
-> Tjänster och program som integreras med Azure AD har åtkomst till identitetskunddata. Utvärdera varje tjänst och program som du använder för att avgöra hur identitetskunddata bearbetas av den specifika tjänsten och programmet och om de uppfyller företagets datalagringskrav. Läs mer om Microsoft-tjänsternas datahemvist i avsnittet Var finns dina data? på Microsoft Trust Center.
+> Tjänster och program som integreras med Azure AD har åtkomst till identitets kund information. Utvärdera varje tjänst och program som du använder för att avgöra hur identitetens kund data bearbetas av den specifika tjänsten och programmet, och om de uppfyller företagets krav på data lagring. Läs mer om Microsoft-tjänsternas datahemvist i avsnittet Var finns dina data? på Microsoft Trust Center.
 
-För kunder som har angett en adress i Australien och Nya Zeeland och använder Azure AD-kostnadsfri utgåva håller Azure AD PII-data vila i australiska datacenter. 
+För kunder som tillhandahöll en adress i Australien och nya Zeeland och använder Azure AD kostnads fri utgåva, håller Azure AD sig i resten av de australiska data centren. 
 
-Alla andra Azure AD-premiumtjänster lagrar kunddata i globala datacenter. Information om hur du hittar datacentret för en tjänst finns i [Azure Active Directory – Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
+Alla andra Azure AD Premium-tjänster lagrar kund information i globala data Center. Information om hur du hittar data centret för en tjänst finns i [Azure Active Directory – var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multifaktorautentisering (MFA)
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure Multi-Factor Authentication (MFA)
 
-MFA-tjänst i Azure AD lagrar identitetskunddata i globala datacenter i vila. Mer information om användarinformation som samlas in och lagras av molnbaserade Azure MFA- och Azure MFA Server finns i [azure multifaktorautentisering användardatainsamling](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency). Om kunder använder MFA kommer deras data att lagras utanför Australien datacenter i vila. 
+MFA-tjänsten i Azure AD lagrar identitets kund information i globala data Center i vila. Mer information om den användar information som samlas in och lagras av molnbaserad Azure MFA-och Azure MFA-Server finns i [Azure Multi-Factor Authentication User Data Collection](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency). Om kunderna använder MFA kommer deras data att lagras utanför de australiska data centren i vila. 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om någon av de funktioner som beskrivs ovan finns i följande artiklar:
+Mer information om de funktioner och funktioner som beskrivs ovan finns i följande artiklar:
 - [Vad är Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)

@@ -1,7 +1,7 @@
 ---
-title: Verifiera anspråk med visningskontroller
+title: Verifiera anspråk med visnings kontroller
 titleSuffix: Azure AD B2C
-description: Lär dig hur du använder Azure AD B2C-visningskontroller för att verifiera anspråken i användarens färder som tillhandahålls av dina anpassade principer.
+description: Lär dig hur du använder Azure AD B2C Visa kontroller för att verifiera anspråk i användar resan som tillhandahålls av dina anpassade principer.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,46 +12,46 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188791"
 ---
-# <a name="verification-display-control"></a>Kontroll av verifieringsvisning
+# <a name="verification-display-control"></a>Verifierings kontroll
 
-Använd en kontroll [för](display-controls.md) verifieringsvisning för att verifiera ett anspråk, till exempel en e-postadress eller ett telefonnummer, med en verifieringskod som skickas till användaren.
+Använd en verifierings [visnings kontroll](display-controls.md) för att verifiera ett anspråk, till exempel en e-postadress eller ett telefonnummer, med en verifierings kod som skickas till användaren.
 
-## <a name="verificationcontrol-actions"></a>VerifieringSkontrollåtgärder
+## <a name="verificationcontrol-actions"></a>VerificationControl-åtgärder
 
-Kontrollen över verifieringsvisningen består av två steg (åtgärder):
+Verifierings visnings kontrollen består av två steg (åtgärder):
 
-1. Begär ett mål från användaren, till exempel en e-postadress eller ett telefonnummer, till vilket verifieringskoden ska skickas till. När användaren väljer knappen **Skicka kod** körs **SendCode-åtgärden** för verifieringsdisplaykontrollen. **SendCode-åtgärden** genererar en kod, konstruerar innehållet som ska skickas och skickar den till användaren. Adressens värde kan vara ifyllt och fungera som en andra faktorautentisering.
+1. Begär ett mål från användaren, till exempel en e-postadress eller ett telefonnummer som verifierings koden ska skickas till. När användaren väljer knappen **Skicka kod** körs **SendCode-åtgärden** för verifierings kontrollens visnings kontroll. **SendCode-åtgärden** genererar en kod, konstruerar det innehåll som ska skickas och skickar det till användaren. Värdet för adressen kan vara ifyllt och fungera som en andra faktor.
 
-    ![Exempel på sida för skicka kodåtgärd](media/display-control-verification/display-control-verification-email-action-01.png)
+    ![Exempel sida för åtgärden skicka kod](media/display-control-verification/display-control-verification-email-action-01.png)
 
-1. När koden har skickats läser användaren meddelandet, anger verifieringskoden i kontrollen som tillhandahålls av visningskontrollen och väljer **Verifiera kod**. Genom att välja **Verifiera kod**körs åtgärden **Verifiera kod** för att verifiera koden som är associerad med adressen. Om användaren väljer **Skicka ny kod**körs den första åtgärden igen.
+1. När koden har skickats läser användaren meddelandet, anger verifierings koden i den kontroll som anges av visnings kontrollen och väljer **verifiera kod**. Genom att välja **verifiera kod**körs **VerifyCode-åtgärden** för att verifiera koden som är kopplad till adressen. Om användaren väljer **Skicka ny kod**utförs den första åtgärden igen.
 
-    ![Exempel på sida för kontrollkodåtgärd](media/display-control-verification/display-control-verification-email-action-02.png)
+    ![Exempel sida för att verifiera kod åtgärd](media/display-control-verification/display-control-verification-email-action-02.png)
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="verificationcontrol-required-elements"></a>Verifieringskontroller krävs element
+## <a name="verificationcontrol-required-elements"></a>VerificationControl nödvändiga element
 
 **VerificationControl** måste innehålla följande element:
 
-- Typen av `DisplayControl` är `VerificationControl`.
+- Typen för `DisplayControl` är `VerificationControl`.
 - `DisplayClaims`
-  - **Skicka till** - Ett eller flera anspråk som anger var verifieringskoden ska skickas till. Till exempel *e-post* eller *landskod* och *telefonnummer*.
-  - **Verifieringskod** - Verifieringskodsanspråket som användaren tillhandahåller efter att koden har skickats. Detta anspråk måste ställas in `ControlClaimType` efter behov `VerificationCode`och måste ställas in på .
-- Utdataanspråk (valfritt) som ska returneras till den självpåsäkrade sidan när användaren har slutfört verifieringsprocessen. Till exempel *e-post* eller *landskod* och *telefonnummer*. Den självpåsterade tekniska profilen använder anspråken för att bevara data eller bubbla upp utdataanspråken till nästa orchestration-steg.
+  - **Skicka till** en eller flera anspråk som anger var verifierings koden ska skickas till. Till exempel *e-post* , *landskod* och *telefonnummer*.
+  - **Verifierings kod** – den verifierings kod som användaren anger efter att koden har skickats. Detta anspråk måste anges som obligatoriskt och `ControlClaimType` måste vara inställt på. `VerificationCode`
+- Utgående anspråk (valfritt) som ska returneras till den självkontrollerade sidan när användaren har slutfört verifierings processen. Till exempel *e-post* , *landskod* och *telefonnummer*. Den självkontrollerade tekniska profilen använder anspråk för att bevara data eller bubblar över utgående anspråk till nästa Orchestration-steg.
 - Två `Action`s med följande namn:
-  - **SendCode** - Skickar en kod till användaren. Den här åtgärden innehåller vanligtvis två tekniska profilen för validering, för att generera en kod och för att skicka den.
-  - **Verifieracode** - Verifierar koden. Den här åtgärden innehåller vanligtvis en enda teknisk profil för validering.
+  - **SendCode** – skickar en kod till användaren. Den här åtgärden innehåller vanligt vis två validerings tekniska profiler, för att generera en kod och skicka den.
+  - **VerifyCode** – verifierar koden. Den här åtgärden innehåller vanligt vis en teknisk profil med en validering.
 
-I exemplet nedan visas en textruta i **e-post** på sidan. När användaren anger sin e-postadress och väljer **SendCode**utlöses **sendcode-åtgärden** i Azure AD B2C-backend.
+I exemplet nedan visas en **e-** posttext ruta på sidan. När användaren anger sin e-postadress och väljer **SendCode**utlöses **SendCode** -åtgärden i Azure AD B2C Server del.
 
-Sedan anger användaren **verifieringskoden** och väljer **VerifyCode** för att utlösa åtgärden **Verifiera kod** i backend. Om alla valideringar går igenom anses **VerificationControl** vara fullständig och användaren kan fortsätta till nästa steg.
+Sedan anger användaren **verificationCode** och väljer **VerifyCode** för att utlösa **VerifyCode** -åtgärden i Server delen. Om alla verifierings pass godkänns anses **VerificationControl** vara slutförd och användaren kan fortsätta till nästa steg.
 
 ```XML
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">

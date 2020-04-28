@@ -1,6 +1,6 @@
 ---
-title: Kopiera data till/från ett filsystem med Azure Data Factory
-description: Lär dig hur du kopierar data till och från ett lokalt filsystem med hjälp av Azure Data Factory.
+title: Kopiera data till/från ett fil system med hjälp av Azure Data Factory
+description: Lär dig hur du kopierar data till och från ett lokalt fil system med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,83 +13,83 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265940"
 ---
-# <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopiera data till och från ett lokalt filsystem med hjälp av Azure Data Factory
+# <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopiera data till och från ett lokalt fil system med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-file-system-connector.md)
 > * [Version 2 (aktuell version)](../connector-file-system.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av datafabrikstjänsten läser du [Filsystemanslutningen i V2](../connector-file-system.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [fil system Connector i v2](../connector-file-system.md).
 
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data till/från ett lokalt filsystem. Den bygger på [datarörelseaktiviteter](data-factory-data-movement-activities.md) artikeln, som presenterar en allmän översikt över data förflyttning med kopian aktivitet.
+Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till/från ett lokalt fil system. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
-Du kan kopiera data **från ett lokalt filsystem** till följande datalager:
+Du kan kopiera data **från ett lokalt fil system** till följande data lager:
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-Du kan kopiera data från följande datalager **till ett lokalt filsystem:**
+Du kan kopiera data från följande data lager **till ett lokalt fil system**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> Kopieringsaktivitet tar inte bort källfilen när den har kopierats till målet. Om du behöver ta bort källfilen efter en lyckad kopia skapar du en anpassad aktivitet för att ta bort filen och använda aktiviteten i pipelinen.
+> Kopierings aktiviteten tar inte bort käll filen när den har kopierats till målet. Om du behöver ta bort käll filen efter en lyckad kopiering skapar du en anpassad aktivitet för att ta bort filen och använder aktiviteten i pipelinen.
 
 ## <a name="enabling-connectivity"></a>Aktivera anslutning
-Data Factory stöder anslutning till och från ett lokalt filsystem via **Data Management Gateway**. Du måste installera datahanteringsgatewayen i din lokala miljö för datafabrikstjänsten för att kunna ansluta till alla lokala datalager som stöds, inklusive filsystem. Mer information om Data Management Gateway och steg-för-steg-instruktioner om hur du konfigurerar gatewayen finns i [Flytta data mellan lokala källor och molnet med Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). Förutom Data Management Gateway behöver inga andra binära filer installeras för att kommunicera med och från ett lokalt filsystem. Du måste installera och använda Data Management Gateway även om filsystemet finns i Azure IaaS VM. Detaljerad information om gatewayen finns i [Data Management Gateway](data-factory-data-management-gateway.md).
+Data Factory stöder anslutning till och från ett lokalt fil system via **Data Management Gateway**. Du måste installera Data Management Gateway i din lokala miljö för att tjänsten Data Factory ska kunna ansluta till alla lokala data lager som stöds, inklusive fil system. Mer information om Data Management Gateway och stegvisa anvisningar om hur du konfigurerar gatewayen finns i [Flytta data mellan lokala källor och molnet med data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). Förutom Data Management Gateway behöver inga andra binära filer installeras för att kommunicera med och från ett lokalt fil system. Du måste installera och använda Data Management Gateway även om fil systemet finns i Azure IaaS VM. Detaljerad information om gatewayen finns i [Data Management Gateway](data-factory-data-management-gateway.md).
 
-Om du vill använda en Linux-filresurs installerar du [Samba](https://www.samba.org/) på din Linux-server och installerar Data Management Gateway på en Windows-server. Det går inte att installera Data Management Gateway på en Linux-server.
+Om du vill använda en Linux-filresurs installerar du [Samba](https://www.samba.org/) på Linux-servern och installerar data Management Gateway på en Windows Server. Det finns inte stöd för att installera Data Management Gateway på en Linux-server.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopieringsaktivitet som flyttar data till/från ett filsystem med hjälp av olika verktyg/API:er.
+Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från ett fil system med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda **kopieringsguiden**. Se [självstudiekurs: Skapa en pipeline med hjälp av kopieringsguiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång när du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio,** **Azure PowerShell,** **Azure Resource Manager-mall,** **.NET API**och REST **API**. Se [Kopiera aktivitetshandledning](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för steg-för-steg-instruktioner för att skapa en pipeline med en kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
-Oavsett om du använder verktygen eller API:erna utför du följande steg för att skapa en pipeline som flyttar data från ett källdatalager till ett sink-datalager:
+Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
-1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines.
-2. Skapa **länkade tjänster** för att länka in- och utdatalager till datafabriken. Om du till exempel kopierar data från en Azure-bloblagring till ett lokalt filsystem skapar du två länkade tjänster för att länka ditt lokala filsystem och Azure-lagringskonto till din datafabrik. För länkade tjänstegenskaper som är specifika för ett lokalt filsystem finns i avsnittet [länkade tjänstegenskaper.](#linked-service-properties)
-3. Skapa **datauppsättningar** för att representera in- och utdata för kopieringen. I exemplet som nämns i det sista steget skapar du en datauppsättning för att ange blob-behållaren och mappen som innehåller indata. Du kan också skapa en annan datauppsättning för att ange mapp- och filnamnet (valfritt) i filsystemet. För datauppsättningsegenskaper som är specifika för lokalt filsystem finns i avsnittet [egenskaper för datauppsättningen.](#dataset-properties)
-4. Skapa en **pipeline** med en kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I det tidigare exemplet använder du BlobSource som källa och FileSystemSink som en mottagare för kopieringsaktiviteten. Om du kopierar från lokalt filsystem till Azure Blob Storage använder du Även FileSystemSource och BlobSink i kopieringsaktiviteten. För kopieringsaktivitetsegenskaper som är specifika för lokalt filsystem finns i [avsnittet kopiera aktivitetsegenskaper.](#copy-activity-properties) Om du vill ha information om hur du använder ett datalager som källa eller en diskbänk klickar du på länken i föregående avsnitt för datalagret.
+1. Skapa en **data fabrik**. En data fabrik kan innehålla en eller flera pipeliner.
+2. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik. Om du t. ex. kopierar data från en Azure Blob Storage till ett lokalt fil system, skapar du två länkade tjänster för att länka ditt lokala fil system och Azure Storage-konto till data fabriken. Information om länkade tjänst egenskaper som är speciella för ett lokalt fil system finns i avsnittet [länkade tjänst egenskaper](#linked-service-properties) .
+3. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden. I exemplet som nämns i det sista steget skapar du en data uppsättning för att ange BLOB-behållaren och mappen som innehåller indata. Du kan också skapa en annan data uppsättning för att ange mappen och fil namnet (valfritt) i fil systemet. För data uppsättnings egenskaper som är speciella för det lokala fil systemet, se avsnittet [Egenskaper för data mängd](#dataset-properties) .
+4. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata. I exemplet ovan använder du BlobSource som källa och FileSystemSink som mottagare för kopierings aktiviteten. På samma sätt kan du använda FileSystemSource och BlobSink i kopierings aktiviteten om du kopierar från det lokala fil systemet till Azure Blob Storage. Information om kopiera aktivitets egenskaper som är speciella för lokala fil system finns i avsnittet [Kopiera aktivitets egenskaper](#copy-activity-properties) . Om du vill ha mer information om hur du använder ett data lager som källa eller mottagare klickar du på länken i föregående avsnitt för ditt data lager.
 
-När du använder guiden skapas JSON-definitioner för dessa datafabrikentiteter (länkade tjänster, datauppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API:er (förutom .NET API) definierar du dessa datafabrikentiteter med hjälp av JSON-formatet.  För exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från ett filsystem finns i avsnittet [JSON-exempel](#json-examples-for-copying-data-to-and-from-file-system) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet.  Exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data till/från ett fil system finns i avsnittet [JSON-exempel](#json-examples-for-copying-data-to-and-from-file-system) i den här artikeln.
 
-I följande avsnitt finns information om JSON-egenskaper som används för att definiera datafabrikentiteter som är specifika för filsystemet:
+Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för fil system:
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala filserverlänkade** tjänsten. I följande tabell finns beskrivningar av JSON-element som är specifika för den lokala filserverlänkade tjänsten.
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
+Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fil serverns** länkade tjänst. Följande tabell innehåller beskrivningar av JSON-element som är speciella för den lokala fil Server länkade tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Kontrollera att typegenskapen är inställd **på OnPremisesFileServer**. |Ja |
-| värd |Anger rotsökvägen för den mapp som du vill kopiera. Använd escape-tecknet ' \ ' för specialtecken i strängen. Se [Exempel på länkade tjänst- och datauppsättningsdefinitioner](#sample-linked-service-and-dataset-definitions) för exempel. |Ja |
-| userid |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
-| password |Ange lösenordet för användaren (userid). |Nej (om du väljer encryptedCredential |
-| krypteradKnuren |Ange de krypterade autentiseringsuppgifter som du kan få genom att köra cmdleten New-AzDataFactoryEncryptValue. |Nej (om du väljer att ange userid och lösenord i oformaterad text) |
-| gatewayName (gatewayName) |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala filservern. |Ja |
+| typ |Se till att egenskapen type har angetts till **OnPremisesFileServer**. |Ja |
+| värd |Anger rot Sök vägen till den mapp som du vill kopiera. Använd escape-tecknet "\" för specialtecken i strängen. Se [exempel på länkade tjänst-och data uppsättnings definitioner](#sample-linked-service-and-dataset-definitions) . |Ja |
+| userid |Ange ID: t för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
+| password |Ange lösen ordet för användaren (UserID). |Nej (om du väljer encryptedCredential |
+| encryptedCredential |Ange de krypterade autentiseringsuppgifter som du kan få genom att köra cmdleten New-AzDataFactoryEncryptValue. |Nej (om du väljer att ange användar-ID och lösen ord som oformaterad text) |
+| gatewayName |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala fil servern. |Ja |
 
 
-### <a name="sample-linked-service-and-dataset-definitions"></a>Exempel på länkade tjänst- och datauppsättningsdefinitioner
-| Scenario | Värd i länkad tjänstdefinition | folderPath i definition av datauppsättning |
+### <a name="sample-linked-service-and-dataset-definitions"></a>Exempel på länkade tjänst-och data uppsättnings definitioner
+| Scenario | Värd i länkad tjänst definition | folderPath i data uppsättnings definition |
 | --- | --- | --- |
-| Lokal mapp på datahanteringsgateway-dator: <br/><br/>Exempel: D:\\ \* eller D:\folder\subfolder\\\* |D:\\ \\ (för Data Management Gateway 2.0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2.0) |. eller\\\\mappundermapp (för Data Management Gateway 2.0 och senare versioner) \\ \\ <br/><br/>D:\\ \\ eller\\\\D: mappundermapp\\\\(för gateway version nedan 2.0) |
-| Delad mapp för fjärr: <br/><br/>Exempel: \\ \\undermappen \\ \\dela\\\\\\\\ \* minserver\\eller minservermapp\\\* |\\\\\\\\myserver\\\\dela |. eller mappundermapp\\\\ \\ \\ |
+| Lokal mapp på Data Management Gateway dator: <br/><br/>Exempel: D:\\ \* eller D:\folder\subfolder\\\* |D:\\ \\ (för data Management Gateway 2,0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2,0) |. \\ \\eller mapp\\-undermapp (för data Management Gateway 2,0 \\ och senare versioner) <br/><br/>D:\\ \\ eller d:\\\\mapp\\\\-undermapp (för gateway-version under 2,0) |
+| Fjärran sluten delad mapp: <br/><br/>Exempel: \\ \\mappen Server\\resurs\\ \* eller \\ \\mapp för\\min\\Server\\-delad mapp\\\* |\\\\\\\\Server\\\\resurs |. \\ \\eller mapp\\ \\ |
 
 >[!NOTE]
->När du redigerar via användargränssnittet behöver du inte`\\`mata in dubbla omvänt snedstreck ( ) för att fly som du gör via JSON, ange ett enda omvänt snedstreck.
+>När du redigerar via användar gränssnittet behöver du inte ange dubbla omvänt snedstreck`\\`() för att undvika att du gör via JSON, ange enkelt omvänt snedstreck.
 
-### <a name="example-using-username-and-password-in-plain-text"></a>Exempel: Använda användarnamn och lösenord i oformaterad text
+### <a name="example-using-username-and-password-in-plain-text"></a>Exempel: använda användar namn och lösen ord i oformaterad text
 
 ```JSON
 {
@@ -106,7 +106,7 @@ Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala fil
 }
 ```
 
-### <a name="example-using-encryptedcredential"></a>Exempel: Använda krypteradkredential
+### <a name="example-using-encryptedcredential"></a>Exempel: använda encryptedcredential
 
 ```JSON
 {
@@ -123,28 +123,28 @@ Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala fil
 ```
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [Skapa datauppsättningar](data-factory-create-datasets.md). Avsnitt som struktur, tillgänglighet och princip för en datauppsättning JSON är liknande för alla datauppsättningstyper.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [skapa data uppsättningar](data-factory-create-datasets.md). Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer.
 
-Avsnittet typeProperties är olika för varje typ av datauppsättning. Den innehåller information som platsen och formatet för data i datalagret. Avsnittet typeProperties för datauppsättningen av typen **FileShare** har följande egenskaper:
+Avsnittet typeProperties är olika för varje typ av data uppsättning. Den innehåller information som plats och format för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **fileshare** har följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Anger undersökvägen till mappen. Använd escape-tecknet '\' för specialtecken i strängen. Jokerteckenfiltret stöds inte. Se [Exempel på länkade tjänst- och datauppsättningsdefinitioner](#sample-linked-service-and-dataset-definitions) för exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** om du vill ha mappsökvägar baserat på start-/slutdatumtider för segment. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När **filnamn** inte har angetts för en utdatauppsättning och **bevaraHierarchy** inte anges i aktivitetsmottagaren, är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt`(Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Inga |
-| filFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden `*` är: (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1: "fileFilter": "*.log"<br/>Exempel 2: "fileFilter": 2014-1-?. txt"<br/><br/>Observera att fileFilter är tillämpligt för en indatauppsättning fileshare.Note that fileFilter is applicable for an input FileShare dataset. |Inga |
-| partitioneradAv |Du kan använda partitionedBy för att ange en dynamisk folderPath/fileName för tidsseriedata. Ett exempel är folderPath-parameteriserad för varje timme data. |Inga |
-| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. se [Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| folderPath |Anger under Sök vägen till mappen. Använd escape-tecknet\' för specialtecken i strängen. Wildcard-filtret stöds inte. Se [exempel på länkade tjänst-och data uppsättnings definitioner](#sample-linked-service-and-dataset-definitions) .<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt`(Exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Inga |
+| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (ett tecken).<br/><br/>Exempel 1: "fileFilter": "*. log"<br/>Exempel 2: "fileFilter": 2014-1-?. format<br/><br/>Observera att fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. |Inga |
+| partitionedBy |Du kan använda partitionedBy för att ange ett dynamiskt folderPath/fileName för Time Series-data. Ett exempel är folderPath-parameter för varje timme med data. |Inga |
+| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Inga |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
 > [!NOTE]
 > Du kan inte använda fileName och fileFilter samtidigt.
 
-### <a name="using-partitionedby-property"></a>Använda partitionedBy-egenskapen
-Som nämnts i föregående avsnitt kan du ange en dynamisk folderPath och filnamn för tidsseriedata med egenskapen **partitionedBy,** [Data Factory-funktioner och systemvariablerna](data-factory-functions-variables.md).
+### <a name="using-partitionedby-property"></a>Använda egenskapen partitionedBy
+Som vi nämnt i föregående avsnitt kan du ange ett dynamiskt folderPath och ett fil namn för Time Series-data med egenskapen **partitionedBy** , [Data Factory Functions och systemvariablerna](data-factory-functions-variables.md).
 
-Mer information om tidsseriedatauppsättningar, schemaläggning och segment finns i [Skapa datauppsättningar,](data-factory-create-datasets.md) [Schemaläggning och körning](data-factory-scheduling-and-execution.md)och Skapa [pipelines](data-factory-create-pipelines.md).
+Mer information om data uppsättningar för tids serier, schemaläggning och segment finns i [skapa data uppsättningar](data-factory-create-datasets.md), [schemalägga och köra](data-factory-scheduling-and-execution.md)och [skapa pipeliner](data-factory-create-pipelines.md).
 
-#### <a name="sample-1"></a>Prov 1:
+#### <a name="sample-1"></a>Exempel 1:
 
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
@@ -154,9 +154,9 @@ Mer information om tidsseriedatauppsättningar, schemaläggning och segment finn
 ],
 ```
 
-I det här exemplet ersätts {Slice} med värdet för datafabrikssystemets variabel SliceStart i formatet (YYYYMMDDHH). SegmentStart refererar till starttiden för segmentet. folderPath är olika för varje segment. Till exempel: wikidatagateway/wikisampledataout/2014100103 eller wikidatagateway/wikisampledataout/2014100104.
+I det här exemplet ersätts {slice} med värdet för Data Factory system variabeln SliceStart i formatet (YYYYMMDDHH). SliceStart refererar till Start tiden för sektorn. FolderPath är olika för varje sektor. Till exempel: wikidatagateway/wikisampledataout/2014100103 eller wikidatagateway/wikisampledataout/2014100104.
 
-#### <a name="sample-2"></a>Prov 2:
+#### <a name="sample-2"></a>Exempel 2:
 
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -170,57 +170,57 @@ I det här exemplet ersätts {Slice} med värdet för datafabrikssystemets varia
 ],
 ```
 
-I det här exemplet extraheras år, månad, dag och tid för SegmentStart i separata variabler som egenskaperna mappPath och fileName använder.
+I det här exemplet extraheras år, månad, dag och tid för SliceStart till separata variabler som egenskaperna folderPath och fileName använder.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Skapa pipelines.](data-factory-create-pipelines.md) Egenskaper som namn, beskrivning, indata- och utdatauppsättningar och principer är tillgängliga för alla typer av aktiviteter. Medan egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar med varje aktivitetstyp.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata och principer är tillgängliga för alla typer av aktiviteter. De egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar beroende på varje aktivitets typ.
 
-För kopieringsaktivitet varierar de beroende på vilka typer av källor och sänkor som finns. Om du flyttar data från ett lokalt filsystem anger du källtypen i kopieringsaktiviteten till **FileSystemSource**. Om du flyttar data till ett lokalt filsystem anger du även sink-typen i kopieringsaktiviteten till **FileSystemSink**. Det här avsnittet innehåller en lista över egenskaper som stöds av FileSystemSource och FileSystemSink.
+För kopierings aktivitet varierar de beroende på typerna av källor och mottagare. Om du flyttar data från ett lokalt fil system anger du käll typen i kopierings aktiviteten till **FileSystemSource**. På samma sätt, om du flyttar data till ett lokalt fil system, ställer du in mottagar typen i kopierings aktiviteten till **FileSystemSink**. Det här avsnittet innehåller en lista över egenskaper som stöds av FileSystemSource och FileSystemSink.
 
 **FileSystemSource** stöder följande egenskaper:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| Rekursiv |Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. |Sant, Falskt (standard) |Inga |
+| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
 
 **FileSystemSink** stöder följande egenskaper:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| kopieraBehavior |Definierar kopieringsbeteendet när källan är BlobSource eller FileSystem. |**BevaraHierarchy:** Bevarar filhierarkin i målmappen. Det vill än, källfilens relativa sökväg till källmappen är samma som målfilens relativa sökväg till målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas i den första nivån i målmappen. Målfilerna skapas med ett autogenererat namn.<br/><br/>**MergeFiles:** Sammanfogar alla filer från källmappen till en fil. Om filnamnet/blobnamnet anges är det kopplade filnamnet det angivna namnet. Annars är det ett automatiskt genererat filnamn. |Inga |
+| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |**PreserveHierarchy:** Bevarar filens hierarki i målmappen. Det vill säga att käll filens relativa sökväg är samma som den relativa sökvägen till mål filen i målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas på den första nivån i målmappen. Målattribut skapas med ett automatiskt genererat namn.<br/><br/>**MergeFiles:** Sammanfogar alla filer från källmappen till en fil. Om fil namnet/blobb namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. |Inga |
 
-### <a name="recursive-and-copybehavior-examples"></a>rekursiva och copyBehavior exempel
-I det här avsnittet beskrivs det resulterande beteendet för kopieringsåtgärden för olika kombinationer av värden för egenskaperna rekursiva och copyBehavior.
+### <a name="recursive-and-copybehavior-examples"></a>rekursiva och copyBehavior-exempel
+I det här avsnittet beskrivs det resulterande beteendet för kopierings åtgärden för olika kombinationer av värden för egenskaperna recursive och copyBehavior.
 
-| rekursivt värde | kopieraBeteendevärde | Resulterande beteende |
+| rekursivt värde | copyBehavior-värde | Resulterande beteende |
 | --- | --- | --- |
-| true |bevaraHierarchy |För en källmapp Mapp1 med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5<br/><br/>målmappen Folder1 skapas med samma struktur som källan:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5 |
-| true |plattaHierarchy |För en källmapp Mapp1 med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5<br/><br/>målmapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
-| true |mergeFiles |För en källmapp Mapp1 med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5<br/><br/>målmapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File 5 innehåll slås samman till en fil med ett automatiskt genererat filnamn. |
-| false |bevaraHierarchy |För en källmapp Mapp1 med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5<br/><br/>målmappen Folder1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/><br/>Undermapp1 med File3, File4 och File5 plockas inte upp. |
-| false |plattaHierarchy |För en källmapp Mapp1 med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5<br/><br/>målmappen Folder1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File2<br/><br/>Undermapp1 med File3, File4 och File5 plockas inte upp. |
-| false |mergeFiles |För en källmapp Mapp1 med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5<br/><br/>målmappen Folder1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + File2-innehåll sammanfogas till en fil med ett automatiskt genererat filnamn.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererat namn för Arkiv1<br/><br/>Undermapp1 med File3, File4 och File5 plockas inte upp. |
+| true |preserveHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med samma struktur som källan:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |flattenHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
+| true |mergeFiles |För en källmapp Mapp1 med följande struktur,<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Innehållet i fil1 + Fil2 + File3 + File4 + File 5 sammanfogas till en fil med ett automatiskt genererat fil namn. |
+| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur,<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| false |mergeFiles |För en källmapp Mapp1 med följande struktur,<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + Fil2-innehåll sammanfogas till en fil med ett automatiskt genererat fil namn.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererat namn för fil1<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
 
 ## <a name="supported-file-and-compression-formats"></a>Fil- och komprimeringsformat som stöds
-Mer information finns [i fil- och komprimeringsformat i](data-factory-supported-file-and-compression-formats.md) azure data factory-artikeln.
+Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel om information.
 
-## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>JSON-exempel för kopiering av data till och från filsystemet
-Följande exempel innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från ett lokalt filsystem och Azure Blob-lagring. Du kan dock kopiera data *direkt* från någon av källorna till någon av de sänkor som anges i [källor och sänkor som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopiera aktivitet i Azure Data Factory.
+## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>JSON-exempel för att kopiera data till och från fil systemet
+I följande exempel finns exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från ett lokalt fil system och Azure Blob Storage. Du kan dock kopiera data *direkt* från någon av källorna till någon av de handfat som visas i [källor och mottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopierings aktiviteten i Azure Data Factory.
 
-### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Exempel: Kopiera data från ett lokalt filsystem till Azure Blob-lagring
-Det här exemplet visar hur du kopierar data från ett lokalt filsystem till Azure Blob-lagring. Exemplet har följande datafabrikentiteter:
+### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Exempel: kopiera data från ett lokalt fil system till Azure Blob Storage
+Det här exemplet visar hur du kopierar data från ett lokalt fil system till Azure Blob Storage. Exemplet har följande Data Factory entiteter:
 
-* En länkad tjänst av typen [PåPremisesFileServer](#linked-service-properties).
+* En länkad tjänst av typen [OnPremisesFileServer](#linked-service-properties).
 * En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* En [indatauppsättning](data-factory-create-datasets.md) av typen [FileShare](#dataset-properties).
-* En [utdatauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* En [pipeline](data-factory-create-pipelines.md) med kopieringsaktivitet som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* En indata- [datauppsättning](data-factory-create-datasets.md) av typen [fileshare](#dataset-properties).
+* En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* En [pipeline](data-factory-create-pipelines.md) med kopierings aktivitet som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Följande exempel kopierar tidsseriedata från ett lokalt filsystem till Azure Blob-lagring varje timme. De JSON-egenskaper som används i dessa exempel beskrivs i avsnitten efter proverna.
+I följande exempel kopieras Time-Series-data från ett lokalt fil system till Azure Blob Storage varje timme. JSON-egenskaperna som används i dessa exempel beskrivs i avsnitten efter exemplen.
 
-Som ett första steg ställer du in Data Management Gateway enligt instruktionerna i [Flytta data mellan lokala källor och molnet med Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
+Som ett första steg konfigurerar du Data Management Gateway enligt anvisningarna i [Flytta data mellan lokala källor och molnet med data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Lokal filserverlänkad tjänst:**
+**Länkad tjänst för lokal fil Server:**
 
 ```JSON
 {
@@ -237,9 +237,9 @@ Som ett första steg ställer du in Data Management Gateway enligt instruktioner
 }
 ```
 
-Vi rekommenderar att du använder **egenskapen encryptedCredential** i stället **egenskaperna userid** och **password.** Mer information om den länkade tjänsten finns i [den länkade tjänsten Filserver.](#linked-service-properties)
+Vi rekommenderar att du använder egenskapen **encryptedCredential** i stället för **UserID** -och **Password** -egenskaperna. Se [länkad tjänst för fil Server](#linked-service-properties) för information om den här länkade tjänsten.
 
-**Azure Storage-länkad tjänst:**
+**Azure Storage länkad tjänst:**
 
 ```JSON
 {
@@ -253,11 +253,11 @@ Vi rekommenderar att du använder **egenskapen encryptedCredential** i stället 
 }
 ```
 
-**Lokal filsysteminmatningsdatauppsättning:**
+**Data uppsättning för lokal fil system indata:**
 
-Data hämtas från en ny fil varje timme. Egenskaperna folderPath och fileName bestäms baserat på segmentets starttid.
+Data hämtas från en ny fil varje timme. Egenskaperna folderPath och fileName bestäms baserat på sektorns start tid.
 
-Inställningen `"external": "true"` informerar Data Factory om att datauppsättningen är extern till datafabriken och inte produceras av en aktivitet i datafabriken.
+Inställningen `"external": "true"` informerar Data Factory att data uppsättningen är extern för data fabriken och inte produceras av en aktivitet i data fabriken.
 
 ```JSON
 {
@@ -319,9 +319,9 @@ Inställningen `"external": "true"` informerar Data Factory om att datauppsättn
 }
 ```
 
-**Utdatauppsättning för Azure Blob-lagringsutdata:**
+**Data uppsättning för Azure Blob Storage-utdata:**
 
-Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på starttiden för det segment som bearbetas. Mappsökvägen använder delarna av år, månad, dag och timme i starttiden.
+Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappens sökväg använder året, månaden, dagen och timvärdet i Start tiden.
 
 ```JSON
 {
@@ -379,9 +379,9 @@ Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Mappsö
 }
 ```
 
-**En kopieringsaktivitet i en pipeline med filsystemkälla och Blob-mottagare:**
+**En kopierings aktivitet i en pipeline med fil system källa och blob-mottagare:**
 
-Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningar och som är schemalagd att köras varje timme. I JSON-definitionen för pipelinen anges **källtypen** till **FileSystemSource**och **sink-typen** är inställd på **BlobSink**.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **FileSystemSource**och **mottagar** typen är inställd på **BlobSink**.
 
 ```JSON
 {
@@ -429,18 +429,18 @@ Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att anvä
 }
 ```
 
-### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Exempel: Kopiera data från Azure SQL Database till ett lokalt filsystem
+### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Exempel: kopiera data från Azure SQL Database till ett lokalt fil system
 Följande exempel visar:
 
 * En länkad tjänst av typen [AzureSqlDatabase.](data-factory-azure-sql-connector.md#linked-service-properties)
-* En länkad tjänst av typen [PåPremisesFileServer](#linked-service-properties).
-* En indatauppsättning av typen [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
-* En utdatauppsättning av typen [FileShare](#dataset-properties).
-* En pipeline med en kopieringsaktivitet som använder [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) och [FileSystemSink](#copy-activity-properties).
+* En länkad tjänst av typen [OnPremisesFileServer](#linked-service-properties).
+* En indata-datauppsättning av typen [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
+* En data uppsättning av typen [fileshare](#dataset-properties).
+* En pipeline med en kopierings aktivitet som använder [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) och [FileSystemSink](#copy-activity-properties).
 
-Exemplet kopierar tidsseriedata från en Azure SQL-tabell till ett lokalt filsystem varje timme. De JSON-egenskaper som används i dessa exempel beskrivs i avsnitt efter proverna.
+Exemplet kopierar Time Series-data från en Azure SQL-tabell till ett lokalt fil system varje timme. JSON-egenskaperna som används i dessa exempel beskrivs i avsnitt efter exemplen.
 
-**Azure SQL Database-länkad tjänst:**
+**Azure SQL Database länkad tjänst:**
 
 ```JSON
 {
@@ -454,7 +454,7 @@ Exemplet kopierar tidsseriedata från en Azure SQL-tabell till ett lokalt filsys
 }
 ```
 
-**Lokal filserverlänkad tjänst:**
+**Länkad tjänst för lokal fil Server:**
 
 ```JSON
 {
@@ -471,13 +471,13 @@ Exemplet kopierar tidsseriedata från en Azure SQL-tabell till ett lokalt filsys
 }
 ```
 
-Vi rekommenderar att du använder **egenskapen encryptedCredential** i stället för att använda **egenskaperna userid** och **lösenord.** Mer information om den länkade tjänsten finns i [filsystemlänkade tjänsten.](#linked-service-properties)
+Vi rekommenderar att du använder egenskapen **encryptedCredential** i stället för att använda egenskaperna **UserID** och **Password** . Se [fil systemets länkade tjänst](#linked-service-properties) för information om den här länkade tjänsten.
 
-**Azure SQL-indatauppsättning:**
+**Data uppsättning för Azure SQL-indata:**
 
-Exemplet förutsätter att du har skapat en tabell "MyTable" i Azure SQL, och den innehåller en kolumn som kallas "tidsstämpelpcolumn" för tidsseriedata.
+Exemplet förutsätter att du har skapat en tabell "Tabell" i Azure SQL och att den innehåller en kolumn med namnet "timestampcolumn" för Time Series-data.
 
-Inställningen ``“external”: ”true”`` informerar Data Factory om att datauppsättningen är extern till datafabriken och inte produceras av en aktivitet i datafabriken.
+Inställningen ``“external”: ”true”`` informerar Data Factory att data uppsättningen är extern för data fabriken och inte produceras av en aktivitet i data fabriken.
 
 ```JSON
 {
@@ -504,9 +504,9 @@ Inställningen ``“external”: ”true”`` informerar Data Factory om att dat
 }
 ```
 
-**Lokal datauppsättning för filsystemutdata:**
+**Data uppsättning för det lokala fil systemet:**
 
-Data kopieras till en ny fil varje timme. MappPath och fileName för blobben bestäms baserat på segmentets starttid.
+Data kopieras till en ny fil varje timme. FolderPath och fileName för blobben bestäms utifrån start tiden för sektorn.
 
 ```JSON
 {
@@ -568,9 +568,9 @@ Data kopieras till en ny fil varje timme. MappPath och fileName för blobben bes
 }
 ```
 
-**En kopieringsaktivitet i en pipeline med SQL-käll- och filsystemmottagare:**
+**En kopierings aktivitet i en pipeline med SQL-källa och fil Systems mottagare:**
 
-Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningar och som är schemalagd att köras varje timme. I pipeline-JSON-definitionen är **källtypen** inställd på **SqlSource**och **sink-typen** är inställd på **FileSystemSink**. SQL-frågan som har angetts för egenskapen **SqlReaderQuery** väljer de data som ska kopieras under den senaste timmen.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **SqlSource**och **mottagar** typen är inställd på **FileSystemSink**. SQL-frågan som anges för egenskapen **SqlReaderQuery** väljer data under den senaste timmen som ska kopieras.
 
 ```JSON
 {
@@ -619,7 +619,7 @@ Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att anvä
 }
 ```
 
-Du kan också mappa kolumner från källdatauppsättning till kolumner från sink-datauppsättning i definitionen av kopieringsaktivitet. Mer information finns [i Mappa datauppsättningskolumner i Azure Data Factory](data-factory-map-columns.md).
+Du kan också mappa kolumner från käll data uppsättningen till kolumner från Sink-datauppsättningen i kopierings aktivitets definitionen. Mer information finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
- Mer information om viktiga faktorer som påverkar prestanda för datarörelser (kopiera aktivitet) i Azure Data Factory och olika sätt att optimera den finns i [prestanda- och justeringsguiden för kopieringsaktivitet](data-factory-copy-activity-performance.md).
+ Information om viktiga faktorer som påverkar prestandan för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den finns i [guiden Kopiera aktivitets prestanda och justering](data-factory-copy-activity-performance.md).

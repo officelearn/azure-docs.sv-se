@@ -1,5 +1,5 @@
 ---
-title: RADIUS och Azure MFA Server - Azure Active Directory
+title: RADIUS och Azure MFA Server – Azure Active Directory
 description: Distribuera RADIUS-autentisering och Azure Multi-Factor Authentication-server.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 552226c35d4d129f73b96b689871708950b7ffb1
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652954"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrera RADIUS-autentisering och Azure Multi-Factor Authentication Server
@@ -23,16 +23,16 @@ ms.locfileid: "80652954"
 RADIUS är ett standardprotokoll för att acceptera autentiseringsförfrågningar och för att bearbeta dessa. Azure Multi-Factor Authentication-servern fungerar som en RADIUS-server. Infoga det mellan RADIUS-klienten (VPN-installation) och autentiseringsmålet för att lägga till tvåstegsverifiering. Autentiseringsmål kan vara Active Directory, en LDAP-katalog eller en annan RADIUS-server. För att Azure Multi-Factor Authentication (MFA) ska fungera måste du konfigurera Azure MFA-servern så att den kan kommunicera med både klientservrarna och autentiseringsmålet. Azure MFA-servern tar emot förfrågningar från en RADIUS-klient, validerar autentiseringsuppgifter mot autentiseringsmålet, lägger till Azure Multi-Factor Authentication och skickar tillbaka ett svar till RADIUS-klienten. Autentiseringsbegäran lyckas bara om både den primära autentiseringen och Azure Multi-Factor Authentication lyckas.
 
 > [!IMPORTANT]
-> Den här artikeln är endast för användare av Azure MFA Server. Om du använder molnbaserad Azure MFA kan du istället se hur du [integrerar med RADIUS-autentisering för Azure MFA](howto-mfa-nps-extension.md).
+> Den här artikeln är endast för användare av Azure MFA Server. Om du använder molnbaserad Azure MFA kan du i stället se hur du [integrerar med RADIUS-autentisering för Azure MFA](howto-mfa-nps-extension.md).
 >
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare bör använda molnbaserad Azure Multi-Factor-autentisering. Befintliga kunder som har aktiverat MFA Server före den 1 juli kommer att kunna ladda ner den senaste versionen, framtida uppdateringar och generera aktiveringsautentiseringsuppgifter som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
 > [!NOTE]
 > MFA-servern stöder endast RADIUS-protokollen PAP (Password Authentication Protocol) och MSCHAPv2 (Microsoft Challenge Handshake Authentication Protocol) när den fungerar som en RADIUS-server.  Andra protokoll som EAP (Extensible Authentication Protocol) kan användas när MFA-servern fungerar som en RADIUS-proxy till en annan RADIUS-server som stöder det protokollet.
 >
 > I den här konfigurationen fungerar inte enkelriktade SMS- och OATH-token eftersom MFA-servern inte kan initiera ett lyckat RADIUS-svar med hjälp av alternativa protokoll.
 
-![Radieautentisering i MFA-server](./media/howto-mfaserver-dir-radius/radius.png)
+![RADIUS-autentisering i MFA Server](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>Lägga till en RADIUS-klient
 
@@ -57,10 +57,10 @@ Upprepa steg 4 till och med 8 och lägg till så många RADIUS-klienter som du b
 ## <a name="configure-your-radius-client"></a>Konfigurera RADIUS-klienten
 
 1. Klicka på fliken **Mål**.
-   * Om Azure MFA Server är installerat på en domänansluten server i en Active Directory-miljö väljer du **Windows-domän**.
+   * Om Azure MFA-servern är installerad på en domänansluten server i en Active Directory miljö väljer du Windows- **domän**.
    * Om användarna ska autentiseras mot en LDAP-katalog väljer du **LDAP-bindning**.
       Välj ikonen för katalogintegrering och redigerar LDAP-konfigurationen på fliken Inställningar så att servern kan bindas till katalogen. Anvisningar för hur du konfigurerar LDAP finns i [LDAP-proxykonfigurationsguiden](howto-mfaserver-dir-ldap.md).
-   * Om användare ska autentiseras mot en annan RADIUS-server väljer du **RADIUS-server(er).**
+   * Om användarna ska autentiseras mot en annan RADIUS-server väljer du **RADIUS-server (er)**.
 1. Klicka på **Lägg till** för att konfigurera servern som Azure MFA-servern ska vidarebefordra RADIUS-förfrågningarna till.
 1. I dialogrutan Lägg till RADIUS-server anger du IP-adressen för RADIUS-servern och en delad hemlighet.
 
@@ -77,9 +77,9 @@ Du har konfigurerat Azure Multi-Factor Authentication-servern. Nu lyssnar server
 
 Följ dessa riktlinjer när du konfigurerar RADIUS-klienten:
 
-* Konfigurera din installation/server för att autentisera via RADIUS till Azure Multi-Factor Authentication Server IP-adress, som fungerar som RADIUS-servern.
+* Konfigurera din installation/Server för att autentisera via RADIUS till Azures Multi-Factor Authentication-server IP-adress, som fungerar som RADIUS-server.
 * Använd samma delade hemlighet som du konfigurerade ovan.
-* Konfigurera RADIUS-timeouten till 30-60 sekunder så att det finns tid att validera användarens autentiseringsuppgifter, utföra tvåstegsverifiering, få svar och sedan svara på RADIUS-åtkomstbegäran.
+* Konfigurera RADIUS-timeout-värdet till 30-60 sekunder så att det finns tid att verifiera användarens autentiseringsuppgifter, utföra tvåstegsverifiering, ta emot sitt svar och svara på begäran om RADIUS-åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 

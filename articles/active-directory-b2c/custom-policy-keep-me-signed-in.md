@@ -1,6 +1,6 @@
 ---
 title: Håll mig inloggad i Azure Active Directory B2C
-description: Lär dig hur du konfigurerar Keep Me Signed In (KMSI) i Azure Active Directory B2C.
+description: Lär dig att konfigurera Håll mig inloggad (KMSI avgör) i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,36 +11,36 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80803168"
 ---
-# <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivera Behåll mig inloggad (KMSI) i Azure Active Directory B2C
+# <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivera Håll mig inloggad (KMSI avgör) i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Du kan aktivera KMSI-funktioner (Keep Me Signed In) för användare av din webbplats och dina inbyggda program som har lokala konton i din Azure Active Directory B2C-katalog (Azure AD B2C). Den här funktionen ger åtkomst till användare som återvänder till ditt program utan att du uppmanar dem att ange sitt användarnamn och lösenord igen. Den här åtkomsten återkallas när en användare loggar ut.
+Du kan aktivera funktionen Håll mig inloggad (KMSI avgör) för användare av dina webb program och interna program som har lokala konton i din Azure Active Directory B2C (Azure AD B2C)-katalogen. Den här funktionen beviljar åtkomst till användare som återgår till programmet utan att be dem att ange sitt användar namn och lösen ord på annat sätt. Den här åtkomsten återkallas när en användare loggar ut.
 
-Användare bör inte aktivera det här alternativet på offentliga datorer.
+Användarna bör inte aktivera det här alternativet på offentliga datorer.
 
-![Exempel på registreringssida för registrering som visar kryssrutan Håll mig inloggad](./media/custom-policy-keep-me-signed-in/kmsi.PNG)
+![Exempel på registrerings inloggnings sida med kryss rutan Håll mig inloggad](./media/custom-policy-keep-me-signed-in/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Krav
 
-- En Azure AD B2C-klient som är konfigurerad för att tillåta lokal kontosignering. KMSI stöds inte för externa identitetsproviderkonton.
-- Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-started.md).
+- En Azure AD B2C klient som är konfigurerad för att tillåta inloggning på lokalt konto. KMSI avgör stöds inte för externa identitets leverantörs konton.
+- Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md).
 
-## <a name="configure-the-page-identifier"></a>Konfigurera sididentifieraren
+## <a name="configure-the-page-identifier"></a>Konfigurera sid identifieraren
 
-Om du vill aktivera KMSI ställer du in `DataUri` innehållsdefinitionselementet på [sididentifierare](contentdefinitions.md#datauri) `unifiedssp` och [sidversion](page-layout.md) *1.1.0* eller högre.
+Om du vill aktivera KMSI avgör anger du innehålls `DataUri` definitions elementet till [sid-ID](contentdefinitions.md#datauri) `unifiedssp` och [sid version](page-layout.md) *1.1.0* eller senare.
 
-1. Öppna principfilens tilläggsfil. Till exempel <em> `SocialAndLocalAccounts/` </em>. Den här tilläggsfilen är en av de principfiler som ingår i det anpassade startpaketet för principen, som du borde ha fått i förutsättningen, [Kom igång med anpassade principer](custom-policy-get-started.md).
-1. Sök efter elementet **BuildingBlocks.** Om elementet inte finns lägger du till det.
-1. Lägg till **ContentDefinitions-elementet** i elementet **BuildingBlocks** i principen.
+1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>. Den här tilläggs filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](custom-policy-get-started.md).
+1. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
+1. Lägg till elementet **ContentDefinitions** i **BuildingBlocks** -elementet för principen.
 
-    Din anpassade princip ska se ut som följande kodavsnitt:
+    Den anpassade principen bör se ut som följande kodfragment:
 
     ```xml
     <BuildingBlocks>
@@ -52,12 +52,12 @@ Om du vill aktivera KMSI ställer du in `DataUri` innehållsdefinitionselementet
     </BuildingBlocks>
     ```
 
-## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Lägga till metadata i den självsäkra tekniska profilen
+## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Lägg till metadata till den självkontrollerade tekniska profilen
 
-Om du vill lägga till KMSI-kryssrutan på registrerings- `setting.enableRememberMe` och inloggningssidan anger du metadata till true. Åsidosätt de självhärnade-lokala rätkontonSignin-E-post tekniska profilerna i tilläggsfilen.
+För att lägga till KMSI avgör-rutan på sidan för registrering och inloggning ställer du `setting.enableRememberMe` in metadata på True. Åsidosätt de tekniska profilerna för SelfAsserted-LocalAccountSignin-email i tilläggs filen.
 
-1. Leta reda på elementet ClaimsProviders. Om elementet inte finns lägger du till det.
-1. Lägg till följande anspråksprovider i elementet ClaimsProviders:
+1. Hitta ClaimsProviders-elementet. Om elementet inte finns lägger du till det.
+1. Lägg till följande anspråks leverantör i ClaimsProviders-elementet:
 
 ```XML
 <ClaimsProvider>
@@ -72,15 +72,15 @@ Om du vill lägga till KMSI-kryssrutan på registrerings- `setting.enableRemembe
 </ClaimsProvider>
 ```
 
-1. Spara tilläggsfilen.
+1. Spara tilläggs filen.
 
-## <a name="configure-a-relying-party-file"></a>Konfigurera en förlitande partfil
+## <a name="configure-a-relying-party-file"></a>Konfigurera en förlitande parts fil
 
-Uppdatera den förlitande partens (RP) fil som initierar användarens färd som du skapade.
+Uppdatera den förlitande parten (RP) som initierar användar resan som du har skapat.
 
-1. Öppna din anpassade principfil. Registrera till exempel *Registrera DigOrSignin.xml*.
-1. Om den inte redan finns `<UserJourneyBehaviors>` lägger du `<RelyingParty>` till en underordnad nod i noden. Det måste placeras `<DefaultUserJourney ReferenceId="User journey Id" />`omedelbart efter `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`, till exempel: .
-1. Lägg till följande nod som `<UserJourneyBehaviors>` underordnad för elementet.
+1. Öppna din anpassade princip fil. Till exempel *SignUpOrSignin. XML*.
+1. Lägg till en `<UserJourneyBehaviors>` underordnad nod till `<RelyingParty>` noden om den inte redan finns. Den måste finnas omedelbart efter `<DefaultUserJourney ReferenceId="User journey Id" />`, till exempel:. `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`
+1. Lägg till följande nod som underordnad till `<UserJourneyBehaviors>` elementet.
 
     ```XML
     <UserJourneyBehaviors>
@@ -90,15 +90,15 @@ Uppdatera den förlitande partens (RP) fil som initierar användarens färd som 
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** - Anger hur sessionen förlängs med `SessionExpiryInSeconds` `KeepAliveInDays`den tid som anges i och . Värdet `Rolling` (standard) anger att sessionen utökas varje gång användaren utför autentisering. Värdet `Absolute` anger att användaren tvingas att omauktisera efter den angivna tidsperioden.
+    - **SessionExpiryType** – anger hur sessionen utökas med den tid som anges i `SessionExpiryInSeconds` och `KeepAliveInDays`. `Rolling` Värdet (standard) visar att sessionen är utökad varje gång användaren utför autentiseringen. `Absolute` Värdet anger att användaren tvingas att autentisera igen efter den angivna tids perioden.
 
-    - **SessionExpiryInSeconds** - Livstiden för sessionscookies när *jag hålls inloggad* är inte aktiverad, eller om en användare inte väljer håll mig *inloggad*. Sessionen upphör att `SessionExpiryInSeconds` gälla när den har godkänts, eller så stängs webbläsaren.
+    - **SessionExpiryInSeconds** – livs längden för sessionscookies när *jag låter mig vara inloggad* är inte aktive rad, eller om en användare inte väljer *Jag vill förbli inloggad*. Sessionen upphör att gälla när `SessionExpiryInSeconds` den har gått ut, eller så har webbläsaren stängts.
 
-    - **KeepAliveInDays** - Livstiden för sessionscookies när *jag hålls inloggad* är aktiverad och användaren väljer att hålla mig *inloggad*.  Värdet för `KeepAliveInDays` har företräde `SessionExpiryInSeconds` framför värdet och dikterar sessionens förfallotid. Om en användare stänger webbläsaren och öppnar den igen senare kan han eller hon fortfarande logga in tyst så länge den är inom keepaliveindays-tidsperioden.
+    - **KeepAliveInDays** – livs längden för sessionscookies när *jag låter mig vara inloggad* är aktive rad och användaren väljer *Håll mig inloggad*.  Värdet för `KeepAliveInDays` har företräde framför `SessionExpiryInSeconds` värdet och avgör förfallo tiden för sessionen. Om en användare stänger webbläsaren och öppnar den igen senare kan de fortfarande logga in så länge de är inom KeepAliveInDays tids period.
 
-    Mer information finns i [användarfärdsbeteenden](relyingparty.md#userjourneybehaviors).
+    Mer information finns i [användar resans beteenden](relyingparty.md#userjourneybehaviors).
 
-Vi rekommenderar att du ställer in värdet för SessionExpiryInSeconds till en kort period (1200 sekunder), medan värdet för KeepAliveInDays kan ställas in på en relativt lång period (30 dagar), som visas i följande exempel:
+Vi rekommenderar att du anger värdet för SessionExpiryInSeconds till en kort period (1200 sekunder), medan värdet för KeepAliveInDays kan anges till en relativt lång period (30 dagar), vilket visas i följande exempel:
 
 ```XML
 <RelyingParty>
@@ -125,15 +125,15 @@ Vi rekommenderar att du ställer in värdet för SessionExpiryInSeconds till en 
 </RelyingParty>
 ```
 
-## <a name="test-your-policy"></a>Testa din policy
+## <a name="test-your-policy"></a>Testa principen
 
-1. Spara ändringarna och ladda sedan upp filen.
-1. Om du vill testa den anpassade principen som du laddade upp går du till principsidan i Azure-portalen och väljer sedan **Kör nu**.
-1. Skriv ditt **användarnamn** och **lösenord,** välj **Håll mig inloggad**och klicka sedan på logga **in**.
-1. Gå tillbaka till Azure-portalen. Gå till principsidan och välj sedan **Kopiera** för att kopiera inloggnings-URL:en.
-1. I webbläsarens adressfält `&prompt=login` tar du bort frågesträngparametern, vilket tvingar användaren att ange sina autentiseringsuppgifter på den begäran.
-1. Klicka på **Gå**i webbläsaren . Nu Azure AD B2C kommer att utfärda en åtkomsttoken utan att du uppmanas att logga in igen. 
+1. Spara ändringarna och ladda upp filen.
+1. Testa den anpassade princip som du laddade upp genom att gå till sidan princip i Azure Portal och sedan välja **Kör nu**.
+1. Ange ditt **användar namn** och **lösen ord**, Välj **Behåll mig inloggad**och klicka sedan på **Logga**in.
+1. Gå tillbaka till Azure-portalen. Gå till princip sidan och välj **Kopiera** för att kopiera inloggnings-URL: en.
+1. I adress fältet i webbläsaren tar du bort `&prompt=login` parametern frågesträng, som tvingar användaren att ange sina autentiseringsuppgifter för begäran.
+1. Klicka på **gå**till webbläsaren. Nu Azure AD B2C att utfärda en åtkomsttoken utan att du uppmanas att logga in igen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hitta exempelprincipen [här](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
+Hitta exempel principen [här](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).

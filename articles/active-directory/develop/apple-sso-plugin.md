@@ -1,7 +1,7 @@
 ---
 title: Microsoft Enterprise SSO-plugin-program för Apple-enheter
 titleSuffix: Microsoft identity platform | Azure
-description: Lär dig mer om Microsofts Plugin-program för Azure Active Directory SSO för iOS- och macOS-enheter.
+description: Lär dig mer om Microsofts Azure Active Directory SSO-plugin-program för iOS-och macOS-enheter.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -14,51 +14,51 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982590"
 ---
-# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO-plugin-program för Apple-enheter (förhandsversion)
+# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO-plugin-program för Apple-enheter (för hands version)
 
 > [!NOTE]
 > Den här funktionen är en allmänt tillgänglig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-*Microsoft Enterprise SSO-plugin-programmet för Apple-enheter* tillhandahåller SSO-konton (Single Sign-on) för Azure Active Directory (Azure AD) i alla program som stöder Apples funktion för [enkel inloggning i Företag.](https://developer.apple.com/documentation/authenticationservices) Microsoft har haft ett nära samarbete med Apple för att utveckla den här plugin-modulen för att öka programmets användbarhet samtidigt som det ger det bästa skydd som Apple och Microsoft kan ge.
+*Microsoft Enterprise SSO-plugin-programmet för Apple-enheter* tillhandahåller enkel inloggning (SSO) för Azure Active Directory (Azure AD)-konton i alla program som stöder Apples funktion [för enkel inloggning i](https://developer.apple.com/documentation/authenticationservices) Apple. Microsoft har arbetat nära med Apple för att utveckla det här plugin-programmet för att öka programmets användbarhet samtidigt som det ger bästa möjliga skydd som Apple och Microsoft kan tillhandahålla.
 
-I den här versionen av public preview är Enterprise SSO-plugin-programmet endast tillgängligt för iOS-enheter och distribueras i vissa Microsoft-program.
+I den här offentliga för hands versionen är Enterprise SSO-plugin-programmet endast tillgängligt för iOS-enheter och distribueras i vissa Microsoft-program.
 
-Vår första användning av Enterprise SSO plug-in är med vår nya [delade enhet läge](msal-ios-shared-devices.md) funktionen.
+Vår första användning av Enterprise SSO-plugin-programmet är med vår nya funktion för [delad enhets läge](msal-ios-shared-devices.md) .
 
 ## <a name="features"></a>Funktioner
 
-Microsoft Enterprise SSO-plugin-programmet för Apple-enheter erbjuder följande fördelar:
+Microsoft Enterprise SSO-plugin-programmet för Apple-enheter ger följande fördelar:
 
-- Tillhandahåller SSO för Azure AD-konton i alla program som stöder Apples funktion för enkel inloggning i Företag.
-- Levereras automatiskt i Microsoft Authenticator och kan aktiveras av alla MDM-lösningar (Mobile Device Management).
+- Ger enkel inloggning för Azure AD-konton i alla program som har stöd för enkel inloggnings funktion i Apple.
+- Levereras automatiskt i Microsoft Authenticator och kan aktive ras av en lösning för hantering av mobila enheter (MDM).
 
 ## <a name="requirements"></a>Krav
 
-Så här använder du Microsoft Enterprise SSO-plugin-program för Apple-enheter:
+Använda Microsoft Enterprise SSO-plugin-programmet för Apple-enheter:
 
-- iOS 13.0 eller senare måste installeras på enheten.
-- Ett Microsoft-program som tillhandahåller Microsoft Enterprise SSO-plugin-programmet för Apple-enheter måste installeras på enheten. För offentlig förhandsversion innehåller dessa program [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md).
+- iOS 13,0 eller senare måste vara installerat på enheten.
+- Ett Microsoft-program som tillhandahåller Microsoft Enterprise SSO-plugin-programmet för Apple-enheter måste installeras på enheten. För den allmänt tillgängliga för hands versionen inkluderar programmen [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md).
 - Enheten måste vara MDM-registrerad (till exempel med Microsoft Intune).
-- Konfigurationen måste skickas till enheten för att aktivera Microsoft Enterprise SSO-plugin-programmet för Apple-enheter på enheten. Det här säkerhetsvillkoret krävs av Apple.
+- Konfigurationen måste flyttas till enheten för att aktivera Microsoft Enterprise SSO-plugin-programmet för Apple-enheter på enheten. Den här säkerhets begränsningen krävs av Apple.
 
 ## <a name="enable-the-sso-extension-with-mobile-device-management-mdm"></a>Aktivera SSO-tillägget med hantering av mobila enheter (MDM)
 
-Om du vill aktivera Microsoft Enterprise SSO-plugin-programmet för Apple-enheter måste dina enheter skickas en signal via en MDM-tjänst. Eftersom Microsoft innehåller plugin-programmet Enterprise SSO i [Microsoft Authenticator-appen](..//user-help/user-help-auth-app-overview.md)använder du MDM för att konfigurera appen så att microsoft Enterprise SSO-plugin-programmet aktiveras.
+Om du vill aktivera plugin-programmet Microsoft Enterprise SSO för Apple-enheter måste enheterna skickas en signal via en MDM-tjänst. Eftersom Microsoft innehåller plugin-programmet för enkel inloggning i [Microsoft Authenticator-appen](..//user-help/user-help-auth-app-overview.md)använder du MDM för att konfigurera appen så att den aktiverar Microsoft Enterprise SSO-plugin-programmet.
 
 Använd följande parametrar för att konfigurera Microsoft Enterprise SSO-plugin-programmet för Apple-enheter:
 
-- **Typ**: Omdirigering
-- **Tilläggs-ID:**`com.microsoft.azureauthenticator.ssoextension`
-- **Team-ID:**`SGGM6D27TK`
-- **Webbadresser:**
+- **Typ**: omdirigera
+- **Tilläggs-ID**:`com.microsoft.azureauthenticator.ssoextension`
+- **Team-ID**:`SGGM6D27TK`
+- **URL: er**:
   - `https://login.microsoftonline.com`
   - `https://login.windows.net`
   - `https://login.microsoft.com`
@@ -70,14 +70,14 @@ Använd följande parametrar för att konfigurera Microsoft Enterprise SSO-plugi
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-Du kan använda Microsoft Intune som MDM-tjänst för att underlätta konfigurationen av Microsoft Enterprise SSO-plugin-programmet. Mer information finns i Dokumentationen för [Intune-konfiguration](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+Du kan använda Microsoft Intune som MDM-tjänst för att under lätta konfigurationen av Microsoft Enterprise SSO-plugin-programmet. Mer information finns i dokumentation om [Intune-konfiguration](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
 
-## <a name="using-the-sso-extension-in-your-application"></a>Använda SSO-tillägget i programmet
+## <a name="using-the-sso-extension-in-your-application"></a>Använda SSO-tillägget i ditt program
 
-[Microsoft Authentication Library (MSAL) för Apple-enheter](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 och senare stöder Plugin-programmet Microsoft Enterprise SSO för Apple-enheter.
+[Microsoft Authentication Library (MSAL) för Apple-enheter](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 och högre stöder Microsoft Enterprise SSO-plugin-programmet för Apple-enheter.
 
-Om du vill ha stöd för delat enhetsläge som tillhandahålls av Microsoft Enterprise SSO-plugin-programmet för Apple-enheter kontrollerar du att dina program använder den angivna minimiversionen av MSAL.
+Om du vill stödja delat enhets läge som tillhandahålls av Microsoft Enterprise SSO-plugin-programmet för Apple-enheter kontrollerar du att programmen använder den angivna minsta nödvändiga versionen av MSAL.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om läget delad enhet på iOS finns i [Läget Delad enhet för iOS-enheter](msal-ios-shared-devices.md).
+För mer information om delad enhets läge på iOS, se [delad enhets läge för iOS-enheter](msal-ios-shared-devices.md).

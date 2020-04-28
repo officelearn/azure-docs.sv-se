@@ -1,6 +1,6 @@
 ---
 title: Så här använder Azure AD SAML-protokoll
-description: Den här artikeln innehåller en översikt över SAML-profilerna För enkel inloggning och enkel inloggning i Azure Active Directory.
+description: Den här artikeln innehåller en översikt över SAML-profilerna för enkel inloggning och enkel inloggning i Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,26 +13,26 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: 44d06030d8015d2df9499ce903eb9cb06e1ef27a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885658"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Så här använder Azure AD SAML-protokoll
 
-Azure Active Directory (Azure AD) använder SAML 2.0-protokollet för att göra det möjligt för program att tillhandahålla en enda inloggningsupplevelse för sina användare. [Saml-påståenden,](single-sign-on-saml-protocol.md) protokoll och bindningar används i identitetsprovidertjänsten med enkel inloggning och [enkel inloggning.](single-sign-out-saml-protocol.md)
+Azure Active Directory (Azure AD) använder SAML 2,0-protokollet för att göra det möjligt för program att tillhandahålla enkel inloggning till sina användare. SAML-profilerna för [enkel inloggning](single-sign-on-saml-protocol.md) och [enkel utloggning](single-sign-out-saml-protocol.md) i Azure AD förklarar hur SAML-kontroller, protokoll och bindningar används i tjänsten för identitets leverantör.
 
-SAML Protocol kräver att identitetsprovidern (Azure AD) och tjänsteleverantören (programmet) utbyter information om sig själva.
+SAML-protokollet kräver identitets leverantören (Azure AD) och tjänst leverantören (programmet) för att utbyta information om sig själva.
 
-När ett program registreras med Azure AD registrerar apputvecklaren federationsrelaterad information med Azure AD. Den här informationen omfattar **programmets redirect URI** och **metadatauri.**
+När ett program har registrerats med Azure AD registrerar appens utvecklare en federationsserverproxy med Azure AD. Den här informationen inkluderar **omdirigerings-URI** och **metadata-URI** för programmet.
 
-Azure AD använder molntjänstens Metadata URI för att hämta signeringsnyckeln och utloggnings-URI.Azure AD uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. Kunden kan öppna appen i **Azure AD -> Appregistrering** och sedan i **Inställningar -> Egenskaper**kan de uppdatera url:en för utloggning. På så sätt kan Azure AD skicka svaret till rätt URL. 
+Azure AD använder moln tjänstens **metadata-URI** för att hämta signerings nyckeln och utloggnings-URI: n. Kunden kan öppna appen i **Azure AD-> app Registration** och sedan i **Inställningar-> egenskaper**kan de uppdatera UTloggnings-URL: en. På så sätt kan Azure AD skicka svaret till rätt URL. 
 
-Azure Active Directory exponerar klientspecifika och vanliga (klientoberoende) enkel inloggnings- och enstaka utskrivningsslutpunkter. Dessa webbadresser representerar adresserbara platser - de är inte bara identifierare - så att du kan gå till slutpunkten för att läsa metadata.
+Azure Active Directory exponerar klient-och common (klient oberoende) enkel inloggning och enkel inloggnings slut punkter. Dessa URL: er representerar adresser bara platser – de är inte bara identifierare – så att du kan gå till slut punkten för att läsa metadata.
 
-* Den klientspecifika slutpunkten finns `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`på . * \<Den KlientDomainName>* platshållaren representerar ett registrerat domännamn eller TenantID GUID för en Azure AD-klientorganisation. Federationsmetadata för den contoso.com klienten finns till exempel på:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Den klient-/regionsspecifika slut punkten finns på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. Plats hållaren * \<TenantDomainName>* representerar ett registrerat domän namn eller ett TenantID-GUID för en Azure AD-klient. Contoso.com-klientens federationsmetadata är till exempel:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
-* Slutpunkten för klientoberoende `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`finns på . I den här slutpunktsadressen visas **vanligt** i stället för ett klientdomännamn eller id-kort.
+* Klient oberoende slut punkt finns på `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. I den här slut punkts adressen visas **vanligt** i stället för ett klient domän namn eller-ID.
 
-Information om federationsmetadatadokument som Azure AD publicerar finns i [Federationsmetadata](../azuread-dev/azure-ad-federation-metadata.md).
+Information om de dokument för federationsmetadata som Azure AD publicerar finns i [federationsmetadata](../azuread-dev/azure-ad-federation-metadata.md).

@@ -1,7 +1,7 @@
 ---
 title: BuildingBlocks
 titleSuffix: Azure AD B2C
-description: Ange elementet BuildingBlocks i en anpassad princip i Azure Active Directory B2C.
+description: Ange BuildingBlocks-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189879"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Elementet BuildingBlocks** läggs till i elementet [TrustFrameworkPolicy.](trustframeworkpolicy.md)
+**BuildingBlocks** -elementet läggs till i [TrustFrameworkPolicy](trustframeworkpolicy.md) -elementet.
 
 ```XML
 <TrustFrameworkPolicy
@@ -59,23 +59,23 @@ ms.locfileid: "78189879"
  </BuildingBlocks>
 ```
 
-**Elementet BuildingBlocks** innehåller följande element som måste anges i den ordning som definierats:
+**BuildingBlocks** -elementet innehåller följande element som måste anges i den definierade ordningen:
 
-- [ClaimsSchema](claimsschema.md) - Definierar de anspråkstyper som kan refereras som en del av principen. Anspråksschemat är den plats där du deklarerar dina anspråkstyper. En anspråkstyp liknar en variabel på många programmatiska språk. Du kan använda anspråkstypen för att samla in data från användaren av ditt program, ta emot anspråk från leverantörer av social identitet, skicka och ta emot data från ett anpassat REST API eller lagra interna data som används av din anpassade princip.
+- [ClaimsSchema](claimsschema.md) – definierar de anspråks typer som kan refereras till som en del av principen. Anspråks schema är den plats där du deklarerar dina anspråks typer. En anspråks typ liknar en variabel i många programmerings språk. Du kan använda anspråks typen för att samla in data från användare av ditt program, ta emot anspråk från sociala identitets leverantörer, skicka och ta emot data från en anpassad REST API eller lagra interna data som används av den anpassade principen.
 
-- [Predikat och predikatvalidationerInput](predicates.md) - Gör att du kan utföra en valideringsprocess för att säkerställa att endast korrekt formade data anges i ett anspråk.
+- [Predikat och PredicateValidationsInput](predicates.md) – gör att du kan utföra en verifierings process för att säkerställa att endast korrekt utformade data anges i ett anspråk.
 
-- [ClaimsTransformations](claimstransformations.md) - Innehåller en lista över anspråksomvandlingar som kan användas i din princip.  En anspråksomvandling konverterar ett anspråk till ett annat. I anspråksomvandlingen anger du en transformeringsmetod, till exempel:
-  - Ändra fallet med ett stränganspråk till det angivna. Till exempel ändra en sträng från gemener till versaler.
-  - Jämföra två anspråk och returnera ett anspråk med sant som anger att anspråken matchar, annars falska.
-  - Skapa ett stränganspråk från den angivna parametern i principen.
-  - Skapa en slumpmässig sträng med hjälp av slumptalsgeneratorn.
-  - Formatera ett anspråk enligt den angivna formatsträngen. Den här omvandlingen `String.Format` använder C#-metoden.
+- [ClaimsTransformations](claimstransformations.md) – innehåller en lista med anspråks omvandlingar som kan användas i principen.  En anspråks omvandling konverterar ett anspråk till ett annat. I omvandlings deklarationen anger du en Transformations metod, till exempel:
+  - Ändra Skift läget för ett sträng anspråk till det som angetts. Du kan till exempel ändra en sträng från gemener till versaler.
+  - Jämför två anspråk och returnerar ett anspråk med True och anger att anspråk matchar, annars falskt.
+  - Skapar ett sträng anspråk från den angivna parametern i principen.
+  - Skapar en slumpmässig sträng med slump tals generatorn.
+  - Formatera ett anspråk enligt den angivna format strängen. Den här omvandlingen använder C# `String.Format` -metoden.
 
-- InputValidation - Med det här elementet kan du utföra booleska aggregeringar som liknar *och* och *eller*.
+- InputValidation – det här elementet gör att du kan utföra booleska agg regeringar som liknar *och* och *eller*.
 
-- [ContentDefinitions](contentdefinitions.md) - Innehåller webbadresser för HTML5-mallar som ska användas i din användarfärd. I en anpassad princip definierar en innehållsdefinition HTML5-sidans URI som används för ett angivet steg i användarfärden. Till exempel inloggnings- eller registrerings-, lösenordsåterställnings- eller felsidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-filen. Du kan också skapa nya innehållsdefinitioner efter dina behov. Det här elementet kan innehålla en lokal resursreferens med hjälp av ett lokaliserings-ID.
+- [ContentDefinitions](contentdefinitions.md) – innehåller URL: er för HTML5-mallar som ska användas i användar resan. I en anpassad princip definierar en innehålls definition den HTML5-sid-URI som används för ett angivet steg i användar resan. Till exempel inloggnings-eller registrerings-, lösen ords återställning eller fel sidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-filen. Eller så kan du skapa nya innehålls definitioner efter dina behov. Det här elementet kan innehålla en lokaliserad resurs referens med hjälp av ett lokaliserings-ID.
 
-- [Lokalisering](localization.md) - Gör att du kan stödja flera språk. Med lokaliseringsstödet i principer kan du ställa in listan över språk som stöds i en princip och välja ett standardspråk. Språkspecifika strängar och samlingar stöds också.
+- [Lokalisering](localization.md) – gör att du kan stödja flera språk. Lokaliserings stödet i principer gör att du kan ställa in listan över språk som stöds i en princip och välja ett standard språk. Språkspecifika strängar och samlingar stöds också.
 
-- [DisplayControls](display-controls.md) - Definierar de kontroller som ska visas på en sida. Displaykontroller har speciella funktioner och interagerar med avancerade valideringstekniska profiler. Visningskontrollerna förhandsgranskas för närvarande **.**
+- [DisplayControls](display-controls.md) – definierar de kontroller som ska visas på en sida. Visa kontroller har särskilda funktioner och interagera med tekniska profiler för Server dels verifiering. Visa kontroller är för närvarande en för **hands version**.

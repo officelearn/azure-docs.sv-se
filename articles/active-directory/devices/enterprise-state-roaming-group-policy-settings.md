@@ -1,6 +1,6 @@
 ---
-title: Grupprincip- och MDM-inställningar för ESR - Azure Active Directory
-description: Hanteringsinställningar för Roaming i företagstillstånd
+title: Grupprincip-och MDM-inställningar för ESR-Azure Active Directory
+description: Hanterings inställningar för Enterprise State Roaming
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,51 +12,51 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672374"
 ---
-# <a name="group-policy-and-mdm-settings"></a>Grupprincip- och MDM-inställningar
+# <a name="group-policy-and-mdm-settings"></a>grupprincip-och MDM-inställningar
 
-Använd dessa grupprincip- och mdm-inställningar (Mobile Device Management) endast på företagsägda enheter eftersom dessa principer tillämpas på användarens hela enhet. Om du använder en MDM-princip för att inaktivera synkronisering av inställningar för en personlig, användad enhet påverkas användningen av den enheten negativt. Dessutom påverkas även andra användarkonton på enheten av principen.
+Använd dessa inställningar för grup princip och hantering av mobila enheter (MDM) endast på företagsägda enheter eftersom dessa principer tillämpas på användarens hela enhet. Om du använder en MDM-princip för att inaktivera inställningar synkronisering för en personlig enhet påverkar den enhet som används negativt. Dessutom kommer andra användar konton på enheten också att påverkas av principen.
 
-Företag som vill hantera roaming för personliga (ohanterade) enheter kan använda Azure-portalen för att aktivera eller inaktivera roaming i stället för att använda grupprincip eller MDM.
-I följande tabeller beskrivs tillgängliga principinställningar.
+Företag som vill hantera nätverks växling för personliga (ej hanterade) enheter kan använda Azure Portal för att aktivera eller inaktivera roaming i stället för att använda grupprincip eller MDM.
+I följande tabeller beskrivs de tillgängliga princip inställningarna.
 
 > [!NOTE]
-> Den här artikeln gäller den HTML-baserade webbläsaren Microsoft Edge Legacy som lanserades med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge Chromium-baserade webbläsaren som släpptes den 15 januari 2020. Mer information om synkroniseringsbeteendet för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="mdm-settings"></a>MDM-inställningar
 
-Mdm-principinställningarna gäller för både Windows 10 och Windows 10 Mobile.  Windows 10 Mobile-supporten finns endast för Microsoft-kontobaserad roaming via användarens OneDrive-konto. Mer information om vilka enheter som stöds för Azure AD-baserad synkronisering finns på [enheter och slutpunkter.](enterprise-state-roaming-windows-settings-reference.md)
+Inställningarna för MDM-principen gäller både Windows 10 och Windows 10 Mobile.  Support för Windows 10 Mobile finns bara för Microsoft-konto baserad nätverks växling via användarens OneDrive-konto. Se [enheter och slut punkter](enterprise-state-roaming-windows-settings-reference.md) för information om vilka enheter som stöds för Azure AD-baserad synkronisering.
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | --- | --- |
-| Tillåt Anslutning till Microsoft-konto |Tillåter användare att autentisera med ett Microsoft-konto på enheten |
-| Tillåt synkronisera mina inställningar |Tillåter användare att flytta Windows-inställningar och appdata. Om du inaktiverar den här principen inaktiveras synkronisering och säkerhetskopior på mobila enheter |
+| Tillåt anslutning till Microsoft-konto |Tillåter användare att autentisera med hjälp av en Microsoft-konto på enheten |
+| Tillåt mina inställningar för synkronisering |Tillåter användare att flytta Windows-inställningar och appdata. Om du inaktiverar den här principen inaktive ras synkronisering och säkerhets kopior på mobila enheter |
 
 ## <a name="group-policy-settings"></a>Grupprincipinställningar
 
-Grupprincipinställningarna gäller för Windows 10-enheter som är anslutna till en Active Directory-domän. Tabellen innehåller också äldre inställningar som verkar hantera synkroniseringsinställningar, men som inte fungerar för Enterprise State Roaming för Windows 10, som noteras med "Använd inte" i beskrivningen.
+Grup princip inställningarna gäller för Windows 10-enheter som är anslutna till en Active Directory-domän. Tabellen innehåller även äldre inställningar som visas för att hantera synkroniseringsinställningar, men som inte fungerar för Enterprise State Roaming för Windows 10, som anges med "Använd inte" i beskrivningen.
 
-Dessa inställningar finns på:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
+De här inställningarna finns på:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | --- | --- |
-| Konton: Blockera Microsoft-konton |Den här principinställningen hindrar användare från att lägga till nya Microsoft-konton på den här datorn |
-| Synkronisera inte |Förhindrar användare att flytta Windows-inställningar och appdata |
-| Synkronisera inte anpassa |Inaktiverar synkronisering av gruppen Teman |
-| Synkronisera inte webbläsarinställningar |Inaktiverar synkronisering av Internet Explorer-gruppen |
-| Synkronisera inte lösenord |Inaktiverar synkronisering av gruppen Lösenord |
-| Synkronisera inte andra Windows-inställningar |Inaktiverar synkronisering av gruppen Andra Windows-inställningar |
-| Synkronisera inte anpassning av skrivbord |Använd inte; har ingen effekt |
-| Synkronisera inte på anslutningar med datapriser |Inaktiverar roaming på anslutningar med datapriser, till exempel mobil 3G |
-| Synkronisera inte appar |Använd inte; har ingen effekt |
-| Synkronisera inte appinställningar |Inaktiverar roaming av appdata |
-| Synkronisera inte startinställningar |Använd inte; har ingen effekt |
+| Konton: blockera Microsoft-konton |Den här princip inställningen förhindrar att användare lägger till nya Microsoft-konton på den här datorn |
+| Synkronisera inte |Förhindrar att användare flyttar Windows-inställningar och AppData |
+| Synkronisera inte personanpassa |Inaktiverar synkronisering av tema gruppen |
+| Synkronisera inte webb läsar inställningar |Inaktiverar synkronisering av Internet Explorer-gruppen |
+| Synkronisera inte lösen ord |Inaktiverar synkronisering av lösen ords grupper |
+| Synkronisera inte andra Windows-inställningar |Inaktiverar synkronisering av andra Windows-inställningar, grupp |
+| Synkronisera inte Skriv bords anpassning |Använd inte; har ingen påverkan |
+| Synkronisera inte med anslutningar med datapriser |Inaktiverar roaming i anslutningar med datapriser, till exempel mobilt 3G |
+| Synkronisera inte appar |Använd inte; har ingen påverkan |
+| Synkronisera inte appinställningar |Inaktiverar roaming av AppData |
+| Synkronisera inte Start Inställningar |Använd inte; har ingen påverkan |
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt finns i [översikt över roaming i företagsstat](enterprise-state-roaming-overview.md).
+En översikt finns i [Översikt över företags tillstånds växling](enterprise-state-roaming-overview.md).

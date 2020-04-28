@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om skydd av Azure AD-lösenord
-description: Granska vanliga frågor och svar om Azure AD-lösenordsskydd i en lokal Active Directory Domain Services-miljö
+title: Vanliga frågor och svar om lösen ords skydd i Azure AD
+description: Läs vanliga frågor och svar om lösen ords skydd i Azure AD i en lokal Active Directory Domain Servicess miljö
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,153 +12,153 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652647"
 ---
-# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD Lösenordsskydd lokalt vanliga frågor och svar
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Password Protection på plats
 
-Det här avsnittet innehåller svar på många vanliga frågor om Azure AD Password Protection.
+Det här avsnittet innehåller svar på många vanliga frågor om lösen ords skydd i Azure AD.
 
 ## <a name="general-questions"></a>Allmänna frågor
 
-**F: Vilken vägledning bör användarna ges om hur man väljer ett säkert lösenord?**
+**F: vilken vägledning ska användarna ges om hur man väljer ett säkert lösen ord?**
 
-Microsofts aktuella vägledning om detta ämne finns på följande länk:
+Microsofts aktuella vägledning om det här avsnittet finns på följande länk:
 
-[Microsoft lösenordsvägledning](https://www.microsoft.com/research/publication/password-guidance)
+[Vägledning för Microsoft-lösenord](https://www.microsoft.com/research/publication/password-guidance)
 
-**F: Stöds lokalt Azure AD-lösenordsskydd i icke-offentliga moln?**
+**F: finns ett lokalt Azure AD-lösenord som stöds i icke-offentliga moln?**
 
-Nej - lokalt Azure AD-lösenordsskydd stöds endast i det offentliga molnet. Inget datum har meddelats för icke-offentlig molntillgänglighet.
+Inget lokalt Azure AD-lösenord för lösen ords skydd stöds bara i det offentliga molnet. Inget datum har angivits för tillgänglighet för icke-offentligt moln.
 
-Azure AD-portalen tillåter ändring av den lokala specifika konfigurationen "Lösenordsskydd för Windows Server Active Directory" även i icke-offentliga moln. sådana förändringar kommer att kvarstå, men annars kommer aldrig att träda i kraft. Registrering av lokala proxyagenter eller skogar stöds inte när icke-offentliga molnautentiseringsuppgifter används, och sådana registreringsförsök misslyckas alltid.
+Azure AD-portalen tillåter ändringar av konfigurationen lokalt "lösen ords skydd för Windows Server Active Directory" även i icke-offentliga moln. sådana ändringar kommer att bevaras, men annars börjar detta aldrig gälla. Registrering av lokala proxyservrar eller skogar stöds inte när autentiseringsuppgifter för icke-offentliga moln används, och alla sådana registrerings försök kommer alltid att Miss lyckas.
 
-**F: Hur kan jag använda Azure AD Password Protection-förmåner på en delmängd av mina lokala användare?**
+**F: Hur kan jag använda fördelarna med lösen ords skydd i Azure AD på en delmängd av mina lokala användare?**
 
-Stöds inte. När Azure AD-lösenordsskydd har distribuerats och aktiverats diskrimineras de inte – alla användare får lika säkerhetsfördelar.
+Stöds inte. När den har distribuerats och Aktiver ATS kan inte Azure AD-lösenordet diskrimineras – alla användare får samma säkerhets fördelar.
 
-**F: Vad är skillnaden mellan en lösenordsändring och en lösenordsuppsättning (eller återställning)?**
+**F: Vad är skillnaden mellan en lösen ords ändring och en lösen ords uppsättning (eller återställning)?**
 
-En lösenordsändring är när en användare väljer ett nytt lösenord efter att ha bevisat att de har kunskap om det gamla lösenordet. En lösenordsändring är till exempel vad som händer när en användare loggar in i Windows och sedan uppmanas att välja ett nytt lösenord.
+En lösen ords ändring är när en användare väljer ett nytt lösen ord när de har fått kännedom om det gamla lösen ordet. En lösen ords ändring är till exempel vad som händer när en användare loggar in i Windows och sedan uppmanas att välja ett nytt lösen ord.
 
-En lösenordsuppsättning (kallas ibland för återställning av lösenord) är när en administratör ersätter lösenordet på ett konto med ett nytt lösenord, till exempel med hjälp av hanteringsverktyget för Användare och datorer i Active Directory. Den här åtgärden kräver en hög behörighetsnivå (vanligtvis Domänadministratör) och den person som utför åtgärden har vanligtvis inte kunskap om det gamla lösenordet. Help-desk scenarier utför ofta lösenordsuppsättningar, till exempel när hjälpa en användare som har glömt sitt lösenord. Du kommer också att se lösenordsuppsättningshändelser när ett helt nytt användarkonto skapas för första gången med ett lösenord.
+En lösen ords uppsättning (kallas ibland återställning av lösen ord) är när en administratör ersätter lösen ordet för ett konto med ett nytt lösen ord, till exempel med hjälp av verktyget Active Directory användare och datorer hantering. Den här åtgärden kräver en hög behörighets nivå (vanligt vis domän administratören) och den person som utför åtgärden har vanligt vis inte kunskap om det gamla lösen ordet. Support scenarier utför ofta lösen ords uppsättningar, till exempel för att hjälpa en användare som har glömt sitt lösen ord. Du kan också se händelser för lösen ords uppsättning när ett helt nytt användar konto skapas för första gången med ett lösen ord.
 
-Principen för lösenordsverifiering fungerar på samma sätt oavsett om en lösenordsändring eller uppsättning görs. Azure AD Password Protection DC Agent-tjänsten loggar olika händelser för att informera dig om en lösenordsändring eller uppsättningsåtgärd har utförts.  Se [Övervakning och loggning av Azure AD-lösenordsskydd](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Principen för lösen ords verifiering beter sig på samma sätt oavsett om en ändring eller uppsättning av lösen ord görs. Azure AD Password Protection DC Agent-tjänsten loggar olika händelser för att meddela dig om ett lösen ords ändring eller en åtgärd har gjorts.  Se [övervakning och loggning av lösen ords skydd i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
-**F: Varför loggas dubbletthändelser för lösenord när du försöker ange ett svagt lösenord med snapin-modulen Hantering av Active Directory och datorer?**
+**F: Varför loggas dubbletter av lösen ords avvisande vid försök att ange ett svagt lösen ord med hjälp av snapin-modulen Active Directory användare och datorer hantering?**
 
-Snapin-modulen För hantering av Active Directory - och datorer försöker först ange det nya lösenordet med Kerberos-protokollet. Vid fel gör snapin-modulen ett andra försök att ange lösenordet med ett äldre (SAM RPC) protokoll (de specifika protokoll som används är inte viktiga). Om det nya lösenordet anses vara svagt av Azure AD Password Protection, resulterar det här snapin-funktionen i två uppsättningar av avslag på lösenordsåterställning som loggas.
+Snapin-modulen Active Directory användare och datorer hantering försöker först ange det nya lösen ordet med hjälp av Kerberos-protokollet. Vid misslyckade försök att använda snapin-modulen för att ange lösen ordet med ett äldre (SAM RPC)-protokoll (de protokoll som används är inte viktiga). Om det nya lösen ordet anses vara svagt av lösen ords skyddet i Azure AD, kommer den här snapin-modulen att leda till att två uppsättningar med avvisnings händelser för lösen ords återställning loggas.
 
-**F: Varför loggas lösenordsverifieringshändelser för Lösenordsverifiering av Azure AD-lösenord med ett tomt användarnamn?**
+**F: Varför loggas händelser för lösen ords validering i Azure AD med ett tomt användar namn?**
 
-Active Directory stöder möjligheten att testa ett lösenord för att se om den klarar domänens aktuella krav på lösenordskomplexitet, till exempel med hjälp av [NetValidatePasswordPolicy-api:et.](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) När ett lösenord valideras på det här sättet innehåller testningen även validering av lösenordsfilter-dll-baserade produkter som Azure AD Password Protection - men användarnamnen som skickas till ett visst lösenordsfilter dll kommer att vara tomma. I det här fallet azure AD lösenordsskydd kommer fortfarande att validera lösenordet med hjälp av den aktuella in-effect lösenordsprincipen och kommer att utfärda ett händelseloggmeddelande för att fånga resultatet, men händelseloggmeddelandet kommer att ha tomma användarnamnsfält.
+Active Directory har stöd för möjligheten att testa ett lösen ord för att se om det uppfyller kraven på den aktuella lösen ords komplexiteten, till exempel med hjälp av [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) -API: et. När ett lösen ord verifieras på det här sättet innehåller testningen även validering av lösen ords filter-DLL-baserade produkter som Azure AD Password Protection, men användar namnen som skickas till en angiven DLL-fil för lösen ords filter är tomma. I det här scenariot kommer Azure AD Password Protection fortfarande att verifiera lösen ordet med den aktuella lösen ords principen och utfärdar ett händelse logg meddelande för att avbilda resultatet, men händelse logg meddelandet har tomma användar namns fält.
 
-**F: Stöds det att installera Azure AD Password Protection sida vid sida med andra lösenordsfilterbaserade produkter?**
+**F: finns det stöd för att installera Azure AD Password Protection sida vid sida med andra lösen ords filter baserade produkter?**
 
-Ja. Stöd för dll-korts för flera registrerade lösenordsfilter är en grundläggande Windows-funktion och inte specifik för Azure AD Password Protection. Alla registrerade lösenordsfilter dlls måste godkänna innan ett lösenord accepteras.
+Ja. Stöd för flera registrerade DLL-DLL: er för lösen ords filter är en grundläggande Windows-funktion och inte bara för Azure AD Password Protection. Alla registrerade lösen ords filter-DLL: er måste samtycka innan ett lösen ord accepteras.
 
-**F: Hur kan jag distribuera och konfigurera Azure AD-lösenordsskydd i active directory-miljön utan att använda Azure?**
+**F: Hur kan jag distribuera och konfigurera lösen ords skydd i Azure AD i min Active Directory-miljö utan att använda Azure?**
 
-Stöds inte. Azure AD Password Protection är en Azure-funktion som stöder utökas till en lokal Active Directory-miljö.
+Stöds inte. Azure AD Password Protection är en Azure-funktion som stöder utökas till en lokal Active Directorys miljö.
 
-**F: Hur ändrar jag innehållet i principen på Active Directory-nivå?**
+**F: Hur kan jag ändra innehållet i principen på Active Directory nivå?**
 
-Stöds inte. Principen kan endast administreras med Azure AD-portalen. Se även föregående fråga.
+Stöds inte. Principen kan bara administreras med Azure AD-portalen. Se även föregående fråga.
 
-**F: Varför krävs DFSR för sysvol-replikering?**
+**F: Varför krävs DFSR för SYSVOL-replikering?**
 
-FRS (den föregående tekniken till DFSR) har många kända problem och stöds helt inte i nyare versioner av Active Directory i Windows Server. Noll testning av Azure AD Password Protection görs på FRS-konfigurerade domäner.
+FRS (föregående teknik till DFSR) har många kända problem och stöds helt och hållet inte i nyare versioner av Windows Server Active Directory. Ingen testning av lösen ords skydd i Azure AD görs på FRS-konfigurerade domäner.
 
 Mer information finns i följande artiklar:
 
-[Fallet för migrering av sysvol-replikering till DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[Fallet vid migrering av SYSVOL-replikering till DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
-[Slutet är nära för FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+[Slutet är Nigh för FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
-Om din domän inte redan använder DFSR måste du migrera den för att använda DFSR innan du installerar Azure AD Password Protection. Mer information finns på följande länk:
+Om din domän inte redan använder DFSR måste du migrera den till att använda DFSR innan du installerar lösen ords skyddet för Azure AD. Mer information finns i följande länk:
 
-[GUIDEN MIGRERING AV SYSVOL-replikering: FRS till DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Migreringsguiden för SYSVOL-replikering: FRS till DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
-> Azure AD Password Protection DC Agent-programvaran installeras för närvarande på domänkontrollanter i domäner som fortfarande använder FRS för sysvol-replikering, men programvaran fungerar INTE korrekt i den här miljön. Ytterligare negativa biverkningar inkluderar enskilda filer som inte replikeras, och sysvol återställningsprocedurer som verkar lyckas men tyst misslyckas med att replikera alla filer. Du bör migrera domänen för att använda DFSR så snart som möjligt, både för DFSR:s inneboende fördelar och för att häva blockeringen av Azure AD Password Protection. Framtida versioner av programvaran inaktiveras automatiskt när den körs i en domän som fortfarande använder FRS.
+> Azure AD Password Protection DC Agent-programvaran installeras för närvarande på domänkontrollanter i domäner som fortfarande använder FRS för SYSVOL-replikering, men program varan fungerar inte som den ska i den här miljön. Ytterligare negativa sido effekter är enskilda filer som Miss lyckas att replikera, och SYSVOL-återställnings procedurer visas som slutförda men tyst Miss lyckas för att replikera alla filer. Du bör migrera din domän så att DFSR kan använda DFSR så snart som möjligt, både för DFSR: s inbyggda fördelar och även för att avblockera distributionen av lösen ords skydd i Azure AD. Framtida versioner av program varan kommer att inaktive ras automatiskt när de körs i en domän som fortfarande använder FRS.
 
-**F: Hur mycket diskutrymme kräver funktionen på domänen sysvol-resursen?**
+**F: hur mycket disk utrymme kräver funktionen på domän resursen SYSVOL?**
 
-Den exakta utrymmesanvändningen varierar eftersom den beror på faktorer som antalet och längden på de förbjudna token i Microsofts globala förbjudna lista och anpassad lista per klient, plus krypteringskostnader. Innehållet i dessa listor kommer sannolikt att växa i framtiden. Med detta i åtanke är en rimlig förväntan att funktionen kommer att behöva minst fem (5) megabyte utrymme på domänen sysvol aktie.
+Den exakta utrymmes användningen varierar eftersom den är beroende av faktorer som t. ex. antal och längd på de förbjudna token i listan över Microsoft Global-blockerade listor och den anpassade listan per klient, plus krypterings kostnader. Innehållet i dessa listor kommer förmodligen att växa i framtiden. Med detta i åtanke är en rimlig förväntan att funktionen måste ha minst fem (5) MEGABYTE utrymme på domänens SYSVOL-resurs.
 
-**F: Varför krävs en omstart för att installera eller uppgradera DC-agentprogramvaran?**
+**F: Varför krävs en omstart för att installera eller uppgradera program varan för DC-agenten?**
 
-Det här kravet orsakas av windows-kärnbeteende.
+Detta krav orsakas av Windows-funktioner i kärnan.
 
-**F: Finns det något sätt att konfigurera en DC-agent för att använda en viss proxyserver?**
+**F: finns det något sätt att konfigurera en DC-agent för att använda en angiven proxyserver?**
 
-Nej. Eftersom proxyservern är tillståndslös är det inte viktigt vilken specifik proxyserver som används.
+Nej. Eftersom proxyservern är tillstånds lös är det inte viktigt vilken speciell proxyserver som används.
 
-**F: Är det okej att distribuera Azure AD Password Protection Proxy-tjänsten sida vid sida med andra tjänster som Azure AD Connect?**
+**F: är det bra att distribuera Azure AD-proxyn för lösen ords skydd sida vid sida med andra tjänster som Azure AD Connect?**
 
-Ja. Azure AD Password Protection Proxy-tjänsten och Azure AD Connect bör aldrig stå i direkt konflikt med varandra.
+Ja. Azure AD-proxyn för lösen ords skydd och Azure AD Connect bör aldrig stå i konflikt direkt med varandra.
 
-Tyvärr har en inkompatibilitet hittats mellan den version av Microsoft Azure AD Connect Agent Updater-tjänsten som installeras av Azure AD Password Protection Proxy-programvaran och den version av tjänsten som installeras av [Azure Active Directory Application Proxy-programvaran.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) Den här inkompatibiliteten kan leda till att agentuppdateringstjänsten inte kan kontakta Azure för programuppdateringar. Det rekommenderas inte att installera Azure AD Password Protection Proxy och Azure Active Directory Application Proxy på samma dator.
+Tyvärr har en inkompatibilitet identifierats mellan versionen av Microsoft Azure AD Connect agent Updateer-tjänsten som installeras av proxy-programvaran för Azure AD-lösenordet och den version av tjänsten som installeras av [Azure Active Directory-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) -programvaran. Den här inkompatibiliteten kan resultera i att agent uppdaterings tjänsten inte kan kontakta Azure för program uppdateringar. Vi rekommenderar inte att du installerar Azure AD Password Protection proxy och Azure Active Directory-programproxy på samma dator.
 
-**F: I vilken ordning ska DC-agenter och proxyservrar installeras och registreras?**
+**F: i vilken ordning ska DC-agenter och-proxyservrar installeras och registreras?**
 
-Alla orderingar av Proxy agent installation, DC agent installation, skogsregistrering och Proxy registrering stöds.
+Alla beställningar av proxy-agent installation, installation av DC-agent, skogs registrering och proxykonfiguration stöds.
 
-**F: Bör jag vara orolig för prestandaträffen på mina domänkontrollanter från att distribuera den här funktionen?**
+**F: bör jag bekymra dig om prestanda träffen på mina domänkontrollanter från att distribuera den här funktionen?**
 
-Dc-agenttjänsten för Azure AD-lösenordsskydd bör inte påverka domänkontrollantens prestanda i en befintlig felfri Active Directory-distribution.
+Tjänsten Azure AD Password Protection DC agent bör inte påverka domänkontrollantens prestanda avsevärt i en befintlig Active Directory distribution.
 
-För de flesta åtgärder för ändring av lösenord i Active Directory är lösenordsändringsåtgärder en liten del av den totala arbetsbelastningen på en viss domänkontrollant. Som ett exempel kan du tänka dig en Active Directory-domän med 10000 användarkonton och en MaxPasswordAge-princip inställd på 30 dagar. I genomsnitt kommer den här domänen att se 10000/30=~333 lösenordsändringsåtgärder varje dag, vilket är ett mindre antal åtgärder för även en enda domänkontrollant. Tänk på ett potentiellt värsta scenario: anta att dessa ~ 333 lösenordsändringar på en enda DOMÄNKONTROLL GJORDES under en enda timme. Det här scenariot kan till exempel uppstå när många anställda alla kommer till jobbet på en måndag morgon. Även i så fall är vi fortfarande tittar på ~ 333/60 minuter = sex lösenordsändringar per minut, vilket återigen inte är en betydande belastning.
+För de flesta Active Directory distributioner är lösen ords ändrings åtgärder en liten del av den övergripande arbets belastningen på en viss domänkontrollant. Anta till exempel att en Active Directory domän med 10000 användar konton och en MaxPasswordAge-princip har angetts till 30 dagar. I genomsnitt visas 10 000/30 = ~ 333 lösen ords ändrings åtgärder varje dag, vilket är ett mindre antal åtgärder för även en enda domänkontrollant. Överväg ett potentiellt värsta fall scenario: Antag att dessa ~ 333-lösenords ändringar på en enda DOMÄNKONTROLLANT har utförts under en enda timme. Det här scenariot kan till exempel inträffa när många medarbetare kommer att arbeta på en måndag morgon. Även i detta fall tittar vi fortfarande på ~ 333/60 minuter = sex lösen ords ändringar per minut, vilket återigen inte är en betydande belastning.
 
-Men om dina nuvarande domänkontrollanter redan körs på prestandabegränsade nivåer (till exempel maxade ut med avseende på CPU, diskutrymme, disk-I/O, etc.), är det lämpligt att lägga till ytterligare domänkontrollanter eller utöka tillgängligt diskutrymme innan du distribuerar den här funktionen. Se även frågan ovan om sysvol diskutrymme användning ovan.
+Om dina aktuella domänkontrollanter redan körs på prestanda nivå (till exempel överutnyttjade ut med avseende på CPU, disk utrymme, disk-I/O osv.), är det lämpligt att lägga till ytterligare domänkontrollanter eller expandera tillgängligt disk utrymme innan du distribuerar den här funktionen. Se även fråga ovan om användning av SYSVOL-disk utrymme ovan.
 
-**F: Jag vill testa Azure AD Password Protection på bara några domäner i domänen. Är det möjligt att tvinga ändringar av användarlösenordet att använda dessa specifika DC?**
+**F: Jag vill testa lösen ords skyddet i Azure AD på bara några domänkontrollanter i min domän. Är det möjligt att framtvinga ändringar av användar lösen ord för att använda dessa domänkontrollanter?**
 
-Nej. Windows-klientoperativsystemet styr vilken domänkontrollant som används när en användare ändrar sitt lösenord. Domänkontrollanten väljs baserat på faktorer som Active Directory-plats- och undernätstilldelningar, miljöspecifik nätverkskonfiguration osv. Azure AD Password Protection styr inte dessa faktorer och kan inte påverka vilken domänkontrollant som har valts för att ändra en användares lösenord.
+Nej. Windows-klientens operativ system styr vilken domänkontrollant som används när en användare ändrar sitt lösen ord. Domänkontrollanten väljs utifrån faktorer som Active Directory plats-och under näts tilldelningar, miljö bestämd nätverks konfiguration osv. Azure AD Password Protection styr inte dessa faktorer och kan inte påverka vilken domänkontrollant som väljs för att ändra en användares lösen ord.
 
-Ett sätt att delvis nå det här målet är att distribuera Azure AD Password Protection på alla domänkontrollanter på en viss Active Directory-plats. Den här metoden ger rimlig täckning för De Windows-klienter som har tilldelats den webbplatsen, och därför även för de användare som loggar in på dessa klienter och ändrar sina lösenord.
+Ett sätt att delvis uppnå det här målet är att distribuera Azure AD Password Protection på alla domänkontrollanter på en viss Active Directory plats. Den här metoden ger rimlig täckning för de Windows-klienter som är tilldelade till den platsen, och därför även för de användare som loggar in på dessa klienter och ändrar sina lösen ord.
 
-**F: Om jag installerar DC-agenten För skydd av Azure AD-lösenordsskydd på bara PDC (Primary Domain Controller), skyddas även alla andra domänkontrollanter i domänen?**
+**F: om jag installerar Azure AD Password Protection DC-agenttjänsten på bara den primära domänkontrollanten (PDC), kommer alla andra domänkontrollanter i domänen också att skyddas?**
 
-Nej. När en användares lösenord ändras på en viss icke-PDC-domänkontrollant skickas aldrig lösenordet för klartext till PDC (den här idén är en vanlig feluppfattning). När ett nytt lösenord har accepterats på en viss domänkontrollant använder den klienten lösenordet för att skapa de olika autentiseringsprotokollspecifika hasharna för lösenordet och sedan kvarstår dessa hashar i katalogen. Lösenordet för klartexten sparas inte. De uppdaterade hashar replikeras sedan till PDC. Användarlösenord kan i vissa fall ändras direkt på PDC, återigen beroende på olika faktorer som nätverkstopologi och Active Directory-platsdesign. (Se föregående fråga.)
+Nej. När en användares lösen ord ändras på en specifik domänkontrollant som inte är PDC-domänkontrollant skickas aldrig lösen ordet för klartext till den primära domänkontrollanten (den här idén är en vanlig genom gång). När ett nytt lösen ord har accepterats på en angiven DOMÄNKONTROLLANT använder den DOMÄNKONTROLLANTen lösen ordet för att skapa de olika autentiserings-Protocol-specifikt hasharna för lösen ordet och sparar dessa hash-värden i katalogen. Lösen ordet för klartext är inte beständigt. De uppdaterade hasharna replikeras sedan till den primära domänkontrollanten. Användar lösen ord kan i vissa fall ändras direkt på den primära domänkontrollanten, beroende på olika faktorer som nätverkstopologi och Active Directory plats design. (Se föregående fråga.)
 
-Sammanfattningsvis krävs distribution av Azure AD Password Protection DC Agent-tjänsten på PDC för att nå 100 % säkerhetstäckning för funktionen i domänen. Distribuera funktionen på PDC endast ger inte Azure AD lösenordsskydd säkerhetsfördelar för andra domänen.
+I sammanfattning krävs distributionen av tjänsten Azure AD Password Protection DC agent på PDC: n för att uppnå 100% säkerhets täckning över domänen. Att distribuera funktionen på PDC ger inte säkerhet för lösen ords skydd i Azure AD för alla andra domänkontrollanter i domänen.
 
-**F: Varför fungerar inte anpassad smart utelåsning ens efter att agenterna har installerats i min lokala Active Directory-miljö?**
+**F: Varför fungerar inte anpassad Smart utelåsning trots att agenterna har installerats i min lokala Active Directorys miljö?**
 
-Anpassad smart utelåsning stöds endast i Azure AD. Ändringar av anpassade inställningar för smart utelåsning i Azure AD-portalen har ingen effekt på den lokala Active Directory-miljön, även med agenterna installerade.
+Anpassad Smart utelåsning stöds bara i Azure AD. Ändringar av anpassade inställningar för smart utelåsning i Azure AD-portalen har ingen påverkan på den lokala Active Directorys miljön, även om agenterna är installerade.
 
-**F: Är ett systemcenter operations manager-hanteringspaket tillgängligt för Azure AD Password Protection?**
+**F: är ett System Center Operations Manager hanterings paket tillgängligt för Azure AD Password Protection?**
 
 Nej.
 
-**F: Varför avvisar Azure AD fortfarande svaga lösenord trots att jag har konfigurerat principen så att den är i granskningsläge?**
+**F: Varför nekar Azure AD fortfarande svaga lösen ord, trots att jag har konfigurerat principen som gransknings läge?**
 
-Granskningsläge stöds bara i den lokala Active Directory-miljön. Azure AD är implicit alltid i "framtvinga"-läge när det utvärderar lösenord.
+Gransknings läget stöds bara i den lokala Active Directorys miljön. Azure AD är implicit alltid i "framtvinga" läge när det utvärderar lösen ord.
 
-**F: Mina användare ser det traditionella Windows-felmeddelandet när ett lösenord avvisas av Azure AD Password Protection. Är det möjligt att anpassa det här felmeddelandet så att användarna vet vad som egentligen hände?**
+**F: mina användare ser det traditionella Windows fel meddelandet när ett lösen ord avvisas av lösen ords skyddet i Azure AD. Är det möjligt att anpassa det här fel meddelandet så att användarna vet vad som verkligen hände?**
 
-Nej. Felmeddelandet som användarna ser när ett lösenord avvisas av en domänkontrollant styrs av klientdatorn, inte av domänkontrollanten. Det här problemet beror på om ett lösenord avvisas av standardprinciperna för Active Directory-lösenord eller av en lösenordsfilterbaserad lösning som Azure AD Password Protection.
+Nej. Fel meddelandet som visas av användare när ett lösen ord avvisas av en domänkontrollant styrs av klient datorn, inte av domänkontrollanten. Det här problemet uppstår om ett lösen ord avvisas av standard Active Directory lösen ords principer eller av en metod för lösen ords filtrering, till exempel Azure AD Password Protection.
 
 ## <a name="additional-content"></a>Ytterligare innehåll
 
-Följande länkar är inte en del av azure AD-lösenordsskydd, men kan vara en användbar källa till ytterligare information om funktionen.
+Följande länkar är inte en del av dokumentationen för lösen ords skydd i Azure AD, men kan vara en användbar källa till ytterligare information om funktionen.
 
-[Azure AD lösenordsskydd är nu allmänt tillgänglig!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[Azure AD Password Protection är nu allmänt tillgänglig!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Guiden för nätfiske i e-post – Del 15: Implementera Microsoft Azure AD Password Protection Service (även för lokalt!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[E-postskydds guide för e-post – del 15: implementera Microsoft Azure AD lösen ords skydds tjänsten (för lokalt!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
-[Azure AD lösenordsskydd och smart lockout är nu i offentlig förhandsversion!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
+[Azure AD Password Protection och smart utelåsning finns nu i den offentliga för hands versionen!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 
-## <a name="microsoft-premierunified-support-training-available"></a>Supportutbildning för Microsoft Premier\Unified är tillgänglig
+## <a name="microsoft-premierunified-support-training-available"></a>Support utbildning för Microsoft Premier\Unified är tillgänglig
 
-Om du är intresserad av att lära dig mer om Azure AD-lösenordsskydd och distribuera det i din miljö kan du dra nytta av en proaktiv tjänst från Microsoft som är tillgänglig för de kunder som har ett Premier- eller Unified-supportavtal. Tjänsten kallas Azure Active Directory: Password Protection. Kontakta din tekniska kontohanterare för mer information.
+Om du är intresse rad av att lära dig mer om lösen ords skydd i Azure AD och distribuera det i din miljö kan du dra nytta av en Microsoft proactive-tjänst som är tillgänglig för kunderna med ett Premier-eller Unified Support-kontrakt. Tjänsten heter Azure Active Directory: lösen ords skydd. Kontakta din tekniska konto ansvarig för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har en lokal Azure AD-lösenordsskyddsfråga som inte besvaras här skickar du ett feedbackobjekt nedan – tack!
+Om du har en lokal Azure AD-fråga för lösen ords skydd som inte besvaras här skickar du ett feedback-objekt nedan – tack!
 
 [Distribuera Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-deploy.md)

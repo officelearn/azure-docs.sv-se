@@ -13,34 +13,34 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882479"
 ---
-# <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: Kodkonfiguration
+# <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
 
 Om du vill konfigurera koden för ditt skyddade webb-API måste du förstå:
 
-- Vad definierar API:er som skyddade.
-- Så här konfigurerar du en innehavartoken.
-- Så här validerar du token.
+- Vad definierar API: er som skyddade.
+- Så här konfigurerar du en Bearer-token.
+- Verifiera token.
 
-## <a name="what-defines-aspnet-and-aspnet-core-apis-as-protected"></a>Vad definierar ASP.NET och ASP.NET Core API:er som skyddade?
+## <a name="what-defines-aspnet-and-aspnet-core-apis-as-protected"></a>Vad definierar ASP.NET och ASP.NET Core API: er som skyddade?
 
-Precis som webbappar skyddas webb-API:erna ASP.NET och ASP.NET Core eftersom deras styrenhetsåtgärder föregås av attributet **[Authorize].** Styrenhetsåtgärderna kan anropas endast om API:et anropas med en auktoriserad identitet.
+Precis som Web Apps, är ASP.NET-och ASP.NET Core webb-API: erna skyddade eftersom deras styrenhets åtgärder föregås av attributet **[auktorisera]** . Styrenhets åtgärder kan endast anropas om API: et anropas med en auktoriserad identitet.
 
 Överväg följande frågor:
 
-- Endast en app kan anropa ett webb-API. Hur känner API:et till identiteten på appen som anropar den?
-- Om appen anropar API:et för en användare, vad är användarens identitet?
+- Endast en app kan anropa ett webb-API. Hur känner API: et till identiteten för den app som anropar den?
+- Om appen anropar API: et för en användares räkning, vad är användarens identitet?
 
-## <a name="bearer-token"></a>Bärare token
+## <a name="bearer-token"></a>Bearer-token
 
-Innehavartoken som anges i huvudet när appen anropas innehåller information om appens identitet. Den innehåller också information om användaren om inte webbappen accepterar service-to-service-samtal från en daemonapp.
+Bearer-token som anges i rubriken när appen kallas innehåller information om appens identitet. Den innehåller också information om användaren, om inte webbappen accepterar tjänst-till-tjänst-anrop från en daemon-app.
 
-Här är ett C#-kodexempel som visar en klient som anropar API:et efter att ha hämtat en token med Microsoft Authentication Library for .NET (MSAL.NET):
+Här är ett C#-kod exempel som visar en klient som anropar API: et när den har skaffat en token med Microsoft Authentication Library för .NET (MSAL.NET):
 
 ```csharp
 var scopes = new[] {$"api://.../access_as_user"};
@@ -55,15 +55,15 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Ett klientprogram begär innehavarens token till slutpunkten för Microsoft identity platform *för webb-API:et*. Webb-API:et är det enda program som ska verifiera token och visa anspråken som den innehåller. Klientappar bör aldrig försöka granska anspråken i token.
+> Ett klient program begär Bearer-token till Microsoft Identity Platform-slutpunkten *för webb-API: et*. Webb-API är det enda program som ska verifiera token och Visa de anspråk som den innehåller. Klient program bör aldrig försöka inspektera anspråk i tokens.
 >
-> I framtiden kan webb-API:et kräva att token krypteras. Det här kravet skulle förhindra åtkomst för klientappar som kan visa åtkomsttoken.
+> I framtiden kan webb-API: et kräva att token krypteras. Detta krav förhindrar åtkomst för klient program som kan visa åtkomsttoken.
 
 ## <a name="jwtbearer-configuration"></a>JwtBearer-konfiguration
 
-I det här avsnittet beskrivs hur du konfigurerar en innehavartoken.
+I det här avsnittet beskrivs hur du konfigurerar en Bearer-token.
 
-### <a name="config-file"></a>Config-fil
+### <a name="config-file"></a>Konfigurations fil
 
 ```Json
 {
@@ -91,24 +91,24 @@ I det här avsnittet beskrivs hur du konfigurerar en innehavartoken.
 }
 ```
 
-### <a name="code-initialization"></a>Initiering av kod
+### <a name="code-initialization"></a>Kod initiering
 
-När en app anropas på en controller-åtgärd som innehåller ett **[Authorize]-attribut** ASP.NET och ASP.NET Core extrahera åtkomsttoken från auktoriseringshuvudets innehavartoken. Åtkomsttoken vidarebefordras sedan till JwtBearer middleware, som anropar Microsoft IdentityModel Extensions för .NET.
+När en app anropas på en styrenhets åtgärd som innehåller ett **[auktorisera]** -attribut, ASP.NET och ASP.net Core extrahera åtkomsttoken från Authorization-huvudets Bearer-token. Åtkomsttoken vidarebefordras sedan till JwtBearer mellanprogram, som anropar Microsoft IdentityModel-tillägg för .NET.
 
-I ASP.NET Core initieras denna middleware i Startup.cs filen.
+I ASP.NET Core initieras det här mellanprogram i Startup.cs-filen.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
-Mellanmaterialet läggs till i webb-API:et med den här instruktionen:
+Mellanprogram läggs till i webb-API: et med den här instruktionen:
 
 ```csharp
  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
          .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
- För närvarande skapar ASP.NET Core-mallar Azure Active Directory (Azure AD) webb-API:er som loggar in användare inom din organisation eller någon organisation. De loggar inte in användare med personliga konton. Men du kan ändra mallarna för att använda slutpunkten för Microsoft identity platform genom att lägga till den här koden i Startup.cs:
+ För närvarande skapar ASP.NET Core mallar Azure Active Directory (Azure AD) webb-API: er som loggar in användare i din organisation eller i en organisation. De loggar inte in användare med personliga konton. Men du kan ändra mallarna till att använda Microsoft Identity Platform-slutpunkten genom att lägga till den här koden i Startup.cs:
 
 ```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
@@ -130,44 +130,44 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 });
 ```
 
-Det föregående kodavsnittet extraheras från den inkrementella självstudien ASP.NET för kärnweet-webb-API i [Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). **Metoden AddProtectedWebApi,** som gör mer än kodavsnittet visar, anropas från Startup.cs.
+Föregående kodfragment extraheras från den stegvisa självstudien för ASP.NET Core Web API i [Microsoft. Identity. Web/WebApiServiceCollectionExtensions. cs # L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). Metoden **AddProtectedWebApi** , som gör att fler än kodfragmentet visas, anropas från startup.cs.
 
-## <a name="token-validation"></a>Tokenvalidering
+## <a name="token-validation"></a>Verifiering av token
 
-I föregående utdrag validerar JwtBearer middleware, som OpenID Connect middleware i webbappar, token `TokenValidationParameters`baserat på värdet av . Token dekrypteras efter behov, anspråken extraheras och signaturen verifieras. Mellanmaterialet validerar sedan token genom att söka efter dessa data:
+I föregående kodfragment kontrollerar JwtBearer mellan program varan, t. ex. OpenID Connect mellan program i webbappar, token baserat på värdet för `TokenValidationParameters`. Token dekrypteras vid behov, anspråken extraheras och signaturen verifieras. Mellanprogram validerar sedan token genom att söka efter dessa data:
 
-- Målgrupp: Token är avsedd för webb-API: et.
-- Sub: Det har utfärdats för en app som får anropa webb-API: et.
-- Utfärdare: Den utfärdades av en betrodd säkerhetstokentjänst (STS).
-- Utgångsdatum: Dess livslängd är inom räckhåll.
-- Signatur: Det var inte manipuleras.
+- Mål grupp: token är avsedd för webb-API: et.
+- Sub: det har utfärdats för en app som har tillåtelse att anropa webb-API: et.
+- Utfärdare: den har utfärdats av en betrodd säkerhetstokentjänst (STS).
+- Expires: livs längden är i intervallet.
+- Signatur: den har inte manipulerats.
 
-Det kan också finnas speciella valideringar. Det är till exempel möjligt att verifiera att signeringsnycklar, när de är inbäddade i en token, är betrodda och att token inte spelas upp igen. Slutligen kräver vissa protokoll specifika valideringar.
+Det kan också finnas särskilda valideringar. Det är till exempel möjligt att verifiera att signerings nycklar, när de bäddas in i en token, är betrodda och att token inte spelas upp igen. Slutligen kräver vissa protokoll vissa valideringar.
 
-### <a name="validators"></a>Validators
+### <a name="validators"></a>Verifierare
 
-Valideringsstegen fångas in i validerare, som tillhandahålls av [Microsoft IdentityModel-tilläggen för .NET-bibliotek](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) med öppen källkod. Validerarna definieras i bibliotekskällfilen [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
+Validerings stegen samlas in i verifierare, som tillhandahålls av [Microsoft IdentityModel-tilläggen för .net med](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) öppen källkod. Verifierarna definieras i biblioteks käll filen [Microsoft. IdentityModel. tokens/validators. cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
-I den här tabellen beskrivs validerarna:
+I den här tabellen beskrivs verifierarna:
 
-| Validator | Beskrivning |
+| Systemhälsoverifierare | Beskrivning |
 |---------|---------|
-| **Valideraaudience** | Säkerställer att token är för programmet som validerar token för dig. |
-| **ValideraIssuer** | Säkerställer att token har utfärdats av en betrodd STS, vilket innebär att den kommer från någon du litar på. |
-| **ValideraIssuerSigningKey** | Säkerställer att programmet som validerar token litar på nyckeln som användes för att signera token. Det finns ett specialfall där nyckeln är inbäddad i token. Men det här fallet brukar inte uppstå. |
-| **ValideraLivstid** | Säkerställer att token fortfarande är giltig eller redan giltig. Valideraren kontrollerar om tokens livstid ligger i det intervall som anges av **icke före** och upphör **att gälla.** |
-| **Validerasignatur** | Säkerställer att token inte har manipulerats. |
-| **ValideraTokenReplay** | Säkerställer att token inte spelas upp igen. Det finns ett specialfall för vissa engångsprotokoll. |
+| **ValidateAudience** | Säkerställer att token är för programmet som validerar token åt dig. |
+| **ValidateIssuer** | Säkerställer att token utfärdats av en betrodd STS, vilket innebär att det är från någon som du litar på. |
+| **ValidateIssuerSigningKey** | Säkerställer att programmet validerar token-förtroendet för den nyckel som användes för att signera token. Det finns ett särskilt fall där nyckeln är inbäddad i token. Men det här fallet uppstår vanligt vis inte. |
+| **ValidateLifetime** | Säkerställer att token fortfarande är giltig eller redan är giltig. Verifieraren kontrollerar om livs längden för token är inom det intervall som anges av **notBefore** och **upphör att gälla** . |
+| **ValidateSignature** | Säkerställer att token inte har manipulerats. |
+| **ValidateTokenReplay** | Säkerställer att token inte spelas upp. Det finns särskilda fall för vissa Databasmigrering-protokoll. |
 
-Validerarna är associerade med egenskaperna för klassen **TokenValidationParameters.** Egenskaperna initieras från konfigurationen ASP.NET och ASP.NET Core.
+Verifierarna är kopplade till egenskaperna för klassen **TokenValidationParameters** . Egenskaperna initieras från ASP.NET och ASP.NET Core konfiguration.
 
-I de flesta fall behöver du inte ändra parametrarna. Appar som inte är enskilda klienter är undantag. Dessa webbappar accepterar användare från alla organisationer eller från personliga Microsoft-konton. Emittenter i detta fall måste valideras.
+I de flesta fall behöver du inte ändra parametrarna. Appar som inte är enskilda klienter är undantag. Dessa webbappar godkänner användare från vilken organisation som helst eller från personliga Microsoft-konton. Utfärdare i det här fallet måste val IDE ras.
 
-## <a name="token-validation-in-azure-functions"></a>Tokenvalidering i Azure-funktioner
+## <a name="token-validation-in-azure-functions"></a>Verifiering av token i Azure Functions
 
-Du kan också validera inkommande åtkomsttoken i Azure Functions. Du kan hitta exempel på sådan validering i [Microsoft .NET](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)och [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
+Du kan också validera inkommande åtkomsttoken i Azure Functions. Du kan hitta exempel på sådana verifieringar i [Microsoft .net](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)och [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Verifiera scope och approller i koden](scenario-protected-web-api-verification-scope-app-roles.md)
+> [Verifiera omfattningar och app-roller i din kod](scenario-protected-web-api-verification-scope-app-roles.md)

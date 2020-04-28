@@ -1,6 +1,6 @@
 ---
-title: Välj behörigheter för ett visst API
-description: Läs mer om hur behörighetsbegäranden fungerar för klient- och resursprogram för program som du utvecklar
+title: Välj behörigheter för ett angivet API
+description: Lär dig mer om hur behörighets begär Anden fungerar för klient-och resurs program för program som du utvecklar
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: 2735403ff02914213d68db27e2635e7329261f5e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883898"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för ett visst API 
+# <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för ett angivet API 
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
-- Läs mer om hur klientprogram använder [delegerade och programbehörighetsbegäranden för](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) att komma åt resurser.
-- Se steg-för-steg-instruktioner om hur du [konfigurerar ett klientprograms behörighetsbegäranden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- Mer information finns i hur resursprogram [exponerar scope](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) och [programroller](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) för klientprogram, som manifesteras som delegerade respektive programbehörigheter i Azure-portalen. 
+- Läs mer om hur klient program använder [delegerade och begär Anden om program behörighet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) för att få åtkomst till resurser.
+- Se steg-för-steg-instruktioner om hur du [konfigurerar klient programmets behörighets begär Anden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+- För mer djupgående, lär du dig hur resurs program exponerar [scope](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) och [program roller](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) för klient program, som visas som delegerade respektive program behörigheter i Azure Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 

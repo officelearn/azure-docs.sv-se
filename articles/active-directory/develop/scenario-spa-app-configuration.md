@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ensidig app - Microsoft identity platform | Azure
-description: Lär dig hur du skapar ett ensidigt program (appens kodkonfiguration)
+title: Konfigurera en app med en enda sida – Microsoft Identity Platform | Azure
+description: Lär dig hur du skapar ett program med en enda sida (appens kod konfiguration)
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,28 +12,28 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f159105046231ba5fb4e458cdd70d930a411a920
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882343"
 ---
-# <a name="single-page-application-code-configuration"></a>Ensidigt program: Kodkonfiguration
+# <a name="single-page-application-code-configuration"></a>Program med en sida: kod konfiguration
 
-Lär dig hur du konfigurerar koden för ditt ensidiga program (SPA).
+Lär dig hur du konfigurerar koden för en Enkels Ides applikation (SPA).
 
 ## <a name="msal-libraries-that-support-implicit-flow"></a>MSAL-bibliotek som stöder implicit flöde
 
-Microsoft-identitetsplattformen tillhandahåller följande MSAL-bibliotek (Microsoft Authentication Library) som stöder implicit flöde med hjälp av branschberekommendationerade säkerhetsrutiner:
+Microsoft Identity Platform tillhandahåller följande bibliotek för Microsoft Authentication Library (MSAL) för att stödja implicit flöde med hjälp av bransch rekommenderade säkerhets metoder:
 
 | MSAL-bibliotek | Beskrivning |
 |--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Vanligt JavaScript-bibliotek för användning i alla webbappar på klientsidan som är inbyggda via JavaScript- eller SPA-ramverk som Angular, Vue.js och React.js. |
-| ![MSAL Vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL Vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslag till msal.js-biblioteket för att förenkla användningen i ensidiga appar som är byggda via vinkelramverket. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue. js och reagerar. js. |
+| ![MSAL-vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL-vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslutning av kärnan MSAL. js-biblioteket för att förenkla användningen av appar på en sida som är byggda genom ram-ramverket. |
 
-## <a name="application-code-configuration"></a>Konfiguration av programkod
+## <a name="application-code-configuration"></a>Program kod konfiguration
 
-I ett MSAL-bibliotek skickas programregistreringsinformationen som konfiguration under bibliotekets initiering.
+I ett MSAL-bibliotek skickas programmets registrerings information som konfiguration under biblioteks initieringen.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -50,7 +50,7 @@ const config = {
 const userAgentApplication = new UserAgentApplication(config);
 ```
 
-Mer information om de konfigurerbara alternativen finns i [Initiera program med MSAL.js](msal-js-initializing-client-applications.md).
+Mer information om konfigurerbara alternativ finns i avsnittet [om att initiera program med MSAL. js](msal-js-initializing-client-applications.md).
 
 # <a name="angular"></a>[Angular](#tab/angular)
 

@@ -1,7 +1,7 @@
 ---
-title: Definiera en teknisk profil för telefonfaktor i en anpassad princip
+title: Definiera en telefon faktors tekniska profil i en anpassad princip
 titleSuffix: Azure AD B2C
-description: Definiera en teknisk profil för telefonfaktor i en anpassad princip i Azure Active Directory B2C.
+description: Definiera en telefon faktors tekniska profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,29 +12,29 @@ ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437451"
 ---
-# <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för telefonfaktor i en anpassad Azure Active Directory B2C-princip
+# <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för telefon faktor i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) ger stöd för registrering och verifiering av telefonnummer. Denna tekniska profil:
+Azure Active Directory B2C (Azure AD B2C) ger stöd för registrering och verifiering av telefonnummer. Den här tekniska profilen:
 
-- Tillhandahåller ett användargränssnitt för att interagera med användaren för att verifiera eller registrera ett telefonnummer.
-- Stöder telefonsamtal och textmeddelanden för att validera telefonnumret.
-- Stöder flera telefonnummer. Användaren kan välja ett av de telefonnummer som ska verifieras.  
-- Returnerar ett anspråk som anger om användaren har angett ett nytt telefonnummer. Du kan använda det här anspråket för att avgöra om telefonnumret ska sparas i Azure AD B2C-användarprofilen.  
-- Använder en [innehållsdefinition](contentdefinitions.md) för att styra utseendet och känslan.
+- Tillhandahåller ett användar gränssnitt för att interagera med användaren för att verifiera eller registrera ett telefonnummer.
+- Stöder telefonsamtal och textmeddelanden för att verifiera telefonnumret.
+- Har stöd för flera telefonnummer. Användaren kan välja ett av de telefonnummer som ska verifieras.  
+- Returnerar ett anspråk som anger om användaren angav ett nytt telefonnummer. Du kan använda detta anspråk för att bestämma om telefonnumret ska bevaras till den Azure AD B2C användar profilen.  
+- Använder en [innehålls definition](contentdefinitions.md) för att kontrol lera utseendet och känslan.
 
 ## <a name="protocol"></a>Protokoll
 
-**Attributet Name** för **protokollelementet** måste `Proprietary`anges till . **Hantattributet** måste innehålla det fullständigt kvalificerade namnet på protokollhanterarsammansättningen som används av Azure AD B2C för telefonfaktor:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C för telefon faktor:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-I följande exempel visas en teknisk profil för telefonfaktor för registrering och validering:
+I följande exempel visas en teknisk profil för telefon faktorer för registrering och validering:
 
 ```XML
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
@@ -43,9 +43,9 @@ I följande exempel visas en teknisk profil för telefonfaktor för registrering
 </TechnicalProfile>
 ```
 
-## <a name="input-claims-transformations"></a>Omvandling av indataanspråk
+## <a name="input-claims-transformations"></a>Transformeringar av inmatade anspråk
 
-Elementet InputClaimsTransformations kan innehålla en samling indataanspråksomvandlingar som används för att ändra indataanspråken eller generera nya. Följande omvandling av indataanspråk genererar ett `UserId` anspråk som används senare i insamlingen av indataanspråk.
+InputClaimsTransformations-elementet kan innehålla en samling med inloggade anspråks omvandlingar som används för att ändra inaktuella anspråk eller skapa nya. Följande omvandling av inloggade anspråk `UserId` genererar ett anspråk som används senare i insamlingen av inloggade anspråk.
 
 ```xml
 <InputClaimsTransformations>
@@ -53,16 +53,16 @@ Elementet InputClaimsTransformations kan innehålla en samling indataanspråksom
 </InputClaimsTransformations>
 ```
 
-## <a name="input-claims"></a>Ingående anspråk
+## <a name="input-claims"></a>Inmatade anspråk
 
-Elementet InputClaims måste innehålla följande anspråk. Du kan också mappa namnet på ditt anspråk till namnet som definieras i den tekniska profilen för telefonfaktorn. 
+InputClaims-elementet måste innehålla följande anspråk. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för telefon faktorn. 
 
 |  Datatyp| Krävs | Beskrivning |
 | --------- | -------- | ----------- | 
-| sträng| Ja | En unik identifierare för användaren. Anspråksnamnet eller PartnerClaimType måste `UserId`anges till . Detta påstående bör inte innehålla personlig identifierbar information.|
-| sträng| Ja | Lista över anspråkstyper. Varje anspråk innehåller ett telefonnummer. Om något av indataanspråken inte innehåller något telefonnummer uppmanas användaren att registrera sig och verifiera ett nytt telefonnummer. Det validerade telefonnumret returneras som ett utdataanspråk. Om ett av indataanspråken innehåller ett telefonnummer uppmanas användaren att verifiera det. Om flera inmatningsanspråk innehåller ett telefonnummer uppmanas användaren att välja och verifiera ett av telefonnumren. |
+| sträng| Ja | En unik identifierare för användaren. Anspråks namnet eller PartnerClaimType måste anges till `UserId`. Detta anspråk bör inte innehålla personlig identifierbar information.|
+| sträng| Ja | Lista över anspråks typer. Varje anspråk innehåller ett telefonnummer. Om något av de angivna anspråken inte innehåller ett telefonnummer, uppmanas användaren att registrera sig och verifiera ett nytt telefonnummer. Det verifierade telefonnumret returneras som ett utgående anspråk. Om något av de angivna anspråken innehåller ett telefonnummer, uppmanas användaren att verifiera det. Om flera indata-anspråk innehåller ett telefonnummer, uppmanas användaren att välja och verifiera ett av telefonnumren. |
 
-I följande exempel visas användning av flera telefonnummer. Mer information finns i [exempelprincip](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
+I följande exempel visas hur du använder flera telefonnummer. Mer information finns i [exempel princip](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
 ```XML
 <InputClaims>
@@ -72,35 +72,35 @@ I följande exempel visas användning av flera telefonnummer. Mer information fi
 </InputClaims>
 ```
 
-## <a name="output-claims"></a>Utgående fordringar
+## <a name="output-claims"></a>Utgående anspråk
 
-OutputClaims-elementet innehåller en lista över anspråk som returneras av den tekniska profilen för telefonfaktorn.
+OutputClaims-elementet innehåller en lista över anspråk som returneras av den tekniska profilen för telefon faktorn.
 
 |  Datatyp| Krävs | Beskrivning |
 |  -------- | ----------- |----------- |
-| boolean | Ja | Anger om det nya telefonnumret har angetts av användaren. Anspråksnamnet eller PartnerClaimType måste ställas in på`newPhoneNumberEntered`|
-| sträng| Ja | Det verifierade telefonnumret. Anspråksnamnet eller PartnerClaimType måste `Verified.OfficePhone`anges till .|
+| boolean | Ja | Anger om det nya telefonnumret har angetts av användaren. Anspråks namnet eller PartnerClaimType måste anges till`newPhoneNumberEntered`|
+| sträng| Ja | Det verifierade telefonnumret. Anspråks namnet eller PartnerClaimType måste anges till `Verified.OfficePhone`.|
 
-Elementet OutputClaimsTransformations kan innehålla en samling OutputClaimsTransformation-element som används för att ändra utdataanspråken eller generera nya.
+OutputClaimsTransformations-elementet kan innehålla en samling av OutputClaimsTransformation-element som används för att ändra de utgående anspråken eller skapa nya.
 
-## <a name="cryptographic-keys"></a>Krypteringsnycklar
+## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
-Elementet **CryptographicKeys** används inte.
+**CryptographicKeys** -elementet används inte.
 
 
 ## <a name="metadata"></a>Metadata
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| InnehållDefinitionReferenceId | Ja | Identifieraren för [innehållsdefinitionen som](contentdefinitions.md) är associerad med den här tekniska profilen. |
-| ManuellPhoneNumberEntryTilllämt| Inga | Ange om en användare får ange ett telefonnummer manuellt eller inte. Möjliga värden: `true` `false` , eller (standard).|
-| setting.authenticationMode | Inga | Metoden för att validera telefonnumret. Möjliga `sms`värden: `phone`, `mixed` , eller (standard).|
-| setting.autodial| Inga| Ange om den tekniska profilen ska ringa upp automatiskt eller skicka ett SMS automatiskt. Möjliga värden: `true` `false` , eller (standard). Automatisk uppringning kräver `setting.authenticationMode` `sms`att `phone`metadata ställs in på , eller . Insamlingen av indataanspråk måste ha ett enda telefonnummer. |
+| ContentDefinitionReferenceId | Ja | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med den här tekniska profilen. |
+| ManualPhoneNumberEntryAllowed| Inga | Ange om en användare får ange ett telefonnummer manuellt. Möjliga värden: `true`, eller `false` (standard).|
+| anger. authenticationMode | Inga | Metoden för att verifiera telefonnumret. Möjliga värden: `sms`, `phone`eller `mixed` (standard).|
+| anger. AutoDial| Inga| Ange om den tekniska profilen ska Ring upp automatiskt eller automatiskt skicka ett SMS. Möjliga värden: `true`, eller `false` (standard). Automatisk uppringning kräver att `setting.authenticationMode` metadata anges till `sms`eller `phone`. Insamlings anspråket måste ha ett enda telefonnummer. |
 
 ### <a name="ui-elements"></a>Element för användargränssnitt
 
-Användargränssnittselement för användargränssnittet för telefonfaktorautentisering kan [lokaliseras](localization-string-ids.md#azure-mfa-error-messages).
+Användar gränssnitts elementen på sidan med telefon faktorns autentisering kan [lokaliseras](localization-string-ids.md#azure-mfa-error-messages).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kontrollera [sociala och lokala konton med MFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) starter pack.
+- Kontrol lera [sociala och lokala konton med MFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) start paket.

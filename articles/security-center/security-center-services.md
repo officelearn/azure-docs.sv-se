@@ -1,5 +1,5 @@
 ---
-title: Funktioner som stöds i Azure Security Center | Microsoft-dokument
+title: Tillgängliga funktioner som stöds i Azure Security Center | Microsoft Docs
 description: Det här dokumentet innehåller en lista över tjänster som stöds av Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -14,107 +14,107 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245244"
 ---
-# <a name="feature-coverage-for-machines"></a>Funktionstäckning för maskiner
+# <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
-Tabellerna nedan visar Azure Security Center-funktioner som är tillgängliga för virtuella datorer och servrar.
+Tabellerna nedan visar Azure Security Center funktioner som är tillgängliga för virtuella datorer och servrar.
 
 ## <a name="supported-features-for-virtual-machines-and-servers"></a>Funktioner som stöds för virtuella datorer och servrar<a name="vm-server-features"></a>
 
-### <a name="windows-machines"></a>[Windows-maskiner](#tab/features-windows)
+### <a name="windows-machines"></a>[Windows-datorer](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|**Funktion**|**Virtuella Azure-datorer**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure**|**Prissättning**
-|[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔</br>(på versioner som stöds)|✔</br>(på versioner som stöds)|✔|Standard|
-|[Beteendeanalys för virtuella datorer (och säkerhetsvarningar)](threat-protection.md)|✔|✔|✔|Rekommendationer (Gratis) </br></br> Säkerhetsvarningar (standard)|
-|[Fillösa säkerhetsvarningar](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Nätverksbaserade säkerhetsvarningar](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Åtkomst till just-in-time-datorer](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Inbygg sårbarhetsbedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
-|[Övervakning av filintegritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|**Funktion**|**Azure-Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
+|[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Standard|
+|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](threat-protection.md)|✔|✔|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
+|[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
-|[Nätverkskarta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Adaptiv nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Anpassningsbara nätverkskontroller|✔|✔|-|Standard|
-|[Instrumentpanel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Rekommendationer och hotskydd på Docker-värd IaaS behållare|-|-|-|Standard|
-|Bedömning av os-patchar saknas|✔|✔|✔|Kostnadsfri|
-|Bedömning av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
-|[Bedömning av skydd av slutpunkt](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Kostnadsfri|
-|Bedömning av diskkryptering|✔|✔|-|Kostnadsfri|
-|Sårbarhetsbedömning från tredje part|✔|-|-|Kostnadsfri|
-|[Bedömning av nätverkssäkerhet](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
+|[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
+|[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|-|-|-|Standard|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Kostnadsfri|
+|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
 
-### <a name="linux-machines"></a>[Linux-maskiner](#tab/features-linux)
+### <a name="linux-machines"></a>[Linux-datorer](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|**Funktion**|**Virtuella Azure-datorer**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure**|**Prissättning**
+|**Funktion**|**Azure-Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Standard|
-|[Beteendeanalys för virtuella datorer (och säkerhetsvarningar)](security-center-alerts-iaas.md)|✔</br>(på versioner som stöds)|✔</br>(på versioner som stöds)|✔|Rekommendationer (Gratis) </br></br> Säkerhetsvarningar (standard)|
-|[Fillösa säkerhetsvarningar](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Nätverksbaserade säkerhetsvarningar](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Åtkomst till just-in-time-datorer](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Inbygg sårbarhetsbedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
-|[Övervakning av filintegritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
+|[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
-|[Nätverkskarta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Adaptiv nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Anpassningsbara nätverkskontroller|✔|✔|-|Standard|
-|[Instrumentpanel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Rekommendationer och hotskydd på Docker-värd IaaS behållare|✔|✔|✔|Standard|
-|Bedömning av os-patchar saknas|✔|✔|✔|Kostnadsfri|
-|Bedömning av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
-|[Bedömning av skydd av slutpunkt](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
-|Bedömning av diskkryptering|✔|✔|-|Kostnadsfri|
-|Sårbarhetsbedömning från tredje part|✔|-|-|Kostnadsfri|
-|[Bedömning av nätverkssäkerhet](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
+|[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
+|[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Standard|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
+|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
 --- 
 
 
 > [!TIP]
->Om du vill experimentera med funktioner som bara är tillgängliga på standardprisnivån kan användare på den kostnadsfria nivån registrera sig i en 30-dagars utvärderingsversion. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
+>För att experimentera med funktioner som bara är tillgängliga på standard pris nivån kan användare på den kostnads fria nivån registreras i en 30-dagars utvärderings version. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-## <a name="supported-endpoint-protection-solutions"></a>Lösningar för slutpunktsskydd som stöds<a name="endpoint-supported"></a>
+## <a name="supported-endpoint-protection-solutions"></a>Slut punkts skydds lösningar som stöds<a name="endpoint-supported"></a>
 
 Följande tabell innehåller en matris med:
 
  - Om du kan använda Azure Security Center för att installera varje lösning åt dig.
- - Vilka slutpunktsskyddslösningar Security Center kan identifiera. Om en slutpunktsskyddslösning från den här listan identifieras rekommenderar Security Center inte att installera en.
+ - Vilka lösningar för slut punkts skydd Security Center kan identifiera. Om en Endpoint Protection-lösning från den här listan identifieras rekommenderar Security Center inte att installera en.
 
-Information om när rekommendationer genereras för vart och ett av dessa skydd finns i [Bedömning och rekommendationer för slutpunktsskydd](security-center-endpoint-protection.md).
+Information om när rekommendationer genereras för vart och ett av dessa skydd finns i [Endpoint Protection utvärdering och rekommendationer](security-center-endpoint-protection.md).
 
 | Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – Alla versioner* | Windows Server-familjen  | Inga | Ja |
+| Trend Micro – alla versioner * | Windows Server-familjen  | Inga | Ja |
 | Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
 | McAfee v10 + | Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Linux Server Familj  | Inga | Ja**\*** |
-| Sophos V9+| Linux Server Familj  | Inga | Ja**\***  |
+| McAfee v10 + | Linux Server-serien  | Inga | Ja**\*** |
+| Sophos v9 +| Linux Server-serien  | Inga | Ja**\***  |
 
- **\*** Täckningstillståndet och stöddata är för närvarande endast tillgängliga på arbetsytan Log Analytics som är associerad med dina skyddade prenumerationer. Det återspeglas inte i Azure Security Center-portalen.
+ **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 
 > [!NOTE]
-> - Identifiering av SCEP (System Center Endpoint Protection) på en virtuell Windows Server 2008 R2-dator kräver att SCEP installeras efter PowerShell 3.0 (eller en övre version).
-> - Detektion av Trend Micro-skydd stöds för Deep Security-agenter.  OfficeScan-agenter stöds inte.
+> - Identifiering av System Center Endpoint Protection (SCEP) på en virtuell dator med Windows Server 2008 R2 kräver SCEP för att installeras efter PowerShell 3,0 (eller en övre version).
+> - Identifiering av Trend Micro Protection stöds för djup säkerhets agenter.  OfficeScan-agenter stöds inte.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om hur [Security Center samlar in data och Log Analytics Agent](security-center-enable-data-collection.md).
-- Läs om hur [Security Center hanterar och skyddar data](security-center-data-security.md).
-- Lär dig hur du [planerar och förstår designövervägandena om att anta Azure Security Center](security-center-planning-and-operations-guide.md).
-- Granska [de plattformar som stöder säkerhetscenter](security-center-os-coverage.md).
-- Läs mer om [hotskydd för Windows- och Linux-datorer i Azure Security Center](threat-protection.md#windows-machines).
-- Hitta [vanliga frågor och svar om Azure Security Center](faq-general.md).
+- Lär dig hur [Security Center samlar in data och Log Analytics agenten](security-center-enable-data-collection.md).
+- Lär dig hur [Security Center hanterar och skyddar data](security-center-data-security.md).
+- Lär dig att [planera och förstå design överväganden för att anta Azure Security Center](security-center-planning-and-operations-guide.md).
+- Granska de [plattformar som har stöd för Security Center](security-center-os-coverage.md).
+- Läs mer om [skydd mot hot för Windows-och Linux-datorer i Azure Security Center](threat-protection.md#windows-machines).
+- Hitta [vanliga frågor om Azure Security Center](faq-general.md).

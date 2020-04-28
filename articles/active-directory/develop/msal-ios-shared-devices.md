@@ -1,7 +1,7 @@
 ---
-title: Delat enhetsläge för iOS-enheter
+title: Läge för delad enhet för iOS-enheter
 titleSuffix: Microsoft identity platform | Azure
-description: Lär dig hur du aktiverar delat enhetsläge så att Firstline-arbetare kan dela en iOS-enhet
+description: Lär dig hur du aktiverar delad enhets läge så att firstline arbetare kan dela en iOS-enhet
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -14,85 +14,85 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550258"
 ---
-# <a name="shared-device-mode-for-ios-devices"></a>Delat enhetsläge för iOS-enheter
+# <a name="shared-device-mode-for-ios-devices"></a>Läge för delad enhet för iOS-enheter
 
 > [!NOTE]
 > Den här funktionen är en allmänt tillgänglig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Firstline Workers som butiksmedarbetare, flygbesättningsmedlemmar och fältservicearbetare använder ofta en delad mobil enhet för att utföra sitt arbete. Dessa delade enheter kan medföra säkerhetsrisker om användarna delar sina lösenord eller PIN-koder, avsiktligt eller inte, för att komma åt kund- och affärsdata på den delade enheten.
+Firstline-anställda som detalj handels företag, flyg besättnings medlemmar och fält tjänst arbetare använder ofta en delad mobil enhet för att utföra sitt arbete. Dessa delade enheter kan utgöra en säkerhets risk om användarna delar sina lösen ord eller PIN-filer, avsiktligt eller inte, för att komma åt kund-och affärs data på den delade enheten.
 
-Med läget delad enhet kan du konfigurera en iOS 13 eller högre enhet så att den kan delas enklare och säkrare av anställda. Medarbetare kan logga in och komma åt kundinformation snabbt. När de är klara med skiftet eller uppgiften kan de logga ut från enheten och den är omedelbart klar att användas av nästa medarbetare.
+Med delad enhets läge kan du konfigurera en iOS 13-enhet eller en högre enhet så att den blir enklare och på ett säkert sätt delas av anställda. Anställda kan snabbt logga in och komma åt kund information. När de är klara med Skift eller uppgift kan de logga ut från enheten och den är omedelbart redo att användas av nästa anställd.
 
-Läget delad enhet ger också Microsoft-identitetsbaserad hantering av enheten.
+Delad enhets läge tillhandahåller även Microsoft Identity-baserad hantering av enheten.
 
-Den här funktionen använder [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md) för att hantera användarna på enheten och för att distribuera [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md).
+Den här funktionen använder [appen Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) för att hantera användare på enheten och distribuera [Microsoft SSO-plugin-programmet för Microsoft Enterprise för Apple-enheter](apple-sso-plugin.md).
 
-## <a name="create-a-shared-device-mode-app"></a>Skapa en app för delat enhetsläge
+## <a name="create-a-shared-device-mode-app"></a>Skapa en app för delad enhets läge
 
-Så här skapar du en app för delat enhetsläge, utvecklare och administratörer för molnenheter:
+För att skapa en app för delad enhets läge fungerar utvecklare och moln enhets administratörer tillsammans:
 
-1. **Programutvecklare** skriver en app med ett konto (appar med flera konton stöds inte i delat enhetsläge) och skriver kod för att hantera saker som ut logga ut på delad enhet.
+1. **Programutvecklare** skriver en app med ett enda konto (appar med flera konton stöds inte i läget för delad enhet) och skriver kod för att hantera saker som delade enhets utloggning.
 
-1. **Enhetsadministratörer** förbereder enheten så att den delas med hjälp av en MDM-leverantör (Mobile Device Management) som Microsoft Intune för att hantera enheterna i organisationen. MDM skickar Microsoft Authenticator-appen till enheterna och aktiverar "Delat läge" för varje enhet via en profiluppdatering till enheten. Den här inställningen för delat läge är vad som ändrar beteendet för de appar som stöds på enheten. Den här konfigurationen från MDM-providern anger läget för den delade enheten för enheten och aktiverar [Plugin-programmet Microsoft Enterprise SSO för Apple-enheter](apple-sso-plugin.md) som krävs för läget för delade enheter.
+1. **Enhets administratörer** förbereder enheten för delning med hjälp av en MDM-Provider (Mobile Device Management) som Microsoft Intune för att hantera enheterna i organisationen. MDM push-överför Microsoft Authenticator-appen till enheterna och aktiverar "delat läge" för varje enhet genom en profil uppdatering till enheten. Den här inställningen för delat läge är det som ändrar beteendet för de appar som stöds på enheten. Den här konfigurationen från MDM-providern anger delad enhets läge för enheten och aktiverar [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) som krävs för delad enhets läge.
 
-1. [Krävs**endast under offentlig förhandsversion]** En användare med rollen [Cloud Device Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) måste sedan starta Microsoft [Authenticator-appen](../user-help/user-help-auth-app-overview.md) och ansluta till sin enhet till organisationen.
+1. [**Krävs endast under offentlig för hands version**] En användare med rollen som [moln enhets administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) måste sedan starta [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md) och ansluta sin enhet till organisationen.
 
-    Så här konfigurerar du medlemskap i dina organisationsroller i Azure-portalen: **Azure Active Directory** > **Roles och Administratörer** > **Cloud Device Administrator**
+    Konfigurera medlemskap för organisations roller i Azure Portal: **Azure Active Directory** > **roller och administratörer** > **moln enhets administratör**
 
-Följande avsnitt hjälper dig att uppdatera programmet så att det stöder läget för delade enheter.
+Följande avsnitt hjälper dig att uppdatera programmet så att det stöder delat enhets läge.
 
-## <a name="use-intune-to-enable-shared-device-mode--sso-extension"></a>Använda Intune för att aktivera delat enhetsläge & SSO-tillägg
+## <a name="use-intune-to-enable-shared-device-mode--sso-extension"></a>Använd Intune för att aktivera delat enhets läge & SSO-tillägg
 
 > [!NOTE]
-> Följande steg krävs endast under offentlig förhandsversion.
+> Följande steg krävs endast under den offentliga för hands versionen.
 
-Enheten måste konfigureras för att stödja läget för delade enheter. Det måste ha iOS 13 + installerat och vara MDM-inskrivna. MDM-konfiguration måste också aktivera [Microsoft Enterprise SSO-plugin-program för Apple-enheter](apple-sso-plugin.md). Mer information om SSO-tillägg finns i [Apple-videon](https://developer.apple.com/videos/play/tech-talks/301/).
+Enheten måste konfigureras för att stödja delat enhets läge. Den måste ha iOS 13 + installerat och vara MDM-registrerad. MDM-konfigurationen måste också aktivera [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md). Mer information om SSO-tillägg finns i [Apple-videon](https://developer.apple.com/videos/play/tech-talks/301/).
 
-1. I Intune Configuration Portal ber du enheten att aktivera [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) med följande konfiguration:
+1. I konfigurations portalen för Intune ber du enheten att aktivera [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) med följande konfiguration:
 
-    - **Typ**: Omdirigering
-    - **Tilläggs-ID**: com.microsoft.azureauthenticator.ssoextension
+    - **Typ**: omdirigera
+    - **Tilläggs-ID**: com. Microsoft. azureauthenticator. ssoextension
     - **Team-ID**: SGGM6D27TK
-    - **Webbadresser:**https://login.microsoftonline.com
-    - Ytterligare data för att konfigurera:
+    - **URL: er**:https://login.microsoftonline.com
+    - Ytterligare data att konfigurera:
       - Nyckel: sharedDeviceMode
-      - Typ: Boolean
-      - Värde: Sant
+      - Typ: boolesk
+      - Värde: true
 
-    Mer information om hur du konfigurerar med Intune finns i dokumentationen till [Intune-konfigurationen](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+    Mer information om hur du konfigurerar med Intune finns i [dokumentation om Intune-konfiguration](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
 
-1. Konfigurera sedan DIN MDM så att den skickar Microsoft Authenticator-appen till enheten via en MDM-profil.
+1. Konfigurera sedan MDM för att skicka Microsoft Authenticator-appen till enheten via en MDM-profil.
 
-    Ange följande konfigurationsalternativ för att aktivera läget Delad enhet:
+    Ange följande konfigurations alternativ för att aktivera delad enhets läge:
 
     - Konfiguration 1:
       - Nyckel: sharedDeviceMode
-      - Typ: Boolean
-      - Värde: Sant
+      - Typ: boolesk
+      - Värde: true
 
-## <a name="modify-your-ios-application-to-support-shared-device-mode"></a>Ändra ditt iOS-program för att stödja delat enhetsläge
+## <a name="modify-your-ios-application-to-support-shared-device-mode"></a>Ändra iOS-programmet så att det stöder delad enhets läge
 
-Användarna är beroende av att du ser till att deras data inte läcker ut till en annan användare. Följande avsnitt innehåller användbara signaler som visar ditt program att en ändring har skett och bör hanteras.
+Användarna är beroende av att deras data inte läcker till en annan användare. Följande avsnitt innehåller användbara signaler för att ange för programmet att en ändring har skett och bör hanteras.
 
-Du är ansvarig för att kontrollera användarens tillstånd på enheten varje gång appen används och sedan rensa den tidigare användarens data. Detta inkluderar om den laddas om från bakgrunden i multi-tasking.
+Du ansvarar för att kontrol lera status för användaren på enheten varje gång appen används och sedan rensa den tidigare användarens data. Detta inkluderar om det läses in på nytt från bakgrunden vid multi-tasking.
 
-Vid en användarändring bör du se till att både den föregående användarens data rensas och att alla cachelagrade data som visas i ditt program tas bort. Vi rekommenderar starkt att du och ditt företag genomför en säkerhetsgranskningsprocess efter att du har uppdaterat appen för att stödja läget för delade enheter.
+Om en användare ändras bör du se till att både den tidigare användarens data är avmarkerad och att alla cachelagrade data som visas i programmet tas bort. Vi rekommenderar starkt att du och ditt företag genomför en säkerhets gransknings process när du har uppdaterat din app för att stödja delat enhets läge.
 
-### <a name="detect-shared-device-mode"></a>Identifiera läget för delade enheter
+### <a name="detect-shared-device-mode"></a>Identifiera delad enhets läge
 
-Det är viktigt för ditt program att identifiera läget för delade enheter. Många program kräver en ändring av användarupplevelsen (UX) när programmet används på en delad enhet. Ditt program kan till exempel ha en "Anmälningsfunktion", vilket inte är lämpligt för en Firstline Worker eftersom de sannolikt redan har ett konto. Du kanske också vill lägga till extra säkerhet i programmets hantering av data om det är i delat enhetsläge.
+Att identifiera delad enhets läge är viktigt för ditt program. Många program kräver en ändring i användar upplevelsen (UX) när programmet används på en delad enhet. Ditt program kan till exempel ha en "registrerings funktion" som inte passar för en firstline Worker eftersom de förmodligen redan har ett konto. Du kanske också vill lägga till extra säkerhet för programmets hantering av data om det är i delat enhets läge.
 
-Använd `getDeviceInformationWithParameters:completionBlock:` API:et `MSALPublicClientApplication` för att avgöra om en app körs på en enhet i delat enhetsläge.
+Använd `getDeviceInformationWithParameters:completionBlock:` API: et i `MSALPublicClientApplication` för att avgöra om en app körs på en enhet i delat enhets läge.
 
-Följande kodavsnitt visar exempel på hur `getDeviceInformationWithParameters:completionBlock:` du använder API:et.
+Följande kodfragment visar exempel på hur du `getDeviceInformationWithParameters:completionBlock:` använder API: et.
 
 #### <a name="swift"></a>Swift
 
@@ -126,9 +126,9 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 
 ### <a name="get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device"></a>Hämta den inloggade användaren och ta reda på om en användare har ändrats på enheten
 
-En annan viktig del av att stödja läget för delade enheter är att bestämma användarens tillstånd på enheten och rensa programdata om en användare har ändrats eller om det inte finns någon användare alls på enheten. Du är ansvarig för att se till att data inte läcker ut till en annan användare.
+En annan viktig del av stödda delade enhets lägen är att bestämma status för användaren på enheten och rensa program data om en användare har ändrats eller om det inte finns någon användare på enheten. Du ansvarar för att säkerställa att data inte läcker till en annan användare.
 
-Du kan `getCurrentAccountWithParameters:completionBlock:` använda API för att fråga det inloggade kontot på enheten.
+Du kan använda `getCurrentAccountWithParameters:completionBlock:` API för att fråga det aktuella inloggade kontot på enheten.
 
 #### <a name="swift"></a>Swift
 
@@ -159,7 +159,7 @@ parameters.completionBlockQueue = dispatch_get_main_queue();
 
 ### <a name="globally-sign-in-a-user"></a>Logga in en användare globalt
 
-När en enhet konfigureras som en delad enhet `acquireTokenWithParameters:completionBlock:` kan programmet anropa API:et för att logga in på kontot. Kontot är tillgängligt globalt för alla kvalificerade appar på enheten efter att den första appen har loggat in på kontot.
+När en enhet har kon figurer ATS som en delad enhet kan ditt program anropa `acquireTokenWithParameters:completionBlock:` API: et för att logga in på kontot. Kontot är tillgängligt globalt för alla berättigade appar på enheten när den första appen loggar in på kontot.
 
 #### <a name="objective-c"></a>Objective-C
 
@@ -173,14 +173,14 @@ parameters.loginHint = self.loginHintTextField.text;
 
 ### <a name="globally-sign-out-a-user"></a>Logga ut en användare globalt
 
-Följande kod tar bort det inloggade kontot och rensar cachelagrade token från inte bara appen utan även från enheten som är i läget för den delade enheten. Det rensar dock inte *data* från din ansökan. Du måste rensa data från ditt program, samt rensa alla cachelagrade data som ditt program kan visa för användaren.
+Följande kod tar bort det inloggade kontot och rensar cachelagrade token från inte bara appen, utan även från den enhet som är i läget för delad enhet. Det innebär dock inte att *data* rensas från ditt program. Du måste ta bort data från ditt program och rensa alla cachelagrade data som programmet kan visa för användaren.
 
-#### <a name="clear-browser-state"></a>Rensa webbläsartillstånd
+#### <a name="clear-browser-state"></a>Rensa webb läsar status
 
 > [!NOTE]
-> Följande steg krävs endast under offentlig förhandsversion.
+> Följande steg krävs endast under den offentliga för hands versionen.
 
-I den här offentliga förhandsversionen rensar [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) tillstånd endast för program. Det är inte klart tillstånd på Webbläsaren Safari. Vi rekommenderar att du manuellt rensar webbläsarsessionen för att säkerställa att inga spår av användartillstånd lämnas kvar. Du kan använda `signoutFromBrowser` den valfria egenskapen som visas nedan för att rensa eventuella cookies. Detta gör att webbläsaren en kortstart på enheten.
+I den här offentliga för hands versionen rensar [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) endast tillstånd för program. Det tar inte bort status i Safari-webbläsaren. Vi rekommenderar att du rensar webbläsarsessionen manuellt för att se till att inga spår av användar status är kvar bakom. Du kan använda valfri `signoutFromBrowser` egenskap som visas nedan för att rensa eventuella cookies. Detta leder till att webbläsaren startar på enheten kort.
 
 #### <a name="swift"></a>Swift
 
@@ -223,6 +223,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se läget för delad enhet i praktiken innehåller följande kodexempel på GitHub ett exempel på hur du kör en Firstline Worker-app på en iOS-enhet i delat enhetsläge:
+Följande kod exempel på GitHub innehåller ett exempel på att köra en firstline Worker-app på en iOS-enhet i läget delad enhet för att se läget delad enhet:
 
 [MSAL iOS Swift Microsoft Graph API-exempel](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)

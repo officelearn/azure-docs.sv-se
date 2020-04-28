@@ -1,7 +1,7 @@
 ---
-title: Kundpåståenden (MSAL.NET) | Azure
+title: Klientens försäkrar (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om stöd för signerade klientpåståenden för konfidentiella klientprogram i Microsoft Authentication Library for .NET (MSAL.NET).
+description: Läs om stöd för signerade klienter för konfidentiella klient program i Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,32 +14,32 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050296"
 ---
-# <a name="confidential-client-assertions"></a>Konfidentiella klientpåståenden
+# <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
 
-För att bevisa sin identitet utbyter konfidentiella klientprogram en hemlighet med Azure AD. Hemligheten kan vara:
-- En klienthemlighet (programlösenord).
-- Ett certifikat som används för att skapa ett signerat påstående som innehåller standardanspråk.
+För att bevisa sin identitet utbyter konfidentiella klient program en hemlighet med Azure AD. Hemligheten kan vara:
+- En klient hemlighet (program lösen ord).
+- Ett certifikat som används för att bygga en signerad försäkran som innehåller standard anspråk.
 
-Denna hemlighet kan också vara ett undertecknat påstående direkt.
+Den här hemligheten kan också vara en signerad kontroll direkt.
 
-MSAL.NET har fyra metoder för att ange autentiseringsuppgifter eller påståenden till den konfidentiella klientappen:
+MSAL.NET har fyra metoder för att ange autentiseringsuppgifter eller intyg för den konfidentiella klient appen:
 - `.WithClientSecret()`
 - `.WithCertificate()`
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 > [!NOTE]
-> Även om det är `WithClientAssertion()` möjligt att använda API för att hämta token för den konfidentiella klienten, rekommenderar vi inte att du använder det som standard eftersom det är mer avancerat och är utformat för att hantera mycket specifika scenarier som inte är vanliga. Om `.WithCertificate()` du använder API:et kan MSAL.NET hantera detta åt dig. Med det här api:et kan du anpassa din `.WithCertificate()` autentiseringsbegäran om det behövs, men standardpåståendet som skapas av räcker för de flesta autentiseringsscenarier. Det här API:et kan också användas som en lösning i vissa scenarier där MSAL.NET misslyckas med att utföra signeringsåtgärden internt.
+> Även om det är möjligt att använda `WithClientAssertion()` API: et för att hämta tokens för den konfidentiella klienten rekommenderar vi inte att du använder den som standard eftersom den är mer avancerad och har utformats för att hantera mycket olika scenarier som inte är vanliga. Med hjälp `.WithCertificate()` av API: et kan MSAL.net hantera detta åt dig. Med det här API: et kan du anpassa din autentiseringsbegäran om det behövs, men den standard kontroll som `.WithCertificate()` skapas av är tillräckligt för de flesta autentiserings scenarier. Detta API kan också användas som en lösning i vissa scenarier där MSAL.NET inte kan utföra signerings åtgärden internt.
 
-### <a name="signed-assertions"></a>Signerade påståenden
+### <a name="signed-assertions"></a>Signerade kontroller
 
-Ett signerat klientpåstående har formen av en signerad JWT med nyttolasten som innehåller de autentiseringsanspråk som krävs på uppdrag av Azure AD, Base64-kodade. Så här använder du den:
+En signerad klient kontroll tar formen av en signerad JWT med nytto lasten som innehåller de autentiseringsuppgifter som krävs av Azure AD, Base64-kodat. Så här använder du den:
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -52,14 +52,14 @@ De anspråk som förväntas av Azure AD är:
 
 Anspråkstyp | Värde | Beskrivning
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | Påståendet "aud" (målgrupp) identifierar de mottagare som JWT är avsett för (här Azure AD) Se [RFC 7519, Avsnitt 4.1.3]
-exp | Tor Jun 27 2019 15:04:17 GMT+0200 (Romantik Daylight Time) | Anspråket "exp" (utgångstid) identifierar utgångstiden på eller efter vilken JWT INTE FÅR accepteras för bearbetning. Se [RFC 7519, avsnitt 4.1.4]
-Iss | {ClientID} | Påståendet "iss" (emittent) identifierar det huvudman som utfärdade JVT. Behandlingen av detta anspråk är programspecifik. Iss-värdet är en skiftlägeskänslig sträng som innehåller ett StringOrURI-värde. [RFC 7519, avsnitt 4.1.1]
-jti (på ett sätt) | (en Guid) | Påståendet "jti" (JWT ID) ger en unik identifierare för JWT. Identifieringsvärdet MÅSTE tilldelas på ett sätt som säkerställer att det finns en försumbar sannolikhet för att samma värde av misstag tilldelas ett annat dataobjekt. Om programmet använder flera emittenter måste kollisioner förhindras bland värden som produceras av olika emittenter. Påståendet "jti" kan användas för att förhindra att JWT spelas upp igen. Värdet "jti" är en skiftlägeskänslig sträng. [RFC 7519, avsnitt 4.1.7]
-Nbf | Tor Jun 27 2019 14:54:17 GMT+0200 (Romantik Daylight Time) | I påståendet "nbf" (ej före) anges den tid före vilken JWT INTE FÅR godkännas för behandling. [RFC 7519, avsnitt 4.1.5]
-Sub | {ClientID} | I påståendet "sub" (ämne) anges ämnet för den gemensamma tillsyns- och Påståendena i en gemensamma tillsynspost är normalt uttalanden om ämnet. Ämnesvärdet MÅSTE antingen begränsas för att vara lokalt unikt i samband med utfärdaren eller vara globalt unikt. Se [RFC 7519, avsnitt 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, section 4.1.3]
+exp | Tor Jun 27 2019 15:04:17 GMT + 0200 (romantik, sommar tid) | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4]
+ISS | ClientID | Anspråket "ISS" (utfärdare) identifierar det huvud konto som utfärdade JWT. Bearbetningen av detta påstående är programspecifik. Värdet "ISS" är en Skift läges känslig sträng som innehåller ett StringOrURI-värde. [RFC 7519, avsnitt 4.1.1]
+jti | (ett GUID) | Anspråket "JTI" (JWT ID) tillhandahåller en unik identifierare för JWT. Identifier-värdet måste tilldelas på ett sätt som garanterar att det är en försumbar sannolikhet att samma värde har tilldelats av misstag till ett annat data objekt. om programmet använder flera utfärdare, måste kollisioner förhindras mellan värden som skapas av olika utfärdare. JTI-anspråket kan användas för att förhindra att JWT spelas upp. Värdet "JTI" är en Skift läges känslig sträng. [RFC 7519, section 4.1.7]
+NBF | Tor Jun 27 2019 14:54:17 GMT + 0200 (romantik, sommar tid) | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5]
+Build | ClientID | Anspråket "sub" (subject) identifierar ämnet för JWT. Anspråken i en JWT-sats är normalt uttryck för ämnet. Subject-värdet måste antingen vara lokalt unikt i kontexten för utfärdaren eller vara globalt unikt. Se [RFC 7519, avsnitt 4.1.2]
 
-Här är ett exempel på hur man hantverk dessa påståenden:
+Här är ett exempel på hur du kan hantverka dessa anspråk:
 
 ```csharp
 private static IDictionary<string, string> GetClaims()
@@ -85,7 +85,7 @@ private static IDictionary<string, string> GetClaims()
 }
 ```
 
-Så här skapar du ett signerat klientpåstående:
+Så här kan du skapa en signerad klient kontroll:
 
 ```csharp
 string Encode(byte[] arg)
@@ -135,7 +135,7 @@ string GetSignedClientAssertion()
 
 ### <a name="alternative-method"></a>Alternativ metod
 
-Du kan också använda [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) för att skapa påståendet åt dig. Koden kommer att vara en mer elegant som visas i exemplet nedan:
+Du kan också välja att använda [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) för att skapa en kontroll för dig. Koden får ett mer elegant som visas i exemplet nedan:
 
 ```csharp
         string GetSignedClientAssertion()
@@ -168,7 +168,7 @@ Du kan också använda [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget
         }
 ```
 
-När du har din signerade klient påstående, kan du använda den med MSAL apis som visas nedan.
+När du har en signerad klient kan du använda den med MSAL-API: erna som visas nedan.
 
 ```csharp
             string signedClientAssertion = GetSignedClientAssertion();
@@ -181,7 +181,7 @@ När du har din signerade klient påstående, kan du använda den med MSAL apis 
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`som standard kommer att producera ett signerat påstående som innehåller de anspråk som förväntas av Azure AD plus ytterligare klientanspråk som du vill skicka. Här är ett kodavsnitt om hur man gör det.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`som standard skapas en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka. Här är ett kodfragment om hur du gör det.
 
 ```csharp
 string ipAddress = "192.168.1.2";
@@ -194,6 +194,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ```
 
-Om en av anspråken i ordlistan som du skickar in är samma som en av de obligatoriska anspråken, kommer det ytterligare anspråkets värde att beaktas. Det åsidosätter anspråk som beräknas av MSAL.NET.
+Om något av anspråken i ord listan som du skickar in är samma som ett av de obligatoriska anspråken, tas det ytterligare anspråkets värde med i beräkningen. Den åsidosätter de anspråk som beräknas av MSAL.NET.
 
-Om du vill ange dina egna anspråk, inklusive de obligatoriska `false` anspråk `mergeWithDefaultClaims` som förväntas av Azure AD, går du in för parametern.
+Om du vill ange egna anspråk, inklusive obligatoriska anspråk som förväntas av Azure AD, kan du `false` skicka in `mergeWithDefaultClaims` för-parametern.

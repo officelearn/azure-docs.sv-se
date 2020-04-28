@@ -1,6 +1,6 @@
 ---
-title: Schemauppdatering för Azure Traffic Analytics – mars 2020 | Microsoft-dokument
-description: Exempel på frågor med nya fält i Traffic Analytics-schemat.
+title: Uppdatering av Azure Trafikanalys-schemat – mars 2020 | Microsoft Docs
+description: Exempel frågor med nya fält i Trafikanalys-schemat.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
 ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396610"
 ---
-# <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Exempel på frågor med nya fält i Traffic Analytics-schemat (schemauppdatering för augusti 2019)
+# <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Exempel frågor med nya fält i Trafikanalys schema (schema uppdatering augusti 2019)
 
-[Loggschemat för Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) innehåller följande nya fält: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. De nya fälten innehåller information om käll- och mål-IP-adresser och de förenklar frågor.
+[Trafikanalyss logg schema](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) innehåller följande nya fält: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. De nya fälten innehåller information om käll-och mål-IP-adresser, och de fören klar frågor.
 
-Under de närmaste månaderna kommer följande äldre fält att inaktuell: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
+Under de kommande månaderna kommer följande äldre fält att bli föråldrade: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, PublicIPs_s **, FlowCount_d**. **FlowCount_d**
 
-Följande tre exempel visar hur du ersätter de gamla fälten med de nya.
+I följande tre exempel visas hur du ersätter de gamla fälten med de nya.
 
-## <a name="example-1-vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-and-publicips_s-fields"></a>Exempel 1: fälten VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s och PublicIPs_s
+## <a name="example-1-vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-and-publicips_s-fields"></a>Exempel 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s och PublicIPs_s fält
 
-Vi behöver inte dra slutsatsen att käll- och målfall från **fältet FlowDirection_s** för AzurePublic- och ExternalPublic-flöden. Det kan också vara olämpligt att använda **fältet FlowDirection_s** för en virtuell nätverksinstallation.
+Vi behöver inte ange käll-och mål fall från fältet **FlowDirection_s** för AzurePublic-och ExternalPublic-flöden. Det kan också vara olämpligt att använda **FlowDirection_s** fältet för en virtuell nätverks installation.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -72,13 +72,13 @@ SourcePublicIPsAggregated = iif(isnotempty(SrcPublicIPs_s), SrcPublicIPs_s, "N/A
 DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A")
 ```
 
-## <a name="example-2-nsgrules_s-field"></a>Exempel 2: NSGRules_s fält
+## <a name="example-2-nsgrules_s-field"></a>Exempel 2: NSGRules_s fältet
 
 Det gamla fältet använde formatet:
 
-<Indexvärde 0)>|<NSG_>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+<index värde 0) >|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
-Vi sammanställer inte längre data över en nätverkssäkerhetsgrupp (NSG). I det uppdaterade schemat innehåller **NSGList_s** bara en NSG. Även **NSGRules** innehåller endast en regel. Vi tog bort den komplicerade formateringen här och i andra fält som visas i exemplet.
+Vi tar inte längre samman data över en nätverks säkerhets grupp (NSG). I det uppdaterade schemat innehåller **NSGList_s** bara en NSG. Även **NSGRules** innehåller bara en regel. Vi har tagit bort den komplicerade formateringen här och i andra fält som visas i exemplet.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -105,22 +105,22 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 
 ## <a name="example-3-flowcount_d-field"></a>Exempel 3: FlowCount_d fältet
 
-Eftersom vi inte klubbdata över NSG, **är FlowCount_d** helt enkelt:
+Eftersom vi inte är klubbiga data över NSG är **FlowCount_d** bara:
 
-**AllowedInFlows_d****DeniedInFlows_d** + **AllowedOutFlows_d** + **DeniedOutFlows_d**  + 
+**AllowedInFlows_d** + **DeniedInFlows_d**DeniedInFlows_d + **AllowedOutFlows_d**AllowedOutFlows_d + **DeniedOutFlows_d**
 
-Endast ett av de fyra fälten kommer att vara nonzero. De andra tre fälten blir noll. Fälten fylls i för att ange status och antal i nätverkskortet där flödet fångades.
+Endast ett av de fyra fälten får inte vara noll. De andra tre fälten är noll. Fälten fylls i för att ange statusen och antalet i NÄTVERKSKORTet där flödet fångades.
 
 För att illustrera dessa villkor:
 
-- Om flödet tilläts fylls ett av de tillåtna fälten i.
-- Om flödet nekades fylls ett av de "nekade" prefixerade fälten i.
-- Om flödet var inkommande fylls ett av suffixfälten för InFlows_d.
-- Om flödet var utgående fylls ett av suffixfälten för OutFlows_d.
+- Om flödet tilläts, fylls ett av de "tillåtna" fasta fält på.
+- Om flödet nekades fylls ett av de "nekade" förfasta fälten.
+- Om flödet var inkommande fylls ett av de "InFlows_d" suffixet till.
+- Om flödet var utgående fylls ett av de "OutFlows_d" suffixet till.
 
-Beroende på förhållandena vet vi vilket av de fyra fälten som kommer att befolkas.
+Beroende på villkoren vet vi vilken ett av de fyra fälten som ska fyllas i.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer om du vill få svar på vanliga frågor och svar finns i [Vanliga frågor och svar om Traffic Analytics](traffic-analytics-faq.md).
-- Information om funktioner finns i [Dokumentationen](traffic-analytics.md)till Traffic Analytics .
+- För att få svar på vanliga frågor, se [trafikanalys vanliga frågor och svar](traffic-analytics-faq.md).
+- Information om funktioner finns i Trafikanalys- [dokumentationen](traffic-analytics.md).

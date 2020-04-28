@@ -1,7 +1,7 @@
 ---
 title: Anpassade e-postverifieringar
 titleSuffix: Azure AD B2C
-description: Lär dig hur du anpassar verifieringsmeddelandet som skickas till dina kunder när de registrerar sig för att använda dina Azure AD B2C-aktiverade program.
+description: Lär dig hur du anpassar verifierings-e-postmeddelandet som skickas till kunderna när de registrerar sig för att använda dina Azure AD B2C-aktiverade program.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,50 +12,50 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6cc0508a63f26b955ac5e0ebf3ef58a184a35997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78671637"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Anpassad e-postverifiering i Azure Active Directory B2C
 
-Använd anpassad e-post i Azure Active Directory B2C (Azure AD B2C) för att skicka anpassad e-post till användare som registrerar sig för att använda dina program. Genom att använda [DisplayControls](display-controls.md) (för närvarande i förhandsversion) och en tredjepartsleverantör av e-post kan du använda din egen e-postmall och *Från:* adress och ämne, samt stödja lokalisering och anpassade engångslösenord (OTP) inställningar.
+Använd anpassad e-post i Azure Active Directory B2C (Azure AD B2C) för att skicka anpassat e-postmeddelande till användare som registrerar sig för att använda dina program. Genom att använda [DisplayControls](display-controls.md) (för närvarande i för hands version) och en e-postleverantör från tredje part kan du använda din egen e-postmall och *från:* adress och ämne, samt stöd för lokalisering och anpassad eng ång slö sen ord.
 
-Anpassad e-postverifiering kräver användning av en tredjeparts e-postleverantör som [SendGrid](https://sendgrid.com) eller [SparkPost](https://sparkpost.com), ett anpassat REST API eller någon HTTP-baserad e-postleverantör (inklusive din egen). I den här artikeln beskrivs hur du konfigurerar en lösning som använder SendGrid.
+Anpassad e-postverifiering kräver att en e-postleverantör från tredje part används, t. ex. [SendGrid](https://sendgrid.com) eller [Spark post](https://sparkpost.com), en anpassad REST API eller någon annan http-baserad e-postprovider (inklusive din egen). I den här artikeln beskrivs hur du konfigurerar en lösning som använder SendGrid.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 
-Om du inte redan har ett, börja med att skapa ett SendGrid-konto (Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad). Instruktioner för inställningar finns i avsnittet [Skapa ett SendGrid-konto](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) i [Hur du skickar e-post med SendGrid med Azure](../sendgrid-dotnet-how-to-send-email.md).
+Om du inte redan har en, kan du börja med att konfigurera ett SendGrid-konto (Azure-kunder kan låsa upp 25 000 kostnads fria e-postmeddelanden varje månad). Installations anvisningar finns i avsnittet [skapa ett SendGrid-konto](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) i [skicka e-post med hjälp av SendGrid med Azure](../sendgrid-dotnet-how-to-send-email.md).
 
-Var noga med att fylla i avsnittet där du [skapar en SendGrid API-nyckel](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Registrera API-nyckeln för användning i ett senare steg.
+Se till att slutföra det avsnitt där du [skapar en SendGrid-API-nyckel](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Registrera API-nyckeln för användning i ett senare steg.
 
-## <a name="create-azure-ad-b2c-policy-key"></a>Skapa principnyckel för Azure AD B2C
+## <a name="create-azure-ad-b2c-policy-key"></a>Skapa Azure AD B2C princip nyckel
 
-Spara sedan SendGrid API-nyckeln i en Azure AD B2C-principnyckel för dina principer att referera till.
+Sedan lagrar du SendGrid API-nyckeln i en Azure AD B2C princip nyckel för dina principer till referens.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-1. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerationsfilter** i den övre menyn och välj din Azure AD B2C-katalog.
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-1. På sidan Översikt väljer du **Identity Experience Framework**.
-1. Välj **Principnycklar** och välj sedan **Lägg till**.
-1. För **Alternativ** `Manual`väljer du .
-1. Ange ett **namn** för principnyckeln. Till exempel `SendGridSecret`. Prefixet `B2C_1A_` läggs automatiskt till i namnet på nyckeln.
-1. I **Secret**anger du din klienthemlighet som du tidigare spelat in.
-1. För **nyckelanvändning** `Signature`väljer du .
+1. På sidan Översikt väljer du **ID för identitets miljö**.
+1. Välj **princip nycklar** och välj sedan **Lägg till**.
+1. För **alternativ**väljer `Manual`du.
+1. Ange ett **namn** för princip nyckeln. Till exempel `SendGridSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
+1. För **nyckel användning**väljer `Signature`du.
 1. Välj **Skapa**.
 
 ## <a name="create-sendgrid-template"></a>Skapa SendGrid-mall
 
-När ett SendGrid-konto har skapats och SendGrid API-nyckel har lagrats i en Azure AD B2C-principnyckel skapar du en [dynamisk transaktionsmall](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)för SendGrid .
+När ett SendGrid-konto har skapats och SendGrid API-nyckeln lagras i en Azure AD B2C-princip nyckel, skapar du en SendGrid [dynamisk transaktions mal len](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
-1. Öppna sidan [transaktionsmallar](https://sendgrid.com/dynamic_templates) på webbplatsen SendGrid och välj **Skapa mall**.
-1. Ange ett unikt `Verification email` mallnamn som och välj sedan **Spara**.
-1. Om du vill börja redigera den nya mallen väljer du **Lägg till version**.
-1. Välj **Kodredigerare** och **fortsätt**sedan .
-1. Klistra in följande HTML-mall i HTML-redigeraren eller använd din egen. `{{otp}}` Parametrarna `{{email}}` och ersätts dynamiskt med engångslösenordsvärdet och användarens e-postadress.
+1. Öppna sidan [transaktionella mallar](https://sendgrid.com/dynamic_templates) på SendGrid-webbplatsen och välj **Skapa mall**.
+1. Ange ett unikt mallnamn som `Verification email` och välj sedan **Spara**.
+1. Om du vill börja redigera din nya mall väljer du **Lägg till version**.
+1. Välj **kod redigeraren** och **Fortsätt**sedan.
+1. I HTML-redigeraren klistrar du in följande HTML-mall eller använder din egen. Parametrarna `{{otp}}` och `{{email}}` kommer att ersättas dynamiskt med eng ång slö sen ord och användarens e-postadress.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -151,16 +151,16 @@ När ett SendGrid-konto har skapats och SendGrid API-nyckel har lagrats i en Azu
     </html>
     ```
 
-1. Expandera **Inställningar** till vänster och för `{{subject}}` **E-postämne**anger du .
+1. Expandera **Inställningar** till vänster och ange `{{subject}}`i **e-postämne**.
 1. Välj **Spara mall**.
-1. Gå tillbaka till sidan **Transaktionsmallar** genom att välja bakåtpilen.
-1. Registrera **ID:t** för mallen som du skapade för användning i ett senare steg. Till exempel `d-989077fbba9746e89f3f6411f596fb96`. Du anger det här ID:t när du [lägger till anspråksomvandlingen](#add-the-claims-transformation).
+1. Gå tillbaka till sidan **transaktionella mallar** genom att välja bakåt-pilen.
+1. Anteckna **ID** för mallen som du skapade för användning i ett senare steg. Till exempel `d-989077fbba9746e89f3f6411f596fb96`. Du anger detta ID när du [lägger till anspråks omvandlingen](#add-the-claims-transformation).
 
-## <a name="add-azure-ad-b2c-claim-types"></a>Lägga till Azure AD B2C-anspråkstyper
+## <a name="add-azure-ad-b2c-claim-types"></a>Lägg till Azure AD B2C anspråks typer
 
-Lägg till följande anspråkstyper i `<ClaimsSchema>` elementet i `<BuildingBlocks>`i principen .
+I principen lägger du till följande anspråks typer i `<ClaimsSchema>` -elementet `<BuildingBlocks>`i.
 
-Dessa anspråkstyper är nödvändiga för att generera och verifiera e-postadressen med hjälp av en engångslösenordskod.
+Dessa anspråks typer är nödvändiga för att generera och verifiera e-postadressen med hjälp av en eng ång slö sen ord.
 
 ```XML
 <ClaimType Id="Otp">
@@ -179,17 +179,17 @@ Dessa anspråkstyper är nödvändiga för att generera och verifiera e-postadre
 </ClaimType>
 ```
 
-## <a name="add-the-claims-transformation"></a>Lägg till anspråksomvandlingen
+## <a name="add-the-claims-transformation"></a>Lägg till anspråks omvandlingen
 
-Därefter behöver du en anspråksomvandling för att mata ut ett JSON-stränganspråk som kommer att vara brödtexten i begäran som skickas till SendGrid.
+Sedan behöver du en anspråks omvandling för att mata ut ett JSON-sträng anspråk som kommer att bli bröd texten i begäran som skickas till SendGrid.
 
-JSON-objektets struktur definieras av ID:erna i punktatering av InputParameters och TransformationClaimTypes för InputClaims. Tal i punkt notationen antyder matriser. Värdena kommer från InputClaims värden och InputParameters "Value"-egenskaper. Mer information om JSON-anspråksomvandlingar finns i [JSON-anspråksomvandlingar](json-transformations.md).
+JSON-objektets struktur definieras av ID: n i punkt notation för indataparametrarna och TransformationClaimTypes för InputClaims. Siffror i punkt notation innebär att matriser. Värdena hämtas från InputClaims-värdena och värdet för indataparametrar. Mer information om JSON-anspråk omvandlingar finns i [JSON-anspråk omvandlingar](json-transformations.md).
 
-Lägg till följande anspråksomvandling i elementet `<ClaimsTransformations>` i `<BuildingBlocks>`. Gör följande uppdateringar av XML för anspråksomvandling:
+Lägg till följande Claims-omvandling `<ClaimsTransformations>` i- `<BuildingBlocks>`elementet i. Gör följande uppdateringar i XML-omvandlingen för anspråk:
 
-* Uppdatera `template_id` värdet InputParameter med ID:n för den SendGrid-transaktionsmall som du skapade tidigare i [mallen Skapa SendGrid](#create-sendgrid-template).
-* Uppdatera `from.email` adressvärdet. Använd en giltig e-postadress för att förhindra att verifieringsmeddelandet markeras som skräppost.
-* Uppdatera värdet för `personalizations.0.dynamic_template_data.subject` indataparametern ämnesrad med en ämnesrad som är lämplig för din organisation.
+* Uppdatera `template_id` InputParameter-värdet med ID: t för den transaktions mal len SendGrid som du skapade tidigare i [create SendGrid-mallen](#create-sendgrid-template).
+* Uppdatera värdet `from.email` för adress. Använd en giltig e-postadress för att förhindra att verifierings meddelandet markeras som skräp post.
+* Uppdatera värdet för indataports parametern för `personalizations.0.dynamic_template_data.subject` ämnes raden med en ämnes linje som passar din organisation.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -211,9 +211,9 @@ Lägg till följande anspråksomvandling i elementet `<ClaimsTransformations>` i
 </ClaimsTransformation>
 ```
 
-## <a name="add-datauri-content-definition"></a>Lägg till DataUri-innehållsdefinition
+## <a name="add-datauri-content-definition"></a>Lägg till DataUri innehålls definition
 
-Lägg till följande `<BuildingBlocks>` [ContentDefinition](contentdefinitions.md) under anspråksomvandlingarna i och refererar till data-URI för version 2.0.0:
+Under anspråks omvandlingarna i `<BuildingBlocks>`lägger du till följande [ContentDefinition](contentdefinitions.md) för att referera till versions-2.0.0 data-URI:
 
 ```XML
 <ContentDefinitions>
@@ -223,20 +223,20 @@ Lägg till följande `<BuildingBlocks>` [ContentDefinition](contentdefinitions.m
 </ContentDefinitions>
 ```
 
-## <a name="create-a-displaycontrol"></a>Skapa en DisplayControl
+## <a name="create-a-displaycontrol"></a>Skapa en visare
 
-En kontroll för verifieringsvisning används för att verifiera e-postadressen med en verifieringskod som skickas till användaren.
+En verifierings visnings kontroll används för att verifiera e-postadressen med en verifierings kod som skickas till användaren.
 
-Den här exempelvisningskontrollen är konfigurerad för:
+Det här exemplet på att Visa kontroll är konfigurerat för att:
 
-1. Samla `email` in adressanspråkstypen från användaren.
-1. Vänta tills användaren `verificationCode` har lämnat anspråkstypen med koden som skickas till användaren.
-1. Returnera `email` tillbaka till den självsäkra tekniska profilen som har en referens till den här visningskontrollen.
-1. Med `SendCode` hjälp av åtgärden, generera en OTP-kod och skicka ett e-postmeddelande med OTP-koden till användaren.
+1. Samla in `email` typ av adress anspråk från användaren.
+1. Vänta tills användaren har angett `verificationCode` anspråks typen med den kod som skickas till användaren.
+1. `email` Gå tillbaka till den självkontrollerade tekniska profilen som innehåller en referens till den här visnings kontrollen.
+1. Använd `SendCode` åtgärden och generera en kod för eng ång slö sen ord och skicka ett e-postmeddelande med koden för eng ång slö sen ord till användaren.
 
-![Skicka e-poståtgärd för verifieringskod](media/custom-email/display-control-verification-email-action-01.png)
+![Skicka verifierings kod e-poståtgärd](media/custom-email/display-control-verification-email-action-01.png)
 
-Lägg till följande `<BuildingBlocks>` [DisplayControl](display-controls.md) av typen [VerificationControl](display-control-verification.md) i principen under innehållsdefinitioner.
+Under innehålls definitioner, fortfarande inom `<BuildingBlocks>`, lägger du till [följande](display-controls.md) visare av typen [VerificationControl](display-control-verification.md) i principen.
 
 ```XML
 <DisplayControls>
@@ -265,11 +265,11 @@ Lägg till följande `<BuildingBlocks>` [DisplayControl](display-controls.md) av
 </DisplayControls>
 ```
 
-## <a name="add-otp-technical-profiles"></a>Lägga till tekniska profiler för up-program
+## <a name="add-otp-technical-profiles"></a>Lägga till tekniska profiler
 
-Den `GenerateOtp` tekniska profilen genererar en kod för e-postadressen. Den `VerifyOtp` tekniska profilen verifierar koden som är associerad med e-postadressen. Du kan ändra konfigurationen av formatet och utgången av engångslösenordet. Mer information om tekniska profiler för otp finns i [Definiera en teknisk profil för engångslösenord](one-time-password-technical-profile.md).
+Den `GenerateOtp` tekniska profilen genererar en kod för e-postadressen. Den `VerifyOtp` tekniska profilen verifierar koden som är associerad med e-postadressen. Du kan ändra konfigurationen för formatet och förfallo datum för eng ång slö sen ord. Mer information om tekniska profiler för eng ång slö sen ord finns i [definiera en enstaka teknisk profil](one-time-password-technical-profile.md)för eng ång slö sen ord.
 
-Lägg till följande tekniska `<ClaimsProviders>` profiler i elementet.
+Lägg till följande tekniska profiler i- `<ClaimsProviders>` elementet.
 
 ```XML
 <ClaimsProvider>
@@ -309,11 +309,11 @@ Lägg till följande tekniska `<ClaimsProviders>` profiler i elementet.
 </ClaimsProvider>
 ```
 
-## <a name="add-a-rest-api-technical-profile"></a>Lägga till en teknisk REST API-profil
+## <a name="add-a-rest-api-technical-profile"></a>Lägg till en REST API teknisk profil
 
-Den här tekniska profilen för REST API genererar e-postinnehållet (med SendGrid-formatet). Mer information om RESTful-tekniska profiler finns i [Definiera en RESTful teknisk profil](restful-technical-profile.md).
+Den här REST API tekniska profilen genererar e-postinnehållet (med SendGrid-formatet). Mer information om tekniska profiler för RESTful finns i [definiera en RESTful teknisk profil](restful-technical-profile.md).
 
-Precis som med de tekniska profilerna för `<ClaimsProviders>` engångslösenta personer lägger du till följande tekniska profiler i elementet.
+Lägg till följande tekniska profiler i- `<ClaimsProviders>` elementet som med de tekniska profilerna för eng ång slö sen ord.
 
 ```XML
 <ClaimsProvider>
@@ -342,11 +342,11 @@ Precis som med de tekniska profilerna för `<ClaimsProviders>` engångslösenta 
 </ClaimsProvider>
 ```
 
-## <a name="make-a-reference-to-the-displaycontrol"></a>Gör en hänvisning till DisplayControl
+## <a name="make-a-reference-to-the-displaycontrol"></a>Referera till visaren
 
-I det sista steget lägger du till en referens till DisplayControl som du skapade. Ersätt din `LocalAccountSignUpWithLogonEmail` befintliga självpåförda tekniska profil med följande om du använde en tidigare version av Azure AD B2C-principen. Den här `DisplayClaims` tekniska profilen används med en referens till DisplayControl.
+I det sista steget lägger du till en referens till den visare som du skapade. Ersätt din befintliga `LocalAccountSignUpWithLogonEmail` självkontrollerade tekniska profil med följande om du använde en tidigare version av Azure AD B2C principen. Den här tekniska profilen `DisplayClaims` använder med en referens till Visa-åtgärden.
 
-Mer information finns i [Självsäkrad teknisk profil](restful-technical-profile.md) och [DisplayControl](display-controls.md).
+Mer information finns i [självkontrollerad teknisk profil](restful-technical-profile.md) och visare [DisplayControl](display-controls.md).
 
 ```XML
 <ClaimsProvider>
@@ -393,14 +393,14 @@ Mer information finns i [Självsäkrad teknisk profil](restful-technical-profile
 </ClaimsProvider>
 ```
 
-## <a name="optional-localize-your-email"></a>[Valfritt] Lokalisera din e-post
+## <a name="optional-localize-your-email"></a>Valfritt Lokalisera ditt e-postmeddelande
 
-Om du vill lokalisera e-postmeddelandet måste du skicka lokaliserade strängar till SendGrid eller din e-postleverantör. Till exempel för att lokalisera e-postämne, brödtext, ditt kodmeddelande eller signatur av e-postmeddelandet. För att göra det kan du använda [getlocalizedStringsTransformation](string-transformations.md) claims transformation för att kopiera lokaliserade strängar till anspråkstyper. I `GenerateSendGridRequestBody` anspråksomvandlingen, som genererar JSON-nyttolasten, används indataanspråk som innehåller de lokaliserade strängarna.
+För att lokalisera e-postmeddelandet måste du skicka lokaliserade strängar till SendGrid eller din e-postprovider. Till exempel att lokalisera e-postmeddelandets ämne, brödtext, kod meddelande eller signatur för e-postmeddelandet. Om du vill göra det kan du använda [GetLocalizedStringsTransformation](string-transformations.md) Claims-omvandling för att kopiera lokaliserade strängar till anspråks typer. I omvandlingen `GenerateSendGridRequestBody` anspråk, som genererar JSON-nyttolasten, använder ingångs anspråk som innehåller de lokaliserade strängarna.
 
-1. I din princip definiera följande stränganspråk: ämne, meddelande, codeIntro och signatur.
-1. Definiera en [GetLocalizedStringsTransformation](string-transformations.md) anspråk omvandling att ersätta lokaliserade strängvärden i anspråk från steg 1.
-1. Ändra `GenerateSendGridRequestBody` anspråksomvandlingen om du vill använda indataanspråk med följande XML-kodavsnitt.
-1. Uppdatera din SendGrind-mall för att använda dynamiska parametrar i stället för alla strängar som kommer att lokaliseras av Azure AD B2C.
+1. I principen definierar du följande sträng anspråk: ämne, meddelande, codeIntro och signatur.
+1. Definiera en [GetLocalizedStringsTransformation](string-transformations.md) -anspråks omvandling för att ersätta lokaliserade sträng värden i anspråken från steg 1.
+1. Ändra anspråks omvandlingen så att den `GenerateSendGridRequestBody` använder indata-anspråk med följande XML-kodfragment.
+1. Uppdatera din SendGrind-mall så att den använder dynamiska parametrar i stället för alla strängar som kommer att lokaliseras av Azure AD B2C.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -425,8 +425,8 @@ Om du vill lokalisera e-postmeddelandet måste du skicka lokaliserade strängar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan hitta ett exempel på en anpassad e-postverifieringsprincip på GitHub:
+Du hittar ett exempel på en anpassad princip för e-postverifiering på GitHub:
 
-[Anpassad e-postverifiering - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+[Anpassad e-postverifiering – DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 
-Information om hur du använder ett anpassat REST API eller en HTTP-baserad SMTP-e-postleverantör finns [i Definiera en RESTful teknisk profil i en azure AD B2C-anpassad princip](restful-technical-profile.md).
+Information om hur du använder en anpassad REST API eller en HTTP-baserad SMTP e-postprovider finns i [definiera en RESTful teknisk profil i en Azure AD B2C anpassad princip](restful-technical-profile.md).

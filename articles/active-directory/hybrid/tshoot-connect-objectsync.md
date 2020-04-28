@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Felsöka objektsynkronisering | Microsoft-dokument'
-description: Det här avsnittet innehåller steg för felsÃ¶kning av problem med objektsynkronisering med hjälp av felsÃ¶kningsuppgiften.
+title: 'Azure AD Connect: Felsöka synkronisering av objekt | Microsoft Docs'
+description: Det här avsnittet innehåller anvisningar för hur du felsöker problem med synkronisering av objekt med hjälp av fel söknings aktiviteten.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,83 +16,83 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81407021"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objektsynkronisering med Azure AD Connect-synkronisering
-Den här artikeln innehåller anvisningar för felsökning av problem med objektsynkronisering med hjälp av felsökningsuppgiften. Om du vill se hur felsökning fungerar i Azure Active Directory (Azure AD) Connect kan du titta på [den här korta videon](https://aka.ms/AADCTSVideo).
+Den här artikeln innehåller steg för fel sökning av problem med synkronisering av objekt med hjälp av fel söknings aktiviteten. Titta på [den här korta videon](https://aka.ms/AADCTSVideo)om du vill se hur fel sökning fungerar i Azure Active Directory (Azure AD) Connect.
 
-## <a name="troubleshooting-task"></a>Felsöka uppgift
-För Azure AD Connect-distribution med version 1.1.749.0 eller högreanvänder du felsökningsaktiviteten i guiden  för att felsöka problem med synkronisering av objekt. För tidigare versioner, felsöka manuellt enligt beskrivningen [här](tshoot-connect-object-not-syncing.md).
+## <a name="troubleshooting-task"></a>Felsöka aktivitet
+För Azure AD Connect-distribution med version 1.1.749.0 eller högreanvänder du felsökningsaktiviteten i guiden  för att felsöka problem med synkronisering av objekt. För tidigare versioner felsöker du manuellt enligt beskrivningen [här](tshoot-connect-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Köra felsökningsuppgiften i guiden
-Så här kör du felsökningsuppgiften i guiden:
+Kör fel söknings aktiviteten i guiden genom att utföra följande steg:
 
-1.  Öppna en ny Windows PowerShell-session på Din Azure AD Connect-server med alternativet Kör som administratör.
-2.  Kör `Set-ExecutionPolicy RemoteSigned` `Set-ExecutionPolicy Unrestricted`eller .
-3.  Starta Azure AD Connect-guiden.
-4.  Navigera till sidan Ytterligare uppgifter, välj Felsöka och klicka på Nästa.
-5.  På sidan Felsökning klickar du på Starta för att starta felsökningsmenyn i PowerShell.
-6.  Välj Felsöka objektsynkronisering på huvudmenyn.
-![Felsöka objektsynkronisering](media/tshoot-connect-objectsync/objsynch11.png)
+1.  Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet Kör som administratör.
+2.  Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
+3.  Starta guiden Azure AD Connect.
+4.  Gå till sidan Ytterligare aktiviteter, Välj Felsök och klicka på Nästa.
+5.  På sidan fel sökning klickar du på Starta för att starta fel söknings menyn i PowerShell.
+6.  I huvud menyn väljer du Felsök synkronisering av objekt.
+![Felsöka synkronisering av objekt](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Felsöka indataparametrar
-Följande indataparametrar behövs av felsökningsaktiviteten:
-1.  **Objektsärende namn** – Det här är det unika namnet på objektet som behöver felsökas
-2.  **AD-kopplingsnamn** – Det här är namnet på AD-skogen där objektet ovan finns.
-3.  Globala administratörsautentiseringsuppgifter ![för Azure AD-klienten](media/tshoot-connect-objectsync/objsynch1.png)
+Följande indataparametrar krävs av fel söknings aktiviteten:
+1.  **Unikt objekt namn** – det här är det unika namnet på det objekt som behöver fel sökning
+2.  **Namn på AD-koppling** – det här är namnet på den AD-skog där ovanstående objekt finns.
+3.  Autentiseringsuppgifter ![för global administratör för Azure AD-klientens globala administratör](media/tshoot-connect-objectsync/objsynch1.png)
 
-### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultatet av felsökningsuppgiften
-Felsökningsuppgiften utför följande kontroller:
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultaten av fel söknings aktiviteten
+Fel söknings aktiviteten utför följande kontroller:
 
-1.  Identifiera UPN-felmatchning om objektet synkroniseras med Azure Active Directory
-2.  Kontrollera om objektet filtreras på grund av domänfiltrering
-3.  Kontrollera om objektet filtreras på grund av filtrering av organisationsenhet
-4.  Kontrollera om objektsynkronisering är blockerad på grund av en länkad postlåda
-5. Kontrollera om objektet är dynamisk distributionsgrupp som inte ska synkroniseras
+1.  Identifiera UPN-matchningsfel om objektet synkroniseras till Azure Active Directory
+2.  Kontrol lera om objektet är filtrerat på grund av domän filtrering
+3.  Kontrol lera om objektet är filtrerat på grund av ORGANISATIONSENHETs filtrering
+4.  Kontrol lera om synkronisering av objekt blockeras på grund av en länkad post låda
+5. Kontrol lera om objektet är en dynamisk distributions grupp som inte ska synkroniseras
 
-I resten av det här avsnittet beskrivs specifika resultat som returneras av aktiviteten. I varje enskilt fall ger aktiviteten en analys följt av rekommenderade åtgärder för att lösa problemet.
+I resten av det här avsnittet beskrivs vissa resultat som returneras av uppgiften. I varje fall tillhandahåller aktiviteten en analys som följs av rekommenderade åtgärder för att lösa problemet.
 
-## <a name="detect-upn-mismatch-if-object-is-synced-to-azure-active-directory"></a>Identifiera UPN-felmatchning om objektet synkroniseras med Azure Active Directory
-### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>UPN Suffix verifieras INTE med Azure AD-klient
-När USERPrincipalName (UPN)/Alternate Login ID-suffix inte verifieras med Azure AD-klienten ersätter Azure Active Directory UPN-suffixen med standarddomännamnet "onmicrosoft.com".
+## <a name="detect-upn-mismatch-if-object-is-synced-to-azure-active-directory"></a>Identifiera UPN-matchningsfel om objektet synkroniseras till Azure Active Directory
+### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>UPN-suffixet verifieras inte med Azure AD-klienten
+När UserPrincipalName (UPN)/Alternate inloggnings-ID-suffixet inte har verifierats med Azure AD-klienten, ersätter Azure Active Directory UPN-suffixen med standard domän namnet "onmicrosoft.com".
 
 ![Azure AD ersätter UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
-### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD Tenant DirSync-funktionen "SynchronizeUpnForManagedUsers" är inaktiverad
-När Azure AD Tenant DirSync-funktionen "SynchronizeUpnForManagedUsers" är inaktiverad tillåter Azure Active Directory inte synkroniseringsuppdateringar till UserPrincipalName/Alternate Login ID för licensierade användarkonton med hanterad autentisering.
+### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD-klientens DirSync-funktion ' SynchronizeUpnForManagedUsers ' är inaktive rad
+När Azure AD-klienten DirSync-funktionen SynchronizeUpnForManagedUsers är inaktive rad tillåter Azure Active Directory inte synkronisering av uppdateringar till UserPrincipalName/alternativt inloggnings-ID för licensierade användar konton med hanterad autentisering.
 
 ![SynchronizeUpnForManagedUsers](media/tshoot-connect-objectsync/objsynch4.png)
 
-## <a name="object-is-filtered-due-to-domain-filtering"></a>Objektet filtreras på grund av domänfiltrering
+## <a name="object-is-filtered-due-to-domain-filtering"></a>Objektet är filtrerat på grund av domän filtrering
 ### <a name="domain-is-not-configured-to-sync"></a>Domänen är inte konfigurerad för synkronisering
-Objektet är utanför omfånget på grund av att domänen inte har konfigurerats. I exemplet nedan är objektet inte synkroniserat omfång eftersom den domän som det tillhör filtreras från synkroniseringen.
+Objektet ligger utanför omfånget på grund av att domänen inte har kon figurer ATS. I exemplet nedan är objektet utanför Sync-omfånget som den domän som det tillhör är filtrerat från synkronisering.
 
 ![Domänen är inte konfigurerad för synkronisering](media/tshoot-connect-objectsync/objsynch5.png)
 
-### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>Domänen är konfigurerad för synkronisering men saknas körprofiler/körningssteg
-Objektet är utanför omfånget eftersom domänen saknar körprofiler/körsteg. I exemplet nedan är objektet inte synkroniserat omfång eftersom den domän som det tillhör saknas körsteg för profilen för fullständig importkörning.
-![saknade körningsprofiler](media/tshoot-connect-objectsync/objsynch6.png)
+### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>Domänen har kon figurer ATS för synkronisering men saknar körnings profiler/körnings steg
+Objektet ligger utanför omfånget eftersom domänen saknar körnings profiler/körnings steg. I exemplet nedan är objektet utanför Sync-omfånget som den domän som det tillhör saknar körnings steg för den fullständiga import körnings profilen.
+![körnings profiler saknas](media/tshoot-connect-objectsync/objsynch6.png)
 
-## <a name="object-is-filtered-due-to-ou-filtering"></a>Objektet filtreras på grund av ou-filtrering
-Objektet är inte synkroniserat på grund av ou-filtreringskonfiguration. I exemplet nedan tillhör objektet OU=NoSync,DC=bvtadwbackdc,DC=com.  Den här organisationsenheten ingår inte i synkroniseringsomfånget.</br>
+## <a name="object-is-filtered-due-to-ou-filtering"></a>Objektet är filtrerat på grund av ORGANISATIONSENHETs filtrering
+Objektet är utanför Sync-omfånget på grund av konfigurationen av ORGANISATIONSENHETs filtrering. I exemplet nedan tillhör objektet OU = nosync, DC = bvtadwbackdc, DC = com.  ORGANISATIONSENHETen ingår inte i Sync-omfånget.</br>
 
 ![OU](./media/tshoot-connect-objectsync/objsynch7.png)
 
-## <a name="linked-mailbox-issue"></a>Problem med länkad postlåda
-En länkad postlåda ska associeras med ett externt huvudkonto i en annan betrodd kontoskog. Om det inte finns något sådant externt huvudkonto synkroniseras inte användarkontot med den länkade postlådan i Exchange-skogen till Azure AD-klienten.</br>
-![Länkad postlåda](./media/tshoot-connect-objectsync/objsynch12.png)
+## <a name="linked-mailbox-issue"></a>Problem med länkad post låda
+En länkad post låda ska vara kopplad till ett externt huvud konto som finns i en annan betrodd konto skog. Om det inte finns något sådant externt huvud konto kommer Azure AD Connect inte att synkronisera användar kontot motsvarar den länkade post lådan i Exchange-skogen till Azure AD-klienten.</br>
+![Länkad post låda](./media/tshoot-connect-objectsync/objsynch12.png)
 
-## <a name="dynamic-distribution-group-issue"></a>Dynamisk distributionsgrupp fråga
-På grund av olika skillnader mellan lokal Active Directory och Azure Active Directory synkroniserar Azure AD Connect inte dynamiska distributionsgrupper till Azure AD-klienten.
+## <a name="dynamic-distribution-group-issue"></a>Problem med dynamisk distributions grupp
+På grund av olika skillnader mellan lokala Active Directory och Azure Active Directory, synkroniserar Azure AD Connect inte dynamiska distributions grupper till Azure AD-klienten.
 
-![Dynamisk distributionsgrupp](./media/tshoot-connect-objectsync/objsynch13.png)
+![Dynamisk distributions grupp](./media/tshoot-connect-objectsync/objsynch13.png)
 
 ## <a name="html-report"></a>HTML-rapport
-Förutom att analysera objektet genererar felsökningsuppgiften också en HTML-rapport som har allt känt om objektet. Den här HTML-rapporten kan delas med supportteamet för att göra ytterligare felsökning om det behövs.
+Förutom att analysera objektet genererar fel söknings aktiviteten även en HTML-rapport som har allt känt om objektet. Den här HTML-rapporten kan delas med support teamet för ytterligare fel sökning, om det behövs.
 
 ![HTML-rapport](media/tshoot-connect-objectsync/objsynch8.png)
 

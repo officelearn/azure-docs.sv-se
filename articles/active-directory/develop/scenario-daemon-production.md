@@ -1,6 +1,6 @@
 ---
-title: Flytta en daemonapp som anropar webb-API:er till produktion – Microsoft identity-plattform | Azure
-description: Lär dig hur du flyttar en daemonapp som anropar webb-API:er till produktion
+title: 'Flytta en daemon-app som anropar webb-API: er till produktion – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du flyttar en daemon-app som anropar webb-API: er till produktion'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,56 +12,56 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: e5d25169aa3daee33a9f02e605cbff91776dc7f1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885437"
 ---
-# <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon app som anropar webb-API: er - flytta till produktion
+# <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon-app som anropar webb-API: er – flytta till produktion
 
-Nu när du vet hur du hämtar och använder en token för ett service-to-service-samtal kan du läsa om hur du flyttar appen till produktion.
+Nu när du vet hur man hämtar och använder en token för ett tjänst-till-tjänst-anrop, lär du dig hur du flyttar din app till produktion.
 
-## <a name="deployment---multitenant-daemon-apps"></a>Distribution - multitenant daemon apps
+## <a name="deployment---multitenant-daemon-apps"></a>Distribution – daemon-appar för flera innehavare
 
-Om du är en ISV skapa en demon program som kan köras i flera klienter, måste du se till att klienten admin:
+Om du är en ISV som skapar ett daemon-program som kan köras i flera klienter, måste du se till att klient organisationens administratör:
 
-- Avsättningar ett tjänstehuvudnamn för ansökan.
-- Beviljar samtycke till ansökan.
+- Tillhandahåller ett tjänst huvud namn för programmet.
+- Ger medgivande till programmet.
 
-Du måste förklara för dina kunder hur du utför dessa åtgärder. Mer information finns i [Begära samtycke för en hel klient.](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)
+Du måste förklara vad kunderna har för att utföra dessa åtgärder. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är några länkar som hjälper dig att lära dig mer:
+Här följer några länkar som hjälper dig att lära dig mer:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-- Snabbstart: [Skaffa en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet](./quickstart-v2-netcore-daemon.md).
-- Referensdokumentation för:
-  - Instansiera [KonfidentielltClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
-  - Anropa [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
-- Andra exempel/självstudier:
-  - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) har ett enkelt .NET Core daemon konsolprogram som visar användarna av en klient som frågar Microsoft Graph.
+- Snabb start: [Hämta en token och anropa Microsoft Graph API från en konsol app med hjälp av appens identitet](./quickstart-v2-netcore-daemon.md).
+- Referens dokumentation för:
+  - Instansierar [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
+  - Anropar [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
+- Andra exempel/Självstudier:
+  - [Microsoft-Identity-Platform-Console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) innehåller ett enkelt .net Core daemon-konsolprogram som visar användare av en klient som frågar Microsoft Graph.
 
-    ![Exempel på apptopologi för daemon](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![Exempel på daemon app-topologi](media/scenario-daemon-app/daemon-app-sample.svg)
 
     Samma exempel illustrerar också en variant med certifikat:
 
-    ![Exempel på apptopologi för daemon - certifikat](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![Exempel på daemon-app-certifikat](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
-  - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) har en ASP.NET MVC-webbprogram som synkroniserar data från Microsoft Graph med hjälp av programmets identitet i stället för på uppdrag av en användare. Det här exemplet illustrerar också administratörsgodkännandeprocessen.
+  - [Microsoft-Identity-Platform-ASPNET-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) har en ASP.NET MVC-webbapp som synkroniserar data från Microsoft Graph med hjälp av identiteten för programmet i stället för en användares räkning. Det här exemplet illustrerar även godkännande processen för administratörer.
 
     ![topologi](media/scenario-daemon-app/damon-app-sample-web.svg)
 
 # <a name="python"></a>[Python](#tab/python)
 
-Prova [snabbstarten Hämta en token och anropa Microsoft Graph API från en Python-konsolapp med appens identitet](./quickstart-v2-python-daemon.md).
+Försök att [Hämta en token med snabb start och anropa Microsoft Graph API från en python-konsol app med appens identitet](./quickstart-v2-python-daemon.md).
 
 # <a name="java"></a>[Java](#tab/java)
 
-MSAL Java är för närvarande i offentlig förhandsversion. Mer information finns i [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+MSAL Java är för närvarande en offentlig för hands version. Mer information finns i [MSAL java dev-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
 
 ---

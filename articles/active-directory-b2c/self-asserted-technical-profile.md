@@ -1,7 +1,7 @@
 ---
-title: Definiera en självförsäkrad teknisk profil i en anpassad princip
+title: Definiera en egen kontrollerad teknisk profil i en anpassad princip
 titleSuffix: Azure AD B2C
-description: Definiera en självförsäkrad teknisk profil i en anpassad princip i Azure Active Directory B2C.
+description: Definiera en egen kontrollerad teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,23 +12,23 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80332512"
 ---
-# <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en självbekrände teknisk profil i en anpassad Azure Active Directory B2C-princip
+# <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en egen kontrollerad teknisk profil i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Alla interaktioner i Azure Active Directory B2C (Azure AD B2C) där användaren förväntas tillhandahålla indata är självpåförda tekniska profiler. Till exempel en registreringssida, inloggningssida eller sida för återställning av lösenord.
+Alla interaktioner i Azure Active Directory B2C (Azure AD B2C) där användaren förväntas tillhandahålla indata är självkontrollerade tekniska profiler. Till exempel en registrerings sida, inloggnings sida eller lösen ords återställnings sida.
 
 ## <a name="protocol"></a>Protokoll
 
-**Attributet Name** för **protokollelementet** måste `Proprietary`anges till . **Hantattributet** måste innehålla det fullständigt kvalificerade namnet på protokollhanterarsammansättningen som används av Azure AD B2C för självbehärskning:`Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterare som används av Azure AD B2C, för självkontrollerad:`Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-I följande exempel visas en självpåförd teknisk profil för registrering via e-post:
+I följande exempel visas en egen kontrollerad teknisk profil för e-postregistrering:
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -36,9 +36,9 @@ I följande exempel visas en självpåförd teknisk profil för registrering via
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 ```
 
-## <a name="input-claims"></a>Ingående anspråk
+## <a name="input-claims"></a>Inmatade anspråk
 
-I en självpåförd teknisk profil kan du använda elementen **InputClaims** och **InputClaimsTransformations** för att fylla i värdet på de anspråk som visas på den självpåsäkrade sidan (visningsanspråk). I redigeringsprofilprincipen läser användarens färd först användarprofilen från Azure AD B2C-katalogtjänsten och anger sedan den självpåtterade tekniska profilen indataanspråken med användardata som lagras i användarprofilen. Dessa anspråk samlas in från användarprofilen och presenteras sedan för användaren som sedan kan redigera befintliga data.
+I en självkontrollerad teknisk profil kan du använda elementen **InputClaims** och **InputClaimsTransformations** för att fylla i värdet för de anspråk som visas på den självkontrollerade sidan (Visa anspråk). I Redigera profil principen läser användar resan först användar profilen från Azure AD B2C katalog tjänsten. sedan anger den självkontrollerade tekniska profilen indata-anspråk med de användar data som lagras i användar profilen. Dessa anspråk samlas in från användar profilen och visas sedan för den användare som sedan kan redigera befintliga data.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -53,23 +53,23 @@ I en självpåförd teknisk profil kan du använda elementen **InputClaims** och
 
 ## <a name="display-claims"></a>Visa anspråk
 
-Funktionen för visningsanspråk är för närvarande **förhandsgranskning**.
+Funktionen Visa anspråk är för närvarande en för **hands version**.
 
-**DisplayClaims-elementet** innehåller en lista över anspråk som ska visas på skärmen för att samla in data från användaren. Om du vill fylla i värdena för visningsanspråk använder du de indataanspråk som tidigare beskrevs. Elementet kan också innehålla ett standardvärde.
+**DisplayClaims** -elementet innehåller en lista över anspråk som ska visas på skärmen för insamling av data från användaren. Om du vill förkonfigurera värden för visnings anspråk använder du de inloggade anspråk som tidigare beskrivits. Elementet kan också innehålla ett standardvärde.
 
-Ordningen på anspråken i **DisplayClaims** anger i vilken ordning Azure AD B2C återger anspråken på skärmen. Om du vill tvinga användaren att ange ett värde för ett visst `true`anspråk anger du **attributet Required för** **DisplayClaim-elementet** på .
+Ordningen på anspråken i **DisplayClaims** anger i vilken ordning som Azure AD B2C återger anspråk på skärmen. Om du vill tvinga användaren att ange ett värde för ett bestämt anspråk anger du det **obligatoriska** attributet för **DisplayClaim** -elementet `true`till.
 
-**ClaimType-elementet** i **DisplayClaims-samlingen** måste ange **UserInputType-elementet** till alla indatatyper för användare som stöds av Azure AD B2C. Exempel: `TextBox` eller `DropdownSingleSelect`.
+Elementet **claimType** i **DisplayClaims** -samlingen måste ange **UserInputType** -elementet till alla typer av användarindata som stöds av Azure AD B2C. Exempel: `TextBox` eller `DropdownSingleSelect`.
 
-### <a name="add-a-reference-to-a-displaycontrol"></a>Lägga till en referens till en DisplayControl
+### <a name="add-a-reference-to-a-displaycontrol"></a>Lägga till en referens till en visare
 
-I samlingen visningsanspråk kan du inkludera en referens till en [DisplayControl](display-controls.md) som du har skapat. En bildskärmskontroll är ett användargränssnittselement som har särskilda funktioner och interagerar med Azure AD B2C-backend-tjänsten. Det gör det möjligt för användaren att utföra åtgärder på sidan som anropar en teknisk profil för validering i serverdelen. Verifiera till exempel en e-postadress, ett telefonnummer eller ett kundlojalitetsnummer.
+I visnings anspråks samlingen kan du inkludera en referens till en [visare som du](display-controls.md) har skapat. En visnings kontroll är ett användar gränssnitts element som har särskilda funktioner och som samverkar med Azure AD B2C backend-tjänsten. Det gör att användaren kan utföra åtgärder på sidan som anropar en teknisk profil för verifiering på Server sidan. Du kan till exempel verifiera en e-postadress, telefonnummer eller kund lojalitets nummer.
 
-Följande exempel `TechnicalProfile` illustrerar användningen av visningsanspråk med visningskontroller.
+Följande exempel `TechnicalProfile` illustrerar användningen av Visa anspråk med visnings kontroller.
 
-* Det första visningsanspråket `emailVerificationControl` refererar till visningskontrollen, som samlar in och verifierar e-postadressen.
-* Det femte visningsanspråket `phoneVerificationControl` hänvisar till visningskontrollen, som samlar in och verifierar ett telefonnummer.
-* De andra visningsanspråken är ClaimTypes som ska samlas in från användaren.
+* Det första visnings kravet gör en referens till `emailVerificationControl` visnings kontrollen, som samlar in och verifierar e-postadressen.
+* Det femte visnings kravet gör en referens till `phoneVerificationControl` visnings kontrollen, som samlar in och verifierar ett telefonnummer.
+* De andra visnings anspråken är ClaimTypes som ska samlas in från användaren.
 
 ```XML
 <TechnicalProfile Id="Id">
@@ -85,13 +85,13 @@ Följande exempel `TechnicalProfile` illustrerar användningen av visningsanspr�
 </TechnicalProfile>
 ```
 
-Som nämnts kan ett visningsanspråk med en referens till en bildskärmskontroll köra sin egen validering, till exempel verifiera e-postadressen. Dessutom stöder den självpåsträns sida med hjälp av en teknisk valideringsprofil för att validera hela sidan, inklusive alla användarindata (anspråkstyper eller visningskontroller), innan du går vidare till nästa orchestration-steg.
+Som nämnts kan ett visnings anspråk med en referens till en visnings kontroll köra sin egen verifiering, till exempel verifiera e-postadressen. Dessutom stöder den självkontrollerade sidan en verifierad teknisk profil för att verifiera hela sidan, inklusive indata från användaren (anspråks typer eller visnings kontroller) innan du går vidare till nästa steg i dirigeringen.
 
-### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Kombinera användningen av visningsanspråk och utdataanspråk noggrant
+### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Kombinera användning av visnings anspråk och utgående anspråk noggrant
 
-Om du anger ett eller flera **DisplayClaim-element** i en självpåförd teknisk profil måste du använda ett DisplayClaim för *varje* anspråk som du vill visa på skärmen och samla in från användaren. Inga utdataanspråk visas av en självpåförd teknisk profil som innehåller minst ett visningsanspråk.
+Om du anger ett eller flera **DisplayClaim** -element i en självkontrollerad teknisk profil måste du använda en DisplayClaim för *varje* anspråk som du vill visa på skärmen och samla in från användaren. Inga utgående anspråk visas av en egen kontrollerad teknisk profil som innehåller minst ett visnings anspråk.
 
-Tänk på följande exempel `age` där ett anspråk definieras som ett **utdataanspråk** i en basprincip. Innan du lägger till bildskärmsanspråk i `age` den självpåsterade tekniska profilen visas anspråket på skärmen för datainsamling från användaren:
+Tänk på följande exempel där ett `age` anspråk definieras som ett **utgående** anspråk i en grundläggande princip. Innan du lägger till visnings anspråk till den självkontrollerade tekniska profilen visas `age` anspråket på skärmen för data insamling från användaren:
 
 ```XML
 <TechnicalProfile Id="id">
@@ -101,7 +101,7 @@ Tänk på följande exempel `age` där ett anspråk definieras som ett **utdataa
 </TechnicalProfile>
 ```
 
-Om en lövprincip som ärver `officeNumber` basen senare anger som ett visningsanspråk: **display**
+Om en princip för löv som ärver den basen sedan anger `officeNumber` som ett **visnings** anspråk:
 
 ```XML
 <TechnicalProfile Id="id">
@@ -114,31 +114,31 @@ Om en lövprincip som ärver `officeNumber` basen senare anger som ett visningsa
 </TechnicalProfile>
 ```
 
-Påståendet `age` i baspolicyn presenteras inte längre på skärmen för användaren - det är effektivt "dold". Om du `age` vill visa anspråket och samla in `age` åldersvärdet från användaren måste du lägga till ett **DisplayClaim**.
+`age` Anspråket i bas principen visas inte längre på skärmen för användaren – det är i själva verket "dolt". Om du vill `age` Visa anspråket och samla in värdet för ålder från användaren, måste `age` du lägga till en **DisplayClaim**.
 
-## <a name="output-claims"></a>Utgående fordringar
+## <a name="output-claims"></a>Utgående anspråk
 
-Elementet **OutputClaims** innehåller en lista över anspråk som ska returneras till nästa orchestration-steg. **Attributet DefaultValue** börjar gälla endast om anspråket aldrig har angetts. Om det angavs i ett tidigare orchestration-steg börjar standardvärdet inte gälla även om användaren lämnar värdet tomt. Om du vill tvinga fram användning av ett standardvärde ställer `true`du in attributet **AlwaysUseDefaultValue** på .
+**OutputClaims** -elementet innehåller en lista över anspråk som ska returneras till nästa Orchestration-steg. Attributet **DefaultValue** börjar gälla endast om anspråket aldrig har angetts. Om den har angetts i ett tidigare Orchestration-steg börjar inte standardvärdet gälla även om användaren lämnar värdet tomt. Om du vill framtvinga användningen av ett standardvärde anger du attributet **AlwaysUseDefaultValue** till `true`.
 
-Av säkerhetsskäl är ett`UserInputType` lösenordsanspråksvärde (inställt på `Password`) endast tillgängligt för den självpåsterade tekniska profilens tekniska profiler för validering. Du kan inte använda lösenordsanspråk i nästa orchestration-steg. 
+Av säkerhets skäl är ett lösen ord anspråks`UserInputType` värde `Password`(inställt på) bara tillgängligt för den självkontrollerade tekniska profilens verifierings tekniska profiler. Du kan inte använda lösen ords anspråk i nästa Dirigerings steg. 
 
 > [!NOTE]
-> I tidigare versioner av Identity Experience Framework (IEF) användes utdataanspråk för att samla in data från användaren. Om du vill samla in data från användaren använder du en **DisplayClaims-samling** i stället.
+> I tidigare versioner av Identity Experience Framework (IEF) användes utgående anspråk för att samla in data från användaren. Använd en **DisplayClaims** -samling i stället om du vill samla in data från användaren.
 
-**Elementet OutputClaimsTransformations** kan innehålla en samling **OutputClaimsTransformation-element** som används för att ändra utdataanspråken eller generera nya.
+**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
-### <a name="when-you-should-use-output-claims"></a>När du ska använda utdataanspråk
+### <a name="when-you-should-use-output-claims"></a>När du ska använda utgående anspråk
 
-I en självpåstående teknisk profil returnerar insamlingen av utdataanspråk anspråk till nästa orchestration-steg.
+I en självkontrollerad teknisk profil, returnerar utgående anspråks samlingen anspråk till nästa steg för att dirigera.
 
-Använd utdataanspråk när:
+Använd utgående anspråk när:
 
-- **Anspråk utdata efter omvandling av utdataanspråk**.
-- **Ange ett standardvärde i ett utdataanspråk** utan att samla in data från användaren eller returnera data från den tekniska profilen för validering. Den `LocalAccountSignUpWithLogonEmail` självpåsterade tekniska profilen anger anspråket **utförd självskyddad inmatning** till `true`.
-- **En teknisk valideringsprofil returnerar utdataanspråken** – Din tekniska profil kan anropa en teknisk profil för validering som returnerar vissa anspråk. Du kanske vill bubbla upp anspråk och returnera dem till nästa orchestration steg i användaren resan. När du till exempel loggar in med ett lokalt konto `SelfAsserted-LocalAccountSignin-Email` anropar den `login-NonInteractive`självsäkra tekniska profilen som heter den tekniska profilen för validering med namnet . Den här tekniska profilen validerar användarautentiseringsuppgifterna och returnerar även användarprofilen. Såsom "userPrincipalName", "displayName", "givenName" och "surName".
-- **En displaykontroll returnerar utdataanspråken** - Din tekniska profil kan ha en referens till en [bildskärmskontroll](display-controls.md). Visningskontrollen returnerar vissa anspråk, till exempel den verifierade e-postadressen. Du kanske vill bubbla upp anspråk och returnera dem till nästa orchestration steg i användaren resan. Visningskontrollfunktionen är för närvarande i **förhandsgranskning**.
+- **Anspråk är utdata genom omvandling av utgående anspråk**.
+- **Ange ett standardvärde i ett utgående anspråk** utan att samla in data från användaren eller returnera data från den tekniska verifierings profilen. Den `LocalAccountSignUpWithLogonEmail` självkontrollerade tekniska profilen anger **SelfAsserted-ingångs** anspråk till `true`.
+- **En teknisk verifierings profil returnerar utgående anspråk** – din tekniska profil kan anropa en teknisk validerings profil som returnerar vissa anspråk. Du kanske vill bubbla upp anspråken och returnera dem till nästa steg för att dirigera i användar resan. När du till exempel loggar in med ett lokalt konto `SelfAsserted-LocalAccountSignin-Email` anropar den självkontrollerade tekniska profilen den tekniska verifierings profilen med namnet `login-NonInteractive`. Den här tekniska profilen verifierar användarens autentiseringsuppgifter och returnerar även användar profilen. Som userPrincipalName, displayName, givenName och efter namn.
+- **En visnings kontroll returnerar utgående anspråk** – din tekniska profil kan ha en referens till en [visnings kontroll](display-controls.md). Visnings kontrollen returnerar vissa anspråk, till exempel den verifierade e-postadressen. Du kanske vill bubbla upp anspråken och returnera dem till nästa steg för att dirigera i användar resan. Funktionen Visa kontroll är för närvarande en för **hands version**.
 
-Följande exempel visar användningen av en självpåförd teknisk profil som använder både visningsanspråk och utdataanspråk.
+I följande exempel demonstreras användningen av en självkontrollerad teknisk profil som använder både Visa anspråk och utgående anspråk.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -175,39 +175,39 @@ Följande exempel visar användningen av en självpåförd teknisk profil som an
 </TechnicalProfile>
 ```
 
-## <a name="persist-claims"></a>Kvarstår anspråk
+## <a name="persist-claims"></a>Kvarhåll anspråk
 
-Elementet PersistedClaims används inte. Den självsäkra tekniska profilen bevarar inte data till Azure AD B2C. I stället görs ett samtal till en teknisk profil för validering som ansvarar för att data bevaras. Registreringsprincipen använder till exempel den `LocalAccountSignUpWithLogonEmail` självsäkra tekniska profilen för att samla in den nya användarprofilen. Den `LocalAccountSignUpWithLogonEmail` tekniska profilen anropar den tekniska profilen för validering för att skapa kontot i Azure AD B2C.
+PersistedClaims-elementet används inte. Den självkontrollerade tekniska profilen sparar inte data till Azure AD B2C. I stället görs ett anrop till en teknisk verifierings profil som ansvarar för att spara data. Exempelvis använder registrerings principen den `LocalAccountSignUpWithLogonEmail` självkontrollerade tekniska profilen för att samla in den nya användar profilen. Den `LocalAccountSignUpWithLogonEmail` tekniska profilen anropar verifieringens tekniska profil för att skapa kontot i Azure AD B2C.
 
-## <a name="validation-technical-profiles"></a>Tekniska profiler för validering
+## <a name="validation-technical-profiles"></a>Verifiera tekniska profiler
 
-En teknisk valideringsprofil används för att validera vissa eller alla utdataanspråk för den refererande tekniska profilen. Indataanspråken för den tekniska profilen för validering måste finnas i den självpåstådda tekniska profilens påståenden. Den tekniska profilen för validering validerar användarens indata och kan returnera ett fel till användaren.
+En teknisk validerings profil används för att verifiera vissa eller alla utgående anspråk för den refererande tekniska profilen. De ingående anspråken för verifieringen av den tekniska profilen måste visas i utgående anspråk för den självkontrollerade tekniska profilen. Den tekniska verifierings profilen verifierar indata från användaren och kan returnera ett fel till användaren.
 
-Den tekniska profilen för validering kan vara vilken teknisk profil som helst i principen, till exempel [Azure Active Directory](active-directory-technical-profile.md) eller en teknisk REST [API-profil.](restful-technical-profile.md) I föregående exempel `LocalAccountSignUpWithLogonEmail` verifierar den tekniska profilen att inloggningsnamnet inte finns i katalogen. Om inte, skapar den tekniska profilen för validering ett lokalt konto och returnerar objectId, authenticationSource, newUser. Den `SelfAsserted-LocalAccountSignin-Email` tekniska profilen `login-NonInteractive` anropar den tekniska profilen för validering för att verifiera användarautentiseringsuppgifterna.
+Den tekniska profilen för verifiering kan vara vilken teknisk profil som helst i principen, till exempel [Azure Active Directory](active-directory-technical-profile.md) eller en [REST API](restful-technical-profile.md) tekniska profiler. I föregående exempel verifierar den `LocalAccountSignUpWithLogonEmail` tekniska profilen att signinName inte finns i katalogen. Annars skapar verifieringen av den tekniska profilen ett lokalt konto och returnerar objectId, authenticationSource, newUser. Den `SelfAsserted-LocalAccountSignin-Email` tekniska profilen anropar `login-NonInteractive` verifieringens tekniska profil för att verifiera användarens autentiseringsuppgifter.
 
-Du kan också anropa en teknisk REST API-profil med din affärslogik, skriva över indataanspråk eller berika användardata genom att ytterligare integrera med företagets affärsprogram. Mer information finns i [Teknisk valideringsprofil](validation-technical-profile.md)
+Du kan också anropa en REST API teknisk profil med din affärs logik, skriva över indata-anspråk eller utöka användar data genom att ytterligare integrera med affärs program. Mer information finns i [verifiering teknisk profil](validation-technical-profile.md)
 
 ## <a name="metadata"></a>Metadata
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| setting.operatingMode <sup>1</sup>| Inga | För en inloggningssida styr den här egenskapen beteendet för användarnamnsfältet, till exempel indataverifiering och felmeddelanden. Förväntade `Username` värden: `Email`eller .  |
-| TillåtGenerationOfClaimsWithNullValues| Inga| Tillåt att generera ett anspråk med null-värde. I ett ärende markerar användaren till exempel ingen kryssruta.|
-| InnehållDefinitionReferenceId | Ja | Identifieraren för [innehållsdefinitionen som](contentdefinitions.md) är associerad med den här tekniska profilen. |
-| EnforceEmailVerification | Inga | För registrering eller profilredigering, upprätthåller e-postverifiering. Möjliga värden: `true` (standard) eller `false`. |
-| setting.retryLimit | Inga | Styr hur många gånger en användare kan försöka tillhandahålla data som kontrolleras mot en teknisk profil för validering. En användare försöker till exempel registrera sig med ett konto som redan finns och försöker tills gränsen har nåtts.
-| Registreringsresmål <sup>1</sup>| Inga | Exchange-identifierare för registreringsmål. När användaren klickar på registreringsknappen kör Azure AD B2C den angivna exchange-identifieraren. |
-| setting.showCancelButton | Inga | Visar avbruten-knappen. Möjliga värden: `true` (standard) eller`false` |
-| setting.showFortsättaButton | Inga | Visar fortsättningsknappen. Möjliga värden: `true` (standard) eller`false` |
-| setting.showSignupLink <sup>2</sup>| Inga | Visar registreringsknappen. Möjliga värden: `true` (standard) eller`false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| Inga| Visar länken för glömt lösenord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på `None` sidan, eller tar bort länken för glömt lösenord.|
-| setting.enableRememberMe <sup>2</sup>| Inga| Visar kryssrutan [Håll mig inloggad.](custom-policy-keep-me-signed-in.md) Möjliga värden: `true` `false` , eller (standard). |
-| InkluderaClaimResolvingInClaimsHandling  | Inga | För indata- och utdataanspråk anger om [anspråksresolution](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` `false`  , eller (standard). Om du vill använda en anspråksmatchningsmatchare `true`i den tekniska profilen ställer du in den på . |
+| inställningen. operatingMode <sup>1</sup>| Inga | För en inloggnings sida styr den här egenskapen beteendet för fältet username, till exempel indatatyps verifiering och fel meddelanden. Förväntade värden: `Username` eller `Email`.  |
+| AllowGenerationOfClaimsWithNullValues| Inga| Tillåt att ett anspråk skapas med null-värde. Till exempel, i ett fall kan användaren inte markera en kryss ruta.|
+| ContentDefinitionReferenceId | Ja | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med den här tekniska profilen. |
+| EnforceEmailVerification | Inga | För registrering eller profil redigering tvingas e-postverifiering. Möjliga värden: `true` (standard) eller `false`. |
+| anger. retryLimit | Inga | Styr antalet gånger som en användare kan försöka tillhandahålla data som kontrol leras mot en teknisk verifierings profil. En användare kan till exempel Logga in med ett konto som redan finns och fortsätter tills gränsen har uppnåtts.
+| SignUpTarget <sup>1</sup>| Inga | ID för registrerings målets Exchange. När användaren klickar på registrerings knappen Azure AD B2C kör den angivna Exchange-identifieraren. |
+| anger. showCancelButton | Inga | Visar knappen Avbryt. Möjliga värden: `true` (standard) eller`false` |
+| anger. showContinueButton | Inga | Visar knappen Fortsätt. Möjliga värden: `true` (standard) eller`false` |
+| Setting. showSignupLink <sup>2</sup>| Inga | Visar registrerings knappen. Möjliga värden: `true` (standard) eller`false` |
+| Setting. forgotPasswordLinkLocation <sup>2</sup>| Inga| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan eller `None` tar bort länken Glömt lösen ord.|
+| Setting. enableRememberMe <sup>2</sup>| Inga| Visar kryss rutan [Håll mig inloggad](custom-policy-keep-me-signed-in.md) . Möjliga värden: `true` , eller `false` (standard). |
+| IncludeClaimResolvingInClaimsHandling  | Inga | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`, eller `false`  (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
 
 Obs!
-1. Tillgänglig för innehållsdefinition `unifiedssp` [DataUri](contentdefinitions.md#datauri) typ av , eller `unifiedssd`.
-1. Tillgänglig för innehållsdefinition `unifiedssp` [DataUri](contentdefinitions.md#datauri) typ av , eller `unifiedssd`. [Sidlayout version](page-layout.md) 1.1.0 och högre.
+1. Tillgängligt för innehålls definitionens [DataUri](contentdefinitions.md#datauri) `unifiedssp`-typ, `unifiedssd`eller.
+1. Tillgängligt för innehålls definitionens [DataUri](contentdefinitions.md#datauri) `unifiedssp`-typ, `unifiedssd`eller. [Sidlayout version](page-layout.md) 1.1.0 och senare.
 
-## <a name="cryptographic-keys"></a>Krypteringsnycklar
+## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
-Elementet **CryptographicKeys** används inte.
+**CryptographicKeys** -elementet används inte.

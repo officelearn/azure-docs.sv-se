@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Windows Push Notification Service i Azure Notification Hubs | Microsoft-dokument
-description: Lär dig hur du konfigurerar Windows Push Notification Service-inställningar för en Azure-meddelandehubb.
+title: Konfigurera Windows Push Notification Service i Azure Notification Hubs | Microsoft Docs
+description: Lär dig hur du konfigurerar inställningar för Windows Push Notification Service för en Azure Notification Hub.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -13,30 +13,30 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 73304e191242725c80204efb132c26aede9ce7e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127317"
 ---
-# <a name="configure-windows-push-notification-service-settings-in-the-azure-portal"></a>Konfigurera inställningar för Windows Push Notification Service i Azure-portalen
+# <a name="configure-windows-push-notification-service-settings-in-the-azure-portal"></a>Konfigurera inställningarna för Windows Push Notification Service i Azure Portal
 
-Den här artikeln visar hur du konfigurerar WNS-inställningar (Windows Notification Service) för en Azure-meddelandehubb med hjälp av Azure-portalen.  
+Den här artikeln visar hur du konfigurerar inställningar för Windows Notification Service (WNS) för en Azure Notification Hub med hjälp av Azure Portal.  
 
 ## <a name="prerequisites"></a>Krav
-Om du inte redan har skapat en meddelandehubb skapar du en nu. Mer information finns [i Skapa en Azure-meddelandehubb i Azure-portalen](create-notification-hub-portal.md). 
+Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md). 
 
 ## <a name="configure-windows-push-notification-service-wns"></a>Konfigurera Windows Push Notification Service (WNS)
 
-Följande procedur ger dig anvisningar för att konfigurera WNS-inställningar (Windows Push Notification Service) för en meddelandehubb: 
+Följande procedur visar hur du konfigurerar inställningar för Windows Push Notification Service (WNS) för en Notification Hub: 
 
-1. På sidan **Meddelandehubben** på sidan Meddelandehubben väljer du **Windows (WNS)** på den vänstra menyn.
+1. I Azure Portal på sidan **Notification Hub** väljer du **Windows (WNS)** på den vänstra menyn.
 2. Ange värden för **Package SID** (Paket-SID) och **Security Key** (Säkerhetsnyckel).
 3. Välj **Spara**.
 
-   ![Skärmbild som visar rutorna Package SID och Security Key](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
+   ![Skärm bild som visar rutorna paket-SID och säkerhets nyckel](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
 ## <a name="next-steps"></a>Nästa steg
-En självstudiekurs med steg-för-steg-instruktioner för att skicka meddelanden till Universella Windows-plattformsprogram med hjälp av Azure Notification Hubs och Windows Push Notification Service (WNS) finns i [Skicka meddelanden till UWP-appar med hjälp av Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+En själv studie kurs med stegvisa instruktioner för att skicka meddelanden till Universell Windows-plattform program med hjälp av Azure Notification Hubs och Windows Push Notification Service (WNS) finns i [skicka meddelanden till UWP-appar med hjälp av azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
 

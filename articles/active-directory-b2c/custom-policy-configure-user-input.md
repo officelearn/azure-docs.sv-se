@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56a3478f1c0dbc05eba07a5109f5bb6ba89b79d0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
-ms.translationtype: HT
+ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079875"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "79473684"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -24,15 +24,18 @@ ms.locfileid: "79079875"
 
 I den här artikeln samlar du in ett nytt attribut under din inloggnings resa i Azure Active Directory B2C (Azure AD B2C). Du får användarnas stad, konfigurerar den som en nedrullningsbar listruta och anger om den måste anges.
 
+> [!NOTE]
+> I det här exemplet används det inbyggda anspråket "ort". I stället kan du välja ett av de [Azure AD B2C inbyggda attributen](user-profile-attributes.md) eller ett anpassat attribut som stöds. [Aktivera anpassade attribut i principen](custom-policy-custom-attributes.md)om du vill använda ett anpassat attribut. Om du vill använda ett annat inbyggt eller anpassat attribut ersätter du "ort" med attributet som du väljer, till exempel det inbyggda attributet *befattning* eller ett anpassat attribut som *extension_loyaltyId*.  
+
 Du kan samla in inledande data från dina användare med hjälp av användar resan för registrering eller inloggning. Ytterligare anspråk kan samlas in senare med hjälp av en profil redigera användar resa. När Azure AD B2C samlar in information direkt från användaren interaktivt används den [självkontrollerade tekniska profilen](self-asserted-technical-profile.md). I det här exemplet:
 
-1. Definiera ett "ort"-anspråk.
+1. Definiera ett "ort"-anspråk. 
 1. Be användaren om sin stad.
 1. Behåll staden till användar profilen i Azure AD B2C-katalogen.
 1. Läs Orts anspråket från Azure AD B2C-katalogen vid varje inloggning.
 1. Returnera staden till ditt förlitande parts program efter inloggning eller registrering.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med sociala och lokala konton.
 
@@ -45,7 +48,7 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körn
 - **UserHelpText** – hjälper användaren att förstå vad som krävs.
 - [UserInputType](claimsschema.md#userinputtype) – typ av inmatnings kontroll, till exempel text ruta, val av alternativ, list Rute lista eller flera val.
 
-Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
 
 1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
 1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
@@ -72,7 +75,7 @@ Följande tekniska profiler är [självkontrollerade](self-asserted-technical-pr
 - **SelfAsserted** – federerat konto för användar inloggning första gången.
 - **SelfAsserted-ProfileUpdate** – Redigera profil flöde.
 
-Om du vill samla in Orts anspråk under registreringen måste det läggas till som ett utgående anspråk i `LocalAccountSignUpWithLogonEmail` tekniska profilen. Åsidosätt den här tekniska profilen i tilläggs filen. Ange hela listan med utgående anspråk för att kontrol lera i vilken ordning anspråken visas på skärmen. Hitta **ClaimsProviders** -elementet. Lägg till en ny ClaimsProviders enligt följande:
+Om du vill samla in Orts anspråk under registreringen måste det läggas till som ett utgående anspråk i den `LocalAccountSignUpWithLogonEmail` tekniska profilen. Åsidosätt den här tekniska profilen i tilläggs filen. Ange hela listan med utgående anspråk för att kontrol lera i vilken ordning anspråken visas på skärmen. Hitta **ClaimsProviders** -elementet. Lägg till en ny ClaimsProviders enligt följande:
 
 ```xml
 <ClaimsProvider>
@@ -95,7 +98,7 @@ Om du vill samla in Orts anspråk under registreringen måste det läggas till s
 <ClaimsProvider>
 ```
 
-Om du vill samla in Orts anspråk efter första inloggningen med ett federerat konto måste det läggas till som ett utgående anspråk i `SelfAsserted-Social` tekniska profilen. För att lokala och federerade konto användare ska kunna redigera sina profil data senare, lägger du till utgående anspråk i `SelfAsserted-ProfileUpdate` tekniska profilen. Åsidosätt dessa tekniska profiler i tilläggs filen. Ange hela listan med de utgående anspråken för att kontrol lera i vilken ordning anspråken visas på skärmen. Hitta **ClaimsProviders** -elementet. Lägg till en ny ClaimsProviders enligt följande:
+Om du vill samla in Orts anspråk efter första inloggningen med ett federerat konto måste det läggas till som ett utgående anspråk till den `SelfAsserted-Social` tekniska profilen. För lokala och federerade konto användare ska kunna redigera sina profil data senare genom att lägga till utgående anspråk i den `SelfAsserted-ProfileUpdate` tekniska profilen. Åsidosätt dessa tekniska profiler i tilläggs filen. Ange hela listan med de utgående anspråken för att kontrol lera i vilken ordning anspråken visas på skärmen. Hitta **ClaimsProviders** -elementet. Lägg till en ny ClaimsProviders enligt följande:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -125,7 +128,7 @@ Om du vill samla in Orts anspråk efter första inloggningen med ett federerat k
 ## <a name="read-and-write-a-claim"></a>Läs och skriv ett anspråk
 
 Följande tekniska profiler är [Active Directory tekniska profiler](active-directory-technical-profile.md)som läser och skriver data till Azure Active Directory.  
-Använd `PersistedClaims` för att skriva data till användar profilen och `OutputClaims` för att läsa data från användar profilen i respektive Active Directory tekniska profiler.
+Använd `PersistedClaims` för att skriva data till användar profilen och `OutputClaims` läsa data från användar profilen i respektive Active Directory tekniska profiler.
 
 Åsidosätt dessa tekniska profiler i tilläggs filen. Hitta **ClaimsProviders** -elementet.  Lägg till en ny ClaimsProviders enligt följande:
 
@@ -169,7 +172,7 @@ Använd `PersistedClaims` för att skriva data till användar profilen och `Outp
 
 ## <a name="include-a-claim-in-the-token"></a>Inkludera ett anspråk i token 
 
-Om du vill lämna tillbaka tillbaka till det förlitande part-programmet lägger du till ett utgående anspråk i <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> filen. Utgående anspråk kommer att läggas till i token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga till staden som ett utgående anspråk.
+Om du vill lämna tillbaka tillbaka till det förlitande part-programmet lägger du till ett utgående <em> `SocialAndLocalAccounts/` </em> anspråk i filen. Utgående anspråk kommer att läggas till i token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga till staden som ett utgående anspråk.
  
 ```xml
 <RelyingParty>
@@ -194,7 +197,7 @@ Om du vill lämna tillbaka tillbaka till det förlitande part-programmet lägger
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 4. Välj **ramverk för identitets upplevelse**.
@@ -206,7 +209,7 @@ Registrerings skärmen bör se ut ungefär som på följande skärm bild:
 
 ![Skärm bild av ändrat registrerings alternativ](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
 
-Den token som skickas tillbaka till programmet omfattar `city`-anspråk.
+Den token som skickas tillbaka till programmet inkluderar `city` anspråket.
 
 ```json
 {

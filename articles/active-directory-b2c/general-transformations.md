@@ -1,7 +1,7 @@
 ---
-title: Allmänna exempel på anspråksomvandling för anpassade principer
+title: Exempel på generella anspråk för anpassade principer
 titleSuffix: Azure AD B2C
-description: Allmänna anspråksomvandlingsexempel för IEF-schemat (Identity Experience Framework) i Azure Active Directory B2C.
+description: Exempel på generella anspråk för omvandlings IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,28 +12,28 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188553"
 ---
-# <a name="general-claims-transformations"></a>Allmänna anspråksomvandlingar
+# <a name="general-claims-transformations"></a>Allmänna anspråks omvandlingar
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln innehåller exempel på hur du använder allmänna anspråksomvandlingar av Identity Experience Framework-schemat i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
+Den här artikeln innehåller exempel på hur du använder allmänna anspråks omvandlingar av Identity Experience Framework-schemat i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
-## <a name="copyclaim"></a>KopieraClaim
+## <a name="copyclaim"></a>CopyClaim
 
-Kopiera värdet för ett anspråk till ett annat. Båda anspråken måste vara från samma typ.
+Kopiera värdet för ett anspråk till ett annat. Båda anspråk måste vara av samma typ.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | sträng, int | Anspråkstypen som ska kopieras. |
-| OutputClaim | outputClaim | sträng, int | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. |
+| InputClaim | inputClaim | sträng, heltal | Anspråks typen som ska kopieras. |
+| OutputClaim | outputClaim | sträng, heltal | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
-Använd den här anspråksomvandlingen om du vill kopiera ett värde från ett sträng- eller numeriskt anspråk till ett annat anspråk. I följande exempel kopieras värdet för externEmail-anspråk till e-postanspråk.
+Använd den här anspråks omvandlingen för att kopiera ett värde från en sträng eller ett numeriskt anspråk till ett annat anspråk. I följande exempel kopieras värdet för externalEmail-anspråk till e-postanspråk.
 
 ```XML
 <ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
@@ -48,21 +48,21 @@ Använd den här anspråksomvandlingen om du vill kopiera ett värde från ett s
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
     - **inputClaim**:bob@contoso.com
-- Utdataanspråk:
+- Utgående anspråk:
     - **outputClaim**:bob@contoso.com
 
-## <a name="doesclaimexist"></a>HarClaimExist
+## <a name="doesclaimexist"></a>DoesClaimExist
 
-Kontrollerar om **indataClaim** finns eller inte och ställer **in outputClaim** till sant eller falskt i enlighet med detta.
+Kontrollerar om **inputClaim** finns eller inte och anger **outputClaim** till true eller false.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |Alla | Påståendet om indata vars existens måste kontrolleras. |
-| OutputClaim | outputClaim | boolean | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. |
+| InputClaim | inputClaim |Alla | Det ingångs anspråk vars existens måste verifieras. |
+| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
-Använd den här anspråksomvandlingen för att kontrollera om det finns ett anspråk eller innehåller något värde. Returvärdet är ett booleskt som anger om anspråket finns. I det här exemplet kontrolleras om e-postadressen finns.
+Använd den här anspråks omvandlingen för att kontrol lera om det finns ett anspråk eller innehåller något värde. Returvärdet är ett booleskt värde som anger om anspråk finns. Följande exempel kontrollerar om e-postadressen finns.
 
 ```XML
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
@@ -77,21 +77,21 @@ Använd den här anspråksomvandlingen för att kontrollera om det finns ett ans
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
   - **inputClaim**:someone@contoso.com
-- Utdataanspråk:
+- Utgående anspråk:
   - **outputClaim**: sant
 
 ## <a name="hash"></a>Hash
 
-Hash den medföljande oformaterad text med hjälp av salt och en hemlighet. Hashalgoritmen som används är SHA-256.
+Hash-värde för den angivna oformaterade texten med salt och en hemlighet. Den hash-algoritm som används är SHA-256.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Klartext | sträng | Indataanspråket ska krypteras |
-| InputClaim | Salt | sträng | Saltparametern. Du kan skapa ett `CreateRandomString` slumpmässigt värde med hjälp av anspråksomvandling. |
-| InputParameter | randomizerSecret | sträng | Pekar på en befintlig Azure AD **B2C-principnyckel**. Så här skapar du en ny principnyckel: I din Azure AD B2C-klient under **Hantera**väljer du **Identity Experience Framework**. Välj **Principnycklar** om du vill visa de nycklar som är tillgängliga i din klientorganisation. Välj **Lägg till**. För **Alternativ**väljer du **Manuell**. Ange ett namn (prefixet *B2C_1A_* kan läggas till automatiskt.). I textrutan **Hemlig** anger du vilken hemlighet du vill använda, till exempel 1234567890. För **nyckelanvändning**väljer du **Signatur**. Välj **Skapa**. |
-| OutputClaim | hash | sträng | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats. Anspråket som konfigurerats i `plaintext` indataClaim. |
+| InputClaim | överför | sträng | Det inmatade anspråk som ska krypteras |
+| InputClaim | våt | sträng | Salt parameter. Du kan skapa ett slumpmässigt värde med hjälp `CreateRandomString` av anspråks omvandling. |
+| InputParameter | randomizerSecret | sträng | Pekar på en befintlig Azure AD B2C- **princip nyckel**. Om du vill skapa en ny princip nyckel: i Azure AD B2C klient, under **Hantera**, väljer du **Identity Experience Framework**. Välj **princip nycklar** för att visa de nycklar som är tillgängliga i din klient organisation. Välj **Lägg till**. För **alternativ**väljer du **manuell**. Ange ett namn (prefixet *B2C_1A_* kan läggas till automatiskt.). I rutan **hemlig** text anger du vilken hemlighet du vill använda, till exempel 1234567890. För **nyckel användning**väljer du **signatur**. Välj **Skapa**. |
+| OutputClaim | hash | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. Anspråket som kon `plaintext` figurer ATS i inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -110,9 +110,9 @@ Hash den medföljande oformaterad text med hjälp av salt och en hemlighet. Hash
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-  - **klartext:**MyPass@word1
+- Inmatade anspråk:
+  - **oformaterad text**:MyPass@word1
   - **salt**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
-- Utdataanspråk:
-  - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxMWhA5YQNihzV6U=
+- Utgående anspråk:
+  - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U =

@@ -1,52 +1,52 @@
 ---
 title: Azure-delegerad resurshantering
-description: Med hanterade tjänster kan tjänsteleverantörer sälja resurshanteringserbjudanden till kunder på Azure Marketplace.
+description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548425"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
-Azure-delegerad resurshantering är en av de viktigaste komponenterna i Azure Lighthouse. Med Azure-delegerad resurshantering kan tjänsteleverantörer förenkla kundengagemang och introduktionsupplevelser, samtidigt som de delegerade resurserna hanteras i stor skala med smidighet och precision.
+Azure-delegerad resurs hantering är en av de viktigaste komponenterna i Azure dataLighthouses. Med Azure-delegerad resurs hantering kan tjänst leverantörer förenkla kund engagemang och onboarding-upplevelser, samtidigt som de delegerade resurserna hanteras i stor skala med flexibilitet och precision.
 
-## <a name="what-is-azure-delegated-resource-management"></a>Vad är Azure-delegerad resurshantering?
+## <a name="what-is-azure-delegated-resource-management"></a>Vad är Azure-delegerad resurs hantering?
 
-Azure-delegerad resurshantering möjliggör logisk projektion av resurser från en klient till en annan klient. På så sätt kan behöriga användare i en Azure Active Directory-klient (Azure AD) utföra hanteringsåtgärder för olika Azure AD-klienter som tillhör deras kunder. Tjänstleverantörer kan logga in på sin egen Azure AD-klient och ha auktorisering att arbeta i delegerade kundprenumerationer och resursgrupper. På så sätt kan de utföra hanteringsåtgärder på uppdrag av sina kunder, utan att behöva logga in på varje enskild kundklient.
-
-> [!NOTE]
-> Azure-delegerad resurshantering kan också användas [i ett företag som har flera Azure AD-klienter för egen hand](enterprise.md) för att förenkla hantering av flera innehavare.
-
-Med Azure-delegerad resurshantering kan behöriga användare arbeta direkt i samband med en kundprenumeration utan att ha ett konto i kundens klientorganisation eller vara delägare i kundens klientorganisation. De kan också [visa och hantera alla delegerade kundprenumerationer på den nya sidan Mina **kunder** ](../how-to/view-manage-customers.md) i Azure-portalen.
-
-[Hanteringsupplevelsen mellan innehavare](cross-tenant-management-experience.md) hjälper dig att arbeta mer effektivt med Azure-hanteringstjänster som Azure Policy, Azure Security Center med mera. All tjänsteprovideraktivitet spåras i aktivitetsloggen, som lagras i kundens klientorganisation (och kan visas av användare i den hanterande klienten). Detta innebär att både kunden och tjänsteleverantören enkelt kan identifiera användaren som är associerad med eventuella ändringar.
-
-När du går ombord på en kund till Azure-delegerad resurshantering har de åtkomst till den nya **tjänstleverantörssidan** i Azure-portalen, där de kan [bekräfta och hantera sina erbjudanden, tjänsteleverantörer och delegerade resurser](../how-to/view-manage-service-providers.md). Om kunden någonsin vill återkalla åtkomst för en tjänsteleverantör, kan de göra det här när som helst.
-
-Du kan [publicera den nya erbjudandetypen för hanterad tjänst på Azure Marketplace](../how-to/publish-managed-services-offers.md) för att enkelt gå ombord på kunder till Azure-delegerad resurshantering. Du kan också [slutföra introduktionsprocessen genom att distribuera Azure Resource Manager-mallar](../how-to/onboard-customer.md).
-
-## <a name="how-azure-delegated-resource-management-works"></a>Så här fungerar Azure-delegerad resurshantering
-
-Så här fungerar Azure-delegerad resurshantering på hög nivå:
-
-1. Som tjänsteleverantör identifierar du den åtkomst (roller) som dina grupper, tjänsthuvudnamn eller användare behöver för att hantera kundens Azure-resurser. Åtkomstdefinitionen innehåller tjänsteleverantörens klient-ID tillsammans med den nödvändiga åtkomsten för erbjudandet, definierad med **principalId-identiteter** från klienten mappade till [inbyggda **rollDefinitionsvärden** ](../../role-based-access-control/built-in-roles.md) (Deltagare, VM-deltagare, läsare osv.).
-2. Du anger den här åtkomsten och ombord på kunden till Azure-delegerad resurshantering på ett av två sätt:
-   - [Publicera ett Azure Marketplace-erbjudande om hanterade tjänster](../how-to/publish-managed-services-offers.md) (privat eller offentligt) som kunden kommer att acceptera
-   - [Distribuera en Azure Resource Manager-mall till kundens klientorganisation](../how-to/onboard-customer.md) för en eller flera specifika prenumerationer eller resursgrupper
-3. När kunden har varit ombord kan behöriga användare logga in på din tjänsteleverantörsklient och utföra hanteringsuppgifter i det angivna kundomfånget, baserat på den åtkomst som du har definierat.
+Azure-delegerad resurs hantering möjliggör logisk projektion av resurser från en klient organisation till en annan klient organisation. Detta gör det möjligt för behöriga användare i en Azure Active Directory (Azure AD) att utföra hanterings åtgärder för olika Azure AD-klienter som tillhör sina kunder. Tjänste leverantörer kan logga in på sin egen Azure AD-klient och ha behörighet att arbeta i delegerade kund prenumerationer och resurs grupper. Detta gör det möjligt för dem att utföra hanterings åtgärder på uppdrag av sina kunder, utan att behöva logga in på varje enskild kund klient.
 
 > [!NOTE]
-> Delegering av en prenumeration mellan två klienter över separata moln stöds inte.
+> Azure-delegerad resurs hantering kan också användas [inom ett företag som har flera Azure AD-klienter för](enterprise.md) att förenkla hanteringen av flera innehavare.
 
-## <a name="support-for-azure-delegated-resource-management"></a>Stöd för Azure-delegerad resurshantering
+Med Azure-delegerad resurs hantering kan behöriga användare arbeta direkt i kontexten för en kund prenumeration utan att ha ett konto i den kundens klient organisation eller som medägare till kundens klient. De kan också [Visa och hantera alla delegerade kund prenumerationer på sidan nya **Mina kunder** ](../how-to/view-manage-customers.md) i Azure Portal.
 
-Om du behöver hjälp med Azure-delegerad resurshantering kan du öppna en supportbegäran i Azure-portalen. För **ärendetyp**väljer du **Teknisk**. Välj en prenumeration och välj sedan **Fyr** (under **Övervakning & Hantering).**
+Med [hanterings upplevelsen för flera innehavare](cross-tenant-management-experience.md) kan du arbeta effektivare med Azures hanterings tjänster som Azure Policy, Azure Security Center och mycket annat. Alla tjänste leverantörs aktiviteter spåras i aktivitets loggen, som lagras i kundens klient organisation (och kan visas av användare i hanterings klienten). Det innebär att både kund-och tjänst leverantören enkelt kan identifiera den användare som är kopplad till eventuella ändringar.
+
+När du registrerar en kund i Azure-delegerad resurs hantering kommer de att ha åtkomst till sidan nya **tjänst leverantörer** i Azure Portal, där de kan [Bekräfta och hantera sina erbjudanden, tjänst leverantörer och delegerade resurser](../how-to/view-manage-service-providers.md). Om kunden någonsin vill återkalla åtkomsten för en tjänst leverantör kan de göra det när som helst.
+
+Du kan [publicera den nya hanterade tjänstens erbjudande typ till Azure Marketplace](../how-to/publish-managed-services-offers.md) för att enkelt publicera kunder till Azure-delegerad resurs hantering. Du kan också [slutföra onboarding-processen genom att distribuera Azure Resource Manager mallar](../how-to/onboard-customer.md).
+
+## <a name="how-azure-delegated-resource-management-works"></a>Så här fungerar Azure-delegerad resurs hantering
+
+Så här fungerar Azure-delegerad resurs hantering på hög nivå:
+
+1. Som tjänst leverantör identifierar du åtkomsten (roller) som dina grupper, tjänstens huvud namn eller användare behöver för att hantera kundens Azure-resurser. Åtkomst definitionen innehåller tjänst leverantörens klient-ID tillsammans med den nödvändiga åtkomsten för erbjudandet, definierad med **principalId** -identiteter från din klient mapp som är mappad till de [inbyggda **roll definitions** -värdena](../../role-based-access-control/built-in-roles.md) (deltagare, VM-deltagare, läsare osv.).
+2. Du kan ange den här åtkomsten och publicera kunden till Azure-delegerad resurs hantering på något av följande sätt:
+   - [Publicera ett Azure Marketplace-hanterat tjänst erbjudande](../how-to/publish-managed-services-offers.md) (privat eller offentlig) som kunden accepterar
+   - [Distribuera en Azure Resource Manager-mall till kundens klient](../how-to/onboard-customer.md) för en eller flera specifika prenumerationer eller resurs grupper
+3. När kunden har registrerats kan behöriga användare logga in på din tjänst leverantörs klient och utföra hanterings uppgifter för den angivna kund omfattningen, baserat på den åtkomst som du har definierat.
+
+> [!NOTE]
+> Delegering av en prenumeration mellan två klienter i separata moln stöds inte.
+
+## <a name="support-for-azure-delegated-resource-management"></a>Stöd för Azure-delegerad resurs hantering
+
+Om du behöver hjälp som rör Azure-delegerad resurs hantering kan du öppna en supportbegäran i Azure Portal. Välj **teknisk**för **typ av problem**. Välj en prenumeration och välj sedan **Lighthouse** (under **övervakning & hantering**).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [hanteringsupplevelser mellan klienter.](cross-tenant-management-experience.md)
-- Läs mer om [erbjudanden om hanterade tjänster på Azure Marketplace](managed-services-offers.md).
+- Lär dig mer om [hanterings upplevelser mellan flera innehavare](cross-tenant-management-experience.md).
+- Lär dig mer om [Managed Services-erbjudanden på Azure Marketplace](managed-services-offers.md).

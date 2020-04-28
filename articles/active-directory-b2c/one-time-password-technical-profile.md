@@ -1,7 +1,7 @@
 ---
-title: Aktivera engångsbefrisörsverifiering
+title: Aktivera verifiering av eng ång slö sen ord
 titleSuffix: Azure AD B2C
-description: Lär dig hur du konfigurerar ett engångslösenord (OTP) scenario med hjälp av Azure AD B2C anpassade principer.
+description: Lär dig hur du konfigurerar ett eng ång slö sen ord (eng ång slö sen ord) genom att använda Azure AD B2C anpassade principer.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,29 +12,29 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80332770"
 ---
-# <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk engångsnyckel för lösenord i en anpassad azure AD B2C-princip
+# <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) ger stöd för att hantera generering och verifiering av ett engångslösenord. Använd en teknisk profil för att generera en kod och verifiera koden senare.
+Azure Active Directory B2C (Azure AD B2C) ger stöd för att hantera genereringen och verifieringen av ett eng ång slö sen ord. Använd en teknisk profil för att generera en kod och kontrol lera sedan koden senare.
 
-Den tekniska profilen för engångslösenord kan också returnera ett felmeddelande under kodverifiering. Utforma integreringen med engångslösenordet med hjälp av en **teknisk valideringsprofil**. En teknisk profil för validering anropar den tekniska profilen för engångslösenord för att verifiera en kod. Den tekniska profilen för validering validerar data som tillhandahålls av användaren innan användarens färd fortsätter. Med den tekniska profilen för validering visas ett felmeddelande på en sida som själv har bekräftats.
+Den tekniska profilen för eng ång slö sen ord kan också returnera ett fel meddelande under kod verifieringen. Utforma integrationen med eng ång slö sen ord genom att använda en **verifierad teknisk profil**. En teknisk validerings profil anropar en teknisk profil för eng ång slö sen ord för att verifiera en kod. Den tekniska verifierings profilen verifierar de data som anges av användaren innan användar resan fortsätter. Med den tekniska verifierings profilen visas ett fel meddelande på en självkontrollerad sida.
 
 ## <a name="protocol"></a>Protokoll
 
-**Attributet Name** för **protokollelementet** måste `Proprietary`anges till . **Hantattributet** måste innehålla det fullständigt kvalificerade namnet på protokollhanterarsammansättningen som används av Azure AD B2C:
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C:
 
 ```XML
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-I följande exempel visas en teknisk profil för engångslösenord:
+I följande exempel visas en teknisk profil för eng ång slö sen ord:
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
@@ -45,40 +45,40 @@ I följande exempel visas en teknisk profil för engångslösenord:
 
 ## <a name="generate-code"></a>Generera kod
 
-Det första läget för den här tekniska profilen är att generera en kod. Nedan finns de alternativ som kan konfigureras för det här läget.
+Det första läget i den här tekniska profilen är att generera en kod. Nedan visas de alternativ som kan konfigureras för det här läget.
 
-### <a name="input-claims"></a>Ingående anspråk
+### <a name="input-claims"></a>Inmatade anspråk
 
-Elementet **InputClaims** innehåller en lista över anspråk som krävs för att skicka till engångslösenordsprotokollleverantören. Du kan också mappa namnet på ditt anspråk till namnet som definieras nedan.
-
-| ClaimReferenceId | Krävs | Beskrivning |
-| --------- | -------- | ----------- |
-| Identifierare | Ja | Identifieraren för att identifiera användaren som behöver verifiera koden senare. Det används ofta som identifierare för målet där koden levereras till, till exempel e-postadress eller telefonnummer. |
-
-Elementet **InputClaimsTransformations** kan innehålla en samling **InputClaimsTransformation-element** som används för att ändra indataanspråken eller generera nya innan de skickas till lösenordsprotokollleverantören.
-
-### <a name="output-claims"></a>Utgående fordringar
-
-**Elementet OutputClaims** innehåller en lista över anspråk som genereras av engångslösenordsprotokollprovidern. Du kan också mappa namnet på ditt anspråk till namnet som definieras nedan.
+**InputClaims** -elementet innehåller en lista över anspråk som krävs för att skicka till eng ång slö sen ord. Du kan också mappa namnet på ditt anspråk till namnet som anges nedan.
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| otpGenerated (otpGenerated) | Ja | Den genererade koden vars session hanteras av Azure AD B2C. |
+| beteckning | Ja | Identifieraren som identifierar den användare som behöver verifiera koden senare. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
 
-**Elementet OutputClaimsTransformations** kan innehålla en samling **OutputClaimsTransformation-element** som används för att ändra utdataanspråken eller generera nya.
+**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
+
+### <a name="output-claims"></a>Utgående anspråk
+
+**OutputClaims** -elementet innehåller en lista över anspråk som skapats av eng ång slö sen ord. Du kan också mappa namnet på ditt anspråk till namnet som anges nedan.
+
+| ClaimReferenceId | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| otpGenerated | Ja | Den genererade koden vars session hanteras av Azure AD B2C. |
+
+**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
 ### <a name="metadata"></a>Metadata
 
-Följande inställningar kan användas för att konfigurera kodgenereringsläge:
+Följande inställningar kan användas för att konfigurera läget för kodgenerering:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Inga | Tid i sekunder tills koden upphör att gälla. Minimum: `60`; Högsta `1200`tillåtna belopp: ; Standard: `600`. |
-| KodLängd | Inga | Kodens längd. Standardvärdet är `6`. |
-| Teckenuppsättning | Inga | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Teckenuppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
-| NumRetryAttempts | Inga | Antalet verifieringsförsök innan koden anses ogiltig. Standardvärdet är `5`. |
-| Åtgärd | Ja | Den åtgärd som ska utföras. Möjligt värde: `GenerateCode`. |
-| Återanvändasamkod | Inga | Om en dubblettkod ska anges i stället för att generera en ny kod när given kod inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
+| CodeExpirationInSeconds | Inga | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60`; Max: `1200`; Standard: `600`. |
+| CodeLength | Inga | Längden på koden. Standardvärdet är `6`. |
+| CharacterSet | Inga | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
+| NumRetryAttempts | Inga | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `GenerateCode`. |
+| ReuseSameCode | Inga | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
 
 ### <a name="example"></a>Exempel
 
@@ -107,44 +107,44 @@ Följande exempel `TechnicalProfile` används för att generera en kod:
 
 ## <a name="verify-code"></a>Verifiera kod
 
-Det andra läget för den här tekniska profilen är att verifiera en kod. Nedan finns de alternativ som kan konfigureras för det här läget.
+Det andra läget i den här tekniska profilen är att verifiera en kod. Nedan visas de alternativ som kan konfigureras för det här läget.
 
-### <a name="input-claims"></a>Ingående anspråk
+### <a name="input-claims"></a>Inmatade anspråk
 
-Elementet **InputClaims** innehåller en lista över anspråk som krävs för att skicka till engångslösenordsprotokollleverantören. Du kan också mappa namnet på ditt anspråk till namnet som definieras nedan.
+**InputClaims** -elementet innehåller en lista över anspråk som krävs för att skicka till eng ång slö sen ord. Du kan också mappa namnet på ditt anspråk till namnet som anges nedan.
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Identifierare | Ja | Identifieraren för att identifiera den användare som tidigare har genererat en kod. Det används ofta som identifierare för målet där koden levereras till, till exempel e-postadress eller telefonnummer. |
-| otpToVerify (8)otpToVerify otpTo | Ja | Verifieringskoden som tillhandahålls av användaren. |
+| beteckning | Ja | Identifieraren som identifierar den användare som tidigare har genererat en kod. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
+| otpToVerify | Ja | Verifierings koden som anges av användaren. |
 
-Elementet **InputClaimsTransformations** kan innehålla en samling **InputClaimsTransformation-element** som används för att ändra indataanspråken eller generera nya innan de skickas till lösenordsprotokollleverantören.
+**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
 
-### <a name="output-claims"></a>Utgående fordringar
+### <a name="output-claims"></a>Utgående anspråk
 
-Det finns inga utdataanspråk som tillhandahålls vid kodverifiering av den här protokollleverantören.
+Det finns inga utgående anspråk under kod verifieringen av den här protokoll leverantören.
 
-**Elementet OutputClaimsTransformations** kan innehålla en samling **OutputClaimsTransformation-element** som används för att ändra utdataanspråken eller generera nya.
+**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
 ### <a name="metadata"></a>Metadata
 
-Följande inställningar kan användas för att koda verifieringsläget:
+Följande inställningar kan användas för kod verifierings läge:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Ja | Den åtgärd som ska utföras. Möjligt värde: `VerifyCode`. |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `VerifyCode`. |
 
 
 ### <a name="ui-elements"></a>Element för användargränssnitt
 
-Följande metadata kan användas för att konfigurera felmeddelandena som visas vid kodverifieringsfel. Metadata bör konfigureras i den [självsäkra](self-asserted-technical-profile.md) tekniska profilen. Felmeddelandena kan [lokaliseras](localization-string-ids.md#one-time-password-error-messages).
+Följande metadata kan användas för att konfigurera fel meddelanden som visas vid kod verifierings fel. Metadata bör konfigureras i den [självkontrollerade](self-asserted-technical-profile.md) tekniska profilen. Fel meddelandena kan [lokaliseras](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesExist | Inga | Meddelandet som ska visas för användaren om kodverifieringssessionen har upphört att gälla. Det är antingen koden har upphört att gälla eller koden har aldrig genererats för en viss identifierare. |
-| UserMessageIfMaxRetryAttempted | Inga | Meddelandet som ska visas för användaren om de har överskridit de högsta tillåtna verifieringsförsöken. |
+| UserMessageIfSessionDoesNotExist | Inga | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
+| UserMessageIfMaxRetryAttempted | Inga | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
 | UserMessageIfInvalidCode | Inga | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
-|UserMessageIfSessionConflict|Inga| Meddelandet som ska visas för användaren om koden inte kan verifieras.|
+|UserMessageIfSessionConflict|Inga| Meddelandet som ska visas för användaren om det inte går att verifiera koden.|
 
 ### <a name="example"></a>Exempel
 
@@ -166,7 +166,7 @@ Följande exempel `TechnicalProfile` används för att verifiera en kod:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artikel om du till exempel använder en teknisk profil för engångslösenord med anpassad e-postverifiering:
+I följande artikel visas exempel på en teknisk profil med eng ång slö sen ord med anpassad e-postverifiering:
 
 - [Anpassad e-postverifiering i Azure Active Directory B2C](custom-email.md)
 

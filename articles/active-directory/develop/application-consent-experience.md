@@ -1,7 +1,7 @@
 ---
-title: Azure AD-app medgivande upplevelser
+title: Azure AD-appens medgivande upplevelser
 titleSuffix: Microsoft identity platform
-description: Läs mer om Azure AD-medgivandet för att se hur du kan använda den när du hanterar och utvecklar program på Azure AD
+description: Lär dig mer om godkännande upplevelser i Azure AD för att se hur du kan använda den när du hanterar och utvecklar program i Azure AD
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,73 +14,73 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885590"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
 
-Läs mer om användarupplevelsen för Azure Active Directory (Azure AD) -program medgivande. Så du kan på ett intelligent sätt hantera program för din organisation och/eller utveckla program med en mer sömlös samtyckesupplevelse.
+Lär dig mer om användar upplevelsen för program medgivande i Azure Active Directory (Azure AD). Så att du kan hantera program för din organisation och/eller utveckla program med en mer sömlös godkännande upplevelse.
 
-## <a name="consent-and-permissions"></a>Samtycke och behörigheter
+## <a name="consent-and-permissions"></a>Medgivande och behörigheter
 
-Samtycke är processen för en användare som beviljar tillstånd till ett program för att komma åt skyddade resurser för deras räkning. En administratör eller användare kan bli ombedd att ge sitt samtycke för att ge åtkomst till sina organisations-/enskilda data.
+Samtycke är en användare som ger behörighet till ett program för att få åtkomst till skyddade resurser för deras räkning. En administratör eller användare kan be om medgivande för att tillåta åtkomst till deras organisation/individuella data.
 
-Den faktiska användarupplevelsen av att bevilja medgivande varierar beroende på principer som angetts för användarens klientorganisation, användarens behörighetsområde (eller roll) och vilken typ av behörigheter som [begärs](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) av klientprogrammet. Det innebär att programutvecklare och klientadministratörer har viss kontroll över medgivandeupplevelsen. Administratörer har flexibiliteten att ange och inaktivera principer för en klient eller app för att styra medgivandeupplevelsen i sin klientorganisation. Programutvecklare kan diktera vilka typer av behörigheter som begärs och om de vill vägleda användare via användarens medgivandeflöde eller administratörssamtyckeflödet.
+Den faktiska användar upplevelsen för godkännandet kan variera beroende på principer som anges på användarens klient organisation, användarens auktoritets område (eller roll) och vilken typ av [behörighet](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) som begärs av klient programmet. Det innebär att program utvecklare och klient administratörer har viss kontroll över medgivande upplevelsen. Administratörer har flexibiliteten att ställa in och inaktivera principer på en klient eller app för att kontrol lera medgivande upplevelsen i sina klienter. Programutvecklare kan diktera vilka typer av behörigheter som begärs och om de vill ge användarna möjlighet att använda flödet för användarens medgivande eller det administrativa godkännande flödet.
 
-- **Användarens medgivandeflöde** är när en programutvecklare dirigerar användare till auktoriseringsslutpunkten med avsikt att registrera medgivande för endast den aktuella användaren.
-- **Administratörsmedgivandeflödet** är när en programutvecklare dirigerar användare till slutpunkten för administratörsmedgivande med avsikt att registrera medgivande för hela klienten. För att säkerställa att administratörsmedgivandeflödet fungerar korrekt `RequiredResourceAccess` måste programutvecklare lista alla behörigheter i egenskapen i programmanifestet. Mer information finns i [Programmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- **Flöde för användar godkännande** är när en programutvecklare dirigerar användare till behörighets slut punkten med avsikt att registrera medgivande för enbart den aktuella användaren.
+- **Flöde för administratörs medgivande** är när en programutvecklare dirigerar användare till en slut punkt för administratörs medgivande med avsikt att registrera medgivande för hela klienten. För att säkerställa att det administrativa godkännande flödet fungerar korrekt måste programutvecklare lista alla behörigheter `RequiredResourceAccess` i egenskapen i program manifestet. Mer information finns i [program manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
 
-## <a name="building-blocks-of-the-consent-prompt"></a>Byggstenar i samtyckesprompten
+## <a name="building-blocks-of-the-consent-prompt"></a>Bygg stenar av medgivande frågan
 
-Samtyckesprompten är utformad för att säkerställa att användarna har tillräckligt med information för att avgöra om de litar på klientprogrammet för att komma åt skyddade resurser för deras räkning. Att förstå byggstenarna hjälper användare som beviljar samtycke att fatta mer välgrundade beslut och det kommer att hjälpa utvecklare att skapa bättre användarupplevelser.
+Medgivande frågan är utformad för att se till att användarna har tillräckligt med information för att avgöra om de litar på klient programmet för att få åtkomst till skyddade resurser för deras räkning. Genom att förstå Bygg stenarna kan användare som beviljar sitt medgivande fatta mer välgrundade beslut och hjälpa utvecklare att bygga bättre användar upplevelser.
 
-Följande diagram och tabell innehåller information om byggstenarna i samtyckesprompten.
+Följande diagram och tabell innehåller information om bygg blocken i medgivande frågan.
 
-![Byggstenar i samtyckesprompten](./media/application-consent-experience/consent_prompt.png)
+![Bygg stenar av medgivande frågan](./media/application-consent-experience/consent_prompt.png)
 
 | # | Komponent | Syfte |
 | ----- | ----- | ----- |
-| 1 | Användaridentifierare | Den här identifieraren representerar den användare som klientprogrammet begär åtkomst till skyddade resurser för. |
-| 2 | Titel | Titeln ändras baserat på om användarna går igenom användarens eller administratörssamtyckeflödet. I användarens medgivande flöde, titeln kommer att vara "Behörigheter begärs" medan i admin samtycke flödet titeln kommer att ha en ytterligare rad "Acceptera för din organisation". |
-| 3 | Applogotyp | Den här bilden bör hjälpa användarna att få en visuell referens om huruvida den här appen är den app de är avsedd att komma åt. Den här avbildningen tillhandahålls av programutvecklare och ägarskapet av den här avbildningen valideras inte. |
-| 4 | Appnamn | Det här värdet bör informera användarna om vilket program som begär åtkomst till deras data. Observera att det här namnet tillhandahålls av utvecklarna och äganderätten till det här appnamnet har inte validerats. |
-| 5 | Utgivardomän | Det här värdet bör ge användarna en domän som de kanske kan utvärdera för tillförlitlighet. Den här domänen tillhandahålls av utvecklarna och ägarskapet för den här utgivardomänen valideras. |
-| 6 | Behörigheter | Den här listan innehåller de behörigheter som begärs av klientprogrammet. Användare bör alltid utvärdera vilka typer av behörigheter som begärs för att förstå vilka data klientprogrammet har behörighet att komma åt för deras räkning om de accepterar. Som programutvecklare är det bäst att begära åtkomst, till de behörigheter som har minst behörighet. |
-| 7 | Beskrivning av behörighet | Det här värdet tillhandahålls av tjänsten som exponerar behörigheterna. Om du vill se behörighetsbeskrivningarna måste du växla sparren bredvid behörigheten. |
-| 8 | Appvillkor | Dessa villkor innehåller länkar till användarvillkoren och sekretesspolicyn för programmet. Utgivaren ansvarar för att beskriva sina regler i sina användarvillkor. Dessutom är utgivaren ansvarig för att avslöja hur de använder och dela användardata i sin sekretesspolicy. Om utgivaren inte tillhandahåller länkar till dessa värden för program med flera innehavare visas en fet varning om medgivandeprompten. |
-| 9 | https://myapps.microsoft.com | Det här är länken där användare kan granska och ta bort program som inte kommer från Microsoft och som för närvarande har åtkomst till deras data. |
+| 1 | Användar identifierare | Den här identifieraren representerar användaren som klient programmet begär för att få åtkomst till skyddade resurser åt. |
+| 2 | Titel | Rubriken ändras baserat på om användarna ska gå igenom flödet för användare eller administrativt godkännande. I användarens godkännande flöde blir rubriken "behörighet begärs", medan rubriken i det administrativa godkännande flödet har en rad "acceptera för din organisation". |
+| 3 | Applogotyp | Den här bilden bör hjälpa användarna att ha en visuell ikon för om den här appen är den app som de är avsedd att komma åt. Den här avbildningen tillhandahålls av programutvecklare och ägarskapet för den här avbildningen är inte verifierad. |
+| 4 | Appnamn | Det här värdet bör informera användarna om vilka program som begär åtkomst till sina data. Obs! det här namnet tillhandahålls av utvecklarna och ägarskapet för det här namnet på appen är inte verifierat. |
+| 5 | Utgivardomän | Det här värdet bör ge användare en domän som de kan utvärdera för pålitlighet. Den här domänen tillhandahålls av utvecklare och ägarskapet för den här utgivarens domän är verifierad. |
+| 6 | Behörigheter | Den här listan innehåller de behörigheter som begärs av klient programmet. Användare bör alltid utvärdera de typer av behörigheter som begärs för att förstå vilka data som klient programmet kommer att ha behörighet att komma åt för deras räkning om de accepterar. Som programutvecklare är det bäst att begära åtkomst till behörigheterna med minsta behörighet. |
+| 7 | Beskrivning av behörighet | Det här värdet tillhandahålls av tjänsten som visar behörigheterna. Om du vill se behörighets beskrivningarna måste du växla v-tecknet bredvid behörigheten. |
+| 8 | Program villkor | Dessa villkor innehåller länkar till tillämpnings programmets villkor och sekretess policy. Utgivaren ansvarar för att disponera sina regler i deras användnings villkor. Dessutom är utgivaren ansvarig för att stänga av hur de använder och dela användar data i sin sekretess policy. Om utgivaren inte tillhandahåller länkar till dessa värden för program med flera klienter, kommer det att finnas en varning om medgivande. |
+| 9 | https://myapps.microsoft.com | Detta är den länk där användarna kan granska och ta bort program som inte kommer från Microsoft och som för närvarande har åtkomst till sina data. |
 
-## <a name="common-consent-scenarios"></a>Scenarier för gemensamt samtycke
+## <a name="common-consent-scenarios"></a>Vanliga godkännande scenarier
 
-Här är de medgivandeupplevelser som en användare kan se i scenarierna för gemensamt samtycke:
+Här är de medgivande upplevelser som en användare kan se i vanliga godkännande scenarier:
 
-1. Personer som använder en app som leder dem till användarens medgivandeflöde samtidigt som de kräver en behörighetsgrupp som ligger inom deras behörighetsområde.
+1. Personer som har åtkomst till en app som dirigerar dem till användarens medgivande-flöde och som kräver en behörighets uppsättning som ligger inom sitt auktoritets omfång.
     
-    1. Administratörer kommer att se en ytterligare kontroll på den traditionella samtyckesprompten som ger dem samtycke på uppdrag av hela klienten. Kontrollen kommer att vara avstängd som standard, så endast när administratörer uttryckligen markerar rutan kommer samtycke beviljas för hela klientens räkning. Från och med idag visas den här kryssrutan endast för rollen Global administratör, så cloud admin och appadministratör kommer inte att se den här kryssrutan.
+    1. Administratörer ser en ytterligare kontroll i den traditionella medgivande frågan som gör det möjligt för dem att ge sitt uppdrag åt hela klienten. Kontrollen kommer att försättas till av som standard, så endast när administratörer uttryckligen markerar rutan kommer att beviljas för hela klient organisationens räkning. Från och med idag visas den här kryss rutan bara för den globala administratörs rollen, så moln administratören och app-administratören kommer inte att se den här kryss rutan.
 
-        ![Fråga om samtycke för scenario 1a](./media/application-consent-experience/consent_prompt_1a.png)
+        ![Medgivande-prompt för scenario 1a](./media/application-consent-experience/consent_prompt_1a.png)
     
-    2. Användarna ser den traditionella samtyckesprompten.
+    2. Användarna kommer att se den traditionella medgivande frågan.
 
-        ![Fråga om samtycke för scenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Medgivande-prompt för scenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
 
-2. Personer som använder en app som kräver minst en behörighet som ligger utanför deras behörighetsområde.
-    1. Administratörer kommer att se samma fråga som 1.i visas ovan.
-    2. Användare kommer att blockeras från att bevilja samtycke till programmet, och de kommer att bli tillsagda att be sin administratör om åtkomst till appen. 
+2. Personer som har åtkomst till en app som kräver minst en behörighet som ligger utanför auktoritets omfånget.
+    1. Administratörer ser samma prompt som 1. jag visas ovan.
+    2. Användarna kommer att blockeras från att bevilja programmet, och de uppmanas att be dennes administratör om åtkomst till appen. 
                 
-        ![Fråga om samtycke för scenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Medgivande-prompt för scenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
 
-3. Personer som navigerar eller dirigeras till administratörens medgivandeflöde.
-    1. Administratörsanvändare ser uppmaningen om administratörsgodkännande. Titeln och behörighetsbeskrivningarna som ändrats för den här prompten, ändringarna belyser det faktum att acceptera denna fråga kommer att ge appen åtkomst till begärda data på uppdrag av hela klienten.
+3. Individer som navigerar till eller dirigeras till det administrativa godkännande flödet.
+    1. Administratörs användare ser frågan om administrativt medgivande. Rubriken och behörighets beskrivningarna som har ändrats i den här prompten. ändringarna markerar det faktum att den här varningen ger appen åtkomst till begärda data för hela klient organisationens räkning.
         
-        ![Fråga om samtycke för scenario 1b](./media/application-consent-experience/consent_prompt_3a.png)
+        ![Medgivande-prompt för scenario 1b](./media/application-consent-experience/consent_prompt_3a.png)
         
-    1. Icke-admin användare kommer att se samma skärm som 2.ii visas ovan.
+    1. Användare som inte är administratörer ser samma skärm som 2. II som visas ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-- Få en stegvis översikt över [hur Azure AD-medgivanderamverket implementerar samtycke](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Mer information finns i [hur ett program med flera innehavare kan använda medgivanderamverket](active-directory-devhowto-multi-tenant-overview.md) för att implementera "användar- och administratörstillstånd", vilket stöder mer avancerade programmönster på flera nivåer.
-- Läs om hur du [konfigurerar appens utgivardomän](howto-configure-publisher-domain.md).
+- Få en stegvis översikt över [hur Azure AD medgivande Framework implementerar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Mer djupgående får du lära dig [hur ett program med flera klienter kan använda medgivande ramverket](active-directory-devhowto-multi-tenant-overview.md) för att implementera användar-och administratörs medgivande, stöd för mer avancerade program mönster på flera nivåer.
+- Lär dig [hur du konfigurerar appens utgivare domän](howto-configure-publisher-domain.md).

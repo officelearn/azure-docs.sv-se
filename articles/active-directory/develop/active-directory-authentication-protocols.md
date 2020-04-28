@@ -1,6 +1,6 @@
 ---
-title: Autentiseringsprotokoll för Microsoft-identitetsplattform
-description: En översikt över de autentiseringsprotokoll som stöds av Microsofts identitetsplattform
+title: Autentiseringsprotokoll för Microsoft Identity Platform
+description: En översikt över de autentiseringsprotokoll som stöds av Microsoft Identity Platform
 author: rwike77
 services: active-directory
 manager: CelesteDG
@@ -13,27 +13,27 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: 41ea41b4d7c181dad9246653a68c329387ac5381
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884689"
 ---
-# <a name="microsoft-identity-platform-authentication-protocols"></a>Autentiseringsprotokoll för Microsoft-identitetsplattform
+# <a name="microsoft-identity-platform-authentication-protocols"></a>Autentiseringsprotokoll för Microsoft Identity Platform
 
-Microsofts identitetsplattform stöder flera av de mest använda autentiserings- och auktoriseringsprotokollen. I det här avsnittet beskrivs protokoll som stöds och deras implementering på Microsofts identitetsplattform. Ämnena inkluderade en granskning av anspråkstyper som stöds, en introduktion till användningen av federationsmetadata, detaljerad OAuth 2.0. och SAML 2.0-dokumentation för protokollreferens och ett felsökningsavsnitt.
+Microsoft Identity Platform stöder flera av de vanligaste protokollen för autentisering och auktorisering. Ämnena i det här avsnittet beskriver de protokoll som stöds och deras implementering i Microsoft Identity Platform. I avsnitten ingår en granskning av de anspråks typer som stöds, en introduktion till användningen av federationsmetadata, detaljerad OAuth 2,0. och ett fel söknings avsnitt med SAML 2,0-protokoll referens dokumentation.
 
 ## <a name="authentication-protocols-articles-and-reference"></a>Artiklar och referens för autentiseringsprotokoll
 
-* [Viktig information om signering av nyckelöverrullning i Microsofts identitetsplattform](active-directory-signing-key-rollover.md) – Läs mer om Microsoft identity-plattformens rollover-kadens för signeringsnyckel, ändringar som du kan göra för att uppdatera nyckeln automatiskt och diskutera hur du uppdaterar de vanligaste programscenarierna.
-* [Token- och anspråkstyper som stöds](id-tokens.md) – Lär dig mer om anspråk i de token som Microsoft identity-plattformen utfärdar.
-* [OAuth 2.0 i Microsofts identitetsplattform](v2-oauth2-auth-code-flow.md) – Lär dig mer om implementeringen av OAuth 2.0 i Microsofts identitetsplattform.
-* [OpenID Connect 1.0](v2-protocols-oidc.md) - Lär dig hur du använder OAuth 2.0, ett auktoriseringsprotokoll, för autentisering.
-* [Service till servicesamtal med klientreferenser](v2-oauth2-client-creds-grant-flow.md) – Lär dig hur du använder OAuth 2.0-klientautentiseringsuppgifter bevilja flöde för service till servicesamtal.
-* [Service till servicesamtal med on-behalf-Of Flow](v2-oauth2-on-behalf-of-flow.md) - Lär dig hur du använder OAuth 2.0 on-behalf-Of-flöde för service till servicesamtal.
-* [SAML Protocol Reference](active-directory-saml-protocol-reference.md) – Lär dig mer om SAML-profilerna för enkel inloggning och enkel inloggning på Microsofts identitetsplattform.
+* [Viktig information om förnyelse av signerings nyckel i Microsoft Identity Platform](active-directory-signing-key-rollover.md) – lär dig mer om Microsofts identitets plattforms förnyelse av takt för signerings nyckel, ändringar som du kan göra för att uppdatera nyckeln automatiskt och diskussion om hur du uppdaterar de vanligaste program scenarierna.
+* [Token och anspråks typer som stöds](id-tokens.md) – Läs mer om anspråk i de token som problem med Microsoft Identity Platform.
+* [Oauth 2,0 i Microsoft Identity Platform](v2-oauth2-auth-code-flow.md) – lär dig mer om implementeringen av OAuth 2,0 i Microsoft Identity Platform.
+* [OpenID Connect 1,0](v2-protocols-oidc.md) – lär dig hur du använder OAuth 2,0, ett Authorization-protokoll, för autentisering.
+* [Tjänst-till-tjänst-anrop med klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) – lär dig hur du använder OAuth 2,0-klientens autentiseringsuppgifter för att tilldela tjänst-till-tjänst-anrop.
+* [Tjänst-till-tjänst-anrop med on-of-Flow](v2-oauth2-on-behalf-of-flow.md) – lär dig hur du använder OAuth 2,0 på uppdrag av Flow för tjänst-till-tjänst-anrop.
+* [Referens för SAML-protokoll](active-directory-saml-protocol-reference.md) – lär dig mer om SAML-profilerna för enkel inloggning och enkel inloggning i Microsoft Identity Platform.
 
 ## <a name="see-also"></a>Se även
 
-* [Översikt över Microsofts identitetsplattform](v2-overview.md)
-* [Exempel på Active Directory-kod](sample-v2-code.md)
+* [Översikt över Microsoft Identity Platform](v2-overview.md)
+* [Active Directory kod exempel](sample-v2-code.md)

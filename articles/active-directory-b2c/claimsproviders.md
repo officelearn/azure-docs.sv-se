@@ -1,6 +1,6 @@
 ---
-title: ClaimsProviders - Azure Active Directory B2C | Microsoft-dokument
-description: Ange elementet ClaimsProvider i en anpassad princip i Azure Active Directory B2C.
+title: ClaimsProviders – Azure Active Directory B2C | Microsoft Docs
+description: Ange ClaimsProvider-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189777"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En anspråksprovider innehåller en uppsättning [tekniska profiler](technicalprofiles.md). Varje anspråksprovider måste ha en eller flera tekniska profiler som avgör slutpunkterna och protokollen som behövs för att kommunicera med anspråksprovidern. En anspråksprovider kan ha flera tekniska profiler. Flera tekniska profiler kan till exempel definieras eftersom anspråksprovidern stöder flera protokoll, olika slutpunkter med olika funktioner eller släpper olika anspråk på olika säkerhetsnivåer. Det kan vara acceptabelt att släppa känsliga anspråk i en användarresa, men inte i en annan.
+En anspråks leverantör innehåller en uppsättning [tekniska profiler](technicalprofiles.md). Varje anspråks leverantör måste ha en eller flera tekniska profiler som avgör slut punkterna och de protokoll som behövs för att kommunicera med anspråks leverantören. En anspråks leverantör kan ha flera tekniska profiler. Till exempel kan flera tekniska profiler definieras eftersom anspråks leverantören stöder flera protokoll, olika slut punkter med olika funktioner eller släpper olika anspråk på olika garanti nivåer. Det kan vara acceptabelt att släppa känsliga anspråk i en användar resa, men inte i en annan.
 
 ```XML
 <ClaimsProviders>
@@ -39,23 +39,23 @@ En anspråksprovider innehåller en uppsättning [tekniska profiler](technicalpr
 </ClaimsProviders>
 ```
 
-Elementet **ClaimsProviders** innehåller följande element:
+**ClaimsProviders** -elementet innehåller följande element:
 
-| Element | Händelser | Beskrivning |
+| Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| FordringarProvider | 1:n | En ackrediterad anspråksleverantör som kan utnyttjas i olika användarresor. |
+| ClaimsProvider | 1: n | En ackrediterad anspråks leverantör som kan utnyttjas i olika användar resor. |
 
-## <a name="claimsprovider"></a>FordringarProvider
+## <a name="claimsprovider"></a>ClaimsProvider
 
-Elementet **ClaimsProvider** innehåller följande underordnade element:
+**ClaimsProvider** -elementet innehåller följande underordnade element:
 
-| Element | Händelser | Beskrivning |
+| Element | Förekomster | Beskrivning |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | En sträng som innehåller domännamnet för anspråksprovidern. Om din skadeleverantör till exempel innehåller Den tekniska profilen för Facebook är domännamnet Facebook.com. Detta domännamn används för alla tekniska profiler som definieras i anspråksprovidern om det inte åsidosätts av den tekniska profilen. Domännamnet kan också refereras i en **domain_hint**. Mer information finns **i avsnittet Omdirigera inloggning till en social provider i** Konfigurera direkt inloggning med Azure Active Directory [B2C](direct-signin.md). |
-| DisplayName | 1:1 | En sträng som innehåller namnet på anspråksprovidern. |
-| [TechnicalProfiles](technicalprofiles.md) | 0:1 | En uppsättning tekniska profiler som stöds av anspråksleverantören |
+| Domain | 0:1 | En sträng som innehåller domän namnet för anspråks leverantören. Om din anspråks leverantör till exempel innehåller den tekniska Facebook-profilen för Facebook, är domän namnet Facebook.com. Det här domän namnet används för alla tekniska profiler som definierats i anspråks leverantören, såvida de inte åsidosätts av den tekniska profilen. Domän namnet kan också refereras till i en **domain_hint**. Mer information finns i avsnittet **omdirigera inloggning till en socialt leverantör** i [Konfigurera direkt inloggning med Azure Active Directory B2C](direct-signin.md). |
+| DisplayName | 1:1 | En sträng som innehåller namnet på anspråks leverantören. |
+| [TechnicalProfiles](technicalprofiles.md) | 0:1 | En uppsättning tekniska profiler som stöds av anspråks leverantören |
 
-**ClaimsProvider** organiserar hur dina tekniska profiler relaterar till anspråksleverantören. I följande exempel visas Azure Active Directory-anspråksprovidern med tekniska Azure Active Directory-profiler:
+**ClaimsProvider** ordnar hur dina tekniska profiler är relaterade till anspråks leverantören. I följande exempel visas providern Azure Active Directory anspråk med Azure Active Directory tekniska profiler:
 
 ```XML
 <ClaimsProvider>
@@ -93,7 +93,7 @@ Elementet **ClaimsProvider** innehåller följande underordnade element:
 </ClaimsProvider>
 ```
 
-I följande exempel visas Facebook-anspråksleverantören med den tekniska profilen **Facebook-OAUTH.**
+I följande exempel visas Facebook-anspråks leverantören med den tekniska profilen för **Facebook-OAuth** .
 
 ```XML
 <ClaimsProvider>

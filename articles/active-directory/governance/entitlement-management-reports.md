@@ -1,6 +1,6 @@
 ---
-title: Visa rapporter & loggar in i rättighetshantering – Azure AD
-description: Lär dig hur du visar rapporten för användartilldelningar och granskningsloggar i Azure Active Directory-berättigandehantering.
+title: Visa rapporter & loggar i hantering av rättigheter – Azure AD
+description: Lär dig hur du visar rapporten användar tilldelningar och gransknings loggar i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -17,61 +17,61 @@ ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 514f8e86d6bd28cc5212e0f0058f00e270f43e35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128425"
 ---
-# <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visa rapporter och loggar i Azure AD-berättigandehantering
+# <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visa rapporter och loggar i hantering av Azure AD-berättigande
 
-Azure AD-rättighetshanteringsrapporter och Azure AD-granskningsloggen innehåller ytterligare information om vilka resurser användare har åtkomst till. Som administratör kan du visa åtkomstpaket och resurstilldelningar för en användare och visa begärandeloggar i granskningssyfte eller för att fastställa status för en användares begäran. I den här artikeln beskrivs hur du använder rättighetshanteringsrapporter och Azure AD-granskningsloggar.
+Hanterings rapporterna för Azure AD-rapportering och Azure AD audit-loggen innehåller ytterligare information om vilka resurser som användare har åtkomst till. Som administratör kan du Visa åtkomst paketen och resurs tilldelningarna för en användare och Visa begär ande loggar för gransknings syfte eller för att fastställa status för en användares begäran. Den här artikeln beskriver hur du använder hanterings rapporter för rättigheter och Azure AD audit-loggar.
 
-Titta på följande video om du vill lära dig hur du visar vilka resurser användarna har åtkomst till i rättighetshantering:
+Titta på följande video och lär dig hur du visar vilka resurser som användare har åtkomst till i hantering av rättigheter:
 
 >[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
-## <a name="view-access-packages-for-a-user"></a>Visa åtkomstpaket för en användare
+## <a name="view-access-packages-for-a-user"></a>Visa åtkomst paket för en användare
 
-Med den här rapporten kan du lista alla åtkomstpaket som en användare kan begära och de åtkomstpaket som för närvarande har tilldelats användaren.
+Med den här rapporten kan du Visa en lista över alla åtkomst paket som en användare kan begära och de åtkomst paket som för närvarande är tilldelade till användaren.
 
-**Viktig roll:** Global administratör eller användaradministratör
+**Nödvändig roll:** Global administratör eller användar administratör
 
-1. Klicka på **Azure Active Directory** och sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
-1. Klicka på **Rapporter**på den vänstra menyn .
+1. På den vänstra menyn klickar du på **rapporter**.
 
-1. Klicka på **Access-paket för en användare**.
+1. Klicka på **åtkomst paket för en användare**.
 
-1. Klicka på **Välj användare** om du vill öppna fönstret Välj användare.
+1. Klicka på **Välj användare** för att öppna fönstret Välj användare.
 
-1. Leta reda på användaren i listan och klicka sedan på **Välj**.
+1. Hitta användaren i listan och klicka sedan på **Välj**.
 
-    På fliken **Kan begära** visas en lista över de åtkomstpaket som användaren kan begära. Den här listan bestäms av de [begärandeprinciper](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) som definierats för åtkomstpaketen. 
+    Fliken **kan begära** visar en lista över de åtkomst paket som användaren kan begära. Den här listan bestäms av de [förfrågnings principer](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) som definierats för åtkomst paketen. 
 
-    ![Åtkomstpaket för en användare](./media/entitlement-management-reports/access-packages-report.png)
+    ![Åtkomst till paket för en användare](./media/entitlement-management-reports/access-packages-report.png)
 
-1. Om det finns fler än en resursroll eller principer för ett åtkomstpaket klickar du på resursroller eller principer för att se urvalsinformation.
+1. Om det finns fler än en resurs roll eller principer för ett åtkomst paket klickar du på posten resurs roller eller principer för att se urvals information.
 
-1. Klicka på fliken **Tilldelad** om du vill visa en lista över de åtkomstpaket som för närvarande har tilldelats användaren. När ett åtkomstpaket tilldelas en användare innebär det att användaren har åtkomst till alla resursroller i åtkomstpaketet.
+1. Klicka på fliken **tilldela** om du vill se en lista över de åtkomst paket som för närvarande har tilldelats användaren. När ett åtkomst paket tilldelas till en användare innebär det att användaren har åtkomst till alla resurs roller i åtkomst paketet.
 
 ## <a name="view-resource-assignments-for-a-user"></a>Visa resurstilldelningar för en användare
 
-Med den här rapporten kan du visa de resurser som för närvarande har tilldelats en användare i rättighetshantering. Observera att den här rapporten är för resurser som hanteras med rättighetshantering. Användaren kan ha åtkomst till andra resurser i katalogen utanför rättighetshanteringen.
+Med den här rapporten kan du Visa en lista över resurser som är kopplade till en användare i hantering av rättigheter. Observera att den här rapporten gäller resurser som hanteras med rättighets hantering. Användaren kan ha åtkomst till andra resurser i din katalog utanför hantering av rättigheter.
 
-**Viktig roll:** Global administratör eller användaradministratör
+**Nödvändig roll:** Global administratör eller användar administratör
 
-1. Klicka på **Azure Active Directory** och sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
-1. Klicka på **Rapporter**på den vänstra menyn .
+1. På den vänstra menyn klickar du på **rapporter**.
 
-1. Klicka på **Resurstilldelningar för en användare**.
+1. Klicka på **resurstilldelningar för en användare**.
 
-1. Klicka på **Välj användare** om du vill öppna fönstret Välj användare.
+1. Klicka på **Välj användare** för att öppna fönstret Välj användare.
 
-1. Leta reda på användaren i listan och klicka sedan på **Välj**.
+1. Hitta användaren i listan och klicka sedan på **Välj**.
 
-    En lista över de resurser som för närvarande tilldelats användaren visas. Listan visar också det åtkomstpaket och den princip som de fick resursrollen från, tillsammans med start- och slutdatum för åtkomst.
+    En lista över de resurser som för närvarande är tilldelade till användaren visas. I listan visas även det åtkomst paket och den princip som de fick resurs rollen från, tillsammans med start-och slutdatum för åtkomst.
     
     Om en användare har åtkomst till samma resurs i två eller flera paket kan du klicka på en pil för att se varje paket och princip.
 
@@ -79,19 +79,19 @@ Med den här rapporten kan du visa de resurser som för närvarande har tilldela
 
 ## <a name="determine-the-status-of-a-users-request"></a>Fastställa status för en användares begäran
 
-Om du vill ha ytterligare information om hur en användare har begärt och tagit emot åtkomst till ett åtkomstpaket kan du använda Granskningsloggen för Azure AD. I synnerhet kan du använda loggposterna i `EntitlementManagement` kategorierna och `UserManagement` för att få ytterligare information om bearbetningsstegen för varje begäran.  
+Om du vill ha mer information om hur en användare begärde och fick åtkomst till ett Access-paket kan du använda Azure AD-gransknings loggen. I synnerhet kan du använda logg posterna i kategorierna `EntitlementManagement` och `UserManagement` för att få ytterligare information om bearbetnings stegen för varje begäran.  
 
-1. Klicka på **Azure Active Directory** och sedan på **Granskningsloggar**.
+1. Klicka på **Azure Active Directory** och klicka sedan på **gransknings loggar**.
 
-1. Högst upp ändrar **Category** du `EntitlementManagement` kategorin `UserManagement`till antingen eller , beroende på vilken granskningspost du letar efter.  
+1. Längst upp ändrar du **kategorin** till antingen `EntitlementManagement` eller `UserManagement`, beroende på vilken gransknings post du letar efter.  
 
 1. Klicka på **Använd**.
 
-1. Om du vill hämta loggarna klickar du på **Hämta**.
+1. Klicka på **Hämta**om du vill hämta loggarna.
 
-När Azure AD tar emot en ny begäran, skriver **Category** den `EntitlementManagement` en granskningspost, där kategorin är och **aktiviteten** vanligtvis `User requests access package assignment`.  När det gäller en direkttilldelning som **Activity** skapats i Azure-portalen är `Administrator directly assigns user to access package`fältet Aktivitet i granskningsposten och användaren som utför tilldelningen identifieras av **ActorUserPrincipalName**.
+När Azure AD tar emot en ny begäran skriver den en gransknings post i vilken **kategorin** är `EntitlementManagement` och **aktiviteten** är vanligt vis `User requests access package assignment`.  Om det finns en direkt tilldelning som skapats i Azure Portal, är `Administrator directly assigns user to access package` **aktivitets** fältet för gransknings posten och den användare som utför tilldelningen identifieras av **ActorUserPrincipalName**.
 
-Azure AD skriver ytterligare granskningsposter medan begäran pågår, inklusive:
+Azure AD skriver ytterligare gransknings poster medan begäran pågår, inklusive:
 
 | Kategori | Aktivitet | Status för begäran |
 | :---- | :------------ | :------------ |
@@ -99,13 +99,13 @@ Azure AD skriver ytterligare granskningsposter medan begäran pågår, inklusive
 | `UserManagement` | `Create request approval` | Begäran kräver godkännande |
 | `UserManagement` | `Add approver to request approval` | Begäran kräver godkännande |
 | `EntitlementManagement` | `Approve access package assignment request` | Begäran godkänd |
-| `EntitlementManagement` | `Ready to fulfill access package assignment request` |Begäran godkänd, eller kräver inte godkännande |
+| `EntitlementManagement` | `Ready to fulfill access package assignment request` |Begäran godkänd eller kräver inte godkännande |
 
-När en användare tilldelas åtkomst skriver Azure AD en `EntitlementManagement` granskningspost för kategorin med **Aktivitet** `Fulfill access package assignment`.  Användaren som tog emot åtkomsten identifieras av fältet **ActorUserPrincipalName.**
+När en användare tilldelas åtkomst skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** `Fulfill access package assignment`.  Användaren som har tagit emot åtkomsten identifieras av **ActorUserPrincipalName** -fältet.
 
-Om åtkomsten inte har tilldelats skriver Azure AD `EntitlementManagement` en granskningspost för kategorin med **Aktivitet** antingen `Deny access package assignment request` `Access package assignment request timed out (no approver action taken)`, om begäran nekades av en godkännare eller om begäran tog time out innan en godkännare kunde godkänna.
+Om åtkomst `EntitlementManagement` inte har tilldelats skriver Azure AD en gransknings post för kategorin med **aktivitet** antingen `Deny access package assignment request`, om begäran nekades av en god kännare, eller `Access package assignment request timed out (no approver action taken)`om tids gränsen nåddes för begäran innan en god kännare kan godkänna.
 
-När användarens tilldelning av åtkomstpaket upphör att gälla, avbryts av användaren eller tas bort av `EntitlementManagement` en administratör, `Remove access package assignment`skriver Azure AD en granskningspost för kategorin med **Aktivitet** i .
+När användarens åtkomst paket tilldelning går ut, annulleras av användaren eller tas bort av en administratör, skriver Azure AD en gransknings post för `EntitlementManagement` kategorin med **aktivitet** i. `Remove access package assignment`
 
 ## <a name="next-steps"></a>Nästa steg
 

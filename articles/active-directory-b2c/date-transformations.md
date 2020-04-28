@@ -1,6 +1,6 @@
 ---
-title: Exempel på omvandling av datumanspråk för anpassade principer
-description: Exempel på datumanspråksomvandling för IEF-schemat (Identity Experience Framework) i Azure Active Directory B2C.
+title: Datum anspråk omvandlings exempel för anpassade principer
+description: Datum anspråk omvandlings exempel för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,35 +11,35 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476696"
 ---
-# <a name="date-claims-transformations"></a>Omvandling av datum för anspråk
+# <a name="date-claims-transformations"></a>Transformeringar av datum anspråk
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln innehåller exempel på hur du använder datumansningsomvandlingarna av Identity Experience Framework-schemat i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
+Den här artikeln innehåller exempel för att använda datum anspråks omvandlingar av identitets Miljös schema i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
-Kontrollerar att ett datum- och tidsanspråk (strängdatatyp) är senare än ett andra datum- och tidsanspråk (strängdatatyp) och genererar ett undantag.
+Kontrollerar att ett datum-och tids anspråk (sträng data typ) är senare än ett andra datum-och tids anspråk (sträng data typ) och genererar ett undantag.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | sträng | Första fordrans typ, som bör vara senare än det andra kravet. |
-| InputClaim | rightOperand | sträng | Andra fordran typ, som bör vara tidigare än den första fordran. |
-| InputParameter | AssertIfEqualTo | boolean | Anger om det här påståendet ska passera om den vänstra operaden är lika med den högra operaden. |
-| InputParameter | BekräftaIfRightOperandIsNotPresent | boolean | Anger om det här påståendet ska passera om rätt operand saknas. |
-| InputParameter | TreatAsEqualIfWithinMillseconds TreatAsEqualIfWithinMillseconds TreatAsEqualIfWithinMillseconds TreatA | int | Anger antalet millisekunder som ska tillåta mellan de två datumtiderna att betrakta tiderna som lika (till exempel för att ta hänsyn till klocksnedställning). |
+| InputClaim | leftOperand | sträng | Första anspråkets typ, vilket bör vara senare än det andra anspråket. |
+| InputClaim | rightOperand | sträng | Andra anspråkets typ, som bör vara tidigare än det första anspråket. |
+| InputParameter | AssertIfEqualTo | boolean | Anger om den här kontrollen ska passas om den vänstra operanden är lika med den högra operanden. |
+| InputParameter | AssertIfRightOperandIsNotPresent | boolean | Anger om den här kontrollen ska passas om den högra operanden saknas. |
+| InputParameter | TreatAsEqualIfWithinMillseconds | int | Anger antalet millisekunder som ska tillåtas mellan de två datumen gånger för att överväga de tider som är lika med (till exempel för att ta hänsyn till klock skevning). |
 
-**AssertDateTimeIsGreaterThan-anspråksomvandlingen** utförs alltid från en [teknisk valideringsprofil](validation-technical-profile.md) som anropas av en [självpåförd teknisk profil](self-asserted-technical-profile.md). **DateTimeGreaterT** självpåförda tekniska profilmetadata styr felmeddelandet som den tekniska profilen presenterar för användaren. Felmeddelandena kan [lokaliseras](localization-string-ids.md#claims-transformations-error-messages).
+Omvandlingen av **AssertDateTimeIsGreaterThan** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md). **DateTimeGreaterThan** -metadata för självkontrollerad teknisk profil styr det fel meddelande som den tekniska profilen presenterar för användaren. Fel meddelandena kan [lokaliseras](localization-string-ids.md#claims-transformations-error-messages).
 
-![AssertStringClaimsAreEqual utförande](./media/date-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual-körning](./media/date-transformations/assert-execution.png)
 
-I följande exempel `currentDateTime` jämförs `approvedDateTime` anspråket med anspråket. Ett fel genereras `currentDateTime` om `approvedDateTime`det är senare än . Omformningen behandlar värden som lika om de är inom 5 minuter (30000 millisekunder) skillnad.
+I följande exempel jämförs `currentDateTime` anspråket `approvedDateTime` med anspråket. Ett fel genereras om `currentDateTime` är senare än. `approvedDateTime` Omvandlingen behandlar värden på samma sätt som om de ligger inom 5 minuter (30000 millisekunder).
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -55,7 +55,7 @@ I följande exempel `currentDateTime` jämförs `approvedDateTime` anspråket me
 </ClaimsTransformation>
 ```
 
-Den `login-NonInteractive` tekniska profilen `AssertApprovedDateTimeLaterThanCurrentDateTime` för validering anropar anspråksomvandlingen.
+Den `login-NonInteractive` tekniska verifierings profilen anropar `AssertApprovedDateTimeLaterThanCurrentDateTime` anspråks omvandlingen.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -65,7 +65,7 @@ Den `login-NonInteractive` tekniska profilen `AssertApprovedDateTimeLaterThanCur
 </TechnicalProfile>
 ```
 
-Den självsäkra tekniska profilen anropar den tekniska profilen för **valideringslogisan-NonInteractive.**
+Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-inaktiv** teknisk profil.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
@@ -80,21 +80,21 @@ Den självsäkra tekniska profilen anropar den tekniska profilen för **valideri
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **leftOperand**: 2020-03-01T15:00:00.0000000Z
-    - **rightOperand**: 2020-03-01T14:00:00.0000000Z
-- Resultat: Fel uppstod
+- Inmatade anspråk:
+    - **leftOperand**: 2020-03-01T15:00:00.0000000 z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000 z
+- Resultat: fel utlöst
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
-Konverterar en **datum** claimtype till en **DateTime** ClaimType. Anspråksomvandlingen konverterar tidsformatet och lägger till 12:00:00 till datumet.
+Konverterar en **datum** -claimType till en **datetime** -claimType. Omvandlingen av anspråk konverterar tids formatet och lägger till 12:00:00 AM till datumet.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | date | Den ClaimType som ska konverteras. |
-| OutputClaim | outputClaim | Datetime | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. |
+| OutputClaim | outputClaim | dateTime | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
-I följande exempel visas konverteringen `dateOfBirth` av anspråket (datumdatatyp) till ett annat anspråk `dateOfBirthWithTime` (dateTime-datatyp).
+Följande exempel visar konverteringen av anspråket `dateOfBirth` (datum data typ) till ett annat `dateOfBirthWithTime` anspråk (datetime-datatyp).
 
 ```XML
   <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
@@ -109,21 +109,21 @@ I följande exempel visas konverteringen `dateOfBirth` av anspråket (datumdatat
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
     - **inputClaim**: 2020-15-03
-- Utdataanspråk:
-    - **outputClaim**: 2020-15-03T00:00:00.0000000Z
+- Utgående anspråk:
+    - **outputClaim**: 2020-15-03T00:00:00.0000000 z
 
 ## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
 
-Konverterar en **DateTime** ClaimType till ett **datum** ClaimType. Anspråksomvandlingen tar bort tidsformatet från datumet.
+Konverterar en **datetime** -claimType till en **datum** -claimType. Omvandlingen av anspråk tar bort tids formatet från datumet.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | Datetime | Den ClaimType som ska konverteras. |
-| OutputClaim | outputClaim | date | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. |
+| InputClaim | inputClaim | dateTime | Den ClaimType som ska konverteras. |
+| OutputClaim | outputClaim | date | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
-I följande exempel visas konverteringen `systemDateTime` av anspråket (dateTime-datatyp) till ett annat anspråk `systemDate` (datumdatatyp).
+Följande exempel visar konvertering av anspråket `systemDateTime` (datetime-datatyp) till ett annat anspråk `systemDate` (datum data typ).
 
 ```XML
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
@@ -138,18 +138,18 @@ I följande exempel visas konverteringen `systemDateTime` av anspråket (dateTim
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-  - **inputClaim**: 2020-15-03T11:34:22.0000000Z
-- Utdataanspråk:
+- Inmatade anspråk:
+  - **inputClaim**: 2020-15-03T11:34:22.0000000 z
+- Utgående anspråk:
   - **outputClaim**: 2020-15-03
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
-Hämta aktuellt UTC-datum och -tid och lägg till värdet i en ClaimType.
+Hämta aktuellt UTC-datum och-tid och Lägg till värdet i en ClaimType.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | currentDateTime | Datetime | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. |
+| OutputClaim | currentDateTime | dateTime | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
 ```XML
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
@@ -161,23 +161,23 @@ Hämta aktuellt UTC-datum och -tid och lägg till värdet i en ClaimType.
 
 ### <a name="example"></a>Exempel
 
-* Utdataanspråk:
-    * **currentDateTime**: 2020-15-03T11:40:35.0000000Z
+* Utgående anspråk:
+    * **currentDateTime**: 2020-15-03T11:40:35.0000000 z
 
-## <a name="datetimecomparison"></a>DatumTidsfördämning
+## <a name="datetimecomparison"></a>DateTimeComparison
 
-Ta reda på om ett dateTime är senare, tidigare eller lika med ett annat. Resultatet är en ny booleska ClaimType `true` boolean med värdet eller `false`.
+Avgör om en dateTime är senare, tidigare eller lika med ett annat. Resultatet är en ny boolesk ClaimType boolesk med värdet `true` eller. `false`
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | Datetime | Det första datumetTid för att jämföra om det är tidigare eller senare än det andra dateTime. Null-värdet genererar ett undantag. |
-| InputClaim | secondDateTime | Datetime | Det andra datumetTid för att jämföra om det är tidigare eller senare än det första dateTime. Null-värde behandlas som aktuell datetTime. |
+| InputClaim | firstDateTime | dateTime | Första datum/tid för att jämföra om det är tidigare eller senare än det andra dateTime-värdet. Null-värde genererar ett undantag. |
+| InputClaim | secondDateTime | dateTime | Den andra datum/tid för att jämföra om den är tidigare eller senare än den första dateTime-tiden. Null-värde behandlas som aktuellt datetTime. |
 | InputParameter | operator | sträng | Ett av följande värden: samma, senare än eller tidigare än. |
-| InputParameter | timeSpanInSeconds | int | Lägg till tidsspannet till den första datetime. |
-| OutputClaim | resultat | boolean | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. |
+| InputParameter | timeSpanInSeconds | int | Lägg till TimeSpan i första DateTime. |
+| OutputClaim | resultat | boolean | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
-Använd den här anspråksomvandlingen för att avgöra om två ClaimTypes är lika, senare eller tidigare än varandra. Du kan till exempel lagra den senaste gången en användare accepterade dina användarvillkor. Efter 3 månader kan du be användaren att komma åt TOS igen.
-Om du vill köra anspråksomvandlingen måste du först hämta aktuellt dateTime och även den senaste gången användaren accepterar tos-systemet.
+Använd den här anspråks omvandlingen för att avgöra om två ClaimTypes är lika, senare eller tidigare. Du kan till exempel lagra den senaste gången som en användare godkände dina användar villkor (TOS). Efter 3 månader kan du be användaren att komma åt TOS-filen igen.
+Om du vill köra anspråks omvandlingen måste du först hämta aktuell dateTime och sedan den senaste gången användaren accepterar TOS.
 
 ```XML
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
@@ -197,11 +197,11 @@ Om du vill köra anspråksomvandlingen måste du först hämta aktuellt dateTime
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2020-04-01T00:00:00.100000Z
+- Inmatade anspråk:
+    - **firstDateTime**: 2020-01-01T00:00:00.100000 z
+    - **secondDateTime**: 2020-04-01T00:00:00.100000 z
 - Indataparametrar:
-    - **operatör:** senare än
+    - **operator**: senare än
     - **timeSpanInSeconds**: 7776000 (90 dagar)
-- Utdataanspråk:
-    - **resultat**: sant
+- Utgående anspråk:
+    - **resultat**: true

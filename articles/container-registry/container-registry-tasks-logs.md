@@ -1,26 +1,26 @@
 ---
-title: Visa aktivitetskörningsloggar - Uppgifter
-description: Så här visar och hanterar du körningsloggar som genereras av ACR-uppgifter.
+title: Visa aktivitets körnings loggar – aktiviteter
+description: Visa och hantera körnings loggar som genereras av ACR-aktiviteter.
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246973"
 ---
-# <a name="view-and-manage-task-run-logs"></a>Visa och hantera aktivitetskörningsloggar
+# <a name="view-and-manage-task-run-logs"></a>Visa och hantera aktivitets körnings loggar
 
-Varje aktivitet som körs i [Azure Container Registry-uppgifter](container-registry-tasks-overview.md) genererar loggutdata som du kan granska för att avgöra om aktivitetsstegen kördes. 
+Varje aktivitet som körs i [Azure Container Registry uppgifter](container-registry-tasks-overview.md) genererar loggfiler som du kan kontrol lera om aktivitets stegen har körts. 
 
-I den här artikeln beskrivs hur du visar och hanterar aktivitetskörningsloggar.
+Den här artikeln förklarar hur du visar och hanterar körnings loggar för aktiviteter.
 
 ## <a name="view-streamed-logs"></a>Visa strömmade loggar
 
-När du utlöser en aktivitet manuellt strömmas loggutdata direkt till konsolen. När du till exempel utlöser en aktivitet manuellt med hjälp av kommandot [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run)eller az [acr task run](/cli/azure/acr/task#az-acr-task-run) visas loggutdata som strömmas till konsolen. 
+När du utlöser en uppgift manuellt strömmas loggens utdata direkt till-konsolen. När du till exempel utlöser en aktivitet manuellt med hjälp av kommandot [AZ ACR build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)eller [AZ ACR Task Run](/cli/azure/acr/task#az-acr-task-run) , ser du loggen utdata strömmad till-konsolen. 
 
-Följande exempel på [az acr-körningskommando](/cli/azure/acr#az-acr-run) utlöser manuellt en aktivitet som kör en behållare som hämtats från samma register:
+Följande exempel på [AZ ACR-körning](/cli/azure/acr#az-acr-run) utlöser manuellt en aktivitet som kör en behållare som hämtas från samma register:
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
@@ -58,32 +58,32 @@ Run ID: cf4 was successful after 5s
 
 ## <a name="view-stored-logs"></a>Visa lagrade loggar 
 
-Azure Container Registry lagrar köra loggar för alla uppgifter. Du kan visa lagrade körningsloggar i Azure-portalen. Du kan också använda kommandot [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) för att visa en markerad logg. Som standard behålls loggarna i 30 dagar.
+Azure Container Registry lagrar kör loggar för alla aktiviteter. Du kan visa lagrade körnings loggar i Azure Portal. Du kan också använda kommandot [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) för att visa en vald logg. Som standard behålls loggar i 30 dagar.
 
-Om en uppgift utlöses automatiskt, till exempel genom en källkodsuppdatering, är åtkomst till de lagrade loggarna det *enda* sättet att visa körningsloggarna. Automatiska uppgiftsutlösare inkluderar källkodsförseningar eller pull-begäranden, basavbildningsuppdateringar och timerutlösare.
+Om en aktivitet utlöses automatiskt, till exempel vid en uppdatering av en käll kod, är det *enda* sättet att Visa körnings loggarna genom att använda lagrade loggar. Automatiska aktivitets utlösare inkluderar käll kods incheckningar eller pull-begäranden, bas avbildnings uppdateringar och timer-utlösare.
 
-Så här visar du körningsloggar i portalen:
+Så här visar du körnings loggar i portalen:
 
-1. Navigera till behållarregistret.
-1. Välj **Uppgifter** > **körs**i **Tjänster**.
-1. Välj ett **kör-ID** för att visa körningsstatus och köra loggar. Loggen innehåller samma information som en strömmad logg, om en sådan genereras.
+1. Navigera till behållar registret.
+1. I **tjänster**väljer du **aktiviteter** > **körs**.
+1. Välj ett **körnings-ID** för att Visa körnings status och körnings loggar. Loggen innehåller samma information som en strömmande logg, om en sådan skapas.
 
-![Visa inloggningsportal för aktivitetskörning](./media/container-registry-tasks-logs/portal-task-run-logs.png)
+![Visa aktivitets körning inloggnings Portal](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-Om du vill visa en logg med Azure CLI kör du [az acr-aktivitetsloggar](/cli/azure/acr/task#az-acr-task-logs) och anger ett körnings-ID, ett aktivitetsnamn eller en specifik avbildning som skapas av en bygguppgift. Om ett aktivitetsnamn anges visas loggen för den senast skapade körningen.
+Om du vill visa en logg med hjälp av Azure CLI kör du [AZ ACR-aktivitets loggar](/cli/azure/acr/task#az-acr-task-logs) och anger ett körnings-ID, ett uppgifts namn eller en angiven avbildning som skapas av en build-uppgift. Om ett aktivitets namn anges visar kommandot loggen för den senaste skapade körningen.
 
-I följande exempel matas loggen ut med ID *cf4:*
+I följande exempel visas loggen för funktionen kör med ID *CF4*:
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4
 ```
 
-## <a name="alternative-log-storage"></a>Alternativ logglagring
+## <a name="alternative-log-storage"></a>Alternativ logg lagring
 
-Du kanske vill lagra aktivitetskörningsloggar i ett lokalt filsystem eller använda en alternativ arkiveringslösning som Azure Storage.
+Du kanske vill lagra aktivitets körnings loggar i ett lokalt fil system eller använda en alternativ lagrings lösning som Azure Storage.
 
-Skapa till exempel en lokal *tasklogs-katalog* och omdirigera utdata från [az acr-aktivitetsloggar](/cli/azure/acr/task#az-acr-task-logs) till en lokal fil:
+Du kan till exempel skapa en lokal *tasklogs* -katalog och dirigera om utdata från [AZ ACR aktivitets loggar](/cli/azure/acr/task#az-acr-task-logs) till en lokal fil:
 
 ```azurecli
 mkdir ~/tasklogs
@@ -92,12 +92,12 @@ az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4 > ~/tasklogs/cf4.log
 ```
 
-Du kan också spara lokala loggfiler i Azure Storage. Använd till exempel [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), [Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md)eller andra metoder för att överföra filer till ett lagringskonto.
+Du kan också spara lokala loggfiler till Azure Storage. Använd till exempel [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md)eller andra metoder för att ladda upp filer till ett lagrings konto.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Azure-behållarregisteruppgifter](container-registry-tasks-overview.md)
+* Läs mer om [Azure Container Registry uppgifter](container-registry-tasks-overview.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

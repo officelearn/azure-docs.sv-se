@@ -1,25 +1,25 @@
 ---
-title: Hämta behållarinstansloggar & händelser
-description: Lär dig hur du hämtar behållarloggar och händelser i Azure Container Instances för att felsöka behållarproblem
+title: Hämta instans loggar för container & händelser
+description: Lär dig hur du hämtar behållar loggar och händelser i Azure Container Instances för att felsöka behållar problem
 ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
 ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78250002"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Hämta loggar och händelser för containers i Azure Container Instances
 
-När du har en behållare som har fel i Azure Container Instances börjar du med att visa dess loggar med [az-behållarloggar][az-container-logs]och streamar standardfelet med [az-behållaranklädnad][az-container-attach]. Du kan också visa loggar och händelser för behållarinstanser i Azure-portalen eller skicka logg- och händelsedata för behållargrupper till [Azure Monitor-loggar](container-instances-log-analytics.md).
+När du har en felaktig behållare i Azure Container Instances börjar du med att visa dess loggar med [AZ container-loggar][az-container-logs]och strömma dess standard-och standard fel med [AZ container Attach][az-container-attach]. Du kan också visa loggar och händelser för behållar instanser i Azure Portal eller skicka logg-och händelse data för behållar grupper till [Azure Monitor loggar](container-instances-log-analytics.md).
 
 ## <a name="view-logs"></a>Visa loggar
 
-Om du vill visa loggar från programkoden i en behållare kan du använda kommandot [az container logs.][az-container-logs]
+Om du vill visa loggar från din program kod i en behållare kan du använda kommandot [AZ container logs][az-container-logs] .
 
-Följande är logga utdata från exempelaktivitetsbaserad behållare i [Ange kommandoraden i en behållarinstans](container-instances-start-command.md#azure-cli-example), efter att ha angett en ogiltig URL med hjälp av en kommandoradsförståning:
+Följande är en logg utmatning från exempel uppgiftsbaserade behållare i [ange kommando raden i en behållar instans](container-instances-start-command.md#azure-cli-example), efter att ha angett en ogiltig URL med hjälp av en kommando rads åsidosättning:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -48,9 +48,9 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>Ansluta utdataströmmar
 
-Kommandot [az-behållaransta ansluter][az-container-attach] ger diagnostikinformation under containerstart. När behållaren har startat strömmar den STDOUT och STDERR till din lokala konsol.
+Kommandot [AZ container Attach][az-container-attach] innehåller diagnostikinformation när behållaren startas. När behållaren har startat strömmas STDOUT och STDERR till den lokala konsolen.
 
-Här matas till exempel ut från den uppgiftsbaserade behållaren i [Ange kommandoraden i en behållarinstans](container-instances-start-command.md#azure-cli-example), efter att ha angett en giltig URL för en stor textfil som ska bearbetas:
+Här är till exempel utdata från uppgiftsbaserade behållare i [ange kommando raden i en behållar instans](container-instances-start-command.md#azure-cli-example), efter att ha angett en giltig URL för en stor textfil som ska bearbetas:
 
 ```azurecli
 az container attach --resource-group myResourceGroup --name mycontainer
@@ -82,13 +82,13 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>Hämta diagnostiska händelser
 
-Om behållaren inte kan distribueras kan du granska diagnostikinformationen som tillhandahålls av resursleverantören för Azure Container Instances. Om du vill visa händelserna för din behållare kör du kommandot [az container show:][az-container-show]
+Om din behållare inte kan distribueras kan du läsa den diagnostikinformation som tillhandahålls av Azure Container Instances Resource Provider. Om du vill visa händelser för din behållare kör du kommandot [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-Utdata innehåller behållarens kärnegenskaper, tillsammans med distributionshändelser (visas här trunkerade):
+Utdata innehåller kärn egenskaperna för din behållare, tillsammans med distributions händelser (visas här trunkerade):
 
 ```JSON
 {
@@ -149,9 +149,9 @@ Utdata innehåller behållarens kärnegenskaper, tillsammans med distributionsh�
 }
 ```
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [felsöker vanliga behållare och distributionsproblem](container-instances-troubleshooting.md) för Azure Container Instances.
+Lär dig hur du [felsöker vanliga problem med behållare och distribution](container-instances-troubleshooting.md) för Azure Container instances.
 
-Lär dig hur du skickar logg- och händelsedata för behållargrupper till [Azure Monitor-loggar](container-instances-log-analytics.md).
+Lär dig hur du skickar logg-och händelse data för behållar grupper till [Azure Monitor loggar](container-instances-log-analytics.md).
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

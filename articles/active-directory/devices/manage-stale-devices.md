@@ -1,6 +1,6 @@
 ---
 title: Hantera inaktuella enheter i Azure AD | Microsoft Docs
-description: Lär dig hur du tar bort inaktuella enheter från databasen med registrerade enheter i Azure Active Directory.
+description: Lär dig hur du tar bort inaktuella enheter från din databas med registrerade enheter i Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672309"
 ---
-# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Så här: Hantera inaktuella enheter i Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
 Vi rekommenderar att avregistrera registrerade enheter när det inte behövs längre, och när livscykeln ska avslutas. Men på grund av, till exempel, förlorade, stulna eller trasiga enheter, eller ominstallationer av operativsystem har du vanligtvis enheter i din miljö. Som IT-administratör vill du troligen ha en metod för att ta bort inaktuella enheter, så att du kan fokusera dina resurser på att hantera enheter som faktiskt kräver hantering.
 
@@ -30,7 +30,7 @@ I den här artikeln lär du dig hur du på ett effektivt sätt hanterar inaktuel
 En inaktuell enhet är en enhet som har registrerats i Azure AD men inte har använts för åtkomst till några molnappar under en viss tid. Inaktuella enheter har en påverkan på din möjlighet att hantera och stödja dina enheter och användare i klientorganisationen eftersom: 
 
 - Dubblettenheter kan göra det svårt för supportpersonalen att identifiera vilken enhet som är aktiv.
-- Ett ökat antal enheter skapar onödiga tillbakaskrivningar av enheter som ökar tiden för Azure AD connect-synkroniseringar.
+- Ett ökat antal enheter skapar onödiga enhets tillbakaskrivningar och ökar tiden för Azure AD Connect-synkroniseringar.
 - Som allmän hygien och för att uppfylla efterlevnadskrav kan du vilja ha ett rent tillstånd med enheter. 
 
 Inaktuella enheter i Azure AD kan störa de allmänna livscykelprinciperna för enheter i din organisation.
@@ -43,11 +43,11 @@ Eftersom en inaktuell enhet definieras som en registrerad enhet som inte har anv
 
 Utvärderingen av aktivitetsstämpeln utlöses av ett autentiseringsförsök för en enhet. Azure AD utvärderar aktivitetsstämpeln när:
 
-- En principer för villkorlig åtkomst som kräver [hanterade enheter](../conditional-access/require-managed-devices.md) eller [godkända klientappar](../conditional-access/app-based-conditional-access.md) har utlösts.
+- En princip för villkorlig åtkomst som kräver [hanterade enheter](../conditional-access/require-managed-devices.md) eller [godkända klient program](../conditional-access/app-based-conditional-access.md) har utlösts.
 - Windows 10-enheter som är Azure AD-anslutna eller Hybrid Azure AD-anslutna är aktiva i nätverket. 
 - Intune-hanterade enheter har checkats in i tjänsten.
 
-Om deltat mellan det befintliga värdet för aktivitetstidsstämpeln och det aktuella värdet är mer än 14 dagar (+/-5 dagars varians), ersätts det befintliga värdet med det nya värdet.
+Om deltaet mellan det befintliga värdet för aktivitetens tidsstämpel och det aktuella värdet är mer än 14 dagar (+/-5 dagars avvikelse), ersätts det befintliga värdet med det nya värdet.
 
 ## <a name="how-do-i-get-the-activity-timestamp"></a>Hur gör jag för att hämta aktivitetsstämpeln?
 
@@ -70,14 +70,14 @@ Om du vill rensa inaktuella enheter effektivt i din miljö bör du definiera en 
 Om du vill uppdatera en enhet i Azure AD behöver du ett kont som har någon av följande roller tilldelade:
 
 - Global administratör
-- Administratör för molnenheter
+- Moln enhets administratör
 - Administratör för Intune-tjänsten
 
 I din rensningsprincip väljer du konton som har de roller som krävs tilldelade. 
 
 ### <a name="timeframe"></a>Tidsram
 
-Definiera en tidsram som är din indikator för en inaktuell enhet. När du definierar tidsramen räknar du in fönstret för att uppdatera aktivitetstidsstämpeln till ditt värde. Du bör till exempel inte betrakta en tidsstämpel som är yngre än 21 dagar (inkluderar varians) som en indikator för en inaktuell enhet. Det finns scenarier som kan göra så att en enhet ser inaktuell ut när den inte är det. Till exempel kan ägaren av den berörda enheten vara på semester eller vara sjuk.  som överskrider tidsramen för inaktuella enheter.
+Definiera en tidsram som är din indikator för en inaktuell enhet. När du definierar din tidsram anger du för att uppdatera aktivitetens tidstämpel till ditt värde. Anta till exempel att du inte vill ha en tidsstämpel som är yngre än 21 dagar (inklusive varians) som en indikator för en inaktuell enhet. Det finns scenarier som kan göra så att en enhet ser inaktuell ut när den inte är det. Till exempel kan ägaren av den berörda enheten vara på semester eller vara sjuk.  som överskrider tidsramen för inaktuella enheter.
 
 ### <a name="disable-devices"></a>Inaktivera enheter
 
@@ -89,7 +89,7 @@ Om din enhet kontrolleras av Intune eller någon annan MDM-lösning fasar du ut 
 
 ### <a name="system-managed-devices"></a>Systemhanterade enheter
 
-Ta inte bort systemhanterade enheter. Dessa är i allmänhet enheter som Autopilot. När dessa enheter har tagits bort kan de inte återetableras. Den nya cmdleten `get-msoldevice` exkluderar systemhanterade enheter som standard. 
+Ta inte bort systemhanterade enheter. Detta är vanligt vis enheter som autopilot. De här enheterna kan inte reserveras när de har tagits bort. Den nya cmdleten `get-msoldevice` exkluderar systemhanterade enheter som standard. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
@@ -98,13 +98,13 @@ Dina Hybrid Azure AD-anslutna enheter bör följa dina principer för hantering 
 Rensa Azure AD:
 
 - **Windows 10-enheter** – Inaktivera eller ta bort Windows 10-enheter i din lokala AD och låt Azure AD Connect synkronisera den ändra enhetsstatusen med Azure AD.
-- **Windows 7/8** - Inaktivera eller ta bort Windows 7/8-enheter i din lokala AD först. Du kan inte använda Azure AD Connect till att inaktivera eller ta bort enheter med Windows 7/8 i Azure AD. När du gör ändringen i din lokala, måste du inaktivera/ ta bort i Azure AD.
+- **Windows 7/8** – inaktivera eller ta bort Windows 7/8-enheter i din lokala AD först. Du kan inte använda Azure AD Connect till att inaktivera eller ta bort enheter med Windows 7/8 i Azure AD. I stället måste du inaktivera/ta bort i Azure AD när du gör ändringen lokalt.
 
 > [!NOTE]
->* Om du tar bort enheter i din lokala AD eller Azure AD tas inte registreringen bort på klienten. Det förhindrar endast åtkomst till resurser som använder enheten som identitet (t.ex. villkorlig åtkomst). Läs ytterligare information om hur du [tar bort registrering på klienten](faq.md#hybrid-azure-ad-join-faq).
->* Om du bara tar bort en Windows 10-enhet i Azure AD synkroniseras enheten från din lokala med Azure AD connect men som ett nytt objekt i tillståndet Väntande. En omregistrering krävs på enheten.
->* Om du tar bort enheten från synkroniseringsomfånget för Windows 10/Server 2016-enheter tas Azure AD-enheten bort. Om du lägger tillbaka det i synkroniseringsomfånget placeras ett nytt objekt i "Väntande"-tillstånd. En omregistrering av enheten krävs.
->* Om du inte använder Azure AD Connect för Windows 10-enheter för synkronisering (t.ex. endast med AD FS för registrering) måste du hantera livscykeln som liknar Windows 7/8-enheter.
+>* Att ta bort enheter i din lokala AD eller Azure AD tar inte bort registreringen på klienten. Den förhindrar bara åtkomst till resurser som använder enhet som en identitet (t. ex. villkorlig åtkomst). Läs ytterligare information om hur du [tar bort registreringen på klienten](faq.md#hybrid-azure-ad-join-faq).
+>* Om du bara tar bort en Windows 10-enhet i Azure AD synkroniseras enheten om från din lokala dator med hjälp av Azure AD Connect, men som ett nytt objekt i väntande tillstånd. En omregistrering krävs på enheten.
+>* Om du tar bort enheten från Sync-omfånget för enheter med Windows 10/Server 2016 tas Azure AD-enheten bort. Om du lägger tillbaka den till Sync-omfånget placeras ett nytt objekt i "väntande" läge. En omregistrering av enheten krävs.
+>* Om du inte använder Azure AD Connect för Windows 10-enheter som ska synkroniseras (t. ex. endast genom att använda AD FS för registrering) måste du hantera livs cykeln som liknar Windows 7/8-enheter.
 
 
 ### <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
@@ -112,20 +112,20 @@ Rensa Azure AD:
 Inaktivera eller ta bort Azure AD-anslutna enheter i Azure AD.
 
 > [!NOTE]
->* Om du tar bort en Azure AD-enhet tas inte registreringen bort på klienten. Det förhindrar endast åtkomst till resurser som använder enheten som en identitet (t.ex. villkorlig åtkomst). 
->* Läs mer om [hur du inte erar av dig på Azure AD](faq.md#azure-ad-join-faq) 
+>* Att ta bort en Azure AD-enhet tar inte bort registreringen på klienten. Den förhindrar bara åtkomst till resurser som använder enhet som en identitet (t. ex. villkorlig åtkomst). 
+>* Läs mer om [hur du kopplar från i Azure AD](faq.md#azure-ad-join-faq) 
 
 ### <a name="azure-ad-registered-devices"></a>Azure AD-registrerade enheter
 
 Inaktivera eller ta bort Azure AD-registrerade enheter i Azure AD.
 
 > [!NOTE]
->* Om du tar bort en Azure AD-registrerad enhet i Azure AD tas inte registreringen bort på klienten. Det förhindrar endast åtkomst till resurser som använder enheten som identitet (t.ex. villkorlig åtkomst).
+>* Att ta bort en registrerad Azure AD-enhet i Azure AD tar inte bort registreringen på klienten. Den förhindrar bara åtkomst till resurser som använder enhet som en identitet (t. ex. villkorlig åtkomst).
 >* Läs mer om [hur du tar bort en registrering på klienten](faq.md#azure-ad-register-faq)
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Rensa inaktuella enheter i Azure-portalen  
 
-Du kan rensa inaktuella enheter i Azure-portalen men det är effektivare att hantera processen med hjälp av ett PowerShell-skript. Använd den senaste PowerShell V1-modulen för att använda tidsstämpelfiltret och filtrera bort systemhanterade enheter som Autopilot. Här rekommenderar vi inte att använda PowerShell V2.
+Du kan rensa inaktuella enheter i Azure-portalen men det är effektivare att hantera processen med hjälp av ett PowerShell-skript. Använd den senaste PowerShell v1-modulen för att använda tids stämplings filtret och för att filtrera ut systemhanterade enheter, till exempel autopilot. Här rekommenderar vi inte att använda PowerShell V2.
 
 En typisk rutin består av följande steg:
 
@@ -144,7 +144,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-Om du har ett stort antal enheter i katalogen använder du tidsstämpelfiltret för att begränsa antalet returnerade enheter. Hämta alla enheter med en äldre tidsstämpel än ett visst datum och lagra returnerade data i en CSV-fil: 
+Om du har ett stort antal enheter i katalogen använder du filtret tidsstämpel för att begränsa antalet returnerade enheter. Hämta alla enheter med en äldre tidsstämpel än ett visst datum och lagra returnerade data i en CSV-fil: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
@@ -161,12 +161,12 @@ Tidsstämpeln uppdateras för att stödja enhetslivscykelscenarier. Det här är
 
 När BitLocker-nycklar för Windows 10-enheter har konfigurerats lagras de på enhetsobjektet i Azure AD. Om du tar bort en inaktuell enhet tar du även bort de BitLocker-nycklar som lagras på enheten. Du bör fastställa om din rensningsprincip överensstämmer med den faktiska livscykeln för din enhet innan du tar bort en inaktuell enhet. 
 
-### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Varför ska jag oroa mig för Windows Autopilot-enheter?
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Varför ska jag oroa mig för Windows autopilot-enheter?
 
-När en Azure AD-enhet var associerad med ett Windows Autopilot-objekt kan följande tre scenarier inträffa om enheten kommer att återanvändas i framtiden:
-- Med Windows Autopilot-användardrivna distributioner utan att använda vit handske skapas en ny Azure AD-enhet, men den taggas inte med ZTDID.
-- Med windows autopilot självdistributionslägesdistributioner misslyckas de eftersom det inte går att hitta en associerad Azure AD-enhet.  (Det här är en säkerhetsmekanism för att se till att inga "bedragare"-enheter försöker ansluta till Azure AD utan autentiseringsuppgifter.) Felet indikerar en ZTDID-obalans.
-- Med Windows Autopilot vita handske distributioner, kommer de att misslyckas eftersom en associerad Azure AD-enhet inte kan hittas. (Bakom kulisserna använder distributioner av vita handskar samma självdistributionsprocess, så att de tillämpar samma säkerhetsmekanismer.)
+När en Azure AD-enhet är kopplad till ett Windows autopilot-objekt kan följande tre scenarier uppstå om enheten kommer att användas i framtiden:
+- Med Windows autopilot-baserade distributioner utan att använda White assisterad, skapas en ny Azure AD-enhet, men den märks inte med ZTDID.
+- Med distribution i Windows autopilot-distribution med automatisk distribution kan de Miss förfalla eftersom det inte går att hitta en associerad Azure AD-enhet.  (Det här är en säkerhetsmekanism för att se till att ingen "inposts"-enheter försöker ansluta till Azure AD utan autentiseringsuppgifter.) Felet indikerar att en ZTDID matchar inte.
+- Med Windows autopilot White assisterad-distributioner fungerar de inte eftersom det inte går att hitta en tillhör ande Azure AD-enhet. (I bakgrunden använder vita assisterad-distributioner samma process för självdistribuerande läge, så att de tvingar samma säkerhetsmekanismer.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Hur tar jag reda på alla typer av anslutna enheter?
 

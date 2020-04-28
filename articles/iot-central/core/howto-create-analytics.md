@@ -1,6 +1,6 @@
 ---
-title: Analysera enhetsdata i ditt Azure IoT Central-program | Microsoft-dokument
-description: Analysera enhetsdata i ditt Azure IoT Central-program.
+title: Analysera enhets data i ditt Azure IoT Central-program | Microsoft Docs
+description: Analysera enhets data i ditt Azure IoT Central-program.
 author: ankitscribbles
 ms.author: ankitgup
 ms.date: 11/27/2019
@@ -9,87 +9,87 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158290"
 ---
-# <a name="how-to-use-analytics-to-analyze-device-data"></a>Så här använder du analyser för att analysera enhetsdata
+# <a name="how-to-use-analytics-to-analyze-device-data"></a>Använda analys för att analysera enhets data
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
 
 
-Azure IoT Central tillhandahåller omfattande analysfunktioner för att analysera historiska trender och korrelera olika telemetri från dina enheter. Kom igång genom att besöka **Analytics** i den vänstra rutan.
+Azure IoT Central ger omfattande analys funktioner för att analysera historiska trender och korrelera olika telemetrivärden från dina enheter. Kom igång genom att gå till **Analytics** i det vänstra fönstret.
 
-## <a name="understanding-the-analytics-ui"></a>Förstå användargränssnittet för Analytics
-Analytics användargränssnitt består av tre huvudkomponenter:
-- **Panelen För datakonfiguration:** Börja med att välja den enhetsgrupp som du vill analysera data för på konfigurationspanelen. Välj sedan den telemetri som du vill analysera och välj aggregeringsmetoden för varje telemetri. **Split By-kontrollen** hjälper till att gruppera data med hjälp av enhetsegenskaperna som dimensioner.
+## <a name="understanding-the-analytics-ui"></a>Förstå användar gränssnittet för analys
+Analytics User Interface består av tre huvud komponenter:
+- **Data konfigurations panel:** På konfigurations panelen startar du genom att välja den enhets grupp som du vill analysera data för. Välj sedan den telemetri som du vill analysera och välj agg regerings metoden för varje telemetri. **Dela med** kontroll hjälper till att gruppera data med hjälp av enhets egenskaperna som dimensioner.
 
-- **Tidskontroll:** Tidskontroll används för att välja hur länge du vill analysera data. Du kan dra i någon av slutet av tidsreglaget för att markera tidsintervallet. Tidskontrollen har också ett skjutreglage **för intervallstorlek** som styr bucketen eller intervallstorleken som används för att aggregera data. 
+- **Tids kontroll:** Tids kontroll används för att välja varaktigheten för vilken du vill analysera data. Du kan dra i endera änden av skjutreglaget för att välja tids rymden. Tids kontrollen har också ett skjutreglage för **intervall storlek** som styr Bucket eller intervall storleken som används för att samla in data. 
 
-- **Diagramkontroll:** Diagramkontrollen visualiserar data som ett linjediagram. Du kan växla synligheten för specifika linjer genom att interagera med diagramförklaringen. 
+- **Diagram kontroll:** Diagram kontrollen visualiserar data som ett linje diagram. Du kan växla synligheten för vissa linjer genom att interagera med diagram förklaringen. 
 
 
-  ![Översikt över användargränssnittet i Analytics](media/howto-create-analytics/analyticsui.png)
+  ![Översikt över Analytics UI](media/howto-create-analytics/analyticsui.png)
 
 
 ## <a name="querying-your-data"></a>Fråga dina data
 
-Du måste börja med att välja en **enhetsgrupp**och den telemetri som du vill analysera. När du är klar väljer du **Analysera** för att börja visualisera dina data.
+Du måste starta genom att välja en **enhets grupp**och den telemetri som du vill analysera. När du är klar väljer du **analysera** för att börja visualisera dina data.
 
-- **Enhetsgrupp:** En [enhetsgrupp](tutorial-use-device-groups.md) är en användardefinierad grupp av dina enheter. Till exempel alla kylskåp i Oakland, eller Alla version 2.0 vindkraftverk.
+- **Enhets grupp:** En [enhets grupp](tutorial-use-device-groups.md) är en användardefinierad grupp av dina enheter. Till exempel alla kyl skåp i Oakland eller alla version 2,0 lindnings turbiner.
 
-- **Telemetri:** Välj den telemetri som du vill analysera och utforska. Du kan välja flera telemetrier som ska analyseras tillsammans. Standardaggregeringsmetoden är inställd på Medel för numeriskt respektive Antal för strängdatatyp. Aggregeringsmetoder som stöds för numeriska datatyper är Medel, Maximum, Minimum, Count och, Summa.  Aggregeringsmetoder som stöds för strängdatatyp räknas.
+- **Telemetri:** Välj den telemetri som du vill analysera och utforska. Du kan välja flera telemetrivärden för att analysera varandra. Standard agg regerings metoden har angetts till Average för numeriskt och antal för sträng data typerna. Sammansättnings metoder som stöds för numeriska data typer är genomsnitt, högsta, lägsta, antal och sum.  Sammansättnings metoder som stöds för data typen String är Count.
 
-- **Dela av:** "Split by"-kontrollen hjälper till att gruppera data med hjälp av enhetsegenskaperna som dimensioner. Värden för enheten och molnegenskaperna sammanfogas tillsammans med telemetrin om och när den skickas av enheten. Om moln- eller enhetsegenskapen har uppdaterats visas telemetrin grupperad efter olika värden i diagrammet.
+- **Dela efter:** "Dela med"-kontrollen hjälper till att gruppera data med hjälp av enhets egenskaperna som dimensioner. Värdena för enhets-och moln egenskaperna är anslutna tillsammans med Telemetrin som och när den skickas av enheten. Om molnet eller enhets egenskapen har uppdaterats visas telemetri grupperat efter olika värden i diagrammet.
 
     > [!TIP]
-    > Om du vill visa data för varje enhet separat väljer du Enhets-ID i kontrollen Dela efter.
+    > Om du vill visa data för varje enhet separat väljer du enhets-ID i kontrollen "dela efter".
 
 ## <a name="interacting-with-your-data"></a>Interagera med dina data
 
-När du har frågat efter dina data kan du börja visualisera dem i linjediagrammet. Du kan visa/dölja telemetri, ändra tidsvaraktighet, visa telemetri i ett datarutnät.
+När du har frågat dina data kan du börja visualisera dem i linje diagrammet. Du kan visa/dölja telemetri, ändra varaktigheten för tiden, Visa telemetri i ett data rutnät.
 
-- **Panelen Tidsredigerare:** Som standard hämtar vi data från den senaste dagen. Du kan dra i någon av slutet av tidsreglaget för att ändra tidsvaraktigheten. Du kan också använda kalenderkontrollen för att välja en av de fördefinierade tidsdifestanserna eller välja ett anpassat tidsintervall. Tidskontrollen har också ett skjutreglage **för intervallstorlek** som styr bucketen eller intervallstorleken som används för att aggregera data.
+- **Tids redigerings panel:** Som standard hämtar vi data från den senaste dagen. Du kan dra i båda ändarna av skjutreglaget för att ändra varaktigheten för tiden. Du kan också använda Kalender kontrollen för att välja en av de fördefinierade tidsintervallen eller välja ett anpassat tidsintervall. Tids kontrollen har också ett skjutreglage för **intervall storlek** som styr Bucket eller intervall storleken som används för att samla in data.
 
-    ![Tid Redaktör](media/howto-create-analytics/timeeditorpanel.png)
+    ![Tids redigeraren](media/howto-create-analytics/timeeditorpanel.png)
 
-    - **Skjutreglaget för det inre datumintervallet**: Använd de två slutpunktskontrollerna genom att dra dem över den tidsperiod du vill ha. Det här inre datumintervallet begränsas av skjutreglaget för det yttre datumintervallet.
+    - **Skjutreglaget för inre datum intervall**: Använd de två slut punkts kontrollerna genom att dra dem under den tidsrymd du vill ha. Det här interna datum intervallet begränsas av skjutreglaget för yttre datum intervall.
     
    
-    - **Skjutreglagekontroll för yttre datumintervall**: Använd slutpunktskontrollerna för att välja det yttre datumintervallet, som kommer att vara tillgängligt för den inre datumintervallkontrollen.
+    - **Skjutreglage för yttre datum intervall**: Använd slut punkts kontrollerna för att välja det yttre datum intervallet, som är tillgängligt för den interna datum intervalls kontrollen.
 
-    - **Öka och minska knapparna för datumintervall:** Öka eller minska tidsintervallet genom att välja endera knappen för det intervall du vill ha.
+    - **Öka och minska datum intervall knappar**: öka eller minska din tids period genom att välja någon av knapparna för det intervall du vill ha.
 
-    - **Skjutreglage i intervallstorlek**: Använd det för att zooma in och ut i intervall över samma tidsperiod. Den här åtgärden ger mer exakt kontroll av förflyttningar mellan stora tidssegment. Du kan använda den för att se detaljerade, högupplösta vyer av dina data, även ner till millisekunder. Skjutreglagets standardstartpunkt anges som den mest optimala vyn av data från markeringen, som balanserar upplösning, frågehastighet och granularitet.
+    - **Skjutreglage för intervall storlek**: Använd det för att zooma in och ut ur intervall över samma tids period. Den här åtgärden ger en mer exakt kontroll av rörelsen mellan stora sektorer av tiden. Du kan använda den för att visa detaljerade och högupplösta vyer över dina data, till och med millisekunder. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val, som balanserar lösning, frågans hastighet och granularitet.
     
-    - **Datumintervallväljare:** Med den här webbkontrollen kan du enkelt välja det datum och den tid som du vill ha. Du kan också använda kontrollen för att växla mellan olika tidszoner. När du har gjort ändringarna som ska tillämpas på den aktuella arbetsytan väljer du Spara.
+    - **Väljare för datum intervall**: med den här webb kontrollen kan du enkelt välja de datum-och tidsintervall som du vill använda. Du kan också använda kontrollen för att växla mellan olika tids zoner. När du har gjort ändringarna som ska gälla för din aktuella arbets yta väljer du spara.
 
     > [!TIP]
-    > Intervallstorleken bestäms dynamiskt baserat på det valda tidsspannet. Mindre tidsintervall gör det möjligt att sammanställa data till mycket detaljerade intervall på upp till några sekunder.
+    > Intervall storleken bestäms dynamiskt baserat på det valda tidsintervallet. Kortare tidsintervaller gör det möjligt att aggregera data i mycket detaljerade intervall på upp till några sekunder.
 
 
-- **Diagramförklaring:** Diagramförklaringen visar den valda telemetrin i diagrammet. Du kan hovra över varje objekt i förklaringen för att få det att fokusera på diagrammet. När du använder "Split By" grupperas telemetrin efter respektive värden för den valda dimensionen. Du kan växla synligheten för varje specifik telemetri eller hela gruppen genom att klicka på gruppnamnet.  
+- **Diagram förklaring:** Diagram förklaring visar den valda Telemetrin i diagrammet. Du kan hovra över varje objekt på förklaringen så att det blir i fokus på diagrammet. När du använder "Split by" grupperas telemetri efter respektive värde för den valda dimensionen. Du kan växla synligheten för varje speciell telemetri eller hela gruppen genom att klicka på grupp namnet.  
 
 
-- **Y-axelformatskontroll:** y-axelläget växlar genom de tillgängliga y-axelvyalternativen. Den här kontrollen är endast tillgänglig när olika telemetri visualiseras. Du kan ställa in y-axeln genom att välja från ett av tre lägen:
+- **Kontroll av y-axelns format:** y-axelns läge växlar mellan tillgängliga visnings alternativ för y-axel. Den här kontrollen är bara tillgänglig när olika telemetrivärden visualiseras. Du kan ställa in y-axeln genom att välja ett av tre lägen:
 
-    - **Staplade:** Ett diagram för varje telemetri staplas och var och en av diagrammen har sin egen y-axel. Det här läget är inställt som standard.
-    - **Delad:** Ett diagram för varje telemetri ritas mot samma y-axel.
-    - **Överlappning:** Använd den för att stapla flera rader på samma y-axel, med y-axelns data som ändras baserat på den valda raden.
+    - **Staplad:** En graf för varje telemetri är staplad och varje graf har sin egen y-axel. Det här läget anges som standard.
+    - **Delad:** En graf för varje telemetri ritas mot samma y-axel.
+    - **Överlappa:** Använd den för att stapla flera rader på samma y-axel, med data för y-axeln som har ändrats baserat på den markerade linjen.
 
-  ![Ordna data över y-axeln med olika visualiseringslägen](media/howto-create-analytics/yaxiscontrol.png)
+  ![Arrangera data över y-axeln med olika visualiserings lägen](media/howto-create-analytics/yaxiscontrol.png)
 
-- **Zooma kontroll:** Med Zooma kan du öka data. Om du hittar en tidsperiod som du vill fokusera på inom resultatuppsättningen använder du muspekaren för att hämta området och drar det sedan till den slutpunkt du väljer. Högerklicka sedan på det markerade området och klicka på Zooma.
+- **Zoomnings kontroll:** Med zoomning kan du öka detalj nivån i dina data. Om du hittar en tids period som du vill fokusera på i din resultat uppsättning använder du mus pekaren för att hämta området och drar det sedan till den valda slut punkten. Högerklicka på det valda fältet och klicka på Zooma.
 
-  ![Zooma in i data](media/howto-create-analytics/zoom.png)
+  ![Zooma in data](media/howto-create-analytics/zoom.png)
 
-Under ellipsen finns det fler diagramkontroller för att interagera med data.
+Under ellipsen finns det flera diagram kontroller för att interagera med data.
 
-- **Visa rutnät:** Dina resultat är tillgängliga i ett tabellformat, så att du kan visa det specifika värdet för varje datapunkt.
+- **Visa rutnät:** Resultaten är tillgängliga i ett tabell format så att du kan se det exakta värdet för varje data punkt.
 
-- **Släpp en markör:** Drop Marker-kontrollen är ett sätt att förankra vissa datapunkter i diagrammet. Det är användbart när du försöker jämföra data för flera rader över olika tidsperioder.
+- **Släpp en markör:** Med släpp markör-kontrollen kan du fästa vissa data punkter i diagrammet. Det är användbart när du försöker jämföra data för flera rader över olika tids perioder.
 
-  ![Visa rutnätsvyn för dina analyser](media/howto-create-analytics/additionalchartcontrols.png)
+  ![Visar diagramvyn för analys](media/howto-create-analytics/additionalchartcontrols.png)

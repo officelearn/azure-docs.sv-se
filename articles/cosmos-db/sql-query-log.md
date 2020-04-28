@@ -1,6 +1,6 @@
 ---
-title: LOGGA i Azure Cosmos DB-frågespråk
-description: Lär dig mer om FUNKTIONEN LOG SQL-system i Azure Cosmos DB för att returnera den naturliga logaritmen för det angivna numeriska uttrycket
+title: Logga in Azure Cosmos DB frågespråk
+description: Lär dig mer om funktionen LOG SQL system i Azure Cosmos DB att returnera den naturliga logaritmen för det angivna numeriska uttrycket
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302516"
 ---
-# <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
+# <a name="log-azure-cosmos-db"></a>LOGG (Azure Cosmos DB)
  Returnerar den naturliga logaritmen för det angivna numeriska uttrycket.  
   
 ## <a name="syntax"></a>Syntax
@@ -29,23 +29,23 @@ LOG (<numeric_expr> [, <base>])
    Är ett numeriskt uttryck.  
   
 *base*  
-   Valfria numeriska argument som anger basen för logaritmen.  
+   Valfritt numeriskt argument som anger basen för logaritmen.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
   Returnerar ett numeriskt uttryck.  
   
 ## <a name="remarks"></a>Anmärkningar
   
-  Som standard returnerar LOG() den naturliga logaritmen. Du kan ändra basen för logaritmen till ett annat värde med hjälp av den valfria basparametern.  
+  Som standard returnerar LOG () den naturliga logaritmen. Du kan ändra logaritmens bas till ett annat värde med hjälp av den valfria bas parametern.  
   
-  Den naturliga logaritmen är logaritmen till basen **e**, där **e** är en irrationell konstant ungefär lika med 2,718281828.  
+  Den naturliga logaritmen är logaritmen för basen **e**, där **e** är en onormal konstant ungefär lika med 2,718281828.  
   
-  Den naturliga logaritmen för ett tal är själva numret: LOG( EXP( n ) = n. Och exponentialen av den naturliga logaritmen av ett nummer är själva numret: EXP( LOG( n ) ) = n.  
+  Den naturliga logaritmen av exponenten för ett tal är själva siffran: LOG (EXP (n)) = n. Och exponenten för den naturliga logaritmen för ett tal är själva siffran: EXP (LOG (n)) = n.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel deklareras en variabel och logaritmen för den angivna variabeln (10) returneras.  
+  Följande exempel deklarerar en variabel och returnerar logaritm svärdet för den angivna variabeln (10).  
   
 ```sql
 SELECT LOG(10) AS log  
@@ -57,7 +57,7 @@ SELECT LOG(10) AS log
 [{log: 2.3025850929940459}]  
 ```  
   
- I följande exempel `LOG` beräknas för exponenten för ett tal.  
+ I följande exempel beräknas `LOG` för exponenten för ett tal.  
   
 ```sql
 SELECT EXP(LOG(10)) AS expLog  
@@ -71,10 +71,10 @@ SELECT EXP(LOG(10)) AS expLog
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer inte att använda indexet.
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Matematiska funktioner Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

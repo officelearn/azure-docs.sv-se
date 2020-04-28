@@ -1,7 +1,7 @@
 ---
-title: Registrera mobilappar som anropar webb-API:er | Azure
+title: 'Registrera mobilappar som anropar webb-API: er | Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du skapar en mobilapp som anropar webb-API:er (appens kodkonfiguration)
+description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (appens kod konfiguration)'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -15,80 +15,80 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5b65bbdc790a27a06298a77aac2721e071adec8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882717"
 ---
-# <a name="register-mobile-apps-that-call-web-apis"></a>Registrera mobilappar som anropar webb-API:er
+# <a name="register-mobile-apps-that-call-web-apis"></a>Registrera mobilappar som anropar webb-API: er
 
-Den här artikeln innehåller instruktioner som hjälper dig att registrera ett mobilprogram som du skapar.
+Den här artikeln innehåller anvisningar som hjälper dig att registrera ett mobil program som du skapar.
 
 ## <a name="supported-account-types"></a>Kontotyper som stöds
 
-Vilka kontotyper som dina mobilappar stöder beror på den upplevelse som du vill aktivera och vilka flöden du vill använda.
+De konto typer som mobil programmen stöder beror på vilken upplevelse du vill aktivera och vilka flöden du vill använda.
 
-### <a name="audience-for-interactive-token-acquisition"></a>Målgrupp för interaktivt tokenförvärv
+### <a name="audience-for-interactive-token-acquisition"></a>Mål grupp för hämtning av interaktiva token
 
-De flesta mobila program använder interaktiv autentisering. Om din app använder den här formen av autentisering kan du logga in användare från valfri [kontotyp](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+De flesta mobila program använder interaktiv autentisering. Om din app använder den här typen av autentisering, kan du logga in användare från vilken [Kontotyp](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)som helst.
 
-### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Målgrupp för integrerad Windows-autentisering, användarnamn och B2C
+### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Mål grupp för integrerad Windows-autentisering, username-Password och B2C
 
-Om du har en UWP-app (Universal Windows Platform) kan du använda integrerad Windows-autentisering för att logga in användare. Om du vill använda autentisering av integrerad Windows-autentisering eller autentisering av användarnamn och lösenord måste programmet logga in användare i din egen LOB-utvecklares klientorganisation. I ett oberoende ISV-scenario (Software Vendor) kan ditt program logga in användare i Azure Active Directory-organisationer. Dessa autentiseringsflöden stöds inte för Microsofts personliga konton.
+Om du har en Universell Windows-plattform-app (UWP) kan du använda integrerad Windows-autentisering för att logga in användare. Om du vill använda integrerad Windows-autentisering eller användar namn – lösenordsautentisering måste ditt program logga in användare i din egen affärsrelaterad (LOB) utvecklare. I ett oberoende program varu leverantörs scenario (ISV) kan ditt program logga in användare i Azure Active Directory organisationer. Dessa autentiserings flöden stöds inte för Microsoft-personliga konton.
 
-Du kan också logga in användare med hjälp av sociala identiteter som skickar en B2C-auktoritet och princip. Om du vill använda den här metoden kan du bara använda interaktiv autentisering och autentisering av användarnamn och lösenord. Autentisering av användarnamn och lösenord stöds för närvarande endast på Xamarin.iOS, Xamarin.Android och UWP.
+Du kan också logga in användare genom att använda sociala identiteter som skickar en B2C-myndighet och-princip. Om du vill använda den här metoden kan du endast använda interaktiv autentisering och autentisering med användar namn och lösen ord. Username-lösenordsautentisering stöds för närvarande endast på Xamarin. iOS, Xamarin. Android och UWP.
 
-Mer information finns i [Scenarier och autentiseringsflöden](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) och [scenarier och plattformar och språk som stöds](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
+Mer information finns i [scenarier och stödda autentiserings flöden](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) och [scenarier och plattformar och språk som stöds](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>Plattformskonfiguration och omdirigera URI:er  
+## <a name="platform-configuration-and-redirect-uris"></a>Plattforms konfiguration och omdirigering av URI: er  
 
 ### <a name="interactive-authentication"></a>Interaktiv autentisering
 
-När du skapar en mobilapp som använder interaktiv autentisering är det mest kritiska registreringssteget omdirigerings-URI.When you build a mobile app that uses interactive authentication, the most critical registration step is the redirect URI. Du kan ställa in interaktiv autentisering via [plattformskonfigurationen på **autentiseringsbladet** ](https://aka.ms/MobileAppReg).
+När du skapar en mobilapp som använder interaktiv autentisering är den mest kritiska registreringen den omdirigerings-URI: n. Du kan ställa in interaktiv autentisering genom [plattforms konfigurationen på bladet **autentisering** ](https://aka.ms/MobileAppReg).
 
-Den här upplevelsen gör det möjligt för din app att få enkel inloggning (SSO) via Microsoft Authenticator (och Intune Company Portal på Android). Det kommer också att stödja enhetshanteringsprinciper.
+Den här funktionen gör att din app kan hämta enkel inloggning (SSO) via Microsoft Authenticator (och Intune-företagsportal på Android). Den kommer också att ha stöd för enhets hanterings principer.
 
-Appregistreringsportalen ger en förhandsgranskningsupplevelse som hjälper dig att beräkna den förmedlade svars-URI:n för iOS- och Android-program:
+Registrerings portalen för appar ger en förhands granskning som hjälper dig att beräkna den asynkrona svars-URI: n för iOS-och Android-program:
 
-1. I appregistreringsportalen väljer du **Autentisering** > **Prova den nya upplevelsen**.
+1. I app Registration-portalen väljer du **autentisering** > **testa den nya upplevelsen**.
 
-   ![Autentiseringsbladet, där du väljer en ny upplevelse](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![Bladet autentisering, där du väljer en ny upplevelse](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
 2. Välj **Lägg till en plattform**.
 
-   ![Lägga till en plattform](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Lägg till en plattform](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
 3. När listan över plattformar stöds väljer du **iOS**.
 
-   ![Välj en mobil applikation](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+   ![Välj ett mobil program](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Ange ditt bunt-ID och välj sedan **Registrera**.
+4. Ange ditt paket-ID och välj sedan **Registrera**.
 
-   ![Ange ditt bunt-ID](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Ange ditt paket-ID](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-När du slutför stegen beräknas omdirigerings-URI:n åt dig, som i följande avbildning.
+När du slutför stegen beräknas omdirigerings-URI: n, som i följande bild.
 
 ![Den resulterande omdirigerings-URI](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
-Om du föredrar att manuellt konfigurera omdirigerings-URI:n kan du göra det via programmanifestet. Här är det rekommenderade formatet för manifestet:
+Om du föredrar att konfigurera omdirigerings-URI: n manuellt kan du göra det via applikations manifestet. Här är det rekommenderade formatet för manifestet:
 
 - **iOS**:`msauth.<BUNDLE_ID>://auth` 
   - Ange till exempel`msauth.com.yourcompany.appName://auth`
 - **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - Du kan generera Android signaturhhh genom att använda releasenyckeln eller felsökningsnyckeln via KeyTool-kommandot.
+  - Du kan generera Android-signaturens hash med hjälp av versions nyckeln eller fel söknings nyckeln via kommando kommandot.
 
-### <a name="username-password-authentication"></a>Autentisering av användarnamn och lösenord
+### <a name="username-password-authentication"></a>Användar namn – lösenordsautentisering
 
-Om din app bara använder autentisering av användarnamn och lösenord behöver du inte registrera en omdirigerings-URI för ditt program. Det här flödet gör en rundresa till Microsoft identity platform version 2.0-slutpunkten. Ditt program anropas inte på någon specifik URI. 
+Om din app endast använder username-Password Authentication behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform version 2,0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI. 
 
-Du måste dock identifiera ditt program som ett offentligt klientprogram. Det gör du genom att starta i avsnittet **Autentisering** i programmet. I underavsnittet **Avancerade inställningar** i stycket **Standardklienttyp** väljer du **Ja**för **frågebehandla programmet Behandla som en offentlig klient**.
+Du måste dock identifiera ditt program som ett offentligt klient program. Det gör du genom att börja i avsnittet **autentisering** i ditt program. I underavsnittet **Avancerade inställningar** , i stycket **standard klient typ** , för frågan **behandla programmet som en offentlig klient**väljer du **Ja**.
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Mobila program anropar API:er för den inloggade användarens räkning. Din app måste begära delegerade behörigheter. Dessa behörigheter kallas också scope. Beroende på vilken erfarenhet du vill ha kan du begära delegerade behörigheter statiskt via Azure-portalen. Eller så kan du begära dem dynamiskt vid körning. 
+Mobil program anropar API: er å den inloggade användarens vägnar. Appen måste begära delegerade behörigheter. Dessa behörigheter kallas även omfång. Beroende på vilken upplevelse du vill ha kan du begära delegerade behörigheter statiskt via Azure Portal. Eller så kan du begära dem dynamiskt vid körning. 
 
-Genom att statiskt registrera behörigheter tillåter du administratörer att enkelt godkänna din app. Statisk registrering rekommenderas.
+Genom att registrera behörigheter med statiskt tillstånd kan administratörer enkelt godkänna din app. Statisk registrering rekommenderas.
 
 ## <a name="next-steps"></a>Nästa steg
 

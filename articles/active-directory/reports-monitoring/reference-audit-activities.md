@@ -18,20 +18,20 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891517"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
-Med Azure Active Directory (Azure AD) rapporter kan du få den information du behöver för att avgöra hur din miljö går.
+Med Azure Active Directory (Azure AD)-rapporter kan du få den information du behöver för att avgöra hur din miljö fungerar.
 
 Rapporteringsarkitekturen i Azure AD består av följande komponenter:
 
 - **Aktivitetsrapporter** 
-    - [Inloggningar](concept-sign-ins.md) – Ger information om användningen av hanterade program och användarloggningsaktiviteter
+    - [Inloggningar](concept-sign-ins.md) – ger information om användningen av hanterade program och användar inloggnings aktiviteter
     - [Granskningsloggar](concept-audit-logs.md) – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. 
     
 - **Säkerhetsrapporter** 
@@ -64,16 +64,16 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Åtkomstgranskningar|Granska begäran om godkännande|
 |Åtkomstgranskningar|Ta bort länk till programkontroll|
 |Åtkomstgranskningar|Uppdatera åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatera Azure AD Access-granskningar Introduktionsstatus|
+|Åtkomstgranskningar|Uppdatera registrerings status för Azure AD åtkomst granskningar|
 |Åtkomstgranskningar|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
-|Åtkomstgranskningar|Uppdateringsinställning för återkommande åtkomstgranskning|
-|Åtkomstgranskningar|Uppdatering av åtkomstgransknings återkommande varaktighet i inställning av dagar|
-|Åtkomstgranskningar|Uppdatering av sluttyp för återkommande sluttyp för uppdateringsgranskning|
-|Åtkomstgranskningar|Inställning för återkommande uppdateringstyp för åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningen för upprepnings antal för åtkomst granskning|
+|Åtkomstgranskningar|Uppdatera upprepnings varaktighet för åtkomst granskning i dagar|
+|Åtkomstgranskningar|Uppdatera inställning för upprepnings slut typ för åtkomst granskning|
+|Åtkomstgranskningar|Uppdatera inställningen för upprepnings typ för åtkomst granskning|
 |Åtkomstgranskningar|Uppdatera inställningar för påminnelse om åtkomstgranskning|
 |Åtkomstgranskningar|Uppdatera program|
 |Åtkomstgranskningar|Uppdatera godkännande av begäran|
-|Åtkomstgranskningar|Användaren inaktiverad|
+|Åtkomstgranskningar|Användaren är inaktive rad|
 
 ## <a name="account-provisioning"></a>Kontoetablering
 
@@ -169,7 +169,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Auktorisering|Hämta V1-program|
 |Auktorisering|Hämta V2-program|
 |Auktorisering|Hämta V2-program|
-|Auktorisering|Skaffa en B2C-katalogresurs|
+|Auktorisering|Hämta en B2C Directory-resurs|
 |Auktorisering|Skapa en lista över anpassade domäner i klienten|
 |Auktorisering|Hämta en användarresa|
 |Auktorisering|Hämta tillåtna programanspråk för användarresa|
@@ -234,7 +234,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Auktorisering|Användarautentisering: Användaren beviljas åtkomst som ”innehavaradministratör”|
 |Auktorisering|Användarautentisering: Användare beviljas behörighet för åtkomst som ”behöriga användare”|
 |Auktorisering|Kontrollera om B2C-funktionen är aktiverad|
-|Auktorisering|Kontrollera om funktionen är aktiverad|
+|Auktorisering|Verifiera om funktionen är aktive rad|
 |Auktorisering|Skapa program|
 |Auktorisering|Ta bort program|
 |Auktorisering|Länka programkontroll|
@@ -258,7 +258,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Hämta tenantDomains|
 |Nyckel|Hämtar typ av klient|
 |Nyckel|Kontrollera om B2C-funktionen är aktiverad|
-|Nyckel|Kontrollera om funktionen är aktiverad|
+|Nyckel|Verifiera om funktionen är aktive rad|
 |Nyckel|Lägg till partner till företag|
 |Nyckel|Lägg till overifierad domän|
 |Nyckel|Lägg till verifierad domän|
@@ -348,10 +348,10 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 |Granskningskategori|Aktivitet|
 |---|---|
-|Hantering av administrativ enhet|Hämta en enda riskidentifieringstyp|
+|Hantering av administrativ enhet|Hämta en identifierings typ för enskild risk|
 |Hantering av administrativ enhet|Ladda ned administratörer och status för sammandrag av veckan|
-|Hantering av administrativ enhet|Ladda ner alla riskidentifieringstyper|
-|Hantering av administrativ enhet|Ladda ner kostnadsfria riskidentifieringar för användare|
+|Hantering av administrativ enhet|Hämta alla typer av risk identifiering|
+|Hantering av administrativ enhet|Ladda ned kostnads fria identifieringar av användar risker|
 |Hantering av administrativ enhet|Ladda ned användare som har flaggats för risk|
 |Programhantering|Bearbetade batchinbjudningar|
 |Programhantering|Överförda batchinbjudningar|
@@ -370,7 +370,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Programhantering|Redigera användningsvillkoren|
 |Programhantering|Publicera användningsvillkoren|
 |Programhantering|Avpublicera användningsvillkoren|
-|Programhantering|Lägga till TLS/SSL-certifikat för program|
+|Programhantering|Lägg till Application TLS/SSL-certifikat|
 |Programhantering|Ta bort TLS-bindning|
 |Programhantering|Registrera anslutningsapp|
 |Programhantering|AdminPolicyDatas-RemoveResources|
@@ -398,7 +398,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Hämta B2C-katalogresurser i en prenumeration|
 |Kataloghantering|Hämta anpassad IDP|
 |Kataloghantering|Hämta IDP|
-|Kataloghantering|Skaffa en B2C-katalogresurs|
+|Kataloghantering|Hämta en B2C Directory-resurs|
 |Kataloghantering|Hämta en användarresa|
 |Kataloghantering|Hämta tillåtna programanspråk för användarresa|
 |Kataloghantering|Hämta tillåtna självkontrollerade anspråk för användarresa|
@@ -408,14 +408,14 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Hämta idp:er för ett specifikt administratörsflöde|
 |Kataloghantering|Hämta lista över alla administratörsflöden|
 |Kataloghantering|Hämta lista över taggar för alla administratörsflöden för alla användare|
-|Grupphantering|Gruppmedlemmar för masshämtning – startad|
-|Grupphantering|Gruppmedlemmar för masshämtning - färdiga|
-|Grupphantering|Medlemmar i gruppen För massimport – startad|
-|Grupphantering|Medlemmar i gruppen För massimport - färdiga|
-|Grupphantering|Massborttagning av gruppmedlemmar - startad|
-|Grupphantering|Massborttagning av gruppmedlemmar - färdig|
-|Grupphantering|Masshämtningsgrupper - startad|
-|Grupphantering|Masshämtningsgrupper - färdiga|
+|Grupphantering|Grupp medlemmar för grupp hämtning – startade|
+|Grupphantering|Grupp medlemmar för grupp hämtning – avslutad|
+|Grupphantering|Grupp medlemmar för Mass import – startade|
+|Grupphantering|Grupp medlemmar för Mass import – avslutad|
+|Grupphantering|Mass borttagning av grupp medlemmar – startat|
+|Grupphantering|Grupp medlemmar för Mass borttagning – avslutad|
+|Grupphantering|Grupp hämtnings grupper – startat|
+|Grupphantering|Grupp hämtnings grupper – klart|
 |Grupphantering|Hämta lista över klienter för en användare|
 |Grupphantering|Hämta lokala kontos självkontrollerade anspråk|
 |Grupphantering|Hämta json för lokaliserad resurs|
@@ -475,16 +475,16 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användarhantering|Lägg till begränsad medlem till roll|
 |Användarhantering|Tillagt|
 |Användarhantering|Tilldela|
-|Användarhantering|Mass skapa användare - startad|
-|Användarhantering|Mass skapa användare - klar|
-|Användarhantering|Massborttagningsanvändare - startad|
-|Användarhantering|Massborttagning av användare - färdig|
-|Användarhantering|Masshämtningsanvändare - startad|
-|Användarhantering|Masshämtning användare - klar|
-|Användarhantering|Massåterställning borttagna användare - startat|
-|Användarhantering|Massåterställning borttagna användare - klar|
-|Användarhantering|Massinbjudningsanvändare – startad|
-|Användarhantering|Massinbjudningsanvändare – avslutad|
+|Användarhantering|Mass skapande av användare – startat|
+|Användarhantering|Mass skapande av användare – klart|
+|Användarhantering|Mass borttagning av användare – startat|
+|Användarhantering|Mass borttagning av användare – färdig|
+|Användarhantering|Mass nedladdnings användare – startat|
+|Användarhantering|Mass nedladdnings användare – klart|
+|Användarhantering|Mass återställning borttagna användare – startat|
+|Användarhantering|Mass återställning borttagna användare – avslutad|
+|Användarhantering|Massredigera användare – startade|
+|Användarhantering|Grupp användare-avslutad|
 |Användarhantering|Ta bort registrerad ägare från enhet|
 |Användarhantering|Ta bort registrerade användare från enhet|
 |Användarhantering|Ta bort behörig medlem från roll|
@@ -540,10 +540,10 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Grupphantering|Granska begäran om godkännande|
 |Grupphantering|Uppdatera åtkomstgranskning|
 |Grupphantering|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
-|Grupphantering|Uppdateringsinställning för återkommande åtkomstgranskning|
-|Grupphantering|Uppdatering av åtkomstgransknings återkommande varaktighet i inställning av dagar|
-|Användarhantering|Uppdatering av sluttyp för återkommande sluttyp för uppdateringsgranskning|
-|Användarhantering|Inställning för återkommande uppdateringstyp för åtkomstgranskning|
+|Grupphantering|Uppdatera inställningen för upprepnings antal för åtkomst granskning|
+|Grupphantering|Uppdatera upprepnings varaktighet för åtkomst granskning i dagar|
+|Användarhantering|Uppdatera inställning för upprepnings slut typ för åtkomst granskning|
+|Användarhantering|Uppdatera inställningen för upprepnings typ för åtkomst granskning|
 
 
 
@@ -554,21 +554,21 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |PIM|ActivationAborted|
 |PIM|ActivationAborted|
 |PIM|ActivationAborted|
-|PIM|AktiveringSberoende|
+|PIM|ActivationDenied|
 |PIM|ActivationRequested|
 |PIM|Tillagt|
 |PIM|AddedOutsidePIM|
 |PIM|Tilldela|
-|PIM|AvfärdaAlert|
+|PIM|DismissAlert|
 |PIM|Upphöj|
-|PIM|ÅteraktiveraAlert|
+|PIM|ReactivateAlert|
 |PIM|Borttaget|
-|PIM|BorttagenUtsidePIM|
+|PIM|RemovedOutsidePIM|
 |PIM|Begär granskningsstopp|
 |PIM|Ändringar av rollinställningar|
 |PIM|ScanAlertsNow|
 |PIM|Registrera|
-|PIM|Ej tilldela|
+|PIM|Ta bort|
 |PIM|Ta bort behörighet|
 |PIM|UpdateAlertSettings|
 |PIM|UpdateCurrentState|
@@ -615,8 +615,8 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användningsvillkor|Ta bort medgivande|
 |Användningsvillkor|Ta bort användningsvillkor|
 |Användningsvillkor|Redigera användningsvillkoren|
-|Användningsvillkor|Utgångsvillkor|
-|Användningsvillkor|Användningsvillkor för hård borttagning|
+|Användningsvillkor|Användnings villkor upphör att gälla|
+|Användningsvillkor|Användnings villkor för hård borttagning|
 |Användningsvillkor|Publicera användningsvillkoren|
 |Användningsvillkor|Avpublicera användningsvillkoren|
 
@@ -624,5 +624,5 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure AD-rapporter](overview-reports.md).
-- [Rapport över granskningsloggar](concept-audit-logs.md). 
-- [Programmatisk åtkomst till Azure AD-rapporter](concept-reporting-api.md)
+- [Rapporten gransknings loggar](concept-audit-logs.md). 
+- [Programmerings åtkomst till Azure AD-rapporter](concept-reporting-api.md)

@@ -1,6 +1,6 @@
 ---
 title: Vad är en Azure AD-ansluten enhet?
-description: Lär dig hur enhetsidentitetshantering kan hjälpa dig att hantera enheter som har åtkomst till resurser i din miljö.
+description: Lär dig hur enhets identitets hantering kan hjälpa dig att hantera enheter som har åtkomst till resurser i din miljö.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,44 +12,44 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672668"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
-Azure AD-koppling är avsedd för organisationer som vill vara moln-först eller moln-bara. Alla organisationer kan distribuera Azure AD-anslutna enheter oavsett storlek eller bransch. Azure AD-koppling fungerar även i en hybridmiljö, vilket ger åtkomst till både moln- och lokala appar och resurser.
+Azure AD Join är avsett för organisationer som bara vill vara molnbaserade eller endast i molnet. Alla organisationer kan distribuera Azure AD-anslutna enheter oavsett storlek eller bransch. Azure AD Join fungerar även i en hybrid miljö som möjliggör åtkomst till både molnet och lokala appar och resurser.
 
 |   | Azure AD Join |
 | --- | --- |
-| **Definition** | Gick bara med i Azure AD som kräver att organisationskontot loggar in på enheten |
-| **Primär målgrupp** | Lämplig för både moln- och hybridorganisationer. |
+| **Definition** | Endast ansluten till Azure AD som kräver organisations konto för att logga in på enheten |
+| **Primär mål grupp** | Lämpligt för både molnbaserade och hybrid organisationer. |
 |   | Gäller för alla användare i en organisation |
 | **Äganderätt till enhet** | Organisation |
-| **Operativsystem** | Alla Windows 10-enheter |
-| **Etablering** | Självbetjäning: Windows OOBE eller Inställningar |
+| **Operativ system** | Alla Windows 10-enheter |
+| **Etablering** | Självbetjäning: Windows OOBE eller inställningar |
 |   | Massregistrering |
 |   | Windows Autopilot |
-| **Alternativ för inloggning på enheten** | Organisationskonton med hjälp av: |
+| **Alternativ för enhets inloggning** | Organisations konton med: |
 |   | lösenord |
 |   | Windows Hello för företag |
-|   | FIDO2.0-säkerhetsnycklar (förhandsgranskning) |
+|   | FIDO 2.0-säkerhets nycklar (för hands version) |
 | **Enhetshantering** | Hantering av mobila enheter (exempel: Microsoft Intune) |
 |   | Samhantering med Microsoft Intune och Microsoft Endpoint Configuration Manager |
-| **De viktigaste funktionerna** | SSO till både molnresurser och lokala resurser |
-|   | Villkorlig åtkomst genom MDM-registrering och MDM-efterlevnadsutvärdering |
-|   | Återställning av lösenord med självbetjäning och Windows Hello PIN-återställning på låsskärmen |
-|   | Roaming i företagstillstånd på olika enheter |
+| **De viktigaste funktionerna** | Enkel inloggning till både moln resurser och lokala resurser |
+|   | Villkorlig åtkomst genom MDM-registrering och MDM-kompatibilitet utvärdering |
+|   | Återställning av lösen ord för självbetjäning och Windows Hello-PIN-återställning på Lås skärmen |
+|   | Enterprise State Roaming över enheter |
 
-Azure AD-anslutna enheter loggas in på med ett organisatoriskt Azure AD-konto. Åtkomsten till resurser i organisationen kan begränsas ytterligare baserat på de Azure AD-konto- och [villkorlig åtkomstprinciper](../conditional-access/overview.md) som tillämpas på enhetsidentiteten.
+Azure AD-anslutna enheter är inloggade i att använda ett organisations Azure AD-konto. Åtkomst till resurser i organisationen kan ytterligare begränsas baserat på det Azure AD-konto och [principer för villkorlig åtkomst](../conditional-access/overview.md) som tillämpas på enhets identiteten.
 
-Administratörer kan skydda och ytterligare styra Azure AD-anslutna enheter med mdm-verktyg (Mobile Device Management) som Microsoft Intune eller i samhanteringsscenarier med Microsoft Endpoint Configuration Manager. Dessa verktyg är ett sätt att framtvinga konfigurationer som krävs av organisationen, till exempel att kräva att lagring krypteras, lösenordskomplexitet, programvaruinstallationer och programuppdateringar. Administratörer kan göra organisationsprogram tillgängliga för Azure AD-anslutna enheter med Configuration Manager för att [hantera appar från Microsoft Store för företag och utbildning](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Administratörer kan skydda och hantera Azure AD-anslutna enheter med hjälp av MDM-verktyg (Mobile Device Management) som Microsoft Intune eller i samhanterings scenarier med Microsoft Endpoint Configuration Manager. Dessa verktyg ger ett sätt att tvinga fram organisations konfiguration, t. ex. att lagringen ska vara krypterad, lösen ords komplexitet, program varu installationer och program uppdateringar. Administratörer kan göra organisations program tillgängliga för Azure AD-anslutna enheter med hjälp av Configuration Manager för att [Hantera appar från Microsoft Store för företag och utbildning](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-Azure AD-koppling kan utföras med självbetjäningsalternativ som OOBE (Out of Box Experience), massregistrering eller [Windows Autopilot](/intune/enrollment-autopilot).
+Azure AD Join kan utföras med hjälp av självbetjänings alternativ som OOBE (out of Box Experience), Mass registrering eller [Windows autopilot](/intune/enrollment-autopilot).
 
-Azure AD-anslutna enheter kan fortfarande ha enkel inloggningsåtkomst till lokala resurser när de finns i organisationens nätverk. Enheter som är Azure AD-anslutna kan fortfarande autentisera till lokala servrar som fil, utskrift och andra program.
+Azure AD-anslutna enheter kan fortfarande hantera enkel inloggning till lokala resurser när de befinner sig på organisationens nätverk. Enheter som är Azure AD-anslutna kan fortfarande autentisera till lokala servrar som fil, utskrift och andra program.
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -58,7 +58,7 @@ Azure AD Join är främst avsett för organisationer som inte har någon lokal W
 - Du vill gå över till molnbaserad infrastruktur med Azure AD och MDM som Intune.
 - Du inte kan använda en lokal domänanslutning, till exempel om du vill hämta mobila enheter som surfplattor och telefoner som kontrolleras.
 - Användarna främst behöver åtkomst till Office 365 eller övriga SaaS-appar som är integrerade med Azure AD.
-- Du vill hantera en grupp användare i Azure AD istället för Active Directory. Det här scenariot kan till exempel gälla säsongsarbetare, entreprenörer eller studenter.
+- Du vill hantera en grupp användare i Azure AD istället för Active Directory. Det här scenariot kan gälla, till exempel för säsongs arbetare, entreprenörer eller studenter.
 - Du vill erbjuda anslutningsfunktioner för medarbetare på filialkontor med begränsad lokal infrastruktur.
 
 Du kan konfigurera Azure AD-anslutna enheter för Windows 10-enheter.
@@ -68,7 +68,7 @@ Målet med Azure AD-anslutna enheter är att förenkla:
 - Windows-distributioner av företagsägda enheter
 - Åtkomst till företagsappar och -resurser från valfri Windows-enhet
 - Molnbaserad hantering av företagsägda enheter
-- Användare att logga in på sina enheter med sina Azure AD eller synkroniserade Active Directory arbets- eller skolkonton.
+- Användare kan logga in på sina enheter med sina Azure AD-eller Sync-Active Directory arbets-eller skol konton.
 
 ![Azure AD-anslutna enheter](./media/concept-azure-ad-join/azure-ad-joined-device.png)
 
@@ -81,6 +81,6 @@ Azure AD Join kan distribueras på något av följande sätt:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Planera implementeringen av Azure AD-anslutningen](azureadjoin-plan.md)
-- [Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter](assign-local-admin.md)
-- [Hantera enhetsidentiteter med Azure-portalen](device-management-azure-portal.md)
+- [Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter](assign-local-admin.md)
+- [Hantera enhets identiteter med hjälp av Azure Portal](device-management-azure-portal.md)
 - [Hantera inaktuella enheter i Azure AD](manage-stale-devices.md)

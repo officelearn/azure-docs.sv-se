@@ -1,5 +1,5 @@
 ---
-title: Webbtjänst för Azure MFA Server Mobile App – Azure Active Directory
+title: Webb tjänsten Azure MFA Server Mobile App – Azure Active Directory
 description: Konfigurera MFA-servern till att skicka push-meddelanden till användare med Microsoft Authenticator-appen.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,20 +12,20 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 785c4ccf591ce6a7a50a3d144fb1740121c73ce6
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653191"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Aktivera mobilappautentisering och Azure Multi-Factor Authentication Server
 
-Microsoft Authenticator-appen erbjuder ytterligare ett verifieringsalternativ utanför IP-nätverket. I stället för att placera ett automatiskt telefonsamtal eller SMS till användaren under inloggningen skickar Azure Multi-Factor Authentication ett meddelande till Microsoft Authenticator-appen på användarens smartphone eller surfplatta. Användaren trycker helt enkelt på **Verifiera** (eller anger en PIN-kod och trycker på "Autentisera") i appen för att slutföra sin inloggning.
+Microsoft Authenticator-appen erbjuder ytterligare ett verifieringsalternativ utanför IP-nätverket. I stället för att placera ett automatiserat telefonsamtal eller SMS till användaren vid inloggningen skickar Azure Multi-Factor Authentication ett meddelande till Microsoft Authenticator-appen på användarens smartphone eller surfplatta. Användaren trycker bara på **Verifiera** (eller anger en PIN-kod och trycker på "autentisera") i appen för att slutföra inloggningen.
 
 Att använda en mobilapp för tvåstegsverifiering rekommenderas när mobilmottagningen är opålitlig. Om du använder appen som en OATH-tokengenerator behövs ingen nätverks- eller internetanslutning.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare bör använda molnbaserad Azure Multi-Factor-autentisering. Befintliga kunder som har aktiverat MFA Server före den 1 juli kommer att kunna ladda ner den senaste versionen, framtida uppdateringar och generera aktiveringsautentiseringsuppgifter som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
 > [!IMPORTANT]
 > Om du har installerat Azure Multi-Factor Authentication Server v8.x eller senare krävs inte de flesta av de nedanstående stegen. Mobilappsautentisering kan konfigureras med anvisningarna under [Konfigurera mobilappen](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
@@ -45,4 +45,4 @@ För att använda Microsoft Authenticator-appen måste du köra Multi-Factor Aut
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Avancerade scenarier med Azure Multi-Factor Autentisering och tredjeparts-VPN](howto-mfaserver-nps-vpn.md).
+- [Avancerade scenarier med Azure Multi-Factor Authentication och VPN från tredje part](howto-mfaserver-nps-vpn.md).

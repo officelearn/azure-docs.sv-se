@@ -1,6 +1,6 @@
 ---
-title: Aktivera fjärråtkomst till SharePoint - Azure AD Application Proxy
-description: Beskriver grunderna om hur du integrerar en lokal SharePoint-server med Azure AD Application Proxy.
+title: Aktivera fjärråtkomst till SharePoint – Azure AD-programproxy
+description: Beskriver grunderna för hur du integrerar en lokal SharePoint-Server med Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,76 +17,76 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983470994c103cb25d0d2aff96ae8544080e6288
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481304"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till SharePoint med Azure AD-programproxy
 
-I den här steg-för-steg-guiden beskrivs hur du integrerar en lokal SharePoint-servergrupp med Azure Active Directory (Azure AD) Application Proxy.
+Den här steg-för-steg-guiden beskriver hur du integrerar en lokal SharePoint-grupp med Azure Active Directory (Azure AD) Application Proxy.
 
 ## <a name="prerequisites"></a>Krav
 
 För att utföra konfigurationen behöver du följande resurser:
-- En SharePoint 2013-grupp eller nyare.
-- En Azure AD-klient med en plan som innehåller programproxy. Läs mer om [Azure AD-abonnemang och priser](https://azure.microsoft.com/pricing/details/active-directory/).
+- En SharePoint 2013-Server grupp eller senare.
+- En Azure AD-klient med en plan som inkluderar programproxy. Lär dig mer om [Azure AD-planer och priser](https://azure.microsoft.com/pricing/details/active-directory/).
 - En [anpassad, verifierad domän](../fundamentals/add-custom-domain.md) i Azure AD-klienten.
-- Lokala Active Directory synkroniserade med Azure AD Connect, genom vilken användare kan [logga in på Azure](../hybrid/plan-connect-user-signin.md).
-- En Application Proxy-anslutning installerad och körs på en dator inom företagsdomänen.
+- Lokala Active Directory synkroniseras med Azure AD Connect, via vilka användare kan [Logga in på Azure](../hybrid/plan-connect-user-signin.md).
+- En Application Proxy-koppling installeras och körs på en dator i företags domänen.
 
-Konfigurera SharePoint med Programproxy kräver två webbadresser:
-- En extern URL som är synlig för slutanvändare och bestämd i Azure AD. Den här URL:en kan använda en anpassad domän. Läs mer om [hur du arbetar med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
-- En intern URL, känd endast inom företagsdomänen och aldrig används direkt.
+Att konfigurera SharePoint med Application Proxy kräver två URL: er:
+- En extern URL som är synlig för slutanvändare och som fastställs i Azure AD. Den här URL: en kan använda en anpassad domän. Lär dig mer om att [arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
+- En intern URL, som endast är känd inom företags domänen och som aldrig har använts direkt.
 
 > [!IMPORTANT]
-> Följ dessa rekommendationer för den interna webbadressen för att se till att länkarna är korrekt mappade:
+> Följ dessa rekommendationer för den interna URL: en för att se till att länkarna mappas korrekt:
 > - Använd HTTPS.
 > - Använd inte anpassade portar.
-> - Skapa en värd (A) i DNS (Corporate Domain Name System) för att peka på SharePoint WFE (eller belastningsutjämnaren) och inte ett alias (CName).
+> - I företags Domain Name System (DNS) skapar du en värd (A) som pekar på SharePoint WFE (eller belastningsutjämnaren) och inte ett alias (CName).
 
 I den här artikeln används följande värden:
 - Intern URL:`https://sharepoint`
 - Extern URL:`https://spsites-demo1984.msappproxy.net/`
-- Programpoolkonto för SharePoint-webbprogrammet:`Contoso\spapppool`
+- Konto för programpool för SharePoint-webbprogrammet:`Contoso\spapppool`
 
-## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Steg 1: Konfigurera ett program i Azure AD som använder programproxy
+## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Steg 1: Konfigurera ett program i Azure AD som använder Application Proxy
 
-I det här steget skapar du ett program i din Azure Active Directory-klient som använder programproxy. Du anger den externa URL:en och anger den interna URL:en, som båda används senare i SharePoint.
+I det här steget skapar du ett program i Azure Active Directory-klienten som använder programproxy. Du anger den externa URL: en och anger den interna URL: en som används senare i SharePoint.
 
-1. Skapa appen enligt beskrivningen med följande inställningar. Stegvisa instruktioner finns i [Publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   * **Intern URL:** Intern URL i SharePoint som kommer `https://sharepoint`att anges senare i SharePoint, till exempel .
+1. Skapa appen enligt beskrivningen i följande inställningar. Stegvisa instruktioner finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   * **Intern URL**: den interna SharePoint-URL: en som ska ställas in senare `https://sharepoint`i SharePoint, till exempel.
    * **Förautentisering**: Azure Active Directory
-   * **Översätt webbadresser i rubriker:** Nej
-   * **Översätt webbadresser i programtexten:** Nej
+   * **Översätt URL: er i huvuden**: Nej
+   * **Översätt URL: er i program texten**: Nej
 
    ![Publicera SharePoint som program](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
-1. När appen har publicerats följer du dessa steg för att konfigurera inställningarna för enkel inloggning:
+1. När din app har publicerats följer du de här stegen för att konfigurera inställningarna för enkel inloggning:
 
-   1. På programsidan i portalen väljer du **Enkel inloggning**.
-   1. För **enkel inloggningsläge**väljer du Integrerad **Windows-autentisering**.
-   1. Ange **SPN för internt program** till det värde som du angav tidigare. I det här exemplet `HTTP/sharepoint`är värdet .
-   1. Under **Delegerad inloggningsidentitet**väljer du det lämpligaste alternativet för Active Directory-skogskonfigurationen. Om du till exempel har en enda Active Directory-domän i skogen väljer du **Lokalt SAM-kontonamn** (som visas i följande skärmbild). Men om användarna inte finns i samma domän som SharePoint- och Application Proxy **Connector-servrarna** väljer du Lokalt användarnamn (visas inte i skärmbilden).
+   1. På sidan program i portalen väljer du **enkel inloggning**.
+   1. För **läge för enkel inloggning**väljer du **integrerad Windows-autentisering**.
+   1. Ange det **interna programmets SPN** till det värde som du angav tidigare. I det här exemplet är `HTTP/sharepoint`värdet.
+   1. Under **delegerad inloggnings identitet**väljer du det lämpligaste alternativet för din Active Directory skogs konfiguration. Om du till exempel har en enda Active Directory domän i skogen väljer du **lokalt SAM-kontonamn** (som visas i följande skärm bild). Men om dina användare inte finns i samma domän som SharePoint och Application Proxy Connector-servrarna, väljer du **lokala User Principal Name** (visas inte i skärm bilden).
 
    ![Konfigurera integrerad Windows-autentisering för SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
-1. Om du vill slutföra inrättandet av programmet går du till avsnittet **Användare och grupper** och tilldelar användare att komma åt det här programmet. 
+1. Slutför konfigurationen av programmet genom att gå till avsnittet **användare och grupper** och tilldela användare åtkomst till det här programmet. 
 
-## <a name="step-2-configure-the-sharepoint-web-application"></a>Steg 2: Konfigurera SharePoint-webbprogrammet
+## <a name="step-2-configure-the-sharepoint-web-application"></a>Steg 2: konfigurera SharePoint-webbprogrammet
 
-SharePoint-webbprogrammet måste konfigureras med Kerberos och lämpliga alternativa åtkomstmappningar för att fungera korrekt med Azure AD Application Proxy. Det finns två möjliga alternativ:
+SharePoint-webbprogrammet måste konfigureras med Kerberos och lämpliga alternativa åtkomst mappningar fungerar korrekt med Azure AD-programproxy. Det finns två möjliga alternativ:
 
-- Skapa ett nytt webbprogram och använd endast standardzonen. Detta är det alternativ som föredras, eftersom det ger den bästa upplevelsen med SharePoint (till exempel pekar länkarna i e-postaviseringarna som genereras av SharePoint alltid på standardzonen).
-- Utöka ett befintligt webbprogram för att konfigurera Kerberos i en zon som inte är standard.
+- Skapa ett nytt webb program och Använd bara standard zonen. Detta är det bästa alternativet eftersom det erbjuder den bästa upplevelsen med SharePoint (till exempel länkar i e-postaviseringar som genereras av SharePoint alltid till standard zonen).
+- Utöka ett befintligt webb program för att konfigurera Kerberos i en zon som inte är standard.
 
 > [!IMPORTANT]
-> Oavsett den zon som används måste programpoolkontot för SharePoint-webbprogrammet vara ett domänkonto för att Kerberos ska fungera korrekt.
+> Oavsett vilken zon som används måste programpoolens konto för SharePoint-webbappen vara ett domän konto för att Kerberos ska fungera korrekt.
 
 ### <a name="provision-the-sharepoint-web-application"></a>Etablera SharePoint-webbprogrammet
 
-- Om du skapar ett nytt webbprogram och bara använder standardzonen (önskat alternativ):
+- Om du skapar ett nytt webb program och bara använder standard zonen (önskat alternativ):
 
     1. Starta **SharePoint Management Shell** och kör följande skript:
 
@@ -102,13 +102,13 @@ SharePoint-webbprogrammet måste konfigureras med Kerberos och lämpliga alterna
        New-SPAlternateURL -Url $internalUrl -WebApplication $wa -Zone Default -Internal
        ```
 
-    2. Öppna **sharepoint-webbplatsen för central administration.**
-    1. Under **Systeminställningar**väljer du **Konfigurera alternativa åtkomstmappningar**. Rutan **Alternativ åtkomstmappningssamling** öppnas.
-    1. Filtrera skärmen med det nya webbprogrammet och bekräfta att du ser något liknande:
+    2. Öppna den **centrala administrations** webbplatsen för SharePoint.
+    1. Under **Systeminställningar**väljer du **Konfigurera alternativa åtkomst mappningar**. Rutan för **insamling av alternativa åtkomsts mappningar** öppnas.
+    1. Filtrera visningen med det nya webb programmet och bekräfta att du ser något som liknar detta:
 
-       ![Alternativa åtkomstmappningar av webbprogram](./media/application-proxy-integrate-with-sharepoint-server/new-webapp-aam.png)
+       ![Alternativa åtkomst mappningar för webb program](./media/application-proxy-integrate-with-sharepoint-server/new-webapp-aam.png)
 
-- Om du utökar ett befintligt webbprogram till en ny zon (om du inte kan använda standardzonen):
+- Om du utökar ett befintligt webb program till en ny zon (om du inte kan använda standard zonen):
 
     1. Starta SharePoint Management Shell och kör följande skript:
 
@@ -125,30 +125,30 @@ SharePoint-webbprogrammet måste konfigureras med Kerberos och lämpliga alterna
        New-SPAlternateURL -Url $internalUrl -WebApplication $wa -Zone Extranet -Internal
        ```
 
-    2. Öppna **sharepoint-webbplatsen för central administration.**
-    1. Under **Systeminställningar**väljer du **Konfigurera alternativa åtkomstmappningar**. Rutan **Alternativ åtkomstmappningssamling** öppnas.
-    1. Filtrera skärmen med webbprogrammet som har utökats och bekräfta att du ser något liknande:
+    2. Öppna den **centrala administrations** webbplatsen för SharePoint.
+    1. Under **Systeminställningar**väljer du **Konfigurera alternativa åtkomst mappningar**. Rutan för **insamling av alternativa åtkomsts mappningar** öppnas.
+    1. Filtrera visningen med det webb program som har utökats och bekräfta att du ser något som liknar detta:
 
-        ![Alternativa åtkomstmappningar av utökat program](./media/application-proxy-integrate-with-sharepoint-server/extend-webapp-aam.png)
+        ![Alternativa åtkomst mappningar för utökade program](./media/application-proxy-integrate-with-sharepoint-server/extend-webapp-aam.png)
 
-### <a name="make-sure-the-sharepoint-web-application-is-running-under-a-domain-account"></a>Kontrollera att SharePoint-webbprogrammet körs under ett domänkonto
+### <a name="make-sure-the-sharepoint-web-application-is-running-under-a-domain-account"></a>Kontrol lera att SharePoint-webbappen körs under ett domän konto
 
-Så här identifierar du kontot som kör programpoolen för SharePoint-webbprogrammet och kontrollerar att det är ett domänkonto:
+Följ dessa steg om du vill identifiera det konto som kör programpoolen för SharePoint-webbprogrammet och se till att det är ett domän konto:
 
-1. Öppna **sharepoint-webbplatsen för central administration.**
-1. Gå till **Säkerhet** och välj **Konfigurera tjänstkonton**.
-1. Välj **Webbprogrampool - YourWebApplicationName**.
+1. Öppna den **centrala administrations** webbplatsen för SharePoint.
+1. Gå till **säkerhet** och välj **Konfigurera tjänst konton**.
+1. Välj **Web Application pool-YourWebApplicationName**.
 
-   ![Alternativ för att konfigurera ett tjänstkonto](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
+   ![Alternativ för att konfigurera ett tjänst konto](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
-1. Bekräfta att **Välj ett konto för den här komponenten** returnerar ett domänkonto och kom ihåg det, eftersom det kommer att behövas i nästa steg.
+1. Bekräfta att **Välj ett konto för den här komponenten** returnerar ett domän konto och kom ihåg det, eftersom det kommer att behövas i nästa steg.
 
-### <a name="make-sure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>Kontrollera att ett HTTPS-certifikat är konfigurerat för IIS-platsen för zonen Extranät
+### <a name="make-sure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>Kontrol lera att ett HTTPS-certifikat har kon figurer ATS för IIS-platsen i extra nät zonen
 
-Eftersom den interna URL:en använder HTTPS-protokoll (`https://SharePoint/`) måste ett certifikat anges på IIS-webbplatsen (Internet Information Services).
+Eftersom den interna URL: en använder HTTPS`https://SharePoint/`-protokoll () måste ett certifikat anges på den Internet Information Services (IIS)-platsen.
 
 1. Öppna Windows PowerShell-konsolen.
-1. Kör följande skript för att generera ett självsignerat certifikat och lägg till det i datorns MY-arkiv:
+1. Kör följande skript för att skapa ett självsignerat certifikat och Lägg till det i datorns MY Store:
 
    ```powershell
    # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
@@ -156,51 +156,51 @@ Eftersom den interna URL:en använder HTTPS-protokoll (`https://SharePoint/`) m�
    ```
 
    > [!IMPORTANT]
-   > Självsignerade certifikat är endast lämpliga för teständamål. I produktionsmiljöer rekommenderar vi starkt att du använder certifikat som utfärdats av en certifikatutfärdare i stället.
+   > Självsignerade certifikat är bara lämpliga i test syfte. I produktions miljöer rekommenderar vi starkt att du använder certifikat som utfärdats av en certifikat utfärdare i stället.
 
-1. Öppna konsolen Internet Information Services Manager.
-1. Expandera servern i trädvyn, expandera **Platser,** välj **sharepoint - AAD-proxywebbplatsen** och välj **Bindningar**.
+1. Öppna konsolen för Internet Information Services Manager.
+1. Expandera servern i trädvyn, expandera **platser**, Välj webbplatsen **SharePoint-AAD-proxy** och välj **bindningar**.
 1. Välj **https-bindning** och välj sedan **Redigera**.
-1. I fältet TLS/SSL-certifikat väljer du **SharePoint-certifikat** och väljer sedan **OK**.
+1. I fältet TLS/SSL-certifikat väljer du **SharePoint** -certifikat och väljer sedan **OK**.
 
-Du kan nu komma åt SharePoint-webbplatsen externt via Azure AD Application Proxy.
+Nu kan du få åtkomst till SharePoint-webbplatsen externt via Azure AD-programproxy.
 
 ## <a name="step-3-configure-kerberos-constrained-delegation"></a>Steg 3: Konfigurera Kerberos-begränsad delegering
 
-Användare autentiserar först i Azure AD och sedan till SharePoint med Hjälp av Kerberos via Azure AD Proxy-anslutningsappen. Om du vill att anslutningen ska kunna hämta en Kerberos-token för Azure AD-användarens räkning måste du konfigurera Kerberos Constrained Delegation (KCD) med protokollövergång. Mer information om KCD finns i [översikt över begränsad delegering av Kerberos.](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11))
+Användare autentiseras inlednings vis i Azure AD och sedan till SharePoint med hjälp av Kerberos via Azure AD-proxy-anslutaren. Om du vill tillåta att anslutningen får en Kerberos-token åt Azure AD-användaren, måste du konfigurera Kerberos-begränsad delegering (KCD) med protokoll över gång. Mer information om KCD finns i [Översikt över Kerberos-begränsad delegering](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>Ange SPN för SharePoint-tjänstkontot
 
-I den här artikeln `https://sharepoint`är den interna URL:en , `HTTP/sharepoint`och därför är tjänstens huvudnamn (SPN) . Du måste ersätta dessa värden med de värden som motsvarar din miljö.
-Om du `HTTP/sharepoint` vill registrera SPN `Contoso\spapppool`för SharePoint-programpoolkontot kör du följande kommando från en kommandotolk som administratör för domänen:
+I den här artikeln är `https://sharepoint`den interna URL: en, och därför är tjänstens huvud namn ( `HTTP/sharepoint`SPN). Du måste ersätta dessa värden med de värden som motsvarar din miljö.
+Om du vill `HTTP/sharepoint` registrera SPN för SharePoint-programpoolens konto `Contoso\spapppool`kör du följande kommando från en kommando tolk som administratör för domänen:
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-`Setspn` Kommandot söker efter SPN innan det läggs till det. Om SPN redan finns visas ett fel **för duplicerat SPN-värde.** I så fall bör du överväga att ta bort det befintliga SPN-programmet om det inte anges under rätt programpoolkonto. Du kan kontrollera att SPN har lagts `Setspn` till genom att köra kommandot med alternativet -L. Mer information om det här kommandot finns i [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+`Setspn` Kommandot söker efter SPN innan det läggs till. Om SPN redan finns visas ett **dubbelt SPN-värde** . I så fall bör du överväga att ta bort det befintliga SPN om det inte anges under rätt konto för programpool. Du kan kontrol lera att SPN har lagts till genom att köra `Setspn` kommandot med alternativet-L. Mer information om det här kommandot finns i [setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
-### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>Kontrollera att anslutningen är betrodd för delegering till SPN som har lagts till i SharePoint-programpoolkontot
+### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>Kontrol lera att anslutningen är betrodd för delegering till SPN som har lagts till i SharePoint-programpoolens konto
 
-Konfigurera KCD så att Azure AD Application Proxy-tjänsten kan delegera användaridentiteter till SharePoint-programpoolkontot. Konfigurera KCD genom att aktivera Application Proxy-anslutningen för att hämta Kerberos-biljetter för dina användare som har autentiserats i Azure AD. Sedan skickar den servern kontexten till målprogrammet (SharePoint i det här fallet).
+Konfigurera KCD så att Azure AD-programproxy-tjänsten kan delegera användar identiteter till kontot för SharePoint-programpoolen. Konfigurera KCD genom att aktivera Application Proxy Connector för att hämta Kerberos-biljetter för användare som har autentiserats i Azure AD. Sedan skickar servern kontexten till mål programmet (SharePoint i det här fallet).
 
-Så här konfigurerar du KCD:00 för varje kopplingsmaskin:
+Om du vill konfigurera KCD följer du de här stegen för varje kopplings dator:
 
-1. Logga in på en domänkontrollant som domänadministratör och öppna sedan Active Directory – användare och datorer.
-1. Leta reda på datorn som kör Azure AD Proxy-anslutningsappen. I det här exemplet är det själva SharePoint-servern.
-1. Dubbelklicka på datorn och välj sedan fliken **Delegering.**
-1. Kontrollera att delegeringsalternativen är **inställda på Lita på den här datorn endast för delegering till de angivna tjänsterna**. Välj sedan **Använd ett autentiseringsprotokoll**.
-1. Välj knappen **Lägg till,** välj **Användare eller Datorer**och leta reda på SharePoint-programpoolkontot. Till exempel: `Contoso\spapppool`.
-1. Välj den som du skapade tidigare för tjänstkontot i listan över SN:er.
+1. Logga in på en domänkontrollant som domän administratör och öppna sedan Active Directory användare och datorer.
+1. Hitta datorn som kör Azure AD proxy-anslutningsprogrammet. I det här exemplet är det själva SharePoint-servern.
+1. Dubbelklicka på datorn och välj sedan fliken **delegering** .
+1. Kontrol lera att Delegerings alternativen är inställda på att **lita på den här datorn för delegering endast till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
+1. Välj knappen **Lägg till** , Välj **användare eller datorer**och leta upp kontot för SharePoint-programpoolen. Till exempel: `Contoso\spapppool`.
+1. I listan över SPN väljer du det som du skapade tidigare för tjänst kontot.
 1. Välj **OK** och välj sedan **OK** igen för att spara ändringarna.
   
-   ![Inställningar för delegering](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
+   ![Delegerings inställningar](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
-Du är nu redo att logga in på SharePoint med hjälp av den externa URL:en och autentisera med Azure.
+Du är nu redo att logga in på SharePoint genom att använda den externa URL: en och för att autentisera med Azure.
 
-## <a name="troubleshoot-sign-in-errors"></a>Felsöka inloggningsfel
+## <a name="troubleshoot-sign-in-errors"></a>Felsöka inloggnings fel
 
-Om inloggningen till webbplatsen inte fungerar kan du få mer information om problemet i anslutningsloggarna: Från den dator som kör kopplingen öppnar du loggboken, går till **Program och tjänster Loggar** > **Microsoft** > **AadApplicationProxy** > **Connector**och inspektera **administratörsloggen.**
+Om inloggningen till platsen inte fungerar kan du få mer information om problemet i anslutnings loggarna: från den dator som kör anslutningen öppnar du logg boken, går till **program och tjänster loggar** > **Microsoft** > **AadApplicationProxy** > **Connector**och kontrollerar **Administratörs** loggen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
+* [Arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md)
 * [Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)

@@ -14,71 +14,71 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881256"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>Så här konfigurerar du SSO på macOS och iOS
+# <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
 
-Microsoft Authentication Library (MSAL) för macOS och iOS stöder Enkel inloggning (SSO) mellan macOS/iOS-appar och webbläsare. Den här artikeln innehåller följande SSO-scenarier:
+Microsoft Authentication Library (MSAL) för macOS och iOS stöder enkel inloggning (SSO) mellan macOS/iOS-appar och webbläsare. I den här artikeln beskrivs följande SSO-scenarier:
 
 - [Tyst SSO mellan flera appar](#silent-sso-between-apps)
 
-Den här typen av SSO fungerar mellan flera appar som distribueras av samma Apple-utvecklare. Det ger tyst SSO (det vill, användaren inte uppmanas för autentiseringsuppgifter) genom att läsa uppdatera token skrivna av andra appar från nyckelringen och utbyta dem för åtkomsttoken tyst.  
+Den här typen av SSO fungerar mellan flera appar som distribueras av samma Apple-utvecklare. Den ger tyst SSO (dvs. användaren behöver inte ange autentiseringsuppgifter) genom att läsa uppdateringstoken som skrivits av andra appar från nyckel ringen och att utväxla dem för att få åtkomst-token tyst.  
 
-- [SSO via autentiseringsmäklare](#sso-through-authentication-broker-on-ios)
+- [SSO via Authentication Broker](#sso-through-authentication-broker-on-ios)
 
 > [!IMPORTANT]
 > Det här flödet är inte tillgängligt på macOS.
 
-Microsoft tillhandahåller appar, så kallade mäklare, som aktiverar SSO mellan program från olika leverantörer så länge den mobila enheten är registrerad med Azure Active Directory (AAD). Den här typen av SSO kräver att ett mäklarprogram installeras på användarens enhet.
+Microsoft tillhandahåller appar, som kallas hanterare, som möjliggör enkel inloggning mellan program från olika leverantörer så länge den mobila enheten är registrerad med Azure Active Directory (AAD). Den här typen av SSO kräver att ett Broker-program installeras på användarens enhet.
 
 - **SSO mellan MSAL och Safari**
 
-SSO uppnås genom [klassen ASWebAuthenticationSession.](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc) Den använder befintligt inloggningstillstånd från andra appar och webbläsaren Safari. Det är inte begränsat till appar som distribueras av samma Apple-utvecklare, men det kräver viss användarinteraktion.
+SSO uppnås via klassen [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc) . Den använder befintligt inloggnings tillstånd från andra appar och Safari-webbläsaren. Den är inte begränsad till appar som distribueras av samma Apple-utvecklare, men kräver vissa åtgärder från användaren.
 
-Om du använder standardwebbvyn i appen för att logga in användare får du automatisk SSO mellan MSAL-baserade program och Safari. Mer information om webbvyer som MSAL stöder finns i [Anpassa webbläsare och WebViews](customize-webviews.md).
+Om du använder standard-webbvy i din app för att logga in användare får du automatiskt SSO mellan MSAL-baserade program och Safari. Om du vill veta mer om de webbvyer som MSAL stöder kan du gå [till anpassa webbläsare och webbvyer](customize-webviews.md).
 
 > [!IMPORTANT]
-> Den här typen av SSO är för närvarande inte tillgänglig på macOS. MSAL på macOS stöder endast WKWebView som inte har SSO-stöd med Safari. 
+> Den här typen av SSO är för närvarande inte tillgänglig på macOS. MSAL på macOS stöder bara WKWebView som inte har stöd för enkel inloggning med Safari. 
 
-- **Tyst SSO mellan ADAL- och MSAL-macOS/iOS-appar**
+- **Tyst SSO mellan ADAL och MSAL macOS/iOS-appar**
 
-MSAL Objective-C stöder migrering och SSO med ADAL Objective-C-baserade appar. Apparna måste distribueras av samma Apple-utvecklare.
+MSAL mål-C stöder migrering och SSO med ADAL-baserade appar. Apparna måste distribueras av samma Apple-utvecklare.
 
-Se [SSO mellan ADAL- och MSAL-appar på macOS och iOS](sso-between-adal-msal-apps-macos-ios.md) för instruktioner för SSO mellan flera appar mellan appar med flera appar.
+Se [SSO mellan ADAL-och MSAL-appar på MacOS och iOS](sso-between-adal-msal-apps-macos-ios.md) för instruktioner för enkel inloggning mellan appar mellan ADAL och MSAL-baserade appar.
 
 ## <a name="silent-sso-between-apps"></a>Tyst SSO mellan appar
 
-MSAL stöder SSO-delning via iOS-nyckelringsåtkomstgrupper.
+MSAL stöder SSO-delning via iOS nyckel rings åtkomst grupper.
 
-Om du vill aktivera SSO i dina program måste du göra följande steg, som förklaras mer i detalj nedan:
+Om du vill aktivera enkel inloggning för dina program måste du utföra följande steg, som förklaras i detalj nedan:
 
-1. Kontrollera att alla dina program använder samma klient-ID eller program-ID.
-1. Se till att alla dina program delar samma signeringscertifikat från Apple så att du kan dela nyckelringar.
-1. Begär samma nyckelringsrätt för var och en av dina ansökningar.
-1. Berätta för MSAL SDK:er om den delade nyckelringen som du vill att vi ska använda om den skiljer sig från standardringen.
+1. Se till att alla program använder samma klient-ID eller program-ID.
+1. Se till att alla dina program delar samma signerings certifikat från Apple så att du kan dela nyckel ringar.
+1. Begär samma nyckel rings rättigheter för var och en av dina program.
+1. Berätta för MSAL SDK: er om den delade nyckel ring som vi vill använda om den skiljer sig från standard-en.
 
-### <a name="use-the-same-client-id-and-application-id"></a>Använda samma klient-ID och program-ID
+### <a name="use-the-same-client-id-and-application-id"></a>Använd samma klient-ID och program-ID
 
-För att Microsofts identitetsplattform ska veta vilka program som kan dela token måste dessa program dela samma klient-ID eller program-ID. Detta är den unika identifierare som angavs till dig när du registrerade ditt första program i portalen.
+För att Microsoft Identity Platform ska kunna ta reda på vilka program som kan dela tokens, måste programmen dela samma klient-ID eller program-ID. Detta är den unika identifierare som du fick när du registrerade ditt första program i portalen.
 
-Det sätt som Microsoft identity-plattformen berättar för appar som använder samma application-ID isär är av deras **Redirect URI:er**. Varje program kan ha flera omdirigera URI:er registrerade i introduktionsportalen. Varje app i din svit kommer att ha en annan omdirigera URI. Ett exempel:
+På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
 
-App1 Omdirigera URI:`msauth.com.contoso.mytestapp1://auth`  
-App2 Omdirigera URI:`msauth.com.contoso.mytestapp2://auth`  
-App3 Omdirigera URI:`msauth.com.contoso.mytestapp3://auth`  
+APP1 omdirigerings-URI:`msauth.com.contoso.mytestapp1://auth`  
+APP2 omdirigerings-URI:`msauth.com.contoso.mytestapp2://auth`  
+App3 omdirigerings-URI:`msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
-> Formatet för omdirigeringsuris måste vara kompatibelt med formatet MSAL-stöd, som dokumenteras i [kraven för MSAL Redirect URI-format](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
+> Formatet för omdirigerings-URI: er måste vara kompatibelt med formatet MSAL stöder, som dokumenteras i [kraven för omdirigerings-URI-format](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
 
-### <a name="setup-keychain-sharing-between-applications"></a>Konfigurera nyckelringsdelning mellan program
+### <a name="setup-keychain-sharing-between-applications"></a>Konfigurera nyckel rings delning mellan program
 
-Se Apples artikel [Om tilläggsfunktioner](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) för att aktivera nyckelringsdelning. Vad som är viktigt är att du bestämmer vad du vill att din nyckelring ska kallas och lägga till den funktionen till alla dina program som kommer att delta i SSO.
+Läs artikeln om att [lägga till funktioner](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) för att aktivera delning av nyckel ringar. Det är viktigt att du bestämmer vad du vill att nyckel ringen ska anropas och lägger till den funktionen i alla dina program som kommer att ingå i SSO.
 
-När du har konfigurerat berättigandena korrekt visas `entitlements.plist` en fil i projektkatalogen som innehåller ungefär så här:
+När behörigheterna har ställts in korrekt visas en `entitlements.plist` fil i din projekt katalog som innehåller något som liknar det här exemplet:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -94,21 +94,21 @@ När du har konfigurerat berättigandena korrekt visas `entitlements.plist` en f
 </plist>
 ```
 
-#### <a name="add-a-new-keychain-group"></a>Lägga till en ny nyckelringsgrupp
+#### <a name="add-a-new-keychain-group"></a>Lägg till en ny nyckel rings grupp
 
-Lägg till en ny nyckelringsgrupp i **projektfunktionerna**. Nyckelringsgruppen bör vara:
+Lägg till en ny nyckel rings grupp till dina projekt **funktioner**. Nyckel rings gruppen ska vara:
 * `com.microsoft.adalcache`på iOS 
 * `com.microsoft.identity.universalstorage`på macOS.
 
-![exempel på nyckelring](media/single-sign-on-macos-ios/keychain-example.png)
+![exempel på nyckel Ring](media/single-sign-on-macos-ios/keychain-example.png)
 
-Mer information finns i [nyckelringsgrupper](howto-v2-keychain-objc.md).
+Mer information finns i [nyckel rings grupper](howto-v2-keychain-objc.md).
 
 ## <a name="configure-the-application-object"></a>Konfigurera programobjektet
 
-När du har aktiverat nyckelringsbehörigheten i vart och ett av `MSALPublicClientApplication` dina program och du är redo att använda SSO konfigurerar du med nyckelringsåtkomstgruppen som i följande exempel:
+När du har aktiverat nyckel ringen i varje program och du är redo att använda SSO, konfigurerar `MSALPublicClientApplication` du med nyckel rings åtkomst gruppen som i följande exempel:
 
-Mål C:
+Mål-C:
 
 ```objc
 NSError *error = nil;
@@ -118,7 +118,7 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
-Swift:
+Införliva
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
@@ -133,19 +133,19 @@ do {
 ```
 
 > [!WARNING]
-> När du delar en nyckelring i dina program kan alla program ta bort användare eller till och med alla token i ditt program.
-> Detta är särskilt effektfullt om du har program som förlitar sig på token för att göra bakgrundsarbete.
-> Att dela en nyckelring innebär att du måste vara mycket försiktig när appen använder Microsoft identity SDK-åtgärder.
+> När du delar en nyckel Ring i dina program kan alla program ta bort användare eller till och med alla tokens i ditt program.
+> Detta är särskilt användbart om du har program som förlitar sig på att token ska fungera i bakgrunden.
+> Att dela en nyckel Ring innebär att du måste vara mycket försiktig när appen använder Microsoft Identity SDK Remove-åtgärder.
 
-Klart! Microsoft identity SDK delar nu autentiseringsuppgifter för alla dina program. Kontolistan delas också mellan programinstanser.
+Klart! Microsoft Identity SDK kommer nu att dela autentiseringsuppgifter för alla dina program. Konto listan kommer också att delas mellan program instanser.
 
-## <a name="sso-through-authentication-broker-on-ios"></a>SSO via autentiseringsmäklare på iOS
+## <a name="sso-through-authentication-broker-on-ios"></a>SSO via Authentication Broker på iOS
 
-MSAL ger stöd för förmedlad autentisering med Microsoft Authenticator. Microsoft Authenticator tillhandahåller SSO för AAD-registrerade enheter och hjälper även ditt program att följa principer för villkorlig åtkomst.
+MSAL tillhandahåller stöd för Brokered Authentication med Microsoft Authenticator. Microsoft Authenticator tillhandahåller SSO för AAD-registrerade enheter och hjälper även ditt program att följa principer för villkorlig åtkomst.
 
-Följande steg är hur du aktiverar SSO med hjälp av en autentiseringsmäklare för din app:
+Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din app:
 
-1. Registrera ett kompatibelt Redirect URI-format för programmet i appens Info.plist. Mäklaren kompatibel Redirect URI-format är `msauth.<app.bundle.id>://auth`. Ersätt "<app.bundle.id>'' med programmets bunt-ID. Ett exempel:
+1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. URI-formatet för Broker-kompatibel `msauth.<app.bundle.id>://auth`omdirigering är. Ersätt<app.bundle.id>med programmets paket-ID. Ett exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -154,7 +154,7 @@ Följande steg är hur du aktiverar SSO med hjälp av en autentiseringsmäklare 
     </array>
     ```
 
-1. Lägg till följande scheman i appens `LSApplicationQueriesSchemes`Info.plist under :
+1. Lägg till följande scheman i appens info. plist under `LSApplicationQueriesSchemes`:
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -164,9 +164,9 @@ Följande steg är hur du aktiverar SSO med hjälp av en autentiseringsmäklare 
     </array>
     ```
 
-1. Lägg till följande `AppDelegate.m` i filen för att hantera motringningar:
+1. Lägg till följande i `AppDelegate.m` filen för att hantera återanrop:
 
-    Mål C:
+    Mål-C:
     
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
@@ -175,7 +175,7 @@ Följande steg är hur du aktiverar SSO med hjälp av en autentiseringsmäklare 
     }
     ```
     
-    Swift:
+    Införliva
     
     ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -183,10 +183,10 @@ Följande steg är hur du aktiverar SSO med hjälp av en autentiseringsmäklare 
     }
     ```
     
-**Om du använder Xcode 11**bör du placera `SceneDelegate` MSAL-motringning i filen i stället.
-Om du stöder både UISceneDelegate och UIApplicationDelegate för kompatibilitet med äldre iOS, måste MSAL-motringning placeras i båda filerna.
+**Om du använder Xcode 11**bör du placera MSAL-återanrop i `SceneDelegate` filen i stället.
+Om du har stöd för både UISceneDelegate och UIApplicationDelegate för kompatibilitet med äldre iOS måste MSAL-återanropet placeras i båda filerna.
 
-Mål C:
+Mål-C:
 
 ```objc
  - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
@@ -199,7 +199,7 @@ Mål C:
  }
 ```
 
-Swift:
+Införliva
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -217,4 +217,4 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [autentiseringsflöden och programscenarier](authentication-flows-app-scenarios.md)
+Lär dig mer om [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md)

@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Active Directory-appmanifestet
-description: Detaljerad täckning av Azure Active Directory-appmanifestet, som representerar ett programs identitetskonfiguration i en Azure AD-klientorganisation, och används för att underlätta OAuth-auktorisering, medgivandeupplevelse med mera.
+title: Förstå Azure Active Directory app-manifestet
+description: Detaljerad täckning av Azure Active Directory app-manifestet som representerar ett programs identitets konfiguration i en Azure AD-klient och används för att under lätta OAuth-auktorisering, medgivande upplevelse och mycket annat.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,41 +13,41 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450895"
 ---
-# <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifest
+# <a name="azure-active-directory-app-manifest"></a>Azure Active Directory app-manifest
 
-Programmanifestet innehåller en definition av alla attribut för ett programobjekt i Microsofts identitetsplattform. Det fungerar också som en mekanism för att uppdatera programobjektet. Mer information om programmettiteten och dess schema finns i [dokumentationen](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)för Graph API Application Entity .
+Applikations manifestet innehåller en definition av alla attribut för ett program objekt i Microsoft Identity Platform. Den fungerar också som en mekanism för att uppdatera programobjektet. Mer information om programentiteten och dess schema finns i dokumentationen för [Graph API application Entity](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
 
-Du kan konfigurera en apps attribut via Azure-portalen eller programmässigt med [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) eller [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Det finns dock vissa scenarier där du måste redigera appmanifestet för att konfigurera en apps attribut. Några vanliga scenarier:
+Du kan konfigurera en Apps attribut via Azure Portal eller program mässigt med hjälp av [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) eller [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Det finns dock vissa scenarier där du måste redigera appens manifest för att konfigurera appens attribut. Några vanliga scenarier:
 
-* Om du har registrerat appen som Azure AD-konton med flera innehavare och personliga Microsoft-konton kan du inte ändra de Microsoft-konton som stöds i användargränssnittet. I stället måste du använda programmanifestredigeraren för att ändra kontotypen som stöds.
-* Om du behöver definiera behörigheter och roller som appen stöder måste du ändra programmanifestet.
+* Om du har registrerat appen som Azure AD-konto för flera klienter och personliga Microsoft-konton kan du inte ändra de Microsoft-konton som stöds i användar gränssnittet. I stället måste du använda program manifest redigeraren för att ändra den konto typ som stöds.
+* Om du behöver definiera behörigheter och roller som appen stöder måste du ändra applikations manifestet.
 
-## <a name="configure-the-app-manifest"></a>Konfigurera appmanifestet
+## <a name="configure-the-app-manifest"></a>Konfigurera app-manifestet
 
-Så här konfigurerar du programmanifestet:
+Så här konfigurerar du applikations manifestet:
 
-1. Gå till [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory-tjänsten.**
+1. Gå till [Azure Portal](https://portal.azure.com). Sök efter och välj tjänsten **Azure Active Directory** .
 1. Välj **Appregistreringar**.
 1. Välj den app som du vill konfigurera.
-1. På appens **översiktssida** väljer du avsnittet **Manifest**. En webbaserad manifestredigerare öppnas, så att du kan redigera manifestet i portalen. Du kan också välja **Hämta** för att redigera manifestet lokalt och sedan använda **Ladda upp** för att använda det på nytt i ditt program.
+1. På appens **översiktssida** väljer du avsnittet **Manifest**. En webbaserad manifest redigerare öppnas, så att du kan redigera manifestet i portalen. Alternativt kan du välja **Ladda ned** för att redigera manifestet lokalt och sedan använda **upload** för att tillämpa det igen på ditt program.
 
-## <a name="manifest-reference"></a>Manifestreferens
+## <a name="manifest-reference"></a>Manifest referens
 
-I det här avsnittet beskrivs de attribut som finns i programmanifestet.
+I det här avsnittet beskrivs de attribut som finns i applikations manifestet.
 
-### <a name="id-attribute"></a>attribut för id
+### <a name="id-attribute"></a>ID-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | id | Sträng |
 
-Den unika identifieraren för appen i katalogen. Det här ID:t är inte den identifierare som används för att identifiera appen i en protokolltransaktion. Den används för att referera till objektet i katalogfrågor.
+Den unika identifieraren för appen i katalogen. Detta ID är inte den identifierare som används för att identifiera appen i någon protokoll transaktion. Den används för att referera till objektet i katalog frågor.
 
 Exempel:
 
@@ -59,15 +59,15 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| åtkomstTillkenAcceptedVersion | Nullable Int32 |
+| accessTokenAcceptedVersion | Nullable Int32 |
 
-Anger den åtkomsttokenversion som resursen förväntas. Den här parametern ändrar versionen och formatet för den JWT som produceras oberoende av slutpunkten eller klienten som används för att begära åtkomsttoken.
+Anger den åtkomsttoken som förväntas av resursen. Den här parametern ändrar versionen och formatet på det JWT-tillverkade oberoende av slut punkten eller klienten som används för att begära åtkomsttoken.
 
-Slutpunkten som används, v1.0 eller v2.0, väljs av klienten och påverkar endast versionen av id_tokens. Resurser måste uttryckligen `accesstokenAcceptedVersion` konfigurera för att ange det åtkomsttokenformat som stöds.
+Slut punkten som används, v 1.0 eller v 2.0 väljs av klienten och påverkar endast versionen av id_tokens. Resurser måste uttryckligen konfigureras `accesstokenAcceptedVersion` för att ange det åtkomsttoken som stöds.
 
-Möjliga värden `accesstokenAcceptedVersion` för är 1, 2 eller null. Om värdet är null, den här parametern är 1, vilket motsvarar v1.0-slutpunkten.
+Möjliga värden `accesstokenAcceptedVersion` är 1, 2 eller null. Om värdet är null är parametern standardvärdet 1, som motsvarar v 1.0-slutpunkten.
 
-Om `signInAudience` `AzureADandPersonalMicrosoftAccount`är , måste `2`värdet vara .
+Om `signInAudience` är `AzureADandPersonalMicrosoftAccount`, måste värdet vara `2`.
 
 Exempel:
 
@@ -75,13 +75,13 @@ Exempel:
     "accessTokenAcceptedVersion": 2,
 ```
 
-### <a name="addins-attribute"></a>addIns-attribut
+### <a name="addins-attribute"></a>Addins-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| Addins | Samling |
+| Tillägg | Samling |
 
-Definierar anpassat beteende som en tidskrävande tjänst kan använda för att anropa en app i specifika sammanhang. Program som kan återge filströmmar kan `addIns` till exempel ange egenskapen för dess "FileHandler"-funktion. Med den här parametern kan tjänster som Office 365 anropa programmet i kontexten för ett dokument som användaren arbetar med.
+Definierar ett anpassat beteende som en förbruknings tjänst kan använda för att anropa en app i vissa sammanhang. Till exempel kan program som kan rendera fil strömmar ange `addIns` egenskapen för dess "FileHandler"-funktion. Med den här parametern kan tjänster som Office 365 anropa programmet i kontexten för ett dokument som användaren arbetar med.
 
 Exempel:
 
@@ -106,7 +106,7 @@ Exempel:
 | :--- | :--- |
 | allowPublicClient | Boolesk |
 
-Anger programtypen för återgång. Azure AD härleder programtypen från replyUrlsWithType som standard. Det finns vissa scenarier där Azure AD inte kan avgöra klientapptypen. Ett sådant scenario är till exempel [ROPC-flödet](https://tools.ietf.org/html/rfc6749#section-4.3) där HTTP-begäran sker utan en URL-omdirigering). I sådana fall tolkar Azure AD programtypen baserat på värdet för den här egenskapen. Om det här värdet är inställt på true anges reservprogramtypen som offentlig klient, till exempel en installerad app som körs på en mobil enhet. Standardvärdet är falskt vilket innebär att reservprogramtypen är konfidentiell klient, till exempel webbapp.
+Anger typ av återställnings program. Azure AD härleder program typen från replyUrlsWithType som standard. Det finns vissa scenarier där Azure AD inte kan fastställa klientens app-typ. Ett sådant scenario är till exempel det [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) -flöde där http-begäran sker utan URL-omdirigering). I dessa fall tolkar Azure AD program typen baserat på värdet för den här egenskapen. Om det här värdet är inställt på Sant anges typ av återställnings program som offentlig klient, till exempel en installerad app som körs på en mobil enhet. Standardvärdet är false, vilket innebär att återställnings program typen är konfidentiell klient, till exempel Web App.
 
 Exempel:
 
@@ -114,16 +114,16 @@ Exempel:
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>tillgängligtToOtherTenants-attribut
+### <a name="availabletoothertenants-attribute"></a>availableToOtherTenants-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| tillgängligTillOtherTenants | Boolesk |
+| availableToOtherTenants | Boolesk |
 
-Ange till true om programmet delas med andra klienter. annars falskt.
+Ange som sant om programmet delas med andra klienter. annars FALSE.
 
 > [!NOTE]
-> Det här attributet är endast tillgängligt i **appregistreringarna (Legacy)** . Ersatt `signInAudience` av i [upplevelsen av appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts `signInAudience` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="appid-attribute"></a>appId-attribut
 
@@ -131,7 +131,7 @@ Ange till true om programmet delas med andra klienter. annars falskt.
 | :--- | :--- |
 | appId | Sträng |
 
-Anger den unika identifieraren för appen som tilldelas en app av Azure AD.
+Anger den unika identifieraren för den app som är tilldelad en app av Azure AD.
 
 Exempel:
 
@@ -145,7 +145,7 @@ Exempel:
 | :--- | :--- |
 | appRoles | Samling |
 
-Anger den samling av roller som en app kan deklarera. Dessa roller kan tilldelas användare, grupper eller tjänsthuvudnamn. Mer exempel och information finns i [Lägga till approller i ditt program och ta emot dem i token](howto-add-app-roles-in-azure-ad-apps.md).
+Anger den samling roller som en app kan deklarera. Dessa roller kan tilldelas till användare, grupper eller tjänstens huvud namn. Fler exempel och information finns i [lägga till app-roller i ditt program och ta emot dem i token](howto-add-app-roles-in-azure-ad-apps.md).
 
 Exempel:
 
@@ -164,16 +164,16 @@ Exempel:
     ],
 ```
 
-### <a name="displayname-attribute"></a>attributet displayName
+### <a name="displayname-attribute"></a>displayName-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | displayName | Sträng |
 
-Appens visningsnamn.
+Appens visnings namn.
 
 > [!NOTE]
-> Det här attributet är endast tillgängligt i **appregistreringarna (Legacy)** . Ersatt `name` av i [upplevelsen av appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts `name` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 ### <a name="errorurl-attribute"></a>errorUrl-attribut
 
@@ -181,19 +181,19 @@ Appens visningsnamn.
 | :--- | :--- |
 | errorUrl | Sträng |
 
-Unsupported.
+Som inte stöds.
 
-### <a name="groupmembershipclaims-attribute"></a>attributet groupMembershipClaims
+### <a name="groupmembershipclaims-attribute"></a>groupMembershipClaims-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-|gruppMedlemskapKlamerna | Sträng |
+|groupMembershipClaims | Sträng |
 
-Konfigurerar `groups` anspråket som utfärdats i en användare eller OAuth 2.0-åtkomsttoken som appen förväntar sig. Om du vill ange det här attributet använder du något av följande giltiga strängvärden:
+Konfigurerar det `groups` anspråk som utfärdats i en användare eller OAuth 2,0-åtkomsttoken som appen förväntar sig. Ange det här attributet genom att använda något av följande giltiga sträng värden:
 
 - `"None"`
-- `"SecurityGroup"`(för säkerhetsgrupper och Azure AD-roller)
-- `"All"`(Detta hämtar alla säkerhetsgrupper, distributionsgrupper och Azure AD-katalogroller som den inloggade användaren är medlem i.
+- `"SecurityGroup"`(för säkerhets grupper och Azure AD-roller)
+- `"All"`(detta kommer att hämta alla säkerhets grupper, distributions grupper och Azure AD-katalog roller som den inloggade användaren är medlem i.
 
 Exempel:
 
@@ -201,26 +201,26 @@ Exempel:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>attributet hemsida
+### <a name="homepage-attribute"></a>Start sidans attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| Hemsida |Sträng |
+| Start |Sträng |
 
-URL:en till programmets startsida.
+URL: en till programmets start sida.
 
 > [!NOTE]
-> Det här attributet är endast tillgängligt i **appregistreringarna (Legacy)** . Ersatt `signInUrl` av i [upplevelsen av appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> Det här attributet är endast tillgängligt i **Appregistreringar (bakåtkompatibelt)** . Ersätts `signInUrl` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
-### <a name="objectid-attribute"></a>attributet objectId
+### <a name="objectid-attribute"></a>objectId-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-|Objectid | Sträng |
+|objectId | Sträng |
 
 Den unika identifieraren för appen i katalogen.
 
-Detta är endast tillgängligt i **appregistreringarna (Legacy)** upplevelsen. Ersatt `id` av i [upplevelsen av appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
+Detta är endast tillgängligt i den **Appregistreringar (äldre)** . Ersätts `id` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
 Exempel:
 
@@ -228,15 +228,15 @@ Exempel:
     "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
 ```
 
-### <a name="optionalclaims-attribute"></a>attributet optionalClaims
+### <a name="optionalclaims-attribute"></a>optionalClaims-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| tillvalKlamörer | Sträng |
+| optionalClaims | Sträng |
 
-De valfria anspråk som returneras i token av säkerhetstokentjänsten för den här specifika appen.
+De valfria anspråk som returneras i token av säkerhetstokentjänsten för den här speciella appen.
 
-För närvarande kan appar som stöder både personliga konton och Azure AD (registrerade via appregistreringsportalen) inte använda valfria anspråk. Appar som bara är registrerade för Azure AD med v2.0-slutpunkten kan dock få de valfria anspråk som de begärde i manifestet. Mer information finns i [Valfria anspråk](active-directory-optional-claims.md).
+För närvarande kan appar som stöder både personliga konton och Azure AD (registrerade via appens registrerings Portal) inte använda valfria anspråk. Appar som registrerats för bara Azure AD med hjälp av v 2.0-slutpunkten kan dock hämta de valfria anspråk som de begär i manifestet. Mer information finns i [valfria anspråk](active-directory-optional-claims.md).
 
 Exempel:
 
@@ -246,13 +246,13 @@ Exempel:
 
 
 
-### <a name="identifieruris-attribute"></a>attributet identifierUris
+### <a name="identifieruris-attribute"></a>identifierUris-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| identifierarUris | Strängmatris |
+| identifierUris | Sträng mat ris |
 
-Användardefinierade URI:er som unikt identifierar en webbapp i azure AD-klienten eller inom en verifierad anpassad domän om appen är flera innehavare.
+Användardefinierade URI: er som unikt identifierar en webbapp i sin Azure AD-klient eller inom en verifierad anpassad domän om appen är flera innehavare.
 
 Exempel:
 
@@ -260,13 +260,13 @@ Exempel:
     "identifierUris": "https://MyRegisteredApp",
 ```
 
-### <a name="informationalurls-attribute"></a>attributet informationalUrls
+### <a name="informationalurls-attribute"></a>informationalUrls-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| informationsurer | Sträng |
+| informationalUrls | Sträng |
 
-Anger länkarna till appens användarvillkor och sekretesspolicy. Villkoren för tjänsten och sekretesspolicyn visas för användarna genom användarsamtyckesupplevelsen. Mer information finns i [Så här lägger du till användarvillkor och sekretesspolicy för registrerade Azure AD-appar](howto-add-terms-of-service-privacy-statement.md).
+Anger länkar till appens användnings villkor och sekretess policy. Användnings villkoren och sekretess policyn är tilldelad till användarna genom användar medgivande upplevelsen. Mer information finns i [så här gör du: Lägg till användnings villkor och sekretess policy för registrerade Azure AD-appar](howto-add-terms-of-service-privacy-statement.md).
 
 Exempel:
 
@@ -279,13 +279,13 @@ Exempel:
     },
 ```
 
-### <a name="keycredentials-attribute"></a>attributet keyCredentials
+### <a name="keycredentials-attribute"></a>attribut för autentiseringsuppgifter
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | keyCredentials | Samling |
 
-Innehåller referenser till apptilldelade autentiseringsuppgifter, strängbaserade delade hemligheter och X.509-certifikat. Dessa autentiseringsuppgifter används när du begär åtkomsttoken (när appen fungerar som en klient snarare som en resurs).
+Innehåller referenser till app-tilldelade autentiseringsuppgifter, strängbaserade delade hemligheter och X. 509-certifikat. Dessa autentiseringsuppgifter används när du begär åtkomsttoken (när appen fungerar som en klient, i stället för en resurs).
 
 Exempel:
 
@@ -303,13 +303,13 @@ Exempel:
     ],
 ```
 
-### <a name="knownclientapplications-attribute"></a>känt attributetClientApplications
+### <a name="knownclientapplications-attribute"></a>knownClientApplications-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| kändaClientApplications | Strängmatris |
+| knownClientApplications | Sträng mat ris |
 
-Används för att bunta samtycke om du har en lösning som innehåller två delar: en klientapp och en anpassad webb-API-app. Om du anger klientappens appID i det här värdet behöver användaren bara godkänna en gång till klientappen. Azure AD vet att samtycke till klienten innebär att implicit samtycka till webb-API:et. Det kommer automatiskt att tillhandahålla tjänstens huvudnamn för både klient- och webb-API:et samtidigt. Både klienten och webb-API-appen måste vara registrerade i samma klient.
+Används för att ge bunt om du har en lösning som innehåller två delar: en klient app och en anpassad webb-API-app. Om du anger appID för-klient programmet i det här värdet behöver användaren bara godkänna en gång till klient programmet. Azure AD är medveten om att samtycka till klienten innebär att implicit samtycka till webb-API: et. Tjänsten etablerar automatiskt tjänstens huvud namn för både klient-och webb-API: n på samma tidpunkt. Både klienten och webb-API-appen måste vara registrerade i samma klient organisation.
 
 Exempel:
 
@@ -317,13 +317,13 @@ Exempel:
     "knownClientApplications": ["f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"],
 ```
 
-### <a name="logourl-attribute"></a>attributet logoUrl
+### <a name="logourl-attribute"></a>logoUrl-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| logoUrl (logotypUrl) | Sträng |
+| logoUrl | Sträng |
 
-Skrivskyddat värde som pekar på CDN-URL:en till-logotypen som laddades upp i portalen.
+Skrivskyddat värde som pekar på CDN-URL: en till en logo typ som laddades upp i portalen.
 
 Exempel:
 
@@ -331,13 +331,13 @@ Exempel:
     "logoUrl": "https://MyRegisteredAppLogo",
 ```
 
-### <a name="logouturl-attribute"></a>attributet logoutUrl
+### <a name="logouturl-attribute"></a>logoutUrl-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | logoutUrl | Sträng |
 
-URL:en för att logga ut från appen.
+URL: en för att logga ut från appen.
 
 Exempel:
 
@@ -351,7 +351,7 @@ Exempel:
 | :--- | :--- |
 | namn | Sträng |
 
-Appens visningsnamn.
+Appens visnings namn.
 
 Exempel:
 
@@ -365,7 +365,7 @@ Exempel:
 | :--- | :--- |
 | oauth2AllowImplicitFlow | Boolesk |
 
-Anger om den här webbappen kan begära OAuth2.0 implicita flödesåtkomsttoken. Standardvärdet är falskt. Den här flaggan används för webbläsarbaserade appar, till exempel JavaScript-appar med en sida. Om du vill `OAuth 2.0 implicit grant flow` veta mer anger du i innehållsförteckningen och läser avsnitten om implicit flöde.
+Anger om den här webbappen kan begära OAuth 2.0 implicit flödes åtkomst-token. Standardvärdet är false. Den här flaggan används för webbläsarbaserade appar, t. ex. java script-appar med en sida. Mer information finns `OAuth 2.0 implicit grant flow` i innehålls förteckningen och i avsnitten om implicit flöde.
 
 Exempel:
 
@@ -379,7 +379,7 @@ Exempel:
 | :--- | :--- |
 | oauth2AllowIdTokenImplicitFlow | Boolesk |
 
-Anger om den här webbappen kan begära OAuth2.0 implicita flödes-ID-token. Standardvärdet är falskt. Den här flaggan används för webbläsarbaserade appar, till exempel JavaScript-appar med en sida.
+Anger om den här webbappen kan begära OAuth 2.0-token för implicit flödes-ID. Standardvärdet är false. Den här flaggan används för webbläsarbaserade appar, t. ex. java script-appar med en sida.
 
 Exempel:
 
@@ -387,13 +387,13 @@ Exempel:
     "oauth2AllowIdTokenImplicitFlow": false,
 ```
 
-### <a name="oauth2permissions-attribute"></a>attributet oauth2Permissions
+### <a name="oauth2permissions-attribute"></a>oauth2Permissions-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | oauth2Permissions | Samling |
 
-Anger samlingen av OAuth 2.0-behörighetsscope som webb-API-appen (resurs)visar för klientappar. Dessa behörighetsscope kan beviljas klientappar under medgivandet.
+Anger samlingen OAuth 2,0-behörighets omfattningar som webb-API: n (resurs) visar för klient program. Dessa behörighets omfattningar kan beviljas till klient program under medgivande.
 
 Exempel:
 
@@ -412,13 +412,13 @@ Exempel:
     ],
 ```
 
-### <a name="oauth2requiredpostresponse-attribute"></a>attributet oauth2RequiredPostResponse
+### <a name="oauth2requiredpostresponse-attribute"></a>oauth2RequiredPostResponse-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | oauth2RequiredPostResponse | Boolesk |
 
-Anger om Azure AD, som en del av OAuth 2.0-tokenbegäranden, tillåter POST-begäranden, i motsats till GET-begäranden. Standardvärdet är falskt, vilket anger att endast GET-begäranden tillåts.
+Anger om, som en del av OAuth 2,0-Tokenbegäran, tillåter Azure AD att begär Anden skickas, i stället för att hämta förfrågningar. Standardvärdet är false, vilket anger att endast GET-begäranden ska tillåtas.
 
 Exempel:
 
@@ -426,14 +426,14 @@ Exempel:
     "oauth2RequirePostResponse": false,
 ```
 
-### <a name="parentalcontrolsettings-attribute"></a>attributet parentalControlSettings
+### <a name="parentalcontrolsettings-attribute"></a>parentalControlSettings-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| föräldrakontroller | Sträng |
+| parentalControlSettings | Sträng |
 
-- `countriesBlockedForMinors`anger i vilka länder appen är blockerad för minderåriga.
-- `legalAgeGroupRule`anger den regel om juridisk åldersgrupp som gäller för användare av appen. Kan ställas `Allow`in `RequireConsentForPrivacyServices` `RequireConsentForMinors`på `RequireConsentForKids`, `BlockMinors`, , eller .  
+- `countriesBlockedForMinors`anger de länder där appen blockeras för minderåriga.
+- `legalAgeGroupRule`anger den juridiska ålders grupps regel som gäller för användare av appen. Kan ställas in `Allow`på `RequireConsentForPrivacyServices`, `RequireConsentForMinors` `RequireConsentForKids`,, eller `BlockMinors`.  
 
 Exempel:
 
@@ -444,13 +444,13 @@ Exempel:
     },
 ```
 
-### <a name="passwordcredentials-attribute"></a>attributet passwordCredentials
+### <a name="passwordcredentials-attribute"></a>passwordCredentials-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| lösenordSkruven | Samling |
+| passwordCredentials | Samling |
 
-Se beskrivningen för `keyCredentials` egenskapen.
+Se beskrivningen av `keyCredentials` egenskapen.
 
 Exempel:
 
@@ -466,13 +466,13 @@ Exempel:
     ],
 ```
 
-### <a name="preauthorizedapplications-attribute"></a>attributet preAuthorizedApplications
+### <a name="preauthorizedapplications-attribute"></a>preAuthorizedApplications-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | preAuthorizedApplications | Samling |
 
-Visar program och begärda behörigheter för implicit medgivande. Kräver att en administratör har gett samtycke till programmet. preAuthorizedApplications kräver inte att användaren samtycker till de begärda behörigheterna. Behörigheter som anges i preAuthorizedApplications kräver inte användarens medgivande. Alla ytterligare begärda behörigheter som inte anges i preAuthorizedApplications kräver dock användarens medgivande.
+Visar en lista över program och begärda behörigheter för implicit medgivande. Kräver att en administratör har gett sitt medgivande till programmet. preAuthorizedApplications kräver inte att användaren godkänner de begärda behörigheterna. Behörigheter som anges i preAuthorizedApplications kräver inte användar medgivande. Alla ytterligare begärda behörigheter som inte listas i preAuthorizedApplications kräver dock användar medgivande.
 
 Exempel:
 
@@ -487,23 +487,23 @@ Exempel:
     ],
 ```
 
-### <a name="publicclient-attribute"></a>attributet publicClient
+### <a name="publicclient-attribute"></a>publicClient-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| offentligaClient | Boolesk|
+| publicClient | Boolesk|
 
 Anger om det här programmet är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). 
 
-Den här egenskapen är endast tillgänglig i **appregistreringarna (Legacy)** upplevelsen. Ersatt `allowPublicClient` av i [upplevelsen av appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
+Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)** . Ersätts `allowPublicClient` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
-### <a name="publisherdomain-attribute"></a>attributet publisherDomain
+### <a name="publisherdomain-attribute"></a>publisherDomain-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| utgivareDomain | Sträng |
+| publisherDomain | Sträng |
 
-Den verifierade utgivardomänen för programmet. Skrivskyddad.
+Den verifierade Publisher-domänen för programmet. Skrivskyddad.
 
 Exempel:
 
@@ -511,28 +511,28 @@ Exempel:
     "publisherDomain": "https://www.contoso.com",
 ````
 
-### <a name="replyurls-attribute"></a>attributet replyUrls
+### <a name="replyurls-attribute"></a>replyUrls-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| svaraUrls | Strängmatris |
+| replyUrls | Strängmatris |
 
-Den här egenskapen med flera värden innehåller listan över registrerade redirect_uri värden som Azure AD accepterar som mål när token returneras.
+Den här egenskapen för flera värden innehåller en lista över registrerade redirect_uri värden som Azure AD accepterar som mål när token returneras.
 
-Den här egenskapen är endast tillgänglig i **appregistreringarna (Legacy)** upplevelsen. Ersatt `replyUrlsWithType` av i [upplevelsen av appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
+Den här egenskapen är endast tillgänglig i den **Appregistreringar (äldre)** . Ersätts `replyUrlsWithType` av i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen.
 
-### <a name="replyurlswithtype-attribute"></a>attributet replyUrlsWithType
+### <a name="replyurlswithtype-attribute"></a>replyUrlsWithType-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | replyUrlsWithType | Samling |
 
-Den här egenskapen med flera värden innehåller listan över registrerade redirect_uri värden som Azure AD accepterar som mål när token returneras. Varje URI-värde ska innehålla ett associerat apptypsvärde. Typvärden som stöds är:
+Den här egenskapen för flera värden innehåller en lista över registrerade redirect_uri värden som Azure AD accepterar som mål när token returneras. Varje URI-värde ska innehålla ett värde för en associerad app-typ. Typ värden som stöds är:
 
 - `Web`
 - `InstalledClient`
 
-Mer information finns i [replyUrl-begränsningar och begränsningar](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Mer information finns i [begränsningar och begränsningar för replyUrl](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 
 Exempel:
 
@@ -545,16 +545,16 @@ Exempel:
     ],
 ```
 
-### <a name="requiredresourceaccess-attribute"></a>requiredResourceAccess-attributet
+### <a name="requiredresourceaccess-attribute"></a>requiredResourceAccess-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | requiredResourceAccess | Samling |
 
-Med dynamiskt `requiredResourceAccess` medgivande, driver administratören samtycke erfarenhet och användarens medgivande erfarenhet för användare som använder statiskt samtycke. Den här parametern driver dock inte användarmedgivandeupplevelsen för det allmänna fallet.
+Med dynamiskt medgivande `requiredResourceAccess` bevarar administratörs upplevelsen och användar medgivande upplevelsen för användare som använder det statiska godkännandet. Den här parametern styr dock inte användar medgivande upplevelsen för det allmänna fallet.
 
-- `resourceAppId`är den unika identifieraren för den resurs som appen kräver åtkomst till. Det här värdet ska vara lika med den appId som deklarerats i målresursappen.
-- `resourceAccess`är en matris som visar behörighetsomfattningar och approller som appen kräver från den angivna resursen. Innehåller `id` värdena `type` och för de angivna resurserna.
+- `resourceAppId`är den unika identifieraren för den resurs som appen kräver åtkomst till. Värdet ska vara lika med det appId som deklarerats för mål resurs appen.
+- `resourceAccess`är en matris som visar behörighets omfattningarna för OAuth 2.0 och de app-roller som appen kräver från den angivna resursen. Innehåller värdena `id` och `type` för de angivna resurserna.
 
 Exempel:
 
@@ -578,7 +578,7 @@ Exempel:
 | :--- | :--- |
 | samlMetadataUrl | Sträng |
 
-URL:en till SAML-metadata för appen.
+URL: en till SAML metadata för appen.
 
 Exempel:
 
@@ -586,13 +586,13 @@ Exempel:
     "samlMetadataUrl": "https://MyRegisteredAppSAMLMetadata",
 ```
 
-### <a name="signinurl-attribute"></a>attributet signInUrl
+### <a name="signinurl-attribute"></a>signInUrl-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
 | signInUrl | Sträng |
 
-Anger URL:en till appens startsida.
+Anger webb adressen till appens start sida.
 
 Exempel:
 
@@ -600,17 +600,17 @@ Exempel:
     "signInUrl": "https://MyRegisteredApp",
 ```
 
-### <a name="signinaudience-attribute"></a>attributet signInAudience
+### <a name="signinaudience-attribute"></a>signInAudience-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| teckenInAudience | Sträng |
+| signInAudience | Sträng |
 
-Anger vilka Microsoft-konton som stöds för det aktuella programmet. Värden som stöds är:
-- `AzureADMyOrg`- Användare med ett Microsoft-arbets- eller skolkonto i organisationens Azure AD-klientorganisation (till exempel en enda klientorganisation)
-- `AzureADMultipleOrgs`- Användare med ett Microsoft-arbets- eller skolkonto i en organisations Azure AD-klientorganisation (till exempel flera innehavare)
-- `AzureADandPersonalMicrosoftAccount`- Användare med ett personligt Microsoft-konto, eller ett arbets- eller skolkonto i en organisations Azure AD-klientorganisation
-- `PersonalMicrosoftAccount`- Personliga konton som används för att logga in på tjänster som Xbox och Skype.
+Anger vilka Microsoft-konton som stöds för det aktuella programmet. De värden som stöds är:
+- `AzureADMyOrg`– Användare med ett arbets-eller skol konto för Microsoft i min organisations Azure AD-klient (till exempel en enskild klient)
+- `AzureADMultipleOrgs`– Användare med ett arbets-eller skol konto för Microsoft i en organisations Azure AD-klient (till exempel flera innehavare)
+- `AzureADandPersonalMicrosoftAccount`– Användare med en personlig Microsoft-konto eller ett arbets-eller skol konto i en organisations Azure AD-klient
+- `PersonalMicrosoftAccount`– Personliga konton som används för att logga in på tjänster som Xbox och Skype.
 
 Exempel:
 
@@ -618,11 +618,11 @@ Exempel:
     "signInAudience": "AzureADandPersonalMicrosoftAccount",
 ```
 
-### <a name="tags-attribute"></a>attribut för taggar
+### <a name="tags-attribute"></a>Tags-attribut
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| tags | Strängmatris  |
+| tags | Sträng mat ris  |
 
 Anpassade strängar som kan användas för att kategorisera och identifiera programmet.
 
@@ -636,18 +636,18 @@ Exempel:
 
 ## <a name="common-issues"></a>Vanliga problem
 
-### <a name="manifest-limits"></a>Manifestgränser
+### <a name="manifest-limits"></a>Manifest gränser
 
-Ett programmanifest har flera attribut som kallas samlingar. till exempel appRoles, keyCredentials, knownClientApplications, identifierUris, redirectUris, requiredResourceAccess och oauth2Permissions. Inom det fullständiga ansökningsmanifestet för alla ansökningar har det totala antalet poster i alla samlingar som tillsammans har begränsats till 1200. Om du tidigare har angett 100 omdirigerings-URI:er i programmanifestet, är du bara kvar med 1100 återstående poster som ska användas i alla andra samlingar som har kombinerats och som utgör manifestet.
+Ett program manifest har flera attribut som kallas samlingar. till exempel appRoles, inloggnings uppgifter, knownClientApplications, identifierUris, redirectUris, requiredResourceAccess och oauth2Permissions. I det fullständiga applikations manifestet för ett program, har det totala antalet poster i alla samlingar i kombination varit begränsade till 1200. Om du tidigare har angett 100 omdirigerings-URI: er i applikations manifestet är du bara kvar med 1100 återstående poster som ska användas i alla andra samlingar som utgör manifestet.
 
 > [!NOTE]
-> Om du försöker lägga till mer än 1200 poster i programmanifestet kan du se ett felmeddelande **"Det gick inte att uppdatera programmet xxxxxx. Felinformation: Manifestets storlek har överskridit gränsen. Minska antalet värden och försök igen med din begäran."**
+> Om du försöker lägga till fler än 1200 poster i applikations manifestet kan du se ett fel **"Det gick inte att uppdatera programmet xxxxxx. Fel information: Manifestets storlek har överskridit gränsen. Minska antalet värden och gör om begäran. "**
 
 ### <a name="unsupported-attributes"></a>Attribut som inte stöds
 
-Programmanifestet representerar schemat för den underliggande programmodellen i Azure AD. När det underliggande schemat utvecklas uppdateras manifestredigeraren så att det återspeglar det nya schemat från tid till annan. Därför kan du märka nya attribut som visas i programmanifestet. I sällsynta fall kan du märka en syntaktisk eller semantisk förändring i befintliga attribut eller så kan du hitta ett attribut som fanns tidigare stöds inte längre. Du kommer till exempel att se nya attribut i [appregistreringarna](https://go.microsoft.com/fwlink/?linkid=2083908), som är kända med ett annat namn i appregistreringarna (Legacy) .
+Applikations manifestet representerar schemat för den underliggande program modellen i Azure AD. När det underliggande schemat utvecklas kommer manifest redigeraren att uppdateras för att avspegla det nya schemat. Därför kan det hända att du upptäcker nya attribut som visas i applikations manifestet. I sällsynta fall kan du märka en syntaktisk eller semantisk ändring i befintliga attribut, eller så kan du hitta ett attribut som tidigare inte stöds längre. Till exempel visas nya attribut i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908), som är kända med ett annat namn i Appregistreringar (äldre).
 
-| Appregistreringar (äldre)| Appregistreringar           |
+| Appregistreringar (bakåtkompatibelt)| Appregistreringar           |
 |---------------------------|-----------------------------|
 | `availableToOtherTenants` | `signInAudience`            |
 | `displayName`             | `name`                      |
@@ -657,27 +657,27 @@ Programmanifestet representerar schemat för den underliggande programmodellen i
 | `publicClient`            | `allowPublicClient`         |
 | `replyUrls`               | `replyUrlsWithType`         |
 
-Beskrivningar för dessa attribut finns i [manifestreferensavsnittet.](#manifest-reference)
+Beskrivningar för de här attributen finns i [referens avsnittet för manifestet](#manifest-reference) .
 
-När du försöker ladda upp ett tidigare nedladdat manifest kan du se något av följande fel. Det här felet beror sannolikt på att manifestredigeraren nu stöder en nyare version av schemat, som inte matchar med den du försöker ladda upp.
+När du försöker överföra ett tidigare nedladdat manifest kan du se något av följande fel. Det här felet beror förmodligen på att manifest redigeraren nu stöder en nyare version av schemat, som inte överensstämmer med den som du försöker ladda upp.
 
-* "Det gick inte att uppdatera xxxxxx-programmet. Feldetalj: Ogiltig objektidentifierare "odefinierad". []."
-* "Det gick inte att uppdatera xxxxxx-programmet. Felinformation: Ett eller flera angivna egenskapsvärden är ogiltiga. []."
-* "Det gick inte att uppdatera xxxxxx-programmet. Felinformation: Det går inte att ange tillgängligaTillOtherTenants i den här api-versionen för uppdatering. []."
-* "Det gick inte att uppdatera xxxxxx-programmet. Felinformation: Det är inte tillåtet att uppdatera egenskapen replyUrls för det här programmet. Använd egenskapen replyUrlsWithType i stället. []."
-* "Det gick inte att uppdatera xxxxxx-programmet. Feldetalj: Ett värde utan typnamn hittades och ingen förväntad typ är tillgänglig. När modellen anges måste varje värde i nyttolasten ha en typ som antingen kan anges i nyttolasten, uttryckligen av anroparen eller implicit härledas från det överordnade värdet. []"
+* "Det gick inte att uppdatera xxxxxx-programmet. Fel information: ogiltig objekt identifierare ' undefined '. []."
+* "Det gick inte att uppdatera xxxxxx-programmet. Fel information: ett eller flera angivna egenskaps värden är ogiltiga. []."
+* "Det gick inte att uppdatera xxxxxx-programmet. Fel information: det går inte att ange availableToOtherTenants i den här API-versionen för uppdatering. []."
+* "Det gick inte att uppdatera xxxxxx-programmet. Fel information: uppdateringar av egenskapen ' replyUrls ' tillåts inte för det här programmet. Använd egenskapen ' replyUrlsWithType ' i stället. []."
+* "Det gick inte att uppdatera xxxxxx-programmet. Fel information: ett värde utan ett typ namn hittades och ingen förväntad typ är tillgänglig. När modellen anges måste varje värde i nytto lasten ha en typ som antingen kan anges i nytto lasten, uttryckligen av anroparen eller implicit härledd från det överordnade värdet. []"
 
 När du ser något av dessa fel rekommenderar vi följande åtgärder:
 
-1. Redigera attributen individuellt i manifestredigeraren i stället för att ladda upp ett tidigare nedladdat manifest. Använd [manifestreferenstabellen](#manifest-reference) för att förstå syntaxen och semantiken för gamla och nya attribut så att du kan redigera de attribut du är intresserad av. 
-1. Om arbetsflödet kräver att du sparar manifesten i källdatabasen för senare användning föreslår vi att du återbaserar de sparade manifesten i databasen med det du ser i **appregistreringsupplevelsen.**
+1. Redigera attributen individuellt i manifest redigeraren i stället för att ladda upp ett tidigare nedladdat manifest. Använd referens tabellen i [manifestet](#manifest-reference) för att förstå syntaxen och semantiken för gamla och nya attribut så att du kan redigera de attribut som du är intresse rad av. 
+1. Om arbets flödet kräver att du sparar manifesten på käll lagrings platsen för att använda senare, rekommenderar vi att du bygger in de sparade manifesten i din lagrings plats med den som visas i **Appregistreringars** upplevelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om relationen mellan en apps program- och tjänsthuvudobjekt finns [i Principobjekt för program och tjänst i Azure AD](app-objects-and-service-principals.md).
-* Se [Microsofts identitetsplattformsutvecklarordlista](developer-glossary.md) för definitioner av vissa grundläggande koncept för utvecklare av microsoft-identitetsplattformar.
+* Mer information om relationen mellan appens program och tjänst huvud objekt finns i [program-och tjänst huvud objekt i Azure AD](app-objects-and-service-principals.md).
+* Se [ord listan för Microsoft Identity Platform Developer](developer-glossary.md) för definitioner av vissa kärn utvecklings koncept för Microsoft Identity Platform.
 
-Använd följande kommentarsavsnitt för att ge feedback som hjälper till att förfina och forma vårt innehåll.
+Använd följande kommentarer-avsnitt för att ge feedback som hjälper dig att förfina och forma vårt innehåll.
 
 <!--article references -->
 [AAD-APP-OBJECTS]:app-objects-and-service-principals.md

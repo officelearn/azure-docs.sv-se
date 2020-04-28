@@ -1,6 +1,6 @@
 ---
-title: Villkorlig åtkomst kräver hanterad enhet - Azure Active Directory
-description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) enhetsbaserade principer för villkorlig åtkomst som kräver hanterade enheter för åtkomst till molnappar.
+title: Villkorlig åtkomst kräver hanterad enhet – Azure Active Directory
+description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) enhets principer för villkorlig åtkomst som kräver hanterade enheter för åtkomst till Cloud App.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,35 +12,35 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481491"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Så här: Kräv hanterade enheter för molnappåtkomst med villkorlig åtkomst
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
-I en första dator med första molnet möjliggör Azure Active Directory (Azure AD) enkel inloggning till appar och tjänster var som helst. Behöriga användare kan komma åt dina molnappar från ett brett spektrum av enheter, inklusive mobila och även personliga enheter. Många miljöer har dock åtminstone ett fåtal appar som endast bör nås av enheter som uppfyller dina standarder för säkerhet och efterlevnad. Dessa enheter kallas även hanterade enheter. 
+I en mobil-och mellanliggande värld, kan Azure Active Directory (Azure AD) använda enkel inloggning till appar och tjänster var som helst. Behöriga användare kan komma åt dina molnappar från ett brett utbud av enheter, inklusive mobila och personliga enheter. Många miljöer har dock minst ett fåtal appar som endast ska kunna nås av enheter som uppfyller dina standarder för säkerhet och efterlevnad. Dessa enheter kallas även hanterade enheter. 
 
-I den här artikeln beskrivs hur du kan konfigurera principer för villkorlig åtkomst som kräver hanterade enheter för att komma åt vissa molnappar i din miljö. 
+Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som kräver att hanterade enheter får åtkomst till vissa molnappar i din miljö. 
 
 ## <a name="prerequisites"></a>Krav
 
-Kräver hanterade enheter för moln app åtkomst band **Azure AD Villkorlig åtkomst** och Azure AD **enhetshantering** tillsammans. Om du inte är bekant med något av dessa områden ännu bör du läsa följande ämnen, först:
+Krav på hanterade enheter för åtkomst till molnbaserad **Azure AD-villkorlig åtkomst** och **Azure AD-enhets hantering** . Om du inte är bekant med något av dessa områden än bör du läsa följande avsnitt, först:
 
-- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** - Den här artikeln ger dig en begreppsmässig översikt över villkorlig åtkomst och tillhörande terminologi.
-- **[Introduktion till enhetshantering i Azure Active Directory](../devices/overview.md)** – Den här artikeln ger dig en översikt över de olika alternativ du har för att få enheter under organisationskontroll. 
-- För Chrome-stöd i **Windows 10 Creators Update (version 1703)** eller senare installerar du [tillägget Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Det här tillägget krävs när en princip för villkorlig åtkomst kräver enhetsspecifik information.
+- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** – den här artikeln ger en konceptuell översikt över villkorlig åtkomst och den relaterade terminologin.
+- **[Introduktion till enhets hantering i Azure Active Directory](../devices/overview.md)** – den här artikeln ger dig en översikt över de olika alternativen för att hämta enheter under organisations kontroll. 
+- För Chrome-stöd i **Windows 10 Creators Update (version 1703)** eller senare installerar du [tillägget Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Det här tillägget krävs när en princip för villkorlig åtkomst kräver enhets information.
 
 >[!NOTE] 
-> Vi rekommenderar att du använder Azure AD-enhetsbaserad policy för villkorlig åtkomst för att få bästa möjliga efterlevnad efter inledande enhetsautentisering. Detta inkluderar att stänga sessioner om enheten faller utanför kompatibilitet och enhetskodflöde.
+> Vi rekommenderar att du använder Azure AD Device-baserad princip för villkorlig åtkomst för att få bästa möjliga tillämpning efter den första autentiseringen av enheten. Detta inkluderar sessioner som stänger om enheten faller utanför efterlevnad och enhets kod flödet.
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-Att bemästra balansen mellan säkerhet och produktivitet är en utmaning. Spridningen av enheter som stöds för att komma åt dina molnresurser bidrar till att förbättra användarnas produktivitet. På baksidan vill du förmodligen inte att vissa resurser i din miljö ska nås av enheter med en okänd skyddsnivå. För de berörda resurserna bör du kräva att användarna bara kan komma åt dem med hjälp av en hanterad enhet. 
+Det är en utmaning att hantera balansen mellan säkerhet och produktivitet. Spridningen av enheter som stöds för att komma åt moln resurser hjälper till att förbättra användarnas produktivitet. På sidan vänd vill du förmodligen inte att vissa resurser i din miljö ska kunna nås av enheter med en okänd skydds nivå. För de berörda resurserna bör du kräva att användarna bara kan komma åt dem med hjälp av en hanterad enhet. 
 
-Med Azure AD-villkorlig åtkomst kan du åtgärda det här kravet med en enda princip som ger åtkomst:
+Med villkorlig åtkomst i Azure AD kan du hantera det här kravet med en enda princip som ger åtkomst:
 
 - Till valda molnappar
 - För valda användare och grupper
@@ -48,58 +48,58 @@ Med Azure AD-villkorlig åtkomst kan du åtgärda det här kravet med en enda pr
 
 ## <a name="managed-devices"></a>Hanterade enheter  
 
-Enkelt uttryckt är hanterade enheter enheter som är under *någon form* av organisatorisk kontroll. I Azure AD är förutsättningen för en hanterad enhet att den har registrerats med Azure AD. Om du registrerar en enhet skapas en identitet för enheten i form av ett enhetsobjekt. Det här objektet används av Azure för att spåra statusinformation om en enhet. Som Azure AD-administratör kan du redan använda det här objektet för att växla (aktivera/inaktivera) tillståndet för en enhet.
+I enkla termer är hanterade enheter enheter som har *en viss typ* av organisations kontroll. I Azure AD är förutsättningen för en hanterad enhet att den har registrerats med Azure AD. När du registrerar en enhet skapas en identitet för enheten i form av ett enhets objekt. Det här objektet används av Azure för att spåra statusinformation om en enhet. Som Azure AD-administratör kan du redan använda det här objektet för att växla (aktivera/inaktivera) status för en enhet.
   
-![Enhetsbaserade villkor](./media/require-managed-devices/32.png)
+![Enhets baserade villkor](./media/require-managed-devices/32.png)
 
-Om du vill få en enhet registrerad med Azure AD har du tre alternativ: 
+Om du vill hämta en enhet som är registrerad i Azure AD har du tre alternativ: 
 
-- **Azure AD-registrerade enheter** – för att få en personlig enhet registrerad med Azure AD
-- **Azure AD-anslutna enheter** – för att hämta en organisationell Windows 10-enhet som inte är ansluten till en lokal AD som är registrerad med Azure AD. 
-- **Hybrid Azure AD-anslutna enheter** – för att få en Windows 10- eller ned-nivå-enhet som stöds till en lokal AD som är registrerad med Azure AD.
+- **Registrerade enheter för Azure AD** – så här hämtar du en personlig enhet som är registrerad i Azure AD
+- **Azure AD-anslutna enheter** – för att få en organisations Windows 10-enhet som inte är ansluten till en lokal AD som är registrerad i Azure AD. 
+- **Hybrid Azure AD-anslutna enheter** – för att få en Windows 10-enhet eller stöd för en äldre enhet som är ansluten till en lokal AD som är registrerad i Azure AD.
 
-Dessa tre alternativ diskuteras i artikeln [Vad är en enhetsidentitet?](../devices/overview.md)
+De här tre alternativen beskrivs i artikeln [Vad är en enhets identitet?](../devices/overview.md)
 
-För att bli en hanterad enhet måste en registrerad enhet vara antingen en **Hybrid Azure AD-ansluten enhet** eller en enhet som har **markerats som kompatibel**.  
+För att bli en hanterad enhet måste en registrerad enhet antingen vara en **hybrid Azure AD-ansluten enhet** eller en **enhet som har marker ATS som kompatibel**.  
 
-![Enhetsbaserade villkor](./media/require-managed-devices/47.png)
+![Enhets baserade villkor](./media/require-managed-devices/47.png)
  
-## <a name="require-hybrid-azure-ad-joined-devices"></a>Kräv Hybrid Azure AD-anslutna enheter
+## <a name="require-hybrid-azure-ad-joined-devices"></a>Kräv hybrid Azure AD-anslutna enheter
 
-I principen villkorlig åtkomst kan du välja **Kräv Hybrid Azure AD-ansluten enhet** för att ange att de valda molnapparna endast kan nås med en hanterad enhet. 
+I din princip för villkorlig åtkomst kan du välja **Kräv att hybrid Azure AD-ansluten enhet** ska ange att de valda molnappar bara kan nås med en hanterad enhet. 
 
-![Enhetsbaserade villkor](./media/require-managed-devices/10.png)
+![Enhets baserade villkor](./media/require-managed-devices/10.png)
 
-Den här inställningen gäller endast för Windows 10- eller ned-nivå-enheter som Windows 7 eller Windows 8 som är anslutna till en lokal AD. Du kan bara registrera dessa enheter med Azure AD med hjälp av en Hybrid Azure AD-koppling, vilket är en [automatiserad process](../devices/hybrid-azuread-join-plan.md) för att få en Windows 10-enhet registrerad. 
+Den här inställningen gäller endast för Windows 10-enheter eller äldre enheter, till exempel Windows 7 eller Windows 8 som är anslutna till en lokal AD. Du kan bara registrera dessa enheter med Azure AD med en hybrid Azure AD-anslutning, som är en [automatiserad process](../devices/hybrid-azuread-join-plan.md) för att få en Windows 10-enhet registrerad. 
 
-![Enhetsbaserade villkor](./media/require-managed-devices/45.png)
+![Enhets baserade villkor](./media/require-managed-devices/45.png)
 
-Vad gör en Hybrid Azure AD-ansluten enhet till en hanterad enhet?  För enheter som är anslutna till en lokal AD antas kontrollen över dessa enheter med hjälp av hanteringslösningar som **Configuration Manager** eller **grupprincip (GP)** för att hantera dem. Eftersom det inte finns någon metod för Azure AD för att avgöra om någon av dessa metoder har tillämpats på en enhet, är det en relativt svag mekanism som kräver en hanterad enhet att kräva en hanterad enhet. Det är upp till dig som administratör att bedöma om de metoder som tillämpas på dina lokala domänanslutna enheter är tillräckligt starka för att utgöra en hanterad enhet om en sådan enhet också är en Hybrid Azure AD-ansluten enhet.
+Vad gör en hybrid Azure AD-ansluten enhet till en hanterad enhet?  För enheter som är anslutna till en lokal AD antas det att kontrollen över dessa enheter upprätthålls med hjälp av hanterings lösningar som **Configuration Manager** eller **grup princip (GP)** för att hantera dem. Eftersom det inte finns någon metod för Azure AD för att avgöra om någon av dessa metoder har tillämpats på en enhet, är en hybrid Azure AD-ansluten enhet en relativt svag mekanism för att kräva en hanterad enhet. Det är upp till dig som administratör att bedöma om de metoder som tillämpas på dina lokala domänanslutna enheter är tillräckligt starka för att utgöra en hanterad enhet om en sådan enhet också är en hybrid Azure AD-ansluten enhet.
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>Kräv att enheten ska markeras som kompatibel
 
-Alternativet att *kräva att en enhet ska markeras som kompatibel* är det starkaste formuläret för att begära en hanterad enhet.
+Alternativet att *kräva att en enhet markeras som kompatibel* är den starkaste formen för att begära en hanterad enhet.
 
-![Enhetsbaserade villkor](./media/require-managed-devices/11.png)
+![Enhets baserade villkor](./media/require-managed-devices/11.png)
 
-Det här alternativet kräver att en enhet registreras med Azure AD och även markeras som kompatibel av:
+Det här alternativet kräver att en enhet registreras med Azure AD och också markeras som kompatibel av:
          
 - Intune
-- Ett MDM-system (Mobile Device Management) från tredje part som hanterar Windows 10-enheter via Azure AD-integrering. Mdm-system från tredje part för andra enhetstyper än Windows 10 stöds inte.
+- Ett MDM-system (Mobile Device Management) från tredje part som hanterar Windows 10-enheter via Azure AD-integrering. MDM-system från tredje part för andra typer av enhets operativ system än Windows 10 stöds inte.
  
-![Enhetsbaserade villkor](./media/require-managed-devices/46.png)
+![Enhets baserade villkor](./media/require-managed-devices/46.png)
 
-För en enhet som är markerad som kompatibel kan du anta att: 
+För en enhet som har marker ATS som kompatibel kan du anta att: 
 
-- De mobila enheter som personalen använder för att komma åt företagsdata hanteras
-- Mobilappar som personalen använder hanteras
-- Din företagsinformation skyddas genom att hjälpa till att kontrollera hur din personal får åtkomst till och delar den
-- Enheten och dess appar är kompatibla med företagets säkerhetskrav
+- De mobila enheter som din personal använder för att komma åt företags data hanteras
+- Mobila appar som används av din personal hanteras
+- Företagets information skyddas genom att hjälpa till att kontrol lera hur din personal får åtkomst till och delar den
+- Enheten och dess appar är kompatibla med företagets säkerhets krav
 
 ### <a name="known-behavior"></a>Känt beteende
 
-På Windows 7 identifierar iOS, Android, macOS och vissa webbläsare från tredje part Azure AD enheten med hjälp av ett klientcertifikat som etableras när enheten är registrerad med Azure AD. När en användare först loggar in via webbläsaren uppmanas användaren att välja certifikatet. Slutanvändaren måste välja det här certifikatet innan han eller hon kan fortsätta att använda webbläsaren.
+På Windows 7, iOS, Android, macOS och vissa tredjeparts webbläsare i Azure AD identifierar enheten med ett klient certifikat som är etablerad när enheten har registrerats med Azure AD. När en användare först loggar in via webbläsaren uppmanas användaren att välja certifikatet. Slutanvändaren måste välja det här certifikatet innan de kan fortsätta att använda webbläsaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du konfigurerar en enhetsbaserad princip för villkorlig åtkomst i din miljö bör du ta en titt på [metodtipsen för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+Innan du konfigurerar en enhets beroende princip för villkorlig åtkomst i din miljö bör du ta en titt på [metod tipsen för villkorlig åtkomst i Azure Active Directory](best-practices.md).

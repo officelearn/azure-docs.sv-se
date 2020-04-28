@@ -1,6 +1,6 @@
 ---
-title: Så här använder du kölagring från Java - Azure Storage
-description: Lär dig hur du använder kölagring för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden med Azure Storage-klientbiblioteket för Java.
+title: Använda Queue Storage från Java-Azure Storage
+description: Lär dig hur du använder Queue Storage för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden med Azure Storage klient bibliotek för Java.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/08/2016
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 7658b8541e7a79a5e547a6649b35681446e34b0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067138"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Använda Queue Storage från Java
@@ -21,7 +21,7 @@ ms.locfileid: "80067138"
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
-Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Queue storage-tjänsten. Exemplen är skrivna i Java och använder [Azure Storage SDK för Java][Azure Storage SDK for Java]. Scenarierna som omfattas omfattar **att infoga,** **granska,** **hämta**och **ta bort** kömeddelanden samt **skapa** och **ta bort** köer. Mer information om köer finns i avsnittet [Nästa steg.](#next-steps)
+I den här guiden får du lära dig hur du utför vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i Java och använder [Azure Storage SDK för Java][Azure Storage SDK for Java]. De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa** och **ta bort** köer. Mer information om köer finns i avsnittet [Nästa steg](#next-steps) .
 
 > [!NOTE]
 > En SDK finns tillgänglig för utvecklare som använder Azure Storage på Android-enheter. Mer information finns i [Azure Storage SDK för Android][Azure Storage SDK for Android].
@@ -32,13 +32,13 @@ Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Queue 
 
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
 
-I den här guiden använder du lagringsfunktioner som kan köras i ett Java-program lokalt eller i kod som körs i ett webbprogram i Azure.
+I den här guiden ska du använda lagrings funktioner som kan köras i ett Java-program lokalt eller i kod som körs i ett webb program i Azure.
 
-För att göra det måste du installera Java Development Kit (JDK) och skapa ett Azure-lagringskonto i din Azure-prenumeration. När du har gjort det måste du kontrollera att ditt utvecklingssystem uppfyller minimikraven och beroendena som anges i [Azure Storage SDK för Java-databasen][Azure Storage SDK for Java] på GitHub. Om ditt system uppfyller dessa krav kan du följa instruktionerna för att hämta och installera Azure Storage Libraries för Java på ditt system från den databasen. När du har slutfört dessa uppgifter kan du skapa ett Java-program som använder exemplen i den här artikeln.
+För att göra det måste du installera Java Development Kit (JDK) och skapa ett Azure Storage-konto i din Azure-prenumeration. När du har gjort det måste du kontrol lera att utvecklings systemet uppfyller de minimi krav och beroenden som anges i [Azure Storage SDK för Java][Azure Storage SDK for Java] -lagringsplatsen på GitHub. Om systemet uppfyller dessa krav kan du följa anvisningarna för att ladda ned och installera Azure Storage biblioteken för java i systemet från den lagrings platsen. När du har slutfört dessa uppgifter kan du skapa ett Java-program som använder exemplen i den här artikeln.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Konfigurera ditt program för åtkomst till kölagring
+## <a name="configure-your-application-to-access-queue-storage"></a>Konfigurera ditt program till att komma åt Queue Storage
 
-Lägg till följande importsatser högst upp i Java-filen där du vill använda Azure Storage API:er för att komma åt köer:
+Lägg till följande import-instruktioner överst i Java-filen där du vill använda Azure Storage-API: er för att komma åt köer:
 
 ```java
 // Include the following imports to use queue APIs.
@@ -46,7 +46,7 @@ import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.queue.*;
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurera en Azure-lagringsanslutningssträng
+## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurera en anslutnings sträng för Azure Storage
 
 En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När den körs i ett klientprogram måste du ange anslutningssträngen för lagring i följande format, med namnet på ditt lagringskonto och den primära åtkomstnyckel för lagringskontot som anges i [Azure-portalen](https://portal.azure.com) för värdena *AccountName* och *AccountKey*. Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
 
@@ -58,7 +58,7 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-I ett program som körs i en roll i Microsoft Azure kan den här strängen lagras i tjänstkonfigurationsfilen, *ServiceConfiguration.cscfg*och kan nås med ett anrop till metoden **RoleEnvironment.getConfigurationSettings.** Här är ett exempel på hur anslutningssträngen från ett **inställningselement** med namnet *StorageConnectionString* i tjänstkonfigurationsfilen kan hämtas:
+I ett program som körs i en roll i Microsoft Azure, kan den här strängen lagras i tjänst konfigurations filen, *ServiceConfiguration. cscfg*och kan nås med ett anrop till metoden **RoleEnvironment. getConfigurationSettings** . Här är ett exempel på hur anslutningssträngen från ett **inställningselement** med namnet *StorageConnectionString* i tjänstkonfigurationsfilen kan hämtas:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -68,10 +68,10 @@ String storageConnectionString =
 
 Följande exempel förutsätter att du har använt någon av dessa två metoder för att hämta Azure Storage-anslutningssträngen.
 
-## <a name="how-to-create-a-queue"></a>Så här skapar du en kö
-Med ett **CloudQueueClient-objekt** kan du hämta referensobjekt för köer. Följande kod skapar ett **CloudQueueClient-objekt.** (Obs: Det finns ytterligare sätt att skapa **CloudStorageAccount-objekt;** mer information finns i **CloudStorageAccount** i [Azure Storage Client SDK Reference].)
+## <a name="how-to-create-a-queue"></a>Gör så här: skapa en kö
+Med ett **CloudQueueClient** -objekt kan du hämta referens objekt för köer. Följande kod skapar ett **CloudQueueClient** -objekt. (Obs! det finns ytterligare sätt att skapa **CloudStorageAccount** -objekt. mer information finns i **CloudStorageAccount** i [Azure Storage client SDK Reference].)
 
-Använd **CloudQueueClient-objektet** för att få en referens till den kö du vill använda. Du kan skapa kön om den inte finns.
+Använd **CloudQueueClient** -objektet för att få en referens till den kö som du vill använda. Du kan skapa kön om den inte finns.
 
 ```java
 try
@@ -96,8 +96,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>Så här lägger du till ett meddelande i en kö
-Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett nytt **CloudQueueMessage**. Anropa sedan **metoden addMessage.** Du kan skapa ett **CloudQueueMessage** antingen från en sträng (i UTF-8-format) eller från en byte-matris. Här är kod som skapar en kö (om den inte finns) och infogar meddelandet "Hej, Värld".
+## <a name="how-to-add-a-message-to-a-queue"></a>Gör så här: lägga till ett meddelande i en kö
+Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett nytt **CloudQueueMessage**. Anropa sedan metoden **addMessage** . Du kan skapa ett **CloudQueueMessage** antingen från en sträng (i UTF-8-format) eller från en byte-matris. Här är koden som skapar en kö (om den inte finns) och infogar meddelandet "Hello, World".
 
 ```java
 try
@@ -126,8 +126,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Så här: Kika på nästa meddelande
-Du kan titta på meddelandet längst fram i en kö utan att ta bort det från kön genom att ringa **peekMessage**.
+## <a name="how-to-peek-at-the-next-message"></a>Gör så här: granska vid nästa meddelande
+Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa **peekMessage**.
 
 ```java
 try
@@ -158,10 +158,10 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här ändrar du innehållet i ett köat meddelande
-Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. Följande kod uppdaterar kömeddelandet med nytt innehåll och utökar tidsgränsen för visning med ytterligare 60 sekunder. Om du utökar tidsgränsen för synlighet sparar du tillståndet för det arbete som är associerat med meddelandet och ger klienten ytterligare en minut att fortsätta arbeta med meddelandet. Du kan använda den här tekniken för att spåra arbetsflöden med flera steg i kömeddelanden, utan att behöva börja om från början om ett bearbetningssteg misslyckas på grund av maskin- eller programvarufel. Normalt räknar du även antalet omförsök och tar bort meddelandet om fler än *n* försök misslyckas. Detta skyddar mot meddelanden som utlöser ett programfel varje gång de bearbetas.
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här gör du: ändra innehållet i ett köat meddelande
+Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. Följande kod uppdaterar kömeddelandet med nytt innehåll och utökar tidsgränsen för visning med ytterligare 60 sekunder. Om du utökar Synlighets tids gränsen sparar du det arbete som är associerat med meddelandet och ger klienten en ytterligare minut att fortsätta arbeta med meddelandet. Du kan använda den här tekniken för att spåra arbetsflöden med flera steg i kömeddelanden, utan att behöva börja om från början om ett bearbetningssteg misslyckas på grund av maskin- eller programvarufel. Normalt räknar du även antalet omförsök och tar bort meddelandet om fler än *n* försök misslyckas. Detta skyddar mot meddelanden som utlöser ett programfel varje gång de bearbetas.
 
-Följande kodexempel söker igenom kön med meddelanden, hittar det första meddelandet som matchar "Hello, World" för innehållet och ändrar sedan meddelandets innehåll och avslutar.
+Följande kod exempel söker igenom kön med meddelanden, letar upp det första meddelandet som matchar "Hello, World" för innehållet och ändrar sedan meddelandets innehåll och avslutar.
 
 ```java
 try
@@ -204,7 +204,7 @@ catch (Exception e)
 }
 ```
 
-Alternativt uppdateras följande kodexempel bara det första synliga meddelandet i kön.
+Du kan också uppdatera följande kod exempel bara det första synliga meddelandet i kön.
 
 ```java
 try
@@ -241,8 +241,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Så här: Få kölängden
-Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden **downloadAttributes** ber kötjänsten om flera aktuella värden, inklusive en räkning av hur många meddelanden som finns i en kö. Antalet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort när kötjänsten svarar på din begäran. Metoden **getApproximateMessageCount** returnerar det senaste värdet som hämtats av anropet för att **hämtaAttribut ,** utan att anropa kötjänsten.
+## <a name="how-to-get-the-queue-length"></a>Så här gör du: Hämta Kölängd
+Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden **downloadAttributes** frågar kötjänst efter flera aktuella värden, inklusive ett antal av hur många meddelanden som finns i en kö. Antalet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort när Kötjänst svarar på din begäran. Metoden **getApproximateMessageCount** returnerar det sista värdet som hämtades av anropet till **downloadAttributes**, utan att kötjänst anropas.
 
 ```java
 try
@@ -273,8 +273,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Så här: Dequeue nästa meddelande
-Koden dequeues ett meddelande från en kö i två steg. När du ringer **retrieveMessage**får du nästa meddelande i en kö. Ett meddelande som returneras från **retrieveMessage** blir osynligt för alla andra kodläsningsmeddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill ta bort meddelandet från kön måste du också anropa **deleteMessage**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Dina kodanrop **tar bortMessage** direkt efter att meddelandet har bearbetats.
+## <a name="how-to-dequeue-the-next-message"></a>Gör så här: ta bort nästa meddelande i kö
+Din kod avstår ett meddelande från en kö i två steg. När du anropar **retrieveMessage**får du nästa meddelande i en kö. Ett meddelande som returnerades från **retrieveMessage** blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **deleteMessage**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
 
 ```java
 try
@@ -305,10 +305,10 @@ catch (Exception e)
 }
 ```
 
-## <a name="additional-options-for-dequeuing-messages"></a>Ytterligare alternativ för att avknämna meddelanden
+## <a name="additional-options-for-dequeuing-messages"></a>Ytterligare alternativ för demsmq-meddelanden
 Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande.
 
-I följande kodexempel används metoden **retrieveMessages** för att hämta 20 meddelanden i ett samtal. Sedan bearbetar varje **for** meddelande med hjälp av en för-loop. Det ställer också in tidsgränsen för osynlighet till fem minuter (300 sekunder) för varje meddelande. De fem minuterna börjar för alla meddelanden samtidigt, så när fem minuter har gått sedan samtalet att **hämtaMessages**blir alla meddelanden som inte har tagits bort synliga igen.
+I följande kod exempel används metoden **retrieveMessages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Den anger också timeout för insikter till fem minuter (300 sekunder) för varje meddelande. De fem minuterna börjar för alla meddelanden samtidigt, så när fem minuter har gått sedan anropet till **retrieveMessages**, blir alla meddelanden som inte har tagits bort synliga igen.
 
 ```java
 try
@@ -337,8 +337,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>Så här: Lista köerna
-Om du vill hämta en lista över de aktuella köerna anropar du metoden **CloudQueueClient.listQueues()** som returnerar en samling **CloudQueue-objekt.**
+## <a name="how-to-list-the-queues"></a>Gör så här: Visa en lista över köer
+Om du vill hämta en lista över aktuella köer anropar du metoden **CloudQueueClient. listQueues ()** som returnerar en samling **CloudQueue** -objekt.
 
 ```java
 try
@@ -365,8 +365,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-queue"></a>Så här tar du bort en kö
-Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **deleteIfExists** på **CloudQueue-objektet.**
+## <a name="how-to-delete-a-queue"></a>Så här gör du: ta bort en kö
+Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **deleteIfExists** på **CloudQueue** -objektet.
 
 ```java
 try
@@ -392,12 +392,12 @@ catch (Exception e)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna i kölagring följer du de här länkarna för att lära dig mer komplexa lagringsuppgifter.
+Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
 * [Azure Storage SDK för Java][Azure Storage SDK for Java]
 * [Azure Storage Client SDK-referens][Azure Storage Client SDK Reference]
 * [REST-API för Azure Storage Services][Azure Storage Services REST API]
-* [Blogg för Azure Storage Team][Azure Storage Team Blog]
+* [Azure Storage teamets blogg][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

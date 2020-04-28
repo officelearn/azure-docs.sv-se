@@ -1,7 +1,7 @@
 ---
 title: Uppgradera till ett V2-lagringskonto för generell användning
 titleSuffix: Azure Storage
-description: Uppgradera till virtuella virtuella lagringskonton för allmänt ändamål.
+description: Uppgradera till General-Purpose v2-lagrings konton.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,48 +9,48 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067220"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett V2-lagringskonto för generell användning
 
-Generella v2-lagringskonton stöder de senaste Azure Storage-funktionerna och innehåller alla funktioner för generella v1- och Blob-lagringskonton. Allmänna v2-konton rekommenderas för de flesta lagringsscenarier. Generella v2-konton ger de lägsta kapacitetspriserna per gigabyte för Azure Storage samt branschkonkurrella transaktionspriser. Virtuella 2-konton för allmänna ändamål stöder standardåtkomstnivåer för frekvent eller lågfrekvent och blobnivånivånivå mellan frekvent, lågfrekvent eller arkiv.
+Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage funktionerna och inkluderar alla funktioner i generella v1-och Blob Storage-konton. Allmänna-Purpose v2-konton rekommenderas för de flesta lagrings scenarier. Allmänna-Purpose v2-konton ger de lägsta priserna per Gigabyte för Azure Storage, samt priser för priser som är konkurrerande för branschen. Allmänna-Purpose v2-konton har stöd för standard konto åtkomst nivåer för frekvent eller låg frekvent lagrings nivå och blobnivå mellan frekvent, låg frekvent eller Arkiv lag ring.
 
-Det är enkelt att uppgradera till ett allmänt v2-lagringskonto från dina generella v1- eller Blob-lagringskonton. Du kan uppgradera med Azure-portalen, PowerShell eller Azure CLI. Det finns ingen driftstopp eller risk för dataförlust i samband med uppgradering till ett allmänt v2-lagringskonto. Kontouppgraderingen sker via en enkel Azure Resource Manager-åtgärd som ändrar kontotypen.
+Att uppgradera till ett allmänt-syfte v2-lagrings konto från dina generella v1-eller Blob Storage-konton är enkelt. Du kan uppgradera med hjälp av Azure Portal, PowerShell eller Azure CLI. Det finns ingen stillestånds tid eller risk för data förlust som är kopplad till uppgradering till ett allmänt lagrings konto. Konto uppgraderingen sker via en enkel Azure Resource Manager-åtgärd som ändrar konto typen.
 
 > [!IMPORTANT]
-> Uppgradering av ett allmänt v1- eller Blob-lagringskonto till allmänt v2 är permanent och kan inte ångras.
+> Att uppgradera ett allmänt v1-eller Blob Storage-konto till General-Purpose v2 är permanent och kan inte ångras.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till ditt lagringskonto.
-3. Klicka på **Konfiguration**i avsnittet **Inställningar** .
+3. I avsnittet **Inställningar** klickar du på **konfiguration**.
 4. Klicka på **Uppgradera** under **Typ av konto**.
 5. Ange namnet på ditt konto under **Bekräfta uppgradering**.
 6. Klicka på **Uppgradera** längst ned på bladet.
 
-    ![Typ av uppgraderingskonto](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    ![Uppgradera konto typ](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du vill uppgradera ett allmänt v1-konto till ett allmänt v2-konto med PowerShell uppdaterar du först PowerShell så att den använder den senaste versionen av **Az.Storage-modulen.** Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av PowerShell, måste du först uppdatera PowerShell för att använda den senaste versionen av modulen **AZ. Storage** . Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-Anropa sedan följande kommando för att uppgradera kontot och ersätta resursgruppsnamnet, lagringskontonamnet och önskad kontoåtkomstnivå.
+Sedan anropar du följande kommando för att uppgradera kontot, vilket ersätter resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill uppgradera ett allmänt v1-konto till ett allmänt v2-konto med Azure CLI installerar du först den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av Azure CLI installerar du först den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Anropa sedan följande kommando för att uppgradera kontot och ersätta resursgruppsnamnet, lagringskontonamnet och önskad kontoåtkomstnivå.
+Sedan anropar du följande kommando för att uppgradera kontot, vilket ersätter resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
@@ -58,28 +58,28 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ---
 
-## <a name="specify-an-access-tier-for-blob-data"></a>Ange en åtkomstnivå för blob-data
+## <a name="specify-an-access-tier-for-blob-data"></a>Ange en åtkomst nivå för BLOB-data
 
-Virtuella 2-konton för allmänna ändamål stöder alla Azure-lagringstjänster och dataobjekt, men åtkomstnivåer är endast tillgängliga för blockblobar i Blob-lagring. När du uppgraderar till ett allmänt v2-lagringskonto kan du ange en standardåtkomstnivå för konto för frekvent eller lågfrekvent, vilket indikerar att standardnivån som dina blob-data kommer att överföras som om den enskilda parametern blob access tier inte har angetts.
+Allmänna-Purpose v2-konton har stöd för alla Azure Storage-tjänster och data objekt, men åtkomst nivåer är bara tillgängliga för block-blobar i Blob Storage. När du uppgraderar till ett allmänt-syfte v2-lagrings konto kan du ange en standard åtkomst nivå för kontot med frekvent eller låg frekvent, vilket anger standard nivån som dina BLOB-data laddas upp som om parametern för den enskilda BLOB-åtkomsten inte har angetts.
 
-Med åtkomstnivåer för blob kan du välja den mest kostnadseffektiva lagringen baserat på dina förväntade användningsmönster. Blockblobar kan lagras på en frekvent, lågfrekvent eller arkivnivå. Mer information om åtkomstnivåer finns i [Azure Blob storage: Hot, Cool och Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+Med BLOB Access-nivåer kan du välja den mest kostnads effektiva lagringen utifrån dina förväntade användnings mönster. Block-blobbar kan lagras på frekventa, låg frekventa eller Arkiv lag rings nivåer. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent, låg frekvent och Arkiv lag](../blobs/storage-blob-storage-tiers.md)rings nivåer.
 
-Som standard skapas ett nytt lagringskonto på hot access-nivån och ett allmänt v1-lagringskonto kan uppgraderas till antingen den aktiva eller den svala kontonivån. Om en kontoåtkomstnivå inte anges vid uppgraderingen uppgraderas den till hett som standard. Om du undersöker vilken åtkomstnivå som ska användas för uppgraderingen bör du tänka på ditt aktuella scenario för dataanvändning. Det finns två typiska användarscenarier för att migrera till ett v2-konto för allmänt syfte:
+Som standard skapas ett nytt lagrings konto i nivån frekvent åtkomst och ett allmänt v1-lagrings konto kan uppgraderas till antingen frekvent eller låg frekvent konto nivå. Om ingen åtkomst nivå för kontot har angetts vid uppgraderingen, uppgraderas den till aktiv som standard. Om du undersöker vilken åtkomst nivå som ska användas för din uppgradering bör du tänka på ditt nuvarande data användnings scenario. Det finns två vanliga användar scenarier för att migrera till ett allmänt-syfte v2-konto:
 
-* Du har ett befintligt allmänt v1-lagringskonto och vill utvärdera en uppgradering till ett allmänt v2-lagringskonto med rätt lagringsåtkomstnivå för blob-data.
-* Du har bestämt dig för att använda ett allmänt v2-lagringskonto eller redan har ett och vill utvärdera om du ska använda åtkomstnivån för frekvent eller lågfrekvent lagring för blob-data.
+* Du har ett befintligt allmänt v1-lagrings konto och vill utvärdera en uppgradering till ett allmänt-syfte v2-lagrings konto med rätt lagrings åtkomst nivå för BLOB-data.
+* Du har valt att använda ett allmänt lagrings konto eller har redan ett och vill utvärdera om du ska använda frekvent eller låg frekvent åtkomst nivå för BLOB-data.
 
-I båda fallen är den första prioriteringen att uppskatta kostnaden för att lagra, komma åt och driva dina data som lagras i ett allmänt v2-lagringskonto och jämföra det med dina aktuella kostnader.
+I båda fallen är den första prioriteten att uppskatta kostnaden för att lagra, komma åt och arbeta med dina data som lagras i ett allmänt lagrings konto och jämföra det med dina nuvarande kostnader.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
-Det är gratis att uppgradera ett v1-lagringskonto till ett allmänt v2-konto. Du kan ange önskad kontonivå under uppgraderingsprocessen. Om en kontonivå inte anges vid uppgraderingen kommer standardkontonivån `Hot`för det uppgraderade kontot att vara . Om du ändrar lagringsåtkomstnivån efter uppgraderingen kan det dock leda till ändringar i fakturan, så det rekommenderas att du anger den nya kontonivån under uppgraderingen.
+Att uppgradera ett v1-lagrings konto till ett allmänt-syfte v2-konto är kostnads fritt. Du kan ange önskad konto nivå under uppgraderings processen. Om ingen konto nivå har angetts vid uppgradering blir standard konto nivån för det uppgraderade kontot `Hot`. Men om du ändrar lagrings åtkomst nivån efter uppgraderingen kan det leda till ändringar i fakturan så att du bör ange den nya konto nivån under uppgraderingen.
 
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
 
-* **Lagringskostnader**: Förutom mängden data som lagras varierar kostnaden för att lagra data beroende på lagringsåtkomstnivån. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
+* **Lagrings kostnader**: utöver mängden data som lagras varierar kostnaden för att lagra data beroende på lagrings åtkomst nivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
 
-* **Kostnader för dataåtkomst**: Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data på åtkomstnivån för kyl och arkivlagring debiteras du en dataåtkomstavgift per gigabyte för läsningar.
+* **Kostnader för dataåtkomst**: Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data i den låg frekventa och Arkiv lag rings nivån debiteras du en åtkomst avgift per Gigabyte för läsningar.
 
 * **Transaktionskostnader**: Du debiteras en kostnad per transaktion för alla nivåer som ökar när nivån blir mer lågfrekvent.
 
@@ -87,24 +87,24 @@ För alla lagringskonton används en prissättningsmodell för bloblagring som b
 
 * **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
 
-* **Ändra lagringsåtkomstnivån:** Om du ändrar åtkomstnivån för kontolagring från sval till frekvent medför en avgift som är lika med att läsa alla data som finns i lagringskontot. Men om du ändrar kontoåtkomstnivån från frekvent till lågfrekvent medför en avgift som är lika med att skriva alla data till den coola nivån (endast GPv2-konton).
+* **Ändra lagrings åtkomst nivån**: om du ändrar åtkomst nivån för konto lagring från låg frekvent till frekvent tillkommer en avgift som motsvarar att läsa alla data som finns i lagrings kontot. Att ändra kontots åtkomst nivå från frekvent till låg frekvent innebär dock en avgift som motsvarar skrivning av alla data till den låg frekventa nivån (endast GPv2-konton).
 
 > [!NOTE]
 > Mer information om prissättningen för lagringskonton finns på sidan [Pris för Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-### <a name="estimate-costs-for-your-current-usage-patterns"></a>Uppskatta kostnader för dina aktuella användningsmönster
+### <a name="estimate-costs-for-your-current-usage-patterns"></a>Beräkna kostnader för dina aktuella användnings mönster
 
-Om du vill uppskatta kostnaden för att lagra och komma åt blob-data i ett allmänt v2-lagringskonto på en viss nivå utvärderar du ditt befintliga användningsmönster eller approximerar ditt förväntade användningsmönster. Vanligtvis vill du veta:
+För att beräkna kostnaden för att lagra och komma åt BLOB-data i ett allmänt lagrings konto i en viss nivå, ska du utvärdera ditt befintliga användnings mönster eller approximera ditt förväntade användnings mönster. Vanligtvis vill du veta:
 
-* Din Blob lagringsförbrukning, i gigabyte, inklusive:
+* Din användning av Blob Storage, i gigabyte, inklusive:
   * Hur mycket data lagras i lagringskontot?
   * Hur ändras datavolymen på månadsbasis; ersätter nya data ständigt gamla data?
 
-* Det primära åtkomstmönstret för blob-lagringsdata, inklusive:
-  * Hur mycket data läss från och skrivs till lagringskontot?
-  * Hur många läsåtgärder jämfört med skrivåtgärder inträffar på data i lagringskontot?
+* Det primära åtkomst mönstret för dina Blob Storage-data, inklusive:
+  * Hur mycket data läses från och skrivs till lagrings kontot?
+  * Hur många Läs åtgärder och skriv åtgärder sker på data i lagrings kontot?
 
-Om du vill bestämma den bästa åtkomstnivån för dina behov kan det vara bra att bestämma din blob-datakapacitet och hur dessa data används. Detta kan bäst göras genom att titta på övervakningsmått för ditt konto.
+För att avgöra den bästa åtkomst nivån för dina behov kan det vara bra att fastställa din BLOB-datakapacitet och hur dessa data används. Detta gör du genom att titta på övervaknings måtten för ditt konto.
 
 ### <a name="monitoring-existing-storage-accounts"></a>Övervaka befintliga lagringskonton
 
@@ -116,7 +116,7 @@ Mer information finns i [Om mätvärden i Storage Analytics](https://msdn.micros
 > Blob Storage-konton exponerar endast tabelltjänstens slutpunkt för att lagra och komma åt mätvärden för det aktuella kontot.
 
 Om du vill övervaka lagringsanvändningen för Blob Storage måste du aktivera kapacitetsmåtten.
-Med detta aktiverat registreras kapacitetsdata dagligen för ett lagringskontos Blob-tjänst och registreras som en tabellpost som skrivs till *$MetricsCapacityBlob* tabellen i samma lagringskonto.
+Med detta aktiverat registreras kapacitets data dagligen för ett lagrings kontos Blob Service och registreras som en tabell post som skrivs till *$MetricsCapacityBlobs* tabellen i samma lagrings konto.
 
 Om du vill övervaka dataåtkomstmönstren för Blob Storage måste du aktivera transaktionsmått för varje timme från API:et. Med transaktionsmått för varje timme aktiverat aggregeras transaktioner för varje API varje timme, och registreras som en tabellpost som skrivs till tabellen *$MetricsHourPrimaryTransactionsBlob* i samma lagringskonto. Tabellen *$MetricsHourSecondaryTransactionsBlob* registrerar transaktionerna till den sekundära slutpunkten när du använder RA-GRS-lagringskonton.
 
@@ -125,14 +125,14 @@ Om du vill övervaka dataåtkomstmönstren för Blob Storage måste du aktivera 
 
 För att få en bra uppskattning av din dataförbrukning och ditt åtkomstmönster rekommenderar vi att du väljer en kvarhållningsperiod för mätvärden som är representativ för din normala användning, och att du utgår därifrån. Ett alternativ är att spara mätvärdena i sju dagar och samla in data varje vecka, för att sedan analysera dessa data i slutet av månaden. Ett annat alternativ är att spara mätvärden i 30 dagar och samla in och analysera dessa data i slutet av 30-dagarsperioden.
 
-Mer information om hur du aktiverar, samlar in och visar mätvärden finns i [Mätvärden för lagringsanalys](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Mer information om hur du aktiverar, samlar in och visar mått data finns i [Storage Analytics-mått](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Lagring, åtkomst och hämtning av analysdata debiteras på samma sätt som vanliga användardata.
 
 ### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Beräkna kostnader med hjälp av användningsmått
 
-#### <a name="capacity-costs"></a>Kapacitetskostnader
+#### <a name="capacity-costs"></a>Kapacitets kostnader
 
 Den senaste posten i kapacitetsmåttstabellen *$MetricsCapacityBlob* med radnyckeln *'data'* visar lagringskapacitet som förbrukats av användardata. Den senaste posten i kapacitetsmåttstabellen *$MetricsCapacityBlob* med radnyckeln *'analytics'* visar lagringskapaciteten som förbrukats av analysloggarna.
 
@@ -163,7 +163,7 @@ För att kunna beräkna kostnaderna för dataåtkomst för Blob Storage-konton m
 När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöverföring med geo-replikering för Blob Storage-konton också beräknas baserat på uppskattningen av mängden data som skrivits.
 
 > [!NOTE]
-> För ett mer detaljerat exempel om beräkning av kostnaderna för att använda den heta eller svala lagringsåtkomstnivån, ta en titt på FAQ med titeln *"Vad är hot och cool åtkomstnivåer och hur ska jag avgöra vilken som ska användas?"* på [Azure Storage-prissidan](https://azure.microsoft.com/pricing/details/storage/).
+> Ett mer detaljerat exempel på hur du beräknar kostnader för att använda frekvent eller låg frekvent åtkomst nivå finns i avsnittet med vanliga frågor och svar *"Vad är frekventa och frekventa åtkomst nivåer och hur ska jag avgöra vilken av dem som ska användas?"* på [Azure Storage-prissidan](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Nästa steg
 

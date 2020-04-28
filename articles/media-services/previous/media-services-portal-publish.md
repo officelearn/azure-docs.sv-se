@@ -1,6 +1,6 @@
 ---
-title: Publicera innehåll i Azure-portalen | Microsoft-dokument
-description: Den här självstudien går igenom stegen för att publicera ditt innehåll i Azure-portalen.
+title: Publicera innehåll i Azure Portal | Microsoft Docs
+description: Den här självstudien vägleder dig genom stegen för att publicera ditt innehåll i Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 5f242018abfb15cea1b76cbcaad00942ec25d78d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69015066"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176829"
 ---
-# <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure-portalen  
+# <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure Portal  
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-publish.md)
+> * [Portalen](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [Resten](media-services-rest-deliver-streaming-content.md)
+> * [REST](media-services-rest-deliver-streaming-content.md)
 > 
 > 
 
 ## <a name="overview"></a>Översikt
 > [!NOTE]
-> Du behöver ett Azure-konto för att genomföra kursen. Mer information finns i [Kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)av Azure . 
+> Du behöver ett Azure-konto för att genomföra kursen. Mer information finns i [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-För att ge användaren en URL som kan användas för att strömma eller hämta innehållet måste du först publicera tillgången genom att skapa en lokaliserare. Positionerare ger åtkomst till tillgångsfiler. Azure Media Services stöder två typer av lokaliserare: 
+För att ge användaren en URL som kan användas för att strömma eller hämta innehållet måste du först publicera tillgången genom att skapa en lokaliserare. Lokaliserare ger åtkomst till till gångs filer. Azure Media Services stöder två typer av lokaliserare: 
 
-* **Strömningslokaliserare (OnDemandOrigin)**. Strömningslokaliserare används för anpassad strömning. Exempel på adaptiv streaming är Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och Dynamic Adaptive Streaming over HTTP (DASH, även kallad MPEG-DASH). Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. Till exempel http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Strömningslokaliserare (OnDemandOrigin)**. Strömningslokaliserare används för anpassad strömning. Exempel på anpassningsbar direkt uppspelning inkluderar Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och dynamisk adaptiv strömning via HTTP (streck, kallas även MPEG-streck). Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. Till exempel `http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest`.
 * **Progressiv lokaliserare (signatur för delad åtkomst)**. Progressiva lokaliserare används för att leverera video via progressiv nedladdning.
 
-Om du vill skapa en HLS-url för direktuppspelning lägger du till *(format=m3u8-aapl)* i webbadressen:
+Om du vill bygga en HLS streaming-URL lägger du till *(format = M3U8-AAPL)* till URL: en:
 
     {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
@@ -56,21 +56,21 @@ En URL för signatur för delad åtkomst har följande format:
 
     {blob container name}/{asset name}/{file name}/{shared access signature}
 
-Mer information finns i [översikten över leverera innehåll](media-services-deliver-content-overview.md).
+Mer information finns i [Översikt över att leverera innehåll](media-services-deliver-content-overview.md).
 
 > [!NOTE]
 > Lokaliserare som har skapats i Azure-portalen före mars 2015 har ett utgångsdatum på två år.  
 > 
 > 
 
-Om du vill uppdatera ett utgångsdatum för en positionerare kan du använda ett [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) eller ett [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Om du vill uppdatera ett förfallo datum på en positionerare kan du använda en [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) eller ett [.NET-API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > URL:en ändras när du uppdaterar utgångsdatumet för en SAS-lokaliserare.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Använda portalen för att publicera en tillgång
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
-2. Välj **Inställningars** > **tillgångar**. Välj den tillgång som du vill publicera.
+2. Välj **Inställningar** > **till gångar**. Välj den tillgång som du vill publicera.
 3. Välj sedan knappen **Publicera**.
 4. Välj typ av lokaliserare.
 5. Välj **Lägg till**.
@@ -90,7 +90,7 @@ Vissa förutsättningar gäller:
 
 * Kontrollera att videon har publicerats.
 * Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](https://aka.ms/azuremediaplayer).
-* Slutpunkten för direktuppspelning som du strömmar från måste köras från.  
+* Den strömnings slut punkt som du strömmar från måste köras.  
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

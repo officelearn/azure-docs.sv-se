@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 329692c7220810af1d47fe7036e727bb49284810
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117292"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187774"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -629,7 +629,7 @@ Listan över alias växer alltid. Använd någon av följande metoder för att t
 
   Använd [Azure policy-tillägget för Visual Studio Code](../how-to/extension-for-vscode.md) för att visa och identifiera alias för resurs egenskaper.
 
-  ![Azure Policy tillägg för Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy tillägg för Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 

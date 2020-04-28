@@ -5,20 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 2249dde8578dcd5cc3444aeef6b51c8afb2f31fa
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160604"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190341"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
 Du har publicerat på Marketplace och nu vill du se att ditt erbjudande lyckas. Vi ger dig fördelarna – försäljning, teknik och marknadsföring – du behöver påskynda ditt erbjudande.
 
-När du är live med ditt erbjudande kommer marknads avdelningen för marknads avdelningen att lanseras för att börja arbeta med dig med dina berättigade förmåner. Förmåner för Marketplace-förmåner periodiseras baserat på ditt handels marknads engagemang och försäljning. Desto mer du tar, desto mer du får tillbaka.
+När ditt erbjudande är aktivt på Azure Marketplace eller AppSource går du till [partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) för att få åtkomst till och aktivera din berättigade marknadsföring, försäljning och tekniska förmåner. Förmåner för Marketplace-förmåner periodiseras baserat på ditt handels marknads engagemang och försäljning. Desto mer du tar, desto mer du får tillbaka.
 
 ## <a name="marketplace-rewards"></a>Marknads förmåner
 
@@ -41,7 +41,19 @@ Detaljerade beskrivningar av alla program förmåner finns i [program däcket Ma
 Dina steg för att komma igång är enkla:
 
 1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
-2. Teamet når ut till "ägare" eller "primär kontakt" per Marketplace-erbjudande. Det är en bra idé att ange antingen en individ eller ett alias som du kontrollerar regelbundet: meddelanden som skickas till alias, info@company.com till exempel ofta blir förlorade.
+2. Gå till [instrument panelen](https://partner.microsoft.com/dashboard/directory)för partner Center och välj fliken **försäljning och marknadsföring** på Marketplace-förmåner för att se din lista över förmåner.
+3. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljnings kommunikation om dina marknads förmåner.
+4. Om du vill lägga till eller uppdatera din marknadsförings kontakt information går du till början av fliken försäljnings-och marknadsförings förmåner på Marketplace-förmåner och väljer sedan **Lägg till, uppdatera eller ändra**.  Gör därefter något av följande:
+
+    1. Välj en användare i listan. Om den användare som du vill tilldela inte finns i listan kan du lägga till nya användare i **konto inställningar**.
+    1. Ange en e-postadress för den användare som skiljer sig från den e-postadress som är kopplad till ditt företags Partner Center-konto. Vi kommer att få anvisningar om hur du använder din marknads plats förmåner för din utsedda marknadsförings kontakts e-postadress.
+    1. Ange kontakt telefon och språk för den här marknadsförings kontakten. När du har angett den här informationen väljer du **tilldela användare**.
+    1. När du har uppdaterat marknadsförings kontakten väljer du **Aktivera** för den förmån som du vill börja använda. När du aktiverar en förmån kommer din marknadsförings kontakt att kontaktas av en medlem i gruppen förmåner inom en vecka.
+
+**Tekniska fördelar**
+
+1. Du kan använda din tekniska fördel för att begära teknisk support under försäljnings-, design-, distributions-och app Development-faserna i dina moln-och hybrid lösningar. Om du vill be om hjälp fyller du i formuläret för begäran och väljer **skicka begäran**.
+2. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
 
 >[!Note]
 >Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått något meddelande, kan du kontrol lera i din organisation vem som är ägare till erbjudandet i fråga, genom att titta i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende i [Hjälp och support](https://partner.microsoft.com/support/v2/?stage=1).

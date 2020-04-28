@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbfd0e36307210851070c22e74acb0a858446ce1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74227404"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866706"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Support för OpenAPI 2.0-metadata i Azure Functions (förhandsversion)
 OpenAPI 2.0 (tidigare Swagger) metadata stöd i Azure Functions är en förhandsgranskningsfunktion som du kan använda för att skriva en OpenAPI 2.0 definition i en funktionsapp. Du kan sedan vara värd för filen med hjälp av funktionsappen.
@@ -60,7 +60,7 @@ Följande tabell representerar Azure-portalinställningarna och motsvarande data
 > [!NOTE]
 > Tillägget x-ms-sammanfattning innehåller ett visningsnamn i Logic Apps, PowerApps och Flow.
 >
-> Mer information finns i [Anpassa swagger-definitionen för PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> Mer information finns i [Anpassa swagger-definitionen för PowerApps](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions).
 
 ## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>Använda CI/CD för att ange en API-definition
 

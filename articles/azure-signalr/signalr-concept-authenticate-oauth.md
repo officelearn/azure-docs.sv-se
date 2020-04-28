@@ -1,17 +1,17 @@
 ---
-title: Guide för autentisering av Azure SignalR-tjänstklienter
-description: Lär dig hur du implementerar din egen autentisering och integrerar den med Azure SignalR-tjänsten genom att följa e2e-exemplet.
+title: Guide för autentisering av Azure SignalR service-klienter
+description: Lär dig hur du implementerar din egen autentisering och integrerar den med Azure SignalR service genom att följa E2E-exemplet.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5608d71c4a91c9b46b8ed7de13c9d4c06a3f195f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74158275"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194609"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -31,7 +31,7 @@ Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub
 
 ![OAuth finns i Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera en ny OAuth-app med ditt GitHub-konto
@@ -54,7 +54,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 1. Öppna en webbläsare och gå till `https://github.com` och logga in på ditt konto.
 
-2. För ditt konto navigerar du till **Inställningar** > **För utvecklarinställningar** och klickar på **Registrera ett nytt program**eller En ny **OAuth-app** under *OAuth Apps*.
+2. För ditt konto går du till **Inställningar inställningar** > för**utvecklare** och klickar på **Registrera ett nytt program**eller **ny OAuth-app** under OAuth- *appar*.
 
 3. Använd följande inställningar för den nya OAuth-appen och klicka sedan på **Registrera program**:
 
@@ -377,7 +377,7 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här avsnittet använder du AZURE command-line interface (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
+I det här avsnittet ska du använda Azures kommando rads gränssnitt (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som är värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
 
 I stegen i det här avsnittet används tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr*-tillägget för Azure CLI:
 
@@ -539,14 +539,14 @@ För att distribuera din kod utför du följande kommandon i ett Git-gränssnitt
 
 Det sista du behöver göra är att uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** för GitHub OAuth-appen för att peka på den nya värdbaserade appen.
 
-1. Öppna [https://github.com](https://github.com) i en webbläsare och navigera till kontots **inställningar** > **För utvecklarinställningar** > **Oauth Apps**.
+1. Öppna [https://github.com](https://github.com) i en webbläsare och gå till ditt kontos **Inställningar inställningar** > för**utvecklare** > **OAuth Apps**.
 
 2. Klicka på autentiseringsappen och uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** som det visas nedan:
 
     | Inställning | Exempel |
     | ------- | ------- |
-    | Hemsides-URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
-    | URL-adress för återanrop av auktorisering | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
+    | Hemsides-URL | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
+    | URL-adress för återanrop av auktorisering | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |
 
 3. Gå till webbappens URL och testa programmet.
 

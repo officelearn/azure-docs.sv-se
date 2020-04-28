@@ -1,88 +1,88 @@
 ---
-title: Felsöka dataflöden
-description: Lär dig hur du felsöker problem med dataflödet i Azure Data Factory.
+title: Felsöka data flöden
+description: Lär dig hur du felsöker data flödes problem i Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/02/2020
-ms.openlocfilehash: e9e9b10cc9bae029fe11fb2bd1f8b76cf120744a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/27/2020
+ms.openlocfilehash: c9ac8d7ea465a26d29bf8f8fbc15dcefaf9d7575
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417818"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187287"
 ---
-# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Felsöka dataflöden i Azure Data Factory
+# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Felsöka data flöden i Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här artikeln beskrivs vanliga felsökningsmetoder för dataflöden i Azure Data Factory.
+Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Vanliga fel och meddelanden
 
-### <a name="error-code-df-executor-sourceinvalidpayload"></a>Felkod: DF-Executor-SourceInvalidPayload
-- **Meddelande**: Dataförhandsgranskning, felsökning och körning av pipeline-dataflöde misslyckades eftersom behållaren inte finns
-- **Orsaker**: När datauppsättningen innehåller en behållare som inte finns i lagringen
-- **Rekommendation**: Kontrollera att behållaren som refereras i datauppsättningen finns eller är tillgänglig.
+### <a name="error-code-df-executor-sourceinvalidpayload"></a>Felkod: DF-utförar-SourceInvalidPayload
+- **Meddelande**: det gick inte att köra data flöde för förhands granskning, fel sökning och pipeline-data flöde eftersom behållaren inte finns
+- **Orsaker**: när data uppsättningen innehåller en behållare som inte finns i lagringen
+- **Rekommendation**: kontrol lera att den behållare som refereras till i data uppsättningen finns eller är tillgänglig.
 
-### <a name="error-code-df-executor-systemimplicitcartesian"></a>Felkod: DF-Executor-SystemImplicitCartesian
+### <a name="error-code-df-executor-systemimplicitcartesian"></a>Felkod: DF-utförar-SystemImplicitCartesian
 
-- **Meddelande**: Implicit cartesian produkt för INNER-koppling stöds inte, använd CROSS JOIN istället. Kolumner som används i kopplingen bör skapa en unik nyckel för rader.
-- **Orsaker**: Implicit cartesian produkt för INNER koppling mellan logiska planer stöds inte. Om kolumnerna som används i kopplingen skapar den unika nyckeln krävs minst en kolumn från båda sidor av relationen.
-- **Rekommendation:** För icke-jämställdhetsbaserade kopplingar måste du välja ANPASSAD CROSS JOIN.
+- **Meddelande**: implicit kartesiska-produkt för inre koppling stöds inte, Använd kors koppling i stället. Kolumner som används i Join ska skapa en unik nyckel för rader.
+- **Orsaker**: implicit kartesiska-produkt för inre koppling mellan logiska planer stöds inte. Om de kolumner som används i kopplingen skapar den unika nyckeln, krävs minst en kolumn från båda sidor i relationen.
+- **Rekommendation**: för icke-jämlikhetbaserade kopplingar måste du välja anpassad kors koppling.
 
-### <a name="error-code-df-executor-systeminvalidjson"></a>Felkod: DF-Executor-SystemInvalidJson
+### <a name="error-code-df-executor-systeminvalidjson"></a>Felkod: DF-utförar-SystemInvalidJson
 
-- **Meddelande**: JSON-tolkningsfel, kodning utan stöd eller flerradslinje
-- **Orsaker:** Möjliga problem med JSON-filen: kodning utan stöd, skadade byte eller användning av JSON-källa som ett enda dokument på många kapslade linjer
-- **Rekommendation**: Kontrollera att JSON-filens kodning stöds. Expandera JSON-inställningar i källomvandlingen som använder en JSON-datauppsättning och aktivera "Ett enda dokument".
+- **Meddelande**: JSON-parsningsfel, kodning eller Multiline stöds inte
+- **Orsaker**: möjliga problem med JSON-filen: kodning som inte stöds, skadade byte eller med JSON-källa som enskilt dokument på flera kapslade rader
+- **Rekommendation**: kontrol lera att JSON-filens kodning stöds. På den käll omvandling som använder en JSON-datauppsättning expanderar du JSON-inställningar och aktiverar ett enskilt dokument.
  
-### <a name="error-code-df-executor-broadcasttimeout"></a>Felkod: DF-Executor-BroadcastTimeout
+### <a name="error-code-df-executor-broadcasttimeout"></a>Felkod: DF-utförar-BroadcastTimeout
 
-- **Meddelande:** Broadcast join timeout-fel, se till att broadcast-strömmen producerar data inom 60 sekunder i felsökningskörningar och 300 sekunder i jobbkörningar
-- **Orsaker:** Sändningen har en standardtidsgränsen på 60 sekunder i felsökningskörningar och 300 sekunder i jobbkörningar. Stream som valts för sändning verkar vara för stor för att producera data inom den här gränsen.
-- **Rekommendation**: Undvik att sända stora dataströmmar där bearbetningen kan ta mer än 60 sekunder. Välj en mindre ström som ska sändas i stället. Stora SQL/DW-tabeller och källfiler är vanligtvis felaktiga kandidater.
+- **Meddelande**: timeout-fel vid sändnings anslutning, kontrol lera att sändnings strömmen genererar data inom 60 sekunder i fel söknings körningar och 300 sekunder i jobb körningar
+- **Orsaker**: sändningen har en standard tids gräns på 60 sekunder i fel söknings körningar och 300 sekunder i jobb körningarna. Den data ström som valts för sändning verkar vara stor för att producera data inom den här gränsen.
+- **Rekommendation**: kontrol lera att fliken optimera finns i dina data flödes omvandlingar för Join, exists och lookup. Standard alternativet för sändning är "Auto". Om detta är inställt, eller om du anger att den vänstra eller högra sidan ska sändas manuellt under "fast", kan du antingen ange en större Azure Integration Runtime-konfiguration eller stänga av sändningen. Den rekommenderade metoden för bästa prestanda i data flöden är att tillåta Spark att sända med "Auto" och använda ett Minnesoptimerade Azure IR.
 
-### <a name="error-code-df-executor-conversion"></a>Felkod: DF-executor-konvertering
+### <a name="error-code-df-executor-conversion"></a>Felkod: DF-utförar-Conversion
 
-- **Meddelande**: Konvertering till ett datum eller en tid misslyckades på grund av ett ogiltigt tecken
-- **Orsaker:** Data är inte i det förväntade formatet
+- **Meddelande**: det gick inte att konvertera till ett datum eller en tid på grund av ett ogiltigt Character
+- **Orsaker**: data har inte förväntat format
 - **Rekommendation**: Använd rätt datatyp
 
-### <a name="error-code-df-executor-invalidcolumn"></a>Felkod: DF-Executor-InvalidColumn
+### <a name="error-code-df-executor-invalidcolumn"></a>Felkod: DF-utförar-InvalidColumn
 
-- **Meddelande**: Kolumnnamn måste anges i frågan, ange ett alias om du använder en SQL-funktion
-- **Orsaker**: Inget kolumnnamn har angetts
-- **Rekommendation**: Ange ett alias om du använder en SQL-funktion som min()/max(), etc.
+- **Meddelande**: kolumn namnet måste anges i frågan, ange ett alias om du använder en SQL-funktion
+- **Orsaker**: inget kolumn namn har angetts
+- **Rekommendation**: Ange ett alias om du använder en SQL-funktion som min ()/max () osv.
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Felkod: GetCommand OutputAsync misslyckades
 
-- **Meddelande:** Under dataflöde felsökning och data förhandsvisning: GetCommand OutputAsync misslyckades med ...
-- **Orsaker**: Detta är ett backend-tjänstfel. Du kan försöka igen och även starta om felsökningssessionen.
-- **Rekommendation:** Om ett nytt försök och omstart inte löser problemet kontaktar du kundtjänst.
+- **Meddelande**: vid fel sökning av data flöde och data förhands granskning: GetCommand OutputAsync misslyckades med...
+- **Orsaker**: det här är ett fel i backend-tjänsten. Du kan försöka igen och starta om din felsökningssession.
+- **Rekommendation**: om försök igen och omstart inte löser problemet kontaktar du kund support.
 
-### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Felkod: Träff oväntat undantag och körning misslyckades
+### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Felkod: ett oväntat undantag och körning misslyckades
 
-- **Meddelande**: Under körning av dataflödesaktivitet: Träff oväntat undantag och körning misslyckades.
-- **Orsaker**: Detta är ett backend-tjänstfel. Du kan försöka igen och även starta om felsökningssessionen.
-- **Rekommendation:** Om ett nytt försök och omstart inte löser problemet kontaktar du kundtjänst.
+- **Meddelande**: vid körning av data flödes aktivitet: det gick inte att köra ett oväntat undantag och körnings fel.
+- **Orsaker**: det här är ett fel i backend-tjänsten. Du kan försöka igen och starta om din felsökningssession.
+- **Rekommendation**: om försök igen och omstart inte löser problemet kontaktar du kund support.
 
-## <a name="general-troubleshooting-guidance"></a>Allmän felsökningsvägledning
+## <a name="general-troubleshooting-guidance"></a>Allmän fel söknings vägledning
 
-1. Kontrollera status för dina datauppsättningsanslutningar. I varje käll- och sink-omvandling besöker du den länkade tjänsten för varje datauppsättning som du använder och testar anslutningar.
-1. Kontrollera status för fil- och tabellanslutningarna från dataflödesdesignern. Aktivera Felsökning och klicka på Förhandsgranskning av data på källomvandlingarna för att säkerställa att du kan komma åt dina data.
-1. Om allt ser bra ut från förhandsgranskning av data går du till Pipeline-designern och placerar dataflödet i en pipeline-aktivitet. Felsök pipelinen för ett end-to-end-test.
+1. Kontrol lera statusen för dina data uppsättnings anslutningar. I varje käll-och mottagar omvandling kan du gå till den länkade tjänsten för varje data uppsättning som du använder och testa anslutningarna.
+1. Kontrol lera status för dina fil-och tabell anslutningar från data flödes designern. Växla vid fel sökning och klicka på Förhandsgranska data på käll omvandlingarna för att säkerställa att du kan komma åt dina data.
+1. Om allt ser bra ut från data förhands granskningen, går du till pipeline-designern och sätter ditt data flöde i en pipeline-aktivitet. Felsök pipelinen för ett slut punkt till slut punkts test.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer felsökningshjälp finns i följande resurser:
+Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 *  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Begäran om datafabriksfunktion](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
-*  [Stack Spill forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information om Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [ADF-mappning av dataflöden Prestandaguide](concepts-data-flow-performance.md)
+*  [Stack Overflow forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Twitter-information om Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [Prestanda guide för ADF-mappning av data flöden](concepts-data-flow-performance.md)

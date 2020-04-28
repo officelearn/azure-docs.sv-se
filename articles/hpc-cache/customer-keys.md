@@ -1,24 +1,24 @@
 ---
-title: Använda kundbedömda nycklar för att kryptera data i Azure HPC-cache
-description: Så här använder du Azure Key Vault med Azure HPC-cache för att styra åtkomsten till krypteringsnyckel i stället för att använda standardkrypteringsnycklarna för Microsoft
+title: Använd kund-hanterade nycklar för att kryptera data i Azure HPC-cache
+description: Använda Azure Key Vault med Azure HPC cache för att kontrol lera åtkomsten till krypterings nycklar i stället för att använda Microsoft-hanterade standard krypterings nycklar
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: a31979763dd1ab5d8f289deef0e30cce27bb0df4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f8a8b8dfedd9c4ac0590dc91e5cdced50d2be6ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538874"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195085"
 ---
-# <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Använda kundhanterade krypteringsnycklar för Azure HPC-cache
+# <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Använd kund hanterade krypterings nycklar för Azure HPC cache
 
-Du kan använda Azure Key Vault för att styra ägarskapet av de nycklar som används för att kryptera dina data i Azure HPC-cache. I den här artikeln beskrivs hur du använder kundhanterade nycklar för cachedatakryptering.
+Du kan använda Azure Key Vault för att kontrol lera ägarskapet för de nycklar som används för att kryptera dina data i Azure HPC-cache. Den här artikeln förklarar hur du använder Kundhanterade nycklar för kryptering av cache-data.
 
 > [!NOTE]
-> Alla data som lagras i Azure, även på cachediskarna, krypteras i vila med Microsoft-hanterade nycklar som standard. Du behöver bara följa stegen i den här artikeln om du vill hantera nycklarna som används för att kryptera dina data.
+> Alla data som lagras i Azure, inklusive på cache-diskarna, krypteras i vila med hjälp av Microsoft-hanterade nycklar som standard. Du behöver bara följa stegen i den här artikeln om du vill hantera nycklarna som används för att kryptera dina data.
 
 Den här funktionen är endast tillgänglig i dessa Azure-regioner:
 
@@ -26,125 +26,130 @@ Den här funktionen är endast tillgänglig i dessa Azure-regioner:
 * USA, södra centrala
 * USA, västra 2
 
-Det finns tre steg för att aktivera kundhanterad nyckelkryptering för Azure HPC-cache:
+Det finns tre steg för att aktivera kundhanterad nyckel kryptering för Azure HPC cache:
 
-1. Konfigurera ett Azure Key Vault för att lagra nycklarna.
-1. När du skapar Azure HPC-cachen väljer du kundhanterad nyckelkryptering och anger nyckelvalvet och nyckeln som ska användas.
-1. När cacheminnet har skapats auktoriserar du den för att komma åt nyckelvalvet.
+1. Konfigurera en Azure Key Vault för att lagra nycklarna.
+1. När du skapar Azure HPC-cachen väljer du kund hanterad nyckel kryptering och anger nyckel valvet och nyckeln som ska användas.
+1. När cachen har skapats kan du ge den åtkomst till nyckel valvet.
 
-Kryptering är inte helt konfigurerad förrän du har auktoriserat den från den nyskapade cachen (steg 3). Detta beror på att du måste skicka cachens identitet till nyckelvalvet för att göra den till en behörig användare. Du kan inte göra detta innan du skapar cacheminnet, eftersom identiteten inte finns förrän cacheminnet har skapats.
+Krypteringen är inte helt konfigurerad förrän du har auktoriserat den från det nyligen skapade cacheminnet (steg 3). Detta beror på att du måste skicka cachens identitet till nyckel valvet för att göra den till en auktoriserad användare. Du kan inte göra detta innan du skapar cachen, eftersom identiteten inte finns förrän cachen har skapats.
 
-När du har skapat cacheminnet kan du inte ändra mellan kundhanterade nycklar och Microsoft-hanterade nycklar. Men om cacheminnet använder kundhanterade nycklar kan du [ändra](#update-key-settings) krypteringsnyckeln, nyckelversionen och nyckelvalvet efter behov.
+När du har skapat cacheminnet kan du inte ändra mellan Kundhanterade nycklar och Microsoft-hanterade nycklar. Om din cache använder Kundhanterade nycklar kan du dock [ändra](#update-key-settings) krypterings nyckeln, nyckel versionen och nyckel valvet efter behov.
 
-## <a name="understand-key-vault-and-key-requirements"></a>Förstå viktiga valv och viktiga krav
+## <a name="understand-key-vault-and-key-requirements"></a>Förstå nyckel valv och nyckel krav
 
-Nyckelvalvet och nyckeln måste uppfylla dessa krav för att arbeta med Azure HPC-cache.
+Nyckel valvet och nyckeln måste uppfylla dessa krav för att fungera med Azure HPC-cache.
 
-Egenskaper för nyckelvalv:
+Egenskaper för nyckel valv:
 
-* **Prenumeration** - Använd samma prenumeration som används för cachen.
-* **Region** - Nyckelvalvet måste finnas i samma region som Azure HPC-cachen.
-* **Prisnivå** - Standardnivån är tillräcklig för användning med Azure HPC-cache.
-* **Mjuk borttagning** - Azure HPC-cache aktiverar mjuk borttagning om den inte redan är konfigurerad i nyckelvalvet.
-* **Rensa skydd** - Rensningsskydd måste aktiveras.
-* **Åtkomstprincip** - Standardinställningarna är tillräckliga.
-* **Nätverksanslutning** – Azure HPC-cache måste kunna komma åt nyckelvalvet oavsett vilka slutpunktsinställningar du väljer.
+* **Prenumeration** – Använd samma prenumeration som används för cacheminnet.
+* **Region** – nyckel valvet måste finnas i samma region som Azure HPC-cachen.
+* **Pris nivå** – standard nivån är tillräcklig för användning med Azure HPC cache.
+* **Mjuk borttagning** – Azure HPC cache aktiverar mjuk borttagning om det inte redan har kon figurer ATS i nyckel valvet.
+* **Rensnings skydd** – rensnings skyddet måste vara aktiverat.
+* **Åtkomst princip** – standardinställningarna är tillräckliga.
+* **Nätverks anslutning** – Azure HPC-cache måste kunna komma åt nyckel valvet, oavsett vilka slut punkts inställningar du väljer.
 
-Viktiga egenskaper:
+Nyckel egenskaper:
 
-* **Nyckeltyp** - RSA
-* **RSA-nyckelstorlek** - 2048
-* **Aktiverad** - Ja
+* **Nyckel typ** – RSA
+* **RSA-nyckelns storlek** – 2048
+* **Aktive rad** – Ja
 
-Behörigheter för nyckelvalv:
+Åtkomst behörigheter för nyckel valv:
 
-* Användaren som skapar Azure HPC-cachen måste ha behörigheter som motsvarar [rollen Nyckelvalvsdeltagare](../role-based-access-control/built-in-roles.md#key-vault-contributor). Samma behörigheter behövs för att konfigurera och hantera Azure Key Vault.
+* Användaren som skapar Azure HPC-cachen måste ha behörigheter som motsvarar [rollen Key Vault Contributor](../role-based-access-control/built-in-roles.md#key-vault-contributor). Samma behörigheter krävs för att konfigurera och hantera Azure Key Vault.
 
-  Läs [Säker åtkomst till ett nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md) för mer information.
+  Läs [säker åtkomst till ett nyckel valv](../key-vault/key-vault-secure-your-key-vault.md) för mer information.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Konfigurera Azure Key Vault
 
-Du kan ställa in ett nyckelvalv och en nyckel innan du skapar cacheminnet eller göra det som en del av skapandet av cacheminnet. Se till att dessa resurser uppfyller de krav som beskrivs [ovan](#understand-key-vault-and-key-requirements).
+Du kan ställa in ett nyckel valv och en nyckel innan du skapar cachen eller göra det som en del av att skapa cache. Se till att resurserna uppfyller de krav som beskrivs [ovan](#understand-key-vault-and-key-requirements).
 
-När du skapar cacheminnet måste du ange ett valv, en nyckel och en nyckelversion som ska användas för cachens kryptering.
+När du skapar en cache måste du ange ett valv, en nyckel och en nyckel version som ska användas för cachens kryptering.
 
-Mer information finns i dokumentationen till [Azure Key Vault.](../key-vault/key-vault-overview.md)
+Läs [Azure Key Vault-dokumentationen](../key-vault/key-vault-overview.md) om du vill ha mer information.
 
 > [!NOTE]
 > Azure Key Vault måste använda samma prenumeration och vara i samma region som Azure HPC-cachen. Använd en av de regioner som stöds i början av den här artikeln.
 
-## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. Skapa cacheminnet med kundhanterade nycklar aktiverade
+## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. skapa cachen med Kundhanterade nycklar aktiverade
 
-Du måste ange krypteringsnyckelkällan när du skapar din Azure HPC-cache. Följ instruktionerna i [Skapa en Azure HPC-cache](hpc-cache-create.md)och ange nyckelvalvet och nyckeln på sidan **Diskkrypteringsnycklar.** Du kan skapa ett nytt nyckelvalv och nyckel när cache skapas.
+Du måste ange krypterings nyckel källan när du skapar din Azure HPC-cache. Följ instruktionerna i [skapa en Azure HPC-cache](hpc-cache-create.md)och ange nyckel valvet och nyckeln på sidan **disk krypterings nycklar** . Du kan skapa ett nytt nyckel valv och en nyckel när du skapar cacheminnet.
 
 > [!TIP]
-> Om sidan **Diskkrypteringsnycklar** inte visas kontrollerar du att cachen finns i något av de områden som stöds.
+> Om sidan **disk krypterings nycklar** inte visas kontrollerar du att cacheminnet finns i någon av de regioner som stöds.
 
-Användaren som skapar cachen måste ha privilegier som är lika med [rollen Nyckelvalvsdeltagare](../role-based-access-control/built-in-roles.md#key-vault-contributor) eller högre.
+Den användare som skapar cachen måste ha behörigheter som är lika med [rollen Key Vault deltagare](../role-based-access-control/built-in-roles.md#key-vault-contributor) eller högre.
 
-1. Klicka på knappen om du vill aktivera privathanterade nycklar. När du har ändrat den här inställningen visas inställningarna för nyckelvalvet.
+1. Klicka på knappen för att aktivera privat hanterade nycklar. När du har ändrat den här inställningen visas inställningarna för nyckel valvet.
 
-1. Klicka på **Välj ett nyckelvalv** för att öppna nyckelmarkeringssidan. Välj eller skapa nyckelvalvet och nyckeln för att kryptera data på cachens diskar.
+1. Klicka på **Välj ett nyckel valv** för att öppna sidan Val av nyckel. Välj eller skapa nyckel valvet och nyckeln för att kryptera data på den här cachens diskar.
 
-   Om ditt Azure Key Vault inte visas i listan kontrollerar du följande krav:
+   Om din Azure Key Vault inte visas i listan, kontrollerar du följande krav:
 
-   * Är cachen i samma prenumeration som nyckelvalvet?
-   * Är cacheminnet i samma region som nyckelvalvet?
-   * Finns det nätverksanslutning mellan Azure-portalen och nyckelvalvet?
+   * Är cachen i samma prenumeration som nyckel valvet?
+   * Är cachen i samma region som nyckel valvet?
+   * Finns det någon nätverks anslutning mellan Azure Portal och nyckel valvet?
 
 1. När du har valt ett valv väljer du den enskilda nyckeln från de tillgängliga alternativen eller skapar en ny nyckel. Nyckeln måste vara en 2048-bitars RSA-nyckel.
 
-1. Ange versionen för den valda nyckeln. Läs mer om versionshantering i [Azure Key Vault-dokumentationen](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
+1. Ange versionen för den valda nyckeln. Läs mer om versions hantering i [Azure Key Vault-dokumentationen](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
 
-Fortsätt med resten av specifikationerna och skapa cacheminnet enligt beskrivningen i [Skapa en Azure HPC-cache](hpc-cache-create.md).
+Fortsätt med resten av specifikationerna och skapa cachen enligt beskrivningen i [skapa en Azure HPC-cache](hpc-cache-create.md).
 
-## <a name="3-authorize-azure-key-vault-encryption-from-the-cache"></a>3. Auktorisera Azure Key Vault-kryptering från cacheminnet
+## <a name="3-authorize-azure-key-vault-encryption-from-the-cache"></a>3. auktorisera Azure Key Vault kryptering från cachen
 <!-- header is linked from create article, update if changed -->
 
-Efter några minuter visas den nya Azure HPC-cachen i din Azure-portal. Gå till sidan **Översikt** för att auktorisera den för åtkomst till ditt Azure Key Vault och aktivera kundhanterad nyckelkryptering. (Cacheminnet kan visas i resurslistan innan "distributionen pågår"-meddelandena rensas.)
+Efter några minuter visas den nya Azure HPC-cachen i din Azure Portal. Gå till **översikts** sidan för att ge den åtkomst till din Azure Key Vault och aktivera kundhanterad nyckel kryptering.
 
-Den här tvåstegsprocessen är nödvändig eftersom Azure HPC-cacheinstansen behöver en identitet för att gå till Azure Key Vault för auktorisering. Cacheidentiteten finns inte förrän stegen för den första skapelsen har slutförts.
+> [!TIP]
+> Cachen kan visas i resurs listan innan meddelandena "distributions förfallet" rensas. Kontrol lera resurs listan efter en minut eller två i stället för att vänta på ett lyckat meddelande.
+
+Den här två stegs processen är nödvändig eftersom Azure HPC-instansen behöver en identitet för att skicka till Azure Key Vault för auktorisering. Cache-identiteten finns inte förrän de första stegen för att skapa har slutförts.
 
 > [!NOTE]
-> Du måste auktorisera kryptering inom 90 minuter efter att du har skapat cacheminnet. Om du inte slutför det här steget tar cachen time out och misslyckas. En misslyckad cache måste återskapas, den kan inte åtgärdas.
+> Du måste auktorisera kryptering inom 90 minuter efter att du har skapat cacheminnet. Om du inte slutför det här steget blir cachen timeout och Miss lyckas. En misslyckad cache måste skapas på nytt, den kan inte åtgärdas.
 
-Cachen visar statusen **Väntar på nyckeln**. Klicka på knappen **Aktivera kryptering** högst upp på sidan om du vill att cachen ska få åtkomst till det angivna nyckelvalvet.
+I cachen visas statusen **väntar på nyckel**. Klicka på knappen **Aktivera kryptering** överst på sidan för att ge cachen åtkomst till det angivna nyckel valvet.
 
-![skärmbild av cacheöversiktssidan i portalen, med markering på knappen Aktivera kryptering (översta raden) och Status: Väntar på nyckel](media/waiting-for-key.png)
+![skärm bild av sidan cache-översikt i portalen med markering på knappen Aktivera kryptering (översta raden) och status: väntar på nyckel](media/waiting-for-key.png)
 
-Klicka på **Aktivera kryptering** och sedan på **ja-knappen** för att auktorisera cachen för att använda krypteringsnyckeln. Den här åtgärden möjliggör också mjuk-borttagning och rensning skydd (om inte redan aktiverat) på nyckeln valv.
+Klicka på **Aktivera kryptering** och klicka sedan på **Ja** om du vill ge cachen behörighet att använda krypterings nyckeln. Den här åtgärden aktiverar även skydd för mjuk borttagning och rensning (om det inte redan är aktiverat) i nyckel valvet.
 
-![skärmbild av cacheöversiktssidan i portalen, med ett bannermeddelande högst upp som ber användaren att aktivera kryptering genom att klicka på ja](media/enable-keyvault.png)
+![skärm bild av sidan cache-översikt i portalen med ett informations meddelande överst som ber användaren att aktivera kryptering genom att klicka på Ja](media/enable-keyvault.png)
 
-När cachebegäranden har åtkomst till nyckelvalvet kan den skapa och kryptera diskarna som lagrar cachelagrade data.
+När cachen begär åtkomst till nyckel valvet kan det skapa och kryptera diskarna som lagrar cachelagrade data.
 
-När du har auktoriserat kryptering går Azure HPC-cachen igenom ytterligare flera minuter för installation för att skapa krypterade diskar och relaterad infrastruktur.
+När du har auktoriserat krypteringen går Azure HPC-cachen igenom flera minuters installation för att skapa krypterade diskar och relaterad infrastruktur.
 
-## <a name="update-key-settings"></a>Uppdatera viktiga inställningar
+## <a name="update-key-settings"></a>Uppdatera nyckel inställningar
 
-Du kan ändra nyckelvalvet, nyckeln eller nyckelversionen för cacheminnet från Azure-portalen. Klicka på länken **Krypteringsinställningar** i cacheminnet för att öppna sidan **Inställningar för kundnyckel.** (Du kan inte ändra en cache mellan kundhanterade nycklar och systemhanterade nycklar.)
+Du kan ändra nyckel valvet, nyckeln eller nyckel versionen för din cache från Azure Portal. Klicka på länken cache- **krypterings** inställningar för att öppna sidan **kund nyckel inställningar** .
 
-![skärmbild av sidan "Inställningar för kundnycklar" som nås genom att klicka på Inställningar > Kryptering från cachesidan i Azure-portalen](media/change-key-click.png)
+Du kan inte ändra en cache mellan Kundhanterade nycklar och systemhanterade nycklar.
 
-Klicka på länken **Ändra nyckel** och sedan på **Ändra nyckelvalv, nyckel eller version** för att öppna nyckelväljaren.
+![skärm bild av sidan Inställningar för kund nycklar som nås genom att klicka på Inställningar > kryptering på sidan cache i Azure Portal](media/change-key-click.png)
 
-![skärmbild av sidan "Välj nyckel från Azure Key Vault" med tre listruta för att välja nyckelvalv, nyckel och version](media/select-new-key.png)
+Klicka på länken **ändra nyckel** och klicka sedan på **ändra nyckel valvet, nyckeln eller versionen** för att öppna nyckel väljaren.
 
-Nyckelvalv i samma prenumeration och samma region som den här cachen visas i listan.
+![skärm bild av sidan "Välj nyckel från Azure Key Vault" med tre List rutor som du väljer Key Vault, nyckel och version](media/select-new-key.png)
 
-När du har valt de nya krypteringsnyckelvärdena klickar du på **Välj**. En bekräftelsesida visas med de nya värdena. Klicka på **Spara** om du vill slutföra markeringen.
+Nyckel valv i samma prenumeration och samma region som denna cache visas i listan.
 
-![skärmbild av bekräftelsesida med knappen Spara längst upp till vänster](media/save-key-settings.png)
+När du har valt de nya krypterings nyckel värden klickar du på **Välj**. En bekräftelse sida visas med de nya värdena. Klicka på **Spara** för att slutföra valet.
 
-## <a name="read-more-about-customer-managed-keys-in-azure"></a>Läs mer om kundhanterade nycklar i Azure
+![skärm bild av sidan bekräftelse med knappen Spara längst upp till vänster](media/save-key-settings.png)
 
-I de här artiklarna beskrivs mer om hur du använder Azure Key Vault och kundhanterade nycklar för att kryptera data i Azure:
+## <a name="read-more-about-customer-managed-keys-in-azure"></a>Läs mer om Kundhanterade nycklar i Azure
 
-* [Översikt över Azure-lagringskryptering](../storage/common/storage-service-encryption.md)
-* [Diskkryptering med kundhanterade nycklar](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) - Dokumentation för användning av Azure Key Vault och hanterade diskar, som liknar den process som används med Azure HPC-cache
+De här artiklarna förklarar mer om hur du använder Azure Key Vault och Kundhanterade nycklar för att kryptera data i Azure:
+
+* [Översikt över Azure Storage-kryptering](../storage/common/storage-service-encryption.md)
+* [Disk kryptering med Kundhanterade nycklar](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) – dokumentation för att använda Azure Key Vault med hanterade diskar, vilket är ett liknande scenario för Azure HPC-cache
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat Azure HPC-cachen och auktoriserad Key Vault-baserad kryptering fortsätter du att konfigurera cacheminnet genom att ge den åtkomst till dina datakällor.
+När du har skapat Azure HPC cache och auktoriserad Key Vault-baserad kryptering fortsätter du att konfigurera din cache genom att ge den åtkomst till dina data källor.
 
 * [Lägga till lagringsmål](hpc-cache-add-storage.md)

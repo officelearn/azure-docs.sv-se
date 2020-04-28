@@ -1,6 +1,6 @@
 ---
-title: Lägga till ett rutnät i lösningsgränssnittet för fjärrövervakning – Azure | Microsoft-dokument
-description: I den här artikeln visas hur du lägger till en ny gid på en sida i webbgränssnittet för lösningsaccelerator för fjärrövervakning.
+title: Lägg till ett rutnät i gränssnittet för fjärr styrnings lösning – Azure | Microsoft Docs
+description: Den här artikeln visar hur du lägger till ett nytt GID på en sida i webb gränssnittet för webb gränssnitt för Fjärrövervaknings Solution Accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,57 +8,57 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447105"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186296"
 ---
-# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till ett anpassat rutnät i webbgränssnittet för lösningsaccelerator för fjärrövervakning
+# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till ett anpassat rutnät i webb gränssnittet för lösnings Accelerator för fjärr styrning
 
-I den här artikeln visas hur du lägger till ett nytt rutnät på en sida i webbgränssnittet för lösningsaccelerator för fjärrövervakning. Artikeln beskriver:
+Den här artikeln visar hur du lägger till ett nytt rutnät på en sida i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator. Artikeln beskriver:
 
-- Hur man förbereder en lokal utvecklingsmiljö.
-- Så här lägger du till ett nytt rutnät på en sida i webbgränssnittet.
+- Hur du förbereder en lokal utvecklings miljö.
+- Så här lägger du till ett nytt rutnät på en sida i webb gränssnittet.
 
-Exempelrutnätet i den här artikeln visar data från tjänsten som hur du lägger till [en anpassad tjänst i webbgränssnittet för fjärrövervakningslösningsaccelerator](iot-accelerators-remote-monitoring-customize-service.md) visar hur du lägger till.
+Exemplet i rutnätet i den här artikeln visar de data från tjänsten som [lägger till en anpassad tjänst i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-service.md) , som visar hur du lägger till.
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna slutföra stegen i den här programguiden behöver du följande programvara installerad på din lokala utvecklingsdator:
+För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Du bör slutföra stegen i följande artiklar innan du fortsätter:
+Du bör följa stegen i följande artiklar innan du fortsätter:
 
-- [Lägg till en anpassad sida i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-page.md).
-- [Lägga till en anpassad tjänst i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-service.md)
+- [Lägg till en anpassad sida i webb gränssnittet för lösnings Accelerator för fjärr styrning](iot-accelerators-remote-monitoring-customize-page.md).
+- [Lägg till en anpassad tjänst i webb gränssnittet för webb gränssnittet för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-service.md)
 
 ## <a name="add-a-grid"></a>Lägg till ett rutnät
 
-Om du vill lägga till ett rutnät i webbgränssnittet måste du lägga till källfilerna som definierar rutnätet och ändra vissa befintliga filer så att webbgränssnittet får kännedom om den nya komponenten.
+Om du vill lägga till ett rutnät i webb gränssnittet måste du lägga till källfilerna som definierar rutnätet och ändra några befintliga filer för att göra webb gränssnittet medveten om den nya komponenten.
 
-### <a name="add-the-new-files-that-define-the-grid"></a>Lägga till de nya filerna som definierar rutnätet
+### <a name="add-the-new-files-that-define-the-grid"></a>Lägg till de nya filerna som definierar rutnätet
 
-För att komma igång innehåller **mappen src/walkthrough/components/pages/pageWithGrid/exampleGrid** de filer som definierar ett rutnät:
+För att komma igång innehåller mappen **src/genom gång/Components/Pages/pageWithGrid/exampleGrid** de filer som definierar ett rutnät:
 
-**exempelGrid.js**
+**exampleGrid. js**
 
 [!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
 
-**exempelGridConfig.js**
+**exampleGridConfig. js**
 
 [!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
 
-Kopiera **mappen src/walkthrough/components/pages/pageWithGrid/exampleGrid** till **mappen src/components/pages/example.**
+Kopiera mappen **src/genom gång/Components/Pages/pageWithGrid/exampleGrid** till mappen **src/Components/Pages/example** .
 
-### <a name="add-the-grid-to-the-page"></a>Lägga till rutnätet på sidan
+### <a name="add-the-grid-to-the-page"></a>Lägg till rutnätet på sidan
 
-Ändra **src/components/pages/example/basicPage.container.js** enligt följande för att importera tjänstdefinitionerna:
+Ändra de **src/Components/Pages/example/basicPage. container. js** enligt följande för att importera tjänst definitionerna:
 
 ```js
 import { connect } from 'react-redux';
@@ -89,7 +89,7 @@ const mapDispatchToProps = dispatch => ({
 export const BasicPageContainer = translate()(connect(mapStateToProps, mapDispatchToProps)(BasicPage));
 ```
 
-Ändra **src/components/pages/example/basicPage.js** enligt följande för att lägga till rutnätet:
+Ändra **src/Components/Pages/example/basicPage. js** enligt följande för att lägga till rutnätet:
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -144,7 +144,7 @@ export class BasicPage extends Component {
 }
 ```
 
-Ändra **src/components/pages/example/basicPage.test.js** enligt följande för att uppdatera testerna:
+Ändra de **src/Components/Pages/example/basicPage. test. js** enligt följande för att uppdatera testerna:
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -176,23 +176,23 @@ describe('BasicPage Component', () => {
 
 ## <a name="test-the-grid"></a>Testa rutnätet
 
-Om webbgränssnittet inte redan körs lokalt kör du följande kommando i roten till den lokala kopian av databasen:
+Om webb gränssnittet inte redan körs lokalt kör du följande kommando i roten för din lokala kopia av lagrings platsen:
 
 ```cmd/sh
 npm start
 ```
 
-Det föregående kommandot kör användargränssnittet lokalt på [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Navigera till sidan **Exempel** om du vill visa rutnätets visningsdata från tjänsten.
+Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard`. Gå till **exempel** sidan om du vill visa rutnätet som visar data från tjänsten.
 
 ## <a name="select-rows"></a>Markera rader
 
 Det finns två alternativ för att göra det möjligt för en användare att välja rader i rutnätet:
 
-### <a name="hard-select-rows"></a>Hårdval rader
+### <a name="hard-select-rows"></a>Hårda urval av rader
 
-Om en användare behöver agera på flera rader samtidigt använder du kryssrutor på rader:
+Om en användare behöver agera på flera rader samtidigt använder du kryss rutor på rader:
 
-1. Aktivera hårdval av rader genom att lägga till en **kryssrutaColumn** i **kolumnenDefs** som tillhandahålls i rutnätet. **kryssrutaColumn** definieras i **/src/components/shared/pcsGrid/pcsGrid.js**:
+1. Aktivera hård markering av rader genom att lägga till en **checkboxColumn** till **columnDefs** som tillhandahålls till rutnätet. **checkboxColumn** definieras i **/src/Components/Shared/pcsGrid/pcsGrid.js**:
 
     ```js
     this.columnDefs = [
@@ -202,7 +202,7 @@ Om en användare behöver agera på flera rader samtidigt använder du kryssruto
     ];
     ```
 
-1. Om du vill komma åt de markerade objekten får du en referens till det interna rutnätets API:
+1. För att få åtkomst till de valda objekten får du en referens till det interna rutnäts-API: et:
 
     ```js
     onGridReady = gridReadyEvent => {
@@ -214,7 +214,7 @@ Om en användare behöver agera på flera rader samtidigt använder du kryssruto
     };
     ```
 
-1. Ange sammanhangsknappar till sidan när en rad i rutnätet är hårt markerad:
+1. Ange Sammanhangs knappar till sidan när en rad i rutnätet är hårt vald:
 
     ```js
     this.contextBtns = [
@@ -234,7 +234,7 @@ Om en användare behöver agera på flera rader samtidigt använder du kryssruto
     }
     ```
 
-1. När du klickar på en kontextknapp får du de hårt valda objekten att utföra arbetet med:
+1. När du klickar på en kontext knapp får du de hårda objekt som du kan använda för att arbeta på:
 
     ```js
     doSomething = () => {
@@ -243,11 +243,11 @@ Om en användare behöver agera på flera rader samtidigt använder du kryssruto
     };
     ```
 
-### <a name="soft-select-rows"></a>Mjuka rader
+### <a name="soft-select-rows"></a>Mjuka markerings rader
 
-Om användaren bara behöver agera på en enda rad konfigurerar du en länk för mjukval för en eller flera kolumner i **columnDefs**.
+Om användaren bara behöver agera på en enda rad konfigurerar du en mjuk markerings länk för en eller flera kolumner i **columnDefs**.
 
-1. I **exempelGridConfig.js**lägger du till **SoftSelectLinkRenderer** som **cellRendererFramework** för en **columnDef**.
+1. I **exampleGridConfig. js**lägger du till **SoftSelectLinkRenderer** som **cellRendererFramework** för en **columnDef**.
 
     ```js
     export const exampleColumnDefs = {
@@ -260,7 +260,7 @@ Om användaren bara behöver agera på en enda rad konfigurerar du en länk för
     };
     ```
 
-1. När du klickar på en länk för mjuk markering utlöses händelsen **onSoftSelectChange.** Utför vilken åtgärd som önskas för den raden, till exempel att öppna en utfällbara information. Det här exemplet skriver helt enkelt till konsolen:
+1. När du klickar på en mjuk markerings länk utlöses händelsen **onSoftSelectChange** . Utföra de åtgärder som behövs för den raden, till exempel öppna en utfälld information. Det här exemplet skriver bara till-konsolen:
 
     ```js
     onSoftSelectChange = (rowId, rowData) => {
@@ -279,8 +279,8 @@ Om användaren bara behöver agera på en enda rad konfigurerar du en länk för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om de resurser som finns tillgängliga för att hjälpa dig att lägga till eller anpassa sidor i webbgränssnittet i lösningsacceleratorn för fjärrövervakning.
+I den här artikeln har du lärt dig om vilka resurser som är tillgängliga för att hjälpa dig att lägga till eller anpassa sidor i webb gränssnittet i Solution Accelerator för fjärr styrning.
 
-Nu när du har definierat ett rutnät är nästa steg att lägga till [ett anpassat utfällbart alternativ i webbgränssnittet för fjärrövervakningslösning som](iot-accelerators-remote-monitoring-customize-flyout.md) visas på exempelsidan.
+Nu när du har definierat ett rutnät, är nästa steg att [lägga till en anpassad utfällning i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-flyout.md) som visas på exempel sidan.
 
-Mer begreppsmässig information om lösningsacceleratorn för fjärrövervakning finns i [Fjärrövervakningsarkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Mer information om lösnings acceleratorn för fjärrövervakning finns i [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md).

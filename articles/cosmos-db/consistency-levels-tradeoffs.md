@@ -1,89 +1,89 @@
 ---
 title: Azure Cosmos DB konsekvens, tillgänglighet och prestanda kompromisser
-description: Tillgänglighets- och prestandaavvägningar för olika konsekvensnivåer i Azure Cosmos DB.
+description: Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer i Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7cdaa9699b15000359c438bcc410e300415b759a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81379951"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191744"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda
 
 Avvägningar måste göras för distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, låg svarstid eller båda. Avvägningarna är mellan läskonsekvens kontra tillgänglighet, svarstid och dataflöde.
 
-Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av val. Detta tillvägagångssätt innehåller fler alternativ än de två ytterligheterna av stark och eventuell konsekvens. Du kan välja mellan fem väldefinierade nivåer på konsekvensspektrumet. Från starkaste till svagaste, nivåerna är:
+Azure Cosmos DB närmar sig data konsekvens som ett spektrum av alternativ. Den här metoden innehåller fler alternativ än de två extrema och slutliga konsekvensen. Du kan välja mellan fem väldefinierade nivåer i konsekvens spektrumet. Från starkast till svagt, är nivåerna:
 
 - *Stark*
-- *Begränsad föråldring*
+- *Begränsad föråldrad*
 - *Session*
 - *Konsekvent prefix*
 - *Eventuell*
 
-Varje nivå ger tillgänglighet och prestanda kompromisser och backas upp av omfattande SLA.
+Varje nivå ger till gång till tillgänglighets-och prestanda kompromisser och backas upp av omfattande service avtal.
 
-## <a name="consistency-levels-and-latency"></a>Konsekvensnivåer och svarstid
+## <a name="consistency-levels-and-latency"></a>Konsekvens nivåer och svars tid
 
-Lässvarstiden för alla konsekvensnivåer är alltid garanterad att vara mindre än 10 millisekunder vid den 99:e percentilen. Den här lässvarstiden stöds av serviceavtalet. Den genomsnittliga lässvarstiden, vid den 50:e percentilen, är vanligtvis 4 millisekunder eller mindre.
+Läs fördröjningen för alla konsekvens nivåer garanterar alltid att vara mindre än 10 millisekunder vid 99 percentil. Den här Läs fördröjningen backas upp av service avtalet. Den genomsnittliga Läs fördröjningen, vid den 50: e percentilen, är normalt 4 millisekunder eller mindre.
 
-Skrivfördröjningen för alla konsekvensnivåer är alltid garanterad att vara mindre än 10 millisekunder vid den 99:e percentilen. Den här skrivfördröjningen stöds av serviceavtalet. Den genomsnittliga skrivfördröjningen, vid den 50:e percentilen, är vanligtvis 5 millisekunder eller mindre. Azure Cosmos-konton som sträcker sig över flera regioner och har konfigurerats med stark konsekvens är ett undantag från den här garantin.
+Skriv fördröjningen för alla konsekvens nivåer garanterar alltid att vara mindre än 10 millisekunder vid 99 percentil. Den här Skriv fördröjningen backas upp av service avtalet. Den genomsnittliga Skriv fördröjningen, vid den 50: e percentilen, är vanligt vis 5 millisekunder eller mindre. Azure Cosmos-konton som sträcker sig över flera regioner och som har kon figurer ATS med stark konsekvens är ett undantag till denna garanti.
 
-### <a name="write-latency-and-strong-consistency"></a>Skrivfördröjning och stark konsekvens
+### <a name="write-latency-and-strong-consistency"></a>Skriv fördröjning och stark konsekvens
 
-För Azure Cosmos-konton som konfigurerats med stark konsekvens med mer än en region är skrivsvarstiden lika med två gånger rundresa (RTT) mellan någon av de två mest avlägsna regionerna, plus 10 millisekunder vid den 99:e percentilen. RtT för högt nätverk mellan regionerna kommer att översätta till högre latens för Cosmos DB-begäranden eftersom stark konsekvens slutför en åtgärd först efter att ha säkerställt att den har åtagit sig att alla regioner inom ett konto.
+För Azure Cosmos-konton som kon figurer ATS med stark konsekvens med mer än en region, är Skriv fördröjningen lika med två gånger tur och retur-tid (söksvar) mellan någon av de två precisaste regionerna, plus 10 millisekunder i 99 percentilen. Hög blandning av nätverk mellan regionerna översätts till högre latens för Cosmos DB begär Anden eftersom stark konsekvens bara slutför en åtgärd efter att ha kontrollerat att den har allokerats till alla regioner i ett konto.
 
-Den exakta RTT-svarstiden är en funktion av avstånd mellan hastigheter och Azure-nätverkstopologin. Azure-nätverk ger inga svarstider SLA för RTT mellan två Azure-regioner. För ditt Azure Cosmos-konto visas replikeringsdydser i Azure-portalen. Du kan använda Azure-portalen (gå till bladet Mått, välj fliken Konsekvens) för att övervaka replikeringsdystren mellan olika regioner som är associerade med ditt Azure Cosmos-konto.
+Den exakta svars tiden för försvars tid är en funktion av hastigheten-lätt avstånd och Azure-nätverk sto pol Ogin. Azure-nätverk ger ingen latens-service avtal för sökrutan mellan två Azure-regioner. För ditt Azure Cosmos-konto visas replikeringens fördröjningar i Azure Portal. Du kan använda Azure Portal (gå till bladet mått, Välj fliken konsekvens) för att övervaka fördröjningen mellan olika regioner som är associerade med ditt Azure Cosmos-konto.
 
 > [!IMPORTANT]
-> Stark konsekvens för konton med regioner som spänner över mer än 8000 kilometer blockeras som standard på grund av hög skrivfördröjning. Kontakta supporten för att aktivera den här funktionen.
+> Stark konsekvens för konton med regioner som sträcker sig över 5000 miles (8000 kilo meter) blockeras som standard på grund av hög Skriv fördröjning. Om du vill aktivera den här funktionen kontaktar du supporten.
 
-## <a name="consistency-levels-and-throughput"></a>Konsekvensnivåer och dataflöde
+## <a name="consistency-levels-and-throughput"></a>Konsekvens nivåer och data flöde
 
-- För stark och begränsad föråldring görs läsningar mot två repliker i en fyra replikuppsättning (minoritetskvorum) för att ge konsekvensgarantier. Session, konsekvent prefix och eventuellt göra enstaka replikläsningar. Resultatet är att läsflöde för stark och begränsad föråldring för samma antal förfråga enheter är hälften av de andra konsekvensnivåerna för samma antal förfråga enheter.
+- För stark och begränsad föråldrad är läsningar gjorda mot två repliker i en fyra replik uppsättning (minoritets kvorum) för att tillhandahålla konsekvens garantier. Session, konsekvent prefix och gör det enkelt att läsa en enskild replik. Resultatet är att Läs data flöde för samma antal enheter för programbegäran är hälften av de andra konsekvens nivåerna.
 
-- För en viss typ av skrivåtgärd, till exempel infoga, ersätta, upsert och ta bort, är skrivflödet för begäranheter identiska för alla konsekvensnivåer.
+- För en specifik typ av Skriv åtgärd, till exempel infoga, Ersätt, upsert och Delete, är Skriv data flödet för enheter för programbegäran identiskt för alla konsekvens nivåer.
 
-|**Konsekvensnivå**|**Kvorum läser**|**Kvorum skriver**|
+|**Konsekvensnivå**|**Kvorum läsningar**|**Skrivningar till kvorum**|
 |--|--|--|
 |**Stark**|Lokal minoritet|Global majoritet|
 |**Begränsad föråldring**|Lokal minoritet|Lokal majoritet|
-|**Session**|Enkel replik (med sessionstoken)|Lokal majoritet|
-|**Konsekvent prefix**|En enda replik|Lokal majoritet|
-|**Eventuell**|En enda replik|Lokal majoritet|
+|**Session**|Enskild replik (med sessionstoken)|Lokal majoritet|
+|**Konsekvent prefix**|Enskild replik|Lokal majoritet|
+|**Eventuell**|Enskild replik|Lokal majoritet|
 
-## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Konsekvensnivåer och datahållbarhet
+## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Konsekvens nivåer och data hållbarhet
 
-I en globalt distribuerad databasmiljö finns ett direkt samband mellan konsekvensnivå och datahållbarhet i närvaro av ett avbrott i hela regionen. När du utvecklar din kontinuitetsplan måste du förstå den maximala godtagbara tiden innan programmet återhämtar sig helt efter en störande händelse. Den tid som krävs för att ett program ska kunna återställas helt kallas **återställningstidsmål** **(RTO).** Du måste också förstå den maximala perioden för de senaste datauppdateringarna som programmet kan tolerera att förlora när du återställer efter en störande händelse. Tidsperioden för uppdateringar som du kanske har råd att förlora kallas **återställningspunkt mål** **(RPO**).
+I en globalt distribuerad databas miljö finns det ett direkt förhållande mellan konsekvens nivån och data hållbarhet i närvaro av ett områdes omfattande avbrott. När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter en störnings händelse. Tiden som krävs för att ett program ska återställas fullständigt kallas för **återställnings tids mål** (**RTO**). Du måste också förstå hur lång tid det tar för nya data uppdateringar som programmet kan tolerera vid återställning efter en störnings händelse. Tids perioden för uppdateringar som du kanske har råd att förlora kallas för **återställnings punkt mål (återställnings punkt mål** ).**RPO**
 
-Tabellen nedan definierar förhållandet mellan konsekvensmodell och datahållbarhet i närvaro av ett områdesomfattande avbrott. Det är viktigt att notera att i ett distribuerat system, även med stark konsekvens, är det omöjligt att ha en distribuerad databas med en RPO och RTO på noll på grund av cap Theorem. Mer information om varför finns [i Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
+I tabellen nedan definieras relationen mellan konsekvens modell och data hållbarhet i närvaro av ett brett avbrott i regionen. Det är viktigt att notera att i ett distribuerat system, även med stark konsekvens, är det omöjligt att ha en distribuerad databas med återställnings-och RTO noll på grund av CAP-satsen. Mer information om varför finns [i konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
 
-|**Region(er)**|**Replikeringsläge**|**Konsekvensnivå**|**RPO**|**Rto**|
+|**Region (er)**|**Replikeringsläget**|**Konsekvens nivå**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|Enkel eller multi-master|Eventuell konsekvensnivå|< 240 minuter|<1 vecka|
-|>1|Enkelhanterare|Session, konsekvent prefix, eventuellt|< 15 minuter|< 15 minuter|
-|>1|Enkelhanterare|Begränsad föråldring|*K* & *T*|< 15 minuter|
-|>1|Enkelhanterare|Stark|0|< 15 minuter|
-|>1|Multi-Master|Session, konsekvent prefix, eventuellt|< 15 minuter|0|
-|>1|Multi-Master|Begränsad föråldring|*K* & *T*|0|
+|1|En eller flera huvud|Vilken konsekvens nivå som helst|< 240 minuter|<1 vecka|
+|>1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
+|>1|Enda huvud|Begränsad föråldring|*K* & *T*|< 15 minuter|
+|>1|Enda huvud|Stark|0|< 15 minuter|
+|>1|Flera huvud servrar|Session, konsekvent prefix, eventuell|< 15 minuter|0|
+|>1|Flera huvud servrar|Begränsad föråldring|*K* & *T*|0|
 
-*K* = Antalet *"K"-versioner* (dvs. uppdateringar) av ett objekt.
+*K* = antalet *"K"* versioner (d.v.s. uppdateringar) för ett objekt.
 
-*T* = Tidsintervallet *"T"* sedan den senaste uppdateringen.
+*T* = tidsintervallet *"T"* sedan den senaste uppdateringen.
 
-## <a name="strong-consistency-and-multi-master"></a>Stark konsekvens och multi-master
+## <a name="strong-consistency-and-multi-master"></a>Stark konsekvens och flera huvud servrar
 
-Cosmos-konton som konfigurerats för multi-master kan inte konfigureras för stark konsekvens eftersom det inte är möjligt för ett distribuerat system att tillhandahålla en RPO på noll och en RTO på noll. Dessutom finns det inga skrivfördröjningsfördelar för att använda stark konsekvens med multi-master eftersom alla skrivningar till en region måste replikeras och bekräftas till alla konfigurerade regioner i kontot. Detta resulterar i samma skrivfördröjning som ett enda huvudkonto.
+Cosmos-konton som kon figurer ATS för multi-master kan inte konfigureras för stark konsekvens eftersom det inte är möjligt för ett distribuerat system att leverera noll och en RTO på noll. Det finns dessutom inga fördelar med Skriv fördröjning för att använda stark konsekvens med multi-master som all skrivning till en region måste replikeras och allokeras till alla konfigurerade regioner i kontot. Detta resulterar i samma Skriv fördröjning som ett enda huvud konto.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om global distribution och allmänna konsekvensavvägningar i distribuerade system. Se följande artiklar:
+Lär dig mer om global distribution och allmän konsekvens kompromisser i distribuerade system. Se följande artiklar:
 
-- [Konsekvens kompromisser i modern distribuerad databas system design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Konsekvens i moderna distribuerade databas system design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Hög tillgänglighet](high-availability.md)
-- [DLA för Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

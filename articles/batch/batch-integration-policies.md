@@ -4,12 +4,12 @@ description: Azure Policy är en tjänst i Azure som du använder för att skapa
 ms.topic: article
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74c087031a024b0c50d6c40057a4e2eda554be6f
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: a160de1277afea026a16f470c8f76cdc2ec1733f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116085"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184273"
 ---
 # <a name="integration-with-azure-policy"></a>Integrering med Azure Policy
 
@@ -26,7 +26,7 @@ Princip definitioner beskriver de villkor som måste uppfyllas. Ett villkor jäm
 
 De resurser som krävs av batch inkluderar: account, Compute Node, pool, Job och Task. Därför använder du egenskaps Ali Aset för att få åtkomst till vissa egenskaper för dessa resurser. Lär dig mer om [alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-För att se till att du känner till aktuella alias och granskar dina resurser och principer, använder du Azure policy-tillägget för Visual Studio Code. Den kan installeras på alla plattformar som stöds av Visual Studio Code. Det här stödet omfattar Windows, Linux och macOS. Se [installations rikt linjer](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
+För att se till att du känner till aktuella alias och granskar dina resurser och principer, använder du Azure Policy tillägget för Visual Studio Code. Den kan installeras på alla plattformar som stöds av Visual Studio Code. Det här stödet omfattar Windows, Linux och macOS. Se [installations rikt linjer](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
 
 
 

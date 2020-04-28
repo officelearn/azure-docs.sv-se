@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Power BI Professional
-description: I den här självstudien går vi igenom steg hur du ansluter Power BI-skrivbordet till SQL on-demand (preview).
+title: Anslut till Power BI Professional
+description: I den här självstudien går vi igenom steg hur du ansluter Power BI Desktop till SQL på begäran (för hands version).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0ce8f3a447f1896ae6d96d343782f8cdb44d4c6f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a9db42bcd69d9a24a454c02c9bb0e2d339cb4860
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422566"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185786"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ansluta till Synapse SQL med Power BI Professional
 
@@ -23,46 +23,46 @@ ms.locfileid: "81422566"
 > - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
 > - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> - [Sqlcmd](../sql/get-started-connect-sqlcmd.md)
+> - [SQLCMD](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-I den här självstudien går vi igenom steg hur du ansluter Power BI-skrivbordet till SQL on-demand (preview).
+I den här självstudien ska vi gå igenom stegen för att ansluta Power BI Desktop till SQL på begäran (för hands version).
 
 ## <a name="prerequisites"></a>Krav
 
 Verktyg för att utfärda frågor:
 
-- VALFRI SQL-klient:
+- Valfri SQL-klient:
 
   - Azure Data Studio
   - SQL Server Management Studio
 
-- Power BI-skrivbordet installerat
+- Power BI Desktop installerat
 
 Parametrar:
 
 | Parameter                                 | Beskrivning                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Slutpunktsadress för SQL on-demand-tjänst    | Kommer att användas som servernamn                                   |
-| Slutpunktsregion för SQL-tjänst på begäran     | Kommer att användas för att avgöra vilken lagring vi kommer att använda i prover |
-| Användarnamn och lösenord för åtkomst till slutpunkter | Kommer att användas för att komma åt slutpunkten                               |
-| Databas som du ska använda för att skapa vyer     | Denna databas kommer att användas som utgångspunkt i       |
+| Slut punkts adress för SQL-tjänst på begäran    | Kommer att användas som server namn                                   |
+| Tjänstens slut punkts region för SQL på begäran     | Kommer att användas för att avgöra vilken lagrings enhet vi använder i exempel |
+| Användar namn och lösen ord för slut punkts åtkomst | Kommer att användas för att komma åt slut punkten                               |
+| Databas som du ska använda för att skapa vyer     | Den här databasen kommer att användas som start punkt i exempel       |
 
-## <a name="first-time-setup"></a>Första gången setup
+## <a name="first-time-setup"></a>Installation vid första tiden
 
-Det finns två steg innan du använder prover:
+Det finns två steg innan du använder exempel:
 
 1. Skapa databas för dina vyer
-2. Skapa autentiseringsuppgifter som ska användas av SQL på begäran för att komma åt filer i lagring
+2. Skapa autentiseringsuppgifter som ska användas av SQL på begäran för att komma åt filer i lagringen
 
 ### <a name="create-database"></a>Skapa databas
 
-Eftersom du kommer att använda demomiljö bör du skapa en egen databas för demoändamål. Databasen behövs för att skapa vyer i den. Du kommer att använda den här databasen i några exempelfrågor i den här dokumentationen.
+I den här artikeln för att komma igång bör du skapa en egen databas som du kan använda som en demonstration. En databas krävs för att skapa vyer. Du kommer att använda den här databasen i några av exempel frågorna i den här dokumentationen.
 
 > [!NOTE]
-> Observera att databaser endast används för visningsmetadata, inte för faktiska data.
+> Databaser används bara för att visa metadata, inte för faktiska data.
 >
-> Skriv ner databasnamn du använder, behöver du det senare.
+> Skriv ned det databas namn du använder, du behöver det senare.
 
 ```sql
 DROP DATABASE IF EXISTS demo;
@@ -70,12 +70,12 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Vi måste skapa autentiseringsuppgifter innan du kan köra frågor. Den här autentiseringsuppgifterna används av SQL on-demand-tjänsten för att komma åt filer i lagring.
+Vi måste skapa autentiseringsuppgifter innan du kan köra frågor. Autentiseringsuppgifterna används av SQL-tjänsten på begäran för att komma åt filer i lagrings utrymmet.
 
 > [!NOTE]
-> Observera att du måste skapa autentiseringsuppgifter för åtkomst till lagringskontot. Även om SQL on-demand kan komma åt lagringar från olika regioner, kommer lagring och Azure Synapse-arbetsyta i samma region att ge bättre prestandaupplevelse.
+> Du måste skapa autentiseringsuppgifter för åtkomst till lagrings kontot. Även om SQL på begäran kan komma åt lagring från olika regioner, ger lagrings-och Azure Synapse-arbetsytan i samma region bättre prestanda upplevelse.
 
-**Kodavsnitt om hur du skapar autentiseringsuppgifter för folkräkningsdatabehållare**, kör:
+Kodfragment för **att skapa autentiseringsuppgifter för inventerings data behållare**, kör:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -90,22 +90,22 @@ SECRET = '';
 GO
 ```
 
-## <a name="creating-power-bi-desktop-report"></a>Skapa Power BI-skrivbordsrapport
+## <a name="creating-power-bi-desktop-report"></a>Skapar Power BI Desktop-rapport
 
-Öppna Power BI-skrivbordsprogrammet och välj alternativet "Hämta data".
-![Öppna Power BI-skrivbordsprogrammet och välj hämta data.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
+Öppna Power BI Desktop-programmet och välj alternativet **Hämta data** .
+![Öppna Power BI Desktop-programmet och välj Hämta data.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
-### <a name="step-1---select-data-source"></a>Steg 1 - Välj datakälla
+### <a name="step-1---select-data-source"></a>Steg 1 – Välj data Källa
 
-Välj "Azure" på menyn och sedan "Azure SQL Database".
-![Välj datakälla.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
+Välj **Azure** i menyn och **Azure SQL Database**.
+![Välj data källa.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
-### <a name="step-2---select-database"></a>Steg 2 - Välj databas
+### <a name="step-2---select-database"></a>Steg 2 – Välj databas
 
-Skriv URL för databasen och namnet på databasen där vyn finns.
-![Välj databas på slutpunkten.](./media/get-started-power-bi-professional/step-2-db.png)
+Skriv webb adressen till databasen och namnet på databasen där vyn finns.
+![Välj databas på slut punkten.](./media/get-started-power-bi-professional/step-2-db.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till [frågelagringsfiler](get-started-azure-data-studio.md) för att lära dig hur du ansluter till SQL on-demand med Azure Data Studio.
+Fortsätt att [fråga Storage-filer](get-started-azure-data-studio.md) och lär dig hur du ansluter till SQL på begäran med hjälp av Azure Data Studio.
  

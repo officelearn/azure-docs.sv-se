@@ -1,7 +1,7 @@
 ---
-title: Lägga till, ändra eller ta bort ett virtuellt Azure-nätverksundernät
+title: Lägga till, ändra eller ta bort ett Azure Virtual Network-undernät
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du lägger till, ändrar eller tar bort ett virtuellt nätverksundernät i Azure.
+description: Lär dig hur du lägger till, ändrar eller tar bort ett virtuellt nätverks under nät i Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,51 +13,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: e5b78969f6b4315bb02b3f4152c6eeab94adddb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ef084e530faa3bcea2cfcf1554a84f543bbf59
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246950"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186092"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett virtuellt nätverksundernät
 
-Lär dig hur du lägger till, ändrar eller tar bort ett virtuellt nätverksundernät. Alla Azure-resurser som distribueras till ett virtuellt nätverk distribueras till ett undernät i ett virtuellt nätverk. Om du inte har tidigare i virtuella nätverk kan du läsa mer om dem i [översikten över virtuella nätverk](virtual-networks-overview.md) eller genom att slutföra en [snabbstart](quick-create-portal.md). Mer information om hur du hanterar ett virtuellt nätverk finns i [Skapa, ändra eller ta bort ett virtuellt nätverk](manage-virtual-network.md).
+Lär dig hur du lägger till, ändrar eller tar bort ett virtuellt nätverks under nät. Alla Azure-resurser som distribueras till ett virtuellt nätverk distribueras till ett undernät i ett virtuellt nätverk. Om du inte har använt virtuella nätverk tidigare kan du lära dig mer om dem i det [virtuella nätverkets översikt](virtual-networks-overview.md) eller genom att slutföra en [snabb start](quick-create-portal.md). Mer information om hur du hanterar ett virtuellt nätverk finns i [skapa, ändra eller ta bort ett virtuellt nätverk](manage-virtual-network.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du inte har ett, konfigurera ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Slutför sedan en av dessa uppgifter innan du startar stegen i något avsnitt i den här artikeln: 
+Om du inte har något konfigurerar du ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Slutför sedan en av de här uppgifterna innan du startar stegen i något avsnitt i den här artikeln: 
 
-- **Portalanvändare**: Logga in på [Azure-portalen](https://portal.azure.com) med ditt Azure-konto.
+- **Portal användare**: Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
-- **PowerShell-användare:** Kör antingen kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller kör PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Leta reda på listrutan **Välj miljö** i webbläsaren Azure Cloud Shell och välj sedan **PowerShell** om den inte redan är markerad.
+- **PowerShell-användare**: kör antingen kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller kör PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. På fliken Azure Cloud Shell webbläsare letar du upp List rutan **Välj miljö** och väljer sedan **PowerShell** om den inte redan är markerad.
 
-    Om du kör PowerShell lokalt använder du Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az.Network` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Kör `Connect-AzAccount` också för att skapa en anslutning med Azure.
+    Om du kör PowerShell lokalt använder du Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az.Network` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Kör `Connect-AzAccount` också för att skapa en anslutning till Azure.
 
-- **CLI-användare (Azure Command-line Interface)**: Kör antingen kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller kör CLI från datorn. Använd Azure CLI version 2.0.31 eller senare om du kör Azure CLI lokalt. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Kör `az login` också för att skapa en anslutning med Azure.
+- **Kommando rads gränssnitt för Azure (CLI)**: kör antingen kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller kör CLI från datorn. Använd Azure CLI version 2.0.31 eller senare om du kör Azure CLI lokalt. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Kör `az login` också för att skapa en anslutning till Azure.
 
-Kontot som du loggar in på, eller ansluter till Azure med, måste tilldelas [rollen Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [Behörigheter](#permissions).
+Det konto som du loggar in på, eller ansluter till Azure med, måste tilldelas [rollen nätverks deltagar roll](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
 
 ## <a name="add-a-subnet"></a>Lägga till ett undernät
 
-1. Gå till [Azure-portalen](https://portal.azure.com) för att visa dina virtuella nätverk. Sök efter och välj **Virtuella nätverk**.
+1. Gå till [Azure Portal](https://portal.azure.com) om du vill visa dina virtuella nätverk. Sök efter och välj **virtuella nätverk**.
 
-2. Markera namnet på det virtuella nätverk som du vill lägga till ett undernät i.
+2. Välj namnet på det virtuella nätverk som du vill lägga till ett undernät i.
 
-3. Välj **Undernät** > **undernät i** **Inställningar**.
+3. Under **Inställningar**väljer du **undernät** > **under**nät.
 
-4. Ange värden för följande inställningar i dialogrutan **Lägg till undernät:**
+4. I dialog rutan **Lägg till undernät** anger du värden för följande inställningar:
 
     | Inställning | Beskrivning |
     | --- | --- |
-    | **Namn** | Namnet måste vara unikt inom det virtuella nätverket. För maximal kompatibilitet med andra Azure-tjänster rekommenderar vi att du använder en bokstav som det första tecknet i namnet. Azure Application Gateway distribueras till exempel inte till ett undernät som har ett namn som börjar med ett nummer. |
-    | **Adressintervall** | <p>Intervallet måste vara unikt inom adressutrymmet för det virtuella nätverket. Intervallet kan inte överlappa med andra undernätsadressintervall i det virtuella nätverket. Adressutrymmet måste anges med hjälp av CIDR-notation (Classless Inter-Domain Routing).</p><p>I ett virtuellt nätverk med adressutrymme *10.0.0.0/16*kan du till exempel definiera ett undernätsadressutrymme *på 10.0.0.0/22*. Det minsta område du kan ange är */29*, som innehåller åtta IP-adresser för undernätet. Azure reserverar den första och sista adressen i varje undernät för protokollkonformance. Ytterligare tre adresser är reserverade för Azure-tjänstanvändning. Därför resulterar en definition av ett undernät med ett */29-adressintervall* i tre användbara IP-adresser i undernätet.</p><p>Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway måste du skapa ett gateway-undernät. Läs mer om [specifika överväganden om adressintervall för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adressintervallet när undernätet har lagts till under särskilda förhållanden. Mer information om hur du ändrar ett undernätsadressintervall finns i [Ändra inställningar för undernät](#change-subnet-settings).</p> |
-    | **Säkerhetsgrupp för nätverk** | Om du vill filtrera inkommande och utgående nätverkstrafik för undernätet kan du koppla en befintlig nätverkssäkerhetsgrupp till ett undernät. Nätverkssäkerhetsgruppen måste finnas på samma prenumeration och plats som det virtuella nätverket. Läs mer om [nätverkssäkerhetsgrupper](security-overview.md) och [hur du skapar en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md). |
-    | **Routningstabell** | Om du vill styra nätverkstrafikroutning till andra nätverk kan du eventuellt associera en befintlig vägtabell till ett undernät. Flödestabellen måste finnas på samma prenumeration och plats som det virtuella nätverket. Läs mer om [Azure-routning](virtual-networks-udr-overview.md) och [hur du skapar en vägtabell](tutorial-create-route-table-portal.md). |
-    | **Tjänstslutpunkter** | <p>Ett undernät kan eventuellt ha en eller flera tjänstslutpunkter aktiverade för det. Om du vill aktivera en tjänstslutpunkt för en tjänst väljer du den eller de tjänster som du vill aktivera tjänstslutpunkter för från listan **Tjänster.** Azure konfigurerar platsen automatiskt för en slutpunkt. Som standard konfigurerar Azure tjänstslutpunkterna för det virtuella nätverkets region. Azure konfigurerar automatiskt slutpunkter till [Azure-parade regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions) för Azure Storage för nationella redundansscenarier.</p><p>Om du vill ta bort en tjänstslutpunkt avmarkerar du den tjänst som du vill ta bort tjänstslutpunkten för. Mer information om tjänstslutpunkter och vilka tjänster de kan aktiveras för finns i slutpunkter för [virtuella nätverkstjänster.](virtual-network-service-endpoints-overview.md) När du har aktiverat en tjänstslutpunkt för en tjänst måste du också aktivera nätverksåtkomst för undernätet för en resurs som skapats med tjänsten. Om du till exempel aktiverar tjänstslutpunkten för **Microsoft.Storage**måste du också aktivera nätverksåtkomst till alla Azure Storage-konton som du vill bevilja nätverksåtkomst till. Om du vill aktivera nätverksåtkomst till undernät som en tjänstslutpunkt är aktiverad för läser du dokumentationen för den enskilda tjänst som du aktiverade tjänstslutpunkten för.</p><p>Om du vill verifiera att en tjänstslutpunkt är aktiverad för ett undernät visar du de [effektiva vägarna](diagnose-network-routing-problem.md) för alla nätverksgränssnitt i undernätet. När du konfigurerar en slutpunkt visas en *standardväg* med tjänstens adressprefix och en nästa hoptyp av **VirtualNetworkServiceEndpoint**. Mer information om routning finns i [Routning av virtuell nätverkstrafik](virtual-networks-udr-overview.md).</p> |
-    | **Delegering av undernät** | Ett undernät kan eventuellt ha en eller flera delegationer aktiverade för det. Undernätsdelegering ger explicit behörighet till tjänsten för att skapa tjänstspecifika resurser i undernätet med hjälp av en unik identifierare under tjänstdistribution. Om du vill delegera för en tjänst väljer du den tjänst som du vill delegera till i listan **Tjänster.** |
+    | **Namn** | Namnet måste vara unikt inom det virtuella nätverket. För maximal kompatibilitet med andra Azure-tjänster rekommenderar vi att du använder en bokstav som det första tecknet i namnet. Azure Application Gateway kommer till exempel inte att distribueras till ett undernät som har ett namn som börjar med en siffra. |
+    | **Adressintervall** | <p>Intervallet måste vara unikt inom adress utrymmet för det virtuella nätverket. Intervallet får inte överlappa andra under näts adress intervall inom det virtuella nätverket. Adress utrymmet måste anges med hjälp av CIDR-notering (Classless Inter-Domain routing).</p><p>I ett virtuellt nätverk med adress utrymmet *10.0.0.0/16*kan du till exempel definiera ett under näts adress utrymme på *10.0.0.0/22*. Det minsta intervallet du kan ange är */29*, vilket ger åtta IP-adresser för under nätet. Azure reserverar den första och sista adressen i varje undernät för protokoll avvikelse. Tre ytterligare adresser är reserverade för användning av Azure-tjänster. Det innebär att du kan definiera ett undernät med ett */29* -adressintervall som resulterar i tre användbara IP-adresser i under nätet.</p><p>Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway måste du skapa ett Gateway-undernät. Läs mer om [vissa adress intervall för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adress intervallet när under nätet har lagts till under vissa förhållanden. Information om hur du ändrar ett adress intervall för ett undernät finns i [ändra under näts inställningar](#change-subnet-settings).</p> |
+    | **Nätverks säkerhets grupp** | Om du vill filtrera inkommande och utgående nätverks trafik för under nätet kan du associera en befintlig nätverks säkerhets grupp till ett undernät. Nätverks säkerhets gruppen måste finnas i samma prenumeration och på samma plats som det virtuella nätverket. Lär dig mer om [nätverks säkerhets grupper](security-overview.md) och [hur du skapar en nätverks säkerhets grupp](tutorial-filter-network-traffic.md). |
+    | **Routningstabell** | Om du vill styra routning av nätverks trafik till andra nätverk kan du välja att associera en befintlig routningstabell till ett undernät. Routningstabellen måste finnas i samma prenumeration och på samma plats som det virtuella nätverket. Lär dig mer om [Azure-routning](virtual-networks-udr-overview.md) och [hur du skapar en](tutorial-create-route-table-portal.md)routningstabell. |
+    | **Tjänstslutpunkter** | <p>Ett undernät kan eventuellt ha en eller flera tjänst slut punkter aktiverade för den. Om du vill aktivera en tjänst slut punkt för en tjänst väljer du den tjänst eller de tjänster som du vill aktivera tjänst slut punkter för från listan över **tjänster** . Azure konfigurerar platsen automatiskt för en slut punkt. Som standard konfigurerar Azure tjänstens slut punkter för det virtuella nätverkets region. För att stödja regionala failover-scenarier konfigurerar Azure automatiskt slut punkter till [Azure-kopplade regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions) för Azure Storage.</p><p>Om du vill ta bort en tjänst slut punkt avmarkerar du den tjänst som du vill ta bort tjänstens slut punkt för. Om du vill veta mer om tjänst slut punkter och vilka tjänster de kan aktive ras för, se [tjänst slut punkter för virtuella nätverk](virtual-network-service-endpoints-overview.md). När du har aktiverat en tjänst slut punkt för en tjänst måste du också aktivera nätverks åtkomst för under nätet för en resurs som skapats med tjänsten. Om du till exempel aktiverar tjänstens slut punkt för **Microsoft. Storage**måste du också aktivera nätverks åtkomst till alla Azure Storage konton som du vill bevilja nätverks åtkomst till. Om du vill aktivera nätverks åtkomst till undernät som en tjänst slut punkt är aktive rad för, se dokumentationen för den enskilda tjänsten som du har aktiverat tjänstens slut punkt för.</p><p>Om du vill kontrol lera att en tjänst slut punkt är aktive rad för ett undernät visar du [effektiva vägar](diagnose-network-routing-problem.md) för alla nätverks gränssnitt i under nätet. När du konfigurerar en slut punkt visas en *standard* väg med adressprefix för tjänsten och en nästa hopp typ för **VirtualNetworkServiceEndpoint**. Mer information om routning finns i [trafik dirigering i virtuella nätverk](virtual-networks-udr-overview.md).</p> |
+    | **Delegering av undernät** | Ett undernät kan eventuellt ha en eller flera delegeringar aktiverade för det. Under näts delegering ger explicita behörigheter till tjänsten för att skapa tjänstespecifika resurser i under nätet med en unik identifierare under tjänst distributionen. Om du vill delegera för en tjänst väljer du den tjänst som du vill delegera till från listan **tjänster** . |
 
-5. Om du vill lägga till undernätet i det virtuella nätverk som du har markerat väljer du **OK**.
+5. Om du vill lägga till under nätet i det virtuella nätverk som du har valt väljer du **OK**.
 
 ### <a name="commands"></a>Kommandon
 
@@ -66,25 +66,25 @@ Kontot som du loggar in på, eller ansluter till Azure med, måste tilldelas [ro
 | Azure CLI | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) |
 | PowerShell | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) |
 
-## <a name="change-subnet-settings"></a>Ändra inställningar för undernät
+## <a name="change-subnet-settings"></a>Ändra under näts inställningar
 
-1. Gå till [Azure-portalen](https://portal.azure.com) för att visa dina virtuella nätverk. Sök efter och välj **Virtuella nätverk**.
+1. Gå till [Azure Portal](https://portal.azure.com) om du vill visa dina virtuella nätverk. Sök efter och välj **virtuella nätverk**.
 
-2. Markera namnet på det virtuella nätverk som innehåller det undernät som du vill ändra.
+2. Välj namnet på det virtuella nätverk som innehåller det undernät som du vill ändra.
 
-3. Välj **Undernät i** **Inställningar**.
+3. Från **Inställningar**väljer du **undernät**.
 
-4. Markera det undernät som du vill ändra inställningar för i listan över undernät.
+4. I listan över undernät väljer du det undernät som du vill ändra inställningarna för.
 
-5. Ändra någon av följande inställningar på undernätssidan:
+5. På sidan undernät ändrar du någon av följande inställningar:
 
     | Inställning | Beskrivning |
     | --- | --- |
-    | **Adressintervall** | Om inga resurser distribueras i undernätet kan du ändra adressintervallet. Om det finns resurser i undernätet måste du antingen flytta resurserna till ett annat undernät eller ta bort dem från undernätet först. Vilka åtgärder du vidtar för att flytta eller ta bort en resurs varierar beroende på resursen. Om du vill veta hur du flyttar eller tar bort resurser som finns i undernät läser du dokumentationen för var och en av dessa resurstyper. Se begränsningarna för **adressintervall** i steg 4 i [Lägg till ett undernät](#add-a-subnet). |
-    | **Användare** | Du kan styra åtkomsten till undernätet med hjälp av inbyggda roller eller egna anpassade roller. Mer information om hur du tilldelar roller och användare att komma åt undernätet finns i [Lägga till en rolltilldelning](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
-    | **Nätverkssäkerhetsgrupp** och **Routningstabell** | Se steg 4 [i Lägg till ett undernät](#add-a-subnet). |
-    | **Tjänstslutpunkter** | <p>Se tjänstslutpunkter i steg 4 [i Lägg till ett undernät](#add-a-subnet). När du aktiverar en tjänstslutpunkt för ett befintligt undernät, se till att inga kritiska aktiviteter körs på någon resurs i undernätet. Tjänstslutpunkter växlar vägar i alla nätverksgränssnitt i undernätet. Tjänstslutpunkterna går från att använda standardvägen med prefixet *0.0.0.0/0/0* och nästa hopptyp av *Internet*till att använda en ny väg med tjänstens adressprefix och en nästa hopptyp för *VirtualNetworkServiceEndpoint*.</p><p>Under växeln kan alla öppna TCP-anslutningar avslutas. Tjänstslutpunkten är inte aktiverad förrän trafiken flödar till tjänsten för alla nätverksgränssnitt uppdateras med den nya vägen. Mer information om routning finns i [Routning av virtuell nätverkstrafik](virtual-networks-udr-overview.md).</p> |
-    | **Delegering av undernät** | Se tjänstslutpunkter i steg 4 [i Lägg till ett undernät](#add-a-subnet). Undernätsdelegering kan ändras till noll eller flera delegeringar som är aktiverade för den. Om en resurs för en tjänst redan har distribuerats i undernätet kan det inte läggas till eller tas bort undernätsdelegering förrän alla resurser för tjänsten har tagits bort. Om du vill delegera för en annan tjänst väljer du den tjänst som du vill delegera till i listan **Tjänster.** |
+    | **Adressintervall** | Om inga resurser har distribuerats i under nätet kan du ändra adress intervallet. Om det finns några resurser i under nätet måste du antingen flytta resurserna till ett annat undernät eller ta bort dem från under nätet först. De steg du tar för att flytta eller ta bort en resurs varierar beroende på resursen. Läs dokumentationen för var och en av dessa resurs typer för att lära dig hur du flyttar eller tar bort resurser i undernät. Se begränsningarna för **adress intervall** i steg 4 i [Lägg till ett undernät](#add-a-subnet). |
+    | **Användare** | Du kan styra åtkomsten till under nätet genom att använda inbyggda roller eller dina egna anpassade roller. Mer information om hur du tilldelar roller och användare åtkomst till under nätet finns i [lägga till en roll tilldelning](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
+    | **Nätverkssäkerhetsgrupp** och **Routningstabell** | Se steg 4 i [Lägg till ett undernät](#add-a-subnet). |
+    | **Tjänstslutpunkter** | <p>Se tjänst slut punkter i steg 4 i [Lägg till ett undernät](#add-a-subnet). När du aktiverar en tjänst slut punkt för ett befintligt undernät kontrollerar du att inga kritiska aktiviteter körs på någon resurs i under nätet. Tjänst slut punkter växlar vägar på varje nätverks gränssnitt i under nätet. Tjänst slut punkterna går från att använda standard vägen med adressprefixet *0.0.0.0/0* och nästa hopp typ av *Internet*, för att använda en ny väg med adressprefix för tjänsten och en nästa hopp typ för *VirtualNetworkServiceEndpoint*.</p><p>Under växeln kan alla öppna TCP-anslutningar avslutas. Tjänstens slut punkt aktive ras inte förrän trafik flöden till tjänsten för alla nätverks gränssnitt har uppdaterats med den nya vägen. Mer information om routning finns i [trafik dirigering i virtuella nätverk](virtual-networks-udr-overview.md).</p> |
+    | **Delegering av undernät** | Se tjänst slut punkter i steg 4 i [Lägg till ett undernät](#add-a-subnet). Under näts delegering kan ändras till noll eller flera delegeringar som är aktiverade för den. Om en resurs för en tjänst redan har distribuerats i under nätet går det inte att lägga till eller ta bort under nät delegering förrän alla resurser för tjänsten tas bort. Om du vill delegera för en annan tjänst väljer du den tjänst som du vill delegera till från listan **tjänster** . |
 
 6. Välj **Spara**.
 
@@ -97,39 +97,39 @@ Kontot som du loggar in på, eller ansluter till Azure med, måste tilldelas [ro
 
 ## <a name="delete-a-subnet"></a>Ta bort ett undernät
 
-Du kan bara ta bort ett undernät om det inte finns några resurser i undernätet. Om resurserna finns i undernätet måste du ta bort dessa resurser innan du kan ta bort undernätet. Vilka åtgärder du vidtar för att ta bort en resurs varierar beroende på resursen. Om du vill veta hur du tar bort resurser som finns i undernät läser du dokumentationen för var och en av dessa resurstyper.
+Du kan bara ta bort ett undernät om det inte finns några resurser i under nätet. Om det finns resurser i under nätet måste du ta bort dessa resurser innan du kan ta bort under nätet. De steg du tar för att ta bort en resurs varierar beroende på resursen. Läs dokumentationen för var och en av dessa resurs typer för att lära dig hur du tar bort resurser i undernät.
 
-1. Gå till [Azure-portalen](https://portal.azure.com) för att visa dina virtuella nätverk. Sök efter och välj **Virtuella nätverk**.
+1. Gå till [Azure Portal](https://portal.azure.com) om du vill visa dina virtuella nätverk. Sök efter och välj **virtuella nätverk**.
 
-2. Markera namnet på det virtuella nätverk som innehåller det undernät som du vill ta bort.
+2. Välj namnet på det virtuella nätverk som innehåller det undernät som du vill ta bort.
 
-3. Välj **Undernät i** **Inställningar**.
+3. Från **Inställningar**väljer du **undernät**.
 
-4. Markera det undernät som du vill ta bort i listan över undernät.
+4. I listan över undernät väljer du det undernät som du vill ta bort.
 
-5. Välj **Ta bort**och välj sedan **Ja** i bekräftelsedialogrutan.
+5. Välj **ta bort**och välj sedan **Ja** i bekräftelse dialog rutan.
 
 ### <a name="commands"></a>Kommandon
 
 | Verktyg | Kommando |
 | ---- | ------- |
-| Azure CLI | [az nätverk vnet undernät ta bort](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) |
-| PowerShell | [Ta bort-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) |
+| Azure CLI | [ta bort AZ Network VNet Subnet Delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) |
+| PowerShell | [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 
 ## <a name="permissions"></a>Behörigheter
 
-Om du vill utföra uppgifter i undernät måste ditt konto tilldelas [rollen Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder i följande tabell:
+Om du vill utföra uppgifter i undernät måste ditt konto tilldelas [rollen nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder i följande tabell:
 
-|Åtgärd                                                                   |   Namn                                       |
+|Åtgärd                                                                   |   Name                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
-|Microsoft.Network/virtualNetworks/subnets/read                           |   Läsa ett virtuellt nätverksundernät              |
-|Microsoft.Network/virtualNetworks/undernät/skrivning                          |   Skapa eller uppdatera ett virtuellt nätverksundernät  |
-|Microsoft.Network/virtualNetworks/subnät/borttagning                         |   Ta bort ett virtuellt nätverksundernät            |
-|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Gå med i ett virtuellt nätverk                     |
-|Microsoft.Network/virtualNetworks/subnät/joinViaServiceEndpoint/åtgärd  |   Aktivera en tjänstslutpunkt för ett undernät     |
-|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read Microsoft.Network/virtualNetworks/subnets/virtualMachines/read Microsoft.Network/virtualNetworks/subnets/virtualMachines/read Microsoft.           |   Hämta de virtuella datorerna i ett undernät       |
+|Microsoft.Network/virtualNetworks/subnets/read                           |   Läs ett undernät för virtuellt nätverk              |
+|Microsoft. Network/virtualNetworks/subnets/Write                          |   Skapa eller uppdatera ett virtuellt nätverks under nät  |
+|Microsoft. Network/virtualNetworks/subnets/Delete                         |   Ta bort ett undernät för virtuellt nätverk            |
+|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Anslut till ett virtuellt nätverk                     |
+|Microsoft. Network/virtualNetworks/subnets/joinViaServiceEndpoint/Action  |   Aktivera en tjänst slut punkt för ett undernät     |
+|Microsoft. Network/virtualNetworks/subnets/virtualMachines/Read           |   Hämta de virtuella datorerna i ett undernät       |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa ett virtuellt nätverk och undernät med [powershell-](powershell-samples.md) eller [Azure CLI-exempelskript](cli-samples.md) eller använda Azure [Resource Manager-mallar](template-samples.md)
-- Skapa och tillämpa [Azure-principen](policy-samples.md) för virtuella nätverk
+- Skapa ett virtuellt nätverk och undernät med [PowerShell](powershell-samples.md) -eller [Azure CLI](cli-samples.md) -exempel skript eller med hjälp av Azure [Resource Manager-mallar](template-samples.md)
+- Skapa och tilldela [Azure policy definitioner](policy-samples.md) för virtuella nätverk

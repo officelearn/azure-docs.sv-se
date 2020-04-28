@@ -1,7 +1,7 @@
 ---
-title: 'Skapa Python-modell: Modulreferens'
+title: 'Skapa python-modell: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Skapa Python-modell i Azure Machine Learning för att skapa en anpassad modell- eller databehandlingsmodul.
+description: Lär dig hur du använder modulen skapa python-modell i Azure Machine Learning för att skapa en anpassad modell eller data bearbetnings modul.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,45 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: c8be0882452dc120f538394a5481769e26e3fa15
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682811"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189862"
 ---
-# <a name="create-python-model-module"></a>Skapa Python-modellmodul
+# <a name="create-python-model-module"></a>Skapa python modell-modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Lär dig hur du använder modulen Skapa Python-modell för att skapa en otränad modell från ett Python-skript. Du kan basera modellen på alla elever som ingår i ett Python-paket i designermiljön Azure Machine Learning. 
+Lär dig hur du använder modulen skapa python-modell för att skapa en modell som inte är tränad från ett Python-skript. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learning designer-miljön. 
 
-När du har skapat modellen kan du använda [Train Model](train-model.md) för att träna modellen på en datauppsättning, som alla andra elever i Azure Machine Learning. Den tränade modellen kan skickas till [Poängmodell för](score-model.md) att göra förutsägelser. Du kan sedan spara den tränade modellen och publicera bedömningsarbetsflödet som en webbtjänst.
+När du har skapat modellen kan du använda [träna modell](train-model.md) för att träna modellen på en data uppsättning, t. ex. en annan elev i Azure Machine Learning. Den tränade modellen kan skickas till [Poäng modell](score-model.md) för att göra förutsägelser. Sedan kan du spara den tränade modellen och publicera bedömnings arbets flödet som en webb tjänst.
 
 > [!WARNING]
-> För närvarande är det inte möjligt att skicka de poängsatta resultaten av en Python-modell för att [utvärdera modell](evaluate-model.md). Om du behöver utvärdera en modell kan du skriva ett anpassat Python-skript och köra det med modulen [Kör Python-skript.](execute-python-script.md)  
+> För närvarande går det inte att skicka resultatet av en python-modell för att [utvärdera modellen](evaluate-model.md). Om du behöver utvärdera en modell kan du skriva ett anpassat Python-skript och köra det med hjälp av modulen [Kör Python-skript](execute-python-script.md) .  
 
 
 ## <a name="configure-the-module"></a>Konfigurera modulen
 
-Användning av den här modulen kräver mellanliggande eller expertkunskaper om Python. Modulen stöder användning av alla elever som ingår i Python-paket som redan är installerade i Azure Machine Learning. Se den förinstallerade Python-paketlistan i [Kör Python Script](execute-python-script.md).
+Användningen av den här modulen kräver en mellanliggande eller expert kunskap om python. Modulen stöder användning av valfri elev som ingår i python-paketen som redan har installerats i Azure Machine Learning. Se listan med förinstallerade python-paket i [köra Python-skript](execute-python-script.md).
 
 > [!NOTE]
-> Var mycket försiktig när du skriver skriptet och ser till att det inte finns något syntaxfel, till exempel att använda ett odeklarerat objekt eller en icke-importerad modul.
+> Var noga med att skriva skriptet och se till att det inte finns något syntaxfel, till exempel att använda ett icke-deklarerat objekt eller en icke-importerad modul.
 
 > [!NOTE]
-Ägna också extra uppmärksamhet åt den förinstallerade modulens listan i [Kör Python Script](execute-python-script.md). Importera endast förinstallerade moduler. Installera inte extra paket som "pip installera xgboost" i det här skriptet, annars fel kommer att höjas när du läser modeller i ned-stream moduler.
+> Betala också extra uppmärksamhet till listan förinstallerade moduler i [köra Python-skript](execute-python-script.md). Importera endast förinstallerade moduler. Installera inte extra paket, till exempel "pip install xgboost" i det här skriptet, annars uppstår fel vid läsning av modeller i moduler som är i inström.
   
-Den här artikeln visar hur du använder **Skapa Python-modell** med en enkel pipeline. Här är ett diagram över rörledningen:
+Den här artikeln visar hur du använder **create python-modellen** med en enkel pipeline. Här är ett diagram över pipelinen:
 
-![Diagram över Skapa Python-modell](./media/module/create-python-model.png)
+![Diagram över skapa python-modell](./media/module/create-python-model.png)
 
-1. Välj **Skapa Python-modell**och redigera skriptet för att implementera din modellerings- eller datahanteringsprocess. Du kan basera modellen på alla elever som ingår i ett Python-paket i Azure Machine Learning-miljön.
+1. Välj **skapa python-modell**och redigera skriptet för att implementera modellerings-eller data hanterings processen. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learnings miljön.
 
 > [!NOTE]
-> Var extra uppmärksam på kommentarerna i exempelkoden för skriptet och se till att skriptet strikt följer kravet, inklusive klassnamn, metoder samt metodsignatur. Överträdelse kommer att leda till undantag. 
+> Betala extra uppmärksamhet på kommentarerna i exempel koden för skriptet och kontrol lera att skriptet följer kraven, inklusive klass namnet, metoderna och Metodsignaturen. Överträdelsen leder till undantag. 
 
-   Följande exempelkod för klassificeraren Med två klasser Av Naive Bayes används det populära *sklearnpaketet:*
+   Följande exempel kod för Naive Bayes-klassificeraren i två klasser använder det populära *sklearn* -paketet:
 
    ```Python
 
@@ -88,11 +88,11 @@ Den här artikeln visar hur du använder **Skapa Python-modell** med en enkel pi
 
    ```
 
-1. Anslut modulen **Skapa Python-modell** som du just skapade för att **träna modell-** och **poängmodell**.
+2. Anslut den **skapa python modell** -modul som du nyss skapade för att **träna modell** och **Poäng modell**.
 
-1. Om du behöver utvärdera modellen lägger du till en [Kör Python Script-modul](execute-python-script.md) och redigerar Python-skriptet.
+3. Om du behöver utvärdera modellen lägger du till en [köra python-skriptfil](execute-python-script.md) och redigerar python-skriptet.
 
-   Följande skript är exempelutvärderingskod:
+   Följande skript är exempel på utvärderings kod:
 
    ```Python
 
@@ -103,7 +103,7 @@ Den här artikeln visar hur du använder **Skapa Python-modell** med en enkel pi
    # imports up here can be used to 
    import pandas as pd
 
-   # The entry point function can contain up to two input arguments:
+   # The entry point function MUST have two input arguments:
    #   Param<dataframe1>: a pandas.DataFrame
    #   Param<dataframe2>: a pandas.DataFrame
    def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -133,4 +133,4 @@ Den här artikeln visar hur du använder **Skapa Python-modell** med en enkel pi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

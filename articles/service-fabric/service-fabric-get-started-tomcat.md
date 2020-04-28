@@ -1,20 +1,20 @@
 ---
 title: Skapa en behållare för Apache Tomcat på Linux
-description: Skapa Linux-behållare för att exponera ett program som körs på Apache Tomcat-server på Azure Service Fabric. Skapa en Docker-avbildning med ditt program och Apache Tomcat-server, skicka avbildningen till ett behållarregister, skapa och distribuera ett Service Fabric-behållarprogram.
+description: Skapa en Linux-behållare för att exponera ett program som körs på Apache Tomcat-server på Azure Service Fabric. Bygg en Docker-avbildning med ditt program och Apache Tomcat-servern, push-överför avbildningen till ett behållar register, bygg och distribuera ett program för Service Fabric behållare.
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614425"
 ---
-# <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric-behållare som kör Apache Tomcat-server på Linux
-Apache Tomcat är en populär, öppen källkod genomförandet av Java Servlet och Java Server teknik. Den här artikeln visar hur du skapar en behållare med Apache Tomcat och ett enkelt webbprogram, distribuerar behållaren till ett Service Fabric-kluster som kör Linux och ansluter till webbprogrammet.  
+# <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric behållare som kör Apache Tomcat server på Linux
+Apache Tomcat är en populär implementering av Java-servlet och Java-serverns teknik med öppen källkod. Den här artikeln visar hur du skapar en behållare med Apache Tomcat och ett enkelt webb program, distribuerar behållaren till ett Service Fabric kluster som kör Linux och ansluter till webb programmet.  
 
-Mer information om Apache Tomcat finns på [Apache Tomcats hemsida](https://tomcat.apache.org/). 
+Mer information om Apache Tomcat finns på [Start sidan för Apache Tomcat](https://tomcat.apache.org/). 
 
 ## <a name="prerequisites"></a>Krav
 * En utvecklingsdator som kör:
@@ -22,24 +22,24 @@ Mer information om Apache Tomcat finns på [Apache Tomcats hemsida](https://tomc
   * [Docker CE för Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Service Fabric CLI](service-fabric-cli.md)
 
-* Ett behållarregister i Azure Container Registry. Du kan skapa ett behållarregister i din Azure-prenumeration med [Azure-portalen](../container-registry/container-registry-get-started-portal.md) eller [Azure CLI](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry). 
+* Ett behållar register i Azure Container Registry. Du kan skapa ett behållar register i din Azure-prenumeration med hjälp [av Azure Portal](../container-registry/container-registry-get-started-portal.md) eller [Azure CLI](./service-fabric-tutorial-create-container-images.md#deploy-azure-container-registry). 
 
 ## <a name="build-a-tomcat-image-and-run-it-locally"></a>Skapa en Tomcat-avbildning och kör den lokalt
-Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserat på en Apache Tomcat-avbildning och en enkel webbapp och kör den sedan i en behållare på ditt lokala system. 
+Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserad på en Apache Tomcat-avbildning och en enkel webbapp och kör den sedan i en behållare i det lokala systemet. 
  
-1. Klona [servicetyget som kommer igång med Java-exempeldatabasen](https://github.com/Azure-Samples/service-fabric-java-getting-started) på utvecklingsdatorn.
+1. Klona [Service Fabric komma igång med Java](https://github.com/Azure-Samples/service-fabric-java-getting-started) samples-lagringsplatsen på din utvecklings dator.
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
    ```
 
-1. Ändra kataloger till exempelkatalogen för Apache Tomcat-servern (*service-fabric-java-getting-started/container-apache-tomcat-web-server-sample*):
+1. Ändra kataloger till Server exempel katalogen för Apache Tomcat (*Service-Fabric-Java-kom-start/container-Apache-Tomcat-Web-Server-Sample*):
 
    ```bash
    cd service-fabric-java-getting-started/container-apache-tomcat-web-server-sample
    ```
 
-1. Skapa en Docker-fil baserat på den officiella [Tomcat-avbildningen](https://hub.docker.com/_/tomcat/) som finns på Docker Hub och exemplet på Tomcat-servern. Skapa en fil med namnet *Dockerfile* (utan filtillägg) i katalogen *service-fabric-java-getting-started/container-apache-tomcat-web-server-sample.* Lägg till följande i *Dockerfile* och spara dina ändringar:
+1. Skapa en Docker-fil baserat på den officiella [Tomcat-avbildningen](https://hub.docker.com/_/tomcat/) som finns på Docker Hub och Tomcat Server-exemplet. Skapa en fil med namnet *Dockerfile* (utan fil namns tillägg) i katalogen *Service-Fabric-Java-kom-start/container-Apache-Tomcat-Web-Server-Sample* . Lägg till följande i *Dockerfile* och spara dina ändringar:
 
    ```
    FROM library/tomcat
@@ -49,16 +49,16 @@ Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserat p�
    COPY ./ApacheTomcat /usr/local/tomcat
    ```
 
-   Mer information finns i [Dockerfile-referensen.](https://docs.docker.com/engine/reference/builder/)
+   Mer information finns i [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) .
 
 
-4. Kör `docker build` kommandot för att skapa den bild som kör webbprogrammet:
+4. Kör `docker build` kommandot för att skapa avbildningen som kör ditt webb program:
 
    ```bash
    docker build . -t tomcattest
    ```
 
-   Det här kommandot skapar den nya avbildningen med hjälp av instruktionerna i Dockerfile, namnge (-t-märkning) avbildningen `tomcattest`. Om du vill skapa en behållaravbildning hämtas basavbildningen först ned från Docker Hub och programmet läggs till i den. 
+   Det här kommandot skapar den nya avbildningen med hjälp av anvisningarna i Dockerfile och namnger (-t taggning `tomcattest`) bilden. För att bygga en behållar avbildning hämtas bas avbildningen först ned från Docker-hubben och programmet läggs till i den. 
 
    När build-kommandot har slutförts kör du `docker images`-kommandot för att se information om den nya avbildningen:
 
@@ -69,41 +69,41 @@ Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserat p�
    tomcattest                    latest              86838648aab6        2 minutes ago       194 MB
    ```
 
-5. Kontrollera att det behållarprogrammet körs lokalt innan du trycker på det i behållarregistret:
+5. Kontrol lera att ditt program i behållare körs lokalt innan du skickar det till behållar registret:
  
    ```bash
    docker run -itd --name tomcat-site -p 8080:8080 tomcattest.
    ```
    
    * `--name`namnger behållaren, så att du kan referera till den med ett eget namn i stället för dess ID.
-   * `-p`anger portmappningen mellan behållaren och värdoperativsystemet. 
+   * `-p`anger port mappningen mellan behållaren och värd operativ systemet. 
 
    > [!Note]
-   > Porten som du `-p` öppnar med parametern ska vara den port som Tomcat-programmet lyssnar på begäranden på. I det aktuella exemplet finns det en anslutning konfigurerad i *apachetomcat/conf/server.xml-filen* för att lyssna på port 8080 för HTTP-begäranden. Den här porten mappas till port 8080 på värden. 
+   > Porten som du öppnar med `-p` parametern ska vara den port som Tomcat-programmet lyssnar på. I det aktuella exemplet finns en anslutning som kon figurer ATS i filen *ApacheTomcat/conf/server. XML* för att lyssna på Port 8080 för HTTP-begäranden. Den här porten är mappad till Port 8080 på värden. 
 
-   Mer information om andra parametrar finns i [Dokumentationen för Docker-körning](https://docs.docker.com/engine/reference/commandline/run/).
+   Läs mer om andra parametrar i [Docker-körnings dokumentationen](https://docs.docker.com/engine/reference/commandline/run/).
 
-1. Om du vill testa behållaren öppnar du en webbläsare och anger en av följande webbadresser. Du kommer att se en variant av "Hello World!" välkomstskärmen för varje webbadress.
+1. Testa din behållare genom att öppna en webbläsare och ange en av följande URL: er. En variant av "Hello World!" visas. Välkomst skärmen för varje URL.
 
    - `http://localhost:8080/hello` 
    - `http://localhost:8080/hello/sayhello` 
    - `http://localhost:8080/hello/sayhi` 
 
-   ![Hej värld / sayhi](./media/service-fabric-get-started-tomcat/hello.png)
+   ![Hello World-/SayHi](./media/service-fabric-get-started-tomcat/hello.png)
 
-2. Stoppa behållaren och ta bort den från utvecklingsdatorn:
+2. Stoppa behållaren och ta bort den från utvecklings datorn:
 
    ```bash
    docker stop tomcat-site
    docker rm tomcat-site
    ```
 
-## <a name="push-the-tomcat-image-to-your-container-registry"></a>Skicka Tomcat-avbildningen till behållarregistret
-Nu när du har verifierat att Tomcat-avbildningen körs i en behållare på utvecklingsdatorn skickar du den till en databas i ett behållarregister. I den här artikeln används Azure Container Registry för att lagra avbildningen, men med vissa ändringar av stegen kan du använda alla behållarregister som du väljer. I den här artikeln registret namn antas vara *mitt register* och det fullständiga registret namn är myregistry.azurecr.io. Ändra dessa på lämpligt sätt för ditt scenario. 
+## <a name="push-the-tomcat-image-to-your-container-registry"></a>Push-överför Tomcat-avbildningen till behållar registret
+Nu när du har kontrollerat att Tomcat-avbildningen körs i en behållare på din utvecklings dator kan du skicka den till en lagrings plats i ett behållar register. Den här artikeln använder Azure Container Registry för att lagra avbildningen, men med vissa ändringar av stegen kan du använda valfritt behållar register som du väljer. I den här artikeln antas register namnet vara *registret* och det fullständiga register namnet är myregistry.azurecr.io. Ändra dessa på lämpligt sätt för ditt scenario. 
 
-1. Kör `docker login` för att logga in på behållarregistret med [registerautentiseringsuppgifterna](../container-registry/container-registry-authentication.md).
+1. Kör `docker login` för att logga in i behållar registret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
 
-   I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Eller så kan du logga in med ditt användarnamn och lösenord för registret.
+   I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Eller så kan du logga in med ditt användar namn och lösen ord för registret.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -121,25 +121,25 @@ Nu när du har verifierat att Tomcat-avbildningen körs i en behållare på utve
    docker push myregistry.azurecr.io/samples/tomcattest
    ```
 
-## <a name="build-and-deploy-the-service-fabric-container-application"></a>Skapa och distribuera service fabric-behållarprogrammet
-Nu när du har pushat Tomcat-avbildningen till ett behållarregister kan du skapa och distribuera ett Service Fabric-behållarprogram som hämtar Tomcat-avbildningen från registret och kör den som en behållartjänst i klustret. 
+## <a name="build-and-deploy-the-service-fabric-container-application"></a>Bygg och distribuera Service Fabric container program
+Nu när du har skickat Tomcat-avbildningen till ett behållar register kan du bygga och distribuera ett Service Fabric behållar program som hämtar Tomcat-avbildningen från registret och kör den som en behållar tjänst i klustret. 
 
-1. Skapa en ny katalog utanför den lokala klonen (utanför *katalogträdet service-fabric-java-getting-started).* Växla till den och använd Yeoman för att skapa en byggnadsställning för ett behållarprogram: 
+1. Skapa en ny katalog utanför din lokala klon (utanför *Service-Fabric-Java-kom igång-* katalog trädet). Växla till den och Använd Yeoman för att skapa en Autogenerera för ett behållar program: 
 
    ```bash
    yo azuresfcontainer 
    ```
-   Ange följande värden när du uppmanas att göra det:
+   Ange följande värden när du uppmanas till det:
 
-   * Namn på ditt program: ServiceFabricTomcat
-   * Programtjänstens namn: TomcatService
-   * Mata in bildnamnet: Ange URL:en för behållaravbildningen i behållarregistret. till exempel myregistry.azurecr.io/samples/tomcattest.
-   * Kommandon: Lämna det här tomt. Eftersom den här avbildningen har en definierad startpunkt arbetsbelastningen måste du inte uttryckligen ange inkommande kommandon (kommandon körs i den container som kommer att hålla den container som körs efter start).
-   * Antal instanser av gästcontainerprogram: 1
+   * Namnge ditt program: ServiceFabricTomcat
+   * Namnet på program tjänsten: TomcatService
+   * Ange avbildningens namn: Ange URL: en för behållar avbildningen i behållar registret. till exempel myregistry.azurecr.io/samples/tomcattest.
+   * Kommandon: lämna tomt. Eftersom den här avbildningen har en definierad startpunkt arbetsbelastningen måste du inte uttryckligen ange inkommande kommandon (kommandon körs i den container som kommer att hålla den container som körs efter start).
+   * Antal instanser av gäst container program: 1
 
    ![Service Fabric Yeoman-generator för containrar](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
-10. I tjänstmanifestet (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*) lägger du till följande XML under roten **ServiceManfest-taggen** för att öppna porten som programmet lyssnar på begäranden på. **Slutpunktstaggen** deklarerar protokollet och porten för slutpunkten. I den här artikeln lyssnar den containeriserade tjänsten på port 8080: 
+10. I tjänst manifestet (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest. XML*) lägger du till följande XML under roten **ServiceManfest** -taggen för att öppna porten som programmet lyssnar på begär Anden. **Slut punkts** tag gen deklarerar protokollet och porten för slut punkten. I den här artikeln lyssnar tjänsten behållar tjänsten på Port 8080: 
 
    ```xml
    <Resources>
@@ -152,7 +152,7 @@ Nu när du har pushat Tomcat-avbildningen till ett behållarregister kan du skap
    </Resources>
    ```
 
-11. Lägg till följande XML under taggen **ServiceManifestImport** i programmanifestimport (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*). Ersätt **kontonamnet** och **lösenordet** i taggen **RepositoryCredentials** med namnet på behållarregistret och det lösenord som krävs för att logga in på det.
+11. I program manifestet (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest. XML*), under taggen **service manifest import** , lägger du till följande XML. Ersätt **AccountName** och **lösen ordet** i **RepositoryCredentials** -taggen med namnet på behållar registret och det lösen ord som krävs för att logga in på det.
 
    ```xml
    <Policies>
@@ -163,60 +163,60 @@ Nu när du har pushat Tomcat-avbildningen till ett behållarregister kan du skap
    </Policies>
    ```
 
-   Taggen **ContainerHostPolicies** anger principer för att aktivera behållarvärdar.
+   Taggen **ContainerHostPolicies** anger principer för att aktivera behållar värdar.
     
-   * **PortBinding-taggen** konfigurerar principen för mappning av behållarport till värdport. **Attributet ContainerPort** är inställt på 8080 eftersom behållaren exponerar port 8080, enligt angivet i Dockerfile. **Attributet EndpointRef** är inställt på "endpointTest", slutpunkten som definierats i tjänstmanifestet i föregående steg. Inkommande begäranden till tjänsten på port 8080 mappas därför till port 8080 på behållaren. 
-   * Taggen **RepositoryCredentials** anger de autentiseringsuppgifter som behållaren behöver autentisera med den (privata) databas där bilden hämtas från. Du behöver inte den här principen om bilden hämtas från en offentlig databas.
+   * **PortBinding** -taggen konfigurerar port mappnings principen för container port-till-värd. Attributet **ContainerPort** är inställt på 8080 eftersom behållaren exponerar Port 8080, enligt vad som anges i Dockerfile. Attributet **EndpointRef** är inställt på "endpointTest", den slut punkt som definierats i tjänst manifestet i föregående steg. Därför mappas inkommande begär anden till tjänsten på Port 8080 till Port 8080 på behållaren. 
+   * Taggen **RepositoryCredentials** anger de autentiseringsuppgifter som containern behöver för att autentisera med det (privata) lagrings plats där den hämtar avbildningen från. Du behöver inte den här principen om avbildningen kommer att hämtas från ett offentligt lager.
     
 
-12. Anslut till serviceinfrastrukturklustret i mappen *ServiceFabricTomcat.* 
+12. I mappen *ServiceFabricTomcat* ansluter du till Service Fabric-klustret. 
 
-   * Om du vill ansluta till det lokala servicetygets kluster kör du:
+   * Kör följande för att ansluta till det lokala Service Fabrics klustret:
 
      ```bash
      sfctl cluster select --endpoint http://localhost:19080
      ```
     
-   * Om du vill ansluta till ett säkert Azure-kluster kontrollerar du att klientcertifikatet finns som en PEM-fil i *ServiceFabricTomcat-katalogen* och kör: 
+   * För att ansluta till ett säkert Azure-kluster kontrollerar du att klient certifikatet finns som en. PEM-fil i katalogen *ServiceFabricTomcat* och kör: 
 
      ```bash
      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
      ```
-     Ersätt `your-certificate.pem` med namnet på klientcertifikatfilen i föregående kommando. I utvecklings- och testmiljöer används klustercertifikatet ofta som klientcertifikat. Om ditt certifikat inte är självsignerat utelämnar du parametern. `-no-verify` 
+     I föregående kommando ersätter `your-certificate.pem` du med namnet på klient certifikat filen. I utvecklings-och test miljöer används ofta kluster certifikatet som klient certifikat. Utelämna `-no-verify` parametern om ditt certifikat inte är självsignerat. 
        
-     Klustercertifikat hämtas vanligtvis lokalt som PFX-filer. Om du inte redan har ditt certifikat i PEM-format kan du köra följande kommando för att skapa en PEM-fil från en PFX-fil:
+     Kluster certifikat laddas vanligt vis ned lokalt som. PFX-filer. Om du inte redan har ditt certifikat i PEM-format kan du köra följande kommando för att skapa en. PEM-fil från en. pfx-fil:
 
      ```bash
      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
      ```
 
-     Om PFX-filen inte är lösenordsskyddad använder du `-passin pass:` den sista parametern.
+     Om din PFX-fil inte är lösenordsskyddad använder `-passin pass:` du den sista parametern.
 
 
-13. Kör installationsskriptet som finns i mallen för att distribuera programmet till klustret. Skriptet kopierar programpaketet till klustrets bildarkiv, registrerar programtypen och skapar en instans av programmet.
+13. Kör installations skriptet som finns i mallen för att distribuera programmet till klustret. Skriptet kopierar programpaketet till klustrets avbildnings Arkiv, registrerar program typen och skapar en instans av programmet.
 
      ```bash
      ./install.sh
      ```
 
-   När du har kört installationsskriptet öppnar du en webbläsare och navigerar till Service Fabric Explorer:
+   När du har kört installations skriptet öppnar du en webbläsare och går till Service Fabric Explorer:
     
-   * Använd `http://localhost:19080/Explorer` (ersätt *localhost* med den privata IP-adressen för den virtuella datorn om du använder Vagrant på Mac OS X) i ett lokalt kluster.
-   * Använd `https://PublicIPorFQDN:19080/Explorer`i ett säkert Azure-kluster . 
+   * I ett lokalt kluster använder `http://localhost:19080/Explorer` du (Ersätt *localhost* med den virtuella datorns privata IP om du använder Vagrant på Mac OS X).
+   * Använd `https://PublicIPorFQDN:19080/Explorer`i ett säkert Azure-kluster. 
     
-   Expandera **noden Program** och observera att det nu finns en post för din programtyp, **ServiceFabricTomcatType**och en annan för den första instansen av den typen. Det kan ta några minuter för programmet att helt distribuera, så ha tålamod.
+   Expandera noden **program** och Observera att det nu finns en post för din program typ, **ServiceFabricTomcatType**och en annan för den första instansen av den typen. Det kan ta några minuter för programmet att distribueras fullständigt, så du måste ha tålamod.
 
    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
-1. Om du vill komma åt programmet på Tomcat-servern öppnar du ett webbläsarfönster och anger någon av följande webbadresser. Om du har distribuerats till det lokala klustret använder du *localhost* för *PublicIPorFQDN*. Du kommer att se en variant av "Hello World!" välkomstskärmen för varje webbadress.
+1. Öppna ett webbläsarfönster och ange någon av följande URL: er för att komma åt programmet på Tomcat-servern. Om du har distribuerat till det lokala klustret använder du *localhost* för *PublicIPorFQDN*. En variant av "Hello World!" visas. Välkomst skärmen för varje URL.
 
    * http://PublicIPorFQDN:8080/hello  
    * http://PublicIPorFQDN:8080/hello/sayhello
    * http://PublicIPorFQDN:8080/hello/sayhi
 
 ## <a name="clean-up"></a>Rensa
-Använd avinstallationsskriptet som finns i mallen för att ta bort programinstansen från klustret och avregistrera programtypen.
+Använd avinstallations skriptet som medföljer mallen för att ta bort program instansen från klustret och avregistrera program typen.
 
 ```bash
 ./uninstall.sh
@@ -230,8 +230,8 @@ docker rmi myregistry.azurecr.io/samples/tomcattest
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Snabbsteg på ytterligare Linux-behållarfunktioner finns i [Skapa ditt första Service Fabric-behållarprogram på Linux](service-fabric-get-started-containers-linux.md).
-* Mer detaljerade steg om Linux-behållare finns i [självstudiekursen Skapa en Linux-behållarapp.](service-fabric-tutorial-create-container-images.md)
+* För snabba steg i fler funktioner för Linux-behållare, Läs [skapa ditt första Service Fabric containerprogram i Linux](service-fabric-get-started-containers-linux.md).
+* Mer detaljerade anvisningar om Linux-behållare finns i själv studie kursen [skapa en Linux-behållares vägledning](service-fabric-tutorial-create-container-images.md) .
 * Mer information om hur du kör [containrar i Service Fabric](service-fabric-containers-overview.md).
 
 

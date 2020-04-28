@@ -1,53 +1,53 @@
 ---
-title: Metodtips för Azure Service Fabric-program och kluster
-description: Metodtips och designöverväganden för hantering av kluster, appar och tjänster med Hjälp av Azure Service Fabric.
+title: Metod tips för Azure Service Fabric-program och-kluster
+description: Bästa praxis och design överväganden för hantering av kluster, appar och tjänster med hjälp av Azure Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
 ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551785"
 ---
-# <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Metodtips för Azure Service Fabric-program och kluster
+# <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Metod tips för Azure Service Fabric-program och-kluster
 
-Den här artikeln innehåller länkar till metodtips för hantering av Azure Service Fabric-program och kluster. Vi rekommenderar starkt att du implementerar dessa metoder för att optimera tillförlitligheten i din produktionsmiljö. Använd en av [klustermallarna för Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates) för att börja utforma produktionslösningen eller uppdatera den befintliga mallen för att infoga dessa metoder.
+Den här artikeln innehåller länkar till metod tips för att hantera Azure Service Fabric-program och-kluster. Vi rekommenderar starkt att du implementerar dessa metoder för att optimera tillförlitligheten i din produktions miljö. Använd en av [Service Fabric Cluster-mallarna](https://github.com/Azure-Samples/service-fabric-cluster-templates) för att börja designa din produktions lösning eller uppdatera din befintliga mall så att du kan lägga till dessa metoder.
 
 ## <a name="security"></a>Säkerhet
 
-* [Metodtips för säkerhet](service-fabric-best-practices-security.md)
+* [Metod tips för säkerhet](service-fabric-best-practices-security.md)
 
 ## <a name="networking"></a>Nätverk
 
-* [Metodtips för nätverk](service-fabric-best-practices-networking.md)
+* [Metod tips för nätverk](service-fabric-best-practices-networking.md)
 
 ## <a name="compute-planning-and-scaling"></a>Beräkningsplanering och skalning
 
-* [Metodtips för beräkningskalning](service-fabric-best-practices-capacity-scaling.md)
-* [Planering av beräkningskapacitet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [Metod tips för beräknings skalning](service-fabric-best-practices-capacity-scaling.md)
+* [Planering av beräknings kapacitet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
 
 ## <a name="infrastructure-as-code"></a>Infrastruktur som kod
 
-* [Metodtips för att implementera infrastruktur som kod](service-fabric-best-practices-infrastructure-as-code.md)
+* [Metod tips för att implementera infrastruktur som kod](service-fabric-best-practices-infrastructure-as-code.md)
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
-* [Metodtips för klusterövervakning och diagnostik](service-fabric-best-practices-monitoring.md)
+* [Metod tips för kluster övervakning och diagnostik](service-fabric-best-practices-monitoring.md)
 
 ## <a name="application-design"></a>Programdesign
 
-* [Metodtips för programdesign](service-fabric-best-practices-applications.md)
+* [Metod tips för program design](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Checklista
 
-När du har implementerat de metoder som föreslås i föregående avsnitt kontrollerar du att du har integrerat alla metodtips i checklistan för produktionsberedskap:
-* [Checklista för produktionberedskap för Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+När du har implementerat de metoder som föreslås i föregående avsnitt bör du se till att du har integrerat alla rekommenderade metoder i check listan för produktions beredskap:
+* [Check lista för Azure Service Fabric Production readiness](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Skapa service fabric-kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md)
-* Felsöka service fabric: [felsökningsguider](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md)
+* Felsöka Service Fabric: [fel söknings guider](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

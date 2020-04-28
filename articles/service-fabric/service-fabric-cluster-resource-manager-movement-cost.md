@@ -1,28 +1,28 @@
 ---
-title: 'Resurshanteraren för servicevävnadskluster: Rörelsekostnad'
-description: Lär dig mer om rörelsekostnaden för Service Fabric-tjänster och hur den kan anges för att passa alla arkitektoniska behov, inklusive dynamisk konfiguration.
+title: 'Service Fabric Cluster Resource Manager: rörelse kostnad'
+description: Läs om förflyttnings kostnaden för Service Fabric tjänster och hur den kan anges för att passa eventuella arkitektur behov, inklusive dynamisk konfiguration.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75563351"
 ---
-# <a name="service-movement-cost"></a>Kostnad för tjänsterörelser
-En faktor som Service Fabric Cluster Resource Manager tar hänsyn till när du försöker avgöra vilka ändringar som ska görs i ett kluster är kostnaden för dessa ändringar. Begreppet "kostnad" handlas bort mot hur mycket klustret kan förbättras. Kostnaden räknas in när du flyttar tjänster för balansering, defragmentering och andra krav. Målet är att uppfylla kraven på det minst störande eller dyra sättet.
+# <a name="service-movement-cost"></a>Kostnad för tjänste rörelse
+En faktor som Service Fabric Cluster Resource Manager tar hänsyn till när du försöker bestämma vilka ändringar som ska göras i ett kluster, kostnaden för dessa ändringar. Begreppet "kostnad" sker i handeln mot hur mycket klustret kan förbättras. Kostnaden är faktor i när du flyttar tjänster för balansering, defragmentering och andra krav. Målet är att uppfylla kraven på minst störande eller kostsamma sätt.
 
-Flytta tjänster kostar CPU-tid och nätverksbandbredd på ett minimum. För tillståndskänsliga tjänster kräver det att du kopierar tillståndet för dessa tjänster och förbrukar ytterligare minne och disk. Minimera kostnaden för lösningar som Azure Service Fabric Cluster Resource Manager kommer med hjälper till att säkerställa att klustrets resurser inte spenderas i onödan. Men du vill inte heller ignorera lösningar som avsevärt skulle förbättra fördelningen av resurser i klustret.
+Flytt av tjänster kostar minst CPU-tid och nätverks bandbredd. För tillstånds känsliga tjänster kräver det att du kopierar status för dessa tjänster, vilket förbrukar ytterligare minne och disk. Att minimera kostnaden för lösningar som Azure Service Fabric Cluster Resource Manager kommer att ha, hjälper till att säkerställa att klustrets resurser inte förbrukas i onödan. Men du vill inte heller ignorera lösningar som avsevärt förbättrar tilldelningen av resurser i klustret.
 
-Cluster Resource Manager har två sätt att beräkna kostnader och begränsa dem medan den försöker hantera klustret. Den första mekanismen är helt enkelt att räkna varje steg som den skulle göra. Om två lösningar genereras med ungefär samma saldo (poäng) föredrar Klusterresurshanteraren den med den lägsta kostnaden (totalt antal drag).
+Kluster resurs hanteraren har två sätt att beräkna kostnader och begränsa dem när det försöker hantera klustret. Den första mekanismen räknar bara varje flyttning som det skulle göra. Om två lösningar genereras med ungefär samma saldo (Poäng), föredrar kluster resurs hanteraren den som har den lägsta kostnaden (totalt antal flyttningar).
 
-Denna strategi fungerar bra. Men som med standard eller statiska belastningar, det är osannolikt i något komplext system att alla drag är lika. Vissa kommer sannolikt att bli mycket dyrare.
+Den här strategin fungerar bra. Men precis som med standard eller statisk belastning är det osannolikt i komplexa system att alla flyttningar är lika. Vissa är förmodligen mycket dyrare.
 
-## <a name="setting-move-costs"></a>Ställa in flyttkostnader 
-Du kan ange standardflyttkostnaden för en tjänst när den skapas:
+## <a name="setting-move-costs"></a>Ange flytt kostnader 
+Du kan ange standard flytt kostnad för en tjänst när den skapas:
 
 PowerShell:
 
@@ -30,7 +30,7 @@ PowerShell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -DefaultMoveCost Medium
 ```
 
-C#: 
+C# 
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -40,7 +40,7 @@ serviceDescription.DefaultMoveCost = MoveCost.Medium;
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Du kan också ange eller uppdatera MoveCost dynamiskt för en tjänst efter att tjänsten har skapats: 
+Du kan också ange eller uppdatera MoveCost dynamiskt för en tjänst när tjänsten har skapats: 
 
 PowerShell: 
 
@@ -48,7 +48,7 @@ PowerShell:
 Update-ServiceFabricService -Stateful -ServiceName "fabric:/AppName/ServiceName" -DefaultMoveCost High
 ```
 
-C#:
+C#
 
 ```csharp
 StatefulServiceUpdateDescription updateDescription = new StatefulServiceUpdateDescription();
@@ -56,45 +56,45 @@ updateDescription.DefaultMoveCost = MoveCost.High;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/ServiceName"), updateDescription);
 ```
 
-## <a name="dynamically-specifying-move-cost-on-a-per-replica-basis"></a>Dynamiskt ange flyttkostnad per replik
+## <a name="dynamically-specifying-move-cost-on-a-per-replica-basis"></a>Dynamiskt ange flytt kostnad per replik
 
-De föregående kodavsnitten är alla för att ange MoveCost för en hel tjänst på en gång från utanför själva tjänsten. Flyttkostnaden är dock mest användbar när flyttkostnaden för ett visst serviceobjekt ändras under dess livslängd. Eftersom tjänsterna själva förmodligen har den bästa idén om hur kostsamma de är att flytta en viss tid, det finns ett API för tjänster för att rapportera sina egna individuella flytta kostnad under körning. 
+Föregående kodfragment är alla för att ange MoveCost för en hel tjänst på samma gång utanför själva tjänsten. Däremot är flytt kostnaden mest användbar när flytt kostnaden för ett särskilt tjänst objekt ändras över dess livs längd. Eftersom tjänsterna i själva verket förmodligen har den bästa uppfattningen om hur dyra de ska flytta en viss tid, finns det ett API för tjänster för att rapportera sina egna enskilda flytt kostnader under körningen. 
 
-C#:
+C#
 
 ```csharp
 this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
-## <a name="impact-of-move-cost"></a>Inverkan av flyttkostnad
-MoveCost har fem nivåer: Noll, Låg, Medium, Hög och VeryHigh. Följande regler gäller:
+## <a name="impact-of-move-cost"></a>Påverkan av flytt kostnad
+MoveCost har fem nivåer: noll, låg, medel, hög och VeryHigh. Följande regler gäller:
 
-* MoveCosts är relativa till varandra, med undantag för Zero och VeryHigh. 
-* Noll flyttkostnad innebär att rörelsen är fri och inte bör räknas mot lösningens poäng.
-* Att ställa in flyttkostnaden till Hög eller VeryHigh ger *ingen* garanti för att repliken *aldrig* kommer att flyttas.
-* Repliker med VeryHigh flytta kostnaden kommer att flyttas endast om det finns en begränsning kränkning i klustret som inte kan fastställas på något annat sätt (även om det kräver att flytta många andra repliker för att åtgärda överträdelsen)
+* MoveCosts är i förhållande till varandra, förutom noll och VeryHigh. 
+* Noll flytt kostnad innebär att rörelsen är kostnads fri och inte bör räknas mot poängen i lösningen.
+* Att ange flytt kostnad till hög eller VeryHigh ger *ingen* garanti för att repliken *aldrig* kommer att flyttas.
+* Repliker med VeryHigh flytt kostnad flyttas bara om det finns en begränsnings överträdelse i klustret som inte kan åtgärdas på något annat sätt (även om det krävs flera andra repliker för att åtgärda överträdelsen)
 
 
 
 <center>
 
-![Flytta kostnad som en faktor vid val av repliker för rörelse][Image1]
+![Flytta kostnad som en faktor i välja repliker för förflyttning][Image1]
 </center>
 
-MoveCost hjälper dig att hitta de lösningar som orsakar minst störningar totalt och är lättast att uppnå samtidigt som du kommer fram till motsvarande balans. En tjänst s begreppet kostnad kan vara i förhållande till många saker. De vanligaste faktorerna vid beräkning av flyttkostnaden är:
+MoveCost hjälper dig att hitta de lösningar som orsakar minsta möjliga avbrott och som är lätta att uppnå samtidigt som du får ett motsvarande saldo. En tjänsts begreppet kostnad kan vara relativt många saker. De vanligaste faktorerna när du beräknar din flytt kostnad är:
 
-- Mängden tillstånd eller data som tjänsten måste flytta.
-- Kostnaden för frånkoppling av klienter. Flytta en primär replik är oftast dyrare än kostnaden för att flytta en sekundär replik.
-- Kostnaden för att avbryta en flygning. Vissa åtgärder på datalagernivå eller åtgärder som utförs som svar på ett klientanrop är kostsamma. Efter en viss punkt, vill du inte stoppa dem om du inte behöver. Så medan åtgärden pågår, du öka flyttkostnaden för denna tjänst objekt för att minska sannolikheten för att den flyttar. När åtgärden är klar ställer du in kostnaden igen till det normala.
+- Den mängd tillstånd eller data som tjänsten måste flytta.
+- Kostnaden för från koppling av klienter. Att flytta en primär replik är vanligt vis dyrare än kostnaden för att flytta en sekundär replik.
+- Kostnaden för att avbryta en flyg åtgärd. Vissa åtgärder på data lager nivån eller åtgärder som utförs som svar på ett klient anrop är dyra. Efter en viss punkt vill du inte stoppa dem om du inte behöver det. När åtgärden pågår ökar du flytt kostnaden för detta tjänst objekt för att minska sannolikheten för att det flyttas. När åtgärden är färdig ställer du tillbaka kostnaden på normal.
 
 > [!IMPORTANT]
-> Använda VeryHigh flytta kostnaden bör noga övervägas eftersom det avsevärt begränsar möjligheten för Cluster Resource Manager att hitta en globalt optimal placering lösning i klustret. Repliker med VeryHigh flytta kostnaden kommer att flyttas endast om det finns en begränsning kränkning i klustret som inte kan fastställas på något annat sätt (även om det kräver att flytta många andra repliker för att åtgärda överträdelsen)
+> Att använda flytt kostnaden för VeryHigh bör övervägas noga eftersom det begränsar möjligheten för kluster resurs hanteraren att hitta en globalt optimal placerings lösning i klustret. Repliker med VeryHigh flytt kostnad flyttas bara om det finns en begränsnings överträdelse i klustret som inte kan åtgärdas på något annat sätt (även om det krävs flera andra repliker för att åtgärda överträdelsen)
 
-## <a name="enabling-move-cost-in-your-cluster"></a>Aktivera flyttkostnad i klustret
-För att de mer detaljerade MoveCosts ska kunna beaktas måste MoveCost aktiveras i klustret. Utan den här inställningen används standardläget för inventeringsrörelser för beräkning av MoveCost och MoveCost-rapporter ignoreras.
+## <a name="enabling-move-cost-in-your-cluster"></a>Aktivera flytt kostnader i klustret
+För att kunna ta hänsyn till mer detaljerade MoveCosts måste MoveCost vara aktiverat i klustret. Utan den här inställningen används standard läget för att räkna antalet flyttningar för att beräkna MoveCost, och MoveCost-rapporter ignoreras.
 
 
-ClusterManifest.xml:
+ClusterManifest. XML:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -102,7 +102,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-via ClusterConfig.json för fristående distributioner eller Template.json för Azure-värdkluster:
+via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [
@@ -119,7 +119,7 @@ via ClusterConfig.json för fristående distributioner eller Template.json för 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Service Fabric Cluster Resource Manger använder mått för att hantera förbrukning och kapacitet i klustret. Om du vill veta mer om mått och hur du konfigurerar dem finns i [Hantera resursförbrukning och inläsning i Service Fabric med mått](service-fabric-cluster-resource-manager-metrics.md).
-- Om du vill veta mer om hur Cluster Resource Manager hanterar och balanserar belastning i klustret finns i [Balansera ditt Service Fabric-kluster](service-fabric-cluster-resource-manager-balancing.md).
+- Service Fabric Cluster Resource Manager använder mått för att hantera förbrukning och kapacitet i klustret. Om du vill veta mer om mått och hur du konfigurerar dem kan du läsa [Hantera resursförbrukning och belastning i Service Fabric med mått](service-fabric-cluster-resource-manager-metrics.md).
+- Mer information om hur kluster resurs hanteraren hanterar och balanserar belastningen i klustret finns i [balansera Service Fabric klustret](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png

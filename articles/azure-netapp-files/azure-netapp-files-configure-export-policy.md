@@ -1,6 +1,6 @@
 ---
-title: Konfigurera exportprincip för NFS-volym - Azure NetApp-filer
-description: Beskriver hur du konfigurerar exportprincip för att styra åtkomsten till en NFS-volym med Hjälp av Azure NetApp-filer
+title: Konfigurera export princip för NFS-volym – Azure NetApp Files
+description: Beskriver hur du konfigurerar export policy för att kontrol lera åtkomsten till en NFS-volym med hjälp av Azure NetApp Files
 services: azure-netapp-files
 author: b-juche
 ms.author: b-juche
@@ -9,22 +9,22 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: b96fca3a5627a1c6c96c8db5c1c209a51c5e102a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551566"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Konfigurera exportprincipen för en NFS-volym
 
-Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en Azure NetApp Files-volym. Azure NetApp Files exportprincip stöder endast NFS-volymer.  Både NFSv3 och NFSv4 stöds. 
+Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en Azure NetApp Files-volym. Azure NetApp Files export policy stöder endast NFS-volymer.  Både NFSv3 och NFSv4 stöds. 
 
 ## <a name="steps"></a>Steg 
 
-1.  Klicka på **Exportera princip** från navigeringsfönstret för Azure NetApp Files. 
+1.  Klicka på **Exportera princip** i Azure NetApp Files navigerings fönstret. 
 
 2.  Ange information för följande fält för att skapa en exportpolicyregel:   
-    *  **Index**   
+    *  **Tabbindex**   
         Ange indexnummer för regeln.  
         En exportpolicy kan bestå av upp till fem regler. Reglerna utvärderas enligt ordningen i listan med indexnummer. Regler med lägre indexnummer utvärderas först. Till exempel utvärderas regeln med indexnummer 1 före regeln med indexnummer 2. 
 

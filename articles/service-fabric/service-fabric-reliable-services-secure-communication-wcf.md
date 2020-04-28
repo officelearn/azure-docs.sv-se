@@ -1,23 +1,23 @@
 ---
-title: Säker WCF-baserad tjänstkommunikation
-description: Lär dig hur du skyddar WCF-baserad kommunikation för tillförlitliga tjänster som körs i ett Azure Service Fabric-kluster.
+title: Säker WCF-baserad tjänst kommunikation
+description: Lär dig hur du skyddar WCF-baserad kommunikation för pålitliga tjänster som körs i ett Azure Service Fabric-kluster.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614170"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Säker WCF-baserad kommunikation för en tjänst
-Säkerhet är en av de viktigaste aspekterna av kommunikation. Reliable Services-programramverket innehåller några fördefinierade kommunikationsstackar och verktyg som du kan använda för att förbättra säkerheten. I den här artikeln beskrivs hur du förbättrar säkerheten när du använder tjänståterbetering.
+Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Services Application Framework innehåller några inbyggda kommunikations stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln visar hur du kan förbättra säkerheten när du använder tjänstens fjärr kommunikation.
 
-Vi använder ett befintligt [exempel](service-fabric-reliable-services-communication-wcf.md) som förklarar hur du ställer in en WCF-baserad kommunikationsstack för tillförlitliga tjänster. Så här skyddar du en tjänst när du använder en WCF-baserad kommunikationsstack:
+Vi använder ett befintligt [exempel](service-fabric-reliable-services-communication-wcf.md) som förklarar hur du konfigurerar en WCF-baserad kommunikations stack för Reliable Services. Följ dessa steg om du vill skydda en tjänst när du använder en WCF-baserad kommunikations stack:
 
-1. För tjänsten måste du skydda WCF-kommunikationsavlyssnaren (`WcfCommunicationListener`) som du skapar. Ändra metoden för `CreateServiceReplicaListeners` att göra detta.
+1. För tjänsten måste du skydda den WCF Communication-lyssnare (`WcfCommunicationListener`) som du skapar. Det gör du genom att ändra `CreateServiceReplicaListeners` metoden.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -54,7 +54,7 @@ Vi använder ett befintligt [exempel](service-fabric-reliable-services-communica
         return b;
     }
     ```
-2. I klienten `WcfCommunicationClient` förblir klassen som skapades i föregående [exempel](service-fabric-reliable-services-communication-wcf.md) oförändrad. Men du måste `CreateClientAsync` åsidosätta `WcfCommunicationClientFactory`metoden för:
+2. I-klienten förblir `WcfCommunicationClient` klassen som skapades i föregående [exempel](service-fabric-reliable-services-communication-wcf.md) oförändrad. Men du måste åsidosätta `CreateClientAsync` metoden för: `WcfCommunicationClientFactory`
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -104,7 +104,7 @@ Vi använder ett befintligt [exempel](service-fabric-reliable-services-communica
     }
     ```
 
-    Används `SecureWcfCommunicationClientFactory` för att skapa en`WcfCommunicationClient`WCF-kommunikationsklient ( ). Använd klienten för att anropa tjänstmetoder.
+    Används `SecureWcfCommunicationClientFactory` för att skapa en WCF Communication-`WcfCommunicationClient`klient (). Använd-klienten för att anropa service metoder.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
@@ -120,4 +120,4 @@ Vi använder ett befintligt [exempel](service-fabric-reliable-services-communica
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-Som ett nästa steg kan du läsa [webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+I nästa steg ska du läsa [webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md).

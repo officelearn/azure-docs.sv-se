@@ -1,52 +1,52 @@
 ---
-title: Övervaka behållare med Azure Monitor-loggar
-description: Använd Azure Monitor-loggar för övervakning av behållare som körs på Azure Service Fabric-kluster.
+title: Övervaka behållare med Azure Monitor loggar
+description: Använd Azure Monitor loggar för att övervaka behållare som körs på Azure Service Fabric-kluster.
 author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8d4231de13da3f8b2960bd4852136f803a97a546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614442"
 ---
-# <a name="monitor-containers-with-azure-monitor-logs"></a>Övervaka behållare med Azure Monitor-loggar
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Övervaka behållare med Azure Monitor loggar
  
-Den här artikeln beskriver de steg som krävs för att konfigurera Azure Monitor-loggbehållarens övervakningslösning för att visa behållarhändelser. Om du vill konfigurera klustret för att samla in behållarhändelser läser du den här [steg-för-steg-självstudien](service-fabric-tutorial-monitoring-wincontainers.md). 
+Den här artikeln beskriver de steg som krävs för att ställa in övervaknings lösningen Azure Monitor loggar container för att Visa behållar händelser. Information om hur du konfigurerar klustret för att samla in behållar händelser finns i den här [steg-för-steg-självstudien](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="set-up-the-container-monitoring-solution"></a>Konfigurera behållarövervakningslösningen
+## <a name="set-up-the-container-monitoring-solution"></a>Konfigurera lösningen för övervakning av behållare
 
 > [!NOTE]
-> Du måste ha Azure Monitor-loggar konfigurerade för klustret samt ha Log Analytics-agenten distribuerad på dina noder. Om du inte gör det följer du stegen i [Konfigurera Azure Monitor-loggar](service-fabric-diagnostics-oms-setup.md) och [Lägg till Log Analytics-agenten i ett kluster](service-fabric-diagnostics-oms-agent.md) först.
+> Du måste ha Azure Monitor loggar som har kon figurer ATS för klustret samt ha Log Analytics-agenten distribuerad på noderna. Om du inte gör det följer du stegen i [konfigurera Azure Monitor loggar](service-fabric-diagnostics-oms-setup.md) och [lägger till Log Analytics-agenten i ett kluster](service-fabric-diagnostics-oms-agent.md) först.
 
-1. När klustret har konfigurerats med Azure Monitor-loggar och Log Analytics-agenten kan du distribuera dina behållare. Vänta tills behållarna har distribuerats innan du går vidare till nästa steg.
+1. När klustret har kon figurer ATS med Azure Monitor loggar och Log Analytics agent distribuerar du dina behållare. Vänta tills dina behållare har distribuerats innan du går vidare till nästa steg.
 
-2. I Azure Marketplace söker du efter lösning för *behållarövervakning* och klickar på resursen **lösning för behållarövervakning** som visas under kategorin Övervakning + hantering.
+2. På Azure Marketplace söker du efter *lösning för övervakning av behållare* och klickar på den **behållare för övervakning av behållare** som visas under kategorin övervakning och hantering.
 
     ![Lägga till containerlösning](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Skapa lösningen på samma arbetsyta som redan har skapats för klustret. Den här ändringen utlöser automatiskt agenten för att börja samla in dockerdata på behållarna. I ca 15 minuter eller så, bör du se lösningen lysa upp med inkommande loggar och statistik, som visas i bilden nedan.
+3. Skapa lösningen inuti samma arbets yta som redan har skapats för klustret. Den här ändringen utlöser automatiskt agenten för att börja samla in Docker-data på behållarna. Om 15 minuter eller så bör lösningen visas med inkommande loggar och statistik, som du ser i bilden nedan.
 
-    ![Instrumentpanel för grundläggande logganalys](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+    ![Grundläggande Log Analytics-instrumentpanel](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-Agenten aktiverar insamling av flera behållarspecifika loggar som kan efterfrågas i Azure Monitor-loggar eller användas för att visualisera prestandaindikatorer. De loggtyper som samlas in är:
+Agenten aktiverar insamling av flera behållar-/regionsspecifika loggar som kan frågas i Azure Monitor loggar eller som används för att visualisera prestanda indikatorer. De logg typer som samlas in är:
 
-* BehållareInventory: visar information om behållarplats, namn och bilder
-* ContainerImageInventory: information om distribuerade avbildningar, inklusive ID eller storlekar
-* ContainerLog: specifika felloggar, dockerloggar (stdout, etc.) och andra poster
-* ContainerServiceLog: docker daemon kommandon som har körts
-* Perf: prestandaräknare inklusive behållarprocessor, minne, nätverkstrafik, disk-i/o och anpassade mått från värddatorerna
+* ContainerInventory: visar information om container plats, namn och bilder
+* ContainerImageInventory: information om distribuerade avbildningar, inklusive ID: n eller storlekar
+* ContainerLog: vissa fel loggar, Docker-loggar (STDOUT osv.) och andra poster
+* ContainerServiceLog: Docker daemon-kommandon som har körts
+* Perf: prestanda räknare, inklusive processor CPU, minne, nätverks trafik, disk-i/o och anpassade mått från värddatorerna
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [Azure Monitor-loggbehållare lösning](../azure-monitor/insights/containers.md).
-* Läs mer om containerorkestrering på Service Fabric - [Service Fabric och behållare](service-fabric-containers-overview.md)
-* Bekanta dig med [loggsöknings- och frågefunktionerna](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor-loggar
-* Konfigurera Azure Monitor-loggar för att ställa in [automatiska varningsregler](../log-analytics/log-analytics-alerts.md) för att hjälpa till att identifiera och diagnostik
+* Läs mer om [behållar lösningen för Azure Monitor loggar](../azure-monitor/insights/containers.md).
+* Läs mer om behållar dirigering på Service Fabric- [Service Fabric och behållare](service-fabric-containers-overview.md)
+* Bekanta dig med funktionerna för [loggs ökning och frågor](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor loggar
+* Konfigurera Azure Monitor loggar för att ställa in [automatiserade varnings](../log-analytics/log-analytics-alerts.md) regler som hjälper till att upptäcka och diagnostik

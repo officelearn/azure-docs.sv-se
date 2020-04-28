@@ -1,68 +1,68 @@
 ---
-title: Säker distribution mellan regioner – Azure Deployment Manager
-description: Beskriver hur du distribuerar en tjänst över många regioner med Azure Deployment Manager. Den visar säkra distributionsmetoder för att verifiera stabiliteten i distributionen innan du distribuerar till alla regioner.
+title: Säker distribution över regioner – Azure Deployment Manager
+description: Beskriver hur du distribuerar en tjänst i flera regioner med Azure Deployment Manager. Den visar en säker distributions metod för att kontrol lera stabiliteten för din distribution innan den distribueras till alla regioner.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76152535"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera metoder för säker distribution med Azure Deployment Manager (offentlig förhandsversion)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera distributions metoder för säker distribution med Azure Deployment Manager (offentlig för hands version)
 
-Om du vill distribuera din tjänst i många regioner och se till att den körs som förväntat i varje region kan du använda Azure Deployment Manager för att samordna en stegvis distribution av tjänsten. Precis som för alla Azure-distributioner definierar du resurserna för din tjänst i [Resource Manager-mallar](template-syntax.md). När du har skapat mallarna använder du Distributionshanteraren för att beskriva topologin för tjänsten och hur den ska distribueras.
+Om du vill distribuera tjänsten över flera regioner och se till att den körs som förväntat i varje region kan du använda Azure Deployment Manager för att samordna en mellanlagrad distribution av tjänsten. Precis som för alla Azure-distributioner definierar du resurserna för din tjänst i [Resource Manager-mallar](template-syntax.md). När du har skapat mallarna använder du Deployment Manager för att beskriva topologin för tjänsten och hur den ska distribueras.
 
-Deployment Manager är en funktion i Resource Manager. Den utökar dina funktioner under distributionen. Använd Distributionshanteraren när du har en komplex tjänst som måste distribueras till flera regioner. Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver de extra försiktighetsåtgärderna i en stegvis distribution använder du [standarddistributionsalternativen](deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som stöder Resource Manager-distributioner, till exempel ci/cd-erbjudanden (continuous integration och kontinuerlig leverans).
+Deployment Manager är en funktion i Resource Manager. Den utökar dina funktioner under distributionen. Använd Deployment Manager när du har en komplex tjänst som måste distribueras till flera regioner. Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver de extra försiktighets åtgärderna för en mellanlagrad distribution använder du standard [distributions alternativen](deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som stöder Resource Manager-distributioner, t. ex. kontinuerlig integrering och kontinuerlig leverans (CI/CD).
 
-Azure Deployment Manager är i förhandsversion. Hjälp oss att förbättra funktionen genom att ge [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager är i för hands version. Hjälp oss att förbättra funktionen genom att ge [feedback](https://aka.ms/admfeedback).
 
-Om du vill använda Distributionshanteraren måste du skapa fyra filer:
+Om du vill använda Deployment Manager måste du skapa fyra filer:
 
-* Mall för topologi
-* Mall för distribution
-* Parameterfil för topologi
-* Parameterfil för distribution
+* Topology-mall
+* Distributions mal len
+* Parameter fil för topologi
+* Parameter fil för distribution
 
-Du distribuerar topologimallen innan du distribuerar distributionsmallen.
+Du distribuerar topologin innan du distribuerar distributions mal len.
 
 Ytterligare resurser:
 
-- [REST API-referens för Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Självstudiekurs: Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
-- [Självstudiekurs: Använd hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
-- [Ett exempel på Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
+- [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Självstudie: Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
+- [Självstudie: Använd hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Ett exempel på en Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identitet och åtkomst
 
-Med Deployment Manager utför en [användartilldelad hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) distributionsåtgärderna. Du skapar den här identiteten innan du startar distributionen. Den måste ha åtkomst till prenumerationen som du distribuerar tjänsten till och tillräcklig behörighet för att slutföra distributionen. Information om de åtgärder som beviljas via roller finns [i Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+Med Deployment Manager utför en [användardefinierad hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) distributions åtgärderna. Du skapar den här identiteten innan du påbörjar distributionen. Den måste ha åtkomst till prenumerationen som du distribuerar tjänsten till och tillräcklig behörighet för att slutföra distributionen. Information om vilka åtgärder som beviljas via roller finns [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
 Identiteten måste finnas på samma plats som distributionen.
 
-## <a name="topology-template"></a>Mall för topologi
+## <a name="topology-template"></a>Topology-mall
 
-Topologimallen beskriver de Azure-resurser som utgör din tjänst och var du kan distribuera dem. Följande bild visar topologin för en exempeltjänst:
+Topologi mal len beskriver de Azure-resurser som utgör din tjänst och var de ska distribueras. Följande bild visar topologin för en exempel tjänst:
 
-![Hierarki från tjänsttopologi till tjänster till serviceenheter](./media/deployment-manager-overview/service-topology.png)
+![Hierarki från service Topology till tjänster till tjänst enheter](./media/deployment-manager-overview/service-topology.png)
 
-Topologimallen innehåller följande resurser:
+Topologi mal len innehåller följande resurser:
 
-* Artefaktkälla – där resource manager-mallar och parametrar lagras
-* Servicetopologi - pekar på artefaktkälla
-  * Tjänster - anger plats och Azure-prenumerations-ID
-    * Serviceenheter - anger resursgrupp, distributionsläge och sökväg till mall- och parameterfil
+* Artefakt källa – där dina Resource Manager-mallar och parametrar lagras
+* Service Topology – pekar på artefakt källa
+  * Tjänster – anger plats och ID för Azure-prenumeration
+    * Tjänst enheter – anger resurs grupp, distributions läge och sökväg till mall och parameter fil
 
 För att förstå vad som händer på varje nivå är det bra att se vilka värden du anger.
 
 ![Värden för varje nivå](./media/deployment-manager-overview/topology-values.png)
 
-### <a name="artifact-source-for-templates"></a>Artefaktkälla för mallar
+### <a name="artifact-source-for-templates"></a>Artefakt källa för mallar
 
-I topologimallen skapar du en artefaktkälla som innehåller mallarna och parameterfilerna. Artefaktkällan är ett sätt att hämta filerna för distribution. Du ser en annan artefaktkälla för binärfiler senare i den här artikeln.
+I din Topology-mall skapar du en artefakt källa som innehåller filerna för mallar och parametrar. Artefakt källan är ett sätt att hämta filer för distribution. Du ser en annan artefakt källa för binärfiler senare i den här artikeln.
 
-I följande exempel visas artefaktkällans allmänna format.
+I följande exempel visas det allmänna formatet för artefakt källan.
 
 ```json
 {
@@ -83,11 +83,11 @@ I följande exempel visas artefaktkällans allmänna format.
 }
 ```
 
-Mer information finns i [artefaktKällamallreferens](/azure/templates/Microsoft.DeploymentManager/artifactSources).
+Mer information finns i [referens för artifactSources-mallen](/azure/templates/Microsoft.DeploymentManager/artifactSources).
 
 ### <a name="service-topology"></a>Tjänsttopologi
 
-I följande exempel visas det allmänna formatet för tjänsttopologiresursen. Du anger resurs-ID för artefaktkällan som innehåller mallarna och parameterfilerna. Tjänsttopologin innehåller alla serviceresurser. För att se till att artefaktkällan är tillgänglig beror tjänsttopologin på den.
+I följande exempel visas det allmänna formatet för service Topology-resursen. Du anger resurs-ID för den artefakt källa som innehåller mallarna och parametervärdena. Tjänste sto pol Ogin inkluderar alla tjänst resurser. För att se till att artefakt källan är tillgänglig beror det på att tjänstens topologi är tillgänglig.
 
 ```json
 {
@@ -110,11 +110,11 @@ I följande exempel visas det allmänna formatet för tjänsttopologiresursen. D
 }
 ```
 
-Mer information finns i [serviceTopologies mallreferens](/azure/templates/Microsoft.DeploymentManager/serviceTopologies).
+Mer information finns i [referens för serviceTopologies-mallen](/azure/templates/Microsoft.DeploymentManager/serviceTopologies).
 
 ### <a name="services"></a>Tjänster
 
-I följande exempel visas det allmänna formatet för tjänsteresursen. I varje tjänst anger du den plats och Azure-prenumerations-ID som ska användas för att distribuera din tjänst. Om du vill distribuera till flera regioner definierar du en tjänst för varje region. Tjänsten är beroende av tjänsttopologin.
+I följande exempel visas tjänst resursens allmänna format. I varje tjänst anger du plats och ID för Azure-prenumeration som ska användas för att distribuera tjänsten. Om du vill distribuera till flera regioner definierar du en tjänst för varje region. Tjänsten är beroende av tjänst sto pol Ogin.
 
 ```json
 {
@@ -138,11 +138,11 @@ I följande exempel visas det allmänna formatet för tjänsteresursen. I varje 
 }
 ```
 
-Mer information finns i [referens för tjänstmall .](/azure/templates/Microsoft.DeploymentManager/serviceTopologies/services)
+Mer information finns i [referens för Services-mall](/azure/templates/Microsoft.DeploymentManager/serviceTopologies/services).
 
 ### <a name="service-units"></a>Tjänstenheter
 
-I följande exempel visas det allmänna formatet för serviceenheternas resurs. I varje tjänstenhet anger du resursgruppen, [distributionsläget](deployment-modes.md) som ska användas för distribution och sökvägen till mall- och parameterfilen. Om du anger en relativ sökväg för mallen och parametrarna skapas den fullständiga sökvägen från rotmappen i artefaktkällan. Du kan ange en absolut sökväg för mallen och parametrarna, men du förlorar möjligheten att enkelt version dina versioner. Serviceenheten är beroende av tjänsten.
+I följande exempel visas det allmänna formatet för tjänst enhets resursen. I varje tjänst enhet anger du resurs gruppen, [distributions läget](deployment-modes.md) som ska användas för distribution och sökvägen till mallen och parameter filen. Om du anger en relativ sökväg för mallen och parametrarna skapas den fullständiga sökvägen från rotmappen i artefakter källan. Du kan ange en absolut sökväg för mallen och parametrarna, men du förlorar möjligheten att enkelt version av dina versioner. Tjänst enheten är beroende av tjänsten.
 
 ```json
 {
@@ -167,35 +167,35 @@ I följande exempel visas det allmänna formatet för serviceenheternas resurs. 
 }
 ```
 
-Varje mall ska innehålla de relaterade resurser som du vill distribuera i ett steg. En serviceenhet kan till exempel ha en mall som distribuerar alla resurser för tjänstens klientdel.
+Varje mall bör innehålla de relaterade resurser som du vill distribuera i ett enda steg. En tjänst enhet kan till exempel ha en mall som distribuerar alla resurser för tjänstens klient del.
 
-Mer information finns i [serviceUnits mallreferens](/azure/templates/Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits).
+Mer information finns i [referens för serviceUnits-mallen](/azure/templates/Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits).
 
-## <a name="rollout-template"></a>Mall för distribution
+## <a name="rollout-template"></a>Distributions mal len
 
-Distributionsmallen beskriver de steg du bör vidta när du distribuerar tjänsten. Du anger den tjänsttopologi som ska användas och definierar ordern för distribution av serviceenheter. Den innehåller en artefaktkälla för lagring av binärfiler för distributionen. I distributionsmallen definierar du följande hierarki:
+I distributions mal len beskrivs de steg som ska utföras när du distribuerar tjänsten. Du anger den topologi som ska användas och definierar ordningen för distribution av tjänst enheter. Den innehåller en artefakt källa för att lagra binärfiler för distributionen. I din distributions mall definierar du följande hierarki:
 
-* Artefaktkälla
+* Artefakt källa
 * Steg
-* Utbyggnaden
-  * Steggrupper
-    * Driftsättningsåtgärder
+* Introduktion
+  * Steg grupper
+    * Distributions åtgärder
 
-Följande bild visar distributionsmallens hierarki:
+Följande bild visar hierarkin för distributions mal len:
 
 ![Hierarki från distribution till steg](./media/deployment-manager-overview/Rollout.png)
 
-Varje distribution kan ha många steggrupper. Varje steggrupp har en distributionsåtgärd som pekar på en serviceenhet i tjänsttopologin.
+Varje distribution kan ha många steg grupper. Varje steg grupp har en distributions åtgärd som pekar på en tjänst enhet i tjänst sto pol Ogin.
 
-### <a name="artifact-source-for-binaries"></a>Artefaktkälla för binärfiler
+### <a name="artifact-source-for-binaries"></a>Artefakt källa för binärfiler
 
-I distributionsmallen skapar du en artefaktkälla för de binärfiler som du behöver distribuera till tjänsten. Den här artefaktkällan liknar [artefaktkällan för mallar,](#artifact-source-for-templates)förutom att den innehåller skript, webbsidor, kompilerad kod eller andra filer som behövs av tjänsten.
+I distributions mal len skapar du en artefakt källa för de binärfiler som du behöver distribuera till tjänsten. Den här artefakt källan liknar [artefakt källan för mallar](#artifact-source-for-templates), förutom att den innehåller skript, webb sidor, kompilerad kod eller andra filer som behövs för din tjänst.
 
 ### <a name="steps"></a>Steg
 
-Du kan definiera ett steg som ska utföras antingen före eller efter distributionen. För närvarande `wait` är endast steget och hälsokontrollerna tillgängliga.
+Du kan definiera ett steg för att utföra antingen före eller efter distributionen. För närvarande är endast `wait` steget steg och "healthCheck" tillgängligt.
 
-Väntesteget pausar distributionen innan du fortsätter. Det gör att du kan kontrollera att din tjänst körs som förväntat innan du distribuerar nästa serviceenhet. I följande exempel visas det allmänna formatet för ett väntesteg.
+Steget vänta pausar distributionen innan du fortsätter. Du kan kontrol lera att tjänsten körs som förväntat innan du distribuerar nästa tjänst enhet. I följande exempel visas det allmänna formatet för ett wait-steg.
 
 ```json
 {
@@ -212,17 +212,17 @@ Väntesteget pausar distributionen innan du fortsätter. Det gör att du kan kon
 },
 ```
 
-Egenskapen duration använder [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). I föregående exempel anges en väntande minut.
+Egenskapen duration använder [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601#Durations). I föregående exempel anges vänta en minut.
 
-Mer information om hälsokontrollsteget finns i [Införa distributionsdistribution av hälsointegrering i Azure Deployment Manager](./deployment-manager-health-check.md) och [självstudiekurs: Använd hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Mer information om hälso kontroll steget finns i [Introduktion till distribution av hälso integrering i Azure Deployment Manager](./deployment-manager-health-check.md) och [självstudie: Använd hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
-Mer information finns i [stegmallreferens](/azure/templates/Microsoft.DeploymentManager/steps).
+Mer information finns i [referens för metod mal len](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Distributioner
 
-För att se till att artefaktkällan är tillgänglig beror distributionen på den. Distributionen definierar steggrupper för varje tjänstenhet som distribueras. Du kan definiera åtgärder som ska vidtas före eller efter distributionen. Du kan till exempel ange att distributionen väntar efter att serviceenheten har distribuerats. Du kan definiera ordningen på steggrupperna.
+För att se till att artefakt källan är tillgänglig beror distributionen på den. Distributionen definierar steg grupper för varje tjänst enhet som distribueras. Du kan definiera åtgärder som ska vidtas före eller efter distributionen. Du kan till exempel ange att distributionen ska vänta efter att tjänste enheten har distribuerats. Du kan definiera ordningen för steg grupperna.
 
-Identitetsobjektet anger den [användartilldelade hanterade identitet](#identity-and-access) som utför distributionsåtgärderna.
+Identity-objektet anger den [användar tilldelnings hanterade identitet](#identity-and-access) som utför distributions åtgärderna.
 
 I följande exempel visas det allmänna formatet för distributionen.
 
@@ -260,19 +260,19 @@ I följande exempel visas det allmänna formatet för distributionen.
 }
 ```
 
-Mer information finns i [mallreferens för distributioner](/azure/templates/Microsoft.DeploymentManager/rollouts).
+Mer information finns i referens för distributions [mal len](/azure/templates/Microsoft.DeploymentManager/rollouts).
 
-## <a name="parameter-file"></a>Parameterfil
+## <a name="parameter-file"></a>Parameter fil
 
-Du skapar två parameterfiler. En parameterfil används vid distribution av tjänsttopologin och den andra används för distributionen av distributionen. Det finns vissa värden som du måste se till att de är desamma i båda parameterfilerna.
+Du skapar två parameter-filer. En parameter fil används vid distribution av tjänstens topologi och den andra används för distribution av distributionen. Det finns vissa värden som du måste kontrol lera är desamma i båda parametervärdena.
 
-## <a name="containerroot-variable"></a>behållareRot variabel
+## <a name="containerroot-variable"></a>containerRoot-variabel
 
-Med versionsdistributioner ändras sökvägen till dina artefakter med varje ny version. Första gången du kör en `https://<base-uri-blob-container>/binaries/1.0.0.0`distribution kan sökvägen vara . Andra gången kan `https://<base-uri-blob-container>/binaries/1.0.0.1`det vara . Deployment Manager förenklar att du får rätt rotsökväg för den aktuella distributionen med hjälp av variabeln. `$containerRoot` Det här värdet ändras med varje version och är inte känt före distributionen.
+Med versions distributioner ändras sökvägen till dina artefakter med varje ny version. Första gången du kör en distribution kan sökvägen vara `https://<base-uri-blob-container>/binaries/1.0.0.0`. Den andra gången det kan vara `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager gör det enklare att få rätt rot Sök väg för den aktuella distributionen med `$containerRoot` hjälp av variabeln. Det här värdet ändras med varje version och är inte känt före distributionen.
 
-Använd `$containerRoot` variabeln i parameterfilen för mall för att distribuera Azure-resurserna. Vid distributionen ersätts den här variabeln med de faktiska värdena från distributionen.
+Använd `$containerRoot` variabeln i parameter filen för mallen för att distribuera Azure-resurserna. Vid distributions tillfället ersätts den här variabeln med de faktiska värdena från distributionen.
 
-Till exempel under distributionen skapar du en artefaktkälla för de binära artefakterna.
+Under distributionen skapar du till exempel en artefakt källa för de binära artefakterna.
 
 ```json
 {
@@ -294,9 +294,9 @@ Till exempel under distributionen skapar du en artefaktkälla för de binära ar
 },
 ```
 
-Lägg `artifactRoot` märke `sasUri` till egenskaperna och egenskaperna. Artefaktroten kan vara `binaries/1.0.0.0`inställd på ett värde som . SAS URI är URI till din lagringsbehållare med en SAS-token för åtkomst. Deployment Manager konstruerar automatiskt `$containerRoot` variabelns värde. Den kombinerar dessa värden `<container>/<artifactRoot>`i formatet .
+Lägg märke `artifactRoot` till `sasUri` egenskaperna och. Artefakt roten kan vara inställd på ett värde som `binaries/1.0.0.0`. SAS-URI: n är URI: n till din lagrings behållare med SAS-token för åtkomst. Deployment Manager konstruerar automatiskt värdet för `$containerRoot` variabeln. Den kombinerar dessa värden i formatet `<container>/<artifactRoot>`.
 
-Mall- och parameterfilen måste känna till rätt sökväg för att hämta de versionsbehedrade binärfilerna. Om du till exempel vill distribuera filer för en webbapp skapar du följande parameterfil med variabeln $containerRoot. Du måste använda två omvänt`\\`snedstreck ( ) för banan eftersom det första är ett escape-tecken.
+Din mall och parameter fil måste känna till rätt sökväg för att hämta versioner av binärfilerna. Om du till exempel vill distribuera filer för en webbapp skapar du följande parameter fil med variabeln $containerRoot. Du måste använda två omvända snedstreck (`\\`) för sökvägen eftersom det första är ett escape-tecken.
 
 ```json
 {
@@ -330,13 +330,13 @@ Använd sedan den parametern i mallen:
 }
 ```
 
-Du hanterar versionsdistributioner genom att skapa nya mappar och skicka in roten under distributionen. Sökvägen flödar fram till mallen som distribuerar resurserna.
+Du hanterar versions distributioner genom att skapa nya mappar och skicka den roten under distributionen. Sökvägen flödar till mallen som distribuerar resurserna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln fick du lära dig mer om Deployment Manager. Gå vidare till nästa artikel och lär dig hur du distribuerar med Deployment Manager.
+I den här artikeln har du lärt dig om Deployment Manager. Fortsätt till nästa artikel om du vill lära dig hur du distribuerar med Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Använda Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md)
+> [Självstudie: använda Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md)
 >
-> [Snabbstart: Prova Azure Deployment Manager på bara några minuter](https://github.com/Azure-Samples/adm-quickstart)
+> [Snabb start: prova Azure Deployment Manager på bara några minuter](https://github.com/Azure-Samples/adm-quickstart)

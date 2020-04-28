@@ -1,5 +1,5 @@
 ---
-title: Planera en enkel Azure Directory-distribution
+title: Planera en Azure Active Directory distribution av enkel inloggning
 description: Guide som hjälper dig att planera, distribuera och hantera SSO i din organisation.
 services: active-directory
 author: jeevansd
@@ -13,278 +13,278 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76512835"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
-Enkel inloggning (SSO) innebär åtkomst till alla program och resurser som en användare behöver genom att logga in endast en gång med ett enda användarkonto. Med SSO kan användare komma åt alla nödvändiga program utan att behöva autentisera en andra gång.
+Enkel inloggning (SSO) innebär åtkomst till alla program och resurser som användaren behöver genom att bara logga in en gång med ett enda användar konto. Med enkel inloggning kan användare komma åt alla nödvändiga program utan att behöva autentisera en andra gång.
 
 ## <a name="benefits-of-sso"></a>Fördelar med SSO
 
 Enkel inloggning (SSO) lägger till säkerhet och bekvämlighet när användare loggar in på program i Azure Active Directory (Azure AD). 
 
-Många organisationer förlitar sig på saaS-program (Software as a Service), till exempel Office 365, Box och Salesforce, för slutanvändarens produktivitet. Historiskt sett har IT-personal som behövs för att individuellt skapa och uppdatera användarkonton i varje SaaS-program, och användarna behövde komma ihåg ett lösenord för varje.
+Många organisationer förlitar sig på SaaS-program (program vara som en tjänst), till exempel Office 365, Box och Salesforce, för slutanvändarens produktivitet. Tidigare var IT-personal tvungen att individuellt skapa och uppdatera användar konton i varje SaaS-program och användare som behövde komma ihåg ett lösen ord för varje.
 
-Azure Marketplace har över 3000 program med förintegrerade SSO-anslutningar, vilket gör det enkelt att integrera dem i din klientorganisation.
+Azure Marketplace har över 3000 program med förintegrerade SSO-anslutningar, vilket gör det enkelt att integrera dem i din klient.
 
 ## <a name="licensing"></a>Licensiering
 
-- **Azure AD-licensiering** – SSO för förintegrerade SaaS-program är kostnadsfri. Antalet objekt i katalogen och de funktioner som du vill distribuera kan dock kräva ytterligare licenser. En fullständig lista över licenskrav finns i [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-- **Programlicensiering** – Du behöver lämpliga licenser för dina SaaS-program för att uppfylla dina affärsbehov. Arbeta med programägaren för att avgöra om de användare som tilldelats programmet har rätt licenser för sina roller i programmet. Om Azure AD hanterar den automatiska etableringen baserat på roller måste de roller som tilldelats i Azure AD anpassas till antalet licenser som ägs i programmet. Felaktigt antal licenser som ägs i programmet kan leda till fel under etableringen/uppdateringen av en användare.
+- **Azure AD-licensiering** – SSO för förintegrerade SaaS-program är kostnads fri. Antalet objekt i din katalog och de funktioner som du vill distribuera kan dock kräva ytterligare licenser. En fullständig lista över licens krav finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
+- **Program licens** – du behöver lämpliga licenser för dina SaaS-program för att uppfylla dina affärs behov. Arbeta med program ägaren för att avgöra om de användare som har tilldelats programmet har rätt licenser för deras roller i programmet. Om Azure AD hanterar automatisk etablering baserat på roller måste rollerna som tilldelats i Azure AD justeras med antalet licenser som ägs i programmet. Felaktigt antal licenser som ägs i programmet kan leda till fel vid etablering/uppdatering av en användare.
 
 ## <a name="plan-your-sso-team"></a>Planera ditt SSO-team
 
-- **Engagera rätt intressenter** - När teknikprojekt misslyckas beror det oftast på felaktiga förväntningar på påverkan, resultat och ansvar. Undvik dessa fallgropar [genom att se till att du engagerar rätt intressenter](https://aka.ms/deploymentplans) och att intressenter förstår deras roller.
-- **Planera kommunikation** - Kommunikation är avgörande för att en ny tjänst ska lyckas. Kommunicera proaktivt med användarna om hur deras upplevelse kommer att förändras, när den ändras och hur de får support om de får problem. Granska alternativen för [hur slutanvändare kommer åt sina SSO-aktiverade program](end-user-experiences.md)och skapa din kommunikation så att den matchar ditt val. 
+- **Engagera rätt intressenter** – när teknik projekt kraschar, är det vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](https://aka.ms/deploymentplans) och att intressenterna förstår sina roller.
+- **Planera kommunikation** – kommunikation är avgörande för att en ny tjänst ska lyckas. Kommunicera proaktivt till dina användare om hur deras upplevelse kommer att ändras, när den kommer att ändras och hur du får support om det uppstår problem. Granska alternativen för [hur slutanvändare kommer åt sina SSO-aktiverade program](end-user-experiences.md)och hantverk din kommunikation så att den matchar ditt val. 
 
-## <a name="plan-your-sso-protocol"></a>Planera ditt SSO-protokoll
+## <a name="plan-your-sso-protocol"></a>Planera SSO-protokollet
 
-En SSO-implementering baserad på federationsprotokoll förbättrar säkerhet, tillförlitlighet och slutanvändares upplevelser och är enklare att implementera. Många program är förintegrerade i Azure AD med [stegvisa guider tillgängliga](../saas-apps/tutorial-list.md). Du hittar dem på vår [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Detaljerad information om varje [SSO-metod](what-is-single-sign-on.md)finns i artikeln Enkel inloggning till program i Azure Active Directory .
+En SSO-implementering baserad på Federations protokoll förbättrar säkerheten, tillförlitligheten och slutanvändarna och är enklare att implementera. Många program är förintegrerade i Azure AD med [stegvisa guider som är tillgängliga](../saas-apps/tutorial-list.md). Du kan hitta dem på vår [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Detaljerad information om varje SSO-metod hittar du i artikeln [enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md).
 
-Det finns två huvudsakliga sätt på vilka du kan göra det möjligt för användarna att logga in på dina appar:
+Det finns två huvudsakliga sätt som du kan använda för att göra det möjligt för användarna att logga in på dina appar:
 
-- **Med federerade enda sign-on** Azure AD autentiserar användaren till programmet med hjälp av deras Azure AD-konto. Den här metoden stöds för program som stöder protokoll som SAML 2.0, WS-Federation eller OpenID Connect och är det rikaste läget för enkel inloggning. Vi rekommenderar att du använder Federerad SSO med Azure AD när ett program stöder det, i stället för lösenordsbaserad SSO och ADFS.
+- **Med federerad enkel inloggning** Azure AD autentiserar användaren för programmet med hjälp av deras Azure AD-konto. Den här metoden stöds för program som stöder protokoll som SAML 2,0, WS-Federation eller OpenID Connect och är det mest avancerade läget för enkel inloggning. Vi rekommenderar att du använder federerad enkel inloggning med Azure AD när ett program stöder det, i stället för lösenordsbaserad SSO och ADFS.
 
-- **Med lösenordsbaserade användare med enkel inloggning** loggar de in på programmet med ett användarnamn och lösenord första gången, de kommer åt det. Efter den första inloggningen levererar Azure AD användarnamnet och lösenordet till programmet. Lösenordsbaserad enkel inloggning möjliggör säker lagring av programlösenord och spelas upp igen med ett webbläsartillägg eller en mobilapp. Det här alternativet utnyttjar den befintliga inloggningsprocessen som tillhandahålls av programmet, gör det möjligt för en administratör att hantera lösenorden och kräver inte att användaren känner till lösenordet.
+- **Med lösenordsbaserade enkel inloggnings** användare loggar du in på programmet med ett användar namn och lösen ord första gången de kommer åt dem. Efter den första inloggningen skickar Azure AD användar namn och lösen ord till programmet. Lösenordsbaserad enkel inloggning möjliggör säker lagring av lösen ord för program och uppspelning med hjälp av ett webb läsar tillägg eller en mobilapp. Det här alternativet utnyttjar den befintliga inloggnings processen som tillhandahålls av programmet, gör det möjligt för en administratör att hantera lösen orden och kräver inte att användaren känner till lösen ordet.
 
-### <a name="considerations-for-federation-based-sso"></a>Överväganden för federationsbaserad SSO
+### <a name="considerations-for-federation-based-sso"></a>Överväganden för Federation-baserad SSO
 
-- **Använda OpenID Connect och OAuth** - Om programmet du ansluter till stöder det använder du metoden OIDC/OAuth 2.0 för att aktivera SSO till det programmet. Den här metoden kräver mindre konfiguration och möjliggör en rikare användarupplevelse. Mer information finns i [OAuth 2.0,](../develop/v2-oauth2-auth-code-flow.md) [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)och [Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Slutpunktskonfigurationer för SAML-baserade SSO** - Om du använder SAML behöver dina utvecklare specifik information innan du konfigurerar programmet. Mer information finns i [Redigera den grundläggande SAML-konfigurationen](configure-single-sign-on-non-gallery-applications.md).
-- **Certifikathantering för SAML-baserad SSO** – När du aktiverar Federerad SSO för ditt program skapar Azure AD ett certifikat som är som standard giltigt i tre år. Du kan anpassa utgångsdatumet för certifikatet om det behövs. Se till att du har processer på plats för att förnya certifikat innan de upphör att gälla. Mer information finns i [Azure AD Managing Certificates](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
+- Använd **OpenID Connect och OAuth** – om det program som du ansluter till stöder det använder du metoden OIDC/OAuth 2,0 för att aktivera SSO till det programmet. Den här metoden kräver mindre konfiguration och ger en bättre användar upplevelse. Mer information finns i [OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1,0](../develop/v2-protocols-oidc.md)och [Azure Active Directory Developer ' s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- **Slut punkts konfiguration för SAML-baserad SSO** – om du använder SAML behöver utvecklarna specifik information innan du konfigurerar programmet. Mer information finns i [Redigera den grundläggande SAML-konfigurationen](configure-single-sign-on-non-gallery-applications.md).
+- **Certifikat hantering för SAML-baserad SSO** – när du aktiverar federerad enkel inloggning för ditt program skapar Azure AD ett certifikat som är som standard giltigt i tre år. Du kan anpassa förfallo datumet för certifikatet vid behov. Se till att du har processer på plats för att förnya certifikat innan de upphör att gälla. Mer information finns i [Azure AD-hantering av certifikat](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
-### <a name="considerations-for-password-based-sso"></a>Överväganden för lösenordsbaserad SSO
+### <a name="considerations-for-password-based-sso"></a>Att tänka på vid lösenordsbaserad SSO
 
-Använda Azure AD för lösenordsbaserad SSO kräver distribution av ett webbläsartillägg som på ett säkert sätt hämtar autentiseringsuppgifterna och fyller i inloggningsformulären. Definiera en mekanism för att distribuera tillägget i stor skala med [webbläsare som stöds](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Alternativen är:
+Att använda Azure AD för lösenordsbaserad SSO kräver att du distribuerar ett webb läsar tillägg som på ett säkert sätt hämtar autentiseringsuppgifterna och fyller i inloggnings formulären. Definiera en mekanism för att distribuera tillägget i skala med [webbläsare som stöds](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Alternativen är:
 
-- [Grupprincip för Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [grupprincip för Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 - [Configuration Manager för Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Användardriven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-Mer information finns i [Så här konfigurerar du lösenordsinställning med enkel inloggning](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
+Mer information finns i [så här konfigurerar du lösen ord enkel inloggning](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
-#### <a name="capturing-login-forms-metadata-for-applications-that-arent-in-the-gallery"></a>Samla in metadata för inloggningsformulär för program som inte finns i galleriet
+#### <a name="capturing-login-forms-metadata-for-applications-that-arent-in-the-gallery"></a>Hämta metadata för inloggnings formulär för program som inte finns i galleriet
 
-Microsoft stöder insamling av metadata i ett webbprogram för lösenordsvalv (fånga användarnamn och lösenordsfält). Navigera till inloggnings-URL:en under processen att konfigurera programmet för att samla in formulärmetadata. Fråga programägaren om den exakta inloggningsadressen. Den här informationen används under inloggningsprocessen och mappar Azure AD-autentiseringsuppgifter till programmet under inloggning.
+Microsoft har stöd för att hämta metadata i ett webb program för lösen ords valv (som fångar fälten username och Password). Navigera till inloggnings webb adressen under konfigureringen av programmet för att avbilda formulärets metadata. Be program ägaren om den exakta inloggnings-URL: en. Den här informationen används vid inloggnings processen och mappar autentiseringsuppgifter för Azure AD till programmet under inloggningen.
 
-Mer information finns i [Vad är programåtkomst och SSO med Azure AD? – Lösenordsbaserad SSO](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/).
+Mer information finns i [Vad är program åtkomst och enkel inloggning med Azure AD? – LÖSENORDSBASERAD SSO](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/).
 
-#### <a name="indications-that-metadata-in-forms-needs-to-be-recaptured"></a>Indikationer på att metadata i formulär måste återerövras
+#### <a name="indications-that-metadata-in-forms-needs-to-be-recaptured"></a>Indikationer på att metadata i formulär måste refångas
 
-När program ändrar HTML-layouten kan du behöva hämta metadata för att justera för ändringarna. Vanliga symptom som tyder på att HTML-layouten har ändrats är:
+När program ändrar sin HTML-layout kan du behöva fånga in metadata för att justera ändringarna. Vanliga symtom som anger att HTML-layouten har ändrats är:
 
-- Användare som rapporterar att klicka på programmet fastnar i inloggningssidan
-- Användare som rapporterar att användarnamnet eller lösenordet inte är ifyllt
+- Användare som rapporterar att klicka på programmet får "fastnat" på inloggnings Sidan
+- Användare som rapporterar att användar namnet eller lösen ordet inte har fyllts i
 
 #### <a name="shared-accounts"></a>Delade konton
 
-Ur inloggningssynpunkt skiljer sig inte program med delade konton från ett galleriprogram som använder lösenords-SSO för enskilda användare. Det finns dock några ytterligare steg som krävs när du planerar och konfigurerar ett program som är avsett att använda delade konton:
+I inloggnings perspektiv skiljer sig program med delade konton inte från ett galleri program som använder SSO SSO för enskilda användare. Det finns dock vissa ytterligare steg som krävs när du planerar och konfigurerar ett program som är avsett att använda delade konton:
 
-1. Arbeta med programföretagsanvändare för att dokumentera följande:
+1. Arbeta med program företags användare för att dokumentera följande:
    1. Uppsättning användare i organisationen som ska använda programmet
-   1. Befintlig uppsättning autentiseringsuppgifter i programmet som är associerade med uppsättningen användare 
-1. Skapa en säkerhetsgrupp i molnet eller lokalt för varje kombination av användaruppsättning och autentiseringsuppgifter.
-1. Återställ de delade autentiseringsuppgifterna. När appen har distribuerats i Azure AD behöver enskilda personer inte lösenordet för det delade kontot. Eftersom Azure AD lagrar lösenordet bör du överväga att ange att det är mycket långt och komplext. 
-1. Konfigurera automatisk överrullning av lösenordet om programmet stöder det. På så sätt kommer inte ens administratören som gjorde den första installationen att känna till lösenordet för det delade kontot. 
+   1. Befintlig uppsättning autentiseringsuppgifter i programmet som är associerat med användarens uppsättning 
+1. Skapa en säkerhets grupp i molnet eller lokalt utifrån dina krav för varje kombination av användar uppsättning och autentiseringsuppgifter.
+1. Återställ delade autentiseringsuppgifter. När appen har distribuerats i Azure AD behöver inte användarna lösen ordet till det delade kontot. Eftersom Azure AD kommer att lagra lösen ordet bör du överväga att ange att det ska vara mycket långt och komplicerat. 
+1. Konfigurera automatisk förnyelse av lösen ordet om programmet stöder det. Det innebär att inte ens administratören som gjorde den första installationen känner till lösen ordet för det delade kontot. 
 
 ## <a name="plan-your-authentication-method"></a>Planera din autentiseringsmetod
 
-Att välja rätt autentiseringsmetod är ett avgörande första beslut när du konfigurerar en Azure AD-hybrididentitetslösning. Implementera autentiseringsmetoden som konfigureras med hjälp av Azure AD Connect, som också etablerar användare i molnet.
+Att välja rätt autentiseringsmetod är ett viktigt första beslut när du konfigurerar en Azure AD hybrid Identity-lösning. Implementera autentiseringsmetoden som konfigureras med hjälp av Azure AD Connect, som också etablerar användare i molnet.
 
-Om du vill välja en autentiseringsmetod måste du tänka på tid, befintlig infrastruktur, komplexitet och kostnad för att implementera ditt val. Dessa faktorer är olika för varje organisation och kan förändras med tiden. Du bör välja den som bäst matchar ditt specifika scenario. Mer information finns i [Välja rätt autentiseringsmetod för azure Active Directory hybrididentitetslösning](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
+Om du vill välja en autentiseringsmetod måste du ta hänsyn till tiden, den befintliga infrastrukturen, komplexiteten och kostnaden för att implementera ditt val. Dessa faktorer är olika för alla organisationer och kan ändras med tiden. Du bör välja den som bäst motsvarar ditt speciella scenario. Mer information finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 
 ## <a name="plan-your-security-and-governance"></a>Planera din säkerhet och styrning 
 
-Identitet är den nya primära pivot för säkerhetsövervakning och investeringar eftersom nätverksperimeter har blivit allt porösa och mindre effektiva med explosionen av BYOD-enheter och molnapplikationer. 
+Identitet är den nya primära pivottabellen för säkerhets åtgärder och investeringar eftersom nätverks perimeter har blivit allt poröst och mindre effektivt med explosionen av BYOD-enheter och moln program. 
 
-### <a name="plan-access-reviews"></a>Planera åtkomstgranskningar
+### <a name="plan-access-reviews"></a>Planera åtkomst granskningar
 
-[Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) gör det möjligt för organisationer att effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och rolltilldelningar. Du bör planera att granska användaråtkomst regelbundet för att se till att endast rätt personer har fortsatt åtkomst.
+Med [åtkomst granskningar](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) kan organisationer effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Du bör regelbundet planera för att granska användar åtkomsten och se till att endast rätt personer har fortsatt åtkomst.
 
-Några av de viktigaste ämnena att planera för när du ställer in åtkomstgranskningar är:
+Några av de viktiga ämnen som du bör planera för när du konfigurerar åtkomst granskningar är:
 
-1. Identifiera en kadens för åtkomst recensioner som passar ditt företags behov. Detta kan vara så vanligt som en gång i veckan, månadsvis, årligen eller som en on-demand övning.
+1. Identifiera en takt för åtkomst granskningar som passar dina affärs behov. Detta kan vara så frekvent som en gång i veckan, varje månad, varje år eller som en övning på begäran.
 
-1. Skapa grupper som representerar granskarna av appåtkomstrapporterna. Du måste se till att intressenter som är mest bekanta med appen och dess målanvändare och användningsfall är deltagare i dina åtkomstgranskningar
+1. Skapa grupper som representerar granskarna i appens åtkomst rapporter. Du måste se till att de intressenter som är bekanta med appen och dess mål användare och användnings fall är deltagare i dina åtkomst granskningar
 
-1. Genom att slutföra en åtkomstgranskning ingår att ta bort appåtkomstbehörigheter till användare som inte längre behöver åtkomst. Planera för hantering av potentiella supportbegäranden från nekade användare. En borttagen användare kommer att förbli borttagen i Azure AD i 30 dagar under vilken tid de kan återställas av en administratör om det behövs. Efter 30 dagar tas användaren bort permanent. Med hjälp av Azure Active Directory-portalen kan en global administratör uttryckligen ta bort en nyligen borttagen användare permanent innan den tidsperioden har uppnåtts.
+1. Genom att slutföra en åtkomst granskning kan du ta bort åtkomst behörighet för appar till användare som inte längre behöver åtkomst. Planera för att hantera potentiella support förfrågningar från nekade användare. En borttagen användare fortsätter att tas bort i Azure AD i 30 dagar under den tid då de kan återställas av en administratör vid behov. Efter 30 dagar tas användaren bort permanent. Med hjälp av Azure Active Directory Portal kan en global administratör uttryckligen ta bort en nyligen borttagen användare innan tids perioden uppnås.
 
 ### <a name="plan-auditing"></a>Planera granskning
 
-Azure AD innehåller [rapporter som innehåller tekniska insikter och affärsinsikter](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
+Azure AD tillhandahåller [rapporter som innehåller tekniska och affärs insikter](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
 
-Både säkerhets- och aktivitetsrapporter är tillgängliga. Säkerhetsrapporter visar användare som flaggats för risk och riskfyllda inloggningar. Du kan använda rapporter för att hantera risker, öka produktiviteten och övervaka efterlevnaden.
+Både säkerhets-och aktivitets rapporter är tillgängliga. Säkerhets rapporter visar användare som har flaggats för risk och riskfyllda inloggningar. med aktivitets rapporter får du hjälp att förstå beteendet för användare i organisationen genom att Beskriv inloggnings aktiviteten och tillhandahålla gransknings historik för alla inloggningar. Du kan använda rapporter för att hantera risker, öka produktiviteten och övervaka efterlevnad.
 
-| Rapporttyp | Recension av Access | Säkerhetsrapporter | Inloggningsrapport |
+| Rapporttyp | Åtkomst granskning | Säkerhetsrapporter | Inloggnings rapport |
 |-------------|---------------|------------------|----------------|
-| Används för att granska | Programbehörigheter och användning. | Potentiellt komprometterade konton | Vem har åtkomst till programmen |
-| Potentiella åtgärder | Tillgång till revision. återkalla behörigheter | Återkalla åtkomst; tvinga fram säkerhetsåterställning | Återkalla åtkomst |
+| Använd för att granska | Program behörigheter och användning. | Potentiellt komprometterade konton | Vem som har åtkomst till programmen |
+| Möjliga åtgärder | Granska åtkomst; återkalla behörigheter | Återkalla åtkomst; Framtvinga säkerhets återställning | Återkalla åtkomst |
 
-Azure AD behåller de flesta granskningsdata i 30 dagar och gör data tillgängliga via Azure-administratörsportalen eller via ett API som du kan hämta till analyssystemen.
+Azure AD behåller de flesta gransknings data i 30 dagar och gör data tillgängliga via Azure admin-portalen eller via ett API som du kan ladda ned till dina analys system.
 
-### <a name="consider-using-microsoft-cloud-application-security"></a>Överväg att använda Microsoft Cloud Application Security
+### <a name="consider-using-microsoft-cloud-application-security"></a>Överväg att använda Microsoft Cloud program säkerhet
 
-McAS (Microsoft Cloud App Security) är en CASB-lösning (Cloud Access Security Broker). Det ger dig insyn i dina molnappar och molntjänster, tillhandahåller sofistikerade analyser för att identifiera och bekämpa cyberhot och gör att du kan styra hur dina data färdas.
+Microsoft Cloud App Security (MCAS) är en CASB-lösning (Cloud Access Security Broker). Det ger dig insyn i dina molnappar och tjänster, ger avancerad analys för att identifiera och bekämpa cyberhot, vilket gör att du kan styra hur dina data överförs.
 
 Genom att distribuera MCAS kan du:
 
-- Använd Cloud Discovery för att kartlägga och identifiera din molnmiljö och de molnappar som din organisation använder.
-- Sanktionera och avseaktionsappar i molnet
-- Använd lätt distribuerappkopplingar som utnyttjar provider-API:er, för synlighet och styrning av appar som du ansluter till
-- Använd skydd för appkontroll för villkorlig åtkomst för att få synlighet i realtid och kontroll över åtkomst och aktiviteter i dina molnappar
-- Hjälper dig att ha kontinuerlig kontroll genom att ställa in och sedan kontinuerligt finjustera, principer.
+- Använd Cloud Discovery för att mappa och identifiera din moln miljö och de molnappar som din organisation använder.
+- Sanktionera och ta bort sanktionerande appar i molnet
+- Använd lättanvända app-kopplingar som utnyttjar Provider-API: er, för synlighet och styrning av appar som du ansluter till
+- Använd Appkontroll för villkorsstyrd åtkomst skydd för att få insyn i real tid och kontroll över åtkomst och aktiviteter i era molnappar
+- Hjälper dig att få kontinuerlig kontroll genom att ställa in och sedan kontinuerligt finjustera principer.
 
-McAS-sessionskontrollen (Microsoft Cloud Application Security) är tillgänglig för alla webbläsare på alla större plattformar i alla operativsystem. Mobilappar och skrivbordsappar kan också blockeras eller tillåtas. Genom att integrera med Azure AD kan alla appar som är konfigurerade med SAML eller Open ID Connect-appar med enkel inloggning i Azure AD stödjas, inklusive [flera utvalda appar](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
+MCAS-kontroll för program säkerhet () är tillgänglig för alla webbläsare på alla större plattformar på alla operativ system. Microsoft Cloud Mobilappar och skrivbordsappar kan också blockeras eller tillåtas. Genom inbyggd integrering med Azure AD kan alla appar som är konfigurerade med SAML eller öppna ID Connect-appar med enkel inloggning i Azure AD stödjas, inklusive [flera aktuella appar](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
 
-Information om MCAS finns i [översikten över Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS är en användarbaserad prenumerationstjänst. Du kan granska licensieringsinformation i [MCAS-licensieringsdatabladet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
+Mer information om MCAS finns i [Översikt över Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS är en användarbaserad prenumerations tjänst. Du kan granska licens informationen i [MCAS License-databladet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
 
 ### <a name="use-conditional-access"></a>Använd villkorlig åtkomst
 
-Med villkorlig åtkomst kan du automatisera villkorsbaserade beslut om åtkomstkontroll för dina molnappar.
+Med villkorlig åtkomst kan du automatisera kriterier baserade åtkomst kontroll beslut för dina molnappar.
 
-Principer för villkorlig åtkomst tillämpas efter att den första faktorautentiseringen har slutförts. Villkorlig åtkomst är därför inte avsedd som ett första linjeförsvar för scenarier som DoS-attacker (Denial-of-Service), men kan använda signaler från dessa händelser för att avgöra åtkomst. Till exempel kan inloggningsrisknivån, platsen för begäran och så vidare användas. Mer information om villkorlig åtkomst finns [i översikten](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) och [distributionsplanen](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Principer för villkorlig åtkomst tillämpas när den första faktorn har slutförts. Därför är villkorlig åtkomst inte avsedd som en första rad för scenarier som denial-of-service (DoS)-attacker, men kan använda signaler från dessa händelser för att fastställa åtkomst. Till exempel kan inloggnings risk nivån, platsen för begäran och så vidare användas. Mer information om villkorlig åtkomst finns i [översikten](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) och [distributions planen](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
-## <a name="azure-sso-technical-requirements"></a>Tekniska krav på Azure SSO
+## <a name="azure-sso-technical-requirements"></a>Tekniska krav för Azure SSO
 
-I följande avsnitt beskrivs kraven för att konfigurera ditt specifika program, inklusive nödvändiga miljöer, slutpunkter, anspråksmappning, obligatoriska attribut, certifikat och protokoll som används. Du behöver den här informationen för att konfigurera SSO i [Azure AD-portalen](https://portal.azure.com/).
+I följande avsnitt beskrivs kraven för att konfigurera ditt specifika program, inklusive nödvändig (a) miljö (er), slut punkter, anspråks mappning, obligatoriska attribut, certifikat och protokoll som används. Du behöver den här informationen för att konfigurera SSO i [Azure AD-portalen](https://portal.azure.com/).
 
 ### <a name="authentication-mechanism-details"></a>Information om autentiseringsmekanism
 
-För alla förintegrerade SaaS-appar tillhandahåller Microsoft en självstudiekurs och du behöver inte den här informationen. Om programmet inte finns i vår applikationsmarknadsplats/galleri kan du behöva samla in följande data:
+För alla förintegrerade SaaS-appar ger Microsoft en själv studie kurs och du behöver inte den här informationen. Om programmet inte finns i vår Marketplace/Galleri för program, kan du behöva samla in följande typer av data:
 
-- **Aktuell identitetsleverantör som programmet använder för SSO om tillämpligt** - Till exempel: AD FS, PingFederate, Okta
-- **Protokoll som stöds av målprogrammet** - Till exempel SAML 2.0, OpenID Connect, OAuth, Forms-Based Auth, WS-Fed, WS-Trust
-- **Protokoll som konfigureras med Azure AD** – till exempel SAML 2.0 eller 1.1, OpenID Connect, OAuth, Forms-Based, WS-Fed
+- **Aktuell identitetsprovider som programmet använder för SSO om det är tillämpligt** – till exempel: AD FS, PingFederate, okta
+- **Protokoll som stöds av mål programmet** , till exempel SAML 2,0, OpenID Connect, OAuth, formulärbaserad autentisering, WS-utfodras, WS-Trust
+- **Protokoll som konfigureras med Azure AD** – till exempel SAML 2,0 eller 1,1, OpenID Connect, OAuth, Forms-Based, WS-utfodras
 
-### <a name="attribute-requirements"></a>Attributkrav
+### <a name="attribute-requirements"></a>Krav för attribut
 
-Det finns en förkonfigurerad uppsättning attribut och attributmappningar mellan Azure AD-användarobjekt och varje SaaS-apps användarobjekt. Vissa appar hanterar andra typer av objekt, till exempel grupper. Planera mappningen av användarattribut från Azure AD till ditt program och [anpassa standardattributmappningarna](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) efter dina affärsbehov.
+Det finns en förkonfigurerad uppsättning attribut och attribut mappningar mellan Azure AD-användarkonton och varje SaaS-Apps användar objekt. Vissa appar hanterar andra typer av objekt, till exempel grupper. Planera mappningen av användarattribut från Azure AD till ditt program och [Anpassa standardattributen – mappningar](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) efter dina affärs behov.
 
 ### <a name="certificate-requirements"></a>Certifikatkrav
 
-Certifikatet för programmet måste vara uppdaterat eller det finns en risk för att användare inte kan komma åt programmet. De flesta SaaS-programcertifikat är bra i 36 månader. Du ändrar certifikatets varaktighet i programbladet. Se till att dokumentera förfallodatumet och vet hur du hanterar certifikatförnyelsen. 
+Certifikatet för programmet måste vara uppdaterat eller så finns det risk för att användare inte kan komma åt programmet. De flesta SaaS program certifikat är lämpliga i 36 månader. Du ändrar certifikatets varaktighet i program bladet. Se till att dokumentera förfallo datum och veta hur du ska hantera certifikat förnyelsen. 
 
 Det finns två sätt att hantera dina certifikat. 
 
-- **Automatisk certifikatöverrullning** – Microsoft stöder [signering av nyckelöverrullning i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Även om detta är vår föredragna metod för att hantera certifikat, stöder inte alla ISV det här scenariot.
+- **Automatisk certifikat förnyelse** – Microsoft stöder [förnyelse av signerings nyckel i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Detta är vår bästa metod för att hantera certifikat, men alla ISV: s har inte stöd för det här scenariot.
 
-- **Manuellt uppdatering** - Varje program har ett eget certifikat som upphör att gälla baserat på hur det definieras. Innan programmets certifikat upphör att gälla skapar du ett nytt certifikat och skickar det till ISV. Denna information kan hämtas från federationens metadata. [Läs mer om federationens metadata här.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata)
+- **Uppdatera manuellt** – varje program har sitt eget certifikat som upphör att gälla baserat på hur det har definierats. Innan programmets certifikat upphör att gälla skapar du ett nytt certifikat och skickar det till ISV. Den här informationen kan hämtas från federationsmetadata. [Läs mer om federationsmetadata här.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata)
 
 ## <a name="implement-sso"></a>Implementera SSO
 
-Använd följande faser för att planera och distribuera din lösning i din organisation:
+Använd följande faser för att planera för och distribuera din lösning i din organisation:
 
-### <a name="user-configuration-for-sso"></a>Användarkonfiguration för SSO
+### <a name="user-configuration-for-sso"></a>Användar konfiguration för SSO
 
-- **Identifiera dina testanvändare**
+- **Identifiera dina test användare**
 
-   Kontakta appens ägare och be dem att skapa minst tre testanvändare i programmet. Kontrollera att informationen som du ska använda som primär identifierare fylls i korrekt och matchar ett attribut som är tillgängligt i Azure AD. I de flesta fall kommer detta att mappas till "NameID" för SAML-baserade program. För JWT-tokens är det "preferred_username".
+   Kontakta appens ägare och be dem att skapa minst tre test användare i programmet. Se till att den information som du ska använda när den primära identifieraren är korrekt ifylld och matchar ett attribut som är tillgängligt i Azure AD. I de flesta fall kommer detta att mappas till "NameID" för SAML-baserade program. För JWT-token är det "preferred_username".
    
-   Skapa användaren i Azure AD antingen manuellt som en molnbaserad användare eller synkronisera användaren från lokalt med hjälp av Azure AD Connect-synkroniseringsmotorn. Se till att informationen matchar de anspråk som skickas till programmet.
+   Skapa användaren i Azure AD antingen manuellt som en molnbaserad användare eller synkronisera användaren från den lokala miljön med hjälp av Azure AD Connect Sync-motorn. Se till att informationen matchar de anspråk som skickas till programmet.
 
 - **Konfigurera enkel inloggning**
 
-   Från [listan över program](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), hitta och öppna SSO handledning för ditt program, följ sedan handledningens steg på att framgångsrikt konfigurera din SaaS-program.
+   I [listan med program](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)letar du upp och öppnar SSO-självstudien för ditt program och följer sedan själv studie kursen om hur du konfigurerar SaaS-programmet.
 
-   Om du inte kan hitta programmet läser du [Dokumentation för anpassat program](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Detta kommer att gå igenom hur du lägger till ett program som inte finns i Azure AD-galleriet.
+   Om du inte kan hitta programmet, se [dokumentationen för anpassade program](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). På så sätt får du stegvisa anvisningar om hur du lägger till ett program som inte finns i Azure AD-galleriet.
 
-   Du kan också använda anspråk som utfärdats i SAML-token för företagsprogrammet med hjälp av [Microsofts vägledningsdokumentation](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Se till att den här mappningen ska vara vad du förväntar dig att få i SAML-svaret för ditt program. Om du stöter på problem under konfigurationen kan du använda vår vägledning om [hur du felsöker SSO-integrering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
+   Du kan också använda anspråk som utfärdats i SAML-token för företags program med hjälp av [Microsofts väglednings dokumentation](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Se till att mappningen till det du förväntar dig att ta emot i SAML-svaret för ditt program. Om du stöter på problem under konfigurationen kan du använda vår vägledning om [hur du](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)felsöker SSO-integrering.
 
-Anpassad programanpassning är en Azure AD Premium P1- eller P2-licensfunktion.
+Anpassad program onboarding är en funktion för Azure AD Premium P1-eller P2-licenser.
 
-### <a name="provide-sso-change-communications-to-end-users"></a>Ge SSO-ändringskommunikation till slutanvändare
+### <a name="provide-sso-change-communications-to-end-users"></a>Tillhandahålla SSO-kommunikation till slutanvändare
 
-Implementera din kommunikationsplan. Se till att du låter dina slutanvändare veta att en förändring kommer, när den har kommit, vad du ska göra nu och hur du söker hjälp.
+Implementera kommunikations planen. Se till att du låter dina slutanvändare veta att en ändring kommer, när den har anlänt, vad du gör nu och hur du söker efter hjälp.
 
-### <a name="verify-end-user-scenarios-for-sso"></a>Verifiera slutanvändarscenarier för SSO
+### <a name="verify-end-user-scenarios-for-sso"></a>Verifiera scenarier för slutanvändare för SSO
 
-Du kan använda följande testfall för att utföra tester på företagsägda och personliga enheter för att säkerställa att SSO-konfigurationerna fungerar som förväntat. Scenarierna nedan förutsätter att en användare navigerar till en program-URL och går igenom ett autentiseringsflöde som initierats av tjänsteleverantören (SP-initierat auth-flöde).
+Du kan använda följande test fall för att utföra tester på företagsägda och personliga enheter för att se till att dina SSO-konfigurationer fungerar som förväntat. Scenarierna nedan förutsätter att en användare navigerar till en program-URL och går igenom ett autentiseringspaket som initieras av tjänst leverantören (SP-initierat auth Flow).
 
 | Scenario | Förväntat resultat på SP-initierat auth-flöde av användare |
 |----------|---------------------------------------------------|
-| Logga in på ansökan med IE medan på corpnet. | Integrerad Windows-autentisering (IWA) sker utan ytterligare uppmaningar. |
-| Logga in på ansökan med IE medan off corpnet med nya inloggningsförsök. | Formulärbaserad prompt på AD FS Server. Användaren loggar in och webbläsaruppmaningar för MFA. |
-| Logga in på ansökan med IE medan off corpnet med en aktuell session och har aldrig utfört MFA. | Användaren får inte fråga för första faktorn. Användaren får fråga om MFA. |
-| Logga in på ansökan med IE medan off corpnet med en aktuell session och har redan utfört MFA i denna session. | Användaren får inte fråga för första faktorn. Användaren får inte MFA. Användare SSOs i ansökan. |
-| Logga in på ansökan med Chrome / Firefox / Safari medan off corpnet med en aktuell session och har redan utfört MFA i denna session. | Användaren får inte fråga för första faktorn. Användaren får inte MFA. Användaren sso's i ansökan. |
-| Logga in på ansökan med Chrome / Firefox / Safari medan off corpnet med nya inloggningsförsök. | Formulärbaserad prompt på AD FS Server. Användaren loggar in och webbläsaruppmaningar för MFA. |
-| Logga in på ansökan med Chrome / Firefox medan på företagets nätverk med en aktuell session. | Användaren får inte fråga för första faktorn. Användaren får inte MFA. Användaren sso's i ansökan. |
-| Logga in på ansökan med ansökan mobilapp med ett nytt inloggningsförsök. | Formulärbaserad prompt på AD FS Server. Användaren loggar in och ADAL-klienten uppmanas till MFA. |
-| Obehörig användare försöker logga in på programmet med inloggnings-URL. | Formulärbaserad prompt på AD FS Server. Användaren misslyckas med att logga in med första faktorn. |
-| Behörig användare försöker logga in men anger ett felaktigt lösenord. | Användaren navigerar till programmets URL och får fel på användarnamn/lösenord. |
-| Behörig användare klickar på länken i ett e-postmeddelande och är redan autentiserat. | Användaren klickar på URL och är inloggad i programmet utan ytterligare uppmaningar. |
-| Behörig användare klickar på länken i ett e-postmeddelande och är ännu inte autentiserat. | Användaren klickar på URL och uppmanas att autentisera med första faktorn. |
-| Behörig användare loggar in på programmet med application mobile app (SP-initierad) med ett nytt inloggningsförsök. | Formulärbaserad prompt på AD FS Server. Användaren loggar in och ADAL-klienten uppmanas till MFA. |
-| Obehörig användare försöker logga in på programmet med inloggnings-URL (SP-initierad). | Formulärbaserad prompt på AD FS Server. Användaren misslyckas med att logga in med första faktorn. |
-| Behörig användare försöker logga in men anger ett felaktigt lösenord.| Användaren navigerar till programmets URL och får fel på användarnamn/lösenord. |
-| Behöriga användare loggar ut och loggar sedan in igen. | Om utloggnings-URL:en är konfigurerad loggas användaren ut från alla tjänster och uppmanas att autentisera. |
-| Behöriga användare loggar ut och loggar sedan in igen. | Om signerings-URL:en inte har konfigurerats loggas användaren automatiskt tillbaka med hjälp av befintlig token från den befintliga Azure AD-webbläsarsessionen. |
-| Behörig användare klickar på länken i ett e-postmeddelande och är redan autentiserat. | Användaren klickar på URL och är inloggad i programmet utan ytterligare uppmaningar. |
-| Behörig användare klickar på länken i ett e-postmeddelande och är ännu inte autentiserat. | Användaren klickar på URL och uppmanas att autentisera med första faktorn. |
+| Logga in på programmet med IE på Corpnet. | Integrerad Windows-autentisering (IWA) sker utan ytterligare prompter. |
+| Logga in på programmet med Internet Explorer samtidigt som du har ett nytt inloggnings försök. | Forms-baserad prompt på AD FS server. Användaren har loggat in och webbläsarens prompter för MFA. |
+| Logga in på programmet med Internet Explorer samtidigt som du har en aktuell session och aldrig utfört MFA. | Användaren får inget meddelande om den första faktorn. Användaren får en uppvarning för MFA. |
+| Logga in på programmet med Internet Explorer samtidigt som du har en aktuell session och redan utfört MFA i den här sessionen. | Användaren får inget meddelande om den första faktorn. Användaren får inte MFA. Användarens SSOs i program. |
+| Logga in på program med Chrome/Firefox/Safari på företags nätverket med en aktuell session och redan har utfört MFA i den här sessionen. | Användaren får inget meddelande om den första faktorn. Användaren får inte MFA. Användarens SSO-program. |
+| Logga in på program med Chrome/Firefox/Safari på företags nätverket med nytt inloggnings försök. | Forms-baserad prompt på AD FS server. Användaren har loggat in och webbläsarens prompter för MFA. |
+| Logga in på program med Chrome/Firefox samtidigt som i företags nätverket med en aktuell session. | Användaren får inget meddelande om den första faktorn. Användaren får inte MFA. Användarens SSO-program. |
+| Logga in på programmet med appen mobilapp med ett nytt inloggnings försök. | Forms-baserad prompt på AD FS server. Användaren har loggat in och ADAL klient meddelanden för MFA. |
+| Obehörig användare försöker logga in på programmet med inloggnings-URL: en. | Forms-baserad prompt på AD FS server. Användaren kan inte logga in med den första faktorn. |
+| Behörig användare försöker logga in men anger ett felaktigt lösen ord. | Användaren navigerar till programmets URL och får ett felaktigt användar namn/lösen ord. |
+| Behörig användare klickar på länken i ett e-postmeddelande och har redan autentiserats. | Användaren klickar på URL och är inloggad i programmet utan ytterligare prompter. |
+| Behörig användare klickar på länken i ett e-postmeddelande och har inte autentiserats än. | Användaren klickar på URL och kan bli ombedd att autentisera med den första faktorn. |
+| Auktoriserade användare loggar in i programmet med appens mobilapp (SP-initierad) med ett nytt inloggnings försök. | Forms-baserad prompt på AD FS server. Användaren har loggat in och ADAL klient meddelanden för MFA. |
+| Obehörig användare försöker logga in i programmet med inloggnings-URL (SP-initierad). | Forms-baserad prompt på AD FS server. Användaren kan inte logga in med den första faktorn. |
+| Behörig användare försöker logga in men anger ett felaktigt lösen ord.| Användaren navigerar till programmets URL och får ett felaktigt användar namn/lösen ord. |
+| Auktoriserade användare loggar ut och loggar sedan in igen. | Om inloggnings-URL har kon figurer ATS loggas användaren ut från alla tjänster och du ombeds att autentisera. |
+| Auktoriserade användare loggar ut och loggar sedan in igen. | Om URL för utloggning inte har kon figurer ATS loggas användaren automatiskt in igen med hjälp av befintlig token från den befintliga Azure AD-webbläsarsessionen. |
+| Behörig användare klickar på länken i ett e-postmeddelande och har redan autentiserats. | Användaren klickar på URL och är inloggad i programmet utan ytterligare prompter. |
+| Behörig användare klickar på länken i ett e-postmeddelande och har inte autentiserats än. | Användaren klickar på URL och kan bli ombedd att autentisera med den första faktorn. |
 
 ## <a name="manage-sso"></a>Hantera SSO
 
-I det här avsnittet beskrivs kraven och rekommendationerna för att hantera SSO.
+Det här avsnittet beskriver kraven och rekommendationerna för att kunna hantera SSO.
 
-### <a name="required-administrative-roles"></a>Obligatoriska administrativa roller
+### <a name="required-administrative-roles"></a>Administrativa roller som krävs
 
-Använd alltid rollen med minst tillgängliga behörigheter för att utföra den uppgift som krävs i Azure Active Directory. Microsoft rekommenderar [att du granskar de olika roller som är tillgängliga](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) och väljer rätt för att lösa dina behov för varje persona för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
+Använd alltid rollen med minst de behörigheter som krävs för att utföra den nödvändiga uppgiften i Azure Active Directory. Microsoft rekommenderar att [du granskar de olika roller som är tillgängliga](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) och väljer rätt en för att lösa dina behov för varje person i det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
 
-| Persona| Roller | Azure AD-roll (om det behövs) |
+| Person| Roller | Azure AD-roll (om det behövs) |
 |--------|-------|-----------------------------|
-| Helpdesk admin | Nivå 1-stöd | Inget |
-| Identitetsadministratör | Konfigurera och felsöka när problem påverkar Azure AD | Global administratör |
-| Programadministratör | Användarens attestation i programmet, konfiguration för användare med behörigheter | Inget |
-| Infrastrukturadministratörer | Certifiera rollover ägare | Global administratör |
-| Företagare/intressent | Användarens attestation i programmet, konfiguration för användare med behörigheter | Inget |
+| Support administratör | Nivå 1-stöd | Ingen |
+| Identitets administratör | Konfigurera och Felsök när problem påverkar Azure AD | Global administratör |
+| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
+| Infrastruktur administratörer | Certifikat förnyelse ägare | Global administratör |
+| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
 
-Vi rekommenderar att du använder [PIM (Privileged Identity Management)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) för att hantera dina roller för att tillhandahålla ytterligare granskning, kontroll och åtkomstgranskning för användare med katalogbehörigheter.
+Vi rekommenderar att du använder [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) för att hantera dina roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 
-### <a name="sso-certificate-lifecycle-management"></a>Livscykelhantering för SSO-certifikat
+### <a name="sso-certificate-lifecycle-management"></a>Livs cykel hantering för SSO-certifikat
 
-Det är viktigt att identifiera rätt roller och e-postdistributionslistor som har till uppgift att hantera livscykeln för signeringscertifikatet mellan Azure AD och programmet som konfigureras med enkel inloggning. Här är några av de viktiga roller som vi rekommenderar att ha på plats:
+Det är viktigt att identifiera rätt roller och e-postdistributionslistor som beskrivs i hantera livs cykeln för signerings certifikatet mellan Azure AD och det program som konfigureras med enkel inloggning. Här följer några av de viktiga roller som vi rekommenderar att du har på plats:
 
-- Ägare för uppdatering av användaregenskaper i programmet
-- Support för jourförhring för ägare för programpaus/korrigering
-- Noggrant övervakad e-postdistributionslista för certifikatrelaterade ändringsmeddelanden
+- Ägare för att uppdatera användar egenskaper i programmet
+- Owner On-Call för program Break/Fix support
+- Noga övervakad lista över e-postdistributioner för certifikat-relaterade ändrings meddelanden
 
-Certifikatets längsta livslängd är tre år. Vi rekommenderar att du upprättar en process för hur du hanterar en certifikatändring mellan Azure AD och ditt program. Detta kan bidra till att förhindra eller minimera ett avbrott på grund av att ett certifikat löper ut eller tvingar certifikatet att välta.
+Det maximala livs längden för ett certifikat är tre år. Vi rekommenderar att du skapar en process för hur du hanterar en certifikats förändring mellan Azure AD och ditt program. Detta kan hjälpa till att förhindra eller minimera ett avbrott på grund av ett certifikat som upphör att gälla eller tvinga certifikat förnyelse.
 
-### <a name="rollback-process"></a>Återställningsprocess
+### <a name="rollback-process"></a>Återställnings process
 
-När du har slutfört testningen baserat på dina testfall är det dags att gå in i produktionen med ditt program. Att gå över till produktion innebär att du implementerar dina planerade och testade konfigurationer i din produktionsklient och distribuerar den till användarna. Det är dock viktigt att planera vad du ska göra om distributionen inte går som planerat. Om SSO-konfigurationen misslyckas under distributionen måste du förstå hur du kan minska eventuella avbrott och minska påverkan på användarna.
+När du har slutfört testningen baserat på dina testfall är det dags att gå över till produktion med ditt program. Genom att flytta till produktion kan du implementera dina planerade och testade konfigurationer i din produktions klient och distribuera dem till användarna. Det är dock viktigt att planera vad som ska göras om distributionen inte fungerar som planerat. Om SSO-konfigurationen Miss lyckas under distributionen måste du förstå hur du minimerar eventuella avbrott och minskar påverkan på dina användare.
 
-Tillgängligheten för autentiseringsmetoder i programmet avgör din bästa strategi. Se alltid till att du har detaljerad dokumentation för appägare om exakt hur du kommer tillbaka till det ursprungliga inloggningskonfigurationstillståndet om distributionen hamnar i problem.
+Tillgängligheten för autentiseringsmetoder i programmet avgör den bästa strategin. Se alltid till att du har detaljerad dokumentation för app-ägare på exakt hur du ska återgå till det ursprungliga inloggnings konfigurations läget, om distributionen körs i problem.
 
-- **Om din app stöder flera identitetsleverantörer,** till exempel LDAP och AD FS och Ping, ska du inte ta bort den befintliga SSO-konfigurationen under distributionen. Inaktivera den i stället under migreringen om du behöver växla tillbaka den senare. 
+- **Om din app stöder flera identitets leverantörer**, till exempel LDAP och AD FS och ping, ska du inte ta bort den befintliga SSO-konfigurationen under distributionen. Inaktivera det i stället för migrering om du skulle behöva växla tillbaka senare. 
 
-- **Om din app inte stöder flera IDPs** men tillåter användare att logga in med hjälp av formulärbaserad autentisering (användarnamn /lösenord), se till att användarna kan falla tillbaka till den här metoden om den nya SSO-konfigurationsutrullningen misslyckas.
+- **Om appen inte har stöd för flera IDP: er** , men tillåter att användare loggar in med formulärbaserad autentisering (användar namn/lösen ord), bör du se till att användarna kan gå tillbaka till den här metoden om den nya konfigurationen för enkel inloggning Miss lyckas.
 
 ### <a name="access-management"></a>Åtkomsthantering
 
-Vi rekommenderar att du väljer en skalad metod när du hanterar åtkomst till resurser. Vanliga metoder är att använda lokala grupper genom att synkronisera via Azure AD Connect, [skapa dynamiska grupper i Azure AD baserat på användarattribut](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)eller skapa [självbetjäningsgrupper](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) i Azure AD som hanteras av en resursägare.
+Vi rekommenderar att du väljer en skalad metod när du hanterar åtkomst till resurser. Vanliga metoder är bland annat användning av lokala grupper genom synkronisering via Azure AD Connect, att [skapa dynamiska grupper i Azure AD baserat på användarattribut](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)eller skapa självbetjänings [grupper](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) i Azure AD som hanteras av en resurs ägare.
 
-### <a name="monitor-security"></a>Övervaka säkerheten
+### <a name="monitor-security"></a>Övervaka säkerhet
 
-Vi rekommenderar att du ställer in en regelbunden kadens där du granskar de olika aspekterna av SaaS-appsäkerhet och utför alla korrigerande åtgärder som krävs.
+Vi rekommenderar att du konfigurerar en vanlig takt där du kan granska de olika aspekterna av SaaS App Security och utföra eventuella åtgärder som krävs.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Följande länkar innehåller felsökningsscenarier. Du kanske vill skapa en specifik guide för supportpersonalen som innehåller dessa scenarier och stegen för att åtgärda dem.
+Följande länkar visar fel söknings scenarier. Du kanske vill skapa en speciell guide för support personalen som införlivar de här scenarierna och stegen för att åtgärda dem.
 
-#### <a name="consent-issues"></a>Frågor om samtycke
+#### <a name="consent-issues"></a>Medgivande problem
 
-- [Oväntat samtyckesfel](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt)
+- [Oväntat medgivande fel](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt)
 
 - [Fel vid användarmedgivande](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error)
 
 #### <a name="sign-in-issues"></a>Inloggningsproblem
 
-- [Problem med att logga in från en anpassad portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
+- [Problem med att logga in från en anpassad Portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
 - [Problem vid inloggning från åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
@@ -292,36 +292,36 @@ Följande länkar innehåller felsökningsscenarier. Du kanske vill skapa en spe
 
 - [Problem med att logga in på ett Microsoft-program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-first-party-microsoft)
 
-#### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>SSO-problem för program som anges i Azure Application Gallery
+#### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>SSO-problem för program som listas i Azure Application galleriet
 
-- [Problem med lösenord SSO för program som anges i Azure Application Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery) 
+- [Problem med inloggning med lösen ord för program som listas i Azure Application galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery) 
 
-- [Problem med federerade SSO för program som anges i Azure Application Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery)   
+- [Problem med federerade SSO för program som listas i Azure Application galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery)   
 
-#### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>SSO-problem för program SOM INTE finns med i Azure Application Gallery
+#### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>SSO-problem för program som inte visas i Azure Application galleriet
 
-- [Problem med lösenord SSO för program SOM INTE finns med i Azure Application Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery) 
+- [Problem med inloggning med lösen ord för program som inte visas i Azure Application galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery) 
 
-- [Problem med federerade SSO för program SOM INTE finns med i Azure Application Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery)
+- [Problem med federerad SSO för program som inte visas i Azure Application galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery)
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Felsöka SAML-baserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
-[Anspråksmappning för appar via PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)
+[Anspråks mappning för appar via PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)
 
 [Anpassa anspråk som utfärdats i SAML-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
 
-[Saml-protokoll för enkel inloggning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
+[SAML-protokoll för enkel inloggning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-[SAML-protokoll för enkel ut logga ut](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
+[SAML-protokoll för enkel utloggning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
 
 [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (för externa användare som partner och leverantörer)
 
 [Villkorlig åtkomst för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
-[Skydd mot Azure-identitet](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+[Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 [Åtkomst med enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[Självstudiekurs för program SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+[Själv studie kurs om Application SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)

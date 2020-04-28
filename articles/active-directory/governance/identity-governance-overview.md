@@ -1,6 +1,6 @@
 ---
-title: Identitetsstyrning - Azure Active Directory | Microsoft-dokument
-description: Med Azure Active Directory Identity Governance kan du balansera organisationens behov av säkerhet och medarbetarnas produktivitet med rätt processer och synlighet.
+title: Identitets styrning – Azure Active Directory | Microsoft Docs
+description: Azure Active Directory Identity Governance gör det möjligt att balansera din organisations behov av säkerhet och produktivitet i anställda med rätt processer och synlighet.
 services: active-directory
 documentationcenter: ''
 author: msaburnley
@@ -17,83 +17,83 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd319dd6a83a392f6df26d07a58be22a9c8bdb61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063687"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
-Azure Active Directory (Azure AD) Identity Governance kan du balansera din organisations behov av säkerhet och anställdas produktivitet med rätt processer och synlighet. Det ger dig möjlighet att se till att rätt personer har rätt tillgång till rätt resurser. Med de här och relaterade funktionerna Azure AD och Enterprise Mobility + Security kan du minska åtkomstrisken genom att skydda, övervaka och granska åtkomst till kritiska tillgångar – samtidigt som du säkerställer anställdas och affärspartners produktivitet.  
+Med identitets styrning i Azure Active Directory (Azure AD) kan du balansera din organisations behov av säkerhet och produktivitet för anställda med rätt processer och synlighet. Det ger dig möjlighet att se till att rätt personer har rätt åtkomst till rätt resurser. Med dessa och relaterade funktioner i Azure AD och Enterprise Mobility + Security kan du minska åtkomst risken genom att skydda, övervaka och granska åtkomst till kritiska till gångar – samtidigt som du säkerställer produktiviteten för anställda och affärs partner.  
 
-Identitetsstyrning ger organisationer möjlighet att utföra följande uppgifter bland anställda, affärspartners och leverantörer och mellan tjänster och program både lokalt och i moln:
+Identitets styrning ger organisationer möjlighet att utföra följande uppgifter mellan anställda, affärs partner och leverantörer och mellan tjänster och program både lokalt och i molnet:
 
-- Styr identitetslivscykeln
-- Styra åtkomstlivscykeln
-- Säker privilegierad åtkomst för administration
+- Styr identitets livs cykeln
+- Styra åtkomst livs cykeln
+- Skydda privilegie rad åtkomst för administration
 
-Specifikt är det avsett att hjälpa organisationer att ta itu med dessa fyra nyckelfrågor:
+Särskilt är det avsett att hjälpa organisationer att lösa dessa fyra viktiga frågor:
 
 - Vilka användare ska ha åtkomst till vilka resurser?
-- Vad gör dessa användare med den åtkomsten?
-- Finns det effektiva organisationskontroller för hantering av åtkomst?
-- Kan revisorer kontrollera att kontrollerna fungerar?
+- Vilka användare gör med den här åtkomsten?
+- Finns det effektiva organisations kontroller för att hantera åtkomst?
+- Kan granskare verifiera att kontrollerna fungerar?
 
-## <a name="identity-lifecycle"></a>Identitetslivscykel
+## <a name="identity-lifecycle"></a>Identitets livs cykel
 
-Identitetsstyrning hjälper organisationer att uppnå en balans mellan *produktivitet* – Hur snabbt kan en person ha tillgång till de resurser de behöver, till exempel när de går med i min organisation? Och *säkerhet* - Hur ska deras tillgång förändras med tiden, till exempel på grund av förändringar i den personens anställningsstatus?  Identitetslivscykelhantering är grunden för identitetsstyrning, och effektiv styrning i stor skala kräver modernisering av identitetslivscykelhanteringsinfrastrukturen för program.
+Identitets styrning hjälper organisationer att få en balans mellan *produktiviteten* – hur snabbt kan en person ha åtkomst till de resurser som de behöver, till exempel när de ansluter till min organisation? Och *säkerhet* – hur ska deras åtkomst ändras över tid, till exempel på grund av ändringar i personens anställnings status?  Hantering av identitets livs cykeln är grunden för identitets styrning, och effektiva styrningar i skalan kräver att infrastrukturen för identitets livs cykels hantering används för program.
 
-![Identitetslivscykel](./media/identity-governance-overview/identity-lifecycle.png)
+![Identitets livs cykel](./media/identity-governance-overview/identity-lifecycle.png)
 
-För många organisationer är identitetslivscykel för anställda knuten till representationen av den användaren i ett HCM-system (human capital management).  Azure AD Premium underhåller automatiskt användaridentiteter för personer som är representerade i Workday i både Active Directory och Azure Active Directory, enligt beskrivningen i [självstudiekursen Arbetsdags inkommande etablering](../saas-apps/workday-inbound-tutorial.md).  Azure AD Premium innehåller även [Microsoft Identity Manager](/microsoft-identity-manager/), som kan importera poster från lokala HCM-system som SAP, Oracle eBusiness och Oracle PeopleSoft.
+För många organisationer är identitets livs cykeln för anställda knuten till åter givning av användaren i ett HCM-system (Human kapitalet Management).  Azure AD Premium hanterar automatiskt användar identiteter för personer som representeras i Workday i både Active Directory och Azure Active Directory, enligt beskrivningen i [självstudien om inkommande etablering för arbets dagar](../saas-apps/workday-inbound-tutorial.md).  Azure AD Premium innehåller även [Microsoft Identity Manager](/microsoft-identity-manager/), som kan importera poster från lokala HCM-system som SAP, Oracle eBusiness och Oracle, Oracle.
 
-Scenarier kräver i allt högre grad samarbete med personer utanför organisationen. [Azure AD B2B-samarbete](/azure/active-directory/b2b/) gör att du kan på ett säkert sätt dela organisationens program och tjänster med gästanvändare och externa partner från alla organisationer, samtidigt som du behåller kontrollen över dina egna företagsdata.  [Azure AD-berättigandehantering](entitlement-management-overview.md) gör att du kan välja vilken organisations användare som får begära åtkomst och läggas till som B2B-gäster i organisationens katalog och ser till att dessa gäster tas bort när de inte längre behöver åtkomst.
+I allt större utsträckning kräver scenarier samarbete med personer utanför organisationen. Med [Azure AD B2B](/azure/active-directory/b2b/) -samarbete kan du på ett säkert sätt dela din organisations program och tjänster med gäst användare och externa partner från vilken organisation som helst, samtidigt som du behåller kontrollen över dina egna företags data.  Med [hantering av Azure AD-hantering](entitlement-management-overview.md) kan du välja vilka organisations användare som tillåts begära åtkomst och läggas till som B2B-gäster till din organisations katalog och se till att dessa gäster tas bort när de inte längre behöver åtkomst.
 
-## <a name="access-lifecycle"></a>Livscykel för åtkomst
+## <a name="access-lifecycle"></a>Åtkomst livs cykel
 
-Organisationer behöver en process för att hantera åtkomst utöver vad som ursprungligen etablerades för en användare när användarens identitet skapades.  Dessutom måste företagsorganisationer kunna skalas effektivt för att kunna utveckla och genomdriva åtkomstpolicy och kontroller kontinuerligt.
+Organisationer behöver en process för att hantera åtkomst utöver vad som ursprungligen etablerades för en användare när användarens identitet skapades.  Dessutom måste företags organisationer kunna skala effektivt för att kunna utveckla och upprätthålla åtkomst principer och kontroller kontinuerligt.
 
-![Livscykel för åtkomst](./media/identity-governance-overview/access-lifecycle.png)
+![Åtkomst livs cykel](./media/identity-governance-overview/access-lifecycle.png)
 
-Vanligtvis får IT-ombud åtkomst till godkännandebeslut till beslutsfattare för företag.  Dessutom kan IT involvera användarna själva.  Användare som har åtkomst till konfidentiella kunddata i ett företags marknadsföringsprogram i Europa behöver till exempel känna till företagets policyer. Gästanvändare kan vara omedvetna om hanteringskraven för data i en organisation som de har bjudits in till.
+Vanligt vis delegerar den åtkomst till godkännande beslut till besluts fattare i företaget.  Dessutom kan de involvera själva användarna.  Till exempel behöver användare som har åtkomst till konfidentiell kund information i ett företags marknadsförings program i Europa känna till företagets principer. Gäst användare kan vara medvetna om hanterings kraven för data i en organisation som de har bjudits in till.
 
-Organisationer kan automatisera åtkomstlivscykelprocessen med hjälp av tekniker som [dynamiska grupper,](../users-groups-roles/groups-dynamic-membership.md)tillsammans med användaretablering till [SaaS-appar](../saas-apps/tutorial-list.md) eller [appar som är integrerade med SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gästanvändare](../b2b/hybrid-cloud-to-on-premises.md)som har åtkomst till lokala program .  Dessa åtkomsträttigheter kan sedan granskas regelbundet med hjälp av återkommande [Azure AD-åtkomstgranskningar](access-reviews-overview.md).   [Azure AD-berättigandehantering](entitlement-management-overview.md) kan du också definiera hur användare begär åtkomst över paket med grupp- och gruppmedlemskap, programroller och SharePoint Online-roller.
+Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), tillsammans med användar etablering till [SaaS appar](../saas-apps/tutorial-list.md) eller appar som är [integrerade med scim](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../b2b/hybrid-cloud-to-on-premises.md).  Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](access-reviews-overview.md).   [Hantering av Azure AD](entitlement-management-overview.md) -behörighet gör det också möjligt att definiera hur användare begär åtkomst över paket av grupp-och team medlemskap, program roller och SharePoint Online-roller.
 
-När en användare försöker komma åt program tillämpar Azure AD principer [för villkorlig åtkomst.](/azure/active-directory/conditional-access/) Principer för villkorlig åtkomst kan till exempel omfatta visning [av användningsvillkor](../conditional-access/terms-of-use.md) och [se till att användaren har godkänt dessa villkor](../conditional-access/require-tou.md) innan han eller hon kan komma åt ett program.
+När en användare försöker få åtkomst till program tvingar Azure AD sig att tillämpa principer för [villkorlig åtkomst](/azure/active-directory/conditional-access/) . Principer för villkorlig åtkomst kan till exempel innehålla ett [antal användnings villkor](../conditional-access/terms-of-use.md) och [Se till att användaren har godkänt dessa villkor innan de](../conditional-access/require-tou.md) kan komma åt ett program.
 
-## <a name="privileged-access-lifecycle"></a>Livscykel för privilegierad åtkomst
+## <a name="privileged-access-lifecycle"></a>Livs cykel för privilegie rad åtkomst
 
-Historiskt sett har privilegierad åtkomst beskrivits av andra leverantörer som en separat funktion från identitetsstyrning. På Microsoft anser vi dock att det är en viktig del av identitetsstyrningen att styra privilegierad åtkomst – särskilt med tanke på risken för missbruk som är associerat med dessa administratörsrättigheter kan orsaka en organisation. De medarbetare, leverantörer och entreprenörer som tar på sig administrativa rättigheter måste styras.
+Historiskt sett har privilegie rad åtkomst beskrivits av andra leverantörer som en separat funktion från identitets styrningen. Men på Microsoft tror vi att du styr privilegie rad åtkomst är en viktig del av identitets styrningen – särskilt om risken för missbruk som är kopplad till dessa administratörs rättigheter kan orsaka en organisation. De anställda, leverantörer och entreprenörer som tar på administrativa rättigheter måste regleras.
 
-![Livscykel för privilegierad åtkomst](./media/identity-governance-overview/privileged-access-lifecycle.png)
+![Livs cykel för privilegie rad åtkomst](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) innehåller ytterligare kontroller som är skräddarsydda för att skydda åtkomsträttigheter för resurser, i Azure AD, Azure och andra Microsoft Online-tjänster.  Åtkomsten för just-in-time- och rolländringsaviseringar som tillhandahålls av Azure AD PIM, förutom multifaktorautentisering och villkorlig åtkomst, ger en omfattande uppsättning styrningskontroller som hjälper till att skydda företagets resurser (katalog, Office 365 och Azure-resursroller). Precis som med andra former av åtkomst kan organisationer använda åtkomstgranskningar för att konfigurera återkommande åtkomstcertifiering för alla användare i administratörsroller.
+[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) ger ytterligare kontroller som är anpassade för att skydda åtkomst rättigheter för resurser, i Azure AD, Azure och andra Microsoft Online Services.  Just-in-Time-åtkomst och roll ändrings aviseringar som tillhandahålls av Azure AD PIM, förutom Multi-Factor Authentication och villkorlig åtkomst, ger en omfattande uppsättning styrnings kontroller för att skydda företagets resurser (katalog, Office 365 och Azure resurs roller). Precis som med andra former av åtkomst kan organisationer använda åtkomst granskningar för att konfigurera återcertifiering av återkommande åtkomst för alla användare i administratörs roller.
 
 ## <a name="getting-started"></a>Komma igång
 
-Kolla in fliken Komma igång med **identitetsstyrning** i Azure-portalen för att börja använda rättighetshantering, åtkomstgranskningar, privilegierad identitetshantering och användningsvillkor.
+Kolla in fliken komma igång med **identitets styrning** i Azure Portal för att börja använda rättighets hantering, åtkomst granskningar, Privileged Identity Management och användningsvillkor.
 
-![Identitetsstyrning har startat](./media/identity-governance-overview/getting-started.png)
+![Komma igång med identitets styrning](./media/identity-governance-overview/getting-started.png)
 
 
-Om du har några synpunkter på funktioner för identitetsstyrning klickar du på **Få feedback i** Azure-portalen för att skicka din feedback. Teamet granskar regelbundet din feedback.
+Om du har feedback om funktioner för identitets styrning klickar du på **feedback?** i Azure Portal för att skicka in din feedback. Gruppen granskar regelbundet din feedback.
 
-Det finns ingen perfekt lösning eller rekommendation för varje kund, men följande konfigurationsguider innehåller också de grundläggande principer som Microsoft rekommenderar att du följer för att säkerställa en säkrare och mer produktiv arbetsstyrka.
+Även om det inte finns någon perfekt lösning eller rekommendation för varje kund, innehåller följande konfigurations guider även bas linje principer som Microsoft rekommenderar att du följer för att säkerställa en säkrare och produktiv personal.
 
 - [Konfigurationer för identitets- och enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Säker privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md)
 
-## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Tillägg - minst privilegierade roller för hantering av identitetsstyrningsfunktioner
+## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Bilaga-minst privilegierade roller för hantering i identitets styrnings funktioner
 
-Det är en bra idé att använda den minst privilegierade rollen för att utföra administrativa uppgifter i identitetsstyrning. Vi rekommenderar att du använder Azure AD PIM för att aktivera en roll som behövs för att utföra dessa uppgifter. Följande är de minst privilegierade katalogrollerna för att konfigurera identitetsstyrningsfunktioner:
+Vi rekommenderar att du använder den minst privilegierade rollen för att utföra administrativa uppgifter i identitets styrning. Vi rekommenderar att du använder Azure AD PIM för att aktivera en roll vid behov för att utföra dessa uppgifter. Följande är de minst privilegierade katalog rollerna för att konfigurera identitets styrnings funktioner:
 
-| Funktion | Minst privilegierad roll |
+| Funktion | Minst privilegie rad roll |
 | ------- | --------------------- |
-| Berättigandehantering | Användaradministratör (med undantag för att lägga till SharePoint Online-webbplatser i kataloger, vilket kräver global administratör) |
-| Åtkomstgranskningar | Användaradministratör (med undantag för åtkomstgranskningar av Azure- eller Azure AD-roller, vilket kräver administratör för privilegierad roll) |
-|Privileged Identity Management | Administratör för privilegierad roll |
-| Användningsvillkor | Säkerhetsadministratör eller administratör för villkorlig åtkomst |
+| Berättigandehantering | Användar administratör (med undantag för att lägga till SharePoint Online-webbplatser i kataloger som kräver global administratör) |
+| Åtkomstgranskningar | Användar administratör (med undantag för åtkomst granskningar av Azure-eller Azure AD-roller, som kräver administratör för privilegierade roller) |
+|Privileged Identity Management | Privilegie rad roll administratör |
+| Användningsvillkor | Säkerhets administratör eller administratör för villkorlig åtkomst |
 
 ## <a name="next-steps"></a>Nästa steg
 

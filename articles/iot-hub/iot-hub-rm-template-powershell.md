@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure IoT-hubb med en mall (PowerShell) | Microsoft-dokument
-description: Så här använder du en Azure Resource Manager-mall för att skapa en IoT-hubb med Azure PowerShell.
+title: Skapa en Azure-IoT Hub med hjälp av en mall (PowerShell) | Microsoft Docs
+description: Hur du använder en Azure Resource Manager mall för att skapa en IoT Hub med Azure PowerShell.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -9,31 +9,31 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: a1f878361a96c5584f43b31135d79ff799f66efa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75976610"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Skapa en IoT-hubb med Azure Resource Manager-mall (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Lär dig hur du använder en Azure Resource Manager-mall för att skapa en IoT-hubb och en konsumentgrupp. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. Mer information om hur du utvecklar Resource Manager-mallar finns i [Dokumentationen till Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
+Lär dig hur du använder en Azure Resource Manager mall för att skapa en IoT Hub och en konsument grupp. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. Mer information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager dokumentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Resource Manager-mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Här är en kopia av mallen:
+Resource Manager-mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Här är en kopia av mallen:
 
 [!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-Mallen skapar en Azure Iot-hubb med tre slutpunkter (eventhub, moln-till-enhet och meddelanden) och en konsumentgrupp. Fler mallexempel finns i [Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Iot Hub-mallschemat hittar du [här](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
+Mallen skapar en Azure IoT Hub med tre slut punkter (eventhub, Cloud-to-Device och Messaging) och en konsument grupp. Fler mall exempel finns i [mallar för Azure snabb start](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Du hittar mall-schemat för IoT Hub [här](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
 Det finns flera metoder för att distribuera en mall.  Du använder Azure PowerShell i den här självstudien.
 
-Om du vill köra PowerShell-skriptet väljer du **Prova det** för att öppna Azure Cloud-gränssnittet. Om du vill klistra in skriptet högerklickar du på skalet och väljer sedan Klistra in:
+Om du vill köra PowerShell-skriptet väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer Klistra in:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -47,22 +47,22 @@ New-AzResourceGroupDeployment `
     -iotHubName $iotHubName
 ```
 
-Som du kan se i PowerShell-skriptet är mallen som används från Azure Quickstart-mallar. Om du vill använda din egen måste du först ladda upp `-TemplateFile` mallfilen till cloud-skalet och sedan använda växeln för att ange filnamnet.  Ett exempel finns i [Distribuera mallen](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+Som du kan se från PowerShell-skriptet är mallen som används från Azures snabb starts mallar. Om du vill använda din egen måste du först överföra mallfilen till Cloud Shell och sedan använda `-TemplateFile` växeln för att ange fil namnet.  Ett exempel finns i [distribuera mallen](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har distribuerat en IoT-hubb med hjälp av en Azure Resource Manager-mall kanske du vill utforska vidare:
+Nu när du har distribuerat en IoT-hubb med hjälp av en Azure Resource Manager-mall kanske du vill utforska ytterligare:
 
-* Läs om funktionerna i [IoT Hub-resursprovidern REST API][lnk-rest-api].
-* Läs [översikten över Azure Resource Manager][lnk-azure-rm-overview] om du vill veta mer om funktionerna i Azure Resource Manager.
-* JSON-syntax och egenskaper som ska användas i mallar finns i [Microsoft.Devices resurstyper](/azure/templates/microsoft.devices/iothub-allversions).
+* Läs om funktionerna i [IoT Hub Resource provider REST API][lnk-rest-api].
+* Läs [Azure Resource Manager översikt][lnk-azure-rm-overview] för att lära dig mer om funktionerna i Azure Resource Manager.
+* För JSON-syntax och egenskaper som ska användas i mallar, se [resurs typer för Microsoft. Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Mer information om hur du utvecklar för IoT Hub finns i följande artiklar:
 
 * [Introduktion till C SDK][lnk-c-sdk]
-* [Azure IoT SDK:er][lnk-sdks]
+* [SDK:er för Azure IoT][lnk-sdks]
 
-Mer information om hur du utforskar funktionerna i IoT Hub finns i:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
 * [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 

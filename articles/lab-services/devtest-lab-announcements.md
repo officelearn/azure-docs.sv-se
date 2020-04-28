@@ -1,5 +1,5 @@
 ---
-title: Publicera en utlysning i ett labb i Azure DevTest Labs | Microsoft-dokument
+title: Publicera ett övnings meddelande i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du lägger till ett meddelande i ett labb i Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -15,70 +15,70 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75976455"
 ---
-# <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicera ett meddelande i ett labb i Azure DevTest Labs
+# <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicera ett meddelande till ett labb i Azure DevTest Labs
 
-Som labbadministratör kan du publicera ett anpassat meddelande i ett befintligt labb för att meddela användarna om de senaste ändringarna eller tilläggen i labbet. Du kanske till exempel vill informera användarna om:
+Som labb administratör kan du skicka ett anpassat meddelande i ett befintligt labb för att meddela användare om nyligen gjorda ändringar eller tillägg till labbet. Du kanske till exempel vill informera användare om:
 
-- Nya VM-storlekar som är tillgängliga
-- Bilder som för närvarande är ouppnbara
-- Uppdateringar av labbprinciper
+- Nya storlekar för virtuella datorer som är tillgängliga
+- Bilder som för närvarande inte kan användas
+- Uppdateringar av labb principer
 
-När meddelandet har publicerats visas det på labbets översiktssida och användaren kan välja det för mer information.
+När det har publicerats visas meddelandet på sidan med labb översikten och användaren kan välja den för mer information.
 
-Meddelandefunktionen är avsedd att användas för tillfälliga meddelanden.  Du kan enkelt inaktivera ett meddelande när det inte längre behövs.
+Funktionen meddelande är avsedd att användas för tillfälliga meddelanden.  Du kan enkelt inaktivera ett meddelande när det inte längre behövs.
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Steg för att publicera ett meddelande i ett befintligt labb
 
 1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Om det behövs väljer du **Alla tjänster**och väljer sedan **DevTest Labs** i listan. (Ditt labb kanske redan visas på instrumentpanelen under **Alla resurser**).
-1. Välj det labb där du vill publicera ett meddelande i listan över labb.
-1. I labbets **översiktsområde** väljer du **Konfiguration och principer**.
+1. Om det behövs väljer du **alla tjänster**och väljer sedan **DevTest Labs** i listan. (Ditt labb kanske redan visas på instrument panelen under **alla resurser**).
+1. I listan med labb väljer du det labb som du vill skicka ett meddelande till.
+1. I labb **översikts** avsnittet väljer du **konfiguration och principer**.
 
-    ![Knappen Konfiguration och principer](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
+    ![Knappen konfiguration och principer](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
-1. Till vänster under **INSTÄLLNINGAR**väljer du **Lab announcement**.
+1. Välj **labb meddelande**till vänster under **Inställningar**.
 
-    ![Knappen Tillkännagivande av labb](./media/devtest-lab-announcements/devtestlab-announcements.png)
+    ![Knappen labb meddelande](./media/devtest-lab-announcements/devtestlab-announcements.png)
 
-1. Om du vill skapa ett meddelande för användarna i det här labbet anger du **Aktiverad** till **Ja**.
+1. Om du vill skapa ett meddelande för användarna i det här labbet **ställer du** in på **Ja**.
 
-1. Du kan ange ett **utgångsdatum** för att ange ett datum och en tid efter vilket meddelandet inte längre visas för användarna. Om du inte anger något utgångsdatum kvarstår meddelandet tills du inaktiverar det.
+1. Du kan ange ett **förfallo datum** för att ange ett datum och en tidpunkt då meddelandet inte längre visas för användarna. Om du inte anger ett förfallo datum förblir meddelandet kvar tills du inaktiverar det.
 
    > [!NOTE]
-   > När meddelandet har gått ut visas det inte längre för användarna, men finns fortfarande i **fönstret Lab-meddelande.** Du kan göra ändringar i den och återaktivera den så att den blir aktiv igen.
+   > När meddelandet har gått ut visas det inte längre för användarna, men finns fortfarande i **labb meddelande** fönstret. Du kan redigera den och aktivera den igen för att göra den aktiv igen.
    >
    >
 
-1. Ange en **meddelanderubrik** och **meddelandetexten**.
+1. Ange en **meddelande rubrik** och **meddelande texten**.
 
-   Titeln kan vara upp till 100 tecken och visas för användaren på labbets översiktssida. Om användaren väljer rubriken visas meddelandetexten.
+   Rubriken kan bestå av upp till 100 tecken och visas för användaren på sidan med labb översikt. Om användaren väljer rubriken visas meddelande texten.
 
-   Meddelandetexten accepterar markering. När du anger meddelandetexten kan du visa meddelandet i förhandsgranskningsområdet längst ned på skärmen.
+   Meddelande texten accepterar markdown. När du anger meddelande texten kan du visa meddelandet i förhands gransknings fältet längst ned på skärmen.
 
-    ![Labbmeddelandeskärmen för att skapa meddelandet.](./media/devtest-lab-announcements/devtestlab-post-announcement.png)
+    ![Labb meddelande skärmen för att skapa meddelandet.](./media/devtest-lab-announcements/devtestlab-post-announcement.png)
 
 
-1. Välj **Spara** när meddelandet är klart att publiceras.
+1. Välj **Spara** när ditt meddelande är klart att publicera.
 
-När du inte längre vill visa det här meddelandet för labbanvändare går du tillbaka till sidan **Labbmeddelande** och anger **Aktiverad** till **Nej**. Om du har angett ett utgångsdatum inaktiveras meddelandet automatiskt vid det datumet och tidpunkten.
+När du inte längre vill visa det här meddelandet för labb användare går du tillbaka till sidan **labb meddelande** **och aktiverar** **Nej**. Om du har angett ett förfallo datum inaktive ras meddelandet automatiskt vid denna tidpunkt.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Steg för användare att visa ett meddelande
 
-1. Välj ett labb på [Azure-portalen.](https://go.microsoft.com/fwlink/p/?LinkID=525040)
+1. Välj ett labb från [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Om labbet har ett meddelande publicerat för det visas ett informationsmeddelande högst upp på labbets översiktssida. Detta informationsmeddelande är meddelandetiteln som angavs när meddelandet skapades.
+1. Om labbet har publicerat ett meddelande visas ett informations meddelande längst upp på sidan med labb översikt. Det här informations meddelandet är meddelande rubriken som angavs när meddelandet skapades.
 
-    ![Labbmeddelande på översiktssidan](./media/devtest-lab-announcements/devtestlab-user-announcement.png)
+    ![Labb meddelande på sidan Översikt](./media/devtest-lab-announcements/devtestlab-user-announcement.png)
 
 1. Användaren kan välja meddelandet för att visa hela meddelandet.
 
-    ![Mer information för labbmeddelandet](./media/devtest-lab-announcements/devtestlab-user-announcement-text.png)
+    ![Mer information om labb meddelandet](./media/devtest-lab-announcements/devtestlab-user-announcement-text.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -158,13 +158,13 @@ Du kan ange ett meddelande som en del av en Azure Resource Manager-mall som visa
 }
 ```
 
-Du kan distribuera en Azure Resource Manager-mall på något av följande sätt:
+Du kan distribuera en Azure Resource Manager-mall genom att använda något av följande sätt:
 
-- [Azure-portal](../azure-resource-manager/templates/deploy-portal.md)
+- [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-- [REST API](../azure-resource-manager/templates/deploy-rest.md)
+- [REST-API](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du ändrar eller anger en labbprincip kanske du vill publicera ett meddelande för att informera användarna. [Ange principer och scheman](devtest-lab-set-lab-policy.md) innehåller information om hur du tillämpar begränsningar och konventioner i din prenumeration med hjälp av anpassade principer.
-* Utforska [snabbstartsgalleriet DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Om du ändrar eller anger en labb princip kanske du vill skicka ett meddelande till att informera användarna. [Ange principer och scheman](devtest-lab-set-lab-policy.md) ger information om hur du tillämpar begränsningar och konventioner i din prenumeration med hjälp av anpassade principer.
+* Utforska [DevTest Labs Azure Resource Manager snabb starts galleriet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

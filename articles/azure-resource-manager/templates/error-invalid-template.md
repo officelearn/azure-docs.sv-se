@@ -1,60 +1,60 @@
 ---
-title: Ogiltiga mallfel
-description: Beskriver hur du löser ogiltiga mallfel vid distribution av Azure Resource Manager-mallar.
+title: Ogiltiga mal linne fel
+description: Beskriver hur du löser ogiltiga fel i mallar när du distribuerar Azure Resource Manager-mallar.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76154065"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Åtgärda fel med en ogiltig mall
 
-I den här artikeln beskrivs hur du löser ogiltiga mallfel.
+Den här artikeln beskriver hur du löser ogiltiga fel i mallar.
 
 ## <a name="symptom"></a>Symptom
 
-När du distribuerar en mall visas ett felmeddelande som anger:
+När du distribuerar en mall får du ett fel meddelande som anger att:
 
 ```
 Code=InvalidTemplate
 Message=<varies>
 ```
 
-Felmeddelandet beror på typen av fel.
+Fel meddelandet beror på typen av fel.
 
 ## <a name="cause"></a>Orsak
 
-Det här felet kan bero på flera olika typer av fel. De innebär vanligtvis en syntax eller ett strukturellt fel i mallen.
+Det här felet kan bero på flera olika typer av fel. De omfattar vanligt vis en syntax eller ett strukturellt fel i mallen.
 
 <a id="syntax-error" />
 
-## <a name="solution-1---syntax-error"></a>Lösning 1 - syntaxfel
+## <a name="solution-1---syntax-error"></a>Lösning 1 – syntaxfel
 
-Om du får ett felmeddelande som anger att mallen misslyckades med valideringen kan du ha ett syntaxproblem i mallen.
+Om du får ett fel meddelande som anger att mallen inte kunde verifieras, kan du ha problem med syntaxfel i mallen.
 
 ```
 Code=InvalidTemplate
 Message=Deployment template validation failed
 ```
 
-Det här felet är enkelt att göra eftersom malluttryck kan vara invecklade. Följande namntilldelning för ett lagringskonto har till exempel en uppsättning parenteser, tre funktioner, tre uppsättningar parenteser, en uppsättning enstaka offerter och en egenskap:
+Det här felet är enkelt att göra eftersom mall-uttryck kan vara invecklade. Till exempel har följande namn tilldelning för ett lagrings konto en uppsättning hakparenteser, tre funktioner, tre uppsättningar parenteser, en uppsättning enkla citat tecken och en egenskap:
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 ```
 
-Om du inte anger den matchande syntaxen ger mallen ett värde som skiljer sig från din avsikt.
+Om du inte anger motsvarande syntax genererar mallen ett värde som skiljer sig från din avsikt.
 
-När du får den här typen av fel granskar du noggrant uttryckssyntaxen. Överväg att använda en JSON-redigerare som [Visual Studio](create-visual-studio-deployment-project.md) eller Visual [Studio Code](use-vs-code-to-create-template.md), som kan varna dig om syntaxfel.
+När du får den här typen av fel granskar du syntaxen för uttrycket noggrant. Överväg att använda en JSON-redigerare som [Visual Studio](create-visual-studio-deployment-project.md) eller [Visual Studio Code](use-vs-code-to-create-template.md), som kan varna dig om syntaxfel.
 
 <a id="incorrect-segment-lengths" />
 
-## <a name="solution-2---incorrect-segment-lengths"></a>Lösning 2 - felaktiga segmentlängder
+## <a name="solution-2---incorrect-segment-lengths"></a>Lösning 2 – Felaktiga segment längder
 
-Ett annat ogiltigt mallfel uppstår när resursnamnet inte är i rätt format.
+Ett annat ogiltigt fel uppstår när resurs namnet inte är i rätt format.
 
 ```
 Code=InvalidTemplate
@@ -62,7 +62,7 @@ Message=Deployment template validation failed: 'The template resource {resource-
 for type {resource-type} has incorrect segment lengths.
 ```
 
-En rotnivåresurs måste ha ett mindre segment i namnet än i resurstypen. Varje segment differentieras med ett snedstreck. I följande exempel har typen två segment och namnet har ett segment, så det är ett **giltigt namn**.
+En rot nivå resurs måste ha ett mindre segment i namnet än resurs typen. Varje segment särskiljs med ett snedstreck. I följande exempel har typen två segment och namnet har ett segment, så det är ett **giltigt namn**.
 
 ```json
 {
@@ -82,7 +82,7 @@ Men nästa exempel är **inte ett giltigt namn** eftersom det har samma antal se
 }
 ```
 
-För underordnade resurser har typen och namnet samma antal segment. Det här antalet segment är meningsfullt eftersom det fullständiga namnet och typen för det underordnade inkluderar det överordnade namnet och typen. Därför har det fullständiga namnet fortfarande ett mindre segment än den fullständiga typen.
+För underordnade resurser har typen och namnet samma antal segment. Det här antalet segment är meningsfullt eftersom det fullständiga namnet och typen för det underordnade innehåller det överordnade namnet och typen. Det fullständiga namnet har därför fortfarande ett mindre segment än den fullständiga typen.
 
 ```json
 "resources": [
@@ -101,7 +101,7 @@ För underordnade resurser har typen och namnet samma antal segment. Det här an
 ]
 ```
 
-Det kan vara svårt att få rätt segment med Resource Manager-typer som tillämpas över resursleverantörer. Om du till exempel använder ett resurslås på en webbplats krävs en typ med fyra segment. Därför är namnet tre segment:
+Det kan vara svårt att hämta segmenten med hjälp av resurs hanterarens typer som tillämpas på alla resurs leverantörer. Att till exempel använda ett resurs lås på en webbplats kräver en typ med fyra segment. Därför är namnet tre segment:
 
 ```json
 {
@@ -113,9 +113,9 @@ Det kan vara svårt att få rätt segment med Resource Manager-typer som tilläm
 
 <a id="parameter-not-valid" />
 
-## <a name="solution-3---parameter-is-not-valid"></a>Lösning 3 - parametern är ogiltig
+## <a name="solution-3---parameter-is-not-valid"></a>Lösning 3-parametern är inte giltig
 
-Om du anger ett parametervärde som inte är ett av de tillåtna värdena visas ett meddelande som liknar följande fel:
+Om du anger ett parameter värde som inte är ett av de tillåtna värdena visas ett meddelande som liknar följande fel:
 
 ```
 Code=InvalidTemplate;
@@ -124,40 +124,40 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Dubbelkolla de tillåtna värdena i mallen och ange en under distributionen. Mer information om tillåtna parametervärden finns i [avsnittet Parametrar i Azure Resource Manager-mallar](template-syntax.md#parameters).
+Kontrol lera de tillåtna värdena i mallen och ange en under distribution. Mer information om tillåtna parameter värden finns i [avsnittet parametrar i Azure Resource Manager mallar](template-syntax.md#parameters).
 
 <a id="too-many-resource-groups" />
 
-## <a name="solution-4---too-many-target-resource-groups"></a>Lösning 4 - För många målgrupper
+## <a name="solution-4---too-many-target-resource-groups"></a>Lösning 4-för många mål resurs grupper
 
-Om du anger fler än fem målresursgrupper i en enda distribution visas det här felet. Överväg att antingen konsolidera antalet resursgrupper i distributionen eller distribuera några av mallarna som separata distributioner. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](cross-resource-group-deployment.md).
+Om du anger fler än fem mål resurs grupper i en enda distribution visas det här felet. Överväg att antingen konsolidera antalet resurs grupper i distributionen eller distribuera några av mallarna som separata distributioner. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 
-## <a name="solution-5---circular-dependency-detected"></a>Lösning 5 - cirkulärt beroende har upptäckts
+## <a name="solution-5---circular-dependency-detected"></a>Lösning 5 – cirkulärt beroende har identifierats
 
-Det här felet visas när resurser är beroende av varandra på ett sätt som förhindrar att distributionen startar. En kombination av ömsesidigt beroenden gör att två eller flera resurser väntar på andra resurser som också väntar. Resurs1 är till exempel beroende av resurs3, resurs2 är beroende av resurs1 och resurs3 är beroende av resurs2. Du kan vanligtvis lösa det här problemet genom att ta bort onödiga beroenden.
+Du får det här felet när resurserna är beroende av varandra på ett sätt som förhindrar att distributionen startar. En kombination av beroenden gör att två eller flera resurser väntar på andra resurser som också väntar. Till exempel är Resource1 beroende av Resource3, Resource2 beroende av Resource1 och Resource3 beroende av Resource2. Du kan vanligt vis lösa det här problemet genom att ta bort onödiga beroenden.
 
 Så här löser du ett cirkulärt beroende:
 
-1. Leta reda på den resurs som identifierats i det cirkulära beroendet i mallen.
-2. För den resursen undersöker du egenskapen **dependsOn** och eventuell användning av **referensfunktionen** för att se vilka resurser den är beroende av.
-3. Undersök dessa resurser för att se vilka resurser de är beroende av. Följ beroendena tills du märker en resurs som är beroende av den ursprungliga resursen.
-5. För de resurser som ingår i det cirkulära beroendet undersöker du noggrant all användning av egenskapen **dependsOn** för att identifiera eventuella beroenden som inte behövs. Ta bort dessa beroenden. Om du är osäker på om ett beroende behövs kan du prova att ta bort det.
+1. Leta upp den resurs som identifierats i det cirkulära beroendet i mallen.
+2. För resursen kontrollerar du egenskapen **dependsOn** och alla användningar av **referens** funktionen för att se vilka resurser den är beroende av.
+3. Granska resurserna för att se vilka resurser de är beroende av. Följ beroendena tills du märker en resurs som är beroende av den ursprungliga resursen.
+5. För de resurser som ingår i det cirkulära beroendet undersöker du noga all användning av egenskapen **dependsOn** för att identifiera eventuella beroenden som inte behövs. Ta bort dessa beroenden. Om du är osäker på att ett beroende krävs kan du prova med att ta bort det.
 6. Distribuera om mallen.
 
-Om du tar bort värden från egenskapen **dependsOn** kan det orsaka fel när du distribuerar mallen. Om du får ett felmeddelande lägger du till beroendet i mallen igen.
+Att ta bort värden från **dependsOn** -egenskapen kan orsaka fel när du distribuerar mallen. Om du får ett fel meddelande lägger du till beroendet i mallen igen.
 
-Om den metoden inte löser det cirkulära beroendet bör du överväga att flytta en del av distributionslogiken till underordnade resurser (till exempel tillägg eller konfigurationsinställningar). Konfigurera dessa underordnade resurser för att distribuera efter de resurser som ingår i det cirkulära beroendet. Anta till exempel att du distribuerar två virtuella datorer, men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
+Om den metoden inte löser det cirkulära beroendet bör du överväga att flytta en del av distributions logiken till underordnade resurser (till exempel tillägg eller konfigurations inställningar). Konfigurera de underordnade resurserna som ska distribueras efter de resurser som ingår i det cirkulära beroendet. Anta till exempel att du distribuerar två virtuella datorer, men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
 
-1. vm1 (vm1)
-2. vm2 (vm2)
-3. Tillägg på vm1 beror på vm1 och vm2. Tillägget anger värden på vm1 som det får från vm2.
-4. Tillägg på VM2 beror på vm1 och vm2. Tillägget anger värden på vm2 som det får från vm1.
+1. VM1
+2. VM2
+3. Tillägget på VM1 är beroende av VM1 och VM2. Tillägget anger värden för VM1 som hämtas från VM2.
+4. Tillägget på VM2 är beroende av VM1 och VM2. Tillägget anger värden för VM2 som hämtas från VM1.
 
-Samma metod fungerar för App Service-appar. Överväg att flytta konfigurationsvärden till en underordnad resurs för appresursen. Du kan distribuera två webbappar i följande ordning:
+Samma metod fungerar för App Service appar. Överväg att flytta konfigurations värden till en underordnad resurs till app-resursen. Du kan distribuera två webb program i följande ordning:
 
-1. webapp1 (webbapp1)
-2. webapp2 (på nytt)
-3. config för webapp1 beror på webapp1 och webapp2. Den innehåller appinställningar med värden från webapp2.
-4. config för webapp2 beror på webapp1 och webapp2. Den innehåller appinställningar med värden från webapp1.
+1. webapp1
+2. webapp2
+3. config för webapp1 är beroende av webapp1 och webapp2. Den innehåller appinställningar med värden från webapp2.
+4. config för webapp2 är beroende av webapp1 och webapp2. Den innehåller appinställningar med värden från webapp1.

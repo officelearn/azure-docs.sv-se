@@ -1,7 +1,7 @@
 ---
-title: Instansiera en konfidentiell klientapp (MSAL.NET) | Azure
+title: Instansiera en konfidentiell klient app (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du instansierar ett konfidentiellt klientprogram med konfigurationsalternativ med hjälp av Microsoft Authentication Library for .NET (MSAL.NET).
+description: Lär dig hur du instansierar ett konfidentiellt klient program med konfigurations alternativ med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,28 +14,28 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1a520c5a1002e401f880fba84f8fc02a0a678133
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084729"
 ---
-# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instansiera ett konfidentiellt klientprogram med konfigurationsalternativ med MSAL.NET
+# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instansiera ett konfidentiellt klient program med konfigurations alternativ med MSAL.NET
 
-I den hÃ¤r artikeln beskrivs hur du instansierar ett [konfidentiellt klientprogram](msal-client-applications.md) med Microsoft Authentication Library for .NET (MSAL.NET).  Programmet instansieras med konfigurationsalternativ som definieras i en inställningsfil.
+Den här artikeln beskriver hur du instansierar ett [konfidentiellt klient program](msal-client-applications.md) med hjälp av Microsoft Authentication Library för .net (MSAL.net).  Programmet instansieras med konfigurations alternativ som definierats i en inställnings fil.
 
-Innan du initierar ett program måste du först [registrera](quickstart-register-app.md) det så att din app kan integreras med Microsofts identitetsplattform. Efter registreringen kan du behöva följande information (som finns i Azure-portalen):
+Innan du initierar ett program måste du först [Registrera](quickstart-register-app.md) det så att din app kan integreras med Microsoft Identity Platform. Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
 
 - Klient-ID (en sträng som representerar ett GUID)
-- Identitetsleverantörens URL (namngiven instans) och inloggningsmålgruppen för ditt program. Dessa två parametrar kallas gemensamt myndigheten.
-- Klient-ID om du skriver en branschprogram endast för din organisation (även namnet single-tenant application).
-- Programhemligheten (klienthemlig sträng) eller certifikat (av typen X509Certificate2) om det är en konfidentiell klientapp.
-- För webbappar och ibland för offentliga klientappar (särskilt när appen behöver använda en mäklare) har du också angett omdirigeuri där identitetsleverantören kontaktar tillbaka ditt program med säkerhetstoken.
+- Identitets leverantörens URL (kallas instansen) och inloggnings gruppen för ditt program. Dessa två parametrar kallas gemensamt för utfärdaren.
+- Klient-ID: t om du skriver ett affärs program enbart för din organisation (även kallat program med en enda klient).
+- Program hemligheten (klientens hemliga sträng) eller certifikat (av typen X509Certificate2) om det är ett konfidentiellt klient program.
+- För webbappar, och ibland för offentliga klient program (särskilt när appen behöver använda en Service Broker), har du också angett redirectUri där identitets leverantören ska kontakta ditt program igen med säkerhetstoken.
 
-## <a name="configure-the-application-from-the-config-file"></a>Konfigurera programmet från konfigurationsfilen
-Namnet på egenskaperna för alternativen i MSAL.NET matchar namnet på egenskaperna `AzureADOptions` för i ASP.NET Core, så du behöver inte skriva någon limkod.
+## <a name="configure-the-application-from-the-config-file"></a>Konfigurera programmet från konfigurations filen
+Namnet på egenskaperna för alternativen i MSAL.NET matchar namnet på egenskaperna för `AzureADOptions` i ASP.net Core, så du behöver inte skriva någon LIMS kod.
 
-En ASP.NET Core-programkonfiguration beskrivs i en *appsettings.json-fil:*
+En ASP.NET Core program konfiguration beskrivs i en *appSettings. JSON* -fil:
 
 ```json
 {
@@ -58,9 +58,9 @@ En ASP.NET Core-programkonfiguration beskrivs i en *appsettings.json-fil:*
 }
 ```
 
-Från och med MSAL.NET v3.x kan du konfigurera ditt konfidentiella klientprogram från konfigurationsfilen.
+Från och med MSAL.NET v3. x kan du konfigurera ditt konfidentiella klient program från konfigurations filen.
 
-I den klass där du vill konfigurera och instansiera `ConfidentialClientApplicationOptions` programmet måste du deklarera ett objekt.  Bind konfigurationen från källan (inklusive filen appconfig.json) till förekomsten av `IConfigurationRoot.Bind()` programalternativen med hjälp av metoden från [nuget-paketet Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+I den klass där du vill konfigurera och instansiera ditt program måste du deklarera ett `ConfidentialClientApplicationOptions` -objekt.  Bind konfigurationen från källan (inklusive filen appconfig. JSON) till instansen av program alternativen med hjälp av `IConfigurationRoot.Bind()` metoden från [paketet Microsoft. Extensions. Configuration. binder NuGet](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -70,7 +70,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Detta gör att innehållet i avsnittet "AzureAD" i *filen appsettings.json* kan `ConfidentialClientApplicationOptions` bindas till motsvarande egenskaper för objektet.  Skapa sedan `ConfidentialClientApplication` ett objekt:
+Detta gör att innehållet i avsnittet "AzureAD" i filen *appSettings. JSON* kan bindas till motsvarande egenskaper för `ConfidentialClientApplicationOptions` objektet.  Bygg sedan ett `ConfidentialClientApplication` objekt:
 
 ```csharp
 IConfidentialClientApplication app;
@@ -78,8 +78,8 @@ app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applica
         .Build();
 ```
 
-## <a name="add-runtime-configuration"></a>Lägga till körningskonfiguration
-I ett konfidentiellt klientprogram har du vanligtvis en cache per användare. Därför måste du hämta cacheminnet som är associerat med användaren och informera programverktyget om att du vill använda den. På samma sätt kan du ha en dynamiskt beräknad omdirigera URI. I detta fall koden är följande:
+## <a name="add-runtime-configuration"></a>Lägg till körnings konfiguration
+I ett konfidentiellt klient program har du vanligt vis en cache per användare. Därför måste du hämta cacheminnet som är associerat med användaren och informera det program verktyg som du vill använda. På samma sätt kan du ha en dynamiskt Beräknad omdirigerings-URI. I det här fallet är koden följande:
 
 ```csharp
 IConfidentialClientApplication app;

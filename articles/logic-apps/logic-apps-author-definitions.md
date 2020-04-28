@@ -1,92 +1,92 @@
 ---
-title: Skapa, redigera eller utöka JSON-arbetsflödesdefinitioner för logikapp
-description: Så här skriver, redigerar och utökar du logikappens JSON-arbetsflödesdefinitioner i Azure Logic Apps
+title: Skapa, redigera eller utöka Logic app JSON-arbetsflöde definitioner
+description: Hur du skriver, redigerar och utökar din Logic Apps JSON Workflow-definitioner i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979399"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för logikapparbetsflödesdefinitioner i Azure Logic Apps
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för Logic app Workflow-definitioner i Azure Logic Apps
 
-När du skapar företagsintegrationslösningar med automatiserade arbetsflöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande logikappdefinitionerna enkla och deklarativa JavaScript Object Notation (JSON) tillsammans med [WDL-schemat (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och validering. Dessa format gör logikappdefinitioner lättare att läsa och förstå utan att veta mycket om kod.
-När du vill automatisera skapandet och distributionen av logikappar kan du inkludera logikappdefinitioner som [Azure-resurser](../azure-resource-manager/management/overview.md) i [Azure Resource Manager-mallar](../azure-resource-manager/templates/overview.md).
-Om du vill skapa, hantera och distribuera logikappar kan du sedan använda [Azure PowerShell,](https://docs.microsoft.com/powershell/module/az.logicapp) [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)eller AZURE Logic Apps [REST API:er](https://docs.microsoft.com/rest/api/logic/).
+När du skapar lösningar för företags integrering med automatiserade arbets flöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande Logic app-definitionerna enkla och deklarativ JavaScript Object Notation (JSON) tillsammans med [WDL-schemat (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och verifiering. De här formaten gör att Logic app-definitioner blir lättare att läsa och förstå utan att veta mer om kod.
+När du vill automatisera skapandet och distributionen av logi Kap par kan du inkludera Logic app-definitioner som [Azure-resurser](../azure-resource-manager/management/overview.md) inuti [Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md).
+För att skapa, hantera och distribuera Logi Kap par kan du sedan använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)eller [Azure Logic Apps REST-API: er](https://docs.microsoft.com/rest/api/logic/).
 
-Om du vill arbeta med logikappdefinitioner i JSON öppnar du Code View-redigeraren när du arbetar i Azure-portalen eller i Visual Studio, eller kopierar definitionen till valfri redigerare.
-Om du inte har tidigare i logikappar kan du läsa [om hur du skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Om du vill arbeta med Logic app-definitioner i JSON öppnar du kodvyn när du arbetar i Azure Portal eller i Visual Studio eller kopierar definitionen till valfritt redigerings program.
+Om du inte har använt Logic Apps igen kan du läsa [hur du skapar din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Vissa Azure Logic Apps-funktioner, till exempel definiera parametrar och flera utlösare i logikappdefinitioner, är endast tillgängliga i JSON, inte Logic Apps Designer.
-> För dessa uppgifter måste du alltså arbeta i kodvyn eller en annan redigerare.
+> Vissa Azure Logic Apps funktioner, till exempel att definiera parametrar och flera utlösare i Logic app-definitioner, är bara tillgängliga i JSON, inte i Logic Apps designer.
+> För dessa uppgifter måste du arbeta i kodvyn eller någon annan redigerare.
 
-## <a name="edit-json---azure-portal"></a>Redigera JSON - Azure-portal
+## <a name="edit-json---azure-portal"></a>Redigera JSON – Azure Portal
 
 1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>.
 
-2. Välj **Alla tjänster**på menyn till vänster .
-Leta reda på "logikappar" i sökrutan och välj sedan logikappen i sökrutan.
+2. Välj **alla tjänster**på den vänstra menyn.
+I sökrutan söker du efter "Logic Apps" och väljer sedan din Logi Kap par i resultaten.
 
-3. Välj **Logikappkodvy**under **Utvecklingsverktyg**på logikappens meny.
+3. På din Logic Apps-meny, under **utvecklingsverktyg**, väljer du **vyn Logic app-kod**.
 
-   Code View-redigeraren öppnas och visar logikappdefinitionen i JSON-format.
+   Kodvyn öppnas och visar din Logic app-definition i JSON-format.
 
-## <a name="edit-json---visual-studio"></a>Redigera JSON - Visual Studio
+## <a name="edit-json---visual-studio"></a>Redigera JSON – Visual Studio
 
-Innan du kan arbeta med logikappdefinitionen i Visual Studio kontrollerar du att du har [installerat de verktyg som krävs](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
-Om du vill skapa en logikapp med Visual Studio läser du [Snabbstart: Automatisera uppgifter och processer med Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Innan du kan arbeta med din Logic app-definition i Visual Studio kontrollerar du att du har [installerat de verktyg som krävs](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
+Om du vill skapa en Logic-app med Visual Studio kan du läsa [snabb start: automatisera uppgifter och processer med Azure Logic Apps-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-I Visual Studio kan du öppna logikappar som har skapats och distribuerats antingen direkt från Azure-portalen eller som Azure Resource Manager-projekt från Visual Studio.
+I Visual Studio kan du öppna Logi Kap par som skapats och distribuerats antingen direkt från Azure Portal eller som Azure Resource Manager projekt från Visual Studio.
 
-1. Öppna Visual Studio-lösningen, eller [Azure Resource Group-projektet,](../azure-resource-manager/management/overview.md) som innehåller logikappen.
+1. Öppna Visual Studio-lösningen eller [Azure Resource Group](../azure-resource-manager/management/overview.md) -projektet som innehåller din Logic app.
 
-2. Hitta och öppna logikappens definition, som som standard visas i en [Resource Manager-mall](../azure-resource-manager/templates/overview.md)med namnet **LogicApp.json**.
+2. Hitta och öppna din Logic Apps-definition, som standard visas i en [Resource Manager-mall](../azure-resource-manager/templates/overview.md)med namnet **LogicApp. JSON**.
 Du kan använda och anpassa den här mallen för distribution till olika miljöer.
 
-3. Öppna snabbmenyn för logikappdefinitionen och mallen.
+3. Öppna snabb menyn för din Logic app-definition och-mall.
 Välj **Öppna med Logic App Designer**.
 
-   ![Öppna logikapp i en Visual Studio-lösning](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+   ![Öppna Logic-appen i en Visual Studio-lösning](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
    > [!TIP]
    > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio.
 
-4. Längst ned i designern väljer du **Kodvy**.
+4. Välj **kodvyn**längst ned i designern.
 
-   Code View-redigeraren öppnas och visar logikappdefinitionen i JSON-format.
+   Kodvyn öppnas och visar din Logic app-definition i JSON-format.
 
-5. Om du vill återgå till designervyn väljer du **Design**längst ned i Kodvyredigeraren .
+5. Om du vill återgå till designvyn väljer du **design**längst ned i kodvyn.
 
 ## <a name="parameters"></a>Parametrar
 
-Distributionens livscykel har vanligtvis olika miljöer för utveckling, test, mellanlagring och produktion. När du har värden som du vill återanvända i hela logikappen utan hårdkodning eller som varierar beroende på dina distributionsbehov, kan du skapa en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md) för arbetsflödesdefinitionen så att du också kan automatisera logikappdistributionen.
+Distributions livs cykeln har vanligt vis olika miljöer för utveckling, testning, mellanlagring och produktion. När du har värden som du vill återanvända i din Logic app utan hårdkoda eller som varierar beroende på dina distributions behov, kan du skapa en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md) för arbets flödes definitionen så att du även kan automatisera Logic app-distributionen.
 
-Följ dessa allmänna steg för att *parameterisera*eller definiera och använda parametrar för dessa värden i stället. Du kan sedan ange värdena i en separat parameterfil som skickar dessa värden till mallen. På så sätt kan du ändra dessa värden enklare utan att behöva uppdatera och distribuera om logikappen. Fullständig information finns i [Översikt: Automatisera distributionen för logikappar med Azure Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
+Följ dessa allmänna steg för att *Parameterisera*, eller definiera och använda parametrar för, dessa värden i stället. Du kan sedan ange värdena i en separat parameter fil som skickar dessa värden till din mall. På så sätt kan du enkelt ändra dessa värden utan att behöva uppdatera och distribuera om din Logic app. Fullständig information finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-1. I mallen definierar du mallparametrar och arbetsflödesdefinitionsparametrar för att acceptera de värden som ska användas vid distribution och körning.
+1. I mallen definierar du mallparametrar och parametrar för arbets flödes definitioner för att acceptera de värden som ska användas vid distribution respektive körning.
 
-   Mallparametrar definieras i ett parameteravsnitt som ligger utanför arbetsflödesdefinitionen, medan arbetsflödesdefinitionsparametrar definieras i ett parameteravsnitt som finns i arbetsflödesdefinitionen.
+   Mallparametrar definieras i ett parameter avsnitt som ligger utanför arbets flödes definitionen, medan parametrarna för arbets flödes definition definieras i ett parameter avsnitt som finns i arbets flödes definitionen.
 
-1. Ersätt de hårdkodade värdena med uttryck som refererar till dessa parametrar. Malluttryck använder syntax som skiljer sig från arbetsflödesdefinitionsuttryck.
+1. Ersätt hårdkodad-värdena med uttryck som refererar till dessa parametrar. Mall uttryck använder syntax som skiljer sig från definitions uttryck för arbets flöden.
 
-   Undvik att komplicera koden genom att inte använda malluttryck, som utvärderas vid distributionen, inuti arbetsflödesdefinitionsuttryck, som utvärderas vid körning. Använd endast malluttryck utanför arbetsflödesdefinitionen. Använd endast arbetsflödesdefinitionsuttryck i arbetsflödesdefinitionen.
+   Undvik att komplicera koden genom att inte använda mall uttryck som utvärderas vid distribution, i definitions uttryck för arbets flöde, som utvärderas vid körning. Använd endast mall uttryck utanför arbets flödes definitionen. Använd endast uttryck för arbets flödes definition i arbets flödes definitionen.
 
-   När du anger värdena för parametrarna för arbetsflödesdefinition kan du referera till mallparametrar med hjälp av parameteravsnittet som ligger utanför arbetsflödesdefinitionen men som fortfarande finns i resursdefinitionen för logikappen. På så sätt kan du skicka mallparametervärden till dina arbetsflödesdefinitionsparametrar.
+   När du anger värden för parametrarna för arbets flödes definitionen kan du referera till mallparametrar genom att använda avsnittet parametrar som ligger utanför arbets flödes definitionen, men fortfarande inuti resurs definitionen för din Logic app. På så sätt kan du skicka parameter värden för mallen till dina parametrar för arbets flödes definitionerna.
 
-1. Lagra värdena för dina parametrar i en separat [parameterfil](../azure-resource-manager/templates/parameter-files.md) och inkludera filen med distributionen.
+1. Lagra värdena för parametrarna i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md) och inkludera filen i distributionen.
 
-## <a name="process-strings-with-functions"></a>Processsträngar med funktioner
+## <a name="process-strings-with-functions"></a>Bearbeta strängar med Functions
 
 Logic Apps har olika funktioner för att arbeta med strängar.
-Anta till exempel att du vill skicka ett företagsnamn från en order till ett annat system.
-Du är dock inte säker på korrekt hantering för teckenkodning.
-Du kan utföra base64-kodning på den här strängen, men för att undvika rymningar i webbadressen kan du ersätta flera tecken i stället. Du behöver också bara en delsträng för företagsnamnet eftersom de första fem tecknen inte används.
+Anta till exempel att du vill skicka ett företags namn från en order till ett annat system.
+Men du är inte säker på korrekt hantering av tecken kodning.
+Du kan utföra base64-kodning för den här strängen, men för att undvika Escape i URL: en kan du ersätta flera tecken i stället. Dessutom behöver du bara en under sträng för företags namnet eftersom de första fem tecknen inte används.
 
 ``` json
 {
@@ -121,35 +121,35 @@ Du kan utföra base64-kodning på den här strängen, men för att undvika rymni
 }
 ```
 
-I de här stegen beskrivs hur det här exemplet bearbetar den här strängen och arbetar från insidan till utsidan:
+Dessa steg beskriver hur det här exemplet bearbetar den här strängen, som arbetar från insidan till utsidan:
 
 ```
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. Hämta [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) för företagsnamnet, så att du får det totala antalet tecken.
+1. Hämta [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) för företags namnet så att du får det totala antalet tecken.
 
-2. Om du vill få en `5`kortare sträng subtraherar du .
+2. Om du vill få en kortare sträng `5`subtraherar du.
 
-3. Nu får [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)en .
-Börja vid `5`index och gå till resten av strängen.
+3. Hämta nu en [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
+Starta vid index `5`och gå till resten av strängen.
 
-4. Konvertera den här delsträngen till en [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) sträng.
+4. Konvertera den här del strängen till [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) en sträng.
 
-5. Nu [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) alla `+` tecken `-` med tecken.
+5. Nu [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) är `+` alla tecken med `-` tecken.
 
-6. Slutligen [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) alla `/` tecken `_` med tecken.
+6. Slutligen [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) alla `/` tecken med `_` tecken.
 
-## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mappa listobjekt till egenskapsvärden och använd sedan kartor som parametrar
+## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mappa List objekt till egenskaps värden och Använd sedan Maps som parametrar
 
-Om du vill få olika resultat baserat på en egenskaps värde kan du skapa en karta som matchar varje egenskapsvärde till ett resultat och sedan använda den kartan som en parameter.
+Om du vill få olika resultat baserat på egenskapens värde kan du skapa en karta som matchar varje egenskaps värde till ett resultat och sedan använda den kartan som en parameter.
 
-Det här arbetsflödet definierar till exempel vissa kategorier som parametrar och en karta som matchar dessa kategorier med en viss URL.
-Först får arbetsflödet en lista med artiklar. Sedan använder arbetsflödet kartan för att hitta webbadressen som matchar kategorin för varje artikel.
+Det här arbets flödet definierar till exempel vissa kategorier som parametrar och en karta som matchar de kategorierna med en viss URL.
+Först hämtar arbets flödet en lista över artiklar. Sedan använder arbets flödet kartan för att hitta URL: en som matchar kategorin för varje artikel.
 
-*   Funktionen [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) kontrollerar om kategorin matchar en känd definierad kategori.
+*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) Funktionen kontrollerar om kategorin matchar en känd definierad kategori.
 
-*   När du har hämtat en matchande kategori hämtar exemplet objektet från kartan med hjälp av hakparenteser:`parameters[...]`
+*   När en matchande kategori har hämtats hämtar exemplet objektet från kartan med hakparenteser:`parameters[...]`
 
 ``` json
 {
@@ -219,29 +219,29 @@ Först får arbetsflödet en lista med artiklar. Sedan använder arbetsflödet k
 }
 ```
 
-## <a name="get-data-with-date-functions"></a>Hämta data med datumfunktioner
+## <a name="get-data-with-date-functions"></a>Hämta data med datum funktioner
 
-Om du vill hämta data från en datakälla som inte stöder *utlösare*internt kan du använda datumfunktioner för att arbeta med tider och datum i stället.
-Det här uttrycket tar till exempel reda på hur lång tid det här arbetsflödets steg tar och arbetar från insidan till utsidan:
+Om du vill hämta data från en data källa som inte har inbyggt stöd för *utlösare*kan du använda datum funktioner för att arbeta med tider och datum i stället.
+Det här uttrycket hittar till exempel hur länge arbets flödets steg tar, som arbetar från insidan till utsidan:
 
 ``` json
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Från `order` åtgärden extraherar `startTime`du .
-2. Få aktuell tid `utcNow()`med .
+1. Extrahera i `order` `startTime`åtgärden.
+2. Hämta den aktuella tiden med `utcNow()`.
 3. Subtrahera en sekund:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md)
 
-   Du kan använda andra tidsenheter, gilla `minutes` eller `hours`.
+   Du kan använda andra tidsenheter, t. `minutes` ex `hours`. eller.
 
 3. Nu kan du jämföra dessa två värden.
 
-   Om det första värdet är mindre än det andra värdet har mer än en sekund gått sedan ordern först placerades.
+   Om det första värdet är mindre än det andra värdet har fler än en sekund gått sedan ordern först placerades.
 
-Om du vill formatera datum kan du använda strängformaterare. Om du till exempel vill hämta RFC1123 använder du [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
-Läs mer om [datumformatering](../logic-apps/logic-apps-workflow-definition-language.md).
+Du kan använda String-formaterare för att formatera datum. Om du till exempel vill hämta RFC1123 använder [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md)du.
+Läs mer om [datum format](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json
 {
@@ -295,10 +295,10 @@ Läs mer om [datumformatering](../logic-apps/logic-apps-workflow-definition-lang
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kör steg baserat på ett villkor (villkorssatser)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Kör steg baserat på olika värden (växelsatser)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Kör och upprepa steg (loopar)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Kör eller sammanfoga parallella steg (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Kör steg baserat på grupperad åtgärdsstatus (scope)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
-* Läs mer om [språkschemat för arbetsflödesdefinition för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
-* Läs mer om [arbetsflödesåtgärder och utlösare för Azure Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md)
+* [Kör steg baserat på ett villkor (villkorliga uttryck)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Kör steg baserade på olika värden (Switch-instruktioner)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Köra och upprepa steg (slingor)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Köra eller sammanfoga parallella steg (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Kör steg baserat på grupperad åtgärds status (omfång)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* Läs mer om [språk schema för arbets flödes definition för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
+* Lär dig mer om [arbets flödes åtgärder och utlösare för Azure Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md)

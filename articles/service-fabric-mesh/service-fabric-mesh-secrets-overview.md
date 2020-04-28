@@ -1,15 +1,15 @@
 ---
-title: Lagra och använda Azure Service Fabric Mesh Application Secrets
-description: Service Fabric Mesh stöder hemligheter som Azure-resurser. Så här lagrar och hanterar du hemligheter med dina Service Fabric Mesh-program.
+title: Lagra och använda Azure Service Fabric nät program hemligheter
+description: Service Fabric Mesh stöder hemligheter som Azure-resurser. Så här lagrar och hanterar du hemligheter med Service Fabric nätappar.
 author: erikadoyle
 ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: da4eaa34840f14714616b85e24fd62cf65602b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277625"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh-programhemligheter

@@ -1,5 +1,5 @@
 ---
-title: (FÖRÅLDRAD) Snabbstart - Azure Kubernetes kluster för Windows
+title: FÖRÅLDRAD Snabb start – Azure Kubernetes-kluster för Windows
 description: Lär dig snabbt att skapa ett Kubernetes-kluster på Windows-behållare i Azure Container Service med Azure CLI.
 author: dlepow
 ms.service: container-service
@@ -8,13 +8,13 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277650"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(FÖRÅLDRAD) Distribuera Kubernetes-kluster för Windows-behållare
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>FÖRÅLDRAD Distribuera Kubernetes-kluster för Windows-behållare
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -61,7 +61,7 @@ Om några minuter har kommandot slutförts och visar information om din distribu
 
 ## <a name="install-kubectl"></a>Installera kubectl
 
-Om du vill ansluta till Kubernetes-klustret från klientdatorn använder du [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)Kubernetes kommandoradsklient. 
+För att ansluta till Kubernetes-klustret från klient datorn använder [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)du, Kubernetes kommando rads klient. 
 
 Om du använder Azure CloudShell är `kubectl` redan installerad. Om du vill installera det lokalt, kan du använda kommandot [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 

@@ -1,6 +1,6 @@
 ---
-title: Integrera miljöer i Azure Pipelines i Azure DevTest Labs
-description: Lär dig hur du integrerar Azure DevTest Labs-miljöer i dina Azure DevOps-pipelines (Continuous Integration) och CD-pipelines (Continuous Delivery).
+title: Integrera miljöer i Azure-pipeliner i Azure DevTest Labs
+description: Lär dig hur du integrerar Azure DevTest Labs miljöer i din Azure DevOps-pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,72 +13,72 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169413"
 ---
-# <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrera miljöer i dina Azure DevOps CI/CD-pipelines
-Du kan använda tillägget Azure DevTest Labs Tasks som är installerat i Azure DevOps Services (tidigare kallat Visual Studio Team Services) för att enkelt integrera din kontinuerliga integration (CI)/ cd-pipeline (continuous delivery) med Azure DevTest Labs. Dessa tillägg gör det enklare att snabbt distribuera en [miljö](devtest-lab-test-env.md) för en viss testaktivitet och sedan ta bort den när testet är klart. 
+# <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrera miljöer i Azure DevOps CI/CD-pipeliner
+Du kan använda tillägget Azure DevTest Labs uppgifter som är installerat i Azure DevOps Services (tidigare kallat Visual Studio Team Services) för att enkelt integrera en pipeline för kontinuerlig integrering (CI)/kontinuerlig leverans (CD) build-och-release med Azure DevTest Labs. De här tilläggen gör det enklare att snabbt distribuera en [miljö](devtest-lab-test-env.md) för en speciell test aktivitet och sedan ta bort den när testet är klart. 
 
-Den här artikeln visar hur du skapar och distribuerar en miljö och sedan tar bort miljön, allt i en komplett pipeline. Du utför vanligtvis var och en av dessa uppgifter individuellt i din egen anpassade pipeline för att distribuera build-test. De tillägg som används i den här artikeln är utöver dessa [skapa / ta bort DTL VM-uppgifter:](devtest-lab-integrate-ci-cd-vsts.md)
+Den här artikeln visar hur du skapar och distribuerar en miljö och sedan tar bort miljön, allt i en fullständig pipeline. Du utför vanligt vis var och en av dessa uppgifter individuellt i din egen anpassade version av build-test-Deploy. Tilläggen som används i den här artikeln är förutom de här [Skapa/ta bort DTL VM-aktiviteterna](devtest-lab-integrate-ci-cd-vsts.md):
 
 - Skapa en miljö
 - Ta bort en miljö
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Innan du kan integrera din CI/CD-pipeline med Azure DevTest Labs installerar du Azure [DevTest Labs Tasks-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) från Visual Studio Marketplace. 
+Innan du kan integrera din CI/CD-pipeline med Azure DevTest Labs installerar du [Azure DevTest Labs tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) -tillägg från Visual Studio Marketplace. 
 
 ## <a name="create-and-configure-the-lab-for-environments"></a>Skapa och konfigurera labbet för miljöer
 I det här avsnittet beskrivs hur du skapar och konfigurerar ett labb där Azure-miljön ska distribueras till.
 
 1. [Skapa ett labb](devtest-lab-create-lab.md) om du inte redan har ett. 
-2. Konfigurera labbet och skapa en miljömall genom att följa instruktionerna från den här artikeln: [Skapa miljöer med flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
-3. I det här exemplet kan du [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/)använda en befintlig Azure Quickstart-mall .
-4. Kopiera mappen **201-web-app-redis-cache-sql-database** till **mappen ArmTemplate** i databasen som konfigurerats i steg 2.
+2. Konfigurera labbet och skapa en miljö mall genom att följa anvisningarna i den här artikeln: [skapa miljöer med flera virtuella datorer och PaaS-resurser med Azure Resource Manager mallar](devtest-lab-create-environment-from-arm.md).
+3. I det här exemplet använder du en befintlig Azure snabb [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/)starts mall.
+4. Kopiera mappen **201-Web-App-Redis-cache-SQL-Database** till mappen **ArmTemplate** i den databas som konfigurerades i steg 2.
 
 ## <a name="create-a-release-definition"></a>Skapa en versionsdefinition
-Så här skapar du versionsdefinitionen:
+Skapa versions definitionen genom att göra följande:
 
-1.  På fliken **Versioner** i **hubben Skapa & Release**väljer du **plustecknet (+).**
-2.  I fönstret **Skapa versionsdefinition** markerar du mallen **Tom** och väljer sedan **Nästa**.
-3.  Välj **Välj senare**och välj sedan **Skapa** för att skapa en ny versionsdefinition med en standardmiljö och inga länkade artefakter.
-4.  Om du vill öppna snabbmenyn markerar du **ellipsen (...) bredvid** miljönamnet i den nya versionsdefinitionen och väljer sedan **Konfigurera variabler**.
-5.  Ange följande värden för de variabler som du använder i versionsdefinitionsuppgifterna i **fönstret Konfigurera -** miljö:
-1.  För **administratörLogin**anger du inloggningsnamnet för SQL Administrator.
-2.  För **administratörLoginPassword**anger du lösenordet som ska användas av SQL Administrator-inloggningen. Använd "hänglås"-ikonen för att dölja och säkra lösenordet.
-3.  För **databasNamn**anger du NAMNET på SQL Database.
-4.  Dessa variabler är specifika för exempelmiljöer, olika miljöer kan ha olika variabler.
+1.  På fliken **versioner** i **build & release Hub**väljer du knappen **plus tecken (+)** .
+2.  I fönstret **skapa versions definition** väljer du den **tomma** mallen och väljer sedan **Nästa**.
+3.  Välj **Välj senare**och välj sedan **skapa** för att skapa en ny versions definition med en standard miljö och inga länkade artefakter.
+4.  Öppna snabb menyn genom att välja **ellipsen (...)** bredvid miljö namnet i den nya versions definitionen och välj sedan **Konfigurera variabler**.
+5.  I fönstret **Konfigurera-miljö** anger du följande värden för de variabler som du använder i versions definitions uppgifterna:
+1.  För **administratorLogin**anger du inloggnings namnet för SQL-administratören.
+2.  För **administratorLoginPassword**anger du det lösen ord som ska användas av SQL-administratörens inloggning. Använd "hänglås"-ikonen för att dölja och skydda lösen ordet.
+3.  För **databasename**anger du SQL Database namn.
+4.  Dessa variabler är speciella för exempel miljöerna, olika miljöer kan ha olika variabler.
 
 ## <a name="create-an-environment"></a>Skapa en miljö
-Nästa steg i distributionen är att skapa den miljö som ska användas för utvecklings- eller testningsändamål.
+Nästa steg i distributionen är att skapa miljön som ska användas i utvecklings-eller testnings syfte.
 
-1. Välj Lägg till **uppgifter**i versionsdefinitionen .
-2. Lägg till en Azure DevTest Labs Create Environment-uppgift på fliken **Uppgifter.** Konfigurera uppgiften enligt följande:
-    1. För **Azure RM-prenumeration**väljer du en anslutning i listan **Tillgängliga Azure-tjänstanslutningar** eller skapar en mer begränsad behörighetsanslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkten](/azure/devops/pipelines/library/service-endpoints).
-2. För **Labbnamn**väljer du namnet på den instans som du skapade tidigare*.
-3. För **databasnamn**väljer du den databas där Resource Manager-mallen (201) har flyttats till*.
-4. För **Mallnamn**väljer du namnet på den miljö som du sparade i källkodsdatabasen*. 
-5. **Labbnamn,** **databasnamn**och **mallnamn** är de egna representationerna av Azure-resurs-ID:n. Om du anger det egna namnet manuellt blir det fel, men du kan välja informationen om du vill använda listrutorna manuellt.
-6. För **Miljönamn**anger du ett namn för att unikt identifiera miljöinstansen i labbet.  Det måste vara unikt i labbet.
-7. **Parameterfilen** och **parametrarna**gör att anpassade parametrar kan skickas till miljön. Båda eller båda kan användas för att ange parametervärdena. I det här exemplet används avsnittet Parametrar. Använd namnen på de variabler som du har definierat i miljön, till exempel:`-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
-8. Information i miljömallen kan skickas igenom i utdataavsnittet i mallen. Markera **Skapa utdatavariabler baserat på miljömallens utdata** så att andra aktiviteter kan använda data. `$(Reference name.Output Name)`är mönstret att följa. Om referensnamnet till exempel var DTL och utdatanamnet i mallen var platsen skulle variabeln vara `$(DTL.location)`.
+1. I versions definitionen väljer du **Lägg till aktiviteter**.
+2. Lägg till en Azure DevTest Labs Skapa miljö aktivitet på fliken **aktiviteter** . Konfigurera uppgiften enligt följande:
+    1. För **Azure RM-prenumeration**väljer du en anslutning i listan **tillgängliga Azure Service-anslutningar** eller skapar en mer begränsad behörighets anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstens slut punkt](/azure/devops/pipelines/library/service-endpoints).
+2. För **labb namn**väljer du namnet på den instans som du skapade tidigare *.
+3. För **namn på databas**väljer du den lagrings plats där Resource Manager-mallen (201) har flyttats till *.
+4. För **mallnamn**väljer du namnet på den miljö som du sparade i din käll kods lagrings plats *. 
+5. **Labb namnet**, **databas namnet**och **mallnamnet** är de egna representationerna av Azures resurs-ID. Om du anger det egna namnet manuellt kan det orsaka fel, Använd List rutorna för att välja informationen.
+6. För **miljö namn**anger du ett namn som identifierar miljö instansen unikt i labbet.  Det måste vara unikt inom labbet.
+7. **Parameter filen** och **parametrarna**tillåter att anpassade parametrar skickas till miljön. Båda kan användas för att ange parameter värden. I det här exemplet används avsnittet parametrar. Använd namnen på de variabler som du har definierat i miljön, till exempel:`-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+8. Information i miljö mal len kan skickas genom i avsnittet utdata i mallen. Markera **skapa utdata-variabler baserat på miljö mal len utdata** så att andra aktiviteter kan använda dessa data. `$(Reference name.Output Name)`är mönstret som ska följas. Om referens namnet exempelvis var DTL och utdatafilen i mallen var variabeln `$(DTL.location)`.
 
 ## <a name="delete-the-environment"></a>Ta bort miljön
-Det sista steget är att ta bort miljön som du distribuerade i din Azure DevTest Labs-instans. Du tar vanligtvis bort miljön när du har kört de utgående aktiviteterna eller kört de tester som du behöver på de distribuerade resurserna.
+Det sista steget är att ta bort den miljö som du har distribuerat i Azure DevTest Labs-instansen. Du skulle vanligt vis ta bort miljön när du har kört dev-aktiviteterna eller kört de tester som du behöver på de distribuerade resurserna.
 
-I versionsdefinitionen väljer du **Lägg till uppgifter**och lägger sedan till en Azure **DevTest Labs Delete Environment-uppgift** på fliken **Distribuera.** Konfigurera den på följande sätt:
+I versions definitionen väljer du **Lägg till aktiviteter**och lägger sedan till aktiviteten **Azure DevTest Labs ta bort miljö** på fliken **distribuera** . Konfigurera den på följande sätt:
 
-1. Information om hur du tar bort den virtuella datorn finns i [Azure DevTest Labs-uppgifter:](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)
-    1. För **Azure RM-prenumeration**väljer du en anslutning i listan **Tillgängliga Azure-tjänstanslutningar** eller skapar en mer begränsad behörighetsanslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkten](/azure/devops/pipelines/library/service-endpoints).
-    2. För **Labbnamn**väljer du labbet där miljön finns.
-    3. För **Miljönamn**anger du namnet på den miljö som ska tas bort.
-2. Ange ett namn för versionsdefinitionen och spara det sedan.
+1. Information om hur du tar bort den virtuella datorn finns [Azure DevTest Labs uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
+    1. För **Azure RM-prenumeration**väljer du en anslutning i listan **tillgängliga Azure Service-anslutningar** eller skapar en mer begränsad behörighets anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstens slut punkt](/azure/devops/pipelines/library/service-endpoints).
+    2. För **labb namn**väljer du det labb där miljön finns.
+    3. För **miljö namn**anger du namnet på den miljö som ska tas bort.
+2. Ange ett namn för versions definitionen och spara det.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 
 - [Skapa miljöer med flera virtuella datorer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
-- Snabbstart Resource Manager-mallar för DevTest Labs automatisering från [DevTest Labs GitHub-databasen](https://github.com/Azure/azure-quickstart-templates).
-- [Vsts felsökningssida](/azure/devops/pipelines/troubleshooting)
+- Snabb start Resource Manager-mallar för DevTest Labs automation från [DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-quickstart-templates).
+- [Sidan fel sökning av VSTS](/azure/devops/pipelines/troubleshooting)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera 4me för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till 4me.
+title: 'Självstudie: Konfigurera 4me för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till 4me.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,75 +16,75 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77059193"
 ---
-# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera 4me för automatisk användaretablering
+# <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 4me för automatisk användar etablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i 4me och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare och/eller grupper till 4me.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i 4me och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till 4me.
 
 > [!NOTE]
-> Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här kopplingen är för närvarande i offentlig förhandsversion. Mer information om de allmänna användningsvillkoren för förhandsversionen av Microsoft Azure finns i [Tilläggsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klient
-* [En 4me hyresgäst](https://www.4me.com/trial/)
-* Ett användarkonto i 4me med administratörsbehörighet.
+* [En 4me-klient](https://www.4me.com/trial/)
+* Ett användar konto i 4me med administratörs behörighet.
 
 ## <a name="add-4me-from-the-gallery"></a>Lägg till 4me från galleriet
 
-Innan du konfigurerar 4me för automatisk användaretablering med Azure AD måste du lägga till 4me från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Innan du konfigurerar 4me för automatisk användar etablering med Azure AD måste du lägga till 4me från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Så här lägger du till 4me från Azure AD-programgalleriet:**
+**Utför följande steg för att lägga till 4me från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Enterprise-program**och välj sedan **Alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **4me,** väljer **4me** på resultatpanelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **4me**, väljer **4me** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![4me i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-4me"></a>Tilldela användare till 4me
 
-Azure Active Directory använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till 4me. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till 4me genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till 4me. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till 4me genom att följa anvisningarna här:
 
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-4me"></a>Viktiga tips för att tilldela användare till 4me
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas 4me för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas 4me för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till 4me måste du välja en giltig programspecifik roll (om sådan finns) i tilldelningsdialogrutan. Användare med rollen **Standardåtkomst** är undantagna från etablering.
+* När du tilldelar en användare till 4me måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-4me"></a>Konfigurera automatisk användaretablering till 4me 
+## <a name="configuring-automatic-user-provisioning-to-4me"></a>Konfigurera automatisk användar etablering till 4me 
 
-I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i 4me baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i 4me baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserade enkel inloggning för 4me, enligt instruktionerna i [4me enda sign-on tutorial](4me-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för 4me genom att följa anvisningarna i [självstudien om enkel inloggning med 4me](4me-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för 4me i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-4me-in-azure-ad"></a>Konfigurera automatisk användar etablering för 4me i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -92,83 +92,83 @@ I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-eta
 
     ![4me-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Om du vill hämta **klientadressen** och **den hemliga token för** ditt 4me-konto följer du genomgången enligt beskrivningen i steg 6.
+5. Om du vill hämta **klient-URL: en** och den **hemliga token** för ditt 4me-konto följer du genom gången enligt beskrivningen i steg 6.
 
-6. Logga in på administratörskonsolen på 4me. Navigera till **Inställningar**.
+6. Logga in på din 4me-administratörs konsol. Navigera till **Inställningar**.
 
-    ![4me Inställningar](media/4me-provisioning-tutorial/4me01.png)
+    ![4me-inställningar](media/4me-provisioning-tutorial/4me01.png)
 
-    Skriv in **appar** i sökfältet.
+    Skriv in **appar** i Sök fältet.
 
     ![4me-appar](media/4me-provisioning-tutorial/4me02.png)
 
-    Öppna **SCIM-listrutan** för att hämta den hemliga token och SCIM-slutpunkten.
+    Öppna List rutan **scim** för att hämta den hemliga token och scim-slutpunkten.
 
     ![4me SCIM](media/4me-provisioning-tutorial/4me03.png)
 
-7. När du fyller i fälten som visas i steg 5 klickar du på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till 4me. Om anslutningen misslyckas kontrollerar du att ditt 4me-konto har administratörsbehörighet och försöker igen.
+7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till 4me. Om anslutningen Miss lyckas kontrollerar du att 4me-kontot har administratörs behörighet och försöker igen.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan - **Skicka ett e-postmeddelande när ett fel inträffar**.
+8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 9. Klicka på **Spara**.
 
-10. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory Users till 4me**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till 4me**.
 
-    ![4me Användarmappningar](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    ![4me användar mappningar](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Granska användarattributen som synkroniseras från Azure AD till 4me i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i 4me för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+11. Granska de användarattribut som synkroniseras från Azure AD till 4me i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i 4me för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![4me Användarmappningar](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    ![4me användar mappningar](media/4me-provisioning-tutorial/4me-user-attributes.png)
     
-12. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory Groups till 4me**.
+12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till 4me**.
 
-    ![4me Användarmappningar](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    ![4me användar mappningar](media/4me-provisioning-tutorial/4me-group-mapping.png)
     
-13. Granska gruppattributen som synkroniseras från Azure AD till 4me i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha grupperna i 4me för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+13. Granska gruppattributen som synkroniseras från Azure AD till 4me i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i 4me för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![4me Gruppmappningar](media/4me-provisioning-tutorial/4me-group-attribute.png)
+    ![4me grupp mappningar](media/4me-provisioning-tutorial/4me-group-attribute.png)
 
-14. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Om du vill aktivera Azure AD-etableringstjänsten för 4me ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+15. Om du vill aktivera Azure AD Provisioning-tjänsten för 4me ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-16. Definiera de användare och/eller grupper som du vill etablera till 4me genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+16. Definiera de användare och/eller grupper som du vill etablera till 4me genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etableringsomfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
 17. När du är redo att etablera klickar du på **Spara**.
 
-    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten den 4me.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på 4me.
 
-Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Begränsningar för anslutning
+## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* 4me har olika SCIM-slutpunktsadresser för test- och produktionsmiljöer. Den förstnämnda slutar med **.qa** medan den senare slutar med **.com**
-* 4me genererade hemliga tokens har ett utgångsdatum på en månad från generering.
-* 4me stöder inte **DELETE-åtgärder**
+* 4me har olika SCIM slut punkts-URL: er för test-och produktions miljöer. Den tidigare slutar med **. frågor och svar** när den senare slutar med **. com**
+* 4me-genererade hemliga token har ett utgångs datum på en månad från generation.
+* 4me stöder inte **borttagnings** åtgärder
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

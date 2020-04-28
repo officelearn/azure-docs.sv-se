@@ -1,166 +1,166 @@
 ---
-title: Felsökningsguide för Azure Spring Cloud | Microsoft-dokument
-description: Felsökningsguide för Azure Spring Cloud
+title: Fel söknings guide för Azure våren Cloud | Microsoft Docs
+description: Fel söknings guide för Azure våren Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277586"
 ---
-# <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsöka vanliga Problem med Azure Spring Cloud
+# <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
-Den här artikeln innehåller instruktioner för felsökning av utvecklingsproblem i Azure Spring Cloud. Mer information finns i [Vanliga frågor och svar om Azure Spring Cloud](spring-cloud-faq.md).
+Den här artikeln innehåller anvisningar för fel sökning av problem med moln utveckling i Azure våren. Mer information finns i [vanliga frågor och svar om Azure våren Cloud](spring-cloud-faq.md).
 
-## <a name="availability-performance-and-application-issues"></a>Problem med tillgänglighet, prestanda och program
+## <a name="availability-performance-and-application-issues"></a>Tillgänglighets-, prestanda-och program problem
 
-### <a name="my-application-cant-start-for-example-the-endpoint-cant-be-connected-or-it-returns-a-502-after-a-few-retries"></a>Mitt program kan inte starta (till exempel kan slutpunkten inte anslutas eller returneras en 502 efter några försök)
+### <a name="my-application-cant-start-for-example-the-endpoint-cant-be-connected-or-it-returns-a-502-after-a-few-retries"></a>Det går inte att starta programmet (till exempel slut punkten kan inte anslutas, eller så returnerar den en 502 efter några återförsök)
 
-Exportera loggarna till Azure Log Analytics. Tabellen för spring-programloggar heter *AppPlatformLogsforSpring*. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md).
+Exportera loggarna till Azure Log Analytics. Tabellen för program loggar med våren heter *AppPlatformLogsforSpring*. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md).
 
-Följande felmeddelande kan visas i dina loggar:
+Följande fel meddelande kan visas i loggarna:
 
-> "org.springframework.context.ApplicationContextException: Det går inte att starta webbservern"
+> "org. springframework. context. ApplicationContextException: det gick inte att starta webb server"
 
-Meddelandet anger ett av två troliga problem: 
-* En av bönorna eller ett av dess beroenden saknas.
-* En av egenskaperna för bönor saknas eller är ogiltig. I det här fallet visas troligen "java.lang.IllegalArgumentException".
+Meddelandet anger ett av två sannolika problem: 
+* Något av bönorna eller något av dess beroenden saknas.
+* En av egenskaperna för bönor saknas eller är ogiltig. I det här fallet kommer "Java. lang. IllegalArgumentException" troligen att visas.
 
-Tjänstbindningar kan också orsaka programstartfel. Om du vill fråga loggarna använder du nyckelord som är relaterade till de bundna tjänsterna. Anta till exempel att ditt program har en bindning till en MySQL-instans som är inställd på lokal systemtid. Om programmet inte startar kan följande felmeddelande visas i loggen:
+Tjänst bindningar kan också orsaka fel i program starten. Använd nyckelord som är relaterade till de bundna tjänsterna för att fråga loggarna. Anta till exempel att ditt program har en bindning till en MySQL-instans som är inställd på lokal system tid. Om programmet inte startar kan följande fel meddelande visas i loggen:
 
-> "java.sql.SQLException: Servertidszonens värde "Coordinated Universal Time" är okänt eller representerar mer än en tidszon."
+> "Java. SQL. SQLException: Server tids zonens värde ' Coordinated Universal Time ' är okänt eller representerar mer än en tidszon."
 
-Lös det här felet `server parameters` genom att gå till mySQL-instansen `time_zone` och ändra värdet från *SYSTEM* till *+0:00*.
+Åtgärda felet genom `server parameters` att gå till MySQL-instansen och ändra `time_zone` värdet från *systemet* till *+ 0:00*.
 
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>Mina program kraschar eller genererar ett oväntat fel
 
-När du felsöker kraschar programmet börjar du med att kontrollera programmets status och identifieringsstatus. Det gör du genom att gå till _Apphantering_ i Azure-portalen för att säkerställa att statusarna för alla program _körs_ och _UP_.
+När du felsöker program krascher startar du genom att kontrol lera programmets körnings status och identifierings status. Det gör du genom att gå till _app Management_ i Azure Portal för att se till att status för alla program _körs_ _och är igång._
 
-* Om statusen _körs_ men identifieringsstatusen inte är _UP_går du till avsnittet ["Mitt program kan inte registreras".](#my-application-cant-be-registered)
+* Om status är _igång_ men identifierings statusen inte är _upp_går du till avsnittet ["det går inte att registrera programmet"](#my-application-cant-be-registered) .
 
-* Om identifieringsstatusen är _UP_går du till Mått för att kontrollera programmets hälsotillstånd. Kontrollera följande mått:
+* Om identifierings statusen är _upp_går du till mått för att kontrol lera programmets hälso tillstånd. Kontrol lera följande mått:
 
 
-  - `TomcatErrorCount`_(tomcat.global.error):_ Alla spring-programundantag räknas här. Om det här numret är stort går du till Azure Log Analytics för att granska dina programloggar.
+  - `TomcatErrorCount`(_Tomcat. global. error_): alla våren Application-undantag räknas här. Om det här talet är stort går du till Azure Log Analytics för att kontrol lera program loggarna.
 
-  - `AppMemoryMax`_(jvm.memory.max):_ Den maximala mängden minne som är tillgängligt för programmet. Beloppet kan vara odefinierat eller ändras med tiden om det har definierats. Om det definieras är mängden använt och engagerat minne alltid mindre än eller lika med max. En minnesallokering kan `OutOfMemoryError` dock misslyckas med ett meddelande om allokeringen försöker öka det använda minnet så att *det används > bekräftats*, även om *det används <= max* fortfarande är sant. I en sådan situation, försök att öka den `-Xmx` maximala heap storlek med hjälp av parametern.
+  - `AppMemoryMax`(_JVM. Memory. Max_): den maximala mängden minne som är tillgängligt för programmet. Beloppet kan vara odefinierat, eller så kan det ändras med tiden om det har definierats. Om den har definierats, är mängden använt och allokerat minne alltid mindre än eller lika med max. Men en minnesallokering kan Miss lyckas med ett `OutOfMemoryError` meddelande om tilldelningen försöker öka det använda minnet som *används > dedikerat*, även om det *används <= Max* är sant. I sådana fall kan du försöka öka den maximala heap-storleken genom att `-Xmx` använda-parametern.
 
-  - `AppMemoryUsed`_(jvm.memory.used):_ Mängden minne i byte som för närvarande används av programmet. För en normal belastning Java-program, bildar denna metriska serien en *sågtooth* mönster, där minnesanvändningen stadigt ökar och minskar i små steg och plötsligt sjunker mycket, och sedan mönstret återkommer. Den här måttserien sker på grund av skräpinsamling inuti java-datorn, där insamlingsåtgärder representerar droppar på sågtandmönstret.
+  - `AppMemoryUsed`(_JVM. Memory. används_): mängden minne i byte som för närvarande används av programmet. För en normal inläsning av Java-program utgör den här mått serien ett *sågtandade* -mönster där minnes användningen ständigt ökar och minskar i små steg och plötsligt släpper ett parti, och sedan upprepas mönstret. Den här Mät serien inträffar på grund av skräp insamling i Java Virtual Machine, där samlings åtgärder representerar droppar i sågtandade-mönstret.
     
-    Det här måttet är viktigt för att identifiera minnesproblem, till exempel:
-    * En minnesexplosion i början.
-    * Den överspänningsminnesallokering för en viss logiksökväg.
-    * Gradvisa minnesläckor.
+    Det här måttet är viktigt för att hjälpa till att identifiera minnes problem, till exempel:
+    * En minnes nedbrytning i början.
+    * Överspännings minnes tilldelning för en speciell logik Sök väg.
+    * Gradvisa minnes läckor.
 
-  Mer information finns i [Mått](spring-cloud-concept-metrics.md).
+  Mer information finns i [mått](spring-cloud-concept-metrics.md).
 
-Mer information om Azure Log Analytics finns [i Komma igång med Logganalys i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mitt program använder stora mängder CPU- eller minnesresurser
 
-Om ditt program får hög CPU- eller minnesanvändning är en av två saker sant:
-* Alla appinstanser har hög CPU- eller minnesanvändning.
-* Vissa appinstanser har hög CPU- eller minnesanvändning.
+Om ditt program upplever hög processor-eller minnes användning är något av två saker sanna:
+* Alla App-instanser upplever hög processor-eller minnes användning.
+* Några av app-instanserna upplever hög processor-eller minnes användning.
 
-För att ta reda på vilken situation som gäller, gör följande:
+För att fastställa vilken situation som gäller gör du följande:
 
-1. Gå till **Mått**och välj sedan **antingen Procentandel av tjänstens CPU-användning** eller **Serviceminne som används**.
-2. Lägg till ett **App=-filter** för att ange vilket program du vill övervaka.
+1. Gå till **mått**och välj antingen procent eller **tjänst minne som används**för **tjänstens processor användning** .
+2. Lägg till ett **app =** filter för att ange vilket program som du vill övervaka.
 3. Dela måtten efter **instans**.
 
-Om *alla instanser* har hög CPU- eller minnesanvändning måste du antingen skala ut programmet eller skala upp processorn eller minnesanvändningen. Mer information finns i [Självstudiekurs: Skala ett program i Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
+Om *alla instanser* har hög processor-eller minnes användning måste du skala ut programmet eller skala upp processor-eller minnes användningen. Mer information finns i [Självstudier: skala ett program i Azure våren Cloud](spring-cloud-tutorial-scale-manual.md).
 
-Om *vissa instanser* har hög CPU- eller minnesanvändning kontrollerar du instansstatus och identifieringsstatus.
+Om *vissa instanser* har hög processor-eller minnes användning kontrollerar du instans statusen och dess identifierings status.
 
-Mer information finns i [Mått för Azure Spring Cloud](spring-cloud-concept-metrics.md).
+Mer information finns i [mått för Azure våren Cloud](spring-cloud-concept-metrics.md).
 
-Om alla instanser är igång går du till Azure Log Analytics för att fråga dina programloggar och granska din kodlogik. Detta hjälper dig att se om någon av dem kan påverka skalningspartitionering. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md).
+Om alla instanser är igång går du till Azure Log Analytics för att skicka frågor till program loggarna och granska din kod logik. Detta hjälper dig att se om någon av dem kan påverka skalningen av skala. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md).
 
-Mer information om Azure Log Analytics finns [i Komma igång med Logganalys i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Fråga loggarna med hjälp av [frågespråket Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Fråga loggarna genom att använda [Kusto-frågespråket](https://docs.microsoft.com/azure/kusto/query/).
 
-### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Checklista för distribution av ditt fjäderprogram till Azure Spring Cloud
+### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Check lista för att distribuera ditt våren-program till Azure våren Cloud
 
-Innan du går in på programmet ska du se till att det uppfyller följande kriterier:
+Innan du registrerar ditt program bör du kontrol lera att det uppfyller följande kriterier:
 
-* Programmet kan köras lokalt med den angivna Java-körningsversionen.
-* Miljökonfigurationen (CPU/RAM/Instances) uppfyller minimikravet som fastställts av programleverantören.
-* Konfigurationsobjekten har sina förväntade värden. Mer information finns i [Config Server](spring-cloud-tutorial-config-server.md).
+* Programmet kan köras lokalt med den angivna Java Runtime-versionen.
+* Miljö konfigurationen (CPU/RAM/instanser) uppfyller minimi kravet som angetts av program leverantören.
+* Konfigurations objekt har förväntade värden. Mer information finns i [konfigurations Server](spring-cloud-tutorial-config-server.md).
 * Miljövariablerna har sina förväntade värden.
 * JVM-parametrarna har sina förväntade värden.
-* Vi rekommenderar att du inaktiverar eller tar bort de inbäddade _Config Server-_ och _Spring Service-registertjänsterna_ från programpaketet.
+* Vi rekommenderar att du inaktiverar eller tar bort den inbäddade _konfigurations servern_ och _tjänst registrerings_ tjänsterna från programpaketet.
 * Om några Azure-resurser ska bindas via _tjänstbindning_ kontrollerar du att målresurserna är igång.
 
 ## <a name="configuration-and-management"></a>Konfiguration och hantering
 
-### <a name="i-encountered-a-problem-with-creating-an-azure-spring-cloud-service-instance"></a>Jag stötte på ett problem med att skapa en Azure Spring Cloud-tjänstinstans
+### <a name="i-encountered-a-problem-with-creating-an-azure-spring-cloud-service-instance"></a>Jag har stött på ett problem med att skapa en Azure våren Cloud Service-instans
 
-När du konfigurerar en Azure Spring Cloud-tjänstinstans med hjälp av Azure-portalen utför Azure Spring Cloud valideringen åt dig.
+När du konfigurerar en Azure våren Cloud Service-instans med hjälp av Azure Portal, utför Azure våren Cloud verifieringen åt dig.
 
-Men om du försöker konfigurera Azure Spring Cloud-tjänstinstansen med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) eller [Azure Resource Manager-mallen](https://docs.microsoft.com/azure/azure-resource-manager/)kontrollerar du att:
+Men om du försöker konfigurera Azure våren Cloud Service-instansen med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) eller [Azure Resource Manager mall](https://docs.microsoft.com/azure/azure-resource-manager/), kontrollerar du att:
 
 * Prenumerationen är aktiv.
-* Platsen [stöds](spring-cloud-faq.md) av Azure Spring Cloud.
-* Resursgruppen för instansen har redan skapats.
-* Resursnamnet överensstämmer med namngivningsregeln. Den får bara innehålla gemener, siffror och bindestreck. Det första tecknet måste vara en bokstav. Det sista tecknet måste vara en bokstav eller en siffra. Värdet måste innehålla mellan 2 och 32 tecken.
+* Platsen [stöds](spring-cloud-faq.md) av Azure våren Cloud.
+* Resurs gruppen för instansen har redan skapats.
+* Resurs namnet följer namngivnings regeln. Det får bara innehålla gemena bokstäver, siffror och bindestreck. Det första tecknet måste vara en bokstav. Det sista tecknet måste vara en bokstav eller en siffra. Värdet måste innehålla mellan 2 och 32 tecken.
 
-Om du vill konfigurera Azure Spring Cloud-tjänstinstansen med hjälp av resource manager-mallen läser du först [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Om du vill konfigurera Azure våren Cloud Service-instansen med hjälp av Resource Manager-mallen, se först till att [förstå strukturen och syntaxen för Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 
-Namnet på Azure Spring Cloud-tjänstinstansen används för att `azureapps.io`begära ett underdomännamn under , så installationen misslyckas om namnet står i konflikt med ett befintligt. Du kan hitta mer information i aktivitetsloggarna.
+Namnet på Azure våren Cloud Service-instansen kommer att användas för att begära ett under domän `azureapps.io`namn under, så installationen Miss kommer att Miss förväntas om namnet står i konflikt med ett befintligt namn. Du kan hitta mer information i aktivitets loggarna.
 
 ### <a name="i-cant-deploy-a-jar-package"></a>Jag kan inte distribuera ett JAR-paket
 
-Du kan inte ladda upp JAR-/källpaketet (Java Archive File)/source med hjälp av Azure-portalen eller Resource Manager-mallen.
+Du kan inte ladda upp/source-paketet för Java Archive File (JAR) med hjälp av Azure Portal eller Resource Manager-mallen.
 
-När du distribuerar ditt programpaket med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsökningar Azure CLI regelbundet distributionsstatus och i slutändan visar det distributionsresultatet.
+När du distribuerar programpaketet med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
 
 Om avsökningen avbryts kan du fortfarande använda följande kommando för att hämta distributionsloggarna:
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Kontrollera att ditt program är förpackat i rätt [körbart JAR-format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). Om den inte är korrekt paketerad visas ett felmeddelande som liknar följande:
+Se till att programmet är paketerat i rätt [format för JAR-format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). Om den inte är korrekt paketerad visas ett fel meddelande som liknar följande:
 
-> "Fel: Ogiltig eller korrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714"
+> "Fel: ogiltig eller skadad jarfile-/jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714"
 
-### <a name="i-cant-deploy-a-source-package"></a>Jag kan inte distribuera ett källpaket
+### <a name="i-cant-deploy-a-source-package"></a>Jag kan inte distribuera ett käll paket
 
-Du kan inte ladda upp JAR/source-paketet med hjälp av Azure-portalen eller Resource Manager-mallen.
+Du kan inte överföra JAR/source-paket med hjälp av Azure Portal eller Resource Manager-mallen.
 
-När du distribuerar ditt programpaket med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsökningar Azure CLI regelbundet distributionsstatus och i slutändan visar det distributionsresultatet.
+När du distribuerar programpaketet med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
 
 Om avsökningen avbryts kan du fortfarande använda följande kommando för att hämta bygg- och distributionsloggarna:
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Observera dock att en Azure Spring Cloud-tjänstinstans bara kan utlösa ett byggjobb för ett källpaket samtidigt. Mer information finns i [Distribuera ett program](spring-cloud-quickstart-launch-app-portal.md) och Konfigurera en [mellanlagringsmiljö i Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+Observera dock att en Azure våren Cloud Service-instans bara kan utlösa ett build-jobb för ett käll paket på en gång. Mer information finns i [distribuera ett program](spring-cloud-quickstart-launch-app-portal.md) och [Konfigurera en utvecklings miljö i Azure våren Cloud](spring-cloud-howto-staging-environment.md).
 
-### <a name="my-application-cant-be-registered"></a>Min ansökan kan inte registreras
+### <a name="my-application-cant-be-registered"></a>Det går inte att registrera mitt program
 
-I de flesta fall uppstår den här situationen när *obligatoriska beroenden* och *tjänstidentifiering* inte är korrekt konfigurerade i din POM-fil (Project Object Model). När den har konfigurerats injiceras den inbyggda serverslutpunkten för tjänstregister som en miljövariabel med ditt program. Program registrerar sig sedan med serviceregisterservern och upptäcker andra beroende mikrotjänster.
+I de flesta fall uppstår den här situationen när *nödvändiga beroenden* och *tjänst identifiering* inte har kon figurer ATS korrekt i din Pom-fil (Project Object Model). När den har kon figurer ATS matas den inbyggda slut punkten för tjänst register servern in som en miljö variabel med ditt program. Programmen registrerar sig sedan med tjänstens register Server och identifierar andra beroende mikrotjänster.
 
-Vänta minst två minuter innan en nyregistrerad instans börjar ta emot trafik.
+Vänta minst två minuter innan en nyligen registrerad instans börjar ta emot trafik.
 
-Om du migrerar en befintlig Spring Cloud-baserad lösning till Azure kontrollerar du att dina ad _hoc-tjänstregister-_ och _config server-instanser_ tas bort (eller inaktiveras) för att undvika att de hanteras instanser som tillhandahålls av Azure Spring Cloud kan stå i konflikt med de hanterade instanserna som tillhandahålls av Azure Spring Cloud.
+Om du migrerar en befintlig molnbaserade lösning till Azure måste du se till att dina Ad hoc- _tjänsteregister_ och _konfigurations Server_ instanser tas bort (eller inaktiverade) för att undvika konflikter med de hanterade instanser som tillhandahålls av Azure våren Cloud.
 
-Du kan också kontrollera _tjänstregisterklientloggarna_ i Azure Log Analytics. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md)
+Du kan också kontrol lera klient loggarna för _tjänst registret_ i Azure Log Analytics. Mer information finns i [Analysera loggar och mått med diagnostikinställningar](diagnostic-services.md)
 
-Mer information om Azure Log Analytics finns [i Komma igång med Logganalys i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Fråga loggarna med hjälp av [frågespråket Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Fråga loggarna genom att använda [Kusto-frågespråket](https://docs.microsoft.com/azure/kusto/query/).
 
-### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Jag vill inspektera programmets miljövariabler
+### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Jag vill kontrol lera miljö variabler för mitt program
 
-Miljövariabler informerar Azure Spring Cloud-ramverket, så att Azure förstår var och hur du konfigurerar de tjänster som utgör ditt program. Att se till att dina miljövariabler är korrekta är ett nödvändigt första steg för att felsöka potentiella problem.  Du kan använda slutpunkten för fjäderstartställdon för att granska dina miljövariabler.  
+Miljövariabler meddelar moln ramverket för Azure våren att se till att Azure förstår var och hur du konfigurerar de tjänster som utgör ditt program. Att se till att dina miljövariabler är korrekta är ett nödvändigt första steg i fel sökning av eventuella problem.  Du kan använda den fjädrande start manövrerings punkten för att granska miljövariablerna.  
 
 > [!WARNING]
-> Den här proceduren exponerar dina miljövariabler med hjälp av testslutpunkten.  Fortsätt inte om testslutpunkten är allmänt tillgänglig eller om du har tilldelat ditt program ett domännamn.
+> Den här proceduren visar dina miljövariabler genom att använda test slut punkten.  Fortsätt inte om din test-slutpunkt är offentligt tillgänglig eller om du har tilldelat ett domän namn till ditt program.
 
 1. Gå till `https://<your application test endpoint>/actuator/health`.  
-    - Ett svar `{"status":"UP"}` som liknar anger att slutpunkten har aktiverats.
-    - Om svaret är negativt inkluderar du följande beroende i *filen POM.xml:*
+    - Ett svar som liknar `{"status":"UP"}` anger att slut punkten har Aktiver ATS.
+    - Om svaret är negativt inkluderar du följande beroende i filen *Pom. XML* :
 
         ```xml
             <dependency>
@@ -169,11 +169,11 @@ Miljövariabler informerar Azure Spring Cloud-ramverket, så att Azure förstår
             </dependency>
         ```
 
-1. Med slutpunkten för Spring Boot Actuator aktiverat går du till Azure-portalen och letar efter konfigurationssidan för ditt program.  Lägg till en miljövariabel med namnet `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` och värdet `*` . 
+1. När Start punktens slut punkt är aktive rad går du till Azure Portal och letar efter konfigurations sidan för ditt program.  Lägg till en miljö variabel med namnet `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` och värdet `*` . 
 
 1. Starta om programmet.
 
-1. Gå `https://<your application test endpoint>/actuator/env` till och inspektera svaret.  Det bör se ut så här:
+1. Gå till `https://<your application test endpoint>/actuator/env` och kontrol lera svaret.  Det bör se ut så här:
 
     ```json
     {
@@ -189,16 +189,16 @@ Miljövariabler informerar Azure Spring Cloud-ramverket, så att Azure förstår
     }
     ```
 
-Leta efter den underordnade noden som heter `systemEnvironment`.  Den här noden innehåller programmets miljövariabler.
+Leta upp den underordnade noden med `systemEnvironment`namnet.  Den här noden innehåller programmets miljövariabler.
 
 > [!IMPORTANT]
-> Kom ihåg att vända exponeringen av dina miljövariabler innan du gör ditt program tillgängligt för allmänheten.  Gå till Azure-portalen, leta efter konfigurationssidan för ditt `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`program och ta bort den här miljövariabeln: .
+> Kom ihåg att återställa miljö variablernas exponering innan du gör programmet tillgängligt för allmänheten.  Gå till Azure Portal, leta upp sidan konfiguration i programmet och ta bort den här miljövariabeln: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Jag kan inte hitta mått eller loggar för mitt program
 
-Gå till **Apphantering** för att säkerställa att programstatusarna _körs_ och _UPP_.
+Gå till **app Management** för att se till att programmets status _körs_ _och är igång._
 
-Om du kan se mått från _JVM_ men inga mått från `spring-boot-actuator` _Tomcat_kontrollerar du om beroendet är aktiverat i programpaketet och att det har startar upp.
+Om du kan se mått från _JVM_ men inga mått från _Tomcat_kontrollerar du om `spring-boot-actuator` beroendet är aktiverat i programpaketet och att det har startats.
 
 ```xml
 <dependency>
@@ -207,4 +207,4 @@ Om du kan se mått från _JVM_ men inga mått från `spring-boot-actuator` _Tomc
 </dependency>
 ```
 
-Om dina programloggar kan arkiveras till ett lagringskonto men inte skickas till Azure Log Analytics kontrollerar du om du [har konfigurerat arbetsytan korrekt](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Om du använder en kostnadsfri nivå i Azure Log Analytics bör du tänka på att [den kostnadsfria nivån inte tillhandahåller ett servicenivåavtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Om dina program loggar kan arkiveras till ett lagrings konto men inte skickas till Azure Log Analytics, kontrollerar du om du [har konfigurerat arbets ytan på rätt sätt](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Om du använder en kostnads fri nivå av Azure Log Analytics, Observera att [den kostnads fria nivån inte tillhandahåller något service nivå avtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).

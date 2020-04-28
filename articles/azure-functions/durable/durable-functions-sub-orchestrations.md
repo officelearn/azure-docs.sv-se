@@ -1,28 +1,28 @@
 ---
-title: Underorkestreringar för varaktiga funktioner - Azure
-description: Anropa orkestreringar från orkestreringar i tillägget Varaktiga funktioner för Azure-funktioner.
+title: Under dirigering för Durable Functions – Azure
+description: Så här anropar du dirigeringar från dirigering i Durable Functions-tillägget för Azure Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d4d599063f727510cbf504ea3d121bdabfe001c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76261525"
 ---
-# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Underorkestreringar i varaktiga funktioner (Azure-funktioner)
+# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Under dirigering i Durable Functions (Azure Functions)
 
-Förutom att anropa aktivitetsfunktioner kan orchestrator-funktioner anropa andra orchestrator-funktioner. Du kan till exempel skapa en större orkestrering från ett bibliotek med mindre orchestrator-funktioner. Du kan också köra flera instanser av en orchestrator-funktion parallellt.
+Förutom att anropa aktivitets funktioner kan Orchestrator-funktioner anropa andra Orchestrator-funktioner. Du kan till exempel bygga ett större dirigering av ett bibliotek med mindre Orchestrator-funktioner. Du kan också köra flera instanser av en Orchestrator-funktion parallellt.
 
-En orchestrator-funktion kan anropa en `CallSubOrchestratorAsync` annan `CallSubOrchestratorWithRetryAsync` orchestrator-funktion med `callSubOrchestrator` `callSubOrchestratorWithRetry` metoderna i .NET eller metoderna eller i JavaScript. Artikeln [Felhantering & Kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) innehåller mer information om automatiskt återförsök.
+En Orchestrator-funktion kan anropa en annan Orchestrator- `CallSubOrchestratorAsync` funktion med `CallSubOrchestratorWithRetryAsync` hjälp av-eller-metoderna `callSubOrchestrator` i `callSubOrchestratorWithRetry` .net, eller eller-metoderna i Java Script. Artikeln [fel hantering &s kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) innehåller mer information om automatiskt återförsök.
 
-Underorkesorkesfunktioner fungerar precis som aktivitetsfunktioner ur anroparens perspektiv. De kan returnera ett värde, kasta ett undantag och kan inväntas av den överordnade orchestrator-funktionen. 
+Under Orchestrator-funktioner fungerar precis som aktivitets funktioner från anroparens perspektiv. De kan returnera ett värde, utlösa ett undantag och kan förväntas av den överordnade Orchestrator-funktionen. 
 ## <a name="example"></a>Exempel
 
-Följande exempel illustrerar ett IoT-scenario ("Sakernas Internet") där det finns flera enheter som måste etableras. Följande funktion representerar det etableringsarbetsflöde som måste köras för varje enhet:
+I följande exempel illustreras ett IoT-scenario ("Sakernas Internet") där det finns flera enheter som måste tillhandahållas. Följande funktion representerar det etablerings arbets flöde som måste utföras för varje enhet:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -43,7 +43,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -66,11 +66,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Den här orchestrator-funktionen kan användas som den är för engångsenhetsetablering eller så kan den ingå i en större orkestrering. I det senare fallet kan den överordnade orchestrator-funktionen schemalägga instanser av `DeviceProvisioningOrchestration` att använda API:et `CallSubOrchestratorAsync` (.NET) eller `callSubOrchestrator` (JavaScript).
+Den här Orchestrator-funktionen kan användas som-är för en-off-enhets etablering eller kan ingå i ett större Dirigerings steg. I det senare fallet kan den överordnade Orchestrator-funktionen schemalägga instanser `DeviceProvisioningOrchestration` av med `CallSubOrchestratorAsync` hjälp av (.net `callSubOrchestrator` ) eller (Java Script) API.
 
-Här är ett exempel som visar hur du kör flera orchestrator-funktioner parallellt.
+Här är ett exempel som visar hur du kör flera Orchestrator-funktioner parallellt.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -94,9 +94,9 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> De tidigare C#-exemplen är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -123,9 +123,9 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!NOTE]
-> Underorkestreringar måste definieras i samma funktionsapp som den överordnade orkestreringen. Om du behöver ringa och vänta på orkestreringar i en annan funktionsapp kan du överväga att använda det inbyggda stödet för HTTP-API:er och http 202-avsökningskonsumentmönstret. Mer information finns i avsnittet [HTTP-funktioner.](durable-functions-http-features.md)
+> Under dirigering måste definieras i samma Function-app som den överordnade samordningen. Om du behöver anropa och vänta på dirigeringar i en annan Function-app, bör du överväga att använda det inbyggda stödet för HTTP API: er och HTTP 202-avsökningens konsument mönster. Mer information finns i avsnittet om [http-funktioner](durable-functions-http-features.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du anger en anpassad orkestreringsstatus](durable-functions-custom-orchestration-status.md)
+> [Lär dig hur du anger en anpassad Dirigerings status](durable-functions-custom-orchestration-status.md)

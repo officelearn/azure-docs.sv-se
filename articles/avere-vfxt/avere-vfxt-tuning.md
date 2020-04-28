@@ -1,54 +1,54 @@
 ---
-title: Avere vFXT klusterjustering - Azure
-description: Översikt över anpassade inställningar för att optimera prestanda i Avere vFXT för Azure
+title: Aver vFXT-kluster justering – Azure
+description: Översikt över anpassade inställningar för att optimera prestanda i AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76152943"
 ---
 # <a name="cluster-tuning"></a>Klusterjustering
 
-De flesta vFXT-kluster kan dra nytta av anpassade prestandainställningar. De här inställningarna hjälper klustret att fungera bäst med just arbetsflöde, datauppsättning och verktyg.
+De flesta vFXT-kluster kan dra nytta av anpassade prestanda inställningar. De här inställningarna hjälper klustret att fungera bäst med specifika arbets flöden, data uppsättningar och verktyg.
 
-Den här anpassningen bör göras med hjälp av en supportrepresentant, eftersom det kan innebära att konfigurera funktioner som inte är tillgängliga från Avere-kontrollpanelen.
+Den här anpassningen bör göras med hjälp från en support representant, eftersom den kan omfatta konfigurations funktioner som inte är tillgängliga från den Avera kontroll panelen.
 
-I det här avsnittet beskrivs några av de anpassade justeringar som kan göras.
+I det här avsnittet beskrivs några av de anpassade justeringarna som kan göras.
 
 ## <a name="general-optimizations"></a>Allmänna optimeringar
 
-Dessa ändringar kan rekommenderas baserat på datauppsättningsegenskaper eller arbetsflödesformat.
+Dessa ändringar kan vara rekommenderade baserat på data uppsättnings kvaliteter eller arbets flödes format.
 
-* Om arbetsbelastningen är skrivtung ökar du storleken på skrivcachen från standardvärdet på 20 %.
-* Om datauppsättningen omfattar många små filer ökar du gränsen för filräkningsgränsen för klustercachen.
-* Om arbetet innebär att kopiera eller flytta data mellan två databaser justerar du antalet trådar som används för att flytta data:
+* Om arbets belastningen är skrivbar, ökar du storleken på skrivcache från standardvärdet 20%.
+* Om data uppsättningen omfattar många små filer ökar du antalet filer för klustrets cacheminne.
+* Om arbetet innebär att kopiera eller flytta data mellan två databaser, justera antalet trådar som används för att flytta data:
   * För att öka hastigheten kan du öka antalet parallella trådar som används.
-  * Om backend-lagringsvolymen blir överbelastad kan du behöva minska antalet parallella trådar som används.
-* Om klustret cachelagrar data för en kärnfiler som använder NFSv4-ACL:er aktiverar du cachelagring av åtkomstläge för att effektivisera filauktoriseringen för vissa klienter.
+  * Om Server delens lagrings volym blir överbelastad kan du behöva minska antalet parallella trådar som används.
+* Om klustret cachelagrar data för en kärn post som använder NFSv4 ACL: er aktiverar du cachelagring av åtkomst läge för att effektivisera Filauktorisering för vissa klienter.
 
-## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Moln-NAS- eller molngatewayoptimeringar
+## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Moln-NAS eller moln-Gateway-optimeringar
 
-I ett moln-NAS- eller gateway-scenario ger vFXT-klustret åtkomst i NAS-stil till en molnbehållare. Om du vill dra nytta av högre datahastigheter mellan vFXT-klustret och molnlagringen kan din representant rekommendera att ändra inställningarna för att mer aggressivt skicka data till lagringsvolymen från cachen. Ett exempel:
+I ett Cloud NAS-eller gateway-scenario tillhandahåller vFXT-klustret NAS-typ åtkomst till en moln behållare. Om du vill dra nytta av högre data hastigheter mellan vFXT-klustret och moln lagringen kan du rekommendera att ändra inställningarna till mer aggressivt push-data till lagrings volymen från cachen. Ett exempel:
 
-* Öka antalet TCP-anslutningar mellan klustret och lagringsbehållaren
+* Öka antalet TCP-anslutningar mellan klustret och lagrings behållaren
 
-## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Cloud bursting eller hybrid WAN optimeringar
+## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Cloud bursting eller hybrid WAN-optimeringar
 
-I ett molnavbräckningsscenario eller hybridlagring AV WAN-optimeringsscenario ger vFXT-klustret integrering mellan molnet och lokal maskinvarulagring. Dessa ändringar kan vara till hjälp:
+I ett scenario med moln överföring eller i ett scenario med hybrid optimering i molnet tillhandahåller vFXT-klustret integrering mellan molnet och den lokala maskin varu lagringen. Dessa ändringar kan vara till hjälp:
 
-* Öka antalet TCP-anslutningar som tillåts mellan klustret och kärnfilerna
-* Aktivera WAN Optimization-inställningen för fjärrkärnfiler (Den här inställningen kan användas för en fjärrlokal filer eller en molnkärna filer i en annan Azure-region.)
+* Öka antalet TCP-anslutningar som tillåts mellan klustret och kärn filen
+* Aktivera inställningen för WAN-optimering för fjärrcore-filer (den här inställningen kan användas för fjärranslutna filer på plats eller en moln kärna som sparas i en annan Azure-region.)
 * Öka buffertstorleken för TCP-socket<sup>*</sup>
-* Aktivera inställningen "alltid framåt" för att minska överflödigt cachelagrade filer<sup>*</sup>
+* Aktivera inställningen "Always Forward" för att minska redundanta cachelagrade filer<sup>*</sup>
 
-<sup>*</sup>Dessa justeringar kanske inte gäller för alla system, beroende på arbetsbelastnings- och prestandabehov.
+<sup>*</sup>Dessa justeringar kanske inte gäller för alla system, beroende på arbets belastning och prestanda behov.
 
-## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Hjälp till att optimera din Avere vFXT för Azure
+## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Hjälp till att optimera ditt AVERT vFXT för Azure
 
-Om du vill kontakta supportpersonalen om dessa optimeringar använder du proceduren som beskrivs i [Få hjälp med ditt system](avere-vfxt-open-ticket.md).
+Om du vill kontakta support personalen om dessa optimeringar använder du proceduren som beskrivs i [få hjälp med systemet](avere-vfxt-open-ticket.md).

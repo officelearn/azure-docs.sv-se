@@ -1,6 +1,6 @@
 ---
-title: Kryptera diskar för Azure-skalningsuppsättningar med Azure CLI
-description: Lär dig hur du använder Azure PowerShell för att kryptera VM-instanser och anslutna diskar i en windows-skalningsuppsättning för virtuella datorer
+title: Kryptera diskar för Azures skalnings uppsättningar med Azure CLI
+description: Lär dig hur du använder Azure PowerShell för att kryptera VM-instanser och anslutna diskar i en skalnings uppsättning för virtuella Windows-datorer
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76279083"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Kryptera operativsystem och anslutna datadiskar i en skalningsuppsättning för virtuella datorer med Azure CLI
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Kryptera OS och anslutna data diskar i en skalnings uppsättning för virtuella datorer med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure CLI för att skapa och kryptera en skalningsuppsättning för virtuella datorer. Mer information om hur du använder Azure Disk-kryptering på en skalningsuppsättning för virtuella datorer finns i [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder Azure CLI för att skapa och kryptera en skalnings uppsättning för virtuella datorer. Mer information om hur du använder Azure Disk Encryption till en skalnings uppsättning för virtuella datorer finns i [Azure Disk Encryption för Virtual Machine Scale Sets](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
 
-Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
+Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som är inställd på att uppdateras automatiskt när ändringar tillämpas och genererar SSH-nycklar om de inte finns i *~/.ssh/id_rsa*. En 32 Gb-datadisk är kopplad till varje VM-instans och Azure [Custom Script Extension](../virtual-machines/linux/extensions-customscript.md) används för att förbereda datadiskarna med az [vmss-tilläggsuppsättning:](/cli/azure/vmss/extension)
+Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som är inställd på att uppdateras automatiskt när ändringar tillämpas och genererar SSH-nycklar om de inte finns i *~/.ssh/id_rsa*. En data disk på 32 GB är kopplad till varje virtuell dator instans och [tillägget Azures anpassade skript](../virtual-machines/linux/extensions-customscript.md) används för att förbereda data diskarna med [AZ VMSS-tilläggs uppsättning](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -56,11 +56,11 @@ az vmss extension set \
 
 Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer.
 
-## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Skapa ett Azure-nyckelvalv aktiverat för diskkryptering
+## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Skapa ett Azure Key Vault aktiverat för disk kryptering
 
-Azure Key Vault kan lagra nycklar, hemligheter eller lösenord som gör att du kan implementera dem på ett säkert sätt i dina program och tjänster. Kryptografiska nycklar lagras i Azure Key Vault med programvaruskydd, eller så kan du importera eller generera dina nycklar i HSM (Hardware Security Modules) som är certifierade enligt FIPS 140-2-standarder. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. Du behåller kontrollen över dessa kryptografiska nycklar och kan granska deras användning.
+Azure Key Vault kan lagra nycklar, hemligheter eller lösen ord som gör det möjligt att på ett säkert sätt implementera dem i dina program och tjänster. Krypterings nycklar lagras i Azure Key Vault med hjälp av program varu skydd, eller så kan du importera eller generera nycklar i HSM: er (Hardware Security modules) som är certifierade enligt standarden FIPS 140-2 nivå 2. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. Du behåller kontrollen över dessa kryptografiska nycklar och kan granska deras användning.
 
-Definiera din egen unika *keyvault_name*. Skapa sedan en KeyVault med [az keyvault skapa](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) i samma prenumeration och region som skalningsuppsättningen och ange *principen --enabled-for-disk-kryptering.*
+Definiera egna unika *keyvault_name*. Skapa sedan ett nyckel valv med [AZ-valv skapa](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) i samma prenumeration och region som skalnings uppsättningen, och Ställ in- *-Enabled-för-Disk-Encryption* -åtkomst principen.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -70,11 +70,11 @@ keyvault_name=myuniquekeyvaultname
 az keyvault create --resource-group myResourceGroup --name $keyvault_name --enabled-for-disk-encryption
 ```
 
-### <a name="use-an-existing-key-vault"></a>Använda ett befintligt nyckelvalv
+### <a name="use-an-existing-key-vault"></a>Använd en befintlig Key Vault
 
-Det här steget krävs bara om du har ett befintligt Nyckelvalv som du vill använda med diskkryptering. Hoppa över det här steget om du har skapat ett nyckelvalv i föregående avsnitt.
+Det här steget krävs endast om du har ett befintligt Key Vault som du vill använda med disk kryptering. Hoppa över det här steget om du har skapat ett Key Vault i föregående avsnitt.
 
-Definiera din egen unika *keyvault_name*. Sedan uppdaterade du keyvault-uppdateringen med [az keyvault](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) och anger principen *--enabled-for-disk-encryption.*
+Definiera egna unika *keyvault_name*. Uppdatera sedan ditt nyckel valv med AZ-uppdatering av nyckel [valvet](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) och ange *--aktive rad-för-Disk-Encryption* -åtkomst princip.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -86,7 +86,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Aktivera kryptering
 
-Om du vill kryptera VM-instanser i en skalningsuppsättning får du först information om resurs-ID:et för Key Vault med [az keyvault show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Dessa variabler används för att sedan starta krypteringsprocessen med [az vmss kryptering aktivera:](/cli/azure/vmss/encryption#az-vmss-encryption-enable)
+Om du vill kryptera VM-instanser i en skalnings uppsättning får du först lite information om Key Vault resurs-ID med [AZ-valv show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Dessa variabler används för att starta krypterings processen med [AZ VMSS-kryptering aktivera](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -100,13 +100,13 @@ az vmss encryption enable \
     --volume-type DATA
 ```
 
-Det kan ta en minut eller två för krypteringsprocessen att starta.
+Det kan ta en minut eller två innan krypterings processen startas.
 
-Eftersom skalningsprincipen är uppgraderingsprincipen för den skalningsuppsättning som skapats i ett tidigare steg är inställd *på automatisk*startar VM-instanserna krypteringsprocessen automatiskt. Starta krypteringsprincipen på den virtuella datorn-instanser med [az vmss update-instances på skalningsuppsättningar](/cli/azure/vmss#az-vmss-update-instances)där uppgraderingsprincipen ska vara manuell.
+Eftersom skalnings uppsättningen är uppgraderings princip på den skalnings uppsättning som skapades i ett tidigare steg är inställd på *Automatisk*, startar automatiskt krypterings processen i VM-instanserna. Starta krypterings principen på de virtuella dator instanserna med [AZ VMSS Update-instances](/cli/azure/vmss#az-vmss-update-instances)i skalnings uppsättningar där uppgraderings principen är manuell.
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Aktivera kryptering med KEK för att slå in nyckeln
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Aktivera kryptering med KEK för att omsluta nyckeln
 
-Du kan också använda en nyckelkrypteringsnyckel för ökad säkerhet när du krypterar skaluppsättningen för den virtuella datorn.
+Du kan också använda en nyckel krypterings nyckel för ökad säkerhet när du krypterar skalnings uppsättningen för den virtuella datorn.
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -123,20 +123,20 @@ az vmss encryption enable \
 ```
 
 > [!NOTE]
->  Syntaxen för värdet för parametern disk-encryption-keyvault är den fullständiga identifierarsträngen:</br>
-/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
-> Syntaxen för värdet för parametern key-encryption-key är den fullständiga URI:n till KEK som i:</br>
-https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] https://
+>  Syntaxen för värdet för parametern Disk-Encryption-nyckel valv är den fullständiga ID-strängen:</br>
+/Subscriptions/[Subscription-ID-GUID]/resourceGroups/[resurs grupp-namn]/providers/Microsoft.KeyVault/vaults/[nyckel valv-namn]</br></br>
+> Syntaxen för värdet för nyckeln Key-Encryption-Key är fullständig URI till KEK som i:</br>
+https://[nyckel valv-namn]. valv. Azure. net/Keys/[kekname]/[KEK-Unique-ID]
 
-## <a name="check-encryption-progress"></a>Kontrollera krypteringsstatus
+## <a name="check-encryption-progress"></a>Kontrol lera krypterings förlopp
 
-Om du vill kontrollera status för diskkryptering använder du [az vmss krypteringsvisning:](/cli/azure/vmss/encryption#az-vmss-encryption-show)
+Om du vill kontrol lera statusen för disk kryptering använder du [AZ VMSS Encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 ```
 
-När VM-instanser krypteras rapporterar statuskoden *EncryptionState/encrypted,* vilket visas i följande exempelutdata:
+När de virtuella dator instanserna krypteras rapporterar status koden *EncryptionState/krypterad*, som visas i följande exempel på utdata:
 
 ```bash
 [
@@ -165,7 +165,7 @@ När VM-instanser krypteras rapporterar statuskoden *EncryptionState/encrypted,*
 
 ## <a name="disable-encryption"></a>Inaktivera kryptering
 
-Om du inte längre vill använda diskar med krypterade VM-instanser kan du inaktivera kryptering med [az vmss-kryptering inaktivera](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) enligt följande:
+Om du inte längre vill använda diskar med krypterade virtuella dator instanser kan du inaktivera kryptering med [AZ VMSS-kryptering inaktivera](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) enligt följande:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
@@ -173,6 +173,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Nästa steg
 
-- I den här artikeln använde du Azure CLI för att kryptera en skalningsuppsättning för virtuella datorer. Du kan också använda [Azure PowerShell-](disk-encryption-powershell.md) eller [Azure Resource Manager-mallar](disk-encryption-azure-resource-manager.md).
-- Om du vill att Azure Disk Encryption ska tillämpas när ett annat tillägg har etablerats kan du använda [tilläggssekvensering](virtual-machine-scale-sets-extension-sequencing.md). 
-- Ett heltäckande kommandofilexempel för linuxskalauppsättningsdiskkryptering finns [här](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). I det här exemplet skapas en resursgrupp, Linux-skaluppsättning, en datadisk på 5 GB och den virtuella datorns skaluppsättning krypteras.
+- I den här artikeln använde du Azure CLI för att kryptera en skalnings uppsättning för virtuella datorer. Du kan också använda [Azure PowerShell](disk-encryption-powershell.md) -eller [Azure Resource Manager-mallar](disk-encryption-azure-resource-manager.md).
+- Om du vill att Azure Disk Encryption ska användas efter att ett annat tillägg har tillhandahållits, kan du använda [fil namns sekvenseringen](virtual-machine-scale-sets-extension-sequencing.md). 
+- Ett exempel på en kommando fil från slut punkt till slut punkt för data disk kryptering för Linux-skalnings uppsättning hittar du [här](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Det här exemplet skapar en resurs grupp, en Linux-skalnings uppsättning, monterar en data disk på 5 GB och krypterar den virtuella datorns skal uppsättning.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77013896"
 ---
 ## <a name="what-is-table-storage"></a>Vad är Table Storage
@@ -30,8 +30,8 @@ Table Storage består av följande komponenter:
 
   Konton för Azure Cosmos DB Tabell-API använder det här formatet: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
-  Du kan adressera Azure-tabeller direkt med den här adressen med OData-protokollet. Mer information finns [i OData.org][OData.org].
-* **Konton:** All åtkomst till Azure Storage sker via ett lagringskonto. Mer information om lagringskonton finns i [Översikt över lagringskonto](../articles/storage/common/storage-account-overview.md).
+  Du kan adressera Azure-tabeller direkt med den här adressen med OData-protokollet. Mer information finns i [OData.org][OData.org].
+* **Konton:** All åtkomst till Azure Storage sker via ett lagringskonto. Mer information om lagrings konton finns i [Översikt över lagrings konto](../articles/storage/common/storage-account-overview.md).
 
     All åtkomst till Azure Cosmos DB sker via ett konto för Tabell-API. I [Skapa ett konto för Tabell-API](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) kan du läsa mer om att skapa ett konto för Tabell-API.
 * **Tabell**: en tabell är en samling entiteter. Tabeller framtvingar inte något schema på entiteter, vilket innebär att en enda tabell kan innehålla entiteter med olika egenskapsuppsättningar.  

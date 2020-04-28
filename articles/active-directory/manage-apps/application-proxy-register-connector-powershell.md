@@ -1,6 +1,6 @@
 ---
-title: Tyst installation av Azure AD App Proxy-anslutningsapp | Microsoft-dokument
-description: Beskriver hur du utför en obevakad installation av Azure AD Application Proxy Connector för att ge säker fjärråtkomst till dina lokala appar.
+title: Tyst installation Azure AD App proxy Connector | Microsoft Docs
+description: Beskriver hur du utför en obevakad installation av Azure AD-programproxy Connector för att ge säker fjärråtkomst till dina lokala appar.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,54 +17,54 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76756219"
 ---
-# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Skapa ett obevakat installationsskript för Azure AD Application Proxy-anslutningsappen
+# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Skapa ett obevakat installations skript för Azure AD-programproxy-anslutningen
 
-Det här avsnittet hjälper dig att skapa ett Windows PowerShell-skript som möjliggör obevakad installation och registrering för din Azure AD Application Proxy-anslutningsapp.
+Det här avsnittet hjälper dig att skapa ett Windows PowerShell-skript som möjliggör obevakad installation och registrering för din Azure AD-programproxy-anslutning.
 
 Den här funktionen är användbar när du vill:
 
-* Installera anslutningen på Windows-servrar som inte har användargränssnitt aktiverat eller som du inte kan komma åt med Fjärrskrivbord.
-* Installera och registrera många anslutningar samtidigt.
-* Integrera anslutningsinstallationen och registreringen som en del av en annan procedur.
-* Skapa en standardserveravbildning som innehåller kopplingsbitarna men som inte är registrerad.
+* Installera anslutningen på Windows-servrar som inte har användar gränssnitt aktiverat eller som du inte kan komma åt med fjärr skrivbord.
+* Installera och registrera många kopplingar samtidigt.
+* Integrera anslutnings installationen och registreringen som en del av en annan procedur.
+* Skapa en standard Server avbildning som innehåller kopplings bitarna men som inte är registrerad.
 
-För att [application proxy-anslutningsappen](application-proxy-connectors.md) ska fungera måste den registreras med din Azure AD-katalog med hjälp av en programadministratör och ett lösenord. Vanligtvis anges den här informationen under installationen av Anslutning i en popup-dialogruta, men du kan använda PowerShell för att automatisera den här processen i stället.
+För att [Application Proxy Connector](application-proxy-connectors.md) ska fungera måste det registreras med Azure AD-katalogen med hjälp av en program administratör och ett lösen ord. Vanligt vis anges den här informationen under anslutnings installationen i en dialog ruta i ett popup-fönster, men du kan använda PowerShell för att automatisera processen i stället.
 
-Det finns två steg för en obevakad installation. Installera först kontakten. För det andra registrerar du kopplingen med Azure AD. 
+Det finns två steg för en obevakad installation. Installera först anslutningen. Sedan registrerar du anslutningen med Azure AD. 
 
-## <a name="install-the-connector"></a>Installera kontakten
-Gör så här för att installera anslutningen utan att registrera den:
+## <a name="install-the-connector"></a>Installera anslutningen
+Använd följande steg för att installera anslutningen utan att registrera den:
 
 1. Öppna en kommandotolk.
-2. Kör följande kommando, där /q betyder tyst installation. En tyst installation uppmanar dig inte att acceptera licensavtalet för slutanvändare.
+2. Kör följande kommando, där/q innebär tyst installation. En tyst installation kräver inte att du accepterar licens avtalet för slutanvändare.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
-## <a name="register-the-connector-with-azure-ad"></a>Registrera kopplingen med Azure AD
-Det finns två metoder som du kan använda för att registrera kopplingen:
+## <a name="register-the-connector-with-azure-ad"></a>Registrera anslutningen med Azure AD
+Det finns två metoder som du kan använda för att registrera anslutningen:
 
-* Registrera kopplingen med ett Windows PowerShell-autentiseringsobjekt
-* Registrera kopplingen med hjälp av en token som skapats offline
+* Registrera anslutningen med hjälp av ett Windows PowerShell-objekt för autentiseringsuppgifter
+* Registrera anslutningen med en token som skapats offline
 
-### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrera kopplingen med ett Windows PowerShell-autentiseringsobjekt
-1. Skapa ett Windows PowerShell-autentiseringsobjekt `$cred` som innehåller ett administrativt användarnamn och lösenord för katalogen. Kör följande kommando och ersätt * \<\> användarnamn* och * \<lösenord:\>*
+### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrera anslutningen med hjälp av ett Windows PowerShell-objekt för autentiseringsuppgifter
+1. Skapa ett Windows PowerShell-autentiseringsuppgifter `$cred` som innehåller ett administrativt användar namn och lösen ord för din katalog. Kör följande kommando och Ersätt * \<användar namn\> * och * \<lösen\>ord*:
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Gå till **C:\Program Files\Microsoft AAD App Proxy** Connector `$cred` och kör följande skript med objektet som du skapade:
+2. Gå till **C:\Program FILES\MICROSOFT AAD App proxy Connector** och kör följande skript med det `$cred` objekt som du skapade:
    
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
-### <a name="register-the-connector-using-a-token-created-offline"></a>Registrera kopplingen med hjälp av en token som skapats offline
-1. Skapa en offlinetoken med klassen AuthenticationContext med värdena i det här kodavsnittet eller PowerShell-cmdleterna nedan:
+### <a name="register-the-connector-using-a-token-created-offline"></a>Registrera anslutningen med en token som skapats offline
+1. Skapa en offline-token med AuthenticationContext-klassen med hjälp av värdena i det här kodfragmentet eller PowerShell-cmdletarna nedan:
 
     **Använda C#:**
 
@@ -175,7 +175,7 @@ Det finns två metoder som du kan använda för att registrera kopplingen:
 
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
 
-3. Kör följande Windows PowerShell-kommando och ersätt \<klient-GUID\> med ditt katalog-ID:
+3. Kör följande Windows PowerShell-kommando och Ersätt \<klient-\> GUID med ditt katalog-ID:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 

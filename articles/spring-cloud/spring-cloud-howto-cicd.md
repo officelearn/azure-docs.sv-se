@@ -1,31 +1,31 @@
 ---
-title: CI/CD för Azure Spring Cloud
-description: CI/CD för Azure Spring Cloud
+title: CI/CD för Azure våren Cloud
+description: CI/CD för Azure våren Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: brendm
 ms.openlocfilehash: f329fb5472c5a2eab6f22a2e81b19d90e7045330
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278518"
 ---
-# <a name="cicd-for-azure-spring-cloud"></a>CI/CD för Azure Spring Cloud
+# <a name="cicd-for-azure-spring-cloud"></a>CI/CD för Azure våren Cloud
 
-Kontinuerlig integrering och kontinuerliga leveransverktyg gör det möjligt för utvecklare att snabbt distribuera uppdateringar till befintliga program med minimal ansträngning och risk. Azure DevOps hjälper dig att organisera och kontrollera dessa nyckeljobb. Azure Spring Cloud erbjuder för närvarande inte en specifik Azure DevOps-plugin.  Du kan dock integrera dina Spring Cloud-program med DevOps med hjälp av en [Azure CLI-uppgift](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). Den här artikeln visar hur du använder en Azure CLI-uppgift med Azure Spring Cloud för att integrera med Azure DevOps.
+Med kontinuerlig integrering och kontinuerliga leverans verktyg kan utvecklare snabbt distribuera uppdateringar till befintliga program med minimal ansträngning och risk. Azure DevOps hjälper dig att organisera och kontrol lera dessa viktiga jobb. För närvarande erbjuder Azure våren Cloud inget angivet Azure DevOps-plugin-program.  Du kan dock integrera dina våren Cloud-program med DevOps med hjälp av en [Azure CLI-uppgift](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). Den här artikeln visar hur du använder en Azure CLI-aktivitet med Azure våren Cloud för att integrera med Azure DevOps.
 
-## <a name="create-an-azure-resource-manager-service-connection"></a>Skapa en Azure Resource Manager-tjänstanslutning
+## <a name="create-an-azure-resource-manager-service-connection"></a>Skapa en Azure Resource Manager tjänst anslutning
 
-Läs [den här artikeln](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) om du vill lära dig hur du skapar en Azure Resource Manager-tjänstanslutning till ditt Azure DevOps-projekt. Var noga med att välja samma prenumeration som du använder för din Azure Spring Cloud-tjänstinstans.
+Läs [den här artikeln](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) för att lära dig hur du skapar en Azure Resource Manager tjänst anslutning till ditt Azure DevOps-projekt. Se till att välja samma prenumeration som du använder för din Azure våren Cloud Service-instans.
 
-## <a name="azure-cli-task-templates"></a>Azure CLI-uppgiftsmallar
+## <a name="azure-cli-task-templates"></a>Mallar för Azure CLI-aktiviteter
 
 ### <a name="deploy-artifacts"></a>Distribuera artefakter
 
-Du kan skapa och distribuera dina `tasks`projekt med hjälp av en serie . Det här kodavsnittet definierar först en Maven-uppgift för att skapa programmet, följt av en andra uppgift som distribuerar JAR-filen med Azure Spring Cloud Azure CLI-tillägget.
+Du kan bygga och distribuera dina projekt med en serie `tasks`. Det här kodfragmentet definierar först en maven-uppgift för att bygga programmet, följt av en andra aktivitet som distribuerar JAR-filen med Azures moln för Azure CLI-tillägget.
 
 ```yaml
 steps:
@@ -44,7 +44,7 @@ steps:
 
 ### <a name="deploy-from-source"></a>Distribuera från källa
 
-Det är möjligt att distribuera direkt till Azure utan ett separat byggsteg.
+Det går att distribuera direkt till Azure utan ett separat build-steg.
 
 ```yaml
 - task: AzureCLI@1

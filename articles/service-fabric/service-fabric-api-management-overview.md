@@ -1,113 +1,113 @@
 ---
 title: Översikt över Azure Service Fabric med API Management
-description: Den här artikeln är en introduktion till hur du använder Azure API Management som en gateway till dina Service Fabric-program.
+description: Den här artikeln är en introduktion till att använda Azure API Management som en gateway för dina Service Fabric-program.
 author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76028548"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric med Azure API Management-översikt
 
-Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara vilken tillståndslös tjänst som helst, till exempel ett [ASP.NET Core-program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som är avsedd för trafikinträngning, till exempel [Event Hubs,](https://docs.microsoft.com/azure/event-hubs/) [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)eller Azure API [Management](https://docs.microsoft.com/azure/api-management/).
+Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara en tillstånds lös tjänst, till exempel ett [ASP.net Core program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som har utformats för trafik ingångar, till exempel [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)eller [Azure API Management](https://docs.microsoft.com/azure/api-management/).
 
-Den här artikeln är en introduktion till hur du använder Azure API Management som en gateway till dina Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API:er med en omfattande uppsättning routningsregler till dina backend-Tjänst Fabric-tjänster.
+Den här artikeln är en introduktion till att använda Azure API Management som en gateway för dina Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till Server delens Service Fabric tjänster.
 
 ## <a name="availability"></a>Tillgänglighet
 
 > [!IMPORTANT]
-> Den här funktionen är tillgänglig på **nivåerna Premium** och **utvecklare** i API Management på grund av den nödvändiga supporten för virtuella nätverk.
+> Den här funktionen är tillgänglig på nivån **Premium** och **developer** of API Management på grund av det nödvändiga stödet för virtuellt nätverk.
 
 ## <a name="architecture"></a>Arkitektur
 
-En vanlig Service Fabric-arkitektur använder ett ensidigt webbprogram som gör HTTP-anrop till backend-tjänster som exponerar HTTP-API:er. Kom [igång-exempelprogrammet Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) visar ett exempel på den här arkitekturen.
+En vanlig Service Fabric-arkitektur använder ett webb program med en enda sida som gör HTTP-anrop till backend-tjänster som visar HTTP-API: er. [Exempel programmet Service Fabric kom igång](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) visar ett exempel på den här arkitekturen.
 
-I det här fallet fungerar en tillståndslös webbtjänst som gateway till Programmet Service Fabric. Den här metoden kräver att du skriver en webbtjänst som kan proxy HTTP-begäranden till backend-tjänster, som visas i följande diagram:
+I det här scenariot fungerar en tillstånds lös webb tjänst som gateway i Service Fabric-programmet. Den här metoden kräver att du skriver en webb tjänst som kan proxy HTTP-begäranden till backend-tjänster, som du ser i följande diagram:
 
-![Service Fabric med Azure API Management-topologi översikt][sf-web-app-stateless-gateway]
+![Översikt över Service Fabric med Azure API Management-topologi][sf-web-app-stateless-gateway]
 
-När program växer i komplexitet, så gör gateways som måste presentera ett API framför otaliga backend-tjänster. Azure API Management är utformat för att hantera komplexa API:er med routningsregler, åtkomstkontroll, hastighetsbegränsning, övervakning, händelseloggning och svarscachelagring med minimalt arbete från din sida. Azure API Management stöder identifiering av tjänstidentifiering, partitionsupplösning och replikval för att på ett intelligent sätt dirigera begäranden direkt till backend-tjänster i Service Fabric så att du inte behöver skriva din egen tillståndslösa API-gateway. 
+När program växer i komplexitet, så gör de gatewayer som måste presentera ett API framför myriaden backend-tjänster. Azure API Management är utformat för att hantera komplexa API: er med regler för routning, åtkomst kontroll, hastighets begränsning, övervakning, händelse loggning och cachelagring av svar med minimalt arbete på din sida. Azure API Management stöder Service Fabric tjänst identifiering, partitions matchning och replik val för att intelligent dirigera begär Anden direkt till backend-tjänster i Service Fabric så du behöver inte skriva din egen tillstånds lösa API-Gateway. 
 
-I det här fallet visas webbgränssnittet fortfarande via en webbtjänst, medan HTTP API-anrop hanteras och dirigeras via Azure API Management, vilket visas i följande diagram:
+I det här scenariot betjänas webb gränssnittet fortfarande via en webb tjänst, medan HTTP API-anrop hanteras och dirigeras via Azure API Management, som du ser i följande diagram:
 
-![Service Fabric med Azure API Management-topologi översikt][sf-apim-web-app]
+![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Programscenarier
 
-Tjänster i Service Fabric kan vara antingen tillståndslösa eller tillståndskänsliga, och de kan delas med ett av tre scheman: singleton, int-64-intervall och namnges. Tjänstslutpunktsmatchning kräver identifiering av en specifik partition för en viss tjänstinstans. När du löser en slutpunkt för en tjänst måste `fabric:/myapp/myservice`både tjänstinstansnamnet (till exempel) och den specifika partitionen för tjänsten anges, utom när det gäller singleton-partition.
+Tjänster i Service Fabric kan vara antingen tillstånds lösa eller tillstånds känsliga, och de kan partitioneras med ett av tre scheman: Singleton, int-64-intervall och namngett. Matchning av tjänst slut punkten kräver att en speciell partition av en angiven tjänst instans identifieras. När du löser en slut punkt för en tjänst måste både tjänst instans namnet (till exempel `fabric:/myapp/myservice`) och den specifika partitionen för tjänsten anges, förutom vid singleton-partition.
 
-Azure API Management kan användas med valfri kombination av tillståndslösa tjänster, tillståndskänsliga tjänster och alla partitioneringsscheman.
+Azure API Management kan användas med valfri kombination av tillstånds lösa tjänster, tillstånds känsliga tjänster och scheman för partitionering.
 
-## <a name="send-traffic-to-a-stateless-service"></a>Skicka trafik till en tillståndslös tjänst
+## <a name="send-traffic-to-a-stateless-service"></a>Skicka trafik till en tillstånds lös tjänst
 
-I det enklaste fallet vidarebefordras trafiken till en tillståndslös tjänstinstans. För att uppnå detta innehåller en API Management-åtgärd en inkommande bearbetningsprincip med en service fabric-serverdel som mappar till en viss tillståndslös tjänstinstans i serverdelen Service Fabric. Begäranden som skickas till den tjänsten skickas till en slumpmässig instans av tjänsten.
-
-**Exempel**
-
-I följande scenario innehåller ett Service Fabric-program `fabric:/app/fooservice`en tillståndslös tjänst med namnet , som exponerar ett internt HTTP-API. Tjänstinstansnamnet är välkänt och kan hårdkodas direkt i API Management-inkommande bearbetningsprincipen. 
-
-![Service Fabric med Azure API Management-topologi översikt][sf-apim-static-stateless]
-
-## <a name="send-traffic-to-a-stateful-service"></a>Skicka trafik till en tillståndskänslig tjänst
-
-I likhet med det tillståndslösa tjänstscenariot kan trafik vidarebefordras till en tillståndskänslig tjänstinstans. I det här fallet innehåller en API Management-åtgärd en inkommande bearbetningsprincip med en service fabric-serverdel som mappar en begäran till en viss partition med en viss *tillståndskänslig* tjänstinstans. Partitionen som ska mappas varje begäran till beräknas via en lambda-metod med hjälp av viss indata från den inkommande HTTP-begäran, till exempel ett värde i URL-sökvägen. Principen kan konfigureras för att skicka begäranden till den primära repliken eller till en slumpmässig replik för läsåtgärder.
+I det enklaste fallet vidarebefordras trafiken till en tillstånds lös tjänst instans. För att åstadkomma detta innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar till en bestämd tillstånds lös tjänst instans i Service Fabric Server delen. Begär Anden som skickas till tjänsten skickas till en slumpmässig instans av tjänsten.
 
 **Exempel**
 
-I följande scenario innehåller ett Service Fabric-program en `fabric:/app/userservice` partitionerad tillståndskänslig tjänst med namnet som exponerar ett internt HTTP-API. Tjänstinstansnamnet är välkänt och kan hårdkodas direkt i API Management-inkommande bearbetningsprincipen.  
+I följande scenario innehåller ett Service Fabric-program en tillstånds lös tjänst med `fabric:/app/fooservice`namnet, som exponerar ett internt http-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning. 
 
-Tjänsten partitioneras med int64-partitionsschemat med två partitioner `Int64.MinValue` och `Int64.MaxValue`ett nyckelintervall som sträcker sig till . Backend-principen beräknar en partitionsnyckel inom `id` det intervallet genom att konvertera värdet i url-begäranden till ett 64-bitars heltal, även om alla algoritmer kan användas här för att beräkna partitionsnyckeln. 
+![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-static-stateless]
 
-![Service Fabric med Azure API Management-topologi översikt][sf-apim-static-stateful]
+## <a name="send-traffic-to-a-stateful-service"></a>Skicka trafik till en tillstånds känslig tjänst
 
-## <a name="send-traffic-to-multiple-stateless-services"></a>Skicka trafik till flera tillståndslösa tjänster
-
-I mer avancerade scenarier kan du definiera en API Management-åtgärd som mappar begäranden till mer än en tjänstinstans. I det här fallet innehåller varje åtgärd en princip som mappar begäranden till en viss tjänstinstans baserat på värden från den inkommande HTTP-begäran, till exempel URL-sökvägen eller frågesträngen, och när det gäller tillståndskänsliga tjänster, en partition i tjänstinstansen.
-
-För att uppnå detta innehåller en API Management-åtgärd en inkommande bearbetningsprincip med en service fabric-serverdel som mappar till en tillståndslös tjänstinstans i service fabric-serverdelen baserat på värden som hämtats från den inkommande HTTP-begäran. Begäranden till en tjänst skickas till en slumpmässig instans av tjänsten.
+Precis som i det tillstånds lösa tjänst scenariot kan trafiken vidarebefordras till en tillstånds känslig tjänst instans. I det här fallet innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar en begäran till en speciell partition av en särskilt *tillstånds känslig* tjänst instans. Partitionen för att mappa varje begäran till beräknas via en lambda-metod som använder vissa indata från den inkommande HTTP-begäran, t. ex. ett värde i URL-sökvägen. Principen kan konfigureras att endast skicka begär anden till den primära repliken eller till en slumpmässig replik för Läs åtgärder.
 
 **Exempel**
 
-I det här exemplet skapas en ny tillståndslös tjänstinstans för varje användare av ett program med ett dynamiskt genererat namn med hjälp av följande formel:
+I följande scenario innehåller ett Service Fabric-program en partitionerad tillstånds känslig tjänst med `fabric:/app/userservice` namnet som exponerar ett internt http-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning.  
+
+Tjänsten partitioneras med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som sträcker sig över `Int64.MinValue` till `Int64.MaxValue`. Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
+
+![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-static-stateful]
+
+## <a name="send-traffic-to-multiple-stateless-services"></a>Skicka trafik till flera tillstånds lösa tjänster
+
+I mer avancerade scenarier kan du definiera en API Management-åtgärd som mappar begär anden till fler än en tjänst instans. I det här fallet innehåller varje åtgärd en princip som mappar begär anden till en specifik tjänst instans baserat på värden från den inkommande HTTP-begäran, till exempel URL-sökvägen eller frågesträngen, och i händelse av tillstånds känsliga tjänster, en partition inom tjänst instansen.
+
+För att uppnå detta innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar till en tillstånds lös tjänst instans i Service Fabric backend baserat på värden som hämtats från den inkommande HTTP-begäran. Begär anden till en tjänst skickas till en slumpmässig instans av tjänsten.
+
+**Exempel**
+
+I det här exemplet skapas en ny tillstånds lös tjänst instans för varje användare av ett program med ett dynamiskt genererat namn med hjälp av följande formel:
 
 - `fabric:/app/users/<username>`
 
-  Varje tjänst har ett unikt namn, men namnen är inte kända på framsidan eftersom tjänsterna skapas som svar på använda- eller administratörsindata och därför inte kan hårdkodas till APIM-principer eller routningsregler. I stället genereras namnet på den tjänst som en begäran ska skickas `name` till i principdefinitionen för backend-principen från värdet i sökvägen för URL-begäran. Ett exempel:
+  Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran ska skickas till i definition av backend-principen från det `name` värde som anges i sökvägen för URL-begäran. Ett exempel:
 
-  - En begäran `/api/users/foo` dirigeras till serviceinstansen`fabric:/app/users/foo`
-  - En begäran `/api/users/bar` dirigeras till serviceinstansen`fabric:/app/users/bar`
+  - En begäran till `/api/users/foo` dirigeras till tjänst instansen`fabric:/app/users/foo`
+  - En begäran till `/api/users/bar` dirigeras till tjänst instansen`fabric:/app/users/bar`
 
-![Service Fabric med Azure API Management-topologi översikt][sf-apim-dynamic-stateless]
+![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-dynamic-stateless]
 
-## <a name="send-traffic-to-multiple-stateful-services"></a>Skicka trafik till flera tillståndskänsliga tjänster
+## <a name="send-traffic-to-multiple-stateful-services"></a>Skicka trafik till flera tillstånds känsliga tjänster
 
-I likhet med det tillståndslösa tjänstexemplet kan en API Management-åtgärd mappa begäranden till mer än en **tillståndskänslig** tjänstinstans, i vilket fall du också kan behöva utföra partitionslösning för varje tillståndskänslig tjänstinstans.
+Precis som i det tillstånds lösa tjänst exemplet kan en API Management-åtgärd mappa begär anden till fler än en **tillstånds känslig** tjänst instans, vilket innebär att du även kan behöva utföra en partitions upplösning för varje tillstånds känslig tjänst instans.
 
-För att uppnå detta innehåller en API Management-åtgärd en inkommande bearbetningsprincip med en service fabric-serverdel som mappar till en tillståndskänslig tjänstinstans i service fabric-serverdelen baserat på värden som hämtats från den inkommande HTTP-begäran. Förutom att mappa en begäran till specifik tjänstinstans kan begäran också mappas till en specifik partition i tjänstinstansen och eventuellt till antingen den primära repliken eller en slumpmässig sekundär replik i partitionen.
+För att uppnå detta innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar till en tillstånds känslig tjänst instans i Service Fabric backend baserat på värden som hämtats från den inkommande HTTP-begäran. Förutom att mappa en begäran till en angiven tjänst instans kan begäran också mappas till en speciell partition inom tjänst instansen och eventuellt till antingen den primära repliken eller en slumpmässig sekundär replik i partitionen.
 
 **Exempel**
 
-I det här exemplet skapas en ny tillståndskänslig tjänstinstans för varje användare av programmet med ett dynamiskt genererat namn med hjälp av följande formel:
+I det här exemplet skapas en ny tillstånds känslig tjänst instans för varje användare av programmet med ett dynamiskt genererat namn med hjälp av följande formel:
 
 - `fabric:/app/users/<username>`
 
-  Varje tjänst har ett unikt namn, men namnen är inte kända på framsidan eftersom tjänsterna skapas som svar på använda- eller administratörsindata och därför inte kan hårdkodas till APIM-principer eller routningsregler. I stället genereras namnet på den tjänst som en begäran ska skickas `name` till i principdefinitionen för backend-principen från det värde som angav sökvägen till URL-begäran. Ett exempel:
+  Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran skickas till i definitionen av backend-principen från det `name` värde som tillhandahöll sökvägen till URL-begäran. Ett exempel:
 
-  - En begäran `/api/users/foo` dirigeras till serviceinstansen`fabric:/app/users/foo`
-  - En begäran `/api/users/bar` dirigeras till serviceinstansen`fabric:/app/users/bar`
+  - En begäran till `/api/users/foo` dirigeras till tjänst instansen`fabric:/app/users/foo`
+  - En begäran till `/api/users/bar` dirigeras till tjänst instansen`fabric:/app/users/bar`
 
-Varje tjänstinstans partitioneras också med int64-partitionsschemat med `Int64.MinValue` två `Int64.MaxValue`partitioner och ett nyckelintervall som sträcker sig till . Backend-principen beräknar en partitionsnyckel inom `id` det intervallet genom att konvertera värdet i url-begäranden till ett 64-bitars heltal, även om alla algoritmer kan användas här för att beräkna partitionsnyckeln. 
+Varje tjänst instans partitioneras också med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som `Int64.MinValue` sträcker sig över till `Int64.MaxValue`. Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
 
-![Service Fabric med Azure API Management-topologi översikt][sf-apim-dynamic-stateful]
+![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ [självstudien](service-fabric-tutorial-deploy-api-management.md) för att konfigurera ditt första Service Fabric-kluster med API Management och flödesbegäranden via API Management till dina tjänster.
+Följ [själv studie kursen](service-fabric-tutorial-deploy-api-management.md) för att konfigurera ditt första Service Fabric-kluster med API Management-och Flow-begäranden via API Management till dina tjänster.
 
 <!-- links -->
 

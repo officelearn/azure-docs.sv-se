@@ -1,6 +1,6 @@
 ---
-title: Aktivera Azure-diskkryptering för skalningsuppsättningar för virtuella datorer
-description: Den här artikeln innehåller instruktioner om hur du aktiverar Microsoft Azure Disk Encryption for Virtual Machine Scale Sets
+title: Aktivera Azure Disk Encryption för Virtual Machine Scale Sets
+description: Den här artikeln innehåller anvisningar om hur du aktiverar Microsoft Azure disk kryptering för Virtual Machine Scale Sets
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
@@ -8,25 +8,25 @@ ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 36eb83d99af299260ebbbd74fe56d69921ba389b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278974"
 ---
-# <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Azure Diskkryptering för skalningsuppsättningar för virtuella datorer
+# <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Azure Disk Encryption för Virtual Machine Scale Sets
 
-Azure Disk Encryption tillhandahåller volymkryptering för operativsystem och datadiskar på dina virtuella datorer, vilket hjälper till att skydda och skydda dina data för att uppfylla organisatoriska säkerhets- och efterlevnadsåtaganden. Mer information finns i [Azure Disk Encryption: Linux-virtuella datorer](../virtual-machines/linux/disk-encryption-overview.md) och Azure Disk [Encryption: Windows VIRTUELLA datorer](../virtual-machines/windows/disk-encryption-overview.md)  
+Azure Disk Encryption tillhandahåller volym kryptering för operativ system och data diskar för dina virtuella datorer, vilket hjälper till att skydda och skydda dina data för att uppfylla organisationens säkerhet och efterlevnad. Mer information finns i [Azure Disk Encryption: virtuella Linux-datorer](../virtual-machines/linux/disk-encryption-overview.md) och [Azure Disk Encryption: virtuella Windows-datorer](../virtual-machines/windows/disk-encryption-overview.md)  
 
-Azure Disk Encryption kan också tillämpas på Windows och Linux virtuella dator skalningsuppsättningar, i dessa fall:
-- Skalningsuppsättningar som skapats med hanterade diskar. Azure Disk-kryptering stöds inte för inbyggda (eller ohanterada) diskskalningsuppsättningar.
-- OS- och datavolymer i Windows-skalningsuppsättningar.
-- Datavolymer i Linux-skalningsuppsättningar. OS-diskkryptering stöds INTE för närvarande för Linux-skalningsuppsättningar.
+Azure Disk Encryption kan också tillämpas på skalnings uppsättningar för virtuella Windows-och Linux-datorer, i följande instanser:
+- Skalnings uppsättningar som skapats med hanterade diskar. Azure Disk Encryption stöds inte för interna (eller ohanterade) disk skalnings uppsättningar.
+- OS-och data volymer i Windows skalnings uppsättningar.
+- Data volymer i Linux-skalnings uppsättningar. Operativ system disk kryptering stöds inte för närvarande för Linux Scale Sets.
 
-Du kan lära dig grunderna i Azure Disk Encryption för skalningsuppsättningar för virtuella datorer på bara några minuter med [skaluppsättningarna Kryptera en virtuell dator med Azure CLI](disk-encryption-cli.md) eller kryptera en virtuell [datorskalauppsättningar med azure PowerShell-självstudierna.](disk-encryption-powershell.md)
+Du kan lära dig grunderna i Azure Disk Encryption för skalnings uppsättningar för virtuella datorer på bara några minuter med [krypteringen av skalnings uppsättningar för virtuella datorer med hjälp av Azure CLI](disk-encryption-cli.md) eller [kryptera en virtuell dators skalnings uppsättningar med hjälp av Azure PowerShell](disk-encryption-powershell.md) självstudier.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kryptera en skala för en virtuell dator med Hjälp av Azure Resource Manager](disk-encryption-azure-resource-manager.md)
-- [Skapa och konfigurera ett nyckelvalv för Azure DiskKryptering](disk-encryption-key-vault.md)
-- [Använda Azure Disk Encryption med sekvensering av tillägg för virtuell datoruppsättning](disk-encryption-extension-sequencing.md)
+- [Kryptera en skalnings uppsättning för virtuella datorer med hjälp av Azure Resource Manager](disk-encryption-azure-resource-manager.md)
+- [Skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md)
+- [Använd Azure Disk Encryption med sekvensering av tillägg för skalnings uppsättning för virtuell dator](disk-encryption-extension-sequencing.md)

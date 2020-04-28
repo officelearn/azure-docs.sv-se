@@ -1,7 +1,7 @@
 ---
-title: Instansiera en offentlig klientapp (MSAL.NET) | Azure
+title: Instansiera en offentlig klient app (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du instansierar ett offentligt klientprogram med konfigurationsalternativ med hjälp av Microsoft Authentication Library for .NET (MSAL.NET).
+description: Lär dig hur du instansierar ett offentligt klient program med konfigurations alternativ med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,25 +14,25 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1dd06e139f931bbf8554f05f05c5d9b9ccf200e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77083591"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instansiera ett offentligt klientprogram med konfigurationsalternativ med MSAL.NET
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instansiera ett offentligt klient program med konfigurations alternativ med MSAL.NET
 
-I den hÃ¤r artikeln beskrivs hur du instansierar ett [offentligt klientprogram](msal-client-applications.md) med Microsoft Authentication Library for .NET (MSAL.NET).  Programmet instansieras med konfigurationsalternativ som definieras i en inställningsfil.
+Den här artikeln beskriver hur du instansierar ett [offentligt klient program](msal-client-applications.md) med hjälp av Microsoft Authentication Library för .net (MSAL.net).  Programmet instansieras med konfigurations alternativ som definierats i en inställnings fil.
 
-Innan du initierar ett program måste du först [registrera](quickstart-register-app.md) det så att din app kan integreras med Microsofts identitetsplattform. Efter registreringen kan du behöva följande information (som finns i Azure-portalen):
+Innan du initierar ett program måste du först [Registrera](quickstart-register-app.md) det så att din app kan integreras med Microsoft Identity Platform. Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
 
 - Klient-ID (en sträng som representerar ett GUID)
-- Identitetsleverantörens URL (namngiven instans) och inloggningsmålgruppen för ditt program. Dessa två parametrar kallas gemensamt myndigheten.
-- Klient-ID om du skriver en branschprogram endast för din organisation (även namnet single-tenant application).
-- För webbappar och ibland för offentliga klientappar (särskilt när appen behöver använda en mäklare) har du också angett omdirigeuri där identitetsleverantören kontaktar tillbaka ditt program med säkerhetstoken.
+- Identitets leverantörens URL (kallas instansen) och inloggnings gruppen för ditt program. Dessa två parametrar kallas gemensamt för utfärdaren.
+- Klient-ID: t om du skriver ett affärs program enbart för din organisation (även kallat program med en enda klient).
+- För webbappar, och ibland för offentliga klient program (särskilt när appen behöver använda en Service Broker), har du också angett redirectUri där identitets leverantören ska kontakta ditt program igen med säkerhetstoken.
 
 
-Ett .NET Core-konsolprogram kan ha följande *appsettings.json-konfigurationsfil:*
+Ett .NET Core-konsolprogram kan ha följande *appSettings. JSON* -konfigurations fil:
 
 ```json
 {
@@ -48,7 +48,7 @@ Ett .NET Core-konsolprogram kan ha följande *appsettings.json-konfigurationsfil
 }
 ```
 
-Följande kod läser den här filen med .NET-konfigurationsramverket:
+Följande kod läser filen med .NET Configuration Framework:
 
 ```csharp
 public class SampleConfiguration
@@ -90,7 +90,7 @@ public class SampleConfiguration
 }
 ```
 
-Följande kod skapar ditt program med hjälp av konfigurationen från inställningsfilen:
+Följande kod skapar ditt program med hjälp av konfigurationen från inställnings filen:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

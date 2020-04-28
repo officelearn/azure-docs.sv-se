@@ -1,6 +1,6 @@
 ---
-title: Distribuera & hantera Azure Container-instanser
-description: Automatisera uppgifter och arbetsflöden som skapar och hanterar behållardistributioner i Azure Container Instances med hjälp av Azure Logic Apps
+title: Distribuera & Hantera Azure Container Instances
+description: Automatisera aktiviteter och arbets flöden som skapar och hanterar behållar distributioner i Azure Container Instances genom att använda Azure Logic Apps
 services: logic-apps, container-instances
 ms.service: logic-apps
 ms.suite: integration
@@ -12,66 +12,66 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76046297"
 ---
-# <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Distribuera och hantera Azure Container-instanser med hjälp av Azure Logic Apps
+# <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Distribuera och hantera Azure Container Instances med Azure Logic Apps
 
-Med Azure Logic Apps och Azure Container Instance-kopplingen kan du konfigurera automatiserade uppgifter och arbetsflöden som distribuerar och hanterar [behållargrupper](../container-instances/container-instances-container-groups.md). Container Instance-kopplingen stöder följande åtgärder:
+Med Azure Logic Apps och Azure Container instance Connector kan du konfigurera automatiserade uppgifter och arbets flöden som distribuerar och hanterar [behållar grupper](../container-instances/container-instances-container-groups.md). Container instance Connector stöder följande åtgärder:
 
-* Skapa eller ta bort en behållargrupp
-* Hämta egenskaperna för en behållargrupp
-* Hämta en lista över behållargrupper
-* Hämta loggarna för en behållarinstans
+* Skapa eller ta bort en behållar grupp
+* Hämta egenskaperna för en behållar grupp
+* Hämta en lista över behållar grupper
+* Hämta loggarna för en behållar instans
 
-Använd dessa åtgärder i logikapparna för uppgifter som att köra en behållararbetsbelastning som svar på en Logic Apps-utlösare. Du kan också låta andra åtgärder använda utdata från åtgärder för behållarinstans. 
+Använd de här åtgärderna i Logi Kap par för uppgifter som att köra en behållar arbets belastning som svar på en Logic Apps-utlösare. Du kan också använda andra åtgärder för att använda utdata från behållar instansen. 
 
-Den här kopplingen innehåller endast åtgärder, så för att starta logikappen använder du en separat utlösare, till exempel en **återkommande** utlösare för att köra en behållararbetsbelastning enligt ett regelbundet schema. Du kan också behöva utlösa en distribution av en behållargrupp efter en händelse, till exempel ankomsten av ett Outlook-e-postmeddelande. 
+Den här anslutnings tjänsten tillhandahåller endast åtgärder, så för att starta din Logi Kap par, använder du en separat utlösare som en **upprepnings** utlösare för att köra en behållar arbets belastning enligt ett regelbundet schema Eller så kanske du måste utlösa en distribution av container grupper efter en händelse, till exempel när ett Outlook-e-postmeddelande har anlänt. 
 
-Om du inte har tidigare i logikappar läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md) och [hur du skapar och hanterar behållarinstanser](../container-instances/container-instances-quickstart.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) och [hur du skapar och hanterar behållar instanser](../container-instances/container-instances-quickstart.md)
 
-* Logikappen där du vill komma åt behållarinstanserna. Om du vill använda en åtgärd startar du logikappen med en annan utlösare, till exempel **upprepningsutlösaren.**
+* Den Logic app där du vill komma åt dina behållar instanser. Om du vill använda en åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
-## <a name="add-a-container-instance-action"></a>Lägga till en åtgärd för behållarinstans
+## <a name="add-a-container-instance-action"></a>Lägg till en åtgärd för behållar instans
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)och öppna logikappen i Logic App Designer, om den inte redan är öppen.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
-1. Välj en bana: 
+1. Välj en sökväg: 
 
-   * Under det sista steget där du vill lägga till en åtgärd väljer du **Nytt steg**. 
+   * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
      ELLER
 
-   * Mellan de steg där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
-   Välj plustecknet**+**( ) som visas och välj sedan **Lägg till en åtgärd**.
+   * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
+   Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. Ange "behållarförekomst" som filter i sökrutan. Under åtgärdslistan väljer du den Azure Container Instance-anslutningsåtgärd som du vill ha.
+1. I rutan Sök anger du "container instance" som filter. Under listan åtgärder väljer du den Azure Container instance Connector-åtgärd som du vill använda.
 
 1. Ange ett namn på anslutningen. 
 
-1. Ange nödvändig information för den valda åtgärden och fortsätt att skapa logikappens arbetsflöde.
+1. Ange nödvändig information för den valda åtgärden och fortsätt att skapa din Logic Apps-arbetsflöde.
 
-  Välj till exempel **Skapa behållargrupp** och ange egenskaperna för en behållargrupp och en eller flera behållarinstanser i gruppen, som visas i följande bild (partiell detaljnivå):
+  Välj till exempel **skapa container grupp** och ange egenskaperna för en behållar grupp och en eller flera behållar instanser i gruppen, som visas i följande bild (del detaljer):
 
   ![Skapa containergrupp](./media/connectors-create-api-container-instances/logic-apps-aci-connector.png)
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och begränsningar, som beskrivs av kopplingens OpenAPI-beskrivning (tidigare Swagger) finns i kopplingens [referenssida](/connectors/aci/) eller behållargrupp [YAML-referens](../container-instances/container-instances-reference-yaml.md).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/aci/) eller behållar grupp [yaml referens](../container-instances/container-instances-reference-yaml.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa en [exempellogikapp](https://github.com/Azure-Samples/aci-logicapps-integration) som kör en behållare i Azure Container Instances för att analysera känslan av e-post eller Twitter-text
+* Se en [exempel](https://github.com/Azure-Samples/aci-logicapps-integration) på en Logic-app som kör en behållare i Azure Container instances för att analysera sentiment för e-post eller Twitter-text
 
-* Lär dig mer om andra [Logic Apps-kopplingar](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

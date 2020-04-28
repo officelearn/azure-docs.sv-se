@@ -1,7 +1,7 @@
 ---
-title: Rensa tokencachen (MSAL.NET) | Azure
+title: Rensa token-cachen (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du rensar tokencachen med hjälp av Microsoft Authentication Library for .NET (MSAL.NET).
+description: Lär dig hur du rensar token-cachen med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,17 +14,17 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: a10efb5ff0a2c6a3ced3631dfe82c86e3e8a72fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084762"
 ---
-# <a name="clear-the-token-cache-using-msalnet"></a>Rensa tokencachen med MSAL.NET
+# <a name="clear-the-token-cache-using-msalnet"></a>Rensa token-cachen med MSAL.NET
 
-När du [hämtar en åtkomsttoken](msal-acquire-cache-tokens.md) med Microsoft Authentication Library for .NET (MSAL.NET) cachelagras token. När programmet behöver en token bör `AcquireTokenSilent` den först anropa metoden för att verifiera om en godtagbar token finns i cacheminnet. 
+När du [hämtar en](msal-acquire-cache-tokens.md) åtkomsttoken med Microsoft Authentication Library för .net (MSAL.net) cachelagras token. När programmet behöver en token ska det först anropa `AcquireTokenSilent` metoden för att kontrol lera om en acceptabel token finns i cacheminnet. 
 
-Rensa cacheminnet uppnås genom att ta bort kontona från cacheminnet. Detta tar dock inte bort sessionscookien som finns i webbläsaren.  I följande exempel instansierar ett offentligt klientprogram, hämtar konton för programmet och kontona tas bort.
+Att rensa cacheminnet uppnås genom att ta bort kontona från cachen. Detta tar inte bort sessions-cookien som finns i webbläsaren, men.  I följande exempel instansieras ett offentligt klient program, hämtar konton för programmet och tar bort kontona.
 
 ```csharp
 private readonly IPublicClientApplication _app;
@@ -46,4 +46,4 @@ while (accounts.Any())
 
 ```
 
-Om du vill veta mer om att hämta och cachelagring av token läser [du hämta en åtkomsttoken](msal-acquire-cache-tokens.md).
+Läs mer om att förvärva och cachelagra token genom att läsa [Hämta en](msal-acquire-cache-tokens.md)åtkomsttoken.

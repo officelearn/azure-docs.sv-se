@@ -1,7 +1,7 @@
 ---
-title: Integrera med AD Application Proxy på en NDES-server
+title: Integrera med AD-programproxy på en NDES-Server
 titleSuffix: Azure Active Directory
-description: Vägledning om hur du distribuerar en Azure Active Directory Application Proxy för att skydda din NDES-server.
+description: Vägledning om hur du distribuerar en Azure Active Directory-programproxy för att skydda NDES-servern.
 services: active-directory
 author: CelesteDG
 manager: CelesteDG
@@ -14,86 +14,86 @@ ms.date: 01/17/2020
 ms.author: baselden
 ms.reviewer: mimart
 ms.openlocfilehash: 4ccd8834671725ace72497391090f81eb197ad6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77032262"
 ---
-# <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrera med Azure AD Application Proxy på en NDES-server (Network Device Enrollment Service)
+# <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrera med Azure AD-programproxy på en server för registrerings tjänsten för nätverks enheter (NDES)
 
-Med AD-programproxyn (Azure Active Directory) kan du publicera program i nätverket. Dessa program är sådana som SharePoint-webbplatser, Microsoft Outlook Web App och andra webbprogram. Det ger också säker åtkomst till användare utanför nätverket via Azure.
+Med Azure Active Directory (AD) Application Proxy kan du publicera program i nätverket. Dessa program är sådana som SharePoint-webbplatser, Microsoft Outlook Web App och andra webb program. Den ger också säker åtkomst till användare utanför nätverket via Azure.
 
-Om du inte har tidigare i Azure AD Application Proxy och vill veta mer läser du [Fjärråtkomst till lokala program via Azure AD Application Proxy](application-proxy.md).
+Om du är nybörjare på Azure AD-programproxy och vill veta mer, se [fjärråtkomst till lokala program via Azure AD-programproxy](application-proxy.md).
 
-Azure AD Application Proxy är byggd på Azure. Det ger dig en enorm mängd nätverksbandbredd och serverinfrastruktur för bättre skydd mot distribuerade DDOS-attacker (Denial-of-Service) och utmärkt tillgänglighet. Dessutom finns det ingen anledning att öppna externa brandväggsportar till ditt lokala nätverk och ingen DMZ-server krävs. All trafik har sitt ursprung i inkommande. En fullständig lista över utgående portar finns i [Självstudiekurs: Lägg till ett lokalt program för fjärråtkomst via Programproxy i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbredd och Server infrastruktur för bättre skydd mot distribuerade DDOS-attacker (Denial-of-Service) och utmärkt tillgänglighet. Dessutom behöver du inte öppna externa brand Väggs portar till ditt lokala nätverk och ingen DMZ-server krävs. All trafik har sitt ursprung. En fullständig lista över utgående portar finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 
-> Azure AD Application Proxy är en funktion som bara är tillgänglig om du använder Premium- eller Basic-utgåvorna av Azure Active Directory. Mer information finns i [Azure Active Directory-priser](https://azure.microsoft.com/pricing/details/active-directory/). 
-> Om du har EMS-licenser (Enterprise Mobility Suite) kan du använda den här lösningen.
-> Azure AD Application Proxy-anslutningen installeras bara på Windows Server 2012 R2 eller senare. Detta är också ett krav på NDES-servern.
+> Azure AD-programproxy är en funktion som bara är tillgänglig om du använder Premium-eller Basic-versionerna av Azure Active Directory. Mer information finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/). 
+> Om du har licens för Enterprise Mobility Suite (EMS) är du berättigad till att använda den här lösningen.
+> Azure AD-programproxy Connector installeras bara på Windows Server 2012 R2 eller senare. Detta är också ett krav på NDES-servern.
 
 ## <a name="install-and-register-the-connector-on-the-ndes-server"></a>Installera och registrera anslutningen på NDES-servern
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som programadministratör för den katalog som använder programproxy. Om klientdomänen exempelvis är contoso.com ska administratören vara admin@contoso.com eller något annat administratörsalias på den domänen.
-1. Välj ditt användarnamn i det övre högra hörnet. Kontrollera att du är inloggad på en katalog som använder Programproxy. Om du behöver ändra kataloger väljer du **Växla katalog** och väljer en katalog som använder Programproxy.
-1. Välj Azure Active **Directory**i den vänstra navigeringspanelen .
-1. Under **Hantera**väljer du **Programproxy**.
-1. Välj **Tjänsten Hämta anslutning**.
+1. Välj ditt användar namn i det övre högra hörnet. Kontrol lera att du är inloggad på en katalog som använder programproxy. Om du behöver ändra kataloger väljer du **Växla katalog** och väljer en katalog som använder Application Proxy.
+1. I den vänstra navigerings panelen väljer du **Azure Active Directory**.
+1. Under **Hantera**väljer du **programproxy**.
+1. Välj **Hämta anslutnings tjänst**.
 
-    ![Ladda ned anslutningstjänsten för att se användarvillkoren](./media/active-directory-app-proxy-protect-ndes/application-proxy-download-connector-service.png)
+    ![Hämta kopplings tjänsten om du vill se villkoren för tjänsten](./media/active-directory-app-proxy-protect-ndes/application-proxy-download-connector-service.png)
 
-1. Läs användningsvillkoren. När du är klar väljer du **Acceptera villkor & Hämta**.
-1. Kopiera installationsfilen för Azure AD Application Proxy-anslutning till NDES-servern. 
-   > Du kan installera anslutningen på valfri server i företagets nätverk med åtkomst till NDES. Du behöver inte installera det på NDES-servern själv.
-1. Kör installationsfilen, till exempel *AADApplicationProxyConnectorInstaller.exe*. Acceptera licensvillkoren för programvara.
-1. Under installationen uppmanas du att registrera anslutningen med programproxyen i din Azure AD-katalog.
-   * Ange autentiseringsuppgifterna för en global administratör eller programadministratör i din Azure AD-katalog. Azure AD-autentiseringsuppgifterna för globala administratörer eller programadministratören kan skilja sig från dina Azure-autentiseringsuppgifter i portalen.
+1. Läs användningsvillkoren. När du är klar väljer du **Godkänn villkoren & Ladda ned**.
+1. Kopiera installations filen för Azure AD-programproxy Connector till NDES-servern. 
+   > Du kan installera anslutningen på vilken server som helst i företags nätverket med åtkomst till NDES. Du behöver inte installera det på själva NDES-servern.
+1. Kör installations filen, till exempel *AADApplicationProxyConnectorInstaller. exe*. Godkänn licens villkoren för program varan.
+1. Under installationen uppmanas du att registrera anslutnings programmet med programproxyn i Azure AD-katalogen.
+   * Ange autentiseringsuppgifter för en global eller program administratör i Azure AD-katalogen. Autentiseringsuppgifterna för Global Azure AD-eller program administratör kan skilja sig från dina Azure-autentiseringsuppgifter i portalen.
 
         > [!NOTE]
-        > Det globala konto eller programadministratörskontot som används för att registrera kopplingen måste tillhöra samma katalog där du aktiverar tjänsten Programproxy.
+        > Det globala kontot eller det program administratörs konto som används för att registrera anslutningen måste tillhöra samma katalog som du aktiverar tjänsten Application Proxy.
         >
-        > Om Azure AD-domänen till exempel *är contoso.com*bör administratören `admin@contoso.com` för globalt/program vara eller ett annat giltigt alias på den domänen.
+        > Om till exempel Azure AD-domänen är *contoso.com*ska global/program administratören vara `admin@contoso.com` eller ett annat giltigt alias i domänen.
 
-   * Om förbättrad säkerhetskonfiguration i Internet Explorer är aktiverat för den server där du installerar anslutningen kan registreringsskärmen blockeras. Om du vill tillåta åtkomst följer du instruktionerna i felmeddelandet eller inaktiverar Förbättrad säkerhet i Internet Explorer under installationsprocessen.
-   * Om anslutningsregistreringen misslyckas läser [du Felsöka programproxy](application-proxy-troubleshoot.md).
-1. I slutet av installationen visas en anteckning för miljöer med en utgående proxy. Om du vill konfigurera Azure AD Application Proxy-kopplingen så att den `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`fungerar via den utgående proxyn kör du det medföljande skriptet, till exempel .
-1. På sidan Programproxy i Azure-portalen visas den nya anslutningen med statusen *Aktiv*, vilket visas i följande exempel:
+   * Om förbättrad säkerhets konfiguration i Internet Explorer är aktive rad för den server där du installerar anslutningen, kan registrerings skärmen blockeras. Om du vill tillåta åtkomst följer du anvisningarna i fel meddelandet eller stänger av förbättrad säkerhet i Internet Explorer under installationen.
+   * Om anslutnings registreringen Miss lyckas, se [Felsöka programproxyn](application-proxy-troubleshoot.md).
+1. I slutet av installationen visas en anteckning för miljöer med en utgående proxy. Om du vill konfigurera Azure AD-programproxy-anslutningen så att den fungerar via den utgående proxyn kör du det `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`tillhandahållna skriptet, till exempel.
+1. På sidan Application Proxy i Azure Portal visas den nya anslutningen med statusen *aktiv*, som visas i följande exempel:
 
-    ![Den nya Azure AD Application Proxy-anslutningen som visas som aktiv i Azure-portalen](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
+    ![Den nya Azure AD-programproxy-anslutningen visas som aktiv i Azure Portal](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
 
     > [!NOTE]
-    > Om du vill ge hög tillgänglighet för program som autentiserar via Azure AD Application Proxy kan du installera kopplingar på flera virtuella datorer. Upprepa samma steg i föregående avsnitt för att installera anslutningen på andra servrar som är anslutna till azure AD DS-hanterade domänen.
+    > Om du vill ge hög tillgänglighet för program som autentiseras via Azure-AD-programproxy kan du installera anslutningar på flera virtuella datorer. Upprepa samma steg som i föregående avsnitt för att installera anslutnings programmet på andra servrar som är anslutna till den hanterade Azure AD DS-domänen.
 
-1. Efter en lyckad installation går du tillbaka till Azure-portalen.
+1. När installationen är klar går du tillbaka till Azure Portal.
 
-1. Välj **Företagsprogram**.
+1. Välj **företags program**.
 
-   ![se till att du engagerar rätt intressenter](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
+   ![Se till att du är intressant för rätt intressenter](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
 
-1. Välj **+Nytt program**och välj sedan **Lokalt program**. 
+1. Välj **+ nytt program**och välj sedan **lokalt program**. 
 
-1. Konfigurera följande fält i **lägg till ditt eget lokala program:**
+1. På sidan **Lägg till ett eget lokalt program**konfigurerar du följande fält:
 
    * **Namn**: Ange ett namn för programmet.
-   * **Intern url:** Ange den interna URL/FQDN för din NDES-server där du installerade anslutningen.
-   * **Pre-autentisering:** Välj **Genomgående**. Det går inte att använda någon form av förautentisering. Det protokoll som används för certifikatbegäranden (SCEP) ger inte ett sådant alternativ.
-   * Kopiera den angivna **externa URL:en** till Urklipp.
+   * **Intern URL**: Ange den interna URL: en/FQDN för den NDES-server som du installerade anslutningen på.
+   * **Förautentisering**: Välj **passthrough**. Det går inte att använda någon form av förautentisering. Protokollet som används för certifikat begär Anden (SCEP) tillhandahåller inte det här alternativet.
+   * Kopiera den angivna **externa webb adressen** till Urklipp.
 
-1. Välj **+Lägg till** för att spara programmet.
+1. Välj **+ Lägg till** för att spara ditt program.
 
-1. Testa om du kan komma åt din NDES-server via Azure AD Application proxy genom att klistra in länken du kopierade i steg 10 till en webbläsare. Du bör se en standard-IIS-välkomstsida.
+1. Testa om du kan komma åt NDES-servern via Azure AD-programproxyn genom att klistra in länken som du kopierade i steg 10 i en webbläsare. Du bör se en standard välkomst sida för IIS.
 
-1. Som ett sista test lägger du till *mscep.dll-sökvägen* till den befintliga URL som du klistrade in i föregående steg:
+1. Som ett slutligt test lägger du till sökvägen *mscep. dll* till den befintliga URL som du klistrade in i föregående steg:
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 
-1. Du bör se ett **HTTP-fel 403 – Förbjuden** svar.
+1. Du bör se ett **http-fel 403 – otillåtet** svar.
 
-1. Ändra NDES-URL:en (via Microsoft Intune) till enheter, den här ändringen kan antingen finnas i Microsoft Endpoint Configuration Center eller i Intune Cloud.
+1. Ändra NDES-URL: en som tillhandahölls (via Microsoft Intune) till enheter, kan den här ändringen antingen vara i Microsoft Endpoint Configuration Center eller i Intune-molnet.
 
-   * För Configuration Center går du till certifikatregistreringspunkten (CRP) och justerar URL:en. Den här webbadressen är vad enheter ropar till och presenterar sin utmaning.
-   * För Endast Intune Cloud, även känd som Fristående Intune, redigerar eller skapar du en ny SCEP-princip och lägger till den nya URL:en.
+   * För Configuration Center går du till certifikat registrerings platsen (CRP) och justerar URL: en. Den här URL: en är vilka enheter som anropar och visar sin utmaning.
+   * Endast för Intune-moln, även kallat fristående Intune, kan du antingen redigera eller skapa en ny SCEP-princip och lägga till den nya URL: en.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med Azure AD Application Proxy integrerad med NDES, publicera program för användare att komma åt. Mer information finns i [publicera program med Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Med Azure AD-programproxy integrerat med NDES kan du publicera program som användare kan komma åt. Mer information finns i [Publicera program med hjälp av Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).

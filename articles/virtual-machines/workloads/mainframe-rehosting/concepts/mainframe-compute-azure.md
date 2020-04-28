@@ -1,74 +1,74 @@
 ---
-title: Flytta stordatorberäkning till virtuella Azure-datorer
-description: Azure-beräkningsresurser jämför positivt med stordatorkapacitet så att du kan migrera och modernisera IBM z14-program.
+title: Flytta stordator beräkning till Azure Virtual Machines
+description: Azure Compute Resources jämför favorably med stordator kapacitet så att du kan migrera och modernisera IBM Z14-program.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76288939"
 ---
-# <a name="move-mainframe-compute-to-azure"></a>Flytta stordatorberäkning till Azure
+# <a name="move-mainframe-compute-to-azure"></a>Flytta stordator beräkning till Azure
 
-Stordatorer har ett rykte om hög tillförlitlighet och tillgänglighet och fortsätter att vara den betrodda ryggraden i många företag. De är ofta tros ha nästan obegränsad skalbarhet och datorkraft också. Vissa företag har dock vuxit ur kapaciteten hos de största tillgängliga stordatorerna. Om detta låter som du erbjuder Azure flexibilitet, räckvidd och infrastrukturbesparingar.
+Stordatorer har ett rykte för hög tillförlitlighet och tillgänglighet och fortsätter att vara det betrodda stamnätet för många företag. De är ofta tänkta att ha nästan obegränsad skalbarhet och dator kraft. Vissa företag har dock utökar kapaciteten hos de största tillgängliga stordatorerna. Om det låter dig som det låter Azure erbjuda dig flexibilitet, räckvidd och infrastruktur besparingar.
 
-Om du vill köra stordatorarbetsbelastningar på Microsoft Azure måste du veta hur stordatorns beräkningsfunktioner står sig i jämförelse med Azure. Baserat på en IBM z14 stordator (den senaste modellen i den här skriften), berättar den här artikeln hur du får jämförbara resultat på Azure.
+Om du vill köra stordator belastningar på Microsoft Azure måste du veta hur din stordators beräknings funktioner jämför med Azure. Den här artikeln beskriver hur du får ett jämförbart resultat på Azure baserat på en stordator i IBM Z14 (den mest aktuella modellen när du skriver).
 
-För att komma igång, överväga miljöer sida vid sida. Följande bild jämför en stordatormiljö för att köra program med en Azure-värdmiljö.
+Kom igång genom att tänka på miljön sida vid sida. Följande bild jämför en stordator miljö för att köra program i en Azure-värd miljö.
 
-![Azure-tjänster och emuleringsmiljöer erbjuder jämförbar support och effektiviserar migreringen](media/mainframe-compute-azure.png)
+![Azure-tjänster och emuleringsklienter erbjuder jämförbar support och effektiviserar migreringen](media/mainframe-compute-azure.png)
 
-Kraften i stordatorer används ofta för online-transaktionsbearbetning (OLTP) system som hanterar miljontals uppdateringar för tusentals användare. Dessa program använder ofta programvara för transaktionsbearbetning, skärmhantering och formulärpost. De kan använda ett CICS(Customer Information Control System), INFORMATION Management System (IMS) eller Transaction Interface Package (TIP).
+Kraften i stordatorer används ofta för OLTP-system (Online Transaction Processing) som hanterar miljon tals uppdateringar för tusentals användare. Dessa program använder ofta program vara för transaktions bearbetning, skärm hantering och formulär poster. De kan använda ett CICS (Customer information Control system), ett informations hanterings system (IMS) eller ett transaktions gränssnitts paket (TIP).
 
-Som bilden visar kan en TPM-emulator på Azure hantera CICS- och IMS-arbetsbelastningar. En batchsystememulator på Azure utför rollen som JCL (Job Control Language). Stordatordata migreras till Azure-databaser, till exempel Azure SQL Database. Azure-tjänster eller annan programvara som finns i Virtuella Azure-datorer kan användas för systemhantering.
+När bilden visas kan en TPM-emulator i Azure hantera CICS-och IMS-arbetsbelastningar. En batch system-emulator på Azure utför rollen som JCL (Job Control Language). Stordator data migreras till Azure-databaser, t. ex. Azure SQL Database. Azure-tjänster eller annan program vara som finns i Azure Virtual Machines kan användas för system hantering.
 
-## <a name="mainframe-compute-at-a-glance"></a>Stordator beräkning i korthet
+## <a name="mainframe-compute-at-a-glance"></a>En översikt över stordatorer
 
-I z14 stordatorn, processorer är ordnade i upp till fyra *lådor*. En *låda* är helt enkelt ett kluster av processorer och chipset. Varje låda kan ha sex aktiva cp-chips (Central Processor) och varje CP har 10 SC-chips (System Controller). I Intel x86-terminologin finns det sex uttag per låda, 10 kärnor per uttag och fyra lådor. Denna arkitektur ger grov motsvarighet till 24 uttag och 240 kärnor, maximalt, för en z14.
+I Z14-stordatoren är processorerna ordnade i upp till fyra *lådor*. En *låda* är helt enkelt ett kluster med processorer och krets uppsättningar. Varje låda kan ha sex aktiva chips (Central processor) och varje CP har 10 system Controller-chips (SC). I Intel x86-terminologi finns det sex Sockets per låda, 10 kärnor per socket och fyra lådor. Den här arkitekturen ger en grov motsvarighet till 24 Sockets och 240 kärnor, maximum för en Z14.
 
-Den snabba z14 CP har en 5,2 GHz klockfrekvens. Vanligtvis levereras en z14 med alla CD-skivor i lådan. De aktiveras efter behov. En kund debiteras ofta för minst fyra timmars beräkningstid per månad trots faktisk användning.
+Snabb Z14 CP har en hastighet på 5,2 GHz. Vanligt vis levereras en Z14 med alla CPs i rutan. De är aktiverade vid behov. En kund debiteras vanligt vis i minst fyra timmar av beräknings tid per månad trots den faktiska användningen.
 
-En stordatorprocessor kan konfigureras som en av följande typer:
+En stordator processor kan konfigureras som en av följande typer:
 
-- GP-processor (General Purpose)
-- System z Integrerad informationsprocessor (zIIP)
-- Integrerad facility för Linux-processor (IFL)
-- Systemassistansprocessor (SAP)
-- Integrerad kopplingsanordning (ICF) processor
+- Generell användnings processor (GP)
+- System z Integrated information processor (zIIP)
+- Integrerad funktion för Linux (IFL)-processor
+- System Assist-processor (SAP)
+- ICF-processor (Integrated kopplings funktion)
 
-## <a name="scaling-mainframe-compute-up-and-out"></a>Skala stordatorberäkning upp och ut
+## <a name="scaling-mainframe-compute-up-and-out"></a>Skalning av stordatorer upp och ut
 
-IBM stordatorer erbjuder möjligheten att skala upp till 240 kärnor (den nuvarande z14 storlek för ett enda system). Dessutom kan IBM stordatorer skala ut genom en funktion som kallas kopplingsanordningen (CF). CF tillåter flera stordatorsystem att komma åt samma data samtidigt. Med hjälp av CF grupperar stordatorn Parallel Sysplex-teknik stordatorprocessorer i kluster. När den här guiden skrevs stödde funktionen Parallel Sysplex 32 grupperingar med 64 processorer vardera. Upp till 2 048 processorer kan grupperas på det här sättet för att skala ut beräkningskapaciteten.
+IBM-stordatorer ger möjlighet att skala upp till 240 kärnor (den aktuella Z14-storleken för ett enda system). Dessutom kan IBM-stordatorer skala ut genom en funktion som kallas kopplings funktion (CF). CF gör att flera stordator system kan komma åt samma data samtidigt. Med hjälp av CF är den parallella Sysplex-tekniken grupper stordator processor i kluster. När den här guiden skrevs, stödde parallell Sysplex-funktionen 32 grupperingar av 64-processorer. Upp till 2 048-processorer kan grupperas på det här sättet för att skala ut beräknings kapaciteten.
 
-En CF gör det möjligt för beräkningskluster att dela data med direkt åtkomst. Den används för att låsa information, cacheinformation och listan över delade dataresurser. En parallell Sysplex med en eller flera CFs kan ses som ett "delat allt" skalningsbara beräkningskluster. Mer information om dessa funktioner finns i [Parallel Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) på IBM:s webbplats.
+Ett CF gör det möjligt för beräknings kluster att dela data med direkt åtkomst. Den används för att låsa information, cachelagra information och listan över delade data resurser. En parallell Sysplex som använder en eller flera CFs kan ses som ett "delat allt"-beräknings kluster. Mer information om dessa funktioner finns [parallell Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) på IBM-webbplatsen.
 
-Program kan använda dessa funktioner för att ge både skalningsprestanda och hög tillgänglighet. För information om hur CICS kan använda Parallel Sysplex med CF, ladda ner [IBM CICS och kopplingsanordningen: Beyond the Basics](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
+Programmen kan använda dessa funktioner för att ge både skalbar prestanda och hög tillgänglighet. För information om hur CICS kan använda parallella Sysplex med CF, laddar du ned [IBM CICS och kopplings funktionen: utöver de grundläggande](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) Redbook.
 
-## <a name="azure-compute-at-a-glance"></a>Azure-beräkning i korthet
+## <a name="azure-compute-at-a-glance"></a>En snabbt ITT på Azure Compute
 
-Vissa människor tror felaktigt att Intel-baserade servrar inte är lika kraftfulla som stordatorer. De nya kärntäta, Intel-baserade systemen har dock lika mycket beräkningskapacitet som stordatorer. I det här avsnittet beskrivs Azure Infrastructure-as-a-service (IaaS) alternativ för beräkning och lagring. Azure tillhandahåller paaS-alternativ (Platform-as-a-service) men den här artikeln fokuserar på IaaS-alternativen som ger jämförbar stordatorkapacitet.
+Vissa personer är av misstag tro att Intel-baserade servrar inte är lika kraftfulla som stordatorer. De nya Core-täta, Intel-baserade systemen har dock lika mycket beräknings kapacitet som stordatorer. I det här avsnittet beskrivs IaaS-alternativ (Infrastructure-as-a-Service) för data behandling och lagring. Azure tillhandahåller PaaS-alternativ (Platform-as-a-Service) också, men den här artikeln fokuserar på de IaaS-alternativ som ger jämförbar stordator kapacitet.
 
-Virtuella Azure-datorer tillhandahåller beräkningskraft i en rad storlekar och typer. I Azure motsvarar en virtuell PROCESSOR (vCPU) ungefär en kärna på en stordator.
+Azure Virtual Machines ger beräknings kraft i flera olika storlekar och typer. I Azure motsvarar en virtuell processor (vCPU) en kärna på en stordator.
 
-För närvarande ger utbudet av Azure Virtual Machine storlekar från 1 till 128 virtuella processorer. Virtuella datortyper (VM) är optimerade för särskilda arbetsbelastningar. I följande lista visas till exempel de virtuella typerna (aktuella per den här skrivningen) och deras rekommenderade användningsområden:
+För närvarande tillhandahåller intervallet för storleken på virtuella Azure-datorer mellan 1 och 128 virtuella processorer. Typer av virtuella datorer (VM) är optimerade för vissa arbets belastningar. I följande lista visas till exempel de virtuella dator typerna (aktuella vid skrivning) och deras rekommenderade användnings områden:
 
 | Storlek     | Typ och beskrivning                                                                 |
 |----------|--------------------------------------------------------------------------------------|
-| D-serien | Allmänt syfte med 64 vCPU och upp till 3,5 GHz klockfrekvens                           |
+| D-serien | Generell användning med 64 vCPU och upp till 3,5 GHz klock hastighet                           |
 | E-serien | Minne optimerat med upp till 64 virtuella processorer                                                 |
-| F-serien | Beräkna optimerad med upp till 64 vCPUs och 3,7 GHz klockfrekvens                       |
-| H-serien | Optimerad för högpresterande datorprogram (HPC)                          |
-| L-serien | Lagring optimerad för program med hög genomströmning som backas upp av databaser som NoSQL |
-| M-serien | Största beräknings- och minnesoptimerade virtuella datorer med upp till 128 virtuella processorer                        |
+| F-serien | Compute-optimerad med upp till 64 virtuella processorer och 3.. 7 GHz klock hastighet                       |
+| H-serien | Optimerad för HPC-program (data behandling med höga prestanda)                          |
+| L-serien | Lagring som är optimerad för program med stora data flöden som backas upp av databaser som NoSQL |
+| M-serien | Största beräknings-och minnesoptimerade virtuella datorer med upp till 128 virtuella processorer                        |
 
-Mer information om tillgängliga virtuella datorer finns i [Virtual Machine-serien](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
+Mer information om tillgängliga virtuella datorer finns i [serien för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
 
-En z14 stordator kan ha upp till 240 kärnor. Z14 stordatorer använder dock nästan aldrig alla kärnor för ett enda program eller en enda arbetsbelastning. I stället avskilrar en stordator arbetsbelastningar till logiska partitioner (LPARs) och LPARs har betyg–MIPS (Miljontals instruktioner per sekund) eller MSU (Million Service Unit). När du bestämmer den jämförbara vm-storleken som krävs för att köra en stordatorarbetsbelastning på Azure, faktor i MIPS (eller MSU) betyg.
+En Z14-stordator kan ha upp till 240 kärnor. Z14-stordatorer använder dock nästan aldrig alla kärnor för ett enda program eller en arbets belastning. I stället är en stordator som särskiljer arbets belastningar till logiska partitioner (LPARs) och LPARs har klassificeringar – MIPS (miljon tals instruktioner per sekund) eller MSU (miljon enhets tjänster). När du avgör vilken jämförbar VM-storlek som behövs för att köra en stordator i Azure, faktor i MIPS-eller MSU-klassificeringen.
 
 Följande är allmänna uppskattningar:
 
@@ -76,63 +76,63 @@ Följande är allmänna uppskattningar:
 
 -   1 000 MIPS per processor
 
-För att fastställa rätt VM-storlek för en viss arbetsbelastning i en LPAR optimerar du först den virtuella datorn för arbetsbelastningen. Bestäm sedan antalet virtuella processorer som behövs. En konservativ uppskattning är 150 MIPS per vCPU. Baserat på den här uppskattningen, till exempel, en F-serien VM med 16 vCPUs kan enkelt stödja en IBM Db2 arbetsbelastning som kommer från en LPAR med 2.400 MIPS.
+För att fastställa rätt VM-storlek för en specifik arbets belastning i en LPAR, optimera först den virtuella datorn för arbets belastningen. Bestäm sedan antalet virtuella processorer som behövs. En försiktig uppskattning är 150 MIPS per vCPU. Baserat på denna uppskattning, till exempel en virtuell dator i F-serien med 16 virtuella processorer, kunde enkelt stödja en IBM DB2-arbetsbelastning från en LPAR med 2 400 MIPS.
 
-## <a name="azure-compute-scale-up"></a>Azure-beräkningsuppskalning
+## <a name="azure-compute-scale-up"></a>Azure Compute-skalning
 
-Virtuella datorer i M-serien kan skala upp till 128 virtuella processorer (när den här artikeln skrevs). Med hjälp av den konservativa uppskattningen av 150 MIPS per vCPU motsvarar M-serien VM cirka 19 000 MIPS. Den allmänna regeln för att uppskatta MIPS för en stordator är 1 000 MIPS per processor. En z14 stordator kan ha upp till 24 processorer och ge ca 24.000 MIPS för en enda stordator system.
+Virtuella datorer i M-serien kan skala upp till 128 virtuella processorer (vid den tidpunkt då den här artikeln skrevs). Med den restriktiva uppskattningen på 150 MIPS per vCPU, motsvarar den virtuella datorn i M-serien till cirka 19 000 MIPS. Den allmänna regeln för att uppskatta MIPS för en stordator är 1 000 MIPS per processor. En Z14-stordator kan ha upp till 24 processorer och tillhandahålla cirka 24 000 MIPS för ett enda stordator system.
 
-Den största enskilda z14 stordatorn har cirka 5 000 MIPS mer än den största virtuella datorn som är tillgänglig i Azure. Ändå är det viktigt att jämföra hur arbetsbelastningar distribueras. Om ett stordatorsystem har både ett program och en relationsdatabas distribueras de vanligtvis på samma fysiska stordator – var och en i sin egen LPAR. Samma lösning på Azure distribueras ofta med en virtuell dator för programmet och en separat, lämplig storlek VIRTUELL för databasen.
+Den största enkla Z14-stordatoren har ungefär 5 000 MIPS mer än den största virtuella datorn som är tillgänglig i Azure. Det är ännu viktigt att du jämför hur arbets belastningarna distribueras. Om ett stordator system har både ett program och en Relations databas, distribueras de vanligt vis på samma fysiska stordator – var och en i sin egen LPAR. Samma lösning på Azure distribueras ofta med en virtuell dator för programmet och en separat, lämplig storlek för den virtuella datorn för databasen.
 
-Om till exempel ett M64 vCPU-system stöder programmet och en M96-vCPU används för databasen, behövs ungefär 150 vCPU:er – eller cirka 24 000 MIPS som följande bild visar.
+Om t. ex. ett M64 vCPU-system har stöd för programmet och en M96-vCPU används för databasen, krävs ungefär 150 virtuella processorer – eller cirka 24 000 MIPS som följande bild visas.
 
-![Jämföra arbetsbelastningsdistributioner av 24 000 MIPS](media/mainframe-compute-mips.png)
+![Jämför arbets belastnings distributioner på 24 000 MIPS](media/mainframe-compute-mips.png)
 
-Metoden är att migrera LPARs till enskilda virtuella datorer. Sedan skalas Azure enkelt upp till den storlek som behövs för de flesta program som distribueras på ett enda stordatorsystem.
+Metoden är att migrera LPARs till enskilda virtuella datorer. Sedan skalar Azure enkelt upp till den storlek som krävs för de flesta program som distribueras i ett enda stordator system.
 
-## <a name="azure-compute-scale-out"></a>Azure-beräkningsskalning
+## <a name="azure-compute-scale-out"></a>Azure Compute-utskalning
 
-En av fördelarna med en Azure-baserad lösning är möjligheten att skala ut. Skalning gör nästan obegränsad beräkningskapacitet tillgänglig för ett program. Azure stöder flera metoder för att skala ut beräkningskraft:
+En av fördelarna med en Azure-baserad lösning är möjligheten att skala ut. Skalning gör nästan obegränsad beräknings kapacitet tillgänglig för ett program. Azure stöder flera metoder för att skala ut beräknings kraften:
 
-- **Belastningsutjämning över ett kluster.** I det här fallet kan ett program använda en [belastningsutjämnare](/azure/load-balancer/load-balancer-overview) eller resurshanterare för att sprida ut arbetsbelastningen mellan flera virtuella datorer i ett kluster. Om mer beräkningskapacitet behövs läggs ytterligare virtuella datorer till i klustret.
+- **Belastnings utjämning i ett kluster.** I det här scenariot kan ett program använda en [belastningsutjämnare](/azure/load-balancer/load-balancer-overview) eller Resource Manager för att sprida arbets belastningen mellan flera virtuella datorer i ett kluster. Om du behöver mer beräknings kapacitet läggs ytterligare virtuella datorer till i klustret.
 
-- **Skala uppsättningar för virtuella datorer.** I det här burst-scenariot kan ett program skalas till ytterligare [beräkningsresurser](/azure/virtual-machine-scale-sets/overview) baserat på vm-användning. När efterfrågan sjunker kan antalet virtuella datorer i en skalningsuppsättning också minska, vilket säkerställer en effektiv användning av beräkningskraft.
+- **Skalnings uppsättningar för virtuella datorer.** I det här burst-scenariot kan ett program skalas till ytterligare [beräknings resurser](/azure/virtual-machine-scale-sets/overview) baserat på användningen av virtuella datorer. När efter frågan finns kan antalet virtuella datorer i en skalnings uppsättning också gå nedåt, vilket garanterar en effektiv användning av data bearbetnings kraften.
 
-- **PaaS skalning.** Azure PaaS erbjuder skalningsberäkningsresurser. [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) allokerar till exempel beräkningsresurser för att möta ökningar av mängden begäranden.
+- **PaaS-skalning.** Azure PaaS-erbjudanden skalar beräknings resurser. [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) allokerar till exempel beräknings resurser för att möta ökningen av antalet begär Anden.
 
-- **Kubernetes kluster.** Program på Azure kan använda [Kubernetes-kluster](/azure/aks/concepts-clusters-workloads) för beräkningstjänster för angivna resurser. Azure Kubernetes Service (AKS) är en hanterad tjänst som dirigerar Kubernetes-noder, pooler och kluster på Azure.
+- **Kubernetes-kluster.** Program på Azure kan använda [Kubernetes-kluster](/azure/aks/concepts-clusters-workloads) för beräknings tjänster för angivna resurser. Azure Kubernetes service (AKS) är en hanterad tjänst som dirigerar Kubernetes noder, pooler och kluster i Azure.
 
-För att välja rätt metod för att skala ut beräkningsresurser är det viktigt att förstå hur Azure och stordatorer skiljer sig åt. Nyckeln är hur eller om data delas av beräkningsresurser. I Azure delas data (som standard) vanligtvis inte av flera virtuella datorer. Om datadelning krävs av flera virtuella datorer i ett utskalningsberäkningskluster måste delade data finnas i en resurs som stöder den här funktionen. På Azure innebär datadelning lagring som följande avsnitt diskuterar.
+Om du vill välja rätt metod för att skala ut beräknings resurser är det viktigt att förstå hur Azure och stordatorer skiljer sig. Nyckeln är hur – eller om – data delas av beräknings resurser. I Azure delas data (som standard) vanligt vis inte av flera virtuella datorer. Om data delning krävs av flera virtuella datorer i ett skalbart beräknings kluster, måste delade data finnas i en resurs som har stöd för den här funktionen. På Azure omfattar data delningen lagrings utrymme som beskrivs i följande avsnitt.
 
-## <a name="azure-compute-optimization"></a>Azure-beräkningsoptimering
+## <a name="azure-compute-optimization"></a>Optimering av Azure-beräkning
 
-Du kan optimera varje nivå av bearbetning i en Azure-arkitektur. Använd den lämpligaste typen av virtuella datorer och funktioner för varje miljö. Följande bild visar ett potentiellt mönster för distribution av virtuella datorer i Azure för att stödja ett CICS-program som använder Db2. På den primära platsen distribueras virtuella datorer för produktion, förproduktion och testning med hög tillgänglighet. Den sekundära platsen är för säkerhetskopiering och haveriberedskap.
+Du kan optimera varje nivå av bearbetning i en Azure-arkitektur. Använd den lämpligaste typen av virtuella datorer och funktioner för varje miljö. Följande bild visar ett möjligt mönster för att distribuera virtuella datorer i Azure för att stödja ett CICS-program som använder DB2. På den primära platsen distribueras produktion, för produktion och testning av virtuella datorer med hög tillgänglighet. Den sekundära platsen är för säkerhets kopiering och haveri beredskap.
 
-Varje nivå kan också tillhandahålla lämpliga tjänster för haveriberedskap. Till exempel kan produktions- och databas-virtuella datorer kräva en varm eller varm återställning, medan utvecklings- och testnings virtuella datorer stöder en kall återställning.
+Varje nivå kan också tillhandahålla lämplig katastrof återställnings tjänst. Till exempel kan virtuella datorer och databaser kräva en frekvent eller varm återställning, medan de virtuella datorerna i utvecklings-och testnings miljön stöder en kall återställning.
 
-![Högtillgänge med distribution som stöder haveriberedskap](media/mainframe-compute-dr.png)
+![Distribution med hög tillgänglighet som stöder haveri beredskap](media/mainframe-compute-dr.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Stordatorsåterhosting på virtuella Azure-datorer](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Flytta stordatorlagring till Azure](mainframe-storage-Azure.md)
+- [Revärdering av stordatorer på Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Flytta stordator lagring till Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>IBM-resurser
 
-- [Parallell Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS och kopplingsmöjligheten: Bortom grunderna](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Skapa nödvändiga användare för en Db2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt - Skapa förekomst, kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale klustrade databaslösning](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Parallella Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
+- [IBM-CICS och kopplings funktionen: utöver grunderna](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [Skapa nödvändiga användare för en funktion installation av DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt – skapa instans kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [DB2 pureScale-klustrad databas lösning](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
 
-- [Microsoft Azure Government-molnet för stordatorprogram](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
+- [Microsoft Azure Government moln för stordator program](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 - [Microsoft och FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
-### <a name="more-migration-resources"></a>Fler migreringsresurser
+### <a name="more-migration-resources"></a>Fler migrerings resurser
 
-- [Azure Virtual Data Center Lyft och Skift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Guide för att lyfta och flytta Azure Virtual Data Center](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

@@ -1,32 +1,32 @@
 ---
-title: Avere vFXT lösning utan ägare - Azure
-description: Lösning för att tillåta användare utan prenumerationsägare behörighet att distribuera Avere vFXT för Azure
+title: Aver vFXT-lösning för icke-ägare – Azure
+description: Lösning för att tillåta användare utan prenumerations ägare behörighet att distribuera AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76153283"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Auktorisera icke-ägare för att distribuera Avere vFXT
 
-Dessa instruktioner är en lösning som gör att en användare utan prenumerationsägare har behörighet att skapa ett Avere vFXT för Azure-system.
+Dessa instruktioner är en lösning som gör att en användare utan prenumerations ägare kan skapa ett AVERT vFXT för Azure-systemet.
 
-(Det rekommenderade sättet att distribuera Avere vFXT-systemet är att låta en användare med ägarbehörighet göra stegen för att skapa, vilket förklaras i [Förbereda för att skapa Avere vFXT](avere-vfxt-prereqs.md).)  
+(Det rekommenderade sättet att distribuera det Avera vFXT systemet är att låta en användare med ägar behörighet utföra stegen som beskrivs i [förbereda för att skapa ett AVERT vFXT](avere-vfxt-prereqs.md).)  
 
-Lösningen innebär att skapa en ytterligare åtkomstroll som ger användarna tillräcklig behörighet för att installera klustret. Rollen måste skapas av en prenumerationsägare och en ägare måste tilldela den till lämpliga användare.
+I lösningen ingår att skapa ytterligare en åtkomst roll som ger användare behörighet att installera klustret. Rollen måste skapas av en prenumerations ägare, och en ägare måste tilldela den till lämpliga användare.
 
-En [prenumerationsägare](avere-vfxt-prereqs.md) måste också godkänna användarvillkoren för avere vFXT marketplace image.
+En prenumerations ägare måste också [acceptera användnings villkoren](avere-vfxt-prereqs.md) för den Avera vFXT Marketplace-avbildningen.
 
 > [!IMPORTANT]
-> Alla dessa steg måste vidtas av en användare med ägarbehörighet för prenumerationen som ska användas för klustret.
+> Alla dessa steg måste utföras av en användare med ägar behörighet för den prenumeration som ska användas för klustret.
 
-1. Kopiera dessa rader och spara dem i `averecreatecluster.json`en fil (till exempel ). Använd ditt prenumerations-ID i utdraget. `AssignableScopes`
+1. Kopiera dessa rader och spara dem i en fil (till exempel `averecreatecluster.json`). Använd ditt prenumerations-ID `AssignableScopes` i instruktionen.
 
    ```json
    {
@@ -72,8 +72,8 @@ En [prenumerationsägare](avere-vfxt-prereqs.md) måste också godkänna använd
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-När du har slutfört den här processen ger rollen alla användare som tilldelats den följande behörigheter för prenumerationen:
+När du har slutfört den här processen ger rollen alla användare följande behörigheter för prenumerationen:
 
-* Skapa och konfigurera nätverksinfrastrukturen
-* Skapa klusterstyrenheten
-* Köra klusterskapande skript från klusterstyrenheten för att skapa klustret
+* Skapa och konfigurera nätverks infrastrukturen
+* Skapa kluster styrenheten
+* Kör skript för att skapa kluster från kluster styrenheten för att skapa klustret

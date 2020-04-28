@@ -1,6 +1,6 @@
 ---
-title: Arbeta med JavaScript-integrerat fråge-API i Azure Cosmos DB-lagrade procedurer och utlösare
-description: Den här artikeln introducerar begreppen för JavaScript språkintegrerat fråge-API för att skapa lagrade procedurer och utlösare i Azure Cosmos DB.
+title: Arbeta med Java Script Integrated Query API i Azure Cosmos DB lagrade procedurer och utlösare
+description: Den här artikeln beskriver begreppen för JavaScript-språk – integrerat fråge-API för att skapa lagrade procedurer och utlösare i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,64 +8,64 @@ ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76901833"
 ---
-# <a name="javascript-query-api-in-azure-cosmos-db"></a>JavaScript-fråge-API i Azure Cosmos DB
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>Java Script-fråge-API i Azure Cosmos DB
 
-Förutom att utfärda frågor med SQL API i Azure Cosmos DB, tillhandahåller [Cosmos DB-serversidan SDK](https://azure.github.io/azure-cosmosdb-js-server/) ett JavaScript-gränssnitt för att utföra optimerade frågor i Cosmos DB-lagrade procedurer och utlösare. Du behöver inte vara medveten om SQL-språket för att kunna använda det här JavaScript-gränssnittet. Med JavaScript-fråge-API:et kan du programmässigt skapa frågor genom att skicka predikatfunktioner till sekvens av funktionsanrop, med en syntax som är bekant för ECMAScript5:s inbyggda matriser och populära JavaScript-bibliotek som Lodash. Frågor tolkas av JavaScript-körningen och körs effektivt med Azure Cosmos DB-index.
+Förutom att skicka frågor med hjälp av SQL-API: et i [Cosmos DB Azure Cosmos DB tillhandahåller SDK: n på Server sidan](https://azure.github.io/azure-cosmosdb-js-server/) ett JavaScript-gränssnitt för att utföra optimerade frågor i Cosmos DB lagrade procedurer och utlösare. Du behöver inte vara medveten om SQL-språket för att kunna använda det här JavaScript-gränssnittet. Med Java Script-API: et kan du skapa frågor genom programmering genom att skicka predikat till sekvenser med funktions anrop, med en syntax som är välbekant för ECMAScript5's-matriser och populära JavaScript-bibliotek som Lodash. Frågor parsas av JavaScript-körningen och körs effektivt med Azure Cosmos DB index.
 
 ## <a name="supported-javascript-functions"></a>JavaScript-funktioner som stöds
 
 | **Funktion** | **Beskrivning** |
 |---------|---------|
-|`chain() ... .value([callback] [, options])`|Startar ett kedjat anrop som måste avslutas med value().|
-|`filter(predicateFunction [, options] [, callback])`|Filtrerar indata med hjälp av en predikatfunktion som returnerar sant/falskt för att filtrera in/ut indatadokument i den resulterande uppsättningen. Den här funktionen liknar en WHERE-sats i SQL.|
-|`flatten([isShallow] [, options] [, callback])`|Kombinerar och plattar matriser från varje indataobjekt till en enda matris. Den här funktionen fungerar som SelectMany i LINQ.|
-|`map(transformationFunction [, options] [, callback])`|Använder en projektion med en omvandlingsfunktion som mappar varje indataobjekt till ett JavaScript-objekt eller -värde. Den här funktionen liknar en SELECT-sats i SQL.|
-|`pluck([propertyName] [, options] [, callback])`|Den här funktionen är en genväg för en karta som extraherar värdet för en enskild egenskap från varje indataobjekt.|
-|`sortBy([predicate] [, options] [, callback])`|Skapar en ny uppsättning dokument genom att sortera dokumenten i indatadokumentflödet i stigande ordning med hjälp av det angivna predikatet. Den här funktionen liknar en ORDER BY-sats i SQL.|
-|`sortByDescending([predicate] [, options] [, callback])`|Skapar en ny uppsättning dokument genom att sortera dokumenten i indatadokumentflödet i fallande ordning med hjälp av det angivna predikatet. Den här funktionen liknar en ORDER BY x DESC-sats i SQL.|
-|`unwind(collectionSelector, [resultSelector], [options], [callback])`|Utför en självkoppling med inre matris och lägger till resultat från båda sidor som tupplar till resultatprojektionen. Till exempel, gå med en person dokument med person.pets skulle producera [person, husdjur] tupplar. Detta liknar SelectMany i .NET LINK.|
+|`chain() ... .value([callback] [, options])`|Startar ett länkat samtal som måste avslutas med Value ().|
+|`filter(predicateFunction [, options] [, callback])`|Filtrerar inmatade objekt med en predikat-funktion som returnerar true/false för att filtrera in/ut indatafiler i den resulterande uppsättningen. Den här funktionen fungerar ungefär som en WHERE-sats i SQL.|
+|`flatten([isShallow] [, options] [, callback])`|Kombinerar och fören klar matriser från varje inobjekt till en enda matris. Den här funktionen fungerar ungefär som SelectMany i LINQ.|
+|`map(transformationFunction [, options] [, callback])`|Använder en projektion med en Transformations funktion som mappar varje inobjekt till ett JavaScript-objekt eller-värde. Den här funktionen fungerar ungefär som en SELECT-sats i SQL.|
+|`pluck([propertyName] [, options] [, callback])`|Den här funktionen är en genväg till en karta som extraherar värdet för en enskild egenskap från varje inobjekt.|
+|`sortBy([predicate] [, options] [, callback])`|Skapar en ny uppsättning dokument genom att sortera dokumenten i indata-dataströmmen i stigande ordning genom att använda det angivna predikatet. Den här funktionen fungerar likadant som en ORDER BY-sats i SQL.|
+|`sortByDescending([predicate] [, options] [, callback])`|Skapar en ny uppsättning dokument genom att sortera dokumenten i indata-dataströmmen i fallande ordning med det angivna predikatet. Den här funktionen fungerar ungefär som en ORDER BY x DESC-sats i SQL.|
+|`unwind(collectionSelector, [resultSelector], [options], [callback])`|Utför en själv koppling med en inre matris och lägger till resultat från båda sidor som tupler till resultat projektionen. Till exempel kan du ansluta till ett person dokument med person. hus djur skulle producera [person, PET]-tupler. Detta liknar SelectMany i .NET-länken.|
 
-När de ingår i predikat- och/eller väljarfunktionerna optimeras följande JavaScript-konstruktioner automatiskt för att köras direkt på Azure Cosmos DB-index:
+När de ingår i predikat och/eller Selector-funktioner, optimeras följande JavaScript-skript automatiskt för att köras direkt på Azure Cosmos DB index:
 
-- `=` `+` `-` `*` `/` Enkla operatörer: `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
-- Litteraler, inklusive objektet litteral:{}
+- Enkla operatorer `=` `+` `-` `*` `/` : `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
+- Litteraler, inklusive objektets litteraler:{}
 - var, retur
 
-Följande JavaScript-konstruktioner optimeras inte för Azure Cosmos DB-index:
+Följande JavaScript-konstruktioner blir inte optimerade för Azure Cosmos DB index:
 
-- Kontrollflöde (till exempel om, för, medan)
-- Funktionsanrop
+- Kontroll flöde (till exempel, om, till exempel)
+- Funktions anrop
 
-Mer information finns i [JavaScript-dokumentationen](https://azure.github.io/azure-cosmosdb-js-server/)för Cosmos DB Server Side .
+Mer information finns på sidan om [Cosmos DB på Server sidans JavaScript-dokumentation](https://azure.github.io/azure-cosmosdb-js-server/).
 
-## <a name="sql-to-javascript-cheat-sheet"></a>SQL till JavaScript lathund
+## <a name="sql-to-javascript-cheat-sheet"></a>SQL till JavaScript lathund-blad
 
-I följande tabell visas olika SQL-frågor och motsvarande JavaScript-frågor. Precis som med SQL-frågor är egenskaper (till exempel item.id) skiftlägeskänsliga.
+I följande tabell presenteras olika SQL-frågor och motsvarande JavaScript-frågor. Som med SQL-frågor är egenskaper (till exempel item.id) Skift läges känsliga.
 
 > [!NOTE]
 > `__` (dubbelunderstreck) är ett alias till `getContext().getCollection()` när du använder frågan JavaScript API.
 
-|**SQL**|**JavaScript-fråge-API**|**Beskrivning**|
+|**SQL**|**Java Script-fråge-API**|**Beskrivning**|
 |---|---|---|
-|VÄLJ *<br>FRÅN dokument| __.map(funktion(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;returdokument;<br>});|Resulterar i alla dokument (sidnumrerade med fortsättningstoken) som det är.|
-|VÄLJ <br>&nbsp;&nbsp;&nbsp;docs.id.<br>&nbsp;&nbsp;&nbsp;docs.message AS msg,<br>&nbsp;&nbsp;&nbsp;docs.åtgärder <br>FRÅN dokument|__.map(funktion(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;åtgärder:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|Projekt id, meddelande (aliased till msg) och åtgärd från alla dokument.|
-|VÄLJ *<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(funktion(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id ==="X998_Y998";<br>});|Frågor om dokument med predikat: id = "X998_Y998".|
-|VÄLJ *<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS(dokument. Taggar, 123)|__.filter(funktion(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera x.Tags && x.Tags.indexOf(123) > -1;<br>});|Frågor om dokument som har egenskapen Tags och Taggar är en matris som innehåller värdet 123.|
-|VÄLJ<br>&nbsp;&nbsp;&nbsp;docs.id.<br>&nbsp;&nbsp;&nbsp;docs.message AS msg<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(funktion(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|Frågor om dokument med predikat, id = "X998_Y998", och sedan projekt id och meddelande (aliased till msg).|
-|VÄLJ VÄRDETAGG<br>FRÅN dokument<br>JOIN tagg i dokument. Taggar<br>BESTÄLLNING AV docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(funktion(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returdokument. Taggar && Array.isArray(doc. Taggar);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(funktion(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Taggar")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.värde()|Filter för dokument som har egenskapen array, Taggar och sorterar de resulterande dokumenten efter egenskapen _ts tidsstämpelsystem och sedan projekt + plattar till matrisen Taggar.|
+|Select<br>FRÅN dokument| _ _. map (funktion (doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument;<br>});|Resulterar i alla dokument (med fortsättnings-token) som är.|
+|VÄLJ <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;dok. Message som MSG,<br>&nbsp;&nbsp;&nbsp;dokument. åtgärder <br>FRÅN dokument|_ _. map (funktion (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returrelaterade<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc. Message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;åtgärder: doc. Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|Projekterar ID, meddelande (alias till MSG) och åtgärd från alla dokument.|
+|Select<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;dok. ID = "X998_Y998"|_ _ filter (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id = = = "X998_Y998";<br>});|Frågor för dokument med predikatet: ID = "X998_Y998".|
+|Select<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS (dokument. Taggar, 123)|_ _. filter (Function (x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;returnera x. Taggar && x. Tags. indexOf (123) >-1;<br>});|Frågor för dokument med egenskapen Taggar och taggar är en matris som innehåller värdet 123.|
+|VÄLJ<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;dok. Message som MSG<br>FRÅN dokument<br>WHERE<br>&nbsp;&nbsp;&nbsp;dok. ID = "X998_Y998"|_ _. Chain ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. filter (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera doc.id = = = "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. map (funktion (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returrelaterade<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc. Message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>. Value ();|Frågor om dokument med ett predikat, ID = "X998_Y998" och projekterar sedan ID och meddelande (alias till MSG).|
+|Välj värde tagg<br>FRÅN dokument<br>KOPPLA tagg i dokument. Taggen<br>Sortera efter dokument. _ts|_ _. Chain ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. filter (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. Taggar && array. isArray (doc. Taggar);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. sortBy (Function (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnera dokument. _ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. plocka ("Taggar")<br>&nbsp;&nbsp;&nbsp;&nbsp;. förenkla ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Value ()|Filter för dokument som har en mat ris egenskap, taggar och sorterar de resulterande dokumenten med system egenskapen _ts timestamp, och sedan lägger Project + samman taggarna array.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig fler begrepp och hur du skriver och använder lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB:
+Lär dig mer om begrepp och hur du skriver och använder lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB:
 
-- [Så här skriver du lagrade procedurer och utlösare med Javascript Query API](how-to-write-javascript-query-api.md)
-- [Arbeta med Azure Cosmos DB-lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md)
-- [Så här använder du lagrade procedurer, utlösare, användardefinierade funktioner i Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
-- [Api-referens på Azure Cosmos DB JavaScript-serversidan](https://azure.github.io/azure-cosmosdb-js-server)
-- [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
+- [Skriva lagrade procedurer och utlösare med Java Script-fråga-API](how-to-write-javascript-query-api.md)
+- [Arbeta med Azure Cosmos DB lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md)
+- [Använda lagrade procedurer, utlösare, användardefinierade funktioner i Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
+- [API-referens för Azure Cosmos DB JavaScript-Server Sidan](https://azure.github.io/azure-cosmosdb-js-server)
+- [JavaScript-ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)

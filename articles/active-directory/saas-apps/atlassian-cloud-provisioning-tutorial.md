@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera Atlassian Cloud för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till Atlassian Cloud.
+title: 'Självstudie: Konfigurera Atlassian Cloud för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Atlassian-molnet.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -15,163 +15,163 @@ ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ddccef00cf1b5ad524c0e1eaa7aed52c0e55197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77059376"
 ---
-# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Atlassian Cloud för automatisk etablering av användare
+# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Atlassian Cloud för automatisk användar etablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i Atlassian Cloud och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare och/eller grupper till Atlassian Cloud.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i Atlassian-molnet och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Atlassian-molnet.
 
 > [!NOTE]
-> Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klient
 * [En Atlassian Cloud-klient](https://www.atlassian.com/licensing/cloud)
-* Ett användarkonto i Atlassian Cloud med administratörsbehörighet.
+* Ett användar konto i Atlassian-moln med administratörs behörighet.
 
 > [!NOTE]
-> Azure AD-etableringsintegreringen är beroende av **Atlassian Cloud SCIM API**, som är tillgängligt för Atlassian Cloud-team.
+> Azure AD Provisioning-integreringen är beroende av **Atlassian Cloud scim-API: et**, som är tillgängligt för Atlassian moln team.
 
-## <a name="add-atlassian-cloud-from-the-gallery"></a>Lägg till Atlassian Cloud från galleriet
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Lägg till Atlassian-moln från galleriet
 
-Innan du konfigurerar Atlassian Cloud för automatisk användaretablering med Azure AD måste du lägga till Atlassian Cloud från Azure AD-programgalleriet i din lista över hanterade SaaS-program.
+Innan du konfigurerar Atlassian Cloud för automatisk användar etablering med Azure AD måste du lägga till Atlassian-molnet från Azure AD-programgalleriet till listan över hanterade SaaS-program.
 
-**Så här lägger du till Atlassian Cloud från Azure AD-programgalleriet:**
+**Utför följande steg för att lägga till Atlassian-moln från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Enterprise-program**och välj sedan **Alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Atlassian Cloud**, väljer **Atlassian Cloud** på resultatpanelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Atlassian Cloud**, väljer **Atlassian Cloud** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Atlassian Cloud i resultatlistan](common/search-new-app.png)
 
-## <a name="assigning-users-to-atlassian-cloud"></a>Tilldela användare till Atlassian Cloud
+## <a name="assigning-users-to-atlassian-cloud"></a>Tilldela användare till Atlassian-molnet
 
-Azure Active Directory använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Atlassian Cloud. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Atlassian Cloud genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Atlassian-molnet. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Atlassian-molnet genom att följa anvisningarna här:
 
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-atlassian-cloud"></a>Viktiga tips för att tilldela användare till Atlassian Cloud
+### <a name="important-tips-for-assigning-users-to-atlassian-cloud"></a>Viktiga tips för att tilldela användare till Atlassian-molnet
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas Atlassian Cloud för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas Atlassian-molnet för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till Atlassian Cloud måste du välja en giltig programspecifik roll (om tillgänglig) i tilldelningsdialogrutan. Användare med rollen **Standardåtkomst** är undantagna från etablering.
+* När du tilldelar en användare till Atlassian-molnet måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-atlassian-cloud"></a>Konfigurera automatisk användaretablering till Atlassian Cloud 
+## <a name="configuring-automatic-user-provisioning-to-atlassian-cloud"></a>Konfigurera automatisk användar etablering till Atlassian-molnet 
 
-Det här avsnittet hjälper dig att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Atlassian Cloud baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Atlassian-molnet baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Atlassian Cloud, enligt instruktionerna i [atlassianska molnets enstaka inloggningshandledning](atlassian-cloud-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Atlassian-molnet genom att följa anvisningarna i [självstudien om Atlassian Cloud Single Sign-on](atlassian-cloud-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för Atlassian Cloud i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Konfigurera automatisk användar etablering för Atlassian Cloud i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Enterprise Applications**, välj **Alla program**och välj sedan **Atlassian Cloud**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program**, Välj **alla program**och välj sedan **Atlassian Cloud**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Atlassian Cloud**i programlistan .
+2. I listan program väljer du **Atlassian Cloud**.
 
     ![Atlassian Cloud-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
 
-5. Navigera till [Atlassian Organization Manager](https://admin.atlassian.com) **> väljer den > katalogen för >**.
+5. Navigera till [Atlassian Organization Manager](https://admin.atlassian.com) **> Välj org >-katalogen**.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 
-6. Klicka på **Etablera användare** och klicka på Skapa **en katalog**. Kopiera **url:en för katalogbas** och **innehavartoken** till fälten **Klient-URL** och **Hemlig token.**
+6. Klicka på **användar etablering** och klicka på **skapa en katalog**. Kopiera **URL: en för katalog basen** och **Bearer-token** till **klient-URL:** en och fältet för **hemliga token** .
 
-    ![Atlassian CloudTablering Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![CloudTablering Atlassian Cloud Provisioning Atlassian Cloud Provisioning Atlassian Cloud Provisioning Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian Cloud Provisioning Atlassian Cloud Provisioning Atlassian Cloud Provisioning Atlass](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+    ![Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Cloud etableringen Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![Provisioning Atlassian Cloud etablering](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
-7. Under avsnittet **Administratörsautentiseringsuppgifter** anger du **klientadressen** och **den hemliga token för** Atlassian-molnets konto. Exempel på dessa värden är:
+7. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt Atlassian-molns konto. Exempel på dessa värden är:
 
-   * I fältet **Klient-URL** fyller du den specifika klientslutpunkten som du får från Atlassian, enligt beskrivningen i steg 6. Till exempel: `https://api.atlassian.com/scim/directory/{directoryId}`.
+   * I fältet **klient-URL** fyller du i den angivna klient slut punkten som du tar emot från Atlassian, enligt beskrivningen i steg 6. Till exempel: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
-   * Fyll i den hemliga token som beskrivs i steg 6 i fältet **Hemlig token.**
+   * I fältet **hemlig token** fyller du i den hemliga token enligt beskrivningen i steg 6.
 
-8. När du fyller i fälten som visas i steg 7 klickar du på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till Atlassian Cloud. Om anslutningen misslyckas kontrollerar du att ditt Atlassian Cloud-konto har administratörsbehörighet och försöker igen.
+8. När du fyller i fälten som visas i steg 7 klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Atlassian-molnet. Om anslutningen Miss lyckas kontrollerar du att ditt Atlassian Cloud-konto har administratörs behörighet och försöker igen.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 
-9. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan - **Skicka ett e-postmeddelande när ett fel inträffar**.
+9. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/notification.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
 10. Klicka på **Spara**.
 
-11. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till Atlassian Cloud**.
+11. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Atlassian-molnet**.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
-12. Granska användarattributen som synkroniseras från Azure AD till Atlassian Cloud i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Atlassian Cloud för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+12. Granska de användarattribut som synkroniseras från Azure AD till Atlassian-molnet i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Atlassian-molnet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
-13. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-grupper mot Atlassian Cloud**.
+13. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Atlassian-molnet**.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
-14. Granska gruppattributen som synkroniseras från Azure AD till Atlassian Cloud i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha grupperna i Atlassian Cloud för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+14. Granska gruppattributen som synkroniseras från Azure AD till Atlassian-molnet i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha grupperna i Atlassian-molnet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
-15. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+15. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-16. Om du vill aktivera Azure AD-etableringstjänsten för Atlassian Cloud ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+16. Om du vill aktivera Azure AD Provisioning-tjänsten för Atlassian-molnet ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
 
-17. Definiera de användare och/eller grupper som du vill etablera till Atlassian Cloud genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+17. Definiera de användare och/eller grupper som du vill etablera till Atlassian Cloud genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
 
 18. När du är redo att etablera klickar du på **Spara**.
 
-    ![Atlassian Cloud Etablering](./media/atlassian-cloud-provisioning-tutorial/save.png)
+    ![Atlassian Cloud-etablering](./media/atlassian-cloud-provisioning-tutorial/save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på Atlassian Cloud.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Atlassian-molnet.
 
-Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Begränsningar för anslutning
+## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* Atlassian Cloud tillåter etablering av användare endast från [verifierade domäner](https://confluence.atlassian.com/cloud/organization-administration-938859734.html).
-* Atlassian Cloud stöder inte gruppbyten idag. Det innebär att alla ändringar i visningsnamnet för en grupp i Azure AD inte kommer att uppdateras och återspeglas i Atlassian Cloud.
-* Värdet för **attributet e-postanvändare** i Azure AD fylls bara i om användaren har en Microsoft Exchange-postlåda. Om användaren inte har ett, rekommenderas att mappa ett annat önskat attribut till **attributet e-post** i Atlassian Cloud.
+* Atlassian-molnet tillåter endast etablering av användare från [verifierade domäner](https://confluence.atlassian.com/cloud/organization-administration-938859734.html).
+* Atlassian-molnet har inte stöd för grupp namn idag. Det innebär att alla ändringar av displayName för en grupp i Azure AD inte kommer att uppdateras och avspeglas i Atlassian-molnet.
+* Värdet för attributet **e-** postanvändare i Azure AD är bara ifyllt om användaren har en Microsoft Exchange-postlåda. Om användaren inte har en, rekommenderar vi att du mappar ett annat önskat attribut till attributet **e-post** i Atlassian-molnet.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png

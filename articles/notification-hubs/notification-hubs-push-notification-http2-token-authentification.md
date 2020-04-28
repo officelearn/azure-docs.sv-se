@@ -1,6 +1,6 @@
 ---
-title: Tokenbaserad (HTTP/2) autentisering för APNS i Azure Notification Hubs | Microsoft-dokument
-description: Lär dig hur du använder den nya tokenautentiseringen för APNS.
+title: Token-baserad (HTTP/2) autentisering för APN i Azure Notification Hubs | Microsoft Docs
+description: Lär dig hur du använder den nya token-autentiseringen för APN.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,72 +16,72 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263820"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>Tokenbaserad (HTTP/2) autentisering för APNS
+# <a name="token-based-http2-authentication-for-apns"></a>Token-baserad (HTTP/2) autentisering för APN
 
 ## <a name="overview"></a>Översikt
 
-I den här artikeln beskrivs hur du använder det nya APNS HTTP/2-protokollet med tokenbaserad autentisering.
+Den här artikeln förklarar hur du använder det nya APN HTTP/2-protokollet med tokenbaserad autentisering.
 
-De viktigaste fördelarna med att använda det nya protokollet är:
+De främsta fördelarna med att använda det nya protokollet är:
 
-* Tokengenerering är relativt enkel (jämfört med certifikat)
-* Inga fler utgångsdatum – du har kontroll över dina autentiseringstoken och återkallande av dem
-* Nyttolaster kan nu vara upp till 4 KB
+* Generering av token är relativt enkelt (jämfört med certifikat)
+* Inga fler förfallo datum – du får kontroll över dina autentiseringstoken och deras åter kallelse
+* Nytto laster kan nu vara upp till 4 KB
 * Synkron feedback
 * Du är på Apples senaste protokoll – certifikat använder fortfarande det binära protokollet, som är markerat för utfasning
 
-Med hjälp av denna nya mekanism kan utföras i två steg:
+Du kan använda den här nya mekanismen i två steg:
 
-* Hämta nödvändig information från Apples utvecklarkontoportal.
-* Konfigurera meddelandehubben med den nya informationen.
+* Hämta nödvändig information från Apple Developer Account-portalen.
+* Konfigurera din Notification Hub med den nya informationen.
 
-Meddelandehubbar är nu inställda på att använda det nya autentiseringssystemet med APNS.
+Notification Hubs har nu ställts in för att använda det nya autentiseringsschemat med APN.
 
-Observera att om du migrerade från att använda certifikatuppgifter för APNS, överskrivningar tokenegenskaperna ditt certifikat i vårt system, men ditt program fortsätter att ta emot meddelanden sömlöst.
+Observera att om du har migrerat från att använda autentiseringsuppgifter för APN, skriver token-egenskaperna över ditt certifikat i vårt system, men programmet fortsätter att ta emot meddelanden sömlöst.
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Hämta autentiseringsinformation från Apple
 
 Om du vill aktivera tokenbaserad autentisering behöver du följande egenskaper från ditt Apple Developer-konto:
 
-### <a name="key-identifier"></a>Nyckelidentifierare
+### <a name="key-identifier"></a>Nyckel identifierare
 
-Nyckelidentifieraren kan erhållas från sidan **Nycklar** under **Certifikat, identifierare & profiler**i ditt Apple Developer-konto:
+Nyckel identifieraren kan hämtas från sidan **nycklar** under **certifikat, identifierare & profiler**, i ditt Apple Developer-konto:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
-### <a name="application-identifier-and-application-name"></a>Programidentifierare och programnamn
+### <a name="application-identifier-and-application-name"></a>Program-ID och program namn
 
-Programnamnet och identifieraren är också tillgängliga på sidan **Certifikat, identifierare & profiler** i utvecklarkontot:
+Program namnet och identifieraren är också tillgängliga på sidan **certifikat, identifierare & profiler** i Developer-kontot:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Konfigurera via .NET SDK eller Azure-portalen
+### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Konfigurera via .NET SDK eller Azure Portal
 
-Du kan konfigurera hubben så att den använder tokenbaserad autentisering med hjälp av vår [senaste klient SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)eller i Azure-portalen. Om du vill aktivera tokenbaserad autentisering i portalen loggar du in på Azure-portalen och går till panelen Inställningar för > **Apple (APNS).** Välj **Token** från egenskapen **Autentiseringsläge** för att uppdatera hubben med alla relevanta tokenegenskaper.
+Du kan konfigurera hubben att använda tokenbaserad autentisering med hjälp av vår [senaste klient-SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)eller i Azure Portal. Om du vill aktivera tokenbaserad autentisering i portalen loggar du in på Azure Portal och går till **inställningarna > Apple (APNs)** på Notification Hub. Välj **token** från egenskapen **autentiseringsläge** för att uppdatera navet med alla relevanta token-egenskaper.
 
 ![Konfigurera token](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
-* Ange de egenskaper som du har hämtat från ditt Apple Developer-konto.
-* Välj programläge (**Produktion** eller **Sandbox**).
-* Klicka på **knappen Spara** om du vill uppdatera APNS-autentiseringsuppgifterna.
+* Ange de egenskaper du hämtade från ditt Apple Developer-konto.
+* Välj program läge (**produktion** eller **sandbox**).
+* Klicka på knappen **Spara** för att uppdatera dina APN-autentiseringsuppgifter.
 
-Tokenbaserade autentiseringsuppgifter består av följande fält:
+Token-baserade autentiseringsuppgifter består av följande fält:
 
-* **Nyckel-ID:** Identifierare för den privata nyckel som genereras i Apples utvecklarportal; till exempel `2USFGKSKLT`.
-* **Team-ID:** Kallas även "Prefix" eller "Appprefix". Detta är identifieraren för organisationen i Apples utvecklarportal. till exempel `S4V3D7CHJR`.
-* **Bunt-ID:** Kallas även "App-ID". Detta är buntidentifieraren för programmet. till exempel `com.microsoft.nhubsample2019`. Observera att du kan använda en nyckel för många appar. Det här värdet `apns-topic` mappas till HTTP-huvudet när du skickar ett meddelande och används för att rikta det specifika programmet.
-* **Token**: Kallas även "Nyckel" eller "Privat nyckel". Detta erhålls från .p8-filen som genereras på Apples utvecklarportal. Nyckeln måste ha APNS aktiverat (som väljs på Apple Developer-portalen när du genererar nyckeln). Värdet måste ha PEM-sidhuvudet/sidfoten borttagen från det när du anger det till NH Portal/API.
-* **Slutpunkt:** Det här är en växlingsknapp i portalbladet Notification Hubs och ett strängfält i API:et. Giltiga värden `https://api.push.apple.com` `https://api.sandbox.push.apple.com`är eller . Meddelandehubbar använder det här värdet för antingen produktions- eller sandlådemiljön för att skicka meddelanden. Detta måste `aps-environment` matcha berättigandet i appen, annars matchar inte APNS-enhetstoken som genereras miljön och meddelandena kan inte skickas.
+* **Nyckel-ID**: identifierare för den privata nyckel som genereras i Apple Developer-portalen. till exempel `2USFGKSKLT`.
+* **Team-ID**: kallas även prefix eller app-prefix. Detta är identifieraren för organisationen i Apple Developer-portalen. till exempel `S4V3D7CHJR`.
+* **Paket-ID**: kallas även "app-ID". Detta är paket-ID: t för programmet. till exempel `com.microsoft.nhubsample2019`. Observera att du kan använda en nyckel för många appar. Det här värdet mappar till `apns-topic` HTTP-huvudet när ett meddelande skickas, och används för att rikta in sig på det specifika programmet.
+* **Token**: kallas även för nyckeln Key eller Private. Detta hämtas från. P8-filen som genereras på Apple Developer-portalen. Nyckeln måste ha APN aktiverat (som väljs på Apple Developer-portalen när nyckeln skapas). Värdet måste ha PEM huvud/sidfot från den när du anger det till NH-portalen/API: et.
+* **Slut punkt**: det här är en växling på bladet Notification Hubs Portal och ett sträng fält i API: et. Giltiga värden är `https://api.push.apple.com` eller `https://api.sandbox.push.apple.com`. Notification Hubs använder det här värdet för antingen produktions-eller sandbox-miljön för att skicka meddelanden. Detta måste matcha `aps-environment` rättigheten i appen, annars genereras inte APN-enhetens tokens, och de kan inte skickas.
 
-Här är ett kodexempel som illustrerar rätt användning:
+Här är ett kod exempel som illustrerar rätt användning:
 
 ```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
@@ -98,4 +98,4 @@ nm.UpdateNotificationHubAsync(desc);
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa en Azure-meddelandehubb i Azure-portalen](create-notification-hub-portal.md)
-* [Konfigurera en meddelandehubb i Azure-portalen](create-notification-hub-portal.md)
+* [Konfigurera en Notification Hub i Azure Portal](create-notification-hub-portal.md)

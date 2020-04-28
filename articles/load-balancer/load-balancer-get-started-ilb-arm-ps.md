@@ -1,5 +1,5 @@
 ---
-title: Skapa en intern Azure-belastningsutjämning med PowerShell
+title: Skapa en intern Azure-Load Balancer med hjälp av PowerShell
 titleSuffix: Azure Load Balancer
 description: Ta reda på hur du skapar en intern lastbalanserare med hjälp av Azure PowerShell-modulen i Azure Resource Manager
 services: load-balancer
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045484"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Skapa en intern lastbalanserare med hjälp av Azure PowerShell-modulen
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [Powershell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
@@ -48,7 +48,7 @@ Om du vill kunna distribuera en lastbalanserare måste du först skapa följande
 * Avsökningskonfiguration: Avsökningar som kontrollerar hälsotillståndet för virtuella datorer.
 * Regler för ingående NAT: Portregler för direkt åtkomst till virtuella datorer.
 
-Mer information om belastningsutjämnarekomponenter finns i [Azure Load Balancer-komponenter](concepts-limitations.md#load-balancer-components).
+Mer information om komponenter för belastnings utjämning finns i [Azure Load Balancer-komponenter](concepts-limitations.md#load-balancer-components).
 
 Följande steg beskriver hur du konfigurerar en lastbalanserare mellan två virtuella datorer.
 
@@ -251,7 +251,7 @@ När den virtuella datorn har skapats kan du lägga till nätverksgränssnittet.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Steg 1: Lagra lastbalanseringsresursen
 
-Lagra lastbalanseringsresursen i en variabel (om du inte har gjort det redan). Vi använder variabelnamnet **$lb.** För attributvärdena i skriptet använder du namnen på belastningsutjämnarens resurser som skapades i föregående steg.
+Lagra lastbalanseringsresursen i en variabel (om du inte har gjort det redan). Vi använder variabel namnet **$lb**. För attributvärden i skriptet använder du namnen på de belastnings Utjämnings resurser som skapades i föregående steg.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

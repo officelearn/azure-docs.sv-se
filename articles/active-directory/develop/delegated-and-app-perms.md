@@ -1,6 +1,6 @@
 ---
-title: Skillnader mellan delegerade behörigheter och appbehörigheter | Azure
-description: Lär dig mer om delegerade och programbehörigheter, hur de används av klienter och exponeras av resurser för program som du utvecklar med Azure AD
+title: Skillnader mellan delegerade och app-behörigheter | Azure
+description: Lär dig mer om delegerade och program behörigheter, hur de används av klienter och exponeras av resurser för program som du utvecklar med Azure AD
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: 5f7035472ae408987a14f06492a762b56fa657b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76697616"
 ---
-# <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Så här känner du igen skillnader mellan delegerade behörigheter och programbehörigheter
+# <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Identifiera skillnader mellan delegerade och program behörigheter
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
-- Läs mer om hur klientprogram använder [delegerade och programbehörighetsbegäranden för](developer-glossary.md#permissions) att komma åt resurser.
-- Se steg-för-steg-instruktioner om hur du [konfigurerar ett klientprograms behörighetsbegäranden](quickstart-configure-app-access-web-apis.md)
-- Mer information finns i hur resursprogram [exponerar scope](developer-glossary.md#scopes) och [programroller](developer-glossary.md#roles) för klientprogram, som manifesteras som delegerade respektive programbehörigheter i Azure-portalen. 
+- Läs mer om hur klient program använder [delegerade och begär Anden om program behörighet](developer-glossary.md#permissions) för att få åtkomst till resurser.
+- Se steg-för-steg-instruktioner om hur du [konfigurerar klient programmets behörighets begär Anden](quickstart-configure-app-access-web-apis.md)
+- För mer djupgående, lär du dig hur resurs program exponerar [scope](developer-glossary.md#scopes) och [program roller](developer-glossary.md#roles) för klient program, som visas som delegerade respektive program behörigheter i Azure Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

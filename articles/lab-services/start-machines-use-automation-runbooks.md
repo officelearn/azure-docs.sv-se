@@ -1,6 +1,6 @@
 ---
 title: Starta datorer med Automation-runbooks i Azure DevTest Labs
-description: Lär dig hur du startar virtuella datorer i ett labb i Azure DevTest Labs med hjälp av Azure Automation-runbooks.
+description: Lär dig hur du startar virtuella datorer i ett labb i Azure DevTest Labs genom att använda Azure Automation runbooks.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76166314"
 ---
-# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Starta virtuella datorer i ett labb i ordning med hjälp av Azure Automation-runbooks
-Med [funktionen för automatisk start i](devtest-lab-set-lab-policy.md#set-autostart) DevTest Labs kan du konfigurera virtuella datorer så att de startar automatiskt vid en viss tidpunkt. Den här funktionen stöder dock inte datorer för att starta i en viss ordning. Det finns flera scenarier där den här typen av automatisering skulle vara användbar.  Ett scenario är där en Virtuell Jumpbox-dator i ett labb måste startas först, innan de andra virtuella datorerna, eftersom Jumpbox används som åtkomstpunkt till de andra virtuella datorerna.  Den här artikeln visar hur du konfigurerar ett Azure Automation-konto med en PowerShell-runbook som kör ett skript. Skriptet använder taggar på virtuella datorer i labbet så att du kan styra startordningen utan att behöva ändra skriptet.
+# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Starta virtuella datorer i ett labb i ordning genom att använda Azure Automation runbooks
+Med funktionen [Autostart](devtest-lab-set-lab-policy.md#set-autostart) i DevTest Labs kan du konfigurera virtuella datorer så att de startar automatiskt vid en viss tidpunkt. Den här funktionen stöder dock inte att datorer startar i en speciell ordning. Det finns flera scenarier där den här typen av automatisering skulle vara användbar.  Ett scenario är var du måste starta en virtuell dator i ett labb innan du börjar med de andra virtuella datorerna, eftersom hoppet används som åtkomst punkt till de andra virtuella datorerna.  Den här artikeln visar hur du konfigurerar ett Azure Automation-konto med en PowerShell-Runbook som kör ett skript. Skriptet använder taggar på virtuella datorer i labbet för att kontrol lera start ordningen utan att behöva ändra skriptet.
 
 ## <a name="setup"></a>Installation
-I det här exemplet måste virtuella datorer i labbet ha taggen **StartupOrder** tillagd med rätt värde (0,1,2 osv.). Ange alla datorer som inte behöver startas som -1.
+I det här exemplet måste de virtuella datorerna i labbet ha taggen **StartupOrder** lagts till med lämpligt värde (0, 1, 2 osv.). Utse en dator som inte behöver startas som-1.
 
 ## <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
-Skapa ett Azure Automation-konto genom att följa instruktionerna i [den här artikeln](../automation/automation-create-standalone-account.md). Välj alternativet **Kör som konton** när du skapar kontot. När automatiseringskontot har **skapats** öppnar du sidan Moduler och väljer **Uppdatera Azure-moduler** i menyraden. Standardmodulerna är flera gamla versioner och utan uppdateringen kanske skriptet inte fungerar.
+Skapa ett Azure Automation-konto genom att följa anvisningarna i [den här artikeln](../automation/automation-create-standalone-account.md). Välj alternativet **Kör som-konton** när du skapar kontot. När Automation-kontot har skapats öppnar du sidan **moduler** och väljer **Uppdatera Azure-moduler** på Meny raden. Standardmodulerna är flera äldre versioner och utan uppdateringen kanske inte skriptet fungerar.
 
-## <a name="add-a-runbook"></a>Lägga till en runbook
-Om du vill lägga till en runbook i automationskontot väljer du **Runbooks** på den vänstra menyn. Välj **Lägg till en runbook** på menyn och följ instruktionerna för att skapa en [PowerShell-runbook](../automation/automation-first-runbook-textual-powershell.md).
+## <a name="add-a-runbook"></a>Lägg till en Runbook
+Om du nu vill lägga till en Runbook i Automation-kontot väljer du **Runbooks** på den vänstra menyn. Välj **Lägg till en Runbook** på menyn och följ instruktionerna för att [skapa en PowerShell-Runbook](../automation/automation-first-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>PowerShell-skript
-Följande skript tar prenumerationsnamnet, labbnamnet som parametrar. Flödet av skriptet är att få alla virtuella datorer i labbet, och sedan tolka ut tagginformation för att skapa en lista över VM-namn och deras startordning. Skriptet går igenom de virtuella datorerna i ordning och startar de virtuella datorerna. Om det finns flera virtuella datorer i ett visst ordernummer startas de asynkront med PowerShell-jobb. För de virtuella datorer som inte har en tagg anger du startvärdet till det sista (10), de startas senast, som standard.  Om labbet inte vill att den virtuella datorn ska startas automatiskt anger du taggvärdet till 11 och ignoreras.
+Följande skript tar prenumerations namnet, labb namnet som parametrar. Skriptets flöde är att hämta alla de virtuella datorerna i labbet och sedan analysera taggs informationen för att skapa en lista över de virtuella dator namnen och deras start ordning. Skriptet vägleder dig genom de virtuella datorerna i ordning och startar de virtuella datorerna. Om det finns flera virtuella datorer i ett särskilt ordnings nummer startas de asynkront med hjälp av PowerShell-jobb. För de virtuella datorer som inte har en-tagg anger du att startvärdet är det sista (10). de kommer att startas sist som standard.  Om labbet inte vill att den virtuella datorn ska startas automatiskt anger du värdet 11 och ignoreras.
 
 ```powershell
 #Requires -Version 3.0
@@ -133,9 +133,9 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>Skapa ett schema
-Om du vill att skriptet körs dagligen [skapar du en schema](../automation/shared-resources/schedules.md#creating-a-schedule) i automatiseringskontot. När schemat har skapats [länkar du det till runbooken](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+Om du vill att det här skriptet ska köras dagligen [skapar du ett schema](../automation/shared-resources/schedules.md#creating-a-schedule) i Automation-kontot. När schemat har skapats [länkar du det till Runbook-flödet](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
 
-I en storskalig situation där det finns flera prenumerationer med flera labb, lagra parameterinformationen i en fil för olika labb och skicka filen till skriptet i stället för de enskilda parametrarna. Skriptet skulle behöva ändras, men kärnkörningen skulle vara densamma. Medan det här exemplet använder Azure Automation för att köra PowerShell-skriptet, finns det andra alternativ som att använda en uppgift i en Build/Release-pipeline.
+I en storskalig situation där det finns flera prenumerationer på flera labb, lagrar du parameter informationen i en fil för olika labb och skickar filen till skriptet i stället för de enskilda parametrarna. Skriptet skulle behöva ändras, men kärn körningen är densamma. Exemplet använder Azure Automation för att köra PowerShell-skriptet, men det finns andra alternativ som att använda en uppgift i en pipeline för build/release.
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artikel om du vill veta mer om Azure Automation: [En introduktion till Azure Automation](../automation/automation-intro.md).
+I följande artikel finns mer information om Azure Automation: [en introduktion till Azure Automation](../automation/automation-intro.md).

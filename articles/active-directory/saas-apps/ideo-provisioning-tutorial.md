@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera IDEO för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till IDEO.
+title: 'Självstudie: Konfigurera IDEO för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till IDEO.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,146 +16,146 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
 ms.openlocfilehash: f5f163109d648a4fc021b41325c6d585a5a7a3e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057608"
 ---
-# <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera IDEO för automatisk etablering av användare
+# <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Självstudie: Konfigurera IDEO för automatisk användar etablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i IDEO och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetablera användare och/eller grupper till IDEO.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i IDEO och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till IDEO.
 
 > [!NOTE]
-> Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här kopplingen är för närvarande i offentlig förhandsversion. Mer information om de allmänna användningsvillkoren för förhandsversionen av Microsoft Azure finns i [Tilläggsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klient
 * [En IDEO-klient](https://www.shape.space/product/pricing)
-* Ett användarkonto på IDEO | Form med administratörsbehörigheter.
+* Ett användar konto på IDEO | Form med administratörs behörighet.
 
 ## <a name="assign-users-to-ideo"></a>Tilldela användare till IDEO
 
-Azure Active Directory använder ett koncept som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till IDEO. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till IDEO genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till IDEO. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till IDEO genom att följa anvisningarna här:
 
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-ideo"></a>Viktiga tips för att tilldela användare till IDEO
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas IDEO för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas IDEO för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till IDEO måste du välja en giltig programspecifik roll (om tillgänglig) i tilldelningsdialogrutan. Användare med rollen **Standardåtkomst** är undantagna från etablering.
+* När du tilldelar en användare till IDEO måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="set-up-ideo-for-provisioning"></a>Ställ in IDEO för etablering
+## <a name="set-up-ideo-for-provisioning"></a>Konfigurera IDEO för etablering
 
-Innan du konfigurerar IDEO för automatisk användaretablering med Azure AD måste du hämta viss etableringsinformation från IDEO.
+Innan du konfigurerar IDEO för automatisk användar etablering med Azure AD måste du hämta viss etablerings information från IDEO.
 
-1. För **Secret Token** kontakta IDEO supportteam på productsupport@ideo.com. Det här värdet anges i fältet **Hemlig token** på fliken Etablering i ditt IDEO-program i Azure-portalen. 
+1. Kontakta IDEO support team på productsupport@ideo.comför **hemliga token** . Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt ideo-program i Azure Portal. 
 
 ## <a name="add-ideo-from-the-gallery"></a>Lägg till IDEO från galleriet
 
-Om du vill konfigurera IDEO för automatisk användaretablering med Azure AD måste du lägga till IDEO från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Om du vill konfigurera IDEO för automatisk användar etablering med Azure AD måste du lägga till IDEO från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Enterprise-program**och välj sedan **Alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Ange **IDEO**i sökrutan och välj **IDEO** på resultatpanelen. 
+4. I sökrutan anger du **ideo**och väljer **ideo** i panelen resultat. 
 
-    ![IDEO i resultatlistan](common/search-new-app.png)
+    ![IDEO i resultat listan](common/search-new-app.png)
 
-5. Välj **knappen Registrera dig för IDEO** som omdirigerar dig till IDEO:s inloggningssida. 
+5. Välj knappen **Registrera dig för ideo** som kommer att omdirigera dig till inloggnings sidan för ideo. 
 
     ![IDEO OIDC Lägg till](media/ideo-provisioning-tutorial/signup.png)
 
-6. Eftersom IDEO är en OpenIDConnect-app väljer du att logga in på IDEO med ditt Microsoft-arbetskonto.
+6. Som IDEO är en OpenIDConnect-app väljer du att logga in på IDEO med ditt Microsoft Work-konto.
 
     ![IDEO OIDC-inloggning](media/ideo-provisioning-tutorial/login.png)
 
-7. Efter en lyckad autentisering godkänner du samtyckesprompten för samtyckessidan. Programmet läggs sedan automatiskt till din klient och du omdirigeras till ditt IDEO-konto.
+7. När autentiseringen är klar godkänner du frågan om medgivande för sidan medgivande. Programmet läggs sedan till automatiskt i din klient organisation och du omdirigeras till ditt IDEO-konto.
 
-    ![IDEO OIDc Samtycke](media/ideo-provisioning-tutorial/consent.png)
+    ![IDEO OIDc-medgivande](media/ideo-provisioning-tutorial/consent.png)
 
-## <a name="configure-automatic-user-provisioning-to-ideo"></a>Konfigurera automatisk användaretablering till IDEO 
+## <a name="configure-automatic-user-provisioning-to-ideo"></a>Konfigurera automatisk användar etablering till IDEO 
 
-Det här avsnittet hjälper dig att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i IDEO baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i IDEO baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-ideo-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för IDEO i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-ideo-in-azure-ad"></a>Konfigurera automatisk användar etablering för IDEO i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **IDEO**i programlistan .
+2. I listan program väljer du **ideo**.
 
-    ![IDEO-länken i programlistan](common/all-applications.png)
+    ![IDEO-länken i program listan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **Administratörsautentiseringsuppgifter** anger du i `https://profile.ideo.com/api/scim/v2` **klient-URL.** Ange värdet som du hämtade från IDEO-supportteamet i **Hemlig token**. Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till IDEO. Om anslutningen misslyckas kontrollerar du att ditt IDEO-konto har administratörsbehörighet och försöker igen.
+5. Under avsnittet **admin credentials** , inmatat `https://profile.ideo.com/api/scim/v2` i **klient-URL**. Mata in det värde som du hämtade från IDEO support team i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till ideo. Om anslutningen Miss lyckas kontrollerar du att IDEO-kontot har administratörs behörighet och försöker igen.
 
-    ![Url till klient + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan - **Skicka ett e-postmeddelande när ett fel inträffar**.
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Klicka på **Spara**.
 
-8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till IDEO**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till ideo**.
 
-    ![IDEO-användarmappningar](media/ideo-provisioning-tutorial/usermappings.png)
+    ![IDEO användar mappningar](media/ideo-provisioning-tutorial/usermappings.png)
 
-9. Granska användarattributen som synkroniseras från Azure AD till IDEO i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i IDEO för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+9. Granska de användarattribut som synkroniseras från Azure AD till IDEO i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i ideo för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
     ![IDEO-användarattribut](media/ideo-provisioning-tutorial/userattributes.png)
 
-10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Om du vill aktivera Azure AD-etableringstjänsten för IDEO ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+11. Om du vill aktivera Azure AD Provisioning-tjänsten för IDEO ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus växlad på](media/ideo-provisioning-tutorial/groupmappings.png)
+    ![Etablerings status växlad på](media/ideo-provisioning-tutorial/groupmappings.png)
 
-12. Definiera de användare och/eller grupper som du vill etablera till IDEO genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+12. Definiera de användare och/eller grupper som du vill etablera till IDEO genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etableringsomfång](media/ideo-provisioning-tutorial/groupattributes.png)
+    ![Etablerings omfång](media/ideo-provisioning-tutorial/groupattributes.png)
 
 13. När du är redo att etablera klickar du på **Spara**.
 
-    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på IDEO.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Ideo.
 
-Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 
 

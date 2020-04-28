@@ -1,5 +1,5 @@
 ---
-title: (FÖRÅLDRAD) Använda utkast med Azure Container Service och Azure Container Registry
+title: FÖRÅLDRAD Använd Draft med Azure Container Service och Azure Container Registry
 description: Skapa ett ACS Kubernetes-kluster och ett Azure Container Registry för att skapa ditt första program i Azure med Draft.
 author: squillace
 ms.service: container-service
@@ -8,33 +8,33 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76271138"
 ---
-# <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(FÖRÅLDRAD) Använda Utkast med Azure Container Service och Azure Container Registry för att skapa och distribuera ett program till Kubernetes
+# <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>FÖRÅLDRAD Använd Draft med Azure Container Service och Azure Container Registry för att bygga och distribuera ett program till Kubernetes
 
 > [!TIP]
-> Den uppdaterade versionen som används i den här artikeln som använder Azure Kubernetes-tjänsten finns i [Använda utkast med Azure Kubernetes Service (AKS)](../../aks/kubernetes-draft.md).
+> Den uppdaterade versionen av den här artikeln som använder Azure Kubernetes-tjänsten finns i [använda Draft med Azure Kubernetes service (AKS)](../../aks/kubernetes-draft.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Draft](https://aka.ms/draft) är ett nytt verktyg med öppen källkod som gör det enkelt att utveckla containerbaserade program och distribuera dem till Kubernetes-kluster utan ingående kunskaper om Docker och Kubernetes (t.o.m. utan att installera dem). Med verktyg som Draft kan du och dina team fokusera på att utveckla program med Kubernetes i stället för att lägga så mycket tid och kraft på infrastrukturen.
 
-Du kan använda Draft med alla Docker-avbildningsregister och Kubernetes-kluster, även lokalt. Den här självstudien visar hur du använder ACS med Kubernetes och ACR för att skapa en live men säker utvecklarpipeline i Kubernetes med Utkast och hur du använder Azure DNS för att exponera den utvecklarpipelinen för andra att se på en domän.
+Du kan använda Draft med alla Docker-avbildningsregister och Kubernetes-kluster, även lokalt. I den här självstudien visas hur du använder ACS med Kubernetes och ACR för att skapa en Live-men säker utvecklare i Kubernetes med hjälp av Draft och hur du använder Azure DNS för att visa en pipeline för utvecklare som andra kan se på en domän.
 
 
 ## <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 Du kan enkelt [skapa ett nytt Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md), men du måste utföra följande steg:
 
-1. Skapa en Azure-resursgrupp för att hantera ACR-registret och Kubernetes-klustret i ACS.
+1. Skapa en Azure-resurs grupp för att hantera ACR-registret och Kubernetes-klustret i ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
 
-2. Skapa ett ACR-avbildningsregister med [az acr skapa](/cli/azure/acr#az-acr-create) och se till att `--admin-enabled` alternativet är inställt på `true`.
+2. Skapa ett ACR-avbildnings register med [AZ ACR Create](/cli/azure/acr#az-acr-create) och se `--admin-enabled` till att alternativet är `true`inställt på.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -101,13 +101,13 @@ Nu när du har ett kluster kan du importera autentiseringsuppgifterna med hjälp
 ## <a name="install-and-configure-draft"></a>Installera och konfigurera Draft
 
 
-1. Hämta utkast för https://github.com/Azure/draft/releases din miljö på och installera i din PATH så att kommandot kan användas.
-2. Ladda ner rodret https://github.com/kubernetes/helm/releases för din miljö på och [installera den i din PATH så att kommandot kan användas](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+1. Hämta utkast för din miljö vid https://github.com/Azure/draft/releases och installera i sökvägen så att kommandot kan användas.
+2. Ladda ned Helm för din miljö https://github.com/kubernetes/helm/releases på och [installera den i sökvägen så att kommandot kan användas](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Konfigurera Draft för att använda ditt register och skapa underdomäner för varje Helm-diagram som skapas. För att konfigurera Draft behöver du:
    - ditt Azure Container Registry-namn (`draftacsdemo` i det här exemplet)
    - din registernyckel, eller ditt lösenord, från `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
 
-   Anrop `draft init` och konfigurationsprocessen uppmanar dig att ange värdena ovan. Observera att URL-formatet för register-URL:en är registernamnet `draftacsdemo`(i det här exemplet ) plus `.azurecr.io`. Ditt användarnamn är registrets namn på egen hand. Processen ser ut ungefär så här första gången du kör den.
+   Anropet `draft init` och konfigurations processen efterfrågar värden ovan. Observera att URL-formatet för registrets URL är register namnet (i det här exemplet `draftacsdemo`) plus. `.azurecr.io` Ditt användar namn är register namnet på egen hand. Processen ser ut ungefär så här första gången du kör den.
    ```bash
     $ draft init
     Creating /home/ralph/.draft 
@@ -137,14 +137,14 @@ Nu är du redo att distribuera ett program.
 
 ## <a name="build-and-deploy-an-application"></a>Skapa och distribuera ett program
 
-I Draft-databasen finns [sex enkla exempelprogram](https://github.com/Azure/draft/tree/master/examples). Klona repo och låt oss använda [Java-exemplet](https://github.com/Azure/draft/tree/master/examples/example-java). Ändra till exempel / java `draft create` katalog, och skriv för att bygga programmet. Det ska se ut som i följande exempel.
+I Draft-databasen finns [sex enkla exempelprogram](https://github.com/Azure/draft/tree/master/examples). Klona lagrings platsen och låt oss använda [Java-exemplet](https://github.com/Azure/draft/tree/master/examples/example-java). Ändra till exemplen/Java-katalogen och skriv `draft create` för att bygga programmet. Det ska se ut som i följande exempel.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.
 --> Ready to sail
 ```
 
-Utdata innehåller en Dockerfile och ett Helm-diagram. För att skapa och distribuera skriver du bara `draft up`. Utdata är omfattande, men bör vara som följande exempel.
+Utdata innehåller en Dockerfile och ett Helm-diagram. För att skapa och distribuera skriver du bara `draft up`. Utdata är omfattande, men bör likna följande exempel.
 ```bash
 $ draft up
 Draft Up Started: 'handy-labradoodle'
@@ -156,10 +156,10 @@ handy-labradoodle: Build ID: 01BT0ZJ87NWCD7BBPK4Y3BTTPB
 
 ## <a name="securely-view-your-application"></a>Visa ditt program på ett säkert sätt
 
-Din behållare körs nu i ACS. Om du vill `draft connect` visa det använder du kommandot, som skapar en säker anslutning till klustrets IP med en specifik port för ditt program så att du kan visa det lokalt. Om det lyckas letar du efter webbadressen för att ansluta till appen på den första raden efter **SUCCESS-indikatorn.**
+Din behållare körs nu i ACS. Om du vill visa det använder `draft connect` du kommandot, som skapar en säker anslutning till klustrets IP-adress med en specifik port för ditt program så att du kan visa den lokalt. Om det lyckas, letar du efter URL: en för att ansluta till din app på den första raden efter **lyckad** indikator.
 
 > [!NOTE]
-> Om du får ett meddelande om att inga poddar var klara väntar du en stund `kubectl get pods -w` och försöker igen, eller så kan du se poddarna bli redo med och sedan försöka igen när de gör det.
+> Om du får ett meddelande som säger att ingen poddar var klar väntar du en stund och försöker igen, eller så kan du se att poddar blir `kubectl get pods -w` redo med och sedan försöka igen när de gör det.
 
 ```bash
 draft connect
@@ -172,16 +172,16 @@ SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further detai
 >> Listening on 0.0.0.0:4567
 ```
 
-I föregående exempel kan du `curl -s http://localhost:46143` skriva för `Hello World, I'm Java!`att få svaret. När du CTRL+ eller CMD + C (beroende på din OS-miljö), den säkra tunneln rivs och du kan fortsätta itererera.
+I föregående exempel kan du skriva `curl -s http://localhost:46143` för att ta emot svaret. `Hello World, I'm Java!` När du CTRL + eller CMD + C (beroende på din operativ system miljö) är den säkra tunneln avbröts och du kan fortsätta att iterera.
 
-## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Dela ditt program genom att konfigurera en distributionsdomän med Azure DNS
+## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Dela ditt program genom att konfigurera en distributions domän med Azure DNS
 
-Du har redan utfört utvecklariterationsloopen som skapas i föregående steg. Du kan dock dela ditt program över internet genom att:
-1. Installera en inträngning i ACS-klustret (för att tillhandahålla en offentlig IP-adress där appen kan visas)
-2. Delegera din anpassade domän till Azure DNS och mappa domänen till IP-adressen SOM ACS tilldelar din ingångskontrollant
+Du har redan utfört upprepnings slinga för utvecklare som utkastet skapar i föregående steg. Du kan dock dela ditt program via Internet genom att:
+1. Installera ett ingress i ACS-klustret (för att tillhandahålla en offentlig IP-adress som appen ska visas på)
+2. Att delegera din anpassade domän till Azure DNS och mappa din domän till IP-adressen ACS tilldelar din ingångs kontroll.
 
-### <a name="use-helm-to-install-the-ingress-controller"></a>Använd rodret för att installera ingående styrenheten.
-Använd **rodret** för `stable/traefik`att söka efter och installera , en ingående styrenhet, för att aktivera inkommande begäranden för dina versioner.
+### <a name="use-helm-to-install-the-ingress-controller"></a>Använd Helm för att installera ingångs styrenheten.
+Använd **Helm** för att söka efter och `stable/traefik`installera, en ingångs kontroll för att aktivera inkommande begär Anden för dina versioner.
 ```bash
 $ helm search traefik
 NAME            VERSION DESCRIPTION
@@ -200,9 +200,9 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 I det här fallet är den externa IP-adressen för distributionsdomänen `13.64.108.240`. Nu kan du mappa din domän till den här IP-adressen.
 
-### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Mappa ingress-IP till en anpassad underdomän
+### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Mappa den inkommande IP-adressen till en anpassad under domän
 
-Draft skapar en version för varje Helm-diagram som skapas (varje program du arbetar med). Var och en får ett genererat namn som används av **utkast** som en _underdomän_ ovanpå _rotdistributionsdomänen_ som du styr. (I det här `squillace.io` exemplet använder vi som distributionsdomän.) Om du vill aktivera det här underdomänbeteendet måste du skapa en A-post för `'*.draft'` i DNS-posterna för distributionsdomänen, så att varje genererad underdomän dirigeras till Kubernetes-klustrets ingående styrenhet. 
+Draft skapar en version för varje Helm-diagram som skapas (varje program du arbetar med). Var och en får ett genererat namn som används av **Draft** som en under _domän_ ovanpå den rot _distributions domän_ som du styr. (I det här exemplet använder `squillace.io` vi som distributions domän.) Om du vill aktivera det här under domän beteendet måste du skapa en `'*.draft'` post för i dina DNS-poster för distributions domänen, så att varje genererad under domän dirigeras till Kubernetes-klustrets ingångs kontroll. 
 
 Din domänleverantör har ett eget sätt att tilldela DNS-servrar. Gör så här om du vill [delegera dina DNS-servrar till Azure DNS](../../dns/dns-delegate-domain-azure-dns.md):
 
@@ -243,8 +243,8 @@ Din domänleverantör har ett eget sätt att tilldela DNS-servrar. Gör så här
       "type": "Microsoft.Network/dnszones"
     }
     ```
-3. Lägg till DNS-servrarna du får i domänleverantören för din distributionsdomän så att du kan använda Azure DNS för att peka om domänen som du vill. Hur du gör detta varierar beroende på domän tillhandahålla; [delegera dina domännamnservrar till Azure DNS](../../dns/dns-delegate-domain-azure-dns.md) innehåller en del av den information som du bör känna till. 
-4. När domänen har delegerats till Azure DNS skapar du en A-postpost för mappningen av distributionsdomänen `ingress` till IP-adressen från steg 2 i föregående avsnitt.
+3. Lägg till DNS-servrarna du får i domänleverantören för din distributionsdomän så att du kan använda Azure DNS för att peka om domänen som du vill. Hur du gör detta beror på vilken domän du har. [delegera din domän namnservrar till Azure DNS](../../dns/dns-delegate-domain-azure-dns.md) innehåller en del av den information som du bör känna till. 
+4. När din domän har delegerats till Azure DNS skapar du en post uppsättnings post för distributions domän mappningen till `ingress` IP-adressen från steg 2 i föregående avsnitt.
    ```azurecli
    az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
    ```
@@ -267,15 +267,15 @@ Din domänleverantör har ett eget sätt att tilldela DNS-servrar. Gör så här
    ```
 5. Installera om **utkast**
 
-   1. Ta bort utkast från **klustret** genom att `helm delete --purge draft`skriva . 
-   2. Installera om **utkastet** `draft-init` med samma kommando, men med `--ingress-enabled` alternativet:
+   1. Ta bort **utkast** från klustret genom att skriva `helm delete --purge draft`. 
+   2. Installera om **utkastet** med samma `draft-init` kommando, men med `--ingress-enabled` alternativet:
       ```bash
       draft init --ingress-enabled
       ```
-      Svara på anvisningarna som du gjorde första gången, ovan. Du har dock ytterligare en fråga att svara på med hjälp av den fullständiga domänsökvägen som du konfigurerat med Azure DNS.
+      Svara på frågorna som du gjorde första gången ovan. Men du har en fråga att svara på, med den fullständiga domän Sök vägen som du konfigurerade med Azure DNS.
 
-6. Ange din toppdomän för ingående (t.ex. draft.example.com): draft.squillace.io
-7. När du `draft up` ringer den här gången kan du `curl` se din ansökan (eller det) på webbadressen till formuläret `<appname>.draft.<domain>.<top-level-domain>`. När det gäller det `http://handy-labradoodle.draft.squillace.io`här exemplet . 
+6. Ange domänen på den översta nivån för ingress (t. ex. draft.example.com): draft.squillace.io
+7. När du anropar `draft up` den här tiden kommer du att kunna se ditt program (eller `curl` det) i webb adressen till formuläret `<appname>.draft.<domain>.<top-level-domain>`. I det här exemplet är `http://handy-labradoodle.draft.squillace.io`. 
    ```bash
    curl -s http://handy-labradoodle.draft.squillace.io
    Hello World, I'm Java!

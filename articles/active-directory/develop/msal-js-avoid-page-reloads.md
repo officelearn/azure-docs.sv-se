@@ -1,7 +1,7 @@
 ---
-title: Undvik sidreloader (MSAL.js) | Azure
+title: Undvik sid omladdningar (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du undviker sidreloader när du hämtar och förnyar token tyst med hjälp av Microsoft Authentication Library for JavaScript (MSAL.js).
+description: Lär dig hur du undviker hämtning av sidor vid hämtning och förnyelse av tokens i bakgrunden med Microsoft Authentication Library för Java Script (MSAL. js).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,30 +14,30 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 63944a5a9af34c2d4cf98eeb870a730df49654e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084953"
 ---
-# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Undvik sidladdningar när du hämtar och förnyar token tyst med MSAL.js
-Microsoft Authentication Library for JavaScript (MSAL.js) använder dolda `iframe` element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i tokenbegäran (som standard är detta appens rotsida). Eftersom svaret är en 302, resulterar det `redirect_uri` i HTML `iframe`motsvarar att få laddas i . Vanligtvis appens `redirect_uri` är rotsidan och detta gör att den laddas om.
+# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Undvik hämtning av sidor vid hämtning och förnyelse av tokens tyst med MSAL. js
+Microsoft Authentication Library för Java Script (MSAL. js) `iframe` använder dolda element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i Tokenbegäran (som standard är appens rot sida). Eftersom svaret är en 302 resulterar det i HTML-koden som `redirect_uri` motsvarar inläsningen i. `iframe` Vanligt vis `redirect_uri` är appens rot sida och det gör att den kan läsas in på nytt.
 
-I andra fall, om det krävs autentisering för att navigera till `iframe` appens rotsida, kan det leda till kapslade element eller `X-Frame-Options: deny` fel.
+I andra fall kan det hända att om du navigerar till appens rot sida kräver autentisering, kan det `iframe` leda till `X-Frame-Options: deny` kapslade element eller fel.
 
-Eftersom MSAL.js inte kan stänga 302 som utfärdats av Azure AD och krävs `redirect_uri` för att `iframe`bearbeta den returnerade token, kan den inte hindra från att läsas in i .
+Eftersom MSAL. js inte kan stänga 302 som utfärdats av Azure AD och som krävs för att bearbeta den returnerade token, `redirect_uri` kan den inte förhindra att `iframe`den läses in i.
 
-Följ dessa lösningar för att undvika att hela appen laddas om igen eller andra fel som orsakas på grund av detta.
+För att undvika att hela appen laddas om igen eller andra fel som orsakas av detta, följer du dessa lösningar.
 
-## <a name="specify-different-html-for-the-iframe"></a>Ange olika HTML-html-kod för iframe
+## <a name="specify-different-html-for-the-iframe"></a>Ange en annan HTML för iframe
 
-Ange `redirect_uri` egenskapen på config till en enkel sida, som inte kräver autentisering. Du måste se till att `redirect_uri` den matchar med den registrerade i Azure-portalen. Detta kommer inte att påverka användarens inloggningsupplevelse som MSAL sparar startsidan när användaren börjar inloggningsprocessen och omdirigerar tillbaka till den exakta platsen efter inloggningen är klar.
+Ställ in `redirect_uri` egenskapen på config på en enkel sida som inte kräver autentisering. Du måste kontrol lera att den matchar den `redirect_uri` registrerade i Azure Portal. Detta påverkar inte användarens inloggnings upplevelse eftersom MSAL sparar start sidan när användaren påbörjar inloggnings processen och dirigerar tillbaka till den exakta platsen när inloggningen har slutförts.
 
-## <a name="initialization-in-your-main-app-file"></a>Initiering i huvudappfilen
+## <a name="initialization-in-your-main-app-file"></a>Initiera i huvud program filen
 
-Om din app är strukturerad så att det finns en central Javascript-fil som definierar appens initiering, routning och andra `iframe` saker, kan du villkorligt läsa in dina appmoduler baserat på om appen läses in i en eller inte. Ett exempel:
+Om din app är strukturerad så att det finns en central JavaScript-fil som definierar appens initiering, Routning och andra saker kan du villkorligt läsa in dina app-moduler baserat på om appen läses in `iframe` eller inte. Ett exempel:
 
-I AngularJS: app.js
+I AngularJS: app. js
 
 ```javascript
 // Check that the window is an iframe and not popup
@@ -74,7 +74,7 @@ else {
 }
 ```
 
-I Vinkel: app.module.ts
+I vinkel: app. module. TS
 
 ```javascript
 // Imports...
@@ -146,4 +146,4 @@ export class MsalComponent {
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [att skapa ett ensidigt program (SPA)](scenario-spa-overview.md) med MSAL.js.
+Lär dig mer om att [skapa ett enda webb program (Spa)](scenario-spa-overview.md) med MSAL. js.

@@ -1,7 +1,7 @@
 ---
 title: MSAL för iOS & macOS-skillnader | Azure
 titleSuffix: Microsoft identity platform
-description: I artikeln beskrivs användningsskillnader i Microsoft Authentication Library (MSAL) mellan iOS och macOS.
+description: Beskriver användnings skillnader i Microsoft Authentication Library (MSAL) mellan iOS och macOS.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,18 +14,18 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084979"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Skillnader mellan Microsoft Authentication Library för iOS och macOS
 
-I den här artikeln beskrivs skillnaderna i funktionalitet mellan Microsoft Authentication Library (MSAL) för iOS och macOS.
+I den här artikeln förklaras skillnaderna mellan funktionerna i Microsoft Authentication Library (MSAL) för iOS och macOS.
 
 > [!NOTE]
-> På Mac stöder MSAL endast macOS-appar.
+> På Mac-datorn stöder MSAL bara macOS-appar.
 
 ## <a name="general-differences"></a>Allmänna skillnader
 
@@ -33,28 +33,28 @@ MSAL för macOS är en delmängd av de funktioner som är tillgängliga för iOS
 
 MSAL för macOS stöder inte:
 
-- olika webbläsartyper, `ASWebAuthenticationSession` `SFAuthenticationSession`till `SFSafariViewController`exempel , , .
-- autentisering via Microsoft Authenticator-appen stöds inte för macOS.
+- olika webb läsar typer `ASWebAuthenticationSession`, `SFAuthenticationSession`till `SFSafariViewController`exempel,,.
+- Brokered Authentication via Microsoft Authenticator app stöds inte för macOS.
 
-Nyckelringsdelning mellan appar från samma utgivare är mer begränsad på macOS 10.14 och tidigare. Använd [åtkomstkontrollistor](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) för att ange sökvägarna till de appar som ska dela nyckelringen. Användaren kan se ytterligare nyckelringsuppmaningar.
+Delning av nyckel ringar mellan appar från samma utgivare är mer begränsad i macOS 10,14 och tidigare. Använd [åtkomst kontrol listor](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) för att ange sökvägar till de appar som ska dela nyckel ringen. Användaren kan se ytterligare prompter för nyckel ringar.
 
-På macOS 10.15+är MSAL:s beteende detsamma mellan iOS och macOS. MSAL använder [nyckelringsåtkomstgrupper](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) för nyckelringsdelning. 
+På macOS 10.15 +, är MSAL-beteendet detsamma mellan iOS och macOS. MSAL använder [nyckel rings åtkomst grupper](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) för delning av nyckel ringar. 
 
-### <a name="conditional-access-authentication-differences"></a>Skillnader i autentisering av villkorad åtkomst
+### <a name="conditional-access-authentication-differences"></a>Skillnader i autentisering av villkorlig åtkomst
 
-För scenarier för villkorlig åtkomst blir färre användaruppmaningar när du använder MSAL för iOS. Detta beror på att iOS använder mäklarappen (Microsoft Authenticator) som förnekar behovet av att fråga användaren i vissa fall.
+I scenarier med villkorlig åtkomst visas färre användar meddelanden när du använder MSAL för iOS. Detta beror på att iOS använder Service Broker-appen (Microsoft Authenticator), vilket eliminerar behovet av att meddela användaren i vissa fall.
 
-### <a name="project-setup-differences"></a>Skillnader i projektinställningar
+### <a name="project-setup-differences"></a>Skillnader mellan projekt konfiguration
 
-**Macos**
+**macOS**
 
-- När du konfigurerar projektet på macOS kontrollerar du att programmet är signerat med ett giltigt utvecklings- eller produktionscertifikat. MSAL fungerar fortfarande i osignerat läge, men det kommer att bete sig annorlunda när det gäller cache persistens. Appen ska endast köras osignerad för felsökning. Om du distribuerar appen osignerad:
-1. På 10,14 och tidigare kommer MSAL att uppmana användaren om ett nyckelringslösenord varje gång de startar om appen.
-2. På 10,15 +, KOMMER MSAL fråga användaren för autentiseringsuppgifter för varje token förvärv. 
+- När du konfigurerar projektet på macOS måste du kontrol lera att programmet är signerat med ett giltigt utvecklings-eller produktions certifikat. MSAL fungerar fortfarande i osignerat läge, men det fungerar annorlunda med avseende på beständighet i cacheminnet. Appen ska bara köras osignerad för fel söknings syfte. Om du distribuerar appen osignerad kommer den att:
+1. På 10,14 och tidigare uppmanas användaren att ange ett lösen ord för nyckel ringen varje gång appen startas om.
+2. På 10.15 + kommer MSAL att uppmana användaren att ange autentiseringsuppgifter för varje hämtning av token. 
 
 - macOS-appar behöver inte implementera AppDelegate-anropet.
 
 **iOS**
 
-- Det finns ytterligare steg för att konfigurera projektet för att stödja autentiseringsutjämningsflödet. Stegen kallas ut i handledningen.
-- iOS-projekt måste registrera anpassade system i info.plist. Detta krävs inte på macOS.
+- Det finns ytterligare steg för att konfigurera ditt projekt så att det stöder Authentication Broker-flödet. Stegen visas i självstudien.
+- iOS-projekt behöver registrera anpassade scheman i filen info. plist. Detta krävs inte på macOS.

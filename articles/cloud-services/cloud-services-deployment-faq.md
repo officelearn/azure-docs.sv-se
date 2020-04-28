@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor om distributionsproblem för Microsoft Azure Cloud Services| Microsoft-dokument
-description: I den här artikeln visas vanliga frågor om distribution för Microsoft Azure Cloud Services.
+title: Distributions problem för Microsoft Azure Cloud Services vanliga frågor och svar | Microsoft Docs
+description: Den här artikeln innehåller vanliga frågor om distribution för Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -15,68 +15,68 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75980631"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributionsproblem för Azure Cloud Services: Vanliga frågor och svar (vanliga frågor)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributions problem för Azure Cloud Services: vanliga frågor och svar
 
-Den här artikeln innehåller vanliga frågor och svar om distributionsproblem för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också läsa [sidan VM-storlek](cloud-services-sizes-specs.md) för molntjänster för storleksinformation.
+Den här artikeln innehåller vanliga frågor om distributions problem för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också se storleks information på [sidan Cloud Services virtuell dator storlek](cloud-services-sizes-specs.md) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-does-deploying-a-cloud-service-to-the-staging-slot-sometimes-fail-with-a-resource-allocation-error-if-there-is-already-an-existing-deployment-in-the-production-slot"></a>Varför misslyckas distributionen av en molntjänst till mellanlagringsplatsen ibland med ett resursallokeringsfel om det redan finns en befintlig distribution i produktionsplatsen?
-Om en molntjänst har en distribution i någon av kortplatserna, är hela molntjänsten fäst på ett visst kluster. Det innebär att om det redan finns en distribution i produktionsplatsen kan en ny mellanlagringsdistribution endast allokeras i samma kluster som produktionsplatsen.
+## <a name="why-does-deploying-a-cloud-service-to-the-staging-slot-sometimes-fail-with-a-resource-allocation-error-if-there-is-already-an-existing-deployment-in-the-production-slot"></a>Varför Miss känner man ibland att distribuera en moln tjänst till mellanlagringsplatsen med ett resurs tilldelnings fel om det redan finns en befintlig distribution i produktions platsen?
+Om en moln tjänst har en distribution i någon av platserna fästs hela moln tjänsten i ett särskilt kluster. Det innebär att om en distribution redan finns på produktions platsen kan en ny mellanlagrings distribution bara allokeras i samma kluster som produktions platsen.
 
-Allokeringsfel uppstår när klustret där molntjänsten finns inte har tillräckligt med fysiska beräkningsresurser för att uppfylla din distributionsbegäran.
+Allokeringsfel inträffar när klustret där moln tjänsten finns inte har tillräckligt med fysiska beräknings resurser för att uppfylla din distributions förfrågan.
 
-Mer information om hur du minskar sådana allokeringsfel finns i [Cloud Service allocation failure: Solutions](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Varför leder skalning eller skalning av en molntjänstdistribution ibland till allokeringsfel?
-När en molntjänst distribueras fästs den vanligtvis på ett visst kluster. Detta innebär att skala upp/ut en befintlig molntjänst måste allokera nya instanser i samma kluster. Om klustret närmar sig kapacitet eller om önskad vm-storlek/typ inte är tillgänglig kan begäran misslyckas.
+## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Varför leder det till att det uppstår ett allokeringsfel vid skalning av en moln tjänst distribution?
+När en moln tjänst distribueras fästs det vanligt vis i ett enskilt kluster. Det innebär att skala upp eller ut en befintlig moln tjänst måste allokera nya instanser i samma kluster. Om klustret närmar sig kapacitet eller om önskad VM-storlek/typ inte är tillgänglig kan begäran Miss lyckas.
 
-Mer information om hur du minskar sådana allokeringsfel finns i [Cloud Service allocation failure: Solutions](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Varför leder distribution av en molntjänst till en tillhörighetsgrupp ibland till allokeringsfel?
-En ny distribution till en tom molntjänst kan allokeras av infrastrukturen i alla kluster i den regionen, såvida inte molntjänsten är fäst vid en tillhörighetsgrupp. Distributioner till samma tillhörighetsgrupp görs på samma kluster. Om klustret närmar sig kapacitet kan begäran misslyckas.
+## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Varför leder det till att distributionen av en moln tjänst till en tillhörighets grupp ibland leder till allokeringsfel?
+En ny distribution till en tom moln tjänst kan allokeras av infrastruktur resursen i alla kluster i den regionen, om inte moln tjänsten fästs på en tillhörighets grupp. Distributioner till samma tillhörighets grupp görs i samma kluster. Om klustret närmar sig kapaciteten kan begäran Miss lyckas.
 
-Mer information om hur du minskar sådana allokeringsfel finns i [Cloud Service allocation failure: Solutions](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Varför leder byte av vm-storlek eller lägger till en ny virtuell dator till en befintlig molntjänst ibland i allokeringsfel?
-Klustren i ett datacenter kan ha olika konfigurationer av maskintyper (till exempel A-serien, Av2-serien, D-serien, Dv2-serien, G-serien, H-serien osv.). Men inte alla kluster nödvändigtvis skulle ha alla typer av virtuella datorer. Om du till exempel försöker lägga till en virtuell dator i D-serien i en molntjänst som redan har distribuerats i ett kluster med endast en serie i A-serien, uppstår ett allokeringsfel. Detta händer också om du försöker ändra VM SKU storlekar (till exempel byta från en A-serie till en D-serie).
+## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Varför kan det ibland leda till allokeringsfel om du ändrar storlek på virtuell dator eller lägger till en ny virtuell dator i en befintlig moln tjänst?
+Kluster i ett Data Center kan ha olika konfigurationer av dator typer (t. ex. en serie, AV2 serie, D-serien, Dv2-serien, G-serien, H-serien osv.). Men alla kluster har inte nödvändigt vis alla typer av virtuella datorer. Om du till exempel försöker lägga till en virtuell dator i D-serien till en moln tjänst som redan har distribuerats i ett kluster med endast ett serie kluster får du ett allokeringsfel. Detta inträffar även om du försöker ändra VM-SKU-storlekar (till exempel växla från en serie till en D-serien).
 
-Mer information om hur du minskar sådana allokeringsfel finns i [Cloud Service allocation failure: Solutions](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Solutions](cloud-services-allocation-failures.md#solutions).
 
-Information om hur du kontrollerar de storlekar som är tillgängliga i din region finns i [Microsoft Azure: Produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services).
+För att kontrol lera vilka storlekar som är tillgängliga i din region, se [Microsoft Azure: produkter tillgängliga per region](https://azure.microsoft.com/regions/services).
 
-## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Varför misslyckas distributionen av en molntjänst någon gång på grund av begränsningar/kvoter/begränsningar för min prenumeration eller tjänst?
-Distribution av en molntjänst kan misslyckas om de resurser som måste allokeras överskrider standard- eller högsta kvot som tillåts för din tjänst på region-/datacenternivå. Mer information finns i [Molntjänstgränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
+## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Varför Miss kan jag distribuera en moln tjänst på grund av gränser/kvoter/begränsningar i min prenumeration eller tjänst?
+Distribution av en moln tjänst kan Miss lyckas om resurserna som måste allokeras överskrider den standard kvot eller högsta kvot som tillåts för din tjänst på region/data center nivå. Mer information finns i [Cloud Services gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-Du kan också spåra den aktuella användningen/kvoten för din prenumeration på portalen: \<Azure portal => Prenumerationer => lämplig prenumeration> => "Användning + kvot".
+Du kan också spåra den aktuella användningen/kvoten för din prenumeration på portalen: Azure Portal => Subscriptions = \<> lämplig prenumeration> => "användning + kvot".
 
-Information om resursanvändning/förbrukning kan också hämtas via Azure Billing API:er. Se [Azure Resource Usage API (Preview)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Resursanvändning/förbrukning-relaterad information kan också hämtas via API:er för Azure-fakturering. Se [Azure Resource Usage API (för hands version)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
-## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Hur kan jag ändra storleken på en distribuerad virtuell molntjänst utan att distribuera om den?
-Du kan inte ändra den virtuella datorns storlek för en distribuerad molntjänst utan att distribuera om den. Vm-storleken är inbyggd i CSDEF, som endast kan uppdateras med en omdistribution.
+## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Hur kan jag ändra storleken på en distribuerad virtuell dator i moln tjänsten utan att distribuera om den?
+Du kan inte ändra den virtuella dator storleken för en distribuerad moln tjänst utan att distribuera om den. Storleken på den virtuella datorn är inbyggd i CSDEF, som bara kan uppdateras med en omdistribution.
 
-Mer information finns i [Så här uppdaterar du en molntjänst](cloud-services-update-azure-service.md).
+Mer information finns i [så här uppdaterar du en moln tjänst](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Varför kan jag inte distribuera molntjänster via API:er för tjänsthantering eller PowerShell när jag använder Azure Resource Manager Storage-konto? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Varför kan jag inte distribuera Cloud Services via API: er för service hantering eller PowerShell när du använder Azure Resource Manager lagrings konto? 
 
-Eftersom Molntjänsten är en klassisk resurs som inte är direkt kompatibel med Azure Resource Manager-modellen kan du inte associera den med Azure Resource Manager Storage-kontona. Här är några alternativ: 
+Eftersom moln tjänsten är en klassisk resurs som inte är direkt kompatibel med Azure Resource Manager modellen kan du inte associera den med Azure Resource Manager lagrings konton. Här är några alternativ: 
 
 - Distribuera via REST API.
 
-    När du distribuerar via REST-API för tjänsthantering kan du komma runt begränsningen genom att ange en SAS-URL till blob-lagringen, som fungerar med både Classic- och Azure Resource Manager Storage-konto. Läs mer om egenskapen PackageUrl [här](/previous-versions/azure/reference/ee460813(v=azure.100)).
+    När du distribuerar via Service Management-REST API kan du få runt begränsningen genom att ange en SAS-URL till blob-lagringen, som fungerar med både det klassiska och Azure Resource Manager lagrings kontot. Läs mer om egenskapen "PackageUrl" [här](/previous-versions/azure/reference/ee460813(v=azure.100)).
 
 - Distribuera via [Azure Portal](https://portal.azure.com).
 
-    Detta kommer att fungera från [Azure-portalen](https://portal.azure.com) när samtalet går via en proxy /shims som möjliggör kommunikation mellan Azure Resource Manager och Classic-resurser. 
+    Detta fungerar från [Azure Portal](https://portal.azure.com) när anropet går via en proxy/shim som tillåter kommunikation mellan Azure Resource Manager och klassiska resurser. 
 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Varför kräver Azure-portalen att jag tillhandahåller ett lagringskonto för distribution?
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Varför kräver Azure Portal mig att tillhandahålla ett lagrings konto för distribution?
 
-I den klassiska portalen laddades paketet upp till api-lagret för hantering direkt och sedan skulle API-lagret tillfälligt placera paketet i ett internt lagringskonto.  Den här processen orsakar prestanda- och skalbarhetsproblem eftersom API-lagret inte har utformats för att vara en filöverföringstjänst.  I Azure-portalen (Resource Manager-distributionsmodellen) har vi gått förbi det interimistiska steget för första uppladdningen till API-lagret, vilket resulterar i snabbare och mer tillförlitliga distributioner.
+I den klassiska portalen överfördes paketet till hanterings-API-lagret direkt, och API-lagret skulle då tillfälligt flytta paketet till ett internt lagrings konto.  Den här processen orsakar problem med prestanda och skalbarhet eftersom API-skiktet inte har utformats för att vara en fil överförings tjänst.  I Azure Portal (Resource Manager-distributions modell) har vi hoppat över steget för att först överföra till API-skiktet, vilket resulterar i snabbare och mer tillförlitlig distribution.
 
-När det gäller kostnaden är den mycket liten och du kan återanvända samma lagringskonto för alla distributioner. Du kan använda [lagringskostnadskalkylatorn](https://azure.microsoft.com/pricing/calculator/#storage1) för att fastställa kostnaden för att ladda upp servicepaketet (CSPKG), ladda ner CSPKG och sedan ta bort CSPKG.
+Vad gäller kostnaden är det mycket litet och du kan återanvända samma lagrings konto för alla distributioner. Du kan använda [Kalkylatorn för lagrings kostnad](https://azure.microsoft.com/pricing/calculator/#storage1) för att fastställa kostnaden för att ladda upp tjänst paketet (CSPKG), Hämta CSPKG och sedan ta bort CSPKG.

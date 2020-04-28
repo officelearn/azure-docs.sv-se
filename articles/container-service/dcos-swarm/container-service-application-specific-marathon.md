@@ -1,5 +1,5 @@
 ---
-title: (FÖRÅLDRAD) Program- eller användarspecifik Maratontjänst
+title: FÖRÅLDRAD Program-eller användarspecifik Marathon-tjänst
 description: Skapa en program- eller användarspecifik Marathon-tjänst
 author: rgardler
 ms.service: container-service
@@ -8,13 +8,13 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 423dc7f62806f774a5ec4855faa8be9001292773
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277723"
 ---
-# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(FÖRÅLDRAD) Skapa en program- eller användarspecifik Marathon-tjänst
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>FÖRÅLDRAD Skapa en program-eller användarspecifik Marathon-tjänst
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -25,7 +25,7 @@ I den här artikeln förklarar vi hur du lägger till en användar- eller progra
 Eftersom den här tjänsten tillhör en enskild användare eller ett enskilt team kan den konfigureras på önskat sätt. Azure Container Service säkerställer också att tjänsten fortsätter att köras. Om tjänsten slutar att fungera, startar Azure Container Service om den åt dig. I de flesta fall märker du inte ens att det varit driftstopp.
 
 ## <a name="prerequisites"></a>Krav
-[Distribuera en instans av Azure Container Service](container-service-deployment.md) med orchestrator typ DC/OS och se till att [klienten kan ansluta till klustret](../container-service-connect.md). Utför följande steg.
+[Distribuera en instans av Azure Container Service](container-service-deployment.md) med Orchestrator-typ DC/OS och [kontrol lera att klienten kan ansluta till klustret](../container-service-connect.md). Utför följande steg.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
 

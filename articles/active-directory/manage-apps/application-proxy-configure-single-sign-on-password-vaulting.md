@@ -1,6 +1,6 @@
 ---
-title: Enkel inloggning till appar med Azure AD Application Proxy | Microsoft-dokument
-description: Aktivera enkel inloggning för dina publicerade lokala program med Azure AD Application Proxy i Azure-portalen.
+title: Enkel inloggning till appar med Azure AD-programproxy | Microsoft Docs
+description: Aktivera enkel inloggning för dina publicerade lokala program med Azure AD-programproxy i Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,46 +15,46 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025749"
 ---
-# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösenordsvalv för enkel inloggning med Programproxy
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösen ords valv för enkel inloggning med programproxy
 
-Azure Active Directory Application Proxy hjälper dig att förbättra produktiviteten genom att publicera lokala program så att fjärranställda kan komma åt dem på ett säkert sätt också. I Azure-portalen kan du också konfigurera enkel inloggning (SSO) till dessa appar. Användarna behöver bara autentisera med Azure AD och de kan komma åt ditt företagsprogram utan att behöva logga in igen.
+Azure Active Directory-programproxy hjälper dig att förbättra produktiviteten genom att publicera lokala program så att fjärranslutna anställda kan komma åt dem på ett säkert sätt. I Azure Portal kan du också konfigurera enkel inloggning (SSO) till de här apparna. Användarna behöver bara autentisera med Azure AD och de kan komma åt ditt företags program utan att behöva logga in igen.
 
-Application Proxy stöder flera [enkla inloggningslägen](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användarnamn/lösenord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program måste användarna logga in på det lokala programmet en gång. Därefter lagrar Azure Active Directory inloggningsinformationen och tillhandahåller den automatiskt till programmet när användarna fjärransluter den.
+Application Proxy stöder flera [lägen för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användar namn/lösen ord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program måste användarna logga in till det lokala programmet en gång. Därefter lagrar Azure Active Directory inloggnings informationen och skickar den automatiskt till programmet när användarna kommer åt det via fjärr anslutning.
 
-Du borde redan ha publicerat och testat din app med Application Proxy. Om inte, följ stegen i [Publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md) och kom sedan tillbaka hit.
+Du bör redan ha publicerat och testat din app med Application Proxy. Annars följer du stegen i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md) och kommer tillbaka hit.
 
-## <a name="set-up-password-vaulting-for-your-application"></a>Konfigurera lösenordsvalv för ditt program
+## <a name="set-up-password-vaulting-for-your-application"></a>Konfigurera lösen ords valv för ditt program
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
-1. Välj **Azure Active Directory** > **Enterprise-program** > **Alla program**.
-1. Välj den app som du vill konfigurera med SSO i listan.  
-1. Välj **Programproxy**. 
-1. Ändra **typen Pre Authentication** till **Passthrough** och välj **Spara**. Senare kan du växla tillbaka till **Azure Active Directory** typ igen! 
-1. Välj **Enkel inloggning**.
+1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
+1. Välj **Azure Active Directory** > **företags program** > **alla program**.
+1. I listan väljer du den app som du vill konfigurera med SSO.  
+1. Välj **programproxy**. 
+1. Ändra **typen för autentisering** till **passthrough** och välj **Spara**. Senare kan du växla tillbaka till **Azure Active Directory** typ igen! 
+1. Välj **enkel inloggning**.
 
-   ![Välj Enkel inloggning på appens översiktssida](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![Välj enkel inloggning på appens översikts sida](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
-1. För SSO-läget väljer du **Lösenordsbaserad inloggning**.
-1. För inloggnings-URL:en anger du webbadressen till sidan där användarna anger sitt användarnamn och lösenord för att logga in på din app utanför företagsnätverket. Det kan vara den externa URL:en som du skapade när du publicerade appen via Programproxy.
+1. I SSO-läge väljer du **lösenordsbaserad inloggning**.
+1. För inloggnings-URL: en anger du webb adressen till sidan där användarna anger sitt användar namn och lösen ord för att logga in på din app utanför företags nätverket. Detta kan vara den externa URL som du skapade när du publicerade appen via programproxy.
 
-   ![Välj lösenordsbaserad inloggning och ange webbadressen](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
+   ![Välj lösenordsbaserad inloggning och ange din URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Välj **Spara**.
-1. Välj **Programproxy**. 
-1. Ändra **typen Före autentisering** till **Azure Active Directory** och välj **Spara**. 
-1. Välj **Användare och grupper**.
+1. Välj **programproxy**. 
+1. Ändra **typen för förautentisering** till **Azure Active Directory** och välj **Spara**. 
+1. Välj **användare och grupper**.
 1. Tilldela användare till programmet med att välja **Lägg till användare**. 
-1. Om du vill fördefiniera autentiseringsuppgifter för en användare markerar du rutan längst fram i användarnamnet och väljer **Uppdatera autentiseringsuppgifter**.
-1. Välj **Azure Active Directory** > **App-registreringar** > **Alla program**.
-1. Välj den app som du konfigurerade med Lösenord SSO i listan.
-1. Välj **Branding**. 
-1. Uppdatera **webbadressen till startsidan** med **inloggningsadressen på** sidan Lösenord SSO och välj **Spara**.  
+1. Om du vill fördefiniera autentiseringsuppgifter för en användare markerar du kryss rutan framför användar namnet och väljer **uppdatera autentiseringsuppgifter**.
+1. Välj **Azure Active Directory** > **Appregistreringar** > **alla program**.
+1. I listan väljer du den app som du konfigurerade med lösen ordet SSO.
+1. Välj **anpassning**. 
+1. Uppdatera **Start sidans URL** med **inloggnings-URL:** en från inloggnings sidan för lösen ord och välj **Spara**.  
 
 
 
@@ -64,9 +64,9 @@ Du borde redan ha publicerat och testat din app med Application Proxy. Om inte, 
 
 ## <a name="test-your-app"></a>Testa din app
 
-Gå till portalen Mina appar. Logga in med dina autentiseringsuppgifter (eller autentiseringsuppgifterna för ett testkonto som du har konfigurerat med åtkomst). När du har loggat in klickar du på ikonen för appen. Detta kan utlösa installationen av webbläsartillägget För säker inloggning för Mina appar. Om användaren hade fördefinierade autentiseringsuppgifter ska autentiseringen till appen ske automatiskt, annars måste du ange användarnamnet eller lösenordet för första gången. 
+Gå till portalen Mina appar. Logga in med dina autentiseringsuppgifter (eller autentiseringsuppgifterna för ett test konto som du har konfigurerat med åtkomst). När du har loggat in klickar du på ikonen för appen. Detta kan utlösa installationen av tillägget Mina appar säker inloggnings webbläsare. Om din användare hade fördefinierade autentiseringsuppgifter ska autentiseringen till appen ske automatiskt, annars måste du ange användar namnet eller lösen ordet för första gången. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om andra sätt att implementera [Enkel inloggning](what-is-single-sign-on.md)
-- Lär dig mer om [säkerhetsaspekter för åtkomst till appar på distans med Azure AD Application Proxy](application-proxy-security.md)
+- Läs om andra sätt att implementera [enkel inloggning](what-is-single-sign-on.md)
+- Lär dig mer om [säkerhets överväganden för att komma åt appar via fjärr anslutning med Azure AD-programproxy](application-proxy-security.md)

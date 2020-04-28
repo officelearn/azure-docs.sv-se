@@ -1,63 +1,63 @@
 ---
-title: Starta, stoppa och ta bort ditt Azure Spring Cloud-program | Microsoft-dokument
-description: Så här startar, stoppar och tar du bort ditt Azure Spring Cloud-program
+title: Starta, stoppa och ta bort ditt Azure våren Cloud-program | Microsoft Docs
+description: Starta, stoppa och ta bort ditt Azure våren Cloud-program
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.openlocfilehash: daa549e248668add54530e90174134c4e0059b3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276828"
 ---
-# <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Starta, stoppa och ta bort ditt Azure Spring Cloud-program
+# <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Starta, stoppa och ta bort ditt Azure våren Cloud-program
 
-Den här guiden förklarar hur du ändrar ett programs tillstånd i Azure Spring Cloud med hjälp av antingen Azure-portalen eller Azure CLI.
+I den här guiden beskrivs hur du ändrar ett programs tillstånd i Azure våren-molnet med hjälp av antingen Azure Portal eller Azure CLI.
 
 ## <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-När du har distribuerat ett program kan du starta, stoppa och ta bort det med hjälp av Azure-portalen.
+När du har distribuerat ett program kan du starta, stoppa och ta bort det med hjälp av Azure Portal.
 
-1. Gå till din Azure Spring Cloud-tjänstinstans i Azure-portalen.
-1. Välj fliken **Instrumentpanel för program.**
-1. Markera det program vars tillstånd du vill ändra.
-1. På sidan **Översikt** för det programmet väljer du **Start/Stopp,** **Starta om**eller Ta **bort**.
+1. Gå till din Azure våren Cloud Service-instans i Azure Portal.
+1. Välj fliken **instrument panel för program** .
+1. Välj det program vars tillstånd du vill ändra.
+1. På sidan **Översikt** för programmet väljer du **Starta/stoppa**, **starta om**eller **ta bort**.
 
 ## <a name="using-the-azure-cli"></a>Använda Azure CLI
 
 > [!NOTE]
-> Du kan använda valfria parametrar och konfigurera standardvärden med Azure CLI. Läs mer om Azure CLI genom att läsa [vår referensdokumentation](spring-cloud-cli-reference.md).  
+> Du kan använda valfria parametrar och konfigurera standardvärden med Azure CLI. Läs mer om Azure CLI genom att läsa [vår referens dokumentation](spring-cloud-cli-reference.md).  
 
-Installera först Azure Spring Cloud-tillägget för Azure CLI enligt följande:
+Installera först moln tillägget Azure våren för Azure CLI enligt följande:
 
 ```azurecli
 az extension add --name spring-cloud
 ```
 
-Välj sedan någon av dessa Azure CLI-åtgärder:
+Välj sedan någon av följande Azure CLI-åtgärder:
 
-* Så här startar du programmet:
+* Starta programmet:
 
     ```azurecli
     az spring-cloud app start -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
-* Så här stoppar du programmet:
+* Så här stoppar du ditt program:
 
     ```azurecli
     az spring-cloud app stop -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
-* Så här startar du om programmet:
+* Starta om programmet:
 
     ```azurecli
     az spring-cloud app restart -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
-* Så här tar du bort programmet:
+* Ta bort ditt program:
 
     ```azurecli
     az spring-cloud app delete -n <application name> -g <resource group> -s <Azure Spring Cloud name>

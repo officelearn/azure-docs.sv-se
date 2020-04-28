@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: eafd0ced64567ec7b51ff0f8aac19668343867ea
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: e4afa3c122fa6e21b29b6ad52a386096b20aa055
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82129784"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184505"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Självstudie: fråga ett Kognitiv sökning-index från Power Apps
 
@@ -214,7 +214,7 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
    Följande skärm bild visar formel fältet för **OnSelect** -åtgärden.
 
-       :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Knapp OnSelect" border="true":::
 
    Den här åtgärden gör att knappen uppdaterar en ny samling som heter *azResult* med resultatet från Sök frågan med texten i text rutan *txtQuery* som frågeterm.
 

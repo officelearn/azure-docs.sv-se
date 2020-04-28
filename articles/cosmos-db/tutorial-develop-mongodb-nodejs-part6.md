@@ -1,5 +1,5 @@
 ---
-title: Lägga till CRUD-funktioner i en vinkelapp med Azure Cosmos DB:s API för MongoDB
+title: Lägg till CRUD-funktioner i en vinkel-app med Azure Cosmos DB s API för MongoDB
 description: Del 6 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441094"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184783"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Lägga till CRUD-funktioner i appen
 
@@ -86,7 +86,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, välj **Felsök**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) till vänster och välj sedan **Starta felsökning**![Ikonen Starta felsökning i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Navigera [http://localhost:3000](http://localhost:3000) till för att titta på de samtal som görs via nätverket.
+6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Gå till `http://localhost:3000` för att se alla anrop som gjorts i nätverket.
 
     ![Fliken Nätverk i Chrome som visar nätverksaktivitet](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 

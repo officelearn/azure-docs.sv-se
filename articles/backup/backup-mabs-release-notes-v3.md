@@ -4,22 +4,22 @@ description: Den här artikeln innehåller information om kända problem och lö
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 03863f7598da06bb36cbb7497d7c773f811a004e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a5c99bcb95fde39bddc9e9db9ab000881c89081a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685616"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185633"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Viktig information för Microsoft Azure Backup Server
 
-Den här artikeln innehåller kända problem och lösningar för MICROSOFT Azure Backup Server (MABS) V3.
+Den här artikeln innehåller kända problem och lösningar för Microsoft Azure Backup Server (MABS) v3.
 
-## <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Säkerhetskopiering och återställning misslyckas för klustrade arbetsbelastningar
+## <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Säkerhets kopiering och återställning Miss lyckas för klustrade arbets belastningar
 
-**Beskrivning:** Säkerhetskopiering/återställning misslyckas för klustrade datakällor som Hyper-V-kluster eller SQL-kluster (SQL Always On) eller Exchange i databastillgänglighetsgruppen (DAG) efter uppgradering av MABS V2 till MABS V3.
+**Beskrivning:** Säkerhets kopiering/återställning Miss lyckas för klustrade data källor som Hyper-V-kluster eller SQL-kluster (alltid SQL Always on) eller Exchange i databasen tillgänglighets grupp (DAG) efter uppgradering av MABS v2 till MABS v3.
 
-**Gå runt:** För att förhindra detta, öppna SQL Server Management Studio (SSMS)) och köra följande SQL-skript på DPM DB:
+Lösning **:** Förhindra detta genom att öppna SQL Server Management Studio (SSMS)) och köra följande SQL-skript på DPM-databasen:
 
 ```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects
@@ -48,29 +48,29 @@ Den här artikeln innehåller kända problem och lösningar för MICROSOFT Azure
     GO
 ```
 
-## <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>Uppgradering till MABS V3 misslyckas i ryska lokalen
+## <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>Det går inte att uppgradera till MABS v3 på ryskt språk
 
-**Beskrivning:** Uppgradering från MABS V2 till MABS V3 i ryska språk misslyckas med en felkod **4387**.
+**Beskrivning:** Det går inte att uppgradera från MABS v2 till MABS v3 på den ryska språkvarianten med felkod **4387**.
 
-**Gå runt:** Gör följande steg för att uppgradera till MABS V3 med ryska installationspaketet:
+Lösning **:** Utför följande steg för att uppgradera till MABS v3 med installations paketet för ryska:
 
-1. [Säkerhetskopiera](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) SQL-databasen och avinstallera MABS V2 (välj att behålla skyddade data under avinstallationen).
+1. [Säkerhetskopiera](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) SQL-databasen och avinstallera Mabs v2 (Välj att behålla skyddade data under avinstallationen).
 2. Uppgradera till SQL 2017 (Enterprise) och avinstallera rapportering som en del av uppgraderingen.
 3. [Installera](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
 4. [Installera](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
-5. Konfigurera rapportering med hjälp av parametrarna som dokumenteras i [SSRS-konfigurationen med SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
+5. Konfigurera rapportering med parametrarna enligt beskrivningen i [SSRS-konfigurationen med SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6. [Installera](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Återställ](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL med SSMS och kör DPM-Sync-verktyget enligt beskrivningen [här](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
-8. Uppdatera egenskapen "DataBaseVersion" i tabellen dbo.tbl_DLS_GlobalSetting med följande kommando:
+7. [Återställ](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL med SSMS och kör verktyget DPM-Sync enligt beskrivningen [här](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
+8. Uppdatera egenskapen ' DataBaseVersion ' i dbo. tbl_DLS_GlobalSetting-tabellen med hjälp av följande kommando:
 
-```sql
-        UPDATE dbo.tbl_DLS_GlobalSetting
-        set PropertyValue = '13.0.415.0'
-        where PropertyName = 'DatabaseVersion'
-```
+    ```sql
+            UPDATE dbo.tbl_DLS_GlobalSetting
+            set PropertyValue = '13.0.415.0'
+            where PropertyName = 'DatabaseVersion'
+    ```
 
 9. Starta MSDPM-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Nyheter i MABS V3](backup-mabs-whats-new-mabs.md)
+[Vad är nytt i MABS v3](backup-mabs-whats-new-mabs.md)

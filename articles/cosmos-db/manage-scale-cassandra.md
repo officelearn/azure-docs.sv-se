@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 10d81de48c0d8f56c7c3fd26e3fd82a8c3df84c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474687"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188815"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Skala ett Azure Cosmos DB API för Cassandra-konto elastiskt
 
@@ -34,7 +34,7 @@ Om du behöver minimera svars tiden finns det ett spektrum av alternativ för ha
 * [Manuellt med hjälp av Azure Portal](#use-azure-portal)
 * [Program mässigt med hjälp av funktionerna i kontroll planet](#use-control-plane)
 * [Program mässigt med hjälp av CQL-kommandon med en angiven SDK](#use-cql-queries)
-* [Dynamiskt med hjälp av autopilot](#use-autopilot)
+* [Dynamiskt med hjälp av autoskalning](#use-autoscale)
 
 I följande avsnitt beskrivs fördelarna och nack delarna med varje metod. Du kan sedan välja den bästa strategin för att balansera systemets skalnings behov, den totala kostnaden och effektiviteten för din lösning.
 
@@ -50,19 +50,19 @@ Azure Cosmos DBens API för Cassandra ger möjlighet att justera genomflödet pr
 
 Fördelen med den här metoden är att du kan automatisera skala upp eller ned resurser baserat på en timer för att redovisa hög aktivitet eller perioder med låg aktivitet. Ta en titt på vårt exempel [här](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) för hur du kan göra detta med hjälp av Azure Functions och PowerShell.
 
-En nackdel med den här metoden är att du inte kan svara på oförutsägbara skalnings behov i real tid. I stället kan du behöva använda program kontexten i systemet, på klienten/SDK-nivån eller med hjälp av [autopilot](provision-throughput-autopilot.md).
+En nackdel med den här metoden är att du inte kan svara på oförutsägbara skalnings behov i real tid. I stället kan du behöva använda program kontexten i systemet, på klient/SDK-nivå eller använda [autoskalning](provision-throughput-autoscale.md).
 
 ## <a name="use-cql-queries-with-a-specific-sdk"></a><a id="use-cql-queries"></a>Använda CQL-frågor med en angiven SDK
 
 Du kan skala systemet dynamiskt med kod genom att köra [CQL Alter-kommandon](cassandra-support.md#keyspace-and-table-options) för den aktuella databasen eller behållaren.
 
-Fördelen med den här metoden är att du kan svara på skalnings behov dynamiskt och på ett anpassat sätt som passar ditt program. Med den här metoden kan du fortfarande utnyttja standardvärdena för RU/s. Om systemets skalnings behov främst förväntas (cirka 70% eller mer) kan du använda SDK med CQL för att få en mer kostnads effektiv metod för automatisk skalning än att använda autopilot. Nack delen med den här metoden är att det kan vara ganska komplicerat att implementera återförsök medan hastighets begränsningen kan öka svars tiden.
+Fördelen med den här metoden är att du kan svara på skalnings behov dynamiskt och på ett anpassat sätt som passar ditt program. Med den här metoden kan du fortfarande utnyttja standardvärdena för RU/s. Om systemets skalnings behov främst förväntas (cirka 70% eller mer) kan du använda SDK med CQL för att få en mer kostnads effektiv metod för automatisk skalning än att använda autoskalning. Nack delen med den här metoden är att det kan vara ganska komplicerat att implementera återförsök medan hastighets begränsningen kan öka svars tiden.
 
-## <a name="use-autopilot"></a><a id="use-autopilot"></a>Använd autopilot
+## <a name="use-autoscale"></a><a id="use-autoscale"></a>Använda automatisk skalning
 
-Förutom manuell eller programmerings metod för etablering av data flöde kan du också konfigurera Azure Cosmos-behållare i autopilot-läge. Autopilot-läget kommer automatiskt att skalas efter dina förbruknings behov inom angivna RU-intervall utan att kompromissa med service avtal. Mer information finns i artikeln [skapa behållare och databaser för Azure Cosmos i autopilot-läge](provision-throughput-autopilot.md) .
+Förutom manuell eller programmerings metod för etablering av data flöde kan du också konfigurera Azure Cosmos-behållare i autoskalning-läge. Autoskalning-läget kommer automatiskt att skalas efter förbruknings behoven inom angivna RU-intervall utan att kompromissa med service avtal. Mer information finns i artikeln [skapa behållare och databaser för Azure Cosmos i autoskalning-läge](provision-throughput-autoscale.md) .
 
-Fördelen med den här metoden är att det är det enklaste sättet att hantera skalnings behoven i systemet. Det garanterar inte att tillämpa hastighets begränsning **inom de konfigurerade ru-intervallen**. Nack delen är att om skalnings behoven i systemet är förutsägbara kan autopilot vara ett mindre kostnads effektivt sätt att hantera dina skalnings behov än att använda de beskrivna kontroll planet eller SDK-nivå närmast ovan.
+Fördelen med den här metoden är att det är det enklaste sättet att hantera skalnings behoven i systemet. Det garanterar inte att tillämpa hastighets begränsning **inom de konfigurerade ru-intervallen**. Nack delen är att om skalnings behoven i systemet är förutsägbara kan autoskalning vara ett mindre kostnads effektivt sätt att hantera dina skalnings behov än att använda de beskrivna kontroll planet eller SDK-nivå närmast ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 

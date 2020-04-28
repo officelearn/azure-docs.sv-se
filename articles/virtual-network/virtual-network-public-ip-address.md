@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: a03ace1553bd845d8a221e458fd47f3d8aa3d611
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: de680e7cb542e7606b80ad46934f4ad7256bfb92
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146541"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186075"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
@@ -118,4 +118,4 @@ Om du vill utföra uppgifter på offentliga IP-adresser måste ditt konto tillde
 ## <a name="next-steps"></a>Nästa steg
 
 - Skapa en offentlig IP-adress med [PowerShell](powershell-samples.md) -eller [Azure CLI](cli-samples.md) -exempel skript eller med Azure [Resource Manager-mallar](template-samples.md)
-- Skapa och tillämpa [Azure policy](policy-samples.md) för offentliga IP-adresser
+- Skapa och tilldela [Azure policy definitioner](policy-samples.md) för offentliga IP-adresser

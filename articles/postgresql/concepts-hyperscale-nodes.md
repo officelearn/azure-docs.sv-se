@@ -1,6 +1,6 @@
 ---
-title: Noder – Hyperskala (Citus) – Azure-databas för PostgreSQL
-description: Lär dig mer om de två typerna av noder, koordinator och arbetare, i en servergrupp i Azure Database för PostgreSQL.
+title: Noder – storskalig (citus) – Azure Database for PostgreSQL
+description: Lär dig mer om de två typerna av noder, koordinator och arbetare i en Server grupp i Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,21 +8,21 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 04ebb4298f8a5398b0aa9921d740e3eaacfd8e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974010"
 ---
-# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Noder i Azure Database för PostgreSQL – Hyperskala (Citus)
+# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Noder i Azure Database for PostgreSQL – storskalig (citus)
 
-Den hyperskala (Citus) värdtypen tillåter Azure Database för PostgreSQL-servrar (kallas noder) att samordna med varandra i en "delad ingenting" arkitektur. Noderna i en servergrupp innehåller tillsammans mer data och använder fler CPU-kärnor än vad som skulle vara möjligt på en enda server. Arkitekturen gör det också möjligt för databasen att skala genom att lägga till fler noder i servergruppen.
+Den storskaliga (citus) värd typen tillåter Azure Database for PostgreSQL servrar (kallas noder) att koordineras med varandra i en "delad Nothing"-arkitektur. Noderna i en Server grupp har samlat mer data och använder fler processor kärnor än vad som är möjligt på en enskild server. Arkitekturen gör det också möjligt för databasen att skalas genom att lägga till fler noder i Server gruppen.
 
-## <a name="coordinator-and-workers"></a>Samordnare och arbetstagare
+## <a name="coordinator-and-workers"></a>Koordinator och arbetare
 
-Varje servergrupp har en koordinatornod och flera arbetare. Ansökningar skickar sina frågor till koordinatorn noden, som vidarebefordrar den till berörda arbetstagare och ackumulerar deras resultat. Program kan inte ansluta direkt till arbetare.
+Varje server grupp har en koordinator-nod och flera arbetare. Programmen skickar sina frågor till koordinator-noden, som vidarebefordrar dem till relevanta arbetare och ackumulerar sina resultat. Program kan inte ansluta direkt till arbets tagarna.
 
-För varje fråga dirigerar koordinatorn den antingen till en enda arbetsnod eller parallelliserar den över flera beroende på om de data som krävs finns på en enda nod eller flera. Samordnaren bestämmer vad som ska göra genom att konsultera metadatatabeller. Dessa tabeller spårar DNS-namn och hälsotillstånd för arbetsnoder och distribution av data mellan noder.
+För varje fråga dirigerar koordinatorn antingen den till en enda arbetsnoden, eller parallelizes den över flera beroende på om de data som krävs finns på en enda nod eller flera. Koordinatorn bestämmer vad som ska göras vid konsultering av metadata tabeller. De här tabellerna spårar DNS-namn och hälsa för arbetsnoder och data fördelningen mellan noderna.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs om hur noder lagrar [distribuerade data](concepts-hyperscale-distributed-data.md)
+- Lär dig hur noder lagrar [distribuerade data](concepts-hyperscale-distributed-data.md)

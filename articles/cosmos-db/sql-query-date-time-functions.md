@@ -1,6 +1,6 @@
 ---
-title: Datum- och tidsfunktioner i Azure Cosmos DB-frågespråk
-description: Lär dig mer om datum och tid SQL-systemfunktioner i Azure Cosmos DB för att utföra DateTime och tidsstämpelåtgärder.
+title: Datum-och tids funktioner i Azure Cosmos DB frågespråk
+description: Lär dig mer om datum-och tids funktioner i SQL system-funktioner i Azure Cosmos DB att utföra DateTime-och timestamp-åtgärder.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,19 +8,19 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 93b3e90deb5e3764cb5402938c5d0e14cadb7883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873394"
 ---
-# <a name="date-and-time-functions-azure-cosmos-db"></a>Datum- och tidsfunktioner (Azure Cosmos DB)
+# <a name="date-and-time-functions-azure-cosmos-db"></a>Datum-och tids funktioner (Azure Cosmos DB)
 
-Med datum- och tidsfunktionerna kan du utföra DateTime- och tidsstämpelåtgärder i Azure Cosmos DB.
+Med funktionen för datum-och tids funktioner kan du utföra DateTime-och timestamp-åtgärder i Azure Cosmos DB.
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
-Med följande skalärfunktioner kan du få aktuellt UTC-datum och tid i två former. En numerisk tidsstämpel vars värde är Unix-epoken i millisekunder eller som en sträng som överensstämmer med ISO 8601-formatet:
+Med följande skalära funktioner kan du hämta aktuellt UTC-datum och tid i två formulär; en numerisk tidstämpel vars värde är UNIX-epoken i millisekunder eller som en sträng som följer ISO 8601-formatet:
 
 |||
 |-|-|
@@ -29,7 +29,7 @@ Med följande skalärfunktioner kan du få aktuellt UTC-datum och tid i två for
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
 - [Samlingar](sql-query-aggregates.md)

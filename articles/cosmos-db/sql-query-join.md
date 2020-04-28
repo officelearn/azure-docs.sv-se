@@ -1,109 +1,109 @@
 ---
 title: SQL JOIN-frågor för Azure Cosmos DB
-description: Lär dig hur du gör flera tabeller i Azure Cosmos DB för att fråga data
+description: Lär dig hur du kopplar ihop flera tabeller i Azure Cosmos DB för att fråga data
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74871150"
 ---
-# <a name="joins-in-azure-cosmos-db"></a>Går med i Azure Cosmos DB
+# <a name="joins-in-azure-cosmos-db"></a>Kopplingar i Azure Cosmos DB
 
-I en relationsdatabas är kopplingar över tabeller den logiska konsekvensen av att utforma normaliserade scheman. SQL API använder däremot den denormaliserade datamodellen för schemafria objekt, vilket är den logiska motsvarigheten till en *självkoppling*.
+I en Relations databas är sammanfogningar över tabeller den logiska överrullningen för att utforma normaliserade scheman. SQL-API: t använder däremot den avnormaliserade data modellen för schema fria objekt, vilket är den logiska motsvarigheten till en *själv koppling*.
 
-Inre kopplingar resulterar i en komplett korsprodukt av de uppsättningar som deltar i kopplingen. Resultatet av en N-vägskoppling är en uppsättning N-elementupptupplar, där varje värde i tuppeln är associerat med den aliaserade uppsättningen som deltar i kopplingen och kan nås genom att referera till det aliaset i andra satser.
+Inre kopplingar resulterar i en fullständig kors produkt av uppsättningarna som ingår i kopplingen. Resultatet av en N-Way-koppling är en uppsättning av N-element-tupler, där varje värde i tuppeln är associerat med den aliasad uppsättning som ingår i kopplingen och kan nås genom att referera till aliaset i andra satser.
 
 ## <a name="syntax"></a>Syntax
 
-Språket stöder syntaxen `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Den här frågan returnerar en `N` uppsättning tupplar med värden. Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. 
+Språket stöder syntaxen `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Den här frågan returnerar en uppsättning tupler med `N` värden. Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. 
 
-Låt oss titta på följande FROM-klausul:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Låt varje `input_alias1, input_alias2, …, input_aliasN`källa definiera . Den här FROM-satsen returnerar en uppsättning N-tupplar (tuppel med N-värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar.  
+ Låt varje källa definiera `input_alias1, input_alias2, …, input_aliasN`. Denna FROM-sats returnerar en uppsättning av N-tupler (tupel med N värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar.  
   
-**Exempel 1** - 2 källor  
+**Exempel 1** – 2 Källor  
   
-- Låt `<from_source1>` behållaren-scoped och representera set {A, B, C}.  
+- Tillåt `<from_source1>` container-scope och representerar set {A, B, C}.  
   
-- Låt `<from_source2>` dokumentomfattad referera input_alias1 och representera uppsättningar:  
+- Gör `<from_source2>` det möjligt att referera till dokument med begränsad input_alias1 och representerar uppsättningar:  
   
     {1, 2} för`input_alias1 = A,`  
   
-    {3}För`input_alias1 = B,`  
+    {3}söker`input_alias1 = B,`  
   
     {4, 5} för`input_alias1 = C,`  
   
-- FROM-satsen `<from_source1> JOIN <from_source2>` resulterar i följande tupplar:  
+- FROM-satsen `<from_source1> JOIN <from_source2>` leder till följande tupler:  
   
     (`input_alias1, input_alias2`):  
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-**Exempel 2** - 3 källor  
+**Exempel 2** – 3 Källor  
   
-- Låt `<from_source1>` behållaren-scoped och representera set {A, B, C}.  
+- Tillåt `<from_source1>` container-scope och representerar set {A, B, C}.  
   
-- Låt `<from_source2>` dokumentomfattad referera och `input_alias1` representera uppsättningar:  
+- Gör `<from_source2>` det möjligt att referera till dokument omfattning `input_alias1` och representera uppsättningar:  
   
     {1, 2} för`input_alias1 = A,`  
   
-    {3}För`input_alias1 = B,`  
+    {3}söker`input_alias1 = B,`  
   
     {4, 5} för`input_alias1 = C,`  
   
-- Låt `<from_source3>` dokumentomfattad referera och `input_alias2` representera uppsättningar:  
+- Gör `<from_source3>` det möjligt att referera till dokument omfattning `input_alias2` och representera uppsättningar:  
   
     {100, 200} för`input_alias2 = 1,`  
   
-    {300}För`input_alias2 = 3,`  
+    {300}söker`input_alias2 = 3,`  
   
-- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` resulterar i följande tupplar:  
+- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` leder till följande tupler:  
   
     (input_alias1, input_alias2, input_alias3):  
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
   > [!NOTE]
-  > Brist på tupplar för `input_alias1` `input_alias2`andra värden `<from_source3>` i , , för vilka inte returnera några värden.  
+  > Avsaknad av tupler för andra värden för `input_alias1`, `input_alias2`, för vilka `<from_source3>` inga värden returnerades.  
   
-**Exempel 3** - 3 källor  
+**Exempel 3** – 3 Källor  
   
-- Låt <from_source1> vara behållarbest och representera uppsättningen {A, B, C}.  
+- Låt <from_source1> vara container-scope och representera set {A, B, C}.  
   
-- Låt `<from_source1>` behållaren-scoped och representera set {A, B, C}.  
+- Tillåt `<from_source1>` container-scope och representerar set {A, B, C}.  
   
-- Låt <from_source2> referera input_alias1 input_alias1 och representera uppsättningar:  
+- Låt <from_source2> vara dokumenterad referens input_alias1 och representera uppsättningar:  
   
     {1, 2} för`input_alias1 = A,`  
   
-    {3}För`input_alias1 = B,`  
+    {3}söker`input_alias1 = B,`  
   
     {4, 5} för`input_alias1 = C,`  
   
-- Låt `<from_source3>` dig begränsas till `input_alias1` och representera uppsättningar:  
+- Ge `<from_source3>` omfång till `input_alias1` och representerar uppsättningar:  
   
     {100, 200} för`input_alias2 = A,`  
   
-    {300}För`input_alias2 = C,`  
+    {300}söker`input_alias2 = C,`  
   
-- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` resulterar i följande tupplar:  
+- FROM-satsen `<from_source1> JOIN <from_source2> JOIN <from_source3>` leder till följande tupler:  
   
     (`input_alias1, input_alias2, input_alias3`):  
   
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300) , (C, 5, 300)  
+    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
   
   > [!NOTE]
-  > Detta resulterade i `<from_source2>` en `<from_source3>` korsningsprodukt mellan `<from_source1>`och eftersom båda är begränsade till samma .  Detta resulterade i att 4 (2x2) tupplar hade värde A, 0 tupplar med värde B (1x0) och 2 (2x1) tupplar med värde C.  
+  > Detta resulterade i mellanprodukter `<from_source2>` mellan `<from_source3>` och eftersom båda är begränsade till samma `<from_source1>`.  Detta resulterade i 4 (2x2) tupler med värdet A, 0 tupler med värde B (1x0) och 2 (2x1) tupler med värdet C.  
   
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur JOIN-satsen fungerar. Innan du kör de här exemplen laddar du upp [exempelinformationen för familjen](sql-query-getting-started.md#upload-sample-data). I följande exempel är resultatet tomt eftersom korsprodukten för varje artikel från källan och en tom uppsättning är tom:
+I följande exempel visas hur JOIN-satsen fungerar. Innan du kör de här exemplen laddar du upp exempel [familjens data](sql-query-getting-started.md#upload-sample-data). I följande exempel är resultatet tomt, eftersom kryss produkten för varje objekt från källa och en tom uppsättning är tom:
 
 ```sql
     SELECT f.id
@@ -118,7 +118,7 @@ Resultatet är:
     }]
 ```
 
-I följande exempel är kopplingen en korsprodukt mellan två JSON-objekt, artikelroten `id` och underroten. `children` Det faktum `children` att det är en matris är inte effektivt i kopplingen, `children` eftersom det handlar om en enda rot som är matrisen. Resultatet innehåller bara två resultat, eftersom korsprodukten för varje artikel med matrisen ger exakt bara en artikel.
+I följande exempel är kopplingen en mellan produkt mellan två JSON-objekt, objekt roten `id` och under `children` roten. Det faktum att `children` en matris inte är effektiv i kopplingen, eftersom den behandlar en enda rot som är `children` matrisen. Resultatet innehåller bara två resultat eftersom kryss produkten för varje objekt med matrisen ger exakt bara ett objekt.
 
 ```sql
     SELECT f.id
@@ -163,15 +163,15 @@ Resultatet är:
     ]
 ```
 
-FRÅN-källan till JOIN-satsen är en iterator. Så flödet i föregående exempel är:  
+FROM-källa för JOIN-satsen är en iterator. Därför är flödet i föregående exempel:  
 
-1. Expandera varje `c` underordnat element i matrisen.
-2. Använd en korsprodukt med roten på `f` `c` artikeln med varje underordnat element som det första steget förenklade.
-3. Slutligen projicerar du `f` `id` egenskapen root object ensam.
+1. Expandera varje underordnat element `c` i matrisen.
+2. Använd en kors produkt med roten för objektet `f` med varje underordnat element `c` som det första steget är utplattat.
+3. Till sist projicerar du rot `f` `id` objekts egenskapen endast.
 
-Det första `AndersenFamily`objektet innehåller bara `children` ett element, så resultatuppsättningen innehåller bara ett enda objekt. Den andra `WakefieldFamily`artikeln innehåller `children`två , så att korsprodukten producerar `children` två objekt, ett för varje element. Rotfälten i båda dessa objekt är detsamma, vilket är det som förväntas i en kryssprodukt.
+Det första objektet, `AndersenFamily`, innehåller endast ett `children` -element, så resultat uppsättningen innehåller bara ett enda objekt. Det andra objektet, `WakefieldFamily`, som innehåller `children`två, så att kors produkten genererar två objekt, ett för `children` varje element. Rotfälten i båda dessa objekt är detsamma, vilket är det som förväntas i en kryssprodukt.
 
-Den verkliga nyttan med JOIN-satsen är att bilda tupplar från korsprodukten i en form som annars är svår att projicera. Exemplet nedan filtrerar på kombinationen av en tuppel som låter användaren välja ett villkor som uppfylls av tupplar totalt.
+Det verkliga verktyget i JOIN-satsen är att forma tupler från kors produkten i en form som annars är svår att projicera. I exemplet nedan filtreras kombinationen av en tupel som gör det möjligt för användaren att välja ett villkor som är uppfyllt av tupelarna generellt.
 
 ```sql
     SELECT 
@@ -206,7 +206,7 @@ Resultatet är:
     ]
 ```
 
-Följande tillägg i föregående exempel utför en dubbel koppling. Du kan visa korsprodukten som följande pseudokod:
+Följande tillägg i föregående exempel utför en dubbel koppling. Du kan visa kors produkten som följande pseudo-kod:
 
 ```
     for-each(Family f in Families)
@@ -224,9 +224,9 @@ Följande tillägg i föregående exempel utför en dubbel koppling. Du kan visa
     }
 ```
 
-`AndersenFamily`har ett barn som har ett husdjur, så den\*arga\*produkten ger en rad (1 1 1) från denna familj. `WakefieldFamily`har två barn, varav bara ett har husdjur, men barnet har två husdjur. Korsprodukten för denna familj ger\*1 1\*2 = 2 rader.
+`AndersenFamily`har en underordnad som har ett hus djur, så att kors produkten ger en rad\*(\*1 1) från den här familjen. `WakefieldFamily`har två underordnade, endast en av som har hus djur, men att barnet har två hus djur. Den här seriens kors produkt ger 1\*1\*2 = 2 rader.
 
-I nästa exempel finns det ytterligare `pet`ett filter på , som utesluter alla `Shadow`tupplar där husdjursnamnet inte är . Du kan skapa tupplar från matriser, filtrera på något av elementen i tuppeln och projicera valfri kombination av elementen.
+I nästa exempel finns ett ytterligare filter på `pet`, som utesluter alla tupler där PET-namnet inte `Shadow`är det. Du kan bygga tupler från matriser, filtrera efter alla element i tuppeln och projicera en kombination av elementen.
 
 ```sql
     SELECT 
@@ -256,4 +256,4 @@ Resultatet är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Underfrågor](sql-query-subquery.md)
+- [Under frågor](sql-query-subquery.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386739"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
@@ -47,7 +47,7 @@ Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjän
 
 Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Självstudieinstruktionerna fungerar med någon av följande produkter:
+Själv studie anvisningarna fungerar med någon av följande produkter:
 
 * Visual Studio 2013
 * Visual Studio 2015
@@ -229,7 +229,7 @@ Azure-lagringskontots anslutningssträngar för både webbrollsprojektet och arb
 1. I **Solution Explorer** högerklickar du på **ContosoAdsWeb** under **Roles** (Roller) i **ContosoAdsCloudService**-projektet. Klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Klicka på fliken **Inställningar.** I listrutan **Tjänstkonfiguration** väljer du **Cloud**.
+2. Klicka på fliken **Inställningar** . I list rutan **tjänst konfiguration** väljer du **moln**.
 
     ![Molnkonfiguration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp (**...**) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
@@ -353,7 +353,7 @@ När lösningen har skapats granskar du koden som är unik för molntjänstproje
 6. Leta upp NuGet-paketet *Microsoft.WindowsAzure.ConfigurationManager* och installera det i arbetsrollsprojektet.
 
 ### <a name="set-project-references"></a>Ange projektreferenser
-1. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWeb-projektet. Högerklicka på ContosoAdsWeb-projektet och klicka sedan på **Referenser** - **Lägg till referenser**. Välj **Solution – Projects** (Lösning – Projekt) i den vänstra rutan i dialogrutan **Reference Manager** (Referenshanterare). Välj sedan **ContosoAdsCommon** och klicka på **OK**.
+1. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWeb-projektet. Högerklicka på projektet ContosoAdsWeb och klicka sedan på **referenser** - **Lägg till referenser**. Välj **Solution – Projects** (Lösning – Projekt) i den vänstra rutan i dialogrutan **Reference Manager** (Referenshanterare). Välj sedan **ContosoAdsCommon** och klicka på **OK**.
 2. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWorker-projektet.
 
     ContosoAdsCommon innehåller Entity Framework-datamodellen och -kontextklassen som kommer att användas både av klientdelen och serverdelen.
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Om inget kömeddelande hittas efter varje upprepning av loopen, försätts programmet i viloläge i en sekund. Det förhindrar att arbetsrollen använder orimlig processortid och orsakar lagringstransaktionskostnader. Microsoft Customer Advisory Team berättar om en utvecklare som glömde bort att ta med det här, distribuerade till produktion, och åkte på semester. När de kom tillbaka, deras tillsyn kostar mer än semester.
+Om inget kömeddelande hittas efter varje upprepning av loopen, försätts programmet i viloläge i en sekund. Det förhindrar att arbetsrollen använder orimlig processortid och orsakar lagringstransaktionskostnader. Microsoft Customer Advisory Team berättar om en utvecklare som glömde bort att ta med det här, distribuerade till produktion, och åkte på semester. När de blev tillbaka är deras överblicks kostnad mer än semestern.
 
 Ibland orsakar innehållet i ett kömeddelande ett fel i bearbetningen. Det kallas för *meddelande om ej utförd åtgärd*, och om du precis har loggat ett fel och startat loopen igen kan du försöka bearbeta det meddelandet i oändlighet.  Därför innehåller catch-blocket en if-sats som kontrollerar hur många gånger appen har försökt att bearbeta det aktuella meddelandet, och om det har hänt fler än fem gånger, tas meddelandet bort från kön.
 
@@ -774,7 +774,7 @@ Mer information finns i följande resurser:
 
 * [Azure Cloud Services, del 1: Inledning](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
-* [Azure-lagring](https://docs.microsoft.com/azure/storage/)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 

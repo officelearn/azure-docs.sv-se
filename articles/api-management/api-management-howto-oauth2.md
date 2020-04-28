@@ -1,7 +1,7 @@
 ---
-title: Auktorisera utvecklarkonton med OAuth 2.0 i API Management
+title: Auktorisera utvecklares konton med OAuth 2,0 i API Management
 titleSuffix: Azure API Management
-description: Läs om hur du auktoriserar användare med OAuth 2.0 i API Management.
+description: Lär dig hur du auktoriserar användare som använder OAuth 2,0 i API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -14,121 +14,121 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430678"
 ---
-# <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Så här godkänner du utvecklarkonton med OAuth 2.0 i Azure API Management
+# <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med OAuth 2,0 i Azure API Management
 
-Många API:er stöder [OAuth 2.0](https://oauth.net/2/) för att skydda API:et och se till att endast giltiga användare har åtkomst, och de kan bara komma åt resurser som de har rätt till. För att kunna använda Azure API Managements interaktiva utvecklarkonsol med sådana API:er kan du med tjänsten konfigurera din tjänstinstans så att den fungerar med det OAuth 2.0-aktiverade API:et.
+Många API: er stöder [OAuth 2,0](https://oauth.net/2/) för att skydda API: et och se till att endast giltiga användare har åtkomst och att de endast kan komma åt resurser som de är berättigade till. För att kunna använda Azure API Managements interaktiva utvecklares konsol med sådana API: er kan du konfigurera tjänst instansen så att den fungerar med ditt OAuth 2,0-aktiverade API.
 
 > [!IMPORTANT]
-> OAuth 2.0-auktorisering är ännu inte tillgänglig i den interaktiva konsolen i den nya utvecklarportalen.
+> OAuth 2,0-auktorisering är inte tillgängligt ännu i den interaktiva konsolen för den nya Developer-portalen.
 
 ## <a name="prerequisites"></a><a name="prerequisites"> </a>Krav
 
-Den här guiden visar hur du konfigurerar tjänstinstansen för API Management så att OAuth 2.0-auktoriseringen för utvecklarkonton används, men du får inte hur du konfigurerar en OAuth 2.0-provider. Konfigurationen för varje OAuth 2.0-provider är olika, även om stegen är likartade, och den information som krävs för att konfigurera OAuth 2.0 i api management-tjänstinstansen är desamma. Det här avsnittet visar exempel med Azure Active Directory som OAuth 2.0-provider.
+Den här guiden visar hur du konfigurerar API Management tjänst instansen att använda OAuth 2,0-auktorisering för utvecklarresurser, men visar inte hur du konfigurerar en OAuth 2,0-Provider. Konfigurationen för varje OAuth 2,0-Provider är annorlunda, även om stegen är likartade, och de nödvändiga delarna av information som används för att konfigurera OAuth 2,0 i API Management tjänst instansen är desamma. Det här avsnittet innehåller exempel som använder Azure Active Directory som en OAuth 2,0-Provider.
 
 > [!NOTE]
-> Mer information om hur du konfigurerar OAuth 2.0 med Azure Active Directory finns i exemplet [på WebApp-GraphAPI-DotNet.][WebApp-GraphAPI-DotNet]
+> Mer information om hur du konfigurerar OAuth 2,0 med hjälp av Azure Active Directory finns i exemplet [webapp-GraphAPI-dotNet][WebApp-GraphAPI-DotNet] .
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="configure-an-oauth-20-authorization-server-in-api-management"></a><a name="step1"> </a>Konfigurera en OAuth 2.0-auktoriseringsserver i API Management
+## <a name="configure-an-oauth-20-authorization-server-in-api-management"></a><a name="step1"> </a>Konfigurera en OAuth 2,0-auktoriseringsservern i API Management
 
 > [!NOTE]
-> Om du ännu inte har skapat en API Management-tjänstinstans läser du [Skapa en API Management-tjänstinstans][Create an API Management service instance].
+> Om du ännu inte har skapat en API Management tjänst instans, se [skapa en API Management tjänst instans][Create an API Management service instance].
 
-1. Klicka på fliken OAuth 2.0 i menyn till vänster och klicka på **+Lägg till**.
+1. Klicka på fliken OAuth 2,0 i menyn till vänster och klicka på **+ Lägg till**.
 
-    ![OAuth 2.0-menyn](./media/api-management-howto-oauth2/oauth-01.png)
+    ![OAuth 2,0-menyn](./media/api-management-howto-oauth2/oauth-01.png)
 
-2. Ange ett namn och en valfri beskrivning i fälten **Namn** och **Beskrivning.**
+2. Ange ett namn och en valfri beskrivning i fälten **namn** och **Beskrivning** .
 
     > [!NOTE]
-    > Dessa fält används för att identifiera OAuth 2.0-auktoriseringsservern i den aktuella API Management-tjänstinstansen och deras värden kommer inte från OAuth 2.0-servern.
+    > De här fälten används för att identifiera OAuth 2,0-auktoriseringsservern i den aktuella API Management tjänst instansen och deras värden kommer inte från OAuth 2,0-servern.
 
-3. Ange **URL:en**för sidan För klientregistrering . Den här sidan är där användare kan skapa och hantera sina konton och varierar beroende på vilken OAuth 2.0-provider som används. **Url:en för klientregistreringssidan** pekar på sidan som användare kan använda för att skapa och konfigurera sina egna konton för OAuth 2.0-leverantörer som stöder användarhantering av konton. Vissa organisationer konfigurerar eller använder inte den här funktionen även om OAuth 2.0-providern stöder den. Om OAuth 2.0-leverantören inte har konfigurerat användarhantering av konton anger du en platshållaradress här, till exempel företagets URL eller en URL som `https://placeholder.contoso.com`.
+3. Ange **URL för klient registrerings sidan**. Den här sidan är den plats där användare kan skapa och hantera sina konton och varierar beroende på vilken OAuth 2,0-provider som används. **URL: en för klient registrerings sidan** pekar på sidan som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2,0-leverantörer som stöder användar hantering av konton. Vissa organisationer konfigurerar eller använder inte den här funktionen även om OAuth 2,0-providern stöder det. Om din OAuth 2,0-Provider inte har användar hantering av konfigurerade konton anger du en URL för plats hållare, till exempel URL: en för ditt företag eller en URL `https://placeholder.contoso.com`som.
 
-    ![OAuth 2.0 ny server](./media/api-management-howto-oauth2/oauth-02.png)
+    ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. Nästa avsnitt i formuläret innehåller **inställningarna för auktoriseringsbidrag,** **URL för auktoriseringsslutpunkt**och **metodinställningar för auktoriseringsbegäran.**
+4. Nästa avsnitt i formuläret innehåller **behörighets typerna**, **URL: en för auktoriserings slut punkt**och **metod** inställningar för auktorisering.
 
-    Ange **typerna för auktoriseringsbidrag** genom att kontrollera önskade typer. **Auktoriseringskod** anges som standard.
+    Ange de **typer av auktorisering** som ska beviljas genom att kontrol lera de önskade typerna. **Auktoriseringskod** anges som standard.
 
-    Ange **URL:en för auktoriseringsslutpunkt**. För Azure Active Directory liknar den här URL:en följande URL, där `<tenant_id>` ersätts med ID:t för din Azure AD-klientorganisation.
+    Ange **slut punktens URL för auktorisering**. För Azure Active Directory kommer den här URL: en att likna följande URL, där `<tenant_id>` ersätts med ID: t för din Azure AD-klient.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
-    **Metoden auktoriseringsbegäran** anger hur auktoriseringsbegäran skickas till OAuth 2.0-servern. Som standard **ÄR GET** markerat.
+    **Metoden för begäran om auktorisering** anger hur auktoriseringsbegäran skickas till OAuth 2,0-servern. Som standard väljs **Hämta** .
 
-5. Sedan måste **tokenslutpunkts-URL**, **klientautentiseringsmetoder**, **Åtkomsttoken skicka metod** och **Standardomfång** anges.
+5. Sedan måste du ange **token-slutpunkt-URL**, **klientens autentiseringsmetoder**och **Skicka metod för åtkomst-token** och **standard omfång** .
 
-    ![OAuth 2.0 ny server](./media/api-management-howto-oauth2/oauth-03.png)
+    ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    För en Azure Active Directory OAuth 2.0-server har **url:en tokenslutpunkt** följande format, där `<TenantID>` formatet . `yourapp.onmicrosoft.com`
+    För en Azure Active Directory OAuth 2,0-server har **URL: en för token-slutpunkt** följande format `<TenantID>` , där har formatet `yourapp.onmicrosoft.com`.
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    Standardinställningen för **klientautentiseringsmetoder** är **Grundläggande**och **åtkomsttokens sändningsmetod** är **Auktoriseringshuvud**. Dessa värden konfigureras i det här avsnittet i formuläret, tillsammans med **standardomfånget**.
+    Standardvärdet för **klientautentisering** är **Basic**, och **sändnings metoden för åtkomst-token** är **Authorization-huvud**. Dessa värden konfigureras i det här avsnittet av formuläret, tillsammans med **standard omfånget**.
 
-6. Avsnittet **Klientautentiseringsuppgifter** innehåller **klient-ID** och **klienthemlighet**, som erhålls under skapandet och konfigurationsprocessen för din OAuth 2.0-server. När **klient-ID** och **klienthemlighet** har angetts genereras **redirect_uri** för **auktoriseringskoden.** Den här URI:n används för att konfigurera svars-URL:en i OAuth 2.0-serverkonfigurationen.
+6. Avsnittet **klientautentiseringsuppgifter** innehåller **klient-ID** och **klient hemlighet**, som erhålls när du skapar och konfigurerar en OAuth 2,0-servers process. När **klient-ID** och **klient hemlighet** har angetts genereras **redirect_uri** för **auktoriseringskod** . Denna URI används för att konfigurera svars-URL: en i konfigurationen för OAuth 2,0-servern.
 
-    ![OAuth 2.0 ny server](./media/api-management-howto-oauth2/oauth-04.png)
+    ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Om **tilldelningsbidragstyper** är inställt på **Resursägarelösenord**används avsnittet **Autentiseringsuppgifter** för resursägare för att ange dessa autentiseringsuppgifter. Annars kan du lämna den tom.
+    Om **Authorization Grant-typer** har angetts till **resurs ägar lösen ord**, används avsnittet **autentiseringsuppgifter för resurs ägare** för att ange dessa autentiseringsuppgifter. Annars kan du lämna det tomt.
 
-    När formuläret är klart klickar du på **Skapa** för att spara API Management OAuth 2.0-auktoriseringsserverkonfigurationen. När serverkonfigurationen har sparats kan du konfigurera API:er så att de använder den här konfigurationen, som visas i nästa avsnitt.
+    När formuläret har slutförts klickar du på **skapa** för att spara API Management OAuth 2,0-Authorization Server-konfigurationen. När du har sparat Server konfigurationen kan du konfigurera API: er för att använda den här konfigurationen, som du ser i nästa avsnitt.
 
-## <a name="configure-an-api-to-use-oauth-20-user-authorization"></a><a name="step2"> </a>Konfigurera ett API för att använda OAuth 2.0-användarauktorisering
+## <a name="configure-an-api-to-use-oauth-20-user-authorization"></a><a name="step2"> </a>Konfigurera ett API för att använda OAuth 2,0-användarauktorisering
 
-1. Klicka på **API:er** från **API Management-menyn** till vänster.
+1. Klicka på **API: er** på **API Management** menyn till vänster.
 
-    ![OAuth 2.0 API:er](./media/api-management-howto-oauth2/oauth-05.png)
+    ![OAuth 2,0-API: er](./media/api-management-howto-oauth2/oauth-05.png)
 
-2. Klicka på namnet på önskat API och klicka på **Inställningar**. Bläddra till avsnittet **Säkerhet** och markera sedan kryssrutan för **OAuth 2.0**.
+2. Klicka på namnet på önskat API och klicka på **Inställningar**. Bläddra till avsnittet **säkerhet** och markera sedan kryss rutan för **OAuth 2,0**.
 
-    ![OAuth 2.0-inställningar](./media/api-management-howto-oauth2/oauth-06.png)
+    ![OAuth 2,0-inställningar](./media/api-management-howto-oauth2/oauth-06.png)
 
-3. Välj önskad **auktoriseringsserver** i listrutan och klicka på **Spara**.
+3. Välj önskad **auktoriseringsbegäran** i list rutan och klicka på **Spara**.
 
-    ![OAuth 2.0-inställningar](./media/api-management-howto-oauth2/oauth-07.png)
+    ![OAuth 2,0-inställningar](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Äldre utvecklarportal – testa användarauktoriseringen av OAuth 2.0
+## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Äldre utvecklare-Portal – testa OAuth 2,0-användarauktorisering
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-När du har konfigurerat Auktoriseringsservern OAuth 2.0 och konfigurerat ditt API för att använda den servern kan du testa den genom att gå till utvecklarportalen och anropa ett API. Klicka på **utvecklarportal (äldre)** på den övre menyn från sidan **översiktssida** för Azure API Management-instans.
+När du har konfigurerat OAuth 2,0-auktoriseringsservern och konfigurerat ditt API för att använda den servern kan du testa den genom att gå till Developer-portalen och anropa ett API. Klicka på **Developer portal (bakåtkompatibelt)** på den översta menyn från **översikts** sidan för Azure API Management-instansen.
 
-Klicka **på API:er** i den övre menyn och välj **Echo API**.
+Klicka på **API: er** på den översta menyn och välj **ECHO API**.
 
 ![Echo API][api-management-apis-echo-api]
 
 > [!NOTE]
 > Om du bara har ett API som är konfigurerat eller som visas för ditt konto och du klickar på API:er så kommer du direkt till åtgärderna för det API:et.
 
-Välj åtgärden **GET-resurs,** klicka på **Öppna konsol**och välj sedan **Auktoriseringskod** i listrutan.
+Välj åtgärden **Hämta resurs** , klicka på **Öppna konsol**och välj sedan **auktoriseringskod** i list rutan.
 
 ![Öppna konsolen][api-management-open-console]
 
-När **Auktoriseringskod** är markerad visas ett popup-fönster med inloggningsformen för OAuth 2.0-providern. I det här exemplet tillhandahålls inloggningsformuläret av Azure Active Directory.
+När du väljer **auktoriseringskod** visas ett popup-fönster med inloggnings formatet för OAuth 2,0-providern. I det här exemplet tillhandahålls inloggnings formuläret av Azure Active Directory.
 
 > [!NOTE]
-> Om du har inaktiverat popup-fönster uppmanas du att aktivera dem av webbläsaren. När du har aktiverat dem väljer du **Auktoriseringskod** igen och inloggningsformuläret visas.
+> Om du har aktiverat popup-fönster uppmanas du att aktivera dem i webbläsaren. När du har aktiverat dem väljer du **auktoriseringskod** igen så visas inloggnings formuläret.
 
 ![Logga in][api-management-oauth2-signin]
 
-När du har loggat in **fylls beställda rubriker** med ett `Authorization : Bearer` huvud som auktoriserar begäran.
+När du har loggat in fylls begärandehuvuden i med ett **Request headers** `Authorization : Bearer` huvud som godkänner begäran.
 
-![Begäran sidhuvudtoken][api-management-request-header-token]
+![Token för begäran-huvud][api-management-request-header-token]
 
-Nu kan du konfigurera önskade värden för de återstående parametrarna och skicka begäran.
+Nu kan du konfigurera de önskade värdena för de återstående parametrarna och skicka begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder OAuth 2.0 och API Management finns i följande video och medföljande [artikel](api-management-howto-protect-backend-with-aad.md).
+Mer information om hur du använder OAuth 2,0 och API Management finns i följande video och medföljande [artikel](api-management-howto-protect-backend-with-aad.md).
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png

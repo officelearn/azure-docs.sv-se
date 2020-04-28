@@ -1,7 +1,7 @@
 ---
-title: Det går inte att lägga till anpassad domän med hjälp av Key Vault-certifikat
+title: Det går inte att lägga till en anpassad domän med hjälp av Key Vault certifikat
 titleSuffix: Azure API Management
-description: Lär dig hur du felsöker problemet där du inte kan lägga till en anpassad domän i Azure API Management med hjälp av ett nyckelvalvscertifikat.
+description: Lär dig hur du felsöker problemet där du inte kan lägga till en anpassad domän i Azure API Management med hjälp av ett Key Vault-certifikat.
 services: api-management
 documentationcenter: ''
 author: genlin
@@ -14,51 +14,51 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430580"
 ---
-# <a name="failed-to-update-api-management-service-hostnames"></a>Det gick inte att uppdatera värdnamn för API Management-tjänsten
+# <a name="failed-to-update-api-management-service-hostnames"></a>Det gick inte att uppdatera API Management tjänst värdnamn
 
-I den här artikeln beskrivs felet "Det gick inte att uppdatera API Management-tjänstvärdnamn" som kan uppstå när du lägger till en anpassad domän för Azure API Management-tjänsten. Den här artikeln innehåller felsökningssteg som hjälper dig att lösa problemet.
+I den här artikeln beskrivs fel meddelandet "Det gick inte att uppdatera API Management tjänst värdnamn" som du kan stöta på när du lägger till en anpassad domän för Azure API Management-tjänsten. Den här artikeln innehåller fel söknings steg som hjälper dig att lösa problemet.
 
 ## <a name="symptoms"></a>Symtom
 
-NÃ¤r du fÃ¶rsÃ¶ks fÃ¶rsÃ¶k att lägga till en anpassad domän fÃ¶r API Management-tjänsten med ett certifikat frÃ¶r Azure Key Vault visas fÃ¶10 felmeddelande:
+När du försöker lägga till en anpassad domän för din API Management-tjänst genom att använda ett certifikat från Azure Key Vault visas följande fel meddelande:
 
-- Det gick inte att uppdatera VÄRDnamn för API Management-tjänsten. Begäran tillhttps://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0resursen ' ' misslyckades med StatusCode: Forbidden for RequestId: . Undantagsmeddelande: Åtgärden returnerade en ogiltig statuskod "Förbjudet".
+- Det gick inte att uppdatera API Management tjänstens värdnamn. Begäran till resursenhttps://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0misslyckades med StatusCode: förbjuden för RequestId:. Undantags meddelande: åtgärden returnerade en ogiltig status kod som är förbjuden.
 
 ## <a name="cause"></a>Orsak
 
-API Management-tjänsten har inte behörighet att komma åt nyckelvalvet som du försöker använda för den anpassade domänen.
+API Management tjänsten har inte behörighet att komma åt nyckel valvet som du försöker använda för den anpassade domänen.
 
 ## <a name="solution"></a>Lösning
 
 Följ dessa anvisningar för att lösa problemet:
 
-1. Gå till [Azure-portalen,](Https://portal.azure.com)välj din API Management-instans och välj sedan **Hanterade identiteter**. Kontrollera att alternativet **Registrera med Azure Active Directory** är inställt på **Ja**. 
-    ![Registrera dig hos Azure Active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
-1. Öppna tjänsten **Nyckelvalv** i Azure-portalen och välj det nyckelvalv som du försöker använda för den anpassade domänen.
-1. Välj **Åtkomstprinciper**och kontrollera om det finns ett tjänsthuvudnamn som matchar namnet på API Management-tjänstinstansen. Om det finns väljer du tjänstens huvudnamn och kontrollerar att den har behörigheten **Hämta** under **Hemliga behörigheter**.  
-    ![Lägga till åtkomstprincip för tjänstens huvudnamn](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
-1. Om API Management-tjänsten inte finns i listan väljer du **Lägg till åtkomstprincip**och skapar sedan följande åtkomstprincip:
-    - **Konfigurera från mall:** Ingen
-    - **Välj huvudnamn**: Sök i namnet på API Management-tjänsten och välj den sedan i listan
-    - **Nyckelbehörigheter**: Ingen
+1. Gå till [Azure Portal](Https://portal.azure.com), Välj API Management-instansen och välj sedan **hanterade identiteter**. Kontrol lera att alternativet **registrera med Azure Active Directory** är inställt på **Ja**. 
+    ![Registrera med Azure Active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
+1. I Azure Portal öppnar du tjänsten **Key Vaults** och väljer det nyckel valv som du vill använda för den anpassade domänen.
+1. Välj **åtkomst principer**och kontrol lera om det finns ett huvud namn för tjänsten som matchar namnet på API Management tjänst instansen. Om det finns väljer du tjänstens huvud namn och kontrollerar att det har behörigheten **Hämta** under **hemliga behörigheter**.  
+    ![Lägger till åtkomst princip för tjänstens huvud namn](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
+1. Om API Management-tjänsten inte finns i listan väljer du **Lägg till åtkomst princip**och skapar sedan följande åtkomst princip:
+    - **Konfigurera från mall**: ingen
+    - **Välj huvud**namn: sök efter API Management tjänstens namn och välj det sedan i listan
+    - **Nyckel behörigheter**: ingen
     - **Hemliga behörigheter**: Hämta
-    - **Certifikatbehörigheter**: Ingen
-1. Välj **OK** om du vill skapa åtkomstprincipen.
-1. Välj **Spara** om du vill spara ändringarna.
+    - **Certifikat behörigheter**: ingen
+1. Välj **OK** för att skapa åtkomst principen.
+1. Spara ändringarna genom att välja **Spara** .
 
-Kontrollera om problemet är löst. Det gör du genom att försöka skapa den anpassade domänen i API Management-tjänsten med hjälp av Key Vault-certifikatet.
+Kontrol lera om problemet är löst. Det gör du genom att försöka skapa den anpassade domänen i API Management-tjänsten med hjälp av Key Vault certifikatet.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om API Management-tjänsten:
 
-- Kolla in fler [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API Management.
-* Andra sätt att skydda backend-tjänsten finns i [Autentisering av ömsesidigt certifikat](api-management-howto-mutual-certificates.md).
+- Se fler [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API Management.
+* Andra sätt att skydda Server dels tjänsten finns i [ömsesidig certifikatautentisering](api-management-howto-mutual-certificates.md).
 
-* [Skapa en API Management-tjänstinstans](get-started-create-service-instance.md).
+* [Skapa en API Management tjänst instans](get-started-create-service-instance.md).
 * [Hantera ditt första API](import-and-publish.md).

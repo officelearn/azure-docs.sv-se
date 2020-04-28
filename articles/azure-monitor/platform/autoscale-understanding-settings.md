@@ -1,28 +1,28 @@
 ---
-title: Förstå inställningar för automatisk skalning i Azure Monitor
-description: En detaljerad uppdelning av inställningar för automatisk skalning och hur de fungerar. Gäller virtuella datorer, molntjänster, webbappar
+title: Förstå inställningarna för autoskalning i Azure Monitor
+description: En detaljerad analys av inställningarna för autoskalning och hur de fungerar. Gäller för Virtual Machines Cloud Services Web Apps
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75364313"
 ---
 # <a name="understand-autoscale-settings"></a>Förstå inställningarna för automatisk skalning
-Inställningar för automatisk skalning säkerställer att du har rätt mängd resurser som körs för att hantera den fluktuerande belastningen på ditt program. Du kan konfigurera inställningar för automatisk skalning som ska utlösas baserat på mått som anger belastning eller prestanda, eller utlösas vid ett schemalagt datum och en schemalagd tidpunkt. Den här artikeln tar en detaljerad titt på anatomin i en automatisk skalningsinställning. Artikeln börjar med schemat och egenskaperna för en inställning och går sedan igenom de olika profiltyper som kan konfigureras. Slutligen beskrivs i artikeln hur funktionen Automatisk skalning i Azure utvärderar vilken profil som ska köras vid en viss tidpunkt.
+Med inställningarna för automatisk skalning kan du se till att du har rätt mängd resurser som körs för att hantera belastningen på ditt program. Du kan konfigurera inställningar för automatisk skalning som ska utlösas baserat på mått som indikerar belastning eller prestanda eller som utlöses vid schemalagd tidpunkt och tidpunkt. Den här artikeln tar en detaljerad titt på konfigurationen av en inställning för autoskalning. Artikeln börjar med schema och egenskaper för en inställning och går sedan igenom de olika profil typerna som kan konfigureras. Slutligen diskuterar artikeln hur funktionen för autoskalning i Azure utvärderar vilken profil som ska köras vid en specifik tidpunkt.
 
-## <a name="autoscale-setting-schema"></a>Inställningsschema för automatisk skalning
-För att illustrera inställningsschemat för automatisk skalning används följande inställning för automatisk skalning. Det är viktigt att notera att den här inställningen för automatisk skalning har:
+## <a name="autoscale-setting-schema"></a>Schema för autoskalningsinställning
+För att illustrera schemat för autoskalning av inställningar används följande inställningar för autoskalning. Det är viktigt att Observera att den här inställningen för autoskalning har:
 - En profil. 
-- Två måttregler i den här profilen: en för utskalning och en för skala in.
-  - Skalningsregeln utlöses när skaluppsättningen för den virtuella datorns skala är större än 85 procent under de senaste 10 minuterna.
-  - Skalningsregeln utlöses när den virtuella datorns skaluppsättnings genomsnitt är mindre än 60 procent för den senaste minuten.
+- Två mått regler i den här profilen: en för utskalning och en för skalning i.
+  - Den skalbara regeln utlöses när processor måttet för den genomsnittliga procent andelen för virtuell dator är större än 85 procent under de senaste 10 minuterna.
+  - Skalnings regeln utlöses när den virtuella datorns skal uppsättnings genomsnitt är mindre än 60 procent under den senaste minuten.
 
 > [!NOTE]
-> En inställning kan ha flera profiler. Mer information finns i [avsnittet profiler.](#autoscale-profiles) En profil kan också ha flera skalningsregler och skalningsregler definierade. Mer information om hur de [evaluation](#autoscale-evaluation) utvärderas finns i utvärderingsavsnittet.
+> En inställning kan ha flera profiler. Mer information finns i avsnittet om [profiler](#autoscale-profiles) . En profil kan också ha flera definierade regler och skalnings regler. Information om hur de utvärderas finns i avsnittet [utvärdering](#autoscale-evaluation) .
 
 ```JSON
 {
@@ -87,37 +87,37 @@ För att illustrera inställningsschemat för automatisk skalning används följ
 
 | Section | Elementnamn | Beskrivning |
 | --- | --- | --- |
-| Inställning | ID | Resurs-ID för automatisk skalning. Inställningar för automatisk skalning är en Azure Resource Manager-resurs. |
-| Inställning | namn | Inställningsnamnet För automatisk skalning. |
-| Inställning | location | Platsen för inställningen Automatisk skalning. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
-| properties | targetResourceUri | Resurs-ID för den resurs som skalas. Du kan bara ha en inställning för automatisk skalning per resurs. |
-| properties | Profiler | En automatisk skalningsinställning består av en eller flera profiler. Varje gång motorn för automatisk skalning körs en profil. |
-| profil | namn | Namnet på profilen. Du kan välja vilket namn som helst som hjälper dig att identifiera profilen. |
-| profil | Kapacitet.maximal | Den maximala tillåtna kapaciteten. Det säkerställer att Automatisk skalning, när du kör den här profilen, inte skala din resurs över detta nummer. |
-| profil | Kapacitet.minimum | Minsta tillåtna kapacitet. Det säkerställer att Automatisk skalning, när du kör den här profilen, inte skala din resurs under detta nummer. |
-| profil | Capacity.default | Om det finns ett problem med att läsa resursmåttet (i det här fallet processorn för "vmss1" och den aktuella kapaciteten är lägre än standardvärdet skalas automatisk skalning ut till standardvärdet. Detta för att säkerställa resursens tillgänglighet. Om den aktuella kapaciteten redan är högre än standardkapaciteten skalas inte automatisk skalning in. |
-| profil | regler | Automatisk skalning skalas automatiskt mellan maximal och minimal kapacitet, med hjälp av reglerna i profilen. Du kan ha flera regler i en profil. Vanligtvis finns det två regler: en för att avgöra när du ska skala ut och den andra för att avgöra när du ska skala in. |
-| Regel | metricTrigger | Definierar regelns måttvillkor. |
+| Inställning | ID | Resurs-ID för den autoskalningsinställning. Inställningarna för autoskalning är en Azure Resource Manager resurs. |
+| Inställning | namn | Namnet på den automatiska skalnings inställningen. |
+| Inställning | location | Platsen för den automatiska skalnings inställningen. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
+| properties | targetResourceUri | Resurs-ID för den resurs som skalas. Du kan bara ha en inställning för autoskalning per resurs. |
+| properties | filer | En inställning för autoskalning består av en eller flera profiler. Varje gången den automatiska skalnings motorn körs körs en profil. |
+| profil | namn | Namnet på profilen. Du kan välja ett namn som hjälper dig att identifiera profilen. |
+| profil | Kapacitet. maximum | Den maximalt tillåtna kapaciteten. Det säkerställer att den automatiska skalningen, när den här profilen körs, inte skalar din resurs ovanför det här talet. |
+| profil | Kapacitet. minimum | Den minsta tillåtna kapaciteten. Det säkerställer att den automatiska skalningen, när den här profilen körs, inte skalar din resurs under det här talet. |
+| profil | Kapacitet. standard | Om det uppstår problem med att läsa resurs måttet (i det här fallet är CPU: n för "vmss1") och den aktuella kapaciteten är lägre än standardinställningen, skalar automatiskt ut till standardvärdet. Detta är för att säkerställa resursens tillgänglighet. Om den aktuella kapaciteten redan är högre än standard kapaciteten skalas inte autoskalning i. |
+| profil | regler | Automatisk skalning skalar automatiskt mellan högsta och lägsta kapacitet genom att använda reglerna i profilen. Du kan ha flera regler i en profil. Det finns vanligt vis två regler: en för att bestämma när du ska skala ut och den andra för att bestämma när du ska skala in. |
+| allmänhet | metricTrigger | Definierar regelns mått villkor. |
 | metricTrigger | metricName | Namnet på måttet. |
-| metricTrigger |  metricResourceUri | Resurs-ID för den resurs som avger måttet. I de flesta fall är det samma som resursen som skalas. I vissa fall kan det vara annorlunda. Du kan till exempel skala en skala för den virtuella datorn baserat på antalet meddelanden i en lagringskö. |
-| metricTrigger | tidGrain | Den metriska samplingstiden. **TimeGrain = "PT1M"** innebär till exempel att måtten ska aggregeras var 1 minut med hjälp av den aggregeringsmetod som anges i statistikelementet. |
-| metricTrigger | Statistik | Aggregeringsmetoden inom tidenGrainperiod. Statistik **= "Medel"** och **timeGrain = "PT1M"** innebär till exempel att måtten ska aggregeras var 1 minut genom att ta medelvärdet. Den här egenskapen avgör hur måttet samplas. |
-| metricTrigger | tidWindow | Hur lång tid det tar att se tillbaka efter mått. Till exempel **timeWindow = "PT10M"** innebär att varje gång Automatisk skalning körs, frågar den mått för de senaste 10 minuterna. Tidsfönstret gör att dina mått kan normaliseras och undviker att reagera på tillfälliga toppar. |
-| metricTrigger | timeAggregation | Aggregeringsmetoden som används för att sammanställa de samplade måtten. **Tidsaggregering = "Medel"** bör till exempel aggregera de samplade måtten genom att ta medelvärdet. I föregående fall, ta tio 1-minuters prover, och genomsnitt dem. |
-| Regel | scaleAction | Åtgärden som ska vidtas när mettrigger av regeln utlöses. |
-| scaleAction | riktning | "Öka" för att skala ut, eller "Minska" för att skala in.|
-| scaleAction | värde | Hur mycket för att öka eller minska resursens kapacitet. |
-| scaleAction | cooldown | Hur lång tid det ska ta att vänta efter en skalning innan du skalar igen. Om du till exempel **använder cooldown = "PT10M"** försöker automatisk skalning inte skalas igen i ytterligare 10 minuter. Den cooldown är att låta måtten stabiliseras efter tillägg eller borttagning av instanser. |
+| metricTrigger |  metricResourceUri | Resurs-ID för den resurs som avger måttet. I de flesta fall är det samma som den resurs som skalas. I vissa fall kan det vara olika. Du kan till exempel skala en skalnings uppsättning för virtuella datorer baserat på antalet meddelanden i en lagrings kö. |
+| metricTrigger | timeGrain | Mått samplingens varaktighet. Till exempel innebär **TimeGrain = "PT1M"** att måtten ska aggregeras var 1 minut, genom att använda den agg regerings metod som anges i elementet statistik. |
+| metricTrigger | statistik | Agg regerings metoden inom timeGrain-perioden. Till exempel, **statistik = "Average"** och **TIMEGRAIN = "PT1M"** innebär att måtten ska aggregeras var 1 minut, genom att ta medelvärdet. Den här egenskapen anger hur måttet ska samplas. |
+| metricTrigger | timeWindow | Hur lång tid det får ta att se upp för Mät värden. Exempel: **timeWindow = "PT10M"** innebär att varje gång autoskalning körs, frågar den efter de senaste 10 minuterna. Tidsfönstret gör att dina mått är normaliserade och förhindrar att de reagerar på tillfälliga toppar. |
+| metricTrigger | timeAggregation | Den agg regerings metod som används för att aggregera exempel måtten. Till exempel ska **TimeAggregation = "Average"** summera de samplade måtten genom att ta medelvärdet. I föregående fall tar du provet med 10 minuter och beräknar medelvärdet. |
+| allmänhet | scaleAction | Den åtgärd som ska vidtas när metricTrigger för regeln utlöses. |
+| scaleAction | riktning | "Öka" för att skala ut eller "minska" för att skala in.|
+| scaleAction | värde | Hur mycket du kan öka eller minska resursens kapacitet. |
+| scaleAction | cooldown | Hur lång tid som ska förflyta efter en skalnings åtgärd innan skalning igen. Om t. ex. **cooldown = "PT10M"** försöker autoskalning inte skala igen under en period om 10 minuter. Cooldown är att tillåta att måtten stabiliseras efter tillägg eller borttagning av instanser. |
 
-## <a name="autoscale-profiles"></a>Profiler för automatisk skalning
+## <a name="autoscale-profiles"></a>Autoskalning av profiler
 
-Det finns tre typer av profiler för automatisk skalning:
+Det finns tre typer av profiler för autoskalning:
 
-- **Regelbunden profil:** Den vanligaste profilen. Om du inte behöver skala resursen baserat på veckodagen eller en viss dag kan du använda en vanlig profil. Den här profilen kan sedan konfigureras med måttregler som bestämmer när du ska skala ut och när du ska skala in. Du bör bara ha en vanlig profil definierad.
+- **Vanlig profil:** Den vanligaste profilen. Om du inte behöver skala resursen baserat på vecko dagen eller en viss dag kan du använda en vanlig profil. Den här profilen kan sedan konfigureras med mått regler som styr när de ska skalas ut och när de ska skalas i. Du bör bara ha en definierad reguljär profil.
 
-    Exempelprofilen som används tidigare i den här artikeln är ett exempel på en vanlig profil. Observera att det också är möjligt att ange en profil för att skala till ett statiskt instansantal för din resurs.
+    Exempel profilen som användes tidigare i den här artikeln är ett exempel på en vanlig profil. Observera att du också kan ange en profil för skalning till ett statiskt antal instanser för din resurs.
 
-- **Profil för fast datum:** Denna profil är för speciella fall. Anta till exempel att du har en viktig händelse som kommer upp den 26 december 2017 (PST). Du vill att resursens lägsta och maximala kapacitet ska vara annorlunda den dagen, men ändå skalas på samma mått. I det här fallet bör du lägga till en fast datumprofil i inställningens lista över profiler. Profilen är konfigurerad för att köras endast på händelsens dag. För alla andra dagar använder Automatisk skalning den vanliga profilen.
+- **Fast datum profil:** Den här profilen är för särskilda fall. Anta till exempel att du har en viktig händelse som kommer upp den 26 december 2017 (PST). Du vill att den minsta och högsta kapaciteten för din resurs ska vara en annan dag, men fortfarande skala på samma mått. I det här fallet bör du lägga till en fast datum profil i din inställnings lista med profiler. Profilen är konfigurerad att endast köras på händelsens dag. För en annan dag använder autoskalning den vanliga profilen.
 
     ``` JSON
     "profiles": [{
@@ -150,11 +150,11 @@ Det finns tre typer av profiler för automatisk skalning:
     ]
     ```
     
-- **Profil för återkommande:** Med den här typen av profil kan du se till att den här profilen alltid används en viss veckodag. Återkommande profiler har bara en starttid. De körs tills nästa återkommande profil eller fast datumprofil är inställd på att starta. En automatisk skalningsinställning med endast en återkommande profil kör den profilen, även om det finns en vanlig profil definierad i samma inställning. Följande två exempel illustrerar hur den här profilen används:
+- **Upprepnings profil:** Med den här typen av profil kan du se till att profilen alltid används på en viss dag i veckan. Upprepnings profiler har bara en start tid. De körs tills nästa upprepnings profil eller fasta datum profil är inställd på Starta. En inställning för autoskalning med endast en upprepnings profil kör profilen, även om det finns en vanlig profil definierad i samma inställning. I följande två exempel visas hur den här profilen används:
 
-    **Exempel 1: Vardagar kontra helger**
+    **Exempel 1: vardagar kontra helger**
     
-    Låt oss säga att på helgerna vill du att din maximala kapacitet ska vara 4. På vardagar, eftersom du förväntar dig mer belastning, vill du att din maximala kapacitet ska vara 10. I det här fallet skulle inställningen innehålla två återkommande profiler, en att köra på helger och den andra på vardagar.
+    Anta att du vill att din maximala kapacitet ska vara 4. På vardagar, eftersom du förväntar dig mer belastning, vill du att din maximala kapacitet ska vara 10. I det här fallet skulle din inställning innehålla två upprepnings profiler, en att köras på helger och den andra på vardagar.
     Inställningen ser ut så här:
 
     ``` JSON
@@ -209,13 +209,13 @@ Det finns tre typer av profiler för automatisk skalning:
     }]
     ```
 
-    Inställningen föregående visar att varje återkommande profil har ett schema. Det här schemat avgör när profilen börjar köras. Profilen stannar när det är dags att köra en annan profil.
+    Inställningen ovan visar att varje upprepnings profil har ett schema. Det här schemat avgör när profilen börjar köras. Profilen stoppas när det är dags att köra en annan profil.
 
-    I föregående inställning är till exempel "weekdayProfile" inställt på att starta på måndag klockan 12:00. Det innebär att profilen börjar köras på måndag klockan 12:00. Det fortsätter fram till lördag kl 12:00, när "weekendProfile" är planerad att börja köras.
+    I den föregående inställningen är "weekdayProfile" inställd på att starta på måndag vid 12:00 AM. Det innebär att den här profilen börjar köras på måndag vid 12:00. Den fortsätter till lördag kl. 12:00 när "weekendProfile" är schemalagd för att börja köras.
 
-    **Exempel 2: Öppettider**
+    **Exempel 2: kontors tid**
     
-    Anta att du vill ha ett måtttröskel under kontorstid (9:00 till 17:00) och en annan för alla andra tider. Inställningen skulle se ut så här:
+    Anta att du vill ha ett mått tröskelvärde under kontors tid (9:00 till 5:00 PM) och ett annat för alla andra tider. Inställningen skulle se ut så här:
     
     ``` JSON
     "profiles": [
@@ -269,41 +269,41 @@ Det finns tre typer av profiler för automatisk skalning:
     }]
     ```
     
-    Den föregående inställningen visar att "businessHoursProfile" börjar köras på måndag klockan 9:00 och fortsätter till 17:00. Det är då "nonBusinessHoursProfile" börjar köras. Den "nonBusinessHoursProfile" löper fram till 09:00 tisdag, och sedan "businessHoursProfile" tar över igen. Detta upprepas fram till fredag kl 17:00. Vid den tidpunkten, "nonBusinessHoursProfile" körs hela vägen till måndag kl 9:00.
+    Inställningen ovan visar att "businessHoursProfile" börjar köras på måndag kl. 9:00 AM och fortsätter till 5:00 PM. Det är när "nonBusinessHoursProfile" börjar köras. "NonBusinessHoursProfile" körs fram till 9:00 AM tisdag och sedan tar "businessHoursProfile" över igen. Detta upprepas tills fredag på 5:00 PM. Vid den tidpunkten körs "nonBusinessHoursProfile" hela vägen till måndag kl. 9:00.
     
 > [!Note]
-> Användargränssnittet för automatisk skalning i Azure-portalen framtvingar sluttider för återkommande profiler och börjar köra inställningen Automatisk skalningsinställningens standardprofil mellan återkommande profiler.
+> Gränssnittet för automatisk skalning i Azure Portal tillämpar slut tider för upprepnings profiler och börjar köra den autoskalningsinställning som är standard profil i mellan upprepnings profilerna.
     
-## <a name="autoscale-evaluation"></a>Utvärdering av automatisk skalning
-Med tanke på att inställningar för automatisk skalning kan ha flera profiler och varje profil kan ha flera måttregler, är det viktigt att förstå hur en automatisk skalningsinställning utvärderas. Varje gång jobbet Automatisk skalning körs börjar det med att välja den profil som gäller. Sedan utvärderar Automatisk skalning minimi- och maximivärdena och eventuella måttregler i profilen och avgör om en skalningsåtgärd är nödvändig.
+## <a name="autoscale-evaluation"></a>Autoskalning av utvärdering
+Eftersom inställningarna för autoskalning kan ha flera profiler, och varje profil kan ha flera mått regler, är det viktigt att förstå hur en inställning för autoskalning utvärderas. Varje gången det automatiska skalnings jobbet körs börjar det genom att välja den profil som är tillämplig. Autoskalning utvärderar sedan de lägsta och högsta värdena och eventuella mått regler i profilen och bestämmer om en skalnings åtgärd krävs.
 
-### <a name="which-profile-will-autoscale-pick"></a>Vilken profil ska autoskala välja?
+### <a name="which-profile-will-autoscale-pick"></a>Vilken profil ska autoskalning väljas?
 
-Automatisk skalning använder följande sekvens för att välja profilen:
-1. Den letar först efter en fast datumprofil som är konfigurerad för att köras nu. Om så är det körs den automatiskt. Om det finns flera fasta datumprofiler som ska köras väljer Automatisk skalning den första.
-2. Om det inte finns några fasta datumprofiler tittar Automatisk skalning på återkommande profiler. Om en återkommande profil hittas körs den.
-3. Om det inte finns några fasta datum- eller återkommande profiler körs den vanliga profilen automatiskt.
+Autoskalning använder följande sekvens för att välja profilen:
+1. Först letar den upp en fast datum profil som är konfigurerad för att köras nu. Om det finns det körs den automatiska skalningen. Om det finns flera fasta datum profiler som ska köras väljer autoskalning den första.
+2. Om det inte finns några fasta datum profiler tittar autoskalning på upprepnings profilerna. Om en upprepnings profil hittas körs den.
+3. Om det inte finns några fasta datum-eller upprepnings profiler kör autoskalning den vanliga profilen.
 
-### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Hur utvärderar Automatisk skalning flera regler?
+### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Hur utvärderar autoskalning flera regler?
 
-När Automatisk skalning har fastställt vilken profil som ska köras utvärderas alla utskalningsregler i profilen (det här är regler med **riktning = "Ökning"**).
+När den automatiska skalningen bestämmer vilken profil som ska köras, utvärderar den alla skalnings regler i profilen (de är regler med **riktningen = "öka"**).
 
-Om en eller flera utskalningsregler utlöses beräknar Automatisk skalning den nya kapacitet som bestäms av **skalanÅtgärd** för var och en av dessa regler. Sedan skalas den ut till den maximala kapaciteten för att säkerställa tjänstens tillgänglighet.
+Om en eller flera skalnings regler utlöses beräknar autoskalning den nya kapaciteten som bestäms av **scaleAction** för var och en av dessa regler. Sedan skalas de ut till det maximala antalet av dessa kapaciteter för att säkerställa tjänstens tillgänglighet.
 
-Anta till exempel att det finns en skalauppsättning för virtuella datorer med en aktuell kapacitet på 10. Det finns två utskalningsregler: en som ökar kapaciteten med 10 procent och en som ökar kapaciteten med 3 räknas. Den första regeln skulle resultera i en ny kapacitet på 11, och den andra regeln skulle resultera i en kapacitet på 13. För att säkerställa tjänstens tillgänglighet väljer automatisk skalning den åtgärd som resulterar i maximal kapacitet, så den andra regeln väljs.
+Anta till exempel att det finns en skalnings uppsättning för virtuella datorer med en aktuell kapacitet på 10. Det finns två skalbara regler: en som ökar kapaciteten med 10 procent och en som ökar kapaciteten med 3 antal. Den första regeln skulle resultera i en ny kapacitet på 11, och den andra regeln skulle leda till en kapacitet på 13. För att säkerställa tjänstens tillgänglighet väljer autoskalning den åtgärd som resulterar i Max kapaciteten, så den andra regeln väljs.
 
-Om inga utskalningsregler utlöses utvärderar Automatisk skalning alla regler för inskalning (regler med **riktning = "Minskning").** Automatisk skalning kräver bara en skalningsåtgärd om alla skalningsregler utlöses.
+Om inga skalnings regler utlöses utvärderar autoskalning alla skalnings regler (regler med **riktningen = "minska"**). Autoskalning tar bara en skalnings åtgärd om alla regler för skalning utlöses.
 
-Automatisk skalning beräknar den nya kapaciteten som bestäms av **skalanÅtgärd** av var och en av dessa regler. Sedan väljer den skala åtgärd som resulterar i maximalt av dessa kapaciteter för att säkerställa tjänstens tillgänglighet.
+Autoskalning beräknar den nya kapaciteten som bestäms av **scaleAction** för var och en av dessa regler. Sedan väljer den skalnings åtgärd som resulterar i max för de kapaciteten för att säkerställa tjänstens tillgänglighet.
 
-Anta till exempel att det finns en skalauppsättning för virtuella datorer med en aktuell kapacitet på 10. Det finns två skalningsregler: en som minskar kapaciteten med 50 procent och en som minskar kapaciteten med 3 antal. Den första regeln skulle resultera i en ny kapacitet på 5, och den andra regeln skulle resultera i en kapacitet på 7. För att säkerställa tjänstens tillgänglighet väljer automatisk skalning den åtgärd som resulterar i maximal kapacitet, så den andra regeln väljs.
+Anta till exempel att det finns en skalnings uppsättning för virtuella datorer med en aktuell kapacitet på 10. Det finns två skalnings regler: en som minskar kapaciteten med 50 procent och en som minskar kapaciteten med 3 antal. Den första regeln skulle resultera i en ny kapacitet på 5, och den andra regeln skulle resultera i en kapacitet på 7. För att säkerställa tjänstens tillgänglighet väljer autoskalning den åtgärd som resulterar i Max kapaciteten, så den andra regeln väljs.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om Automatisk skalning genom att läsa följande:
+Lär dig mer om autoskalning genom att referera till följande:
 
-* [Översikt över automatisk skalning](../../azure-monitor/platform/autoscale-overview.md)
-* [Azure Monitor automatisk skalning vanliga mått](../../azure-monitor/platform/autoscale-common-metrics.md)
+* [Översikt över autoskalning](../../azure-monitor/platform/autoscale-overview.md)
+* [Azure Monitor vanliga mått för autoskalning](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Metodtips för autoskalning i Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Använda åtgärder för automatisk skalning för att skicka aviseringar om e-post och webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Skala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 

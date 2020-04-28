@@ -8,40 +8,40 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 6e6148d305af26f7933567ae58023d2ba73263eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75350245"
 ---
-# <a name="create-a-private-link-service-using-azure-cli"></a>Skapa en privat länktjänst med Azure CLI
-Den här artikeln visar hur du skapar en private link-tjänst i Azure med Azure CLI.
+# <a name="create-a-private-link-service-using-azure-cli"></a>Skapa en privat länk-tjänst med Azure CLI
+Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure CLI.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du bestämmer dig för att installera och använda Azure CLI lokalt i stället kräver den här snabbstarten att du använder den senaste Azure CLI-versionen. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
+Om du väljer att installera och använda Azure CLI lokalt måste du använda den senaste versionen av Azure CLI i den här snabb starten. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
 ## <a name="create-a-private-link-service"></a>Skapa en Private Link-tjänst
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska vara värd för det virtuella nätverket. Skapa en resursgrupp med [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* på *platsen för westcentralus:*
+Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska vara värd för det virtuella nätverket. Skapa en resursgrupp med [az group create](/cli/azure/group). I det här exemplet skapas en resurs grupp med namnet *myResourceGroup* på *westcentralus* -platsen:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt standardnätverk med namnet *myVirtualNetwork* med ett undernät med namnet *mySubnet:*
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt standard nätverk med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-a-subnet"></a>Skapa ett undernät
-Skapa ett undernät för det virtuella nätverket med [az-nätverk vnet undernät skapa](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mySubnet* i det virtuella *nätverket myVirtualNetwork:*
+Skapa ett undernät för det virtuella nätverket med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät* i det virtuella *myVirtualNetwork* -nätverket:
 
 ```azurecli-interactive
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
 ```
-### <a name="create-a-internal-load-balancer"></a>Skapa en intern belastningsutjämnare 
-Skapa en intern belastningsutjämnare med [az-nätverk lb create](/cli/azure/network/lb#az-network-lb-create). I det här exemplet skapas en intern belastningsutjämnare med namnet *myILB* i resursgruppen *myResourceGroup*. 
+### <a name="create-a-internal-load-balancer"></a>Skapa en intern Load Balancer 
+Skapa en intern belastningsutjämnare med [AZ Network lb Create](/cli/azure/network/lb#az-network-lb-create). I det här exemplet skapas en intern belastningsutjämnare med namnet *myILB* i resurs gruppen med namnet *myResourceGroup*. 
 
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroup --name myILB --sku standard --vnet-name MyVirtualNetwork --subnet mySubnet --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool
@@ -78,11 +78,11 @@ En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommand
 ```
 ### <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här exemplet täcker vi inte skapandet av virtuella datorer. Du kan följa stegen i [Skapa en intern belastningsutjämnare för att ladda balansera virtuella datorer med Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md#create-servers-for-the-backend-address-pool) för att skapa två virtuella datorer som ska användas som serverningsservrar för belastningsutjämnaren. 
+I det här exemplet ska vi inte skapa en virtuell dator. Du kan följa stegen i [skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md#create-servers-for-the-backend-address-pool) för att skapa två virtuella datorer som ska användas som backend-servrar för belastningsutjämnaren. 
 
 
-### <a name="disable-private-link-service-network-policies-on-subnet"></a>Inaktivera principer för tjänsten Privat länk i undernätet 
-Private Link-tjänsten kräver en IP från valfri undernät i ett virtuellt nätverk. För närvarande stöder vi inte nätverksprinciper för dessa IPs.  Därför måste vi inaktivera nätverksprinciperna i undernätet. Uppdatera undernätet för att inaktivera principer för private link-tjänstnätverk med [uppdatering av az-nätverksnätsnät](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
+### <a name="disable-private-link-service-network-policies-on-subnet"></a>Inaktivera nätverks principer för privata länkar i undernät 
+Private Link Service kräver en IP-adress från valfritt undernät i ett virtuellt nätverk. För närvarande stöder vi inte nätverks principer på de här IP-adresserna.  Därför måste vi inaktivera nätverks principerna på under nätet. Uppdatera under nätet för att inaktivera nätverks principer för privata länk tjänster med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli-interactive
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
@@ -90,7 +90,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name myVir
  
 ## <a name="create-a-private-link-service"></a>Skapa en Private Link-tjänst  
  
-Skapa en privat länktjänst med standardbelastningsutjämnings-IP-konfiguration med [az-nätverk för privatlänktjänst.](/cli/azure/network/private-link-service#az-network-private-link-service-create) I det här exemplet skapas en private link-tjänst med namnet *myPLS* med standardbelastningsutjämning med namnet *myLoadBalancer* i resursgruppen *myResourceGroup*. 
+Skapa en privat länk-tjänst med Standard Load Balancer klient delens IP-konfiguration med [AZ Network Private-Link-service Create](/cli/azure/network/private-link-service#az-network-private-link-service-create). I det här exemplet skapas en privat länk tjänst med namnet *myPLS* med hjälp av standard Load Balancer med namnet *myLoadBalancer* i resurs gruppen med namnet *myResourceGroup*. 
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -102,24 +102,24 @@ az network private-link-service create \
 --lb-frontend-ip-configs myFrontEnd \
 --location westcentralus 
 ```
-När du har skapat det privata länktjänst-ID:t. Du behöver det senare för att begära anslutning till den här tjänsten.  
+När du har skapat det tar du del av det privata länk tjänst-ID: t. Du kommer att behöva det senare för att begära anslutning till den här tjänsten.  
  
-I det här skedet har tjänsten Private Link skapats och är redo att ta emot trafiken. Observera att ovanstående exempel är bara att demonstrera skapa Private Link-tjänst med Azure CLI.  Vi har inte konfigurerat serverdpoolerna för belastningsutjämnarhanteraren eller något program på serverdapoolerna för att lyssna på trafiken. Om du vill se trafikflöden från slutna till slutna händer rekommenderar du starkt att konfigurera programmet bakom standardbelastningsutjämningen.  
+I det här skedet har din privata länk tjänst skapats och är redo att ta emot trafiken. Observera att exemplet ovan bara visar hur du skapar en privat länk tjänst med Azure CLI.  Vi har inte konfigurerat backend-poolerna för belastningsutjämnare eller något program på backend-poolerna för att lyssna på trafiken. Om du vill se trafik flöden från slut punkt till slut punkt rekommenderar vi starkt att du konfigurerar ditt program bakom Standard Load Balancer.  
  
-Därefter visar vi hur du mappar den här tjänsten till en privat slutpunkt i olika virtuella nätverk med Azure CLI. Återigen är exemplet begränsat till att skapa den privata slutpunkten och ansluta till private link-tjänsten som skapats ovan med Azure CLI. Dessutom kan du skapa virtuella datorer i det virtuella nätverket för att skicka/ta emot trafik till den privata slutpunkten.        
+Härnäst visar vi hur du mappar den här tjänsten till en privat slut punkt i ett annat virtuellt nätverk med hjälp av Azure CLI. Återigen är exemplet begränsat till att skapa den privata slut punkten och ansluta till den privata länk tjänsten som skapats ovan med hjälp av Azure CLI. Dessutom kan du skapa virtuella datorer i det virtuella nätverket för att skicka/ta emot trafik till den privata slut punkten.        
  
-## <a name="private-endpoints"></a>Privata slutpunkter
+## <a name="private-endpoints"></a>Privata slut punkter
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket 
-Skapa ett virtuellt nätverk med [az nätverk vnet skapa](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt nätverk med namnet *myPEVNet* i resursgruppen *myResourcegroup:* 
+Skapa ett virtuellt nätverk med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt nätverk med namnet *myPEVNet* i resurs gruppen med namnet *myResourcegroup*: 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
 --name myPEVnet \
 --address-prefix 10.0.0.0/16  
 ```
-### <a name="create-the-subnet"></a>Skapa undernätet 
-Skapa ett undernät i virtuellt nätverk med [az nätverk vnet undernät skapa](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mySubnet* i det virtuella nätverket *myPEVnet* i resursgruppen *myResourcegroup:* 
+### <a name="create-the-subnet"></a>Skapa under nätet 
+Skapa ett undernät i ett virtuellt nätverk med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät* i det virtuella nätverket med namnet *myPEVnet* i resurs gruppen med namnet *myResourcegroup*: 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -128,8 +128,8 @@ az network vnet subnet create \
 --name myPESubnet \
 --address-prefixes 10.0.0.0/24 
 ```   
-## <a name="disable-private-endpoint-network-policies-on-subnet"></a>Inaktivera principer för privata slutpunktsnätverk i undernätet 
-Privat slutpunkt kan skapas i valfritt undernät i ett virtuellt nätverk. För närvarande stöder vi inte nätverksprinciper på privata slutpunkter.  Därför måste vi inaktivera nätverksprinciperna i undernätet. Uppdatera undernätet för att inaktivera principer för privata slutpunktsnätverk med [uppdatering av az-nätverksnätsnät](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). 
+## <a name="disable-private-endpoint-network-policies-on-subnet"></a>Inaktivera nätverks principer för privata slut punkter på undernät 
+Privat slut punkt kan skapas i valfritt undernät som du väljer i ett virtuellt nätverk. För närvarande stöder vi inte nätverks principer på privata slut punkter.  Därför måste vi inaktivera nätverks principerna på under nätet. Uppdatera under nätet för att inaktivera principer för privata nätverks slut punkter med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). 
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -138,8 +138,8 @@ az network vnet subnet update \
 --name myPESubnet \
 --disable-private-endpoint-network-policies true 
 ```
-## <a name="create-private-endpoint-and-connect-to-private-link-service"></a>Skapa privat slutpunkt och ansluta till privat länktjänst 
-Skapa en privat slutpunkt för att använda tjänsten Private Link som skapats ovan i det virtuella nätverket:
+## <a name="create-private-endpoint-and-connect-to-private-link-service"></a>Skapa privat slut punkt och Anslut till privat länk tjänst 
+Skapa en privat slut punkt för att konsumera privat länk tjänst som skapats ovan i det virtuella nätverket:
   
 ```azurecli-interactive
 az network private-endpoint create \
@@ -151,15 +151,15 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-Du kan hämta *private-connection-resource-id* med `az network private-link-service show` på Private Link-tjänsten. ID:et kommer att se ut:   
-/subscriptions/subID/resourceGroups/resourcegroupname /providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** *resourcegroupname* 
+Du kan hämta *privat anslutnings-resurs-ID* med `az network private-link-service show` en privat länk-tjänst. ID: t ser ut så här:   
+/subscriptions/subID/resourceGroups/*ResourceGroupName*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
-## <a name="show-private-link-service-connections"></a>Visa tjänstanslutningar för private link 
+## <a name="show-private-link-service-connections"></a>Visa anslutningar för privata länk tjänster 
  
-Visa anslutningsförfrågningar på din Private [Link-tjänst med az-nätverket private-link-service show](/cli/azure/network/private-link-service#az-network-private-link-service-show).    
+Se anslutnings begär Anden på din privata länk tjänst med [AZ Network Private-Link-service show](/cli/azure/network/private-link-service#az-network-private-link-service-show).    
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Azure Private Link-tjänsten](private-link-service-overview.md)
+- Läs mer om [Azure Private Link service](private-link-service-overview.md)
  

@@ -9,14 +9,14 @@ ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74903026"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
-Anpassad IPsec/IKE-princip stöds på alla Azure SKU utom Basic SKU.
+Anpassad IPsec/IKE-princip stöds på alla Azure SKU: er förutom Basic SKU.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Hur många principer kan jag ställa in för en anslutning?
 Du kan bara ange ***en*** principkombination för en viss anslutning.
@@ -42,7 +42,7 @@ Tabellen nedan innehåller de krypteringsalgoritmer och nyckellängder som stöd
 > [!IMPORTANT]
 > 1. DHGroup2048 och PFS2048 är samma som Diffie-Hellman-grupp **14** i IKE och IPsec PFS. De fullständiga mappningarna finns i avsnittet om [Diffie-Hellman-grupper](#DH).
 > 2. För GCMAES-algoritmer måste du ange samma GCMAES-algoritm och nyckellängd för både IPsec-kryptering och -integritet.
-> 3. IKEv2 Main Mode SA-livstiden är fast till 28 800 sekunder på Azure VPN-gateways.
+> 3. IKEv2 huvud läges livs längd för SA är fast i 28 800 sekunder på Azure VPN-gatewayer.
 > 4. QM SA-livslängder är valfria parametrar. Om inget har angetts används standardvärdena på 27 000 sekunder (7,5 timmar) och 102 400 000 kB (102 GB).
 > 5. UsePolicyBasedTrafficSelector är en valfri parameter för anslutningen. Läs nästa fråga från vanliga frågor och svar för ”UsePolicyBasedTrafficSelectors”
 
@@ -103,17 +103,17 @@ Ja. En VNet-till-VNet-tunnel består av två anslutningsresurser i Azure, en fö
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Fungerar en anpassad IPsec/IKE-princip på ExpressRoute-anslutningen?
 Nej. IPSec-/ princip fungerar bara på S2S VPN- och VNet-till-VNet-anslutningar via Azure VPN-gatewayer.
 
-### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Hur skapar jag anslutningar med IKEv1- eller IKEv2-protokolltyp?
-IKEv1-anslutningar kan skapas på alla SKU:er av Typen RouteBased, förutom basic SKU. Du kan ange en anslutningsprotokolltyp för IKEv1 eller IKEv2 när du skapar anslutningar. Om du inte anger någon anslutningsprotokolltyp används IKEv2 som standardalternativ där det är tillämpligt. Mer information finns i [PowerShell-cmdlet-dokumentationen.](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) För SKU-typer och IKEv1/IKEv2-stöd finns i [Ansluta gateways till principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Hur gör jag för att skapa anslutningar med IKEv1-eller IKEv2-protokoll typ?
+IKEv1-anslutningar kan skapas på alla Routningsbaserad VPN-typer SKU: er, förutom den grundläggande SKU: n. Du kan ange en typ av anslutnings protokoll för IKEv1 eller IKEv2 när du skapar anslutningar. Om du inte anger någon typ av anslutnings protokoll används IKEv2 som standard alternativ i förekommande fall. Mer information finns i PowerShell- [cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) -dokumentationen. För SKU-typer och IKEv1/IKEv2-stöd, se [ansluta gatewayar till principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Tillåts överföring mellan IKEv1- och IKEv2-anslutningar?
-Ja. Transit mellan IKEv1- och IKEv2-anslutningar stöds.
+### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Tillåts överföring mellan IKEv1-och IKEv2-anslutningar?
+Ja. Överföring mellan IKEv1-och IKEv2-anslutningar stöds.
 
-### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Kan jag ha IKEv1-plats-till-plats-anslutningar på grundläggande SKU:er för Ruttbaserad VPN-typ?
-Nej. Den grundläggande SKU stöder inte detta.
+### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Kan jag använda IKEv1 plats-till-plats-anslutningar på Basic SKU: er av Routningsbaserad VPN-typ?
+Nej. Bas-SKU: n stöder inte detta.
 
-### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Kan jag ändra anslutningsprotokolltypen när anslutningen har skapats (IKEv1 till IKEv2 och vice versa)?
-Nej. När anslutningen har skapats kan IKEv1/IKEv2-protokoll inte ändras. Du måste ta bort och återskapa en ny anslutning med önskad protokolltyp.
+### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Kan jag ändra typ av anslutnings protokoll när anslutningen har skapats (IKEv1 till IKEv2 och vice versa)?
+Nej. När anslutningen har skapats går det inte att ändra IKEv1/IKEv2-protokoll. Du måste ta bort och återskapa en ny anslutning med önskad protokoll typ.
 
-### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Var hittar jag mer konfigurationsinformation för IPsec?
-Se [Konfigurera IPsec/IKE-principer för S2S- eller VNet-till-VNet-anslutningar](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Var kan jag hitta mer konfigurations information för IPsec?
+Se [Konfigurera IPSec/IKE-princip för S2S-eller VNet-till-VNet-anslutningar](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

@@ -1,6 +1,6 @@
 ---
-title: Skapa en privat Azure-slutpunkt med Azure PowerShell| Microsoft-dokument
-description: Läs mer om Azure Private Link
+title: Skapa en privat Azure-slutpunkt med Azure PowerShell | Microsoft Docs
+description: Lär dig mer om Azures privata länk
 services: private-link
 author: malopMSFT
 ms.service: private-link
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430353"
 ---
-# <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slutpunkt med Azure PowerShell
-En privat slutpunkt är den grundläggande byggstenen för privat länk i Azure. Det gör det möjligt för Azure-resurser, till exempel virtuella datorer (VMs), att kommunicera privat med privata länkresurser. 
+# <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
+En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. 
 
-I den här snabbstarten får du lära dig hur du skapar en virtuell dator i ett Virtuellt Azure-nätverk, en SQL-databasserver med en privat Azure-slutpunkt med Azure PowerShell. Sedan kan du säkert komma åt SQL Database Server från den virtuella datorn.
+I den här snabb starten får du lära dig hur du skapar en virtuell dator på en Azure-Virtual Network, en SQL Database-Server med en privat Azure-slutpunkt med hjälp av Azure PowerShell. Sedan kan du på ett säkert sätt komma åt SQL Database-servern från den virtuella datorn.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa dina resurser måste du skapa en resursgrupp som är värd för det virtuella nätverket och den privata slutpunkten med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *WestUS-platsen:*
+Innan du kan skapa dina resurser måste du skapa en resurs grupp som är värd för Virtual Network och den privata slut punkten med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *västkusten* :
 
 ```azurepowershell
 
@@ -33,11 +33,11 @@ New-AzResourceGroup `
 ```
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-I det här avsnittet skapar du ett virtuellt nätverk och ett undernät. Därefter associerar du undernätet till det virtuella nätverket.
+I det här avsnittet skapar du ett virtuellt nätverk och ett undernät. Sedan kopplar du under nätet till Virtual Network.
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk för din privata slutpunkt med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *MyVirtualNetwork:*
+Skapa ett virtuellt nätverk för din privata slut punkt med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas en Virtual Network med namnet *MyVirtualNetwork*:
  
 ```azurepowershell
 
@@ -48,9 +48,9 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-### <a name="add-a-subnet"></a>Lägga till ett undernät
+### <a name="add-a-subnet"></a>Lägg till ett undernät
 
-Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa ett undernät. Skapa en undernätskonfiguration med namnet *mySubnet* med [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). I följande exempel skapas ett undernät med namnet *mySubnet* med flaggan för privata slutpunktsnätverksprinciper inställd **på Inaktiverad**.
+Azure distribuerar resurser till ett undernät inom en Virtual Network, så du måste skapa ett undernät. Skapa en under näts konfiguration med namnet *mitt undernät* med [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). I följande exempel skapas ett undernät med namnet *mitt undernät* med flaggan för nätverks princip för privat slut punkt inställd på **inaktive rad**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -61,11 +61,11 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 ```
 
 > [!CAUTION]
-> Det är lätt att `PrivateEndpointNetworkPoliciesFlag` blanda ihop parametern med en annan tillgänglig flagga, `PrivateLinkServiceNetworkPoliciesFlag`eftersom de är både långa ord och har liknande utseende.  Se till att du använder `PrivateEndpointNetworkPoliciesFlag`den rätta, .
+> Det är enkelt att förväxla `PrivateEndpointNetworkPoliciesFlag` parametern med en annan tillgänglig flagga, `PrivateLinkServiceNetworkPoliciesFlag`eftersom de är båda långa orden och har liknande utseende.  Kontrol lera att du använder rätt ett, `PrivateEndpointNetworkPoliciesFlag`.
 
-### <a name="associate-the-subnet-to-the-virtual-network"></a>Associera undernätet till det virtuella nätverket
+### <a name="associate-the-subnet-to-the-virtual-network"></a>Koppla under nätet till Virtual Network
 
-Du kan skriva undernätskonfigurationen till det virtuella nätverket med [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Det här kommandot skapar undernätet:
+Du kan skriva under näts konfigurationen till Virtual Network med [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Det här kommandot skapar undernätet:
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -73,7 +73,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator i det virtuella nätverket med [New-AzVM](/powershell/module/az.compute/new-azvm). När du kör följande kommando måste du ange autentiseringsuppgifter. Ange ett användarnamn och lösenord för den virtuella datorn:
+Skapa en virtuell dator i Virtual Network med [New-AzVM](/powershell/module/az.compute/new-azvm). När du kör följande kommando måste du ange autentiseringsuppgifter. Ange ett användarnamn och lösenord för den virtuella datorn:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -98,9 +98,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## <a name="create-a-sql-database-server"></a>Skapa en SQL Database Server 
+## <a name="create-a-sql-database-server"></a>Skapa en SQL Database-Server 
 
-Skapa en SQL Database Server med kommandot New-AzSqlServer. Kom ihåg att namnet på SQL Database-servern måste vara unikt i Azure, så ersätt platshållarvärdet inom parentes med ditt eget unika värde:
+Skapa en SQL Database-Server genom att använda kommandot New-AzSqlServer. Kom ihåg att namnet på din SQL Database Server måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde:
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -120,7 +120,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
-Privat slutpunkt för SQL Database Server i det virtuella nätverket med [New-AzPrivateLinkServiceConnection:](/powershell/module/az.network/New-AzPrivateLinkServiceConnection) 
+Privat slut punkt för SQL Database-servern i Virtual Network med [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
 ```azurepowershell
 
@@ -141,8 +141,8 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
-## <a name="configure-the-private-dns-zone"></a>Konfigurera den privata DNS-zonen 
-Skapa en privat DNS-zon för SQL Database Server-domän och skapa en associationslänk med det virtuella nätverket: 
+## <a name="configure-the-private-dns-zone"></a>Konfigurera Privat DNS zon 
+Skapa en privat DNS-zon för SQL Database Server domän och skapa en kopplings länk med det virtuella nätverket: 
 
 ```azurepowershell
 
@@ -170,7 +170,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
-Använd [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) för att returnera den offentliga IP-adressen för en virtuell dator. I det här exemplet returneras den offentliga IP-adressen för *myVM-vm:*
+Använd [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) för att returnera den offentliga IP-adressen för en virtuell dator. Det här exemplet returnerar den offentliga IP-adressen för den virtuella *myVM* -datorn:
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -178,7 +178,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-Öppna en kommandotolk på den lokala datorn. Kör kommandot mstsc. Ersätt <publicIpAddress> med den offentliga IP-adress som returnerades från det senaste steget: 
+Öppna en kommandotolk på den lokala datorn. Kör mstsc-kommandot. Ersätt <publicIpAddress> med den offentliga IP-adress som returnerades från det senaste steget: 
 
 
 > [!NOTE]
@@ -190,14 +190,14 @@ mstsc /v:<publicIpAddress>
 1. Välj **Anslut** om du uppmanas att göra det. 
 2. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn.
   > [!NOTE]
-  > Du kan behöva välja Fler alternativ > Använda ett annat konto för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn. 
+  > Du kan behöva välja fler alternativ > använda ett annat konto för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn. 
   
 3. Välj **OK**. 
 4. Du kan få en certifikatsvarning. Om så är fallet väljer du **Ja** eller **Fortsätt**. 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>Access SQL Database Server privat från den virtuella datorn
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Åtkomst SQL Database Server privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärrskrivbordet i myVM.
+1. Öppna PowerShell i fjärr skrivbordet för myVM.
 2. Ange `nslookup myserver.database.windows.net`. 
 
     Du får ett meddelande som liknar detta:
@@ -210,21 +210,21 @@ mstsc /v:<publicIpAddress>
     Aliases:   myserver.database.windows.net
     ```
 3. Installera SQL Server Management Studio
-4. Ange eller välj den här informationen i Anslut till server: Ange eller välja den här informationen: Ange värdeservertyp Välj databasmotor.
-      Servernamn Välj myserver.database.windows.net Användarnamn Ange ett användarnamn som angavs när du skapar det.
-      Lösenord Ange ett lösenord som angavs när du skapar det.
-      Kom ihåg lösenord Välj Ja.
+4. I Anslut till server anger eller väljer du den här informationen: Ange värde Server Typ Välj databas motor.
+      Server namn Välj myserver.database.windows.net användar namn Ange ett användar namn som angavs vid skapandet.
+      Lösen ord ange ett lösen ord som angavs när det skapas.
+      Kom ihåg lösen ord Välj Ja.
 5. Välj Anslut.
-6. Bläddra i databaser från vänstermeny. 
-7. (Valfritt) Skapa eller fråga information från min databas
-8. Stäng fjärrskrivbordsanslutningen till *myVM*. 
+6. Bläddra bland databaser från menyn till vänster. 
+7. Du kan också Skapa eller fråga efter information från en databas
+8. Stäng fjärr skrivbords anslutningen till *myVM*. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
-När du är klar med den privata slutpunkten, SQL Database-servern och den virtuella datorn använder du [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen och alla resurser den har:
+När du är klar med den privata slut punkten, SQL Database Server och den virtuella datorn använder du [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser den har:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Azure Private Link](private-link-overview.md)
+- Läs mer om [Azures privata länk](private-link-overview.md)

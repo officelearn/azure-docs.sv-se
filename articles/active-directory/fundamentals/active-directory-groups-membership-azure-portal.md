@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort en grupp från en annan grupp - Azure AD
-description: Instruktioner om hur du lägger till eller tar bort en grupp från en annan grupp med Hjälp av Azure Active Directory.
+title: Lägga till eller ta bort en grupp från en annan grupp – Azure AD
+description: Anvisningar om hur du lägger till eller tar bort en grupp från en annan grupp med hjälp av Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,58 +14,58 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75423067"
 ---
-# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Lägga till eller ta bort en grupp från en annan grupp med Azure Active Directory
-Den här artikeln hjälper dig att lägga till och ta bort en grupp från en annan grupp med Hjälp av Azure Active Directory.
+# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Lägg till eller ta bort en grupp från en annan grupp med hjälp av Azure Active Directory
+Den här artikeln hjälper dig att lägga till och ta bort en grupp från en annan grupp med hjälp av Azure Active Directory.
 
 >[!Note]
->Om du försöker ta bort den överordnade gruppen läser du [Så här uppdaterar eller tar du bort en grupp och dess medlemmar](active-directory-groups-delete-group.md).
+>Om du försöker ta bort den överordnade gruppen, se [så här uppdaterar eller tar du bort en grupp och dess medlemmar](active-directory-groups-delete-group.md).
 
-## <a name="add-a-group-to-another-group"></a>Lägga till en grupp i en annan grupp
-Du kan lägga till en befintlig säkerhetsgrupp i en annan befintlig säkerhetsgrupp (kallas även kapslade grupper), skapa en medlemsgrupp (undergrupp) och en överordnad grupp. Medlemsgruppen ärver attributen och egenskaperna för den överordnade gruppen, vilket sparar konfigurationstid.
+## <a name="add-a-group-to-another-group"></a>Lägg till en grupp i en annan grupp
+Du kan lägga till en befintlig säkerhets grupp till en annan befintlig säkerhets grupp (kallas även kapslade grupper) och skapa en medlems grupp (under grupp) och en överordnad grupp. Medlems gruppen ärver attribut och egenskaper för den överordnade gruppen, vilket sparar konfigurations tiden.
 
 >[!Important]
->Vi stöder för närvarande inte:<ul><li>Lägga till grupper i en grupp som synkroniserats med lokal Active Directory.</li><li>Lägga till säkerhetsgrupper i Office 365-grupper.</li><li>Lägga till Office 365-grupper i säkerhetsgrupper eller andra Office 365-grupper.</li><li>Tilldela appar till kapslade grupper.</li><li>Tillämpa licenser på kapslade grupper.</li><li>Lägga till distributionsgrupper i kapslingsscenarier.</li></ul>
+>Vi stöder för närvarande inte:<ul><li>Lägga till grupper i en grupp som har synkroniserats med lokala Active Directory.</li><li>Lägga till säkerhets grupper i Office 365-grupper.</li><li>Lägga till Office 365-grupper i säkerhets grupper eller andra Office 365-grupper.</li><li>Tilldela appar till kapslade grupper.</li><li>Tillämpa licenser på kapslade grupper.</li><li>Lägga till distributions grupper i kapslings scenarier.</li></ul>
 
-### <a name="to-add-a-group-as-a-member-of-another-group"></a>Så här lägger du till en grupp som medlem i en annan grupp
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Lägga till en grupp som medlem i en annan grupp
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.
 
-2. Välj **Azure Active Directory**och välj sedan **Grupper**.
+2. Välj **Azure Active Directory**och välj sedan **grupper**.
 
-3. På sidan **Grupper - Alla grupper** söker du efter och väljer den grupp som ska bli medlem i en annan grupp. I den här övningen använder vi **MDM-principen - West-gruppen.**
+3. På sidan **grupper – alla grupper** söker du efter och väljer den grupp som ska bli medlem i en annan grupp. I den här övningen använder vi gruppen **MDM policy – västra** .
 
     >[!Note]
-    >Du kan lägga till din grupp som medlem i endast en grupp i taget. Dessutom **filtrerar** rutan Välj grupp visningen baserat på att du matchar din post med någon del av ett användarnamn eller enhetsnamn. Jokertecken stöds dock inte.
+    >Du kan lägga till gruppen som en medlem i en enda grupp i taget. Dessutom filtrerar rutan **Välj grupp** visningen baserat på matchning av posten till någon del av ett användar-eller enhets namn. Jokertecken stöds dock inte.
 
-    ![Grupper - Sidan Grupper med MDM-princip - Västgrupp markerad](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
+    ![Grupper – sidan alla grupper med MDM-princip – västra gruppen vald](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
 
-4. På sidan **MDM-princip - Väst - Gruppmedlemskap** väljer du **Gruppmedlemskap**, väljer **Lägg till**, leta reda på den grupp du vill att gruppen ska vara medlem i och välj sedan **Välj**. I den här övningen använder vi **MDM-principen - Gruppen Alla organisationer.**
+4. På sidan **MDM-princip – väst-grupp medlemskap** väljer du **grupp medlemskap**, väljer **Lägg till**, letar upp den grupp som du vill att din grupp ska vara medlem i och väljer sedan **Välj**. I den här övningen använder vi **MDM-principen – alla organisations** grupper.
 
-    **MDM-principen - West-gruppen** är nu medlem i **MDM-principen - Alla organisationsgrupper,** som ärver alla egenskaper och konfiguration av MDM-principen - Alla organisationer.
+    **MDM-principen – västra** gruppen är nu medlem i **MDM-policyn – alla org-** grupper, och ärver alla egenskaper och all konfiguration för MDM-principen – alla org-grupper.
 
-    ![Skapa ett gruppmedlemskap genom att lägga till grupp i en annan grupp](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
+    ![Skapa ett grupp medlemskap genom att lägga till en grupp i en annan grupp](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
-5. Gå igenom **mdm-principen - väst - gruppmedlemskap** för att se grupp- och medlemsrelationen.
+5. Granska sidan **MDM-princip – väst-grupp medlemskap** för att se relationen mellan gruppen och medlemmen.
 
-6. Om du vill ha en mer detaljerad vy över grupp- och medlemsrelationen väljer du gruppnamnet (**MDM-principen - All org**) och tar en titt på **MDM-principen - Information om västra** sidan.
+6. Om du vill ha en mer detaljerad vy av gruppen och medlems relationen väljer du grupp namnet (**MDM-princip – alla org**) och ta en titt på sidan **MDM-princip – väst-** information.
 
 ## <a name="remove-a-group-from-another-group"></a>Ta bort en grupp från en annan grupp
-Du kan ta bort en befintlig säkerhetsgrupp från en annan säkerhetsgrupp. Om du tar bort gruppen tas dock även alla ärvda attribut och egenskaper för medlemmarna bort.
+Du kan ta bort en befintlig säkerhets grupp från en annan säkerhets grupp. Men om du tar bort gruppen tas även ärvda attribut och egenskaper bort för dess medlemmar.
 
-### <a name="to-remove-a-member-group-from-another-group"></a>Så här tar du bort en medlemsgrupp från en annan grupp
-1. På sidan **Grupper - Alla grupper** söker du efter och väljer den grupp som ska tas bort som medlem i en annan grupp. För den här övningen använder vi återigen **MDM-principen -** West-gruppen.
+### <a name="to-remove-a-member-group-from-another-group"></a>Ta bort en medlems grupp från en annan grupp
+1. På sidan **grupper – alla grupper** söker du efter och väljer den grupp som ska tas bort som medlem i en annan grupp. I den här övningen använder vi gruppen **MDM policy-väst** .
 
-2. På översiktssidan **för MDM - Väst** väljer du **Gruppmedlemskap**.
+2. På **översikts sidan för MDM-policyn** väljer du **grupp medlemskap**.
 
-3. Välj **MDM-principen - Alla organisationsgrupper** från **mdm-principen - Väst - Gruppmedlemskap** och välj sedan **Ta bort** från **MDM-principen - Information** om sidan Väst.
+3. Välj **MDM-principen – alla org** grupper från sidan **MDM-princip – västra-grupp medlemskap** och välj sedan **ta bort** från **MDM-principens** sid information.
 
-    ![Sidan Gruppmedlemskap som visar både medlemmen och gruppinformationen](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
+    ![Sidan grupp medlemskap visar både medlemmen och grupp informationen](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 
 ## <a name="additional-information"></a>Ytterligare information
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
@@ -80,4 +80,4 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 - [Använd en grupp för att hantera åtkomst till SaaS-program](../users-groups-roles/groups-saasapps.md)
 
-- [Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

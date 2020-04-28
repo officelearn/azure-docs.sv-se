@@ -1,25 +1,25 @@
 ---
-title: Parameteriserade frågor i Azure Cosmos DB
-description: Lär dig hur SQL-parameteriserade frågor ger robust hantering och utrymning av användarindata och förhindrar oavsiktlig exponering av data genom SQL-injektion.
+title: Parametriserade frågor i Azure Cosmos DB
+description: Lär dig hur SQL-parametriserade frågor ger robust hantering och avvisning av indata från användaren, och förhindra oavsiktlig exponering av data via SQL-inmatning.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74870827"
 ---
-# <a name="parameterized-queries-in-azure-cosmos-db"></a>Parameteriserade frågor i Azure Cosmos DB
+# <a name="parameterized-queries-in-azure-cosmos-db"></a>Parametriserade frågor i Azure Cosmos DB
 
-Cosmos DB stöder frågor med parametrar som uttrycks av den välbekanta @ notationen. Parameteriserad SQL ger robust hantering och utrymning av användarindata och förhindrar oavsiktlig exponering av data genom SQL-injektion.
+Cosmos DB stöder frågor med parametrar som uttrycks av den välkända @-notationen. Parametriserade SQL ger robust hantering och avvisning av indata från användaren, och förhindrar oavsiktlig exponering av data via SQL-inmatning.
 
 ## <a name="examples"></a>Exempel
 
-Du kan till exempel skriva `lastName` en `address.state` fråga som tar och som `lastName` `address.state` parametrar och köra den för olika värden för och baserat på användarindata.
+Du kan till exempel skriva en fråga som `lastName` använder och `address.state` som parametrar och köra den för olika värden för `lastName` och `address.state` baserat på användarindata.
 
 ```sql
     SELECT *
@@ -27,7 +27,7 @@ Du kan till exempel skriva `lastName` en `address.state` fråga som tar och som 
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-Du kan sedan skicka den här begäran till Cosmos DB som en parameteriserad JSON-fråga som följande:
+Du kan sedan skicka denna begäran till Cosmos DB som en parameter-JSON-fråga som följande:
 
 ```sql
     {
@@ -39,7 +39,7 @@ Du kan sedan skicka den här begäran till Cosmos DB som en parameteriserad JSON
     }
 ```
 
-I följande exempel anges argumentet TOP med en parameteriserad fråga: 
+I följande exempel anges det översta argumentet med en parametriserad fråga: 
 
 ```sql
     {
@@ -50,7 +50,7 @@ I följande exempel anges argumentet TOP med en parameteriserad fråga:
     }
 ```
 
-Parametervärden kan vara giltiga JSON: strängar, tal, booleaner, null, till och med matriser eller kapslade JSON. Eftersom Cosmos DB är schemalös valideras inte parametrar mot någon typ.
+Parameter värden kan vara valfri giltig JSON: strängar, siffror, booleska värden, null, jämna matriser eller kapslad JSON. Eftersom Cosmos DB är schema löst val IDE ras inte parametrar mot någon typ.
 
 
 ## <a name="next-steps"></a>Nästa steg

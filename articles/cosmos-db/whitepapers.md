@@ -1,6 +1,6 @@
 ---
-title: Whitepapers som beskriver Azure Cosmos DB-koncept
-description: Få en lista över whitepapers för Azure Cosmos DB, dessa whitepapers beskriver begreppen på djupet.
+title: Fakta blad som beskriver Azure Cosmos DB koncept
+description: Hämta en lista över fakta blad för Azure Cosmos DB, dessa fakta blad beskriver koncepten i djupet.
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: adbbdf39875e67552de2f797b94eae89e0aba409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74869790"
 ---
-# <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB-vitblad
+# <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB whitepapers
 
-Med Whitepapers kan du utforska Azure Cosmos DB-koncept på en djupare nivå. Den här artikeln innehåller en lista över tillgängliga faktablad för Azure Cosmos DB.
+Med fakta blad kan du utforska Azure Cosmos DB koncept på en djupare nivå. Den här artikeln innehåller en lista över tillgängliga fakta blad för Azure Cosmos DB.
 
 | **White paper** | **Beskrivning** |
 | --- | --- |
-|[Schema-Agnostisk indexering med Azure Cosmos DB](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) | Det här dokumentet beskriver Azure Cosmos DB:s indexeringsundersystem. Det här dokumentet innehåller Azure Cosmos DB-funktioner som dokumentrepresentation, frågespråk, dokumentindexeringsmetod, kärnindexstöd och tidiga produktionsupplevelser.|
-| [Azure Cosmos DB och personuppgifter](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=87cc6456-4b23-473c-94d3-6c713b8b8956&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers)| Det här dokumentet ger vägledning för Azure Cosmos DB-kunder som hanterar en molnbaserad databas, en lokal databas eller både och som behöver se till att personuppgifterna i deras databassystem hanteras och skyddas i enlighet med gällande regler. |
+|[Schema-oberoende indexering med Azure Cosmos DB](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) | Det här dokumentet beskriver Azure Cosmos DBens indexerings under system. Det här dokumentet innehåller Azure Cosmos DB funktioner som dokument representation, frågespråk, dokument indexerings metod, support för kärn index och tidiga produktions upplevelser.|
+| [Azure Cosmos DB och personliga data](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=87cc6456-4b23-473c-94d3-6c713b8b8956&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers)| Det här dokumentet ger vägledning för Azure Cosmos DB kunder som hanterar en molnbaserad databas, en lokal databas eller både och som behöver se till att person uppgifter i databas systemen hanteras och skyddas i enlighet med aktuella regler. |
 

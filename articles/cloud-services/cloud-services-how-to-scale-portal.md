@@ -1,6 +1,6 @@
 ---
-title: Skala en molntjänst automatiskt i portalen | Microsoft-dokument
-description: Lär dig hur du använder portalen för att konfigurera regler för automatisk skalning för en webbroll för molntjänsten eller arbetsrollen i Azure.
+title: Skala en moln tjänst automatiskt i portalen | Microsoft Docs
+description: Lär dig hur du använder portalen för att konfigurera regler för automatisk skalning för en webb roll eller arbets roll i en moln tjänst i Azure.
 services: cloud-services
 author: tgore03
 ms.service: cloud-services
@@ -8,103 +8,103 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360845"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Konfigurera automatisk skalning för en molntjänst i portalen
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en moln tjänst i portalen
 
-Villkor kan ställas in för en molntjänstarbetstjänstroll som utlöser en skala in eller ut-åtgärd. Villkoren för rollen kan baseras på rollens CPU, disk eller nätverksbelastning. Du kan också ange ett villkor baserat på en meddelandekö eller måttet för någon annan Azure-resurs som är associerad med din prenumeration.
+Villkor kan anges för en arbets roll för en moln tjänst som utlöser en skalning i eller ut-åtgärd. Villkoren för rollen kan baseras på CPU, disk eller nätverks belastning för rollen. Du kan också ange ett villkor baserat på en meddelandekö eller mått för en annan Azure-resurs som är associerad med din prenumeration.
 
 > [!NOTE]
-> Den här artikeln fokuserar på Cloud Service-webb- och arbetarroller. När du skapar en virtuell dator (klassisk) direkt finns den i en molntjänst. Du kan skala en virtuell standarddator genom att associera den med en [tillgänglighetsuppsättning](../virtual-machines/windows/classic/configure-availability-classic.md) och manuellt aktivera eller inaktivera dem.
+> Den här artikeln fokuserar på webb-och arbets roller i moln tjänster. När du skapar en virtuell dator (klassisk) direkt är den värdbaserad i en moln tjänst. Du kan skala en virtuell standard dator genom att associera den med en [tillgänglighets uppsättning](../virtual-machines/windows/classic/configure-availability-classic.md) och aktivera eller inaktivera dem manuellt.
 
 ## <a name="considerations"></a>Överväganden
-Du bör tänka på följande information innan du konfigurerar skalning för ditt program:
+Du bör fundera över följande information innan du konfigurerar skalning för programmet:
 
-* Skalning påverkas av kärnanvändningen.
+* Skalning påverkas av kärn användning.
 
-    Större rollinstanser använder fler kärnor. Du kan skala ett program endast inom gränsen för kärnor för din prenumeration. Anta till exempel att din prenumeration har en gräns på 20 kärnor. Om du kör ett program med två medelstora molntjänster (totalt 4 kärnor) kan du bara skala upp andra molntjänstdistributioner i din prenumeration med de återstående 16 kärnorna. Mer information om storlekar finns i [Molntjänststorlekar](cloud-services-sizes-specs.md).
+    Större roll instanser använder fler kärnor. Du kan bara skala ett program inom gränsen för kärnor för din prenumeration. Anta till exempel att din prenumeration har en gräns på 20 kärnor. Om du kör ett program med två medel stora moln tjänster (totalt 4 kärnor) kan du bara skala upp andra moln tjänst distributioner i din prenumeration med de återstående 16 kärnorna. Mer information om storlekar finns i [moln tjänst storlekar](cloud-services-sizes-specs.md).
 
-* Du kan skala baserat på ett tröskelvärde för kömeddelande. Mer information om hur du använder köer finns i [Så här använder du tjänsten Kölagring](../storage/queues/storage-dotnet-how-to-use-queues.md).
+* Du kan skala baserat på ett tröskel för Queue meddelande. Mer information om hur du använder köer finns i [så här använder du tjänsten Queue Storage](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
-* Du kan också skala andra resurser som är associerade med din prenumeration.
+* Du kan också skala andra resurser som är kopplade till din prenumeration.
 
-* Om du vill aktivera hög tillgänglighet för ditt program bör du se till att det distribueras med två eller flera rollinstanser. Mer information finns i [Servicenivåavtal](https://azure.microsoft.com/support/legal/sla/).
+* Om du vill aktivera hög tillgänglighet för ditt program bör du kontrol lera att det har distribuerats med två eller fler roll instanser. Mer information finns i [service nivå avtal](https://azure.microsoft.com/support/legal/sla/).
 
-* Automatisk skalning sker bara när alla roller är i **redoläge.**  
+* Automatisk skalning sker bara när alla roller har statusen **klar** .  
 
 
-## <a name="where-scale-is-located"></a>Var skalan finns
-När du har valt din molntjänst bör du visa molntjänstbladet.
+## <a name="where-scale-is-located"></a>Där skalan finns
+När du har valt moln tjänsten bör du se till att moln tjänst bladet är synligt.
 
-1. På molntjänstbladet, på panelen **Roller och instanser,** väljer du namnet på molntjänsten.   
-   **VIKTIGT:** Se till att klicka på molntjänstrollen, inte rollinstansen som finns under rollen.
+1. På bladet moln tjänst väljer du namnet på moln tjänsten på panelen **roller och instanser** .   
+   **Viktigt**: se till att klicka på moln tjänst rollen, inte roll instansen som är under rollen.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
-2. Markera **skalpanelen.**
+2. Välj **skalnings** panelen.
 
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
-## <a name="automatic-scale"></a>Automatisk skala
-Du kan konfigurera skalningsinställningar för en roll med antingen två **lägen manuell** eller **automatisk**. Manuell är som du förväntar dig, du ställer in det absoluta antalet instanser. Automatisk kan du dock ställa in regler som styr hur och med hur mycket du ska skala.
+## <a name="automatic-scale"></a>Automatisk skalning
+Du kan konfigurera skalnings inställningar för en roll med antingen två lägen **manuellt** eller **automatiskt**. Manuellt är så som du förväntar dig, ställer du in det absoluta antalet instanser. Med automatisk kan du ange regler som styr hur mycket du ska skala.
 
-Ange alternativet **Skala efter** för schema **och prestandaregler**.
+Ställ in alternativet **skala enligt** för **schema-och prestanda regler**.
 
-![Molntjänster skala inställningar med profil och regel](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![Skalnings inställningar för moln tjänster med profil och regel](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. En befintlig profil.
 2. Lägg till en regel för den överordnade profilen.
 3. Lägg till en annan profil.
 
-Välj **Lägg till profil**. Profilen avgör vilket läge du vill använda för skalan: **alltid**, **återkommande,** **fast datum**.
+Välj **Lägg till profil**. Profilen avgör vilket läge du vill använda för skalan: **Always**, **upprepnings** **datum och fast datum**.
 
-När du har konfigurerat profilen och reglerna väljer du **ikonen Spara** högst upp.
+När du har konfigurerat profilen och reglerna väljer du ikonen **Spara** längst upp.
 
 #### <a name="profile"></a>Profil
-Profilen anger lägsta och högsta instanser för skalan och även när det här skalområdet är aktivt.
+Profilen anger minsta och högsta antal instanser för skalan och även när det här skalnings intervallet är aktivt.
 
 * **Alltid**
 
-    Håll alltid det här intervallet av instanser tillgängliga.  
+    Behåll alltid det här instans intervallet tillgängligt.  
 
-    ![Molntjänst som alltid skalas](./media/cloud-services-how-to-scale-portal/select-always.png)
-* **Återkommande**
+    ![Moln tjänst som alltid skalar](./media/cloud-services-how-to-scale-portal/select-always.png)
+* **Upprepning**
 
-    Välj en uppsättning veckodagar som ska skalas.
+    Välj en uppsättning dagar i veckan som ska skalas.
 
-    ![Skala molntjänsten med ett återkommande schema](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
+    ![Moln tjänst skala med ett upprepnings schema](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
 * **Fast datum**
 
-    Ett fast datumintervall för att skala rollen.
+    Ett fast datum intervall för att skala rollen.
 
-    ![CLoud-serviceskala med ett fast datum](./media/cloud-services-how-to-scale-portal/select-fixed.png)
+    ![Moln tjänst skala med ett fast datum](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
-När du har konfigurerat profilen väljer du **OK-knappen** längst ned på profilbladet.
+När du har konfigurerat profilen väljer du knappen **OK** längst ned på bladet profil.
 
 #### <a name="rule"></a>Regel
 Regler läggs till i en profil och representerar ett villkor som utlöser skalan.
 
-Regelutlösaren baseras på ett mått på molntjänsten (CPU-användning, diskaktivitet eller nätverksaktivitet) som du kan lägga till ett villkorsvärde till. Dessutom kan du ha utlösaren baserat på en meddelandekö eller måttet för någon annan Azure-resurs som är associerad med din prenumeration.
+Regel utlösaren baseras på ett mått för moln tjänsten (processor användning, disk aktivitet eller nätverks aktivitet) som du kan lägga till ett villkorligt värde i. Du kan också ha utlösaren baserat på en meddelandekö eller en annan Azure-resurs som är associerad med din prenumeration.
 
 ![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
-När du har konfigurerat regeln väljer du **OK-knappen** längst ned i regelbladet.
+När du har konfigurerat regeln väljer du knappen **OK** längst ned på bladet regel.
 
-## <a name="back-to-manual-scale"></a>Tillbaka till manuell skala
-Navigera till [skalningsinställningarna](#where-scale-is-located) och ange alternativet **Skala efter** till ett **instansantal som jag anger manuellt**.
+## <a name="back-to-manual-scale"></a>Tillbaka till manuell skalning
+Navigera till [skalnings inställningarna](#where-scale-is-located) och ange alternativet **skala efter** till **ett instans antal som jag anger manuellt**.
 
-![Molntjänster skala inställningar med profil och regel](./media/cloud-services-how-to-scale-portal/manual-basics.png)
+![Skalnings inställningar för moln tjänster med profil och regel](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Den här inställningen tar bort automatisk skalning från rollen och sedan kan du ställa in instansantalet direkt.
+Den här inställningen tar bort automatisk skalning från rollen och du kan sedan ange antalet instanser direkt.
 
-1. Alternativet skala (manuell eller automatiserad).
-2. Ett rollinstansreglage som instanserna ska skalas till.
-3. Instanser av rollen att skala till.
+1. Alternativet skala (manuellt eller automatiskt).
+2. Ett skjutreglage för roll instans som anger vilka instanser som ska skalas till.
+3. Instanser av rollen som ska skalas till.
 
-När du har konfigurerat skalningsinställningarna väljer du **ikonen Spara** högst upp.
+När du har konfigurerat skalnings inställningarna väljer du ikonen **Spara** längst upp.
 
 
 

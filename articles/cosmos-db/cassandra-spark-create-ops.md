@@ -1,6 +1,6 @@
 ---
-title: Skapa eller infoga data i Azure Cosmos DB Cassandra API från Spark
-description: I den hÃ¤r artikeln beskrivs hur du infogar exempeldata i Azure Cosmos DB Cassandra API-tabeller
+title: Skapa eller infoga data i Azure Cosmos DB API för Cassandra från Spark
+description: Den här artikeln beskriver hur du infogar exempel data i Azure Cosmos DB API för Cassandra tabeller
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,17 +9,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 3eb23a3d8b1098110bd8b75faa22cc483637d183
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442129"
 ---
-# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Skapa/infoga data i Azure Cosmos DB Cassandra API från Spark
+# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Skapa/infoga data i Azure Cosmos DB API för Cassandra från Spark
  
-I den här artikeln beskrivs hur du infogar exempeldata i en tabell i Azure Cosmos DB Cassandra API från Spark.
+I den här artikeln beskrivs hur du infogar exempel data i en tabell i Azure Cosmos DB API för Cassandra från Spark.
 
-## <a name="cassandra-api-configuration"></a>Cassandra API-konfiguration
+## <a name="cassandra-api-configuration"></a>API för Cassandra konfiguration
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -45,9 +45,9 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="dataframe-api"></a>Api för dataram
+## <a name="dataframe-api"></a>Dataframe-API
 
-### <a name="create-a-dataframe-with-sample-data"></a>Skapa en dataram med exempeldata
+### <a name="create-a-dataframe-with-sample-data"></a>Skapa en Dataframe med exempel data
 
 ```scala
 // Generate a dataframe containing five records
@@ -67,11 +67,11 @@ booksDF.show
 ```
 
 > [!NOTE]
-> Funktionen "Skapa om det inte finns" stöds ännu inte på radnivå.
+> Funktionen "skapa om inte finns" i en rad nivå stöds inte ännu.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Beständighet i Azure Cosmos DB Cassandra API
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Behåll att Azure Cosmos DB API för Cassandra
 
-När du sparar data kan du också ange inställningar för tid att leva och konsekvensprincipinställningar som visas i följande exempel:
+När du sparar data kan du också ange princip inställningar för tid till Live och konsekvens som visas i följande exempel:
 
 ```scala
 //Persist
@@ -83,7 +83,7 @@ booksDF.write
 ```
 
 > [!NOTE]
-> TTL på kolumnnivå stöds inte ännu.
+> TTL för kolumn nivå stöds inte ännu.
 
 #### <a name="validate-in-cqlsh"></a>Validera i cqlsh
 
@@ -92,9 +92,9 @@ use books_ks;
 select * from books;
 ```
 
-## <a name="resilient-distributed-database-rdd-api"></a>API för fjädrande distribuerad databas (RDD)
+## <a name="resilient-distributed-database-rdd-api"></a>RDD-API (elastiskt Distributed Database)
 
-### <a name="create-a-rdd-with-sample-data"></a>Skapa en RDD med exempeldata
+### <a name="create-a-rdd-with-sample-data"></a>Skapa en RDD med exempel data
 ```scala
 //Delete records created in the previous section 
 val cdbConnector = CassandraConnector(sc)
@@ -114,11 +114,11 @@ booksRDD.take(2).foreach(println)
 ```
 
 > [!NOTE]
-> Det finns ännu inga funktioner för att skapa om det inte finns.
+> Det finns inte stöd för att skapa IF-funktioner som inte stöds ännu.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Beständighet i Azure Cosmos DB Cassandra API
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Behåll att Azure Cosmos DB API för Cassandra
 
-När du sparar data i Cassandra API kan du också ange principinställningar för tid till live och konsekvens som visas i följande exempel:
+När du sparar data till API för Cassandra, kan du också ange inställningar för tid till Live och konsekvens princip som visas i följande exempel:
 
 ```scala
 import com.datastax.spark.connector.writer._
@@ -136,11 +136,11 @@ select * from books;
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har infogat data i azure Cosmos DB Cassandra API-tabellen fortsätter du till följande artiklar för att utföra andra åtgärder på data som lagras i Cosmos DB Cassandra API:
+När du har infogat data i Azure Cosmos DB API för Cassandras tabellen fortsätter du till följande artiklar för att utföra andra åtgärder på de data som lagras i Cosmos DB API för Cassandra:
  
-* [Läs operationer](cassandra-spark-read-ops.md)
-* [Upsert-operationer](cassandra-spark-upsert-ops.md)
+* [Läs åtgärder](cassandra-spark-read-ops.md)
+* [Upsert-åtgärder](cassandra-spark-upsert-ops.md)
 * [Ta bort åtgärder](cassandra-spark-delete-ops.md)
 * [Sammansättningsåtgärder](cassandra-spark-aggregation-ops.md)
-* [Tabellkopieringsåtgärder](cassandra-spark-table-copy-ops.md)
+* [Åtgärder för tabell kopiering](cassandra-spark-table-copy-ops.md)
 

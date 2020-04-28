@@ -1,6 +1,6 @@
 ---
-title: Visa Azure Stream Analytics-jobb i Visual Studio
-description: Lär dig hur du visar, startar och stoppar, testar anslutningar, kontrollerar resultat och exporterar dina Azure Stream Analytics-jobb med Visual Studio.
+title: Visa Azure Stream Analytics jobb i Visual Studio
+description: Lär dig att visa, starta och stoppa, testa anslutningar, kontrol lera resultat och exportera dina Azure Stream Analytics-jobb med Visual Studio.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -8,55 +8,55 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: ad35ed342dfd40b98d61919749479ec5612cdd4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75369634"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Använda Visual Studio för att visa Azure Stream Analytics-jobb
 
-Azure Stream Analytics-verktyg för Visual Studio gör det enkelt för utvecklare att hantera sina Stream Analytics-jobb direkt från IDE. Med Azure Stream Analytics-verktyg kan du:
+Azure Stream Analytics Tools för Visual Studio gör det enkelt för utvecklare att hantera sina Stream Analytics-jobb direkt från IDE. Med Azure Stream Analytics verktyg kan du:
 - [Skapa nya jobb](stream-analytics-quick-create-vs.md)
 - Starta, stoppa och [övervaka jobb](stream-analytics-monitor-jobs-use-vs.md)
-- Kontrollera jobbresultat
+- Kontrol lera jobb resultat
 - Exportera befintliga jobb till ett projekt
 - Testa anslutningar för indata och utdata
 - [Kör frågor lokalt](stream-analytics-vs-tools-local-run.md)
 
-Lär dig hur du [installerar Azure Stream Analytics-verktyg för Visual Studio](stream-analytics-tools-for-visual-studio-install.md).
+Lär dig hur du [installerar Azure Stream Analytics verktyg för Visual Studio](stream-analytics-tools-for-visual-studio-install.md).
 
-## <a name="explore-the-job-view"></a>Utforska jobbvyn
+## <a name="explore-the-job-view"></a>Utforska vyn jobb
 
-Du kan använda jobbvyn för att interagera med Azure Stream Analytics-jobb från Visual Studio.
+Du kan använda vyn jobb för att interagera med Azure Stream Analytics-jobb från Visual Studio.
 
-### <a name="open-the-job-view"></a>Öppna jobbvyn
+### <a name="open-the-job-view"></a>Öppna vyn jobb
 
-1. I **Server Explorer**väljer du Stream **Analytics-jobb** och väljer sedan **Uppdatera**. Jobbet ska visas under **Stream Analytics-jobb**.
+1. I **Server Explorer**väljer du **Stream Analytics jobb** och väljer sedan **Uppdatera**. Jobbet bör visas under **Stream Analytics jobb**.
 
-    ![Strömma analytics-serverutforskaren](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
+    ![Stream Analytics Server Explorer-lista](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-2. Expandera jobbnoden och dubbelklicka på noden **Jobbvy** för att öppna en jobbvy.
+2. Expandera noden jobb och dubbelklicka på noden **jobb Visa** för att öppna en jobb visning.
     
-   ![Utökad jobbnod](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
+   ![Expanderad jobb-nod](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
 
 ### <a name="start-and-stop-jobs"></a>Starta och stoppa jobb
 
-Azure Stream Analytics-jobb kan hanteras fullständigt från jobbvyn i Visual Studio. Använd kontrollerna för att starta, stoppa eller ta bort ett jobb.
+Azure Stream Analytics-jobb kan hanteras fullständigt från vyn jobb i Visual Studio. Använd kontrollerna för att starta, stoppa eller ta bort ett jobb.
     
-   ![Jobbkontroller för Stream Analytics](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
+   ![Stream Analytics jobb kontroller](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
 
-## <a name="check-job-results"></a>Kontrollera jobbresultat
+## <a name="check-job-results"></a>Kontrol lera jobb resultat
 
-Stream Analytics-verktyg för Visual Studio stöder för närvarande förhandsversionen av utdata för Azure Data Lake Storage och blob storage. Om du vill visa resultatet dubbelklickar du bara på utdatanoden för jobbdiagrammet i **jobbvyn** och anger lämpliga autentiseringsuppgifter.
+Stream Analytics verktyg för Visual Studio stöder för hands versionen av utdata för Azure Data Lake Storage-och blob-lagring. Om du vill visa resultat dubbelklickar du bara på noden utdata i jobb diagrammet i **vyn jobb** och anger lämpliga autentiseringsuppgifter.
 
-   ![Utdata för Stream Analytics-jobbblob](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
+   ![Stream Analytics Job BLOB-utdata](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 
 ## <a name="export-jobs-to-a-project"></a>Exportera jobb till ett projekt
 
 Du kan exportera ett befintligt jobb till ett projekt på två sätt.
 
-1. Högerklicka på jobbnoden under noden Stream Analytics-jobb i **Server Explorer.** Välj **Exportera till New Stream Analytics Project**.
+1. I **Server Explorer**, under noden Stream Analytics jobb, högerklickar du på noden jobb. Välj **Exportera till nytt Stream Analytics projekt**.
     
    ![Exportera jobb till projekt](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-01.png)
     
@@ -64,23 +64,23 @@ Du kan exportera ett befintligt jobb till ett projekt på två sätt.
     
    ![Solution Explorer](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-02.png)
 
-2. Välj **Generera projekt**i jobbvyn .
+2. I vyn jobb väljer du **generera projekt**.
     
-   ![Generera projekt från jobbvyn](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-03.png)
+   ![Generera projekt från jobb-vy](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-03.png)
 
-## <a name="test-connections"></a>Testa anslutningar
+## <a name="test-connections"></a>Test anslutningar
 
-In- och utdataanslutningar kan testas från **jobbvyn** genom att välja ett alternativ i listrutan **Testanslutning.**
+Anslutningar för indata och utdata kan testas från **vyn jobb** genom att välja ett alternativ i list rutan **Testa anslutning** .
 
-   ![Testanslutningsrullgardering](./media/stream-analytics-vs-tools/stream-analytics-test-connection-dropdown.png)
+   ![Listruta för test anslutning](./media/stream-analytics-vs-tools/stream-analytics-test-connection-dropdown.png)
 
-**Testanslutningsresultaten** visas i **utdatafönstret.**
+**Test anslutnings** resultaten visas i fönstret **utdata** .
 
-   ![Testanslutningsresultat](./media/stream-analytics-vs-tools/stream-analytics-test-connection-results.png)
+   ![Testa anslutnings resultat](./media/stream-analytics-vs-tools/stream-analytics-test-connection-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervaka och hantera Azure Stream Analytics-jobb med Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
-* [Snabbstart: Skapa ett Stream Analytics-jobb med Visual Studio](stream-analytics-quick-create-vs.md)
+* [Övervaka och hantera Azure Stream Analytics jobb med Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
+* [Snabb start: skapa ett Stream Analytics jobb med Visual Studio](stream-analytics-quick-create-vs.md)
 * [Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integrera och utveckla kontinuerligt med Stream Analytics-verktyg](stream-analytics-tools-for-visual-studio-cicd.md)

@@ -1,6 +1,6 @@
 ---
-title: Ange en kundklämmen på en begäran till Blob-lagring med .NET - Azure Storage
-description: Lär dig hur du anger en kundad nyckel på en begäran till Blob-lagring med .NET.
+title: Ange en kundspecifik nyckel på en begäran till Blob Storage med .NET-Azure Storage
+description: Lär dig hur du anger en kundanged nyckel på en begäran till Blob Storage med hjälp av .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,25 +10,25 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: ea8254f108aed9d40e6970a27409035b1e10ab41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74807008"
 ---
-# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Ange en kundklämmen på en begäran till Blob-lagring med .NET
+# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Ange en kundspecifik nyckel på en begäran till Blob Storage med .NET
 
-Klienter som gör begäranden mot Azure Blob-lagring har möjlighet att ange en krypteringsnyckel på en enskild begäran. Inklusive krypteringsnyckeln på begäran ger detaljerad kontroll över krypteringsinställningar för Blob-lagringsåtgärder. Nycklar som tillhandahålls av kunden (förhandsversion) kan lagras i Azure Key Vault eller i en annan nyckelbutik.
+Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel på en enskild begäran. Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder. Kundspecifika nycklar (för hands version) kan lagras i Azure Key Vault eller i en annan nyckel lagrings plats.
 
-Den här artikeln visar hur du anger en kundad nyckel på en begäran med .NET.
+Den här artikeln visar hur du anger en kunds nyckel på en begäran med .NET.
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Mer information om hur du autentiserar med Azure Identity-klientbiblioteket från Azure Storage finns i avsnittet **Autentisera med Azure Identity-biblioteket** i [Auktorisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+Mer information om hur du autentiserar med klient biblioteket för Azure Identity från Azure Storage finns i avsnittet **autentisera med Azure Identity Library** i [ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
-## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Exempel: Använd en kundklump för att ladda upp en blob
+## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Exempel: Använd en kundanged nyckel för att ladda upp en BLOB
 
-I följande exempel skapas en kundklump och den nyckeln används för att ladda upp en blob. Koden överför ett block och genomför sedan blockeringslistan för att skriva blobben till Azure Storage.
+I följande exempel skapas en kundspecifik nyckel som använder den nyckeln för att ladda upp en blob. Koden laddar upp ett block och genomför sedan blockeringslistan för att skriva blobben till Azure Storage.
 
 ```csharp
 async static Task UploadBlobWithClientKey(string accountName, string containerName,
@@ -74,5 +74,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage-kryptering för data i vila](../common/storage-service-encryption.md)
-- [Auktorisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](../common/storage-auth-aad-msi.md)
+- [Azure Storage kryptering för vilande data](../common/storage-service-encryption.md)
+- [Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](../common/storage-auth-aad-msi.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Övervakning, mått och aviseringar'
+title: 'Azure-ExpressRoute: övervakning, mått och aviseringar'
 description: Den här sidan innehåller information om ExpressRoute-övervakning
 services: expressroute
 author: mialdrid
@@ -8,136 +8,136 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75436919"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
-Den här artikeln hjälper dig att förstå ExpressRoute-övervakning, mått och aviseringar med Azure Monitor. Azure Monitor är en stop shop för alla mått, aviseringar, diagnostikloggar i hela Azure.
+Den här artikeln hjälper dig att förstå ExpressRoute-övervakning, mått och aviseringar med hjälp av Azure Monitor. Azure Monitor är ett stopp för alla mät värden, varningar, diagnostikloggar i hela Azure.
  
 >[!NOTE]
->Det rekommenderas inte att använda **klassiska mått.**
+>Det rekommenderas inte att använda **klassiska mått** .
 >
 
-## <a name="expressroute-metrics"></a>ExpressRoute-mått
+## <a name="expressroute-metrics"></a>ExpressRoute mått
 
-Om du vill visa **mått navigerar**du till sidan *Azure Monitor* och klickar på *Mått*. Om du vill visa **ExpressRoute-mått** filtrerar du efter *ExpressRoute-kretsar*för resurstyp . Om du vill visa **globala räckviddsmått** filtrerar du efter *ExpressRoute-kretsar* för resurstyp och väljer en ExpressRoute-kretsresurs som har Global Reach aktiverat. Om du vill visa **ExpressRoute Direct-mått** filtrerar du Resurstyp efter *ExpressRoute-portar*. 
+Om du vill visa **måtten**navigerar du till *Azure Monitor* sidan och klickar på *mått*. Om du vill visa **ExpressRoute** -mått filtrerar du efter resurs typ *ExpressRoute-kretsar*. Om du vill visa **Global Reach** mått filtrerar du efter resurs typ *ExpressRoute-kretsar* och väljer en ExpressRoute krets resurs som har Global Reach aktiverat. Om du vill visa **ExpressRoute Direct** -mått, filtrera resurs typ efter *ExpressRoute-portar*. 
 
-När ett mått har valts tillämpas standardaggregeringen. Du kan också använda delning, som visar måttet med olika dimensioner.
+När ett mått har valts tillämpas standard agg regeringen. Du kan också använda dela upp som visar måttet med olika dimensioner.
 
 ### <a name="available-metrics"></a>Tillgängliga mått
-|**Mått**|**Kategori**|**Dimension(er)**|**Funktioner**|
+|**Mått**|**Kategori**|**Dimension (er)**|**Funktion (er)**|
 | --- | --- | --- | --- |
 |ARP-tillgänglighet|Tillgänglighet|<ui><li>Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ (privat/offentlig/Microsoft)</ui></li>|ExpressRoute|
-|Bgp-tillgänglighet|Tillgänglighet|<ui><li> Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ</ui></li>|ExpressRoute|
+|BGP-tillgänglighet|Tillgänglighet|<ui><li> Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ</ui></li>|ExpressRoute|
 |BitsInPerSecond|Trafik|<ui><li> Peering-typ (ExpressRoute)</ui></li><ui><li>Länk (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Trafik| <ui><li>Peering-typ (ExpressRoute)</ui></li><ui><li> Länk (ExpressRoute Direct) | <ui><li>ExpressRoute (ort)<ui><li>ExpressRoute Direct</ui></li> |
-|GlobalReachBitsInPerSecond|Trafik|<ui><li>Peered Circuit Skey (servicenyckel)</ui></li>|Global räckvidd|
-|GlobalReachBitsOutPerSecond|Trafik|<ui><li>Peered Circuit Skey (servicenyckel)</ui></li>|Global räckvidd|
-|AdminState (administrativa)|Fysisk anslutning|Länk|ExpressRoute Direct|
-|LineProtocol (LinjeProtokol)|Fysisk anslutning|Länk|ExpressRoute Direct|
+|BitsOutPerSecond|Trafik| <ui><li>Peering-typ (ExpressRoute)</ui></li><ui><li> Länk (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|GlobalReachBitsInPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global Reach|
+|GlobalReachBitsOutPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global Reach|
+|AdminState|Fysisk anslutning|Länk|ExpressRoute Direct|
+|LineProtocol|Fysisk anslutning|Länk|ExpressRoute Direct|
 |RxLightLevel|Fysisk anslutning|<ui><li>Länk</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
 |TxLightLevel|Fysisk anslutning|<ui><li>Länk</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
 >[!NOTE]
->Med *GlobalGlobalReachBitsInPerSecond* och *GlobalGlobalReachBitsOutPerSecond* visas endast om minst en Global Reach-anslutning upprättas.
+>Användning av *GlobalGlobalReachBitsInPerSecond* och *GlobalGlobalReachBitsOutPerSecond* visas bara om minst en global Reach anslutning har upprättats.
 >
 
-## <a name="circuits-metrics"></a>Tkretsmått
+## <a name="circuits-metrics"></a>Krets mått
 
-### <a name="bits-in-and-out---metrics-across-all-peerings"></a>Bitar in och ut - Mått för alla peerings
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a>BITS in och ut-mått för alla peer kopplingar
 
-Du kan visa mått över alla peerings på en viss ExpressRoute-krets.
+Du kan visa mått för alla peer kopplingar på en angiven ExpressRoute-krets.
 
-![kretsmått](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
+![krets mått](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-### <a name="bits-in-and-out---metrics-per-peering"></a>Bitar in och ut - mått per peering
+### <a name="bits-in-and-out---metrics-per-peering"></a>BITS in och ut-mått per peering
 
-Du kan visa mått för privat, offentlig och Microsoft-peering i bitar/sekund.
+Du kan visa mått för privat, offentlig och Microsoft-peering i bitar per sekund.
 
 ![mått per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
-### <a name="bgp-availability---split-by-peer"></a>BGP-tillgänglighet - Delad efter peer  
+### <a name="bgp-availability---split-by-peer"></a>BGP-tillgänglighet – dela efter peer  
 
-Du kan visa nära realtidstillgängligheten för BGP över peerings och peer-datorer (primära och sekundära ExpressRoute-routrar). Den här instrumentpanelen visar den primära BGP-sessionen för privat peering och den andra BGP-sessionen nedåt för privat peering. 
+Du kan visa nära real tids tillgänglighet för BGP över peering och peer-datorer (primära och sekundära ExpressRoute-routrar). Den här instrument panelen visar primär BGP-sessionen för privat peering och den andra BGP-sessionen för privat peering. 
 
 ![BGP-tillgänglighet per peer](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
 
-### <a name="arp-availability---split-by-peering"></a>ARP-tillgänglighet - Dela efter peering  
+### <a name="arp-availability---split-by-peering"></a>ARP-tillgänglighet – dela via peering  
 
-Du kan visa nästan realtidstillgänglighet för [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) över peerings och peer -datorer (primära och sekundära ExpressRoute-routrar). Den här instrumentpanelen visar den privata peering-ARP-sessionen uppåt i båda peer-datorerna, men slutförs för Microsoft-peering över peerings. Standardaggregering (Genomsnitt) användes för båda peer-datorerna.  
+Du kan visa nära real tids tillgänglighet för [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) över peering och peer-datorer (primära och sekundära ExpressRoute-routrar). Den här instrument panelen visar ARP-sessionen för privata peering på båda peer-datorerna, men slutfört för Microsoft-peering mellan peering. Standard agg regeringen (Average) utnyttjades över båda peer-datorerna.  
 
 ![ARP-tillgänglighet per peer](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
-## <a name="expressroute-direct-metrics"></a>ExpressRoute Direct-mätvärden
+## <a name="expressroute-direct-metrics"></a>ExpressRoute direkt mått
 
-### <a name="admin-state---split-by-link"></a>Admin State - Dela efter länk
-Du kan visa administratörstillståndet för varje länk i ExpressRoute Direct-portparet.
+### <a name="admin-state---split-by-link"></a>Admin-tillstånd – dela med länk
+Du kan visa admin-tillstånd för varje länk i ExpressRoute Direct-port paret.
 
-![direkt admin tillstånd](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+![status för er Direct-administratör](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
 
-### <a name="bits-in-per-second---split-by-link"></a>Bitar i per sekund - Dela efter länk
-Du kan visa bitarna per sekund över båda länkarna i ExpressRoute Direct-portparet. 
+### <a name="bits-in-per-second---split-by-link"></a>Bitar i per sekund – dela med länk
+Du kan visa bitarna i per sekund över båda länkarna i ExpressRoute Direct-port paret. 
 
-![er direkta bitar i per sekund](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+![er direkt bitar per sekund](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
 
-### <a name="bits-out-per-second---split-by-link"></a>Bitar ut per sekund - Dela efter länk
-Du kan också visa bitarna per sekund över båda länkarna i ExpressRoute Direct-portparet. 
+### <a name="bits-out-per-second---split-by-link"></a>Bitar ut per sekund – dela med länk
+Du kan också Visa bitarna per sekund över båda länkarna i ExpressRoute Direct-port paret. 
 
-![direktbitar ut per sekund](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+![antal återställnings direkt bitar per sekund](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
 
-### <a name="line-protocol---split-by-link"></a>Linjeprotokoll - Dela efter länk
-Du kan visa linjeprotokollet över varje länk till ExpressRoute Direct-portparet.
+### <a name="line-protocol---split-by-link"></a>Rad protokoll – dela med länk
+Du kan visa rad protokollet för varje länk i ExpressRoute Direct-port paret.
 
-![direktlinjeprotokoll](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+![direkt anslutnings protokoll för er](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
 
-### <a name="rx-light-level---split-by-link"></a>Rx Ljusnivå - Dela efter länk
-Du kan visa Rx-ljusnivån (den ljusnivå som ExpressRoute Direct-porten **tar emot)** för varje port. Friska Rx-ljusnivåer ligger i allmänhet inom ett intervall på -10 till 0 dBm
+### <a name="rx-light-level---split-by-link"></a>RX ljus nivå – dela med länk
+Du kan visa mottagnings ljus nivån (den ljus nivå som ExpressRoute Direct-porten **tar emot**) för varje port. Friska mottagnings ljus nivåer ligger vanligt vis inom intervallet-10 till 0 dBm
 
-![direktlinje Rx ljusnivå](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+![återställnings ljus nivå för er direkt linje](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
 
-### <a name="tx-light-level---split-by-link"></a>Tx Ljusnivå - Dela efter länk
-Du kan visa Tx-ljusnivån (den ljusnivå som ExpressRoute Direct-porten **sänder)** för varje port. Friska Tx-ljusnivåer ligger i allmänhet inom ett intervall på -10 till 0 dBm
+### <a name="tx-light-level---split-by-link"></a>TX ljus nivå – dela med länk
+Du kan visa avsändnings ljus nivån (den ljus nivå som ExpressRoute Direct-porten **överför**) för varje port. Felfria TX-ljusnivå ligger vanligt vis inom intervallet-10 till 0 dBm
 
-![direktlinje Rx ljusnivå](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+![återställnings ljus nivå för er direkt linje](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
 
-## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute gateway-anslutningar i bitar/sekunder
+## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute Gateway-anslutningar i bitar/sekunder
 
-![gateway-anslutningar](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
+![Gateway-anslutningar](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
-## <a name="alerts-for-expressroute-gateway-connections"></a>Aviseringar för ExpressRoute-gatewayanslutningar
+## <a name="alerts-for-expressroute-gateway-connections"></a>Aviseringar för ExpressRoute Gateway-anslutningar
 
-1. För att konfigurera aviseringar navigerar du till **Azure Monitor**och klickar sedan på **Aviseringar**.
+1. För att konfigurera aviseringar går du till **Azure Monitor**och klickar sedan på **aviseringar**.
 
    ![aviseringar](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
-2. Klicka på **+Välj mål** och välj expressroutegatewayanslutningsresursen.
+2. Klicka på **+ Välj mål** och välj anslutnings resurs för ExpressRoute Gateway.
 
-   ![Mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
-3. Definiera aviseringsinformationen.
+   ![fokusera]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+3. Definiera aviserings informationen.
 
-   ![åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![åtgärds grupp](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
-4. Definiera och lägg till åtgärdsgruppen.
+4. Definiera och Lägg till åtgärds gruppen.
 
-   ![lägga till åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![Lägg till åtgärds grupp](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>Aviseringar baserade på varje peering
 
  ![Vad](./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg)
 
-## <a name="configure-alerts-for-activity-logs-on-circuits"></a>Konfigurera aviseringar för aktivitetsloggar på kretsar
+## <a name="configure-alerts-for-activity-logs-on-circuits"></a>Konfigurera aviseringar för aktivitets loggar på kretsar
 
-I **varningsvillkoren**kan du välja **Aktivitetslogg** för signaltypen och välja signalen.
+I **aviserings villkoren**kan du välja **aktivitets logg** för signal typen och välja signalen.
 
-  ![Annan](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
+  ![Nästa](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
   
 ## <a name="next-steps"></a>Nästa steg
 
 Konfigurera ExpressRoute-anslutningen.
   
   * [Skapa och ändra en krets](expressroute-howto-circuit-arm.md)
-  * [Skapa och ändra peering-konfigurationen](expressroute-howto-routing-arm.md)
+  * [Skapa och ändra peering-konfiguration](expressroute-howto-routing-arm.md)
   * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)

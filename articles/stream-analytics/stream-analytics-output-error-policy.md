@@ -1,6 +1,6 @@
 ---
-title: Principer för utdatafel i Azure Stream Analytics
-description: Lär dig mer om principerna för hantering av utdatafel som är tillgängliga i Azure Stream Analytics.
+title: Principer för utgående fel i Azure Stream Analytics
+description: Lär dig mer om de fel hanterings principer som är tillgängliga i Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 22112272bb302769e5969cf6995d486438deb41f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431614"
 ---
-# <a name="azure-stream-analytics-output-error-policy"></a>Sekretesspolicy för utdatafel i Azure Stream Analytics
-I den här artikeln beskrivs principerna för hantering av utdatafel som kan konfigureras i Azure Stream Analytics.
+# <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics fel princip för utdata
+I den här artikeln beskrivs de fel hanterings principer för utdata som kan konfigureras i Azure Stream Analytics.
 
-Principer för hantering av utdatafel gäller endast för datakonverteringsfel som uppstår när utdatahändelsen som produceras av ett Stream Analytics-jobb inte överensstämmer med schemat för målmottagaren. Du kan konfigurera den här principen genom att välja **försök igen** eller **Släpp**. I Azure-portalen, medan du är i ett Stream Analytics-jobb, under **Konfigurera**, väljer du **Felprincip** för att göra ditt val.
+Hanterings principer för utgående data gäller endast för data konverterings fel som uppstår när utdata som genereras av ett Stream Analytics jobb inte följer schemat för mål mottagaren. Du kan konfigurera den här principen genom att välja antingen **försök igen** eller **ta bort**. I Azure Portal, i ett Stream Analytics jobb, under **Konfigurera**väljer du **fel princip** för att göra ditt val.
 
-![Plats för Azure Stream Analytics-utdatafelprincip](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
+![Azure Stream Analytics plats för fel princip för utdata](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
 
 ## <a name="retry"></a>Försök igen
-När ett fel inträffar försöker Azure Stream Analytics skriva händelsen på obestämd tid tills skrivningen lyckas. Det finns ingen timeout för återförsök. Så småningom blockeras alla efterföljande händelser från bearbetning av händelsen som försöker igen. Det här alternativet är standardprincipen för hantering av utdatafel.
+När ett fel uppstår försöker Azure Stream Analytics att skriva om händelsen oändligt tills skrivningen lyckas. Det finns ingen tids gräns för återförsök. Till sist blockeras alla efterföljande händelser från bearbetningen av händelsen som försöker igen. Det här alternativet är standard principen för fel hantering av utdata.
 
-## <a name="drop"></a>Släppa
+## <a name="drop"></a>Skugg
 Azure Stream Analytics utelämnar eventuella utdatahändelser som resulterar i datakonverteringsfel. Utelämnade händelser kan inte återställas för bearbetning vid ett senare tillfälle.
 
 
-Alla tillfälliga fel (till exempel nätverksfel) görs på nytt oavsett konfigurationen av principkonfigurationen för hantering av utdatafel.
+Alla tillfälliga fel (t. ex. nätverks fel) görs nya försök oavsett princip konfigurationen för hantering av utdata.
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Felsökningsguide för Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+[Fel söknings guide för Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)

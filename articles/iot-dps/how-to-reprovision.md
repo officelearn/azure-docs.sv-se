@@ -1,6 +1,6 @@
 ---
-title: Etablera om enheter i Azure IoT Hub Device Provisioning Service
-description: Lär dig hur du återetablerar enheter med DPS-instansen (Device Provisioning Service) och varför du kan behöva göra detta.
+title: Reetablera enheter i Azure IoT Hub Device Provisioning Service
+description: Lär dig hur du reetablerar enheter med din DPS-instans (Device Provisioning service) och varför du kan behöva göra detta.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -8,92 +8,92 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974912"
 ---
-# <a name="how-to-reprovision-devices"></a>Så här återetableras enheter
+# <a name="how-to-reprovision-devices"></a>Så här etablerar du om enheter
 
-Under livscykeln för en IoT-lösning är det vanligt att flytta enheter mellan IoT-hubbar. Orsakerna till det här steget kan vara följande scenarier:
+Under livs cykeln för en IoT-lösning är det vanligt att flytta enheter mellan IoT-hubbar. Orsakerna till den här flytten kan innefatta följande scenarier:
 
-* **Geolokalisering**: När en enhet flyttas mellan platser förbättras nätverksfördröjningen genom att enheten migreras till en IoT-hubb närmare varje plats.
+* **Geolokalisering**: när en enhet flyttas mellan platser förbättras nätverks fördröjningen genom att enheten migreras till en IoT-hubb närmare varje plats.
 
-* **Multi-arrende**: En enhet kan användas inom samma IoT-lösning, men, omtilldelas eller hyrs ut till en ny kund eller kundwebbplats. Den här nya kunden kan servas med en annan IoT-hubb.
+* **Flera innehavare**: en enhet kan användas inom samma IoT-lösning, men omtilldelas eller lånas ut till en ny kund eller kunds webbplats. Den nya kunden kan servas med hjälp av en annan IoT-hubb.
 
-* **Ändring av lösning:** En enhet kan flyttas till en ny eller uppdaterad IoT-lösning. Den här omtilldelningen kan kräva att enheten kommunicerar med en ny IoT-hubb som är ansluten till andra backend-komponenter. 
+* **Lösnings ändring**: en enhet kan flyttas till en ny eller uppdaterad IoT-lösning. Den här omtilldelningen kan kräva att enheten kommunicerar med en ny IoT-hubb som är ansluten till andra server dels komponenter. 
 
-* **Karantän**: Liknar en lösningsändring. En enhet som inte fungerar, komprometteras eller är inaktuell kan omfördelas till en IoT-hubb där allt den kan göra är att uppdatera och komma tillbaka i enlighet. När enheten fungerar som den ska migreras den sedan tillbaka till huvudnavet.
+* **Karantän**: liknar en lösnings förändring. En enhet som inte fungerar, komprometteras eller är inaktuell kan omtilldelas till en IoT-hubb där allt det kan göra är att uppdatera och se till att kompatibiliteten fungerar igen. När enheten fungerar korrekt migreras den tillbaka till huvud navet.
 
-Mer information om ometablering finns i [begrepp för ometablering av IoT Hub Device](concepts-device-reprovision.md).
+Mer detaljerad information om hur du reetablering finns i [IoT Hub metoder för att etablera enheter](concepts-device-reprovision.md).
 
 
-## <a name="configure-the-enrollment-allocation-policy"></a>Konfigurera princip för registreringsallokering
+## <a name="configure-the-enrollment-allocation-policy"></a>Konfigurera principen för registrerings tilldelning
 
-Allokeringsprincipen bestämmer hur de enheter som är associerade med registreringen ska fördelas eller tilldelas till en IoT-hubb när de har ometablerats.
+Allokeringsregeln avgör hur enheter som är kopplade till registreringen ska allokeras eller tilldelas till en IoT-hubb när den har etablerats.
 
-I följande steg konfigureras allokeringsprincipen för en enhets registrering:
+Följande steg konfigurerar principen för en enhets registrering:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) och navigera till din enhetsetableringstjänstinstans.
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din enhets etablerings tjänst instans.
 
-2. Klicka på Hantera registreringar och klicka på den **registreringsgrupp**eller enskilda registrering som du vill konfigurera för ometablering. 
+2. Klicka på **Hantera registreringar**och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om. 
 
-3. Under **Välj hur du vill tilldela enheter till hubbar**väljer du en av följande allokeringsprinciper:
+3. Under **Välj hur du vill tilldela enheter till hubbar väljer du**någon av följande allokeringsregler:
 
-    * **Lägsta svarstid:** Den här principen tilldelar enheter till den länkade IoT-hubben som resulterar i den lägsta latenskommunikationen mellan enheten och IoT Hub. Med det här alternativet kan enheten kommunicera med närmaste IoT-hubb baserat på plats. 
+    * **Lägsta latens**: den här principen tilldelar enheter till den länkade IoT Hub som leder till den lägsta latens kommunikationen mellan enhet och IoT Hub. Med det här alternativet kan enheten kommunicera med den närmaste IoT-hubben baserat på plats. 
     
-    * **Jämnt viktad distribution**: Den här principen distribuerar enheter över de länkade IoT-hubbar baserat på allokeringsvikten som tilldelats varje länkad IoT-hubb. Med den här principen kan du läsa in fördelningsenheter i en grupp länkade nav baserat på de allokeringsvikter som angetts för dessa nav. Om du etablerar enheter till endast en IoT Hub rekommenderar vi den här inställningen. Den här inställningen är standardinställningen. 
+    * **Jämt viktad distribution**: den här principen distribuerar enheter över de länkade IoT-hubbarna baserat på den tilldelnings vikt som tilldelats varje länkad IoT-hubb. Med den här principen kan du belastningsutjämna enheter i en grupp med länkade hubbar baserat på de tilldelnings vikter som anges för dessa nav. Om du bara konfigurerar enheter till en IoT Hub rekommenderar vi den här inställningen. Den här inställningen är standardinställningen. 
     
-    * **Statisk konfiguration**: Den här principen kräver att en önskad IoT Hub anges i registreringsposten för att en enhet ska etableras. Med den här principen kan du ange en enda specifik IoT-hubb som du vill tilldela enheter till.
+    * **Statisk konfiguration**: den här principen kräver att en önskad IoT Hub anges i registrerings posten för att en enhet ska kunna tillhandahållas. Med den här principen kan du ange en enda viss IoT-hubb som du vill tilldela enheter till.
 
-4. Under **Välj de IoT-hubbar som den här gruppen kan tilldelas**väljer du de länkade IoT-hubbar som du vill ska inkludera i fördelningsprincipen. Du kan också lägga till en ny länkad Iot-hubb med knappen **Länka en ny IoT Hub.**
+4. Under **Välj de IoT-hubbar som gruppen kan tilldelas till**väljer du de länkade IoT-hubbar som du vill ska ingå i din resursallokeringsprincip. Du kan också lägga till en ny länkad IoT-hubb med knappen **Länka en ny IoT Hub** .
 
-    Med principen **fördelning av lägsta latens** inkluderas de nav som du väljer i svarstidsutvärderingen för att fastställa närmaste nav för enhetstilldelning.
+    Med den **lägsta** tilldelnings principen för fördröjning kommer de nav du väljer att inkluderas i utvärderingen av fördröjningen för att fastställa den närmaste hubben för enhets tilldelning.
 
-    Med principen **jämnt viktad** distributionsallokering kommer enheter att belastningsbalanseras över de nav du väljer baserat på deras konfigurerade allokeringsvikter och deras aktuella enhetsbelastning.
+    Med en **jämt viktad** resursallokeringsprincip kommer enheterna att läsas in över de nav du väljer baserat på deras konfigurerade fördelnings vikter och deras aktuella enhets belastning.
 
-    Med principen Statisk konfigurationsallokering väljer du den IoT-hubb som du vill att enheter ska tilldelas. **Static configuration**
+    Med principen för **statisk konfiguration** av principen väljer du den IoT-hubb som du vill att enheter ska tilldelas till.
 
-4. Klicka på **Spara**eller gå vidare till nästa avsnitt för att ange ometableringsprincipen.
+4. Klicka på **Spara**, eller Fortsätt till nästa avsnitt för att ange den ometablerings principen.
 
-    ![Välj princip för registreringsallokering](./media/how-to-reprovision/enrollment-allocation-policy.png)
-
-
-
-## <a name="set-the-reprovisioning-policy"></a>Ange ometableringsprincipen
-
-1. Logga in på [Azure-portalen](https://portal.azure.com) och navigera till din enhetsetableringstjänstinstans.
-
-2. Klicka på Hantera registreringar och klicka på den **registreringsgrupp**eller enskilda registrering som du vill konfigurera för ometablering.
-
-3. Under **Välj hur du vill att enhetsdata ska hanteras vid ometablering till en annan IoT-hubb**väljer du en av följande ometableringsprinciper:
-
-    * **Etablera om och migrera data**: Den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skickar en ny etableringsbegäran. Beroende på konfigurationen av registreringsposten kan enheten tilldelas en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhetsregistreringen med den första IoT-hubben bort. All enhetstillståndsinformation från den ursprungliga IoT-hubben migreras till den nya IoT-hubben. Under migreringen rapporteras enhetens status som **Tilldela**
-
-    * **Återetablering och återställning till inledande konfiguration:** Den här principen vidtar åtgärder när enheter som är associerade med registreringsposten skickar en ny etableringsbegäran. Beroende på konfigurationen av registreringsposten kan enheten tilldelas en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhetsregistreringen med den första IoT-hubben bort. De inledande konfigurationsdata som etableringstjänstinstansen togs emot när enheten etablerades tillhandahålls till den nya IoT-hubben. Under migreringen rapporteras enhetens status som **Tilldela**.
-
-4. Klicka på **Spara** om du vill aktivera ometablering av enheten baserat på dina ändringar.
-
-    ![Välj princip för registreringsallokering](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Välj princip för registrerings tilldelning](./media/how-to-reprovision/enrollment-allocation-policy.png)
 
 
 
-## <a name="send-a-provisioning-request-from-the-device"></a>Skicka en etableringsbegäran från enheten
+## <a name="set-the-reprovisioning-policy"></a>Ange etablerings principen
 
-För att enheter ska kunna återetableras baserat på de konfigurationsändringar som gjorts i föregående avsnitt måste dessa enheter begära ometablering. 
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din enhets etablerings tjänst instans.
 
-Hur ofta en enhet skickar en etableringsbegäran beror på scenariot. Det rekommenderas dock att programmera dina enheter att skicka en etableringsbegäran till en etableringstjänstinstans vid omstart och stödja en [metod](../iot-hub/iot-hub-devguide-direct-methods.md) för att manuellt utlösa etablering på begäran. Etablering kan också utlösas genom att ange en [önskad egenskap](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
+2. Klicka på **Hantera registreringar**och klicka på den registrerings grupp eller enskild registrering som du vill konfigurera för att etablera om.
 
-Principen om återetablering för en registreringspost avgör hur enhetsetableringstjänstinstansen hanterar dessa etableringsbegäranden och om enhetstillståndsdata ska migreras under återetablering. Samma principer är tillgängliga för enskilda registreringar och registreringsgrupper:
+3. Under **Välj hur du vill att enhets data ska hanteras vid ny etablering till en annan IoT-hubb**väljer du någon av följande principer för att etablera:
 
-Kod för att skicka etableringsbegäranden från en enhet under en startsekvens finns i [Automatiskt etablera en simulerad enhet](quick-create-simulated-device.md).
+    * **Förnya och migrera data**: den här principen vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny etablerings förfrågan. Beroende på konfigurationen av registrerings posten kan enheten omtilldelas till en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhets registreringen med den inledande IoT Hub bort. All enhets tillstånds information från den inledande IoT-hubben migreras till den nya IoT-hubben. Under migreringen rapporteras enhetens status som **tilldela**
+
+    * **Ometablering och återställning till ursprunglig konfiguration**: den här principen vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny etablerings förfrågan. Beroende på konfigurationen av registrerings posten kan enheten omtilldelas till en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhets registreringen med den inledande IoT Hub bort. De inledande konfigurations data som etablerings tjänst instansen tog emot när enheten etablerades tillhandahålls till den nya IoT-hubben. Under migreringen rapporteras enhetens status som **tilldela**.
+
+4. Klicka på **Spara** för att aktivera ometablering av enheten baserat på dina ändringar.
+
+    ![Välj princip för registrerings tilldelning](./media/how-to-reprovision/reprovisioning-policy.png)
+
+
+
+## <a name="send-a-provisioning-request-from-the-device"></a>Skicka en etablerings förfrågan från enheten
+
+För att enheter ska kunna etableras på grund av konfigurations ändringarna som gjorts i föregående avsnitt, måste dessa enheter begära reetablering. 
+
+Hur ofta en enhet skickar en etablerings förfrågan beror på scenariot. Vi rekommenderar dock att programerar dina enheter för att skicka en etablerings förfrågan till en etablerings tjänst instans vid omstart och stödja en [metod](../iot-hub/iot-hub-devguide-direct-methods.md) för att manuellt utlösa etablering på begäran. Etableringen kan också utlösas genom att ange en [önskad egenskap](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
+
+Den ometablerings principen på en registrerings post avgör hur enhets etablerings tjänst instansen hanterar dessa etablerings begär Anden och om enhets tillstånds data ska migreras under ometableringen. Samma principer är tillgängliga för enskilda registreringar och registrerings grupper:
+
+Till exempel kod för att skicka etablerings begär Anden från en enhet under en startsekvens, se [Automatisk etablering av en simulerad enhet](quick-create-simulated-device.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer ometablering finns i [IoT Hub Device reetableing concepts](concepts-device-reprovision.md) 
-- Mer information om avetablering finns i [Så här avetablering av enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
+- Mer information om hur du reetablerar finns i [IoT Hub metoder för att etablera enheter](concepts-device-reprovision.md) 
+- Mer information om hur du avetablerar [enheter finns i så här avetablerar du enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure IoT Hub-meddelandeberikande
-description: Den här artikeln visar meddelandeberikanden, som ger IoT Hub möjlighet att stämpla meddelanden med ytterligare information innan meddelandena skickas till den angivna slutpunkten.
+title: Översikt över Azure IoT Hub-meddelandets anrikning
+description: I den här artikeln visas meddelande anrikninger som ger IoT Hub möjlighet att stämpla meddelanden med ytterligare information innan meddelandena skickas till den angivna slut punkten.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,95 +9,95 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75429112"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelandeberikande för IoT Hub-meddelanden från enhet till moln
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelande anrikning för IoT Hub från enhet till molnet
 
-*Meddelandeberikningar* är IoT-hubbens förmåga att *stämpla* meddelanden med ytterligare information innan meddelandena skickas till den angivna slutpunkten. En anledning till att använda meddelandeberikande är att inkludera data som kan användas för att förenkla nedströmsbearbetning. Om du till exempel kan berika telekommunikationsmeddelanden för enheter med en enhetstvillingtagg minska belastningen på kunder för att ringa enhetstvilling-API-anrop för den här informationen.
+*Meddelande anrikning* är möjligheten för IoT Hub att *stämpla* meddelanden med ytterligare information innan meddelandena skickas till den angivna slut punkten. En anledning till att använda meddelande berikare är att inkludera data som kan användas för att förenkla bearbetningen i den underordnade bearbetningen. För att till exempel kunna identifiera enhets telemetri med en enhets rik tagg kan kunderna minska belastningen på kunder för att göra enhetens dubbla API-anrop för den här informationen.
 
-![Flöde av meddelandeanrikningar](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
+![Flöde för meddelande anrikning](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
-En meddelandeberikning har tre huvudelement:
+En meddelande anrikning har tre viktiga element:
 
 * Namn eller nyckel för anrikning
 
 * Ett värde
 
-* En eller flera [slutpunkter](iot-hub-devguide-endpoints.md) för vilka berikningen ska tillämpas.
+* En eller flera [slut punkter](iot-hub-devguide-endpoints.md) som berikning ska användas för.
 
-**Nyckeln** är en sträng. En tangent kan bara innehålla alfanumeriska tecken`-`eller följande`_`specialtecken:`.`bindestreck ( ), understreck ( ) och punkt ( ).
+**Nyckeln** är en sträng. En nyckel får bara innehålla alfanumeriska tecken eller följande specialtecken: bindestreck (`-`), under streck (`_`) och punkt (`.`).
 
 **Värdet** kan vara något av följande exempel:
 
-* Alla statiska strängar. Dynamiska värden som villkor, logik, åtgärder och funktioner är inte tillåtna. Om du till exempel utvecklar ett SaaS-program som används av flera kunder kan du tilldela en identifierare till varje kund och göra identifieraren tillgänglig i programmet. När programmet körs stämplar IoT Hub enhetens telemetrimeddelanden med kundens identifierare, vilket gör det möjligt att bearbeta meddelandena på olika sätt för varje kund.
+* En statisk sträng. Dynamiska värden som villkor, logik, åtgärder och funktioner är inte tillåtna. Om du t. ex. utvecklar ett SaaS-program som används av flera kunder, kan du tilldela en identifierare till varje kund och göra den identifieraren tillgänglig i programmet. När programmet körs stämplar IoT Hub enheten telemetri-meddelanden med kundens identifierare, vilket gör det möjligt att bearbeta meddelandena på olika sätt för varje kund.
 
 * Namnet på IoT-hubben som skickar meddelandet. Det här värdet är *$iothubname*.
 
-* Information från enhetstvillingen, till exempel dess sökväg. Exempel på detta är *$twin.tags.field* och *$twin.tags.latitude*.
+* Information från enheten, till exempel dess sökväg. Exempel är *$Twin. taggar. Field* och *$Twin. Tags. latitud*.
 
    > [!NOTE]
-   > För närvarande stöds endast $iothubname, $twin.tags, $twin.properties.desired och $twin.properties.reported variabler för meddelandeanrikning.
+   > För närvarande är det bara $iothubname, $twin. taggar, $twin. Properties. Reporting, och $twin. Properties. rapporterade variabler som stöds för meddelande anrikning.
 
-Meddelandeanrikningar läggs till som programegenskaper i meddelanden som skickas till valda slutpunkter.  
+Meddelande berikare läggs till som program egenskaper till meddelanden som skickas till valda slut punkter.  
 
-## <a name="applying-enrichments"></a>Tillämpa berikningar
+## <a name="applying-enrichments"></a>Använda omfattande funktioner
 
-Meddelandena kan komma från alla datakällor som stöds av [IoT Hub-meddelanderoutning,](iot-hub-devguide-messages-d2c.md)inklusive följande exempel:
+Meddelandena kan komma från alla data källor som stöds av [IoT Hub](iot-hub-devguide-messages-d2c.md)meddelanderoutning, inklusive följande exempel:
 
-* telekommunikationsmetri, till exempel temperatur eller tryck
-* meddelanden om ändring av enheter – ändringar i enhetstvillingen
-* enhetens livscykelhändelser, till exempel när enheten skapas eller tas bort
+* telemetri för enheter, till exempel temperatur eller tryck
+* enhets dubbla ändrings meddelanden – förändringar i enheten, dubbla
+* enhetens livs cykel händelser, till exempel när enheten har skapats eller tagits bort
 
-Du kan lägga till enrichments i meddelanden som går till den inbyggda slutpunkten för en IoT-hubb eller meddelanden som dirigeras till anpassade slutpunkter som Azure Blob-lagring, en servicebusskö eller ett Service Bus-ämne.
+Du kan lägga till anrikninger i meddelanden som kommer till den inbyggda slut punkten för en IoT Hub eller meddelanden som dirigeras till anpassade slut punkter som Azure Blob Storage, en Service Bus kö eller ett Service Bus ämne.
 
-Du kan lägga till enrichments i meddelanden som publiceras i Event Grid genom att välja slutpunkten som händelserutnät. Vi skapar en standardväg i IoT Hub till enhetstelemetri, baserat på din Event Grid-prenumeration. Den här enskilda vägen kan hantera alla dina Event Grid-prenumerationer. Du kan konfigurera enrichments för slutpunkten för händelserutnätet när du har skapat prenumerationen på händelserutnät till enhetstelemetri. Mer information finns i [Iot Hub och Event Grid](iot-hub-event-grid.md).
+Du kan lägga till anrikninger i meddelanden som publiceras till Event Grid genom att välja slut punkten som Event Grid. Vi skapar en standard väg i IoT Hub till telemetri för enheten, baserat på din Event Grid prenumeration. Den här enskilda vägen kan hantera alla Event Grid prenumerationer. Du kan konfigurera anrikninger för Event Grid-slutpunkten när du har skapat Event Grid-prenumerationen för telemetri av enheter. Mer information finns i [IoT Hub och event Grid](iot-hub-event-grid.md).
 
-Enrichments används per slutpunkt. Om du anger fem anrikningar som ska stämplas för en viss slutpunkt stämplas alla meddelanden som går till den slutpunkten med samma fem enrichments.
+Anrikninger tillämpas per slut punkt. Om du anger att fem berikningar ska stämplas för en speciell slut punkt, stämplas alla meddelanden som skickas till den slut punkten med samma fem-berikare.
 
-Enrichments kan konfigureras med hjälp av följande metoder:
+Anrikninger kan konfigureras med hjälp av följande metoder:
 
-| **Metod** | **Kommandot** |
+| **Metod** | **Kommandoprompt** |
 | ----- | -----| 
-| Portalen | [Azure-portal](https://portal.azure.com) | Se [guiden för meddelandeberikning](tutorial-message-enrichments.md) | 
-| Azure CLI   | [az iot hub meddelande-anrikning](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Portalen | [Azure Portal](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
+| Azure CLI   | [AZ IoT Hub-meddelande – anrikning](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
 
-Om du lägger till meddelandeberikaden ökar inte svarstiden i meddelanderoutningen.
+Om du lägger till meddelanden kan du inte lägga till svars tid i meddelanderoutning.
 
-Om du vill prova meddelandeberikanden läser du [självstudien för meddelandeberikande](tutorial-message-enrichments.md)
+Information om hur du provar meddelanden finns i [själv studie kursen om meddelande förhands rik](tutorial-message-enrichments.md) information
 
 ## <a name="limitations"></a>Begränsningar
 
-* Du kan lägga till upp till 10 enrichments per IoT Hub för dessa nav på standard- eller grundnivå. För IoT Hubs på den kostnadsfria nivån kan du lägga till upp till 2 berikande.
+* Du kan lägga till upp till 10-rika steg per IoT Hub för dessa hubbar på standard-eller Basic-nivån. För IoT-hubbar på den kostnads fria nivån kan du lägga till upp till 2-berikningar.
 
-* I vissa fall, om du använder en anrikning med ett värde inställt på en tagg eller egenskap i enhetstvillingen, stämplas värdet som ett strängvärde. Om till exempel ett anrikningsvärde är inställt på $twin.tags.field, stämplas meddelandena med strängen "$twin.tags.field" i stället för värdet för det fältet från tvillingen. Detta händer i följande fall:
+* I vissa fall, om du tillämpar en anrikning med ett värde som är inställt på en tagg eller egenskap i enheten, så stämplas värdet som ett sträng värde. Om till exempel ett anriknings värde är inställt på $twin. Tagss. Field, kommer meddelandena att stämplas med strängen "$twin. Tagss. Field" i stället för värdet i fältet från den dubbla. Detta inträffar i följande fall:
 
-   * Din IoT Hub är på den grundläggande nivån. Grundläggande nivå IoT-hubbar stöder inte enhetstvillingar.
+   * Din IoT Hub finns på Basic-nivån. IoT-hubbar på Basic-nivå har inte stöd för enhets dubbla.
 
-   * Din IoT Hub är på standardnivån, men enheten som skickar meddelandet har ingen enhetstvilling.
+   * Din IoT Hub är i standard-nivån, men enheten som skickar meddelandet har ingen enhets nummer.
 
-   * IoT-hubben ligger på standardnivån, men enhetstvillingsökvägen som används för värdet av anrikningen finns inte. Om anrikningsvärdet till exempel är inställt på $twin.tags.location och enhetstvillingen inte har någon platsegenskap under taggar, stämplas meddelandet med strängen "$twin.tags.location". 
+   * Din IoT Hub är på standard-nivån, men den enhets dubbla sökvägen som används för värdet för anrikningen finns inte. Om till exempel värdet för anrikning är inställt på $twin. taggar. location, och enheten med dubbla inte har egenskapen location under Taggar, så stämplas meddelandet med strängen "$twin. Tags. location". 
 
-* Det kan ta upp till fem minuter att uppdatera uppdateringar av en enhetstvilling som ska återspeglas i motsvarande anrikningsvärde.
+* Det kan ta upp till fem minuter innan uppdateringar av enheten visas i motsvarande anriknings värde.
 
-* Den totala meddelandestorleken, inklusive anrikningsmåtten, får inte överstiga 256 kB. Om en meddelandestorlek överstiger 256 kB släpper IoT Hub meddelandet. Du kan använda [IoT Hub-mått](iot-hub-metrics.md) för att identifiera och felsöka fel när meddelanden tas bort. Du kan till exempel övervaka d2c.telemetry.egress.invalid.
+* Den totala meddelande storleken, inklusive berikarna, får inte överstiga 256 KB. Om en meddelande storlek överskrider 256 KB ignoreras meddelandet av IoT Hub. Du kan använda [IoT Hub mått](iot-hub-metrics.md) för att identifiera och felsöka fel när meddelanden släpps. Du kan till exempel övervaka D2C. telemetri. utgående. ogiltig.
 
-* Meddelandeberikande gäller inte för digitala dubbla ändringshändelser (en del av den offentliga förhandsversionen av [IoT Plug and Play).](../iot-pnp/overview-iot-plug-and-play.md)
+* Meddelande anrikninger gäller inte för digitala dubbla ändrings händelser (en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)).
 
 ## <a name="pricing"></a>Prissättning
 
-Meddelandeberikning är tillgängliga utan extra kostnad. För närvarande debiteras du när du skickar ett meddelande till en IoT Hub. Du debiteras bara en gång för det meddelandet, även om meddelandet går till flera slutpunkter.
+Meddelande anrikninger är tillgängliga utan extra kostnad. För närvarande debiteras du när du skickar ett meddelande till en IoT Hub. Du debiteras bara en gång för det meddelandet, även om meddelandet går till flera slut punkter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här artiklarna finns mer information om routning av meddelanden till en IoT Hub:
+Ta en titt på de här artiklarna om du vill ha mer information om routning av meddelanden till en IoT Hub:
 
-* [Självstudiekurs för meddelandeanrikningar](tutorial-message-enrichments.md)
+* [Själv studie kurs om meddelande anrikning](tutorial-message-enrichments.md)
 
-* [Använda IoT Hub-meddelanderoutning för att skicka meddelanden från enhet till moln till olika slutpunkter](iot-hub-devguide-messages-d2c.md)
+* [Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](iot-hub-devguide-messages-d2c.md)
 
-* [Självstudiekurs: IoT Hub-routning](tutorial-routing.md)
+* [Självstudie: IoT Hub routning](tutorial-routing.md)

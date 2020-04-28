@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360726"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
@@ -323,7 +323,7 @@ Förloppet visas i utdatafönstret. Därefter visas fönstret med Microsoft Azur
 Distributionen tar flera minuter. När den är klar körs dina webb- och/eller arbetsroller i Azure!
 
 ### <a name="investigate-logs"></a>Undersöka loggar
-När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\\{role}\LogFiles.** **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
+När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\\{Role} \LogFiles** . **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer detaljerad information om hur du arbetar med webb- och arbetsroller i Python Tools för Visual Studio finns i dokumentationen till PTVS:
@@ -335,7 +335,7 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 * [Blob-tjänst][Blob Service]
 * [Tabelltjänst][Table Service]
 * [Kötjänst][Queue Service]
-* [Service Bus-köer][Service Bus Queues]
+* [Service Bus köer][Service Bus Queues]
 * [Service Bus-avsnitt][Service Bus Topics]
 
 <!--Link references-->

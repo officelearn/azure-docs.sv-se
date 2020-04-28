@@ -1,25 +1,25 @@
 ---
-title: Självstudiekurs- Uppgradera ett Azure Service Fabric Mesh-program
-description: Den här självstudien är del fyra i en serie och visar hur du uppgraderar ett Azure Service Fabric Mesh-program direkt från Visual Studio.
+title: Självstudie – uppgradera ett Azure Service Fabric nät-program
+description: Den här självstudien är del fyra i en serie och visar hur du uppgraderar ett Azure Service Fabric-nätprogram direkt från Visual Studio.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75351723"
 ---
-# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Självstudiekurs: Lär dig hur du uppgraderar ett Service Fabric-program med Visual Studio
+# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Självstudie: Lär dig hur du uppgraderar ett Service Fabric program med hjälp av Visual Studio
 
-Den här självstudien är del fyra i en serie och visar hur du uppgraderar ett Azure Service Fabric Mesh-program direkt från Visual Studio. Uppgraderingen kommer att innehålla både en koduppdatering och en konfigurationsuppdatering. Du ser att stegen för att uppgradera och publicera inifrån Visual Studio är desamma.
+Den här självstudien är del fyra i en serie och visar hur du uppgraderar ett Azure Service Fabric-nätprogram direkt från Visual Studio. Uppgraderingen kommer att innehålla både en kod uppdatering och en konfigurations uppdatering. Du ser att stegen för att uppgradera och publicera från Visual Studio är desamma.
 
 I den här guiden får du lära du dig hur man:
 > [!div class="checklist"]
-> * Uppgradera en Service Fabric Mesh-tjänst med Visual Studio
+> * Uppgradera en Service Fabric nät tjänst med Visual Studio
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
@@ -37,35 +37,35 @@ Innan du börjar den här självstudien:
 
 * Om du inte har distribuerat att göra-appen följer du anvisningarna i [Publicera ett Service Fabric Mesh-webbprogram](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Uppgradera en Service Fabric Mesh-tjänst med Visual Studio
+## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Uppgradera en Service Fabric nät tjänst med Visual Studio
 
-Den här artikeln visar hur du uppgraderar en mikrotjänst i ett program. I det här exemplet ändrar vi `WebFrontEnd` tjänsten för att visa en uppgiftskategori och öka mängden processor som den får. Sedan uppgraderar vi den distribuerade tjänsten.
+Den här artikeln visar hur du uppgraderar en mikrotjänst i ett program. I det här exemplet ska vi ändra `WebFrontEnd` tjänsten för att visa en aktivitets kategori och öka mängden processor som den har fått. Sedan uppgraderar vi den distribuerade tjänsten.
 
 ## <a name="modify-the-config"></a>Ändra konfigurationen
 
-När du skapar en Service Fabric Mesh-app lägger Visual studio till en **parameters.yaml-fil** för varje distributionsmiljö (moln och lokal). I dessa filer kan du definiera parametrar och deras värden som sedan kan refereras från dina Mesh *.yaml-filer som service.yaml eller network.yaml.  Visual Studio innehåller några variabler för dig, till exempel hur mycket CPU tjänsten kan använda.
+När du skapar en Service Fabric nätapp lägger Visual Studio till en **Parameters. yaml** -fil för varje distributions miljö (moln och lokal). I de här filerna kan du definiera parametrar och deras värden som sedan kan refereras från din nät *. yaml-filer som service. yaml eller Network. yaml.  Visual Studio innehåller några variabler åt dig, till exempel hur mycket CPU som tjänsten kan använda.
 
-Vi uppdaterar parametern `WebFrontEnd_cpu` för att uppdatera `1.5` cpu-resurserna till i väntan på att **WebFrontEnd-tjänsten** kommer att användas mer.
+Vi uppdaterar `WebFrontEnd_cpu` parametern för att uppdatera CPU-resurserna till `1.5` i förväntat att **webfrontend** -tjänsten kommer att användas mer kraftigt.
 
-1. Öppna **filen parameters.yaml** under **Miljöer** > **Cloud**i **todolistapp-projektet.** Ändra `WebFrontEnd_cpu`värdet , `1.5`till . Parameternamnet föregås av tjänstnamnet `WebFrontEnd_` som en bästa praxis för att skilja det från parametrar med samma namn som gäller för olika tjänster.
+1. I **todolistapp** -projektet, under **miljöer** > **Cloud**, öppnar du filen **Parameters. yaml** . Ändra värdet `WebFrontEnd_cpu`, värde till `1.5`. Parameter namnet föregås av tjänst namnet `WebFrontEnd_` som en bästa praxis att skilja den från parametrar med samma namn som gäller för olika tjänster.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Öppna **WebFrontEnd-projektets** **service.yaml-fil** under **WebFrontEnd** > **Service Resources**.
+2. Öppna filen **service. yaml** för **webfrontend** -projekt under **webfrontend** > **service-resurser**.
 
-    Observera att `resources:` avsnittet `cpu:` i avsnittet `"[parameters('WebFrontEnd_cpu')]"`är inställt på . Om projektet byggs för molnet hämtas `'WebFrontEnd_cpu` värdet för från **filen Environments** > **Cloud** > **parameters.yaml** och blir `1.5`. Om projektet byggs för att köras lokalt hämtas värdet från filen **Environments** > **Local** > **parameters.yaml** och är "0,5".
+    Observera att avsnittet i `resources:` `cpu:` är inställt på `"[parameters('WebFrontEnd_cpu')]"`. Om projektet skapas `'WebFrontEnd_cpu` för molnet hämtas värdet för från **miljöns** > **Cloud** > **Parameters. yaml** -fil och kommer att vara. `1.5` Om projektet skapas för att köras lokalt hämtas värdet från **miljöns** > **lokala** > **parametrar. yaml** -fil och blir "0,5".
 
 > [!Tip]
-> Som standard används parameterfilen som är peer i filen profile.yaml för att ange värdena för filen profile.yaml.
-> Miljöer > Cloud > parameters.yaml tillhandahåller till exempel parametervärden för miljöer > Cloud > profile.yaml.
+> Som standard används parameter filen som är en peer i filen Profile. yaml för att ange värden för filen Profile. yaml.
+> Till exempel miljöer > Cloud > Parameters. yaml innehåller parameter värden för miljöer > Cloud > Profile. yaml.
 >
-> Du kan åsidosätta detta genom att lägga till`parametersFilePath=”relative or full path to the parameters file”` följande `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` i filen profile.yaml: Till exempel eller`parametersFilePath=”..\CommonParameters.yaml”`
+> Du kan åsidosätta detta genom att lägga till följande i filen Profile. yaml`parametersFilePath=”relative or full path to the parameters file”` : till exempel `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` eller`parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Ändra modellen
 
-Om du vill införa `Category` en kodändring lägger du till en egenskap i `ToDoItem` klassen i `ToDoItem.cs` filen.
+Om du vill införa en kod ändring lägger `Category` du till en `ToDoItem` egenskap i- `ToDoItem.cs` klassen i filen.
 
 ```csharp
 public class ToDoItem
@@ -75,7 +75,7 @@ public class ToDoItem
 }
 ```
 
-Uppdatera sedan `Load()` metoden i samma fil för att ställa in kategorin på en standardsträng:
+Uppdatera sedan `Load()` metoden i samma fil för att ange kategorin till en standard sträng:
 
 ```csharp
 public static ToDoItem Load(string description, int index, bool completed)
@@ -93,7 +93,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## <a name="modify-the-service"></a>Ändra tjänsten
 
-Projektet `WebFrontEnd` är ett ASP.NET Core-program med en webbsida som visar att göra-listobjekt. Öppna `WebFrontEnd` `Index.cshtml` och lägg till följande två rader nedan i projektet för att visa aktivitetens kategori:
+`WebFrontEnd` Projektet är ett ASP.net Core program med en webb sida som visar objekt i att göra-listan. I `WebFrontEnd` projektet öppnar `Index.cshtml` du och lägger till följande två rader, som anges nedan, för att Visa uppgiftens kategori:
 
 ```HTML
 <div>
@@ -119,43 +119,43 @@ Projektet `WebFrontEnd` är ett ASP.NET Core-program med en webbsida som visar a
 </div>
 ```
 
-Skapa och kör appen för att kontrollera att du ser en ny kategorikolumn på webbsidan som visar uppgifterna.
+Skapa och kör appen för att kontrol lera att du ser en ny kategori kolumn på webb sidan som visar aktiviteterna.
 
 ## <a name="upgrade-the-app-from-visual-studio"></a>Uppgradera appen från Visual Studio
 
-Oavsett om du gör en koduppgradering eller en konfigurationsuppgradering (i det här fallet gör vi båda), uppgraderar du din Service Fabric Mesh-app på Azure genom att högerklicka på **todolistapp** i Visual Studio och välj sedan **Publicera...**
+Oavsett om du gör en kod uppgradering eller en konfigurations uppgradering (i det här fallet gör vi båda), uppgraderar du Service Fabric nätappen i Azure genom att högerklicka på **todolistapp** i Visual Studio och sedan välja **publicera...**
 
 Därefter visas dialogrutan **Publish Service Fabric Application** (Publicera Service Fabric-program).
 
-Använd listrutan **Målprofil** för att välja den profile.yaml-fil som ska användas för den här distributionen. Vi uppgraderar appen i molnet så att vi väljer **cloud.yaml** i `WebFrontEnd_cpu` listrutan, som kommer att använda värdet 1,0 som definieras i filen.
+Använd List rutan **mål profil** för att välja filen Profile. yaml som ska användas för den här distributionen. Vi uppgraderar appen i molnet så att vi väljer **Cloud. yaml** i list rutan, som använder `WebFrontEnd_cpu` värdet för 1,0 som definierats i filen.
 
 ![Visual Studio, dialogruta för Service Fabric Mesh-projekt](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Välj Azure-konto och Azure-prenumeration. Ange **platsen** till den plats som du använde när du ursprungligen publicerade att göra-appen till Azure. Denna artikel används **Östra USA**.
+Välj Azure-konto och Azure-prenumeration. Ange **platsen** för den plats som du använde när du ursprungligen publicerade att göra-appen till Azure. Den här artikeln användes **USA, östra**.
 
-Ange **resursgrupp** till resursgruppen som du använde när du ursprungligen publicerade att göra-appen till Azure.
+Ange **resurs gruppen** till den resurs grupp som du använde när du ursprungligen publicerade att göra-appen till Azure.
 
-Ange **Azure Container Registry** till det azure-behållarregisternamn som du skapade när du ursprungligen publicerade att göra-appen till Azure.
+Ange **Azure Container Registry** till det Azure Container Registry-namn som du skapade när du ursprungligen publicerade att göra-appen till Azure.
 
-I dialogrutan Publicera trycker du på knappen **Publicera** för att uppgradera att göra-appen på Azure.
+I dialog rutan publicera trycker du på knappen **publicera** för att uppgradera att göra-appen på Azure.
 
-Övervaka förloppet för uppgraderingen genom att välja fönstret Verktyg för **serviceinfrastruktur** i fönstret **Utdata** i Visual Studio. 
+Övervaka förloppet för uppgraderingen genom att välja fönstret **Service Fabric verktyg** i fönstret **utdata** i Visual Studio. 
 
-När avbildningen har skapats och vidare till Azure Container Registry visas en **För-statuslänk** i utdata som du kan klicka på för att övervaka distributionen i Azure-portalen.
+När avbildningen har skapats och skickas till Azure Container Registry visas **statusen för status** länken i de utdata som du kan klicka på för att övervaka distributionen i Azure Portal.
 
-När uppgraderingen är klar visar **Service Fabric Tools-utdata** IP-adressen och porten för ditt program i form av en URL.
+När uppgraderingen är färdig visar Service Fabric- **verktygets** utdata IP-adressen och porten för ditt program i form av en URL.
 
 ```json
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
-Öppna en webbläsare och navigera till webbadressen för att se webbplatsen köras i Azure. Du bör nu se en webbsida som innehåller en kategorikolumn.
+Öppna en webbläsare och navigera till webbadressen för att se webbplatsen köras i Azure. Nu bör du se en webb sida som innehåller en kategori kolumn.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiedelen lärde du dig:
 > [!div class="checklist"]
-> * Så här uppgraderar du en Service Fabric Mesh-app med Visual Studio
+> * Så här uppgraderar du en Service Fabric nätappen med hjälp av Visual Studio
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]

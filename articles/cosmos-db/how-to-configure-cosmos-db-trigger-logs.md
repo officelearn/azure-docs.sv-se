@@ -1,31 +1,31 @@
 ---
 title: Konfigurera och läsa loggar med Azure Functions-utlösare för Cosmos DB
-description: Lär dig hur du exponerar loggarna för Azure Functions loggningspipeline när du använder Azure Functions-utlösaren för Cosmos DB
+description: Lär dig hur du exponerar loggarna i pipeline för Azure Functions loggning när du använder Azure Functions utlösare för Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441833"
 ---
-# <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Konfigurera och läsa loggarna när du använder Azure Functions-utlösaren för Cosmos DB
+# <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Konfigurera och läsa loggar när du använder Azure Functions-utlösare för Cosmos DB
 
-I den här artikeln beskrivs hur du kan konfigurera din Azure Functions-miljö för att skicka Azure Functions-utlösaren för Cosmos DB-loggar till din konfigurerade [övervakningslösning](../azure-functions/functions-monitoring.md).
+Den här artikeln beskriver hur du kan konfigurera din Azure Functions-miljö för att skicka Azure Functions-utlösaren för Cosmos DB loggar till den konfigurerade [övervaknings lösningen](../azure-functions/functions-monitoring.md).
 
 ## <a name="included-logs"></a>Inkluderade loggar
 
-Azure Functions-utlösaren för Cosmos DB använder [ändringsflödesprocessorbiblioteket](./change-feed-processor.md) internt och biblioteket genererar en uppsättning hälsologgar som kan användas för att övervaka interna åtgärder för [felsökning .](./troubleshoot-changefeed-functions.md)
+Azure Functions-utlösaren för Cosmos DB använder [processor biblioteket för ändrings flöden](./change-feed-processor.md) internt och biblioteket genererar en uppsättning hälso loggar som kan användas för att övervaka interna åtgärder i [fel söknings syfte](./troubleshoot-changefeed-functions.md).
 
-Hälsologgarna beskriver hur Azure Functions-utlösaren för Cosmos DB beter sig vid försöksåtgärder under belastningsutjämningsscenarier eller initiering.
+Hälso loggarna beskriver hur Azure Functions utlösare för Cosmos DB fungerar vid försök att utföra åtgärder vid belastnings Utjämnings scenarier eller initiering.
 
 ## <a name="enabling-logging"></a>Aktivera loggning
 
-Om du vill aktivera loggning när du använder `host.json` Azure Functions-utlösaren för Cosmos DB letar du reda på filen i azure functions-projektet eller Azure Functions App och [konfigurerar nivån för nödvändig loggning](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Du måste aktivera spårningarna `Host.Triggers.CosmosDB` för som visas i följande exempel:
+Om du vill aktivera loggning när du använder Azure Functions utlösare `host.json` för Cosmos DB, letar du upp filen i Azure Functions-projektet eller Azure Functions app och [konfigurerar önskad loggnings nivå](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Du måste aktivera spårningarna `Host.Triggers.CosmosDB` som visas i följande exempel:
 
 ```js
 {
@@ -39,11 +39,11 @@ Om du vill aktivera loggning när du använder `host.json` Azure Functions-utlö
 }
 ```
 
-När Azure-funktionen har distribuerats med den uppdaterade konfigurationen ser du Azure Functions-utlösaren för Cosmos DB-loggar som en del av dina spårningar. Du kan visa loggarna i din konfigurerade loggningsprovider under *kategorin* `Host.Triggers.CosmosDB`.
+När Azure-funktionen har distribuerats med den uppdaterade konfigurationen visas Azure Functions utlösare för Cosmos DB loggar som en del av dina spår. Du kan visa loggarna i den konfigurerade Logging-providern under *kategorin* `Host.Triggers.CosmosDB`.
 
-## <a name="query-the-logs"></a>Fråga loggarna
+## <a name="query-the-logs"></a>Skicka frågor till loggarna
 
-Kör följande fråga för att fråga loggarna som genereras av Azure Functions-utlösaren för Cosmos DB i [Azure Application Insights Analytics:](../azure-monitor/app/analytics.md)
+Kör följande fråga för att skicka frågor till loggarna som genereras av Azure Functions utlösare för Cosmos DB i [Azure Application insikter-analys](../azure-monitor/app/analytics.md):
 
 ```sql
 traces
@@ -52,5 +52,5 @@ traces
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Aktivera övervakning](../azure-functions/functions-monitoring.md) i dina Azure Functions-program.
-* Lär dig hur du [diagnostiserar och felsöker vanliga problem](./troubleshoot-changefeed-functions.md) när du använder Azure Functions-utlösaren för Cosmos DB.
+* [Aktivera övervakning](../azure-functions/functions-monitoring.md) i Azure Functions-program.
+* Lär dig hur du [diagnostiserar och felsöker vanliga problem](./troubleshoot-changefeed-functions.md) när du använder Azure Functions-utlösare för Cosmos dB.

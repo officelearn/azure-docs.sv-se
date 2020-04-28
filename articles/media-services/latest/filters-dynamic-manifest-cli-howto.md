@@ -1,5 +1,5 @@
 ---
-title: Använd CLI för att skapa filter med Azure Media Services| Microsoft-dokument
+title: Använd CLI för att skapa filter med Azure Media Services | Microsoft Docs
 description: Den här artikeln visar hur du använder CLI för att skapa filter med Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -15,35 +15,35 @@ ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74896061"
 ---
 # <a name="creating-filters-with-cli"></a>Skapa filter med CLI 
 
-När du levererar ditt innehåll till kunder (strömma livehändelser eller Video on Demand) kan klienten behöva mer flexibilitet än vad som beskrivs i standardtillgångens manifestfil. Med Azure Media Services kan du definiera kontofilter och tillgångsfilter för ditt innehåll. 
+När du levererar ditt innehåll till kunder (strömma live-händelser eller video på begäran) kan din klient behöva större flexibilitet än vad som beskrivs i standard till gångens manifest fil. Med Azure Media Services kan du definiera konto filter och till gångs filter för ditt innehåll. 
 
-Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [Dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
+Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
 
-Det här avsnittet visar hur du konfigurerar ett filter för en video på begäran tillgång och använda CLI för Media Services v3 för att skapa [kontofilter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) och [tillgångsfilter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+Det här avsnittet visar hur du konfigurerar ett filter för en video på begäran-till gång och använder CLI för Media Services v3 för att skapa [konto filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) och [filter för till gångar](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 > [!NOTE]
 > Se till att granska [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Krav 
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppsnamnet och mediatjänstkontonamnet. 
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-filter"></a>Definiera ett filter 
 
-I följande exempel definieras de spårvalsvillkor som läggs till i det slutliga manifestet. Det här filtret innehåller alla ljudspår som är EC-3 och alla videospår som har bithastighet i intervallet 0-1000000.
+I följande exempel definieras villkoren för spåra val som läggs till i det slutliga manifestet. Det här filtret innehåller alla ljud spår som är EC-3 och alla video spår som har bit hastighet i intervallet 0-1000000.
 
 > [!TIP]
-> Om du planerar att definiera **filter** i REST måste du se att du måste inkludera JSON-objektet "Egenskaper".  
+> Observera att du måste ta med JSON-objektet "egenskaper" om du planerar att definiera **filter** i vila.  
 
 ```json
 [
@@ -78,11 +78,11 @@ I följande exempel definieras de spårvalsvillkor som läggs till i det slutlig
 ]
 ```
 
-## <a name="create-account-filters"></a>Skapa kontofilter
+## <a name="create-account-filters"></a>Skapa konto filter
 
-Följande az [ams-kontofilter-kommando](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) skapar ett kontofilter med filterspårval som [definierades tidigare](#define-a-filter). 
+Följande [AZ AMS Account-filter-](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) kommando skapar ett konto filter med val av filter spårning som [definierades tidigare](#define-a-filter). 
 
-Med kommandot kan du `--tracks` skicka en valfri parameter som innehåller JSON som representerar spårvalen.  Använd @{file} för att läsa in JSON från en fil. Om du använder Azure CLI lokalt anger du hela filsökvägen:
+Med kommandot kan du skicka en valfri `--tracks` parameter som innehåller JSON som representerar spår valen.  Använd @ {File} för att läsa in JSON från en fil. Om du använder Azure CLI lokalt anger du hela fil Sök vägen:
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
@@ -90,9 +90,9 @@ az ams account-filter create -a amsAccount -g resourceGroup -n filterName --trac
 
 Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
-## <a name="create-asset-filters"></a>Skapa tillgångsfilter
+## <a name="create-asset-filters"></a>Skapa till gångs filter
 
-Följande kommando [för az ams-tillgångsfilter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) skapar ett tillgångsfilter med filterspårsval som [definierades tidigare](#define-a-filter). 
+Följande [AZ AMS Asset Asset filter-](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) kommando skapar ett till gångs filter med val av filter spårning som [definierades tidigare](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
@@ -100,11 +100,11 @@ az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-
 
 Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
-## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streamingpositionerare
+## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
-Du kan ange en lista över tillgångs- eller kontofilter som gäller för din streamingpositionerare. Den [dynamiska paketeraren (Streaming Endpoint)](dynamic-packaging-overview.md) tillämpar den här listan med filter tillsammans med de som klienten anger i URL:en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i URL + filter som du anger på strömningspositioneraren. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill visa filternamnen i URL:en.
+Du kan ange en lista över till gångs-eller konto filter, som gäller för din strömmande positionerare. Den [dynamiska Paketeraren (slut punkt för direkt uppspelning)](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i de URL: er som du anger på en strömmande positionerare. Vi rekommenderar att du använder den här funktionen om du vill tillämpa filter men inte vill visa filter namnen i URL: en.
 
-Följande CLI-kod visar hur du skapar `filters`en streaming locator och anger . Det här är en valfri egenskap som tar en utrymmesavgränsad lista över tillgångsfilternamn och/eller kontofilternamn.
+Följande CLI-kod visar hur du skapar en strömmande lokaliserare `filters`och anger. Det här är en valfri egenskap som tar en blankstegsavgränsad lista över till gångs filter namn och/eller konto filter namn.
 
 ```azurecli
 az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
@@ -114,11 +114,11 @@ az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocat
                                 
 ```
 
-## <a name="stream-using-filters"></a>Strömma med hjälp av filter
+## <a name="stream-using-filters"></a>Data ström med filter
 
-När du har definierat filter kan klienterna använda dem i webbadressen för direktuppspelning. Filter kan användas för adaptiv bitrate streaming protokoll: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming.
+När du har definierat filter kan klienterna använda dem i strömnings-URL: en. Filter kan tillämpas på strömnings protokoll med anpassningsbar bit hastighet: Apple HTTP Live Streaming (HLS), MPEG-streck och Smooth Streaming.
 
-I följande tabell visas några exempel på webbadresser med filter:
+I följande tabell visas några exempel på URL: er med filter:
 
 |Protokoll|Exempel|
 |---|---|

@@ -1,6 +1,6 @@
 ---
-title: Använda REST API FÖR Azure Import/Export-tjänsten | Microsoft-dokument
-description: Lär dig var du hittar resurser för att använda REST-API:et för Azure Import/Export-tjänsten, inklusive både instruktions- och referensmaterial.
+title: Använda Azure import/export-tjänsten REST API | Microsoft Docs
+description: Lär dig var du hittar resurser för att använda Azures import-/export tjänst REST API, inklusive både instruktions material och referens material.
 author: twooley
 services: storage
 ms.service: storage
@@ -9,21 +9,21 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74978874"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Använda REST-API för Azure Import/Export-tjänsten
 
-Microsoft Azure Import/Export-tjänsten exponerar ett REST API för att möjliggöra programmatisk kontroll av import-/exportjobb. Du kan använda REST API för att utföra alla import-/exportåtgärder som du kan utföra med [Azure-portalen](https://portal.azure.com/). Dessutom kan du använda REST API för att utföra vissa detaljerade åtgärder, till exempel fråga procent slutförande av ett jobb, som för närvarande inte är tillgänglig i Azure-portalen.
+Microsoft Azure Import/Exports tjänsten exponerar en REST API för att aktivera programmerings styrning av import/export-jobb. Du kan använda REST API för att utföra alla import-/export åtgärder som du kan utföra med [Azure Portal](https://portal.azure.com/). Du kan också använda REST API för att utföra vissa detaljerade åtgärder, t. ex. för att skicka frågor till procent färdigt jobb för ett jobb som för närvarande inte är tillgängligt i Azure Portal.
 
-Se [Använda tjänsten Importera/exportera Microsoft Azure för överföring](../storage-import-export-service.md) av data till Blob Storage för en översikt över tjänsten Import/Export och en självstudiekurs som visar hur du använder portalen för att skapa och hantera import- och exportjobb.
+Mer information om hur du använder portalen för att skapa och hantera import-och export jobb finns i [använda Microsoft Azure import/export tjänsten för att överföra data till Blob Storage](../storage-import-export-service.md) .
 
 ## <a name="service-endpoints"></a>Tjänstslutpunkter
 
-Azure Import/Export-tjänsten är en resursprovider för Azure Resource Manager och tillhandahåller en uppsättning REST-API:er vid följande HTTPS-slutpunkt för hantering av import-/exportjobb:
+Tjänsten Azure import/export är en resurs leverantör för Azure Resource Manager och innehåller en uppsättning REST API: er i följande HTTPS-slutpunkt för att hantera import/export-jobb:
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
@@ -31,9 +31,9 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ## <a name="versioning"></a>Versionshantering
 
-Begäranden till tjänsten Import/Export `api-version` måste ange parametern och ange dess värde till `2016-11-01`.
+Begär anden till import/export-tjänsten måste ange `api-version` parametern och ange dess värde till `2016-11-01`.
 
-## <a name="importexport-service-operations"></a>Åtgärder för import/exporttjänst
+## <a name="importexport-service-operations"></a>Åtgärder för att importera/exportera tjänster
 
 [Skapa ett importjobb](../storage-import-export-creating-an-import-job.md)
 
@@ -45,10 +45,10 @@ Begäranden till tjänsten Import/Export `api-version` måste ange parametern oc
 
 [Avbryta och ta bort jobb](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Säkerhetskopiera enhetsmanifest](../storage-import-export-backing-up-drive-manifests.md)
+[Säkerhetskopiera enhets manifest](../storage-import-export-backing-up-drive-manifests.md)
 
 [Diagnostik och felåterställning av Import/Export-jobb](../storage-import-export-diagnostics-and-error-recovery.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [LAGRING Import/Export REST](/rest/api/storageimportexport)
+* [Lagrings import/-export REST](/rest/api/storageimportexport)

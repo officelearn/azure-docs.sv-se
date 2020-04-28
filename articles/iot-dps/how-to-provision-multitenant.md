@@ -1,6 +1,6 @@
 ---
-title: Etablera enheter för flerhämtning i Azure IoT Hub Device Provisioning Service
-description: Så här etablerar du enheter för multitenancy med DPS-instansen (Device Provisioning Service)
+title: Så här etablerar du enheter för flera organisationer i Azure IoT Hub Device Provisioning Service
+description: Så här etablerar du enheter för flera innehavare med din tjänst för enhets etablering (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75434739"
 ---
-# <a name="how-to-provision-for-multitenancy"></a>Hur man avsättning för multitenancy 
+# <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera innehavare 
 
-De allokeringsprinciper som definieras av etableringstjänsten stöder en mängd olika allokeringsscenarier. Två vanliga scenarier är:
+De allokeringsregler som definieras av etablerings tjänsten har stöd för olika fördelnings scenarier. Två vanliga scenarier:
 
-* **Geolatency:** När en enhet flyttas mellan platser förbättras nätverksfördröjningen genom att enheten etableras till IoT-hubben närmast varje plats. I det här fallet väljs en grupp IoT-hubbar, som sträcker sig över regioner, för registreringar. **Allokeringsprincipen lägsta svarstid** har valts för dessa registreringar. Den här principen gör att enhetsetableringstjänsten utvärderar enhetsfördröjning och bestämmer garderobs-IoT-hubben från gruppen av IoT-hubbar. 
+* **Geolokalisering/lång latens**: när en enhet flyttas mellan platser förbättras nätverks fördröjningen genom att enheten tillhandahålls till IoT-hubben närmast varje plats. I det här scenariot väljs en grupp IoT-hubbar, som sträcker sig över flera regioner, för registreringar. Den **lägsta latens** tilldelnings principen väljs för dessa registreringar. Den här principen gör att enhets etablerings tjänsten utvärderar enhets fördröjning och fastställer garderob IoT Hub från gruppen med IoT-hubbar. 
 
-* **Flerargsinnehavare**: Enheter som används i en IoT-lösning kan behöva tilldelas en specifik IoT-hubb eller grupp av IoT-hubbar. Lösningen kan kräva att alla enheter för en viss klient kommunicerar med en viss grupp IoT-hubbar. I vissa fall kan en klient äga IoT-hubbar och kräva att enheter tilldelas till sina IoT-hubbar.
+* **Flera innehavare**: enheter som används i en IoT-lösning kan behöva tilldelas till en speciell IoT-hubb eller en grupp med IoT-hubbar. Lösningen kan kräva att alla enheter för en viss klient kan kommunicera med en viss grupp IoT-hubbar. I vissa fall kan en klient äga IoT-hubbar och kräva att enheter tilldelas sina IoT-hubbar.
 
-Det är vanligt att kombinera dessa två scenarier. En IoT-lösning med flera innehavare tilldelas till exempel ofta klientenheter med hjälp av en grupp IoT-hubbar som är utspridda över regioner. Dessa klientenheter kan tilldelas IoT-hubben i den gruppen, som har den lägsta svarstiden baserat på geografisk plats.
+Det är vanligt att kombinera dessa två scenarier. En IoT-lösning med flera innehavare tilldelar till exempel vanligt vis klient enheter med en grupp IoT-hubbar som är spridda över flera regioner. Dessa klient enheter kan tilldelas IoT Hub i gruppen, som har den lägsta svars tiden baserat på geografisk plats.
 
-Den här artikeln använder ett simulerat enhetsexempel från [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) för att visa hur du etablerar enheter i ett scenario med flera lutningar i olika regioner. Du kommer att utföra följande steg i den här artikeln:
+I den här artikeln används ett simulerat enhets exempel från [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) som visar hur du etablerar enheter i ett scenario med flera innehavare över flera regioner. Du kommer att utföra följande steg i den här artikeln:
 
-* Använd Azure CLI för att skapa två regionala IoT-hubbar **(västra USA** och **östra USA)**
-* Skapa en registrering med flera onsdagar
-* Använd Azure CLI för att skapa två regionala virtuella Linux-datorer för att fungera som enheter i samma regioner **(västra USA** och **östra USA)**
-* Konfigurera utvecklingsmiljön för Azure IoT C SDK på båda virtuella Linux-datorer
-* Simulera enheterna för att se att de är etablerade för samma klient i närmaste region.
+* Använd Azure CLI för att skapa två regionala IoT-hubbar (**västra USA** och **östra USA**)
+* Skapa en registrering för flera innehavare
+* Använd Azure CLI för att skapa två regionala virtuella Linux-datorer som fungerar som enheter i samma regioner (**USA, västra** och USA, **östra**)
+* Konfigurera utvecklings miljön för Azure IoT C SDK på virtuella Linux-datorer
+* Simulera enheterna för att se att de är etablerade för samma klient organisation i den närmaste regionen.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Den här artikeln använder ett simulerat enhetsexempel från [Azure IoT C SDK](
 
 ## <a name="prerequisites"></a>Krav
 
-* Slutförande av tjänsten [Konfigurera IoT Hub Device Provisioning med snabbstarten för Azure-portalen.](./quick-setup-auto-provision.md)
+* [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -46,94 +46,94 @@ Den här artikeln använder ett simulerat enhetsexempel från [Azure IoT C SDK](
 
 ## <a name="create-two-regional-iot-hubs"></a>Skapa två regionala IoT-hubbar
 
-I det här avsnittet använder du Azure Cloud Shell för att skapa två nya regionala IoT-hubbar i regionerna **västra USA** och **östra USA** för en klient.
+I det här avsnittet ska du använda Azure Cloud Shell för att skapa två nya regionala IoT-hubbar i regionerna **USA, västra** och **USA, östra** för en klient.
 
 
-1. Använd Azure Cloud Shell för att skapa en resursgrupp med kommandot [az group create.](/cli/azure/group#az-group-create) En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
+1. Använd Azure Cloud Shell för att skapa en resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) . En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
-    I följande exempel skapas en resursgrupp med namnet *contoso-us-resource-group* i *regionen eastus.* Vi rekommenderar att du använder den här gruppen för alla resurser som skapas i den här artikeln. Detta kommer att göra städa upp lättare när du är klar.
+    I följande exempel skapas en resurs grupp med namnet *contoso-US-Resource-Group* i regionen *östra* . Vi rekommenderar att du använder den här gruppen för alla resurser som skapats i den här artikeln. Det blir enklare att rensa när du är klar.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Använd Azure Cloud Shell för att skapa en IoT-hubb i **regionen Eastus** med kommandot [az iot hub create.](/cli/azure/iot/hub#az-iot-hub-create) IoT-hubben läggs till i *contoso-us-resource-group*.
+2. Använd Azure Cloud Shell för att skapa en IoT-hubb i **östra** regionen med kommandot [AZ IoT Hub Create](/cli/azure/iot/hub#az-iot-hub-create) . IoT Hub kommer att läggas till i *contoso-US-Resource-Group*.
 
-    I följande exempel skapas en IoT-hubb med namnet *contoso-east-hub* på *eastus-platsen.* Du måste använda ditt eget unika navnamn i stället för **contoso-east-hub**.
+    I följande exempel skapas en IoT-hubb med namnet *contoso-öst-Hub* på platsen *öster* . Du måste använda ditt eget unika nav i stället för **contoso-öst-Hub**.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-east-hub --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
     
-    Det kan ta några minuter att slutföra det här kommandot.
+    Det kan ta några minuter att slutföra kommandot.
 
-3. Använd Azure Cloud Shell för att skapa en IoT-hubb i **westus-regionen** med kommandot [az iot hub create.](/cli/azure/iot/hub#az-iot-hub-create) Det här IoT-navet läggs också till i *contoso-us-resource-group*.
+3. Använd Azure Cloud Shell för att skapa en IoT-hubb i regionen **väst** med kommandot [AZ IoT Hub Create](/cli/azure/iot/hub#az-iot-hub-create) . Den här IoT-hubben läggs också till i *contoso-US-Resource-Group*.
 
-    I följande exempel skapas en IoT-hubb med namnet *contoso-west-hub* på *westus-platsen.* Du måste använda ditt eget unika navnamn i stället för **contoso-west-hub**.
+    I följande exempel skapas en IoT-hubb med namnet *contoso-väst-Hub* på platsen för *västkusten* . Du måste använda ditt eget unika nav i stället för **contoso-väst-Hub**.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-west-hub --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
-    Det kan ta några minuter att slutföra det här kommandot.
+    Det kan ta några minuter att slutföra kommandot.
 
 
 
-## <a name="create-the-multitenant-enrollment"></a>Skapa registrering med flera onsdagar
+## <a name="create-the-multitenant-enrollment"></a>Skapa registrering för flera innehavare
 
-I det här avsnittet skapar du en ny registreringsgrupp för klientenheterna.  
+I det här avsnittet ska du skapa en ny registrerings grupp för klient enheterna.  
 
-För enkelhetens skull använder den här artikeln [symmetrisk nyckeltysstik](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning, överväg att använda [X.509 certifikat attestation](concepts-security.md#x509-certificates) med en kedja av förtroende.
+För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-security.md#x509-certificates) med en förtroende kedja.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)och öppna instansen för enhetsetableringstjänst.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din enhets etablerings tjänst instans.
 
-2. Välj fliken **Hantera registreringar** och klicka sedan på knappen **Lägg till registreringsgrupp** högst upp på sidan. 
+2. Välj fliken **Hantera registreringar** och klicka sedan på knappen **Lägg till registrerings grupp** överst på sidan. 
 
-3. I **Gruppen Lägg till registrering**anger du följande information och klickar på knappen **Spara.**
+3. I **Lägg till registrerings grupp**anger du följande information och klickar på knappen **Spara** .
 
-    **Gruppnamn**: Ange **contoso-us-devices**.
+    **Grupp namn**: ange **contoso-US-Devices**.
 
-    **Attestation typ:** Välj **symmetrisk nyckel**.
+    **Attesterings typ**: Välj **symmetrisk nyckel**.
 
-    **Generera nycklar automatiskt**: Den här kryssrutan bör redan vara markerad.
+    **Generera nycklar automatiskt**: den här kryss rutan ska redan vara markerad.
 
-    **Välj hur du vill tilldela enheter till hubbar:** Välj **Lägsta svarstid**.
+    **Välj hur du vill tilldela enheter till hubbar**: Välj **lägsta latens**.
 
-    ![Lägg till registreringsgrupp med flera metriska värden för symmetrisk nyckelattestation](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
-
-
-4. I **Lägg till registreringsgrupp**klickar du på **Länka en ny IoT-hubb** för att länka båda dina regionala hubbar.
-
-    **Prenumeration:** Om du har flera prenumerationer väljer du den prenumeration där du skapade de regionala IoT-hubbar.
-
-    **IoT-hubb**: Välj ett av de regionala nav som du har skapat.
-
-    **Åtkomstprincip:** Välj **iothubowner**.
-
-    ![Länka de regionala IoT-hubbar med etableringstjänsten](./media/how-to-provision-multitenant/link-regional-hubs.png)
+    ![Lägg till registrerings grupp för flera innehavare för symmetrisk nyckel attestering](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
-5. När båda regionala IoT-hubbar har länkats måste du välja dem för registreringsgruppen och klicka på **Spara** för att skapa den regionala IoT-hubben för registreringen.
+4. I **Lägg till registrerings grupp**klickar du på **Länka en ny IoT-hubb** för att länka båda dina regionala hubbar.
 
-    ![Skapa den regionala hubbgruppen för registreringen](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
+    **Prenumeration**: om du har flera prenumerationer väljer du den prenumeration där du skapade de regionala IoT-hubbarna.
+
+    **IoT Hub**: Välj ett av de regionala hubbar som du skapade.
+
+    **Åtkomst princip**: Välj **iothubowner**.
+
+    ![Länka de regionala IoT-hubbarna med etablerings tjänsten](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
 
-6. När du har sparat registreringen öppnar du den igen och noterar **primärnyckeln**. Du måste spara registreringen först för att nycklarna ska kunna genereras. Den här nyckeln används för att generera unika enhetsnycklar för båda simulerade enheter senare.
+5. När båda regionala IoT-hubbar har länkats måste du välja dem för registrerings gruppen och klicka på **Spara** för att skapa den regionala IoT Hub-gruppen för registreringen.
+
+    ![Skapa den regionala Hub-gruppen för registreringen](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
+
+
+6. När du har sparat registreringen kan du öppna den igen och anteckna den **primära nyckeln**. Du måste spara registreringen innan du genererar nycklarna. Den här nyckeln kommer att användas för att generera unika enhets nycklar för båda simulerade enheter senare.
 
 
 ## <a name="create-regional-linux-vms"></a>Skapa regionala virtuella Linux-datorer
 
-I det här avsnittet skapar du två regionala virtuella Linux-datorer (VIRTUELLA datorer). Dessa virtuella datorer kör ett enhetssimuleringsexempel från varje region för att demonstrera enhetsetablering för klientenheter från båda regionerna.
+I det här avsnittet ska du skapa två regionala virtuella Linux-datorer (VM). De här virtuella datorerna kör ett exempel på enhets simulering från varje region för att demonstrera enhets etablering för klient enheter från båda regionerna.
 
-För att underlätta rensningen läggs dessa virtuella datorer till i samma resursgrupp som innehåller de IoT-hubbar som har skapats, *contoso-us-resource-group*. De virtuella datorerna kommer dock att köras i separata regioner (**västra USA** och **östra USA).**
+För att göra rensningen enklare kommer de virtuella datorerna att läggas till i samma resurs grupp som innehåller de IoT-hubbar som har skapats, *contoso-US-resurs-grupp*. De virtuella datorerna kommer dock att köras i separata regioner (**västra USA** och **östra USA**).
 
-1. I Azure Cloud Shell kör du följande kommando för att skapa en virtuell dator med **östra USA-region** efter att ha gjort följande parameterändringar i kommandot:
+1. I Azure Cloud Shell kör du följande kommando för att skapa en virtuell **amerikansk** region i USA efter att du har gjort följande parameter ändringar i kommandot:
 
-    **--name**: Ange ett unikt namn för den virtuella datorn för den regionala enheten **i östra USA.** 
+    **--Name**: Ange ett unikt namn för den virtuella **USA** -datorn med regional enhet. 
 
-    **--admin-användarnamn**: Använd ditt eget administratörsanvändarnamn.
+    **--admin-username**: Använd ditt eget administratörs användar namn.
 
-    **--admin-password**: Använd ditt eget administratörslösenord.
+    **--admin-Password**: Använd ditt eget administratörs lösen ord.
 
     ```azurecli-interactive
     az vm create \
@@ -146,15 +146,15 @@ För att underlätta rensningen läggs dessa virtuella datorer till i samma resu
     --authentication-type password
     ```
 
-    Kommandot tar fem minuter att slutföra. När kommandot har slutförts, anteckna **värdet för publicIpAddress** för din virtuella dator med östra USA-region.
+    Kommandot tar fem minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region i USA.
 
-1. I Azure Cloud Shell kör du kommandot för att skapa en virtuell dator med flera regioner i **västra USA** efter att ha gjort följande parameterändringar i kommandot:
+1. I Azure Cloud Shell kör du kommandot för att skapa en region för **västra USA** -regionen när du har gjort följande parameter ändringar i kommandot:
 
-    **--name**: Ange ett unikt namn för den virtuella datorn för den virtuella datorn för den virtuella datorn **i västra USA.** 
+    **--Name**: Ange ett unikt namn för den virtuella datorn med din regionala enhet för **västra USA** . 
 
-    **--admin-användarnamn**: Använd ditt eget administratörsanvändarnamn.
+    **--admin-username**: Använd ditt eget administratörs användar namn.
 
-    **--admin-password**: Använd ditt eget administratörslösenord.
+    **--admin-Password**: Använd ditt eget administratörs lösen ord.
 
     ```azurecli-interactive
     az vm create \
@@ -167,11 +167,11 @@ För att underlätta rensningen läggs dessa virtuella datorer till i samma resu
     --authentication-type password
     ```
 
-    Kommandot tar fem minuter att slutföra. När kommandot har slutförts, anteckna **värdet för publicIpAddress** för din virtuella virtuella virtuella väst-USA-region.
+    Kommandot tar fem minuter att slutföra. När kommandot har slutförts noterar du **publicIpAddress** -värdet för din virtuella USA-region, västra.
 
-1. Öppna två kommandoradsskal. Anslut till en av de regionala virtuella datorerna i varje skal med SSH. 
+1. Öppna två kommando rads gränssnitt. Anslut till en av de regionala virtuella datorerna i varje gränssnitt med SSH. 
 
-    Skicka ditt administratörsanvändarnamn och den offentliga IP-adressen som du noterade för den virtuella datorn som parametrar till SSH. Ange administratörslösenordet när du uppmanas att göra det.
+    Skicka ditt administratörs användar namn och den offentliga IP-adressen som du antecknade för den virtuella datorn som parametrar för SSH. Ange administratörs lösen ordet när du uppmanas till det.
 
     ```bash
     ssh contosoadmin@1.2.3.4
@@ -187,20 +187,20 @@ För att underlätta rensningen läggs dessa virtuella datorer till i samma resu
 
 
 
-## <a name="prepare-the-azure-iot-c-sdk-development-environment"></a>Förbereda utvecklingsmiljön för Azure IoT C SDK
+## <a name="prepare-the-azure-iot-c-sdk-development-environment"></a>Förbered utvecklings miljön för Azure IoT C SDK
 
-I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK innehåller ett exempel som simulerar en klients enhetsetablering från varje region.
+I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK: n innehåller ett exempel som simulerar en klients enhets etablering från varje region.
 
-1. För varje virtuell dator installerar du **CMake**, **g++**, **gcc**och [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) med följande kommandon:
+1. För varje virtuell dator installerar du **cmake**, **g + +**, **gcc**och [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) med följande kommandon:
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
-1. Leta reda på taggnamnet för den [senaste versionen](https://github.com/Azure/azure-iot-sdk-c/releases/latest) av SDK.
+1. Hitta taggnamnet för den [senaste versionen](https://github.com/Azure/azure-iot-sdk-c/releases/latest) av SDK.
 
-1. Klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) på båda virtuella datorerna.  Använd taggen som du hittade i föregående `-b` steg som värde för parametern:
+1. Klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) på båda virtuella datorerna.  Använd taggen som du hittade i föregående steg som `-b` parameter värde:
 
     ```bash
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -210,14 +210,14 @@ I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK 
 
     Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-1. För båda virtuella datorerna skapar du en ny **cmake-mapp** i databasen och ändrar till den mappen.
+1. Skapa en ny **cmake** -mapp i lagrings platsen för båda de virtuella datorerna och ändra till mappen.
 
     ```bash
     mkdir ~/azure-iot-sdk-c/cmake
     cd ~/azure-iot-sdk-c/cmake
     ```
 
-1. För båda virtuella datorerna kör du följande kommando, som bygger en version av SDK som är specifik för utvecklingsklientplattformen. 
+1. Kör följande kommando för båda virtuella datorerna, som skapar en version av SDK som är specifika för din utvecklings klient plattform. 
 
     ```bash
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -245,21 +245,21 @@ I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK 
     ```    
 
 
-## <a name="derive-unique-device-keys"></a>Härleda unika enhetsnycklar
+## <a name="derive-unique-device-keys"></a>Härled unika enhets nycklar
 
-När du använder symmetrisk nyckeltysstik med gruppregistreringar använder du inte registreringsgruppsnycklarna direkt. I stället skapar du en unik härledd nyckel för varje enhet och som nämns i [Gruppregistreringar med symmetriska nycklar](concepts-symmetric-key-attestation.md#group-enrollments).
+När du använder symmetrisk nyckel attestering med grupp registreringar använder du inte nycklarna för registrerings gruppen direkt. I stället skapar du en unik härledd nyckel för varje enhet och anges i [grupp registreringar med symmetriska nycklar](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Om du vill generera enhetsnyckeln använder du grupphuvudnyckeln för att beräkna ett [HMAC-SHA256-format](https://wikipedia.org/wiki/HMAC) för det unika registrerings-ID:t för enheten och konverterar resultatet till Base64-format.
+Generera enhets nyckeln genom att använda gruppens huvud nyckel för att beräkna en [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av det unika registrerings-ID: t för enheten och konvertera resultatet till base64-format.
 
-Ta inte med grupphuvudnyckeln i enhetskoden.
+Ta inte med din grupp huvud nyckel i enhets koden.
 
-Använd exemplet Bash-skal för att skapa en härledd enhetsnyckel för varje enhet med **openssl**.
+Använd exemplet bash shell för att skapa en härledd enhets nyckel för varje enhet med hjälp av **openssl**.
 
-- Ersätt värdet för **KEY** med den **primärnyckel som** du noterade tidigare för registreringen.
+- Ersätt värdet för **Key** med den **primära nyckel** som du antecknade tidigare för din registrering.
 
-- Ersätt värdet för **REG_ID** med ditt eget unika registrerings-ID för varje enhet. Använd gemener alfanumeriska och streck ('-') tecken för att definiera båda ID: er.
+- Ersätt värdet för **REG_ID** med ditt eget unika registrerings-ID för varje enhet. Använd gemena alfanumeriska tecken och bindestreck (-) för att definiera båda ID: na.
 
-Exempel på generering av *enhetsnyckel för contoso-simdevice-east:*
+Exempel på generering av enhets nyckel för *contoso-simdevice – öst*:
 
 ```bash
 KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
@@ -273,7 +273,7 @@ echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | ba
 p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
 ```
 
-Exempel på generering av *enhetsnyckel för contoso-simdevice-west:*
+Exempel på generering av enhets nyckel för *contoso-simdevice-väst*:
 
 ```bash
 KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
@@ -288,7 +288,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 ```
 
 
-Klientenheterna använder var sin härledda enhetsnyckel och unika registrerings-ID för att utföra symmetrisk nyckeltysstation med registreringsgruppen under etablering till klient-IoT-hubbar.
+Klient enheterna kommer att använda sin härledda enhets nyckel och ett unikt registrerings-ID för att utföra symmetrisk nyckel attestering med registrerings gruppen under etableringen till klientens IoT-hubbar.
 
 
 
@@ -296,15 +296,15 @@ Klientenheterna använder var sin härledda enhetsnyckel och unika registrerings
 ## <a name="simulate-the-devices-from-each-region"></a>Simulera enheterna från varje region
 
 
-I det här avsnittet uppdaterar du ett etableringsexempel i Azure IoT C SDK för båda de regionala virtuella datorerna. 
+I det här avsnittet ska du uppdatera ett etablerings exempel i Azure IoT C SDK för båda regionala virtuella datorer. 
 
-Exempelkoden simulerar en enhetsstartsekvens som skickar etableringsbegäran till instansen av enhetsetableringstjänsten. Startsekvensen gör att enheten identifieras och tilldelas IoT-hubben som är närmast baserat på svarstid.
+Exempel koden simulerar en enhets startsekvens som skickar etablerings förfrågan till din enhets etablerings tjänst instans. Startsekvensen gör att enheten identifieras och tilldelas IoT-hubben som är närmast beroende av svars tiden.
 
 1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_**.
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-1. Öppna **\_~/azure-iot-sdk-c/tablering klient/sampling/prov\_\_\_\_\_dev-klientexempel/prov\_dev-klient sample.c** för redigering på båda virtuella datorerna.
+1. Öppna **~/Azure-IoT-SDK-c/Provisioning\_-klient/sampel/\_testa\_dev\_client-exemplet\_/\_bevisa\_dev client Sample. c** för redigering på båda virtuella datorerna.
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
@@ -316,9 +316,9 @@ Exempelkoden simulerar en enhetsstartsekvens som skickar etableringsbegäran til
     static const char* id_scope = "0ne00002193";
     ```
 
-1. Hitta definitionen för funktionen `main()` i samma fil. Kontrollera att `hsm_type` variabeln `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` är inställd på som visas nedan för att matcha registreringsgruppsintygsmetoden. 
+1. Hitta definitionen för funktionen `main()` i samma fil. Se till att `hsm_type` variabeln har angetts `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` enligt nedan för att matcha registrerings gruppens attesterings metod. 
 
-    Spara ändringarna i filerna på båda virtuella datorerna.
+    Spara ändringarna i filerna på båda de virtuella datorerna.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -327,16 +327,16 @@ Exempelkoden simulerar en enhetsstartsekvens som skickar etableringsbegäran til
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-1. På båda virtuella datorer, `prov_dev_set_symmetric_key_info()` hitta samtalet till i **prov\_dev\_klient\_sample.c** som kommenteras ut.
+1. På båda de virtuella datorerna hittar du `prov_dev_set_symmetric_key_info()` ett anrop till i **test av\_dev\_-klienten\_. c** som är kommenterad.
 
     ```c
     // Set the symmetric key if using they auth type
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Avkommentera funktionsanropen och ersätt platshållarvärdena (inklusive vinkelparenteserna) med de unika registrerings-ID:na och de härledda enhetsnycklarna för varje enhet. Nycklarna som visas nedan är endast i exempelvis syften. Använd nycklarna som du genererade tidigare.
+    Ta bort kommentarer till funktions anropen och ersätt plats hållarnas värden (inklusive vinkelparenteser) med de unika registrerings-ID: na och härledda enhets nycklar för varje enhet. De nycklar som visas nedan är endast till exempel syfte. Använd de nycklar som du skapade tidigare.
 
-    Östra USA:
+    USA, östra:
     ```c
     // Set the symmetric key if using they auth type
     prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
@@ -350,21 +350,21 @@ Exempelkoden simulerar en enhetsstartsekvens som skickar etableringsbegäran til
 
     Spara filerna.
 
-1. På båda virtuella datorerna navigerar du till exempelmappen som visas nedan och skapar exemplet.
+1. På båda virtuella datorerna navigerar du till exempel mappen som visas nedan och skapar exemplet.
 
     ```bash
     cd ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/
     cmake --build . --target prov_dev_client_sample --config Debug
     ```
 
-1. När build lyckas kör du **prov\_dev-klientexit.exe\_\_** på båda virtuella datorerna för att simulera en klientenhet från varje region. Observera att varje enhet allokeras till klient-IoT-hubben närmast den simulerade enhetens regioner.
+1. När versionen har slutförts kör du **testa\_dev\_client\_Sample. exe** på båda de virtuella datorerna för att simulera en klient enhet från varje region. Observera att varje enhet allokeras till den klient IoT-hubb som är närmast den simulerade enhetens regioner.
 
     Kör simuleringen:
     ```bash
     ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
     ```
 
-    Exempel på utdata från den virtuella datorn för östra USA:
+    Exempel på utdata från den virtuella datorn USA, östra:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -381,7 +381,7 @@ Exempelkoden simulerar en enhetsstartsekvens som skickar etableringsbegäran til
 
     ```
 
-    Exempel på utdata från den virtuella datorn för västra USA:
+    Exempel på utdata från den virtuella datorn västra USA:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9
@@ -400,19 +400,19 @@ Exempelkoden simulerar en enhetsstartsekvens som skickar etableringsbegäran til
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta arbeta med resurser som skapats i den här artikeln kan du lämna dem. Om du inte planerar att fortsätta använda resursen använder du följande steg för att ta bort alla resurser som skapas av den här artikeln för att undvika onödiga avgifter.
+Om du planerar att fortsätta arbeta med resurser som skapats i den här artikeln kan du lämna dem. Om du inte planerar att fortsätta använda resursen kan du använda följande steg för att ta bort alla resurser som skapats i den här artikeln för att undvika onödiga kostnader.
 
-Stegen här förutsätter att du har skapat alla resurser i den här artikeln enligt anvisningarna i samma resursgrupp med namnet **contoso-us-resource-group**.
+Stegen här förutsätter att du har skapat alla resurser i den här artikeln enligt anvisningarna i samma resurs grupp med namnet **contoso-US-Resource-Group**.
 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
 >
 
-Så här tar du bort resursgruppen efter namn:
+Så här tar du bort resurs gruppen efter namn:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-2. I **textrutan Filter efter namn...** skriver du namnet på resursgruppen som innehåller dina resurser, **contoso-us-resource-group**. 
+2. I text rutan **Filtrera efter namn...** skriver du namnet på den resurs grupp som innehåller dina resurser, **contoso-US-Resource-Group**. 
 
 3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
@@ -420,8 +420,8 @@ Så här tar du bort resursgruppen efter namn:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer ometablering finns i [IoT Hub Device reetableing concepts](concepts-device-reprovision.md) 
-- Mer information om avetablering finns i [Så här avetablering av enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
+- Mer information om hur du reetablerar finns i [IoT Hub metoder för att etablera enheter](concepts-device-reprovision.md) 
+- Mer information om hur du avetablerar [enheter finns i så här avetablerar du enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
 
 
 

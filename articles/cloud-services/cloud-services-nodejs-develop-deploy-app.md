@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386195"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
@@ -35,7 +35,7 @@ Programmet är ett enkelt ”hello world”-program:
 > [!NOTE]
 > I den här kursen används Azure PowerShell, vilket kräver Windows.
 
-* Installera och konfigurera [Azure Powershell].
+* Installera och konfigurera [Azure PowerShell].
 * Ladda ned och installera [Azure SDK för .NET 2.7]. Välj följande vid installationen:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
@@ -161,7 +161,7 @@ Mer information finns i [Node.js Developer Center].
 
 [Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [använda en förenklad webbapp]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure Powershell]: /powershell/azureps-cmdlets-docs
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK för .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Anslut PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

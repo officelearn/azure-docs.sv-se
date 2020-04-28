@@ -1,6 +1,6 @@
 ---
-title: Förstå jobbövervakning i Azure Stream Analytics
-description: I den här artikeln beskrivs hur du övervakar Azure Stream Analytics-jobb i Azure-portalen.
+title: Förstå jobb övervakning i Azure Stream Analytics
+description: I den här artikeln beskrivs hur du övervakar Azure Stream Analytics jobb i Azure Portal.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,54 +9,54 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
 ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431658"
 ---
-# <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå Stream Analytics jobbövervakning och hur du övervakar frågor
+# <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå Stream Analytics jobb övervakning och övervaka frågor
 
-## <a name="introduction-the-monitor-page"></a>Introduktion: Monitorsidan
-Azure-portalen visar viktiga prestandamått som kan användas för att övervaka och felsöka din fråga och jobbprestanda. Om du vill se dessa mått bläddrar du till det Stream Analytics-jobb som du är intresserad av att se mått för och visar avsnittet **Övervakning** på sidan Översikt.  
+## <a name="introduction-the-monitor-page"></a>Introduktion: övervaknings Sidan
+Azure Portal Ytors viktiga prestanda mått som kan användas för att övervaka och felsöka frågor och jobb prestanda. Om du vill se dessa mått bläddrar du till Stream Analytics jobb som du är intresse rad av att se mått för och visa avsnittet **övervakning** på sidan Översikt.  
 
-![Länk för övervakning av Stream Analytics-jobb](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Länk till Stream Analytics jobb övervakning](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
-Fönstret visas som visas:
+Fönstret visas som det visas:
 
-![Instrumentpanel för övervakning av Stream Analytics-jobb](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Instrument panel för Stream Analytics jobb övervakning](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
-## <a name="metrics-available-for-stream-analytics"></a>Statistik tillgängliga för Stream Analytics
+## <a name="metrics-available-for-stream-analytics"></a>Mått som är tillgängliga för Stream Analytics
 | Mått                 | Definition                               |
 | ---------------------- | ---------------------------------------- |
-| Eftersläpade indatahändelser       | Antal indatahändelser som är eftersläpade. Ett värde som inte är noll för det här måttet innebär att jobbet inte kan hålla jämna steg med antalet inkommande händelser. Om det här värdet långsamt ökar eller konsekvent inte är noll bör du skala ut jobbet. Du kan läsa mer genom att besöka [Förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md). |
-| Datakonverteringsfel | Antal utdatahändelser som inte kunde konverteras till det förväntade utdataschemat. Felprincipen kan ändras till "Släpp" för att släppa händelser som stöter på det här scenariot. |
-| Tidiga inmatningshändelser       | Händelser vars programtidsstämpel är tidigare än deras ankomsttid med mer än 5 minuter. |
-| Misslyckade funktionsbegäranden | Antal misslyckade Azure Machine Learning-funktionsanrop (om sådana finns). |
-| Funktionshändelser        | Antal händelser som skickas till Azure Machine Learning -funktionen (om sådana finns). |
-| Funktionsbegäranden      | Antal anrop till Azure Machine Learning -funktionen (om sådana finns). |
-| Fel vid indataserialisering       | Antal indatahändelser som inte kunde avserialiseras.  |
-| Indatahändelsebyten      | Mängden data som tas emot av Stream Analytics-jobbet, i byte. Detta kan användas för att verifiera att händelser skickas till indatakällan. |
-| Indatahändelser           | Antal poster som anger deserialiserade från indatahändelserna. Det här antalet inkluderar inte inkommande händelser som resulterar i deserialiseringsfel. |
-| Mottagna indatakällor       | Antal meddelanden som tagits emot av jobbet. För Event Hub är ett meddelande ett enda EventData. För Blob är ett meddelande en enda blob. Observera att indatakällor räknas före deserialisering. Om det finns avserialiseringsfel kan indatakällor vara större än indatahändelser. Annars kan den vara mindre än eller lika med indatahändelser eftersom varje meddelande kan innehålla flera händelser. |
-| Sena indatahändelser      | Händelser som kom senare än det konfigurerade toleransfönstret för sen ankomst. Läs mer om [överväganden för Azure Stream Analytics-händelseorder](stream-analytics-out-of-order-and-late-events.md) . |
-| Händelser utanför ordningen    | Antal händelser som tagits emot i oordning som antingen har tagits bort eller fått en justerad tidsstämpel, baserat på händelseorderprincipen. Detta kan påverkas av konfigurationen av inställningen Förordnad toleransfönster. |
-| Utdatahändelser          | Mängden data som skickas av Stream Analytics-jobbet till utdatamålet, i antal händelser. |
-| Körningsfel         | Totalt antal fel relaterade till frågebearbetning (exklusive fel som hittats vid inmatning av händelser eller utmatningsresultat) |
-| SU% utnyttjande       | Användningen av de enheter för strömning som tilldelats ett jobb från fliken Skala för jobbet. Om denna indikator når 80 %, eller högre, är sannolikheten stor att händelsebearbetningen kan försenas eller stoppas för att göra framsteg. |
-| Fördröjning av vattenstämpel       | Den maximala vattenstämpelfördröjningen för alla partitioner för alla utdata i jobbet. |
+| Eftersläpande inloggade ingångs händelser       | Antal ingångs händelser som är eftersläpande. Ett värde som inte är noll för det här måttet innebär att jobbet inte kan fortsätta med antalet inkommande händelser. Om det här värdet ökar långsamt eller ständigt inte är noll, bör du skala ut jobbet. Du kan lära dig mer genom att besöka [förstå och justera strömnings enheter](stream-analytics-streaming-unit-consumption.md). |
+| Data konverterings fel | Antal utgående händelser som inte kunde konverteras till det förväntade schemat för utdata. Fel policyn kan ändras till Drop för att släppa händelser som stöter på det här scenariot. |
+| Tidiga ingångs händelser       | Händelser vars programtidstämpel är tidigare än deras ankomst tid med mer än 5 minuter. |
+| Misslyckade funktions begär Anden | Antalet misslyckade Azure Machine Learning funktions anrop (om det finns). |
+| Funktions händelser        | Antalet händelser som skickats till Azure Machine Learning-funktionen (om det finns). |
+| Funktions begär Anden      | Antal anrop till Azure Machine Learning funktion (om det finns). |
+| Fel vid deserialisering av indataport       | Antal ingångs händelser som inte kunde deserialiseras.  |
+| Inkommande händelse-byte      | Mängden data som tas emot av Stream Analytics jobb, i byte. Detta kan användas för att kontrol lera att händelser skickas till Indatakällan. |
+| Inmatade händelser           | Antal poster som har deserialiserats från inmatade händelser. Antalet inkluderar inte inkommande händelser som resulterar i fel vid deserialisering. |
+| Mottagna inmatade källor       | Antal meddelanden som tagits emot av jobbet. För Event Hub är ett meddelande ett enda EventData. För BLOB är ett meddelande en enda blob. Observera att inmatade källor räknas innan deserialisering. Om det finns deserialiserade fel kan indatakällana vara större än inmatade händelser. Annars kan det vara mindre än eller lika med indatamängden eftersom varje meddelande kan innehålla flera händelser. |
+| Sena ingångs händelser      | Händelser som anlänt senare än den konfigurerade tolerans perioden för sent införsel. Lär dig mer om att [tänka på när du Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md) . |
+| Händelser som inte är i ordning    | Antalet händelser som tagits emot utanför ordningen som antingen släpptes eller fått en anpassad tidsstämpel, baserat på händelse ordnings principen. Detta kan påverkas av konfigurationen av inställningen för avställnings tolerans fönstret. |
+| Utgående händelser          | Mängden data som skickas av Stream Analytics jobb till utmatnings målet, i antal händelser. |
+| Körnings fel         | Totalt antal fel som rör bearbetning av frågor (exklusive fel som påträffats vid inmatning av händelser eller resultat av resultat) |
+| SU%-användning       | Användningen av de strömnings enheter som är kopplade till ett jobb från fliken Scale i jobbet. Om den här indikatorn når 80% eller högre, finns det en hög sannolikhet att händelse bearbetningen kan fördröjas eller stoppas. |
+| Fördröjning för vattenstämpel       | Maximal vattenstämpel-fördröjning över alla partitioner i alla utdata i jobbet. |
 
-Du kan använda dessa mått för att [övervaka resultatet för ditt Stream Analytics-jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
+Du kan använda dessa mått för att [övervaka Stream Analytics jobbets prestanda](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
 
-## <a name="customizing-monitoring-in-the-azure-portal"></a>Anpassa övervakning i Azure-portalen
-Du kan justera typen av diagram, mått som visas och tidsintervallet i inställningarna för Redigera diagram. Mer information finns i [Så här anpassar du övervakning](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+## <a name="customizing-monitoring-in-the-azure-portal"></a>Anpassa övervakning i Azure Portal
+Du kan ändra typ av diagram, mått som visas och tidsintervall i redigera diagram inställningar. Mer information finns i [så här anpassar du övervakning](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Tidsdiagram för Stream Analytics-frågeövervakare](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Tids diagram för Stream Analytics frågans övervaknings tid](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>Senaste utdata
-En annan intressant datapunkt för att övervaka ditt jobb är tiden för den senaste utdata, som visas på sidan Översikt.
-Den här tiden är ansökningstiden (dvs. den tid som använder tidsstämpeln från händelsedata) för den senaste utdata för ditt jobb.
+En annan intressant data punkt för att övervaka jobbet är tiden för den senaste utmatningen, som visas på sidan Översikt.
+Den här gången är program tiden (dvs. tiden med tidsstämpeln från händelse data) för de senaste utdata från jobbet.
 
 ## <a name="get-help"></a>Få hjälp
 Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

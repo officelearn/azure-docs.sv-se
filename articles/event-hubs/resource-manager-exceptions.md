@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs – Undantag för Resource Manager | Microsoft-dokument
-description: Lista över undantag för Azure Event Hubs som visas av Azure Resource Manager och föreslagna åtgärder.
+title: Azure Event Hubs – Resource Manager-undantag | Microsoft Docs
+description: Lista över Azure Event Hubs-undantag som har Azure Resource Manager och föreslagna åtgärder.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -13,52 +13,52 @@ ms.workload: na
 ms.date: 12/08/2019
 ms.author: spelluru
 ms.openlocfilehash: e6ee1137fce97cbe5a64aa5287223f6ba09dcf47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74936092"
 ---
-# <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs – Undantag för Resource Manager
-I den här artikeln visas undantag som genereras när du interagerar med Azure Event Hubs med Azure Resource Manager – via mallar eller direktsamtal.
+# <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs – Resource Manager-undantag
+Den här artikeln innehåller undantag som genereras när du interagerar med Azure Event Hubs att använda Azure Resource Manager via mallar eller direkta anrop.
 
 > [!IMPORTANT]
-> Det här dokumentet uppdateras ofta. Kom tillbaka för uppdateringar.
+> Det här dokumentet uppdateras ofta. Kom tillbaka efter uppdateringar.
 
-Följande avsnitt innehåller olika undantag/fel som visas via Azure Resource Manager.
+I följande avsnitt finns olika undantag/fel som är anslutna till Azure Resource Manager.
 
-## <a name="error-code-conflict"></a>Felkod: Konflikt
+## <a name="error-code-conflict"></a>Felkod: konflikt
 
-| Felkod | Felunderkod | Felmeddelande | Beskrivning | Rekommendation |
+| Felkod | Fel under kod | Felmeddelande | Beskrivning | Rekommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Konflikt | 40300 | Det maximala antalet resurser av typen EventHub har nåtts eller överskridits. Faktiska: #, Max tillåtet: # | Namnområdet har nått sin [kvot](event-hubs-quotas.md) för antalet eventhubbar som det kan innehålla. | Ta bort oanvända eller ovidkommande händelsehubbar från namnområdet eller överväg att uppgradera till ett [dedikerat kluster](event-hubs-dedicated-overview.md). |
-| Konflikt | ingen | Det går inte att ta bort config-konfiguration (Disaster Recovery) eftersom replikeringen pågår. Växla över eller bryta ihop parning innan du försöker ta bort DR Config. | [GeoDR-replikering](event-hubs-geo-dr.md) pågår, så config kan inte tas bort just nu. | Om du vill ta bort blockeringen av konfigurationen väntar du antingen tills replikeringen har slutförts, utlöser en redundans eller bryter GeoDR-parkopplingen. |
-| Konflikt | ingen | Namnområdesuppdateringen misslyckades med konflikt i backend. | En annan åtgärd görs för närvarande på det här namnområdet. | Vänta tills den aktuella åtgärden är klar och försök sedan igen. |
+| Konflikt | 40300 | Det maximala antalet resurser av typen EventHub har nåtts eller överskridits. Faktiskt: #, Max tillåtet: # | Namn området har nått sin [kvot](event-hubs-quotas.md) för antalet Event Hubs det kan innehålla. | Ta bort oanvända eller främmande händelse nav från namn området eller Överväg att uppgradera till ett [dedikerat kluster](event-hubs-dedicated-overview.md). |
+| Konflikt | ingen | Det går inte att ta bort DR-konfigurationen (haveri beredskap) eftersom replikering pågår. Redundansväxla eller Bryt ihopparning innan du försöker ta bort DR-konfigurationen. | [Följande geodr-replikering](event-hubs-geo-dr.md) pågår, så det går inte att ta bort konfigurationen för tillfället. | Om du vill avblockera borttagning av konfigurationen måste du antingen vänta tills replikeringen har slutförts, utlösa en redundansväxling eller bryta följande geodr-ihopparningen. |
+| Konflikt | ingen | Namn områdes uppdateringen misslyckades med en konflikt i Server delen. | En annan åtgärd utförs för närvarande på det här namn området. | Vänta tills den aktuella åtgärden har slutförts och försök sedan igen. |
 
 ## <a name="error-code-429"></a>Felkod: 429
 
-| Felkod | Felunderkod | Felmeddelande | Beskrivning | Rekommendation |
+| Felkod | Fel under kod | Felmeddelande | Beskrivning | Rekommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | ingen | Etablerar namnområde i övergången | En annan åtgärd görs för närvarande på det här namnområdet. | Vänta tills den aktuella åtgärden är klar och försök sedan igen. |
-| 429 | ingen | Haveriberedskapsåtgärd pågår. | En [GeoDR-åtgärd](event-hubs-geo-dr.md) utförs för närvarande på det här namnområdet eller ihopkopplingen. | Vänta tills den aktuella GeoDR-åtgärden är klar och försök sedan igen. |
+| 429 | ingen | Namn områdes etablering i över gång | En annan åtgärd utförs för närvarande på det här namn området. | Vänta tills den aktuella åtgärden har slutförts och försök sedan igen. |
+| 429 | ingen | Katastrof återställnings åtgärd pågår. | En [följande geodr](event-hubs-geo-dr.md) -åtgärd utförs för närvarande på det här namn området eller ihopparningen. | Vänta tills den aktuella följande geodr-åtgärden har slutförts och försök sedan igen. |
 
 ## <a name="error-code-badrequest"></a>Felkod: BadRequest
 
-| Felkod | Felunderkod | Felmeddelande | Beskrivning | Rekommendation |
+| Felkod | Fel under kod | Felmeddelande | Beskrivning | Rekommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| BadRequest | 40000 | PartitionCount kan inte ändras för en händelsehubb. | Grundläggande eller standardnivå för Azure Event Hubs stöder inte ändring av partitioner. | Skapa en ny händelsehubb med önskat antal partitioner i ditt namnområde på grundnivå eller standardnivå. Partitionskalning stöds för [dedikerade kluster](event-hubs-dedicated-overview.md). |
-| BadRequest | 40000 | Värdet #' för MessageRetentionInDays är inte giltigt för basic-nivån. värdet får inte överstiga "1"-dagar. | Namnområden för grundläggande nivåhändelsehubbar stöder endast bevarande av meddelanden på upp till 1 dag. | Om mer än en dag av meddelandekvarhållning [önskas skapar du ett standardnamnområde för eventhubbar](event-hubs-create.md). | 
-| BadRequest | ingen | Det angivna namnet är inte tillgängligt. | Namnområdesnamn måste vara unika och det angivna namnet har redan tagits. | Om du äger det befintliga namnområdet med det angivna namnet kan du ta bort det, vilket medför dataförlust. Försök sedan igen med samma namn. Om namnområdet inte är säkert att ta bort (eller om du inte är ägare) väljer du ett annat namnområdesnamn. |
-| BadRequest | ingen | Den angivna prenumerationen har nått sin kvot för namnområden. | Din prenumeration har nått [kvoten](event-hubs-quotas.md) för det antal namnområden som den kan innehålla. | Överväg att ta bort oanvända namnområden i den här prenumerationen, skapa en annan prenumeration eller uppgradera till ett [dedikerat kluster](event-hubs-dedicated-overview.md). |
-| BadRequest | ingen | Det går inte att uppdatera ett namnområde som är sekundärt | Det går inte att uppdatera namnområdet eftersom det är det sekundära namnområdet i en [GeoDR-koppling](event-hubs-geo-dr.md). | Om det är lämpligt gör du ändringen av det primära namnområdet i den här parkopplingen i stället. Annars bryta GeoDR ihopkoppling för att göra ändringen. |
-| BadRequest | ingen | Det går inte att ställa in Automatisk uppblåsning i grundläggande SKU | Automatisk uppblåsning kan inte aktiveras på grundläggande nivå Event Hubs namnområden. | Om du vill [aktivera Automatisk uppblåsning](event-hubs-auto-inflate.md) på ett namnområde kontrollerar du att den är av standardnivå. |
-| BadRequest | ingen | Det finns inte tillräckligt med kapacitet för att skapa namnområdet. Kontakta administratören för eventhubbar. | Den valda regionen har kapacitet och fler namnområden kan inte skapas. | Välj en annan region för att hysa ditt namnområde. |
-| BadRequest | ingen | Åtgärden kan inte utföras på entitetstypen "ConsumerGroup" eftersom namnområdets namnområdesnamn använder basic-nivån.  | Namnområden för grundläggande nivåhändelsehubbar har en [kvot]((event-hubbar-kvoter.md#event-hubs-basic-and-standard---quotas-and-limits) för en konsumentgrupp (standard). Det går inte att skapa fler konsumentgrupper. | Fortsätt att använda standardkonsumentgruppen ($Default) eller om fler behövs kan du överväga att använda ett standardgrupp för eventhubbar på nivå i stället. | 
-| BadRequest | ingen | Namnområdets namnområdesnamn finns inte. | Det gick inte att hitta det angivna namnområdet. | Dubbelkolla att namnområdets namn är korrekt och finns i din prenumeration. Om så inte är fallet [skapar du ett namnområde för händelsehubbar](event-hubs-create.md). | 
-| BadRequest | ingen | Resursens platsegenskap matchar inte dess namnområde. | Det gick inte att skapa en händelsenav i en viss region eftersom den inte matchade namnområdets region. | Prova att skapa händelsehubben i samma region som namnområdet. | 
+| BadRequest | 40000 | PartitionCount kan inte ändras för en Event Hub. | Basic-eller standard-nivån av Azure Event Hubs stöder inte ändring av partitioner. | Skapa en ny händelsehubben med önskat antal partitioner i namn området för Basic eller standard-nivån. Partitions utskalning stöds för [dedikerade kluster](event-hubs-dedicated-overview.md). |
+| BadRequest | 40000 | Värdet # för MessageRetentionInDays är inte giltigt för Basic-nivån. värdet får inte överstiga 1 dag (ar). | Basic-nivån Event Hubs-namnområden har endast stöd för meddelande kvarhållning på upp till 1 dag. | Om fler än en dag för kvarhållning av meddelanden önskas, [skapar du ett standard namn område för Event Hubs](event-hubs-create.md). | 
+| BadRequest | ingen | Det angivna namnet är inte tillgängligt. | Namn rymds namn måste vara unika och det angivna namnet är redan upptaget. | Om du är ägare till det befintliga namn området med det angivna namnet kan du ta bort det, vilket leder till data förlust. Försök sedan igen med samma namn. Om namn området inte är säkert att ta bort (eller om du inte är ägare) väljer du ett annat namn på namn området. |
+| BadRequest | ingen | Den angivna prenumerationen har nått sin kvot för namn områden. | Din prenumeration har nått [kvoten](event-hubs-quotas.md) för antalet namn områden som den kan innehålla. | Överväg att ta bort oanvända namn rymder i den här prenumerationen, skapa en annan prenumeration eller uppgradera till ett [dedikerat kluster](event-hubs-dedicated-overview.md). |
+| BadRequest | ingen | Det går inte att uppdatera ett namn område som är sekundärt | Det går inte att uppdatera namn området eftersom det är ett sekundärt namn område i en [följande geodr-koppling](event-hubs-geo-dr.md). | Om det behövs gör du ändringen i det primära namn området i denna koppling i stället. Ta annars bort följande geodr-ihopparningen för att göra ändringen. |
+| BadRequest | ingen | Det går inte att ställa in automatisk ökning i Basic SKU | Det går inte att aktivera automatisk ökning på Basic-nivå Event Hubs namn områden. | Om du vill [Aktivera automatisk](event-hubs-auto-inflate.md) ökning i ett namn område kontrollerar du att det är av standard nivån. |
+| BadRequest | ingen | Det finns inte tillräckligt med kapacitet för att skapa namn området. Kontakta Event Hubs administratören. | Den valda regionen har en kapacitet och fler namn områden kan inte skapas. | Välj en annan region för att skriva ditt namn område. |
+| BadRequest | ingen | Det går inte att utföra åtgärden på entitetstypen ConsumerGroup eftersom namn områdets namn områdes namn använder Basic-nivån.  | Basic-nivå Event Hubs namn områden har [quota] ((Event-Hub-kvoter. MD # Event-Hub-Basic-and-standard---kvoter och-gränser) för en konsument grupp (standard). Det finns inte stöd för att skapa fler konsument grupper. | Fortsätt att använda standard konsument gruppen ($Default), eller om det behövs, bör du överväga att använda ett standard-Event Hubs namn område i stället. | 
+| BadRequest | ingen | Namn områdets namn område finns inte. | Det gick inte att hitta det angivna namn området. | Kontrol lera att namn rymds namnet är rätt och att det finns i din prenumeration. Om den inte är det [skapar du ett Event Hubs-namnområde](event-hubs-create.md). | 
+| BadRequest | ingen | Resursens plats egenskap matchar inte den innehåll ande namn rymden. | Det gick inte att skapa en Event Hub i en angiven region eftersom den inte matchar regionen i namn området. | Försök att skapa händelsehubben i samma region som namn området. | 
 
-## <a name="error-code-internal-server-error"></a>Felkod: Internt serverfel
+## <a name="error-code-internal-server-error"></a>Felkod: internt Server fel
 
-| Felkod | Felunderkod | Felmeddelande | Beskrivning | Rekommendation |
+| Felkod | Fel under kod | Felmeddelande | Beskrivning | Rekommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Internt serverfel | ingen | Internt serverfel. | Tjänsten Event Hubs hade ett internt fel. | Försök igen. Om åtgärden fortsätter att misslyckas kontaktar du supporten. |
+| Internt Server fel | ingen | Internt Server fel. | Ett internt fel uppstod i tjänsten Event Hubs. | Försök att utföra åtgärden igen. Kontakta supporten om åtgärden fortfarande fungerar. |

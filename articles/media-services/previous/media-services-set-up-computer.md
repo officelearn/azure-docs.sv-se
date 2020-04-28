@@ -1,6 +1,6 @@
 ---
 title: Konfigurera en Azure Media Services-utvecklingsmiljö | Microsoft-dokument
-description: I den här artikeln beskrivs hur du konfigurerar din miljö för utveckling med Azure Media Services.
+description: Den här artikeln beskriver hur du konfigurerar din miljö för utveckling med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 5ef9b3d6f13de70cdf2fff87d9aed0a8efc2b782
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74895790"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Konfigurera en Media Services-utvecklingsmiljö  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Följande steg beskriver de krav som ställs vid utveckling med Azure Media Services.
 

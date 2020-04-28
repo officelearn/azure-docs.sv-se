@@ -9,16 +9,16 @@ ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: c4225ab2505fc072f705f8126fc8a04581e0f80c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75440348"
 ---
-| Kategori | Datalager | Stöds som en källa | Stöds som en mottagare | Stöds av [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Stöds av [egen värd IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
+| Kategori | Datalager | Stöds som en källa | Stöds som en mottagare | Stöds av [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Stöds av [IR med egen värd](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Azure** |[Azure Blob-lagring](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cognitive Search-index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
+| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Kognitiv sökning-index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[API för Azure Cosmos DB för MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure-datautforskaren](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
@@ -38,7 +38,7 @@ ms.locfileid: "75440348"
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |✓ | |✓ |✓  |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  |
-| &nbsp; |[Registreringsdatafilen](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  |
+| &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  |
 | &nbsp; |[Apache Impala](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  |
 | &nbsp; |[Informix](../articles/data-factory/connector-informix.md) |✓ | | |✓  |
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  |
@@ -49,20 +49,20 @@ ms.locfileid: "75440348"
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Presto (förhandsversion)](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  |
-| &nbsp; |[SAP Business Warehouse via Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
+| &nbsp; |[SAP Business Warehouse via öppen hubb](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  |
 | &nbsp; |[SAP-tabell](../articles/data-factory/connector-sap-table.md) |✓ | | |✓  |
-| &nbsp; |[Gnista](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  |
+| &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Vertica](../articles/data-factory/connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (förhandsversion)](../articles/data-factory/connector-couchbase.md) |✓ | |✓ |✓  |
-| &nbsp; |[Mongodb](../articles/data-factory/connector-mongodb.md) |✓ | |✓ |✓  |
+| &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |✓ | |✓ |✓  |
 | **Fil** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
-| &nbsp; |[Filsystem](../articles/data-factory/connector-file-system.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Fil system](../articles/data-factory/connector-file-system.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓ |✓  |
@@ -70,7 +70,7 @@ ms.locfileid: "75440348"
 | **Generiskt protokoll** |[Generisk HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[OData (allmän)](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC (allmän)](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| &nbsp; |[Generisk REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
+| &nbsp; |[Allmän REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
 | **Tjänster och appar** |[Amazon Marketplace Web Service](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (förhandsversion)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
@@ -82,11 +82,11 @@ ms.locfileid: "75440348"
 | &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (förhandsversion)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (förhandsversion)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
-| &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |
+| &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (förhandsversion)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Responsys (förhandsversion)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
-| &nbsp; |[Oracle-tjänstmoln (förhandsversion)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |
-| &nbsp; |[PayPal (förhandsgranskning)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
+| &nbsp; |[Oracle service Cloud (för hands version)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |
+| &nbsp; |[PayPal (för hands version)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks (förhandsversion)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |✓ |✓ |✓ |✓  |
@@ -96,9 +96,9 @@ ms.locfileid: "75440348"
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (förhandsversion)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square (förhandsversion)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[Webbtabell (HTML-tabell)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
+| &nbsp; |[Webb tabell (HTML-tabell)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (förhandsversion)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Om en koppling är markerad *förhandsgranskning*kan du prova den och ge oss feedback. Om du vill vara beroende av förhandsversionskopplingar i din lösning kontaktar du [Azure-supporten](https://azure.microsoft.com/support/).
+> Om en koppling är markerad som för *hands version*kan du prova den och ge oss feedback. Kontakta [Azure-supporten](https://azure.microsoft.com/support/)om du vill ha ett beroende på för hands versions kopplingarna i din lösning.

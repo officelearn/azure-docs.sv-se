@@ -1,6 +1,6 @@
 ---
-title: Mappa datauppsättningskolumner i Azure Data Factory
-description: Lär dig hur du mappar källkolumner till målkolumner.
+title: Mappa data mängds kolumner i Azure Data Factory
+description: Lär dig hur du mappar käll kolumner till mål kolumner.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,34 +12,34 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74923874"
 ---
-# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mappa källdatauppsättningskolumner till måldatauppsättningskolumner
+# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mappa käll data uppsättnings kolumner till kolumner med mål data uppsättningar
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. 
 
-Kolumnmappning kan användas för att ange hur kolumner som anges i "strukturen" för källtabellmapp mappning till kolumner som anges i "struktur" av sink tabellen. Egenskapen **columnMapping** är tillgänglig i avsnittet **typeProperties** i kopieringsaktiviteten.
+Kolumn mappning kan användas för att ange hur kolumner som anges i "struktur" i käll tabellens karta till kolumner som anges i tabellen "struktur" i mottagar tabellen. Egenskapen **columnMapping** är tillgänglig i avsnittet **typeProperties** i kopierings aktiviteten.
 
-Kolumnmappning stöder följande scenarier:
+Kolumn mappningen stöder följande scenarier:
 
-* Alla kolumner i källdatauppsättningsstrukturen mappas till alla kolumner i sink-datauppsättningsstrukturen.
-* En delmängd av kolumnerna i källdatauppsättningsstrukturen mappas till alla kolumner i sink-datauppsättningsstrukturen.
+* Alla kolumner i käll data uppsättningens struktur mappas till alla kolumner i data uppsättnings strukturen för mottagaren.
+* En delmängd av kolumnerna i käll data uppsättningens struktur mappas till alla kolumner i data uppsättnings strukturen för mottagaren.
 
-Följande är felvillkor som resulterar i ett undantag:
+Följande är fel villkor som resulterar i ett undantag:
 
-* Antingen färre kolumner eller fler kolumner i "strukturen" i sinktabellen än vad som anges i mappningen.
-* Dubblettmappning.
-* SQL-frågeresultatet har inget kolumnnamn som anges i mappningen.
+* Antingen färre kolumner eller fler kolumner i tabellen "struktur" i mottagar tabellen än vad som anges i mappningen.
+* Duplicera mappning.
+* SQL-frågeresultaten har inget kolumn namn som anges i mappningen.
 
 > [!NOTE]
-> Följande exempel är för Azure SQL och Azure Blob men gäller för alla datalager som stöder rektangulära datauppsättningar. Justera datauppsättning och länkade tjänstedefinitioner i exempel så att de pekar på data i relevant datakälla.
+> Följande exempel gäller för Azure SQL och Azure Blob, men de gäller för alla data lager som stöder rektangulära data uppsättningar. Justera data uppsättningen och de länkade tjänst definitionerna i exempel för att peka på data i den relevanta data källan.
 
-## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exempel 1 – kolumnmappning från Azure SQL till Azure blob
-I det här exemplet har indatatabellen en struktur och pekar på en SQL-tabell i en Azure SQL-databas.
+## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exempel 1 – kolumn mappning från Azure SQL till Azure-Blob
+I det här exemplet har indata-tabellen en struktur och den pekar på en SQL-tabell i en Azure SQL-databas.
 
 ```json
 {
@@ -72,7 +72,7 @@ I det här exemplet har indatatabellen en struktur och pekar på en SQL-tabell i
 }
 ```
 
-I det här exemplet har utdatatabellen en struktur och pekar på en blob i en Azure-bloblagring.
+I det här exemplet har utdatatabellen en struktur och den pekar på en BLOB i Azure Blob Storage.
 
 ```json
 {
@@ -105,7 +105,7 @@ I det här exemplet har utdatatabellen en struktur och pekar på en blob i en Az
 }
 ```
 
-Följande JSON definierar en kopieringsaktivitet i en pipeline. Kolumnerna från källan mappas till kolumner i sink **(columnMappings**) med hjälp av egenskapen **Translator.**
+Följande JSON definierar en kopierings aktivitet i en pipeline. Kolumnerna från källan mappas till kolumner i handfat (**columnMappings**) med hjälp av egenskapen **Translator** .
 
 ```json
 {
@@ -135,12 +135,12 @@ Följande JSON definierar en kopieringsaktivitet i en pipeline. Kolumnerna från
         }
 }
 ```
-**Kolumnmappningsflöde:**
+**Flöde för kolumn mappning:**
 
-![Mappningsflöde för kolumn](./media/data-factory-map-columns/column-mapping-flow.png)
+![Flöde för kolumn mappning](./media/data-factory-map-columns/column-mapping-flow.png)
 
-## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exempel 2 – kolumnmappning med SQL-fråga från Azure SQL till Azure blob
-I det här exemplet används en SQL-fråga för att extrahera data från Azure SQL i stället för att bara ange tabellnamnet och kolumnnamnen i avsnittet "struktur". 
+## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exempel 2 – kolumn mappning med SQL-fråga från Azure SQL till Azure-Blob
+I det här exemplet används en SQL-fråga för att extrahera data från Azure SQL i stället för att helt enkelt ange tabell namnet och kolumn namnen i avsnittet "struktur". 
 
 ```json
 {
@@ -172,13 +172,13 @@ I det här exemplet används en SQL-fråga för att extrahera data från Azure S
         }
 }
 ```
-I det här fallet mappas frågeresultaten först till kolumner som anges i "struktur" av källan. Därefter mappas kolumnerna från källans "struktur" till kolumner i sink "struktur" med regler som anges i kolumnMappningar.  Anta att frågan returnerar 5 kolumner, ytterligare två kolumner än de som anges i källans "struktur".
+I det här fallet mappas frågeresultaten först till kolumner som anges i strukturen för källan. Sedan mappas kolumnerna från källans struktur till kolumner i handfatet "struktur" med regler som anges i columnMappings.  Anta att frågan returnerar 5 kolumner, två fler kolumner än de som anges i strukturen för källan.
 
-**Mappningsflöde för kolumn**
+**Flöde för kolumn mappning**
 
-![Kolumnmappningsflöde-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
+![Flöde för kolumn mappning – 2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se artikeln för en handledning om hur du använder Kopiera aktivitet: 
+I artikeln finns en själv studie kurs om hur du använder kopierings aktivitet: 
 
 - [Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

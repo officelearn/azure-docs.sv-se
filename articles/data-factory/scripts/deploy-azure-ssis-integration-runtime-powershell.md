@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure SSIS-integreringskörning med PowerShell
-description: Det här PowerShell-skriptet skapar en Azure-SSIS-integreringskörning som kan köra SSIS-paket i molnet.
+title: Distribuera Azure SSIS integration runtime med PowerShell
+description: Det här PowerShell-skriptet skapar en Azure-SSIS integration runtime som kan köra SSIS-paket i molnet.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -11,15 +11,15 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74929808"
 ---
-# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell-skript – distribuera Azure-SSIS-integreringskörning
+# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell-skript – Distribuera Azure-SSIS integration runtime
 
-Det här exemplet powershell-skript skapar en Azure-SSIS-integreringskörning som kan köra dina SSIS-paket i Azure.  
+Det här exemplet på PowerShell-skriptet skapar en Azure-SSIS integration runtime som kan köra dina SSIS-paket i Azure.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,12 +31,12 @@ Det här exemplet powershell-skript skapar en Azure-SSIS-integreringskörning so
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du har kört exempelskriptet kan du använda följande kommando för att ta bort resursgruppen och alla resurser som är associerade med det:
+När du har kört exempel skriptet kan du använda följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
-Om du vill ta bort datafabriken från resursgruppen kör du följande kommando: 
+Om du vill ta bort data fabriken från resurs gruppen kör du följande kommando: 
 
 ```powershell
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -50,9 +50,9 @@ I det här skriptet används följande kommandon:
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Skapa en datafabrik. |
-| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Skapar en Azure-SSIS-integreringskörning som kan köra SSIS-paket i molnet |
-| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Startar Azure-SSIS-integreringskörningen. |
-| [Hämta-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Hämtar information om Azure-SSIS-integreringskörningen. |
+| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Skapar en Azure-SSIS integration runtime som kan köra SSIS-paket i molnet |
+| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Startar integrerings körningen för Azure-SSIS. |
+| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Hämtar information om Azure-SSIS integration Runtime. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
@@ -60,4 +60,4 @@ I det här skriptet används följande kommandon:
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare Azure Data Factory PowerShell-skriptexempel finns i [Azure Data Factory PowerShell-exemplen](../samples-powershell.md).
+Ytterligare Azure Data Factory PowerShell-skript exempel finns i [Azure Data Factory PowerShell-exempel](../samples-powershell.md).

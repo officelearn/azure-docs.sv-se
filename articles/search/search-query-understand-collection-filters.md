@@ -1,7 +1,7 @@
 ---
-title: Förstå OData-samlingsfilter
+title: Förstå OData-samlings filter
 titleSuffix: Azure Cognitive Search
-description: Lär dig mekaniken i hur OData-samlingsfilter fungerar i Azure Cognitive Search-frågor, inklusive begränsningar och beteenden som är unika för samlingar.
+description: Lär dig hur OData-Mechanics fungerar i Azure Kognitiv sökning-frågor, inklusive begränsningar och beteenden som är unika för samlingar.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,45 +20,45 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113064"
 ---
-# <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Förstå OData-samlingsfilter i Azure Cognitive Search
+# <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Förstå OData Collection-filter i Azure Kognitiv sökning
 
-Om du vill [filtrera på](query-odata-filter-orderby-syntax.md) samlingsfält i Azure Cognitive Search kan du använda [ `any` operatorerna och `all` ](search-query-odata-collection-operators.md) tillsammans med **lambda-uttryck**. Lambda-uttryck är booleska uttryck som refererar till en **intervallvariabel**. `any` Operatorerna `all` och är analoga `for` med en slinga i de flesta programmeringsspråk, med intervallvariabeln som tar rollen som loopvariabel och lambda-uttrycket som slingans kropp. Intervallvariabeln tar på "nuvarande" värdet för samlingen under iteration av slingan.
+Om du vill [filtrera](query-odata-filter-orderby-syntax.md) på samlings fält i Azure kognitiv sökning kan du [ `any` använda `all` operatorerna och](search-query-odata-collection-operators.md) tillsammans med **lambda-uttryck**. Lambda-uttryck är booleska uttryck som refererar till en **intervall variabel**. `any` Operatorerna `all` och är likvärdiga med en `for` loop i de flesta programmeringsspråk, med variabeln Range som tar roll för loop-variabeln och lambda-uttrycket som bröd texten i slingan. Range-variabeln tar på det aktuella värdet för samlingen under iterationen av loopen.
 
-Åtminstone det är så det fungerar konceptuellt. I verkligheten implementerar Azure Cognitive Search filter på `for` ett helt annat sätt än loopar fungerar. Helst skulle denna skillnad vara osynlig för dig, men i vissa situationer är det inte. Slutresultatet är att det finns regler du måste följa när du skriver lambda uttryck.
+Minst så fungerar det konceptuellt. I verkligheten implementerar Azure Kognitiv sökning filter på ett mycket annorlunda sätt för hur `for` slingor fungerar. Vi rekommenderar att skillnaden är osynlig för dig, men i vissa fall är det inte. Slut resultatet är att det finns regler som du måste följa när du skriver lambda-uttryck.
 
-I den här artikeln förklarar vi varför reglerna för samlingsfilter finns genom att utforska hur Azure Cognitive Search kör dessa filter. Om du skriver avancerade filter med komplexa lambda uttryck, kan du hitta den här artikeln till hjälp för att bygga din förståelse för vad som är möjligt i filter och varför.
+I den här artikeln förklaras varför reglerna för samlings filter finns genom att utforska hur Azure Kognitiv sökning kör dessa filter. Om du skriver avancerade filter med komplexa lambda-uttryck kan du hitta den här artikeln för att skapa din förståelse av vad som är möjligt med filter och varför.
 
-Information om vilka regler för samlingsfilter som är, inklusive exempel, finns [i Felsöka OData-samlingsfilter i Azure Cognitive Search](search-query-troubleshoot-collection-filters.md).
+Information om hur reglerna för samlings filter är, inklusive exempel, finns i [Felsöka OData Collection filter i Azure kognitiv sökning](search-query-troubleshoot-collection-filters.md).
 
-## <a name="why-collection-filters-are-limited"></a>Varför insamlingsfilter är begränsade
+## <a name="why-collection-filters-are-limited"></a>Varför samlings filter är begränsade
 
-Det finns tre underliggande orsaker till att inte alla filterfunktioner stöds för alla typer av samlingar:
+Det finns tre bakomliggande orsaker till varför inte alla filter funktioner stöds för alla typer av samlingar:
 
-1. Endast vissa operatörer stöds för vissa datatyper. Det är till exempel inte meningsfullt att jämföra `true` `false` booleska värden och använda `lt`, `gt`och så vidare.
-1. Azure Cognitive Search stöder inte **korrelerad** `Collection(Edm.ComplexType)`sökning i fält av typen .
-1. Azure Cognitive Search använder inverterade index för att köra filter över alla typer av data, inklusive samlingar.
+1. Endast vissa operatörer stöds för vissa data typer. Det är till exempel inte meningsfullt att jämföra de booleska värdena `true` och `false` använda `lt`, `gt`, och så vidare.
+1. Azure Kognitiv sökning stöder inte **korrelerad sökning** i fält av typen `Collection(Edm.ComplexType)`.
+1. Azure Kognitiv sökning använder inverterade index för att köra filter över alla typer av data, inklusive samlingar.
 
-Den första orsaken är bara en följd av hur OData-språket och EDM-typsystemet definieras. De två sista förklaras mer i detalj i resten av den här artikeln.
+Den första orsaken är bara en följd av hur OData-språket och EDM-typ systemet definieras. De sista två förklaras i detalj i resten av den här artikeln.
 
-## <a name="correlated-versus-uncorrelated-search"></a>Korrelerad kontra okorrelerad sökning
+## <a name="correlated-versus-uncorrelated-search"></a>Korrelerad kontra korrelerad sökning
 
-När du använder flera filtervillkor över en samling komplexa objekt är villkoren **korrelerade** eftersom de gäller för *varje objekt i samlingen*. Följande filter returnerar till exempel hotell som har minst ett deluxerum med ett pris som är lägre än 100:
+När du tillämpar flera filter villkor för en samling komplexa objekt, **korreleras** villkoren eftersom de gäller för *varje objekt i samlingen*. Följande filter kommer till exempel att returnera hotell som har minst ett Deluxe-rum med en hastighet som är lägre än 100:
 
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
 
-Om filtrreringen inte var *okorrelerad*kan ovanstående filter returnera hotell där ett rum är deluxe och ett annat rum har ett baspris som är mindre än 100. Det skulle inte vara meningsfullt, eftersom båda klausulerna i lambda uttryck `room`gäller för samma intervall variabel, nämligen . Det är därför sådana filter är korrelerade.
+Om filtreringen var *korrelerad*kan filtret ovan returnera hotell där ett rum är Deluxe och ett annat rum har en bas taxa som är mindre än 100. Det skulle inte vara meningsfullt eftersom båda satserna i lambda-uttrycket gäller samma intervall variabel, nämligen `room`. Detta är anledningen till att sådana filter korreleras.
 
-För fulltextsökning finns det dock inget sätt att referera till en specifik intervallvariabel. Om du använder fältsökning för att utfärda en [fullständig Lucene-fråga](query-lucene-syntax.md) som den här:
+För full texts ökning finns det dock inget sätt att referera till en speciell intervall variabel. Om du använder fältet sökning för att utfärda en [fullständig Lucene-fråga](query-lucene-syntax.md) som den här:
 
     Rooms/Type:deluxe AND Rooms/Description:"city view"
 
-Du kan få hotell tillbaka där ett rum är deluxe, och ett annat rum nämner "utsikt över staden" i beskrivningen. Dokumentet nedan med `Id` av `1` matchar till exempel frågan:
+Du kan få tillbaka hotell igen om ett rum är Deluxe och ett annat rum står "stads vy" i beskrivningen. Till exempel kan dokumentet nedan `Id` `1` matcha frågan:
 
 ```json
 {
@@ -80,39 +80,39 @@ Du kan få hotell tillbaka där ett rum är deluxe, och ett annat rum nämner "u
 }
 ```
 
-Anledningen är `Rooms/Type` att refererar till alla `Rooms/Type` analyserade termer i fältet i `Rooms/Description`hela dokumentet, och på samma sätt för , som visas i tabellerna nedan.
+Orsaken är att `Rooms/Type` alla analyserade villkor för `Rooms/Type` fältet i hela dokumentet och på samma sätt `Rooms/Description`som visas i tabellerna nedan.
 
-Så `Rooms/Type` här lagras du för fulltextsökning:
+Hur `Rooms/Type` lagras för full texts ökning:
 
-| Termen i`Rooms/Type` | Dokument-ID:er |
+| Villkor i`Rooms/Type` | Dokument-ID |
 | --- | --- |
-| Deluxe | 1, 2 |
+| modell | 1, 2 |
 | standard | 1 |
 
-Så `Rooms/Description` här lagras du för fulltextsökning:
+Hur `Rooms/Description` lagras för full texts ökning:
 
-| Termen i`Rooms/Description` | Dokument-ID:er |
+| Villkor i`Rooms/Description` | Dokument-ID |
 | --- | --- |
-| Courtyard | 2 |
+| courtyard | 2 |
 | city | 1 |
-| Trädgård | 1 |
-| Stora | 1 |
+| modernt | 1 |
+| förstoring | 1 |
 | Motel | 2 |
 | rum | 1, 2 |
 | standard | 1 |
-| Suite | 1 |
+| uppsättning | 1 |
 | visa | 1 |
 
-Så till skillnad från filtret ovan, som i `Type` princip säger "matcha dokument där `BaseRate` ett rum har lika med "Deluxe Room" `Rooms/Type` och **samma rum** `Rooms/Description` har mindre än 100", säger sökfrågan "matcha dokument där har termen "deluxe" och har frasen "stadsvy". Det finns inget begrepp om enskilda rum vars fält kan korreleras i det senare fallet.
+Till skillnad från filtret ovan, vilket i princip betyder att "matcha dokument där ett rum `Type` är lika med" Deluxe-rummet "och **att samma rum** har `BaseRate` mindre än 100", säger Sök frågan "matcha dokument `Rooms/Type` där termen" Deluxe "och `Rooms/Description` innehåller frasen" City ". Det finns inget begrepp för enskilda rum vars fält kan korreleras i det senare fallet.
 
 > [!NOTE]
-> Om du vill se stöd för korrelerad sökning som lagts till i Azure Cognitive Search, rösta på [det här user voice-objektet](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
+> Om du vill se stöd för korrelerad sökning som lagts till i Azure Kognitiv sökning, rösten för [det här röst alternativet för användare](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
 
 ## <a name="inverted-indexes-and-collections"></a>Inverterade index och samlingar
 
-Du kanske har märkt att det finns mycket färre restriktioner för lambda `Collection(Edm.Int32)`uttryck `Collection(Edm.GeographyPoint)`över komplexa samlingar än det finns för enkla samlingar som , , och så vidare. Detta beror på att Azure Cognitive Search lagrar komplexa samlingar som faktiska samlingar av underdokument, medan enkla samlingar inte lagras som samlingar alls.
+Du kanske har märkt att det finns mycket färre begränsningar för Lambda-uttryck i komplexa samlingar än för enkla samlingar som `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`och så vidare. Detta beror på att Azure Kognitiv sökning lagrar komplexa samlingar som faktiska samlingar av under dokument, medan enkla samlingar inte lagras som samlingar alls.
 
-Tänk dig till exempel ett filterbart strängsamlingsfält som `seasons` i ett index för en onlineåterförsäljare. Vissa dokument som överförs till det här indexet kan se ut så här:
+Du kan till exempel välja ett filter bara sträng samlings `seasons` fält som i ett index för en online-återförsäljare. Vissa dokument som överförs till det här indexet kan se ut så här:
 
 ```json
 {
@@ -136,18 +136,18 @@ Tänk dig till exempel ett filterbart strängsamlingsfält som `seasons` i ett i
 }
 ```
 
-Värdena för `seasons` fältet lagras i en struktur som kallas ett **inverterat index**, vilket ser ut ungefär så här:
+Värdena i `seasons` fältet lagras i en struktur som kallas **inverterat index**, vilket ser ut ungefär så här:
 
-| Period | Dokument-ID:er |
+| Period | Dokument-ID |
 | --- | --- |
-| Våren | 1, 2 |
-| Sommaren | 1 |
-| Falla | 1, 2 |
-| Vintern | 2, 3 |
+| upphängning | 1, 2 |
+| Summer | 1 |
+| kopplade | 1, 2 |
+| vinter | 2, 3 |
 
-Denna datastruktur är utformad för att svara på en fråga med stor hastighet: I vilka dokument visas en viss term? Att svara på den här frågan fungerar mer som en vanlig jämställdhetskontroll än en slinga över en samling. I själva verket är det därför för strängsamlingar, Azure Cognitive Search `eq` `any`tillåter bara som en jämförelse operatör inuti en lambda uttryck för .
+Den här data strukturen är utformad för att svara på en fråga med bra hastighet: i vilka dokument visas en specifik term? Att besvara den här frågan fungerar mer som en vanlig likhets kontroll än en slinga över en samling. I själva verket är anledningen till varför för sträng samlingar, Azure Kognitiv sökning bara `eq` att tillåta som en jämförelse operator i ett lambda `any`-uttryck för.
 
-Bygga upp från jämställdhet, nästa ska vi titta på hur det är möjligt `or`att kombinera flera jämställdhet kontroller på samma intervall variabel med . Det fungerar tack vare algebra och [distributiongenskap kvantifierare](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Detta uttryck:
+Skapa upp från likhet, härnäst ska vi titta på hur det är möjligt att kombinera flera likhets kontroller i samma intervall variabel med `or`. Det fungerar tack vare algebra och [disfördelnings egenskapen för kvantifierare](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Det här uttrycket:
 
     seasons/any(s: s eq 'winter' or s eq 'fall')
 
@@ -155,7 +155,7 @@ motsvarar:
 
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
 
-och vart och `any` ett av de två undertrycken kan utföras effektivt med det inverterade indexet. Också, tack vare [negation lagen av kvantifierare](https://en.wikipedia.org/wiki/Existential_quantification#Negation), detta uttryck:
+och var och en av `any` de två del uttrycken kan köras effektivt med det inverterade indexet. Detta uttryck är också tack vare [negations lagstiftningen för kvantifierare](https://en.wikipedia.org/wiki/Existential_quantification#Negation):
 
     seasons/all(s: s ne 'winter' and s ne 'fall')
 
@@ -163,33 +163,33 @@ motsvarar:
 
     not seasons/any(s: s eq 'winter' or s eq 'fall')
 
-det är därför det är `all` `ne` möjligt `and`att använda med och .
+Därför är det möjligt att använda `all` med `ne` och. `and`
 
 > [!NOTE]
-> Även om detaljerna ligger utanför detta dokuments räckvidd sträcker sig samma principer till [avstånds- och skärningstester även för samlingar av geospatialska punkter.](search-query-odata-geo-spatial-functions.md) Det är därför, i: `any`
+> Även om informationen ligger utanför det här dokumentets omfattning, utökas samma principer till [avstånds-och skärnings test för samlingar med geo-spatiala punkter](search-query-odata-geo-spatial-functions.md) . Detta är varför, i `any`:
 >
-> - `geo.intersects`kan inte förnekas
-> - `geo.distance`måste jämföras `lt` med eller`le`
-> - uttryck måste kombineras `or`med , inte`and`
+> - `geo.intersects`kan inte vara negationt
+> - `geo.distance`måste jämföras med `lt` eller`le`
+> - uttryck måste kombineras med `or`, inte`and`
 >
-> De omvända `all`reglerna gäller för .
+> De omvända reglerna gäller för `all`.
 
-Ett bredare utbud av uttryck tillåts vid filtrering `lt`på `gt` `le`samlingar `ge` av datatyper `Collection(Edm.Int32)` som stöder operatorerna , , och, till exempel. Specifikt kan du `and` använda såväl `or` `any`som i , så länge de underliggande jämförelseuttrycken kombineras till `or` **intervalljämnlar** med `and`, som sedan kombineras ytterligare med . Denna struktur av booleska uttryck kallas [Disjunctive Normal Form (DNF)](https://en.wikipedia.org/wiki/Disjunctive_normal_form), annars känd som "ORs of ANDs". Däremot måste lambda-uttryck `all` för dessa datatyper vara i [konjunktiv normalform (CNF),](https://en.wikipedia.org/wiki/Conjunctive_normal_form)även kallade "ANDs of ORs". Azure Cognitive Search tillåter sådana intervalljämlikhet eftersom den kan köra dem med hjälp av inverterade index effektivt, precis som det kan göra snabb termsökning för strängar.
+En större mängd uttryck är tillåtna vid filtrering av samlingar med data typer som stöder operatorerna `lt`, `gt` `le`, och `ge` , till `Collection(Edm.Int32)` exempel. Mer specifikt kan du använda `and` och `or` i `any`, förutsatt att de underliggande jämförelse uttrycken kombineras till **intervall jämförelser** med `and`, som sedan kombineras med. `or` Den här strukturen av booleska uttryck kallas [Disjunctive normal form (DNF)](https://en.wikipedia.org/wiki/Disjunctive_normal_form), annars kallat "ORS of ANDs". Lambda-uttryck för `all` för dessa data typer måste däremot vara i [Conjunctive normal form (CNF)](https://en.wikipedia.org/wiki/Conjunctive_normal_form), annars kallat "ANDs of ORS". Med Azure Kognitiv sökning kan du jämföra dessa intervall eftersom de kan köra dem med inverterade index effektivt, precis som det kan göra snabba sökningar efter strängar.
 
-Sammanfattningsvis, här är tumreglerna för vad som är tillåtet i en lambda uttryck:
+Sammanfattnings vis är reglerna för tummen för vad som tillåts i ett lambda-uttryck:
 
-- Inuti `any`är *positiva kontroller* alltid tillåtna, som `geo.intersects`jämlikhet, intervalljämförelser, eller `geo.distance` jämförs med `lt` eller `le` (tänk på "närhet" som att vara som jämställdhet när det gäller att kontrollera avstånd).
-- Inuti `any` `or` , är alltid tillåtet. Du kan `and` bara använda för datatyper som kan uttrycka intervallkontroller, och endast om du använder ORs av ANDs (DNF).
-- Inuti `all`är reglerna omvända – endast *negativa kontroller* tillåts, du kan alltid använda `and` och du kan bara använda `or` för intervallkontroller uttryckta som ANDs of ORs (CNF).
+- I `any`är *positiva kontroller* alltid tillåtna, som likhet, intervall jämförelser `geo.intersects`, eller `geo.distance` jämfört med `lt` eller `le` (Tänk på "nära", som likhet när det kommer att kontrol lera avståndet).
+- `or` Inuti `any`tillåts alltid. Du kan bara `and` använda för data typer som kan uttrycka intervall kontroller och endast om du använder ORS av ands (DNF).
+- I `all`är reglerna inverterade – endast *negativa kontroller* tillåts, du kan använda `and` Always och du kan endast använda `or` för intervall kontroller som uttryckts som ANDs av ORS (CNF).
 
-I praktiken är det de typer av filter som du mest sannolikt kommer att använda ändå. Det är fortfarande bra att förstå gränserna för vad som är möjligt ändå.
+I praktiken är dessa de typer av filter som du är mest troligt att använda ändå. Det är fortfarande bra att förstå gränserna för vad som är möjligt trots detta.
 
-Specifika exempel på vilka typer av filter som är tillåtna och vilka som inte är det finns i [Så här skriver du giltiga samlingsfilter](search-query-troubleshoot-collection-filters.md#bkmk_examples).
+Ett exempel på vilka typer av filter som är tillåtna och vilka som inte är, finns i [så här skriver du giltiga samlings filter](search-query-troubleshoot-collection-filters.md#bkmk_examples).
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Felsöka OData-samlingsfilter i Azure Cognitive Search](search-query-troubleshoot-collection-filters.md)
-- [Filter i Azure Cognitive Search](search-filters.md)
-- [Språköversikt för OData-uttryck för Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Syntaxreferens för OData-uttryck för Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Sökdokument &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Felsöka OData Collection filter i Azure Kognitiv sökning](search-query-troubleshoot-collection-filters.md)
+- [Filter i Azure Kognitiv sökning](search-filters.md)
+- [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

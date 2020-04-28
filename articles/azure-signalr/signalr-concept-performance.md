@@ -1,88 +1,88 @@
 ---
 title: Prestandaguide för Azure SignalR Service
-description: En översikt över prestanda och riktmärke för Azure SignalR-tjänsten. Viktiga mått att tänka på när du planerar kapaciteten.
+description: En översikt över prestanda och benchmark för Azure SignalR-tjänsten. Viktiga mått att tänka på när du planerar kapaciteten.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74157668"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Prestandaguide för Azure SignalR Service
 
-En av de viktigaste fördelarna med att använda Azure SignalR-tjänsten är hur enkelt det är att skala SignalR-program. I ett storskaligt scenario är prestanda en viktig faktor. 
+En av de främsta fördelarna med att använda Azure SignalR service är det enkelt att skala signal program. I ett storskaligt scenario är prestanda en viktig faktor. 
 
-I den här guiden introducerar vi de faktorer som påverkar SignalR-programmets prestanda. Vi beskriver typiska prestanda i olika användningsfallsscenarier. I slutändan introducerar vi miljön och verktygen som du kan använda för att generera en prestandarapport.
+I den här guiden ska vi införa faktorer som påverkar signal programmets prestanda. Vi beskriver typiska prestanda i olika användnings fall. I slutet presenterar vi den miljö och de verktyg som du kan använda för att generera en prestanda rapport.
 
-## <a name="term-definitions"></a>Termdefinitioner
+## <a name="term-definitions"></a>Term definitioner
 
-*Inkommande*: Det inkommande meddelandet till Azure SignalR Service.
+*Inkommande*: inkommande meddelande till Azure SignalR-tjänsten.
 
-*Utgående*: Det utgående meddelandet från Azure SignalR Service.
+*Utgående*: utgående meddelande från Azure SignalR-tjänsten.
 
-*Bandbredd:* Den totala storleken på alla meddelanden på 1 sekund.
+*Bandbredd*: den totala storleken på alla meddelanden i 1 sekund.
 
-*Standardläge:* Standardarbetsläget när en Azure SignalR-tjänstinstans skapades. Azure SignalR Service förväntar sig att appservern upprättar en anslutning till den innan den accepterar eventuella klientanslutningar.
+*Standard läge*: standard arbets läget när en Azure SignalR-tjänstinstans skapades. Azure SignalR-tjänsten förväntar sig att app servern upprättar en anslutning till den innan den accepterar eventuella klient anslutningar.
 
-*Serverlöst läge*: Ett läge där Azure SignalR-tjänsten endast accepterar klientanslutningar. Ingen serveranslutning är tillåten.
+*Läge utan server*: ett läge där Azure SignalR service bara accepterar klient anslutningar. Ingen server anslutning tillåts.
 
 ## <a name="overview"></a>Översikt
 
-Azure SignalR-tjänsten definierar sju standardnivåer för olika prestandakapaciteter. Den här guiden besvarar följande frågor:
+Azure SignalR service definierar sju standard nivåer för olika prestanda kapaciteter. I den här hand boken besvaras följande frågor:
 
--   Vilken är den typiska Azure SignalR-tjänstens prestanda för varje nivå?
+-   Vad är den typiska Azure SignalR service-prestandan för varje nivå?
 
--   Uppfyller Azure SignalR-tjänsten mina krav för meddelandedataflöde (till exempel att skicka 100 000 meddelanden per sekund)?
+-   Uppfyller Azure SignalR-tjänsten Mina krav för meddelande data flöde (till exempel skicka 100 000 meddelanden per sekund)?
 
--   Vilken nivå är lämplig för mig för mitt specifika scenario? Eller hur kan jag välja rätt nivå?
+-   Vilken nivå är lämplig för mig för mitt speciella scenario? Eller hur kan jag välja rätt nivå?
 
--   Vilken typ av appserver (VM-storlek) är lämplig för mig? Hur många av dem ska jag distribuera?
+-   Vilken typ av app server (VM-storlek) är lämplig för mig? Hur många av dem ska jag distribuera?
 
-För att besvara dessa frågor ger den här guiden först en förklaring på hög nivå av de faktorer som påverkar prestanda. Den illustrerar sedan maximalt inkommande och utgående meddelanden för alla nivåer för typiska användningsfall: **eko**, **broadcast,** **skicka till grupp**och skicka till **anslutning** (peer-to-peer-chattning).
+För att besvara dessa frågor ger den här guiden först en övergripande förklaring av de faktorer som påverkar prestandan. Den visar sedan de maximalt inkommande och utgående meddelandena för varje nivå för vanliga användnings fall: **eko**, **sändning**, **Skicka till grupp**och **Skicka till anslutning** (peer-to-peer-samtal).
 
-Den här guiden kan inte omfatta alla scenarier (och olika användningsfall, meddelandestorlekar, meddelandesändningsmönster och så vidare). Men det ger några metoder för att hjälpa dig:
+Den här guiden beskriver inte alla scenarier (och olika användnings fall, meddelande storlekar, meddelanden som skickar mönster och så vidare). Men det finns några metoder som hjälper dig att:
 
 - Utvärdera ditt ungefärliga krav för inkommande eller utgående meddelanden.
-- Hitta rätt nivåer genom att kontrollera prestandatabellen.
+- Hitta rätt nivåer genom att kontrol lera tabellen Performance.
 
-## <a name="performance-insight"></a>Resultatinsikt
+## <a name="performance-insight"></a>Prestanda insikter
 
-I det här avsnittet beskrivs metoderna för utvärdering av prestanda och alla faktorer som påverkar prestanda visas. I slutändan innehåller den metoder som hjälper dig att utvärdera prestandakrav.
+I det här avsnittet beskrivs metoder för prestanda utvärdering och en lista över alla faktorer som påverkar prestandan. I slutet innehåller den metoder som hjälper dig att utvärdera prestanda kraven.
 
 ### <a name="methodology"></a>Metodik
 
-*Dataflöde* och *svarstid* är två typiska aspekter av prestandakontroll. För Azure SignalR-tjänst har varje SKU-nivå en egen begränsningsprincip för dataflöde. Principen definierar *det högsta tillåtna dataflödet (inkommande och utgående bandbredd)* som maximalt uppnått dataflöde när 99 procent av meddelandena har svarstid som är mindre än 1 sekund.
+*Data flöde* och *svars tider* är två typiska aspekter av prestanda kontroll. För Azure SignalR-tjänsten har varje SKU-nivå sin egen data flödes begränsnings princip. Principen definierar *högsta tillåtna data flöde (inkommande och utgående bandbredd)* som maximalt uppnått data flöde när 99 procent av meddelanden har svars tid som är mindre än 1 sekund.
 
-Svarstid är tidsintervallet från anslutningen som skickar meddelandet till att ta emot svarsmeddelandet från Azure SignalR Service. Låt oss ta **eko** som ett exempel. Varje klientanslutning lägger till en tidsstämpel i meddelandet. Appserverns nav skickar det ursprungliga meddelandet tillbaka till klienten. Så spridningsfördröjningen beräknas enkelt av varje klientanslutning. Tidsstämpeln är kopplad för varje meddelande i **sändning,** **skicka till grupp**och skicka till **anslutning**.
+Latens är det tidsintervall från anslutningen som skickar meddelandet om att ta emot svarsmeddelandet från Azure SignalR-tjänsten. Vi tar **eko** som exempel. Varje klient anslutning lägger till en tidstämpel i meddelandet. App Server-hubben skickar det ursprungliga meddelandet tillbaka till klienten. Det innebär att spridnings fördröjning enkelt beräknas av varje klient anslutning. Tidstämpeln bifogas för varje meddelande i **sändning**, **Skicka till grupp**och **Skicka till anslutning**.
 
-För att simulera tusentals samtidiga klientanslutningar skapas flera virtuella datorer i ett virtuellt privat nätverk i Azure. Alla dessa virtuella datorer ansluter till samma Azure SignalR-tjänstinstans.
+För att simulera tusentals samtidiga klient anslutningar skapas flera virtuella datorer i ett virtuellt privat nätverk i Azure. Alla dessa virtuella datorer ansluter till samma Azure SignalR-tjänstinstans.
 
-I standardläget för Azure SignalR Service distribueras virtuella appserver-datorer i samma virtuella privata nätverk som klient-virtuella datorer. Alla virtuella klient-datorer och virtuella appserver-datorer distribueras i samma nätverk i samma region för att undvika svarstid mellan regioner.
+I standard läget för Azure SignalR-tjänsten distribueras virtuella dator servrar i samma virtuella privata nätverk som klientens virtuella datorer. Alla virtuella klient datorer och virtuella App Server-datorer distribueras i samma nätverk av samma region för att undvika fördröjning mellan regioner.
 
-### <a name="performance-factors"></a>Prestandafaktorer
+### <a name="performance-factors"></a>Prestanda faktorer
 
-Teoretiskt begränsas Azure SignalR-tjänstkapaciteten av beräkningsresurser: CPU, minne och nätverk. Till exempel orsakar fler anslutningar till Azure SignalR-tjänsten att tjänsten använder mer minne. För större meddelandetrafik (till exempel är varje meddelande större än 2 048 byte) behöver Azure SignalR-tjänsten spendera mer CPU-cykler för att bearbeta trafik. Samtidigt innebär Azure-nätverksbandbredd också en gräns för maximal trafik.
+Teoretiskt sett är Azure SignalR service-kapaciteten begränsad av beräknings resurser: processor, minne och nätverk. Till exempel orsakar fler anslutningar till Azure SignalR service att tjänsten använder mer minne. För större meddelande trafik (till exempel varje meddelande är större än 2 048 byte) måste Azure Signaling-tjänsten spendera fler CPU-cykler för att bearbeta trafiken. Samtidigt utgör Azure Network-bandbredden också en gräns för maximal trafik.
 
-Transporttypen är en annan faktor som påverkar prestanda. De tre typerna är [WebSocket,](https://en.wikipedia.org/wiki/WebSocket) [Server-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events)och [Long-Polling](https://en.wikipedia.org/wiki/Push_technology). 
+Transport typen är en annan faktor som påverkar prestandan. De tre typerna är [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [Server-skickat – händelse](https://en.wikipedia.org/wiki/Server-sent_events)och [lång avsökning](https://en.wikipedia.org/wiki/Push_technology). 
 
-WebSocket är ett dubbelriktat och fullständigt dubbelsidigt kommunikationsprotokoll över en enda TCP-anslutning. Server-Sent-Event är ett enkelriktat protokoll för att skicka meddelanden från server till klient. Long-Polling kräver att klienterna regelbundet avsöker information från servern via en HTTP-begäran. För samma API under samma förhållanden har WebSocket bästa prestanda, Server-Sent-Event är långsammare och Long-Polling är den långsammaste. Azure SignalR Service rekommenderar WebSocket som standard.
+WebSocket är ett dubbelriktat kommunikations protokoll med dubbelriktad duplex över en enda TCP-anslutning. Server-skickat – händelse är ett enkelriktat protokoll för att skicka meddelanden från server till klient. Lång avsökning kräver att klienterna regelbundet avsöker information från servern via en HTTP-begäran. För samma API har WebSocket den bästa prestandan, servern som skickas, är långsammare och lång avsökning är långsammast. Azure SignalR service rekommenderar WebSocket som standard.
 
-Kostnaden för meddelanderoutning begränsar också prestanda. Azure SignalR-tjänsten spelar en roll som en meddelanderouter, som dirigerar meddelandet från en uppsättning klienter eller servrar till andra klienter eller servrar. Ett annat scenario eller API kräver en annan routningsprincip. 
+Kostnaden för vidarebefordring av meddelanden begränsar också prestanda. Azure SignalR service spelar en roll som en Message router, som dirigerar meddelandet från en uppsättning klienter eller servrar till andra klienter eller servrar. Ett annat scenario eller API kräver en annan princip för routning. 
 
-För **echo**skickar klienten ett meddelande till sig själv och routningsmålet är också själv. Det här mönstret har den lägsta flödeskostnaden. Men för **broadcast,** **skicka till grupp**och skicka till **anslutning**, Azure SignalR Service måste slå upp målanslutningar via den interna distribuerade datastrukturen. Den här extra bearbetningen använder mer cpu, minne och nätverksbandbredd. Som ett resultat är prestanda långsammare.
+För **ECHO**skickar klienten ett meddelande till sig själv, och routningstjänsten är också själva. Det här mönstret har den lägsta produktionskostnaden. Men för **sändning**, **Skicka till grupp**och **Skicka till anslutning**måste Azure Signaling-tjänsten leta upp mål anslutningarna via den interna distribuerade data strukturen. Den här extra bearbetningen använder mer processor, minne och nätverks bandbredd. Därför är prestanda långsammare.
 
-I standardläget kan appservern också bli en flaskhals för vissa scenarier. Azure SignalR SDK måste anropa navet, medan den upprätthåller en live-anslutning med varje klient via pulsslagssignaler.
+I standard läget kan app-servern också bli en Flask hals för vissa scenarier. Azure SignalR SDK måste anropa hubben, medan den upprätthåller en Live-anslutning med varje klient genom pulsslags signaler.
 
-I serverlöst läge skickar klienten ett meddelande via HTTP-inlägg, vilket inte är lika effektivt som WebSocket.
+I server utan läge skickar klienten ett meddelande via HTTP post, vilket inte är lika effektivt som WebSocket.
 
-En annan faktor är protokoll: JSON och [MessagePack](https://msgpack.org/index.html). MessagePack är mindre i storlek och levereras snabbare än JSON. MessagePack kanske inte förbättrar prestanda. Prestanda för Azure SignalR-tjänsten är inte känslig för protokoll eftersom den inte avkodar meddelandenyttolasten under vidarebefordran av meddelanden från klienter till servrar eller vice versa.
+En annan faktor är protokoll: JSON och [MessagePack](https://msgpack.org/index.html). MessagePack har mindre storlek och levereras snabbare än JSON. MessagePack kanske inte ger bättre prestanda, men. Prestandan för Azure SignalR-tjänsten är inte känslig för protokoll eftersom den inte avkodar meddelande nytto lasten vid vidarebefordran av meddelanden från klienter till servrar eller vice versa.
 
-Sammanfattningsvis påverkar följande faktorer den inkommande och utgående kapaciteten:
+I sammanfattning påverkar följande faktorer den inkommande och utgående kapaciteten:
 
 -   SKU-nivå (CPU/minne)
 
@@ -90,134 +90,134 @@ Sammanfattningsvis påverkar följande faktorer den inkommande och utgående kap
 
 -   Meddelandestorlek
 
--   Sändningshastighet för meddelanden
+-   Antal meddelande utskick
 
--   Transporttyp (WebSocket, Server-Sent-Event eller Long-Polling)
+-   Transport typ (WebSocket, Server-skickat-händelse eller lång avsökning)
 
--   Användningsscenario (operationsföljdskostnad)
+-   Användnings Falls scenario (vidarebefordring av kostnader)
 
--   Appserver- och tjänstanslutningar (i serverläge)
+-   App Server-och tjänst anslutningar (i server läge)
 
 
-### <a name="finding-a-proper-sku"></a>Hitta en riktig SKU
+### <a name="finding-a-proper-sku"></a>Hitta en korrekt SKU
 
-Hur kan du utvärdera den inkommande/utgående kapaciteten eller hitta vilken nivå som är lämplig för ett specifikt användningsfall?
+Hur kan du utvärdera den inkommande/utgående kapaciteten eller hitta vilken nivå som passar för ett speciellt användnings fall?
 
-Anta att appservern är tillräckligt kraftfull och inte är flaskhalsen i prestanda. Kontrollera sedan den maximala inkommande och utgående bandbredden för varje nivå.
+Anta att app server är tillräckligt kraftfull och inte är prestanda Flask halsen. Kontrol lera sedan den högsta inkommande och utgående bandbredden för varje nivå.
 
 #### <a name="quick-evaluation"></a>Snabb utvärdering
 
-Låt oss förenkla utvärderingen först genom att anta några standardinställningar: 
+Vi fören klar utvärderingen först genom att använda vissa standardinställningar: 
 
-- Transporttypen är WebSocket.
-- Meddelandestorleken är 2 048 byte.
-- Ett meddelande skickas var 1 sekund.
-- Azure SignalR-tjänsten är i standardläge.
+- Transport typen är WebSocket.
+- Meddelande storleken är 2 048 byte.
+- Ett meddelande skickas varje 1 sekund.
+- Azure SignalR service är i standard läge.
 
-Varje nivå har sin egen maximala inkommande bandbredd och utgående bandbredd. En smidig användarupplevelse garanteras inte när den inkommande eller utgående anslutningen överskrider gränsen.
+Varje nivå har sin egen maximala inkommande bandbredd och utgående bandbredd. En smidig användar upplevelse garanterar inte att den inkommande eller utgående anslutningen överskrider gränsen.
 
-**Echo** ger maximal inkommande bandbredd eftersom den har den lägsta routningskostnaden. **Broadcast** definierar den maximala utgående meddelandebandbredden.
+**ECHO** ger maximal inkommande bandbredd eftersom den har den lägsta produktionskostnaden. **Sändning** definierar den maximala bandbredden för utgående meddelanden.
 
-Överskrid *inte* de markerade värdena i följande två tabeller.
+Överskrider *inte* de markerade värdena i följande två tabeller.
 
-|       Echo                        | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar                       | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| **Inkommande bandbredd** | **2 Mbit/s**    | **4 Mbit/s**    | **10 Mbit/s**   | **20 MBps**    | **40 MBps**    | **100 MBps**   | **200 MBps**    |
-| Utgående bandbredd | 2 Mbit/s   | 4 Mbit/s   | 10 Mbit/s  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
+| **Inkommande bandbredd** | **2 Mbit/s**    | **4 Mbit/s**    | **10 Mbit/s**   | **20 Mbit/s**    | **40 Mbit/s**    | **100 Mbit/s**   | **200 Mbit/s**    |
+| Utgående bandbredd | 2 Mbit/s   | 4 Mbit/s   | 10 Mbit/s  | 20 Mbit/s   | 40 Mbit/s   | 100 Mbit/s  | 200 Mbit/s   |
 
 
-|     Sändning             | Enhet1 | Enhet2 | Enhet5  | Enhet10 | Enhet20 | Enhet50  | Enhet100 |
+|     Sändning             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Anslutningar               | 1,000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Inkommande bandbredd  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps    |
-| **Utgående bandbredd** | **4 Mbit/s**    | **8 Mbit/s**    | **20 MBps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400 MBps**   |
+| **Utgående bandbredd** | **4 Mbit/s**    | **8 Mbit/s**    | **20 Mbit/s**    | **40 Mbit/s**    | **80 Mbit/s**    | **200 Mbit/s**    | **400 Mbit/s**   |
 
-*Inkommande bandbredd* och *utgående bandbredd* är den totala meddelandestorleken per sekund.  Här är formlerna för dem:
+*Inkommande bandbredd* och *utgående bandbredd* är total meddelande storlek per sekund.  Här följer formlerna för dem:
 ```
   inboundBandwidth = inboundConnections * messageSize / sendInterval
   outboundBandwidth = outboundConnections * messageSize / sendInterval
 ```
 
-- *inkommandeAnslutningar*: Antalet anslutningar som skickar meddelandet.
+- *inboundConnections*: antalet anslutningar som skickar meddelandet.
 
-- *utgåendeAnslutningar*: Antalet anslutningar som tar emot meddelandet.
+- *outboundConnections*: antalet anslutningar som tar emot meddelandet.
 
-- *messageSize*: Storleken på ett enskilt meddelande (genomsnittligt värde). Ett litet meddelande som är mindre än 1 024 byte har en prestandapåverkan som liknar ett meddelande på 1 024 byte.
+- *messageSize*: storleken på ett enskilt meddelande (genomsnittligt värde). Ett litet meddelande som är mindre än 1 024 byte har en prestanda påverkan som liknar ett meddelande med 1 024 byte.
 
-- *sendInterval*: Tiden för att skicka ett meddelande. Vanligtvis är det 1 sekund per meddelande, vilket innebär att skicka ett meddelande varje sekund. Ett mindre intervall innebär att skicka fler meddelanden under en tidsperiod. Till exempel innebär 0,5 sekunder per meddelande att två meddelanden skickas varje sekund.
+- *sendInterval*: tiden för att skicka ett meddelande. Vanligt vis är det 1 sekund per meddelande, vilket innebär att skicka ett meddelande varje sekund. Ett mindre intervall innebär att skicka fler meddelanden under en tids period. Till exempel betyder 0,5 sekunder per meddelande att skicka två meddelanden varje sekund.
 
-- *Anslutningar*: Den bekräftade maximala tröskelvärdet för Azure SignalR-tjänst för varje nivå. Om anslutningsnumret ökas ytterligare kommer det att drabbas av anslutningsbegränsning.
+- *Anslutningar*: det maximala tröskelvärdet för Azure SignalR service för varje nivå. Om anslutnings numret ökar ytterligare kommer det att påverkas av anslutnings begränsningen.
 
-#### <a name="evaluation-for-complex-use-cases"></a>Utvärdering för komplexa användningsfall
+#### <a name="evaluation-for-complex-use-cases"></a>Utvärdering för komplexa användnings fall
 
-##### <a name="bigger-message-size-or-different-sending-rate"></a>Större meddelandestorlek eller annan sändningshastighet
+##### <a name="bigger-message-size-or-different-sending-rate"></a>Större meddelande storlek eller annan sändnings hastighet
 
-Det verkliga användningsfallet är mer komplicerat. Det kan skicka ett meddelande som är större än 2 048 byte, eller så är meddelandefrekvensen inte ett meddelande per sekund. Låt oss ta Unit100:s sändning som ett exempel för att hitta hur du utvärderar dess prestanda.
+Det verkliga användnings fallet är mer komplicerat. Det kan skicka ett meddelande som är större än 2 048 byte, eller så är sändnings hastigheten inte ett meddelande per sekund. Låt oss ta Unit100's broadcast som ett exempel för att hitta hur du ska utvärdera dess prestanda.
 
-I följande tabell visas ett verkligt användningsfall **för sändning**. Men meddelandestorlek, antal anslutningar och meddelandesändning skiljer sig från vad vi antog i föregående avsnitt. Frågan är hur vi kan härleda någon av dessa objekt (meddelandestorlek, anslutningsantal eller meddelande sändningshastighet) om vi bara känner till två av dem.
+I följande tabell visas ett verkligt användnings fall av **sändningen**. Men storleken på meddelandet, antalet anslutningar och sändnings hastigheten för meddelanden skiljer sig från vad vi antog i föregående avsnitt. Frågan är hur vi kan härleda något av dessa objekt (meddelande storlek, antal anslutningar eller sändnings hastighet) om vi bara känner till två av dem.
 
 | Sändning  | Meddelandestorlek | Inkommande meddelanden per sekund | Anslutningar | Skicka intervall |
 |---|---------------------|--------------------------|-------------|-------------------------|
-| 1 | 20 KB                | 1                        | 100 000     | 5 sek                      |
-| 2 | 256 kB               | 1                        | 8,000       | 5 sek                      |
+| 1 | 20 KB                | 1                        | 100 000     | 5 SEK                      |
+| 2 | 256 kB               | 1                        | 8,000       | 5 SEK                      |
 
-Följande formel är lätt att dra slutsatsen baserat på föregående formel:
+Följande formel är lätt att härleda baserat på föregående formel:
 
 ```
 outboundConnections = outboundBandwidth * sendInterval / messageSize
 ```
 
-För Unit100 är den maximala utgående bandbredden 400 MB från föregående tabell. För en meddelandestorlek på 20 KB bör den maximala utgående \* anslutningen vara 400 MB 5 / 20 KB = 100 000, vilket motsvarar det verkliga värdet.
+För Unit100 är den maximala utgående bandbredden 400 MB från föregående tabell. För en meddelande storlek på 20 KB ska det högsta antalet utgående anslutningar vara 400 MB \* 5/20 KB = 100 000, som matchar det verkliga värdet.
 
-##### <a name="mixed-use-cases"></a>Fall med blandad användning
+##### <a name="mixed-use-cases"></a>Blandade användnings fall
 
-Det verkliga användningsfallet blandar vanligtvis de fyra grundläggande användningsfallen tillsammans: **echo**, **broadcast,** **send to group**och send to **connection**. Den metod som du använder för att utvärdera kapaciteten är att:
+Det verkliga användnings fallet blandar vanligt vis fyra grundläggande användnings fall: **eko**, **sändning**, **Skicka till grupp**och **Skicka till anslutning**. Den metod som du använder för att utvärdera kapaciteten är att:
 
-1. Dela upp de blandade användningsfallen i fyra grundläggande användningsfall.
-1. Beräkna den maximala inkommande och utgående meddelandebandbredden med hjälp av föregående formler separat.
-1. Summera bandbreddsberäkningarna för att få den totala maximala inkommande/utgående bandbredden. 
+1. Dela in blandade användnings fall i fyra grundläggande användnings fall.
+1. Beräkna den maximala inkommande och utgående meddelande bandbredden med hjälp av föregående formler separat.
+1. Summera bandbredds beräkningarna för att hämta den totala maximala inkommande/utgående bandbredden. 
 
-Plocka sedan upp rätt nivå från de maximala inkommande/utgående bandbreddstabellerna.
+Hämta sedan rätt nivå från tabellerna maximalt antal inkommande/utgående bandbredd.
 
 > [!NOTE]
-> För att skicka ett meddelande till hundratals eller tusentals små grupper, eller för tusentals klienter som skickar ett meddelande till varandra, kommer routningskostnaden att bli dominerande. Ta hänsyn till denna inverkan.
+> För att skicka ett meddelande till hundratals eller tusentals små grupper, eller för tusentals klienter som skickar ett meddelande till varandra, blir produktionskostnaden dominerande. Ta hänsyn till den här effekten.
 
-Kontrollera att appservern *inte* är flaskhalsen för att skicka ett meddelande till klienter. Följande avsnitt "Fallstudie" innehåller riktlinjer för hur många appservrar du behöver och hur många serveranslutningar du ska konfigurera.
+Kontrol lera att app-servern *inte* är Flask hals för användnings fall för att skicka ett meddelande till klienter. Följande "fallstudie" innehåller rikt linjer för hur många App-servrar du behöver och hur många Server anslutningar du ska konfigurera.
 
 ## <a name="case-study"></a>Fallstudie
 
-Följande avsnitt går igenom fyra vanliga användningsfall för WebSocket transport: **echo**, **broadcast,** **send to group**och send to **connection**. För varje scenario visas den aktuella inkommande och utgående kapaciteten för Azure SignalR-tjänsten. Det förklarar också de viktigaste faktorerna som påverkar prestanda.
+Följande avsnitt går igenom fyra vanliga användnings fall för WebSocket-transport: **eko**, **sändning**, **Skicka till grupp**och **Skicka till anslutning**. I avsnittet visas den aktuella inkommande och utgående kapaciteten för Azure SignalR-tjänsten för varje scenario. Den förklarar också de huvudsakliga faktorer som påverkar prestanda.
 
-I standardläget skapar appservern fem serveranslutningar med Azure SignalR Service. Appservern använder Azure SignalR Service SDK som standard. I följande prestandatestresultat ökas serveranslutningarna till 15 (eller mer för sändning och sändning av ett meddelande till en stor grupp).
+I standard läget skapar app server fem Server anslutningar med Azure SignalR-tjänsten. App Server använder Azure SignalR service SDK som standard. I följande prestanda test resultat ökas Server anslutningarna till 15 (eller mer för sändning och sändning av ett meddelande till en stor grupp).
 
-Olika användningsfall har olika krav för appservrar. **Broadcast** behöver ett litet antal appservrar. **Eko** eller **skicka till anslutning** behöver många appservrar.
+Olika användnings fall har olika krav för App-servrar. **Sändningen** behöver ett litet antal App-servrar. **Eko** eller **Skicka till anslutning** kräver många App-servrar.
 
-I alla användningsfall är standardmeddelandestorleken 2 048 byte och meddelandesändningsintervallet är 1 sekund.
+I alla användnings fall är standard meddelande storleken 2 048 byte, och intervallet för meddelande sändning är 1 sekund.
 
-### <a name="default-mode"></a>Standardläge
+### <a name="default-mode"></a>Standard läge
 
-Klienter, webbappservrar och Azure SignalR-tjänst är involverade i standardläget. Varje kund står för en enda anslutning.
+Klienter, webb program servrar och Azure SignalR-tjänsten ingår i standard läget. Varje klient står för en enda anslutning.
 
 #### <a name="echo"></a>Echo
 
-Först ansluter en webbapp till Azure SignalR Service. För det andra ansluter många klienter till webbappen, som omdirigerar klienterna till Azure SignalR-tjänsten med åtkomsttoken och slutpunkten. Sedan upprättar klienterna WebSocket-anslutningar med Azure SignalR-tjänst.
+Först ansluter en webbapp till Azure SignalR-tjänsten. För det andra ansluter många klienter till webbappen, som omdirigerar klienterna till Azure SignalR-tjänsten med åtkomsttoken och slut punkten. Klienterna upprättar WebSocket-anslutningar med Azure SignalR-tjänsten.
 
-När alla klienter har upprättat anslutningar börjar de skicka ett meddelande som innehåller en tidsstämpel till den specifika hubben varje sekund. Navet ekar meddelandet tillbaka till sin ursprungliga klient. Varje klient beräknar svarstiden när den tar emot ekomeddelandet tillbaka.
+När alla klienter upprättar anslutningar börjar de skicka ett meddelande som innehåller en tidsstämpel till den angivna hubben varje sekund. Hubben upprepar meddelandet tillbaka till den ursprungliga klienten. Varje klient beräknar svars tiden när den tar emot eko meddelandet igen.
 
-I följande diagram är 5 till 8 (röd markerad trafik) i en slinga. Loopen körs för en standardvaraktighet (5 minuter) och hämtar statistik för all meddelandefördröjning.
+I följande diagram finns 5 till 8 (röd markerad trafik) i en slinga. Slingan körs för en standard varaktighet (5 minuter) och hämtar statistiken för all meddelande fördröjning.
 
-![Trafik för eko användningsfallet](./media/signalr-concept-performance/echo.png)
+![Trafik för eko användnings fallet](./media/signalr-concept-performance/echo.png)
 
-Beteendet för **eko** avgör att den maximala inkommande bandbredden är lika med den maximala utgående bandbredden. Mer information finns i följande tabell.
+Beteendet för **ECHO** avgör att den högsta inkommande bandbredden är lika med den högsta utgående bandbredden. Mer information finns i följande tabell.
 
-|       Echo                        | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar                       | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Inkommande/utgående meddelanden per sekund | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Inkommande/utgående bandbredd | 2 Mbit/s   | 4 Mbit/s   | 10 Mbit/s  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
+| Inkommande/utgående bandbredd | 2 Mbit/s   | 4 Mbit/s   | 10 Mbit/s  | 20 Mbit/s   | 40 Mbit/s   | 100 Mbit/s  | 200 Mbit/s   |
 
-I det här användningsfallet anropar varje klient navet som definierats i appservern. Navet anropar bara den metod som definierats på den ursprungliga klientsidan. Det här navet är det mest lätta navet för **eko**.
+I det här användnings fallet anropar varje klient hubben som definierats i app-servern. Hubben anropar bara den metod som definierats på den ursprungliga klient sidan. Hubben är den mest lätta hubben för **eko**.
 
 ```
         public void Echo(IDictionary<string, object> data)
@@ -226,213 +226,213 @@ I det här användningsfallet anropar varje klient navet som definierats i appse
         }
 ```
 
-Även för den här enkla hubben är trafiktrycket på appservern framträdande när **ekots** inkommande meddelandebelastning ökar. Detta trafiktryck kräver många appservrar för stora SKU-nivåer. I följande tabell visas antalet appserver för varje nivå.
+Även för den här enkla hubben är trafikbelastningen på App-servern synlig när **inkommande meddelande** belastning ökar. För det här trafik trycket krävs många App-servrar för stora SKU-nivåer. I följande tabell visas antalet App-servrar för varje nivå.
 
 
-|    Echo          | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|    Echo          | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
+| Antal App-servrar | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
-> Appserverns klientanslutningsnummer, meddelandestorlek, meddelandesändningshastighet, SKU-nivå och CPU/minne för appservern påverkar den övergripande **prestandan för ekot**.
+> Klient anslutningens nummer, meddelande storlek, hastighet för meddelande överföring, SKU-nivå och CPU/minne för program servern påverkar den övergripande prestandan för **eko**.
 
 #### <a name="broadcast"></a>Sändning
 
-För **sändning**, när webbappen tar emot meddelandet, sänds det till alla klienter. Ju fler klienter det finns att sända, desto mer meddelande trafik finns till alla klienter. Se följande diagram.
+När webbappen tar emot **meddelandet skickas broadcast**-meddelanden till alla klienter. Det finns fler klienter som kan sändas, desto mer meddelande trafik finns för alla klienter. Se följande diagram.
 
-![Trafik för sändningsanvändningsfallet](./media/signalr-concept-performance/broadcast.png)
+![Trafik för sändningens användnings fall](./media/signalr-concept-performance/broadcast.png)
 
-Ett litet antal kunder sänder. Den inkommande meddelande bandbredden är liten, men den utgående bandbredden är enorm. Bandbredden för utgående meddelanden ökar när klientanslutningen eller sändningshastigheten ökar.
+Ett litet antal klienter sänder. Bandbredden för det inkommande meddelandet är liten, men den utgående bandbredden är enorma. Bandbredden för utgående meddelanden ökar när klient anslutningen eller broadcast-hastigheten ökar.
 
-I följande tabell sammanfattas maximala klientanslutningar, inkommande/utgående meddelandeantal och bandbredd.
+I följande tabell sammanfattas de maximala klient anslutningarna, antal inkommande/utgående meddelanden och bandbredd.
 
-|     Sändning             | Enhet1 | Enhet2 | Enhet5  | Enhet10 | Enhet20 | Enhet50  | Enhet100 |
+|     Sändning             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Anslutningar               | 1,000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Inkommande meddelanden per sekund  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Utgående meddelanden per sekund | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Inkommande bandbredd  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     |
-| Utgående bandbredd | 4 Mbit/s   | 8 Mbit/s   | 20 MBps   | 40 MBps   | 80 MBps   | 200 MBps   | 400 MBps   |
+| Utgående bandbredd | 4 Mbit/s   | 8 Mbit/s   | 20 Mbit/s   | 40 Mbit/s   | 80 Mbit/s   | 200 Mbit/s   | 400 Mbit/s   |
 
-De sändningsklienter som publicerar meddelanden är inte fler än fyra. De behöver färre appservrar jämfört med **eko** eftersom inkommande meddelandebelopp är litet. Två appservrar räcker för både SLA och prestandaöverväganden. Men du bör öka standardserveranslutningarna för att undvika obalans, särskilt för Unit50 och Unit100.
+De sändnings klienter som skickar meddelanden är högst fyra. De behöver färre App-servrar jämfört med **ECHO** eftersom det inkommande meddelande beloppet är litet. Det finns två App-servrar för både SLA-och prestanda överväganden. Men du bör öka standard server anslutningarna för att undvika obalans, särskilt för Unit50 och Unit100.
 
-|   Sändning      | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|   Sändning      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
+| Antal App-servrar | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
-> Öka standardserveranslutningarna från 5 till 40 på varje appserver för att undvika eventuella obalanserade serveranslutningar till Azure SignalR Service.
+> Öka antalet Server anslutningar från 5 till 40 på varje app-server för att undvika eventuella obalanserade Server anslutningar till Azure SignalR-tjänsten.
 >
-> Klientanslutningsnumret, meddelandestorleken, meddelandesändningshastigheten och SKU-nivån påverkar det övergripande resultatet för **sändning**.
+> Klient anslutnings numret, meddelande storleken, antalet skickade meddelanden och SKU-nivån påverkar den övergripande prestandan för **sändning**.
 
 #### <a name="send-to-group"></a>Skicka till grupp
 
-**Användningsfallet skicka till grupp** har ett liknande trafikmönster som ska **sändas**. Skillnaden är att när klienter har upprättat WebSocket-anslutningar med Azure SignalR-tjänst måste de gå med i grupper innan de kan skicka ett meddelande till en viss grupp. Följande diagram illustrerar trafikflödet.
+Användnings fallet **Skicka till grupp** har ett liknande trafik mönster som **skickas**. Skillnaden är att när klienterna upprättar WebSocket-anslutningar med Azure SignalR-tjänsten måste de gå med i grupper innan de kan skicka ett meddelande till en speciell grupp. Följande diagram illustrerar trafikflödet.
 
-![Trafik för användningsfallet för skicka till grupp](./media/signalr-concept-performance/sendtogroup.png)
+![Trafik för användnings fall för sändning till grupp](./media/signalr-concept-performance/sendtogroup.png)
 
-Gruppmedlem och gruppantal är två faktorer som påverkar prestanda. För att förenkla analysen definierar vi två typer av grupper:
+Grupp medlem och antal grupper är två faktorer som påverkar prestandan. För att förenkla analysen definierar vi två typer av grupper:
 
-- **Liten grupp:** Varje grupp har 10 anslutningar. Gruppnumret är lika med (max anslutningsantal) / 10. Till exempel för Enhet1, om det finns 1000 anslutningsantal, så har vi 1000 / 10 = 100 grupper.
+- **Liten grupp**: varje grupp har 10 anslutningar. Grupp numret är lika med (max antal anslutningar)/10. Om det till exempel finns 1 000 anslutnings antal för Unit1 har vi 1000/10 = 100 grupper.
 
-- **Stor grupp:** Gruppnumret är alltid 10. Antalet gruppmedlemmar är lika med (max anslutningsantal) / 10. Till exempel för Unit1, om det finns 1000 anslutningsantal, har varje grupp 1000 / 10 = 100 medlemmar.
+- **Stor grupp**: grupp numret är alltid 10. Antalet grupp medlemmar är lika med (max antal anslutningar)/10. Om det till exempel finns 1 000 anslutnings antal för Unit1, har varje grupp 1000/10 = 100 medlemmar.
 
-**Skicka till grupp** ger en routningskostnad till Azure SignalR-tjänsten eftersom den måste hitta målanslutningarna via en distribuerad datastruktur. När de sändande anslutningarna ökar ökar kostnaden.
+**Skicka till grupp** ger en produktionskostnad till Azure SignalR-tjänsten eftersom den måste hitta mål anslutningarna via en distribuerad data struktur. Kostnaden ökar när sändnings anslutningarna ökar.
 
 ##### <a name="small-group"></a>Liten grupp
 
-Flödeskostnaden är viktig för att skicka meddelanden till många små grupper. Azure SignalR-tjänstimplementeringen når kostnadsgränsen för routning på Unit50. Att lägga till mer CPU och minne hjälper inte, så Unit100 kan inte förbättras ytterligare genom design. Om du behöver mer inkommande bandbredd kontaktar du kundtjänst.
+Produktionskostnaden är viktig för att skicka meddelanden till många små grupper. Azure SignalR service-implementeringen träffar för närvarande en kostnads gräns för Unit50. Det går inte att lägga till mer processor och minne, så Unit100 kan inte förbättras ytterligare genom att utforma. Kontakta kund support om du behöver mer inkommande bandbredd.
 
-|   Skicka till liten grupp     | Enhet1 | Enhet2 | Enhet5  | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|   Skicka till liten grupp     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50 | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
 | Anslutningar               | 1,000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000 | 100 000
-| Antal medlemmar i grupp        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
+| Antal grupp medlemmar        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
 | Antal grupper               | 100   | 200   | 500    | 1,000  | 2 000  | 5 000  | 10 000 
-| Inkommande meddelanden per sekund  | 200   | 400   | 1,000  | 2 500  | 4 000  | 7,000  | 7,000   |
-| Inkommande bandbredd  | 400 KBps  | 800 KBps  | 2 Mbit/s     | 5 Mbit/s     | 8 Mbit/s     | 14 MBps    | 14 MBps     |
-| Utgående meddelanden per sekund | 2 000 | 4 000 | 10 000 | 25,000 | 40 000 | 70,000 | 70,000  |
-| Utgående bandbredd | 4 Mbit/s    | 8 Mbit/s    | 20 MBps    | 50 MBps     | 80 MBps    | 140 MBps   | 140 MBps    |
+| Inkommande meddelanden per sekund  | 200   | 400   | 1,000  | 2 500  | 4 000  | 7 000  | 7 000   |
+| Inkommande bandbredd  | 400 KBps  | 800 KBps  | 2 Mbit/s     | 5 Mbit/s     | 8 Mbit/s     | 14 Mbit/s    | 14 Mbit/s     |
+| Utgående meddelanden per sekund | 2 000 | 4 000 | 10 000 | 25,000 | 40 000 | 70 000 | 70 000  |
+| Utgående bandbredd | 4 Mbit/s    | 8 Mbit/s    | 20 Mbit/s    | 50 Mbit/s     | 80 Mbit/s    | 140 Mbit/s   | 140 Mbit/s    |
 
-Många klientanslutningar anropar navet, så appservernumret är också avgörande för prestanda. I följande tabell visas antalet föreslagna appserver.
+Många klient anslutningar anropar hubben, så app server-numret är också kritiskt för prestanda. I följande tabell visas de föreslagna antalet App-servrar.
 
-|  Skicka till liten grupp   | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|  Skicka till liten grupp   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
+| Antal App-servrar | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
-> Appserverns klientanslutningsnummer, meddelandestorlek, meddelandeöverföringshastighet, routningskostnad, SKU-nivå och CPU/minne för appservern påverkar den övergripande prestandan **för sändning till liten grupp**.
+> Klient anslutnings numret, meddelande storleken, överförings hastigheten, tillverkningskostnaden, SKU-nivån och CPU/minne för program servern påverkar den övergripande prestandan för **Skicka till liten grupp**.
 
 ##### <a name="big-group"></a>Stor grupp
 
-För **skicka till stor grupp**blir den utgående bandbredden flaskhalsen innan du når gränsen för routningskostnad. I följande tabell visas den maximala utgående bandbredden, vilket är nästan samma som för **sändning**.
+För **att skicka till Big-gruppen**blir den utgående bandbredden Flask hals innan du påträffar den kostnads gränsen för routning. I följande tabell visas den maximala utgående bandbredden som är nästan samma som för **sändning**.
 
-|    Skicka till stor grupp      | Enhet1 | Enhet2 | Enhet5  | Enhet10 | Enhet20 | Enhet50  | Enhet100 |
+|    Skicka till stor grupp      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Anslutningar               | 1,000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000
-| Antal medlemmar i grupp        | 100   | 200   | 500    | 1,000  | 2 000  | 5 000   | 10 000 
+| Antal grupp medlemmar        | 100   | 200   | 500    | 1,000  | 2 000  | 5 000   | 10 000 
 | Antal grupper               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Inkommande meddelanden per sekund  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
-| Inkommande bandbredd  | 80 KBps   | 40 KBps   | 40 KBps    | 20 KBps (20 KBps)    | 40 KBps    | 40 KBps     | 40 KBps     |
+| Inkommande bandbredd  | 80 KBps   | 40 KBps   | 40 KBps    | 20 kbit/s    | 40 KBps    | 40 KBps     | 40 KBps     |
 | Utgående meddelanden per sekund | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
-| Utgående bandbredd | 8 Mbit/s    | 8 Mbit/s    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
+| Utgående bandbredd | 8 Mbit/s    | 8 Mbit/s    | 20 Mbit/s    | 40 Mbit/s    | 80 Mbit/s    | 200 Mbit/s    | 400 Mbit/s    |
 
-Antalet sändande anslutningar är inte mer än 40. Bördan på appservern är liten, så det föreslagna antalet webbappar är litet.
+Antalet sändnings anslutningar är inte mer än 40. Belastningen på App-servern är liten, så det föreslagna antalet webb program är litet.
 
-|  Skicka till stor grupp  | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|  Skicka till stor grupp  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
+| Antal App-servrar | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
-> Öka standardserveranslutningarna från 5 till 40 på varje appserver för att undvika eventuella obalanserade serveranslutningar till Azure SignalR Service.
+> Öka antalet Server anslutningar från 5 till 40 på varje app-server för att undvika eventuella obalanserade Server anslutningar till Azure SignalR-tjänsten.
 > 
-> Klientanslutningsnumret, meddelandestorleken, meddelandeöverföringshastigheten, routningskostnaden och SKU-nivån påverkar den övergripande prestandan **för skicka till stor grupp**.
+> Klient anslutnings numret, meddelande storleken, överförings hastigheten, tillverkningskostnaden och SKU-nivån påverkar den övergripande prestandan för **Skicka till stor grupp**.
 
 #### <a name="send-to-connection"></a>Skicka till anslutning
 
-När **send to connection** klienter upprättar anslutningarna till Azure SignalR-tjänsten anropar varje klient en särskild hubb för att få ett eget anslutnings-ID när klienter upprättar anslutningarna till Azure SignalR-tjänsten. Prestandariktmärket samlar in alla anslutnings-ID:er, blandar dem och återtillvisar dem till alla klienter som ett sändningsmål. Klienterna fortsätter att skicka meddelandet till målanslutningen tills prestandatestet är klart.
+När klienterna upprättar anslutningar till Azure SignalR-tjänsten i ett fall med **Skicka till-anslutning** , anropar varje klient en särskild hubb för att hämta sitt eget anslutnings-ID. Prestanda mätningen samlar in alla anslutnings-ID: n, blandar dem och tilldelar om dem till alla klienter som ett mål för sändning. Klienterna håller på att skicka meddelandet till mål anslutningen tills prestanda testet har slutförts.
 
-![Trafik för användningsfallet för skicka till klient](./media/signalr-concept-performance/sendtoclient.png)
+![Trafik för användnings fallet för sändning till klient](./media/signalr-concept-performance/sendtoclient.png)
 
-Flödeskostnaden för **skicka till anslutning** liknar kostnaden för att skicka till en liten **grupp**.
+Produktionskostnaden för **Skicka till-anslutning** liknar kostnaden för **att skicka till små grupper**.
 
-När antalet anslutningar ökar begränsar operationsföljdskostnaden det totala resultatet. Enhet50 har nått gränsen. Som ett resultat kan Unit100 inte förbättras ytterligare.
+När antalet anslutningar ökar, begränsar produktionskostnaden den allmänna prestandan. Unit50 har nått gränsen. Därför kan Unit100 inte förbättras ytterligare.
 
-Följande tabell är en statistisk sammanfattning efter många omgångar för att köra **referensvärdet för skicka till anslutning.**
+Följande tabell är en statistisk sammanfattning efter många avrundning för att köra benchmark- **anslutningen** .
 
-|   Skicka till anslutning   | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50          | Enhet100         |
+|   Skicka till anslutning   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
 | Anslutningar                        | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000          | 100 000         |
 | Inkommande/utgående meddelanden per sekund | 1,000 | 2 000 | 5 000 | 8,000  | 9,000  | 20 000 | 20 000 |
-| Inkommande/utgående bandbredd | 2 Mbit/s    | 4 Mbit/s    | 10 Mbit/s   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
+| Inkommande/utgående bandbredd | 2 Mbit/s    | 4 Mbit/s    | 10 Mbit/s   | 16 MBps    | 18 MBps    | 40 Mbit/s       | 40 Mbit/s       |
 
-Det här användningsfallet kräver hög belastning på appserversidan. Se det föreslagna antalet appserver i följande tabell.
+Det här användnings fallet kräver hög belastning på App Server-sidan. Se det föreslagna antalet App-servrar i följande tabell.
 
-|  Skicka till anslutning  | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|  Skicka till anslutning  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
+| Antal App-servrar | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
-> Klientanslutningsnummer, meddelandestorlek, meddelandeöverföringshastighet, routningskostnad, SKU-nivå och CPU/minne för appservern påverkar den övergripande prestandan för **skicka till anslutning**.
+> Klient anslutnings numret, meddelande storleken, överförings hastigheten, tillverkningskostnaden, SKU-nivån och CPU/minne för app-servern påverkar den övergripande prestandan för **Skicka till-anslutning**.
 
-#### <a name="aspnet-signalr-echo-broadcast-and-send-to-small-group"></a>ASP.NET SignalR eko, broadcast och skicka till liten grupp
+#### <a name="aspnet-signalr-echo-broadcast-and-send-to-small-group"></a>ASP.NET SignalR eko, sändning och skicka till liten grupp
 
-Azure SignalR-tjänsten ger samma prestandakapacitet för ASP.NET SignalR. 
+Azure SignalR service ger samma prestanda kapacitet för ASP.NET-Signalerare. 
 
-Prestandatestet använder Azure Web Apps från [Standard Service Plan S3](https://azure.microsoft.com/pricing/details/app-service/windows/) för ASP.NET SignalR.
+Prestanda testet använder Azure Web Apps från [standard service plan S3](https://azure.microsoft.com/pricing/details/app-service/windows/) för ASP.net-signalerare.
 
-I följande tabell visas det föreslagna antalet webbappar för ASP.NET **SignalR-ekot**.
+I följande tabell får du förslag på antalet webb program för ASP.NET SignalR- **eko**.
 
-|   Echo           | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|   Echo           | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
+| Antal App-servrar | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
-I följande tabell visas det föreslagna antalet webbappar för ASP.NET **SignalR-sändning**.
+I följande tabell får du förslag på antalet webb program för ASP.NET signaler- **sändning**.
 
-|  Sändning       | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|  Sändning       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
+| Antal App-servrar | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
-I följande tabell visas det föreslagna antalet webbappar för ASP.NET **SignalR-sändning till liten grupp**.
+I följande tabell visas det föreslagna antalet webb program för ASP.NET SignalR- **sändning till liten grupp**.
 
-|  Skicka till liten grupp     | Enhet1 | Enhet2 | Enhet5 | Enhet10 | Enhet20 | Enhet50 | Enhet100 |
+|  Skicka till liten grupp     | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Anslutningar      | 1,000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Antal appserver | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
+| Antal App-servrar | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
-### <a name="serverless-mode"></a>Serverlöst läge
+### <a name="serverless-mode"></a>Läge utan Server
 
-Klienter och Azure SignalR-tjänst är involverade i serverlöst läge. Varje kund står för en enda anslutning. Klienten skickar meddelanden via REST API till en annan klient eller broadcast-meddelanden till alla.
+Klienter och Azure SignalR-tjänsten är involverade i Server lös läge. Varje klient står för en enda anslutning. Klienten skickar meddelanden via REST API till en annan klient eller broadcast-meddelanden till alla.
 
-Att skicka meddelanden med hög densitet via REST API är inte lika effektivt som att använda WebSocket. Det kräver att du skapar en ny HTTP-anslutning varje gång, och det är en extra kostnad i serverlöst läge.
+Att skicka meddelanden med hög densitet via REST API är inte lika effektivt som att använda WebSocket. Du måste bygga en ny HTTP-anslutning varje gång, och det är en extra kostnad i Server lös läge.
 
 #### <a name="broadcast-through-rest-api"></a>Sändning via REST API
-Alla klienter upprättar WebSocket-anslutningar med Azure SignalR-tjänst. Sedan börjar vissa klienter sända via REST API. Meddelandet som skickas (inkommande) är allt via HTTP Post, vilket inte är effektivt jämfört med WebSocket.
+Alla klienter upprättar WebSocket-anslutningar med Azure SignalR-tjänsten. Därefter börjar vissa klienter att sända via REST API. Meddelandet sändning (inkommande) är allt via HTTP post, vilket inte är effektivt jämfört med WebSocket.
 
-|   Sändning via REST API     | Enhet1 | Enhet2 | Enhet5  | Enhet10 | Enhet20 | Enhet50  | Enhet100 |
+|   Sändning via REST API     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Anslutningar               | 1,000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Inkommande meddelanden per sekund  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Utgående meddelanden per sekund | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Inkommande bandbredd  | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     | 4 KBps     | 4 KBps      | 4 KBps      |
-| Utgående bandbredd | 4 Mbit/s    | 8 Mbit/s    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
+| Utgående bandbredd | 4 Mbit/s    | 8 Mbit/s    | 20 Mbit/s    | 40 Mbit/s    | 80 Mbit/s    | 200 Mbit/s    | 400 Mbit/s    |
 
 #### <a name="send-to-user-through-rest-api"></a>Skicka till användare via REST API
-Riktmärket tilldelar användarnamn till alla klienter innan de börjar ansluta till Azure SignalR Service. När klienterna har upprättat WebSocket-anslutningar med Azure SignalR-tjänsten börjar de skicka meddelanden till andra via HTTP Post.
+Benchmark tilldelar användar namn till alla klienter innan de börjar ansluta till Azure SignalR-tjänsten. När klienterna upprättar WebSocket-anslutningar med Azure SignalR-tjänsten börjar de skicka meddelanden till andra via HTTP post.
 
-|   Skicka till användare via REST API | Enhet1 | Enhet2 | Enhet5  | Enhet10 | Enhet20 | Enhet50  | Enhet100 |
+|   Skicka till användare via REST API | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Anslutningar               | 1,000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
-| Inkommande meddelanden per sekund  | 300   | 600   | 900    | 1,300  | 2 000  | 10 000  | 18 000  |
-| Utgående meddelanden per sekund | 300   | 600   | 900    | 1,300  | 2 000  | 10 000  | 18 000 |
-| Inkommande bandbredd  | 600 KBps  | 1,2 MBps  | 1,8 MBps   | 2,6 MBps   | 4 Mbit/s     | 10 Mbit/s     | 36 MBps    |
-| Utgående bandbredd | 600 KBps  | 1,2 MBps  | 1,8 MBps   | 2,6 MBps   | 4 Mbit/s     | 10 Mbit/s     | 36 MBps    |
+| Inkommande meddelanden per sekund  | 300   | 600   | 900    | 1 300  | 2 000  | 10 000  | 18 000  |
+| Utgående meddelanden per sekund | 300   | 600   | 900    | 1 300  | 2 000  | 10 000  | 18 000 |
+| Inkommande bandbredd  | 600 KBps  | 1,2 Mbit/s  | 1,8 Mbit/s   | 2,6 Mbit/s   | 4 Mbit/s     | 10 Mbit/s     | 36 Mbit/s    |
+| Utgående bandbredd | 600 KBps  | 1,2 Mbit/s  | 1,8 Mbit/s   | 2,6 Mbit/s   | 4 Mbit/s     | 10 Mbit/s     | 36 Mbit/s    |
 
-## <a name="performance-test-environments"></a>Prestandatestmiljöer
+## <a name="performance-test-environments"></a>Prestanda test miljöer
 
-För alla användningsfall som anges tidigare genomförde vi prestandatesterna i en Azure-miljö. Som mest använde vi 50 virtuella klient-datorer och 20 appserver-virtuella datorer. Här följer lite information:
+För alla användnings fall som listas tidigare genomförde vi prestandatester i en Azure-miljö. Oftast använde vi 50-klientens virtuella datorer och 20 virtuella datorer i App Server. Här följer lite information:
 
-- Vm-storlek för klient: StandardDS2V2 (2 vCPU, 7G-minne)
+- VM-storlek för klient: StandardDS2V2 (2 vCPU, 7G-minne)
 
-- Vm-storlek för appserver: StandardF4sV2 (4 vCPU, 8G-minne)
+- VM-storlek för App Server: StandardF4sV2 (4 vCPU, 8G-minne)
 
-- Azure SignalR SDK-serveranslutningar: 15
+- Azure SignalR SDK-Server anslutningar: 15
 
-## <a name="performance-tools"></a>Prestandaverktyg
+## <a name="performance-tools"></a>Prestanda verktyg
 
-Du kan hitta prestandaverktyg för Azure SignalR-tjänsten på [GitHub](https://github.com/Azure/azure-signalr-bench/).
+Du kan hitta prestanda verktyg för Azure SignalR-tjänsten på [GitHub](https://github.com/Azure/azure-signalr-bench/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du fått en översikt över Azure SignalR-tjänstens prestanda i typiska användningsfallsscenarier.
+I den här artikeln fick du en översikt över Azure SignalR service-prestanda i vanliga scenarier med användnings fall.
 
-Om du vill ha information om tjänstens interna utgifter och skalning för den läser du följande guider:
+Läs följande guider om du vill ha information om de interna tjänsterna och skalningen för den:
 
 * [Azure SignalR Service – internt](signalr-concept-internals.md)
-* [Skala azure signalr-tjänsten](signalr-howto-scale-multi-instances.md)
+* [Skalning av Azure SignalR-tjänsten](signalr-howto-scale-multi-instances.md)

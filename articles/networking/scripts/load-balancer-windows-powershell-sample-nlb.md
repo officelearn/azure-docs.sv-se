@@ -1,6 +1,6 @@
 ---
-title: Belastningsbalanstrafik till virtuella datorer för HA - Azure PowerShell
-description: Exempel på Azure PowerShell-skript – belastningsutjämnad trafik till virtuella datorer för hög tillgänglighet
+title: Belastnings Utjämnings trafik till virtuella datorer för HA-Azure PowerShell
+description: Azure PowerShell skript exempel – belastnings Utjämnings trafik till virtuella datorer för hög tillgänglighet
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: 1f0ff6cad90a4e5578a4f0c578a7da5cbbb75457
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74067074"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Belastningsutjämna trafik till virtuella datorer för hög tillgänglighet
 
-Det här skriptexemplet skapar allt som behövs för att köra flera virtuella Windows-datorer som konfigurerats i en konfiguration med hög tillgänglig och belastningsbalanserad. När du har kört skriptet har du tre virtuella datorer som är anslutna till en Azure-tillgänglighetsuppsättning och är tillgängliga via Azure Load Balancer.
+Det här skript exemplet skapar allt som behövs för att köra flera virtuella Windows-datorer som kon figurer ATS i en hög tillgänglig och belastningsutjämnad konfiguration. När du har kört skriptet har du tre virtuella datorer som är anslutna till en Azure-tillgänglighetsuppsättning och är tillgängliga via Azure Load Balancer.
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure.
+Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som finns i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)och `Connect-AzAccount` kör sedan för att skapa en anslutning till Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

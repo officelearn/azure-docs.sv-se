@@ -1,6 +1,6 @@
 ---
-title: azoskopiinloggning | Microsoft-dokument
-description: Den här artikeln innehåller referensinformation för kommandot askakopinloggning.
+title: AzCopy-utloggning | Microsoft Docs
+description: Den här artikeln innehåller referensinformation för kommandot AzCopy utloggnings kommando.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,19 +9,19 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 538c54c338540059baa17b9818d444cc863b7309
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74034059"
 ---
 # <a name="azcopy-logout"></a>azcopy utloggning
 
-Loggar ut användaren och avslutar åtkomsten till Azure Storage-resurser.
+Loggar ut användaren och avslutar åtkomsten till Azure Storage resurser.
 
-## <a name="synopsis"></a>Synopsis
+## <a name="synopsis"></a>Sammanfattning
 
-Det här kommandot tar bort all cachelagrad inloggningsinformation för den aktuella användaren.
+Det här kommandot tar bort all cachelagrad inloggnings information för den aktuella användaren.
 
 ```azcopy
 azcopy logout [flags]
@@ -30,23 +30,23 @@ azcopy logout [flags]
 ## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
-- [Överföra data med AzCopy- och Blob-lagring](storage-use-azcopy-blobs.md)
-- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Alternativ
 
 |Alternativ|Beskrivning|
 |--|--|
-|-h, --hjälp|Visa hjälpinnehåll för inloggningskommandot.|
+|-h,--hjälp|Visa hjälp innehåll för kommandot logga ut.|
 
-## <a name="options-inherited-from-parent-commands"></a>Alternativ ärvda från överordnade kommandon
+## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
 |Alternativ|Beskrivning|
 |---|---|
-|--cap-mbps uint32 --cap-mbps|Caps överföringshastigheten, i megabit per sekund. Moment-för-ögonblick genomströmning kan variera något från locket. Om det här alternativet är noll, eller om det utelämnas, begränsas inte dataflödet.|
-|--utdata-typ sträng|Format för kommandots utdata. Alternativen är: text, json. Standardvärdet är "text".|
+|--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
+|--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy (azcopy)](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

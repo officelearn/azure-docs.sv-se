@@ -1,6 +1,6 @@
 ---
-title: Felsöka fel på VMware vCenter-identifieringsfel i Azure Site Recovery
-description: I den hÃ¤r artikeln beskrivs felsÃ¶kning av VMware vCenter-identifieringsfel i Azure Site Recovery.
+title: Felsök fel i VMware vCenter-identifiering i Azure Site Recovery
+description: Den här artikeln beskriver hur du felsöker VMware vCenter Discovery-fel i Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74091238"
 ---
-# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Felsöka identifieringsfel för vCenter Server
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Felsöka vCenter Server identifierings fel
 
-Den här artikeln hjälper dig att felsöka problem som uppstår på grund av VMware vCenter-identifieringsfel.
+Den här artikeln hjälper dig att felsöka problem som inträffar på grund av fel i VMware vCenter-identifiering.
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Icke-numeriska värden i egenskapen maxSnapShots
 
-I versioner före 9.20 kopplas vCenter från när det hämtar ett `snapshot.maxSnapShots` icke-numeriskt värde för egenskapsegenskapen på en virtuell dator.
+I tidigare versioner än 9,20 kopplas vCenter ned när det hämtar ett icke-numeriskt värde för egenskapen Property `snapshot.maxSnapShots` på en virtuell dator.
 
-Det här problemet identifieras med fel-ID 95126.
+Det här problemet identifieras av fel-ID 95126.
 
     ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
     System.FormatException: Input string was not in a correct format.
@@ -32,51 +32,51 @@ Det här problemet identifieras med fel-ID 95126.
     
 Så här löser du problemet:
 
-- Identifiera den virtuella datorn och ange värdet till ett numeriskt värde (VM Edit-inställningar i vCenter).
+- Identifiera den virtuella datorn och ange värdet till ett numeriskt värde (Redigera inställningar för virtuell dator i vCenter).
 
 Eller
 
-- Uppgradera konfigurationsservern till version 9.20 eller senare.
+- Uppgradera konfigurations servern till version 9,20 eller senare.
 
-## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Proxykonfigurationsproblem för vCenter-anslutning
+## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Problem med proxykonfigurationen för vCenter-anslutning
 
-vCenter Discovery respekterar systemstandardproxyinställningarna som konfigurerats av systemanvändaren. DRA-tjänsten respekterar proxyinställningarna som tillhandahålls av användaren under installationen av konfigurationsservern med hjälp av den enhetliga installationsinstallationsprogrammet eller OVA-mallen. 
+vCenter-identifieringen följer systemets standardinställningar för proxy som kon figurer ATS av system användaren. Den DRA-tjänsten följer proxyinställningarna från användaren under installationen av konfigurations servern med hjälp av installations programmet för installations program eller-ägg. 
 
-I allmänhet används fullmakten för att kommunicera med offentliga nätverk. som att kommunicera med Azure. Om proxyn är konfigurerad och vCenter är i en lokal miljö kan den inte kommunicera med DRA.
+I allmänhet används proxyn för att kommunicera med offentliga nätverk. till exempel att kommunicera med Azure. Om proxyservern har kon figurer ATS och vCenter är i en lokal miljö kan den inte kommunicera med DRA.
 
-Följande situationer uppstår när det här problemet påträffas:
+Följande situationer inträffar när det här problemet uppstår:
 
-- VCenter-servern \<vCenter> kan inte nås på grund av felet: Fjärrservern returnerade ett fel: (503) Server är inte tillgänglig
-- VCenter-servern \<vCenter> kan inte nås på grund av felet: Fjärrservern returnerade ett fel: Det gick inte att ansluta till fjärrservern.
-- Det gick inte att ansluta till vCenter/ESXi-servern.
+- VCenter Server \<vcenter-> kan inte nås på grund av felet: fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
+- VCenter Server \<vcenter-> kan inte uppnås på grund av felet: fjärrservern returnerade ett fel: det går inte att ansluta till fjärrservern.
+- Det går inte att ansluta till vCenter/ESXi-servern.
 
 Så här löser du problemet:
 
-Ladda ner [PsExec-verktyget](https://aka.ms/PsExec). 
+Ladda ned [PsExec-verktyget](https://aka.ms/PsExec). 
 
-Använd PsExec-verktyget för att komma åt systemanvändarkontexten och avgöra om proxyadressen är konfigurerad. Du kan sedan lägga till vCenter i förbikopplingslistan med hjälp av följande procedurer.
+Använd PsExec-verktyget för att få åtkomst till system användar kontexten och ta reda på om proxyservern har kon figurer ATS. Du kan sedan lägga till vCenter i listan över undantag med följande procedurer.
 
-För konfiguration av identifieringsproxy:
+För konfiguration av identifierings-proxy:
 
-1. Öppna IE i systemanvändarsammanhang med psexec-verktyget.
+1. Öppna IE i system användar kontext med PsExec-verktyget.
     
-    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+    PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 
-2. Ändra proxyinställningarna i Internet Explorer för att kringgå vCenter IP-adressen.
-3. Starta om tjänsten tmanssvc.
+2. Ändra proxyinställningarna i Internet Explorer för att kringgå vCenter-IP-adressen.
+3. Starta om tmanssvc-tjänsten.
 
-För DRA-proxykonfiguration:
+För att DRA en konfiguration:
 
-1. Öppna en kommandotolk och öppna mappen Microsoft Azure Site Recovery Provider.
+1. Öppna en kommando tolk och öppna mappen Microsoft Azure Site Recovery Provider.
  
-    **cd C:\Program-filer\Microsoft Azure Site Recovery Provider**
+    **CD C:\Program Files\Microsoft Azure Site Recovery Provider**
 
-3. Kör följande kommando i kommandotolken.
+3. Kör följande kommando från kommando tolken.
    
-   **DRKONFIGURATOR. EXE /configure /AddBypassUrls [IP-adress/FQDN för vCenter Server som angavs vid tidpunkten för lägg till vCenter]**
+   **DRCONFIGURATOR. EXE/Configure/AddBypassUrls [IP-adress/FQDN för vCenter Server som tillhandahölls vid tidpunkten för att lägga till vCenter]**
 
-4. Starta om DRA-providertjänsten.
+4. Starta om tjänsten för att DRA providern.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hantera konfigurationsservern för VMware VM-haveriberedskap](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 

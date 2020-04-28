@@ -10,15 +10,15 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74047363"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
 
-Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här artikeln definierar du serverdadresspooler med hjälp av skaluppsättningar för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här artikeln förutsätter att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.fabrikam.com*.
+Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här artikeln definierar du backend-adresspooler med Virtual Machines Scale Sets. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här artikeln förutsätter att du äger flera domäner och använder exempel på *www\.-contoso.com* och *www\.-fabrikam.com*.
 
 I den här artikeln kan du se hur du:
 
@@ -32,13 +32,13 @@ I den här artikeln kan du se hur du:
 
 ![Exempel på routning mellan flera webbplatser](./media/tutorial-multiple-sites-cli/scenario.png)
 
-Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -106,7 +106,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ### <a name="add-the-backend-pools"></a>Lägga till serverdelspoolerna
 
-Lägg till serverda pooler som behövs för att innehålla serverdaservrar med [az nätverk application-gateway adress-pool skapa](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
+Lägg till de backend-pooler som behövs för att innehålla backend-servrarna med [AZ Network Application-Gateway Address-pool Create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -143,9 +143,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Lägga till routningsregler
 
-Regler bearbetas i den ordning de visas. Trafiken dirigeras med den första regeln som matchar oavsett specificitet. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
+Regler bearbetas i den ordning som de visas. Trafiken dirigeras med den första regeln som matchar oavsett specificitet. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
 
-I det här exemplet skapar du två nya regler och tar bort standardregeln som skapades när du distribuerade programgatewayen. Du kan lägga till regeln med [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+I det här exemplet skapar du två nya regler och tar bort standard regeln som skapades när du distribuerade Application Gateway. Du kan lägga till regeln med [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -232,7 +232,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Användning av A-poster rekommenderas inte eftersom VIP-reglerna kan ändras när programgatewayen startas om.
+Användning av A-poster rekommenderas inte eftersom VIP kan ändras när Application Gateway startar om.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 

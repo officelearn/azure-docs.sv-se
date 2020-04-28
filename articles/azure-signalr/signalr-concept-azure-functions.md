@@ -1,34 +1,34 @@
 ---
-title: Bygg realtidsapp - Azure-funktioner & Azure SignalR-tjänst
-description: Lär dig hur du utvecklar serverlösa webbprogram i realtid med Azure SignalR Service genom att följa exempel.
+title: Bygg real tids app-Azure Functions & Azure SignalR service
+description: Lär dig hur du utvecklar Server lös webb program i real tid med Azure SignalR service genom att följa exemplet.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74157617"
 ---
-# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Skapa appar i realtid med Azure-funktioner och Azure SignalR-tjänst
+# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Bygg appar i real tid med Azure Functions och Azure SignalR-tjänsten
 
 Eftersom Azure SignalR Service och Azure Functions båda är fullständigt hanterade, mycket skalbara tjänster som gör att du kan fokusera på att bygga program i stället för att hantera infrastrukturen är det vanligt att använda de två tjänsterna tillsammans för att tillhandahålla realtidskommunikation i en [serverlös](https://azure.microsoft.com/solutions/serverless/) miljö.
 
 > [!NOTE]
-> Lär dig att använda SignalR och Azure Functions tillsammans i den interaktiva självstudien [Aktivera automatiska uppdateringar i ett webbprogram med Azure Functions and SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
+> Lär dig att använda Signalerare och Azure Functions tillsammans i den interaktiva självstudien [Aktivera automatiska uppdateringar i ett webb program med hjälp av tjänsten Azure Functions och SignalR](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Integrera realtidskommunikation med Azure-tjänster
 
-Med Azure Functions kan du skriva kod på [flera språk](../azure-functions/supported-languages.md), inklusive JavaScript, Python, C#och Java, som utlöser när händelser inträffar i molnet. Exempel på dessa händelser:
+Azure Functions kan du skriva kod på [flera språk](../azure-functions/supported-languages.md), inklusive Java Script, python, C# och Java, som utlöses när händelser inträffar i molnet. Exempel på dessa händelser:
 
 * HTTP- och webhook-begäranden
 * Periodiska timers
 * Händelser från Azure-tjänster såsom:
     - Event Grid
-    - Händelsehubbar
+    - Event Hubs
     - Service Bus
     - Cosmos DB-ändringsflöde
     - Storage-blobbar och köer
@@ -66,9 +66,9 @@ SignalR Service gör att du kan skicka broadcast-meddelanden till alla klienter 
 
 I den här artikeln fick du en översikt över hur du använder Azure Functions med SignalR Service för att aktivera en mängd olika scenarier med serverlösa realtidsmeddelanden.
 
-Mer information om hur du använder Azure Functions and SignalR Service finns tillsammans på följande resurser:
+Fullständig information om hur du använder Azure Functions-och SignalR-tjänsten finns på följande resurser:
 
-* [Utveckling och konfiguration av Azure Functions med SignalR-tjänsten](signalr-concept-serverless-development-config.md)
+* [Azure Functions utveckling och konfiguration med signal tjänsten](signalr-concept-serverless-development-config.md)
 * [Aktivera automatiska uppdateringar i en webbapp med Azure Functions och SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Följ någon av de här snabbstarterna om du vill veta mer.

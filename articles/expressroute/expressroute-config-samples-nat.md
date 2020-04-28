@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Exempel på routerkonfiguration – NAT'
-description: Den här sidan innehåller exempel på routerkonfiguration för Cisco- och Juniper-routrar.
+title: 'Azure-ExpressRoute: exempel på router-NAT – NAT'
+description: Den här sidan innehåller exempel på routerkonfiguration för Cisco-och Juniper-routrar.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74072114"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exempel på routerkonfiguration för att konfigurera och hantera NAT
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Konfigurations exempel för router för att konfigurera och hantera NAT
 
-Den här sidan innehåller NAT-konfigurationsexempel för routrar i Cisco ASA- och Juniper SRX-serien när du arbetar med ExpressRoute. Dessa är endast avsedda att vara prover för vägledning och får inte användas som de är. Du kan arbeta med leverantören för att komma med lämpliga konfigurationer för nätverket.
+Den här sidan innehåller exempel på NAT-konfiguration för Cisco ASA-och Juniper SRX-serie routrar när du arbetar med ExpressRoute. Dessa är avsedda att användas som exempel endast för vägledning och får inte användas som de är. Du kan arbeta med din leverantör för att komma igång med lämpliga konfigurationer för nätverket.
 
 > [!IMPORTANT]
-> Prover på denna sida är avsedda att vara enbart för vägledning. Du måste arbeta med leverantörens försäljning / tekniska team och ditt nätverk team för att komma med lämpliga konfigurationer för att möta dina behov. Microsoft stöder inte problem relaterade till konfigurationer som anges på den här sidan. Du måste kontakta enhetsleverantören för supportproblem.
+> Exempel på den här sidan är endast avsedda för vägledning. Du måste arbeta med leverantörens försäljnings-/teknik team och din nätverks grupp för att komma igång med lämpliga konfigurationer för att uppfylla dina behov. Microsoft stöder inte problem som rör konfigurationer som anges på den här sidan. Du måste kontakta enhets leverantören för att få support ärenden.
 > 
 > 
 
-* Router konfigurationsexempel nedan gäller för Azure Public och Microsoft peerings. Du får inte konfigurera NAT för privat Azure-peering. Granska [ExpressRoute-peerings](expressroute-circuit-peerings.md) och [ExpressRoute NAT-krav](expressroute-nat.md) för mer information.
+* Konfigurations exempel för routern nedan gäller för Azures offentliga och Microsoft-peering. Du får inte konfigurera NAT för privat Azure-peering. Granska [ExpressRoute-peering](expressroute-circuit-peerings.md) och [ExpressRoute NAT-krav](expressroute-nat.md) för mer information.
 
-* Du måste använda separata NAT IP-pooler för anslutning till Internet och ExpressRoute. Om du använder samma NAT IP-pool över internet och ExpressRoute resulterar det i asymmetrisk routning och förlust av anslutning.
+* Du måste använda separata NAT IP-pooler för anslutning till Internet och ExpressRoute. Att använda samma NAT-IP-pool över Internet och ExpressRoute resulterar i asymmetrisk Routning och förlust av anslutning.
 
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA-brandväggar
-### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>PAT-konfiguration för trafik från kundnätverk till Microsoft
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>PAT-konfiguration för trafik från kund nätverk till Microsoft
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -49,26 +49,26 @@ Den här sidan innehåller NAT-konfigurationsexempel för routrar i Cisco ASA- o
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>PAT-konfiguration för trafik från Microsoft till kundnätverk
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>PAT-konfiguration för trafik från Microsoft till kund nätverk
 
 **Gränssnitt och riktning:**
 
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
-**Konfiguration:**
+**Inställningarna**
 
 NAT-pool:
 
     object network outbound-PAT
         host <NAT-IP>
 
-Målserver:
+Mål server:
 
     object network Customer-Network
         network-object <IP> <Subnet-Mask>
 
-Objektgrupp för kundens IP-adresser
+Objekt grupp för kund-IP-adresser
 
     object-group network MSFT-Network-1
         network-object <MSFT-IP> <Subnet-Mask>
@@ -81,8 +81,8 @@ NAT-kommandon:
     nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## <a name="juniper-srx-series-routers"></a>Routrar i Juniper SRX-serien
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Skapa redundanta Ethernet-gränssnitt för klustret
+## <a name="juniper-srx-series-routers"></a>Juniper SRX-serie routrar
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. skapa redundanta Ethernet-gränssnitt för klustret
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -114,15 +114,15 @@ NAT-kommandon:
     }
 
 
-### <a name="2-create-two-security-zones"></a>2. Skapa två säkerhetszoner
-* Förtroendezon för internt nätverk och untrust-zon för externa nätverksvändiga edgerouter
+### <a name="2-create-two-security-zones"></a>2. skapa två säkerhets zoner
+* Förtroende zon för internt nätverk och ej betrodd zon för externa nätverk riktade till yttre routrar
 * Tilldela lämpliga gränssnitt till zonerna
-* Tillåt tjänster i gränssnitten
+* Tillåt tjänster på gränssnitten
 
-    säkerhet { zoner { säkerhet-zon Förtroende { värd-inkommande trafik { system-tjänster { ping;                   } protokoll { bgp;                   } } gränssnitt { reth0.100;               } } } säkerhetszon Untrust { host-inbound-traffic { system-services { ping; } }                   } protokoll { bgp;                   } } gränssnitt { reth1.100;               }           }       }   }
+    säkerhet {Zones {Security-Zone Trust {Host-inkommande-trafik {system-Services {ping;                   } protokoll {BGP;                   }} gränssnitt {reth 0.100;               }} säkerhets zonen är inte betrodd {Host-inkommande-trafik {system-Services {ping;                   } protokoll {BGP;                   }} gränssnitt {reth 1.100;               }           }       }   }
 
 
-### <a name="3-create-security-policies-between-zones"></a>3. Skapa säkerhetsprinciper mellan zoner
+### <a name="3-create-security-policies-between-zones"></a>3. skapa säkerhets principer mellan zoner
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -154,8 +154,8 @@ NAT-kommandon:
 
 
 ### <a name="4-configure-nat-policies"></a>4. Konfigurera NAT-principer
-* Skapa två NAT-pooler. Den ena används för att NAT-trafik ska skickas ut till Microsoft och andra från Microsoft till kunden.
-* Skapa regler för NAT respektive trafik
+* Skapa två NAT-pooler. En kommer att användas för NAT utgående trafik till Microsoft och andra från Microsoft till kunden.
+* Skapa regler för att NATa varje trafik
   
        security {
            nat {
@@ -213,9 +213,9 @@ NAT-kommandon:
        }
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurera BGP för att annonsera selektiva prefix i varje riktning
-Se exempel i exempel på [routningskonfiguration.](expressroute-config-samples-routing.md)
+Se exempel på sidan [konfigurations exempel för routning](expressroute-config-samples-routing.md) .
 
-### <a name="6-create-policies"></a>6. Skapa policyer
+### <a name="6-create-policies"></a>6. skapa principer
     routing-options {
                   autonomous-system <Customer-ASN>;
     }

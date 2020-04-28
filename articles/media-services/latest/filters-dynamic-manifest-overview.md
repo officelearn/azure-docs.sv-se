@@ -1,7 +1,7 @@
 ---
-title: Filtrera dina manifest med dynamisk paketerare
+title: Filtrera dina manifest med hjälp av dynamisk Paketeraren
 titleSuffix: Azure Media Services
-description: Lär dig hur du skapar filter med dynamisk paketerare för att filtrera och selektivt strömma dina manifest.
+description: Lär dig hur du skapar filter med dynamisk Paketeraren för att filtrera och selektivt strömma dina manifest.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,46 +15,46 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
 ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74186218"
 ---
-# <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrera dina manifest med dynamisk paketerare
+# <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrera dina manifest med hjälp av dynamisk Paketeraren
 
-När du levererar adaptivt bithastighetsströmningsinnehåll till enheter måste du ibland publicera flera versioner av ett manifest för att rikta specifika enhetsfunktioner eller tillgänglig nätverksbandbredd. Med [den dynamiska paketeraren](dynamic-packaging-overview.md) kan du ange filter som kan filtrera bort specifika codec-enheter, upplösningar, bithastigheter och kombinationer av ljudspår i farten. Den här filtrningen tar bort behovet av att skapa flera kopior. Du behöver bara publicera en ny webbadress med en specifik uppsättning filter som konfigurerats till dina målenheter (iOS, Android, SmartTV eller webbläsare) och nätverksfunktionerna (scenarier med hög bandbredd, mobil eller låg bandbredd). I det här fallet kan klienter manipulera direktuppspelningen av innehållet via frågesträngen (genom att ange tillgängliga [tillgångsfilter eller kontofilter)](filters-concept.md)och använda filter för att strömma specifika avsnitt i en ström.
+När du levererar strömnings innehåll med anpassningsbar bit hastighet till enheter måste du ibland publicera flera versioner av ett manifest för att rikta in dig på specifika enhets funktioner eller tillgänglig nätverks bandbredd. Med den [dynamiska Paketeraren](dynamic-packaging-overview.md) kan du ange filter som kan filtrera ut vissa codecenheter, lösningar, bit hastigheter och kombinationer av ljud spår direkt. Den här filtreringen tar bort behovet av att skapa flera kopior. Du behöver bara publicera en ny URL med en viss uppsättning filter som kon figurer ATS för mål enheterna (iOS, Android, SmartTV eller webbläsare) och nätverksfunktioner (scenarier med hög bandbredd, mobil eller låg bandbredd). I det här fallet kan klienterna ändra strömningen för ditt innehåll genom frågesträngen (genom att ange tillgängliga [till gångs filter eller konto filter](filters-concept.md)) och använda filter för att strömma vissa delar av en ström.
 
-Vissa leveransscenarier kräver att du ser till att en kund inte kan komma åt specifika spår. Du kanske till exempel inte vill publicera ett manifest som innehåller HD-spår till en viss prenumerationsnivå. Eller kanske du vill ta bort specifika adaptiva bithastighetsspår (ABR) för att minska leveranskostnaderna till en viss enhet som inte skulle dra nytta av ytterligare spår. I det här fallet kan du associera en lista över förskapade filter med din [streaming locator](streaming-locators-concept.md) när du skapar. Klienter kan då inte manipulera hur innehållet strömmas eftersom det definieras av **streaming locator**.
+Vissa leverans scenarier kräver att du ser till att en kund inte kan komma åt specifika spår. Till exempel kanske du inte vill publicera ett manifest som innehåller HD-spår till en viss prenumerations nivå. Eller så kanske du vill ta bort vissa ABR-spår (adaptiv bit hastighet) för att minska leverans kostnaderna till en speciell enhet som inte drar nytta av de ytterligare spåren. I det här fallet kan du associera en lista med i förväg skapade filter med din [strömmande lokalisering](streaming-locators-concept.md) när du skapade den. Klienter kan sedan inte ändra hur innehållet strömmas eftersom det definieras av **streaming Locator**.
 
-Du kan kombinera filtrering genom att ange [filter på strömningspositionerare](filters-concept.md#associating-filters-with-streaming-locator) + ytterligare enhetsspecifika filter som klienten anger i URL:en. Den här kombinationen är användbar för att begränsa ytterligare spår som metadata eller händelseströmmar, ljudspråk eller beskrivande ljudspår.
+Du kan kombinera filtrering genom att ange [filter på strömmande lokalisering](filters-concept.md#associating-filters-with-streaming-locator) + ytterligare enhetsspecifika filter som klienten anger i URL: en. Den här kombinationen är användbar för att begränsa ytterligare spår som metadata eller händelse strömmar, ljud språk eller beskrivande ljud spår.
 
-Den här möjligheten att ange olika filter på din ström ger en kraftfull dynamisk manifestmanipuleringslösning för att rikta in sig på flera användningsfall-scenarier för dina målenheter. **Dynamic Manifest** I det här avsnittet **beskrivs** begrepp som är relaterade till dynamiska manifest och exempel på scenarier där du kan använda den här funktionen.
+Den här möjligheten att ange olika filter i data strömmen ger en kraftfull lösning för **dynamisk manifest** hantering för att rikta in sig på flera användnings Falls scenarier för mål enheterna. Det här avsnittet beskriver begrepp som rör **dynamiska manifest** och innehåller exempel på scenarier där du kan använda den här funktionen.
 
 > [!NOTE]
-> Dynamiska manifest ändrar inte tillgången och standardmanifestet för den tillgången.
+> Dynamiska manifest ändrar inte till gången och standard manifestet för till gången.
 
 ## <a name="overview-of-manifests"></a>Översikt över manifest
 
-Azure Media Services stöder protokoll för HLS, MPEG DASH och Smooth Streaming. Som en del av [Dynamic Packaging](dynamic-packaging-overview.md)genereras delningsklientmanifest (HLS Master Playlist, DASH Media Presentation Description [MPD] och Smooth Streaming) dynamiskt baserat på formatväljaren i URL:en. Mer information finns i leveransprotokollen i [Common on-demand-arbetsflödet](dynamic-packaging-overview.md#delivery-protocols).
+Azure Media Services stöder HLS, MPEG-streck och Smooth Streaming protokoll. Som en del av en [dynamisk paketering](dynamic-packaging-overview.md)genereras direkt uppspelnings klientens manifest (HLS Master Playlist, streck medie beskrivning [mpd] och Smooth Streaming) dynamiskt baserat på format väljaren i URL: en. Mer information finns i leverans protokollen i [vanliga arbets flöden på begäran](dynamic-packaging-overview.md#delivery-protocols).
 
-### <a name="get-and-examine-manifest-files"></a>Hämta och granska manifestfiler
+### <a name="get-and-examine-manifest-files"></a>Hämta och undersök manifest filen
 
-Du anger en lista över filterspårsegenskapsvillkor baserat på vilka spår av din ström (live eller video on-demand [VOD]) ska inkluderas i ett dynamiskt skapat manifest. För att få och undersöka egenskaperna för spåren måste du läsa in smooth streaming-manifestet först.
+Du kan ange en lista över villkor för filter spårnings egenskaper baserat på vilka spår i data strömmen (Live eller video på begäran [VOD]) som ska ingå i ett dynamiskt skapat manifest. Om du vill hämta och undersöka egenskaperna för spåren måste du först läsa in Smooth Streaming manifestet.
 
-Upload- [, encode- och stream-filerna med](stream-files-tutorial-with-api.md#get-streaming-urls) .NET-självstudien visar hur du skapar strömmande url:er med .NET. Om du kör appen pekar en av webbadresserna på `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`manifestet För jämn direktuppspelning: .<br/> Kopiera och klistra in webbadressen i en webbläsares adressfält. Filen hämtas. Du kan öppna den i valfri textredigerare.
+Självstudien [Ladda upp, koda och strömma filer med .net](stream-files-tutorial-with-api.md#get-streaming-urls) visar hur du skapar strömmande URL: er med .net. Om du kör appen pekar en av webb adresserna på Smooth Streaming manifestet: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Kopiera och klistra in webb adressen i adress fältet i en webbläsare. Filen kommer att hämtas. Du kan öppna den i valfri text redigerare.
 
-Ett REST-exempel finns i [Ladda upp, koda och strömma filer med REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
+Ett REST-exempel finns i [Ladda upp, koda och strömma filer med rest](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
-### <a name="monitor-the-bitrate-of-a-video-stream"></a>Övervaka bithastigheten för en videoström
+### <a name="monitor-the-bitrate-of-a-video-stream"></a>Övervaka bit hastigheten för en video ström
 
-Du kan använda [demosidan](https://aka.ms/azuremediaplayer) för Azure Media Player för att övervaka bithastigheten för en videoström. Demosidan visar diagnostikinformation på fliken **Diagnostik:**
+Du kan använda [sidan Azure Media Player demonstration](https://aka.ms/azuremediaplayer) för att övervaka bit hastigheten för en video ström. På sidan demonstration visas diagnostikinformation på fliken **diagnostik** :
 
-![Diagnostik i Azure Media Player][amp_diagnostics]
+![Azure Media Player diagnostik][amp_diagnostics]
 
-### <a name="examples-urls-with-filters-in-query-string"></a>Exempel: Webbadresser med filter i frågesträngen
+### <a name="examples-urls-with-filters-in-query-string"></a>Exempel: URL: er med filter i frågesträng
 
-Du kan använda filter på ABR-direktuppspelningsprotokoll: HLS, MPEG-DASH och Smooth Streaming. I följande tabell visas några exempel på webbadresser med filter:
+Du kan använda filter på ABR streaming-protokoll: HLS, MPEG-streck och Smooth Streaming. I följande tabell visas några exempel på URL: er med filter:
 
 |Protokoll|Exempel|
 |---|---|
@@ -62,97 +62,97 @@ Du kan använda filter på ABR-direktuppspelningsprotokoll: HLS, MPEG-DASH och S
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
-## <a name="rendition-filtering"></a>Filtrering av återgivning
+## <a name="rendition-filtering"></a>Åter givnings filtrering
 
-Du kan välja att koda din tillgång till flera kodningsprofiler (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) och flera kvalitetsbithastigheter. Alla klientenheter stöder dock inte alla dina tillgångs profiler och bithastigheter. Äldre Android-enheter stöder till exempel endast H.264 Baseline+AACL. Skicka högre bithastigheter till en enhet som inte kan få fördelarna slösar bandbredd och enhetsberäkning. En sådan anordning måste avkoda all viss information, bara för att skala ner den för visning.
+Du kan välja att koda till gången till flera kodnings profiler (H. 264 bas linje, H. 264 hög, AACL, AACH, Dolby Digital Plus) och flera bit hastigheter. Alla klient enheter kommer dock inte att ha stöd för alla dina till gångs profiler och bit hastigheter. Äldre Android-enheter stöder till exempel endast H. 264-bas linje + AACL. Att skicka högre bit hastigheter till en enhet som inte kan få fördelarna med bandbredd och enhets beräkning. En sådan enhet måste avkoda all den information som anges, endast för att skala ned den för visning.
 
-Med Dynamiskt manifest kan du skapa enhetsprofiler (till exempel mobil, konsol eller HD/SD) och inkludera de spår och egenskaper som du vill ska vara en del av varje profil. Det kallas återgivningsfiltrering. Följande diagram visar ett exempel på det.
+Med dynamiskt manifest kan du skapa enhets profiler (till exempel mobil, konsol eller HD/SD) och ta med de spår och kvaliteter som du vill ska vara en del av varje profil. Det kallas för åter givnings filtrering. I följande diagram visas ett exempel på det.
 
-![Exempel på återgivningsfiltrering med dynamiskt manifest][renditions2]
+![Exempel på åter givnings filtrering med dynamiskt manifest][renditions2]
 
-I följande exempel användes en kodare för att koda en mezzanintillgång i sju ISO MP4-videoåtergivningar (från 180p till 1080p). Den kodade tillgången kan [paketeras dynamiskt](dynamic-packaging-overview.md) i något av följande direktuppspelningsprotokoll: HLS, MPEG DASH och Smooth.
+I följande exempel användes en kodare för att koda en mezzaninfil till sju ISO hastigheter video åter givningar (från 180p till 1080p). Kodad till gång kan [paketeras dynamiskt](dynamic-packaging-overview.md) i något av följande strömnings protokoll: HLS, MPEG-streck och smidighet.
 
-Högst upp i följande diagram visas HLS-manifestet för tillgången utan filter. (Den innehåller alla sju återgivningar.)  I det nedre vänstra visar diagrammet ett HLS-manifest som ett filter med namnet "ott" tillämpades på. Filtret "ott" anger att alla bithastigheter tas bort under 1 Mbit/s, så de två lägsta kvalitetsnivåerna togs bort i svaret. Längst ned till höger visar diagrammet HLS-manifestet som ett filter med namnet "mobil" har tillämpats på. Filtret "mobil" anger borttagningen av återgivningar där upplösningen är större än 720p, så de två 1080p-återgivningarna togs bort.
+Överst i följande diagram visas HLS-manifestet för till gången utan filter. (Den innehåller alla sju åter givningar.)  I det nedre vänstra hörnet visar diagrammet ett HLS-manifest där ett filter med namnet "ott" tillämpades. Filtret "ott" anger borttagning av alla bit hastigheter under 1 Mbit/s, så de nedre två kvalitets nivåerna har tagits bort i svaret. I det nedre högra hörnet visar diagrammet HLS-manifestet där ett filter med namnet "Mobile" tillämpades. Filtret "mobil" anger borttagning av renderingar där upplösningen är större än 720p, så de två 1080p-återgivningarna har tagits bort.
 
-![Återgivningsfiltrering med dynamiskt manifest][renditions1]
+![Rendera filtrering med dynamiskt manifest][renditions1]
 
-## <a name="removing-language-tracks"></a>Ta bort språkspår
-Dina tillgångar kan innehålla flera ljudspråk som engelska, spanska, franska och så vidare. Vanligtvis hanterar Player SDK standardval av ljudspår och tillgängliga ljudspår per användarval.
+## <a name="removing-language-tracks"></a>Ta bort språk spår
+Dina till gångar kan innehålla flera ljud språk, till exempel engelska, spanska, franska och så vidare. Normalt hanterar Player SDK standard val av ljud spår och tillgängliga ljud spår per val av användare.
 
-Att utveckla sådana Player SDK:er är utmanande eftersom det kräver olika implementeringar över enhetsspecifika spelarramverk. På vissa plattformar är spelar-API:er begränsade och inkluderar inte ljudvalsfunktionen där användarna inte kan välja eller ändra standardljudspåret. Med tillgångsfilter kan du styra beteendet genom att skapa filter som bara innehåller önskade ljudspråk.
+Det är svårt att utveckla sådana SDK-SDK: er eftersom det krävs olika implementeringar i de enhetsspecifika Player-ramverken. På vissa plattformar är Player-API: erna begränsade och innehåller inte funktionen för ljud markering där användarna inte kan välja eller ändra standard ljud spåret. Med till gångs filter kan du styra beteendet genom att skapa filter som bara innehåller önskade ljud språk.
 
-![Filtrering av språkspår med dynamiskt manifest][language_filter]
+![Filtrering av språk spår med dynamiskt manifest][language_filter]
 
-## <a name="trimming-the-start-of-an-asset"></a>Trimma början av en tillgång
+## <a name="trimming-the-start-of-an-asset"></a>Trimma starten av en till gång
 
-I de flesta direktuppspelningshändelser kör operatörerna några tester före den faktiska händelsen. De kan till exempel innehålla en griffeltavla som denna innan evenemanget börjar: "Programmet börjar tillfälligt."
+I de flesta direkt uppspelnings händelser kör operatörer vissa tester före den faktiska händelsen. De kan till exempel innehålla ett sådant som det här innan händelsen startades: "programmet kommer att starta tillfälligt".
 
-Om programmet arkiveras arkiveras och inkluderas även test- och skifferdata i presentationen. Den här informationen ska dock inte visas för klienterna. Med Dynamiskt manifest kan du skapa ett starttidsfilter och ta bort oönskade data från manifestet.
+Om programmet arkiveras, arkiveras även test-och bakgrunds data och tas med i presentationen. Den här informationen bör dock inte visas för klienterna. Med dynamiskt manifest kan du skapa ett start tids filter och ta bort oönskade data från manifestet.
 
-![Trimma början på en tillgång med dynamiskt manifest][trim_filter]
+![Trimning av början av en till gång med dynamiskt manifest][trim_filter]
 
-## <a name="creating-subclips-views-from-a-live-archive"></a>Skapa underknurer (vyer) från ett livearkiv
+## <a name="creating-subclips-views-from-a-live-archive"></a>Skapa under klipp (vyer) från ett Live-Arkiv
 
-Många livehändelser är tidskrävande och live-arkiv kan innehålla flera händelser. När liveevenemanget har avslutats kanske programföretagen vill dela upp livearkivet i logiska programstart- och stoppsekvenser.
+Många Live-händelser körs länge och Live-arkivet kan innehålla flera händelser. När Live-händelsen är slut kan det hända att sändningarna vill dela upp Live-arkivet i logiska programs start-och stopp sekvenser.
 
-Du kan publicera dessa virtuella program separat utan efterbearbetning av livearkivet och inte skapa separata tillgångar (som inte får nytta av de befintliga cachelagrade fragmenten i CDN:erna). Exempel på sådana virtuella program är kvartalen i en fotboll eller basketmatch, innings i baseball, eller enskilda händelser i något sportprogram.
+Du kan publicera de här virtuella programmen separat utan att bearbeta bearbetningen av Live-arkivet och inte skapa separata till gångar (som inte får fördelarna med befintliga cachelagrade fragment i CDN). Exempel på sådana virtuella program är kvartalen för ett fotbolls-eller basket boll spel, innings i baseboll eller enskilda idrotts program.
 
-Med Dynamiskt manifest kan du skapa filter med start-/sluttider och skapa virtuella vyer överst i ditt livearkiv.
+Med dynamiskt manifest kan du skapa filter genom att använda start-och slut tider och skapa virtuella vyer överst i ditt Live-Arkiv.
 
-![Underknäckfilter med dynamiskt manifest][subclip_filter]
+![Under klipps filter med dynamiskt manifest][subclip_filter]
 
-Här är den filtrerade tillgången:
+Här är den filtrerade till gången:
 
-![Filtrerad tillgång med dynamiskt manifest][skiing]
+![Filtrerad till gång med dynamiskt manifest][skiing]
 
-## <a name="adjusting-the-presentation-window-dvr"></a>Justera presentationsfönstret (DVR)
+## <a name="adjusting-the-presentation-window-dvr"></a>Justera presentations fönstret (DVR)
 
-För närvarande erbjuder Azure Media Services cirkulära arkiv där varaktigheten kan konfigureras mellan 1 minut och 25 timmar. Manifestfiltrering kan användas för att skapa ett rullande DVR-fönster överarkivets överkant, utan att ta bort media. Det finns många scenarier där programföretag vill tillhandahålla ett begränsat DVR-fönster för att flytta med live kanten och samtidigt hålla ett större arkiveringsfönster. Ett programföretag kanske vill använda de data som finns utanför DVR-fönstret för att markera klipp, eller så kanske de vill tillhandahålla olika DVR-fönster för olika enheter. De flesta mobila enheter hanterar till exempel inte stora DVR-fönster (du kan ha ett 2-minuters DVR-fönster för mobila enheter och en timme för stationära klienter).
+Azure Media Services erbjuder för närvarande ett cirkulärt arkiv där varaktigheten kan konfigureras mellan 1 minut-25 timmar. Manifest filtrering kan användas för att skapa ett rullande DVR-fönster överst i arkivet, utan att ta bort mediet. Det finns många scenarier där sändningarna vill ge ett begränsat DVR-fönster att flyttas med Live Edge och samtidigt behålla ett större Arkiv fönster. En utsändare kan vilja använda de data som är av DVR-fönstret för att markera klipp, eller så kanske de vill ge olika DVR-fönster för olika enheter. De flesta av de mobila enheterna hanterar till exempel inte stora DVR-fönster (du kan ha ett DVR-fönster på 2 minuter för mobila enheter och en timme för Skriv bords klienter).
 
 ![DVR-fönster med dynamiskt manifest][dvr_filter]
 
-## <a name="adjusting-livebackoff-live-position"></a>Justera LiveBackoff (liveposition)
+## <a name="adjusting-livebackoff-live-position"></a>Justera LiveBackoff (Live position)
 
-Manifestfiltrering kan användas för att ta bort flera sekunder från live kanten av ett live-program. Filtrering gör det möjligt för programföretag att titta på presentationen på förhandsgranskningspubliceringspunkten och skapa insättningspunkter för annonser innan tittarna får strömmen (backas upp med 30 sekunder). Programföretag kan sedan driva dessa annonser till sina kundramverk i tid för dem att ta emot och bearbeta informationen innan annonsen tillfälle.
+Manifest filtrering kan användas för att ta bort flera sekunder från Live Edge i ett Live-program. Filtrering tillåter att sändningarna tittar på presentationen på publikationens publicerings plats och skapar annons insättnings punkter innan visnings programmen tar emot data strömmen (med utgångs punkt från 30 sekunder). Sedan kan de sända dessa annonser till deras klient ramverk för att kunna ta emot och bearbeta informationen innan annonsen är aktiv.
 
-Förutom annonsstöd kan den direktsända back-off-inställningen användas för att justera tittarnas position så att när klienter driver och träffar live-kanten kan de fortfarande få fragment från servern. På så sätt får klienterna inte ett HTTP 404- eller 412-fel.
+Förutom stöd för annons hantering kan Live-off-inställningen användas för att justera visnings läget, så att när klienterna når och når Live-gränsen kan de fortfarande få fragment från servern. På så sätt får klienterna inget HTTP 404-eller 412-fel.
 
-![Filter för live back-off med dynamiskt manifest][livebackoff_filter]
+![Filtrera för Live-återställning med dynamiskt manifest][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Kombinera flera regler i ett enda filter
 
-Du kan kombinera flera filtreringsregler i ett enda filter. Du kan till exempel definiera en "intervallregel" för att ta bort griffeltavlor från ett livearkiv och även filtrera bort tillgängliga bithastigheter. När du tillämpar flera filtreringsregler är slutresultatet skärningspunkten mellan alla regler.
+Du kan kombinera flera filtrerings regler i ett enda filter. Du kan till exempel definiera en "intervall regel" för att ta bort bakgrunds värden från ett Live-Arkiv och även filtrera ut tillgängliga bit hastigheter. När du använder flera filtrerings regler är slut resultatet skärnings punkten för alla regler.
 
-![Flera filtreringsregler med dynamiskt manifest][multiple-rules]
+![Flera filtrerings regler med dynamiskt manifest][multiple-rules]
 
-## <a name="combining-multiple-filters-filter-composition"></a>Kombinera flera filter (filtersammansättning)
+## <a name="combining-multiple-filters-filter-composition"></a>Kombinera flera filter (filter komposition)
 
-Du kan också kombinera flera filter i en enda WEBBADRESS. Följande scenario visar varför du kanske vill kombinera filter:
+Du kan också kombinera flera filter i en enda URL. Följande scenario visar varför du kanske vill kombinera filter:
 
-1. Du måste filtrera dina videokvaliteter för mobila enheter, som Android eller iPad (för att begränsa videokvaliteter). Om du vill ta bort de oönskade egenskaperna skapar du ett kontofilter som passar enhetsprofilerna. Du kan använda kontofilter för alla dina tillgångar under samma Media Services-konto utan någon ytterligare association.
-1. Du vill också trimma start- och sluttiden för en tillgång. Om du vill trimma skapar du ett tillgångsfilter och ställer in start-/sluttid.
-1. Du vill kombinera båda dessa filter. Utan kombination måste du lägga till kvalitetsfiltrering i trimningsfiltret, vilket skulle göra filteranvändningen svårare.
+1. Du måste filtrera dina video egenskaper för mobila enheter, t. ex. Android eller iPad (för att begränsa video kvaliteterna). Om du vill ta bort oönskade kvaliteter skapar du ett konto filter som är lämpligt för enhets profilerna. Du kan använda konto filter för alla till gångar under samma Media Services konto utan någon ytterligare Association.
+1. Du vill också trimma start-och slut tid för en till gång. Om du vill göra en trimning skapar du ett till gångs filter och anger start-/slut tiden.
+1. Du vill kombinera båda dessa filter. Utan kombination skulle du behöva lägga till kvalitets filtrering till trimnings filtret, vilket skulle göra filter användningen svårare.
 
-Om du vill kombinera filter anger du filternamnen på manifest-/spelliste-URL:en i semikolonavgränsat format. Anta att du har ett filter med namnet *MyMobileDevice* som filtrerar kvaliteter, och du har en annan som heter *MyStartTime* för att ställa in en viss starttid. Du kan kombinera upp till tre filter.
+Om du vill kombinera filter ställer du in filter namnen på URL: en för manifest/spelnings lista i semikolon-avgränsat format. Vi antar att du har ett filter med namnet *MyMobileDevice* som filtrerar kvaliteterna och att du har en annan namngiven *MyStartTime* för att ange en angiven start tid. Du kan kombinera upp till tre filter.
 
-Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a name="considerations-and-limitations"></a>Överväganden och begränsningar
 
-- Värdena för **forceEndTimestamp**, **presentationWindowDuration**och **liveBackoffDuration** bör inte anges för ett VOD-filter. De används bara för levande filterscenarier.
-- Ett dynamiskt manifest fungerar i GOP-gränser (nyckelbildrutor), så trimning har GOP-noggrannhet.
-- Du kan använda samma filternamn för konto- och tillgångsfilter. Tillgångsfilter har högre prioritet och åsidosätter kontofilter.
-- Om du uppdaterar ett filter kan det ta upp till 2 minuter innan slutpunkten för direktuppspelning uppdateras. Om du använde filter för att visa innehållet (och du cachelagrade innehållet i proxyservrar och CDN-cacheminnen) kan uppdatering av dessa filter resultera i spelarfel. Vi rekommenderar att du rensar cacheminnet när du har uppdaterat filtret. Om det här alternativet inte är möjligt kan du överväga att använda ett annat filter.
-- Kunderna måste manuellt hämta manifestet och tolka den exakta starttidsstämpeln och tidsskalan.
+- Värdena för **forceEndTimestamp**, **presentationWindowDuration**och **liveBackoffDuration** bör inte anges för ett VOD-filter. De används bara för direkt filter scenarier.
+- Ett dynamiskt manifest fungerar i GOP-gränser (nyckel ramar), så trimning har GOP precision.
+- Du kan använda samma filter namn för konto-och till gångs filter. Till gångs filter har högre prioritet och kommer att åsidosätta konto filter.
+- Om du uppdaterar ett filter kan det ta upp till 2 minuter för strömnings slut punkten att uppdatera reglerna. Om du använde filter för att hantera innehållet (och du cachelagrade innehållet i proxyservrar och CDN-cacheminnen), kan uppdatering av dessa filter leda till spelarens problem. Vi rekommenderar att du rensar cachen när du har uppdaterat filtret. Om det här alternativet inte är möjligt bör du överväga att använda ett annat filter.
+- Kunder måste hämta manifestet manuellt och analysera den exakta start tids stämplingen och tids skalan.
 
-    - Om du vill bestämma egenskaperna för spåren i en tillgång [hämtar och undersöker](#get-and-examine-manifest-files)du manifestfilen .
-    - Formeln för att ange tidsstämpelegenskaper för tillgångsfiltret är: <br/>startTimestamp &lt;= starttid&gt; +  &lt;i manifestet förväntade&gt; filterstarttid i sekunder * tidsskala
+    - [Hämta och granska manifest filen](#get-and-examine-manifest-files)för att fastställa egenskaper för spåren i en till gång.
+    - Formeln för att ange tids stämplings egenskaper för till gångs filter är: <br/>startTimestamp = &lt;start tid i manifestet&gt; +  &lt;förväntat filter start tid&gt; i sekunder * tids skala
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande artiklar visar hur du skapar filter programmässigt:  
+Följande artiklar visar hur du skapar filter program mässigt:  
 
-- [Skapa filter med REST-API:er](filters-dynamic-manifest-rest-howto.md)
+- [Skapa filter med REST API: er](filters-dynamic-manifest-rest-howto.md)
 - [Skapa filter med .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Skapa filter med CLI](filters-dynamic-manifest-cli-howto.md)
 

@@ -1,6 +1,6 @@
 ---
-title: azoskopi bort | Microsoft-dokument
-description: Den här artikeln innehåller referensinformation för kommandot azcopy remove.
+title: AzCopy ta bort | Microsoft Docs
+description: Den här artikeln innehåller referensinformation för kommandot AzCopy Remove.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,17 +9,17 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74033984"
 ---
 # <a name="azcopy-remove"></a>azcopy ta bort
 
-Ta bort blobbar eller filer från ett Azure-lagringskonto.
+Ta bort blobbar eller filer från ett Azure Storage-konto.
 
-## <a name="synopsis"></a>Synopsis
+## <a name="synopsis"></a>Sammanfattning
 
 ```azcopy
 azcopy remove [resourceURL] [flags]
@@ -28,13 +28,13 @@ azcopy remove [resourceURL] [flags]
 ## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
-- [Överföra data med AzCopy- och Blob-lagring](storage-use-azcopy-blobs.md)
-- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exempel
 
-Ta bort en enda blob med SAS:
+Ta bort en enskild BLOB med SAS:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
@@ -46,25 +46,25 @@ Ta bort en hel virtuell katalog med en SAS:
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
 
-Ta bara bort de översta blobbar i en virtuell katalog men inte dess underkataloger:
+Ta endast bort de översta Blobbarna i en virtuell katalog, men inte dess under kataloger:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Ta bort en delmängd blobbar i en virtuell katalog (till exempel: endast jpg- och pdf-filer, eller om blobnamnet är "exactName"):
+Ta bort en delmängd av blobbar i en virtuell katalog (till exempel: endast jpg-och PDF-filer, eller om BLOB-namnet är "exactName"):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include="*.jpg;*.pdf;exactName"
 ```
 
-Ta bort en hel virtuell katalog, men utesluter vissa blobbar från omfånget (Till exempel: varje blob som börjar med foo eller slutar med stapel):
+Ta bort en hel virtuell katalog, men exkludera vissa blobbar från omfånget (till exempel: varje blob som börjar med foo eller slutar med bar):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Ta bort specifika blobbar och virtuella kataloger genom att placera deras relativa sökvägar (INTE URL-kodade) i en fil:
+Ta bort vissa blobbar och virtuella kataloger genom att placera deras relativa sökvägar (inte URL-kodade) i en fil:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
@@ -75,13 +75,13 @@ file content:
 
 ```
 
-Ta bort en enskild fil från ett Blob Storage-konto som har ett hierarkiskt namnområde (inkludera/utesluter stöds inte).
+Ta bort en enskild fil från ett Blob Storage konto som har ett hierarkiskt namn område (inkludera/exkludera stöds inte).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Ta bort en enda katalog ett Blob Storage-konto som har ett hierarkiskt namnområde (inkludera/utesluter stöds inte):
+Ta bort en enskild katalog Blob Storage konto som har ett hierarkiskt namn område (inkludera/exkludera stöds inte):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -89,29 +89,29 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Alternativ
 
-**--exclude-path sträng**      Uteslut dessa sökvägar när du tar bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefixet relativ sökväg. Till exempel: myFolder;myFolder/subDirName/file.pdf.
+**--exkludera-Sök vägs sträng**      Undanta de här Sök vägarna när du tar bort dem. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf.
 
-**--exclude-pattern** string Exkludera filer där namnet matchar mönsterlistan. Till exempel: *.jpg;*. pdf;exactName
+**--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;*. PDF; exactName
 
-**-h, --hjälp** hjälp för att ta bort
+**-h,--hjälp** för att ta bort
 
-**--include-path string** Inkludera endast dessa banor när du tar bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefixet relativ sökväg. Till exempel: myFolder;myFolder/subDirName/file.pdf
+**--include-Path-** sträng innehåller bara dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf
 
-**--include-pattern** string Inkludera endast filer där namnet matchar mönsterlistan. Till exempel: *.jpg;*. pdf;exactName
+**--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Till exempel: *. jpg;*. PDF; exactName
 
-**--list-of-files string** Definierar platsen för en fil som innehåller listan över filer och kataloger som ska tas bort. De relativa sökvägarna ska avgränsas med radbrytningar och sökvägarna ska INTE URL-kodas.
+**--list-of-Files** -sträng definierar platsen för en fil som innehåller listan över filer och kataloger som ska tas bort. De relativa Sök vägarna ska avgränsas med rad brytningar och Sök vägarna får inte vara URL-kodade.
 
-**--log-nivå sträng** Definiera loggverositet för loggfilen. Tillgängliga nivåer är: INFO(alla begäranden/svar), VARNING(långsamma svar), FEL (endast misslyckade begäranden) och NONE(inga utdataloggar). (standard 'INFO') (standard "INFO")
+**--sträng för logg nivå** definierar loggens utförlighet för logg filen. Tillgängliga nivåer är: INFO (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information) (standard information)
 
-**--rekursiv**                Titta på underkataloger rekursivt vid synkronisering mellan kataloger.
+**--rekursivt**                Titta i under kataloger rekursivt vid synkronisering mellan kataloger.
 
-## <a name="options-inherited-from-parent-commands"></a>Alternativ ärvda från överordnade kommandon
+## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
 |Alternativ|Beskrivning|
 |---|---|
-|--cap-mbps uint32 --cap-mbps|Caps överföringshastigheten, i megabit per sekund. Moment-för-ögonblick genomströmning kan variera något från locket. Om det här alternativet är noll, eller om det utelämnas, begränsas inte dataflödet.|
-|--utdata-typ sträng|Format för kommandots utdata. Alternativen är: text, json. Standardvärdet är "text".|
+|--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
+|--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy (azcopy)](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

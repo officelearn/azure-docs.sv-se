@@ -1,6 +1,6 @@
 ---
-title: Översikt över tillgänglighetsgrupper
-description: Den här artikeln introducerar SQL Server-tillgänglighetsgrupper på virtuella Azure-datorer.
+title: Översikt över tillgänglighets grupper
+description: Den här artikeln beskriver SQL Server tillgänglighets grupper på virtuella Azure-datorer.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -16,62 +16,62 @@ ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74037487"
 ---
-# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server-tillgänglighetsgrupper på virtuella Azure-datorer
+# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server tillgänglighets grupper på Azure Virtual Machines
 
-Den här artikeln introducerar SQL Server-tillgänglighetsgrupper på virtuella Azure-datorer. 
+I den här artikeln beskrivs SQL Server tillgänglighets grupper på Azure Virtual Machines. 
 
-Alltid på tillgänglighet grupper på Azure virtuella datorer liknar Alltid på tillgänglighet grupper på plats. Mer information finns i [Alltid på tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
+Always on-tillgänglighetsgrupper på Azure Virtual Machines liknar Always on-tillgänglighetsgrupper lokalt. Mer information finns i [Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
 
-Diagrammet illustrerar delarna i en komplett SQL Server-tillgänglighetsgrupp i Virtuella Azure-datorer.
+Diagrammet illustrerar delarna i en fullständig SQL Server tillgänglighets grupp i Azure Virtual Machines.
 
 ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-Den viktigaste skillnaden för en tillgänglighetsgrupp i Virtuella Azure-datorer är att virtuella Azure-datorer kräver en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md). Belastningsutjämnaren innehåller IP-adresserna för tillgänglighetsgruppens lyssnare. Om du har mer än en tillgänglighetsgrupp kräver varje grupp en lyssnare. En belastningsutjämnare kan stödja flera lyssnare.
+Den viktigaste skillnaden för en tillgänglighets grupp i Azure Virtual Machines är att de virtuella Azure-datorerna kräver en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md). Belastningsutjämnaren innehåller IP-adresserna för tillgänglighets gruppens lyssnare. Om du har fler än en tillgänglighets grupp måste varje grupp ha en lyssnare. En belastningsutjämnare har stöd för flera lyssnare.
 
-Dessutom rekommenderar vi ett enda nätverkskort per server (klusternod) och ett enda undernät på ett azure IaaS VM-gästkon redundanskluster. Azures nätverk har fysisk redundans, vilket innebär att det inte behövs fler nätverkskort och undernät för gästkluster på virtuella Azure IaaS-datorer. Även om klustrets verifieringsrapport utfärdar en varning om att noderna endast kan nås i ett enda nätverk, kan varningen ignoreras för redundanskluster på virtuella Azure IaaS-gästdatorer. 
+Dessutom rekommenderar vi att du använder ett enda nätverkskort per server (klusternod) och ett enda undernät på en Azure-IaaS för virtuella datorer i gäst klustret. Azures nätverk har fysisk redundans, vilket innebär att det inte behövs fler nätverkskort och undernät för gästkluster på virtuella Azure IaaS-datorer. Även om klustrets verifieringsrapport utfärdar en varning om att noderna endast kan nås i ett enda nätverk, kan varningen ignoreras för redundanskluster på virtuella Azure IaaS-gästdatorer. 
 
-Om du vill öka redundansen och hög tillgänglighet bör virtuella SQL Server-datorer antingen vara i samma [tillgänglighetsuppsättning](virtual-machines-windows-portal-sql-availability-group-prereq.md#create-availability-sets)eller olika [tillgänglighetszoner](/azure/availability-zones/az-overview). 
+För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server datorerna antingen finnas i samma [tillgänglighets uppsättning](virtual-machines-windows-portal-sql-availability-group-prereq.md#create-availability-sets)eller olika [tillgänglighets zoner](/azure/availability-zones/az-overview). 
 
-|  | Windows Server-version | SQL Server-version | SQL Server Edition | WSFC kvorum config | DR med flera regioner | Stöd för flera undernät | Stöd för en befintlig AD | DR med flera zoner samma region | Dist-AG-stöd utan AD-domän | Dist-AG-stöd utan kluster |  
+|  | Windows Server-version | SQL Server version | SQL Servers utgåva | Konfiguration av WSFC-kvorum | DR med flera regioner | Stöd för flera undernät | Stöd för en befintlig AD | DR med samma region med flera zoner | Dist-AG-stöd utan AD-domän | Förd-AG-stöd utan kluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Molnvittne | Inga | Ja | Ja | Ja | Inga | Inga |
-| [Snabbstartsmallar](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Molnvittne | Inga | Ja | Ja | Ja | Inga | Inga |
-| [Portal-mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Filresurs | Inga | Inga | Inga | Inga | Inga | Inga |
+| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | ENT | Molnvittne | Inga | Ja | Ja | Ja | Inga | Inga |
+| [Snabb starts mallar](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | ENT | Molnvittne | Inga | Ja | Ja | Ja | Inga | Inga |
+| [Portal mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | ENT | Filresurs | Inga | Inga | Inga | Inga | Inga | Inga |
 | [Manuell](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Alla | Alla | Alla | Alla | Ja | Ja | Ja | Ja | Ja | Ja |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
-När du är redo att skapa en SQL Server-tillgänglighetsgrupp på Virtuella Azure-datorer läser du dessa självstudier.
+När du är redo att bygga en SQL Server tillgänglighets grupp på Azure Virtual Machines, se de här självstudierna.
 
 ## <a name="manually-with-azure-cli"></a>Manuellt med Azure CLI
-Att använda Azure CLI för att konfigurera och distribuera en tillgänglighetsgrupp är det rekommenderade alternativet, eftersom det är det bästa när det gäller enkelhet och snabb distribution. Med Azure CLI kan skapandet av Windows Failover Cluster, ansluta till virtuella SQL Server-datorer till klustret samt skapandet av lyssnaren och intern belastningsutjämnare uppnås på mindre än 30 minuter. Det här alternativet kräver fortfarande en manuell skapande av tillgänglighetsgruppen, men automatiserar alla andra nödvändiga konfigurationssteg. 
+Att använda Azure CLI för att konfigurera och distribuera en tillgänglighets grupp är det rekommenderade alternativet, eftersom det är det bästa vad gäller enkelhetens och snabbare distribution. Med Azure CLI kan du skapa ett Windows-redundanskluster, ansluta SQL Server virtuella datorer till klustret, samt att skapa lyssnare och interna Load Balancer kan uppnås under 30 minuter. Det här alternativet kräver fortfarande en manuell skapande av tillgänglighets gruppen, men automatiserar alla andra nödvändiga konfigurations steg. 
 
-Mer information finns i [Använda Azure SQL VM CLI för att konfigurera alltid på tillgänglighetsgrupp för SQL Server på en Azure VM](virtual-machines-windows-sql-availability-group-cli.md). 
+Mer information finns i [använda Azure SQL VM CLI för att konfigurera Always on-tillgänglighetsgrupper för SQL Server på en virtuell Azure-dator](virtual-machines-windows-sql-availability-group-cli.md). 
 
-## <a name="automatically-with-azure-quickstart-templates"></a>Automatiskt med Azure-snabbstartsmallar
-Azure Quickstart-mallarna använder SQL VM-resursprovidern för att distribuera Windows Redundansklustret, ansluta virtuella SQL Server-datorer till den, skapa lyssnaren och konfigurera intern belastningsutjämning. Det här alternativet kräver fortfarande ett manuellt skapande av tillgänglighetsgruppen och Intern belastningsutjämnare (ILB), men automatiserar och förenklar alla andra nödvändiga konfigurationssteg (inklusive konfigurationen av ILB). 
+## <a name="automatically-with-azure-quickstart-templates"></a>Automatiskt med Azure snabb starts mallar
+Azure snabb starts-mallar använder SQL VM Resource Provider för att distribuera Windows-redundansklustret, ansluta SQL Server virtuella datorer till den, skapa lyssnaren och konfigurera interna Load Balancer. Det här alternativet kräver fortfarande en manuell skapande av tillgänglighets gruppen och interna Load Balancer (ILB) men automatiserar och fören klar alla andra nödvändiga konfigurations steg (inklusive konfiguration av ILB). 
 
-Mer information finns i [Använda Azure Quickstart-mall för att konfigurera alltid på tillgänglighetsgrupp för SQL Server på en Virtuell Azure.](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-
-
-## <a name="automatically-with-an-azure-portal-template"></a>Automatiskt med en Azure-portalmall
-
-[Konfigurera alltid på tillgänglighetsgrupp i Azure VM automatiskt - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+Mer information finns i [använda Azure snabb starts mal len för att konfigurera Always on-tillgänglighetsgrupper för SQL Server på en virtuell Azure-dator](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
-## <a name="manually-in-azure-portal"></a>Manuellt i Azure-portalen
+## <a name="automatically-with-an-azure-portal-template"></a>Automatiskt med en Azure Portal-mall
 
-Du kan också skapa de virtuella datorerna själv utan mallen. Slutför först förutsättningarna och skapa sedan tillgänglighetsgruppen. Se följande avsnitt: 
+[Konfigurera Always on tillgänglighets grupp i Azure VM automatiskt – Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
-- [Konfigurera förutsättningar för SQL Server Always On-tillgänglighetsgrupper på virtuella Azure-datorer](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 
-- [Skapa alltid på tillgänglighetsgrupp för att förbättra tillgänglighet och haveriberedskap](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+## <a name="manually-in-azure-portal"></a>Manuellt i Azure Portal
+
+Du kan också skapa de virtuella datorerna själv utan mallen. Slutför först kraven och skapa sedan tillgänglighets gruppen. Se följande avsnitt: 
+
+- [Konfigurera förutsättningar för SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+
+- [Skapa Always on-tillgänglighetsgrupper för att förbättra tillgängligheten och haveri beredskap](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera en SQL-server som alltid är tillgänglig på virtuella Azure-datorer i olika regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)
+[Konfigurera en SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines i olika regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)

@@ -1,6 +1,6 @@
 ---
-title: Processändringsfeed i Azure Blob Storage (förhandsversion) | Microsoft-dokument
-description: Lär dig hur du bearbetar flödesloggar i ett .NET-klientprogram
+title: Bearbeta ändrings flöde i Azure Blob Storage (förhands granskning) | Microsoft Docs
+description: Lär dig hur du bearbetar ändringar i flödes loggar i ett .NET-klient program
 author: normesta
 ms.author: normesta
 ms.date: 11/04/2019
@@ -9,36 +9,36 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: 75995eeb3f8255cb4c60d5be267f9c343edfea89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74111866"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Bearbeta ändringsfeed i Azure Blob Storage (förhandsversion)
+# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Bearbeta ändrings flöde i Azure Blob Storage (förhands granskning)
 
-Ändringsfeeden innehåller transaktionsloggar över alla ändringar som sker i blobbar och blobmetadata i ditt lagringskonto. Den här artikeln visar hur du läser ändringsfeedposter med hjälp av blob change feed processor-biblioteket.
+Ändra feed innehåller transaktions loggar för alla ändringar som sker i blobbar och blob-metadata i ditt lagrings konto. Den här artikeln visar hur du läser ändringar av flödes poster med hjälp av processor biblioteket för BLOB Change-feed.
 
-Mer information om ändringsflödet finns [i Ändra feed i Azure Blob Storage (Förhandsversion).](storage-blob-change-feed.md)
+Läs mer om ändrings flödet [i ändra feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md).
 
 > [!NOTE]
-> Ändringsflödet finns i den offentliga förhandsversionen och finns i **regionerna Westcentralus** och **Westus2.** Mer information om den här funktionen tillsammans med kända problem och begränsningar finns [i Ändra feedstöd i Azure Blob Storage](storage-blob-change-feed.md). Ändringsflödesprocessorbiblioteket kan komma att ändras fram till dess att biblioteket blir allmänt tillgängligt.
+> Ändrings flödet finns i en offentlig för hands version och är tillgängligt i regionerna **westcentralus** och **westus2** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md). Biblioteket Change feed processor kan ändras mellan nu och när det här biblioteket blir allmänt tillgängligt.
 
-## <a name="get-the-blob-change-feed-processor-library"></a>Hämta blob change-processorbiblioteket
+## <a name="get-the-blob-change-feed-processor-library"></a>Hämta processor biblioteket för BLOB Change feed
 
-1. Lägg till webbadressen `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` i NuGet-paketkällorna i Visual Studio. 
+1. I Visual Studio lägger du till URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` : en till dina NuGet-paket källor. 
 
-   Mer information finns i [paketkällor](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
+   Mer information finns i [paket källor](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 
-2. Leta reda på **paketet Microsoft.Azure.Storage.Changefeed** i NuGet Package Manager och installera det i projektet. 
+2. Leta upp paketet **Microsoft. Azure. Storage. Changefeed** i NuGet Package Manager och installera det i projektet. 
 
-   Mer information finns i [Hitta och installera ett paket](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Mer information finns i [hitta och installera ett paket](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
-## <a name="connect-to-the-storage-account"></a>Ansluta till lagringskontot
+## <a name="connect-to-the-storage-account"></a>Anslut till lagrings kontot
 
-Tolka anslutningssträngen genom att anropa metoden [CloudStorageAccount.TryParse.](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) 
+Parsa anslutnings strängen genom att anropa metoden [CloudStorageAccount. TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) . 
 
-Skapa sedan ett objekt som representerar Blob Storage i ditt lagringskonto genom att anropa metoden [CloudStorageAccount.CreateCloudBlobClient.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)
+Skapa sedan ett objekt som representerar Blob Storage i ditt lagrings konto genom att anropa metoden [CloudStorageAccount. CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient) .
 
 ```cs
 public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageConnectionString)
@@ -58,16 +58,16 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 }
 ```
 
-## <a name="initialize-the-change-feed"></a>Initiera ändringsflödet
+## <a name="initialize-the-change-feed"></a>Initiera ändrings flödet
 
-Lägg till följande med hjälp av utdrag överst i kodfilen. 
+Lägg till följande using-uttryck högst upp i din kod fil. 
 
 ```csharp
 using Avro.Generic;
 using ChangeFeedClient;
 ```
 
-Skapa sedan en instans av klassen **ChangeFeed** genom att anropa metoden **GetContainerReference.** Skicka in namnet på ändringsmatningsbehållaren.
+Skapa sedan en instans av klassen **ChangeFeed** genom att anropa **GetContainerReference** -metoden. Överför namnet på behållaren för ändrings feed.
 
 ```csharp
 public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
@@ -82,14 +82,14 @@ public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
 }
 ```
 
-## <a name="reading-records"></a>Läsa poster
+## <a name="reading-records"></a>Läser poster
 
 > [!NOTE]
-> Ändringsflödet är en oföränderlig och skrivskyddad entitet i ditt lagringskonto. Valfritt antal program kan läsa och bearbeta ändringsflödet samtidigt och oberoende av egen bekvämlighet. Poster tas inte bort från ändringsflödet när ett program läser dem. Läs- eller iterationstillståndet för varje tidskrävande läsare är oberoende och underhålls endast av ditt program.
+> Ändrings flödet är en oföränderlig och skrivskyddad entitet i ditt lagrings konto. Ett valfritt antal program kan läsa och bearbeta ändrings flödet samtidigt och självständigt med egen bekvämlighet. Poster tas inte bort från ändra feed när ett program läser dem. Läsnings-eller upprepnings statusen för varje förbruknings läsare är oberoende och underhålls endast av ditt program.
 
-Det enklaste sättet att läsa poster är att skapa en instans av klassen **ChangeFeedReader.** 
+Det enklaste sättet att läsa poster är att skapa en instans av klassen **ChangeFeedReader** . 
 
-Det här exemplet iterar igenom alla poster i ändringsflödet och skriver sedan ut några värden från varje post till konsolen. 
+Det här exemplet itererar igenom alla poster i ändrings flödet och skriver sedan ut till konsolen med några värden från varje post. 
  
 ```csharp
 public async Task ProcessRecords(ChangeFeed changeFeed)
@@ -116,15 +116,15 @@ public async Task ProcessRecords(ChangeFeed changeFeed)
 }
 ```
 
-## <a name="resuming-reading-records-from-a-saved-position"></a>Återuppta läsa poster från en sparad position
+## <a name="resuming-reading-records-from-a-saved-position"></a>Återupptar läsning av poster från en sparad position
 
-Du kan välja att spara din läsposition i ändringsflödet och återuppta itererera posterna i framtiden. Du kan när som helst spara tillståndet för din iteration av ändringsflödet med metoden **ChangeFeedReader.SerializeState().** Tillståndet är en **sträng** och ditt program kan spara det tillståndet baserat på programmets design (till exempel till en databas eller en fil).
+Du kan välja att spara din Läs position i ändrings flödet och återuppta de poster som visas vid ett senare tillfälle. Du kan spara statusen för din iteration av Change-flödet när som helst med hjälp av metoden **ChangeFeedReader. SerializeState ()** . Statusen är en **sträng** och ditt program kan spara det läget baserat på programmets design (till exempel: till en databas eller en fil).
 
 ```csharp
     string currentReadState = processor.SerializeState();
 ```
 
-Du kan fortsätta att iterera genom poster från det senaste tillståndet genom att skapa **ChangeFeedReader** med metoden **CreateChangeFeedReaderFromPointerAsync.**
+Du kan fortsätta att söka igenom poster från det senaste läget genom att skapa **ChangeFeedReader** med hjälp av **CreateChangeFeedReaderFromPointerAsync** -metoden.
 
 ```csharp
 public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string lastReadState)
@@ -152,9 +152,9 @@ public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string l
 
 ```
 
-## <a name="stream-processing-of-records"></a>Strömbearbetning av poster
+## <a name="stream-processing-of-records"></a>Strömmande bearbetning av poster
 
-Du kan välja att bearbeta ändringsflödesposter när de anländer. Se [specifikationer](storage-blob-change-feed.md#specifications).
+Du kan välja att bearbeta ändrings flödes poster när de tas emot. Se [specifikationer](storage-blob-change-feed.md#specifications).
 
 ```csharp
 public async Task ProcessRecordsStream(ChangeFeed changeFeed, int waitTimeMs)
@@ -186,11 +186,11 @@ public async Task ProcessRecordsStream(ChangeFeed changeFeed, int waitTimeMs)
 }
 ```
 
-## <a name="reading-records-within-a-time-range"></a>Läsa poster inom ett tidsintervall
+## <a name="reading-records-within-a-time-range"></a>Läser poster inom ett tidsintervall
 
-Ändringsflödet är ordnat i timsegment baserat på ändringshändelsetiden. Se [specifikationer](storage-blob-change-feed.md#specifications). Du kan läsa poster från ändringsflödessegment som ligger inom ett visst tidsintervall.
+Ändrings flödet ordnas i Tim segment baserat på ändrings händelse tiden. Se [specifikationer](storage-blob-change-feed.md#specifications). Du kan läsa poster från ändra flödes segment som ligger inom ett angivet tidsintervall.
 
-Det här exemplet hämtar starttiderna för alla segment. Därefter itererar den genom den listan tills starttiden antingen är bortom tiden för det sista förbrukningssegmentet eller efter sluttiden för det önskade intervallet. 
+I det här exemplet hämtas start tiderna för alla segment. Sedan upprepas denna lista tills start tiden är antingen längre än tiden för det sista förbrukade segmentet eller längre än slut tiden för det önskade intervallet. 
 
 ### <a name="selecting-segments-for-a-time-range"></a>Välja segment för ett tidsintervall
 
@@ -237,7 +237,7 @@ public async Task<List<DateTimeOffset>> GetChangeFeedSegmentRefsForTimeRange
 
 ### <a name="reading-records-in-a-segment"></a>Läsa poster i ett segment
 
-Du kan läsa poster från enskilda segment eller segmentintervall.
+Du kan läsa poster från enskilda segment eller segment intervall.
 
 ```csharp
 public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset segmentOffset)
@@ -267,9 +267,9 @@ public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset 
 }
 ```
 
-## <a name="read-records-starting-from-a-time"></a>Läsa poster från och med en tid
+## <a name="read-records-starting-from-a-time"></a>Läs poster som börjar från en tid
 
-Du kan läsa posterna i ändringsflödet från ett startsegment till slutet. I likhet med att läsa poster inom ett tidsintervall kan du lista segmenten och välja ett segment att börja iterera från.
+Du kan läsa posterna i ändrings flödet från ett start segment till slutet. På samma sätt som när du läser poster inom ett tidsintervall kan du Visa segmenten och välja ett segment som du vill börja iterera från.
 
 Det här exemplet hämtar [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) för det första segmentet som ska bearbetas.
 
@@ -304,7 +304,7 @@ public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
 }
 ```
 
-I det här exemplet bearbetas [flödesposter från DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) för ett startsegment.
+Det här exemplet bearbetar ändringar av flödes poster från [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) för ett start segment.
 
 ```csharp
 public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateTimeOffset segmentStart)
@@ -367,8 +367,8 @@ private async Task<bool> IsSegmentConsumableAsync(ChangeFeed changeFeed, ChangeF
 ```
 
 >[!TIP]
-> Ett segment av kan ha ändra feed loggar i en eller flera *chunkFilePath*. Vid flera *segmentFilePath* har systemet delat in posterna internt i flera shards för att hantera publiceringsdataflöde. Det garanteras att varje partition i segmentet kommer att innehålla ändringar för ömsesidigt uteslutande blobbar och kan bearbetas oberoende av varandra utan att bryta mot beställningen. Du kan använda klassen **ChangeFeedSegmentShardReader** för att iterera genom poster på fragmentnivå om det är mest effektivt för ditt scenario.
+> Ett segment av kan ha ändringar av flödes loggar i en eller flera *chunkFilePath*. Om det finns flera *chunkFilePath* , har systemet partitionerat posterna i flera Shards för att hantera publicerings data flödet. Det garanterar att varje partition i segmentet innehåller ändringar för ömsesidigt uteslutande blobbar och kan bearbetas separat utan att det bryter ordningen. Du kan använda klassen **ChangeFeedSegmentShardReader** för att iterera genom poster på Shard-nivån om det är mest effektivt för ditt scenario.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om ändring av feedloggar. Se [Ändra feed i Azure Blob Storage (förhandsversion)](storage-blob-change-feed.md)
+Lär dig mer om att ändra flödes loggar. Se [ändra feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md)

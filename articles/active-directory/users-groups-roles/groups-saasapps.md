@@ -1,5 +1,5 @@
 ---
-title: Använda en grupp för att hantera åtkomst till SaaS-appar – Azure AD | Microsoft-dokument
+title: Använd en grupp för att hantera åtkomst till SaaS-appar – Azure AD | Microsoft Docs
 description: Så här använder du grupper i Azure Active Directory för att tilldela åtkomst till SaaS-program som är integrerade med Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -15,29 +15,29 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51375f057543c86fe021822eb9722ffd1be16804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74026844"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Använd en grupp för att hantera åtkomst till SaaS-program
 
-Med Azure Active Directory (Azure AD) med en Azure AD Premium-licensplan kan du använda grupper för att tilldela åtkomst till ett SaaS-program som är integrerat med Azure AD. Om du till exempel vill tilldela åtkomst för marknadsavdelningen för att använda fem olika SaaS-program kan du skapa en grupp som innehåller användarna på marknadsavdelningen och sedan tilldela den gruppen till dessa fem SaaS-program som behövs av marknadsavdelningen. På så sätt kan du spara tid genom att hantera medlemskap i marknadsavdelningen på ett ställe. Användare tilldelas sedan till programmet när de läggs till som medlemmar i marknadsföringsgruppen och har sina tilldelningar borttagna från programmet när de tas bort från marknadsföringsgruppen. Den här funktionen kan användas med hundratals program som du kan lägga till från Azure AD Application Gallery.
+Med hjälp av Azure Active Directory (Azure AD) med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program som är integrerat med Azure AD. Om du till exempel vill tilldela åtkomst för marknadsförings avdelningen att använda fem olika SaaS-program kan du skapa en grupp som innehåller användarna på marknadsförings avdelningen och sedan tilldela gruppen till dessa fem SaaS-program som marknadsförings avdelningen behöver. På så sätt kan du spara tid genom att hantera marknadsförings avdelningens medlemskap på ett och samma ställe. Användarna tilldelas sedan programmet när de läggs till som medlemmar i marknadsförings gruppen och har tilldelningar borttagna från programmet när de tas bort från marknadsförings gruppen. Den här funktionen kan användas med hundratals program som du kan lägga till i Azure AD-programgalleriet.
 
 > [!IMPORTANT]
-> Du kan bara använda den här funktionen när du har påbörjat en Utvärderingsversion av Azure AD Premium eller köpt Azure AD Premium-licensplan.
-> Gruppbaserad tilldelning stöds endast för säkerhetsgrupper.
+> Du kan bara använda den här funktionen när du har startat en Azure AD Premium utvärderings version eller en licens plan för inköps Azure AD Premium.
+> Gruppbaserad tilldelning stöds endast för säkerhets grupper.
 > Kapslade gruppmedlemskap stöds inte för gruppbaserad tilldelning till program just nu.
 
-## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>Så här tilldelar du åtkomst för en användare eller grupp till ett SaaS-program
+## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>Tilldela åtkomst för en användare eller grupp till ett SaaS-program
 
-1. Välj **Enterprise-program**i [Azure AD-administrationscentret](https://aad.portal.azure.com).
-2. Välj ett program som du har lagt till i programgalleriet för att öppna det.
-3. Välj **Användare och grupper**och välj sedan Lägg till **användare**.
-4. I **Lägg till tilldelning**väljer du Användare och **grupper** för att öppna **urvalslistan Användare och grupper.**
-6. Markera så många grupper eller användare du vill och klicka eller tryck sedan på **Markera** för att lägga till dem i listan **Lägg till tilldelning.** Du kan också tilldela en roll till en användare i det här skedet.
-7. Välj **Tilldela** om du vill tilldela användare eller grupper till det valda företagsprogrammet.
+1. Välj **företags program**i [administrations centret för Azure AD](https://aad.portal.azure.com).
+2. Välj ett program som du har lagt till i program galleriet för att öppna det.
+3. Välj **användare och grupper**och välj sedan **Lägg till användare**.
+4. I **Lägg till tilldelning**väljer du **användare och grupper** för att öppna urvals listan **användare och grupper** .
+6. Välj så många grupper eller användare som du vill, klicka eller tryck sedan på **Välj** för att lägga till dem i listan **Lägg till tilldelning** . Du kan också tilldela en roll till en användare i det här skedet.
+7. Välj **tilldela** för att tilldela användare eller grupper till det valda företags programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.

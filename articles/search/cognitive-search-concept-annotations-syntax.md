@@ -1,7 +1,7 @@
 ---
-title: Referensindata och resultat i färdigheter
+title: Referens indata och utdata i färdighetsuppsättningar
 titleSuffix: Azure Cognitive Search
-description: Förklarar anteckningssyntaxen och hur du refererar till en anteckning i indata och utdata för en kompetens i en AI-anrikningspipeline i Azure Cognitive Search.
+description: Förklarar anteckningens syntax och hur du refererar till en anteckning i indata och utdata för en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,33 +9,33 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113866"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Referera till anteckningar i en Azure Cognitive Search-kompetens
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Så här refererar du till anteckningar i ett Azure Kognitiv sökning-färdigheter
 
-I den här artikeln får du lära dig hur du refererar till anteckningar i färdighetsdefinitioner, med hjälp av exempel för att illustrera olika scenarier. När innehållet i ett dokument flödar genom en uppsättning kunskaper berikas det med anteckningar. Anteckningar kan användas som indata för ytterligare nedströmsanrikning eller mappas till ett utdatafält i ett index. 
+I den här artikeln får du lära dig hur du refererar till kommentarer i kunskaps definitioner, med hjälp av exempel för att illustrera olika scenarier. När innehållet i ett dokument flödar genom en uppsättning kunskaper får den omfattande anteckningar. Anteckningar kan användas som indata för ytterligare nedströms berikning eller mappas till ett utmatnings fält i ett index. 
  
-Exempel i den här artikeln baseras på *innehållsfältet* som genereras automatiskt av [Azure Blob-indexerare](search-howto-indexing-azure-blob-storage.md) som en del av dokumentsprickningsfasen. När du refererar till dokument från en Blob-behållare använder du ett format som `"/document/content"`, där *innehållsfältet* ingår i *dokumentet*. 
+Exemplen i den här artikeln baseras på *innehålls* fältet som genereras automatiskt av [Azure Blob-indexerare](search-howto-indexing-azure-blob-storage.md) som en del av dokumentets cracking-fas. När du refererar till dokument från en BLOB-behållare ska du använda ett `"/document/content"`format, till exempel, där *innehålls* fältet är en del av *dokumentet*. 
 
-## <a name="background-concepts"></a>Bakgrundskoncept
+## <a name="background-concepts"></a>Koncept i bakgrunden
 
-Innan du granskar syntaxen ska vi gå tillbaka till några viktiga begrepp för att bättre förstå exemplen senare i den här artikeln.
+Innan du tittar på syntaxen ska vi gå tillbaka till några viktiga begrepp för att bättre förstå de exempel som beskrivs längre fram i den här artikeln.
 
 | Period | Beskrivning |
 |------|-------------|
-| Berikat dokument | Ett berikat dokument är en intern struktur som skapats och används av pipelinen för att lagra alla anteckningar som är relaterade till ett dokument. Tänk på ett berikat dokument som ett anteckningsträd. I allmänhet blir en anteckning som skapats från en tidigare anteckning dess underordnade.<p/>Berikade dokument finns bara under varaktigheten av körning av kunskaper. När innehållet har mappats till sökindexet behövs inte längre det berikade dokumentet. Även om du inte interagerar med berikade dokument direkt, är det bra att ha en mental modell av dokumenten när du skapar en kompetens. |
-| Kontext för anrikning | Det sammanhang i vilket anrikningen äger rum, i vilket element berikas. Som standard är anrikningskontexten på den `"/document"` nivå som är begränsad till enskilda dokument. När en färdighet körs blir utdata för den färdigheten [egenskaper för den definierade kontexten](#example-2).|
+| Omfattande dokument | Ett berikat dokument är en intern struktur som skapas och används av pipelinen för att innehålla alla anteckningar relaterade till ett dokument. Tänk på ett berikat dokument som ett träd med anteckningar. En anteckning som skapats från en tidigare anteckning blir i allmänhet dess underordnade.<p/>Omfattande dokument finns bara för varaktigheten för färdigheter-körning. När innehållet har mappats till Sök indexet behövs inte längre det berikade dokumentet. Även om du inte interagerar med berikade dokument direkt, är det praktiskt att ha en psykiska modell av dokumenten när du skapar en färdigheter. |
+| Anriknings kontext | Sammanhanget där berikning sker, vad gäller vilket element som är berikat. Som standard är anriknings kontexten på `"/document"` nivån, begränsad till enskilda dokument. När en kunskap körs, blir utmatningarna för den aktuella egenskapen [Egenskaper för den definierade kontexten](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Exempel 1: Enkel anteckningsreferens
+## <a name="example-1-simple-annotation-reference"></a>Exempel 1: enkel antecknings referens
 
-Anta att du har en mängd olika filer som innehåller referenser till personers namn som du vill extrahera med hjälp av entitetsigenkänning. I färdighetsdefinitionen nedan, `"/document/content"` är den textmässiga representationen av hela dokumentet, och "människor" är en utvinning av fullständiga namn för enheter som identifierats som personer.
+I Azure Blob Storage antar vi att du har en rad olika filer som innehåller referenser till personens namn som du vill extrahera med hjälp av enhets igenkänning. I kunskaps definitionen nedan `"/document/content"` är en text representation av hela dokumentet och "människor" är en extraktion av fullständiga namn för entiteter som identifieras som personer.
 
-Eftersom standardkontexten är `"/document"`kan listan över personer `"/document/people"`nu refereras som . I det `"/document/people"` här specifika fallet är en anteckning, som nu kan mappas till ett fält i ett index, eller användas i en annan färdighet i samma kompetens.
+Eftersom standard kontexten är `"/document"`kan listan över personer nu refereras som `"/document/people"`. I det här fallet `"/document/people"` är en anteckning som nu kan mappas till ett fält i ett index eller som används i en annan färdighet i samma färdigheter.
 
 ```json
   {
@@ -59,11 +59,11 @@ Eftersom standardkontexten är `"/document"`kan listan över personer `"/documen
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Exempel 2: Referera till en matris i ett dokument
+## <a name="example-2-reference-an-array-within-a-document"></a>Exempel 2: referera till en matris i ett dokument
 
-Det här exemplet bygger på det föregående och visar hur du anropar ett anrikningssteg flera gånger över samma dokument. Anta att föregående exempel genererade en matris med strängar med 10 personnamn från ett enda dokument. Ett rimligt nästa steg kan vara en andra anrikning som extraherar efternamnet från ett fullständigt namn. Eftersom det finns 10 namn vill du att det här steget ska anropas 10 gånger i det här dokumentet, en gång för varje person. 
+Det här exemplet bygger på den tidigare, som visar hur du anropar ett anriknings steg flera gånger i samma dokument. Anta att det tidigare exemplet genererade en sträng mat ris med 10 person namn från ett enda dokument. Ett rimligt nästa steg kan vara en andra anrikning som extraherar efter namnet från ett fullständigt namn. Eftersom det finns 10 namn vill du att det här steget ska kallas 10 gånger i det här dokumentet, en gång för varje person. 
 
-Om du vill anropa rätt antal iterationer `"/document/people/*"`anger du kontexten som , där asterisken (`"*"` `"/document/people"`) representerar alla noder i det berikade dokumentet som underordnade till . Även om den här färdigheten bara definieras en gång i kompetensmatrisen, kallas den för varje medlem i dokumentet tills alla medlemmar bearbetas.
+Om du vill anropa rätt antal iterationer anger du kontexten som `"/document/people/*"`, där asterisken (`"*"`) representerar alla noder i det berikade dokumentet som underordnade för `"/document/people"`. Även om den här kunskapen bara definieras en gång i kunskaps mat ris, anropas den för varje medlem i dokumentet tills alla medlemmar bearbetas.
 
 ```json
   {
@@ -87,15 +87,15 @@ Om du vill anropa rätt antal iterationer `"/document/people/*"`anger du kontext
   }
 ```
 
-När anteckningar är matriser eller samlingar av strängar kanske du vill rikta in dig på specifika medlemmar i stället för matrisen som helhet. Exemplet ovan genererar en anteckning `"last"` som anropas under varje nod som representeras av kontexten. Om du vill referera till den här annoteringarfamiljen kan du använda syntaxen `"/document/people/*/last"`. Om du vill referera till en viss anteckning kan du `"/document/people/1/last`använda ett explicit index: " för att referera till efternamnet på den första personen som identifieras i dokumentet. Observera att i den här syntaxen är "0 indexerade".
+När anteckningar är matriser eller samlings samlingar kan du vilja rikta in sig på specifika medlemmar i stället för matrisen som helhet. Exemplet ovan genererar en anteckning som kallas `"last"` under varje nod som representeras av kontexten. Om du vill referera till den här serien med anteckningar kan du använda syntaxen `"/document/people/*/last"`. Om du vill referera till en viss anteckning kan du använda ett explicit index: `"/document/people/1/last`"för att referera till efter namnet på den första person som identifierats i dokumentet. Observera att i denna syntax är "0 indexerad".
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exempel 3: Referensmedlemmar i en matris
+## <a name="example-3-reference-members-within-an-array"></a>Exempel 3: referens medlemmar inom en matris
 
-Ibland måste du gruppera alla anteckningar av en viss typ för att skicka dem till en viss färdighet. Tänk dig en hypotetisk anpassad färdighet som identifierar det vanligaste efternamnet från alla efternamn som extraheras i exempel 2. Om du bara vill ange efternamn till den `"/document"` anpassade färdigheten anger du kontexten som och indata som `"/document/people/*/lastname"`.
+Ibland måste du gruppera alla anteckningar av en viss typ för att skicka dem till en viss färdighet. Överväg en hypotetisk anpassad färdighet som identifierar det vanligaste efter namnet från alla efter namn som extraherats i exempel 2. Om du bara vill använda de sista namnen på den anpassade kunskapen anger du `"/document"` kontexten som och `"/document/people/*/lastname"`inmatat som.
 
-Observera att kardinaliteten `"/document/people/*/lastname"` är större än dokumentets. Det kan finnas 10 efternamnsnoder medan det bara finns en dokumentnod för det här dokumentet. I så fall skapar systemet automatiskt en `"/document/people/*/lastname"` matris med alla element i dokumentet.
+Observera att kardinalitet för `"/document/people/*/lastname"` är större än dokumentet. Det kan finnas 10 LastName-noder när det bara finns en dokument-nod för det här dokumentet. I så fall kommer systemet automatiskt att skapa en matris `"/document/people/*/lastname"` som innehåller alla element i dokumentet.
 
 ```json
   {
@@ -121,7 +121,7 @@ Observera att kardinaliteten `"/document/people/*/lastname"` är större än dok
 
 
 ## <a name="see-also"></a>Se även
-+ [Så här integrerar du en anpassad färdighet i en anrikningspipeline](cognitive-search-custom-skill-interface.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Skapa skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Så här mappar du utökade fält till ett index](cognitive-search-output-field-mapping.md)
++ [Så här integrerar du en anpassad färdighet i en anriknings pipeline](cognitive-search-custom-skill-interface.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Så här mappar du omfattande fält till ett index](cognitive-search-output-field-mapping.md)

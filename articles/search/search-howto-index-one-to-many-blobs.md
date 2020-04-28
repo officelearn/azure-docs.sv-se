@@ -1,7 +1,7 @@
 ---
-title: Indexblobar som innehåller flera dokument
+title: Indexera blobbar som innehåller flera dokument
 titleSuffix: Azure Cognitive Search
-description: Crawla Azure-blobbar efter textinnehåll med Hjälp av Azure Congitive Search Blob-indexeraren, där varje blob kan ge ett eller flera sökindexdokument.
+description: Crawla Azure-blobbar för text innehåll med hjälp av Azure congitive search BLOB-indexeraren, där varje BLOB kan ge ett eller flera Sök index dokument.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -10,29 +10,29 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74112263"
 ---
-# <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexera blobbar för att skapa flera sökdokument
-Som standard behandlar en blob-indexerare innehållet i en blob som ett enda sökdokument. Vissa **parsingMode-värden** stöder scenarier där en enskild blob kan resultera i flera sökdokument. De olika typer av **parsingMode** som gör att en indexerare kan extrahera mer än ett sökdokument från en blob är:
+# <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexera blobbar för att skapa flera Sök dokument
+Som standard behandlar en BLOB-indexeraren innehållet i en blob som ett enda Sök dokument. Vissa **parsingMode** -värden stöder scenarier där en enskild BLOB kan resultera i flera Sök dokument. De olika typerna av **parsingMode** som gör det möjligt för en indexerare att extrahera fler än ett Sök dokument från en BLOB är:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
 
-## <a name="one-to-many-document-key"></a>1:1-dokumentnyckel
-Varje dokument som visas i ett Azure Cognitive Search-index identifieras unikt av en dokumentnyckel. 
+## <a name="one-to-many-document-key"></a>En-till-många-dokument nyckel
+Varje dokument som visas i ett Azure Kognitiv sökning-index identifieras unikt av en dokument nyckel. 
 
-När inget tolkningsläge har angetts och om det inte finns någon explicit mappning [maps](search-indexer-field-mappings.md) för `metadata_storage_path` nyckelfältet i indexet mappar Azure Cognitive Search automatiskt egenskapen som nyckel. Den här mappningen säkerställer att varje blob visas som ett separat sökdokument.
+När inget tolknings läge anges, och om det inte finns någon explicit mappning för nyckel fältet i indexet Azure Kognitiv sökning [Mappa](search-indexer-field-mappings.md) automatiskt `metadata_storage_path` egenskapen som nyckel. Den här mappningen säkerställer att varje BLOB visas som ett separat sökdokument.
 
-När du använder något av tolkningslägena som anges ovan mappas en blob till "många" sökdokument, vilket gör en dokumentnyckel enbart baserad på blobmetadata olämplig. För att övervinna den här begränsningen kan Azure Cognitive Search generera en "en-till-många"-dokumentnyckel för varje enskild entitet som extraherats från en blob. Den här `AzureSearch_DocumentKey` egenskapen namnges och läggs till varje enskild entitet som extraheras från blobben. Värdet för den här egenskapen är garanterat unikt för varje enskild entitet _över blobbar_ och entiteterna visas som separata sökdokument.
+När du använder något av de tolknings lägen som anges ovan mappar en blob till "många" sökdokument, vilket gör att en dokument nyckel endast baseras på BLOB-metadata som är olämpliga. För att lösa den här begränsningen kan Azure Kognitiv sökning generera en "en-till-många"-dokument nyckel för varje enskild enhet som extraheras från en blob. Den här egenskapen heter `AzureSearch_DocumentKey` och läggs till i varje enskild entitet som extraheras från blobben. Värdet för den här egenskapen är unikt för varje enskild entitet _över blobbar_ och entiteterna visas som separata Sök dokument.
 
-Som standard mappas fältmappningen för nyckelindexfältet `AzureSearch_DocumentKey` när inga explicita fältmappningar för nyckelindexfältet anges med hjälp av `base64Encode` fältmappningsfunktionen.
+När inga explicita fält mappningar för nyckel index fältet har angetts `AzureSearch_DocumentKey` mappas som standard till den med hjälp av `base64Encode` fält mappnings funktionen.
 
 ## <a name="example"></a>Exempel
-Anta att du har en indexdefinition med följande fält:
+Anta att du har en index definition med följande fält:
 + `id`
 + `temperature`
 + `pressure`
@@ -40,17 +40,17 @@ Anta att du har en indexdefinition med följande fält:
 
 Och blob-behållaren har blobbar med följande struktur:
 
-_Blob1.json_
+_Blob1. JSON_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2.json_
+_Blob2. JSON_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
 
-När du skapar en indexerare och ställer `jsonLines` in **parsingMode** till - utan att ange några explicita fältmappningar för nyckelfältet, kommer följande mappning att tillämpas implicit
+När du skapar en indexerare och anger **parsingMode** till `jsonLines` -utan att ange några explicita fält mappningar för nyckel fältet, kommer följande mappning att tillämpas implicit
     
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
@@ -58,7 +58,7 @@ När du skapar en indexerare och ställer `jsonLines` in **parsingMode** till - 
         "mappingFunction": { "name" : "base64Encode" }
     }
 
-Den här inställningen resulterar i Azure Cognitive Search index som innehåller följande information (base64 kodade id förkortas för korthet)
+Den här installationen leder till Azure Kognitiv sökning-indexet som innehåller följande information (Base64-kodat ID förkortat för det kortfattat)
 
 | id | temperatur | tryck | timestamp |
 |----|-------------|----------|-----------|
@@ -67,40 +67,40 @@ Den här inställningen resulterar i Azure Cognitive Search index som innehålle
 | aHR0 ... YjIuanNvbjsx | 1 | 1 | 2018-01-12T00:00:00Z |
 | aHR0 ... YjIuanNvbjsy | 120 | 3 | 2013-05-11T00:00:00Z |
 
-## <a name="custom-field-mapping-for-index-key-field"></a>Anpassad fältmappning för indexnyckelfält
+## <a name="custom-field-mapping-for-index-key-field"></a>Anpassad fält mappning för index nyckel fält
 
-Om du antar samma indexdefinition som föregående exempel säger du att blob-behållaren har blobbar med följande struktur:
+Om du antar samma index definition som i föregående exempel, säger du att BLOB-behållaren har blobbar med följande struktur:
 
-_Blob1.json_
+_Blob1. JSON_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2.json_
+_Blob2. JSON_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
 
-När du skapar en `delimitedText` indexerare med **parsingMode**kan det kännas naturligt att ställa in en fältmappningsfunktion till nyckelfältet enligt följande:
+När du skapar en indexerare med `delimitedText` **parsingMode**kan det vara naturligt att skapa en fält mappnings funktion till nyckel fältet enligt följande:
 
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
 
-Den här mappningen resulterar dock _inte_ i att 4 dokument visas i indexet, eftersom `recordid` fältet inte är unikt över _blobbar_. Därför rekommenderar vi att du använder den implicita `AzureSearch_DocumentKey` fältmappningen som tillämpas från egenskapen till nyckelindexfältet för "en-till-många"-tolkningslägen.
+Den här mappningen kommer dock _inte_ att resultera i 4 dokument som visas i indexet, `recordid` eftersom fältet inte är unikt i _blobbar_. Därför rekommenderar vi att du använder den implicita fält mappning som används från `AzureSearch_DocumentKey` egenskapen till nyckel index fältet för "1-till-många"-tolknings lägen.
 
-Om du vill skapa en explicit fältmappning kontrollerar du att _sourceField_ är distinkt för varje enskild entitet **för alla blobbar**.
+Om du vill skapa en explicit fält mappning kontrollerar du att _sourceField_ är distinkt för varje enskild entitet **i alla blobbar**.
 
 > [!NOTE]
-> Den metod `AzureSearch_DocumentKey` som används genom att säkerställa unikhet per extraherad entitet kan komma att ändras och därför bör du inte förlita dig på det värde för ditt programs behov.
+> Den metod som används `AzureSearch_DocumentKey` av för att säkerställa unikhet per extraherad entitet kan ändras och därför bör du inte förlita dig på dess värde för programmets behov.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan är bekant med den grundläggande strukturen och arbetsflödet för blob-indexering bör du först granska [Indexering av Azure Blob Storage med Azure Cognitive Search.](search-howto-index-json-blobs.md) Mer information om tolkningslägen för olika blob-innehållstyper finns i följande artiklar.
+Om du inte redan är bekant med den grundläggande strukturen och arbets flödet för BLOB-indexering bör du granska [indexeringen av azure Blob Storage med azure kognitiv sökning](search-howto-index-json-blobs.md) först. Läs följande artiklar om du vill ha mer information om att parsa lägen för olika typer av BLOB-innehåll.
 
 > [!div class="nextstepaction"]
-> [Indexering av CSV-blobbar](search-howto-index-csv-blobs.md)
-> [Indexering av JSON-blobbar](search-howto-index-json-blobs.md)
+> [Indexera CSV-blobbar](search-howto-index-csv-blobs.md)
+> [Indexera JSON-blobbar](search-howto-index-json-blobs.md)

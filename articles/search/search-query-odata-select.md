@@ -1,7 +1,7 @@
 ---
-title: OData välj referens
+title: OData Select-referens
 titleSuffix: Azure Cognitive Search
-description: Syntax och språkreferens för explicit urval av fält som ska returneras i sökresultaten för Azure Cognitive Search-frågor.
+description: Syntax och språk referens för explicit val av fält att returnera i Sök resultatet av Azure Kognitiv sökning-frågor.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113095"
 ---
-# <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select syntax i Azure Cognitive Search
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select-syntax i Azure Kognitiv sökning
 
- Du kan använda [parametern OData **$select** ](query-odata-filter-orderby-syntax.md) för att välja vilka fält som ska inkluderas i sökresultaten från Azure Cognitive Search. I den här artikeln beskrivs syntaxen för **$select** i detalj. Mer allmän information om hur du använder **$select** när du presenterar sökresultat finns [i Så här arbetar du med sökresultat i Azure Cognitive Search](search-pagination-page-layout.md).
+ Du kan använda [OData **$Select** -parametern](query-odata-filter-orderby-syntax.md) för att välja vilka fält som ska ingå i sök resultatet från Azure kognitiv sökning. I den här artikeln beskrivs syntaxen för **$Select** i detalj. Mer allmän information om hur du använder **$Select** när du presenterar Sök resultat finns i [så här arbetar du med Sök resultat i Azure kognitiv sökning](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Syntax
 
-Parametern **$select** avgör vilka fält för varje dokument som returneras i frågeresultatuppsättningen. Följande EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för **parametern $select:**
+Parametern **$Select** avgör vilka fält för varje dokument som returneras i frågeresultatet. Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för parametern **$Select** :
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -42,30 +42,30 @@ select_expression ::= '*' | field_path(',' field_path)*
 field_path ::= identifier('/'identifier)*
 ```
 
-Det finns också ett interaktivt syntaxdiagram:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Se [OData-uttryckssyntaxreferens för Azure Cognitive Search](search-query-odata-syntax-reference.md) för hela EBNF.
+> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Parametern **$select** finns i två former:
+**$Select** -parametern finns i två former:
 
-1. En enda`*`stjärna ( ) som anger att alla hämtningsbara fält ska returneras, eller
-1. En kommaavgränsad lista över fältsökvägar som identifierar vilka fält som ska returneras.
+1. En enda stjärna (`*`) som visar att alla hämtnings bara fält ska returneras, eller
+1. En kommaavgränsad lista över fält Sök vägar, som identifierar vilka fält som ska returneras.
 
-När du använder det andra formuläret kan du bara ange fält som kan hämtas i listan.
+När du använder det andra formuläret kan du bara ange hämtnings bara fält i listan.
 
-Om du anger ett komplext fält utan att uttryckligen ange dess underfält inkluderas alla underfält som kan hämtas i frågeresultatuppsättningen. Anta till exempel att `Address` indexet `Street`har `City`ett `Country` fält med , och underfält som alla kan hämtas. Om du `Address` anger i **$select**innehåller frågeresultatet alla tre underfälten.
+Om du anger ett komplext fält utan att uttryckligen ange dess underordnade fält, inkluderas alla hämtnings bara underordnade fält i frågeresultatet. Anta till exempel att indexet har ett `Address` fält med `Street`, `City`och `Country` under fält som alla kan hämtas. Om du anger `Address` i **$Select**kommer frågeresultatet att innehålla alla tre under fält.
 
 ## <a name="examples"></a>Exempel
 
-Inkludera `HotelId`fälten `HotelName` `Rating` , och den översta nivån i `City` resultatet samt `Address`delfältet i :
+Inkludera fälten `HotelId`, `HotelName`och `Rating` den `City` översta nivån i resultaten, samt under fältet för `Address`:
 
     $select=HotelId, HotelName, Rating, Address/City
 
-Ett exempel resultat kan se ut så här:
+Ett exempel på resultat kan se ut så här:
 
 ```json
 {
@@ -78,11 +78,11 @@ Ett exempel resultat kan se ut så här:
 }
 ```
 
-Inkludera `HotelName` fältet på den översta nivån i resultatet, samt `Address`alla `Type` underfält i och underfälten för `BaseRate` varje objekt i `Rooms` samlingen:
+Ta med `HotelName` fältet översta nivån i resultaten, samt alla `Address`under fält i `Type` och `BaseRate` under fälten för varje objekt i `Rooms` samlingen:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
-Ett exempel resultat kan se ut så här:
+Ett exempel på resultat kan se ut så här:
 
 ```json
 {
@@ -110,7 +110,7 @@ Ett exempel resultat kan se ut så här:
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Så här arbetar du med sökresultat i Azure Cognitive Search](search-pagination-page-layout.md)
-- [Språköversikt för OData-uttryck för Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Syntaxreferens för OData-uttryck för Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Sökdokument &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Så här arbetar du med Sök resultat i Azure Kognitiv sökning](search-pagination-page-layout.md)
+- [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
+- [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

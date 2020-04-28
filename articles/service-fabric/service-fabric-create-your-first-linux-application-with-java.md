@@ -1,19 +1,19 @@
 ---
-title: Skapa ett Azure Service Fabric-tillförlitligt aktörer Java-program på Linux
+title: Skapa en Azure Service Fabric Reliable-aktörer Java-program på Linux
 description: Lär dig hur du skapar och distribuerar err Java Service Fabric tillförlitliga aktörer-program på fem minuter.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458174"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193572"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric Reliable Actors-program på Linux
 > [!div class="op_single_selector"]
 > * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
@@ -204,22 +204,22 @@ Distributionen går till på samma sätt som för andra Service Fabric-program. 
 
 Du hittar parametrarna till de här kommandona i de genererade manifesten i programpaketet.
 
-När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på `http://localhost:19080/Explorer`.
 Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 > [!IMPORTANT]
-> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att validera ditt program med Service Fabric-körningen. Om du gör det kan dina Reliable Actors-tjänster kommunicera med de underliggande API:erna för service fabric-körning. Mer information finns i [Konfigurera en reliable services-app som ska köras på Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric Runtime. På så sätt kan dina Reliable Actors-tjänster kommunicera med de underliggande Service Fabric runtime-API: erna. Mer information finns i [Konfigurera en Reliable Services app för att köra Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörer gör ingenting på egen hand, det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
 
 > [!Note]
-> Testklienten använder klassen ActorProxy för att kommunicera med aktörer, som måste köras inom samma kluster som aktörstjänsten eller dela samma IP-adressutrymme.  Du kan köra testklienten på samma dator som det lokala utvecklingsklustret.  Om du vill kommunicera med aktörer i ett fjärrkluster måste du dock distribuera en gateway i klustret som hanterar extern kommunikation med aktörerna.
+> Test klienten använder klassen ActorProxy för att kommunicera med aktörer, som måste köras i samma kluster som aktörs tjänsten eller dela samma IP-adressutrymme.  Du kan köra test klienten på samma dator som det lokala utvecklings klustret.  För att kunna kommunicera med aktörer i ett fjärran slutet kluster måste du dock distribuera en gateway på klustret som hanterar extern kommunikation med aktörerna.
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.  Testskriptet anropar metoden `setCountAsync()` hos aktören för att öka en räknare, anropar metoden `getCountAsync()` hos aktören för att hämta det nya räknarvärdet och visar värdet på konsolen.
 
-   När det gäller MAC OS X måste du kopiera helloworldtestclient-mappen till en viss plats i behållaren genom att köra följande ytterligare kommandon.    
+   Om du använder MAC OS X måste du kopiera mappen HelloWorldTestClient till en viss plats i behållaren genom att köra följande ytterligare kommandon.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -232,7 +232,7 @@ Aktörer gör ingenting på egen hand, det behövs en annan tjänst eller klient
     watch -n 1 ./testclient.sh
     ```
 
-2. Leta rätt på noden i Service Fabric Explorer som är värd för aktörstjänstens primära replik. På skärmbilden nedan är det nod 3. Den primära tjänsterepliken hanterar läs- och skrivåtgärder.  Ändringar i tjänsttillstånd replikeras sedan ut till de sekundära replikerna och körs på noderna 0 och 1 i skärmbilden nedan.
+2. Leta rätt på noden i Service Fabric Explorer som är värd för aktörstjänstens primära replik. På skärmbilden nedan är det nod 3. Den primära tjänsterepliken hanterar läs- och skrivåtgärder.  Ändringar i tjänst tillstånd replikeras sedan till de sekundära replikerna, som körs på noderna 0 och 1 i skärm bilden nedan.
 
     ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
 

@@ -1,16 +1,16 @@
 ---
-title: Konfigurera din utvecklingsmiljö på macOS
+title: Konfigurera din utvecklings miljö på macOS
 description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att skapa program på macOS.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308986"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193402"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Du kan uppdatera inställningarna direkt i filen daemon.json som finns på Docker-installationssökvägen. Du kan direkt ändra konfigurationsinställningarna för daemon i Docker. Välj **Docker-ikonen** och sedan **Inställningar** > **Daemon** > **Avancerat**.
+    Du kan uppdatera inställningarna direkt i filen daemon.json som finns på Docker-installationssökvägen. Du kan ändra konfigurations inställningarna för daemonen direkt i Docker. Välj **Docker-ikonen** och sedan **Inställningar** > **Daemon** > **Avancerat**.
     
     >[!NOTE]
     >
-    >Det rekommenderas att du ändrar demonen direkt i Docker eftersom platsen för filen daemon.json kan variera från maskin till maskin. Den kan till exempel vara ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Att ändra daemonen direkt i Docker rekommenderas eftersom platsen för daemon. JSON-filen kan variera från dator till dator. Den kan till exempel vara ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -76,7 +76,7 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
     >Om du t.ex. lägger till `RUN apt-get install nodejs -y` tillåter du stöd för `nodejs`-program som körbara gästfiler.
     
     >[!TIP]
-    > Som standard hämtas avbildningen med den senaste Service Fabric-versionen. För särskilda revideringar, besök [Docker Hub-sidan](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Som standard hämtas avbildningen med den senaste Service Fabric-versionen. Specifika revisioner finns på sidan [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
 3. Om du vill skapa din återanvändbara avbildning från `Dockerfile`, så öppna en terminal och `cd` som direkt håller din `Dockerfile` och kör:
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. Klustret tar en stund att starta. När den körs kan du visa loggar med följande kommando eller hoppa till [http://localhost:19080](http://localhost:19080)instrumentpanelen för att visa klustrens hälsa:
+5. Klustret kommer att ta en stund att starta. När den körs kan du Visa loggar med följande kommando eller gå till instrument panelen för att se kluster hälsan `http://localhost:19080`:
 
     ```bash 
     docker logs sftestcluster
@@ -166,8 +166,8 @@ Service Fabric har ramverktyg som hjälper dig att skapa ett Service Fabric-prog
     ```
 
     > [!IMPORTANT]
-    > Aktuella `brew cask install java` versioner av kan installera en nyare version av JDK.
-    > Var noga med att installera JDK 8.
+    > Aktuella versioner av `brew cask install java` kan installera en senare version av JDK.
+    > Se till att installera JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuera ditt program på Mac från terminalen
 
@@ -214,7 +214,7 @@ Attributen har följande definitioner:
 ## <a name="next-steps"></a>Nästa steg
 <!-- Links -->
 * [Skapa och distribuera ditt första Service Fabric-program med Java i Linux med hjälp av Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
-* [Skapa och distribuera ditt första Java-program för Service Fabric på Linux med plugin-programmet Service Fabric för Eclipse](service-fabric-get-started-eclipse.md)
+* [Skapa och distribuera ditt första Service Fabric Java-program på Linux med Service Fabric-plugin-program för Sol förmörkelse](service-fabric-get-started-eclipse.md)
 * [Skapa ett Service Fabric-kluster i Azure-portalen](service-fabric-cluster-creation-via-portal.md)
 * [Skapa ett Service Fabric-kluster med Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298c99d44328dc79db1722b450ad74c3929d0c12
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
-ms.translationtype: MT
+ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114451"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190324"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -562,7 +562,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **WorkerID**  |  EmployeeID | **Ja** | Endast skrivet vid skapande |
 | **PreferredNameData**    |  nomenklatur    |   |   Endast skrivet vid skapande |
 | **SelectUniqueValue (JOIN ("\@", Anslut (".", \[FirstName\], \[LastName\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 2), \[\]"contoso.com"))**   | userPrincipalName     |     | Endast skrivet vid skapande 
-| **Ersätt (MID (replace (\[UserID\],, "(\[\\\\/\\\\\\\\\\\\\\:;\\ \\\[\\\\\]\\\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\? \\\\\\) ",," ",,), 1, 20),," ([.) \\ &lt; \\ \\ &gt; \] \*File:///\\ \$.) *$)", , "", , )**      |    sAMAccountName            |     |         Endast skrivet vid skapande |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Endast skrivet vid skapande |
 | **Växel (\[aktiv\],, "0", "sant", "1", "falskt")** |  accountDisabled      |     | Skapa + uppdatera |
 | **FirstName**   | förnamn       |     |    Skapa + uppdatera |
 | **LastName**   |   sn   |     |  Skapa + uppdatera |

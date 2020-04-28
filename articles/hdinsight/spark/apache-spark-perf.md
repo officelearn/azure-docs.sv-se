@@ -1,144 +1,144 @@
 ---
 title: Optimera Spark-jobb för prestanda – Azure HDInsight
-description: Visa vanliga strategier för bästa prestanda för Apache Spark-kluster i Azure HDInsight.
+description: Visa vanliga strategier för bästa prestanda för Apache Spark kluster i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 5012b5abf12beadbcb18f21fe2fe6ebfb076598a
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 736653e82f753341fbbdfb795f229145bba96162
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617967"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188199"
 ---
-# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimera Apache Spark-jobb i HDInsight
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimera Apache Spark jobb i HDInsight
 
-Lär dig hur du optimerar Apache Spark-klusterkonfigurationen för just din arbetsbelastning.  Den vanligaste utmaningen är minnestryck, på grund av felaktiga konfigurationer (till exempel körenheter av fel storlek). Även långvariga operationer och uppgifter som resulterar i kartesiska operationer. Du kan snabba upp jobb med lämplig cachelagring och genom att tillåta [datasnedställning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska tidskrävande och resurskrävande Spark-jobbkörningar. Information om hur du kommer igång med Apache Spark på HDInsight finns i [Skapa Apache Spark-kluster med Azure Portal](apache-spark-jupyter-spark-sql-use-portal.md).
+Lär dig hur du optimerar Apache Spark kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnes belastning på grund av felaktiga konfigurationer (t. ex. fel storleks körning). Även långvariga åtgärder och uppgifter som resulterar i kartesiska-åtgärder. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb. Information om att komma igång med Apache Spark i HDInsight finns i [skapa Apache Spark kluster med hjälp av Azure Portal](apache-spark-jupyter-spark-sql-use-portal.md).
 
-I följande avsnitt beskrivs vanliga Spark-jobboptimeringar och rekommendationer.
+I följande avsnitt beskrivs vanliga Spark-jobb optimeringar och rekommendationer.
 
-## <a name="choose-the-data-abstraction"></a>Välj dataabstraktion
+## <a name="choose-the-data-abstraction"></a>Välj data abstraktion
 
-Tidigare Spark-versioner använder RDD:er för att abstrakta data, Spark 1.3 och 1.6 introducerade DataFrames respektive DataSets. Tänk på följande relativa meriter:
+Tidigare Spark-versioner använder RDD till abstrakta data, Spark 1,3 och 1,6 införde DataFrames och data uppsättningar. Tänk på följande relativa fördelar:
 
 * **DataFrames**
     * Bästa valet i de flesta situationer.
-    * Ger frågeoptimering via Catalyst.
-    * Kodgenerering i hela steget.
-    * Direkt minnesåtkomst.
-    * Låg sophämtning (GC) overhead.
-    * Inte lika utvecklarvänlig som DataSets, eftersom det inte finns några kompileringstidskontroller eller domänobjektprogrammering.
-* **Datamängder**
-    * Bra i komplexa ETL-rörledningar där prestandapåverkan är acceptabel.
-    * Inte bra i aggregeringar där prestandapåverkan kan vara betydande.
-    * Ger frågeoptimering via Catalyst.
-    * Utvecklarvänlig genom att tillhandahålla domänobjektprogrammering och kompileringstidskontroller.
-    * Lägger till serialisering/deserialisering omkostnader.
-    * Hög GC overhead.
-    * Bryter hela steg kodgenerering.
-* **RDDs**
-    * Du behöver inte använda RDD:er, såvida du inte behöver skapa en ny anpassad RDD.
-    * Ingen frågeoptimering via Catalyst.
-    * Ingen kodgenerering i hela fasen.
-    * Hög GC overhead.
-    * Måste använda Spark 1.x äldre API:er.
+    * Tillhandahåller optimering av frågor via katalysator.
+    * Generering av hel stegs kod.
+    * Direkt minnes åtkomst.
+    * Låg skräp insamlings kostnad (GC).
+    * Inte som utvecklare-läsvänlig som data uppsättningar, eftersom det inte finns några kompilerings kontroller eller programmering av domän objekt.
+* **Data uppsättningar**
+    * Bra i komplexa ETL-pipelines där prestanda påverkan är acceptabel.
+    * Inte lämpligt i agg regeringar där prestanda påverkan kan vara avsevärd.
+    * Tillhandahåller optimering av frågor via katalysator.
+    * Utvecklare – läsvänlig genom att tillhandahålla programmering av domän objekt och kompilerings tid.
+    * Lägger till omkostnader för serialisering/deserialisering.
+    * Hög global kostnad.
+    * Delar upp kod generation i hela fasen.
+* **RDD**
+    * Du behöver inte använda RDD, om du inte behöver bygga en ny anpassad RDD.
+    * Ingen fråga optimering via katalysator.
+    * Ingen hel stegs kod genereras.
+    * Hög global kostnad.
+    * Måste använda Spark 1. x äldre API: er.
 
-## <a name="use-optimal-data-format"></a>Använd optimalt dataformat
+## <a name="use-optimal-data-format"></a>Använd optimalt data format
 
-Spark stöder många format, till exempel csv, json, xml, parkett, orc och avro. Spark kan utökas för att stödja många fler format med externa datakällor - mer information finns i [Apache Spark-paket](https://spark-packages.org).
+Spark stöder många format, till exempel CSV, JSON, XML, Parquet, Orc och Avro. Spark kan utökas för att ge stöd för många fler format med externa data källor – mer information finns i [Apache Spark-paket](https://spark-packages.org).
 
-Det bästa formatet för prestanda är parkett med *snärtig komprimering*, som är standard i Spark 2.x. Parkett lagrar data i columnar-format och är mycket optimerat i Spark.
+Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vilket är standard i Spark 2. x. Parquet lagrar data i kolumn format och optimeras mycket i Spark.
 
-## <a name="select-default-storage"></a>Välj standardlagring
+## <a name="select-default-storage"></a>Välj standard lagring
 
-När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azure Data Lake Storage som klustrets standardlagring. Båda alternativen ger dig fördelen av långsiktig lagring för tillfälliga kluster. Så att dina data inte tas bort automatiskt när du tar bort klustret. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
+När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azure Data Lake Storage som kluster standard lagring. Båda alternativen ger dig fördelen med långsiktig lagring för tillfälliga kluster. Så dina data tas inte bort automatiskt när du tar bort klustret. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
 
-| Butikstyp | Filsystem | Hastighet | Övergående | Användningsfall |
+| Butikstyp | Filsystem | Hastighet | Tillfälliga | Användnings fall |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Standard** | Ja | Övergående kluster |
-| Azure Blob Storage (säker) | **wasbs:**//url/ | **Standard** | Ja | Övergående kluster |
-| Azure Data Lake Storage Gen 2| **abfs:**//url/ | **Snabbare** | Ja | Övergående kluster |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Snabbare** | Ja | Övergående kluster |
-| Lokala HDFS | **hdfs:**//url/ | **Snabbaste** | Inga | Interaktivt 24/7-kluster |
+| Azure Blob Storage | **wasb:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
+| Azure Blob Storage (säker) | **wasbs:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
+| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
+| Azure Data Lake Storage gen 1| **ADL:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
+| Lokal HDFS | **HDFS:**//URL/ | **Snabbaste** | Inga | Interaktivt 24/7-kluster |
 
-En fullständig beskrivning av lagringsalternativ finns i [Jämför lagringsalternativ för användning med Azure HDInsight-kluster](../hdinsight-hadoop-compare-storage-options.md).
+En fullständig beskrivning av lagrings alternativ finns i [jämföra lagrings alternativ för användning med Azure HDInsight-kluster](../hdinsight-hadoop-compare-storage-options.md).
 
-## <a name="use-the-cache"></a>Använda cacheminnet
+## <a name="use-the-cache"></a>Använd cachen
 
-Spark tillhandahåller sina egna inbyggda cachemekanismer, som kan `.persist()`användas `.cache()`med `CACHE TABLE`olika metoder som , och . Den här inbyggda cachelagringen är effektiv med små datauppsättningar och i ETL-pipelines där du behöver cachelagra mellanliggande resultat. Spark native caching fungerar dock inte bra med partitionering, eftersom en cachelagrad tabell inte behåller partitioneringsdata. En mer generisk och tillförlitlig cachelagringsteknik är *cachelagring av lagringslager.*
+Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan användas på olika sätt, till exempel `.persist()`, `.cache()`och `CACHE TABLE`. Denna inbyggda cachelagring är effektiv med små data uppsättningar och i ETL-pipelines där du behöver cachelagra mellanliggande resultat. Spark-intern cachelagring fungerar dock för närvarande inte bra med partitionering, eftersom en cachelagrad tabell inte behåller partitionerings data. En mer generisk och tillförlitlig caching-teknik är *cachelagring av lagrings lager*.
 
-* Inbyggd sparkcachening (rekommenderas inte)
-    * Bra för små datamängder.
+* Native Spark-cachelagring (rekommenderas inte)
+    * Passar små data uppsättningar.
     * Fungerar inte med partitionering, vilket kan ändras i framtida Spark-versioner.
 
-* Cachelagringsnivå (rekommenderas)
-    * Kan implementeras på HDInsight med hjälp av [IO-cachefunktionen.](apache-spark-improve-performance-iocache.md)
-    * Använder cachelagring i minnet och SSD.
+* Cachelagring på lagrings nivå (rekommenderas)
+    * Kan implementeras i HDInsight med hjälp av funktionen för [IO-cache](apache-spark-improve-performance-iocache.md) .
+    * Använder minnes-och SSD-cachelagring.
 
-* Lokala HDFS (rekommenderas)
-    * `hdfs://mycluster`Sökvägen.
+* Lokal HDFS (rekommenderas)
+    * `hdfs://mycluster`sökväg.
     * Använder SSD-cachelagring.
-    * Cachelagrade data går förlorade när du tar bort klustret, vilket kräver en cacherenad.
+    * Cachelagrade data går förlorade när du tar bort klustret, vilket kräver en återuppbyggnad av cache.
 
-## <a name="use-memory-efficiently"></a>Använda minnet effektivt
+## <a name="use-memory-efficiently"></a>Använd minne effektivt
 
-Spark fungerar genom att placera data i minnet. Så hantera minnesresurser är en viktig aspekt för att optimera körningen av Spark jobb.  Det finns flera tekniker som du kan använda för att använda klustrets minne effektivt.
+Spark arbetar genom att placera data i minnet. Att hantera minnes resurser är en viktig aspekt i att optimera körningen av Spark-jobb.  Det finns flera tekniker som du kan använda för att använda klustrets minne på ett effektivt sätt.
 
-* Föredrar mindre datapartitioner och ta hänsyn till datastorlek, typer och distribution i din partitioneringsstrategi.
-* Tänk på den nyare, effektivare [`Kryo data serialization`](https://github.com/EsotericSoftware/kryo), snarare än standard Java serialisering.
-* Föredrar att använda YARN, `spark-submit` eftersom det separerar efter parti.
-* Övervaka och justera konfigurationsinställningarna för Spark.
+* Föredra mindre datapartitioner och konto för data storlek, typer och distribution i din partitionerings strategi.
+* Överväg att använda nyare, mer [`Kryo data serialization`](https://github.com/EsotericSoftware/kryo)effektiv, snarare än standard Java-serialisering.
+* Föredra att använda garn, eftersom det separeras `spark-submit` av batch.
+* Övervaka och justera konfigurations inställningar för Spark.
 
-Som referens visas Spark-minnesstrukturen och några viktiga parametrar för körminne i nästa bild.
+För din referens visas Spark-minneskortet och vissa viktiga utförar-minnes parametrar i nästa bild.
 
-### <a name="spark-memory-considerations"></a>Spark minne överväganden
+### <a name="spark-memory-considerations"></a>Överväganden vid Spark-minne
 
-Om du använder Apache Hadoop YARN styr YARN minnet som används av alla behållare på varje Spark-nod.  I följande diagram visas nyckelobjekten och deras relationer.
+Om du använder Apache Hadoop garn kontrollerar garn det minne som används av alla behållare på varje spark-nod.  Följande diagram visar de viktigaste objekten och deras relationer.
 
-![HANTERING AV YARN Spark-minne](./media/apache-spark-perf/apache-yarn-spark-memory.png)
+![GARN Spark minnes hantering](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
-Om du vill ta itu med meddelanden om på minne provar du:
+Prova följande om du vill ta bort meddelanden om slut på minne:
 
-* Granska DAG Management Shuffles. Minska med omduktion på kartsidan, förpartitionsdata (eller bucketize), maximera enskilda blandningar och minska mängden data som skickas.
-* Föredrar `ReduceByKey` med dess fasta `GroupByKey`minnesgräns till , som ger aggregeringar, fönster och andra funktioner, men det har ann unbounded minnesgräns.
-* Föredrar `TreeReduce`, vilket gör mer arbete på executors eller partitioner, till `Reduce`, som gör allt arbete på drivrutinen.
-* Använd DataFrames i stället för rdd-objekt på lägre nivå.
-* Skapa ComplexTypes som kapslar in åtgärder, till exempel "Topp N", olika aggregeringar eller fönsteråtgärder.
+* Läs om DAG hantering, blandade. Minska genom att dra av och på mappnings sidan, för bucketiseras-källdata, maximera enskilda blandade kanaler och minska mängden data som skickas.
+* Föredra `ReduceByKey` med den fasta minnes gränsen till `GroupByKey`, som tillhandahåller agg regeringar, fönster och andra funktioner, men har den obegränsade minnes gränsen för Ann.
+* Föredra `TreeReduce`, som fungerar mer i körnings-eller partitionerna, till `Reduce`, som gör allt arbete på driv rutinen.
+* Använd DataFrames i stället för RDD-objekt på lägre nivå.
+* Skapa ComplexTypes som kapslar in åtgärder, till exempel "Top N", olika agg regeringar eller fönster åtgärder.
 
-Ytterligare felsökningssteg finns i [Undantag för OutOfMemoryError för Apache Spark i Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
+Ytterligare fel söknings steg finns i [OutOfMemoryError-undantag för Apache Spark i Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
-## <a name="optimize-data-serialization"></a>Optimera dataseriering
+## <a name="optimize-data-serialization"></a>Optimera Dataserialisering
 
-Spark-jobb distribueras, så lämplig dataseriering är viktig för bästa prestanda.  Det finns två serialiseringsalternativ för Spark:
+Spark-jobb distribueras, så lämplig data serialisering är viktig för bästa möjliga prestanda.  Det finns två alternativ för serialisering för Spark:
 
-* Java serialisering är standard.
-* `Kryo`serialisering är ett nyare format och kan resultera i snabbare och mer kompakt serialisering än Java.  `Kryo`kräver att du registrerar klasserna i ditt program, och det stöder ännu inte alla Serializable typer.
+* Java-serialisering är standard.
+* `Kryo`serialisering är ett nyare format och kan resultera i en snabbare och mer kompakt serialisering än Java.  `Kryo`kräver att du registrerar klasserna i ditt program och ännu inte har stöd för alla serialiserbara typer.
 
-## <a name="use-bucketing"></a>Använda skopor
+## <a name="use-bucketing"></a>Använd Bucket
 
-Bucketing liknar datapartitionering. Men varje bucket kan innehålla en uppsättning kolumnvärden i stället för bara en. Den här metoden fungerar bra för partitionering på stora (i miljoner eller fler) antal värden, till exempel produktidentifierare. En hink bestäms genom att du hashar öftonnyckeln på raden. Bucketed-tabeller erbjuder unika optimeringar eftersom de lagrar metadata om hur de var bucketed och sorterade.
+Bucket liknar data partitionering. Men varje Bucket kan innehålla en uppsättning kolumn värden i stället för bara en. Den här metoden fungerar bra för att partitionera med stor (i miljon tals eller fler) värden, t. ex. produkt identifierare. En Bucket bestäms genom hashing av radens Bucket-nyckel. Bucked-tabeller ger unika optimeringar eftersom de lagrar metadata om hur de är i Bucket och sorterade.
 
-Några avancerade bucketing funktioner är:
+Vissa avancerade Bucket-funktioner är:
 
-* Frågeoptimering baserat på bucketing-metainformation.
-* Optimerade aggregeringar.
+* Fråga optimering baserat på Bucket meta-information.
+* Optimerade agg regeringar.
 * Optimerade kopplingar.
 
-Du kan använda partitionering och bucketing samtidigt.
+Du kan använda partitionering och Bucket på samma tid.
 
-## <a name="optimize-joins-and-shuffles"></a>Optimera kopplingar och blandningar
+## <a name="optimize-joins-and-shuffles"></a>Optimera kopplingar och blanda
 
-Om du har långsamma jobb på en koppling eller shuffle är orsaken förmodligen *datasnedställning*. Datasnedställning är asymmetri i jobbdata. Ett kartjobb kan till exempel ta 20 sekunder. Men att köra ett jobb där data är sammanfogade eller blandade tar timmar. Om du vill åtgärda datasnedveringen bör du salta hela nyckeln eller använda ett *isolerat salt* för endast en delmängd av nycklar. Om du använder ett isolerat salt bör du ytterligare filtrera för att isolera delmängden av saltade nycklar i kartkopplingar. Ett annat alternativ är att införa en bucket kolumn och föraggregerade i hinkar först.
+Om du har långsamma jobb för en koppling eller en blandning är orsaken förmodligen *data skevning*. Data skevningen är asymmetry i dina jobb data. Till exempel kan ett kart jobb ta 20 sekunder. Men att köra ett jobb där data är anslutna eller blandade tar timmar. Om du vill åtgärda data skevningen bör du salta hela nyckeln eller använda ett *isolerat salt* för vissa nycklar. Om du använder ett isolerat salt bör du ytterligare filtrera för att isolera din delmängd av saltade nycklar i kart kopplingar. Ett annat alternativ är att introducera en Bucket-kolumn och församlad i Bucket först.
 
-En annan faktor som orsakar långsamma kopplingar kan vara kopplingstypen. Som standard använder `SortMerge` Spark kopplingstypen. Den här typen av koppling passar bäst för stora datauppsättningar. Men är annars beräkningsmässigt dyrt eftersom det först måste sortera vänster och höger sida av data innan de slås samman.
+En annan faktor som orsakar långsamma kopplingar kan vara kopplings typen. Som standard använder Spark typen `SortMerge` Join. Den här typen av koppling passar bäst för stora data mängder. Men är i övrigt kostsamt, eftersom det måste först sortera vänster och höger sida med data innan de sammanfogas.
 
-En `Broadcast` koppling passar bäst för mindre datauppsättningar, eller där den ena sidan av kopplingen är mycket mindre än den andra sidan. Den här typen av koppling sänder en sida till alla utförare och kräver därför mer minne för sändningar i allmänhet.
+En `Broadcast` koppling passar bäst för mindre data uppsättningar eller där en sida av kopplingen är mycket mindre än den andra sidan. Den här typen av anslutning sänder ut en sida till alla körningar och kräver därför mer minne för sändningar i allmänhet.
 
-Du kan ändra kopplingstypen `spark.sql.autoBroadcastJoinThreshold`i konfigurationen genom att ange , eller`dataframe.join(broadcast(df2))`så kan du ange en kopplingstips med hjälp av DataFrame API:er ( ).
+Du kan ändra kopplings typen i konfigurationen genom att ange `spark.sql.autoBroadcastJoinThreshold`eller så kan du ange ett JOIN-tips med DataFrame-API`dataframe.join(broadcast(df2))`: erna ().
 
 ```scala
 // Option 1
@@ -153,70 +153,70 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Om du använder bucketed-tabeller har du en tredje `Merge` kopplingstyp, kopplingen. En korrekt förpartitionerad och försorterad datauppsättning hoppar över den `SortMerge` dyra sorteringsfasen från en koppling.
+Om du använder Bucket tabeller har du en tredje kopplings typ, `Merge` kopplingen. En korrekt fördelad och försorterad data uppsättning hoppar över den dyra sorterings fasen från `SortMerge` en koppling.
 
-Ordningen på kopplingarna, särskilt i mer komplexa frågor. Börja med de mest selektiva kopplingarna. Flytta också kopplingar som ökar antalet rader efter aggregeringar när det är möjligt.
+Ordningen på kopplingar, särskilt i mer komplexa frågor. Börja med de mest selektiva kopplingarna. Du kan också flytta kopplingar som ökar antalet rader efter AGG regeringar när det är möjligt.
 
-Om du vill hantera parallellism för kartesiska kopplingar kan du lägga till kapslade strukturer, fönster och kanske hoppa över ett eller flera steg i spark-jobbet.
+Om du vill hantera parallellitet för kartesiska-kopplingar kan du lägga till kapslade strukturer, fönster och kanske hoppa över ett eller flera steg i ditt Spark-jobb.
 
-## <a name="customize-cluster-configuration"></a>Anpassa klusterkonfiguration
+## <a name="customize-cluster-configuration"></a>Anpassa kluster konfiguration
 
-Beroende på din Spark-klusterarbetsbelastning kan du bestämma att en spark-konfiguration som inte är standard skulle resultera i mer optimerad Spark-jobbkörning.  Gör benchmark-testning med exempelarbetsbelastningar för att validera klusterkonfigurationer som inte är standard.
+Beroende på ditt Spark-klusters arbets belastning kan du fastställa en spark-konfiguration som inte är standard, vilket leder till mer optimerade Spark-jobb.  Utför benchmark-testning med exempel arbets belastningar för att verifiera konfigurationer som inte är standard för klusterkonfigurationer.
 
-Här är några vanliga parametrar som du kan justera:
+Här följer några vanliga parametrar som du kan justera:
 
 |Parameter |Beskrivning |
 |---|---|
-|--num-executors|Anger lämpligt antal utförare.|
-|--executor-kärnor|Anger antalet kärnor för varje utförare. Vanligtvis bör du ha medelstora executors, eftersom andra processer förbrukar en del av det tillgängliga minnet.|
-|--executor-minne|Anger minnesstorleken för varje executor, som styr heap-storleken på YARN. Lämna lite minne för körning overhead.|
+|--antal-körningar|Anger lämpligt antal körningar.|
+|--utförar-kärnor|Anger antalet kärnor för varje utförar. Normalt bör du ha mellanstora körningar, eftersom andra processer använder en del av det tillgängliga minnet.|
+|--utförar-minne|Anger minnes storleken för varje utförar, som styr heap-storleken på garn. Lämna lite minne för att utföra omkostnader.|
 
-### <a name="select-the-correct-executor-size"></a>Välj rätt körstorlek
+### <a name="select-the-correct-executor-size"></a>Välj rätt utförar-storlek
 
-När du bestämmer din executor-konfiguration bör du tänka på GC-kostnaderna (Java garbage collection).
+När du bestämmer din utförar-konfiguration bör du tänka på hur du ska använda ^ skräp insamlingen (GC).
 
-* Faktorer för att minska utförare storlek:
-    1. Minska heap storlek under 32 GB för att hålla GC overhead < 10%.
-    2. Minska antalet kärnor för att hålla GC overhead < 10%.
+* Faktorer för att minska utförar storlek:
+    1. Minska heap-storleken under 32 GB för att behålla GC-omkostnader < 10%.
+    2. Minska antalet kärnor för att behålla GC-omkostnader < 10%.
 
-* Faktorer för att öka utförarens storlek:
-    1. Minska kommunikationen mellan utförare.
-    2. Minska antalet öppna anslutningar mellan executors (N2) på större kluster (>100 utförare).
-    3. Öka heap-storleken så att den passar för minnesintensiva uppgifter.
-    4. Valfritt: Minska omkostnader per körning.
-    5. Valfritt: Öka användningen och samtidigheten genom att översubscribing CPU.
+* Faktorer för att öka utförar storlek:
+    1. Minska kommunikations kostnader mellan körningar.
+    2. Minska antalet öppna anslutningar mellan körningar (N2) i större kluster (>100-körningar).
+    3. Öka heap-storleken så att den passar för minnes intensiva uppgifter.
+    4. Valfritt: minska minnes omkostnader per utförar.
+    5. Valfritt: öka användning och samtidighet efter oversubscribing CPU.
 
-När du väljer utförarstorleken i regel:
+Som en allmän regel när du väljer utförar storlek:
 
-1. Börja med 30 GB per utförare och distribuera tillgängliga maskinkärnor.
-2. Öka antalet körkärnor för större kluster (> 100 utförare).
-3. Ändra storlek baserat både på utvärderingskörningar och på föregående faktorer, till exempel GC overhead.
+1. Börja med 30 GB per utförar och distribuera tillgängliga maskin kärnor.
+2. Öka antalet utförar-kärnor för större kluster (> 100-körningar).
+3. Ändra storlek baserat på både vid utvärderings körning och på föregående faktorer, till exempel GC-overhead.
 
-När du kör samtidiga frågor bör du tänka på följande:
+Tänk på följande när du kör samtidiga frågor:
 
-1. Börja med 30 GB per executor och alla maskinkärnor.
-2. Skapa flera parallella Spark-program genom att översubscribing CPU (cirka 30% latens förbättring).
+1. Börja med 30 GB per utförar och alla dator kärnor.
+2. Skapa flera parallella Spark-program med oversubscribing CPU (cirka 30% fördröjnings förbättring).
 3. Distribuera frågor över parallella program.
-4. Ändra storlek baserat både på utvärderingskörningar och på föregående faktorer, till exempel GC overhead.
+4. Ändra storlek baserat på både vid utvärderings körning och på föregående faktorer, till exempel GC-overhead.
 
-Mer information om hur du använder Ambari för att konfigurera executors finns i [Apache Spark-inställningar - Spark-körare](apache-spark-settings.md#configuring-spark-executors).
+Mer information om hur du använder Ambari för att konfigurera körningar finns i [Apache Spark inställningar-Spark-körningar](apache-spark-settings.md#configuring-spark-executors).
 
-Övervaka frågeprestanda för extremvärden eller andra prestandaproblem genom att titta på tidslinjevyn. Även SQL-graf, jobbstatistik och så vidare. Information om felsökning av Spark-jobb med YARN och Spark History-servern finns i [Felsökningsservern För Apache Spark som körs på Azure HDInsight](apache-spark-job-debugging.md). Tips om hur du använder YARN Timeline Server finns i [Access Apache Hadoop YARN-programloggar](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Övervaka frågornas prestanda för avvikande eller andra prestanda problem genom att titta på vyn tids linje. Även SQL Graph, jobb statistik och så vidare. Information om hur du felsöker Spark-jobb med hjälp av garn och Spark historik Server finns i avsnittet om [fel sökning Apache Spark jobb som körs på Azure HDInsight](apache-spark-job-debugging.md). Tips om hur du använder garn tids linje server finns i [Access Apache HADOOP garn program loggar](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Ibland är en eller några av utförarna långsammare än de andra, och det tar mycket längre tid att utföra uppgifter. Denna långsamhet sker ofta på större kluster (> 30 noder). I det här fallet delar du upp arbetet i ett större antal aktiviteter så att schemaläggaren kan kompensera för långsamma aktiviteter. Du har till exempel minst dubbelt så många aktiviteter som antalet executor-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true`.
+Ibland är ett eller flera av körningarna långsammare än de andra, och uppgifter tar mycket längre tid att köra. Den här långsamma frekvensen inträffar ofta i större kluster (> 30 noder). I det här fallet delar du in arbetet i ett större antal aktiviteter så att Scheduler kan kompensera för långsamma aktiviteter. Du kan till exempel ha minst två gånger så många uppgifter som antalet utförar-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true`.
 
-## <a name="optimize-job-execution"></a>Optimera jobbkörning
+## <a name="optimize-job-execution"></a>Optimera jobb körningen
 
-* Cache efter behov, till exempel om du använder data två gånger och sedan cachelagrar den.
-* Broadcast-variabler till alla utförare. Variablerna serialiseras bara en gång, vilket resulterar i snabbare uppslag.
-* Använd trådpoolen på drivrutinen, vilket resulterar i snabbare drift för många aktiviteter.
+* Cachelagra vid behov, till exempel om du använder data två gånger och sedan cachelagrar det.
+* Broadcast-variabler till alla körningar. Variablerna serialiseras bara en gång, vilket resulterar i snabbare sökningar.
+* Använd trådpoolen på driv rutinen, vilket leder till snabbare drift för många aktiviteter.
 
-Övervaka dina jobb som körs regelbundet för prestandaproblem. Om du behöver mer insikt i vissa problem bör du överväga något av följande verktyg för prestandaprofilering:
+Övervaka dina jobb som körs regelbundet för prestanda problem. Om du behöver mer information om vissa problem kan du överväga något av följande verktyg för prestanda profilering:
 
-* [Intel PAL Tool](https://github.com/intel-hadoop/PAT) övervakar användning av CPU, lagring och nätverksbandbredd.
-* [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profiler Spark och executor kod.
+* [Verktyget Intel PAL](https://github.com/intel-hadoop/PAT) övervakar processor-, lagrings-och nätverks bandbredds användning.
+* [Oracle Java 8-uppdrags kontroll](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profiler Spark och utförar-kod.
 
-Nyckeln till Spark 2.x frågeprestanda är volframmotorn, som är beroende av kodgenerering i hela steget. I vissa fall kan kodgenerering i hela fasen inaktiveras. Om du till exempel använder en icke-föränderlig typ (`string`) `SortAggregate` i `HashAggregate`aggregeringsuttrycket visas i stället för . Om du till exempel vill ha bättre prestanda kan du prova följande och sedan återaktivera kodgenerering:
+Nyckeln till Spark 2. x-frågans prestanda är Tungsten-motorn, som är beroende av kodgenerering i hela fasen. I vissa fall kan generering av kod i hela fasen inaktive ras. Om du till exempel använder en icke-föränderligt typ (`string`) i agg regerings uttrycket `SortAggregate` visas i stället för. `HashAggregate` För bättre prestanda kan du till exempel prova följande och sedan återaktivera kodgenerering:
 
 ```sql
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
@@ -225,8 +225,8 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>Nästa steg
 
 * [Felsöka Apache Spark-jobb som körs i Azure HDInsight](apache-spark-job-debugging.md)
-* [Hantera resurser för ett Apache Spark-kluster på HDInsight](apache-spark-resource-manager.md)
+* [Hantera resurser för ett Apache Spark kluster i HDInsight](apache-spark-resource-manager.md)
 * [Konfigurera Apache Spark-inställningar](apache-spark-settings.md)
-* [Trimma Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [Hur man faktiskt tune din Apache Spark jobb så att de fungerar](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Justerings Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Så här finjusterar du dina Apache Spark jobb så att de fungerar](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [`Kryo Serialization`](https://github.com/EsotericSoftware/kryo)

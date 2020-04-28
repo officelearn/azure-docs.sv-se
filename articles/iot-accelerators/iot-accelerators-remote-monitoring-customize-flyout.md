@@ -1,6 +1,6 @@
 ---
-title: Lägga till ett utfällbart tillägg i lösningsgränssnittet för fjärrövervakning – Azure | Microsoft-dokument
-description: I den här artikeln visas hur du lägger till ett nytt utfällbart utfällbart på en sida i webbgränssnittet för lösningsaccelerator för fjärrövervakning.
+title: Lägg till en utfällning i gränssnittet för fjärr styrnings lösning – Azure | Microsoft Docs
+description: Den här artikeln visar hur du lägger till en ny utfällning på en sida i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,60 +8,60 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3820b34a9c79f3b514327fa45a05eebaf8a2a1ca
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447122"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193181"
 ---
-# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till ett anpassat utfällbart alternativ i webbgränssnittet för lösningsaccelerator för fjärrövervakning
+# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad utfällning i webb gränssnittet för lösnings Accelerator för fjärr styrning
 
-I den här artikeln visas hur du lägger till ett nytt utfällbart utfällbart till en sida i webbgränssnittet för lösningsaccelerator för fjärrövervakning. Artikeln beskriver:
+Den här artikeln visar hur du lägger till en ny utfällning på en sida i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator. Artikeln beskriver:
 
-- Hur man förbereder en lokal utvecklingsmiljö.
-- Så här lägger du till ett nytt utfällbart utfällbart sätt på en sida i webbgränssnittet.
+- Hur du förbereder en lokal utvecklings miljö.
+- Hur du lägger till en ny utfällning på en sida i webb gränssnittet.
 
-Exemplet utfällbart i den här artikeln visas på sidan med rutnätet som i artikeln [Lägg till ett anpassat rutnät i webbgränssnittet för fjärrövervakningslösnings-accelerator](iot-accelerators-remote-monitoring-customize-grid.md) visar hur du lägger till.
+Exemplet som utfälls i den här artikeln visas på sidan med rutnätet som beskriver instruktionen [Lägg till ett anpassat rutnät i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-grid.md) , som visar hur du lägger till.
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna slutföra stegen i den här programguiden behöver du följande programvara installerad på din lokala utvecklingsdator:
+För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Du bör slutföra stegen i följande artiklar innan du fortsätter:
+Du bör följa stegen i följande artiklar innan du fortsätter:
 
-- [Lägg till en anpassad sida i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-page.md).
-- [Lägga till en anpassad tjänst i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-service.md)
-- [Lägga till ett anpassat rutnät i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-grid.md)
+- [Lägg till en anpassad sida i webb gränssnittet för lösnings Accelerator för fjärr styrning](iot-accelerators-remote-monitoring-customize-page.md).
+- [Lägg till en anpassad tjänst i webb gränssnittet för webb gränssnittet för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-service.md)
+- [Lägg till ett anpassat rutnät i webb gränssnittet för lösnings Accelerator för fjärr styrning](iot-accelerators-remote-monitoring-customize-grid.md)
 
 ## <a name="add-a-flyout"></a>Lägg till en utfällbar meny
 
-Om du vill lägga till ett utfällbart objekt i webbgränssnittet måste du lägga till källfilerna som definierar utfällbara objekt och ändra vissa befintliga filer så att webbgränssnittet får kännedom om den nya komponenten.
+För att lägga till en utfällning i webb gränssnittet, måste du lägga till källfilerna som definierar utfällingen och ändra vissa befintliga filer för att göra webb gränssnittet medvetet för den nya komponenten.
 
-### <a name="add-the-new-files-that-define-the-flyout"></a>Lägga till de nya filerna som definierar utfällbara filer
+### <a name="add-the-new-files-that-define-the-flyout"></a>Lägg till de nya filerna som definierar utfällingen
 
-För att komma igång innehåller **mappen src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout-mappen** de filer som definierar ett utfällbart objekt:
+För att komma igång innehåller mappen **src/genom gång/Components/Pages/pageWithFlyout/flyouts/exampleFlyout** de filer som definierar en utfällning:
 
-**exempelFlyout.container.js**
+**exampleFlyout. container. js**
 
 [!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
 
-**exempelFlyout.js**
+**exampleFlyout. js**
 
 [!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
 
-Kopiera **mappen src/walkthrough/components/pages/pageWithFlyout/flyouts** till **mappen src/components/pages/example.**
+Kopiera mappen **src/genom gång/Components/Pages/pageWithFlyout/flyouts** till mappen **src/Components/Pages/example** .
 
-### <a name="add-the-flyout-to-the-page"></a>Lägga till utfällbart på sidan
+### <a name="add-the-flyout-to-the-page"></a>Lägg till utfällande på sidan
 
-Ändra **src/components/pages/example/basicPage.js** för att lägga till utfällbara.
+Ändra **src/Components/Pages/example/basicPage. js** för att lägga till utfällingen.
 
-Lägg till **Btn** i importen från **komponenter/delade** och lägg till import för **svgs** och **ExampleFlyoutContainer:**
+Lägg till **BTN** i importer från **komponenter/delade** och Lägg till importer för **svgs** och **ExampleFlyoutContainer**:
 
 ```js
 import {
@@ -76,7 +76,7 @@ import { svgs } from 'utilities';
 import { ExampleFlyoutContainer } from './flyouts/exampleFlyout';
 ```
 
-Lägg till en **const** definition för **closedFlyoutState** och lägg till den i tillståndet i konstruktorn:
+Lägg till en **Const** -definition för **closedFlyoutState** och Lägg till den i status i konstruktorn:
 
 ```js
 const closedFlyoutState = { openFlyoutName: undefined };
@@ -88,7 +88,7 @@ export class BasicPage extends Component {
   }
 ```
 
-Lägg till följande funktioner i klassen **BasicPage:**
+Lägg till följande funktioner i klassen **BasicPage** :
 
 ```js
   closeFlyout = () => this.setState(closedFlyoutState);
@@ -96,7 +96,7 @@ Lägg till följande funktioner i klassen **BasicPage:**
   openFlyout = (name) => () => this.setState({ openFlyoutName: name });
 ```
 
-Lägg till följande **const** definitioner i **renderingsfunktionen:**
+Lägg till följande **Const** -definitioner till **Render** -funktionen:
 
 ```js
     const { openFlyoutName } = this.state;
@@ -104,7 +104,7 @@ Lägg till följande **const** definitioner i **renderingsfunktionen:**
     const isExampleFlyoutOpen = openFlyoutName === 'example';
 ```
 
-Lägg till en knapp för att öppna utfällbara till snabbmenyn:
+Lägg till en knapp för att öppna utfällingen på snabb menyn:
 
 ```js
       <ContextMenu key="context-menu">
@@ -113,7 +113,7 @@ Lägg till en knapp för att öppna utfällbara till snabbmenyn:
       </ContextMenu>,
 ```
 
-Lägg till text och den utfällbara behållaren i sidinnehållet:
+Lägg till text och den utfällda behållaren på sidans innehåll:
 
 ```js
       <PageContent className="basic-page-container" key="page-content">
@@ -125,20 +125,20 @@ Lägg till text och den utfällbara behållaren i sidinnehållet:
       </PageContent>
 ```
 
-## <a name="test-the-flyout"></a>Testa utfällbara
+## <a name="test-the-flyout"></a>Testa utfällingen
 
-Om webbgränssnittet inte redan körs lokalt kör du följande kommando i roten till den lokala kopian av databasen:
+Om webb gränssnittet inte redan körs lokalt kör du följande kommando i roten för din lokala kopia av lagrings platsen:
 
 ```cmd/sh
 npm start
 ```
 
-Det föregående kommandot kör användargränssnittet lokalt på [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Navigera till sidan **Exempel** och klicka på **Öppna utfällbart objekt.**
+Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard`. Gå till **exempel** sidan och klicka på **Öppna utfälld**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om de resurser som finns tillgängliga för att hjälpa dig att lägga till eller anpassa sidor i webbgränssnittet i lösningsacceleratorn för fjärrövervakning.
+I den här artikeln har du lärt dig om vilka resurser som är tillgängliga för att hjälpa dig att lägga till eller anpassa sidor i webb gränssnittet i Solution Accelerator för fjärr styrning.
 
-Nu har du definierat ett utfällbart på en sida, nästa steg är att [lägga till en panel på instrumentpanelen i webbgränssnittet för fjärrövervakningslösningsaccelerator](iot-accelerators-remote-monitoring-customize-panel.md).
+Nu när du har definierat en utfällning på en sida är nästa steg att [lägga till en panel på instrument panelen i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-panel.md).
 
-Mer begreppsmässig information om lösningsacceleratorn för fjärrövervakning finns i [Fjärrövervakningsarkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Mer information om lösnings acceleratorn för fjärrövervakning finns i [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md).

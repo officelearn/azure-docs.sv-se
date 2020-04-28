@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: 427a3fbebe858d50d774ebfa7de4576985135abf
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 476f265d9658d08ef62647e707c0594af8cda480
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099180"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192033"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH
 
@@ -233,4 +233,4 @@ Om SSH-kontot är säkrad med __SSH-nycklar__ kontrollerar du att SSH-vidarebefo
 
 * [Använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 * [Använda kantnoder i HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)
-* [Använd SCP med HDInsight](./use-scp.md)
+* [Använda SCP med HDInsight](./use-scp.md)

@@ -1,6 +1,6 @@
 ---
-title: Planera din förhandsgranskningsmiljö – Insikter i Azure Time Series | Microsoft-dokument
-description: Metodtips för att konfigurera, hantera, planera och distribuera din förhandsversion av Azure Time Series Insights.
+title: Planera din för hands versions miljö – Azure Time Series Insights | Microsoft Docs
+description: Metod tips för att konfigurera, hantera, planera och distribuera din Azure Time Series Insights Preview-miljö.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,97 +8,97 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: b16d78c9670d05fcec8126c5544d1dd97f6a03bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b61df52df45cb2ee01407390ce3e34d86350ef7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045717"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189257"
 ---
-# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera förhandsgranskningsmiljön för Azure Time Series Insights
+# <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera Azure Time Series Insights för hands versions miljön
 
-I den här artikeln beskrivs metodtips för att planera och komma igång snabbt med hjälp av förhandsversionen av Azure Time Series Insights.
-
-> [!NOTE]
-> Om du vill ha metodtips för att planera en instans av tidsserier i allmän tillgänglighet läser du [Planera din allmänna tillgänglighetsmiljö för Azure Time Series Insights](time-series-insights-environment-planning.md).
-
-## <a name="best-practices-for-planning-and-preparation"></a>Bästa praxis för planering och förberedelse
-
-Metodtips kring planering och förberedelse av din miljö beskrivs närmare i följande artiklar:
-
-* Vad du får när du [etablerar en förhandsgranskningsmiljö för timeseriestatistik](#the-preview-environment).
-* Vad egenskaperna [för tidsserie-ID:n och tidsstämpeln är](#configure-time-series-ids-and-timestamp-properties).
-* Vad den nya [Time Series-modellen är](#understand-the-time-series-model)och hur du bygger din egen.
-* Hur man [skickar händelser effektivt i JSON](#shape-your-events).
-* Time Series Insights [business disaster recovery options](#business-disaster-recovery).
-
-Azure Time Series Insights använder en affärsmodell för betalning per betalning. Mer information om avgifter och kapacitet finns i [Time Series Insights prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/).
-
-## <a name="the-preview-environment"></a>Förhandsgranskningsmiljön
-
-När du etablerar en förhandsversion av Time Series Insights skapar du två Azure-resurser:
-
-* Förhandsversionsmiljö för Azure Time Series Insights
-* Ett Microsoft Azure Storage-V1-konto
-
-Som en del av etableringsprocessen anger du om du vill aktivera ett varmt lager. Warm Store ger dig en nivåindelad frågeupplevelse. När det är aktiverat måste du ange en kvarhållningsperiod mellan 7 och 30 dagar. Frågor som utförs inom den varma lagringsperioden ger i allmänhet snabbare svarstider. När en fråga sträcker sig över den varma lagringsperioden serveras den från fryshuset.
-
-Frågor om varm butik är gratis, medan frågor om kyl- och fryshus medför kostnader. Det är viktigt att förstå frågemönstren och planera konfigurationen av din varma butik därefter. Vi rekommenderar att interaktiva analyser av de senaste uppgifterna finns i din varma butik och mönsteranalys och långsiktiga trender finns i kyla.
+Den här artikeln beskriver metod tips för att planera och komma igång snabbt med hjälp av Azure Time Series Insights för hands version.
 
 > [!NOTE]
-> Om du vill läsa mer om hur du frågar dina varma data läser du [API-referensen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> För bästa praxis för att planera en allmän tillgänglighet Time Series Insights instans kan [du läsa planera din Azure Time Series Insights generell tillgänglighets miljö](time-series-insights-environment-planning.md).
 
-Till att börja med behöver du ytterligare tre objekt:
+## <a name="best-practices-for-planning-and-preparation"></a>Metod tips för planering och förberedelser
 
-* En [tidsseriemodell](./time-series-insights-update-tsm.md)
-* En [händelsekälla som är ansluten till Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
-* [Händelser som flödar in i händelsekällan](./time-series-insights-send-events.md) som både är mappade till modellen och är i giltigt JSON-format
+Metod tips som omger planeringen av och förbereda din miljö beskrivs ytterligare i följande artiklar:
 
-## <a name="review-preview-limits"></a>Granska begränsningar för förhandsgranskning
+* Vad du får när du [etablerar en Time Series Insights för hands versions miljö](#the-preview-environment).
+* Vad dina [Time Series-ID och tidsstämpel-egenskaper är](#configure-time-series-ids-and-timestamp-properties).
+* Vad den nya [tids serie modellen är](#understand-the-time-series-model)och hur du skapar en egen.
+* Hur du [skickar händelser effektivt i JSON](#shape-your-events).
+* Time Series Insights [affärs haveri återställnings alternativ](#business-disaster-recovery).
+
+Azure Time Series Insights använder en affärs modell enligt principen betala per användning. Läs [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights/)om du vill ha mer information om avgifter och kapacitet.
+
+## <a name="the-preview-environment"></a>För hands versions miljön
+
+När du etablerar en Time Series Insights för hands versions miljö skapar du två Azure-resurser:
+
+* En Azure Time Series Insights för hands versions miljö
+* Ett Azure Storage allmänt v1-konto
+
+Som en del av etablerings processen anger du om du vill aktivera ett varmt arkiv. Med den varmt butiken får du en nivå av frågans upplevelse. När aktive rad måste du ange en kvarhållningsperiod mellan 7 och 30 dagar. Frågor som utförs inom lagrings perioden för varm lagring ger normalt kortare svars tider. När en fråga sträcker sig över lagrings perioden för varma lager kommer den att hanteras från kall lagring.
+
+Frågor i varmt lager är kostnads fria, medan frågor om kall lagring ådrar sig kostnader. Det är viktigt att förstå dina fråge mönster och planera din varmt Store-konfiguration. Vi rekommenderar att interaktiva analyser på den senaste informationen finns i din varma lagrings-och mönster analys och långsiktiga trender finns i kall.
+
+> [!NOTE]
+> Läs [API-referensen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters)om du vill veta mer om hur du frågar dina varma data.
+
+För att starta måste du ha tre ytterligare objekt:
+
+* En [tids serie modell](./time-series-insights-update-tsm.md)
+* En [händelse källa som är ansluten till Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* [Händelser som flödar till händelse källan](./time-series-insights-send-events.md) som båda mappas till modellen och är i giltigt JSON-format
+
+## <a name="review-preview-limits"></a>Granska gränser för för hands version
 
 [!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
 
-## <a name="configure-time-series-ids-and-timestamp-properties"></a>Konfigurera egenskaper för tidsserie-ID:n och tidsstämpel
+## <a name="configure-time-series-ids-and-timestamp-properties"></a>Konfigurera Time Series-ID: n och egenskaper för tidsstämpel
 
-Om du vill skapa en ny time series insights-miljö väljer du ett tidsserie-ID. Detta fungerar som en logisk partition för dina data. Som nämnts, se till att ha din Time Series ID redo.
+Om du vill skapa en ny Time Series Insights miljö väljer du ett Time Series-ID. Detta fungerar som logisk partition för dina data. Se till att dina Time Series ID är klara.
 
 > [!IMPORTANT]
-> Tidsserie-ID:n *kan inte ändras senare*. Verifiera var och en före det slutliga valet och första användningen.
+> Time Series-ID: n *kan inte ändras senare*. Verifiera var och en innan du väljer den sista och Använd den första.
 
-Du kan välja upp till tre nycklar för att unikt skilja dina resurser. Mer information finns i [Metodtips för att välja ett tidsserie-ID](./time-series-insights-update-how-to-id.md) och [lagring och inträngning](./time-series-insights-update-storage-ingress.md).
+Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer information finns [i metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md) och [lagrings utrymme](./time-series-insights-update-storage-ingress.md).
 
-**Egenskapen Timestamp** är också viktig. Du kan ange den här egenskapen när du lägger till händelsekällor. Varje händelsekälla har en valfri tidsstämpelegenskap som används för att spåra händelsekällor över tid. Tidsstämpelvärden är skiftlägeskänsliga och måste formateras enligt den enskilda specifikationen för varje händelsekälla.
+Egenskapen **timestamp** är också viktig. Du kan ange den här egenskapen när du lägger till händelse källor. Varje händelse källa har en valfri tidstämpel egenskap som används för att spåra händelse källor över tid. Tidsstämplar-värden är Skift läges känsliga och måste formateras till den enskilda specifikationen för varje händelse källa.
 
 > [!TIP]
-> Kontrollera kraven för formatering och tolkning för dina händelsekällor.
+> Kontrol lera formaterings-och tolknings kraven för dina händelse källor.
 
-När händelseen är tom används händelsehändelsetiden för en händelsekälla som händelsetidsstämpel. Om du skickar historiska data eller batchade händelser är det mer användbart att anpassa egenskapen Tidsstämpel än standardhändelsesöktiden. Mer information finns i hur du [lägger till händelsekällor i Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+När värdet är tomt används händelsens tidsintervall för händelse källan som händelsens tidsstämpel. Om du skickar historiska data eller batch-händelser är det mer praktiskt att anpassa egenskapen timestamp än standard händelsens kötid. Mer information finns i så här lägger du till [händelse källor i Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
-## <a name="understand-the-time-series-model"></a>Förstå Time Series-modellen
+## <a name="understand-the-time-series-model"></a>Förstå tids serie modellen
 
-Nu kan du konfigurera time series insights-miljöns tidsseriemodell. Den nya modellen gör det enkelt att hitta och analysera IoT-data. Det möjliggör kurering, underhåll och anrikning av tidsseriedata och hjälper till att förbereda konsumentklara datauppsättningar. Modellen använder tidsserie-ID:n, som mappas till en instans som associerar den unika resursen med variabler, så kallade typer och hierarkier. Läs om den nya [Time Series-modellen](./time-series-insights-update-tsm.md).
+Nu kan du konfigurera din Time Series Insights Miljös tids serie modell. Den nya modellen gör det enkelt att hitta och analysera IoT-data. Det möjliggör hantering, underhåll och anrikning av tids serie data och hjälper till att förbereda konsument klara data uppsättningar. Modellen använder Time Series-ID: n, som mappar till en instans som associerar den unika resursen med variabler, som kallas typer och hierarkier. Läs om den nya [tids serie modellen](./time-series-insights-update-tsm.md).
 
-Modellen är dynamisk, så den kan byggas när som helst. För att komma igång snabbt kan du skapa och ladda upp den innan du trycker data till Time Series Insights. Om du vill skapa din modell läser [du Använd tidsseriemodellen](./time-series-insights-update-how-to-tsm.md).
+Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Time Series Insights. Om du vill bygga din modell läser du [använda tids serie modellen](./time-series-insights-update-how-to-tsm.md).
 
-För många kunder mappar Time Series-modellen till en befintlig tillgångsmodell eller affärssystem som redan finns. Om du inte har en befintlig modell [ges](https://github.com/Microsoft/tsiclient) en fördefinierad användarupplevelse för att komma igång snabbt. Om du vill föreställa dig hur en modell kan hjälpa dig kan du visa [exempeldemomiljön](https://insights.timeseries.azure.com/preview/demo).
+För många kunder mappas Time Series-modellen till en befintlig till gångs modell eller ERP-system redan på plats. Om du inte har en befintlig modell [tillhandahålls](https://github.com/Microsoft/tsiclient) en fördefinierad användar upplevelse för att snabbt komma igång. Om du vill Envision hur en modell kan hjälpa dig kan du Visa [exempel demonstrations miljön](https://insights.timeseries.azure.com/preview/demo).
 
 ## <a name="shape-your-events"></a>Forma dina händelser
 
-Du kan verifiera hur du skickar händelser till Time Series Insights. Helst är dina händelser denormaliserade väl och effektivt.
+Du kan kontrol lera hur du skickar händelser till Time Series Insights. Vi rekommenderar att händelserna är denormaliserade och effektivt.
 
-En bra tumregel:
+En lämplig tumregel:
 
-* Lagra metadata i din Tidsseriemodell.
-* Kontrollera att tidsserieläge, instansfält och händelser endast innehåller nödvändig information, till exempel en tidsserie-ID eller tidsstämpelegenskap.
+* Lagra metadata i din tids serie modell.
+* Se till att tids serie läge, instans fält och händelser bara innehåller nödvändig information, till exempel ett Time Series-ID eller en tidstämpel egenskap.
 
-Mer information finns i [Formhändelser](./time-series-insights-send-events.md#supported-json-shapes).
+Mer information finns i [form-händelser](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera konfigurationsalternativen för företagsåterställning.
-- Läs mer om [lagring och inträngning i](./time-series-insights-update-storage-ingress.md) förhandsversionen av Time Series Insights.
-- Läs mer om [datamodellering](./time-series-insights-update-tsm.md) i förhandsversionen av Time Series Insights.
+- Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera dina konfigurations alternativ för företags återställning.
+- Läs mer om [lagring och ingress](./time-series-insights-update-storage-ingress.md) i Time Series Insights för hands versionen.
+- Lär dig mer om [data modellering](./time-series-insights-update-tsm.md) i Time Series Insights för hands versionen.

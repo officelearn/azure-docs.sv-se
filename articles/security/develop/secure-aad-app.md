@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5b04bbbbe5425e65f3ed4ff82d9700dec6dd2c39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159906"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188335"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Utveckla en säker app för en Azure AD-App
 ## <a name="overview"></a>Översikt
@@ -35,7 +35,7 @@ När du utvecklar och distribuerar den här appen lär du dig att
 - Distribuera Azure-webbappen, som är dedikerad isolerad med klient dels brand Väggs åtkomst. 
 - Skapa och konfigurera en Azure Application Gateway-instans med en brand vägg som använder OWASP 10 högsta ruleset. 
 - Aktivera kryptering av data under överföring och i vila med hjälp av Azure-tjänster. 
-- Konfigurera Azure policy och Security Center för att utvärdera compliancies. 
+- Konfigurera Azure Policy-och Security Center för att utvärdera kompatibiliteten. 
 
 När du har utvecklat och distribuerat den här appen har du ställt in följande exempel-webbapp tillsammans med de konfigurations-och säkerhets åtgärder som beskrivs.
 

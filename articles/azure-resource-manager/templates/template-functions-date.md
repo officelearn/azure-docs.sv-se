@@ -1,43 +1,43 @@
 ---
-title: Mallfunktioner - datum
-description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att arbeta med datum.
+title: Mallens funktioner – datum
+description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med datum.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 04/27/2020
+ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084795"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192305"
 ---
-# <a name="date-functions-for-arm-templates"></a>Datumfunktioner för ARM-mallar
+# <a name="date-functions-for-arm-templates"></a>Datum funktioner för ARM-mallar
 
-Resource Manager innehåller följande funktioner för att arbeta med datum i dina ARM-mallar (Azure Resource Manager):
+Resource Manager innehåller följande funktioner för att arbeta med datum i din Azure Resource Manager-mall (ARM):
 
 * [dateTimeAdd](#datetimeadd)
-* [utcNow (olikartade)](#utcnow)
+* [utcNow](#utcnow)
 
 ## <a name="datetimeadd"></a>dateTimeAdd
 
 `dateTimeAdd(base, duration, [format])`
 
-Lägger till en tidslängd till ett basvärde. ISO 8601-format förväntas.
+Lägger till en tids period till ett bas värde. ISO 8601-format förväntas.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base | Ja | sträng | Startdatumtidsvärdet för tillägget. Använd [ISO 8601 tidsstämpelformat](https://en.wikipedia.org/wiki/ISO_8601). |
-| varaktighet | Ja | sträng | Tidsvärdet som ska läggas till basen. Det kan vara ett negativt värde. Använd [iso 8601 varaktighet format](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Inga | sträng | Utdataformatet för datumtidsresultatet. Om det inte anges används basvärdets format. Använd antingen [standardformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| base | Ja | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
+| varaktighet | Ja | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| format | Inga | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Returvärde
 
-Det datetime-värde som uppstår genom att lägga till varaktighetsvärdet i basvärdet.
+Det datetime-värde som är resultatet av att lägga till duration-värdet i bas värdet.
 
 ### <a name="examples"></a>Exempel
 
-I följande exempelmall visas olika sätt att lägga till tidsvärden.
+Följande exempel-mall visar olika sätt att lägga till tids värden.
 
 ```json
 {
@@ -72,15 +72,15 @@ I följande exempelmall visas olika sätt att lägga till tidsvärden.
 }
 ```
 
-När föregående mall distribueras med en `2020-04-07 14:53:14Z`bastid är utdata:
+När föregående mall distribueras med en bas tid av `2020-04-07 14:53:14Z`, är utdata:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
-| add3Years | Sträng | 2023-07-07 14:53:14 |
-| subtrahera9Dagar | Sträng | 2020-03-29 14:53:14 |
-| add1Hour | Sträng | 2020-07-07 15:53:14 |
+| add3Years | Sträng | 4/7/2023 2:53:14 PM |
+| subtract9Days | Sträng | 3/29/2020 2:53:14 PM |
+| add1Hour | Sträng | 4/7/2020 3:53:14 PM |
 
-Nästa exempelmall visar hur du ställer in starttiden för ett automationsschema.
+I nästa exempel-mall visas hur du ställer in start tiden för ett Automation-schema.
 
 ```json
 {
@@ -134,33 +134,33 @@ Nästa exempelmall visar hur du ställer in starttiden för ett automationsschem
 }
 ```
 
-## <a name="utcnow"></a>utcNow (olikartade)
+## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
 
-Returnerar det aktuella datetime-värdet (UTC) i det angivna formatet. Om inget format tillhandahålls används ISO 8601-formatet (yyyyMMddTHHmmssZ). **Den här funktionen kan bara användas i standardvärdet för en parameter.**
+Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget format anges används formatet ISO 8601 (yyyyMMddTHHmmssZ). **Den här funktionen kan endast användas i standardvärdet för en parameter.**
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| format |Inga |sträng |Uri-kodat värde som ska konverteras till en sträng. Använd antingen [standardformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Inga |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Anmärkningar
 
-Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annanstans i en mall returneras ett fel. Funktionen är inte tillåten i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Om du distribuerar samma mall med samma parametrar skulle inte samma resultat ge samma resultat på ett tillförlitligt sätt.
+Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
 
-Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md)och den tidigare distributionen innehåller en parameter som använder utcNow, omvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställningsdistributionen.
+Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md), och den tidigare distributionen innehåller en parameter som använder utcNow, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
 
-Var försiktig med att distribuera om en mall som är beroende av funktionen utcNow för ett standardvärde. När du distribuerar om och inte anger något värde för parametern omvärderas funktionen. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, skicka in parametervärdet från den tidigare distributionen.
+Var noga med att distribuera om en mall som förlitar sig på utcNow-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern utvärderas funktionen om. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, måste du skicka värdet i parametervärdet från den tidigare distributionen.
 
 ### <a name="return-value"></a>Returvärde
 
-Det aktuella UTC-datetime-värdet.
+Aktuellt UTC-slutdatum värde.
 
 ### <a name="examples"></a>Exempel
 
-I följande exempelmall visas olika format för datetime-värdet.
+I följande exempel mall visas olika format för datetime-värdet.
 
 ```json
 {
@@ -199,15 +199,15 @@ I följande exempelmall visas olika format för datetime-värdet.
 }
 ```
 
-Utdata från föregående exempel varierar för varje distribution, men liknar:
+Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
-| utcOutput (utcOutput) | sträng | 20190305T175318Z |
+| utcOutput | sträng | 20190305T175318Z |
 | utcShortOutput | sträng | 03/05/2019 |
 | utcCustomOutput | sträng | 3 5 |
 
-I nästa exempel visas hur du använder ett värde från funktionen när du anger ett taggvärde.
+I nästa exempel visas hur du använder ett värde från funktionen när du anger ett tagg värde.
 
 ```json
 {
@@ -242,3 +242,7 @@ I nästa exempel visas hur du använder ett värde från funktionen när du ange
     }
 }
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

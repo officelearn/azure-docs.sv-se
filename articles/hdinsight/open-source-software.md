@@ -1,60 +1,61 @@
 ---
-title: Stöd för programvara med öppen källkod i Azure HDInsight
-description: Microsoft Azure ger en allmän supportnivå för tekniker med öppen källkod.
+title: Stöd för program vara med öppen källkod i Azure HDInsight
+description: Microsoft Azure ger en allmän support nivå för tekniker med öppen källkod.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f93be73af4bbbd159ffc01804617892251d96347
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 65f21450f194175af37c6c198468978392cee462
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772176"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195170"
 ---
-# <a name="open-source-software-support-in-azure-hdinsight"></a>Stöd för programvara med öppen källkod i Azure HDInsight
+# <a name="open-source-software-support-in-azure-hdinsight"></a>Stöd för program vara med öppen källkod i Azure HDInsight
 
-Microsoft Azure HDInsight-tjänsten använder en miljö med tekniker med öppen källkod som bildas runt Apache Hadoop. Microsoft Azure ger en allmän supportnivå för tekniker med öppen källkod. Mer information finns i avsnittet **Supportscope i** vanliga frågor om [Azure Support](https://azure.microsoft.com/support/faq/). HDInsight-tjänsten ger ytterligare stöd för inbyggda komponenter.
+Microsoft Azure HDInsights tjänsten använder en miljö med tekniker med öppen källkod som är utformad runt Apache Hadoop. Microsoft Azure ger en allmän support nivå för tekniker med öppen källkod. Mer information finns i avsnittet **support omfattning** i [vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/). HDInsight-tjänsten ger ytterligare en nivå av stöd för inbyggda komponenter.
 
 ## <a name="components"></a>Komponenter
 
-Två typer av komponenter med öppen källkod finns i HDInsight-tjänsten:
+Det finns två typer av komponenter med öppen källkod i HDInsight-tjänsten:
 
 ### <a name="built-in-components"></a>Inbyggda komponenter
 
-Dessa komponenter är förinstallerade på HDInsight-kluster och tillhandahåller kärnfunktioner i klustret. Följande komponenter tillhör den här kategorin:
+Dessa komponenter förinstalleras i HDInsight-kluster och tillhandahåller kärn funktioner i klustret. Följande komponenter tillhör den här kategorin:
 
-* [Apache Hadoop GARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Resurshanteraren.
-* Hive-frågespråket [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+* [Apache HADOOP garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Resource Manager.
+* [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)för Hive-frågespråket.
 * [Apache Mahout](https://mahout.apache.org/).
 
-En fullständig lista över klusterkomponenter finns i [Vilka är Apache Hadoop-komponenterna och versionerna tillgängliga med HDInsight?](hdinsight-component-versioning.md)
+En fullständig lista över kluster komponenter finns i [vilka Apache Hadoop-komponenter och-versioner som är tillgängliga med HDInsight?](hdinsight-component-versioning.md)
 
 ### <a name="custom-components"></a>Anpassade komponenter
 
-Som användare av klustret kan du installera eller använda alla komponenter som är tillgängliga i communityn eller som skapats av dig i din arbetsbelastning.
+Som användare av klustret kan du installera eller använda i din arbets belastning, vilken komponent som helst som är tillgänglig i communityn eller som du har skapat.
 
 > [!WARNING]  
-> Komponenter som medföljer HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som är relaterade till dessa komponenter.
+> Komponenter som ingår i HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimligt stöd för att hjälpa dig att felsöka problemet ytterligare. Microsoft Support kanske kan lösa problemet. Eller så kan de be dig att engagera tillgängliga kanaler för öppen källkod teknik där djup expertis för den tekniken finns. Många community-webbplatser kan användas. Exempel är [MSDN forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) och [Stack Överflöd](https://stackoverflow.com).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet. Du kan också be dig att engagera tillgängliga kanaler för teknikerna med öppen källkod där djupgående expertis för tekniken hittas. Många Community-webbplatser kan användas. Exempel är [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) och [Stack Overflow](https://stackoverflow.com).
 >
-> Apache projekt har också projektwebbplatser på [Apache webbplats](https://apache.org). Ett exempel är [Hadoop](https://hadoop.apache.org/).
+> Apache-projekt har också projekt webbplatser på [Apache-webbplatsen](https://apache.org). Ett exempel är [Hadoop](https://hadoop.apache.org/).
 
-## <a name="component-usage"></a>Användning av komponenter
+## <a name="component-usage"></a>Komponent användning
 
-HDInsight-tjänsten innehåller flera sätt att använda anpassade komponenter. Samma supportnivå gäller, oavsett hur en komponent används eller installeras i klustret. I följande tabell beskrivs de vanligaste sätten att anpassade komponenter används i HDInsight-kluster:
+HDInsight-tjänsten tillhandahåller flera olika sätt att använda anpassade komponenter. Samma nivå av support gäller, oavsett hur en komponent används eller installeras i klustret. I följande tabell beskrivs de vanligaste sätten att använda anpassade komponenter i HDInsight-kluster:
 
 |Användning |Beskrivning |
 |---|---|
-|Inlämning av jobb|Hadoop eller andra typer av jobb som kör eller använder anpassade komponenter kan skickas till klustret.|
-|Anpassning av kluster|När klustret skapas kan du ange ytterligare inställningar och anpassade komponenter som är installerade på klusternoderna.|
-|Exempel|För populära anpassade komponenter kan Microsoft och andra ge exempel på hur dessa komponenter kan användas på HDInsight-kluster. Dessa prover tillhandahålls utan stöd.|
+|Jobb överföring|Hadoop eller andra typer av jobb som kör eller använder anpassade komponenter kan skickas till klustret.|
+|Kluster anpassning|När klustret skapas kan du ange ytterligare inställningar och anpassade komponenter som är installerade på klusternoderna.|
+|Exempel|För populära anpassade komponenter kan Microsoft och andra tillhandahålla exempel på hur dessa komponenter kan användas i HDInsight-kluster. De här exemplen tillhandahålls utan support.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Anpassa Azure HDInsight-kluster med hjälp av skriptåtgärder](./hdinsight-hadoop-customize-cluster-linux.md)
-* [Utveckla skript åtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder](./hdinsight-hadoop-customize-cluster-linux.md)
+* [Utveckla skript åtgärds skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd](./spark/apache-spark-python-package-installation.md)

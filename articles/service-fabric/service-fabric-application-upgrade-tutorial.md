@@ -1,77 +1,77 @@
 ---
-title: Självstudiekurs för uppgradering av Service Fabric-appen
-description: Den här artikeln går igenom upplevelsen av att distribuera ett Service Fabric-program, ändra koden och distribuera en uppgradering med hjälp av Visual Studio.
+title: Självstudie för Service Fabric program uppgradering
+description: Den här artikeln beskriver hur du distribuerar ett Service Fabric program, ändrar koden och installerar en uppgradering med hjälp av Visual Studio.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464819"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195875"
 ---
-# <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Självstudiekurs för uppgradering av Programuppgradering av Service Fabric med Visual Studio
+# <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Själv studie kurs om Service Fabric program uppgradering med Visual Studio
 > [!div class="op_single_selector"]
-> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
 
 <br/>
 
-Azure Service Fabric förenklar processen för att uppgradera molnprogram genom att se till att endast ändrade tjänster uppgraderas och att programhälsa övervakas under hela uppgraderingsprocessen. Det återställer också automatiskt tillbaka programmet till den tidigare versionen när du stöter på problem. Service Fabric-programuppgraderingar är *Zero Downtime*, eftersom programmet kan uppgraderas utan driftstopp. Den här självstudien beskriver hur du slutför en rullande uppgradering från Visual Studio.
+Azure Service Fabric fören klar processen med att uppgradera moln program genom att se till att endast ändrade tjänster uppgraderas och att program hälsan övervakas under uppgraderings processen. Det återställer också programmet automatiskt till den tidigare versionen när problem påträffas. Service Fabric program uppgraderingar är *noll avbrotts*tid, eftersom programmet kan uppgraderas utan drift avbrott. Den här självstudien beskriver hur du slutför en rullande uppgradering från Visual Studio.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Steg 1: Skapa och publicera exemplet visuella objekt
-Hämta först visual [objects-programmet](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) från GitHub. Skapa och publicera sedan programmet genom att högerklicka på programprojektet **VisualObjects**och välja kommandot **Publicera** i menyalternativet Service Fabric.
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Steg 1: Bygg och publicera exempel på visuella objekt
+Börja med att ladda ned [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) -programmet från GitHub. Sedan kan du bygga och publicera programmet genom att högerklicka på programprojektet, **VisualObjects**och välja kommandot **publicera** i meny alternativet Service Fabric.
 
-![Snabbmeny för ett Service Fabric-program][image1]
+![Snabb meny för ett Service Fabric program][image1]
 
-Om du väljer **Publicera** visas en popup och du kan ange **målprofilen** till **PublishProfiles\Local.xml**. Fönstret ska se ut så här innan du klickar på **Publicera**.
+Om du väljer **publicera** visas en popup-meny och du kan ange **mål profilen** till **PublishProfiles\Local.XML**. Fönstret bör se ut ungefär så här innan du klickar på **publicera**.
 
-![Publicera ett service fabric-program][image2]
+![Publicera ett Service Fabric program][image2]
 
-Nu kan du klicka på **Publicera** i dialogrutan. Du kan använda [Service Fabric Explorer för att visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet Visuella objekt har en webbtjänst som [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) du kan gå till genom att skriva i webbläsarens adressfält.  Du bör se 10 flytande visuella objekt som rör sig på skärmen.
+Nu kan du klicka på **publicera** i dialog rutan. Du kan använda [Service Fabric Explorer för att Visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet för visuella objekt har en webb tjänst som du kan gå till genom att `http://localhost:8081/visualobjects/` skriva i adress fältet i webbläsaren.  Du bör se 10 flytande visuella objekt som flyttas runt på skärmen.
 
-**OBS:** Om distribuera `Cloud.xml` till profil (Azure Service Fabric), programmet bör sedan vara tillgänglig på **http://{ServiceFabricName}.{ Region}.cloudapp.azure.com:8081/visualobjects/**. Kontrollera att du `8081/TCP` har konfigurerat i belastningsutjämnaren (hitta belastningsutjämnaren i samma resursgrupp som tjänst fabric-instansen).
+**Obs:** Om du distribuerar `Cloud.xml` till profil (Azure Service Fabric) bör programmet vara tillgängligt på **http://{ServiceFabricName}. { Region}. cloudapp. Azure. com: 8081/visualobjects/**. Kontrol lera att du har `8081/TCP` konfigurerat i Load Balancer (hitta Load Balancer i samma resurs grupp som Service Fabric-instansen).
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: Uppdatera exemplet med visuella objekt
-Du kanske märker att med den version som distribuerades i steg 1 roterar inte de visuella objekten. Låt oss uppgradera det här programmet till ett där de visuella objekten också roterar.
+## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: uppdatera det visuella objekt exemplet
+Du kanske märker att de visuella objekten inte roterar med den version som distribuerades i steg 1. Vi ska uppgradera det här programmet till ett ställe där de visuella objekten också roterar.
 
-Välj Projektet VisualObjects.ActorService i VisualObjects-lösningen **VisualObjectActor.cs** och öppna VisualObjectActor.cs-filen. I filen går du `MoveObject`till metoden `visualObject.Move(false)`, kommenterar `visualObject.Move(true)`ut och avkommentar . Den här kodändringen roterar objekten när tjänsten har uppgraderats.  **Nu kan du bygga (inte bygga om) lösningen**, som bygger de ändrade projekten. Om du väljer *Återskapa alla*måste du uppdatera versionerna för alla projekt.
+Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna **VisualObjectActor.cs** -filen. I den filen går du till metoden `MoveObject`, kommentera ut och `visualObject.Move(false)`ta bort kommentaren `visualObject.Move(true)`. Den här kod ändringen roterar objekten när tjänsten har uppgraderats.  **Nu kan du bygga (inte återskapa) lösningen**, som bygger de ändrade projekten. Om du väljer *återskapa alla*måste du uppdatera versionerna för alla projekt.
 
-Vi måste också version vår ansökan. Om du vill göra versionsändringarna när du har högerklickat på **VisualObjects-projektet** kan du använda alternativet **Redigera manifestversioner** i Visual Studio. Om du väljer det här alternativet visas dialogrutan för versionsversioner på följande sätt:
+Vi behöver också version av programmet. Om du vill göra versionen ändringar när du högerklickar på **VisualObjects** -projektet kan du använda alternativet Visual Studio **Edit manifest versions** . Om du väljer det här alternativet visas dialog rutan för versions versioner på följande sätt:
 
-![Dialogrutan Versionshantering][image3]
+![Dialog rutan versions hantering][image3]
 
-Uppdatera versionerna för de ändrade projekten och deras kodpaket, tillsammans med programmet till version 2.0.0. När ändringarna har gjorts ska manifestet se ut så här (fetstil visar ändringarna):
+Uppdatera versionerna för de ändrade projekten och deras kod paket, tillsammans med programmet till version 2.0.0. När ändringarna har gjorts bör manifestet se ut ungefär så här (feta delar visar ändringarna):
 
-![Uppdatera versioner][image4]
+![Uppdaterar versioner][image4]
 
-Visual Studio-verktygen kan göra automatiska sammanslagningar av versioner när du väljer **Uppdatera program- och tjänstversioner automatiskt**. Om du använder [SemVer](http://www.semver.org)måste du uppdatera kod- och/eller konfigurationspaketversionen ensam om det alternativet är markerat.
+Med Visual Studio-verktygen kan du automatiskt samla in versioner när du väljer **Uppdatera program-och tjänst versioner automatiskt**. Om du använder [SemVer](http://www.semver.org)måste du uppdatera koden och/eller konfigurations paket versionen separat om alternativet är markerat.
 
-Spara ändringarna och markera nu rutan **Uppgradera programmet.**
+Spara ändringarna och kontrol lera sedan rutan **uppgradera program** .
 
-## <a name="step-3--upgrade-your-application"></a>Steg 3: Uppgradera ditt program
-Bekanta dig med [programuppgraderingsparametrarna](service-fabric-application-upgrade-parameters.md) och [uppgraderingsprocessen](service-fabric-application-upgrade.md) för att få en god förståelse för de olika uppgraderingsparametrar, time-outs och hälsokriterium som kan tillämpas. För den här genomgången anges utvärderingsvillkoret för tjänsthälsan till standardläget (oövervakat läge). Du kan konfigurera dessa inställningar genom att välja **Konfigurera uppgraderingsinställningar** och sedan ändra parametrarna efter behov.
+## <a name="step-3--upgrade-your-application"></a>Steg 3: uppgradera programmet
+Bekanta dig med parametrarna för [program uppgradering](service-fabric-application-upgrade-parameters.md) och [uppgraderings processen](service-fabric-application-upgrade.md) för att få en god förståelse för de olika uppgraderings parametrarna, tids gränser och hälso kriterier som kan tillämpas. I den här genom gången anges kriteriet för utvärdering av service hälsa till standardvärdet (oövervakat läge). Du kan konfigurera de här inställningarna genom att välja **Konfigurera uppgraderings inställningar** och sedan ändra parametrarna efter behov.
 
-Nu är vi alla inställda på att starta programmet uppgraderingen genom att välja **Publicera**. Det här alternativet uppgraderar programmet till version 2.0.0, där objekten roterar. Service Fabric uppgraderar en uppdateringsdomän i taget (vissa objekt uppdateras först, följt av andra) och tjänsten förblir tillgänglig under uppgraderingen. Tillgång till tjänsten kan kontrolleras via din klient (webbläsare).  
+Nu är allt klart för att starta program uppgraderingen genom att välja **publicera**. Med det här alternativet uppgraderas ditt program till version 2.0.0, där objekten roterar. Service Fabric uppgraderar en uppdaterings domän i taget (vissa objekt uppdateras först, följt av andra) och tjänsten är fortfarande tillgänglig under uppgraderingen. Åtkomst till tjänsten kan kontrol leras via klienten (webbläsare).  
 
-Nu, när programuppgraderingen fortsätter, kan du övervaka den med Service Fabric Explorer, med hjälp av fliken **Pågående uppgraderingar** under programmen.
+När program uppgraderingen fortsätter kan du nu övervaka den med Service Fabric Explorer genom att använda fliken **uppgraderingar på** fliken under programmen.
 
-Om några minuter bör alla uppdateringsdomäner uppgraderas (slutförda) och utdatafönstret i Visual Studio bör också ange att uppgraderingen är slutförd. Och du bör upptäcka att *alla* visuella objekt i ditt webbläsarfönster nu roterar!
+Om några minuter bör alla uppdaterings domäner uppgraderas (slutföras) och fönstret Visual Studio output måste också ange att uppgraderingen är klar. Och du bör se att *alla* visuella objekt i webbläsarfönstret nu roteras!
 
-Du kanske vill prova att ändra versionerna och gå från version 2.0.0 till version 3.0.0 som en övning, eller till och med från version 2.0.0 tillbaka till version 1.0.0. Spela med time-outs och hälsopolicyer för att bekanta dig med dem. När du distribuerar till ett Azure-kluster i motsats till ett lokalt kluster kan de parametrar som används behöva skilja sig åt. Vi rekommenderar att du ställer in time-outs försiktigt.
+Du kanske vill prova att ändra versionerna och flytta från version 2.0.0 till version 3.0.0 som en övning, eller till och med från version 2.0.0 tillbaka till version 1.0.0. Spela med timeout-och hälso principer för att ge dig bekanta med dem. När du distribuerar till ett Azure-kluster i stället för ett lokalt kluster kan de parametrar som används skilja sig åt. Vi rekommenderar att du ställer in tids gränsen försiktigt.
 
 ## <a name="next-steps"></a>Nästa steg
-[Om du uppgraderar programmet med PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) går du igenom en programuppgradering med PowerShell.
+Genom [att uppgradera ditt program med hjälp av PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) får du en program uppgradering med PowerShell.
 
-Styr hur ditt program uppgraderas med hjälp av [uppgraderingsparametrar](service-fabric-application-upgrade-parameters.md).
+Styr hur programmet uppgraderas med hjälp av [uppgraderings parametrar](service-fabric-application-upgrade-parameters.md).
 
-Gör dina programuppgraderingar kompatibla genom att lära dig hur du använder [data serialisering](service-fabric-application-upgrade-data-serialization.md).
+Gör dina program uppgraderingar kompatibla genom att lära dig hur du använder [Dataserialisering](service-fabric-application-upgrade-data-serialization.md).
 
-Lär dig hur du använder avancerade funktioner när du uppgraderar programmet genom att referera till [avancerade ämnen](service-fabric-application-upgrade-advanced.md).
+Lär dig hur du använder avancerade funktioner när du uppgraderar ditt program genom att titta på [avancerade ämnen](service-fabric-application-upgrade-advanced.md).
 
-Åtgärda vanliga problem i programuppgraderingar genom att referera till stegen i [Felsökning av programuppgraderingar](service-fabric-application-upgrade-troubleshooting.md).
+Åtgärda vanliga problem i program uppgraderingar genom att följa stegen i [Felsöka program uppgraderingar](service-fabric-application-upgrade-troubleshooting.md).
 
 [image1]: media/service-fabric-application-upgrade-tutorial/upgrade7.png
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png

@@ -1,6 +1,6 @@
 ---
-title: Lägga till en panel i användargränssnittet för fjärrövervakningslösning – Azure | Microsoft-dokument
-description: I den här artikeln visas hur du lägger till en ny panel på instrumentpanelen i webbgränssnittet för lösningsaccelerator för fjärrövervakning.
+title: Lägga till en panel i gränssnittet för fjärr styrnings lösning – Azure | Microsoft Docs
+description: Den här artikeln visar hur du lägger till en ny panel på instrument panelen i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,58 +8,58 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447071"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187236"
 ---
-# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till en anpassad panel på instrumentpanelen i webbgränssnittet för lösningsaccelerator för fjärrövervakning
+# <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad panel i instrument panelen i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator
 
-I den här artikeln visas hur du lägger till en ny panel på en instrumentpanelssida i webbgränssnittet för lösningsaccelerator för fjärrövervakning. Artikeln beskriver:
+Den här artikeln visar hur du lägger till en ny panel på en instrument panels sida i webb gränssnittet för övervakning av Solution Accelerator. Artikeln beskriver:
 
-- Hur man förbereder en lokal utvecklingsmiljö.
-- Så här lägger du till en ny panel på en instrumentpanelssida i webbgränssnittet.
+- Hur du förbereder en lokal utvecklings miljö.
+- Hur du lägger till en ny panel på en instrument panels sida i webb gränssnittet.
 
-Exempelpanelen i den här artikeln visas på den befintliga instrumentpanelssidan.
+Exempel panelen i den här artikeln visas på sidan befintlig instrument panel.
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna slutföra stegen i den här programguiden behöver du följande programvara installerad på din lokala utvecklingsdator:
+För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Du bör slutföra stegen i [sidan Lägg till en anpassad sida i webbgränssnittet för webbgränssnitt för fjärrövervakningslösningslösning](iot-accelerators-remote-monitoring-customize-page.md) innan du fortsätter.
+Du bör följa stegen i artikeln [Lägg till en anpassad sida i avsnittet om webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-page.md) innan du fortsätter.
 
 ## <a name="add-a-panel"></a>Lägg till en panel
 
-Om du vill lägga till en panel i webbgränssnittet måste du lägga till källfilerna som definierar panelen och sedan ändra instrumentpanelen för att visa panelen.
+Om du vill lägga till en panel i webb gränssnittet måste du lägga till källfilerna som definierar panelen och sedan ändra instrument panelen så att panelen visas.
 
-### <a name="add-the-new-files-that-define-the-panel"></a>Lägga till de nya filerna som definierar panelen
+### <a name="add-the-new-files-that-define-the-panel"></a>Lägg till de nya filerna som definierar panelen
 
-För att komma igång innehåller **mappen src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel/examplePanels/examplePanels mappen** som definierar en panel, inklusive:
+För att komma igång innehåller mappen **src/genom gång/komponenter/sidor/instrument panel/paneler/examplePanel** de filer som definierar en panel, inklusive:
 
-**exempelPanel.js**
+**examplePanel. js**
 
 [!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
-Kopiera **mappen src/walkthrough/components/pages/dashboard/panels/examplePanel** till mappen **src/components/pages/dashboard/panels.**
+Kopiera mappen **src/genom gång/komponenter/sidor/instrument panel/paneler/examplePanel** till mappen **src/Components/Pages/Dashboard/** panels.
 
-Lägg till följande export i **src/genomgång/components/pages/dashboard/panels/index.js-filen:**
+Lägg till följande export i filen **src/genom gång/Components/Pages/Dashboard/panels/index. js** :
 
 ```js
 export * from './examplePanel';
 ```
 
-### <a name="add-the-panel-to-the-dashboard"></a>Lägga till panelen på instrumentpanelen
+### <a name="add-the-panel-to-the-dashboard"></a>Lägg till panelen på instrument panelen
 
-Ändra **src/components/pages/dashboard/dashboard.js** för att lägga till panelen.
+Lägg till panelen genom att ändra **src/Components/Pages/Dashboard/Dashboard. js** .
 
-Lägg till exempelpanelen i listan över import från paneler:
+Lägg till exempel panelen i listan över importer från paneler:
 
 ```js
 import {
@@ -74,7 +74,7 @@ import {
 } from './panels';
 ```
 
-Lägg till följande celldefinition i rutnätet i sidinnehållet:
+Lägg till följande cell definition i rutnätet i sid innehållet:
 
 ```js
           <Cell className="col-2">
@@ -82,18 +82,18 @@ Lägg till följande celldefinition i rutnätet i sidinnehållet:
           </Cell>
 ```
 
-## <a name="test-the-flyout"></a>Testa utfällbara
+## <a name="test-the-flyout"></a>Testa utfällingen
 
-Om webbgränssnittet inte redan körs lokalt kör du följande kommando i roten till den lokala kopian av databasen:
+Om webb gränssnittet inte redan körs lokalt kör du följande kommando i roten för din lokala kopia av lagrings platsen:
 
 ```cmd/sh
 npm start
 ```
 
-Det föregående kommandot kör användargränssnittet lokalt på [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Gå till **instrumentpanelssidan** för att visa den nya panelen.
+Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard`. Gå till **instrument panels** sidan för att visa den nya panelen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om de resurser som finns tillgängliga för att hjälpa dig att lägga till eller anpassa instrumentpaneler i webbgränssnittet i lösningsacceleratorn för fjärrövervakning.
+I den här artikeln har du lärt dig om de resurser som är tillgängliga för att hjälpa dig att lägga till eller anpassa instrument paneler i webb gränssnittet i Solution Accelerator för fjärr styrning.
 
-Mer begreppsmässig information om lösningsacceleratorn för fjärrövervakning finns i [Fjärrövervakningsarkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Mer information om lösnings acceleratorn för fjärrövervakning finns i [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md).

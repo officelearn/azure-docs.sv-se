@@ -4,14 +4,14 @@ description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa9037b345cdfc5f165e9c5e0c1831ea97b52ed
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 4ff31ca6a171beece1672802367f08768676efbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106499"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195017"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -29,7 +29,7 @@ I **tjänst information**anger du cache-namn och följande attribut:
 
 * Plats – Välj en av de [regioner som stöds](hpc-cache-overview.md#region-availability).
 * Virtuellt nätverk – du kan välja ett befintligt namn eller skapa ett nytt virtuellt nätverk.
-* Undernät – Välj eller skapa ett undernät med minst 64 IP-adresser (/24) som endast ska användas för den här Azure HPC cache-instansen.
+* Undernät – Välj eller skapa ett undernät med minst 64 IP-adresser (/24). Det här under nätet får endast användas för den här Azure HPC-instansen.
 
 ## <a name="set-cache-capacity"></a>Ange cache-kapacitet
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
@@ -45,15 +45,15 @@ Välj kapacitet genom att ange följande två värden:
 
 Välj något av de tillgängliga data flödes värdena och cache Storage-storlekarna.
 
-Tänk på att den faktiska data överförings hastigheten är beroende av arbets belastning, nätverks hastigheter och typen av lagrings mål. De värden du väljer ställer in maximalt data flöde för hela cache-systemet, men vissa av dem används för omkostnader. Om till exempel en klient begär en fil som inte redan finns lagrad i cacheminnet, eller om filen har marker ATS som inaktuell, använder cacheminnet en del av dess data flöde för att hämta den från Server dels lagringen.
+Tänk på att den faktiska data överförings hastigheten är beroende av arbets belastning, nätverks hastigheter och typen av lagrings mål. De värden du väljer ställer in maximalt data flöde för hela cache-systemet, men vissa av dem används för omkostnader. Om till exempel en klient begär en fil som inte redan finns lagrad i cacheminnet, eller om filen har marker ATS som inaktuell, använder cacheminnet en del av data flödet för att hämta den från backend-lagringen.
 
-Azure HPC cache hanterar vilka filer som cachelagras och förinstalleras för att maximera träffar i cacheträffar. Innehållet i cachen utvärderas kontinuerligt och filer flyttas till långsiktig lagring när de används mindre ofta. Välj en lagrings storlek för cachen som enkelt kan lagra den aktiva uppsättningen arbetsfiler med ytterligare utrymme för metadata och andra kostnader.
+Azure HPC cache hanterar vilka filer som cachelagras och förinstalleras för att maximera träffar i cacheträffar. Innehållet i cachen utvärderas kontinuerligt och filer flyttas till långsiktig lagring när de inte används ofta. Välj en lagrings storlek för cachen som kan vara den aktiva uppsättningen arbetsfiler, plus ytterligare utrymme för metadata och andra kostnader.
 
 ![skärm bild av sidan cache-storlek](media/hpc-cache-create-capacity.png)
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Aktivera Azure Key Vault kryptering (valfritt)
 
-Om din cache finns i en region som stöder Kundhanterade krypterings nycklar visas sidan **disk krypterings nycklar** mellan flikarna **cache** och **taggar** . När det gäller publicerings tiden stöds det här alternativet i östra USA, södra centrala USA och västra USA 2.
+Om din cache finns i en region som stöder Kundhanterade krypterings nycklar visas sidan **disk krypterings nycklar** mellan flikarna **cache** och **taggar** . Vid publicerings tillfället stöds det här alternativet i östra USA, södra centrala USA och västra USA 2.
 
 Om du vill hantera krypterings nycklarna som används med Cache-lagringen, anger du Azure Key Vault information på sidan **disk krypterings nycklar** . Nyckel valvet måste finnas i samma region och i samma prenumeration som cachen.
 

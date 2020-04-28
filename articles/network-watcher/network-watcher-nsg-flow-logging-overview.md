@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: a1674f51d5b877a1296e9a457c6acf61a507c82e
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82131398"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189811"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
@@ -51,7 +51,7 @@ Flödes loggar är källan till sanningen för all nätverks aktivitet i din mol
 - Loggar samlas in via Azure-plattformen och påverkar inte kund resurser eller nätverks prestanda på något sätt.
 - Loggarna skrivs i JSON-format och visar utgående och inkommande flöden per NSG-regel.
 - Varje loggpost innehåller det nätverks gränssnitt (NIC) som flödet avser, 5-tuple-information, trafik beslut & (endast version 2) data flödes information. Se _logg formatet_ nedan för fullständig information.
-- Flödes loggar har en kvarhållning-funktion som gör att du automatiskt kan ta bort loggarna upp till ett år efter att de skapats
+- Flödes loggar har en kvarhållning som gör det möjligt att automatiskt ta bort loggar upp till ett år efter att de skapats. **Obs**: kvarhållning är bara tillgängligt om du använder [generella lagrings konton för användning v2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Huvudkoncept**
 
@@ -365,13 +365,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="troubleshooting-common-issues"></a>Felsöka vanliga problem
 
-### <a name="i-could-not-enable-nsg-flow-logs"></a>**Jag kunde inte aktivera NSG-flödesloggar**
+**Jag kunde inte aktivera NSG-flödesloggar**
 
 - **Microsoft. Insights** -resurs leverantören har inte registrerats
 
 Om du fick felet _AuthorizationFailed_ eller _GatewayAuthenticationFailed_ har du kanske inte aktiverat resursprovidern Microsoft Insights i din prenumeration. [Följ instruktionerna](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) för att aktivera Microsoft Insights-providern.
 
-### <a name="i-have-enabled-nsg-flow-logs-but-do-not-see-data-in-my-storage-account"></a>**Jag har aktiverat NSG-flödesloggar men ser inte data i mitt lagringskonto**
+**Jag har aktiverat NSG-flödesloggar men ser inte data i mitt lagringskonto**
 
 - **Installationstid**
 
@@ -381,21 +381,21 @@ Det kan ta upp till 5 minuter innan du ser NSG-flödesloggar på ditt lagringsko
 
 Ibland visas inte loggar om dina virtuella datorer inte är aktiva eller om det finns överordnade filter på en App Gateway eller andra enheter som blockerar trafiken till dina NSG:er.
 
-### <a name="i-want-to-automate-nsg-flow-logs"></a>**Jag vill automatisera NSG-flödesloggar**
+**Jag vill automatisera NSG-flödesloggar**
 
 Stöd för automatisering via ARM-mallar är för närvarande inte tillgängligt för NSG-flödesloggar. Mer information finns i [funktions meddelandet](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) .
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-### <a name="what-does-nsg-flow-logs-do"></a>**Vad gör NSG Flow-loggarna?**
+**Vad gör NSG Flow-loggarna?**
 
 Azure nätverks resurser kan kombineras och hanteras via [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview). Med NSG Flow-loggar kan du logga 5 tuple-flödes information om all trafik via din NSG: er. Obehandlade flödes loggar skrivs till ett Azure Storage-konto där de kan bearbetas, analyseras, efter frågas eller exporteras efter behov.
 
-### <a name="does-using-flow-logs-impact-my-network-latency-or-performance"></a>**Påverkar användning av flödes loggar min nätverks svars tid eller prestanda?**
+**Påverkar användning av flödes loggar min nätverks svars tid eller prestanda?**
 
 Flödes logg data samlas in utanför sökvägen till nätverks trafiken och påverkar därför inte nätverks flödet eller svars tiden. Du kan skapa eller ta bort flödes loggar utan risk för påverkan på nätverkets prestanda.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>**Hur gör jag för att använda flödes loggar för NSG med ett lagrings konto bakom en brand vägg?**
+**Hur gör jag för att använda flödes loggar för NSG med ett lagrings konto bakom en brand vägg?**
 
 Om du vill använda ett lagrings konto bakom en brand vägg måste du ange ett undantag för betrodda Microsoft-tjänster för åtkomst till ditt lagrings konto:
 
@@ -407,11 +407,11 @@ Om du vill använda ett lagrings konto bakom en brand vägg måste du ange ett u
 
 Du kan kontrollera lagringsloggarna efter några minuter och bör se en uppdaterad tidsstämpel eller en ny JSON-fil som skapats.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>**Hur gör jag för att använda flödes loggar för NSG med ett lagrings konto bakom en tjänst slut punkt?**
+**Hur gör jag för att använda flödes loggar för NSG med ett lagrings konto bakom en tjänst slut punkt?**
 
 NSG flödes loggar är kompatibla med tjänst slut punkter utan att kräva någon extra konfiguration. Se [självstudien om hur du aktiverar tjänstens slut punkter](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) i det virtuella nätverket.
 
-### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>**Vad är skillnaden mellan flödes loggar version 1 & 2?**
+**Vad är skillnaden mellan flödes loggar version 1 & 2?**
 
 Flödes loggar version 2 introducerar konceptet _flödes tillstånd_ & lagrar information om byte och paket som överförs. [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 

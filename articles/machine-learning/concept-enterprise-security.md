@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 3765c70b27fb98518f71a55f00acfe5b831044ec
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146677"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188403"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -78,7 +78,7 @@ I följande tabell visas några av de viktigaste Azure Machine Learning åtgärd
 Om de inbyggda rollerna inte uppfyller dina behov kan du skapa anpassade roller. Anpassade roller stöds bara för åtgärder på arbets ytan och Machine Learning-beräkning. Anpassade roller kan ha behörigheterna läsa, skriva eller ta bort på arbets ytan och på beräknings resursen på arbets ytan. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå. Mer information finns i [Hantera användare och roller i en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
 
 > [!WARNING]
-> Azure Machine Learning stöds för närvarande inte med Azure Active Directory samarbete mellan företag.
+> Azure Machine Learning stöds med Azure Active Directory Business-to-Business-samarbete, men stöds för närvarande inte med Azure Active Directory samarbete mellan företag.
 
 ### <a name="securing-compute-targets-and-data"></a>Säkra beräknings mål och data
 
@@ -385,10 +385,7 @@ Här är information:
 
 * [Skydda Azure Machine Learning webb tjänster med TLS](how-to-secure-web-service.md)
 * [Använda en Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
-* [Så här kör du batch-förutsägelser](how-to-use-parallel-run-step.md)
-* [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
-* [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Använda Azure Machine Learning med Azure-brandvägg](how-to-access-azureml-behind-firewall.md)
 * [Använda Azure Machine Learning med Azure Virtual Network](how-to-enable-virtual-network.md)
 * [Metod tips för att skapa rekommendations system](https://github.com/Microsoft/Recommenders)
 * [Bygg en API för rekommendationer i real tid i Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

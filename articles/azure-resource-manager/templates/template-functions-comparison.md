@@ -1,18 +1,18 @@
 ---
-title: Mallfunktioner - jämförelse
-description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att jämföra värden.
+title: Mall-funktioner – jämförelse
+description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att jämföra värden.
 ms.topic: conceptual
-ms.date: 09/05/2017
-ms.openlocfilehash: 42009e8543e307f2d3e4643ddaa79f492f9bdfee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.date: 04/27/2020
+ms.openlocfilehash: a9b7b32475695e5222b87c8fe75e8982f34ebb21
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156386"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192339"
 ---
-# <a name="comparison-functions-for-arm-templates"></a>Jämförelsefunktioner för ARM-mallar
+# <a name="comparison-functions-for-arm-templates"></a>Jämförelse funktioner för ARM-mallar
 
-Resource Manager innehåller flera funktioner för att göra jämförelser i dina ARM-mallar (Azure Resource Manager).
+Resource Manager innehåller flera funktioner för att göra jämförelser i dina Azure Resource Manager-mallar (ARM).
 
 * [lika med](#equals)
 * [större än](#greater)
@@ -20,9 +20,8 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i din
 * [mindre än](#less)
 * [mindre än eller lika med](#lessorequals)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="equals"></a>lika med
+
 `equals(arg1, arg2)`
 
 Kontrollerar om två värden är lika med varandra.
@@ -31,16 +30,16 @@ Kontrollerar om två värden är lika med varandra.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 (arg1) |Ja |int, sträng, array eller objekt |Det första värdet för att kontrollera jämlikhet. |
-| arg2 (arg2) |Ja |int, sträng, array eller objekt |Det andra värdet för att kontrollera jämlikhet. |
+| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
+| arg2 |Ja |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **Sant** om värdena är lika. annars **falskt**.
+Returnerar **Sant** om värdena är lika. annars **false**.
 
 ### <a name="remarks"></a>Anmärkningar
 
-Funktionen lika med används ofta `condition` med elementet för att testa om en resurs distribueras.
+Funktionen Equals används ofta tillsammans med `condition` elementet för att testa om en resurs har distribuerats.
 
 ```json
 {
@@ -59,7 +58,7 @@ Funktionen lika med används ofta `condition` med elementet för att testa om en
 
 ### <a name="example"></a>Exempel
 
-I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) kontrollerar du olika typer av värden för likhet. Alla standardvärden returnerar Sant.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) kontrol leras olika typer av värden för likhet. Alla standardvärden returnerar true.
 
 ```json
 {
@@ -124,26 +123,14 @@ I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
+| Incheckningar | Bool | True |
 | checkStrings | Bool | True |
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
-Om du vill distribuera den här exempelmallen med Azure CLI använder du:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
-```
-
-Om du vill distribuera den här exempelmallen med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
-```
-
-I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) används [inte](template-functions-logical.md#not) med **lika med**.
+Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder [inte](template-functions-logical.md#not) **lika**med.
 
 ```json
 {
@@ -162,23 +149,12 @@ I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/
 
 Utdata från föregående exempel är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-Om du vill distribuera den här exempelmallen med Azure CLI använder du:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
-Om du vill distribuera den här exempelmallen med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
 ## <a name="greater"></a>större än
+
 `greater(arg1, arg2)`
 
 Kontrollerar om det första värdet är större än det andra värdet.
@@ -187,16 +163,16 @@ Kontrollerar om det första värdet är större än det andra värdet.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 (arg1) |Ja |int eller sträng |Det första värdet för den större jämförelsen. |
-| arg2 (arg2) |Ja |int eller sträng |Det andra värdet för den större jämförelsen. |
+| arg1 |Ja |int eller string |Det första värdet för större jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för större jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **Sant** om det första värdet är större än det andra värdet. annars **falskt**.
+Returnerar **True** om det första värdet är större än det andra värdet. annars **false**.
 
 ### <a name="example"></a>Exempel
 
-I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) kontrolleras om det ena värdet är större än det andra.
+Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) kontrollerar om det ena värdet är större än det andra.
 
 ```json
 {
@@ -237,24 +213,13 @@ I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| Incheckningar | Bool | False |
 | checkStrings | Bool | True |
 
-Om du vill distribuera den här exempelmallen med Azure CLI använder du:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
-```
-
-Om du vill distribuera den här exempelmallen med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
-```
-
 ## <a name="greaterorequals"></a>större än eller lika med
+
 `greaterOrEquals(arg1, arg2)`
 
 Kontrollerar om det första värdet är större än eller lika med det andra värdet.
@@ -263,16 +228,16 @@ Kontrollerar om det första värdet är större än eller lika med det andra vä
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 (arg1) |Ja |int eller sträng |Det första värdet för en större eller lika jämförelse. |
-| arg2 (arg2) |Ja |int eller sträng |Det andra värdet för den större eller lika jämförelsen. |
+| arg1 |Ja |int eller string |Det första värdet för större eller lika jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för större eller lika jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **Sant** om det första värdet är större än eller lika med det andra värdet. annars **falskt**.
+Returnerar **True** om det första värdet är större än eller lika med det andra värdet. annars **false**.
 
 ### <a name="example"></a>Exempel
 
-I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) kontrollerar du om det ena värdet är större än eller lika med det andra.
+Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) kontrollerar om det ena värdet är större än eller lika med det andra.
 
 ```json
 {
@@ -313,24 +278,13 @@ I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| Incheckningar | Bool | False |
 | checkStrings | Bool | True |
 
-Om du vill distribuera den här exempelmallen med Azure CLI använder du:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
-```
-
-Om du vill distribuera den här exempelmallen med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
-```
-
 ## <a name="less"></a>mindre än
+
 `less(arg1, arg2)`
 
 Kontrollerar om det första värdet är mindre än det andra värdet.
@@ -339,16 +293,16 @@ Kontrollerar om det första värdet är mindre än det andra värdet.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 (arg1) |Ja |int eller sträng |Det första värdet för mindre jämförelse. |
-| arg2 (arg2) |Ja |int eller sträng |Det andra värdet för mindre jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för mindre jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för mindre jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **Sant** om det första värdet är mindre än det andra värdet. annars **falskt**.
+Returnerar **True** om det första värdet är mindre än det andra värdet. annars **false**.
 
 ### <a name="example"></a>Exempel
 
-I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) kontrolleras om det ena värdet är mindre än det andra.
+Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) kontrollerar om det ena värdet är mindre än det andra.
 
 ```json
 {
@@ -389,24 +343,13 @@ I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
+| Incheckningar | Bool | True |
 | checkStrings | Bool | False |
 
-Om du vill distribuera den här exempelmallen med Azure CLI använder du:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
-```
-
-Om du vill distribuera den här exempelmallen med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
-```
-
 ## <a name="lessorequals"></a>mindre än eller lika med
+
 `lessOrEquals(arg1, arg2)`
 
 Kontrollerar om det första värdet är mindre än eller lika med det andra värdet.
@@ -415,16 +358,16 @@ Kontrollerar om det första värdet är mindre än eller lika med det andra vär
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 (arg1) |Ja |int eller sträng |Det första värdet för mindre eller lika med jämförelse. |
-| arg2 (arg2) |Ja |int eller sträng |Det andra värdet för mindre eller lika med jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för mindre eller lika med jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **Sant** om det första värdet är mindre än eller lika med det andra värdet. annars **falskt**.
+Returnerar **True** om det första värdet är mindre än eller lika med det andra värdet. annars **false**.
 
 ### <a name="example"></a>Exempel
 
-I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) kontrollerar du om det ena värdet är mindre än eller lika med det andra.
+Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) kontrollerar om det ena värdet är mindre än eller lika med det andra.
 
 ```json
 {
@@ -465,26 +408,11 @@ I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
+| Incheckningar | Bool | True |
 | checkStrings | Bool | False |
 
-Om du vill distribuera den här exempelmallen med Azure CLI använder du:
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
-```
-
-Om du vill distribuera den här exempelmallen med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
-```
-
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitten i en Azure Resource Manager-mall finns i [Redigera Azure Resource Manager-mallar](template-syntax.md).
-* Information om hur du sammanfogar flera mallar finns [i Använda länkade mallar med Azure Resource Manager](linked-templates.md).
-* Information om hur du itererar ett angivet antal gånger när du skapar en typ av resurs finns [i Skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
-* Information om hur du distribuerar mallen som du har skapat finns i [Distribuera ett program med Azure Resource Manager-mallen](deploy-powershell.md).
 
+* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

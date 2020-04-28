@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure-SSIS-integreringskörning för fel vid sql-databas
-description: I den hÃ¤r artikeln beskrivs sÃ¤jligare DÃ¤r du konfigurerar Azure-SSIS Integration Runtime med Azure SQL Database geo-replication och redundansã¤r SSISDB-databasen
+title: Konfigurera Azure-SSIS Integration Runtime för SQL Database redundans
+description: Den här artikeln beskriver hur du konfigurerar Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering och redundans för SSISDB-databasen
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,131 +12,83 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 9548d3eb4f51dd61186aa7f13343d946035d95ef
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 39d55d4372f03a1625bb04d8377ed6533401e281
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603641"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188730"
 ---
-# <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS Integration Runtime med Azure SQL Database geo-replication och redundans
+# <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering och redundans
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du konfigurerar Azure-SSIS Integration Runtime med Azure SQL Database geo-replication för SSISDB-databasen. När en redundans inträffar kan du se till att Azure-SSIS IR fortsätter att arbeta med den sekundära databasen.
+Den här artikeln beskriver hur du konfigurerar Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering för SSISDB-databasen. När en redundansväxling inträffar kan du se till att Azure-SSIS IR fortsätter att arbeta med den sekundära databasen.
 
-Mer information om georeplikering och redundans för SQL Database finns i [Översikt: Aktiva geo-replikerings- och automatisk redundansgrupper](../sql-database/sql-database-geo-replication-overview.md).
+Mer information om geo-replikering och redundans för SQL Database finns i [Översikt: aktiva grupper för geo-replikering och automatisk redundans](../sql-database/sql-database-geo-replication-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Scenario 1 - Azure-SSIS IR pekar på slutpunkt för läs-skrivavlyssnare
-
-### <a name="conditions"></a>Villkor
-
-Det här avsnittet gäller när följande villkor är uppfyllda:
-
-- Azure-SSIS IR pekar på slutpunkten för läs-skriv-lyssnaren i redundansgruppen.
-
-  AND
-
-- SQL Database-servern är *inte* konfigurerad med slutpunktsregeln för den virtuella nätverkstjänsten.
-
-### <a name="solution"></a>Lösning
-
-När redundans inträffar är det transparent för Azure-SSIS IR. Azure-SSIS IR ansluter automatiskt till den nya primärheten i redundansgruppen.
-
-## <a name="scenario-2---azure-ssis-ir-is-pointing-to-primary-server-endpoint"></a>Scenario 2 - Azure-SSIS IR pekar på primär serverslutpunkt
-
-### <a name="conditions"></a>Villkor
-
-Det här avsnittet gäller när något av följande villkor är sant:
-
-- Azure-SSIS IR pekar på den primära serverslutpunkten för redundansgruppen. Den här slutpunkten ändras när redundans sker.
-
-  ELLER
-
-- Azure SQL Database-servern är konfigurerad med slutpunktsregeln för den virtuella nätverkstjänsten.
-
-  ELLER
-
-- Databasservern är en SQL Database Managed Instance som konfigurerats med ett virtuellt nätverk.
-
-### <a name="solution"></a>Lösning
-
-När redundans inträffar måste du göra följande:
-
-1. Stoppa Azure-SSIS IR.
-
-2. Konfigurera om IR:et så att den pekar på den nya primära slutpunkten och till ett virtuellt nätverk i den nya regionen.
-
-3. Starta om IR.Restart the IR.
-
-I följande avsnitt beskrivs dessa steg mer i detalj.
+## <a name="azure-ssis-ir-failover-with-azure-sql-database-managed-instance"></a>Azure-SSIS IR redundans med Azure SQL Database Hanterad instans
 
 ### <a name="prerequisites"></a>Krav
+1. Kör kommandot nedan på SSISDB på den primära instansen. Det här steget lägger till ett nytt krypterings lösen ord.
+```sql
+  ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
+```
 
-- Kontrollera att du har aktiverat haveriberedskap för din Azure SQL Database-server om servern har ett avbrott samtidigt. Mer information finns i [Översikt över affärskontinuitet med Azure SQL Database](../sql-database/sql-database-business-continuity.md).
+2. Skapa redundans grupp på Azure SQL Database Hanterad instans.
 
-- Om du använder ett virtuellt nätverk i den aktuella regionen måste du använda ett annat virtuellt nätverk i den nya regionen för att ansluta din Azure-SSIS-integreringskörning. Mer information finns i [Ansluta till en Azure-SSIS-integreringskörning till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
+3. Kör **sp_control_dbmasterkey_password** på den sekundära instansen med det nya krypterings lösen ordet.
+```sql
+  EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB',   
+    @password = N'<password>', @action = N'add';  
+  GO
+```
 
-- Om du använder en anpassad installation kan du behöva förbereda en annan SAS-URI för blob-behållaren som lagrar ditt anpassade inställningsskript och associerade filer, så det fortsätter att vara tillgängligt under ett avbrott. Mer information finns i [Konfigurera en anpassad installation på en Azure-SSIS-integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
+### <a name="solution"></a>Lösning
+Om en redundansväxling inträffar, om du vill använda befintliga Azure-SSIS IR på den primära regionen:
+1. Stoppa Azure-SSIS IR på primär region.
 
-### <a name="steps"></a>Steg
+2. Redigera Azure-SSIS IR med ny region, slut punkt och VNET-information för sekundär instans.
 
-Följ dessa steg för att stoppa din Azure-SSIS IR, växla IR till en ny region och starta den igen.
+```powershell
+  Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
+                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
+                -VNetId "new VNet" `
+                -Subnet "new subnet" `
+                -SetupScriptContainerSasUri "new custom setup SAS URI"
+```
 
-1. Stoppa IR i den ursprungliga regionen.
+3. Starta om Azure-SSIS IR.
 
-2. Anropa följande kommando i PowerShell för att uppdatera IR med de nya inställningarna.
+4. Ändra Server namnet i **ConnectionManager** för dina SSIS-paket med namnet på den sekundära instans servern och distribuera sedan om paketen och kör.
 
-    ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
-
-    Mer information om det här [PowerShell-kommandot finns i Skapa Azure-SSIS-integreringskörningen i Azure Data Factory](create-azure-ssis-integration-runtime.md)
-
-3. Starta IR igen.
-
-## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scenario 3 - Koppla en befintlig SSISDB (SSIS-katalog) till en ny Azure-SSIS IR
-
-När en ADF- eller Azure-SSIS IR-katastrof inträffar i den aktuella regionen kan du få din SSISDB att fortsätta arbeta med en ny Azure-SSIS IR i en ny region.
-
-### <a name="prerequisites"></a>Krav
-
-- Om du använder ett virtuellt nätverk i den aktuella regionen måste du använda ett annat virtuellt nätverk i den nya regionen för att ansluta din Azure-SSIS-integreringskörning. Mer information finns i [Ansluta till en Azure-SSIS-integreringskörning till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
-
-- Om du använder en anpassad installation kan du behöva förbereda en annan SAS-URI för blob-behållaren som lagrar ditt anpassade inställningsskript och associerade filer, så det fortsätter att vara tillgängligt under ett avbrott. Mer information finns i [Konfigurera en anpassad installation på en Azure-SSIS-integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
-
-### <a name="steps"></a>Steg
-
-Följ dessa steg för att flytta din Azure-SSIS IR till en ny region.
+Om du vill etablera en ny Azure-SSIS IR i den sekundära regionen:
 > [!NOTE]
-> Steg 3 (skapandet av IR) måste göras via PowerShell. Azure-portalen rapporterar ett fel som anger att SSISDB redan finns.
+> Steg 4 (generering av IR) måste göras via PowerShell. Azure Portal kommer att rapportera ett fel som anger att SSISDB redan finns.
+1. Stoppa Azure-SSIS IR på primär region.
 
-1. Kör lagrad procedur för att uppdatera metadata i SSISDB för att acceptera anslutningar från ** \<new_data_factory_name\> ** och ** \<new_integration_runtime_name\>**.
+2. Kör den lagrade proceduren för att uppdatera metadata i SSISDB för att godkänna anslutningar från ** \<new_data_factory_name\> ** och ** \<new_integration_runtime_name\>**.
    
-  ```SQL
-    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
-   ```
+```SQL
+  EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+```
 
-2. Skapa en ny ** \<\> ** datafabrik med namnet new_data_factory_name i den nya regionen. Mer information finns i Skapa en datafabrik.
+3. Skapa en ny data fabrik med ** \<namnet\> new_data_factory_name** i den nya regionen. Mer information finns i skapa en data fabrik.
 
-     ```powershell
-     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
-                         -Location "new region"`
-                         -Name "<new_data_factory_name>"
-     ```
-    Mer information om det här PowerShell-kommandot finns i [Skapa en Azure-datafabrik med PowerShell](quickstart-create-data-factory-powershell.md)
+```powershell
+  Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+                      -Location "new region"`
+                      -Name "<new_data_factory_name>"
+```
+  Mer information om PowerShell-kommandot finns i [skapa en Azure-datafabrik med PowerShell](quickstart-create-data-factory-powershell.md)
 
-3. Skapa en ny Azure-SSIS ** \<\> ** IR med namnet new_integration_runtime_name i den nya regionen med Azure PowerShell.
+4. Skapa en ny Azure-SSIS IR med ** \<namnet\> new_integration_runtime_name** i den nya regionen med Azure PowerShell.
 
-    ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+```powershell
+  Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
                                            -DataFactoryName "new data factory name" `
                                            -Name "<new_integration_runtime_name>" `
                                            -Description $AzureSSISDescription `
@@ -151,17 +103,122 @@ Följ dessa steg för att flytta din Azure-SSIS IR till en ny region.
                                            -Subnet "new subnet" `
                                            -CatalogServerEndpoint $SSISDBServerEndpoint `
                                            -CatalogPricingTier $SSISDBPricingTier
-    ```
+```
 
-    Mer information om det här [PowerShell-kommandot finns i Skapa Azure-SSIS-integreringskörningen i Azure Data Factory](create-azure-ssis-integration-runtime.md)
+  Mer information om PowerShell-kommandot finns i [Skapa Azure-SSIS integration runtime i Azure Data Factory](create-azure-ssis-integration-runtime.md)
 
-4. Starta IR igen.
+5. Ändra Server namnet i **ConnectionManager** för dina SSIS-paket med namnet på den sekundära instans servern och distribuera sedan om paketen och kör.
+
+
+
+## <a name="azure-ssis-ir-failover-with-azure-sql-database"></a>Azure-SSIS IR redundans med Azure SQL Database
+
+### <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Scenario 1 – Azure-SSIS IR pekar på Läs-och skriv lyssnar-slutpunkt
+
+#### <a name="conditions"></a>Villkor
+
+Det här avsnittet gäller när följande villkor är uppfyllda:
+
+- Azure-SSIS IR pekar på den Läs-och skriv lyssnar-slut punkten för gruppen redundans.
+
+  AND
+
+- SQL Database servern har *inte* kon figurer ATS med den virtuella nätverks tjänstens slut punkts regel.
+
+#### <a name="solution"></a>Lösning
+
+När redundansväxlingen inträffar är det transparent för Azure-SSIS IR. Azure-SSIS IR ansluter automatiskt till den nya primära gruppen för redundans.
+
+
+### <a name="scenario-2---azure-ssis-ir-is-pointing-to-primary-server-endpoint"></a>Scenario 2 – Azure-SSIS IR pekar på primär server slut punkt
+
+#### <a name="conditions"></a>Villkor
+
+Det här avsnittet gäller när något av följande villkor är uppfyllt:
+
+- Azure-SSIS IR pekar på den primära server slut punkten för gruppen för redundans. Den här slut punkten ändras när redundans inträffar.
+
+  ELLER
+
+- Azure SQL Database servern har kon figurer ATS med den virtuella nätverks tjänstens slut punkts regel.
+
+
+#### <a name="solution"></a>Lösning
+
+1. Stoppa Azure-SSIS IR på primär region.
+
+2. Redigera Azure-SSIS IR med ny region, slut punkt och VNET-information för sekundär instans.
+
+```powershell
+  Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
+                    -VNetId "new VNet" `
+                    -Subnet "new subnet" `
+                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+```
+
+3. Starta om Azure-SSIS IR.
+
+4. Ändra Server namnet i **ConnectionManager** för dina SSIS-paket med namnet på den sekundära instans servern och distribuera sedan om paketen och kör.
+
+
+### <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scenario 3 – koppla en befintlig SSISDB (SSIS Catalog) till en ny Azure-SSIS IR
+
+När en ADF-eller Azure-SSIS IR-haverining sker i den aktuella regionen kan du göra så att din SSISDB fungerar med en ny Azure-SSIS IR i en ny region.
+
+#### <a name="solution"></a>Lösning
+
+> [!NOTE]
+> Steg 4 (generering av IR) måste göras via PowerShell. Azure Portal kommer att rapportera ett fel som anger att SSISDB redan finns.
+
+1. Stoppa Azure-SSIS IR på primär region.
+
+2. Kör den lagrade proceduren för att uppdatera metadata i SSISDB för att godkänna anslutningar från ** \<new_data_factory_name\> ** och ** \<new_integration_runtime_name\>**.
+   
+```SQL
+  EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+```
+
+3. Skapa en ny data fabrik med ** \<namnet\> new_data_factory_name** i den nya regionen. Mer information finns i skapa en data fabrik.
+
+```powershell
+  Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+                         -Location "new region"`
+                         -Name "<new_data_factory_name>"
+```
+  Mer information om PowerShell-kommandot finns i [skapa en Azure-datafabrik med PowerShell](quickstart-create-data-factory-powershell.md)
+
+4. Skapa en ny Azure-SSIS IR med ** \<namnet\> new_integration_runtime_name** i den nya regionen med Azure PowerShell.
+
+```powershell
+  Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+                                           -DataFactoryName "new data factory name" `
+                                           -Name "<new_integration_runtime_name>" `
+                                           -Description $AzureSSISDescription `
+                                           -Type Managed `
+                                           -Location $AzureSSISLocation `
+                                           -NodeSize $AzureSSISNodeSize `
+                                           -NodeCount $AzureSSISNodeNumber `
+                                           -Edition $AzureSSISEdition `
+                                           -LicenseType $AzureSSISLicenseType `
+                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                           -VnetId "new vnet" `
+                                           -Subnet "new subnet" `
+                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                           -CatalogPricingTier $SSISDBPricingTier
+```
+
+  Mer information om PowerShell-kommandot finns i [Skapa Azure-SSIS integration runtime i Azure Data Factory](create-azure-ssis-integration-runtime.md)
+
+5. Ändra Server namnet i **ConnectionManager** för dina SSIS-paket med namnet på den sekundära instans servern och distribuera sedan om paketen och kör.
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-Tänk på dessa andra konfigurationsalternativ för Azure-SSIS IR:
+Överväg följande konfigurations alternativ för Azure-SSIS IR:
 
-- [Konfigurera Azure-SSIS-integrationskörningen för hög prestanda](configure-azure-ssis-integration-runtime-performance.md)
+- [Konfigurera Azure-SSIS Integration Runtime för hög prestanda](configure-azure-ssis-integration-runtime-performance.md)
 
 - [Anpassa konfigurationen av Azure SSIS-integreringskörningen](how-to-configure-azure-ssis-ir-custom-setup.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: babfd9aafa56091bfdd526366b1042966222f993
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 2d78a7e0eaed27fec7f813fa3e6bffaffe5a6540
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82144600"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186177"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azures säkerhets bas linje för Azure Database for MariaDB
 
@@ -151,7 +151,7 @@ Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governanc
 
 **Vägledning**: Använd taggar för resurser som rör nätverks säkerhets-och trafikflödet för dina MariaDB-instanser för att tillhandahålla metadata och logisk organisation.
 
-Använd någon av de inbyggda definitioner av Azure-principer som är relaterade till taggning, till exempel "Kräv tagg och dess värde" för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser.
+Använd någon av de inbyggda Azure Policy definitionerna som är relaterade till taggning, till exempel "Kräv tagg och dess värde" för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser.
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
@@ -794,7 +794,7 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: underhåll säker Azure-resurs-konfigurationer
 
-**Vägledning**: Använd Azure policy [Deny] och [distribuera om det inte finns] för att genomdriva säkra inställningar i dina Azure-resurser.
+**Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar i dina Azure-resurser.
 
 Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -816,7 +816,7 @@ Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/poli
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: Spara konfigurationen av Azure-resurser på ett säkert sätt
 
-**Vägledning**: om du använder anpassade definitioner för Azure-principer för dina Azure Database for MariaDB-servrar och relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
+**Vägledning**: om du använder anpassade Azure policys definitioner för dina Azure Database for MariaDB-servrar och relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
 Så här lagrar du kod i Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -856,7 +856,7 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: implementera automatisk konfigurations övervakning för Azure-tjänster
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforMariaDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure-princip [granskning], [neka] och [distribuera om det inte finns] för att automatiskt framtvinga konfigurationer för dina Azure Database for MariaDB-instanser och relaterade resurser.
+**Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforMariaDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Database for MariaDB-instanser och relaterade resurser.
 
 Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

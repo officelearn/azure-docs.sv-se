@@ -1,141 +1,142 @@
 ---
-title: Konfigurera begränsning av utgående nätverkstrafik – Azure HDInsight
-description: Lär dig hur du konfigurerar begränsning av utgående nätverkstrafik för Azure HDInsight-kluster.
+title: Konfigurera begränsning av utgående nätverks trafik – Azure HDInsight
+description: Lär dig hur du konfigurerar begränsning av utgående nätverks trafik för Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: d4bf2d1d4beeb00325d54e091a00438073509eef
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641319"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189389"
 ---
-# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverkstrafik för Azure HDInsight-kluster med brandvägg
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
-Den här artikeln innehåller stegen för att skydda utgående trafik från ditt HDInsight-kluster med Azure-brandväggen. Stegen nedan förutsätter att du konfigurerar om en Azure-brandvägg för ett befintligt kluster. Om du distribuerar ett nytt kluster bakom en brandvägg skapar du hdinsight-klustret och undernätet först. Följ sedan stegen i den här guiden.
+Den här artikeln innehåller anvisningar för att skydda utgående trafik från ditt HDInsight-kluster med hjälp av Azure-brandväggen. I stegen nedan förutsätter vi att du konfigurerar en Azure-brandvägg för ett befintligt kluster. Om du distribuerar ett nytt kluster bakom en brand vägg måste du först skapa ditt HDInsight-kluster och undernät. Följ sedan stegen i den här guiden.
 
 ## <a name="background"></a>Bakgrund
 
-HDInsight-kluster distribueras normalt i ett virtuellt nätverk. Klustret har beroenden av tjänster utanför det virtuella nätverket.
+HDInsight-kluster distribueras vanligt vis i ett virtuellt nätverk. Klustret har beroenden för tjänster utanför det virtuella nätverket.
 
-Det finns flera beroenden som kräver inkommande trafik. Den inkommande hanteringstrafiken kan inte skickas via en brandväggsenhet. Källadresserna för den här trafiken är kända och publiceras [här](hdinsight-management-ip-addresses.md). Du kan också skapa NSG-regler (Network Security Group) med den här informationen för att skydda inkommande trafik till klustren.
+Det finns flera beroenden som kräver inkommande trafik. Inkommande hanterings trafik kan inte skickas via en brand Väggs enhet. Käll adresserna för den här trafiken är kända och publiceras [här](hdinsight-management-ip-addresses.md). Du kan också skapa regler för nätverks säkerhets grupper (NSG) med den här informationen för att skydda inkommande trafik till klustren.
 
-HdInsight-utgående trafikberoenden definieras nästan helt med FQDN.The HDInsight outbound traffic dependencies are almost wholely defined with FQDNs. Som inte har statiska IP-adresser bakom sig. Bristen på statiska adresser innebär att NSG(Network Security Groups) inte kan låsa utgående trafik från ett kluster. Adresserna ändras ofta nog man inte kan ställa in regler baserat på den aktuella namnmatchningen och användningen.
+De utgående trafik beroendena för HDInsight är nästan helt definierade med FQDN. Som inte har statiska IP-adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan låsa utgående trafik från ett kluster. Adresserna ändras ofta så att det inte går att skapa regler baserat på den aktuella namn matchningen och Använd.
 
-Säkra utgående adresser med en brandvägg som kan styra utgående trafik baserat på domännamn. Azure-brandväggen begränsar utgående trafik baserat på FQDN för mål- eller [FQDN-taggarna](../firewall/fqdn-tags.md).
+Säkra utgående adresser med en brand vägg som kan styra utgående trafik baserat på domän namn. Azure-brandväggen begränsar utgående trafik baserat på FQDN för mål-eller FQDN- [taggarna](../firewall/fqdn-tags.md).
 
-## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Azure-brandväggen med HDInsight
+## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Azure-brandvägg med HDInsight
 
-En sammanfattning av stegen för att låsa utgående från din befintliga HDInsight med Azure-brandväggen är:
+En sammanfattning av stegen för att låsa bort från din befintliga HDInsight med Azure Firewall är:
 
 1. Skapa ett undernät.
-1. Skapa en brandvägg.
-1. Lägga till programregler i brandväggen
-1. Lägg till nätverksregler i brandväggen.
+1. Skapa en brand vägg.
+1. Lägg till program regler i brand väggen
+1. Lägg till nätverks regler i brand väggen.
 1. Skapa en routningstabell.
 
 ### <a name="create-new-subnet"></a>Skapa nytt undernät
 
-Skapa ett undernät med namnet **AzureFirewallSubnet** i det virtuella nätverket där klustret finns.
+Skapa ett undernät med namnet **AzureFirewallSubnet** i det virtuella nätverk där klustret finns.
 
-### <a name="create-a-new-firewall-for-your-cluster"></a>Skapa en ny brandvägg för ditt kluster
+### <a name="create-a-new-firewall-for-your-cluster"></a>Skapa en ny brand vägg för klustret
 
-Skapa en brandvägg med namnet **Test-FW01** med hjälp av stegen i **Distribuera brandväggen** från [självstudiekurs: Distribuera och konfigurera Azure-brandväggen med Azure-portalen](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
+Skapa en brand vägg med namnet **test-FW01** med hjälp av stegen i **distribuera brand väggen** från [självstudie: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure Portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
 
-### <a name="configure-the-firewall-with-application-rules"></a>Konfigurera brandväggen med programregler
+### <a name="configure-the-firewall-with-application-rules"></a>Konfigurera brand väggen med program regler
 
-Skapa en programregelsamling som gör att klustret kan skicka och ta emot viktig kommunikation.
+Skapa en program regel samling som gör det möjligt för klustret att skicka och ta emot viktig kommunikation.
 
-1. Välj den nya brandväggen **Test-FW01** från Azure-portalen.
+1. Välj den nya brand Väggs **test-FW01** från Azure Portal.
 
-1. Navigera till**Rules** > **Regelsamling** >  **för Inställningar** > Program **+ Lägg till programregelsamling**.
+1. Gå till **Inställningar** > **regler** > **program regel samling** > **+ Lägg till program regel samling**.
 
-    ![Titel: Lägga till insamling av programregel](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+    ![Rubrik: Lägg till program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
-1. Ange följande information på skärmen **Lägg till programregelsamling:**
+1. Ange följande information på skärmen **Lägg till program regel samling** :
 
-    **Övre avsnittet**
+    **Övre delen**
 
     | Egenskap|  Värde|
     |---|---|
-    |Namn| FwAppRule (fwAppRule)|
+    |Namn| FwAppRule|
     |Prioritet|200|
     |Åtgärd|Tillåt|
 
-    **Avsnittet FQDN-taggar**
+    **Avsnittet FQDN-Taggar**
 
-    | Namn | Källa adress | FQDN-tagg | Anteckningar |
+    | Name | Käll adress | FQDN-tagg | Anteckningar |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate och HDInsight | Krävs för HDI-tjänster |
 
-    **Avsnittet Mål-FQDN**
+    **Avsnittet mål-FQDN**
 
-    | Namn | Källadresser | `Protocol:Port` | Mål FQDNS | Anteckningar |
+    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Anteckningar |
     | --- | --- | --- | --- | --- |
-    | Rule_2 | * | https:443 | login.windows.net | Tillåter Windows-inloggningsaktivitet |
-    | Rule_3 | * | https:443 | login.microsoftonline.com | Tillåter Windows-inloggningsaktivitet |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Ersätt `storage_account_name` med ditt faktiska lagringskontonamn. Om klustret backas upp av WASB lägger du till en regel för WASB. Om du vill använda ENDAST https-anslutningar kontrollerar du att ["säker överföring krävs"](../storage/common/storage-require-secure-transfer.md) är aktiverat på lagringskontot. |
+    | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
+    | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
+    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Ersätt `storage_account_name` med det faktiska lagrings konto namnet. Om klustret backas upp av WASB lägger du till en regel för WASB. Om du bara vill använda HTTPS-anslutningar kontrollerar du att ["säker överföring krävs"](../storage/common/storage-require-secure-transfer.md) är aktiverat på lagrings kontot. |
 
-   ![Titel: Ange information om insamling av programregel](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![Rubrik: Ange information om program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 1. Välj **Lägg till**.
 
-### <a name="configure-the-firewall-with-network-rules"></a>Konfigurera brandväggen med nätverksregler
+### <a name="configure-the-firewall-with-network-rules"></a>Konfigurera brand väggen med nätverks regler
 
-Skapa nätverksregler för att konfigurera HDInsight-klustret på rätt sätt.
+Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt.
 
-1. Fortsätt från föregående steg, navigera till **Nätverksregelsamling** > **+ Lägg till nätverksregelsamling**.
+1. Fortsätt från föregående steg, gå till **regel samling** > för nätverk **+ Lägg till nätverks regel samling**.
 
-1. Ange följande information på skärmen **Lägg till samling av nätverksregel:**
+1. Ange följande information på skärmen **Lägg till regel samling för nätverk** :
 
-    **Övre avsnittet**
+    **Övre delen**
 
     | Egenskap|  Värde|
     |---|---|
-    |Namn| FwNetRule (fwNetRule)|
+    |Namn| FwNetRule|
     |Prioritet|200|
     |Åtgärd|Tillåt|
 
     **Avsnittet IP-adresser**
 
-    | Namn | Protokoll | Källadresser | Måladresser | Målportar | Anteckningar |
+    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Tidsservice |
-    | Rule_2 | Alla | * | DC_IP_Address_1, DC_IP_Address_2 | * | Om du använder ESP (Enterprise Security Package) lägger du till en nätverksregel i avsnittet IP-adresser som möjliggör kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domänkontrollanterna i AAD-DS-avsnittet i portalen |
-    | Rule_3 | TCP | * | IP-adress för ditt datasjölagringskonto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverksregel i avsnittet IP-adresser för att lösa ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brandväggen. Vilket kan leda till högre kostnader för stora databelastningar men trafiken loggas och granskas i brandväggsloggar. Bestäm IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell-kommando, till exempel `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` för att matcha FQDN till en IP-adress.|
-    | Rule_4 | TCP | * | * | 12000 | (Valfritt) Om du använder Log Analytics skapar du en nätverksregel i avsnittet IP-adresser för att aktivera kommunikation med logganalysarbetsytan. |
+    | Rule_1 | UDP | * | * | 123 | Tids tjänst |
+    | Rule_2 | Alla | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
+    | Rule_3 | TCP | * | IP-adress för ditt Data Lake Storage konto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverks regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brand väggen. Detta kan resultera i högre kostnader för stora data belastningar, men trafiken loggas och granskas i brand Väggs loggar. Identifiera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell-kommando `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` för att matcha FQDN till en IP-adress.|
+    | Rule_4 | TCP | * | * | 12000 | Valfritt Om du använder Log Analytics skapar du en nätverks regel i avsnittet IP-adresser för att aktivera kommunikation med arbets ytan Log Analytics. |
 
-    **Avsnittet Servicemärken**
+    **Avsnittet service Tags**
 
-    | Namn | Protokoll | Källadresser | Tjänsttaggar | Målportar | Anteckningar |
+    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverksregel i avsnittet Tjänsttaggar för SQL som gör att du kan logga och granska SQL-trafik. Såvida du inte har konfigurerat tjänstslutpunkter för SQL Server i HDInsight-undernätet, vilket kommer att kringgå brandväggen. |
+    | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
 
-   ![Titel: Ange insamling av programregel](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Rubrik: Ange program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 1. Välj **Lägg till**.
 
-### <a name="create-and-configure-a-route-table"></a>Skapa och konfigurera en flödestabell
+### <a name="create-and-configure-a-route-table"></a>Skapa och konfigurera en routningstabell
 
-Skapa en flödestabell med följande poster:
+Skapa en routningstabell med följande poster:
 
-* Alla IP-adresser från [hälso- och hanteringstjänster: Alla regioner](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) med nästa hoptyp av **Internet**.
+* Alla IP-adresser från [hälso-och hanterings tjänster: alla regioner](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) med en nästa hopp typ av **Internet**.
 
-* Två IP-adresser för den region där klustret skapas från [hälso- och hanteringstjänster: Specifika regioner](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions) med nästa hoptyp av **Internet**.
+* Två IP-adresser för den region där klustret skapas från [hälso-och hanterings tjänster: vissa regioner](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions) med nästa hopp typ av **Internet**.
 
-* En virtuell installation väg för IP-adress 0.0.0.0/0 med nästa hopp är din Azure Firewall privat IP-adress.
+* En virtuell enhets väg för IP-adressen 0.0.0.0/0 med nästa hopp som din Azure Firewall-privata IP-adress.
 
-Om du till exempel vill konfigurera vägtabellen för ett kluster som skapats i den amerikanska regionen "Östra USA" gör du så här:
+Om du till exempel vill konfigurera routningstabellen för ett kluster som skapats i regionen USA, östra, använder du följande steg:
 
-1. Välj din **Azure-brandvägg Test-FW01**. Kopiera den **privata IP-adressen** som visas på **översiktssidan.** I det här exemplet använder vi en **exempeladress på 10.0.2.4**.
+1. Välj din Azure Firewall **test-FW01**. Kopiera den **privata IP-adressen** som visas på sidan **Översikt** . I det här exemplet ska vi använda en **exempel adress för 10.0.2.4**.
 
-1. Navigera sedan till **alla tjänster** > **Nätverksvägtabeller** **Networking** > och **Skapa rutttabell**.
+1. Navigera sedan till **alla tjänster** > **nätverks** > **flödes tabeller** och **skapa routningstabell**.
 
-1. Från den nya rutten navigerar du till **Inställningar** > **rutter** > **+ Lägg till**. Lägg till följande vägar:
+1. Från din nya väg går du till **Inställningar** > **vägar** > **+ Lägg till**. Lägg till följande vägar:
 
 | Vägnamn | Adressprefix | Nexthop-typ | Nexthop-adress |
 |---|---|---|---|
@@ -147,83 +148,83 @@ Om du till exempel vill konfigurera vägtabellen för ett kluster som skapats i 
 | 40.71.175.99 | 40.71.175.99/32 | Internet | Ej tillämpligt |
 | 0.0.0.0 | 0.0.0.0/0 | Virtuell installation | 10.0.2.4 |
 
-Slutför konfigurationen av vägtabellen:
+Slutför konfigureringen av routningstabellen:
 
-1. Tilldela den vägtabell som du skapade till undernätet HDInsight genom att välja **Undernät** under **Inställningar**.
+1. Tilldela routningstabellen som du skapade i ditt HDInsight-undernät genom att välja **undernät** under **Inställningar**.
 
-1. Välj **+ Associera**.
+1. Välj **+ associera**.
 
-1. På skärmen **Associera undernät** väljer du det virtuella nätverk som klustret skapades till. Och **undernätet** som du använde för ditt HDInsight-kluster.
+1. På skärmen **associera undernät** väljer du det virtuella nätverk som klustret skapades i. Och **under nätet** som du använde för ditt HDInsight-kluster.
 
 1. Välj **OK**.
 
-## <a name="edge-node-or-custom-application-traffic"></a>Edge-nod eller anpassad programtrafik
+## <a name="edge-node-or-custom-application-traffic"></a>Edge-Node eller anpassad program trafik
 
-Ovanstående steg gör det möjligt för klustret att fungera utan problem. Du måste fortfarande konfigurera beroenden så att de passar dina anpassade program som körs på kantnoderna, om tillämpligt.
+Ovanstående steg gör att klustret kan köras utan problem. Du måste fortfarande konfigurera beroenden för att anpassa dina anpassade program som körs på Edge-noderna, om tillämpligt.
 
-Programberoenden måste identifieras och läggas till i Azure-brandväggen eller vägtabellen.
+Program beroenden måste identifieras och läggas till i Azure-brandväggen eller i routningstabellen.
 
-Vägar måste skapas för programtrafiken för att undvika asymmetriska routningsproblem.
+Vägar måste skapas för att program trafiken ska undvika problem med asymmetrisk routning.
 
-Om dina program har andra beroenden måste de läggas till i din Azure-brandvägg. Skapa programregler för att tillåta HTTP/HTTPS-trafik och nätverksregler för allt annat.
+Om dina program har andra beroenden måste de läggas till i din Azure-brandvägg. Skapa program regler för att tillåta HTTP/HTTPS-trafik och nätverks regler för allt annat.
 
-## <a name="logging-and-scale"></a>Loggning och skala
+## <a name="logging-and-scale"></a>Loggning och skalning
 
-Azure-brandväggen kan skicka loggar till några olika lagringssystem. Instruktioner om hur du konfigurerar loggning för brandväggen följer du stegen i [Självstudiekursen: Övervaka Azure-brandväggsloggar och mått](../firewall/tutorial-diagnostics.md).
+Azure-brandväggen kan skicka loggar till några olika lagrings system. Anvisningar om hur du konfigurerar loggning för brand väggen finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](../firewall/tutorial-diagnostics.md).
 
-När du har slutfört loggningsinställningarna kan du, om du använder Log Analytics, visa blockerad trafik med en fråga som:
+När du har slutfört loggnings konfigurationen, om du använder Log Analytics, kan du Visa blockerad trafik med en fråga som:
 
 ```Kusto
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Det är användbart att integrera Azure-brandväggen med Azure Monitor-loggar när du först får ett program att fungera. Speciellt när du inte är medveten om alla programberoenden. Du kan läsa mer om Azure Monitor-loggar från [Analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+Att integrera Azure-brandväggen med Azure Monitor loggar är användbart när du först får ett program att fungera. Särskilt när du inte känner till alla program beroenden. Du kan lära dig mer om Azure Monitor loggar från [analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Mer information om skalningsgränserna för Azure-brandväggen och begäransökningar finns i [det här](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokumentet eller refererar till vanliga frågor och [svar](../firewall/firewall-faq.md).
+Mer information om skalnings gränserna för Azure-brandväggen och begär Anden ökar finns i [det här](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokumentet eller [vanliga frågor och svar](../firewall/firewall-faq.md).
 
-## <a name="access-to-the-cluster"></a>Tillgång till klustret
+## <a name="access-to-the-cluster"></a>Åtkomst till klustret
 
-När brandväggen har konfigurerats kan du använda`https://CLUSTERNAME-int.azurehdinsight.net`den interna slutpunkten ( ) för att komma åt Ambari inifrån det virtuella nätverket.
+När brand väggen har kon figurer ATS kan du använda den interna slut punkten (`https://CLUSTERNAME-int.azurehdinsight.net`) för att komma åt Ambari inifrån det virtuella nätverket.
 
-Om du vill använda`https://CLUSTERNAME.azurehdinsight.net`den offentliga slutpunkten`CLUSTERNAME-ssh.azurehdinsight.net`( ) eller ssh-ändpunkten ( ) kontrollerar du att du har rätt vägar i flödestabellen och NSG-reglerna för att undvika det asymmetriska routningsproblem som förklaras [här](../firewall/integrate-lb.md). I det här fallet måste du tillåta klient-IP-adressen i reglerna för inkommande NSG och även lägga till `internet`den i den användardefinierade vägtabellen med nästa hopp som . Om routningen inte är korrekt konfigurerad visas ett timeout-fel.
+Om du vill använda den offentliga`https://CLUSTERNAME.azurehdinsight.net`slut punkten () eller`CLUSTERNAME-ssh.azurehdinsight.net`SSH-slutpunkten () kontrollerar du att du har rätt vägar i routningstabellen och NSG-regler för att undvika problemet med asymmetrisk routning som beskrivs [här](../firewall/integrate-lb.md). I detta fall måste du tillåta klientens IP-adress i reglerna för inkommande NSG och även lägga till den i den användardefinierade routningstabellen med nästa hopp uppsättning som `internet`. Om routningen inte är korrekt konfigurerad visas ett tids gräns fel.
 
-## <a name="configure-another-network-virtual-appliance"></a>Konfigurera en virtuell nätverksinstallation
+## <a name="configure-another-network-virtual-appliance"></a>Konfigurera en annan virtuell nätverks installation
 
 > [!Important]
-> Följande information krävs **endast** om du vill konfigurera en virtuell nätverksinstallation (NVA) förutom Azure-brandväggen.
+> Följande information krävs **bara** om du vill konfigurera en annan virtuell nätverks installation (NVA) än Azure Firewall.
 
-De tidigare instruktionerna hjälper dig att konfigurera Azure-brandväggen för att begränsa utgående trafik från ditt HDInsight-kluster. Azure-brandväggen konfigureras automatiskt för att tillåta trafik för många av de vanliga viktiga scenarierna. Om du använder en annan virtuell nätverksinstallation måste du konfigurera ett antal ytterligare funktioner. Tänk på följande när du konfigurerar den virtuella nätverksinstallationen:
+I föregående instruktioner kan du konfigurera Azure-brandväggen för att begränsa utgående trafik från HDInsight-klustret. Azure-brandväggen konfigureras automatiskt för att tillåta trafik för många av de vanliga viktiga scenarierna. Om du använder en annan virtuell nätverks installation måste du konfigurera ett antal ytterligare funktioner. Tänk på följande faktorer när du konfigurerar din virtuella nätverks installation:
 
-* Tjänstslutpunktskompatibla tjänster bör konfigureras med tjänstslutpunkter.
-* IP-adressberoenden är för trafik som inte är HTTP/S (både TCP- och UDP-trafik).
-* FQDN HTTP/HTTPS-slutpunkter kan placeras i DIN NVA-enhet.
-* HTTP/HTTPS-slutpunkter med jokertecken är beroenden som kan variera beroenden på ett antal kvalificerare.
-* Tilldela den vägtabell som du skapar till ditt HDInsight-undernät.
+* Tjänst slut punkts tjänster som stöder tjänster måste konfigureras med tjänst slut punkter.
+* IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-trafik).
+* FQDN HTTP/HTTPS-slutpunkter kan placeras i din NVA-enhet.
+* HTTP/HTTPS-slutpunkter med jokertecken är beroenden som kan variera beroende på ett antal kvalificerare.
+* Tilldela den routningstabell som du skapar till ditt HDInsight-undernät.
 
-### <a name="service-endpoint-capable-dependencies"></a>Beroenden för tjänstslutpunktskompatibla
+### <a name="service-endpoint-capable-dependencies"></a>Tjänst slut punkt kompatibla beroenden
 
-| **Slutpunkt** |
+| **Endpoint** |
 |---|
 | Azure SQL |
 | Azure Storage |
 | Azure Active Directory |
 
-#### <a name="ip-address-dependencies"></a>IP-adressberoenden
+#### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| **Slutpunkt** | **Detaljer** |
+| **Endpoint** | **Information** |
 |---|---|
-| \*:123 | NTP-klockkontroll. Trafiken kontrolleras vid flera slutpunkter på port 123 |
-| IPs publiceras [här](hdinsight-management-ip-addresses.md) | Dessa IPs är HDInsight-tjänst |
-| AAD-DS privata IPs för ESP-kluster |
-| \*:16800 för KMS Windows-aktivering |
+| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | De här IP-adresserna är HDInsight-tjänsten |
+| AAD – DS privata IP-adresser för ESP-kluster |
+| \*: 16800 för Windows-aktivering i KMS |
 | \*12000 för Log Analytics |
 
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS-beroenden
 
 > [!Important]
-> Listan nedan ger bara några av de viktigaste FQDNs. Du kan få ytterligare FQDN (mestadels Azure Storage och Azure Service Bus) för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> Listan nedan innehåller bara några av de viktigaste FQDN-namnen. Du kan hämta ytterligare FQDN (Azure Storage och Azure Service Bus) för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
-| **Slutpunkt**                                                          |
+| **Endpoint**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |
@@ -244,4 +245,4 @@ De tidigare instruktionerna hjälper dig att konfigurera Azure-brandväggen för
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Virtuell nätverksarkitektur i Azure HDInsight](hdinsight-virtual-network-architecture.md)
+* [Azure HDInsight Virtual Network-arkitektur](hdinsight-virtual-network-architecture.md)

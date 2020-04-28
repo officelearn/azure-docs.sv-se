@@ -1,6 +1,6 @@
 ---
-title: 'Azure Data Studio (förhandsversion): Anslut och fråga Synapse SQL'
-description: Använd Azure Data Studio (förhandsversion) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics.
+title: 'Azure Data Studio (för hands version): Anslut och fråga Synapse SQL'
+description: Använd Azure Data Studio (för hands version) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,71 +9,71 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: edf5a6a6a0f17c21abb818a0d41d0d0b1c39949c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 561ea1a4f3577e037708c3b090188c59bd3c4aad
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423805"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187553"
 ---
-# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Ansluta till Synapse SQL med Azure Data Studio (förhandsversion)
+# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Ansluta till Synapse SQL med Azure Data Studio (för hands version)
 
 > [!div class="op_single_selector"]
 >
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> * [Sqlcmd](get-started-connect-sqlcmd.md)
+> * [SQLCMD](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Du kan använda [Azure Data Studio (förhandsversion)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics. 
+Du kan använda [Azure Data Studio (för hands version)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics. 
 
 ## <a name="connect"></a>Anslut
 
-Om du vill ansluta till Synapse SQL öppnar du Azure Data Studio och väljer **Ny anslutning**.
+Om du vill ansluta till Synapse SQL öppnar du Azure Data Studio och väljer **ny anslutning**.
 
 ![Öppna Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
-Välj **Microsoft SQL Server** som **anslutningstyp**.
+Välj **Microsoft SQL Server** som **Anslutnings typ**.
 
 Anslutningen kräver följande parametrar:
 
-* **Server:** Server i `<Azure Synapse workspace name>`formuläret -ondemand.sql.azuresynapse.net
-* **Databas:** Databasnamn
+* **Server:** Server i formatet `<Azure Synapse workspace name>`-OnDemand.SQL.azuresynapse.net
+* **Databas:** Databas namn
 
 > [!NOTE]
-> Om du vill använda **SQL on-demand (preview)** ska webbadressen se ut så här:
+> Om du vill använda **SQL på begäran (för hands version)** bör URL: en se ut så här:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Om du vill använda **SQL-pool** ska url:en se ut så här:
+> Om du vill använda SQL- **poolen** bör URL: en se ut så här:
 >
-> - `<Azure Synapse workspace name>`.sql.azuresynapse.net
+> - `<Azure Synapse workspace name>`. sql.azuresynapse.net
 
-Välj **Windows-autentisering,** **Azure Active Directory**eller **SQL-inloggning** som **autentiseringstyp**.
+Välj **Windows-autentisering**, **Azure Active Directory**eller **SQL-inloggning** som **Autentiseringstyp**.
 
-Om du vill använda **SQL Login** som autentiseringstyp lägger du till parametrarna för användarnamn/lösenord:
+Om du vill använda **SQL-inloggning** som autentiseringstyp lägger du till användar namn/lösen ord-parametrar:
 
-* **Användare:** Serveranvändare i formuläret`<User>`
-* **Lösenord:** Lösenord som är associerat med användaren
+* **Användare:** Server användare i formuläret`<User>`
+* **Lösen ord:** Lösen ord kopplat till användaren
 
-Om du vill använda Azure Active Directory måste du välja den autentiseringstyp som behövs.
+Om du vill använda Azure Active Directory måste du välja autentiseringstypen som krävs.
 
 ![AAD-autentisering](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Den här skärmbilden visar **anslutningsinformationen** för **Windows-autentisering:**
+Följande skärm bild visar **anslutnings information** för **Windows-autentisering**:
 
 ![Windows-autentisering](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Den här **skärmbilden visar anslutningsinformationen** med **SQL Login:**
+Följande skärm bild visar **anslutnings information** med **SQL-inloggning**:
 
 ![SQL-inloggning](./media/get-started-azure-data-studio/2-database-details.png)
 
-Efter lyckad inloggning bör du se ![en instrumentpanel som denna: Dashboard](./media/get-started-azure-data-studio/4-dashboard.png)
+Efter en lyckad inloggning bör du se en instrument panel så här ![: instrument panelen](./media/get-started-azure-data-studio/4-dashboard.png)
 
 ## <a name="query"></a>Söka i data
 
-När du är ansluten kan du fråga Synapse SQL med hjälp av [transact-SQL-satser (Transact-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) mot instansen. Välj **Ny fråga** i instrumentpanelsvyn för att komma igång.
+När du har anslutit kan du fråga Synapse SQL med stöd för [Transact-SQL-uttryck (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) som stöds mot instansen. Kom igång genom att välja **ny fråga** från vyn instrument panel.
 
 ![Ny fråga](./media/get-started-azure-data-studio/5-new-query.png)
 
@@ -93,5 +93,5 @@ Utforska andra sätt att ansluta till Synapse SQL:
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Sqlcmd](get-started-connect-sqlcmd.md)
+- [SQLCMD](get-started-connect-sqlcmd.md)
  

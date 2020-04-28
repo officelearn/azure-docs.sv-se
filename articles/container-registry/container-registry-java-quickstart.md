@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: fbb6f4633ef6e984746a4fb4516380f4b2e3a9da
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: fa64ec526ab85e412b407da8566ac6f802ca2d20
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116782"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195289"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Snabb start: bygga och skicka Java-behållar avbildningar till Azure Container Registry
 
@@ -108,13 +108,13 @@ Slutligen uppdaterar du projekt konfigurationen och använder kommando tolken f�
 
 1. Gå till det slutförda projektet för ditt Spring Boot-program (till exempel, "*C:\SpringBoot\gs-spring-boot-docker\complete*" eller "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*") och öppna *pom.xml*-filen med en textredigerare.
 
-1. Uppdatera `<properties>` samlingen i *Pom. XML-* filen med följande XML. Ersätt plats hållaren med ditt register namn och Lägg till `<jib-maven-plugin.version>` en egenskap med `2.1.0`värde, eller en nyare version av [kran-maven-plugin-programmet](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Uppdatera `<properties>` samlingen i *Pom. XML-* filen med följande XML. Ersätt plats hållaren med ditt register namn och Lägg till `<jib-maven-plugin.version>` en egenskap med `2.2.0`värde, eller en nyare version av [kran-maven-plugin-programmet](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
       <docker.image.prefix><your registry name>.azurecr.io</docker.image.prefix>
       <java.version>1.8</java.version>
-      <jib-maven-plugin.version>2.1.0</jib-maven-plugin.version>
+      <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
    </properties>
    ```
 
@@ -139,7 +139,7 @@ Slutligen uppdaterar du projekt konfigurationen och använder kommando tolken f�
 1. Navigera till den slutförda projektkatalogen för ditt Spring Boot-program och kör följande kommando för att skapa avbildningen och push-överföra den till registret:
 
    ```bash
-   mvn compile jib:build
+   az acr login && mvn compile jib:build
    ```
 
 > [!NOTE]

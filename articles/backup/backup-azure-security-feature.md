@@ -4,12 +4,12 @@ description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586401"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186778"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
 
@@ -21,10 +21,10 @@ Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara oc
 
 > [!NOTE]
 > Säkerhetsfunktioner bör inte aktive ras om du använder IaaS (Infrastructure as a Service) för säkerhets kopiering av virtuella datorer. Dessa funktioner är ännu inte tillgängliga för IaaS VM-säkerhetskopiering, så att de inte påverkar några konsekvenser. Säkerhetsfunktioner ska bara aktive ras om du använder: <br/>
->  * **Azure Backup Agent**. Lägsta agent version 2.0.9052. När du har aktiverat de här funktionerna bör du uppgradera till den här agent versionen för att utföra kritiska åtgärder. <br/>
->  * **Azure Backup Server**. Lägsta Azure Backups agent version 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
->  * **System Center-Data Protection Manager**. Lägsta Azure Backups agent version 2.0.9052 med Data Protection Manager 2012 R2 UR12 eller Data Protection Manager 2016 UR2. <br/>
-
+>
+> - **Azure Backup Agent**. Lägsta agent version 2.0.9052. När du har aktiverat de här funktionerna bör du uppgradera till den här agent versionen för att utföra kritiska åtgärder. <br/>
+> - **Azure Backup Server**. Lägsta Azure Backups agent version 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
+> - **System Center-Data Protection Manager**. Lägsta Azure Backups agent version 2.0.9052 med Data Protection Manager 2012 R2 UR12 eller Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
 > Dessa funktioner är endast tillgängliga för Recovery Services Vault. Alla nyligen skapade Recovery Services-valv har dessa funktioner aktiverade som standard. För befintliga Recovery Services-valv aktiverar användarna dessa funktioner med hjälp av de steg som beskrivs i följande avsnitt. När funktionerna har Aktiver ATS gäller de för alla Recovery Services agent-datorer, Azure Backup Server instanser och Data Protection Manager servrar som är registrerade med valvet. Att aktivera den här inställningen är en engångs åtgärd och du kan inte inaktivera dessa funktioner när du har aktiverat dem.

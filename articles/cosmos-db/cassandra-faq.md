@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 2d6cae3a7a41eae05783d3bcc12ec2bfe8220c4c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148328"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192841"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Vanliga frågor och svar om API för Cassandra för Azure Cosmos DB
 
 ## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Vilka är några viktiga skillnader mellan Apache Cassandra och API för Cassandra?
 
-- Apache Cassandra rekommenderar en gräns på 100 MB för storleken på en partitionsnyckel. API för Cassandra för Azure Cosmos DB tillåter upp till 10 GB per partition.
+- Apache Cassandra rekommenderar en gräns på 100 MB för storleken på en partitionsnyckel. API för Cassandra för Azure Cosmos DB tillåter upp till 20 GB per partition.
 - Med Apache Cassandra kan du inaktivera varaktiga incheckningar. Du kan hoppa över skrivningen till inchecknings loggen och gå direkt till memtables. Detta kan leda till data förlust om noden slutar innan memtables töms till SSTables på disk. Azure Cosmos DB alltid varaktiga genomförande för att förhindra data förlust.
 - Apache Cassandra kan se försämrade prestanda om arbets belastningen omfattar många ersättningar eller borttagningar. Orsaken är ett tombstone-värde som Läs arbets belastningen måste hoppa över för att hämta den senaste informationen. API för Cassandra ser inte försämrad läsnings prestanda när arbets belastningen har många ersättningar eller borttagningar.
 - Under scenarier med arbets belastningar med hög ersättning måste komprimeringen köras för att slå samman SSTables på disk. (En sammanslagning krävs eftersom Apache Cassandra-skrivningar endast är bifogade. Flera uppdateringar lagras som enskilda SSTable-poster som måste slås samman regelbundet). Den här situationen kan också leda till sänkta Läs prestanda under komprimeringen. Prestanda påverkan inträffar inte i API för Cassandra eftersom API inte implementerar komprimering.

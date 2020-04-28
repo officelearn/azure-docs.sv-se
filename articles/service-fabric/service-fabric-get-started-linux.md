@@ -1,14 +1,14 @@
 ---
-title: Konfigurera din utvecklingsmiljö på Linux
+title: Konfigurera utvecklings miljön i Linux
 description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När den här installationen är klar kan du börja bygga program.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682627"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193419"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Lägg till Azul JDK-nyckel i APT-nyckelringen och konfigurera dess databas.
+7. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
@@ -167,7 +167,7 @@ Service Fabric Runtime som medföljer SDK-installationen innehåller paketen i f
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzuljDK 1,8 | Implicit från npm | senaste |
+Ubuntu | 2.0.0 | AzulJDK 1,8 | Implicit från npm | senaste |
 RHEL | - | OpenJDK 1.8 | Implicit från npm | senaste |
 
 ## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
@@ -179,7 +179,7 @@ Starta ett lokalt kluster när installationen är klar.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Öppna en webbläsare och gå till`http://localhost:19080/Explorer`Service Fabric [Explorer](http://localhost:19080/Explorer) ( ). När klustret startas visas Service Fabric Explorer-instrumentpanelen. Konfigurationen av klustret kan ta flera minuter. Om din webbläsare inte kan öppna URL:en, eller om Service Fabric Explorer inte visar att systemet är klart, väntar du några minuter och försöker sedan igen.
+2. Öppna en webbläsare och gå till **Service Fabric Explorer** (`http://localhost:19080/Explorer`). När klustret startas visas Service Fabric Explorer-instrumentpanelen. Konfigurationen av klustret kan ta flera minuter. Om din webbläsare inte kan öppna URL:en, eller om Service Fabric Explorer inte visar att systemet är klart, väntar du några minuter och försöker sedan igen.
 
     ![Service Fabric Explorer på Linux][sfx-linux]
 
@@ -228,7 +228,7 @@ Installera [.NET Core 2.0 SDK för Ubuntu](https://www.microsoft.com/net/core#li
 
 ## <a name="set-up-java-development"></a>Konfigurera Java-utveckling
 
-Om du vill skapa Service Fabric-tjänster med Java installerar du Gradle för att köra bygguppgifter. Kör kommandot nedan för att installera Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
+Om du vill skapa Service Fabric tjänster med Java installerar du Gradle för att köra Bygg uppgifter. Kör kommandot nedan för att installera Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
 
 
 * Ubuntu
@@ -261,11 +261,11 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 > 
 > I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. Du kan installera Eclipse IDE för Java-utvecklare eller för Java EE-utvecklare.
 
-1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrollera versionerna av installerade komponenter genom att välja **Hjälp** > om information om**eclipse-installation****About Eclipse** > . Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
+1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrol lera de installerade komponenternas versioner genom att välja **Hjälp** > **om** > **installations information**för Sol förmörkelse. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
 
-2. Om du vill installera plugin-programmet Service Fabric väljer du **Hjälp** > **installera ny programvara**.
+2. Installera Service Fabric plugin-programmet genom att välja **Hjälp** > **installera ny program vara**.
 
-3. Skriv **\/https: /dl.microsoft.com/eclipse**i rutan **Arbeta med** .
+3. I rutan **arbeta med** anger du **https:\//dl.Microsoft.com/Eclipse**.
 
 4. Välj **Lägg till**.
 
@@ -275,7 +275,7 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 
 6. Utför följande installationssteg. Acceptera sedan licensavtalet.
 
-Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Kontrollera genom att välja **Hjälp** > **om eclipse** > **installationsdetaljer**. Sök sedan efter Service Fabric i listan över installerade plugin-program. Välj **Uppdatera** om en nyare version är tillgänglig.
+Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Kontrol lera genom att välja **Hjälp** > **om** > **installations information**för Sol förmörkelse. Sök sedan efter Service Fabric i listan över installerade plugin-program. Välj **Uppdatera** om det finns en nyare version.
 
 Mer information finns i [Service Fabric-plugin-program för utveckling av Java-program i Eclipse](service-fabric-get-started-eclipse.md).
 

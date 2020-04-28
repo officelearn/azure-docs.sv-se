@@ -1,71 +1,72 @@
 ---
-title: Jämföra lagringsalternativ för användning med Azure HDInsight-kluster
-description: Ger en översikt över lagringstyper och hur de fungerar med Azure HDInsight.
+title: Jämför lagrings alternativ för användning med Azure HDInsight-kluster
+description: Ger en översikt över lagrings typer och hur de fungerar med Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b351b9a4edd81da2983cca93127513f9041716bd
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: bfbe311d9768923eee8c1b0cc4f3b4ec1a7ad69a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869843"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186313"
 ---
-# <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämföra lagringsalternativ för användning med Azure HDInsight-kluster
+# <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagrings alternativ för användning med Azure HDInsight-kluster
 
-Du kan välja mellan några olika Azure-lagringstjänster när du skapar HDInsight-kluster:
+Du kan välja mellan några olika Azure Storage-tjänster när du skapar HDInsight-kluster:
 
 * [Azure Storage](./overview-azure-storage.md)
 * [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen1.md)
 * [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen2.md)
 
-Den här artikeln innehåller en översikt över dessa lagringstyper och deras unika funktioner.
+Den här artikeln innehåller en översikt över dessa lagrings typer och deras unika funktioner.
 
-## <a name="storage-types-and-features"></a>Lagringstyper och -funktioner
+## <a name="storage-types-and-features"></a>Lagrings typer och funktioner
 
-I följande tabell sammanfattas De Azure Storage-tjänster som stöds med olika versioner av HDInsight:
+I följande tabell sammanfattas de Azure Storage tjänster som stöds med olika versioner av HDInsight:
 
-| Lagringstjänst | Kontotyp | Namnområdestyp | Tjänster som stöds | Prestandanivåer som stöds | Åtkomstnivåer som stöds | HDInsight-version | Klustertyp |
+| Lagrings tjänst | Kontotyp | Namn områdes typ | Tjänster som stöds | Prestanda nivåer som stöds | Åtkomst nivåer som stöds | HDInsight-version | Kluster typ |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Allmänt V2 | Hierarkisk (filsystem) | Blob | Standard | Hot, Cool, Arkiv | 3.6+ | Alla utom Spark 2.1 och 2.2|
-|Azure Storage| Allmänt V2 | Objekt | Blob | Standard | Hot, Cool, Arkiv | 3.6+ | Alla |
-|Azure Storage| Allmänt V1 | Objekt | Blob | Standard | Ej tillämpligt | Alla | Alla |
-|Azure Storage| Blob Lagring** | Objekt | Block Blob | Standard | Hot, Cool, Arkiv | Alla | Alla |
-|Azure Data Lake Storage Gen1| Ej tillämpligt | Hierarkisk (filsystem) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | 3.6 Endast | Alla utom HBase |
+|Azure Data Lake Storage Gen2| Allmänt-syfte v2 | Hierarkisk (FileSystem) | Blob | Standard | Frekvent, låg frekvent, Arkiv | 3.6 + | Alla utom Spark 2,1 och 2,2|
+|Azure Storage| Allmänt-syfte v2 | Objekt | Blob | Standard | Frekvent, låg frekvent, Arkiv | 3.6 + | Alla |
+|Azure Storage| Generell användning v1 | Objekt | Blob | Standard | Ej tillämpligt | Alla | Alla |
+|Azure Storage| Blob Storage * * | Objekt | Blockera BLOB | Standard | Frekvent, låg frekvent, Arkiv | Alla | Alla |
+|Azure Data Lake Storage Gen1| Ej tillämpligt | Hierarkisk (FileSystem) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | 3,6 endast | Alla utom HBase |
 
-**För HDInsight-kluster kan endast sekundära lagringskonton vara av typen BlobStorage och Page Blob är inte ett lagringsalternativ som stöds.
+* * För HDInsight-kluster kan endast sekundära lagrings konton vara av typen BlobStorage och Page BLOB är inte ett lagrings alternativ som stöds.
 
-Mer information om Azure Storage-kontotyper finns i [Översikt över Azure storage-konto](../storage/common/storage-account-overview.md)
+Mer information om Azure Storage konto typer finns i [Översikt över Azure Storage-konto](../storage/common/storage-account-overview.md)
 
-Mer information om Azure Storage-åtkomstnivåer finns i [Azure Blob storage: Premium (förhandsversion), lagringsnivåer för Hot, Cool och Arkiv](../storage/blobs/storage-blob-storage-tiers.md)
+Mer information om Azure Storage åtkomst nivåer finns i [Azure Blob Storage: Premium (för hands version), frekvent, låg frekvent och Arkiv lag](../storage/blobs/storage-blob-storage-tiers.md) rings nivå
 
-Du kan skapa kluster med hjälp av kombinationer av tjänster för primär och valfri sekundär lagring. I följande tabell sammanfattas de klusterlagringskonfigurationer som för närvarande stöds i HDInsight:
+Du kan skapa kluster med hjälp av kombinationer av tjänster för primär och valfri sekundär lagring. I följande tabell sammanfattas de kluster lagrings konfigurationer som för närvarande stöds i HDInsight:
 
 | HDInsight-version | Primär lagring | Sekundär lagring | Stöds |
 |---|---|---|---|
-| 3,6 & 4,0 | Allmänt ändamål V1, Allmänt ändamål V2 | Allmänt ändamål V1, Allmänt ändamål V2, BlobStorage (Block Blobbar) | Ja |
-| 3,6 & 4,0 | Allmänt ändamål V1, Allmänt ändamål V2 | Data Lake Storage Gen2 | Inga |
-| 3,6 & 4,0 | Gen2 för lagring av datasjöar* | Data Lake Storage Gen2 | Ja |
-| 3,6 & 4,0 | Gen2 för lagring av datasjöar* | Allmänt ändamål V1, Allmänt ändamål V2, BlobStorage (Block Blobbar) | Ja |
+| 3,6 & 4,0 | Generell användning v1, Generell användning v2 | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
+| 3,6 & 4,0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen2 | Inga |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Ja |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
 | 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Inga |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
-| 3.6 | Data Lake Storage Gen1 | Allmänt ändamål V1, Allmänt ändamål V2, BlobStorage (Block Blobbar) | Ja |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Inga |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
+| 3,6 | Data Lake Storage Gen1 | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Inga |
 | 4.0 | Data Lake Storage Gen1 | Alla | Inga |
-| 4.0 | Allmänt ändamål V1, Allmänt ändamål V2 | Data Lake Storage Gen1 | Inga |
+| 4.0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen1 | Inga |
 
-*=Det kan vara ett eller flera DataSjölagringsgenm2-konton, så länge de alla är inställda på att använda samma hanterade identitet för klusteråtkomst.
+* = Detta kan vara ett eller flera Data Lake Storage Gen2-konton, så länge de är konfigurerat för att använda samma hanterade identitet för kluster åtkomst.
 
 > [!NOTE]
-> Primär lagringsgendlagring i DataSjögend2 stöds inte för Spark 2.1- eller 2.2-kluster.
+> Data Lake Storage Gen2 primär lagring stöds inte för Spark 2,1-eller 2,2-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Azure Storage](./overview-azure-storage.md)
-* [Översikt över Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
-* [Översikt över Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Azure Storage-översikt](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen1-översikt](./overview-data-lake-storage-gen1.md)
+* [Azure Data Lake Storage Gen2-översikt](./overview-data-lake-storage-gen2.md)
 * [Introduktion till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduktion till Azure Storage](../storage/common/storage-introduction.md)

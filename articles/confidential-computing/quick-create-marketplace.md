@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 50752dfefae1aab28e0b7e51d8c94cf5f04a5099
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 90e8aa4da88542648bec612553282ffe11b09eda
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149314"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192288"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Snabb start: Distribuera en virtuell Azure-dator med konfidentiella data behandling på Marketplace
 
@@ -21,7 +21,7 @@ Kom igång med Azures konfidentiella data behandling genom att använda Azure Ma
 
 Den här självstudien rekommenderas om du snabbt vill börja distribuera en virtuell dator med konfidentiella data behandling. De virtuella datorerna körs på den särskilda maskin varan och kräver särskilda konfigurations inmatningar för att köras som avsett. Marketplace-erbjudandet som beskrivs i den här snabb starten gör det enklare att distribuera genom att begränsa indata från användaren.
 
-Om du är intresse rad av att distribuera en konfidentiell virtuell dator med en mer anpassad konfiguration, följer du [distributions stegen Azure Portal konfidentiell beräkning av virtuella datorer.](quick-create-portal.md)
+Om du är intresse rad av att distribuera en konfidentiell virtuell dator med en mer anpassad konfiguration följer du [distributions stegen Azure Portal konfidentiell beräkning av virtuella datorer](quick-create-portal.md).
 
 ## <a name="prerequisites"></a>Krav
 

@@ -1,6 +1,6 @@
 ---
 title: Uttryck och funktioner i Azure Data Factory
-description: Den här artikeln innehåller information om uttryck och funktioner som du kan använda för att skapa datacenter.
+description: Den här artikeln innehåller information om uttryck och funktioner som du kan använda för att skapa Data Factory-entiteter.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1ce6da555bc8777bdb9671df1567f06227b74b6c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417197"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192807"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Uttryck och funktioner i Azure Data Factory
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller information om uttryck och funktioner som stöds a
 
 ## <a name="expressions"></a>Uttryck
 
-JSON-värden i definitionen kan vara litterala eller uttryck som utvärderas vid körning. Ett exempel:  
+JSON-värden i definitionen kan vara literala eller uttryck som utvärderas vid körning. Ett exempel:  
   
 ```json
 "name": "value"
@@ -40,33 +40,33 @@ JSON-värden i definitionen kan vara litterala eller uttryck som utvärderas vid
 "name": "@pipeline().parameters.password"
 ```
 
-Uttryck kan visas var som helst i ett JSON-strängvärde och alltid resultera i ett annat JSON-värde. Om ett JSON-värde är ett uttryck extraheras uttryckets brödtext\@genom att at-sign ( ). Om en litteral sträng behövs \@som börjar med måste \@ \@den flytas med hjälp av . Följande exempel visar hur uttryck utvärderas.  
+Uttryck kan finnas var som helst i ett JSON-sträng värde och resulterar alltid i ett annat JSON-värde. Om ett JSON-värde är ett uttryck extraheras bröd texten i uttrycket genom att ta bort at-tecknet (\@). Om en tecken sträng krävs som börjar med \@måste den föregås av. \@ \@ I följande exempel visas hur uttryck utvärderas.  
   
 |JSON-värde|Resultat|  
 |----------------|------------|  
-|"parametrar"|Tecknen "parametrar" returneras.|  
-|"parametrar[1]"|Tecknen "parametrar[1]" returneras.|  
-|"\@\@"|En 1 teckensträng som\@innehåller ' ' returneras.|  
-|" \@"|En 2 teckensträng som \@innehåller ' ' returneras.|  
+|komponentparametrar|Tecknens parametrar returneras.|  
+|"parametrar [1]"|Tecknens parametrar [1] returneras.|  
+|"\@\@"|En 1-tecken sträng som innehåller\@returnerar.|  
+|" \@"|En 2-tecken sträng som innehåller \@returnerar.|  
   
- Uttryck kan också visas inuti strängar med hjälp av en funktion som `@{ ... }`kallas *stränginterpolering* där uttryck är insvept i . Exempel: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
+ Uttryck kan också visas i strängar med hjälp av en funktion som kallas *String-interpolation* där `@{ ... }`uttryck är omslutna. Exempel: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- Med stränginter interpolation är resultatet alltid en sträng. Säg att `myNumber` jag `42` `myString` har `foo`definierat som och som:  
+ Med hjälp av String-interpolation är resultatet alltid en sträng. Anta att jag har `myNumber` definierat `42` as `myString` och `foo`som:  
   
 |JSON-värde|Resultat|  
 |----------------|------------|  
-|"\@pipeline().parameters.myString"| Returnerar `foo` som en sträng.|  
-|"\@{pipeline().parameters.myString}"| Returnerar `foo` som en sträng.|  
-|"\@pipeline().parameters.myNumber"| Returnerar `42` som ett *tal*.|  
-|"\@{pipeline().parameters.myNumber}"| Returnerar `42` som en *sträng*.|  
-|"Svaret är: @{pipeline().parameters.myNumber}"| Returnerar `Answer is: 42`strängen .|  
-|"\@concat('Svar är: ', sträng(pipeline().parameters.myNumber))"| Returnerar strängen`Answer is: 42`|  
-|"Svaret är: \@ \@{pipeline().parameters.myNumber}"| Returnerar `Answer is: @{pipeline().parameters.myNumber}`strängen .|  
+|"\@pipelining (). Parameters. unstring"| Returnerar `foo` som en sträng.|  
+|\@{pipeliner (). Parameters. unstring}| Returnerar `foo` som en sträng.|  
+|"\@pipeline (). Parameters. Number"| Returnerar `42` som ett *tal*.|  
+|\@{pipeliner (). Parameters. Number}| Returnerar `42` som en *sträng*.|  
+|"Svar är: @ {pipeline (). Parameters. Number}"| Returnerar strängen `Answer is: 42`.|  
+|"\@concat (" svar är:, String (pipeline (). Parameters. Number)) "| Returnerar strängen`Answer is: 42`|  
+|"Svar är: \@ \@{pipeline (). Parameters. Number}"| Returnerar strängen `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ## <a name="examples"></a>Exempel
 
-### <a name="a-dataset-with-a-parameter"></a>En datauppsättning med en parameter
-I följande exempel tar BlobDataset en parameter med namnet **path**. Dess värde används för att ange ett värde för `dataset().path` **egenskapen folderPath** med hjälp av uttrycket: . 
+### <a name="a-dataset-with-a-parameter"></a>En data uppsättning med en parameter
+I följande exempel tar BlobDataset en parameter med namnet **Path**. Värdet används för att ange ett värde för egenskapen **folderPath** med hjälp av uttrycket: `dataset().path`. 
 
 ```json
 {
@@ -90,7 +90,7 @@ I följande exempel tar BlobDataset en parameter med namnet **path**. Dess värd
 ```
 
 ### <a name="a-pipeline-with-a-parameter"></a>En pipeline med en parameter
-I följande exempel tar pipelinen **indataPath** och **outputPath-parametrar.** **Sökvägen** för den parameteriserade blob-datauppsättningen anges med hjälp av värden för dessa parametrar. Syntaxen som används `pipeline().parameters.parametername`här är: . 
+I följande exempel använder pipelinen **inputPath** -och **outputPath** -parametrar. **Sökvägen** för den parameterstyrda BLOB-datauppsättningen anges med hjälp av värden för dessa parametrar. Syntaxen som används här är `pipeline().parameters.parametername`:. 
 
 ```json
 {
@@ -140,144 +140,144 @@ I följande exempel tar pipelinen **indataPath** och **outputPath-parametrar.** 
 }
 ```
 ### <a name="tutorial"></a>Självstudier
-Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) går igenom hur du skickar parametrar mellan en pipeline och aktivitet samt mellan aktiviteterna.
+Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) vägleder dig genom hur du skickar parametrar mellan en pipeline och aktivitet samt mellan aktiviteterna.
 
   
 ## <a name="functions"></a>Functions
 
-Du kan anropa funktioner i uttryck. Följande avsnitt innehåller information om de funktioner som kan användas i ett uttryck.  
+Du kan anropa Functions i uttryck. I följande avsnitt finns information om de funktioner som kan användas i ett uttryck.  
 
 ## <a name="string-functions"></a>Strängfunktioner  
 
-Om du vill arbeta med strängar kan du använda dessa strängfunktioner och även vissa [samlingsfunktioner](#collection-functions).
-Strängfunktioner fungerar bara på strängar.
+Om du vill arbeta med strängar kan du använda dessa sträng funktioner och även vissa [samlings funktioner](#collection-functions).
+Sträng funktioner fungerar bara för strängar.
 
-| Strängfunktion | Aktivitet |
+| Funktionen String | Aktivitet |
 | --------------- | ---- |
-| [Concat](control-flow-expression-language-functions.md#concat) | Kombinera två eller flera strängar och returnera den kombinerade strängen. |
-| [slutarMed](control-flow-expression-language-functions.md#endswith) | Kontrollera om en sträng slutar med den angivna delsträngen. |
-| [Guid](control-flow-expression-language-functions.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. |
-| [indexOf](control-flow-expression-language-functions.md#indexof) | Returnera startpositionen för en delsträng. |
-| [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Returnera startpositionen för den sista förekomsten av en delsträng. |
-| [Ersätta](control-flow-expression-language-functions.md#replace) | Ersätt en delsträng med den angivna strängen och returnera den uppdaterade strängen. |
-| [split](control-flow-expression-language-functions.md#split) | Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, från en större sträng baserat på ett angivet avgränsare i den ursprungliga strängen. |
-| [börjarMed](control-flow-expression-language-functions.md#startswith) | Kontrollera om en sträng börjar med en viss delsträng. |
-| [Delsträng](control-flow-expression-language-functions.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. |
-| [toLower (TillLågare)](control-flow-expression-language-functions.md#toLower) | Returnera en sträng i gemener format. |
-| [tillUpper](control-flow-expression-language-functions.md#toUpper) | Returnera en sträng i versaler. |
-| [Trimma](control-flow-expression-language-functions.md#trim) | Ta bort inledande och avslutande blanktecken från en sträng och returnera den uppdaterade strängen. |
+| [concat](control-flow-expression-language-functions.md#concat) | Kombinera två eller fler strängar och returnera den kombinerade strängen. |
+| [endsWith](control-flow-expression-language-functions.md#endswith) | Kontrol lera om en sträng slutar med den angivna under strängen. |
+| [guid](control-flow-expression-language-functions.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. |
+| [indexOf](control-flow-expression-language-functions.md#indexof) | Returnera start positionen för en under sträng. |
+| [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Returnera start positionen för den sista förekomsten av en under sträng. |
+| [bytt](control-flow-expression-language-functions.md#replace) | Ersätt en under sträng med den angivna strängen och returnera den uppdaterade strängen. |
+| [del](control-flow-expression-language-functions.md#split) | Returnera en matris som innehåller del strängar, avgränsade med kommatecken, från en större sträng baserat på ett angivet avgränsnings tecken i den ursprungliga strängen. |
+| [startsWith](control-flow-expression-language-functions.md#startswith) | Kontrol lera om en sträng börjar med en speciell under sträng. |
+| [under sträng](control-flow-expression-language-functions.md#substring) | Returnera tecken från en sträng, från angiven position. |
+| [toLower](control-flow-expression-language-functions.md#toLower) | Returnera en sträng med gemener. |
+| [toUpper](control-flow-expression-language-functions.md#toUpper) | Returnera en sträng i versal format. |
+| [reducera](control-flow-expression-language-functions.md#trim) | Ta bort inledande och avslutande blank steg från en sträng och returnera den uppdaterade strängen. |
 
-## <a name="collection-functions"></a>Insamlingsfunktioner
+## <a name="collection-functions"></a>Samlings funktioner
 
-Om du vill arbeta med samlingar, i allmänhet matriser, strängar och ibland ordlistor, kan du använda dessa samlingsfunktioner.
+Om du vill arbeta med samlingar, vanligt vis matriser, strängar och ibland kan du använda de här samlings funktionerna.
 
-| Funktionen Samling | Aktivitet |
+| Samlings funktion | Aktivitet |
 | ------------------- | ---- |
-| [Innehåller](control-flow-expression-language-functions.md#contains) | Kontrollera om en samling har ett visst objekt. |
-| [Tom](control-flow-expression-language-functions.md#empty) | Kontrollera om en samling är tom. |
-| [Första](control-flow-expression-language-functions.md#first) | Returnera det första objektet från en samling. |
-| [Korsningen](control-flow-expression-language-functions.md#intersection) | Returnera en samling som *bara* har de vanliga objekten i de angivna samlingarna. |
-| [Ansluta sig till](control-flow-expression-language-functions.md#join) | Returnera en sträng som har *alla* objekt från en matris, avgränsade med det angivna tecknet. |
-| [Senaste](control-flow-expression-language-functions.md#last) | Returnera det sista objektet från en samling. |
-| [Längd](control-flow-expression-language-functions.md#length) | Returnera antalet objekt i en sträng eller matris. |
-| [Hoppa över](control-flow-expression-language-functions.md#skip) | Ta bort objekt från framsidan av en samling och returnera *alla andra* objekt. |
-| [Ta](control-flow-expression-language-functions.md#take) | Returnera objekt från framsidan av en samling. |
-| [Unionen](control-flow-expression-language-functions.md#union) | Returnera en samling som har *alla* objekt från de angivna samlingarna. | 
+| [ingår](control-flow-expression-language-functions.md#contains) | Kontrol lera om en samling har ett angivet objekt. |
+| [saknas](control-flow-expression-language-functions.md#empty) | Kontrol lera om en samling är tom. |
+| [förstagångskörningen](control-flow-expression-language-functions.md#first) | Returnera det första objektet från en samling. |
+| [överlappning](control-flow-expression-language-functions.md#intersection) | Returnera en samling som *endast* innehåller gemensamma objekt i de angivna samlingarna. |
+| [ansluta](control-flow-expression-language-functions.md#join) | Returnera en sträng som innehåller *alla* objekt från en matris, separerade med det angivna specialtecknet. |
+| [pågå](control-flow-expression-language-functions.md#last) | Returnera det sista objektet från en samling. |
+| [krävande](control-flow-expression-language-functions.md#length) | Returnera antalet objekt i en sträng eller matris. |
+| [Ignorera](control-flow-expression-language-functions.md#skip) | Ta bort objekt från början av en samling och returnera *alla andra* objekt. |
+| [gå](control-flow-expression-language-functions.md#take) | Returnera objekt från början av en samling. |
+| [Union](control-flow-expression-language-functions.md#union) | Returnera en samling som innehåller *alla* objekt från de angivna samlingarna. | 
 
 ## <a name="logical-functions"></a>Logiska funktioner  
 
-Dessa funktioner är användbara inuti villkor, kan de användas för att utvärdera alla typer av logik.  
+Dessa funktioner är användbara i villkor, de kan användas för att utvärdera vilken typ av logik som helst.  
   
-| Logisk jämförelsefunktion | Aktivitet |
+| Funktion för logisk jämförelse | Aktivitet |
 | --------------------------- | ---- |
-| [och](control-flow-expression-language-functions.md#and) | Kontrollera om alla uttryck är sanna. |
-| [lika med](control-flow-expression-language-functions.md#equals) | Kontrollera om båda värdena är likvärdiga. |
-| [större än](control-flow-expression-language-functions.md#greater) | Kontrollera om det första värdet är större än det andra värdet. |
-| [större än eller lika med](control-flow-expression-language-functions.md#greaterOrEquals) | Kontrollera om det första värdet är större än eller lika med det andra värdet. |
-| [Om](control-flow-expression-language-functions.md#if) | Kontrollera om ett uttryck är sant eller falskt. Baserat på resultatet returnerar du ett angivet värde. |
-| [mindre än](control-flow-expression-language-functions.md#less) | Kontrollera om det första värdet är mindre än det andra värdet. |
-| [mindre än eller lika med](control-flow-expression-language-functions.md#lessOrEquals) | Kontrollera om det första värdet är mindre än eller lika med det andra värdet. |
-| [Inte](control-flow-expression-language-functions.md#not) | Kontrollera om ett uttryck är falskt. |
-| [Eller](control-flow-expression-language-functions.md#or) | Kontrollera om minst ett uttryck är sant. |
+| [och](control-flow-expression-language-functions.md#and) | Kontrol lera om alla uttryck är sanna. |
+| [lika med](control-flow-expression-language-functions.md#equals) | Kontrol lera om båda värdena är likvärdiga. |
+| [större än](control-flow-expression-language-functions.md#greater) | Kontrol lera om det första värdet är större än det andra värdet. |
+| [större än eller lika med](control-flow-expression-language-functions.md#greaterOrEquals) | Kontrol lera om det första värdet är större än eller lika med det andra värdet. |
+| [eventuella](control-flow-expression-language-functions.md#if) | Kontrol lera om ett uttryck är sant eller falskt. Returnera ett angivet värde baserat på resultatet. |
+| [mindre än](control-flow-expression-language-functions.md#less) | Kontrol lera om det första värdet är mindre än det andra värdet. |
+| [mindre än eller lika med](control-flow-expression-language-functions.md#lessOrEquals) | Kontrol lera om det första värdet är mindre än eller lika med det andra värdet. |
+| [Ogiltigt](control-flow-expression-language-functions.md#not) | Kontrol lera om ett uttryck är falskt. |
+| [eller](control-flow-expression-language-functions.md#or) | Kontrol lera om minst ett uttryck är sant. |
   
-## <a name="conversion-functions"></a>Konverteringsfunktioner  
+## <a name="conversion-functions"></a>Konverterings funktioner  
 
- Dessa funktioner används för att konvertera mellan var och en av de inbyggda typerna på språket:  
+ Dessa funktioner används för att konvertera mellan var och en av de ursprungliga typerna på språket:  
 -   sträng
 -   heltal
 -   float
 -   boolean
--   Matriser
--   Ordböcker
+-   lagringsmatriser
+-   lista
 
-| Konverteringsfunktion | Aktivitet |
+| Konverterings funktion | Aktivitet |
 | ------------------- | ---- |
-| [Array](control-flow-expression-language-functions.md#array) | Returnera en matris från en enda angiven indata. För flera indata finns i [createArray](control-flow-expression-language-functions.md#createArray). |
-| [base64](control-flow-expression-language-functions.md#base64) | Returnera den base64-kodade versionen för en sträng. |
-| [bas64TillBinär](control-flow-expression-language-functions.md#base64ToBinary) | Returnera den binära versionen för en base64-kodad sträng. |
-| [base64ToString](control-flow-expression-language-functions.md#base64ToString) | Returnera strängversionen för en base64-kodad sträng. |
-| [Binära](control-flow-expression-language-functions.md#binary) | Returnera den binära versionen för ett indatavärde. |
-| [Bool](control-flow-expression-language-functions.md#bool) | Returnera den booleska versionen för ett indatavärde. |
-| [smälter samman](control-flow-expression-language-functions.md#coalesce) | Returnera det första icke-null-värdet från en eller flera parametrar. |
-| [skapaArray](control-flow-expression-language-functions.md#createArray) | Returnera en matris från flera indata. |
-| [dataUri](control-flow-expression-language-functions.md#dataUri) | Returnera data-URI för ett indatavärde. |
-| [dataUriToBinär](control-flow-expression-language-functions.md#dataUriToBinary) | Returnera den binära versionen för en data-URI. |
-| [dataUriToString](control-flow-expression-language-functions.md#dataUriToString) | Returnera strängversionen för en data-URI. |
-| [avkodaBase64](control-flow-expression-language-functions.md#decodeBase64) | Returnera strängversionen för en base64-kodad sträng. |
-| [avkodaDataUri](control-flow-expression-language-functions.md#decodeDataUri) | Returnera den binära versionen för en data-URI. |
-| [avkodaUriComponent](control-flow-expression-language-functions.md#decodeUriComponent) | Returnera en sträng som ersätter escape-tecken med avkodade versioner. |
+| [lagringsmatriser](control-flow-expression-language-functions.md#array) | Returnera en matris från en angiven Indatatyp. För flera indata, se [createArray](control-flow-expression-language-functions.md#createArray). |
+| [base64](control-flow-expression-language-functions.md#base64) | Returnera Base64-kodad version för en sträng. |
+| [base64ToBinary](control-flow-expression-language-functions.md#base64ToBinary) | Returnera den binära versionen för en Base64-kodad sträng. |
+| [base64ToString](control-flow-expression-language-functions.md#base64ToString) | Returnera sträng versionen för en Base64-kodad sträng. |
+| [binär](control-flow-expression-language-functions.md#binary) | Returnera den binära versionen för ett indatavärde. |
+| [boolesk](control-flow-expression-language-functions.md#bool) | Returnera den booleska versionen för ett indatavärde. |
+| [coalesce](control-flow-expression-language-functions.md#coalesce) | Returnera det första värdet som inte är null från en eller flera parametrar. |
+| [createArray](control-flow-expression-language-functions.md#createArray) | Returnera en matris från flera indata. |
+| [dataUri](control-flow-expression-language-functions.md#dataUri) | Returnera data-URI: n för ett indatavärde. |
+| [dataUriToBinary](control-flow-expression-language-functions.md#dataUriToBinary) | Returnera den binära versionen för en data-URI. |
+| [dataUriToString](control-flow-expression-language-functions.md#dataUriToString) | Returnera sträng versionen för en data-URI. |
+| [decodeBase64](control-flow-expression-language-functions.md#decodeBase64) | Returnera sträng versionen för en Base64-kodad sträng. |
+| [decodeDataUri](control-flow-expression-language-functions.md#decodeDataUri) | Returnera den binära versionen för en data-URI. |
+| [decodeUriComponent](control-flow-expression-language-functions.md#decodeUriComponent) | Returnera en sträng som ersätter escape-tecken med avkodade versioner. |
 | [encodeUriComponent](control-flow-expression-language-functions.md#encodeUriComponent) | Returnera en sträng som ersätter URL-osäkra tecken med escape-tecken. |
-| [float](control-flow-expression-language-functions.md#float) | Returnera ett flyttalsnummer för ett indatavärde. |
-| [int](control-flow-expression-language-functions.md#int) | Returnera heltalsversionen för en sträng. |
-| [Json](control-flow-expression-language-functions.md#json) | Returnera typvärdet eller objektet för JavaScript-objekt (JSON) för en sträng eller XML. |
-| [Sträng](control-flow-expression-language-functions.md#string) | Returnera strängversionen för ett indatavärde. |
-| [uriKompent](control-flow-expression-language-functions.md#uriComponent) | Returnera den URI-kodade versionen för ett indatavärde genom att ersätta URL-osäkra tecken med escape-tecken. |
-| [uriKompentTillbinären](control-flow-expression-language-functions.md#uriComponentToBinary) | Returnera den binära versionen för en URI-kodad sträng. |
-| [uriKompent TillString](control-flow-expression-language-functions.md#uriComponentToString) | Returnera strängversionen för en URI-kodad sträng. |
-| [Xml](control-flow-expression-language-functions.md#xml) | Returnera XML-versionen för en sträng. |
-| [Xpath](control-flow-expression-language-functions.md#xpath) | Sök efter XML efter noder eller värden som matchar ett XPath-uttryck (XML Path Language) och returnera de matchande noderna eller värdena. |
+| [float](control-flow-expression-language-functions.md#float) | Returnera ett flytt ALS nummer för ett indatavärde. |
+| [int](control-flow-expression-language-functions.md#int) | Returnera heltals versionen för en sträng. |
+| [utgör](control-flow-expression-language-functions.md#json) | Returnera värdet för JavaScript Object Notation (JSON) av typen eller objektet för en sträng eller XML. |
+| [sträng](control-flow-expression-language-functions.md#string) | Returnera sträng versionen för ett indatavärde. |
+| [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Returnera den URI-kodade versionen för ett indatavärde genom att ersätta URL-osäkra tecken med escape-tecken. |
+| [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Returnera den binära versionen för en URI-kodad sträng. |
+| [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Returnera sträng versionen för en URI-kodad sträng. |
+| [fil](control-flow-expression-language-functions.md#xml) | Returnera XML-versionen för en sträng. |
+| [XPath](control-flow-expression-language-functions.md#xpath) | Kontrol lera XML för noder eller värden som matchar ett XPath-uttryck (XML Path Language) och returnera matchande noder eller värden. |
 
 ## <a name="math-functions"></a>Matematikfunktioner  
- Dessa funktioner kan användas för båda typerna av tal: **heltal** och **flöten**.  
+ Dessa funktioner kan användas för antingen typer av tal: **heltal** och **flyttal**.  
 
-| Matematiska funktionen | Aktivitet |
+| Matematik funktion | Aktivitet |
 | ------------- | ---- |
-| [Add](control-flow-expression-language-functions.md#add) | Returnera resultatet från att lägga till två tal. |
-| [div](control-flow-expression-language-functions.md#div) | Returnera resultatet från att dela två tal. |
-| [Max](control-flow-expression-language-functions.md#max) | Returnera det högsta värdet från en uppsättning tal eller en matris. |
-| [Min](control-flow-expression-language-functions.md#min) | Returnera det lägsta värdet från en uppsättning tal eller en matris. |
-| [Mod](control-flow-expression-language-functions.md#mod) | Returnera resten från att dela två siffror. |
-| [mul (mul)](control-flow-expression-language-functions.md#mul) | Returnera produkten från att multiplicera två tal. |
-| [Rand](control-flow-expression-language-functions.md#rand) | Returnera ett slumpmässigt heltal från ett angivet intervall. |
-| [Utbud](control-flow-expression-language-functions.md#range) | Returnera en heltalsmatris som startar från ett angivet heltal. |
-| [Sub](control-flow-expression-language-functions.md#sub) | Returnera resultatet från att subtrahera det andra talet från det första talet. |
+| [skapa](control-flow-expression-language-functions.md#add) | Returnera resultatet från att lägga till två tal. |
+| [div](control-flow-expression-language-functions.md#div) | Returnera resultatet från att dividera två tal. |
+| [bekräftat](control-flow-expression-language-functions.md#max) | Returnera det högsta värdet från en uppsättning tal eller en matris. |
+| [minimum](control-flow-expression-language-functions.md#min) | Returnera det lägsta värdet från en uppsättning tal eller en matris. |
+| [rest](control-flow-expression-language-functions.md#mod) | Returnera resten från att dividera två tal. |
+| [mul](control-flow-expression-language-functions.md#mul) | Returnera produkten från att multiplicera två tal. |
+| [slump](control-flow-expression-language-functions.md#rand) | Returnera ett slumpmässigt heltal från ett angivet intervall. |
+| [intervall](control-flow-expression-language-functions.md#range) | Returnera en heltals mat ris som börjar från ett angivet heltal. |
+| [Build](control-flow-expression-language-functions.md#sub) | Returnera resultatet från att subtrahera det andra talet från det första talet. |
   
 ## <a name="date-functions"></a>Datumfunktioner  
 
-| Funktionen Datum eller tid | Aktivitet |
+| Funktionen datum/tid | Aktivitet |
 | --------------------- | ---- |
-| [addDays](control-flow-expression-language-functions.md#addDays) | Lägg till ett antal dagar i en tidsstämpel. |
+| [addDays](control-flow-expression-language-functions.md#addDays) | Lägg till ett antal dagar i en tidstämpel. |
 | [addHours](control-flow-expression-language-functions.md#addHours) | Lägg till ett antal timmar i en tidsstämpel. |
 | [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Lägg till ett antal minuter i en tidsstämpel. |
 | [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Lägg till ett antal sekunder i en tidsstämpel. |
 | [addToTime](control-flow-expression-language-functions.md#addToTime) | Lägg till ett antal tidsenheter i en tidsstämpel. Se även [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
-| [konverteraFrånUtc](control-flow-expression-language-functions.md#convertFromUtc) | Konvertera en tidsstämpel från Universell tidskoordinerad (UTC) till måltidszonen. |
-| [konverteraTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Konvertera en tidsstämpel från källtidszonen till måltidszonen. |
-| [konverteraToUtc](control-flow-expression-language-functions.md#convertToUtc) | Konvertera en tidsstämpel från källtidszonen till Universell tidskoordinerad (UTC). |
-| [dayOfMonth dagOfMonth dagOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Returnera dagen i månaden komponenten från en tidsstämpel. |
-| [dagVecka](control-flow-expression-language-functions.md#dayOfWeek) | Returnera dag i veckan komponenten från en tidsstämpel. |
-| [dagiår](control-flow-expression-language-functions.md#dayOfYear) | Returnera dagen för året komponenten från en tidsstämpel. |
-| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Returnera datumet från en tidsstämpel. |
-| [fåFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Returnera den aktuella tidsstämpeln plus de angivna tidsenheterna. Se även [addToTime](control-flow-expression-language-functions.md#addToTime). |
-| [fåPastTime](control-flow-expression-language-functions.md#getPastTime) | Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. Se även [subtraheraFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
-| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Returnera början av dagen för en tidsstämpel. |
-| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Returnera början av timmen för en tidsstämpel. |
-| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Returnera början av månaden för en tidsstämpel. |
-| [subtraheraFrånTime](control-flow-expression-language-functions.md#subtractFromTime) | Subtrahera ett antal tidsenheter från en tidsstämpel. Se även [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
-| [Fästingar](control-flow-expression-language-functions.md#ticks) | Returnera `ticks` egenskapsvärdet för en angiven tidsstämpel. |
-| [utcNow (olikartade)](control-flow-expression-language-functions.md#utcNow) | Returnera den aktuella tidsstämpeln som en sträng. |
+| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Konvertera en tidsstämpel från Universal Time Coordinated (UTC) till mål tids zonen. |
+| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Konvertera en tidsstämpel från käll tids zonen till mål tids zonen. |
+| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Konvertera en tidsstämpel från käll tids zonen till koordinerad Universal-tid (UTC). |
+| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Returnera dag i månads komponenten från en tidsstämpel. |
+| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Returnera dag i vecko komponenten från en tidsstämpel. |
+| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Returnera dagen på års komponenten från en tidsstämpel. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Returnera tidstämpeln som en sträng i valfritt format. |
+| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Returnera den aktuella tidsstämpeln och de angivna tidsenheterna. Se även [addToTime](control-flow-expression-language-functions.md#addToTime). |
+| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. Se även [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
+| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Returnera början på dagen för en tidsstämpel. |
+| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Returnera början på timmen för en tidsstämpel. |
+| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Returnera början på månaden för en tidsstämpel. |
+| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Subtrahera ett antal tidsenheter från en tidsstämpel. Se även [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
+| [ticks](control-flow-expression-language-functions.md#ticks) | Returnera `ticks` egenskap svärdet för en angiven tidstämpel. |
+| [utcNow](control-flow-expression-language-functions.md#utcNow) | Returnera den aktuella tidstämpeln som en sträng. |
 
-## <a name="function-reference"></a>Funktionsreferens
+## <a name="function-reference"></a>Funktions referens
 
 I det här avsnittet visas alla tillgängliga funktioner i alfabetisk ordning.
 
@@ -293,12 +293,12 @@ add(<summand_1>, <summand_2>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*> <*summand_2*> | Ja | Heltal, Float eller blandat | Siffrorna som ska läggas till |
+| <*summand_1*> <*summand_2*> | Ja | Heltal, float eller Mixed | De siffror som ska läggas till |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
-| <*resultatsumma*> | Heltal eller Flyta | Resultatet av att lägga till angivna tal |
+| <*resultat-sum*> | Heltal eller flyttal | Resultatet av att lägga till de angivna talen |
 ||||
 
 *Exempel*
@@ -309,13 +309,13 @@ I det här exemplet läggs de angivna talen till:
 add(1, 1.5)
 ```
 
-Och returnerar detta resultat:`2.5`
+Och returnerar följande resultat:`2.5`
 
 <a name="addDays"></a>
 
 ### <a name="adddays"></a>addDays
 
-Lägg till ett antal dagar i en tidsstämpel.
+Lägg till ett antal dagar i en tidstämpel.
 
 ```
 addDays('<timestamp>', <days>, '<format>'?)
@@ -323,25 +323,25 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Dagar*> | Ja | Integer | Det positiva eller negativa antalet dagar som ska läggas till |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*antalet*> | Ja | Integer | Det positiva eller negativa antalet dagar som ska läggas till |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet dagar  |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet dagar  |
 ||||
 
 *Exempel 1*
 
-I det här exemplet läggs 10 dagar till den angivna tidsstämpeln:
+I det här exemplet läggs 10 dagar till i den angivna tidsstämpeln:
 
 ```
 addDays('2018-03-15T13:00:00Z', 10)
 ```
 
-Och returnerar detta resultat:`"2018-03-25T00:00:0000000Z"`
+Och returnerar följande resultat:`"2018-03-25T00:00:0000000Z"`
 
 *Exempel 2*
 
@@ -351,7 +351,7 @@ Det här exemplet subtraherar fem dagar från den angivna tidsstämpeln:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-Och returnerar detta resultat:`"2018-03-10T00:00:0000000Z"`
+Och returnerar följande resultat:`"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
@@ -365,25 +365,25 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Timmar*> | Ja | Integer | Det positiva eller negativa antalet timmar som ska läggas till |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*timmarna*> | Ja | Integer | Det positiva eller negativa antalet timmar som ska läggas till |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet timmar  |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet timmar  |
 ||||
 
 *Exempel 1*
 
-I det här exemplet läggs 10 timmar till den angivna tidsstämpeln:
+I det här exemplet läggs 10 timmar till i den angivna tidsstämpeln:
 
 ```
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-Och returnerar detta resultat:`"2018-03-15T10:00:0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T10:00:0000000Z"`
 
 *Exempel 2*
 
@@ -393,7 +393,7 @@ Det här exemplet subtraherar fem timmar från den angivna tidsstämpeln:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-Och returnerar detta resultat:`"2018-03-15T10:00:0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -407,35 +407,35 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Minuter*> | Ja | Integer | Det positiva eller negativa antalet minuter som ska läggas till |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*fördröjning*> | Ja | Integer | Det positiva eller negativa antalet minuter att lägga till |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet minuter |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet minuter |
 ||||
 
 *Exempel 1*
 
-I det här exemplet läggs 10 minuter till den angivna tidsstämpeln:
+I det här exemplet läggs 10 minuter till i den angivna tidsstämpeln:
 
 ```
 addMinutes('2018-03-15T00:10:00Z', 10)
 ```
 
-Och returnerar detta resultat:`"2018-03-15T00:20:00.0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T00:20:00.0000000Z"`
 
 *Exempel 2*
 
-Det här exemplet subtraherar fem minuter från den angivna tidsstämpeln:
+I det här exemplet subtraheras fem minuter från den angivna tidsstämpeln:
 
 ```
 addMinutes('2018-03-15T00:20:00Z', -5)
 ```
 
-Och returnerar detta resultat:`"2018-03-15T00:15:00.0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addSeconds"></a>
 
@@ -449,42 +449,42 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Sekunder*> | Ja | Integer | Det positiva eller negativa antalet sekunder som ska läggas till |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*sekunder*> | Ja | Integer | Det positiva eller negativa antalet sekunder som ska läggas till |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet sekunder  |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet sekunder  |
 ||||
 
 *Exempel 1*
 
-I det här exemplet läggs 10 sekunder till den angivna tidsstämpeln:
+I det här exemplet läggs 10 sekunder till i den angivna tidsstämpeln:
 
 ```
 addSeconds('2018-03-15T00:00:00Z', 10)
 ```
 
-Och returnerar detta resultat:`"2018-03-15T00:00:10.0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T00:00:10.0000000Z"`
 
 *Exempel 2*
 
-Det här exemplet subtraherar fem sekunder till den angivna tidsstämpeln:
+I det här exemplet subtraheras fem sekunder till den angivna tidsstämpeln:
 
 ```
 addSeconds('2018-03-15T00:00:30Z', -5)
 ```
 
-Och returnerar detta resultat:`"2018-03-15T00:00:25.0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
 ### <a name="addtotime"></a>addToTime
 
 Lägg till ett antal tidsenheter i en tidsstämpel.
-Se även [getFutureTime()](#getFutureTime).
+Se även [getFutureTime ()](#getFutureTime).
 
 ```
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -492,15 +492,15 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
-| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet tidsenheter  |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet tidsenheter  |
 ||||
 
 *Exempel 1*
@@ -511,7 +511,7 @@ I det här exemplet läggs en dag till i den angivna tidsstämpeln:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-Och returnerar detta resultat:`"2018-01-02T00:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-01-02T00:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -521,14 +521,14 @@ I det här exemplet läggs en dag till i den angivna tidsstämpeln:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
-Och returnerar resultatet med hjälp av det valfria "D"-formatet:`"Tuesday, January 2, 2018"`
+Och returnerar resultatet med det valfria "D"-formatet:`"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
 ### <a name="and"></a>och
 
-Kontrollera om alla uttryck är sanna.
-Returnera sant när alla uttryck är sanna eller returnera falskt när minst ett uttryck är falskt.
+Kontrol lera om alla uttryck är sanna.
+Returnera true när alla uttryck är sanna, eller returnera falskt när minst ett uttryck är falskt.
 
 ```
 and(<expression1>, <expression2>, ...)
@@ -536,17 +536,17 @@ and(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*uttryck2*>, ... | Ja | Boolesk | De uttryck som ska kontrolleras |
+| <*uttryck1*>, <*Uttryck2*>,... | Ja | Boolesk | De uttryck som ska kontrol leras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
-| sant eller falskt | Boolesk | Returnera sant när alla uttryck är sanna. Returnera falskt när minst ett uttryck är falskt. |
+| sant eller falskt | Boolesk | Returnera true när alla uttryck är sanna. Returnera falskt om minst ett uttryck är falskt. |
 ||||
 
 *Exempel 1*
 
-De här exemplen kontrollerar om de angivna booleska värdena är sanna:
+De här exemplen kontrollerar om de angivna booleska värdena är true:
 
 ```
 and(true, true)
@@ -554,15 +554,15 @@ and(false, true)
 and(false, false)
 ```
 
-Och returnerar dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Båda uttrycken är `true`sanna, så returnerar .
-* Andra exemplet: Ett uttryck är `false`falskt, så returnerar .
-* Tredje exemplet: Båda uttrycken är `false`falska, så returnerar .
+* Första exemplet: båda uttrycken är sanna, `true`så returnerar.
+* Andra exempel: ett uttryck är falskt, så returnerar `false`.
+* Tredje exempel: båda uttrycken är falska, `false`så returnerar.
 
 *Exempel 2*
 
-De här exemplen kontrollerar om alla angivna uttryck är sanna:
+De här exemplen kontrollerar om de angivna uttrycken är sanna:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -570,18 +570,18 @@ and(equals(1, 1), equals(1, 2))
 and(equals(1, 2), equals(1, 3))
 ```
 
-Och returnerar dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Båda uttrycken är `true`sanna, så returnerar .
-* Andra exemplet: Ett uttryck är `false`falskt, så returnerar .
-* Tredje exemplet: Båda uttrycken är `false`falska, så returnerar .
+* Första exemplet: båda uttrycken är sanna, `true`så returnerar.
+* Andra exempel: ett uttryck är falskt, så returnerar `false`.
+* Tredje exempel: båda uttrycken är falska, `false`så returnerar.
 
 <a name="array"></a>
 
 ### <a name="array"></a>matris
 
-Returnera en matris från en enda angiven indata.
-För flera indata finns i [createArray()](#createArray).
+Returnera en matris från en angiven Indatatyp.
+För flera indata, se [createArray ()](#createArray).
 
 ```
 array('<value>')
@@ -589,29 +589,29 @@ array('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen för att skapa en matris |
+| <*värde*> | Ja | Sträng | Strängen för att skapa en matris |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| [<*värde*>] | Matris | En matris som innehåller den enda angivna indata |
+| [<*värde*>] | Matris | En matris som innehåller en angiven Indatatyp |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en matris från "hello"-strängen:
+I det här exemplet skapas en matris från strängen "Hello":
 
 ```
 array('hello')
 ```
 
-Och returnerar detta resultat:`["hello"]`
+Och returnerar följande resultat:`["hello"]`
 
 <a name="base64"></a>
 
 ### <a name="base64"></a>base64
 
-Returnera den base64-kodade versionen för en sträng.
+Returnera Base64-kodad version för en sträng.
 
 ```
 base64('<value>')
@@ -619,29 +619,29 @@ base64('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Ingångssträngen |
+| <*värde*> | Ja | Sträng | Indatasträngen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*base64-sträng*> | Sträng | Den base64-kodade versionen för indatasträngen |
+| <*Base64-sträng*> | Sträng | Base64-kodad version för Indatasträngen |
 ||||
 
 *Exempel*
 
-I det här exemplet konverteras "hello"-strängen till en base64-kodad sträng:
+I det här exemplet konverteras "Hej"-strängen till en Base64-kodad sträng:
 
 ```
 base64('hello')
 ```
 
-Och returnerar detta resultat:`"aGVsbG8="`
+Och returnerar följande resultat:`"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
-### <a name="base64tobinary"></a>bas64TillBinär
+### <a name="base64tobinary"></a>base64ToBinary
 
-Returnera den binära versionen för en base64-kodad sträng.
+Returnera den binära versionen för en Base64-kodad sträng.
 
 ```
 base64ToBinary('<value>')
@@ -649,23 +649,23 @@ base64ToBinary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Den base64-kodade strängen för att konvertera |
+| <*värde*> | Ja | Sträng | Den base64-kodade sträng som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-bas64-sträng*> | Sträng | Den binära versionen för den base64-kodade strängen |
+| <*Binary-för-base64-sträng*> | Sträng | Den binära versionen för den base64-kodade strängen |
 ||||
 
 *Exempel*
 
-I det här exemplet konverteras den "aGVsbG8=" base64-kodade strängen till en binär sträng:
+I det här exemplet konverteras base64-kodade strängen "aGVsbG8 =" till en binär sträng:
 
 ```
 base64ToBinary('aGVsbG8=')
 ```
 
-Och returnerar detta resultat:
+Och returnerar följande resultat:
 
 `"0110000101000111010101100111001101100010010001110011100000111101"`
 
@@ -673,9 +673,9 @@ Och returnerar detta resultat:
 
 ### <a name="base64tostring"></a>base64ToString
 
-Returnera strängversionen för en base64-kodad sträng, vilket effektivt avkodar base64-strängen.
-Använd den här funktionen i stället [för avkodaBase64()](#decodeBase64).
-Även om båda funktionerna `base64ToString()` fungerar på samma sätt, är att föredra.
+Returnera sträng versionen för en Base64-kodad sträng, och avkoda den base64-strängen på ett effektivt sätt.
+Använd den här funktionen i stället för [decodeBase64 ()](#decodeBase64).
+Även om båda funktionerna fungerar på samma sätt `base64ToString()` , är föredra.
 
 ```
 base64ToString('<value>')
@@ -683,23 +683,23 @@ base64ToString('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Den base64-kodade strängen för att avkoda |
+| <*värde*> | Ja | Sträng | Den base64-kodade strängen att avkoda |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-base64-sträng*> | Sträng | Strängversionen för en base64-kodad sträng |
+| <*avkodad-base64-sträng*> | Sträng | Sträng versionen för en Base64-kodad sträng |
 ||||
 
 *Exempel*
 
-I det här exemplet konverteras den "aGVsbG8=" base64-kodade strängen till bara en sträng:
+I det här exemplet konverteras base64-kodade strängen "aGVsbG8 =" till bara en sträng:
 
 ```
 base64ToString('aGVsbG8=')
 ```
 
-Och returnerar detta resultat:`"hello"`
+Och returnerar följande resultat:`"hello"`
 
 <a name="binary"></a>
 
@@ -713,29 +713,29 @@ binary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen som ska konverteras |
+| <*värde*> | Ja | Sträng | Strängen som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binärt-för-in-värde*> | Sträng | Den binära versionen för den angivna strängen |
+| <*Binary-för-indatamängd-värde*> | Sträng | Den binära versionen för den angivna strängen |
 ||||
 
 *Exempel*
 
-I det här exemplet konverteras "hello"-strängen till en binär sträng:
+I det här exemplet konverteras "Hej"-strängen till en binär sträng:
 
 ```
 binary('hello')
 ```
 
-Och returnerar detta resultat:
+Och returnerar följande resultat:
 
 `"0110100001100101011011000110110001101111"`
 
 <a name="bool"></a>
 
-### <a name="bool"></a>bool
+### <a name="bool"></a>boolesk
 
 Returnera den booleska versionen för ett värde.
 
@@ -745,7 +745,7 @@ bool(<value>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Alla | Värdet som ska konverteras |
+| <*värde*> | Ja | Alla | Värdet som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -762,16 +762,16 @@ bool(1)
 bool(0)
 ```
 
-Och returnerar dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`true`
-* Andra exemplet:`false`
+* Andra exempel:`false`
 
 <a name="coalesce"></a>
 
-### <a name="coalesce"></a>smälter samman
+### <a name="coalesce"></a>coalesce
 
-Returnera det första icke-null-värdet från en eller flera parametrar.
+Returnera det första värdet som inte är null från en eller flera parametrar.
 Tomma strängar, tomma matriser och tomma objekt är inte null.
 
 ```
@@ -780,17 +780,17 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*> object_2 <*object_2*>... | Ja | Alla, kan blanda typer | Ett eller flera objekt som ska sökas efter null |
+| <*object_1*> <*object_2*>,... | Ja | Alla, kan blanda typer | Ett eller flera objekt att söka efter null |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*första-icke-null-objektet*> | Alla | Det första objektet eller värdet som inte är null. Om alla parametrar är null returnerar den här funktionen null. |
+| <*första-icke-null-objekt*> | Alla | Det första objektet eller värdet som inte är null. Om alla parametrar är null returnerar den här funktionen null. |
 ||||
 
 *Exempel*
 
-De här exemplen returnerar det första icke-null-värdet från de angivna värdena, eller null när alla värden är null:
+I de här exemplen returneras det första värdet som inte är null från de angivna värdena, eller null när alla värden är null:
 
 ```
 coalesce(null, true, false)
@@ -798,17 +798,17 @@ coalesce(null, 'hello', 'world')
 coalesce(null, null, null)
 ```
 
-Och returnerar dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`true`
-* Andra exemplet:`"hello"`
-* Tredje exemplet:`null`
+* Andra exempel:`"hello"`
+* Tredje exempel:`null`
 
 <a name="concat"></a>
 
-### <a name="concat"></a>Concat
+### <a name="concat"></a>concat
 
-Kombinera två eller flera strängar och returnera den kombinerade strängen.
+Kombinera två eller fler strängar och returnera den kombinerade strängen.
 
 ```
 concat('<text1>', '<text2>', ...)
@@ -816,12 +816,12 @@ concat('<text1>', '<text2>', ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*text2*>, ... | Ja | Sträng | Minst två strängar för att kombinera |
+| <*text1*>, <*Text2*>,... | Ja | Sträng | Minst två strängar att kombinera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | Sträng | Strängen som skapats från de kombinerade indatasträngarna |
+| <*text1text2...*> | Sträng | Strängen som skapats från kombinerade Indatasträngen |
 ||||
 
 *Exempel*
@@ -832,41 +832,41 @@ I det här exemplet kombineras strängarna "Hello" och "World":
 concat('Hello', 'World')
 ```
 
-Och returnerar detta resultat:`"HelloWorld"`
+Och returnerar följande resultat:`"HelloWorld"`
 
 <a name="contains"></a>
 
 ### <a name="contains"></a>innehåller
 
-Kontrollera om en samling har ett visst objekt.
-Returnera sant när objektet hittas eller returnera falskt när det inte hittas.
-Den här funktionen är skiftlägeskänslig.
+Kontrol lera om en samling har ett angivet objekt.
+Returnera true när objektet hittas eller returnera falskt när det inte går att hitta.
+Den här funktionen är Skift läges känslig.
 
 ```
 contains('<collection>', '<value>')
 contains([<collection>], '<value>')
 ```
 
-Den här funktionen fungerar specifikt på dessa samlingstyper:
+Mer specifikt fungerar den här funktionen på dessa samlings typer:
 
-* En *sträng* för att hitta en *delsträng*
+* En *sträng* för att hitta en under *sträng*
 * En *matris* för att hitta ett *värde*
-* En *ordlista* för att hitta en *nyckel*
+* En *ord lista* för att hitta en *nyckel*
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Sträng, matris eller ordlista | Samlingen för att kontrollera |
-| <*Värde*> | Ja | Sträng, matris respektive ordlista | Objektet att hitta |
+| <*samlingen*> | Ja | Sträng, matris eller ord lista | Den samling som ska kontrol leras |
+| <*värde*> | Ja | Sträng, matris eller ord lista | Objektet att söka efter |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när objektet hittas. Returnera falskt när det inte hittas. |
+| sant eller falskt | Boolesk | Returnera true när objektet hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*
 
-I det här exemplet kontrolleras strängen "hello world" för delsträngs "världen" och returnerar sant:
+I det här exemplet kontrol leras strängen "Hello World" för under strängen "världen" och returnerar true:
 
 ```
 contains('hello world', 'world')
@@ -874,7 +874,7 @@ contains('hello world', 'world')
 
 *Exempel 2*
 
-I det här exemplet kontrolleras strängen "hello world" för det underordnade "universum" och returnerar falskt:
+I det här exemplet kontrol leras strängen "Hello World" för under strängen "universum" och returnerar falskt:
 
 ```
 contains('hello world', 'universe')
@@ -882,9 +882,9 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-### <a name="convertfromutc"></a>konverteraFrånUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
-Konvertera en tidsstämpel från Universell tidskoordinerad (UTC) till måltidszonen.
+Konvertera en tidsstämpel från Universal Time Coordinated (UTC) till mål tids zonen.
 
 ```
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
@@ -892,41 +892,41 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*destinationTimeZone*> | Ja | Sträng | Namnet på måltidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*konverterad tidsstämpel*> | Sträng | Tidsstämpeln konverteras till måltidszonen |
+| <*konverterad – tidsstämpel*> | Sträng | Tidsstämpeln konverteras till mål tids zonen |
 ||||
 
 *Exempel 1*
 
-I det här exemplet konverteras en tidsstämpel till den angivna tidszonen:
+I det här exemplet konverteras en tidstämpel till angiven tidszon:
 
 ```
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-Och returnerar detta resultat:`"2018-01-01T00:00:00.0000000"`
+Och returnerar följande resultat:`"2018-01-01T00:00:00.0000000"`
 
 *Exempel 2*
 
-I det här exemplet konverteras en tidsstämpel till den angivna tidszonen och formatet:
+I det här exemplet konverteras en tidstämpel till angiven tidszon och format:
 
 ```
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 ```
 
-Och returnerar detta resultat:`"Monday, January 1, 2018"`
+Och returnerar följande resultat:`"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
-### <a name="converttimezone"></a>konverteraTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
-Konvertera en tidsstämpel från källtidszonen till måltidszonen.
+Konvertera en tidsstämpel från käll tids zonen till mål tids zonen.
 
 ```
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
@@ -934,42 +934,42 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*källaTimeZone*> | Ja | Sträng | Namnet på källtidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*destinationTimeZone*> | Ja | Sträng | Namnet på måltidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
+| <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*konverterad tidsstämpel*> | Sträng | Tidsstämpeln konverteras till måltidszonen |
+| <*konverterad – tidsstämpel*> | Sträng | Tidsstämpeln konverteras till mål tids zonen |
 ||||
 
 *Exempel 1*
 
-I det här exemplet konverteras källtidszonen till måltidszonen:
+I det här exemplet konverteras käll tids zonen till mål tids zonen:
 
 ```
 convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
 ```
 
-Och returnerar detta resultat:`"2018-01-01T00:00:00.0000000"`
+Och returnerar följande resultat:`"2018-01-01T00:00:00.0000000"`
 
 *Exempel 2*
 
-I det här exemplet konverteras en tidszon till den angivna tidszonen och formatet:
+I det här exemplet konverteras en tidszon till angiven tidszon och format:
 
 ```
 convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 'D')
 ```
 
-Och returnerar detta resultat:`"Monday, January 1, 2018"`
+Och returnerar följande resultat:`"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
-### <a name="converttoutc"></a>konverteraToUtc
+### <a name="converttoutc"></a>convertToUtc
 
-Konvertera en tidsstämpel från källtidszonen till Universell tidskoordinerad (UTC).
+Konvertera en tidsstämpel från käll tids zonen till koordinerad Universal-tid (UTC).
 
 ```
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
@@ -977,14 +977,14 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*källaTimeZone*> | Ja | Sträng | Namnet på källtidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*konverterad tidsstämpel*> | Sträng | Tidsstämpeln konverterad till UTC |
+| <*konverterad – tidsstämpel*> | Sträng | Tidsstämpeln konverterad till UTC |
 ||||
 
 *Exempel 1*
@@ -995,7 +995,7 @@ I det här exemplet konverteras en tidsstämpel till UTC:
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
 ```
 
-Och returnerar detta resultat:`"2018-01-01T08:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-01-01T08:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -1005,14 +1005,14 @@ I det här exemplet konverteras en tidsstämpel till UTC:
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 ```
 
-Och returnerar detta resultat:`"Monday, January 1, 2018"`
+Och returnerar följande resultat:`"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
-### <a name="createarray"></a>skapaArray
+### <a name="createarray"></a>createArray
 
 Returnera en matris från flera indata.
-För enstaka indatamatriser finns i [array()](#array).
+För enstaka lagringsmatriser, se [matris ()](#array).
 
 ```
 createArray('<object1>', '<object2>', ...)
@@ -1020,29 +1020,29 @@ createArray('<object1>', '<object2>', ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*objekt1*>, <*objekt2*>, ... | Ja | Någon, men inte blandad | Minst två objekt för att skapa matrisen |
+| <*object1*> <*object2*>... | Ja | Alla, men inte blandade | Minst två objekt för att skapa matrisen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| [<*objekt1*>, <*objekt2*>, ...] | Matris | Matrisen som skapats från alla indataobjekt |
+| [<*object1*> <*object2*>,...] | Matris | Matrisen som skapas från alla inmatade objekt |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en matris från dessa indata:
+I det här exemplet skapas en matris med följande indata:
 
 ```
 createArray('h', 'e', 'l', 'l', 'o')
 ```
 
-Och returnerar detta resultat:`["h", "e", "l", "l", "o"]`
+Och returnerar följande resultat:`["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
 ### <a name="datauri"></a>dataUri
 
-Returnera en datauniform resursidentifierare (URI) för en sträng.
+Returnera en URI (data Uniform Resource Identifier) för en sträng.
 
 ```
 dataUri('<value>')
@@ -1050,31 +1050,31 @@ dataUri('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen som ska konverteras |
+| <*värde*> | Ja | Sträng | Strängen som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*data-uri*> | Sträng | Data-URI för indatasträngen |
+| <*data-URI*> | Sträng | Data-URI för Indatasträngen |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en data-URI för strängen "hej":
+I det här exemplet skapas en data-URI för "Hej"-strängen:
 
 ```
 dataUri('hello')
 ```
 
-Och returnerar detta resultat:`"data:text/plain;charset=utf-8;base64,aGVsbG8="`
+Och returnerar följande resultat:`"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
-### <a name="datauritobinary"></a>dataUriToBinär
+### <a name="datauritobinary"></a>dataUriToBinary
 
-Returnera den binära versionen för en datauniform resursidentifierare (URI).
-Använd den här funktionen i stället [för att avkodaDataUri()](#decodeDataUri).
-Även om båda funktionerna `dataUriBinary()` fungerar på samma sätt, är att föredra.
+Returnera den binära versionen för en URI (data Uniform Resource Identifier).
+Använd den här funktionen i stället för [decodeDataUri ()](#decodeDataUri).
+Även om båda funktionerna fungerar på samma sätt `dataUriBinary()` , är föredra.
 
 ```
 dataUriToBinary('<value>')
@@ -1082,23 +1082,23 @@ dataUriToBinary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | De data URI att konvertera |
+| <*värde*> | Ja | Sträng | Den data-URI som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-data-uri*> | Sträng | Den binära versionen för data URI |
+| <*Binary-för-data-URI*> | Sträng | Den binära versionen för data-URI: n |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en binär version för den här data-URI:ar:
+I det här exemplet skapas en binär version för denna data-URI:
 
 ```
 dataUriToBinary('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-Och returnerar detta resultat:
+Och returnerar följande resultat:
 
 `"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
 1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
@@ -1109,7 +1109,7 @@ Och returnerar detta resultat:
 
 ### <a name="datauritostring"></a>dataUriToString
 
-Returnera strängversionen för en datauniformig resursidentifierare (URI).
+Returnera sträng versionen för en URI (data Uniform Resource Identifier).
 
 ```
 dataUriToString('<value>')
@@ -1117,23 +1117,23 @@ dataUriToString('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | De data URI att konvertera |
+| <*värde*> | Ja | Sträng | Den data-URI som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*sträng-för-data-uri*> | Sträng | Strängversionen för data-URI |
+| <*sträng för data-URI*> | Sträng | Sträng versionen för data-URI: n |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en sträng för den här data-URI:et:
+I det här exemplet skapas en sträng för denna data-URI:
 
 ```
 dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-Och returnerar detta resultat:`"hello"`
+Och returnerar följande resultat:`"hello"`
 
 <a name="dayOfMonth"></a>
 
@@ -1147,29 +1147,29 @@ dayOfMonth('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*dag i månaden*> | Integer | Dagen i månaden från den angivna tidsstämpeln |
+| <*dag i månaden*> | Integer | Dag i månaden från angiven tidsstämpel |
 ||||
 
 *Exempel*
 
-I det här exemplet returneras numret för dagen i månaden från den här tidsstämpeln:
+Det här exemplet returnerar numret för dagen i månaden från den här tidsstämpeln:
 
 ```
 dayOfMonth('2018-03-15T13:27:36Z')
 ```
 
-Och returnerar detta resultat:`15`
+Och returnerar följande resultat:`15`
 
 <a name="dayOfWeek"></a>
 
 ### <a name="dayofweek"></a>dayOfWeek
 
-Returnera veckodagen från en tidsstämpel.
+Returnera vecko dagen från en tidsstämpel.
 
 ```
 dayOfWeek('<timestamp>')
@@ -1177,23 +1177,23 @@ dayOfWeek('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*veckodag*> | Integer | Veckodagen från den angivna tidsstämpeln där söndag är 0, måndag är 1 och så vidare |
+| <*dag i veckan*> | Integer | Vecko dagen från den angivna tidsstämpeln där söndag är 0, måndag är 1 och så vidare |
 ||||
 
 *Exempel*
 
-I det här exemplet returneras numret för veckodagen från den här tidsstämpeln:
+Det här exemplet returnerar numret för vecko dagen från den här tidsstämpeln:
 
 ```
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-Och returnerar detta resultat:`3`
+Och returnerar följande resultat:`3`
 
 <a name="dayOfYear"></a>
 
@@ -1207,31 +1207,31 @@ dayOfYear('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*dag på året*> | Integer | Dagen på året från den angivna tidsstämpeln |
+| <*dag – år*> | Integer | Dagen på året från den angivna tidsstämpeln |
 ||||
 
 *Exempel*
 
-I det här exemplet returneras antalet på årets dag från den här tidsstämpeln:
+Det här exemplet returnerar antalet dagar på året från den här tidsstämpeln:
 
 ```
 dayOfYear('2018-03-15T13:27:36Z')
 ```
 
-Och returnerar detta resultat:`74`
+Och returnerar följande resultat:`74`
 
 <a name="decodeBase64"></a>
 
-### <a name="decodebase64"></a>avkodaBase64
+### <a name="decodebase64"></a>decodeBase64
 
-Returnera strängversionen för en base64-kodad sträng, vilket effektivt avkodar base64-strängen.
-Överväg att använda [base64ToString()](#base64ToString) i stället `decodeBase64()`för .
-Även om båda funktionerna `base64ToString()` fungerar på samma sätt, är att föredra.
+Returnera sträng versionen för en Base64-kodad sträng, och avkoda den base64-strängen på ett effektivt sätt.
+Överväg att använda [base64ToString ()](#base64ToString) i `decodeBase64()`stället för.
+Även om båda funktionerna fungerar på samma sätt `base64ToString()` , är föredra.
 
 ```
 decodeBase64('<value>')
@@ -1239,31 +1239,31 @@ decodeBase64('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Den base64-kodade strängen för att avkoda |
+| <*värde*> | Ja | Sträng | Den base64-kodade strängen att avkoda |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-base64-sträng*> | Sträng | Strängversionen för en base64-kodad sträng |
+| <*avkodad-base64-sträng*> | Sträng | Sträng versionen för en Base64-kodad sträng |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en sträng för en base64-kodad sträng:
+I det här exemplet skapas en sträng för en Base64-kodad sträng:
 
 ```
 decodeBase64('aGVsbG8=')
 ```
 
-Och returnerar detta resultat:`"hello"`
+Och returnerar följande resultat:`"hello"`
 
 <a name="decodeDataUri"></a>
 
-### <a name="decodedatauri"></a>avkodaDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
-Returnera den binära versionen för en datauniform resursidentifierare (URI).
-Överväg att använda [dataUriToBinary()](#dataUriToBinary)i stället `decodeDataUri()`för .
-Även om båda funktionerna `dataUriToBinary()` fungerar på samma sätt, är att föredra.
+Returnera den binära versionen för en URI (data Uniform Resource Identifier).
+Överväg att använda [dataUriToBinary ()](#dataUriToBinary)i stället `decodeDataUri()`för.
+Även om båda funktionerna fungerar på samma sätt `dataUriToBinary()` , är föredra.
 
 ```
 decodeDataUri('<value>')
@@ -1271,23 +1271,23 @@ decodeDataUri('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Den data-URI-sträng som ska avkodas |
+| <*värde*> | Ja | Sträng | Den data-URI-sträng som ska avkodas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-data-uri*> | Sträng | Den binära versionen för en data-URI-sträng |
+| <*Binary-för-data-URI*> | Sträng | Den binära versionen för en data URI-sträng |
 ||||
 
 *Exempel*
 
-I det här exemplet returneras den binära versionen för den här data-URI:en:
+Det här exemplet returnerar den binära versionen för denna data-URI:
 
 ```
 decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-Och returnerar detta resultat:
+Och returnerar följande resultat:
 
 `"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
 1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
@@ -1296,7 +1296,7 @@ Och returnerar detta resultat:
 
 <a name="decodeUriComponent"></a>
 
-### <a name="decodeuricomponent"></a>avkodaUriComponent
+### <a name="decodeuricomponent"></a>decodeUriComponent
 
 Returnera en sträng som ersätter escape-tecken med avkodade versioner.
 
@@ -1306,30 +1306,30 @@ decodeUriComponent('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen med escape-tecknen för att avkoda |
+| <*värde*> | Ja | Sträng | Strängen med escape-tecken att avkoda |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-uri*> | Sträng | Den uppdaterade strängen med de avkodade escape-tecknen |
+| <*avkodad-URI*> | Sträng | Den uppdaterade strängen med avkodade escape-tecken |
 ||||
 
 *Exempel*
 
-Det här exemplet ersätter escape-tecknen i den här strängen med avkodade versioner:
+I det här exemplet ersätts escape-tecknen i den här strängen med avkodade versioner:
 
 ```
 decodeUriComponent('http%3A%2F%2Fcontoso.com')
 ```
 
-Och returnerar detta resultat:`"https://contoso.com"`
+Och returnerar följande resultat:`"https://contoso.com"`
 
 <a name="div"></a>
 
 ### <a name="div"></a>div
 
-Returnera heltalsresultatet från att dela två tal.
-För att få resten resultat, se [mod()](#mod).
+Returnera heltals resultatet från att dividera två tal.
+För att få resten av resultatet, se [mod ()](#mod).
 
 ```
 div(<dividend>, <divisor>)
@@ -1337,33 +1337,33 @@ div(<dividend>, <divisor>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Utdelning*> | Ja | Heltal eller Flyta | Talet som ska divideras med *divisorn* |
-| <*Divisor*> | Ja | Heltal eller Flyta | Det tal som delar *utdelningen*, men kan inte vara 0 |
+| <*preferens*> | Ja | Heltal eller flyttal | Talet som ska divideras med *divisorn* |
+| <*divisor*> | Ja | Heltal eller flyttal | Talet som delar upp *utdelningen*, men kan inte vara 0 |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*kvot-resultat*> | Integer | Heltalsresultatet från att dividera det första talet med det andra talet |
+| <*kvot-resultat*> | Integer | Heltals resultatet från att dividera det första talet med det andra talet |
 ||||
 
 *Exempel*
 
-Båda exemplen dividerar det första talet med det andra talet:
+Båda exemplen delar det första talet med det andra talet:
 
 ```
 div(10, 5)
 div(11, 5)
 ```
 
-Och returnera detta resultat:`2`
+Och returnera följande resultat:`2`
 
 <a name="encodeUriComponent"></a>
 
 ### <a name="encodeuricomponent"></a>encodeUriComponent
 
-Returnera en uri-kodad version (Uniform Resource Identifier) för en sträng genom att ersätta URL-osäkra tecken med escape-tecken.
-Överväg att använda [uriComponent()](#uriComponent)i stället `encodeUriComponent()`för .
-Även om båda funktionerna `uriComponent()` fungerar på samma sätt, är att föredra.
+Returnera en URI-kodad (Uniform Resource Identifier) version för en sträng genom att ersätta URL-osäkra tecken med escape-tecken.
+Överväg att använda [uriComponent ()](#uriComponent)i stället `encodeUriComponent()`för.
+Även om båda funktionerna fungerar på samma sätt `uriComponent()` , är föredra.
 
 ```
 encodeUriComponent('<value>')
@@ -1371,12 +1371,12 @@ encodeUriComponent('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen som ska konverteras till URI-kodat format |
+| <*värde*> | Ja | Sträng | Strängen som ska konverteras till URI-kodat format |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*kodad-uri*> | Sträng | Den URI-kodade strängen med escape-tecken |
+| <*kodad-URI*> | Sträng | Den URI-kodade strängen med escape-tecken |
 ||||
 
 *Exempel*
@@ -1387,14 +1387,14 @@ I det här exemplet skapas en URI-kodad version för den här strängen:
 encodeUriComponent('https://contoso.com')
 ```
 
-Och returnerar detta resultat:`"http%3A%2F%2Fcontoso.com"`
+Och returnerar följande resultat:`"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
 ### <a name="empty"></a>tomt
 
-Kontrollera om en samling är tom.
-Returnera sant när samlingen är tom eller returnera false när den inte är tom.
+Kontrol lera om en samling är tom.
+Returnera true när samlingen är tom eller returnera falskt om den inte är tom.
 
 ```
 empty('<collection>')
@@ -1403,12 +1403,12 @@ empty([<collection>])
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Sträng, matris eller objekt | Samlingen för att kontrollera |
+| <*samlingen*> | Ja | Sträng, matris eller objekt | Den samling som ska kontrol leras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när samlingen är tom. Returnera falskt när du inte är tom. |
+| sant eller falskt | Boolesk | Returnera true när samlingen är tom. Returnera falskt om det inte är tomt. |
 ||||
 
 *Exempel*
@@ -1420,18 +1420,18 @@ empty('')
 empty('abc')
 ```
 
-Och returnerar dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Skickar en tom sträng, så funktionen returnerar `true`.
-* Andra exemplet: Skickar strängen "abc", `false`så funktionen returnerar .
+* Första exemplet: skickar en tom sträng, så funktionen returnerar `true`.
+* Andra exempel: skickar strängen "ABC", så funktionen returnerar `false`.
 
 <a name="endswith"></a>
 
 ### <a name="endswith"></a>endsWith
 
-Kontrollera om en sträng slutar med en viss delsträng.
-Returnera sant när delsträngen hittas eller returnera falskt när den inte hittas.
-Den här funktionen är inte skiftlägeskänslig.
+Kontrol lera om en sträng slutar med en angiven under sträng.
+Returnera true när under strängen hittas eller returnera falskt när den inte hittas.
+Den här funktionen är inte Skift läges känslig.
 
 ```
 endsWith('<text>', '<searchText>')
@@ -1439,41 +1439,41 @@ endsWith('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen för att kontrollera |
-| <*söktext*> | Ja | Sträng | Den avslutande delsträngen för att hitta |
+| <*information*> | Ja | Sträng | Strängen som ska kontrol leras |
+| <*searchText*> | Ja | Sträng | Slut under strängen som du hittar |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt  | Boolesk | Returnera sant när den avslutande delsträngen hittas. Returnera falskt när det inte hittas. |
+| sant eller falskt  | Boolesk | Returnera true när slut under strängen hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*
 
-I det här exemplet kontrolleras om strängen "hello world" slutar med strängen "världen":
+I det här exemplet kontrol leras om strängen "Hello World" slutar med "World"-strängen:
 
 ```
 endsWith('hello world', 'world')
 ```
 
-Och returnerar detta resultat:`true`
+Och returnerar följande resultat:`true`
 
 *Exempel 2*
 
-I det här exemplet kontrolleras om strängen "hello world" slutar med "universum"-strängen:
+I det här exemplet kontrol leras om strängen "Hello World" slutar med strängen "universum":
 
 ```
 endsWith('hello world', 'universe')
 ```
 
-Och returnerar detta resultat:`false`
+Och returnerar följande resultat:`false`
 
 <a name="equals"></a>
 
 ### <a name="equals"></a>lika med
 
-Kontrollera om båda värdena, uttrycken eller objekten är likvärdiga.
-Returnera sant när båda är likvärdiga eller returnera falskt när de inte är likvärdiga.
+Kontrol lera om både värden, uttryck eller objekt är likvärdiga.
+Returnera true när båda är likvärdiga, eller returnera falskt när de inte är likvärdiga.
 
 ```
 equals('<object1>', '<object2>')
@@ -1481,31 +1481,31 @@ equals('<object1>', '<object2>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*objekt1*>, <*objekt2*> | Ja | Olika | De värden, uttryck eller objekt som ska jämföras |
+| <*object1*> <*object2*> | Ja | Önskade | Värden, uttryck eller objekt som ska jämföras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när båda är likvärdiga. Returnera falskt när den inte är likvärdig. |
+| sant eller falskt | Boolesk | Returnera true när båda är likvärdiga. Returnera falskt om det inte är motsvarande. |
 ||||
 
 *Exempel*
 
-De här exemplen kontrollerar om de angivna ingångarna är likvärdiga.
+De här exemplen kontrollerar om angivna indata är likvärdiga.
 
 ```
 equals(true, 1)
 equals('abc', 'abcd')
 ```
 
-Och returnerar dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Båda värdena är `true`likvärdiga, så funktionen returnerar .
-* Andra exemplet: Båda värdena är inte `false`likvärdiga, så funktionen returnerar .
+* Första exemplet: båda värdena är likvärdiga, så funktionen returnerar `true`.
+* Andra exempel: båda värdena är inte likvärdiga, så funktionen `false`returnerar.
 
 <a name="first"></a>
 
-### <a name="first"></a>Första
+### <a name="first"></a>förstagångskörningen
 
 Returnera det första objektet från en sträng eller matris.
 
@@ -1516,33 +1516,33 @@ first([<collection>])
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Sträng eller matris | Samlingen var du hittar det första objektet |
+| <*samlingen*> | Ja | Sträng eller matris | Samlingen där det första objektet ska hittas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*första samlingen-objekt*> | Alla | Det första objektet i samlingen |
+| <*första samlings objekt*> | Alla | Det första objektet i samlingen |
 ||||
 
 *Exempel*
 
-De här exemplen hittar det första objektet i dessa samlingar:
+I de här exemplen hittar du det första objektet i de här samlingarna:
 
 ```
 first('hello')
 first(createArray(0, 1, 2))
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`"h"`
-* Andra exemplet:`0`
+* Andra exempel:`0`
 
 <a name="float"></a>
 
 ### <a name="float"></a>float
 
-Konvertera en strängversion för ett flyttalsnummer till ett verkligt flyttalsnummer.
+Konvertera en sträng version för ett flyttal till ett verkligt flytt ALS nummer.
 
 ```
 float('<value>')
@@ -1550,29 +1550,29 @@ float('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen som har ett giltigt flyttalsnummer för att konvertera |
+| <*värde*> | Ja | Sträng | Den sträng som har ett giltigt flytt ALS nummer att konvertera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*float-värde*> | Float (Flyttal) | Flyttalsnumret för den angivna strängen |
+| <*float-Value*> | Float (Flyttal) | Flytt ALS numret för den angivna strängen |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en strängversion för det här flyttalsnumret:
+I det här exemplet skapas en sträng version för det här flytt ALS numret:
 
 ```
 float('10.333')
 ```
 
-Och returnerar detta resultat:`10.333`
+Och returnerar följande resultat:`10.333`
 
 <a name="formatDateTime"></a>
 
 ### <a name="formatdatetime"></a>formatDateTime
 
-Returnera en tidsstämpel i angivet format.
+Returnera en tidstämpel i det angivna formatet.
 
 ```
 formatDateTime('<timestamp>', '<format>'?)
@@ -1580,30 +1580,30 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*formaterad tidsstämpel*> | Sträng | Den uppdaterade tidsstämpeln i angivet format |
+| <*omformaterad – tidsstämpel*> | Sträng | Den uppdaterade tidsstämpeln i det angivna formatet |
 ||||
 
 *Exempel*
 
-I det här exemplet konverteras en tidsstämpel till det angivna formatet:
+I det här exemplet konverteras en tidstämpel till det angivna formatet:
 
 ```
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
 
-Och returnerar detta resultat:`"2018-03-15T12:00:00"`
+Och returnerar följande resultat:`"2018-03-15T12:00:00"`
 
 <a name="getFutureTime"></a>
 
-### <a name="getfuturetime"></a>fåFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
-Returnera den aktuella tidsstämpeln plus de angivna tidsenheterna.
+Returnera den aktuella tidsstämpeln och de angivna tidsenheterna.
 
 ```
 getFutureTime(<interval>, <timeUnit>, <format>?)
@@ -1611,41 +1611,41 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
-| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Den aktuella tidsstämpeln plus det angivna antalet tidsenheter |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Aktuell tidsstämpel plus angivet antal tidsenheter |
 ||||
 
 *Exempel 1*
 
-Anta att den aktuella tidsstämpeln är "2018-03-01T00:00:00.00000000Z".
-I det här exemplet läggs fem dagar till i den tidsstämpeln:
+Anta att den aktuella tidsstämpeln är "2018-03-01T00:00:00.0000000 Z".
+I det här exemplet läggs fem dagar till i tidsstämpeln:
 
 ```
 getFutureTime(5, 'Day')
 ```
 
-Och returnerar detta resultat:`"2018-03-06T00:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-03-06T00:00:00.0000000Z"`
 
 *Exempel 2*
 
-Anta att den aktuella tidsstämpeln är "2018-03-01T00:00:00.00000000Z".
+Anta att den aktuella tidsstämpeln är "2018-03-01T00:00:00.0000000 Z".
 Det här exemplet lägger till fem dagar och konverterar resultatet till "D"-format:
 
 ```
 getFutureTime(5, 'Day', 'D')
 ```
 
-Och returnerar detta resultat:`"Tuesday, March 6, 2018"`
+Och returnerar följande resultat:`"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
-### <a name="getpasttime"></a>fåPastTime
+### <a name="getpasttime"></a>getPastTime
 
 Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna.
 
@@ -1655,44 +1655,44 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
-| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Den aktuella tidsstämpeln minus det angivna antalet tidsenheter |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Den aktuella tidsstämpeln minus det angivna antalet tidsenheter |
 ||||
 
 *Exempel 1*
 
-Anta att den aktuella tidsstämpeln är "2018-02-01T00:00:00.00000000Z".
-Det här exemplet subtraherar fem dagar från den tidsstämpeln:
+Anta att den aktuella tidsstämpeln är "2018-02-01T00:00:00.0000000 Z".
+I det här exemplet subtraheras fem dagar från tidsstämpeln:
 
 ```
 getPastTime(5, 'Day')
 ```
 
-Och returnerar detta resultat:`"2018-01-27T00:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-01-27T00:00:00.0000000Z"`
 
 *Exempel 2*
 
-Anta att den aktuella tidsstämpeln är "2018-02-01T00:00:00.00000000Z".
+Anta att den aktuella tidsstämpeln är "2018-02-01T00:00:00.0000000 Z".
 Det här exemplet subtraherar fem dagar och konverterar resultatet till "D"-format:
 
 ```
 getPastTime(5, 'Day', 'D')
 ```
 
-Och returnerar detta resultat:`"Saturday, January 27, 2018"`
+Och returnerar följande resultat:`"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
 ### <a name="greater"></a>större än
 
-Kontrollera om det första värdet är större än det andra värdet.
-Returnera sant när det första värdet är mer, eller returnera falskt när mindre.
+Kontrol lera om det första värdet är större än det andra värdet.
+Returnera true när det första värdet är större, eller returnera falskt om det är mindre.
 
 ```
 greater(<value>, <compareTo>)
@@ -1701,13 +1701,13 @@ greater('<value>', '<compareTo>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Heltal, Flyt eller Sträng | Det första värdet för att kontrollera om det är större än det andra värdet |
-| <*jämförTill*> | Ja | Heltal, Float eller String, respektive | Jämförelsevärdet |
+| <*värde*> | Ja | Heltal, float eller string | Det första värdet för att kontrol lera om det är större än det andra värdet |
+| <*compareTo*> | Ja | Heltal, float eller String respektive sträng | Jämförelse värde |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när det första värdet är större än det andra värdet. Returnera falskt när det första värdet är lika med eller mindre än det andra värdet. |
+| sant eller falskt | Boolesk | Returnerar sant när det första värdet är större än det andra värdet. Returnera falskt om det första värdet är lika med eller mindre än det andra värdet. |
 ||||
 
 *Exempel*
@@ -1719,17 +1719,17 @@ greater(10, 5)
 greater('apple', 'banana')
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`true`
-* Andra exemplet:`false`
+* Andra exempel:`false`
 
 <a name="greaterOrEquals"></a>
 
 ### <a name="greaterorequals"></a>större än eller lika med
 
-Kontrollera om det första värdet är större än eller lika med det andra värdet.
-Returnera sant när det första värdet är större eller lika, eller returnera falskt när det första värdet är mindre.
+Kontrol lera om det första värdet är större än eller lika med det andra värdet.
+Returnera true när det första värdet är större än eller lika med, eller returnera falskt om det första värdet är mindre.
 
 ```
 greaterOrEquals(<value>, <compareTo>)
@@ -1738,32 +1738,32 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Heltal, Flyt eller Sträng | Det första värdet för att kontrollera om det är större än eller lika med det andra värdet |
-| <*jämförTill*> | Ja | Heltal, Float eller String, respektive | Jämförelsevärdet |
+| <*värde*> | Ja | Heltal, float eller string | Det första värdet för att kontrol lera om det är större än eller lika med det andra värdet |
+| <*compareTo*> | Ja | Heltal, float eller String respektive sträng | Jämförelse värde |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt när det första värdet är mindre än det andra värdet. |
+| sant eller falskt | Boolesk | Returnerar sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt om det första värdet är mindre än det andra värdet. |
 ||||
 
 *Exempel*
 
-De här exemplen kontrollerar om det första värdet är större eller lika med det andra värdet:
+De här exemplen kontrollerar om det första värdet är större än eller lika med det andra värdet:
 
 ```
 greaterOrEquals(5, 5)
 greaterOrEquals('apple', 'banana')
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`true`
-* Andra exemplet:`false`
+* Andra exempel:`false`
 
 <a name="guid"></a>
 
-### <a name="guid"></a>Guid
+### <a name="guid"></a>guid
 
 Generera en globalt unik identifierare (GUID) som en sträng, till exempel "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 
@@ -1771,7 +1771,7 @@ Generera en globalt unik identifierare (GUID) som en sträng, till exempel "c2ec
 guid()
 ```
 
-Du kan också ange ett annat format för GUID annat än standardformatet "D", som är 32 siffror avgränsade med bindestreck.
+Du kan också ange ett annat format för GUID förutom standardformat, "D", som är 32 siffror avgränsade med bindestreck.
 
 ```
 guid('<format>')
@@ -1779,7 +1779,7 @@ guid('<format>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Format*> | Inga | Sträng | En enda [formatespecificerare](https://msdn.microsoft.com/library/97af8hh4) för det returnerade GUID.A single format specifier for the returned GUID. Som standard är formatet "D", men du kan använda "N", "D", "B", "P" eller "X". |
+| <*formatering*> | Inga | Sträng | En enkel [formats specifikation](https://msdn.microsoft.com/library/97af8hh4) för det returnerade GUID: t. Som standard är formatet "D", men du kan använda "N", "D", "B", "P" eller "X". |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1789,20 +1789,20 @@ guid('<format>')
 
 *Exempel*
 
-Det här exemplet genererar samma GUID, men som 32 siffror, avgränsade med bindestreck och omslutna inom parentes:
+Det här exemplet genererar samma GUID, men som 32 siffror, avgränsade med bindestreck och omgivna av parenteser:
 
 ```
 guid('P')
 ```
 
-Och returnerar detta resultat:`"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
+Och returnerar följande resultat:`"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
 ### <a name="if"></a>om
 
-Kontrollera om ett uttryck är sant eller falskt.
-Baserat på resultatet returnerar du ett angivet värde.
+Kontrol lera om ett uttryck är sant eller falskt.
+Returnera ett angivet värde baserat på resultatet.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
@@ -1810,20 +1810,20 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Uttryck*> | Ja | Boolesk | Uttrycket som ska kontrolleras |
-| <*värdeIfTrue*> | Ja | Alla | Värdet som ska returneras när uttrycket är sant |
-| <*värdeIfFalse*> | Ja | Alla | Värdet som ska returneras när uttrycket är falskt |
+| <*uttryck*> | Ja | Boolesk | Det uttryck som ska kontrol leras |
+| <*valueIfTrue*> | Ja | Alla | Det värde som ska returneras när uttrycket är sant |
+| <*valueIfFalse*> | Ja | Alla | Värdet som ska returneras när uttrycket är falskt |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*specificerat returvärde*> | Alla | Det angivna värdet som returnerar baserat på om uttrycket är sant eller falskt |
+| <*angivet-retur värde*> | Alla | Det angivna värdet som returnerar baserat på om uttrycket är sant eller falskt |
 ||||
 
 *Exempel*
 
-Det här `"yes"` exemplet returneras eftersom det angivna uttrycket returnerar sant.
-Annars returneras `"no"`exemplet:
+Det här exemplet `"yes"` returnerar eftersom det angivna uttrycket returnerar true.
+Annars returnerar `"no"`exemplet:
 
 ```
 if(equals(1, 1), 'yes', 'no')
@@ -1833,8 +1833,8 @@ if(equals(1, 1), 'yes', 'no')
 
 ### <a name="indexof"></a>indexOf
 
-Returnera startpositionen eller indexvärdet för en delsträng.
-Den här funktionen är inte skiftlägeskänslig och index börjar med talet 0.
+Returnera start positionen eller index värdet för en under sträng.
+Den här funktionen är inte Skift läges känslig och index börjar med siffran 0.
 
 ```
 indexOf('<text>', '<searchText>')
@@ -1842,30 +1842,30 @@ indexOf('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen som har delsträngen för att hitta |
-| <*söktext*> | Ja | Sträng | Delsträngen för att hitta |
+| <*information*> | Ja | Sträng | Strängen som innehåller under strängen som ska hittas |
+| <*searchText*> | Ja | Sträng | Under strängen som ska hittas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*indexvärde*>| Integer | Startpositionen eller indexvärdet för den angivna delsträngen. <p>Om strängen inte hittas returnerar du numret -1. |
+| <*index-värde*>| Integer | Start position eller index värde för den angivna under strängen. <p>Returnera talet-1 om strängen inte hittas. |
 ||||
 
 *Exempel*
 
-I det här exemplet hittas startindexvärdet för delsträngen "världen" i strängen "hello world":
+I det här exemplet hittas start index svärdet för "World"-del strängen i strängen "Hello World":
 
 ```
 indexOf('hello world', 'world')
 ```
 
-Och returnerar detta resultat:`6`
+Och returnerar följande resultat:`6`
 
 <a name="int"></a>
 
 ### <a name="int"></a>int
 
-Returnera heltalsversionen för en sträng.
+Returnera heltals versionen för en sträng.
 
 ```
 int('<value>')
@@ -1873,29 +1873,29 @@ int('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen som ska konverteras |
+| <*värde*> | Ja | Sträng | Strängen som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*heltalsresultat*> | Integer | Heltalsversionen för den angivna strängen |
+| <*heltal-resultat*> | Integer | Heltals versionen för den angivna strängen |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en heltalsversion för strängen "10":
+I det här exemplet skapas en heltals version för strängen "10":
 
 ```
 int('10')
 ```
 
-Och returnerar detta resultat:`10`
+Och returnerar följande resultat:`10`
 
 <a name="json"></a>
 
 ### <a name="json"></a>json
 
-Returnera typvärdet eller objektet för JavaScript-objekt (JSON) för en sträng eller XML.
+Returnera värdet för JavaScript Object Notation (JSON) av typen eller objektet för en sträng eller XML.
 
 ```
 json('<value>')
@@ -1903,23 +1903,23 @@ json('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng eller XML | Den sträng eller XML som ska konverteras |
+| <*värde*> | Ja | Sträng eller XML | Strängen eller XML som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*JSON-resultat*> | JSON-inbyggt text eller objekt | Det inbyggda JSON-värdet eller objektet för den angivna strängen eller XML-koden. Om strängen är null returnerar funktionen ett tomt objekt. |
+| <*JSON-resultat*> | Inbyggd JSON-typ eller-objekt | Det interna JSON-värdet eller objektet för den angivna strängen eller XML-filen. Om strängen är null returnerar funktionen ett tomt objekt. |
 ||||
 
 *Exempel 1*
 
-I det här exemplet konverteras strängen till JSON-värdet:
+I det här exemplet konverteras den här strängen till JSON-värdet:
 
 ```
 json('[1, 2, 3]')
 ```
 
-Och returnerar detta resultat:`[1, 2, 3]`
+Och returnerar följande resultat:`[1, 2, 3]`
 
 *Exempel 2*
 
@@ -1929,7 +1929,7 @@ I det här exemplet konverteras strängen till JSON:
 json('{"fullName": "Sophia Owen"}')
 ```
 
-Och returnerar detta resultat:
+Och returnerar följande resultat:
 
 ```
 {
@@ -1939,13 +1939,13 @@ Och returnerar detta resultat:
 
 *Exempel 3*
 
-I det här exemplet konverteras xml-koden till JSON:
+I det här exemplet konverteras XML till JSON:
 
 ```
 json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
 ```
 
-Och returnerar detta resultat:
+Och returnerar följande resultat:
 
 ```json
 {
@@ -1962,10 +1962,10 @@ Och returnerar detta resultat:
 
 <a name="intersection"></a>
 
-### <a name="intersection"></a>Korsningen
+### <a name="intersection"></a>överlappning
 
-Returnera en samling som *bara* har de vanliga objekten i de angivna samlingarna.
-Om du vill visa resultatet måste ett objekt visas i alla samlingar som skickas till den här funktionen.
+Returnera en samling som *endast* innehåller gemensamma objekt i de angivna samlingarna.
+För att visas i resultatet måste ett objekt visas i alla samlingar som har skickats till den här funktionen.
 Om ett eller flera objekt har samma namn visas det sista objektet med det namnet i resultatet.
 
 ```
@@ -1975,17 +1975,17 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ... | Ja | Matris eller objekt, men inte båda | Samlingarna där du *bara* vill ha de vanliga objekten |
+| <*collection1*> <*collection2*>... | Ja | Matris eller objekt, men inte båda | Samlingarna där du *bara* vill ha de gemensamma objekten |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*vanliga objekt*> | Matris respektive objekt | En samling som bara har de gemensamma objekten i de angivna samlingarna |
+| <*common-Items*> | Matris eller objekt respektive | En samling som endast har gemensamma objekt i de angivna samlingarna |
 ||||
 
 *Exempel*
 
-I det här exemplet hittas de vanliga objekten i dessa matriser:
+I det här exemplet hittar du gemensamma objekt i dessa matriser:
 
 ```
 intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
@@ -1997,7 +1997,7 @@ Och returnerar en matris med *endast* följande objekt:`[1, 2]`
 
 ### <a name="join"></a>join
 
-Returnera en sträng som har alla objekt från en matris och som har varje tecken avgränsat med en *avgränsare*.
+Returnera en sträng som innehåller alla objekt från en matris och som innehåller varje tecken avgränsat med en *avgränsare*.
 
 ```
 join([<collection>], '<delimiter>')
@@ -2005,28 +2005,28 @@ join([<collection>], '<delimiter>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Matris | Matrisen som har de objekt som ska sammanfogas |
-| <*Avgränsare*> | Ja | Sträng | Avgränsaren som visas mellan varje tecken i den resulterande strängen |
+| <*samlingen*> | Ja | Matris | Matrisen som innehåller objekten som ska sammanfogas |
+| <*avgränsare*> | Ja | Sträng | Avgränsaren som visas mellan varje tecken i den resulterande strängen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*char1*><*avgränsare*><*char2*><*avgränsare*>... | Sträng | Den resulterande strängen som skapats från alla objekt i den angivna matrisen |
+| <*char1*><*delimiter**char2*><*delimiter* CHAR1 avgränsare CHAR2 avgränsare>...>< | Sträng | Den resulterande strängen som skapas från alla objekt i den angivna matrisen |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en sträng från alla objekt i den här matrisen med det angivna tecknet som avgränsare:
+I det här exemplet skapas en sträng från alla objekt i matrisen med det angivna specialtecknet som avgränsare:
 
 ```
 join(createArray('a', 'b', 'c'), '.')
 ```
 
-Och returnerar detta resultat:`"a.b.c"`
+Och returnerar följande resultat:`"a.b.c"`
 
 <a name="last"></a>
 
-### <a name="last"></a>Senaste
+### <a name="last"></a>pågå
 
 Returnera det sista objektet från en samling.
 
@@ -2037,34 +2037,34 @@ last([<collection>])
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Sträng eller matris | Samlingen var den sista artikeln ska hittas |
+| <*samlingen*> | Ja | Sträng eller matris | Den samling där du hittar det sista objektet |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*sista samlingsobjektet*> | Sträng respektive matris | Det sista objektet i samlingen |
+| <*senaste samlings objekt*> | Sträng eller matris | Det sista objektet i samlingen |
 ||||
 
 *Exempel*
 
-De här exemplen hittar det sista objektet i dessa samlingar:
+I de här exemplen hittar du det sista objektet i de här samlingarna:
 
 ```
 last('abcd')
 last(createArray(0, 1, 2, 3))
 ```
 
-Och returnerar dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`"d"`
-* Andra exemplet:`3`
+* Andra exempel:`3`
 
 <a name="lastindexof"></a>
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Returnera startpositionen eller indexvärdet för den senaste förekomsten av en delsträng.
-Den här funktionen är inte skiftlägeskänslig och index börjar med talet 0.
+Returnera start positionen eller index värde för den sista förekomsten av en under sträng.
+Den här funktionen är inte Skift läges känslig och index börjar med siffran 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2072,30 +2072,30 @@ lastIndexOf('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen som har delsträngen för att hitta |
-| <*söktext*> | Ja | Sträng | Delsträngen för att hitta |
+| <*information*> | Ja | Sträng | Strängen som innehåller under strängen som ska hittas |
+| <*searchText*> | Ja | Sträng | Under strängen som ska hittas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*slutindexvärde*> | Integer | Startpositionen eller indexvärdet för den senaste förekomsten av den angivna delsträngen. <p>Om strängen inte hittas returnerar du numret -1. |
+| <*slut index-värde*> | Integer | Start position eller index värde för den sista förekomsten av den angivna under strängen. <p>Returnera talet-1 om strängen inte hittas. |
 ||||
 
 *Exempel*
 
-I det här exemplet hittas startindexvärdet för den senaste förekomsten av delsträngen "världen" i strängen "hello world":
+I det här exemplet hittas start indexet för den sista förekomsten av under strängen "World" i strängen "Hello World":
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-Och returnerar detta resultat:`6`
+Och returnerar följande resultat:`6`
 
 <a name="length"></a>
 
 ### <a name="length"></a>length
 
-Returnera antalet artiklar i en samling.
+Returnera antalet objekt i en samling.
 
 ```
 length('<collection>')
@@ -2104,31 +2104,31 @@ length([<collection>])
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Sträng eller matris | Samlingen med de objekt som ska räknas |
+| <*samlingen*> | Ja | Sträng eller matris | Samlingen med objekten som ska räknas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*längd-eller-antal*> | Integer | Antalet artiklar i samlingen |
+| <*längd-eller-antal*> | Integer | Antalet objekt i samlingen |
 ||||
 
 *Exempel*
 
-I de här exemplen räknas antalet objekt i dessa samlingar:
+Följande exempel räknar antalet objekt i dessa samlingar:
 
 ```
 length('abcd')
 length(createArray(0, 1, 2, 3))
 ```
 
-Och returnera detta resultat:`4`
+Och returnera följande resultat:`4`
 
 <a name="less"></a>
 
 ### <a name="less"></a>mindre än
 
-Kontrollera om det första värdet är mindre än det andra värdet.
-Returnera sant när det första värdet är mindre eller returnera falskt när det första värdet är mer.
+Kontrol lera om det första värdet är mindre än det andra värdet.
+Returnera true när det första värdet är mindre, eller returnera falskt om det första värdet är mer.
 
 ```
 less(<value>, <compareTo>)
@@ -2137,13 +2137,13 @@ less('<value>', '<compareTo>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Heltal, Flyt eller Sträng | Det första värdet för att kontrollera om mindre än det andra värdet |
-| <*jämförTill*> | Ja | Heltal, Float eller String, respektive | Jämförelseobjektet |
+| <*värde*> | Ja | Heltal, float eller string | Det första värdet för att kontrol lera om färre än det andra värdet |
+| <*compareTo*> | Ja | Heltal, float eller String respektive sträng | Jämförelse objektet |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när det första värdet är mindre än det andra värdet. Returnera falskt när det första värdet är lika med eller större än det andra värdet. |
+| sant eller falskt | Boolesk | Returnerar sant när det första värdet är mindre än det andra värdet. Returnera falskt om det första värdet är lika med eller större än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2155,17 +2155,17 @@ less(5, 10)
 less('banana', 'apple')
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`true`
-* Andra exemplet:`false`
+* Andra exempel:`false`
 
 <a name="lessOrEquals"></a>
 
 ### <a name="lessorequals"></a>mindre än eller lika med
 
-Kontrollera om det första värdet är mindre än eller lika med det andra värdet.
-Returnera sant när det första värdet är mindre än eller lika, eller returnera falskt när det första värdet är mer.
+Kontrol lera om det första värdet är mindre än eller lika med det andra värdet.
+Returnera true när det första värdet är mindre än eller lika med, eller returnera falskt om det första värdet är mer.
 
 ```
 lessOrEquals(<value>, <compareTo>)
@@ -2174,34 +2174,34 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Heltal, Flyt eller Sträng | Det första värdet för att kontrollera om det är mindre än eller lika med det andra värdet |
-| <*jämförTill*> | Ja | Heltal, Float eller String, respektive | Jämförelseobjektet |
+| <*värde*> | Ja | Heltal, float eller string | Det första värdet för att kontrol lera om det är mindre än eller lika med det andra värdet |
+| <*compareTo*> | Ja | Heltal, float eller String respektive sträng | Jämförelse objektet |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt  | Boolesk | Returnera sant när det första värdet är mindre än eller lika med det andra värdet. Returnera falskt när det första värdet är större än det andra värdet. |
+| sant eller falskt  | Boolesk | Returnerar sant när det första värdet är mindre än eller lika med det andra värdet. Returnera falskt om det första värdet är större än det andra värdet. |
 ||||
 
 *Exempel*
 
-De här exemplen kontrollerar om det första värdet är mindre eller lika med det andra värdet.
+De här exemplen kontrollerar om det första värdet är mindre än eller lika med det andra värdet.
 
 ```
 lessOrEquals(10, 10)
 lessOrEquals('apply', 'apple')
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`true`
-* Andra exemplet:`false`
+* Andra exempel:`false`
 
 <a name="max"></a>
 
-### <a name="max"></a>Max
+### <a name="max"></a>bekräftat
 
-Returnera det högsta värdet från en lista eller matris med tal som är inkluderande i båda ändar.
+Returnera det högsta värdet från en lista eller matris med värden som inkluderas i båda ändar.
 
 ```
 max(<number1>, <number2>, ...)
@@ -2210,25 +2210,25 @@ max([<number1>, <number2>, ...])
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*nummer1*>, <*nummer2*>, ... | Ja | Heltal, Float eller båda | Den uppsättning siffror som du vill ha det högsta värdet av |
-| [<*nummer1*>, <*nummer2*>, ...] | Ja | Array - Heltal, Float eller båda | Den matris med tal som du vill ha det högsta värdet |
+| <*tal1*>, <*tal2*>,... | Ja | Integer, float eller Both | Den uppsättning tal som du vill ha det högsta värdet från |
+| [<*tal1*>, <*tal2*>,...] | Ja | Matris-Integer, float eller Both | Matrisen med tal som du vill ha det högsta värdet från |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*maxvärde*> | Heltal eller Flyta | Det högsta värdet i den angivna matrisen eller uppsättningen med tal |
+| <*Max värde*> | Heltal eller flyttal | Det högsta värdet i den angivna matrisen eller uppsättningen med tal |
 ||||
 
 *Exempel*
 
-De här exemplen får det högsta värdet från nummeruppsättningen och matrisen:
+Följande exempel hämtar det högsta värdet från uppsättningen med tal och matrisen:
 
 ```
 max(1, 2, 3)
 max(createArray(1, 2, 3))
 ```
 
-Och returnera detta resultat:`3`
+Och returnera följande resultat:`3`
 
 <a name="min"></a>
 
@@ -2243,32 +2243,32 @@ min([<number1>, <number2>, ...])
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*nummer1*>, <*nummer2*>, ... | Ja | Heltal, Float eller båda | Den uppsättning tal som du vill ha det lägsta värdet |
-| [<*nummer1*>, <*nummer2*>, ...] | Ja | Array - Heltal, Float eller båda | Den matris med tal som du vill ha det lägsta värdet |
+| <*tal1*>, <*tal2*>,... | Ja | Integer, float eller Both | Den uppsättning tal som du vill ha det lägsta värdet från |
+| [<*tal1*>, <*tal2*>,...] | Ja | Matris-Integer, float eller Both | Matrisen med tal som du vill ha det lägsta värdet från |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*min-värde*> | Heltal eller Flyta | Det lägsta värdet i den angivna uppsättningen tal eller angiven matris |
+| <*minsta värde*> | Heltal eller flyttal | Det lägsta värdet i den angivna uppsättningen tal eller en angiven matris |
 ||||
 
 *Exempel*
 
-De här exemplen får det lägsta värdet i uppsättningen med tal och matrisen:
+Följande exempel hämtar det lägsta värdet i uppsättningen med tal och matrisen:
 
 ```
 min(1, 2, 3)
 min(createArray(1, 2, 3))
 ```
 
-Och returnera detta resultat:`1`
+Och returnera följande resultat:`1`
 
 <a name="mod"></a>
 
-### <a name="mod"></a>Mod
+### <a name="mod"></a>rest
 
-Returnera resten från att dela två siffror.
-Mer om du vill få heltalsresultatet finns i [div()](#div).
+Returnera resten från att dividera två tal.
+För att få ett heltals resultat, se [div ()](#div).
 
 ```
 mod(<dividend>, <divisor>)
@@ -2276,28 +2276,28 @@ mod(<dividend>, <divisor>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Utdelning*> | Ja | Heltal eller Flyta | Talet som ska divideras med *divisorn* |
-| <*Divisor*> | Ja | Heltal eller Flyta | Det tal som delar *utdelningen*, men kan inte vara 0. |
+| <*preferens*> | Ja | Heltal eller flyttal | Talet som ska divideras med *divisorn* |
+| <*divisor*> | Ja | Heltal eller flyttal | Talet som delar upp *utdelningen*, men kan inte vara 0. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*modulo-resultat*> | Heltal eller Flyta | Resten från att dividera det första talet med det andra talet |
+| <*modulo-resultat*> | Heltal eller flyttal | Resten från att dividera det första talet med det andra talet |
 ||||
 
 *Exempel*
 
-Det här exemplet dividerar det första talet med det andra talet:
+I det här exemplet delas det första talet med det andra talet:
 
 ```
 mod(3, 2)
 ```
 
-Och returnera detta resultat:`1`
+Och returnera följande resultat:`1`
 
 <a name="mul"></a>
 
-### <a name="mul"></a>mul (mul)
+### <a name="mul"></a>mul
 
 Returnera produkten från att multiplicera två tal.
 
@@ -2307,35 +2307,35 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | Ja | Heltal eller Flyta | Talet som multipliceras *med multiplicand2* |
-| <*multiplicand2*> | Ja | Heltal eller Flyta | Numret som *multiplicand1* |
+| <*multiplicand1*> | Ja | Heltal eller flyttal | Talet som ska multipliceras med *multiplicand2* |
+| <*multiplicand2*> | Ja | Heltal eller flyttal | Talet som multipler *multiplicand1* |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*produkt-resultat*> | Heltal eller Flyta | Produkten från att multiplicera det första talet med det andra talet |
+| <*produkt resultat*> | Heltal eller flyttal | Produkten från att multiplicera det första talet med det andra talet |
 ||||
 
 *Exempel*
 
-Dessa exempel flera det första numret med det andra numret:
+De här exemplen är flera första talet med det andra talet:
 
 ```
 mul(1, 2)
 mul(1.5, 2)
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`2`
-* Andra exemplet`3`
+* Andra exempel`3`
 
 <a name="not"></a>
 
 ### <a name="not"></a>inte
 
-Kontrollera om ett uttryck är falskt.
-Returnera sant när uttrycket är falskt eller returnera falskt när det är sant.
+Kontrol lera om ett uttryck är falskt.
+Returnera true när uttrycket är falskt eller returnera falskt om värdet är sant.
 
 ```json
 not(<expression>)
@@ -2343,12 +2343,12 @@ not(<expression>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Uttryck*> | Ja | Boolesk | Uttrycket som ska kontrolleras |
+| <*uttryck*> | Ja | Boolesk | Det uttryck som ska kontrol leras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
+| sant eller falskt | Boolesk | Returnerar sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
 ||||
 
 *Exempel 1*
@@ -2360,10 +2360,10 @@ not(false)
 not(true)
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Uttrycket är falskt, `true`så funktionen returnerar .
-* Andra exemplet: Uttrycket är sant, `false`så funktionen returnerar .
+* Första exemplet: uttrycket är falskt, så funktionen returnerar `true`.
+* Andra exempel: uttrycket är sant, så funktionen returnerar `false`.
 
 *Exempel 2*
 
@@ -2374,17 +2374,17 @@ not(equals(1, 2))
 not(equals(1, 1))
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Uttrycket är falskt, `true`så funktionen returnerar .
-* Andra exemplet: Uttrycket är sant, `false`så funktionen returnerar .
+* Första exemplet: uttrycket är falskt, så funktionen returnerar `true`.
+* Andra exempel: uttrycket är sant, så funktionen returnerar `false`.
 
 <a name="or"></a>
 
 ### <a name="or"></a>eller
 
-Kontrollera om minst ett uttryck är sant.
-Returnera sant när minst ett uttryck är sant eller returnera falskt när alla är falska.
+Kontrol lera om minst ett uttryck är sant.
+Returnera true när minst ett uttryck är sant, eller returnera falskt när alla är falskt.
 
 ```
 or(<expression1>, <expression2>, ...)
@@ -2392,12 +2392,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*uttryck2*>, ... | Ja | Boolesk | De uttryck som ska kontrolleras |
+| <*uttryck1*>, <*Uttryck2*>,... | Ja | Boolesk | De uttryck som ska kontrol leras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Returnera sant när minst ett uttryck är sant. Returnera falskt när alla uttryck är falska. |
+| sant eller falskt | Boolesk | Returnera true när minst ett uttryck är sant. Returnera falskt när alla uttryck är falskt. |
 ||||
 
 *Exempel 1*
@@ -2409,10 +2409,10 @@ or(true, false)
 or(false, false)
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Minst ett uttryck är sant, så funktionen returnerar `true`.
-* Andra exemplet: Båda uttrycken är falska, så funktionen returnerar `false`.
+* Första exemplet: minst ett uttryck är sant, så funktionen returnerar `true`.
+* Andra exempel: båda uttrycken är falska, så funktionen `false`returnerar.
 
 *Exempel 2*
 
@@ -2423,16 +2423,16 @@ or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
-* Första exemplet: Minst ett uttryck är sant, så funktionen returnerar `true`.
-* Andra exemplet: Båda uttrycken är falska, så funktionen returnerar `false`.
+* Första exemplet: minst ett uttryck är sant, så funktionen returnerar `true`.
+* Andra exempel: båda uttrycken är falska, så funktionen `false`returnerar.
 
 <a name="rand"></a>
 
-### <a name="rand"></a>Rand
+### <a name="rand"></a>slump
 
-Returnera ett slumpmässigt heltal från ett angivet intervall, som endast är inkluderande i startslutet.
+Returnera ett slumpmässigt heltal från ett angivet intervall, som endast inkluderas i Start End.
 
 ```
 rand(<minValue>, <maxValue>)
@@ -2440,30 +2440,30 @@ rand(<minValue>, <maxValue>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*minVärde*> | Ja | Integer | Det lägsta heltalet i intervallet |
-| <*Maxvalue*> | Ja | Integer | Heltalet som följer det högsta heltalet i det område som funktionen kan returnera |
+| <*minValue*> | Ja | Integer | Det lägsta heltalet i intervallet |
+| <*maxValue*> | Ja | Integer | Det heltal som följer det högsta heltalet i intervallet som funktionen kan returnera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*slumpmässigt resultat*> | Integer | Det slumpmässiga heltalet som returneras från det angivna intervallet |
+| <*slumpmässigt resultat*> | Integer | Det slumpmässiga heltal som returnerades från det angivna intervallet |
 ||||
 
 *Exempel*
 
-Det här exemplet får ett slumpmässigt heltal från det angivna intervallet, exklusive det maximala värdet:
+Det här exemplet hämtar ett slumpmässigt heltal från det angivna intervallet, exklusive det maximala värdet:
 
 ```
 rand(1, 5)
 ```
 
-Och returnerar ett av dessa `1` `2`tal `3`som följd: , , eller`4`
+Och returnerar ett av dessa tal som resultat: `1`, `2`, eller `3``4`
 
 <a name="range"></a>
 
-### <a name="range"></a>Utbud
+### <a name="range"></a>intervall
 
-Returnera en heltalsmatris som startar från ett angivet heltal.
+Returnera en heltals mat ris som börjar från ett angivet heltal.
 
 ```
 range(<startIndex>, <count>)
@@ -2471,30 +2471,30 @@ range(<startIndex>, <count>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex (startIndex)*> | Ja | Integer | Ett heltalsvärde som startar matrisen som det första objektet |
-| <*Räkna*> | Ja | Integer | Antalet heltal i matrisen |
+| <*Start*> | Ja | Integer | Ett heltals värde som startar matrisen som det första objektet |
+| <*reparationer*> | Ja | Integer | Antalet heltal i matrisen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| [<*intervall-resultat*>] | Matris | Matrisen med heltal från det angivna indexet |
+| [<*intervall-resultat*>] | Matris | Matrisen med heltal som börjar från det angivna indexet |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en heltalsmatris som startar från det angivna indexet och har det angivna antalet heltal:
+I det här exemplet skapas en heltals mat ris som börjar från det angivna indexet och som har det angivna antalet heltal:
 
 ```
 range(1, 4)
 ```
 
-Och returnerar detta resultat:`[1, 2, 3, 4]`
+Och returnerar följande resultat:`[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-### <a name="replace"></a>Ersätta
+### <a name="replace"></a>bytt
 
-Ersätt en delsträng med den angivna strängen och returnera resultatsträngen. Den här funktionen är skiftlägeskänslig.
+Ersätt en under sträng med den angivna strängen och returnera resultat strängen. Den här funktionen är Skift läges känslig.
 
 ```
 replace('<text>', '<oldText>', '<newText>')
@@ -2502,31 +2502,31 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen som har delsträngen för att ersätta |
-| <*gammalText*> | Ja | Sträng | Delsträngen för att ersätta |
-| <*nytext*> | Ja | Sträng | Ersättningssträngen |
+| <*information*> | Ja | Sträng | Strängen som innehåller under strängen som ska ersättas |
+| <*gammal_text*> | Ja | Sträng | Under strängen som ska ersättas |
+| <*ny_text*> | Ja | Sträng | Ersättnings strängen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad text*> | Sträng | Den uppdaterade strängen efter att ha ersatt delsträngen <p>Om delsträngen inte hittas returnerar du den ursprungliga strängen. |
+| <*uppdaterad – text*> | Sträng | Den uppdaterade strängen efter att under strängen ersatts <p>Returnera den ursprungliga strängen om under strängen inte hittas. |
 ||||
 
 *Exempel*
 
-I det här exemplet hittas den "gamla" delsträngen i "den gamla strängen" och den "gamla" ersätts med "ny":
+Det här exemplet hittar den "gamla" del strängen i "den gamla strängen" och ersätter "Old" med "ny":
 
 ```
 replace('the old string', 'old', 'new')
 ```
 
-Och returnerar detta resultat:`"the new string"`
+Och returnerar följande resultat:`"the new string"`
 
 <a name="skip"></a>
 
 ### <a name="skip"></a>hoppa över
 
-Ta bort objekt från framsidan av en samling och returnera *alla andra* objekt.
+Ta bort objekt från början av en samling och returnera *alla andra* objekt.
 
 ```
 skip([<collection>], <count>)
@@ -2534,30 +2534,30 @@ skip([<collection>], <count>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Matris | Den samling vars objekt du vill ta bort |
-| <*Räkna*> | Ja | Integer | Ett positivt heltal för antalet objekt som ska tas bort framtill |
+| <*samlingen*> | Ja | Matris | Den samling vars objekt du vill ta bort |
+| <*reparationer*> | Ja | Integer | Ett positivt heltal för antalet objekt som ska tas bort längst fram |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| [<> med *>]* | Matris | Den uppdaterade samlingen efter att de angivna objekten har tagit bort |
+| [<*uppdaterad – samling*>] | Matris | Den uppdaterade samlingen efter att de angivna objekten har tagits bort |
 ||||
 
 *Exempel*
 
-I det här exemplet tas ett objekt, talet 0, bort från framsidan av den angivna matrisen:
+Det här exemplet tar bort ett objekt, siffran 0, från början av den angivna matrisen:
 
 ```
 skip(createArray(0, 1, 2, 3), 1)
 ```
 
-Och returnerar den här matrisen med de återstående objekten:`[1,2,3]`
+Och returnerar matrisen med återstående objekt:`[1,2,3]`
 
 <a name="split"></a>
 
 ### <a name="split"></a>split
 
-Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, baserat på det angivna avgränsaren i den ursprungliga strängen.
+Returnera en matris som innehåller del strängar, avgränsade med kommatecken, baserat på det angivna avgränsnings tecken i den ursprungliga strängen.
 
 ```
 split('<text>', '<delimiter>')
@@ -2565,30 +2565,30 @@ split('<text>', '<delimiter>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen som ska separeras i delsträngar baserat på den angivna avgränsaren i den ursprungliga strängen |
-| <*Avgränsare*> | Ja | Sträng | Tecknet i den ursprungliga strängen som ska användas som avgränsare |
+| <*information*> | Ja | Sträng | Strängen som ska separeras i del strängar baserat på den angivna avgränsaren i den ursprungliga strängen |
+| <*avgränsare*> | Ja | Sträng | Det tecken i den ursprungliga strängen som ska användas som avgränsare |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| [<*delsträng1*>,<*delsträng2*>,...] | Matris | En matris som innehåller delsträngar från den ursprungliga strängen, avgränsad med kommatecken |
+| [<*substring1*> <*substring2*>,...] | Matris | En matris som innehåller del strängar från den ursprungliga strängen, avgränsade med kommatecken |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en matris med delsträngar från den angivna strängen baserat på det angivna tecknet som avgränsare:
+I det här exemplet skapas en matris med del strängar från den angivna strängen baserat på det angivna specialtecknet som avgränsare:
 
 ```
 split('a_b_c', '_')
 ```
 
-Och returnerar den här matrisen som resultat:`["a","b","c"]`
+Och returnerar denna matris som resultat:`["a","b","c"]`
 
 <a name="startOfDay"></a>
 
 ### <a name="startofday"></a>startOfDay
 
-Returnera början av dagen för en tidsstämpel.
+Returnera början på dagen för en tidsstämpel.
 
 ```
 startOfDay('<timestamp>', '<format>'?)
@@ -2596,30 +2596,30 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Den angivna tidsstämpeln men börjar vid nolltimmarsmarkeringen för dagen |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Tidsstämpeln som har angetts men som börjar vid noll-timmarsformat för dagen |
 ||||
 
 *Exempel*
 
-I det här exemplet hittas början av dagen för den här tidsstämpeln:
+I det här exemplet hittas början på dagen för den här tidsstämpeln:
 
 ```
 startOfDay('2018-03-15T13:30:30Z')
 ```
 
-Och returnerar detta resultat:`"2018-03-15T00:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
 ### <a name="startofhour"></a>startOfHour
 
-Returnera början av timmen för en tidsstämpel.
+Returnera början på timmen för en tidsstämpel.
 
 ```
 startOfHour('<timestamp>', '<format>'?)
@@ -2627,13 +2627,13 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Den angivna tidsstämpeln men börjar vid nollminutmärket för timmen |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Den angivna tidsstämpeln men från noll-minuten-märket för timmen |
 ||||
 
 *Exempel*
@@ -2644,13 +2644,13 @@ I det här exemplet hittas början av timmen för den här tidsstämpeln:
 startOfHour('2018-03-15T13:30:30Z')
 ```
 
-Och returnerar detta resultat:`"2018-03-15T13:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
 ### <a name="startofmonth"></a>startOfMonth
 
-Returnera början av månaden för en tidsstämpel.
+Returnera början på månaden för en tidsstämpel.
 
 ```
 startOfMonth('<timestamp>', '<format>'?)
@@ -2658,32 +2658,32 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Den angivna tidsstämpeln men med början den första dagen i månaden vid nolltimmarsstrecket |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Den angivna tidsstämpeln men från den första dagen i månaden vid noll-timmarsformat |
 ||||
 
 *Exempel*
 
-I det här exemplet returneras början av månaden för den här tidsstämpeln:
+Det här exemplet returnerar början på månaden för den här tidsstämpeln:
 
 ```
 startOfMonth('2018-03-15T13:30:30Z')
 ```
 
-Och returnerar detta resultat:`"2018-03-01T00:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
 ### <a name="startswith"></a>startsWith
 
-Kontrollera om en sträng börjar med en viss delsträng.
-Returnera sant när delsträngen hittas eller returnera falskt när den inte hittas.
-Den här funktionen är inte skiftlägeskänslig.
+Kontrol lera om en sträng börjar med en speciell under sträng.
+Returnera true när under strängen hittas eller returnera falskt när den inte hittas.
+Den här funktionen är inte Skift läges känslig.
 
 ```
 startsWith('<text>', '<searchText>')
@@ -2691,40 +2691,40 @@ startsWith('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen för att kontrollera |
-| <*söktext*> | Ja | Sträng | Startsträngen för att hitta |
+| <*information*> | Ja | Sträng | Strängen som ska kontrol leras |
+| <*searchText*> | Ja | Sträng | Start strängen som ska hittas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt  | Boolesk | Returnera sant när startundersträngningen hittas. Returnera falskt när det inte hittas. |
+| sant eller falskt  | Boolesk | Returnera true när start under strängen hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*
 
-I det här exemplet kontrolleras om strängen "hello world" börjar med understrängen "hello":
+I det här exemplet kontrol leras om strängen "Hello World" börjar med under strängen "Hello":
 
 ```
 startsWith('hello world', 'hello')
 ```
 
-Och returnerar detta resultat:`true`
+Och returnerar följande resultat:`true`
 
 *Exempel 2*
 
-I det här exemplet kontrolleras om strängen "hello world" börjar med delsträngen "hälsningar":
+I det här exemplet kontrol leras om strängen "Hello World" börjar med under strängen "Greetings":
 
 ```
 startsWith('hello world', 'greetings')
 ```
 
-Och returnerar detta resultat:`false`
+Och returnerar följande resultat:`false`
 
 <a name="string"></a>
 
 ### <a name="string"></a>sträng
 
-Returnera strängversionen för ett värde.
+Returnera sträng versionen för ett värde.
 
 ```
 string(<value>)
@@ -2732,37 +2732,37 @@ string(<value>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Alla | Värdet som ska konverteras |
+| <*värde*> | Ja | Alla | Värdet som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*strängvärde*> | Sträng | Strängversionen för det angivna värdet |
+| <*sträng-värde*> | Sträng | Sträng versionen för det angivna värdet |
 ||||
 
 *Exempel 1*
 
-I det här exemplet skapas strängversionen för det här numret:
+I det här exemplet skapas sträng versionen för det här talet:
 
 ```
 string(10)
 ```
 
-Och returnerar detta resultat:`"10"`
+Och returnerar följande resultat:`"10"`
 
 *Exempel 2*
 
-I det här exemplet skapas en sträng för det angivna\\JSON-objektet och omvänt snedstreck ( ) som ett escape-tecken för dubbelterrakttecknet (").
+Det här exemplet skapar en sträng för det angivna JSON-objektet och använder omvänt\\snedstreck () som ett escape-tecken för dubbla citat tecken (").
 
 ```
 string( { "name": "Sophie Owen" } )
 ```
 
-Och returnerar detta resultat:`"{ \\"name\\": \\"Sophie Owen\\" }"`
+Och returnerar följande resultat:`"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-### <a name="sub"></a>Sub
+### <a name="sub"></a>Build
 
 Returnera resultatet från att subtrahera det andra talet från det första talet.
 
@@ -2772,31 +2772,31 @@ sub(<minuend>, <subtrahend>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*minuend ()*> | Ja | Heltal eller Flyta | Det tal som *subtrahend* |
-| <*subtrahend (subtrahend)*> | Ja | Heltal eller Flyta | Talet som ska subtraheras från *minuend* |
+| <*MINUEND*> | Ja | Heltal eller flyttal | Talet som *SUBTRAHEND* ska subtraheras från |
+| <*SUBTRAHEND*> | Ja | Heltal eller flyttal | Det tal som ska subtraheras från *MINUEND* |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*Resultatet*> | Heltal eller Flyta | Resultatet av att subtrahera det andra talet från det första talet |
+| <*medför*> | Heltal eller flyttal | Resultatet från att subtrahera det andra talet från det första talet |
 ||||
 
 *Exempel*
 
-Det här exemplet subtraherar det andra talet från det första talet:
+I det här exemplet subtraheras den andra siffran från det första talet:
 
 ```
 sub(10.3, .3)
 ```
 
-Och returnerar detta resultat:`10`
+Och returnerar följande resultat:`10`
 
 <a name="substring"></a>
 
-### <a name="substring"></a>Delsträng
+### <a name="substring"></a>under sträng
 
-Returnera tecken från en sträng, med början från den angivna positionen eller index.
-Indexvärden börjar med talet 0.
+Returnera tecken från en sträng, från angiven position eller index.
+Index värden börjar med siffran 0.
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -2804,29 +2804,29 @@ substring('<text>', <startIndex>, <length>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen vars tecken du vill använda |
-| <*startIndex (startIndex)*> | Ja | Integer | Ett positivt tal som är lika med eller större än 0 som du vill använda som startposition eller indexvärde |
-| <*Längd*> | Ja | Integer | Ett positivt antal tecken som du vill ha i delsträngen |
+| <*information*> | Ja | Sträng | Strängen vars tecken du vill ha |
+| <*Start*> | Ja | Integer | Ett positivt tal som är lika med eller större än 0 som du vill använda som start position eller index värde |
+| <*krävande*> | Ja | Integer | Ett positivt antal tecken som du vill ha i under strängen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*delsträngsresultat*> | Sträng | En delsträng med angivet antal tecken, med början vid den angivna indexpositionen i källsträngen |
+| <*del sträng – resultat*> | Sträng | En under sträng med det angivna antalet tecken, med början vid den angivna index positionen i käll strängen |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas en delsträng med fem tecken från den angivna strängen, med början från indexvärdet 6:
+I det här exemplet skapas en del sträng med fem tecken från den angivna strängen, med början från index värde 6:
 
 ```
 substring('hello world', 6, 5)
 ```
 
-Och returnerar detta resultat:`"world"`
+Och returnerar följande resultat:`"world"`
 
 <a name="subtractFromTime"></a>
 
-### <a name="subtractfromtime"></a>subtraheraFrånTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 Subtrahera ett antal tidsenheter från en tidsstämpel.
 Se även [getPastTime](#getPastTime).
@@ -2837,15 +2837,15 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
-| <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
-| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
+| <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
+| <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln minus det angivna antalet tidsenheter |
+| <*Uppdaterad – tidsstämpel*> | Sträng | Tidsstämpeln minus det angivna antalet tidsenheter |
 ||||
 
 *Exempel 1*
@@ -2856,7 +2856,7 @@ Det här exemplet subtraherar en dag från den här tidsstämpeln:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-Och returnerar detta resultat:`"2018-01-01T00:00:00:0000000Z"`
+Och returnerar följande resultat:`"2018-01-01T00:00:00:0000000Z"`
 
 *Exempel 2*
 
@@ -2866,13 +2866,13 @@ Det här exemplet subtraherar en dag från den här tidsstämpeln:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 ```
 
-Och returnerar detta resultat med hjälp av det valfria "D"-formatet:`"Monday, January, 1, 2018"`
+Och returnerar det här resultatet med det valfria "D"-formatet:`"Monday, January, 1, 2018"`
 
 <a name="take"></a>
 
-### <a name="take"></a>Ta
+### <a name="take"></a>gå
 
-Returnera objekt från framsidan av en samling.
+Returnera objekt från början av en samling.
 
 ```
 take('<collection>', <count>)
@@ -2881,35 +2881,35 @@ take([<collection>], <count>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Samling*> | Ja | Sträng eller matris | Samlingen vars objekt du vill ha |
-| <*Räkna*> | Ja | Integer | Ett positivt heltal för det antal objekt som du vill ha framifrån |
+| <*samlingen*> | Ja | Sträng eller matris | Den samling vars objekt du vill ha |
+| <*reparationer*> | Ja | Integer | Ett positivt heltal för antalet objekt som du vill ha från fram sidan |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*delmängd*> eller [<*delmängd*>] | Sträng respektive matris | En sträng eller matris som har det angivna antalet objekt som tagits från framsidan av den ursprungliga samlingen |
+| <*delmängd*> eller [<*delmängd*>] | Sträng eller matris | En sträng eller matris som har det angivna antalet objekt som har hämtats från början av den ursprungliga samlingen |
 ||||
 
 *Exempel*
 
-De här exemplen får det angivna antalet objekt från framsidan av dessa samlingar:
+Följande exempel hämtar det angivna antalet objekt från början av de här samlingarna:
 
 ```
 take('abcde', 3)
 take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
-Och returnera dessa resultat:
+Och returnerar följande resultat:
 
 * Första exemplet:`"abc"`
-* Andra exemplet:`[0, 1, 2]`
+* Andra exempel:`[0, 1, 2]`
 
 <a name="ticks"></a>
 
-### <a name="ticks"></a>Fästingar
+### <a name="ticks"></a>ticks
 
-Returnera `ticks` egenskapsvärdet för en angiven tidsstämpel.
-En *fästing* är ett intervall på 100 nanosecond.
+Returnera `ticks` egenskap svärdet för en angiven tidstämpel.
+Ett *Tick* är ett 100-nanosekunder-intervall.
 
 ```
 ticks('<timestamp>')
@@ -2917,19 +2917,19 @@ ticks('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | Sträng | Strängen för en tidsstämpel |
+| <*tidsstämpel*> | Ja | Sträng | Strängen för en tidsstämpel |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*fästingnummer*> | Integer | Antalet fästingar sedan den angivna tidsstämpeln |
+| <*ticks-tal*> | Integer | Antalet Tick sedan den angivna tidsstämpeln |
 ||||
 
 <a name="toLower"></a>
 
-### <a name="tolower"></a>toLower (TillLågare)
+### <a name="tolower"></a>toLower
 
-Returnera en sträng i gemener format. Om ett tecken i strängen inte har en gemen version förblir det tecknet oförändrat i den returnerade strängen.
+Returnera en sträng med gemener. Om ett tecken i strängen inte har en gemen version, är det tecken oförändrat i den returnerade strängen.
 
 ```
 toLower('<text>')
@@ -2937,12 +2937,12 @@ toLower('<text>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen som ska returneras i gemener |
+| <*information*> | Ja | Sträng | Strängen som ska returneras i gemener-format |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*gemener-text*> | Sträng | Den ursprungliga strängen i gemener |
+| <*gemener – text*> | Sträng | Den ursprungliga strängen i gement format |
 ||||
 
 *Exempel*
@@ -2953,13 +2953,13 @@ I det här exemplet konverteras strängen till gemener:
 toLower('Hello World')
 ```
 
-Och returnerar detta resultat:`"hello world"`
+Och returnerar följande resultat:`"hello world"`
 
 <a name="toUpper"></a>
 
-### <a name="toupper"></a>tillUpper
+### <a name="toupper"></a>toUpper
 
-Returnera en sträng i versaler. Om ett tecken i strängen inte har en versaler förblir det tecknet oförändrat i den returnerade strängen.
+Returnera en sträng i versal format. Om ett tecken i strängen inte har en versal version, är det tecken oförändrat i den returnerade strängen.
 
 ```
 toUpper('<text>')
@@ -2967,12 +2967,12 @@ toUpper('<text>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen som ska returneras i versaler |
+| <*information*> | Ja | Sträng | Strängen som ska returneras i versal format |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*versaler-text*> | Sträng | Den ursprungliga strängen i versaler |
+| <*versaler – text*> | Sträng | Den ursprungliga strängen i versalt format |
 ||||
 
 *Exempel*
@@ -2983,13 +2983,13 @@ I det här exemplet konverteras strängen till versaler:
 toUpper('Hello World')
 ```
 
-Och returnerar detta resultat:`"HELLO WORLD"`
+Och returnerar följande resultat:`"HELLO WORLD"`
 
 <a name="trim"></a>
 
-### <a name="trim"></a>Trimma
+### <a name="trim"></a>reducera
 
-Ta bort inledande och avslutande blanktecken från en sträng och returnera den uppdaterade strängen.
+Ta bort inledande och avslutande blank steg från en sträng och returnera den uppdaterade strängen.
 
 ```
 trim('<text>')
@@ -2997,30 +2997,30 @@ trim('<text>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | Sträng | Strängen som har det inledande och avslutande blanksteget för att ta bort |
+| <*information*> | Ja | Sträng | Den sträng som har det inledande och avslutande blank steg som ska tas bort |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*updatedText*> | Sträng | En uppdaterad version för den ursprungliga strängen utan inledande eller avslutande blanktecken |
+| <*updatedText*> | Sträng | En uppdaterad version av den ursprungliga strängen utan inledande eller avslutande blank steg |
 ||||
 
 *Exempel*
 
-I det här exemplet tas det inledande och avslutande blanksteget bort från strängen " Hello World ":
+I det här exemplet tas inledande och avslutande blank steg bort från strängen "Hello World":
 
 ```
 trim(' Hello World  ')
 ```
 
-Och returnerar detta resultat:`"Hello World"`
+Och returnerar följande resultat:`"Hello World"`
 
 <a name="union"></a>
 
-### <a name="union"></a>Unionen
+### <a name="union"></a>Union
 
-Returnera en samling som har *alla* objekt från de angivna samlingarna.
-Om du vill visas i resultatet kan ett objekt visas i valfri samling som skickas till den här funktionen. Om ett eller flera objekt har samma namn visas det sista objektet med det namnet i resultatet.
+Returnera en samling som innehåller *alla* objekt från de angivna samlingarna.
+För att visas i resultatet kan ett objekt visas i alla samlingar som skickas till den här funktionen. Om ett eller flera objekt har samma namn visas det sista objektet med det namnet i resultatet.
 
 ```
 union('<collection1>', '<collection2>', ...)
@@ -3029,31 +3029,31 @@ union([<collection1>], [<collection2>], ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ...  | Ja | Matris eller objekt, men inte båda | Samlingarna där du vill *ha alla* objekt |
+| <*collection1*> <*collection2*>...  | Ja | Matris eller objekt, men inte båda | Samlingarna där du vill ha *alla* objekt |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdateradInsamling*> | Matris respektive objekt | En samling med alla objekt från de angivna samlingarna - inga dubbletter |
+| <*updatedCollection*> | Matris eller objekt respektive | En samling med alla objekt från de angivna samlingarna-inga dubbletter |
 ||||
 
 *Exempel*
 
-Det här exemplet hämtar *alla* objekt från dessa samlingar:
+Det här exemplet hämtar *alla* objekt från de här samlingarna:
 
 ```
 union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
-Och returnerar detta resultat:`[1, 2, 3, 10, 101]`
+Och returnerar följande resultat:`[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
-### <a name="uricomponent"></a>uriKompent
+### <a name="uricomponent"></a>uriComponent
 
-Returnera en uri-kodad version (Uniform Resource Identifier) för en sträng genom att ersätta URL-osäkra tecken med escape-tecken.
-Använd den här funktionen i stället [för att kodaUriComponent()](#encodeUriComponent).
-Även om båda funktionerna `uriComponent()` fungerar på samma sätt, är att föredra.
+Returnera en URI-kodad (Uniform Resource Identifier) version för en sträng genom att ersätta URL-osäkra tecken med escape-tecken.
+Använd den här funktionen i stället för [encodeUriComponent ()](#encodeUriComponent).
+Även om båda funktionerna fungerar på samma sätt `uriComponent()` , är föredra.
 
 ```
 uriComponent('<value>')
@@ -3061,12 +3061,12 @@ uriComponent('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen som ska konverteras till URI-kodat format |
+| <*värde*> | Ja | Sträng | Strängen som ska konverteras till URI-kodat format |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*kodad-uri*> | Sträng | Den URI-kodade strängen med escape-tecken |
+| <*kodad-URI*> | Sträng | Den URI-kodade strängen med escape-tecken |
 ||||
 
 *Exempel*
@@ -3077,13 +3077,13 @@ I det här exemplet skapas en URI-kodad version för den här strängen:
 uriComponent('https://contoso.com')
 ```
 
-Och returnerar detta resultat:`"http%3A%2F%2Fcontoso.com"`
+Och returnerar följande resultat:`"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
-### <a name="uricomponenttobinary"></a>uriKompentTillbinären
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
-Returnera den binära versionen för en URI-komponent (uniform resource identifier).
+Returnera den binära versionen för en URI-komponent (Uniform Resource Identifier).
 
 ```
 uriComponentToBinary('<value>')
@@ -3091,23 +3091,23 @@ uriComponentToBinary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Den URI-kodade strängen för att konvertera |
+| <*värde*> | Ja | Sträng | Den URI-kodade sträng som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-kodad-uri*> | Sträng | Den binära versionen för den URI-kodade strängen. Det binära innehållet är base64-kodat `$content`och representerat av . |
+| <*Binary-för-kodad-URI*> | Sträng | Den binära versionen för den URI-kodade strängen. Det binära innehållet är Base64-kodat och `$content`representeras av. |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas den binära versionen för den här URI-kodade strängen:
+I det här exemplet skapas den binära versionen för denna URI-kodade sträng:
 
 ```
 uriComponentToBinary('http%3A%2F%2Fcontoso.com')
 ```
 
-Och returnerar detta resultat:
+Och returnerar följande resultat:
 
 `"001000100110100001110100011101000111000000100101001100
 11010000010010010100110010010001100010010100110010010001
@@ -3116,9 +3116,9 @@ Och returnerar detta resultat:
 
 <a name="uriComponentToString"></a>
 
-### <a name="uricomponenttostring"></a>uriKompent TillString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
-Returnera strängversionen för en URI-kodad sträng (Uniform Resource Identifier) och avkoda den URI-kodade strängen.
+Returnera sträng versionen för en kodad sträng med URI (Uniform Resource Identifier), och avkoda den URI-kodade strängen effektivt.
 
 ```
 uriComponentToString('<value>')
@@ -3126,27 +3126,27 @@ uriComponentToString('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Den URI-kodade strängen för att avkoda |
+| <*värde*> | Ja | Sträng | Den URI-kodade sträng som ska avkodas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-uri*> | Sträng | Den avkodade versionen för den URI-kodade strängen |
+| <*avkodad-URI*> | Sträng | Den avkodade versionen för URI-kodad sträng |
 ||||
 
 *Exempel*
 
-I det här exemplet skapas den avkodade strängversionen för den här URI-kodade strängen:
+I det här exemplet skapas den avkodade sträng versionen för denna URI-kodade sträng:
 
 ```
 uriComponentToString('http%3A%2F%2Fcontoso.com')
 ```
 
-Och returnerar detta resultat:`"https://contoso.com"`
+Och returnerar följande resultat:`"https://contoso.com"`
 
 <a name="utcNow"></a>
 
-### <a name="utcnow"></a>utcNow (olikartade)
+### <a name="utcnow"></a>utcNow
 
 Returnera den aktuella tidsstämpeln.
 
@@ -3154,39 +3154,39 @@ Returnera den aktuella tidsstämpeln.
 utcNow('<format>')
 ```
 
-Du kan också ange ett annat format med parametern <*format*>.
+Alternativt kan du ange ett annat format med parametern <*format*>.
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*aktuell tidsstämpel*> | Sträng | Aktuellt datum och aktuell tid |
+| <*aktuell – tidsstämpel*> | Sträng | Aktuellt datum och aktuell tid |
 ||||
 
 *Exempel 1*
 
-Antag att det är den 15 april 2018 klockan 13:00.00.
-Det här exemplet hämtar den aktuella tidsstämpeln:
+Anta att dagens datum är 15 april 2018 vid 1:00:00 PM.
+Det här exemplet hämtar aktuell tidsstämpel:
 
 ```
 utcNow()
 ```
 
-Och returnerar detta resultat:`"2018-04-15T13:00:00.0000000Z"`
+Och returnerar följande resultat:`"2018-04-15T13:00:00.0000000Z"`
 
 *Exempel 2*
 
-Antag att det är den 15 april 2018 klockan 13:00.00.
-Det här exemplet hämtar den aktuella tidsstämpeln med formatet "D":
+Anta att dagens datum är 15 april 2018 vid 1:00:00 PM.
+Det här exemplet hämtar den aktuella tidsstämpeln med det valfria "D"-formatet:
 
 ```
 utcNow('D')
 ```
 
-Och returnerar detta resultat:`"Sunday, April 15, 2018"`
+Och returnerar följande resultat:`"Sunday, April 15, 2018"`
 
 <a name="xml"></a>
 
@@ -3200,12 +3200,12 @@ xml('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | Sträng | Strängen med JSON-objektet för att konvertera <p>JSON-objektet får bara ha en rotegenskap, vilket inte kan vara en matris. <br>Använd omvänt snedstreck\\( ) som ett escape-tecken för det dubbla citattecknet ("). |
+| <*värde*> | Ja | Sträng | Strängen med JSON-objektet som ska konverteras <p>JSON-objektet får bara ha en rot egenskap som inte kan vara en matris. <br>Använd det omvända snedstrecket () som ett Escape-\\tecken för det dubbla citat tecknet ("). |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*xml-version*> | Objekt | Den kodade XML-koden för det angivna strängen eller JSON-objektet |
+| <*XML-version*> | Objekt | Den kodade XML-koden för den angivna strängen eller JSON-objektet |
 ||||
 
 *Exempel 1*
@@ -3214,7 +3214,7 @@ I det här exemplet skapas XML-versionen för den här strängen, som innehålle
 
 `xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
-Och returnerar det här resultatet XML:
+Och returnerar denna resultat-XML:
 
 ```xml
 <name>Sophia Owen</name>
@@ -3222,7 +3222,7 @@ Och returnerar det här resultatet XML:
 
 *Exempel 2*
 
-Anta att du har detta JSON-objekt:
+Anta att du har det här JSON-objektet:
 
 ```json
 {
@@ -3233,11 +3233,11 @@ Anta att du har detta JSON-objekt:
 }
 ```
 
-I det här exemplet skapas XML för en sträng som innehåller det här JSON-objektet:
+I det här exemplet skapas XML för en sträng som innehåller detta JSON-objekt:
 
 `xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
-Och returnerar det här resultatet XML:
+Och returnerar denna resultat-XML:
 
 ```xml
 <person>
@@ -3248,9 +3248,9 @@ Och returnerar det här resultatet XML:
 
 <a name="xpath"></a>
 
-### <a name="xpath"></a>Xpath
+### <a name="xpath"></a>XPath
 
-Sök efter XML efter noder eller värden som matchar ett XPath-uttryck (XML Path Language) och returnera de matchande noderna eller värdena. Ett XPath-uttryck, eller bara "XPath", hjälper dig att navigera i en XML-dokumentstruktur så att du kan välja noder eller beräkningsvärden i XML-innehållet.
+Kontrol lera XML för noder eller värden som matchar ett XPath-uttryck (XML Path Language) och returnera matchande noder eller värden. Ett XPath-uttryck, eller bara "XPath", hjälper dig att navigera i XML-dokumentets struktur så att du kan välja noder eller beräknings värden i XML-innehållet.
 
 ```
 xpath('<xml>', '<xpath>')
@@ -3258,28 +3258,28 @@ xpath('<xml>', '<xpath>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Xml*> | Ja | Alla | XML-strängen för att söka efter noder eller värden som matchar ett XPath-uttrycksvärde |
-| <*Xpath*> | Ja | Alla | XPath-uttrycket som används för att hitta matchande XML-noder eller värden |
+| <*fil*> | Ja | Alla | XML-sträng för att söka efter noder eller värden som matchar ett XPath-uttrycks värde |
+| <*XPath*> | Ja | Alla | XPath-uttryck som används för att hitta matchande XML-noder eller värden |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*xml-nod*> | XML | En XML-nod när endast en nod matchar det angivna XPath-uttrycket |
-| <*Värde*> | Alla | Värdet från en XML-nod när endast ett värde matchar det angivna XPath-uttrycket |
-| [<*xml-nod1*> <*xml-nod2*>, ...] </br>ELLER </br>[<*värde1*> <*värde2*>,...] | Matris | En matris med XML-noder eller värden som matchar det angivna XPath-uttrycket |
+| <*XML-nod*> | XML | En XML-nod när endast en nod matchar angivet XPath-uttryck |
+| <*värde*> | Alla | Värdet från en XML-nod när endast ett enda värde matchar angivet XPath-uttryck |
+| [<*XML-nod1*> <*xml-NOD2*>,...] </br>ELLER </br>[<*värde1*> <*värde2*>,...] | Matris | En matris med XML-noder eller värden som matchar angivet XPath-uttryck |
 ||||
 
 *Exempel 1*
 
-I det här exemplet efter exempel 1 `<count></count>` hittar det här exemplet noder som matchar noden och lägger till dessa nodvärden med `sum()` funktionen:
+I exemplet nedan hittar det här exemplet noder som matchar `<count></count>` noden och lägger till noderna med `sum()` funktionen:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-Och returnerar detta resultat:`30`
+Och returnerar följande resultat:`30`
 
 *Exempel 2*
 
-I det här exemplet hittar båda uttrycken `<location></location>` noder som matchar noden, i de angivna argumenten, som innehåller XML med ett namnområde. Uttrycken använder omvänt snedstreck\\( ) som ett escape-tecken för det dubbla citattecknet (").
+I det här exemplet hittar båda uttrycken noder som `<location></location>` matchar noden, i de angivna argumenten, som innehåller XML med ett namn område. Uttrycks tecknet använder det omvända snedstrecket () som ett Escape-\\tecken för det dubbla citat tecknet (").
 
 * *Uttryck 1*
 
@@ -3289,9 +3289,9 @@ I det här exemplet hittar båda uttrycken `<location></location>` noder som mat
 
   `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
-Här är argumenten:
+Följande är argumenten:
 
-* Den här XML-koden, som `xmlns="http://contoso.com"`innehåller namnområdet för XML-dokument, :
+* Denna XML, som innehåller XML-dokumentets namnrymd `xmlns="http://contoso.com"`,:
 
   ```xml
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
@@ -3303,7 +3303,7 @@ Här är argumenten:
 
   * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Här är den resultatnod `<location></location>` som matchar noden:
+Här är den resulterande noden som matchar `<location></location>` noden:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
@@ -3311,11 +3311,11 @@ Här är den resultatnod `<location></location>` som matchar noden:
 
 *Exempel 3*
 
-I det här exemplet efter exempel 3 hittar du värdet i `<location></location>` noden:
+I följande exempel hittar det här exemplet värdet i `<location></location>` noden:
 
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
-Och returnerar detta resultat:`"Paris"`
+Och returnerar följande resultat:`"Paris"`
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över systemvariabler som du kan använda i uttryck finns i [Systemvariabler](control-flow-system-variables.md).

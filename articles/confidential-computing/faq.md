@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 2bd9430fc6f48d72faa2c1850af0bb8432a7c5f5
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e9cb691ef60f612672078a9ef84db904c79cbc87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149507"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189453"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Vanliga frågor och svar om Azures konfidentiella data behandling
 
@@ -47,7 +47,7 @@ Om ditt Azure-problem inte åtgärdas i den här artikeln kan du gå till Azure-
 
 1. **Vad är skillnaden mellan virtuella datorer i DCsv2-serien och DC-serien?**
 
-   Virtuella datorer i DC-serien körs på äldre 6-kärnors Intel-processorer med SGX. Detta har mindre total minne, mindre EPC-minne (enklaven Page bur) och är tillgängliga i mindre regioner. De här virtuella datorerna är endast tillgängliga i östra USA och Västeuropa är tillgängliga i två storlekar: Standard_DC2s och Standard_DC4s. De går inte att använda GA och kan bara distribueras i den [konfidentiella Compute DC-serien VM [Preview] Marketplace-](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) instans
+   Virtuella datorer i DC-serien körs på äldre 6-kärnors Intel-processorer med Intel SGX. Detta har mindre total minne, mindre EPC-minne (enklaven Page bur) och är tillgängliga i mindre regioner. De här virtuella datorerna är endast tillgängliga i östra USA och Västeuropa är tillgängliga i två storlekar: Standard_DC2s och Standard_DC4s. De går inte att använda GA och kan bara distribueras i den [konfidentiella Compute DC-serien VM [Preview] Marketplace-](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) instans
 
 1. **Är virtuella DCsv2-datorer tillgängliga globalt?**
 

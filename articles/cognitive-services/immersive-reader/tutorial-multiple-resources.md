@@ -1,7 +1,7 @@
 ---
-title: 'Självstudiekurs: Integrera flera immersive Reader-resurser'
+title: 'Självstudie: integrera flera fördjupade läsare resurser'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien ska du skapa ett Node.js-program som startar Immersive Reader med flera Immersive Reader-resurser.
+description: I den här självstudien skapar du ett Node. js-program som startar den fördjupade läsaren med flera fördjupade läsares resurser.
 author: skamal
 manager: nitinme
 ms.service: cognitive-services
@@ -9,32 +9,32 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046277"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195629"
 ---
-# <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Självstudiekurs: Integrera flera immersive Reader-resurser
+# <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Självstudie: integrera flera fördjupade läsare resurser
 
-I [översikten](./overview.md)lärde du dig om vad Immersive Reader är och hur den implementerar beprövade tekniker för att förbättra läsförståelsen för språkstuderande, nya läsare och elever med inlärningsskillnader. I [snabbstarten Node.js](./quickstart-nodejs.md)lärde du dig hur du använder Immersive Reader med en enda resurs. Den här självstudien beskriver hur du integrerar flera Immersive Reader-resurser i samma program. I den här självstudiekursen får du lära du dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. I snabb starten för [Node. js](./quickstart-nodejs.md)har du lärt dig hur du använder avancerad läsare med en enda resurs. I den här självstudien beskrivs hur du integrerar flera fördjupade Reader-resurser i samma program. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa flera Immersive Reader-resurser under en befintlig resursgrupp
-> * Starta Immersive Reader med flera resurser
+> * Skapa flera fördjupad läsar resurs under en befintlig resurs grupp
+> * Starta den fördjupade läsaren med flera resurser
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-* Följ [snabbstarten](./quickstart-nodejs.md) för att skapa en webbapp som startar Immersive Reader med NodeJS. I snabbstarten konfigurerar du en enda Immersive Reader-resurs. Vi kommer att bygga på toppen av det i den här guiden.
+* Följ [snabb](./quickstart-nodejs.md) starten för att skapa en webbapp som startar den fördjupade läsaren med NodeJS. I den här snabb starten konfigurerar du en enskild fördjupad läsare-resurs. Vi kommer att bygga ovanpå det i den här självstudien.
 
-## <a name="create-the-immersive-reader-resources"></a>Skapa Immersive Reader-resurser
+## <a name="create-the-immersive-reader-resources"></a>Skapa fördjupade läsar resurser
 
-Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att skapa varje Immersive Reader-resurs. **Skriptet Create-ImmersiveReaderResource** `ResourceName` `ResourceSubdomain`har `ResourceLocation` , och som parametrar. Dessa bör vara unika för varje resurs som skapas. De återstående parametrarna ska vara desamma som du använde när du konfigurerade den första Immersive Reader-resursen. På så sätt kan varje resurs länkas till samma Azure-resursgrupp och Azure AD-program.
+Följ [de här anvisningarna](./how-to-create-immersive-reader.md) för att skapa varje fördjupad läsar resurs. **Create-ImmersiveReaderResource** -skriptet har `ResourceName`, `ResourceSubdomain`, och `ResourceLocation` som parametrar. Dessa bör vara unika för varje resurs som skapas. De återstående parametrarna bör vara samma som det som du använde när du installerade din första fördjupade läsare-resurs. På så sätt kan varje resurs länkas till samma Azure-resurs grupp och Azure AD-program.
 
-Exemplet nedan visar hur du skapar två resurser, en i WestUS och en annan i EastUS. Lägg märke till `ResourceName` `ResourceSubdomain`de `ResourceLocation`unika värdena för , och .
+Exemplet nedan visar hur du skapar två resurser, en i väster och en annan i öster. Observera unika värden för `ResourceName`, `ResourceSubdomain`och. `ResourceLocation`
 
 ```azurepowershell-interactive
 Create-ImmersiveReaderResource
@@ -62,11 +62,11 @@ Create-ImmersiveReaderResource
   -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
 ```
 
-## <a name="add-resources-to-environment-configuration"></a>Lägga till resurser i miljökonfigurationen
+## <a name="add-resources-to-environment-configuration"></a>Lägg till resurser i miljö konfigurationen
 
-I snabbstarten skapade du en miljökonfigurationsfil `ClientSecret`som `Subdomain` innehåller parametrarna `TenantId`, `ClientId`, och. Eftersom alla dina resurser använder samma Azure AD-program kan `TenantId`vi `ClientId`använda `ClientSecret`samma värden för , och . Den enda ändring som behöver göras är att lista varje underdomän för varje resurs.
+I snabb starten skapade du en miljö konfigurations fil som innehåller parametrarna `TenantId`, `ClientId`, `ClientSecret`och `Subdomain` . Eftersom alla resurser använder samma Azure AD-program kan vi använda samma värden för `TenantId`, `ClientId`, och. `ClientSecret` Den enda ändring som behöver göras är att lista varje under domän för varje resurs.
 
-Den nya __.env-filen__ ska nu se ut ungefär så här:
+Din nya __. kuvert__ -fil bör nu se ut ungefär så här:
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -76,11 +76,11 @@ SUBDOMAIN_WUS={YOUR_WESTUS_SUBDOMAIN}
 SUBDOMAIN_EUS={YOUR_EASTUS_SUBDOMAIN}
 ```
 
-Se till att inte arkivera den här filen i källkontroll, eftersom den innehåller hemligheter som inte bör offentliggöras.
+Se till att du inte utför den här filen i käll kontrollen eftersom den innehåller hemligheter som inte bör göras offentliga.
 
-Därefter ska vi ändra _filen routes\index.js_ som vi har skapat för att stödja våra resurser. Ersätt innehållet med följande kod.
+Nu ska vi ändra _routes\index.js_ -filen som vi har skapat för att stödja våra flera resurser. Ersätt dess innehåll med följande kod.
 
-Precis som tidigare skapar den här koden en API-slutpunkt som hämtar en Azure AD-autentiseringstoken med hjälp av lösenordet för tjänstens huvudnamn. Den här gången tillåter det användaren att ange en resursplats och skicka in den som en frågeparameter. Det returnerar sedan ett objekt som innehåller token och motsvarande underdomän.
+Som tidigare skapar den här koden en API-slutpunkt som skaffar en Azure AD-autentiseringstoken med ditt huvud namn för tjänsten. Den här gången kan användaren ange en resurs plats och skicka den som en frågeparameter. Den returnerar sedan ett-objekt som innehåller token och motsvarande under domän.
 
 ```javascript
 var express = require('express');
@@ -143,11 +143,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-Api-slutpunkten **getimmersivereaderlaunchparams** bör skyddas bakom någon form av autentisering (till exempel [OAuth)](https://oauth.net/2/)för att förhindra att obehöriga användare får token som ska användas mot din Immersive Reader-tjänst och fakturering. att arbetet är utanför ramen för den här självstudien.
+**Getimmersivereaderlaunchparams** API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth](https://oauth.net/2/)) för att hindra obehöriga användare från att hämta token som ska användas mot tjänsten för avancerad läsare och fakturering. Detta arbete ligger utanför den här självstudiens omfattning.
 
-## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta Immersive Reader med exempelinnehåll
+## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-1. Öppna _vyer\index.pug_och ersätt innehållet med följande kod. Den här koden fyller på sidan med ett visst exempelinnehåll och lägger till två knappar som startar Immersive Reader. En för att starta Immersive Reader för EastUS-resursen och en annan för WestUS-resursen.
+1. Öppna _views\index.pug_och ersätt innehållet med följande kod. Den här koden fyller sidan med visst exempel innehåll och lägger till två knappar som startar den fördjupade läsaren. En för att starta en avancerad läsare för den östra resursen och en annan för den västra resursen.
 
     ```pug
     doctype html
@@ -258,9 +258,9 @@ Api-slutpunkten **getimmersivereaderlaunchparams** bör skyddas bakom någon for
     npm start
     ```
 
-4. Öppna webbläsaren och [http://localhost:3000](http://localhost:3000)navigera till . Du bör se ovanstående innehåll på sidan. Klicka på antingen **EastUS Immersive Reader-knappen** eller **WestUS Immersive Reader-knappen** för att starta Immersive Reader med hjälp av dessa respektive resurser.
+4. Öppna webbläsaren och gå till `http://localhost:3000`. Du bör se innehållet ovan på sidan. Klicka på antingen knappen för **fördjupad läsare** eller knappen för **fördjupad** läsare för att starta den fördjupade läsaren med dessa respektive resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [den uppslukande läsaren SDK](https://github.com/microsoft/immersive-reader-sdk) och [Immersive Reader SDK-referensen](./reference.md)
-* Visa kodexempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
+* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
+* Visa kod exempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

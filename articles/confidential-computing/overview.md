@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: b52af8f41f32c224fd7c4fa0f5c539b23d231f49
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149307"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192271"
 ---
 # <a name="confidential-computing-on-azure"></a>Konfidentiell data behandling i Azure
 
@@ -28,7 +28,8 @@ Med Azures konfidentiella data behandling kan du isolera känsliga data medan de
 ## <a name="overview"></a>Översikt
 <p><p>
 
-> [!VIDEO https://www.youtube.com/embed/Qu6sP0XDMU8]
+
+> [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
 Vi vet att det är viktigt att skydda dina moln data. Vi hör dina problem. Här är några frågor som våra kunder kan ha när de flyttar känsliga arbets belastningar till molnet: 
 
@@ -76,7 +77,7 @@ I Azures konfidentiella virtuella datorer är en del av PROCESSORns maskin vara 
 
 ![VM-modell](media/overview/hardware-backed-enclave.png)
 
-Azures infrastruktur för konfidentiell behandling består för närvarande av en special-SKU av virtuella datorer (VM). De här virtuella datorerna körs på Intel-processorer med Software Extension Guard (Intel SGX). [Intel SGX](https://intel.com/sgx) är den komponent som möjliggör det ökade skyddet som vi har med konfidentiell dator användning. 
+Azures infrastruktur för konfidentiell behandling består för närvarande av en special-SKU av virtuella datorer (VM). De här virtuella datorerna körs på Intel-processorer med Software Guard-tillägget (Intel SGX). [Intel SGX](https://intel.com/sgx) är den komponent som möjliggör det ökade skyddet som vi har med konfidentiell dator användning. 
 
 Idag erbjuder Azure [DCsv2-serien](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) som bygger på Intel SGX-teknik för maskinvarubaserad enklaven-skapande. Du kan skapa säkra enklaven-baserade program som ska köras i DCsv2-serien med virtuella datorer för att skydda dina program data och kod som används. 
 

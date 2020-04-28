@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bfb0cc61b61328df86c27498a1007f2372fb9548
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74899961"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867451"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -50,9 +50,7 @@ När du har konfigurerat Privilegierad identitetshantering visas alternativ **f�
 
 ## <a name="who-can-do-what"></a>Vem kan göra vad?
 
-Om du är den första personen som använder privilegierad identitetshantering tilldelas du automatiskt rollerna [Säkerhetsadministratör](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) och [Privilegierad rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) i katalogen.
-
-För Azure AD-roller i Privilegierad identitetshantering kan endast en användare som är i rollen Privilegierad rolladministratör hantera tilldelningar för andra administratörer. Du kan [bevilja åtkomst till andra administratörer för att hantera privilegierad identitetshantering](pim-how-to-give-access-to-pim.md). Globala administratörer, säkerhetsadministratörer, globala läsare och säkerhetsläsare kan också visa tilldelningar till Azure AD-roller i privilegierad identitetshantering.
+För Azure AD-roller i Privilegierad identitetshantering kan endast en användare som är i rollen Privilegierad roll eller Global administratör hantera tilldelningar för andra administratörer. Du kan [bevilja åtkomst till andra administratörer för att hantera privilegierad identitetshantering](pim-how-to-give-access-to-pim.md). Globala administratörer, säkerhetsadministratörer, globala läsare och säkerhetsläsare kan också visa tilldelningar till Azure AD-roller i privilegierad identitetshantering.
 
 För Azure-resursroller i Privilegierad identitetshantering kan endast en prenumerationsadministratör, en resursägare eller en administratör för användaråtkomst för resurser hantera tilldelningar för andra administratörer. Användare som är privilegierade rolladministratörer, säkerhetsadministratörer eller säkerhetsläsare har som standard inte åtkomst till att visa tilldelningar till Azure-resursroller i Privilegierad identitetshantering.
 

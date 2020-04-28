@@ -1,5 +1,5 @@
 ---
-title: Access Key Vault bakom en brandvägg – Azure Key Vault | Microsoft-dokument
+title: Åtkomst Key Vault bakom en brand vägg – Azure Key Vault | Microsoft Docs
 description: Läs om hur man kommer åt Azure Key Vault från ett program bakom en brandvägg
 services: key-vault
 author: amitbapat
@@ -10,28 +10,28 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: e24684063e73b8f8b659304987f46632f3601e8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5317111cf023316541f3435ff0d34450061209c6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423119"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186381"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 
-## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Vilka portar, värdar eller IP-adresser ska jag öppna för att aktivera mitt nyckelvalvklientprogram bakom en brandvägg för att komma åt nyckelvalvet?
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Vilka portar, värdar eller IP-adresser ska jag öppna för att aktivera mitt Key Vault-klientcertifikat bakom en brand vägg för att få åtkomst till Key Vault?
 
 För att få åtkomst till ett nyckelvalv måste ditt klientprogram ha åtkomst till flera slutpunkter för olika funktioner:
 
 * Autentisering via Azure Active Directory (Azure AD).
 * Hantering av Azure Key Vault. Detta omfattar att skapa, läsa, uppdatera, ta bort och ange åtkomstprinciper via Azure Resource Manager.
-* Komma åt och hantera objekt (nycklar och hemligheter) som lagras i Själva Key Vault [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)och gå igenom den Nyckelvalvsspecifika slutpunkten (till exempel).  
+* Åtkomst till och hantering av objekt (nycklar och hemligheter) som lagras i själva nyckelvalvet går via den specifika slutpunkten för nyckelvalv (t.ex. `https://yourvaultname.vault.azure.net`).  
 
 Det finns vissa varianter beroende på din konfiguration och miljö.
 
 ## <a name="ports"></a>Portar
 
-All trafik till nyckelvalvet för alla tre funktioner (autentisering, hantering och dataplanåtkomst) går över HTTPS: port 443. Det är dock ibland HTTP (port 80)-trafik för CRL. Klienter som stöder OCSP bör inte nå CRL, men kan ibland nå [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
+All trafik till nyckelvalvet för alla tre funktioner (autentisering, hantering och dataplanåtkomst) går över HTTPS: port 443. Det är dock ibland HTTP (port 80)-trafik för CRL. Klienter som har stöd för OCSP ska inte komma åt CRL, [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)men kan ibland komma fram.  
 
 ## <a name="authentication"></a>Autentisering
 
@@ -39,8 +39,8 @@ Nyckelvalv-klientprogram behöver åtkomst till Azure Active Directory-slutpunkt
 
 | Typ av huvudkonto | Slutpunkt:port |
 | --- | --- |
-| Användare som använder Microsoft-konto<br> (till exempel user@hotmail.com) |**Globala:**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Tyskland:**<br> login.microsoftonline.de:443<br><br> och <br>login.live.com:443 |
-| Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto med Azure AD (t.ex. user@contoso.com) |**Globala:**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Tyskland:**<br> login.microsoftonline.de:443 |
+| Användare som använder Microsoft-konto<br> (till exempel user@hotmail.com) |**EAN**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> och <br>login.live.com:443 |
+| Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto med Azure AD (t.ex. user@contoso.com) |**EAN**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto, plus Active Directory Federation Services (AD FS) eller annan federerad slutpunkt (t.ex. user@contoso.com) |Alla slutpunkter för ett arbets- eller skolkonto, plus AD FS eller andra federerade slutpunkter |
 
 Det finns andra möjliga avancerade scenarier. Se [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-scenarios.md), [Integrera program med Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) och [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx) för mer information.  
@@ -51,8 +51,8 @@ För hantering av Nyckelvalv (CRUD och inställning av åtkomstprincip) måste k
 
 | Typ av åtgärd | Slutpunkt:port |
 | --- | --- |
-| Kontrollplanåtgärder för Nyckelvalv<br> via Azure Resource Manager |**Globala:**<br> management.azure.com:443<br><br> **Azure Kina:**<br> management.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure Tyskland:**<br> management.microsoftazure.de:443 |
-| Microsoft Graph-API |**Globala:**<br> graph.microsoft.com:443<br><br> **Azure Kina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> graph.microsoft.com:443<br><br> **Azure Tyskland:**<br> graph.cloudapi.de:443 |
+| Kontrollplanåtgärder för Nyckelvalv<br> via Azure Resource Manager |**EAN**<br> management.azure.com:443<br><br> **Azure Kina:**<br> management.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
+| Microsoft Graph-API |**EAN**<br> graph.microsoft.com:443<br><br> **Azure Kina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> graph.microsoft.com:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Åtgärder i Nyckelvalv
 
@@ -60,7 +60,7 @@ Vid all hantering och kryptografiska åtgärder för nyckelvalvsobjekt (nycklar 
 
 | Typ av åtgärd | Slutpunkt:port |
 | --- | --- |
-| Åtgärder inklusive kryptografiska åtgärder på nycklar, skapa, läsa, uppdatera och ta bort nycklar och hemligheter, ställa in eller få taggar och andra attribut för nyckelvalvobjekt (nycklar eller hemligheter) |**Globala:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Kina:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Tyskland:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
+| Åtgärder inklusive kryptografiska åtgärder på nycklar, skapa, läsa, uppdatera och ta bort nycklar och hemligheter, ställa in eller få taggar och andra attribut för nyckelvalvobjekt (nycklar eller hemligheter) |**EAN**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Kina:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>IP-adressintervall
 
@@ -68,4 +68,4 @@ Key Vault-tjänsten använder andra Azure-resurser, som PaaS-infrastruktur. Där
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har frågor om Key Vault besöker du Forum för [Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Om du har frågor om Key Vault kan du gå till [Azure Key Vault forumen](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

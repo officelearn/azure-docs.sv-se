@@ -1,7 +1,7 @@
 ---
-title: Visualisera nätverkstrafikmönster med verktyg med öppen källkod
+title: Visualisera nätverks trafik mönster med verktyg för öppen källkod
 titleSuffix: Azure Network Watcher
-description: På den här sidan beskrivs hur du använder nätverksbevakningspaketfångst med Capanalysis för att visualisera trafikmönster till och från dina virtuella datorer.
+description: Den här sidan beskriver hur du använder Network Watcher paket avbildning med Capanalysis för att visualisera trafik mönster till och från dina virtuella datorer.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840663"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189070"
 ---
-# <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualisera nätverkstrafikmönster till och från virtuella datorer med hjälp av verktyg med öppen källkod
+# <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualisera nätverks trafik mönster till och från dina virtuella datorer med hjälp av verktyg med öppen källkod
 
-Paketinsamlingar innehåller nätverksdata som gör att du kan utföra nätverksasensiker och djuppaketinspektion. Det finns många öppna källverktyg som du kan använda för att analysera paketinsamlingar för att få insikter om ditt nätverk. Ett sådant verktyg är CapAnalysis, en öppen källkod paket fånga visualiseringsverktyg. Visualisera paketinsamlingsdata är ett värdefullt sätt att snabbt härleda insikter om mönster och avvikelser i nätverket. Visualiseringar ger också ett sätt att dela sådana insikter på ett lätt förbrukningsbart sätt.
+Paket fångster innehåller nätverks data som gör det möjligt att utföra nätverks data utredning och djup paket inspektion. Det finns många öppna käll verktyg som du kan använda för att analysera paket fångster för att få insikter om ditt nätverk. Ett sådant verktyg är CapAnalysis, en paket insamlings verktyg med öppen källkod. Visualisering av paket insamlings data är ett värdefullt sätt att snabbt få insikter om mönster och avvikelser i nätverket. Visualiseringar ger också ett sätt att dela sådana insikter på ett enkelt sätt som kan förbrukas.
 
-Azures Network Watcher ger dig möjlighet att samla in data genom att låta dig utföra paketinsamlingar i nätverket. Den här artikeln ger en genomgång av hur du visualiserar och får insikter från paketinfångningar med CapAnalysis med Network Watcher.
+Azures Network Watcher ger dig möjlighet att samla in data genom att låta dig utföra paket avbildningar i nätverket. Den här artikeln innehåller en genom gång av hur du kan visualisera och få insikter från paket fångster med hjälp av CapAnalysis med Network Watcher.
 
 ## <a name="scenario"></a>Scenario
 
-Du har ett enkelt webbprogram som distribueras på en virtuell dator i Azure som vill använda verktyg med öppen källkod för att visualisera nätverkstrafiken för att snabbt identifiera flödesmönster och eventuella avvikelser. Med Network Watcher kan du hämta en paketfångst av nätverksmiljön och direkt lagra den på ditt lagringskonto. CapAnalysis kan sedan inta paketet fånga direkt från lagring blob och visualisera dess innehåll.
+Du har ett enkelt webb program som distribueras på en virtuell dator i Azure vill använda verktyg med öppen källkod för att visualisera nätverks trafiken för att snabbt identifiera flödes mönster och eventuella avvikelser. Med Network Watcher kan du hämta en paket avbildning av din nätverks miljö och lagra den direkt på ditt lagrings konto. CapAnalysis kan sedan mata in paket avbildningen direkt från Storage-blobben och visualisera innehållet.
 
 ![scenario][1]
 
@@ -35,66 +35,66 @@ Du har ett enkelt webbprogram som distribueras på en virtuell dator i Azure som
 
 ### <a name="install-capanalysis"></a>Installera CapAnalysis
 
-Om du vill installera CapAnalysis på en virtuell dator https://www.capanalysis.net/ca/how-to-install-capanalysiskan du läsa de officiella instruktionerna här .
-För åtkomst till CapAnalysis på distans måste du öppna port 9877 på den virtuella datorn genom att lägga till en ny inkommande säkerhetsregel. Mer information om hur du skapar regler i Nätverkssäkerhetsgrupper finns [i Skapa regler i en befintlig NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). När regeln har lagts till bör du kunna komma åt CapAnalysis från`http://<PublicIP>:9877`
+Om du vill installera CapAnalysis på en virtuell dator kan du läsa de officiella anvisningarna här https://www.capanalysis.net/ca/how-to-install-capanalysis.
+För att få åtkomst till CapAnalysis måste du öppna port 9877 på den virtuella datorn genom att lägga till en ny inkommande säkerhets regel. Mer information om hur du skapar regler i nätverks säkerhets grupper finns i [skapa regler i en befintlig NSG](../virtual-network/manage-network-security-group.md#create-a-security-rule). När regeln har lagts till ska du kunna komma åt CapAnalysis från`http://<PublicIP>:9877`
 
-### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Använda Azure Network Watcher för att starta en paketfångstsession
+### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Använd Azure-Network Watcher för att starta en paket insamlings session
 
-Med Network Watcher kan du samla in paket för att spåra trafik in och ut ur en virtuell dator. Du kan läsa instruktionerna på [Hantera paketinsamlingar med Network Watcher](network-watcher-packet-capture-manage-portal.md) för att starta en paketfångstsession. En paketfångst kan lagras i en lagringsblob som ska nås av CapAnalysis.
+Med Network Watcher kan du avbilda paket för att spåra trafik in och ut från en virtuell dator. Du kan läsa anvisningarna i [Hantera paket fångster med Network Watcher](network-watcher-packet-capture-manage-portal.md) för att starta en paket insamlings session. En paket fångst kan lagras i en lagrings-blob som kan nås av CapAnalysis.
 
-### <a name="upload-a-packet-capture-to-capanalysis"></a>Ladda upp en paketfångst till CapAnalysis
-Du kan direkt ladda upp en paketfångst som tagits av nätverksbevakaren med hjälp av fliken "Importera från URL" och tillhandahålla en länk till lagringsblobben där paketfångsten lagras.
+### <a name="upload-a-packet-capture-to-capanalysis"></a>Ladda upp en paket fångst till CapAnalysis
+Du kan direkt ladda upp en paket avbildning som tas av Network Watcher med hjälp av fliken "Importera från URL" och ange en länk till lagrings-bloben där paket fångsten lagras.
 
-När du tillhandahåller en länk till CapAnalysis ska du lägga till en SAS-token i lagringsblobb-URL:en.  Det gör du genom att navigera till Signature för delad åtkomst från lagringskontot, ange tillåtna behörigheter och trycka på knappen Generera SAS för att skapa en token. Du kan sedan lägga till SAS-token i paketfångad lagringsblobb-URL:en.
+När du tillhandahåller en länk till CapAnalysis, se till att lägga till en SAS-token till lagrings-BLOB-URL: en.  Det gör du genom att navigera till signaturen för delad åtkomst från lagrings kontot, ange tillåtna behörigheter och trycka på knappen generera SAS för att skapa en token. Du kan sedan lägga till SAS-token till Packet Capture Storage BLOB URL.
 
-Den resulterande webbadressen ser ut ungefär så här:http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+Den resulterande URL: en kommer att se ut ungefär som följande URL:`http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
-### <a name="analyzing-packet-captures"></a>Analysera paketinfångningar
+### <a name="analyzing-packet-captures"></a>Analysera paket fångster
 
-CapAnalysis erbjuder olika alternativ för att visualisera ditt paket fånga, var och en ger analys från ett annat perspektiv. Med dessa visuella sammanfattningar kan du förstå dina nätverkstrafiktrender och snabbt upptäcka ovanlig aktivitet. Några av dessa funktioner visas i följande lista:
+CapAnalysis erbjuder olika alternativ för att visualisera paket fångsten, som var och en ger analyser från ett annat perspektiv. Med dessa visuella sammanfattningar kan du förstå dina trender för nätverks trafiken och snabbt upptäcka eventuell ovanlig aktivitet. Några av dessa funktioner visas i följande lista:
 
-1. Flödestabeller
+1. Flow-tabeller
 
-    Den här tabellen ger dig en lista över flöden i paketdata, tidsstämpeln som är associerad med flödena och de olika protokoll som är associerade med flödet samt käll- och mål-IP.
+    Den här tabellen innehåller en lista över flöden i paket data, tidsstämpeln som associeras med flöden och de olika protokoll som är kopplade till flödet, samt käll-och mål-IP.
 
-    ![capanalysis flödessida][5]
+    ![capanalysis flödes sida][5]
 
-1. Översikt över protokoll
+1. Protokoll översikt
 
-    I den här rutan kan du snabbt se distributionen av nätverkstrafik över de olika protokollen och geografiska områden.
+    I det här fönstret kan du snabbt se distributionen av nätverks trafik över olika protokoll och geografiska områden.
 
-    ![capanalysis protokoll översikt][6]
+    ![Översikt över capanalysis-protokoll][6]
 
 1. Statistik
 
-    I det här fönstret kan du visa nätverkstrafikstatistik – byte som skickas och tas emot från käll- och mål-IP-adresser, flöden för var och en av käll- och mål-IP-adresser, protokoll som används för olika flöden och varaktigheten av flödena.
+    I det här fönstret kan du Visa statistik över nätverks trafiken – byte som skickats och tagits emot från käll-och mål-IP-adresser, flöden för var och en av käll-och mål-IP-adresser, protokoll som används för olika flöden och längden på flöden.
 
-    ![capanalysis statistik][7]
+    ![capanalysis-statistik][7]
 
-1. Geomap (geografiskt)
+1. Geomappning
 
-    I det här fönstret får du en kartvy över nätverkstrafiken, med färger som skalas till trafikvolymen från varje land/region. Du kan välja markerade länder/regioner om du vill visa ytterligare flödesstatistik, till exempel andelen data som skickas och tas emot från Internet-adresser i det landet/regionen.
+    I det här fönstret får du en karta över nätverks trafiken, med färger som skal änd ras till volymen trafik från varje land/region. Du kan välja markerade länder/regioner om du vill visa ytterligare flödes statistik, till exempel hur stor andel av data som skickas och tas emot från IP-adresser i landet/regionen.
 
-    ![geokarta][8]
+    ![geomappning][8]
 
 1. Filter
 
-    CapAnalysis tillhandahåller en uppsättning filter för snabb analys av specifika paket. Du kan till exempel välja att filtrera data efter protokoll för att få specifika insikter om den delmängden av trafiken.
+    CapAnalysis innehåller en uppsättning filter för snabb analys av vissa paket. Du kan till exempel välja att filtrera data efter protokoll för att få detaljerade insikter om den här del mängden av trafiken.
 
     ![filter][11]
 
-    Besök [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) för att lära dig mer om alla CapAnalysis funktioner.
+    Besök [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) för att lära dig mer om alla CapAnalysis-funktioner.
 
 ## <a name="conclusion"></a>Slutsats
 
-Med Network Watchers paketinspelningsfunktion kan du samla in de data som behövs för att utföra nätverkstekniker och bättre förstå nätverkstrafiken. I det här fallet visade vi hur paketinsamlingar från Network Watcher enkelt kan integreras med visualiseringsverktyg med öppen källkod. Genom att använda verktyg med öppen källkod, till exempel CapAnalysis för att visualisera paketinsamlingar, kan du utföra djup paketinspektion och snabbt identifiera trender i nätverkstrafiken.
+Med Network Watcher kan du samla in de data som krävs för att utföra nätverks-data utredning och bättre förstå nätverks trafiken. I det här scenariot visade vi hur paket insamlingar från Network Watcher enkelt kan integreras med visualiserings verktyg med öppen källkod. Genom att använda verktyg med öppen källkod, till exempel CapAnalysis för att visualisera paket, kan du utföra djup paket inspektion och snabbt identifiera trender inom nätverks trafiken.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om NSG-flödesloggar kan du besöka [NSG Flow-loggar](network-watcher-nsg-flow-logging-overview.md)
+Om du vill veta mer om NSG Flow-loggar kan du besöka [NSG Flow-loggar](network-watcher-nsg-flow-logging-overview.md)
 
-Lär dig hur du visualiserar dina NSG-flödesloggar med Power BI genom att besöka [Visualize NSG-flöden loggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Lär dig hur du visualiserar dina NSG Flow-loggar med Power BI genom att besöka [visualisera NSG flöden loggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png

@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8db477f87f344b28e8941e185c70c81d9b860a72
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149481"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187893"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Lösningar på virtuella Azure-datorer
 
-Den här artikeln beskriver hur du distribuerar virtuella datorer med Azure konfidentiella data bearbetning (VM) som kör Intel-processorer som backas upp av [Intel Software Extension Guard](https://software.intel.com/sgx) (Intel SGX). 
+Den här artikeln beskriver hur du distribuerar virtuella datorer med Azure konfidentiella data bearbetning (VM) som kör Intel-processorer som backas upp av [Intel Software Guard-tillägget](https://software.intel.com/sgx) (Intel SGX). 
 
 ## <a name="azure-confidential-computing-vm-sizes"></a>VM-storlekar för Azure konfidentiella datorer
 
@@ -148,5 +148,5 @@ Under **Egenskaper**måste du också referera till en bild under **storageProfil
 
 I den här artikeln har du lärt dig om de kvalifikationer och konfigurationer som behövs när du skapar en virtuell dator med konfidentiell dator användning. Nu kan du gå till Azure Marketplace för att distribuera en virtuell dator med DCsv2-serien.
 
-[!div class=”nextstepaction”]
-[Distribuera en virtuell dator med DCsv2-serien på Azure Marketplace](quick-create-marketplace.md)
+> [!div class="nextstepaction"]
+> [Distribuera en virtuell dator med DCsv2-serien på Azure Marketplace](quick-create-marketplace.md)

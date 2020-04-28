@@ -1,6 +1,6 @@
 ---
-title: Uppgradering av operativsystemet för SAP HANA på Azure (stora instanser)| Microsoft-dokument
-description: Utföra uppgradering av operativsystemet för SAP HANA på Azure (stora instanser)
+title: Uppgradering av operativ system för SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Utför uppgradering av operativ system för SAP HANA på Azure (stora instanser)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -13,89 +13,100 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fea0f74a90bc7b786a9b302d6282f9fb70e5412
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991491"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192424"
 ---
-# <a name="operating-system-upgrade"></a>Uppgradering av operativsystem
-I det här dokumentet beskrivs information om uppgraderingar av operativsystemet på de stora HANA-instanserna.
+# <a name="operating-system-upgrade"></a>Uppgradering av operativ system
+I det här dokumentet beskrivs information om uppgraderingar av operativ system på de stora och HANA-instanserna.
 
 >[!NOTE]
->Os-uppgraderingen är kundens ansvar, Microsofts driftsupport kan guida dig till de viktigaste områdena för att se upp under uppgraderingen. Du bör kontakta din operativsystem leverantör också innan du planerar för en uppgradering.
+>Operativ system uppgraderingen är kundens ansvar, Microsoft Operations-support kan hjälpa dig med viktiga områden för att se under uppgraderingen. Du bör kontakta operativ system leverantören och innan du planerar att uppgradera.
 
-Under HLI-enhetsetablering installerar Microsofts driftteam operativsystemet.
-Med tiden måste du underhålla operativsystemet (Exempel: Korrigering, justering, uppgradering etc.) på HLI-enheten.
+Under HLI enhets etablering installerar Microsoft Operations-teamet operativ systemet.
+Under tiden måste du underhålla operativ systemet (exempel: korrigering, justering, uppgradering osv.) på HLI-enheten.
 
-Innan du gör större ändringar i operativsystemet (till exempel Uppgradera SP1 till SP2) måste du kontakta Microsoft Operations-teamet genom att öppna en supportbiljett för att konsultera.
+Innan du gör större ändringar i operativ systemet (till exempel uppgradera SP1 till SP2) måste du kontakta Microsoft Operations team genom att öppna ett support ärende för att konsultera.
 
-Inkludera i din biljett:
+Ta med i din biljett:
 
 * Ditt HLI-prenumerations-ID.
-* Ditt servernamn.
-* Plåstret nivå du planerar att tillämpa.
-* Det datum då du planerar ändringen. 
+* Ditt Server namn.
+* Korrigerings nivån som du planerar att tillämpa.
+* Det datum då du planerar den här ändringen. 
 
-Vi rekommenderar att du öppnar den här biljetten minst en vecka före det önskvärda uppgraderingsdatumet på grund av att operationsteamet kontrollerar om en uppgradering av den inbyggda programvaran kommer att behövas på serverbladet.
+Vi rekommenderar att du öppnar den här biljetten minst en vecka före det önskvärda uppgraderings datumet på grund av att drifts teamet kontrollerar om en uppgradering av inbyggd program vara kommer att vara nödvändig på Server bladet.
 
 
-För supportmatrisen för de olika SAP HANA-versionerna med de olika Linux-versionerna finns i [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+En support mat ris för olika SAP HANA versioner med olika Linux-versioner finns i [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 
 ## <a name="known-issues"></a>Kända problem
 
-Följande är de få vanliga kända problem under uppgraderingen:
-- På SKU Type II-klass SKU tas programvaran (SFS) bort efter OS-uppgraderingen. Du måste installera om den kompatibla SFS efter OS-uppgraderingen.
-- Ethernet-kortdrivrutiner (ENIC och FNIC) återställs till äldre version. Du måste installera om den kompatibla versionen av drivrutinerna efter uppgraderingen.
+Följande är några vanliga kända problem under uppgraderingen:
+- I SKU Type II klass-SKU: n för program varu Foundation (SFS) tas den bort efter uppgraderingen av operativ systemet. Du måste installera om den kompatibla SFS efter uppgraderingen av operativ systemet.
+- Ethernet-kort driv rutiner (ENIC och FNIC) återställdes till en äldre version. Du måste installera om den kompatibla versionen av driv rutinerna efter uppgraderingen.
 
-## <a name="sap-hana-large-instance-type-i-recommended-configuration"></a>SAP HANA Large Instance (typ I) rekommenderad konfiguration
+## <a name="sap-hana-large-instance-type-i-recommended-configuration"></a>SAP HANA stor instans (typ I)-Rekommenderad konfiguration
 
-Konfigurationen av operativsystemet kan glida från de rekommenderade inställningarna över tid på grund av korrigering, systemuppgraderingar och ändringar som gjorts av kunder. Dessutom identifierar Microsoft uppdateringar som behövs för befintliga system för att säkerställa att de är optimalt konfigurerade för bästa prestanda och återhämtning. I enlighet med instruktionerna beskrivs rekommendationer som behandlar nätverksprestanda, systemstabilitet och optimal HANA-prestanda.
+Konfiguration av operativ system kan utföras av de rekommenderade inställningarna över tid på grund av korrigeringar, system uppgraderingar och ändringar som gjorts av kunderna. Dessutom identifierar Microsoft uppdateringar som krävs för befintliga system för att säkerställa att de är optimalt konfigurerade för bästa prestanda och återhämtning. Följande anvisningar beskriver rekommendationer som hanterar nätverks prestanda, system stabilitet och optimal HANA-prestanda.
 
-### <a name="compatible-enicfnic-driver-versions"></a>Kompatibla eNIC/fNIC-drivrutinsversioner
-  För att ha rätt nätverksprestanda och systemstabilitet rekommenderas att den OS-specifika lämpliga versionen av eNIC- och fNIC-drivrutiner installeras enligt följande kompatibilitetstabell. Servrar levereras till kunder med kompatibla versioner. Observera att i vissa fall, under OS / Kernel korrigering, kan drivrutiner få återställas till standarddrivrutinen versioner. Kontrollera att lämplig drivrutinsversion körs efter OS/Kernel-korrigeringsåtgärder.
+### <a name="compatible-enicfnic-driver-versions"></a>Kompatibla driv rutins versioner för eNIC/fNIC
+  För att få korrekt nätverks prestanda och system stabilitet bör du se till att den OS-/regionsspecifika lämpliga versionen av eNIC-och fNIC-drivrutinerna installeras som beskrivs i följande kompatibilitetslista. Servrar levereras till kunder med kompatibla versioner. Observera att i vissa fall under operativ system/kernel-uppdatering kan driv rutiner återställas till standard driv rutins versionerna. Kontrol lera att rätt driv rutins version kör åtgärder för att publicera operativ system/kernel.
        
       
-  |  OS-leverantör    |  Os-paketversion     |  Version av inbyggd programvara  |  eNIC-drivrutin |  fNIC-drivrutin | 
+  |  OS-leverantör    |  OS-paketets version     |  Version av inbyggd programvara  |  eNIC-drivrutin |  fNIC-drivrutin | 
   |---------------|-------------------------|--------------------|--------------|--------------|
-  |   Suse        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
-  |   Suse        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
-  |   Suse        |  SLES 12 SP4            |   3.2.3b           |  2.3.0.47    |   2.0.0.54   |
-  |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP2            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
+  |   Red Hat     |  RHEL 7,2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
-### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>Kommandon för uppgradering av drivrutiner och för att rengöra gamla rpm-paket
+### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>Kommandon för driv rutins uppgradering och rensa gamla rpm-paket
+
+#### <a name="command-to-check-existing-installed-drivers"></a>Kommando för att kontrol lera befintliga installerade driv rutiner
 ```
-rpm -U driverpackage.rpm
-rpm -e olddriverpackage.rpm
+rpm -qa | grep enic/fnic 
+```
+#### <a name="delete-existing-enicfnic-rpm"></a>Ta bort befintlig eNIC/fNIC rpm
+```
+rpm -e <old-rpm-package>
+```
+#### <a name="install-the-recommended-enicfnic-driver-packages"></a>Installera rekommenderade driv rutins paket för eNIC/fNIC
+```
+rpm -ivh <enic/fnic.rpm> 
 ```
 
-#### <a name="commands-to-confirm"></a>Kommandon för att bekräfta
+#### <a name="commands-to-confirm-the-installation"></a>Kommandon för att bekräfta installationen
 ```
 modinfo enic
 modinfo fnic
 ```
 
-### <a name="suse-hlis-grub-update-failure"></a>SuSE HLIs GRUB uppdateringsfel
-SAP på Azure HANA Large Instances (Typ I) kan vara i ett icke-startbart tillstånd efter uppgraderingen. Nedanstående procedur löser problemet.
-#### <a name="execution-steps"></a>Körningssteg
+### <a name="suse-hlis-grub-update-failure"></a>Uppdaterings problem för SuSE HLIs-GRUB
+SAP på Azure HANA stora instanser (typ I) kan vara i ett icke startbart tillstånd efter uppgraderingen. I proceduren nedan åtgärdas det här problemet.
+#### <a name="execution-steps"></a>Körnings steg
 
 
-*   Kör `multipath -ll` kommandot.
-*   Hämta LUN-ID vars storlek är cirka 50G eller använd kommandot:`fdisk -l | grep mapper`
-*   Uppdatera `/etc/default/grub_installdevice` fil `/dev/mapper/<LUN ID>`med rad . Exempel: /dev/mapper/3600a09803830372f483f495242534a56
+*   Kör `multipath -ll` kommando.
+*   Hämta det LUN-ID vars storlek är ungefär 50G eller Använd kommandot:`fdisk -l | grep mapper`
+*   Uppdatera `/etc/default/grub_installdevice` filen med rad `/dev/mapper/<LUN ID>`. Exempel:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
->LUN ID varierar från server till server.
+>LUN-ID varierar från server till server.
 
 
 ### <a name="disable-edac"></a>Inaktivera EDAC 
-   Modulen Felidentifiering och korrigering (EDAC) hjälper till att upptäcka och korrigera minnesfel. Den underliggande maskinvaran för SAP HANA på Azure Large Instances (Typ I) utför dock redan samma funktion. Med samma funktion aktiverad på maskinvaru- och operativsystem (OS) nivåer kan orsaka konflikter och kan leda till enstaka, oplanerade avstängningar av servern. Därför rekommenderas att inaktivera modulen från operativsystemet.
+   Modulen för fel identifiering och korrigering (EDAC) hjälper till att identifiera och korrigera minnes fel. Den underliggande maskin varan för SAP HANA på stora Azure-instanser (typ I) utför dock redan samma funktion. Att ha samma funktion aktive rad på maskin-och operativ system nivå kan orsaka konflikter och kan leda till tillfälliga, oplanerade avstängningar av servern. Därför rekommenderar vi att du inaktiverar modulen från operativ systemet.
 
-#### <a name="execution-steps"></a>Körningssteg
+#### <a name="execution-steps"></a>Körnings steg
 
-* Kontrollera om EDAC-modulen är aktiverad. Om en utdata returneras i kommandot nedan betyder det att modulen är aktiverad. 
+* Kontrol lera om EDAC-modulen är aktive rad. Om utdata returneras i nedanstående kommando innebär det att modulen är aktive rad. 
 ```
 lsmod | grep -i edac 
 ```
@@ -104,22 +115,22 @@ lsmod | grep -i edac
 blacklist sb_edac
 blacklist edac_core
 ```
-En omstart krävs för att göra ändringar på plats. Kör `lsmod` kommandot och kontrollera att modulen inte finns där i utdata.
+En omstart krävs för att göra ändringar på plats. Kör `lsmod` kommandot och kontrol lera att modulen inte finns där i utdata.
 
 
-### <a name="kernel-parameters"></a>Kärnparametrar
-   Kontrollera att rätt `transparent_hugepage`inställning `numa_balancing` `processor.max_cstate`för `ignore_ce` `intel_idle.max_cstate` , , och tillämpas.
+### <a name="kernel-parameters"></a>Kernel-parametrar
+   Kontrol lera att rätt inställning för `transparent_hugepage`, `numa_balancing`, `processor.max_cstate` `ignore_ce` och `intel_idle.max_cstate` tillämpas.
 
-* intel_idle.max_cstate=1
-* processor.max_cstate=1
-* transparent_hugepage=aldrig
-* numa_balancing=inaktivera
-* mce=ignore_ce
+* intel_idle. max_cstate = 1
+* processor. max_cstate = 1
+* transparent_hugepage = aldrig
+* numa_balancing = inaktivera
+* MCE = ignore_ce
 
 
-#### <a name="execution-steps"></a>Körningssteg
+#### <a name="execution-steps"></a>Körnings steg
 
-* Lägga till dessa `GRB_CMDLINE_LINUX` parametrar på raden i filen`/etc/default/grub`
+* Lägg till dessa parametrar till `GRB_CMDLINE_LINUX` raden i filen`/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```
@@ -131,5 +142,5 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Refer [Backup and restore](hana-overview-high-availability-disaster-recovery.md) for OS backup Type I SKU class.
-- Se [OS Backup för typ II SKU:er för revision 3-stämplar](os-backup-type-ii-skus.md) för klass typ II SKU.
+- Hänvisa till [säkerhets kopiering och återställning](hana-overview-high-availability-disaster-recovery.md) av säkerhets kopierings typ I SKU-klass.
+- Se [säkerhets kopiering av OS för typ II SKU: er av revision 3-stämplar](os-backup-type-ii-skus.md) för typ II SKU-klass.

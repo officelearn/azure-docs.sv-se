@@ -1,7 +1,7 @@
 ---
-title: Justera hyperparametrar för din modell
+title: Justera dina modellers egenskaper
 titleSuffix: Azure Machine Learning
-description: Justera hyperparametrarna effektivt för din djupinlärnings- och maskininlärningsmodell med Hjälp av Azure Machine Learning. Du får lära dig hur du definierar parametersökutrymmet, anger ett primärt mått för att optimera och avslutar körs med dåligt resultat tidigt.
+description: Justera de flesta parametrar för din djup inlärnings-och maskin inlärnings modell med hjälp av Azure Machine Learning. Du får lära dig hur du definierar parameter Sök utrymmet, anger ett primärt mått som ska optimeras och tidigt avslutar dåligt utförande av körningar.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,50 +11,50 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74fa6949716119d85eac5b142ac9e3c651a0a5d0
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398264"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189308"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Justera hyperparametrar för din modell med Azure Machine Learning
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Justera dina modellers egenskaper med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Justera hyperparametrarna effektivt för din modell med Azure Machine Learning.  Hyperparameterjustering innehåller följande steg:
+Justera dina modeller på ett effektivt sätt med hjälp av Azure Machine Learning.  Inställningen för min parameter innehåller följande steg:
 
-* Definiera parametersökutrymmet
-* Ange ett primärt mått för att optimera  
-* Ange kriterier för tidig uppsägning för dåligt presterande körningar
-* Allokera resurser för justering av hyperparameter
-* Starta ett experiment med ovanstående konfiguration
-* Visualisera träningskörningarna
-* Välj den konfiguration som ger bäst prestanda för din modell
+* Definiera parameter Sök utrymmet
+* Ange ett primärt mått som ska optimeras  
+* Ange kriterier för tidig avslutning för dåligt utförda körningar
+* Allokera resurser för inställning av min parameter
+* Starta ett experiment med konfigurationen ovan
+* Visualisera inlärnings körningar
+* Välj den bästa presterande konfigurationen för din modell
 
-## <a name="what-are-hyperparameters"></a>Vad är hyperparametrar?
+## <a name="what-are-hyperparameters"></a>Vad är mina parametrar?
 
-Hyperparametrar är justerbara parametrar som du väljer att träna en modell som styr själva träningsprocessen. Om du till exempel vill träna ett djupt neuralt nätverk bestämmer du antalet dolda lager i nätverket och antalet noder i varje lager innan du tränar modellen. Dessa värden förblir vanligtvis konstanta under träningsprocessen.
+De båda parametrarna är justerbara parametrar som du väljer för att träna en modell som styr själva inlärnings processen. Om du till exempel vill träna ett djup neurala nätverk bestämmer du antalet dolda lager i nätverket och antalet noder i varje lager innan du tränar modellen. Dessa värden är vanligt vis konstanta under inlärnings processen.
 
-I djupinlärnings-/maskininlärningsscenarier beror modellprestanda i hög grad på de hyperparametervärden som valts. Målet med hyperparameterutforskning är att söka över olika hyperparameterkonfigurationer för att hitta en konfiguration som ger bäst prestanda. Vanligtvis är hyperparameter utforskningsprocessen mödosamt manuell, med tanke på att sökutrymmet är stort och utvärdering av varje konfiguration kan vara dyrt.
+I djup inlärnings-och maskin inlärnings scenarier är modell prestanda beroende av de egenskaper för den valda parametern. Målet för utforskningen av en parameter är att söka bland olika konfigurationer för en valfri parameter för att hitta en konfiguration som resulterar i bästa prestanda. Normalt är utforsknings processen för mödosamt manuell, eftersom Sök utrymmet är stort och utvärderingen av varje konfiguration kan vara dyrt.
 
-Med Azure Machine Learning kan du automatisera utforskning av hyperparameter på ett effektivt sätt, vilket sparar mycket tid och resurser. Du anger intervallet hyperparametervärden och ett maximalt antal utbildningskörningar. Systemet startar sedan automatiskt flera samtidiga körningar med olika parameterkonfigurationer och hittar den konfiguration som resulterar i bästa prestanda, mätt med det mått du väljer. Dåligt presterande utbildningskörningar avslutas automatiskt i förtid, vilket minskar slöseriet med beräkningsresurser. Dessa resurser används i stället för att utforska andra hyperparameterkonfigurationer.
+Med Azure Machine Learning kan du automatisera utforskningen av en hel parameter på ett effektivt sätt, vilket sparar mycket tid och resurser. Du anger intervallet mellan parameter värden och ett maximalt antal utbildnings körningar. Systemet startar sedan automatiskt flera samtidiga körningar med olika parameter konfigurationer och söker efter den konfiguration som resulterar i bästa prestanda, uppmätt av det mått du väljer. Dåligt utförda utbildnings körningar avslutas automatiskt tidigt, vilket minskar svinnt av beräknings resurser. Dessa resurser används i stället för att utforska andra konfigurations inställningar för olika konfigurationer.
 
 
-## <a name="define-search-space"></a>Definiera sökutrymme
+## <a name="define-search-space"></a>Definiera sökområde
 
-Justera hyperparametrarna automatiskt genom att utforska det värdeintervall som definierats för varje hyperparameter.
+Justera de båda parametrarna automatiskt genom att utforska intervallet av de värden som definierats för varje-parameter.
 
-### <a name="types-of-hyperparameters"></a>Typer av hyperparametrar
+### <a name="types-of-hyperparameters"></a>Typer av disponeringsparametrarna
 
-Varje hyperparameter kan antingen vara diskret eller kontinuerlig och har en fördelning av värden som beskrivs av ett [parameteruttryck](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
+Varje enskild parameter kan antingen vara diskret eller kontinuerlig och har en fördelning av värden som beskrivs av ett [parameter uttryck](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
-#### <a name="discrete-hyperparameters"></a>Diskreta hyperparametrar 
+#### <a name="discrete-hyperparameters"></a>Diskreta egenskaper 
 
-Diskreta hyperparametrar anges som `choice` en bland diskreta värden. `choice`kan vara:
+Diskreta egenskaper anges som en `choice` mellan diskreta värden. `choice`kan vara:
 
 * ett eller flera kommaavgränsade värden
 * ett `range` objekt
-* godtyckliga `list` objekt
+* valfritt godtyckligt `list` objekt
 
 
 ```Python
@@ -64,25 +64,25 @@ Diskreta hyperparametrar anges som `choice` en bland diskreta värden. `choice`k
     }
 ```
 
-I det `batch_size` här fallet tar på sig ett av värdena [16, 32, 64, 128] och `number_of_hidden_layers` tar på sig ett av värdena [1, 2, 3, 4].
+I det här fallet `batch_size` tar ett av värdena [16, 32, 64, 128] och `number_of_hidden_layers` tar på ett av värdena [1, 2, 3, 4].
 
-Avancerade diskreta hyperparametrar kan också anges med hjälp av en fördelning. Följande distributioner stöds:
+Avancerade diskreta personifieringsparametrar kan också anges med en distribution. Följande distributioner stöds:
 
-* `quniform(low, high, q)`- Returnerar ett värde som runda (enhetlig (låg, hög) / q) * q
-* `qloguniform(low, high, q)`- Returnerar ett värde som runda (exp(enhetlig(låg, hög)) / q) * q
-* `qnormal(mu, sigma, q)`- Returnerar ett värde som runda (normal(mu, sigma) / q) * q
-* `qlognormal(mu, sigma, q)`- Returnerar ett värde som round(exp(normal(mu, sigma)) / q) * q
+* `quniform(low, high, q)`-Returnerar ett värde som Round (Uniform (låg, hög)/q) * q
+* `qloguniform(low, high, q)`-Returnerar ett värde som Round (exp (Uniform (låg, hög))/q) * q
+* `qnormal(mu, sigma, q)`-Returnerar ett värde som Round (normal (MU, Sigma)/q) * q
+* `qlognormal(mu, sigma, q)`-Returnerar ett värde som Round (exp (normal (MU, Sigma))/q) * q
 
-#### <a name="continuous-hyperparameters"></a>Kontinuerliga hyperparametrar 
+#### <a name="continuous-hyperparameters"></a>Kontinuerliga egenskaper 
 
-Kontinuerliga hyperparametrar anges som en fördelning över ett kontinuerligt värdeintervall. Distributioner som stöds inkluderar:
+Kontinuerliga disponeringsparametrarna anges som en distribution över ett kontinuerligt intervall med värden. Distributioner som stöds är:
 
-* `uniform(low, high)`- Returnerar ett värde jämnt fördelat mellan låg och hög
-* `loguniform(low, high)`- Returnerar ett värde som dras enligt exp(uniform(låg, hög)) så att logaritmen för returvärdet fördelas jämnt fördelat
-* `normal(mu, sigma)`- Returnerar ett verkligt värde som normalt fördelas med medelvärdet mu och standardavvikelse sigma
-* `lognormal(mu, sigma)`- Returnerar ett värde som dras enligt exp(normal(mu, sigma)) så att logaritmen för returvärdet normalt fördelas
+* `uniform(low, high)`-Returnerar ett värde enhetligt fördelat mellan låg och hög
+* `loguniform(low, high)`-Returnerar ett värde som ritats enligt exp (Uniform (låg, hög)) så att logaritmen för returvärdet är enhetligt distribuerad
+* `normal(mu, sigma)`– Returnerar ett verkligt värde som normalt distribueras med medelvärdet My och standard avvikelsen Sigma
+* `lognormal(mu, sigma)`-Returnerar ett värde som ritats enligt exp (normal (MU, Sigma)) så att logaritmen för returvärdet normalt distribueras
 
-Ett exempel på en parameterutrymmesdefinition:
+Ett exempel på en parameter utrymmes definition:
 
 ```Python
     {    
@@ -91,21 +91,21 @@ Ett exempel på en parameterutrymmesdefinition:
     }
 ```
 
-Den här koden definierar ett `learning_rate` sökutrymme med två parametrar - och `keep_probability`. `learning_rate`har en normalfördelning med medelvärde 10 och en standardavvikelse på 3. `keep_probability`har en enhetlig fördelning med ett minimivärde på 0,05 och ett högsta värde på 0,1.
+Den här koden definierar ett Sök utrymme med två parametrar `learning_rate` – `keep_probability`och. `learning_rate`har en normal distribution med medel värde 10 och en standard avvikelse på 3. `keep_probability`har en enhetlig distribution med ett lägsta värde på 0,05 och ett högsta värde på 0,1.
 
-### <a name="sampling-the-hyperparameter-space"></a>Provtagning av hyperparameterutrymmet
+### <a name="sampling-the-hyperparameter-space"></a>Sampling av områdets parameter utrymme
 
-Du kan också ange den parameterprovtagningsmetod som ska användas över hyperparameterutrymmesdefinitionen. Azure Machine Learning stöder slumpmässiga samplingar, rutnätsprovtagning och Bayesiansk sampling.
+Du kan också ange parameter samplings metoden som ska användas över definitions området för den här parametern. Azure Machine Learning stöder slumpmässig provtagning, rutnäts sampling och Bayesian-sampling.
 
-#### <a name="picking-a-sampling-method"></a>Plockning av en samplingsmetod
+#### <a name="picking-a-sampling-method"></a>Plocka en samplings metod
 
-* Rutnätsprovtagning kan användas om hyperparameterutrymmet kan definieras som ett val bland diskreta värden och om du har tillräcklig budget för att uttömmande söka igenom alla värden i det definierade sökutrymmet. Dessutom kan man använda automatiserad tidig uppsägning av dåligt presterande körningar, vilket minskar slöseri med resurser.
-* Slumpmässig provtagning gör att hyperparameterutrymmet kan inkludera både diskreta och kontinuerliga hyperparametrar. I praktiken ger det goda resultat för det mesta och tillåter också användning av automatiserad förtida uppsägning av dåligt presterande körningar. Vissa användare utför en första sökning med hjälp av slumpmässiga samplingar och sedan iterativt förfina sökutrymmet för att förbättra resultaten.
-* Bayesiansk sampling utnyttjar kunskap om tidigare exempel när du väljer hyperparametervärden, och försöker effektivt förbättra det rapporterade primära måttet. Bayesiansk provtagning rekommenderas när du har tillräcklig budget för att utforska hyperparameterutrymmet - för bästa resultat med Bayesiansk sampling rekommenderar vi att du använder ett maximalt antal körningar som är större än eller lika med 20 gånger så många hyperparameter som justeras. Observera att Bayesiansk sampling för närvarande inte stöder någon policy för tidig uppsägning.
+* Rutnäts sampling kan användas om ditt områdes parameter utrymme kan definieras som ett alternativ bland diskreta värden och om du har tillräcklig budget för att söka igenom alla värden i det definierade Sök utrymmet. Dessutom kan en automatiserad avstängning av dåligt utförande, vilket minskar svinnt av resurser.
+* Med slumpmässig sampling kan du ta med både diskreta och kontinuerliga grundparametrar. I praktiken ger den bra resultat i de flesta tider och kan också användas för att automatisera tidig avstängning av dåligt utförda körningar. Vissa användare utför en inledande sökning med slumpmässig sampling och förfina sedan Sök utrymmet iterativt för att förbättra resultaten.
+* Bayesian-samplingen använder kunskaper om tidigare exempel när du väljer värden för en parameter, vilket effektivt försöker förbättra det rapporterade primära måttet. Bayesian-sampling rekommenderas när du har tillräckligt med budget för att utforska området för den övre parametern, för bästa resultat med Bayesian-sampling rekommenderar vi att du använder ett maximalt antal körningar som är större än eller lika med 20 gånger antalet som är justerade. Observera att Bayesian-sampling för närvarande inte stöder någon tidig avslutnings princip.
 
-#### <a name="random-sampling"></a>Stickprov
+#### <a name="random-sampling"></a>Slumpmässig provtagning
 
-Vid slumpmässigt urval väljs hyperparametervärden slumpmässigt från det definierade sökutrymmet. [Slumpmässigt urval](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py) gör att sökutrymmet kan inkludera både diskreta och kontinuerliga hyperparametrar.
+I slumpmässig sampling väljs värdena för båda parametrarna slumpmässigt från det definierade Sök utrymmet. Med [slumpmässig sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py) kan Sök utrymmet innehålla både diskreta och kontinuerliga disponeringsparametrarna.
 
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
@@ -117,9 +117,9 @@ param_sampling = RandomParameterSampling( {
 )
 ```
 
-#### <a name="grid-sampling"></a>Provtagning av rutnät
+#### <a name="grid-sampling"></a>Rutnäts sampling
 
-[Rutnätsprovtagning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) utför en enkel rutnätssökning över alla möjliga värden i det definierade sökutrymmet. Den kan endast användas med hyperparametrar som anges med `choice`. Följande utrymme har till exempel totalt sex samplingar:
+Vid [Rutnäts sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) utförs en enkel rutnäts sökning över alla genomförbara värden i det definierade Sök utrymmet. Det går endast att använda med de angivna de angivna `choice`egenskaperna. Följande utrymme har exempelvis totalt sex exempel:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -132,11 +132,11 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Bayesiansk sampling
 
-[Bayesiansk sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py) baseras på bayesisk optimeringsalgoritm och gör intelligenta val på hyperparametervärdena att prova nästa. Det plockar exemplet baserat på hur de tidigare exemplen utförs, så att det nya exemplet förbättrar det rapporterade primära måttet.
+[Bayesian-sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py) baseras på algoritmen för Bayesian-optimering och gör intelligenta val på de båda parametervärdena för att sampla härnäst. Exemplet hämtar exemplet baserat på hur föregående exempel utfördes, så att det nya exemplet förbättrar det rapporterade primära måttet.
 
-När du använder Bayesiansk sampling påverkar antalet samtidiga körningar justeringsprocessens effektivitet. Vanligtvis kan ett mindre antal samtidiga körningar leda till bättre samplingskonvergens, eftersom den mindre graden av parallellism ökar antalet körningar som drar nytta av tidigare avslutade körningar.
+När du använder Bayesian-sampling, har antalet samtidiga körningar påverka effektiviteten i justerings processen. Vanligt vis kan ett mindre antal samtidiga körningar leda till bättre provtagnings konvergens, eftersom den mindre graden av parallellitet ökar antalet körningar som förmånen från tidigare slutförda körningar.
 
-Bayesiansk sampling `choice` `uniform`stöder `quniform` bara , och distributioner över sökutrymmet.
+Bayesian-sampling stöder `choice`bara `uniform`, och `quniform` distributioner över Sök utrymmet.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -148,31 +148,31 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesiansk sampling stöder inte någon policy för tidig uppsägning (Se [Ange en policy för tidig uppsägning).](#specify-early-termination-policy) När du använder Bayesian `early_termination_policy = None`parameterprovtagning `early_termination_policy` ställer du in eller lämnar parametern.
+> Bayesian-sampling stöder inte någon tidig avslutnings princip (se [Ange en princip för tidig avslutning](#specify-early-termination-policy)). När du använder Bayesian parameter sampling, `early_termination_policy = None`anger eller lämnar du `early_termination_policy` parametern.
 
 <a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>Ange primärt mått
 
-Ange det [primära mått som](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) du vill att hyperparameterjusteringsexperimentet ska optimeras. Varje träningskörning utvärderas för det primära måttet. Dåligt presterande körningar (där det primära måttet inte uppfyller de kriterier som anges av principen för förtida uppsägning) kommer att avslutas. Förutom det primära måttnamnet anger du också målet för optimeringen - om du vill maximera eller minimera det primära måttet.
+Ange det [primära mått](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) som du vill att det bästa experimentet för att justera ska optimera. Varje tränings körning utvärderas för det primära måttet. Dåligt utförda körningar (där det primära måttet inte uppfyller villkoren som angetts i principen för tidig avslutning) avslutas. Förutom det primära mått namnet anger du även målet för optimeringen – om du vill maximera eller minimera det primära måttet.
 
-* `primary_metric_name`: Namnet på det primära måttet som ska optimeras. Namnet på det primära måttet måste exakt matcha namnet på det mått som loggas av träningsskriptet. Se [Loggmått för hyperparameterjustering](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: Det kan `PrimaryMetricGoal.MAXIMIZE` `PrimaryMetricGoal.MINIMIZE` vara antingen eller och avgör om det primära måttet kommer att maximeras eller minimeras vid utvärdering av körningar. 
+* `primary_metric_name`: Namnet på det primära måttet som ska optimeras. Namnet på den primära mått filen måste matcha namnet på det mått som loggats av övnings skriptet. Se [logg mått för justering av en parameter](#log-metrics-for-hyperparameter-tuning).
+* `primary_metric_goal`: Det kan vara antingen `PrimaryMetricGoal.MAXIMIZE` eller `PrimaryMetricGoal.MINIMIZE` och bestämmer om det primära måttet ska maximeras eller minimeras när körningarna utvärderas. 
 
 ```Python
 primary_metric_name="accuracy",
 primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 ```
 
-Optimera körningarna för att maximera "noggrannheten".  Se till att logga det här värdet i ditt träningsskript.
+Optimera körningarna för att maximera "noggrannhet".  Se till att logga det här värdet i ditt utbildnings skript.
 
 <a name='log-metrics-for-hyperparameter-tuning'/>
 
-### <a name="log-metrics-for-hyperparameter-tuning"></a>Loggmått för hyperparameterjustering
+### <a name="log-metrics-for-hyperparameter-tuning"></a>Logg mått för justering av en parametriserad parameter
 
-Utbildningsskriptet för din modell måste logga relevanta mått under modellutbildningen. När du konfigurerar hyperparameterjusteringen anger du det primära mått som ska användas för att utvärdera körningsprestanda. (Se [Ange ett primärt mått som ska optimeras](#specify-primary-metric-to-optimize).)  I utbildningsskriptet måste du logga det här måttet så att det är tillgängligt för hyperparameterjusteringsprocessen.
+Utbildnings skriptet för din modell måste logga relevanta mått under modell träning. När du konfigurerar en inställning för den här parametern anger du det primära mått som ska användas för att utvärdera prestanda för körning. (Se [Ange ett primärt mått att optimera](#specify-primary-metric-to-optimize).)  I ditt utbildnings skript måste du logga det här måttet så att det är tillgängligt för justerings processen för den egna parametern.
 
-Logga det här måttet i utbildningsskriptet med följande exempelkodavsnitt:
+Logga detta mått i ditt utbildnings skript med följande exempel-kodfragment:
 
 ```Python
 from azureml.core.run import Run
@@ -180,30 +180,30 @@ run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 
-Träningsskriptet beräknar `val_accuracy` och loggar det som "noggrannhet", som används som det primära måttet. Varje gång måttet loggas tas det emot av hyperparameterjusteringstjänsten. Det är upp till modellutvecklaren att avgöra hur ofta det här måttet ska rapporteras.
+Övnings skriptet beräknar `val_accuracy` och loggar det som "noggrannhet", som används som primärt mått. Varje gången måttet loggas tas det emot av tjänsten för justering av tids parametrar. Det är upp till modell utvecklaren att avgöra hur ofta det här måttet ska rapporteras.
 
 <a name='specify-early-termination-policy'/>
 
-## <a name="specify-early-termination-policy"></a>Ange policy för tidig uppsägning
+## <a name="specify-early-termination-policy"></a><a name="early-termination"></a>Ange princip för tidig avslutning
 
-Avsluta dåligt presterande körs automatiskt med en policy för tidig uppsägning. Avslutning minskar slöseri med resurser och använder i stället dessa resurser för att utforska andra parameterkonfigurationer.
+Avsluta dåligt utförande körs automatiskt med en princip för tidig avslutning. Terminering minskar svinn av resurser och använder i stället dessa resurser för att utforska andra parameter konfigurationer.
 
-När du använder en princip för tidig avslutning kan du konfigurera följande parametrar som styr när en princip tillämpas:
+När du använder en tidig avslutnings princip kan du konfigurera följande parametrar som styr när en princip tillämpas:
 
-* `evaluation_interval`: frekvensen för tillämpningen av policyn. Varje gång utbildningsskriptet loggar det primära måttet räknas som ett intervall. Således `evaluation_interval` kommer en av 1 att tillämpa principen varje gång utbildningsskriptet rapporterar det primära måttet. En `evaluation_interval` av 2 kommer att tillämpa principen varannan gång utbildningsskriptet rapporterar det primära måttet. Om inget anges `evaluation_interval` är värdet 1 som standard.
-* `delay_evaluation`: försenar den första principutvärderingen för ett visst antal intervall. Det är en valfri parameter som gör att alla konfigurationer kan köras under ett inledande minsta antal intervall, vilket undviker förtida avslutning av utbildningskörningar. Om det anges gäller principen alla flera evaluation_interval som är större än eller lika med delay_evaluation.
+* `evaluation_interval`: frekvensen för att tillämpa principen. Varje tillfälle ska tränings skriptet logga in det primära måttet som ett intervall. Det innebär `evaluation_interval` att en av 1 tillämpar principen varje gång utbildnings skriptet rapporterar det primära måttet. En `evaluation_interval` av 2 tillämpar principen varannan gång som tränings skriptet rapporterar det primära måttet. Om inget värde anges `evaluation_interval` anges värdet 1 som standard.
+* `delay_evaluation`: fördröjer den första princip utvärderingen för ett angivet antal intervall. Det är en valfri parameter som gör att alla konfigurationer kan köras i ett ursprungligt minsta antal intervall, för att undvika att utbildningar avslutas för tidigt. Om det här alternativet anges gäller principen varje multipel av evaluation_interval som är större än eller lika med delay_evaluation.
 
-Azure Machine Learning stöder följande principer för tidig uppsägning.
+Azure Machine Learning stöder följande tidiga avslutnings principer.
 
-### <a name="bandit-policy"></a>Bandit politik
+### <a name="bandit-policy"></a>Bandit-princip
 
-[Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#definition) är en uppsägningspolicy baserad på slackfaktor/slackbelopp och utvärderingsintervall. Principen avslutar tidigt alla körningar där det primära måttet inte ligger inom den angivna slackfaktorn/slackbeloppet med avseende på den bäst presterande träningskörningen. Det tar följande konfigurationsparametrar:
+[Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#definition) är en avslutnings princip som baseras på slack-faktorn/slack och utvärderings intervallet. Principen tidigt avslutar alla körningar där det primära måttet inte ligger inom den angivna slack-faktorn/slacket med avseende på bästa möjliga inlärnings körning. Det tar följande konfigurations parametrar:
 
-* `slack_factor`eller `slack_amount`: det tillåtna slacket med avseende på den bäst presterande träningskörningen. `slack_factor`anger det tillåtna slacket som ett förhållande. `slack_amount`anger det tillåtna slacket som ett absolut belopp, i stället för ett förhållande.
+* `slack_factor`eller `slack_amount`: det tillåtna slacket i förhållande till bästa möjliga utbildning körs. `slack_factor`anger det tillåtna slacket som ett förhållande. `slack_amount`anger det tillåtna slacket som ett absolut belopp, i stället för en kvot.
 
-    Tänk dig till exempel att en Bandit-princip tillämpas med intervall 10. Anta att den bäst presterande körningen med intervall 10 rapporterade ett primärt mått 0,8 med ett mål att maximera det primära måttet. Om principen angavs med `slack_factor` en av 0,2 avslutas alla utbildningskörningar, vars bästa mått med intervall 10 är mindre`slack_factor`än 0,66 (0,8/(1+ )). Om i stället angavs principen `slack_amount` med en av 0,2, kommer alla utbildningskörningar, vars bästa mått med intervall `slack_amount`10 är mindre än 0,6 (0,8 - ) att avslutas.
-* `evaluation_interval`: frekvensen för tillämpning av principen (valfri parameter).
-* `delay_evaluation`: försenar den första principutvärderingen för ett visst antal intervall (valfri parameter).
+    Anta till exempel att en bandit-princip används vid intervall 10. Anta att den bästa presterande körningen vid intervall 10 rapporterade ett primärt mått 0,8 med målet att maximera det primära måttet. Om principen har angetts med `slack_factor` 0,2, kommer all utbildning som körs, vars bästa mått vid intervallet 10 är mindre än 0,66 (0,8/(1 +`slack_factor`)) att avslutas. I stället angavs principen med `slack_amount` 0,2, vilken utbildning som helst, vars bästa mått vid intervallet 10 är mindre än 0,6 (0,8- `slack_amount`) avbryts.
+* `evaluation_interval`: frekvensen för att tillämpa principen (valfri parameter).
+* `delay_evaluation`: fördröjer den första princip utvärderingen för ett angivet antal intervall (valfri parameter).
 
 
 ```Python
@@ -211,13 +211,13 @@ from azureml.train.hyperdrive import BanditPolicy
 early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=1, delay_evaluation=5)
 ```
 
-I det här exemplet tillämpas principen för tidig uppsägning vid varje intervall när mått rapporteras, med början vid utvärderingsintervall 5. Alla löpkörningar vars bästa mått är mindre än (1/(1+0,1) eller 91 % av de bästa körningen kommer att avslutas.
+I det här exemplet tillämpas principen för tidig avslutning vid varje intervall när mått rapporteras, från och med utvärderings intervallet 5. Alla körningar vars bästa mått är mindre än (1/(1 + 0,1) eller 91% av den bästa körningen avbryts.
 
-### <a name="median-stopping-policy"></a>Medianstoppspolicy
+### <a name="median-stopping-policy"></a>Median stoppar princip
 
-[Medianstopp](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py) är en princip för tidig uppsägning baserat på löpande medelvärden för primära mått som rapporteras av körningarna. Den här principen beräknar löpande medelvärden för alla utbildningskörningar och avslutar körningar vars prestanda är sämre än medianvärdet för de löpande medelvärdena. Den här principen tar följande konfigurationsparametrar:
-* `evaluation_interval`: frekvensen för tillämpning av principen (valfri parameter).
-* `delay_evaluation`: försenar den första principutvärderingen för ett visst antal intervall (valfri parameter).
+[Median stopp](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py) är en princip för tidig avslutning som baseras på löpande medelvärden av primära mått som rapporteras av körningarna. Den här principen beräknar löpande medelvärden för alla utbildnings körningar och avslutar körningar vars prestanda är sämre än median värdet för de löpande medelvärdena. Den här principen använder följande konfigurations parametrar:
+* `evaluation_interval`: frekvensen för att tillämpa principen (valfri parameter).
+* `delay_evaluation`: fördröjer den första princip utvärderingen för ett angivet antal intervall (valfri parameter).
 
 
 ```Python
@@ -225,15 +225,15 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-I det här exemplet tillämpas principen för förtida avslutning vid varje intervall som börjar med utvärderingsintervall 5. En körning avslutas med intervall 5 om dess bästa primära mått är sämre än medianvärdet för de löpande medelvärdena över intervall 1:5 i alla utbildningskörningar.
+I det här exemplet tillämpas principen för tidig avslutning vid varje intervall som börjar med utvärderings intervallet 5. En körning avslutas med intervallet 5 om det bästa primära måttet är sämre än median värdet för de löpande medelvärdena över intervall 1:5 för alla utbildnings körningar.
 
-### <a name="truncation-selection-policy"></a>Urvalspolicy för trunkering
+### <a name="truncation-selection-policy"></a>Princip för att välja trunkering
 
-[Trunkeringsval](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py) avbryter en viss procentandel av de lägsta körningarna vid varje utvärderingsintervall. Körningar jämförs baserat på deras prestanda på det primära måttet och det lägsta X% avslutas. Det tar följande konfigurationsparametrar:
+[Avtrunkering av markering](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py) avbryter en viss procent andel av de lägsta körnings körningarna vid varje utvärderings intervall. Körningarna jämförs baserat på deras prestanda på det primära måttet och de lägsta X% avslutas. Det tar följande konfigurations parametrar:
 
-* `truncation_percentage`: Procentandelen av de lägst presterande körningarna att avsluta vid varje utvärderingsintervall. Ange ett heltalsvärde mellan 1 och 99.
-* `evaluation_interval`: frekvensen för tillämpning av principen (valfri parameter).
-* `delay_evaluation`: försenar den första principutvärderingen för ett visst antal intervall (valfri parameter).
+* `truncation_percentage`: procent andelen av de lägsta körnings körningarna som avslutas vid varje utvärderings intervall. Ange ett heltals värde mellan 1 och 99.
+* `evaluation_interval`: frekvensen för att tillämpa principen (valfri parameter).
+* `delay_evaluation`: fördröjer den första princip utvärderingen för ett angivet antal intervall (valfri parameter).
 
 
 ```Python
@@ -241,56 +241,56 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-I det här exemplet tillämpas principen för förtida avslutning vid varje intervall som börjar med utvärderingsintervall 5. En körning avslutas med intervall 5 om dess prestanda med intervall 5 är i de lägsta 20% av prestanda för alla körningar med intervall 5.
+I det här exemplet tillämpas principen för tidig avslutning vid varje intervall som börjar med utvärderings intervallet 5. En körning avslutas med intervall 5 om dess prestanda vid intervall 5 är i den lägsta 20% av prestandan för alla körningar i intervallet 5.
 
-### <a name="no-termination-policy"></a>Ingen uppsägningspolicy
+### <a name="no-termination-policy"></a>Ingen avslutnings princip
 
-Om du vill att alla utbildningskörningar ska slutföras anger du principen till Ingen. Detta kommer att leda till att någon policy för förtida uppsägning inte tillämpas.
+Om du vill att all utbildning ska köras för att slutföras, anger du principen till ingen. Detta kommer att leda till att du inte tillämpar någon tidig avslutnings princip.
 
 ```Python
 policy=None
 ```
 
-### <a name="default-policy"></a>Standardprincip
+### <a name="default-policy"></a>Standard princip
 
-Om ingen princip anges låter hyperparameterjusteringstjänsten alla utbildningskörningar slutföras.
+Om ingen princip har angetts, kommer tjänsten för egenskaps justering att låta all utbildning köras på Slutför.
 
-### <a name="picking-an-early-termination-policy"></a>Välja en policy för förtida uppsägning
+### <a name="picking-an-early-termination-policy"></a>Plocka en princip för tidig avslutning
 
-* Om du letar efter en konservativ politik som ger besparingar utan att avsluta `evaluation_interval` lovande `delay_evaluation` jobb, kan du använda en median stoppa politik med 1 och 5. Dessa är konservativa inställningar, som kan ge cirka 25%-35% besparingar utan förlust på primära mått (baserat på våra utvärderingsdata).
-* Om du letar efter mer aggressiva besparingar från förtida uppsägning kan du antingen använda Bandit Policy med en striktare (mindre) tillåten slack- eller Trunkering-urvalspolicy med en större trunkeringsprocent.
+* Om du letar efter en restriktiv princip som ger besparingar utan att avsluta löftes jobb, kan du använda en princip för att stoppa `evaluation_interval` en median `delay_evaluation` med 1 och 5. Dessa är restriktiva inställningar som kan ge cirka 25%-35% besparingar utan förlust av primärt mått (baserat på våra utvärderings data).
+* Om du vill ha mer aggressiva besparingar från tidiga uppsägningar kan du antingen använda bandit-principen med en striktare (mindre) tillåten slack eller trunkering princip för urvals princip med en större trunkning i procent.
 
-## <a name="allocate-resources"></a>Fördela resurser
+## <a name="allocate-resources"></a>Allokera resurser
 
-Styr din resursbudget för hyperparameterjusteringsexperimentet genom att ange det maximala totala antalet utbildningskörningar.  Du kan också ange den maximala varaktigheten för hyperparameterjusteringsexperimentet.
+Kontrol lera din resurs budget för ditt bästa experiment genom att ange det maximala totala antalet utbildningar som körs.  Du kan också ange den maximala varaktigheten för experimentet med en parameter justering.
 
-* `max_total_runs`: Maximalt totalt antal utbildningskörningar som kommer att skapas. Övre gräns - det kan finnas färre körningar, till exempel om hyperparameterutrymmet är begränsat och har färre prover. Måste vara ett tal mellan 1 och 1000.
-* `max_duration_minutes`: Maximal varaktighet i minuter av hyperparameterjusteringsexperimentet. Parameter är valfritt, och om det finns, alla körningar som skulle köras efter den här varaktigheten avbryts automatiskt.
-
->[!NOTE] 
->Om `max_total_runs` båda `max_duration_minutes` och anges avslutas hyperparameterjusteringsexperimentet när det första av dessa två tröskelvärden uppnås.
-
-Dessutom anger du det maximala antalet utbildningskörningar som ska köras samtidigt under hyperparameterjusteringssökningen.
-
-* `max_concurrent_runs`: Maximalt antal körningar som ska köras samtidigt vid en viss tidpunkt. Om ingen anges `max_total_runs` kommer alla att startas parallellt. Om det anges måste det vara ett tal mellan 1 och 100.
+* `max_total_runs`: Det högsta antalet utbildnings körningar som ska skapas. Övre gräns – det kan finnas färre körningar, till exempel om det finns ett begränsat parameter utrymme och har färre sampel. Måste vara ett tal mellan 1 och 1000.
+* `max_duration_minutes`: Maximal varaktighet i minuter för experimentet med tids inställning. Parametern är valfri, och om den är tillgänglig avbryts alla körningar som körs efter den varaktigheten automatiskt.
 
 >[!NOTE] 
->Antalet samtidiga körningar är gated på de resurser som är tillgängliga i det angivna beräkningsmålet. Därför måste du se till att beräkningsmålet har tillgängliga resurser för önskad samtidighet.
+>Om både `max_total_runs` och `max_duration_minutes` anges, avbryts experimentets inställnings experiment när den första av dessa två tröskelvärden uppnås.
 
-Allokera resurser för hyperparameterjustering:
+Dessutom kan du ange det maximala antalet körnings körningar som ska köras samtidigt under justerings sökningen för din parameter.
+
+* `max_concurrent_runs`: Det högsta antalet körningar som körs samtidigt vid en givet tillfälle. Om inget anges kommer alla `max_total_runs` att startas parallellt. Om det anges måste det vara ett tal mellan 1 och 100.
+
+>[!NOTE] 
+>Antalet samtidiga körningar är gated på de resurser som är tillgängliga i det angivna beräknings målet. Därför måste du se till att Compute-målet har de tillgängliga resurserna för önskad samtidighet.
+
+Allokera resurser för inställning av min parameter:
 
 ```Python
 max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-Den här koden konfigurerar hyperparameterjusteringsexperimentet för att använda maximalt 20 totala körningar och kör fyra konfigurationer åt gången.
+Den här koden konfigurerar experimentet för inställning av parameter till att använda maximalt 20 Totalt antal körningar som kör fyra konfigurationer i taget.
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
 
-[Konfigurera hyperparameterjusteringsexperimentet](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) med hjälp av det definierade sökutrymmet hyperparameter, principen om tidig avslutning, primärt mått och resursallokering från avsnitten ovan. Dessutom, ge `estimator` en som kommer att kallas med de samplade hyperparametrarna. Beskriver `estimator` utbildningsskriptet du kör, resurserna per jobb (en eller flera gpu) och beräkningsmålet som ska användas. Eftersom samtidighet för hyperparameterjusteringsexperimentet är gated på de tillgängliga resurserna, se till att beräkningsmålet som anges i `estimator` har tillräckliga resurser för önskad samtidighet. (Mer information om skattställare finns i [hur du tränar modeller](how-to-train-ml-models.md).)
+[Konfigurera ditt för inställnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) experiment med det definierade områdets sökområde, tidig avslutnings princip, primärt mått och resursallokering från avsnitten ovan. Ange dessutom ett `estimator` som kommer att anropas med de exempelbaserade parametrarna. `estimator` Beskriver det utbildnings skript som du kör, resurserna per jobb (Single eller multi-GPU) och beräknings målet som ska användas. Eftersom samtidighet för ditt preparameter-experiment är gated på resurserna som är tillgängliga, se till att det beräknings mål `estimator` som anges i har tillräckligt med resurser för önskad samtidighet. (Mer information om uppskattningar finns i [så här tränar du modeller](how-to-train-ml-models.md).)
 
-Konfigurera hyperparameterjusteringsexperimentet:
+Konfigurera ditt inställnings experiment för en parameter:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
@@ -303,9 +303,9 @@ hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
                           max_concurrent_runs=4)
 ```
 
-## <a name="submit-experiment"></a>Skicka in experiment
+## <a name="submit-experiment"></a>Skicka experiment
 
-När du har definierat hyperparameterjusteringskonfigurationen [skickar du in ett experiment:](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py#submit-config--tags-none----kwargs-)
+När du har definierat konfigurationen för konfiguration av den egna parametern kan du [Skicka ett experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py#submit-config--tags-none----kwargs-):
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -313,13 +313,13 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name`är det namn du tilldelar hyperparameterjusteringsexperimentet och `workspace` är arbetsytan där du vill skapa experimentet (Mer information om experiment finns i Hur fungerar Azure Machine [Learning?](concept-azure-machine-learning-architecture.md))
+`experiment_name`är det namn som du tilldelar till ditt för inställnings experiment med `workspace` din parameter och är den arbets yta där du vill skapa experimentet (mer information om experiment finns i [Hur fungerar Azure Machine Learning?](concept-azure-machine-learning-architecture.md))
 
-## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Varmstart ditt hyperparameterjusteringsexperiment (tillval)
+## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Varm kom igång med ditt inställnings experiment för en parameter (valfritt)
 
-Ofta kan det vara en iterativ process att hitta de bästa hyperparametervärdena för din modell, som behöver flera justeringskörningar som lär sig av tidigare hyperparameterjusteringskörningar. Återanvända kunskap från dessa tidigare körningar kommer att påskynda hyperparameter tuning processen, vilket minskar kostnaden för att trimma modellen och kommer potentiellt att förbättra det primära måttet på den resulterande modellen. När du värmestartar ett hyperparameterjusteringsexperiment med Bayesiansk sampling, kommer försök från föregående körning att användas som förkunskaper för att på ett intelligent sätt plocka nya prover för att förbättra det primära måttet. När du använder Random- eller Grid-sampling kommer dessutom alla beslut om tidig uppsägning att utnyttja mått från tidigare körningar för att avgöra dåligt utförda utbildningskörningar. 
+Ofta kan det vara en iterativ process att hitta bästa möjliga parameter värden för din modell, vilket kräver flera justerings körningar som lär sig från tidigare justerings körningar i en parameter. Om du återanvänder kunskaper från dessa tidigare körningar påskyndas justerings processen för en parameter, vilket minskar kostnaden för att justera modellen och kan förbättra den resulterande modellens primära mått. När du startar en inställning för en parameter justering med Bayesian-sampling, används försök från föregående körning som tidigare kunskap för att på ett intelligent sätt välja nya exempel för att förbättra det primära måttet. När slumpmässiga eller rutnäts sampling används, kommer eventuella beslut om besluts fattande att dra nytta av mått från de tidigare körningarna för att fastställa dåligt utförda utbildnings körningar. 
 
-Med Azure Machine Learning kan du värma upp din hyperparameter-justering som körs genom att utnyttja kunskap från upp till 5 tidigare slutförda/avbrutna överordnade hyperparameterjusteringskörningar. Du kan ange listan över överordnade körningar som du vill värma start från att använda det här kodavsnittet:
+Azure Machine Learning ger dig möjlighet att starta din egenskaps justering för din egen parameter genom att dra nytta av kunskap från upp till 5 tidigare slutförda/avbrutna konfigurations inställningar för den överordnade parametern. Du kan ange listan över överordnade körningar som du vill komma igång med att använda kodfragmentet:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveRun
@@ -329,7 +329,7 @@ warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
 warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
 ```
 
-Dessutom kan det finnas tillfällen då enskilda utbildningskörningar av ett hyperparameterjusteringsexperiment avbryts på grund av budgetbegränsningar eller misslyckas på grund av andra orsaker. Det är nu möjligt att återuppta sådana individuella utbildning körs från den sista kontrollpunkten (förutsatt att din utbildning skript hanterar kontrollpunkter). Om du återupptar en enskild träningskörning används samma hyperparameterkonfiguration och den utdatamapp som används för den körningen. Utbildningsskriptet bör `resume-from` acceptera argumentet, som innehåller kontrollpunkten eller modellfilerna som du kan återuppta utbildningskörningen från. Du kan återuppta enskilda utbildningskörningar med hjälp av följande utdrag:
+Det kan också uppstå tillfällen när enskilda utbildningar körs på ett justerings experiment med en parameter för att avbrytas på grund av budget begränsningar eller Miss lyckas på grund av andra orsaker. Det är nu möjligt att återuppta en sådan enskild utbildning som körs från den senaste kontroll punkten (förutsatt att ditt utbildnings skript hanterar kontroll punkter). Om du återupptar en enskild övnings körning används samma konfiguration för den egna katalogen och den mappen utdata som används för den körs. Övnings skriptet bör godkänna `resume-from` argumentet, som innehåller de kontroll punkter eller modeller som används för att återuppta inlärnings körningen. Du kan återuppta enskilda inlärnings körningar med följande kodfragment:
 
 ```Python
 from azureml.core.run import Run
@@ -339,7 +339,7 @@ resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
 child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```
 
-Du kan konfigurera hyperparameterjusteringsexperimentet så att det blir en `resume_from` `resume_child_runs` varm start från ett tidigare experiment eller återupptar enskilda utbildningskörningar med hjälp av valfria parametrar och i konfigurationen:
+Du kan konfigurera ditt inställnings experiment för att komma igång med ett tidigare experiment eller återuppta enskilda inlärnings körningar med valfria `resume_from` parametrar `resume_child_runs` och i konfigurationen:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
@@ -357,30 +357,30 @@ hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
 
 ## <a name="visualize-experiment"></a>Visualisera experiment
 
-Azure Machine Learning SDK tillhandahåller en [anteckningsbokswidget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py) som visualiserar förloppet för dina utbildningskörningar. Följande utdrag visualiserar alla hyperparameterjusteringskörningar på ett ställe i en Jupyter-anteckningsbok:
+Azure Machine Learning SDK innehåller en [anteckningsbok-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py) som visualiserar förloppet för din utbildning körs. Följande kodfragment visualiserar alla dina för inställnings justeringar på en plats i en Jupyter Notebook:
 
 ```Python
 from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
-Den här koden visar en tabell med information om utbildningskörningar för var och en av hyperparameterkonfigurationerna.
+Den här koden visar en tabell med information om inlärnings körningarna för var och en av konfigurationerna för de olika parametrarna.
 
-![justeringstabell för hyperparameter](./media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
+![justerings tabell för grundparameter](./media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
 
-Du kan också visualisera resultatet för var och en av körningarna under utbildningens gång. 
+Du kan också visualisera prestanda för var och en av körningarna när inlärningen fortskrider. 
 
-![hyperparameterjusteringsdiagram](./media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
+![ritytans justerings område](./media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
 
-Dessutom kan du visuellt identifiera korrelationen mellan prestanda och värden för enskilda hyperparametrar med hjälp av en parallell koordinater plot. 
+Du kan dessutom visuellt identifiera korrelationen mellan prestanda och värden för enskilda egenskaper med hjälp av ett parallellt koordinat diagram. 
 
-[![hyperparameterjustering parallella koordinater](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+[![parametrar för att justera parallella koordinater](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-Du kan visualisera alla dina hyperparameterjusteringskörningar i Azure-webbportalen också. Mer information om hur du visar ett experiment i webbportalen finns i [hur du spårar experiment](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
+Du kan visualisera alla dina inställnings justeringar för din parameter i Azure-webbportalen också. Mer information om hur du visar ett experiment i webb portalen finns i [så här spårar du experiment](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ## <a name="find-the-best-model"></a>Hitta den bästa modellen
 
-När alla hyperparameterjusteringskörningar har slutförts [identifierar du konfigurationen för bästa prestanda](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) och motsvarande hyperparametervärden:
+När alla konfigurations inställningar för den här parametern har slutförts, [identifierar du bästa möjliga konfiguration](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) och motsvarande värden för båda parametrarna:
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
@@ -394,9 +394,9 @@ print('\n keep probability:',parameter_values[5])
 print('\n batch size:',parameter_values[7])
 ```
 
-## <a name="sample-notebook"></a>Exempel på anteckningsbok
-Se bärbara tåg-hyperparameter-* i den här mappen:
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
+## <a name="sample-notebook"></a>Exempel på Notebook
+Referera till träna-Real-parameter-* Notebooks i den här mappen:
+* [How-to-use-azureml/Training-with-djupgående-Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

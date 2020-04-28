@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115320"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188543"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggshanteraren för Azure Desired State Configuration
 
@@ -188,7 +188,7 @@ Portalen samlar in följande ingångar:
 
 - **Konfigurations argument**: om konfigurations funktionen tar argument anger du dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där konfigurations argument godkänns i PowerShell-cmdletar eller Resource Manager-mallar.
 
-- **PSD1-fil för konfigurations data**: det här fältet är valfritt. Om konfigurationen kräver en konfigurations data fil i. psd1, använder du det här fältet för att välja data fältet och överföra det till din användar-blob-lagring. Konfigurations data filen skyddas av en SAS-token i Blob Storage.
+- **PSD1-fil för konfigurations data**: konfigurationen kräver en konfigurations data fil i. PSD1, Använd det här fältet för att välja data filen och ladda upp den till blob-lagringen för användare. Konfigurations data filen skyddas av en SAS-token i Blob Storage.
 
 - **WMF-version**: anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du anger den här egenskapen till senaste installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen 4,0, 5,0, 5,1 och senaste. Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är **senaste**.
 

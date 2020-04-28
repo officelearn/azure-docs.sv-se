@@ -1,46 +1,46 @@
 ---
-title: Förbereda för inkommande IP-adressändring
-description: Om din inkommande IP-adress kommer att ändras kan du läsa om vad du ska göra så att appen fortsätter att fungera efter ändringen.
+title: Förbered för ändring av inkommande IP-adress
+description: Om din inkommande IP-adress ska ändras kan du läsa vad du kan göra så att din app fortsätter att fungera efter ändringen.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74672419"
 ---
-# <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Så här förbereder du dig för en inkommande IP-adressändring
+# <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Förbereda för en ändring av en inkommande IP-adress
 
-Om du har fått ett meddelande om att den inkommande IP-adressen för din Azure App Service-app ändras följer du instruktionerna i den här artikeln.
+Om du har fått ett meddelande om att den inkommande IP-adressen för din Azure App Service-appen ändras följer du anvisningarna i den här artikeln.
 
-## <a name="determine-if-you-have-to-do-anything"></a>Ta reda på om du måste göra något
+## <a name="determine-if-you-have-to-do-anything"></a>Ta reda på om du behöver göra något
 
-* Alternativ 1: Om apptjänstappen inte har en anpassad domän krävs ingen åtgärd.
+* Alternativ 1: om din App Service-app saknar en anpassad domän krävs ingen åtgärd.
 
-* Alternativ 2: Om endast en CNAME-post (DNS-post som pekar på en URI) är konfigurerad i domänregistreringsportalen (tredje parts DNS-leverantör eller Azure DNS), krävs ingen åtgärd.
+* Alternativ 2: om bara en CNAME-post (DNS-post som pekar på en URI) har kon figurer ATS i din domän registrerings portal (tredje parts DNS-provider eller Azure DNS) krävs ingen åtgärd.
 
-* Alternativ 3: Om en A-post (DNS-post som pekar direkt på din IP-adress) är konfigurerad i domänregistreringsportalen (tredje parts DNS-leverantör eller Azure DNS) ersätter du den befintliga IP-adressen med den nya. Du hittar den nya IP-adressen genom att följa instruktionerna i nästa avsnitt.
+* Alternativ 3: om en post (DNS-post som pekar direkt till din IP-adress) har kon figurer ATS i din domän registrerings portal (tredjeparts-DNS-provider eller Azure DNS) ersätter du den befintliga IP-adressen med den nya. Du kan hitta den nya IP-adressen genom att följa anvisningarna i nästa avsnitt.
 
-* Alternativ 4: Om ditt program ligger bakom en belastningsutjämnare, IP-filter eller någon annan IP-mekanism som kräver appens IP-adress, ersätter du den befintliga IP-adressen med den nya. Du hittar den nya IP-adressen genom att följa instruktionerna i nästa avsnitt.
+* Alternativ 4: om ditt program ligger bakom en belastningsutjämnare, IP-filter eller andra IP-mekanismer som kräver appens IP-adress ersätter du den befintliga IP-adressen med den nya. Du kan hitta den nya IP-adressen genom att följa anvisningarna i nästa avsnitt.
 
-## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Hitta den nya inkommande IP-adressen i Azure-portalen
+## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Hitta den nya inkommande IP-adressen i Azure Portal
 
-Den nya inkommande IP-adressen som ges till din app finns i portalen i fältet **Virtuell IP-adress.** Både den här nya IP-adressen och den gamla är anslutna till din app nu, och senare kommer den gamla att kopplas från.
+Den nya inkommande IP-adressen som tilldelas till din app finns i portalen i fältet **virtuell IP-adress** . Både den nya IP-adressen och den gamla är anslutna till din app nu, och senare kommer den gamla att kopplas från.
 
 1.  Öppna [Azure-portalen](https://portal.azure.com).
 
-2.  Välj **Apptjänster**på menyn för vänster navigering .
+2.  I den vänstra navigerings menyn väljer du **app Services**.
 
-3.  Välj appen App Service i listan.
+3.  Välj din App Service-app i listan.
 
-1.  Om appen är en funktionsapp läser du [Funktionsappens inkommande IP-adress](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
+1.  Om appen är en Function-app, se [Function app inkommande IP-adress](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
-4.  Klicka på **Egenskaper** i den vänstra navigeringen under **rubriken Inställningar** och leta reda på avsnittet **Virtuell IP-adress**.
+4.  Under rubriken **Inställningar** klickar du på **Egenskaper** i det vänstra navigerings fältet och letar upp avsnittet med etiketten **virtuell IP-adress**.
 
-5. Kopiera IP-adressen och konfigurera om domänposten eller IP-mekanismen.
+5. Kopiera IP-adressen och konfigurera om domän posten eller IP-mekanismen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs hur du förbereder en IP-adressändring som initierades av Azure. Mer information om IP-adresser i Azure App Service finns [i Inkommande och utgående IP-adresser i Azure App Service](overview-inbound-outbound-ips.md).
+Den här artikeln förklaras hur du förbereder en ändring av IP-adressen som initierades av Azure. Mer information om IP-adresser i Azure App Service finns i [inkommande och utgående IP-adresser i Azure App Service](overview-inbound-outbound-ips.md).

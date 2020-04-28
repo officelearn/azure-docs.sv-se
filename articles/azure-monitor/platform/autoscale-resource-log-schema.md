@@ -1,26 +1,26 @@
 ---
-title: Azure-schema för logghändelser för automatisk skalning
-description: Format för loggar för övervakning och felsökning av åtgärder för automatisk skalning
+title: Schema för logg händelser i Azure autoskalning
+description: Format för loggar för övervakning och fel sökning av automatiska skalnings åtgärder
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75395935"
 ---
-# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor autoskalning åtgärder resursloggschema
+# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor automatiska skalnings åtgärder resurs logg schema
 
-Följande är de allmänna formaten för automatisk skalning resursloggar med exempeldata ingår. Alla exempel nedan är inte korrekt utformade JSON eftersom de kan innehålla flera värden som kan vara giltiga för ett visst fält. 
+Följande är de allmänna formaten för autoskalning av resurs loggar med exempel data som ingår. Alla exempel nedan är korrekt utformade JSON eftersom de kan innehålla flera värden som kan vara giltiga för ett angivet fält. 
 
-Använd händelser av den här typen för att felsöka problem som du kan ha med automatisk skalning. Mer information finns i [Felsöka problem med automatisk skalning](autoscale-troubleshoot.md).
+Använd händelser av den här typen för att felsöka problem som du kan ha med autoskalning. Mer information finns i [fel sökning av problem med autoskalning](autoscale-troubleshoot.md).
 
 
-## <a name="profile-evaluation"></a>Profilutvärdering
+## <a name="profile-evaluation"></a>Profil utvärdering
 
-Inspelad när automatisk skalning först tittar på en profil för automatisk skalning
+Registreras när autoskalning först söker efter en profil för autoskalning
 
 ```json
 {
@@ -39,7 +39,7 @@ Inspelad när automatisk skalning först tittar på en profil för automatisk sk
 
 ## <a name="profile-cooldown-evaluation"></a>Utvärdering av profil cooldown
 
-Registreras när automatisk skalning utvärderas om den inte bör göra en skala på grund av en nedkylningsperiod. 
+Registreras när autoskalning utvärderas om det inte borde göra en skalning på grund av en låg frekvent period. 
 
 ```json
 {
@@ -60,9 +60,9 @@ Registreras när automatisk skalning utvärderas om den inte bör göra en skala
 }
 ```
 
-## <a name="rule-evaluation"></a>Regelutvärdering
+## <a name="rule-evaluation"></a>Regel utvärdering
 
-Registreras när automatisk skalning börjar utvärdera en viss skalningsregel. 
+Registreras när autoskalning först börjar utvärdera en viss skalnings regel. 
 
 ```json
 {
@@ -87,9 +87,9 @@ Registreras när automatisk skalning börjar utvärdera en viss skalningsregel.
 }
 ```
 
-## <a name="metric-evaluation"></a>Metriska utvärdering
+## <a name="metric-evaluation"></a>Mått utvärdering
 
-Registreras när automatisk skalning utvärderade måttet som används för att utlösa en skalningsåtgärd. 
+Registreras när autoskalning utvärderade måttet som används för att utlösa en skalnings åtgärd. 
 
 ```json
 {
@@ -111,9 +111,9 @@ Registreras när automatisk skalning utvärderade måttet som används för att 
 }
 ```
 
-## <a name="instance-count-evaluation"></a>Utvärdering av instansantal
+## <a name="instance-count-evaluation"></a>Utvärdering av antal instanser
 
-Registreras när automatisk skalning utvärderar antalet instanser som redan körs som förberedelse för att avgöra om det ska starta mer, stänga av en del eller göra ingenting. 
+Spelas in när autoskalning utvärderar antalet instanser som redan körs i förberedelse för att avgöra om det ska starta mer, stänga av några eller göra ingenting. 
 
 ```json
 {
@@ -132,9 +132,9 @@ Registreras när automatisk skalning utvärderar antalet instanser som redan kö
 }
 ```
 
-## <a name="scale-action-evaluation"></a>Utvärdering av skala åtgärder
+## <a name="scale-action-evaluation"></a>Utvärdering av skalnings åtgärd
 
-Registreras när automatisk skalning startar utvärdering om en skalningsåtgärd ska äga rum. 
+Registreras när autoskalning startar utvärderingen om en skalnings åtgärd ska ske. 
 
 ```json
 {
@@ -152,9 +152,9 @@ Registreras när automatisk skalning startar utvärdering om en skalningsåtgär
 }
 ```
 
-## <a name="instance-update-evaluation"></a>Utvärdering av instansuppdatering
+## <a name="instance-update-evaluation"></a>Utvärdering av instans uppdatering
 
-Registreras när automatisk skalning uppdaterar antalet beräkningsinstanser som körs, antingen uppåt eller nedåt.
+Registreras när AutoScale uppdaterar antalet beräknings instanser som körs, antingen upp eller ned.
 
 ```json
 {
@@ -173,9 +173,9 @@ Registreras när automatisk skalning uppdaterar antalet beräkningsinstanser som
 }
 ```
 
-## <a name="scale-action"></a>Skala åtgärd
+## <a name="scale-action"></a>Skalnings åtgärd
 
-Registreras när automatisk skalning initierar en skalningsåtgärd, antingen uppåt eller nedåt. 
+Registreras när autoskalning initierar en skalnings åtgärd, antingen upp eller ned. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -196,9 +196,9 @@ Registreras när automatisk skalning initierar en skalningsåtgärd, antingen up
 }
 ```
 
-## <a name="scale-action-tracking"></a>Skala spårning av åtgärder
+## <a name="scale-action-tracking"></a>Skalnings åtgärds spårning
 
-Registreras med olika intervall för en instansskalaåtgärd.
+Registreras med olika intervall för en instans skalnings åtgärd.
 
 ```json
 {
@@ -217,4 +217,4 @@ Registreras med olika intervall för en instansskalaåtgärd.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [automatisk skalning](autoscale-overview.md)
+Lär dig mer om [autoskalning](autoscale-overview.md)

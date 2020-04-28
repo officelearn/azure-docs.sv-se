@@ -1,6 +1,6 @@
 ---
-title: Konfigurera VMware-haveriberedskap till Azure i en miljö med flera innehavare med hjälp av Site Recovery och CSP-programmet (Cloud Solution Provider) | Microsoft-dokument
-description: Beskriver hur du konfigurerar VMware-haveriberedskap i en miljö med flera innehavare med Azure Site Recovery.
+title: Konfigurera VMware haveri beredskap till Azure i en miljö med flera organisationer som använder Site Recovery och CSP-programmet (Cloud Solution Provider) | Microsoft Docs
+description: Beskriver hur du konfigurerar VMware haveri beredskap i en miljö med flera klienter med Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,97 +8,97 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60461027"
 ---
-# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware-haveriberedskap i en flerargsmiljö med CSP-programmet (Cloud Solution Provider)
+# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware haveri beredskap i en miljö med flera organisationer med Cloud Solution Provider (CSP)-programmet
 
-[CSP-programmet](https://partner.microsoft.com/en-US/cloud-solution-provider) främjar bättre sammansvärjningar för Microsofts molntjänster, inklusive Office 365, Enterprise Mobility Suite och Microsoft Azure. Med CSP äger partnerna relationen från slutpunkt till slutpunkt med kunder och blir den primära relationskontaktpunkten. Partner kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationerna med sina egna mervärdesanpassade, anpassade erbjudanden.
+[CSP-programmet](https://partner.microsoft.com/en-US/cloud-solution-provider) utvecklar bättre berättelser för Microsofts moln tjänster, inklusive Office 365, Enterprise Mobility Suite och Microsoft Azure. Med CSP äger partner relationen från slut punkt till slut punkt med kunder och blir den primära Relations kontakt punkten. Partner kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationerna med sina egna mervärdes anpassade erbjudanden.
 
-Med [Azure Site Recovery](site-recovery-overview.md)kan du som partner hantera haveriberedskap för kunder direkt via CSP. Alternativt kan du använda CSP för att konfigurera site recovery-miljöer och låta kunderna hantera sina egna behov av haveriberedskap på ett självbetjäningssätt. I båda scenarierna är partnerna länken mellan Site Recovery och deras kunder. Partner bes servar kundrelationen och fakturerar kunder för användning av webbplatsåterställning.
+Med [Azure Site Recovery](site-recovery-overview.md)kan du, som partner, hantera haveri beredskap för kunder direkt via CSP. Alternativt kan du använda CSP för att konfigurera Site Recovery-miljöer och låta kunderna hantera sina egna haveri beredskaps behov på ett självbetjänings sätt. I båda scenarierna är partners sambandet mellan Site Recovery och deras kunder. Partner tjänsterar kund relationen och fakturerar kunder för Site Recovery användning.
 
-I den här artikeln beskrivs hur du som partner kan skapa och hantera klientprenumerationer via CSP, för ett VMware-replikeringsscenario med flera innehavare.
+Den här artikeln beskriver hur du som partner kan skapa och hantera klient prenumerationer via CSP, för ett scenario med VMware-replikering för flera innehavare.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera VMware-replikering måste du göra följande:
 
-- [Förbered](tutorial-prepare-azure.md) Azure-resurser, inklusive en Azure-prenumeration, ett virtuellt Azure-nätverk och ett lagringskonto.
+- [Förbered](tutorial-prepare-azure.md) Azure-resurser, inklusive en Azure-prenumeration, ett virtuellt Azure-nätverk och ett lagrings konto.
 - [Förbered](vmware-azure-tutorial-prepare-on-premises.md) lokala VMware-servrar och virtuella datorer.
-- Skapa en separat hanteringsserver som kan kommunicera med klientens virtuella datorer och dina vCenter-servrar för varje klient. Endast du som partner bör ha åtkomsträttigheter till den här hanteringsservern. Läs mer om [miljöer med flera innehavare](vmware-azure-multi-tenant-overview.md).
+- Skapa en separat hanterings server som kan kommunicera med de virtuella klient datorerna och vCenter-servrarna för varje klient. Endast du som partner bör ha åtkomst behörighet till den här hanterings servern. Lär dig mer om [miljöer med flera klienter](vmware-azure-multi-tenant-overview.md).
 
-## <a name="create-a-tenant-account"></a>Skapa ett klientkonto
+## <a name="create-a-tenant-account"></a>Skapa ett klient konto
 
-1. Logga in på ditt CSP-konto via [Microsoft Partner Center.](https://partnercenter.microsoft.com/)
-2. Välj **Kunder**på **Instrumentpanelsmenyn** .
-3. Klicka på knappen Lägg **till kund** på sidan som öppnas.
-4. På sidan **Ny kund** fyller du i kontoinformationsinformationen för klienten.
+1. Logga in på ditt CSP-konto via [Microsoft Partner Center](https://partnercenter.microsoft.com/).
+2. På **instrument panelens** meny väljer du **kunder**.
+3. Klicka på knappen **Lägg till kund** på sidan som öppnas.
+4. På sidan **ny kund** fyller du i konto information om klient organisationen.
 
-    ![Sidan Kontoinformation](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
+    ![Sidan konto information](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Klicka sedan på **Nästa: Prenumerationer**.
-6. Markera kryssrutan **Microsoft Azure** på urvalssidan för prenumerationer. Du kan lägga till andra prenumerationer nu eller när som helst.
-7. Bekräfta klientinformationen på sidan **Granska** och klicka sedan på **Skicka**.
-8. När du har skapat klientkontot visas en bekräftelsesida som visar information om standardkontot och lösenordet för prenumerationen. Spara informationen och ändra lösenordet senare efter behov via inloggningssidan för Azure Portal.
+5. Klicka sedan på **Nästa: prenumerationer**.
+6. På sidan Val av prenumerationer markerar du kryss rutan **Microsoft Azure** . Du kan lägga till andra prenumerationer nu eller vid en annan tidpunkt.
+7. På sidan **Granska** bekräftar du klient informationen och klickar sedan på **Skicka**.
+8. När du har skapat klient kontot visas en bekräftelse sida som visar information om standard kontot och lösen ordet för den prenumerationen. Spara informationen och ändra lösen ordet senare vid behov genom att gå till Azure Portal inloggnings sida.
 
 Du kan dela den här informationen med klienten som den är, eller så kan du skapa och dela ett separat konto om det behövs.
 
-## <a name="access-the-tenant-account"></a>Få tillgång till klientkontot
+## <a name="access-the-tenant-account"></a>Åtkomst till klient kontot
 
-Du kan komma åt klientens prenumeration via Instrumentpanelen för Microsoft Partner Center.
+Du kan komma åt klient organisationens prenumeration via instrument panelen för Microsoft Partner Center.
 
-1. Klicka på namnet på klientkontot på sidan **Kunder.**
-2. På sidan **Prenumerationer** på klientkontot kan du övervaka befintliga kontoprenumerationer och lägga till fler prenumerationer efter behov.
-3. Om du vill hantera klientens haveriberedskapsoperationer väljer du **Alla resurser (Azure-portalen).** Detta ger dig åtkomst till klientens Azure-prenumerationer.
+1. På sidan **kunder** klickar du på namnet på klient kontot.
+2. På sidan **prenumerationer** för klient kontot kan du övervaka befintliga konto prenumerationer och lägga till fler prenumerationer, efter behov.
+3. Om du vill hantera klient organisationens haveri återställnings åtgärder väljer du **alla resurser (Azure Portal)**. Detta ger dig åtkomst till klient organisationens Azure-prenumerationer.
 
-    ![Länken Alla resurser](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
+    ![Länken alla resurser](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 
-4. Du kan verifiera åtkomst genom att klicka på Azure Active Directory-länken längst upp till höger i Azure-portalen.
+4. Du kan kontrol lera åtkomst genom att klicka på länken Azure Active Directory längst upp till höger i Azure Portal.
 
-    ![Azure Active Directory-länk](./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png)
+    ![Azure Active Directory länk](./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png)
 
-Du kan nu utföra och hantera alla site recovery-åtgärder för klienten i Azure-portalen. För att komma åt klientprenumerationen via CSP för hanterad haveriberedskap, följ den tidigare beskrivna processen.
+Nu kan du utföra och hantera alla Site Recovery åtgärder för klienten i Azure Portal. Följ den tidigare beskrivna processen för att få åtkomst till klient prenumerationen via CSP för hanterad katastrof återställning.
 
-## <a name="assign-tenant-access-to-the-subscription"></a>Tilldela klientåtkomst till prenumerationen
+## <a name="assign-tenant-access-to-the-subscription"></a>Tilldela klient åtkomst till prenumerationen
 
-1. Se till att infrastrukturen för haveriberedskap har konfigurerats. Partner får åtkomst till klientprenumerationer via CSP-portalen, oavsett om haveriberedskap hanteras eller självbetjäning. Ställ in arkiv- och registerinfrastrukturen till klientprenumerationerna.
-2. Förse klienten med [det konto som du skapade](#create-a-tenant-account).
-3. Du kan lägga till en ny användare i klientprenumerationen via CSP-portalen på följande sätt:
+1. Kontrol lera att infrastrukturen för haveri beredskap har kon figurer ATS. Partner har åtkomst till klient prenumerationer via CSP-portalen, oavsett om haveri beredskap är hanterad eller självbetjäning. Konfigurera valvet och registrera infrastrukturen för klient prenumerationerna.
+2. Ange innehavaren med [kontot som du skapade](#create-a-tenant-account).
+3. Du kan lägga till en ny användare i klient prenumerationen via CSP-portalen på följande sätt:
 
-    a) Gå till klientens CSP-prenumerationssida och välj sedan alternativet **Användare och licenser.**
+    a) gå till sidan för klientens CSP-prenumeration och välj sedan alternativet **användare och licenser** .
 
-      ![Hyresgästens CSP-prenumerationssida](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+      ![Innehavarens prenumerations sida för KRYPTOGRAFIPROVIDER](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) Skapa nu en ny användare genom att ange relevant information och välja behörigheter, eller genom att ladda upp listan över användare i en CSV-fil.
+    b) skapa en ny användare genom att ange relevant information och välja behörigheter, eller genom att ladda upp listan över användare i en CSV-fil.
     
-    c) När du har skapat en ny användare går du tillbaka till Azure-portalen. Välj relevant prenumeration på sidan **Prenumeration.**
+    c) när du har skapat en ny användare går du tillbaka till Azure Portal. På sidan **prenumeration** väljer du den relevanta prenumerationen.
 
-    d) Välj **Åtkomstkontroll (IAM)** och klicka sedan på **Rolltilldelningar**.
+    d) Välj **åtkomst kontroll (IAM)** och klicka sedan på **roll tilldelningar**.
 
-    e) Klicka på **Lägg till rolltilldelning** om du vill lägga till en användare med relevant åtkomstnivå. De användare som har skapats via CSP-portalen visas på fliken Rolltilldelningar.
+    e) Klicka på **Lägg till roll tilldelning** för att lägga till en användare med relevant åtkomst nivå. Användare som har skapats via CSP-portalen visas på fliken roll tilldelningar.
 
       ![Lägga till en användare](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
-- För de flesta hanteringsåtgärder är *rollen Deltagare* tillräcklig. Användare med den här åtkomstnivån kan göra allt på en prenumeration förutom ändringsåtkomstnivåer (för vilka åtkomst på *ägarnivå*krävs).
-- Site Recovery har också tre [fördefinierade användarroller](site-recovery-role-based-linked-access-control.md), som kan användas för att ytterligare begränsa åtkomstnivåer efter behov.
+- *Deltagar* rollen räcker för de flesta hanterings åtgärderna. Användare med den här åtkomst nivån kan utföra allt i en prenumeration förutom ändra åtkomst nivåer (för vilka åtkomst till *ägares*nivå krävs).
+- Site Recovery har också tre [fördefinierade användar roller](site-recovery-role-based-linked-access-control.md)som kan användas för att ytterligare begränsa åtkomst nivåer efter behov.
 
-## <a name="multi-tenant-environments"></a>Miljöer med flera innehavare
+## <a name="multi-tenant-environments"></a>Miljöer med flera klienter
 
-Det finns tre stora modeller för flera innehavare:
+Det finns tre större modeller med flera klienter:
 
-* **HSP (Shared Hosting Services Provider)**: Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, datacenter, fysisk lagring och så vidare) för att vara värd för flera virtuella klientenheter på samma infrastruktur. Partnern kan tillhandahålla hantering av katastrofåterställning som en hanterad tjänst, eller så kan klienten äga haveriberedskap som en självbetjäningslösning.
+* **HSP (Shared Hosting Services Provider)**: partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, data Center, fysisk lagring osv.) som värd för flera virtuella klient datorer i samma infrastruktur. Partnern kan tillhandahålla hantering av haveri beredskap som en hanterad tjänst, eller så kan klienten utföra en egen haveri beredskap som en självbetjänings lösning.
 
-* **Dedikerad värdtjänstleverantör:** Partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters, fysiska datalager och så vidare) för att vara värd för varje klients virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla hantering av katastrofåterställning som en hanterad tjänst, eller så kan klienten äga den som en självbetjäningslösning.
+* **Dedikerad värd tjänst leverantör**: partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenter, fysiska data lager och så vidare) som värd för varje klients virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla hantering av katastrof återställning som en hanterad tjänst, eller så kan klienten äga den som en självbetjänings lösning.
 
-* **Managed Services Provider (MSP)**: Kunden äger den fysiska infrastruktur som är värd för de virtuella datorerna och partnern tillhandahåller aktivering och hantering av katastrofåterställning.
+* **(Managed Services Provider)**: kunden äger den fysiska infrastruktur som är värd för de virtuella datorerna och partnern tillhandahåller haveri beredskap och hantering.
 
-Genom att ställa in klientprenumerationer enligt beskrivningen i den här artikeln kan du snabbt börja aktivera kunder i någon av de relevanta modellerna för flera innehavare. Du kan läsa mer om de olika modellerna för flera innehavare och aktivera lokala åtkomstkontroller [här](vmware-azure-multi-tenant-overview.md).
+Genom att konfigurera klient prenumerationer enligt beskrivningen i den här artikeln kan du snabbt börja aktivera kunder i alla relevanta modeller för flera klienter. Du kan lära dig mer om olika modeller för flera klienter och aktivera lokala åtkomst kontroller [här](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [rollbaserad åtkomstkontroll](site-recovery-role-based-linked-access-control.md) för att hantera Azure Site Recovery-distributioner.
-- Läs mer om VMware till Azure [replication-arkitektur](vmware-azure-architecture.md).
-- [Granska självstudien](vmware-azure-tutorial.md) för att replikera virtuella virtuella datorer med VMware till Azure.
-Läs mer om [miljöer med flera innehavare](vmware-azure-multi-tenant-overview.md) för att replikera virtuella virtuella datorer med VMware till Azure.
+- Lär dig mer om [rollbaserad åtkomst kontroll](site-recovery-role-based-linked-access-control.md) för att hantera Azure Site Recovery-distributioner.
+- Lär dig mer om VMware till Azure- [replikerings arkitektur](vmware-azure-architecture.md).
+- [Gå igenom självstudien](vmware-azure-tutorial.md) för att replikera virtuella VMware-datorer till Azure.
+Lär dig mer om [miljöer med flera klienter](vmware-azure-multi-tenant-overview.md) för att replikera virtuella VMware-datorer till Azure.

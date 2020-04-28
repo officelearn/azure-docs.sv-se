@@ -1,66 +1,66 @@
 ---
-title: Lägga till anpassade hälsorapporter för Service Fabric
-description: Beskriver hur du skickar anpassade hälsorapporter till Azure Service Fabric-hälsoentiteter. Ger rekommendationer för att utforma och genomföra hälsorapporter av hög kvalitet.
+title: Lägg till anpassade Service Fabric hälso rapporter
+description: Beskriver hur du skickar anpassade hälso rapporter till Azure Service Fabric hälsoentiteter. Ger rekommendationer för att utforma och implementera kvalitets hälso rapporter.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451589"
 ---
-# <a name="add-custom-service-fabric-health-reports"></a>Lägga till anpassade hälsorapporter för Service Fabric
-Azure Service Fabric introducerar en [hälsomodell](service-fabric-health-introduction.md) som utformats för att flagga felaktiga kluster- och programvillkor på specifika entiteter. Hälsomodellen använder **hälsoreportrar** (systemkomponenter och vakthundar). Målet är enkel och snabb diagnos och reparation. Service författare måste tänka upfront om hälsa. Alla tillstånd som kan påverka hälsan bör rapporteras, särskilt om det kan hjälpa flagga problem nära roten. Hälsoinformationen kan spara tid och ansträngning på felsökning och undersökning. Nyttan är särskilt tydlig när tjänsten är igång i stor skala i molnet (privat eller Azure).
+# <a name="add-custom-service-fabric-health-reports"></a>Lägg till anpassade Service Fabric hälso rapporter
+Azure Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) som har utformats för att flagga kluster och program villkor på vissa enheter. Hälso modellen använder **hälso rapporter** (system komponenter och övervaknings rapporter). Målet är enkelt och snabbt att diagnostisera och reparera. Service Writers måste vara på väg om hälso tillståndet. Alla villkor som kan påverka hälsan bör rapporteras, särskilt om det kan hjälpa till att flagga problem nära roten. Hälso informationen kan spara tid och ansträngning för fel sökning och undersökning. Användbarheten är särskilt tydlig när tjänsten är igång och körs i molnet (privat eller Azure).
 
-Service Fabric-reportrar övervakar identifierade villkor av intresse. De rapporterar om dessa villkor på grundval av deras lokala uppfattning. [Hälsoarkivet](service-fabric-health-introduction.md#health-store) sammanställer hälsodata som skickas av alla reportrar för att avgöra om entiteter är globalt felfria. Modellen är avsedd att vara rik, flexibel och enkel att använda. Kvaliteten på hälsorapporterna avgör riktigheten i hälsovyn i klustret. Falska positiva identifieringar som felaktigt visar felaktiga problem kan påverka uppgraderingar eller andra tjänster som använder hälsodata negativt. Exempel på sådana tjänster är reparationstjänster och varningsmekanismer. Därför behövs en del tankar för att tillhandahålla rapporter som fångar upp förhållanden av intresse på bästa möjliga sätt.
+Service Fabric rapporteraren övervakar identifierade villkor för intresse. De rapporterar om dessa villkor baserat på deras lokala vy. [Hälso arkivet](service-fabric-health-introduction.md#health-store) sammanställer hälso data som skickas av alla rapporter för att avgöra om entiteterna är globalt felfria. Modellen är avsedd att vara omfattande, flexibel och lätt att använda. Hälso rapportens kvalitet bestämmer noggrannheten för klustrets hälso tillstånd. Falska positiva identifieringar som felaktigt visar fel som inte är felfria kan påverka uppgraderingar eller andra tjänster som använder hälso data. Exempel på sådana tjänster är reparations tjänster och aviserings metoder. Därför behövs det en del tanke på att ge rapporter som upprättar förutsättningar på bästa möjliga sätt.
 
-För att utforma och genomföra hälsorapportering måste vakthundar och systemkomponenter:
+För att utforma och implementera hälso rapporter måste övervaknings enheten och system komponenterna:
 
-* Definiera villkoret de är intresserade av, hur det övervakas och påverkan på klustret eller programfunktionen. Baserat på den här informationen, besluta om hälsorapporten egendom och hälsotillstånd.
-* Bestäm den [entitet](service-fabric-health-introduction.md#health-entities-and-hierarchy) som rapporten gäller för.
-* Bestäm var rapporteringen görs, inifrån tjänsten eller från en intern eller extern watchdog.
-* Definiera en källa som används för att identifiera reportern.
-* Välj en rapporteringsstrategi, antingen regelbundet eller på övergångar. Det rekommenderade sättet är regelbundet, eftersom det kräver enklare kod och är mindre benägna att fel.
-* Bestäm hur länge rapporten för ohälsosamma tillstånd ska finnas kvar i hälsoarkivet och hur den ska rensas. Med den här informationen bestämmer du rapportens tid att leva och ta bort-vid-utgångsdatum.Using this information, decide the report's time to live and remove-on-expiration behavior.
+* Definiera det villkor som de är intresserade av, hur de övervakas och inverkan på klustret eller programmets funktioner. Utifrån den här informationen bestämmer du hälso rapportens egenskaper och hälso tillståndet.
+* Bestäm vilken [entitet](service-fabric-health-introduction.md#health-entities-and-hierarchy) rapporten gäller för.
+* Ta reda på var rapportering görs, inifrån tjänsten eller från en intern eller extern övervaknings enhet.
+* Definiera en källa som används för att identifiera rapportören.
+* Välj en rapporterings strategi, antingen regelbundet eller via över gångar. Det rekommenderade sättet är att regelbundet, eftersom det kräver enklare kod och är mindre känsligt för fel.
+* Ta reda på hur länge rapporten om felaktiga tillstånd ska ligga kvar i hälso lagret och hur den ska tas bort. Med hjälp av den här informationen bestämmer du rapportens tid för Live och ta bort på förfallo sätt.
 
 Som nämnts kan rapportering göras från:
 
-* Den övervakade service fabric-repliken.
-* Interna watchdogs som distribueras som en Service Fabric-tjänst (till exempel en tjänst fabric-tjänst som övervakar villkor och ärenderapporter). Watchdogs kan distribueras en alla noder eller kan affiniteras till den övervakade tjänsten.
-* Interna watchdogs som körs på noderna Service Fabric men *som inte* implementeras som Service Fabric-tjänster.
-* Externa watchdogs som avsöker resursen *utanför* Service Fabric-klustret (till exempel övervakningstjänsten som Gomez).
+* Den övervakade Service Fabric tjänst repliken.
+* Interna övervaknings regler distribueras som en Service Fabric tjänst (till exempel en Service Fabric tillstånds lös tjänst som övervakar villkor och ärende rapporter). Övervaknings enheten kan distribueras till alla noder eller kan tillhör till den övervakade tjänsten.
+* Interna övervaknings grupper som körs på Service Fabric noder, men som *inte* implementeras som Service Fabric-tjänster.
+* Externa övervaknings grupper som avsöker resursen från en plats *utanför* service Fabrics klustret (till exempel övervaknings tjänsten som Gomez).
 
 > [!NOTE]
-> Ur rutan fylls klustret med hälsorapporter som skickas av systemkomponenterna. Läs mer på [Använda systemhälsorapporter för felsökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Användarrapporterna måste skickas på [hälsoentiteter](service-fabric-health-introduction.md#health-entities-and-hierarchy) som redan har skapats av systemet.
+> I rutan är klustret ifylld med hälso rapporter som skickas av system komponenterna. Läs mer i [använda system hälso rapporter för fel sökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Användar rapporterna måste skickas på [hälsoentiteter](service-fabric-health-introduction.md#health-entities-and-hierarchy) som redan har skapats av systemet.
 > 
 > 
 
-När hälsorapporteringsdesignen är klar kan hälsorapporter skickas enkelt. Du kan använda [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) för att rapportera hälsotillstånd om klustret inte är [säkert](service-fabric-cluster-security.md) eller om fabric-klienten har administratörsbehörighet. Rapportering kan göras via API:et med hjälp av [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), via PowerShell eller via REST. Batchrapporter för konfigurationsrattar för förbättrad prestanda.
+När hälso rapport designen är klar kan hälso rapporter skickas enkelt. Du kan använda [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) för att rapportera hälso tillstånd om klustret inte är [säkert](service-fabric-cluster-security.md) eller om Fabric-klienten har administratörs behörighet. Rapportering kan göras via API: et genom att använda [FabricClient. HealthManager. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), via PowerShell eller genom rest. Konfigurations rattar batch rapporter för bättre prestanda.
 
 > [!NOTE]
-> Rapporthälsa är synkron och representerar bara valideringsarbetet på klientsidan. Det faktum att rapporten accepteras av `Partition` hälsoklienten eller objekten eller `CodePackageActivationContext` objekten betyder inte att den tillämpas i butiken. Det skickas asynkront och eventuellt batched med andra rapporter. Bearbetningen på servern kan fortfarande misslyckas: sekvensnumret kan vara inaktuellt, den enhet som rapporten måste tillämpas på har tagits bort, etc.
+> Rapport hälsan är synkron och representerar bara verifierings arbetet på klient sidan. Det faktum att rapporten accepteras av hälso klienten eller att `Partition` -eller `CodePackageActivationContext` -objekten inte innebär att den används i butiken. Den skickas asynkront och kan eventuellt grupperas med andra rapporter. Bearbetningen på servern kan fortfarande Miss lyckas: sekvensnumret kan vara inaktuellt, den entitet som rapporten ska tillämpas på har tagits bort, osv.
 > 
 > 
 
-## <a name="health-client"></a>Hälsa klient
-Hälsorapporterna skickas till hälsochefen via en hälsoklient, som bor inuti tygklienten. Hälsochefen sparar rapporter i hälsobutiken. Hälsoklienten kan konfigureras med följande inställningar:
+## <a name="health-client"></a>Hälso klient
+Hälso rapporterna skickas till hälso tillstånds hanteraren via en hälso klient som finns i Fabric-klienten. Hälso hanteraren sparar rapporter i hälso lagret. Hälso klienten kan konfigureras med följande inställningar:
 
-* **HealthReportSendInterval**: Fördröjningen mellan den tidpunkt då rapporten läggs till i klienten och den tid den skickas till hälsohanteraren. Används för att batchrapportera till ett enda meddelande i stället för att skicka ett meddelande för varje rapport. Batchbearbetningen förbättrar prestanda. Standard: 30 sekunder.
-* **HealthReportRetrySendInterval**: Det intervall med vilket hälsoklienten skickar in ackumulerade hälsorapporter till hälsohanteraren. Standard: 30 sekunder, minst: 1 sekund.
-* **HealthOperationTimeout**: Timeout-perioden för ett rapportmeddelande som skickas till hälsohanteraren. Om ett meddelande time out, hälsoklienten försöker det tills hälsohanteraren bekräftar att rapporten har bearbetats. Standard: två minuter.
+* **HealthReportSendInterval**: fördröjningen mellan den tid då rapporten läggs till i klienten och den tidpunkt då den skickas till Health Manager. Används för att gruppera rapporter i ett enda meddelande i stället för att skicka ett meddelande för varje rapport. Batchen förbättrar prestandan. Standard: 30 sekunder.
+* **HealthReportRetrySendInterval**: intervallet som hälso klienten skickar om ackumulerade hälso rapporter till Health Manager. Standard: 30 sekunder, minst: 1 sekund.
+* **HealthOperationTimeout**: tids gränsen för ett rapport meddelande som skickas till hälso tillstånds hanteraren. Om ett meddelande har nått sin tids gräns, försöker hälso klienten att försöka igen tills hälso chefen bekräftar att rapporten har bearbetats. Standard: två minuter.
 
 > [!NOTE]
-> När rapporterna är batchade måste fabric-klienten hållas vid liv i minst HealthReportSendInterval för att säkerställa att de skickas. Om meddelandet går förlorat eller om hälsohanteraren inte kan tillämpa dem på grund av tillfälliga fel, måste fabric-klienten hållas vid liv längre för att ge den en chans att försöka igen.
+> När rapporterna är grupperade måste Fabric-klienten hållas aktiv i minst HealthReportSendInterval för att säkerställa att de skickas. Om meddelandet förloras eller hälso hanteraren inte kan tillämpa dem på grund av tillfälliga fel, måste Fabric-klienten hållas igång längre för att det ska gå att försöka igen.
 > 
 > 
 
-Buffringen på klienten tar hänsyn till rapporternas unika egenskaper. Om till exempel en viss dålig reporter rapporterar 100 rapporter per sekund på samma egenskap för samma entitet, ersätts rapporterna med den senaste versionen. Högst en sådan rapport finns i klientkön. Om batchbearbetning är konfigurerad är antalet rapporter som skickas till hälsohanteraren bara ett per sändningsintervall. Den här rapporten är den senaste tillagda rapporten, som återspeglar den senaste tillståndet för entiteten.
-Ange konfigurationsparametrar när `FabricClient` skapas genom att skicka [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) med önskade värden för hälsorelaterade poster.
+Buffringen på klienten tar hänsyn till att rapporterna är unika. Om till exempel en viss felaktig rapportering rapporterar 100 rapporter per sekund på samma egenskap för samma entitet, ersätts rapporterna med den senaste versionen. Högst en sådan rapport finns i klient kön. Om batchbearbetning har kon figurer ATS är antalet rapporter som skickas till Health Manager bara ett per sändnings intervall. Den här rapporten är den senast tillagda rapporten, som visar det mest aktuella status för entiteten.
+Ange konfigurations parametrar `FabricClient` när har skapats genom att skicka [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) med de önskade värdena för hälso relaterade poster.
 
-I följande exempel skapas en fabric-klient och anges att rapporterna ska skickas när de läggs till. Vid timeout och fel som kan göras om sker återförsök var 40:e sekund.
+I följande exempel skapas en Fabric-klient och anger att rapporterna ska skickas när de läggs till. Vid timeout och fel som kan göras igen sker nya försök var 40 sekund.
 
 ```csharp
 var clientSettings = new FabricClientSettings()
@@ -72,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Vi rekommenderar att du behåller standardinställningarna för fabric-klient, som är inställda på `HealthReportSendInterval` 30 sekunder. Den här inställningen säkerställer optimal prestanda på grund av batchbearbetning. För kritiska rapporter som måste skickas så `HealthReportSendOptions` snart `true` som möjligt kan du använda med Omedelbar i [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Omedelbara rapporter kringgå batchintervallet. Använd denna flagga med omsorg; vi vill dra nytta av hälsa klient batching när det är möjligt. Omedelbar sändning är också användbart när fabric-klienten stängs (till exempel har processen fastställt ogiltigt tillstånd och måste stängas av för att förhindra biverkningar). Det säkerställer en bästa möjliga sändning av de ackumulerade rapporterna. När en rapport läggs till med omedelbar flagga batchar hälsoklienten alla ackumulerade rapporter sedan senaste sändningen.
+Vi rekommenderar att du behåller standard klient inställningarna `HealthReportSendInterval` för infrastruktur resurser, som är 30 sekunder. Den här inställningen säkerställer optimala prestanda på grund av batchering. För kritiska rapporter som måste skickas så snart som möjligt använder `HealthReportSendOptions` du med omedelbar `true` i [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Omedelbara rapporter kringgår batch-intervallet. Använd den här flaggan i försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt. Omedelbar sändning är också användbart när Fabric-klienten stängs (till exempel om processen har avgjort ett ogiltigt tillstånd och måste stängas för att förhindra sido effekter). Den ser till att det är en god ansträngnings överföring av de ackumulerade rapporterna. När en rapport läggs till med en omedelbar flagga, slår hälso klienten ihop alla ackumulerade rapporter sedan den senaste sändningen.
 
 Samma parametrar kan anges när en anslutning till ett kluster skapas via PowerShell. I följande exempel startas en anslutning till ett lokalt kluster:
 
@@ -102,80 +102,80 @@ GatewayInformation   : {
                        }
 ```
 
-På samma sätt som API `-Immediate` kan rapporter skickas med växeln `HealthReportSendInterval` som ska skickas omedelbart, oavsett värdet.
+På samma sätt som API kan rapporter skickas med hjälp `-Immediate` av växeln som skickas omedelbart, oavsett `HealthReportSendInterval` värdet.
 
-För REST skickas rapporterna till Service Fabric-gatewayen, som har en intern fabric-klient. Som standard är den här klienten konfigurerad för att skicka rapporter som har skickats var 30:e sekund. Du kan ändra batchintervallet med `HttpGatewayHealthReportSendInterval` `HttpGateway`klusterkonfigurationsinställningen på . Som nämnts är ett bättre alternativ `Immediate` att skicka rapporterna med sant. 
-
-> [!NOTE]
-> Om du vill vara säker på att obehöriga tjänster inte kan rapportera hälsotillstånd mot entiteterna i klustret konfigurerar du servern så att den bara accepterar begäranden från skyddade klienter. Den `FabricClient` som används för rapportering måste ha aktiverat säkerhet för att kunna kommunicera med klustret (till exempel med Kerberos eller certifikatautentisering). Läs mer om [klustersäkerhet](service-fabric-cluster-security.md).
-> 
-> 
-
-## <a name="report-from-within-low-privilege-services"></a>Rapport inifrån lågprivilegitjänster
-Om Service Fabric-tjänster inte har administratörsåtkomst till klustret kan du `Partition` `CodePackageActivationContext`rapportera hälsotillstånd för entiteter från den aktuella kontexten till eller .
-
-* För tillståndslösa tjänster använder du [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) för att rapportera om den aktuella tjänstinstansen.
-* För tillståndskänsliga tjänster använder du [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) för att rapportera om aktuell replik.
-* Använd [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) för att rapportera om den aktuella partitionentiteten.
-* Använd [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) för att rapportera om aktuellt program.
-* Använd [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) för att rapportera om det aktuella programmet som distribueras på den aktuella noden.
-* Använd [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) om du vill rapportera om ett servicepaket för programmet som distribueras på den aktuella noden.
+För REST skickas rapporterna till Service Fabric Gateway, som har en intern Fabric-klient. Den här klienten är som standard konfigurerad för att skicka rapporter med en gång i 30 sekunder. Du kan ändra batch-intervallet med kluster konfigurations inställningen `HttpGatewayHealthReportSendInterval` på `HttpGateway`. Som vi nämnt är ett bättre alternativ att skicka rapporterna med `Immediate` True. 
 
 > [!NOTE]
-> Internt, `Partition` och `CodePackageActivationContext` hålla en hälsa klient konfigurerad med standardinställningar. Som förklaras för [hälsoklienten](service-fabric-report-health.md#health-client)batchas rapporter och skickas på en timer. Föremålen ska hållas vid liv för att få en chans att skicka rapporten.
+> För att säkerställa att obehöriga tjänster inte kan rapportera hälso tillstånd mot entiteterna i klustret konfigurerar du servern så att den endast accepterar begär Anden från skyddade klienter. Den `FabricClient` som används för rapportering måste ha aktive rad säkerhet för att kunna kommunicera med klustret (till exempel med Kerberos eller certifikatautentisering). Läs mer om [kluster säkerhet](service-fabric-cluster-security.md).
 > 
 > 
 
-Du kan `HealthReportSendOptions` ange när `Partition` `CodePackageActivationContext` du skickar rapporter via och hälso-API:er. Om du har kritiska rapporter som måste skickas `HealthReportSendOptions` så `true`snart som möjligt kan du använda med Omedelbar . Omedelbara rapporter kringgå batching intervallet för den interna hälso-klienten. Som tidigare nämnts, använd denna flagga med omsorg; vi vill dra nytta av hälsa klient batching när det är möjligt.
+## <a name="report-from-within-low-privilege-services"></a>Rapportera inifrån tjänster med låg behörighet
+Om Service Fabric Services inte har administratörs åtkomst till klustret kan du rapportera hälso tillståndet för entiteter från den aktuella kontexten `Partition` via `CodePackageActivationContext`eller.
 
-## <a name="design-health-reporting"></a>Design hälsa rapportering
-Det första steget för att generera högkvalitativa rapporter är att identifiera de villkor som kan påverka tjänstens hälsa. Alla villkor som kan hjälpa flagga problem i tjänsten eller klustret när den startar - eller ännu bättre, innan ett problem händer - kan potentiellt spara miljarder dollar. Fördelarna inkluderar mindre ner tid, färre natttimmar spenderas undersöka och reparera frågor, och högre kundnöjdhet.
-
-När villkoren har identifierats, watchdog författare måste räkna ut det bästa sättet att övervaka dem för balans mellan overhead och användbarhet. Tänk dig till exempel en tjänst som gör komplexa beräkningar som använder vissa temporära filer på en resurs. En watchdog kan övervaka resursen för att säkerställa att tillräckligt med utrymme är tillgängligt. Det kan lyssna efter meddelanden om fil- eller katalogändringar. Den kan rapportera en varning om ett tröskelvärde i förskott har uppnåtts och rapportera ett fel om aktien är full. På en varning kan ett reparationssystem börja rensa äldre filer på resursen. Vid ett fel kan ett reparationssystem flytta servicerepliken till en annan nod. Observera hur tillstånden beskrivs i hälsotermer: tillståndet för det tillstånd som kan anses vara felfritt (ok) eller ohälsosamt (varning eller fel).
-
-När övervakningsdetaljerna har angetts måste en vakthundsskribent ta reda på hur du implementerar vakthunden. Om villkoren kan fastställas inifrån tjänsten kan vakthunden vara en del av själva övervakade tjänsten. Servicekoden kan till exempel kontrollera resursanvändningen och sedan rapportera varje gång den försöker skriva en fil. Fördelen med detta tillvägagångssätt är att rapporteringen är enkel. Försiktighet måste vidtas för att förhindra att watchdog buggar påverkar tjänstens funktionalitet.
-
-Rapportering inifrån den övervakade tjänsten är inte alltid ett alternativ. En watchdog inom tjänsten kanske inte kan identifiera villkoren. Det kanske inte har logik eller data för att göra fastställandet. Omkostnaderna för övervakningen av förhållandena kan vara höga. Villkoren kanske inte heller är specifika för en tjänst, utan påverkar i stället interaktioner mellan tjänster. Ett annat alternativ är att ha watchdogs i klustret som separata processer. Ordningsvakterna övervakar villkoren och rapporterar, utan att påverka de viktigaste tjänsterna på något sätt. Dessa watchdogs kan till exempel implementeras som tillståndslösa tjänster i samma program, distribueras på alla noder eller på samma noder som tjänsten.
-
-Ibland är en watchdog som körs i klustret inte heller ett alternativ. Om det övervakade villkoret är tjänstens tillgänglighet eller funktionalitet som användarna ser det, är det bäst att ha watchdogs på samma plats som användarklienter. Där kan de testa åtgärderna på samma sätt som användarna anropar dem. Du kan till exempel ha en watchdog som finns utanför klustret, utfärdar begäranden till tjänsten och kontrollerar svarstiden och korrektheten i resultatet. (För en kalkylator tjänst, till exempel, returnerar 2 +2 4 på en rimlig tid?)
-
-När watchdog-informationen har slutförts bör du bestämma ett käll-ID som unikt identifierar det. Om flera watchdogs av samma typ finns i klustret måste de rapportera om olika entiteter eller, om de rapporterar på samma entitet, använda olika käll-ID eller egenskap. På så sätt kan deras rapporter samexistera. Egenskapen för hälsorapporten bör fånga det övervakade tillståndet. (I exemplet ovan kan egenskapen vara **ShareSize**.) Om flera rapporter gäller för samma villkor bör egenskapen innehålla viss dynamisk information som gör att rapporter kan samexistera. Om flera resurser till exempel behöver övervakas kan egenskapsnamnet vara **ShareSize-sharename**.
+* För tillstånds lösa tjänster använder du [IStatelessServicePartition. ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) för att rapportera om den aktuella tjänst instansen.
+* För tillstånds känsliga tjänster använder du [IStatefulServicePartition. ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) för att rapportera om den aktuella repliken.
+* Använd [IServicePartition. ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) för att rapportera om den aktuella partitionen.
+* Använd [CodePackageActivationContext. ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) för att rapportera om det aktuella programmet.
+* Använd [CodePackageActivationContext. ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) för att rapportera om det aktuella program som distribuerats på den aktuella noden.
+* Använd [CodePackageActivationContext. ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) för att rapportera om ett tjänst paket för det program som distribueras på den aktuella noden.
 
 > [!NOTE]
-> Använd *inte* hälsoarkivet för att behålla statusinformation. Endast hälsorelaterad information bör rapporteras som hälsotillstånd, eftersom denna information påverkar hälsoutvärderingen av ett företag. Hälsobutiken har inte utformats som en allmänt bruksbutik. Den använder hälsoutvärderingslogik för att aggregera alla data i hälsotillståndet. Att skicka information som inte är relaterad till hälsotillståndet (som rapporteringsstatus med hälsotillståndet OK) påverkar inte det aggregerade hälsotillståndet, men det kan påverka hälsoarkivets prestanda negativt.
+> Internt, `Partition` och `CodePackageActivationContext` innehåller en hälso klient som kon figurer ATS med standardinställningar. Som förklaras för [hälso klienten](service-fabric-report-health.md#health-client), grupperas och skickas rapporterna på en timer. Objekten bör hållas aktiva för att få möjlighet att skicka rapporten.
 > 
 > 
 
-Nästa beslutspunkt är vilken enhet som ska rapporteras om. För det mesta identifierar villkoret tydligt entiteten. Välj den entitet med bästa möjliga granularitet. Om ett villkor påverkar alla repliker i en partition, rapportera på partitionen, inte på tjänsten. Det finns hörnfall där mer eftertanke behövs, dock. Om villkoret påverkar en entitet, till exempel en replik, men önskan är att villkoret ska flaggas för mer än varaktigheten av replikliv, bör det rapporteras på partitionen. Annars rensar hälsoarkivet alla rapporter när repliken tas bort. Watchdog författare måste tänka på livslängden för entiteten och rapporten. Det måste vara tydligt när en rapport ska rensas från en butik (till exempel när ett fel som rapporteras på en entitet inte längre gäller).
+Du kan ange `HealthReportSendOptions` när du skickar rapporter `Partition` via `CodePackageActivationContext` och hälso-API: er. Om du har viktiga rapporter som måste skickas så snart som möjligt, använder `HealthReportSendOptions` du med omedelbar `true`. Omedelbara rapporter kringgår batch-intervallet för den interna hälso klienten. Som nämnts tidigare använder du den här flaggan med försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt.
 
-Låt oss titta på ett exempel som sätter ihop de punkter jag beskrev. Tänk dig ett Service Fabric-program som består av en huvudtillståndskänslig beständig tjänst och sekundära tillståndslösa tjänster som distribueras på alla noder (en sekundär tjänsttyp för varje typ av aktivitet). Huvudhanteraren har en bearbetningskö som innehåller kommandon som ska köras av sekundärer. Sekundärerna kör inkommande begäranden och skickar tillbaka bekräftelsesignaler. Ett villkor som kan övervakas är längden på huvudbearbetningskön. Om huvudkölängden når ett tröskelvärde rapporteras en varning. Varningen anger att sekundärerna inte kan hantera belastningen. Om kön når den maximala längden och kommandon tas bort, rapporteras ett fel, eftersom tjänsten inte kan återställas. Rapporterna kan finnas på egenskapen **QueueStatus**. Watchdogn bor inne i tjänsten och skickas med jämna mellanrum på huvudrepliken. Tiden att leva är två minuter, och det skickas regelbundet var 30 sekunder. Om den primära går ner rensas rapporten automatiskt från arkivet. Om tjänstrepliken är uppe, men den är låst eller har andra problem, upphör rapporten att gälla i hälsoarkivet. I det här fallet utvärderas entiteten vid fel.
+## <a name="design-health-reporting"></a>Design hälso rapportering
+Det första steget när du genererar rapporter med hög kvalitet identifierar de villkor som kan påverka tjänstens hälsa. Ett villkor som kan hjälpa till att flagga problem i tjänsten eller klustret när det startar, eller till och med bättre, innan ett problem uppstår – kan eventuellt spara miljard tals dollar. Fördelarna är mindre drift tid, färre natt timmar som ägnats åt att undersöka och reparera problem och högre kund nöjdhet.
 
-Ett annat villkor som kan övervakas är körningstiden för aktiviteten. Huvudstämningen distribuerar aktiviteter till sekundärerna baserat på aktivitetstypen. Beroende på designen kan bakgrunden söka efter aktivitetsstatus. Det kan också vänta på sekundärer att skicka tillbaka bekräftelse signaler när de är klara. I det andra fallet måste man se till att upptäcka situationer där sekundärer dör eller meddelanden går förlorade. Ett alternativ är att befälhavaren skickar en ping-begäran till samma sekundära, som skickar tillbaka sin status. Om ingen status tas emot anser huvudhanteraren att det är ett fel och schemalägger om aktiviteten. Detta förutsätter att uppgifterna är idempotenta.
+När villkoren har identifierats behöver övervaknings resurserna för att ta reda på det bästa sättet att övervaka dem för balans mellan omkostnader och användbarhet. Anta till exempel en tjänst som utför komplexa beräkningar som använder vissa temporära filer på en resurs. En övervaknings enhet kan övervaka resursen för att säkerställa att tillräckligt med utrymme är tillgängligt. Det kan lyssna efter meddelanden om fil-eller katalog ändringar. En varning kan rapporteras om ett tröskelvärde uppnås och ett fel rapporteras om resursen är full. Vid en varning kan ett reparations system börja rensa äldre filer på resursen. Vid ett fel kan ett reparations system flytta tjänst repliken till en annan nod. Observera hur villkors tillstånden beskrivs i hälso tillståndet: tillståndet för villkoret som kan betraktas som felfritt (OK) eller som inte är felfritt (varning eller fel).
 
-Det övervakade villkoret kan översättas som en varning om uppgiften inte utförs inom en viss tid (**t1**, till exempel 10 minuter). Om uppgiften inte slutförs i tid (**t2**, till exempel 20 minuter), kan det övervakade villkoret översättas som fel. Den här rapporteringen kan göras på flera sätt:
+När du har angett övervaknings informationen måste en övervaknings övervaknings skrivare ta reda på hur du implementerar övervaknings enheten. Om villkoren kan fastställas inifrån tjänsten kan övervaknings enheten vara en del av själva den övervakade tjänsten. Service koden kan till exempel kontrol lera resurs användningen och sedan rapportera varje gång den försöker skriva en fil. Fördelen med den här metoden är att rapportering är enkelt. Försiktighet måste vidtas för att förhindra att övervaknings felen påverkar tjänst funktionerna.
 
-* Huvudrepliken rapporterar på sig själv med jämna mellanrum. Du kan ha en egenskap för alla väntande aktiviteter i kön. Om minst en aktivitet tar längre tid är rapportstatusen för egenskapen **PendingTasks** en varning eller ett fel, beroende på vad som är lämpligt. Om det inte finns några väntande aktiviteter eller alla aktiviteter som påbörjats är rapportstatusen OK. Aktiviteterna är beständiga. Om den primära går ner, den nyligen befordrade primära kan fortsätta att rapportera ordentligt.
-* En annan watchdog-process (i molnet eller externt) kontrollerar uppgifterna (utifrån, baserat på önskat aktivitetsresultat) för att se om de har slutförts. Om de inte respekterar tröskelvärdena skickas en rapport på huvudtjänsten. En rapport skickas också för varje uppgift som innehåller aktivitetsidentifieraren, till exempel **PendingTask+taskId**. Rapporter bör endast skickas på felaktiga tillstånd. Ställ in tid att leva till några minuter och markera rapporterna som ska tas bort när de upphör att gälla för att säkerställa rensning.
-* Den sekundära som kör en aktivitetsrapporter när det tar längre tid än förväntat att köra den. Den rapporterar om tjänstinstansen på egenskapen **PendingTasks**. Rapporten identifierar den tjänstinstans som har problem, men den fångar inte situationen där instansen dör. Rapporterna rensas upp då. Den kan rapportera om den sekundära tjänsten. Om den sekundära slutför uppgiften rensar den sekundära instansen rapporten från arkivet. Rapporten fångar inte upp situationen där bekräftelsemeddelandet går förlorat och uppgiften inte är klar från befälhavarens synvinkel.
+Rapportering inifrån den övervakade tjänsten är inte alltid ett alternativ. En övervaknings enhet i tjänsten kanske inte kan identifiera villkoren. Det kanske inte finns logiken eller data för att bestämma. Behovet av övervakning av villkoren kan vara högt. Villkoren kan inte heller vara speciella för en tjänst, utan påverkar i stället interaktioner mellan tjänster. Ett annat alternativ är att ha en övervaknings enhet i klustret som separata processer. Övervaknings enheten övervakar villkoren och rapporten utan att påverka huvud tjänsterna på något sätt. De här övervaknings grupperna kan till exempel implementeras som tillstånds lösa tjänster i samma program, distribueras på alla noder eller på samma noder som tjänsten.
 
-Men rapporteringen görs i de fall som beskrivs ovan, rapporterna fångas i ansökan hälsa när hälsa utvärderas.
+Ibland är en övervaknings enhet som körs i klustret inte något alternativ. Om det övervakade villkoret är tjänstens tillgänglighet eller funktion när användarna ser det, är det bäst att ha övervaknings enheten på samma plats som användar klienterna. De kan testa åtgärderna på samma sätt som användarna anropar dem. Du kan till exempel ha en övervaknings enhet som ligger utanför klustret, utfärdar förfrågningar till tjänsten och kontrol lera svars tiden och korrekthet för resultatet. (För en beräknings tjänst har exempelvis 2 + 2 retur 4 på en rimlig tid?)
 
-## <a name="report-periodically-vs-on-transition"></a>Rapportera periodvis kontra om övergången
-Genom att använda hälsorapporteringsmodellen kan watchdogs skicka rapporter regelbundet eller om övergångar. Det rekommenderade sättet för watchdog rapportering är regelbundet, eftersom koden är mycket enklare och mindre benägna att fel. Watchdogs måste sträva efter att vara så enkla som möjligt för att undvika buggar som utlöser felaktiga rapporter. Felaktiga *felaktiga* rapporter påverkar hälsoutvärderingar och scenarier baserat på hälsa, inklusive uppgraderingar. Felaktiga *felfria* rapporter döljer problem i klustret, vilket inte är önskvärt.
+När informationen om övervaknings enheten har slutförts bör du bestämma ett käll-ID som identifierar den unikt. Om flera övervaknings grupper av samma typ är boende i klustret, måste de rapporteras om olika entiteter eller, om de rapporterar till samma entitet, använda olika käll-ID eller egenskap. På så sätt kan deras rapporter finnas. Hälso rapportens egenskap ska avbilda det övervakade villkoret. (I exemplet ovan kan egenskapen vara **ShareSize**.) Om flera rapporter gäller samma villkor, ska egenskapen innehålla viss dynamisk information som gör det möjligt för rapporter att fungera. Om flera resurser till exempel behöver övervakas kan egenskaps namnet vara **ShareSize-ShareName**.
 
-För periodisk rapportering kan vakthunden implementeras med en timer. Vid en timer-motringning kan watchdog kontrollera tillståndet och skicka en rapport baserat på det aktuella tillståndet. Det finns ingen anledning att se vilken rapport som skickades tidigare eller göra några optimeringar när det gäller meddelanden. Hälsoklienten har batchlogik för att hjälpa till med prestanda. Hälsoklienten hålls vid liv, men den försöker igen internt tills rapporten bekräftas av hälsoarkivet eller watchdog genererar en nyare rapport med samma entitet, egenskap och källa.
+> [!NOTE]
+> Använd *inte* hälso lagret för att behålla statusinformation. Endast hälsorelaterad information bör rapporteras som hälso tillstånd, eftersom denna information påverkar hälso utvärderingen av en enhet. Hälso lagret har inte utformats som en allmän lagrings plats. Den använder hälso utvärderings logiken för att samla in alla data i hälso tillståndet. Att skicka information som inte är relaterad till hälsan (som rapporterings status med hälso tillståndet OK) påverkar inte det sammanlagda hälso tillståndet, men det kan påverka hälso lagrets prestanda negativt.
+> 
+> 
 
-Rapportering om övergångar kräver noggrann hantering av tillstånd. Watchdog övervakar vissa villkor och rapporter endast när villkoren ändras. Fördelen med detta tillvägagångssätt är att det behövs färre rapporter. Nackdelen är att logiken i vakthund är komplex. Watchdog måste upprätthålla villkoren eller rapporterna, så att de kan inspekteras för att fastställa tillståndsändringar. Vid redundans måste man vara försiktig med rapporter tillagda, men ännu inte skickat till hälsobutiken. Sekvensnumret måste ständigt öka. Om inte, avvisas rapporterna som inaktuella. I de sällsynta fall där dataförlust uppstår kan synkronisering behövas mellan reporterns tillstånd och hälsoarkivets tillstånd.
+Nästa besluts punkt är den entitet som rapporten ska rapporteras om. I de flesta fall identifierar villkoret entiteten tydligt. Välj entiteten med bästa möjliga granularitet. Om ett villkor påverkar alla repliker i en partition, rapporten på partitionen, inte på tjänsten. Det finns hörn fall där mer information krävs, men. Om villkoret påverkar en entitet, t. ex. en replik, men vill att villkoret ska flaggas under mer än varaktigheten för replikens varaktighet, ska den rapporteras på partitionen. Annars, när repliken tas bort, rensar hälso arkivet alla sina rapporter. Övervaknings enhets skrivare måste tänka på enhetens livs längd och rapporten. Det måste vara klart när en rapport ska rensas från en butik (till exempel när ett fel som rapporteras i en entitet inte längre gäller).
 
-Rapportering om övergångar är meningsfullt för `Partition` tjänster `CodePackageActivationContext`som rapporterar om sig själva, genom eller . När det lokala objektet (replik- eller distribuerat tjänstpaket/distribuerat program) tas bort tas även alla dess rapporter bort. Den här automatiska rensningen gör att behovet av synkronisering mellan reporter och hälsobutik. Om rapporten är för överordnad partition eller överordnat program måste försiktighet iakttas vid redundans för att undvika inaktuella rapporter i hälsoarkivet. Logik måste läggas till för att upprätthålla rätt tillstånd och rensa rapporten från arkivet när den inte behövs längre.
+Nu ska vi titta på ett exempel som sätter samman de punkter som jag har beskrivet. Överväg ett Service Fabric-program som består av en Master stateable-beständig tjänst och sekundära tillstånds lösa tjänster som distribueras på alla noder (en sekundär tjänst typ för varje typ av aktivitet). Befälhavaren har en bearbetnings kö som innehåller kommandon som ska köras av sekundär servrar. Sekundärerna kör inkommande begär Anden och skickar bekräftelse signaler. Ett villkor som kan övervakas är längden på huvud bearbetnings kön. Om längden på huvud kön når ett tröskelvärde rapporteras en varning. Varningen anger att sekundärerna inte kan hantera belastningen. Om kön når den maximala längden och kommandon tas bort, rapporteras ett fel eftersom tjänsten inte kan återställas. Rapporterna kan finnas i egenskapen **QueueStatus**. Övervaknings enheten finns inuti tjänsten och skickas regelbundet på huvud repliken. Tiden till Live är två minuter och skickas regelbundet var 30: e sekund. Om den primära slutar fungera rensas rapporten automatiskt från Store. Om tjänst repliken är igång, men den är i död läge eller har andra problem, förfaller rapporten i hälso lagret. I det här fallet utvärderas entiteten vid fel.
 
-## <a name="implement-health-reporting"></a>Implementera hälsorapportering
-När entiteten och rapportinformationen är klar kan skicka hälsorapporter göras via API, PowerShell eller REST.
+Ett annat villkor som kan övervakas är körnings tid för aktiviteten. Master distribuerar uppgifter till sekundärerna baserat på uppgifts typen. Beroende på designen kan befälhavaren polla sekundärerna för uppgifts status. Det kan också vänta på att sekundär servrar skickar tillbaka bekräftelse signaler när de är klara. I det andra fallet måste försiktighet vidtas för att identifiera situationer där sekundära tärningar eller meddelanden går förlorade. Ett alternativ är att huvud servern skickar en ping-begäran till samma sekundära, som skickar tillbaka dess status. Om ingen status tas emot, ser originalet det som ett fel och schemalägger om uppgiften. Detta förutsätter att aktiviteterna är idempotenta.
+
+Det övervakade villkoret kan översättas som en varning om uppgiften inte utförs inom en viss tid (**T1**, till exempel 10 minuter). Om aktiviteten inte slutförs i tid (**T2**, till exempel 20 minuter) kan det övervakade villkoret översättas som fel. Den här rapporten kan göras på flera sätt:
+
+* Den primära huvud repliken rapporterar regelbundet. Du kan ha en egenskap för alla väntande uppgifter i kön. Om minst en aktivitet tar längre tid, är rapport statusen för egenskapen **PendingTasks** en varning eller ett fel, efter vad som är tillämpligt. Om det inte finns några väntande uppgifter eller om alla aktiviteter har startats, är rapportens status OK. Uppgifterna är permanenta. Om den primära servern går nedåt kan den nyligen upphöjda primären fortsätta att rapportera korrekt.
+* En annan övervaknings process (i molnet eller externa) kontrollerar aktiviteterna (från utsidan, baserat på det önskade aktivitets resultatet) för att se om de är slutförda. Om de inte respekterar tröskelvärdena skickas en rapport till huvud tjänsten. En rapport skickas också till varje aktivitet som innehåller aktivitets-ID, t. ex. **PendingTask + taskId**. Rapporter bör endast skickas på fel tillstånd. Ställ in tiden på ett par minuter och markera de rapporter som ska tas bort när de går ut för att säkerställa rensning.
+* Den sekundära som kör en aktivitets rapport när det tar längre tid än förväntat att köra den. Den rapporterar om tjänst instansen på egenskapen **PendingTasks**. Rapporten hittar den tjänst instans som har problem, men den fångar inte in situationen där instansen är uppifrån. Rapporterna rensas sedan. Den kan rapportera om den sekundära tjänsten. Om den sekundära aktiviteten slutförs rensar den sekundära instansen rapporten från butiken. Rapporten fångar inte in situationen där bekräftelse meddelandet går förlorat och aktiviteten är inte avslutad från huvud punkten i vyn.
+
+Rapporteringen görs i de fall som beskrivs ovan, rapporterna samlas in i program hälsan när hälso tillståndet utvärderas.
+
+## <a name="report-periodically-vs-on-transition"></a>Rapportera regelbundet kontra vid över gång
+Med hjälp av hälso rapport modellen kan övervaknings enheten skicka rapporter regelbundet eller via över gångar. Det rekommenderade sättet för rapportering av övervaknings enheten sker regelbundet, eftersom koden är mycket enklare och mindre känslig för fel. Övervaknings gruppen måste sträva efter att vara så enkla som möjligt för att undvika buggar som utlöser fel rapporter. Felaktiga *rapporter påverkar hälso utvärderingen* och scenarier baserat på hälso tillstånd, inklusive uppgraderingar. Fel *felfria* rapporter döljer problem i klustret, vilket inte önskas.
+
+För periodisk rapportering kan övervaknings enheten implementeras med en timer. Vid ett timer-motanrop kan övervaknings enheten kontrol lera statusen och skicka en rapport som baseras på det aktuella läget. Du behöver inte se vilken rapport som tidigare har skickats eller göra eventuella optimeringar vad gäller meddelande hantering. Hälso klienten har en kommando insamlings logik som hjälper dig med prestanda. Medan hälso klienten hålls igång, görs ett nytt försök internt tills rapporten bekräftas av hälso lagret eller tills en ny rapport med samma entitet, egenskap och källa genereras.
+
+Rapportering av över gångar kräver noggrann hantering av tillstånd. Övervaknings enheten övervakar vissa villkor och rapporter endast när villkoren ändras. Den andra metoden är att färre rapporter behövs. Nack delen är att logiken i övervaknings enheten är komplex. Övervaknings enheten måste underhålla villkoren eller rapporterna, så att de kan kontrol leras för att fastställa tillstånds ändringar. Vid redundans måste det vara viktigt med rapporter som lagts till, men som ännu inte skickats till hälso lagret. Sekvensnummer måste vara allt fler. Annars avvisas rapporterna som inaktuella. I sällsynta fall där data går förlorade kan synkroniseringen krävas mellan tillståndet hos rapportören och hälso lagrets tillstånd.
+
+Rapportering av över gångar är begripligt för rapportering i tjänster, via `Partition` eller `CodePackageActivationContext`. När det lokala objektet (replik eller distribuerat tjänst paket/distribuerat program) tas bort, tas även alla rapporter bort. Den här automatiska rensningen sänker behovet av synkronisering mellan rapporterings-och hälso lager. Om rapporten är för överordnad partition eller överordnat program, måste du vara försiktig med redundans för att undvika inaktuella rapporter i hälso lagret. Logik måste läggas till för att behålla rätt tillstånd och rensa rapporten från Store när de inte behövs längre.
+
+## <a name="implement-health-reporting"></a>Implementera hälso rapportering
+När entiteten och rapport informationen är tydliga kan sändning av hälso rapporter göras via API, PowerShell eller REST.
 
 ### <a name="api"></a>API
-Om du vill rapportera via API:et måste du skapa en hälsorapport som är specifik för den entitetstyp som de vill rapportera om. Ge rapporten till en hälsoklient. Alternativt kan du skapa en hälsoinformation och `Partition` skicka `CodePackageActivationContext` den till korrekta rapporteringsmetoder på eller för att rapportera om aktuella entiteter.
+Om du vill rapportera genom API: et måste du skapa en hälso rapport som är speciell för den entitetstyp som de vill rapportera om. Ge rapporten till en hälso klient. Du kan också skapa en hälso information och skicka den till rätt rapporterings `Partition` metoder `CodePackageActivationContext` på eller rapportera om aktuella entiteter.
 
-I följande exempel visas periodisk rapportering från en watchdog i klustret. Watchdog kontrollerar om en extern resurs kan nås från en nod. Resursen behövs av ett tjänstmanifest i programmet. Om resursen inte är tillgänglig kan de andra tjänsterna i programmet fortfarande fungera korrekt. Därför skickas rapporten på den distribuerade tjänstpaketentiteten var 30:e sekund.
+I följande exempel visas periodiska rapporter från en övervaknings enhet i klustret. Övervaknings enheten kontrollerar om en extern resurs kan nås från en nod. Resursen krävs av ett tjänst manifest i programmet. Om resursen inte är tillgänglig kan de andra tjänsterna i programmet fortfarande fungera som de ska. Rapporten skickas därför till entiteten distribuerade tjänst paket var 30: e sekund.
 
 ```csharp
 private static Uri ApplicationName = new Uri("fabric:/WordCount");
@@ -206,9 +206,9 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Skicka hälsorapporter med **Send-ServiceFabric*EntityType*HealthReport**.
+Skicka hälso rapporter med **send-ServiceFabric*EntityType*HealthReport**.
 
-I följande exempel visas periodisk rapportering om CPU-värden på en nod. Rapporterna ska skickas var 30:e sekund, och de har tid att leva på två minuter. Om de upphör att gälla har reportern problem, så noden utvärderas vid fel. När processorn är över ett tröskelvärde har rapporten ett hälsotillstånd för varning. När processorn ligger över ett tröskelvärde för mer än den konfigurerade tiden rapporteras den som ett fel. Annars skickar reportern ett hälsotillstånd av OK.
+I följande exempel visas periodiska rapporter om processor värden på en nod. Rapporterna ska skickas var 30: e sekund och de har tid att leva på två minuter. Om de går ut har rapportören problem, så noden utvärderas vid fel. När processorn är över ett tröskelvärde har rapporten ett hälso tillstånd för varningen. När CPU: n är över ett tröskelvärde på mer än den konfigurerade tiden rapporteras den som ett fel. Annars skickar rapportören ett hälso tillstånd för OK.
 
 ```powershell
 PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
@@ -245,7 +245,7 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/21/2015 9:01:21 PM
 ```
 
-I följande exempel rapporterars en tillfällig varning på en replik. Det får först partitions-ID och sedan replik-ID för tjänsten den är intresserad av. Den skickar sedan en rapport från **PowershellWatcher** på egenskapen **ResourceDependency**. Rapporten är av intresse i bara två minuter och tas bort från arkivet automatiskt.
+I följande exempel rapporteras en tillfällig varning på en replik. Först får du partitions-ID: t och sedan replik-ID: t för tjänsten som det är intresse rad av. Den skickar sedan en rapport från **PowershellWatcher** på egenskapen **ResourceDependency**. Rapporten är av intresse för bara två minuter och tas bort automatiskt från Store.
 
 ```powershell
 PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
@@ -290,20 +290,20 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Skicka hälsorapporter med REST med POST-begäranden som går till önskad entitet och har i brödtexten hälsorapportbeskrivningen. Se till exempel hur du skickar [REST-klusterhälsorapporter](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) eller [hälsorapporter för tjänsten](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Alla entiteter stöds.
+Skicka hälso rapporter med REST med POST-begäranden som går till önskad entitet och har i texten hälso rapport beskrivningen. Se till exempel hur du skickar REST-rapporter för [kluster hälsa](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) eller [tjänste hälso rapporter](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Alla entiteter stöds.
 
 ## <a name="next-steps"></a>Nästa steg
-Baserat på hälsodata kan tjänstförfattare och kluster-/programadministratörer komma på olika sätt att använda informationen. De kan till exempel ställa in aviseringar baserat på hälsostatus för att fånga allvarliga problem innan de framkallar avbrott. Administratörer kan också ställa in reparationssystem för att åtgärda problem automatiskt.
+Beroende på hälso data kan tjänst skribenter och kluster/program administratörer tänka på hur du använder informationen. De kan till exempel ställa in aviseringar baserat på hälso status för att fånga allvarliga problem innan de provoke avbrott. Administratörer kan också konfigurera reparations system för att åtgärda problem automatiskt.
 
-[Introduktion till hälsoövervakning av service fabric](service-fabric-health-introduction.md)
+[Introduktion till Service Fabric Health Monitoring](service-fabric-health-introduction.md)
 
-[Visa hälsorapporter för Service Fabric](service-fabric-view-entities-aggregated-health.md)
+[Visa Service Fabric hälso rapporter](service-fabric-view-entities-aggregated-health.md)
 
-[Så här rapporterar och kontrollerar du tjänstens hälsa](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Rapportera och kontrol lera tjänstens hälsa](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Använda systemhälsorapporter för felsökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Använda system hälso rapporter för fel sökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Uppgradering av Service Fabric-programmet](service-fabric-application-upgrade.md)
+[Service Fabric program uppgradering](service-fabric-application-upgrade.md)
 

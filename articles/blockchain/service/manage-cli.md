@@ -1,27 +1,27 @@
 ---
-title: Hantera Azure Blockchain-tjänst med Azure CLI
-description: Hantera Azure Blockchain-tjänsten med Azure CLI
+title: Hantera Azure blockchain-tjänsten med hjälp av Azure CLI
+description: Hantera Azure blockchain-tjänsten med Azure CLI
 ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455576"
 ---
-# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Hantera Azure Blockchain-tjänst med Azure CLI
+# <a name="manage-azure-blockchain-service-using-azure-cli"></a>Hantera Azure blockchain-tjänsten med hjälp av Azure CLI
 
-Förutom Azure-portalen kan du använda Azure CLI för att hantera blockchain-medlemmar och transaktionsnoder för din Azure Blockchain-tjänst.
+Förutom Azure Portal kan du använda Azure CLI för att hantera blockchain-medlemmar och Transaction-noder för Azure blockchain-tjänsten.
 
-Kontrollera att du har installerat den senaste [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och `az login`loggat in på ett Azure-konto med .
+Kontrol lera att du har installerat den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och loggat in på ett Azure `az login`-konto i med.
 
-I följande exempel ersätter du exempel `<parameter names>` med dina egna värderingar.
+I följande exempel ersätter du exempel `<parameter names>` med dina egna värden.
 
 ## <a name="create-blockchain-member"></a>Skapa blockchain-medlem
 
-Exempel skapar en blockchain-medlem i Azure Blockchain Service som kör kvorumsredovisningsprotokollet i ett nytt konsortium.
+Exempel skapar en blockchain-medlem i Azure blockchain-tjänsten som kör kvorumet redovisnings protokoll i ett nytt konsortium.
 
 ```azurecli
 az resource create \
@@ -34,21 +34,21 @@ az resource create \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser skapas. |
-| **Namn** | Ett unikt namn som identifierar din Azure Blockchain Service blockchain-medlem. Namnet används för den offentliga slutpunktsadressen. Till exempel `myblockchainmember.blockchain.azure.com`. |
-| **Plats** | Azure-region där blockchain-medlemmen skapas. Till exempel `eastus`. Välj den plats som är närmast dina användare eller dina andra Azure-program. |
-| **lösenord** | Lösenordet för medlemskontot. Medlemskontots lösenord används för att autentisera till blockchain-medlemmens offentliga slutpunkt med hjälp av grundläggande autentisering. Lösenordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemener, 1 versaltecken, 1 tal och 1 specialtecken som inte är\`taltecken(#), procent(%), komma(,), stjärntecken(*), dubbel citattecken("), enkel offert('), dash(-) och semikolon(;)|
-| **Protokollet** | Offentlig förhandsversion stöder kvorum. |
-| **Konsortium** | Namn på konsortiet att gå med i eller skapa. |
-| **konsortiumManagementAccountPassword** | Konsortiets hanteringslösenord. Lösenordet används för att gå med i ett konsortium. |
-| **ruleName (härst)** | Regelnamn för vitlistning av ett IP-adressintervall. Valfri parameter för brandväggsregler.|
-| **startIAddress** | Start av IP-adressintervallet för vitlistning. Valfri parameter för brandväggsregler. |
-| **endIpAddress** | på IP-adressintervallet för vitlistning. Valfri parameter för brandväggsregler. |
-| **skuNamn** | Nivåtyp. Använd S0 för Standard och B0 för Basic. |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser skapas. |
+| **Namn** | Ett unikt namn som identifierar din Azure blockchain service blockchain-medlem. Namnet används för den offentliga slut punktens adress. Till exempel `myblockchainmember.blockchain.azure.com`. |
+| **sökvägen** | Azure-region där blockchain-medlemmen skapas. Till exempel `eastus`. Välj den plats som är närmast dina användare eller dina andra Azure-program. |
+| **lösenord** | Medlems kontots lösen ord. Medlems kontots lösen ord används för att autentisera till blockchain-medlemsens offentliga slut punkt med hjälp av grundläggande autentisering. Lösen ordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som inte är nummer tecken (#), procent (%), komma (,), stjärna (*), citat tecken (\`), dubbelt citat tecken ("), enkla citat tecken (), bindestreck (-) och semicolumn (;)|
+| **protokollhanterare** | Den offentliga för hands versionen stöder kvorum. |
+| **Consortium** | Namnet på konsortiet att ansluta till eller skapa. |
+| **consortiumManagementAccountPassword** | Lösen ordet för konsortiets hantering. Lösen ordet används för att ansluta till ett konsortium. |
+| **ruleName** | Regel namn för vit listning av ett IP-adressintervall. Valfri parameter för brand Väggs regler.|
+| **startIpAddress** | Början av IP-adressintervallet för vit listning. Valfri parameter för brand Väggs regler. |
+| **endIpAddress** | Slutet av IP-adressintervallet för vit listning. Valfri parameter för brand Väggs regler. |
+| **skuName** | Nivå typ. Använd S0 för standard och B0 för Basic. |
 
-## <a name="change-blockchain-member-password"></a>Ändra lösenord för blockchain-medlemmar
+## <a name="change-blockchain-member-password"></a>Ändra blockchain medlems lösen ord
 
-Exempel ändrar en blockchain-medlems lösenord.
+Exempel ändringar av en blockchain-medlems lösen ord.
 
 ```azurecli
 az resource update \
@@ -61,13 +61,13 @@ az resource update \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser skapas. |
-| **Namn** | Namn som identifierar din Azure Blockchain Service-medlem. |
-| **lösenord** | Lösenordet för medlemskontot. Lösenordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemener, 1 versaltecken, 1 tal och 1 specialtecken som inte är\`taltecken(#), procent(%), komma(,), stjärntecken(*), dubbel citattecken("), enkel offert('), dash(-) och semikolon(;). |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser skapas. |
+| **Namn** | Namn som identifierar din Azure blockchain service-medlem. |
+| **lösenord** | Medlems kontots lösen ord. Lösen ordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som inte är nummer tecken (#), procent (%), komma (,), stjärna (*), citat tecken (\`), dubbelt citat tecken ("), enkelt citat tecken (), bindestreck (-) och semikolon (;). |
 
-## <a name="create-transaction-node"></a>Skapa transaktionsnod
+## <a name="create-transaction-node"></a>Skapa Transaction-nod
 
-Skapa en transaktionsnod i en befintlig blockchain-medlem. Genom att lägga till transaktionsnoder kan du öka säkerhetsisolering och distribuera belastning. Du kan till exempel ha en slutpunkt för transaktionsnod för olika klientprogram.
+Skapa en Transaction-nod i en befintlig blockchain-medlem. Genom att lägga till Transaction Nodes kan du öka säkerhets isoleringen och distribuera belastningen. Du kan till exempel ha en Transaction Node-slutpunkt för olika klient program.
 
 ```azurecli
 az resource create \
@@ -80,17 +80,17 @@ az resource create \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser skapas. |
-| **Namn** | Namn på Azure Blockchain Service blockchain-medlemmen som också innehåller det nya transaktionsnodnamnet. |
-| **Plats** | Azure-region där blockchain-medlemmen skapas. Till exempel `eastus`. Välj den plats som är närmast dina användare eller dina andra Azure-program. |
-| **lösenord** | Lösenordet för transaktionsnoden. Lösenordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemener, 1 versaltecken, 1 tal och 1 specialtecken som inte är\`taltecken(#), procent(%), komma(,), stjärntecken(*), dubbel citattecken("), enkel offert('), dash(-) och semikolon(;). |
-| **ruleName (härst)** | Regelnamn för vitlistning av ett IP-adressintervall. Valfri parameter för brandväggsregler. |
-| **startIAddress** | Start av IP-adressintervallet för vitlistning. Valfri parameter för brandväggsregler. |
-| **endIpAddress** | på IP-adressintervallet för vitlistning. Valfri parameter för brandväggsregler.|
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser skapas. |
+| **Namn** | Namnet på Azure blockchain-tjänstens blockchain-medlem som också innehåller det nya namnet på Transaction-noden. |
+| **sökvägen** | Azure-region där blockchain-medlemmen skapas. Till exempel `eastus`. Välj den plats som är närmast dina användare eller dina andra Azure-program. |
+| **lösenord** | Transaktions nodens lösen ord. Lösen ordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som inte är nummer tecken (#), procent (%), komma (,), stjärna (*), citat tecken (\`), dubbelt citat tecken ("), enkelt citat tecken (), bindestreck (-) och semikolon (;). |
+| **ruleName** | Regel namn för vit listning av ett IP-adressintervall. Valfri parameter för brand Väggs regler. |
+| **startIpAddress** | Början av IP-adressintervallet för vit listning. Valfri parameter för brand Väggs regler. |
+| **endIpAddress** | Slutet av IP-adressintervallet för vit listning. Valfri parameter för brand Väggs regler.|
 
-## <a name="change-transaction-node-password"></a>Ändra lösenord för transaktionsnod
+## <a name="change-transaction-node-password"></a>Ändra lösen ord för Transaction Node
 
-Exempel ändrar ett lösenord för transaktionsnoder.
+Exempel ändringar av ett transaktions-Node-lösenord.
 
 ```azurecli
 az resource update \
@@ -102,13 +102,13 @@ az resource update \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser finns. |
-| **Namn** | Namn på Azure Blockchain Service blockchain-medlemmen som också innehåller det nya transaktionsnodnamnet. |
-| **lösenord** | Lösenordet för transaktionsnoden. Lösenordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemener, 1 versaltecken, 1 tal och 1 specialtecken som inte är\`taltecken(#), procent(%), komma(,), stjärntecken(*), dubbel citattecken("), enkel offert('), dash(-) och semikolon(;). |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser finns. |
+| **Namn** | Namnet på Azure blockchain-tjänstens blockchain-medlem som också innehåller det nya namnet på Transaction-noden. |
+| **lösenord** | Transaktions nodens lösen ord. Lösen ordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som inte är nummer tecken (#), procent (%), komma (,), stjärna (*), citat tecken (\`), dubbelt citat tecken ("), enkelt citat tecken (), bindestreck (-) och semikolon (;). |
 
-## <a name="change-consortium-management-account-password"></a>Ändra lösenord för konsortiehanteringskonto
+## <a name="change-consortium-management-account-password"></a>Ändra lösen ord för hanterings kontot för konsortiet
 
-Konsortiets förvaltningskonto används för konsortiemedlemskap. Varje medlem identifieras unikt av ett konsortiehanteringskonto och du kan ändra lösenordet för det här kontot med följande kommando.
+Konsortiets hanterings konto används för medlemskaps hantering i konsortiet. Varje medlem identifieras unikt av ett konto för hantering av konsortier och du kan ändra lösen ordet för kontot med följande kommando.
 
 ```azurecli
 az resource update \
@@ -121,11 +121,11 @@ az resource update \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser skapas. |
-| **Namn** | Namn som identifierar din Azure Blockchain Service-medlem. |
-| **konsortiumManagementAccountPassword** | Lösenordet för konsortiets hanteringskonto. Lösenordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemener, 1 versaltecken, 1 tal och 1 specialtecken som inte är\`taltecken(#), procent(%), komma(,), stjärntecken(*), dubbel citattecken("), enkel offert('), dash(-) och semikolon(;). |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser skapas. |
+| **Namn** | Namn som identifierar din Azure blockchain service-medlem. |
+| **consortiumManagementAccountPassword** | Konto lösen ordet för konsortiets hanterings konto. Lösen ordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som inte är nummer tecken (#), procent (%), komma (,), stjärna (*), citat tecken (\`), dubbelt citat tecken ("), enkelt citat tecken (), bindestreck (-) och semikolon (;). |
   
-## <a name="update-firewall-rules"></a>Uppdatera brandväggsregler
+## <a name="update-firewall-rules"></a>Uppdatera brand Väggs regler
 
 ```azurecli
 az resource update \
@@ -138,15 +138,15 @@ az resource update \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser finns. |
-| **Namn** | Namn på blockchain-medlemmen i Azure Blockchain-tjänsten. |
-| **ruleName (härst)** | Regelnamn för vitlistning av ett IP-adressintervall. Valfri parameter för brandväggsregler.|
-| **startIAddress** | Start av IP-adressintervallet för vitlistning. Valfri parameter för brandväggsregler.|
-| **endIpAddress** | på IP-adressintervallet för vitlistning. Valfri parameter för brandväggsregler.|
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser finns. |
+| **Namn** | Namnet på Azure blockchain-tjänstens blockchain-medlem. |
+| **ruleName** | Regel namn för vit listning av ett IP-adressintervall. Valfri parameter för brand Väggs regler.|
+| **startIpAddress** | Början av IP-adressintervallet för vit listning. Valfri parameter för brand Väggs regler.|
+| **endIpAddress** | Slutet av IP-adressintervallet för vit listning. Valfri parameter för brand Väggs regler.|
 
-## <a name="list-api-keys"></a>Lista API-nycklar
+## <a name="list-api-keys"></a>Visa lista över API-nycklar
 
-API-nycklar kan användas för nodåtkomst som liknar användarnamn och lösenord. Det finns två API-nycklar som stöder nyckelrotation. Använd följande kommando för att lista dina API-nycklar.
+API-nycklar kan användas för Node-åtkomst liknande användar namn och lösen ord. Det finns två API-nycklar som stöder nyckel rotation. Använd följande kommando för att lista dina API-nycklar.
 
 ```azurecli
 az resource invoke-action \
@@ -158,12 +158,12 @@ az resource invoke-action \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser finns. |
-| **Namn** | Namn på Azure Blockchain Service blockchain-medlemmen som också innehåller det nya transaktionsnodnamnet. |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser finns. |
+| **Namn** | Namnet på Azure blockchain-tjänstens blockchain-medlem som också innehåller det nya namnet på Transaction-noden. |
 
 ## <a name="regenerate-api-keys"></a>Återskapa API-nycklar
 
-Använd följande kommando för att återskapa API-nycklarna.
+Använd följande kommando för att återskapa dina API-nycklar.
 
 ```azurecli
 az resource invoke-action \
@@ -176,13 +176,13 @@ az resource invoke-action \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser finns. |
-| **Namn** | Namn på Azure Blockchain Service blockchain-medlemmen som också innehåller det nya transaktionsnodnamnet. |
-| **Nyckelnamn** | Ersätt \<keyValue\> med antingen key1 eller key2. |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser finns. |
+| **Namn** | Namnet på Azure blockchain-tjänstens blockchain-medlem som också innehåller det nya namnet på Transaction-noden. |
+| **keyName** | Ersätt \<nyckelvärdet\> med antingen KEY1 eller key2. |
 
-## <a name="delete-a-transaction-node"></a>Ta bort en transaktionsnod
+## <a name="delete-a-transaction-node"></a>Ta bort en Transaction-nod
 
-Exempel tar bort en blockchain-medlemstransaktionsnod.
+Exempel tar bort en blockchain-medlems transaktions nod.
 
 ```azurecli
 az resource delete \
@@ -193,8 +193,8 @@ az resource delete \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser finns. |
-| **Namn** | Namn på Azure Blockchain Service blockchain-medlemmen som också innehåller transaktionsnodnamnet som ska tas bort. |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser finns. |
+| **Namn** | Namnet på Azure blockchain service-blockchain medlem som också innehåller det transaktions nodnamn som ska tas bort. |
 
 ## <a name="delete-a-blockchain-member"></a>Ta bort en blockchain-medlem
 
@@ -209,8 +209,8 @@ az resource delete \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **resursgrupp** | Resursgruppsnamn där Azure Blockchain Service-resurser finns. |
-| **Namn** | Namn på den Azure Blockchain Service blockchain-medlem som ska tas bort. |
+| **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser finns. |
+| **Namn** | Namnet på den Azure blockchain-tjänst blockchain-medlem som ska tas bort. |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -225,13 +225,13 @@ az role assignment create \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **Roll** | Namn på Azure AD-rollen. |
-| **förvärvaren** | Azure AD-användar-ID. Till exempel, `user@contoso.com` |
-| **Omfattning** | Rolltilldelningens omfattning. Kan vara antingen en blockchain-medlem eller transaktionsnod. |
+| **rollinnehavaren** | Namnet på Azure AD-rollen. |
+| **tilldelad person** | Användar-ID för Azure AD. Till exempel, `user@contoso.com` |
+| **utrymme** | Roll tilldelningens omfattning. Kan vara antingen en blockchain-medlem eller Transaction-nod. |
 
-**Exempel:**
+**Exempel**
 
-Bevilja nodåtkomst för Azure AD-användare till **blockchain-medlem:**
+Bevilja noden åtkomst för Azure AD-användare till blockchain- **medlemmen**:
 
 ```azurecli
 az role assignment create \
@@ -240,9 +240,9 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**Exempel:**
+**Exempel**
 
-Bevilja nodåtkomst för Azure AD-användare till **blockchain-transaktionsnod:**
+Bevilja Node-åtkomst för Azure AD-användare till blockchain- **transaktions nod**:
 
 ```azurecli
 az role assignment create \
@@ -251,7 +251,7 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1/transactionNodes/contosoTransactionNode1
 ```
 
-### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Bevilja nodåtkomst för Azure AD-grupp eller programroll
+### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Bevilja Node-åtkomst för Azure AD-grupp eller-program roll
 
 ```azurecli
 az role assignment create \
@@ -261,13 +261,13 @@ az role assignment create \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **Roll** | Namn på Azure AD-rollen. |
-| **assignee-object-id** | Azure AD-grupp-ID eller program-ID. |
-| **Omfattning** | Rolltilldelningens omfattning. Kan vara antingen en blockchain-medlem eller transaktionsnod. |
+| **rollinnehavaren** | Namnet på Azure AD-rollen. |
+| **tilldelad person-objekt-ID** | Azure AD-grupp-ID eller program-ID. |
+| **utrymme** | Roll tilldelningens omfattning. Kan vara antingen en blockchain-medlem eller Transaction-nod. |
 
-**Exempel:**
+**Exempel**
 
-Bevilja nodåtkomst för **programroll**
+Bevilja noden åtkomst för **program rollen**
 
 ```azurecli
 az role assignment create \
@@ -276,7 +276,7 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-### <a name="remove-azure-ad-node-access"></a>Ta bort Azure AD-nodåtkomst
+### <a name="remove-azure-ad-node-access"></a>Ta bort åtkomst till Azure AD-nod
 
 ```azurecli
 az role assignment delete \
@@ -287,10 +287,10 @@ az role assignment delete \
 
 | Parameter | Beskrivning |
 |---------|-------------|
-| **Roll** | Namn på Azure AD-rollen. |
-| **förvärvaren** | Azure AD-användar-ID. Till exempel, `user@contoso.com` |
-| **Omfattning** | Rolltilldelningens omfattning. Kan vara antingen en blockchain-medlem eller transaktionsnod. |
+| **rollinnehavaren** | Namnet på Azure AD-rollen. |
+| **tilldelad person** | Användar-ID för Azure AD. Till exempel, `user@contoso.com` |
+| **utrymme** | Roll tilldelningens omfattning. Kan vara antingen en blockchain-medlem eller Transaction-nod. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [konfigurerar Azure Blockchain Service-transaktionsnoder med Azure-portalen](configure-transaction-nodes.md).
+Lär dig hur du [konfigurerar noder i Azure blockchain service Transactions med Azure Portal](configure-transaction-nodes.md).

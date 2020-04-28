@@ -1,88 +1,88 @@
 ---
-title: Återställa appen från säkerhetskopiering
-description: Läs om hur du återställer appen från en säkerhetskopia. Vissa länkade databaser kan återställas tillsammans med appen i en åtgärd.
+title: Återställ appen från en säkerhets kopia
+description: Lär dig hur du återställer din app från en säkerhets kopia. Vissa länkade databaser kan återställas tillsammans med appen i en åtgärd.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74689254"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
-I den här artikeln visas hur du återställer en app i [Azure App Service](../app-service/overview.md) som du tidigare har säkerhetskopierat (se [Säkerhetskopiera din app i Azure](manage-backup.md)). Du kan återställa appen med dess länkade databaser på begäran till ett tidigare tillstånd eller skapa en ny app baserat på en av den ursprungliga appens säkerhetskopior. Azure App Service stöder följande databaser för säkerhetskopiering och återställning:
+Den här artikeln visar hur du återställer en app i [Azure App Service](../app-service/overview.md) som du tidigare har säkerhetskopierat (se [säkerhetskopiera din app i Azure](manage-backup.md)). Du kan återställa din app med dess länkade databaser på begäran till ett tidigare tillstånd, eller skapa en ny app baserat på en av din ursprungliga programs säkerhets kopior. Azure App Service stöder följande databaser för säkerhets kopiering och återställning:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [MySQL i appen](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+- [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
-Återställning från säkerhetskopior är tillgängligt för appar som körs på **standard-** och **Premium-nivå.** Information om hur du skalar upp din app finns [i Skala upp en app i Azure](manage-scale-up.md). **Premium-nivån** gör att ett större antal dagliga säkerhetskopior kan utföras än **standardnivå.**
+Återställning från säkerhets kopior är tillgängligt för appar som körs på nivån **standard** och **Premium** . Information om hur du skalar upp din app finns i [skala upp en app i Azure](manage-scale-up.md). **Premium** -nivån tillåter att ett större antal dagliga säkerhets kopieringar utförs än **standard** nivån.
 
 <a name="PreviousBackup"></a>
 
-## <a name="restore-an-app-from-an-existing-backup"></a>Återställa en app från en befintlig säkerhetskopia
-1. På sidan **Inställningar** i din app i Azure-portalen klickar du på **Säkerhetskopior** för att visa sidan **Säkerhetskopior.** Klicka sedan på **Återställ**.
+## <a name="restore-an-app-from-an-existing-backup"></a>Återställa en app från en befintlig säkerhets kopia
+1. På sidan **Inställningar** i appen i Azure Portal klickar du på **säkerhets kopiering** för att visa sidan **säkerhets kopior** . Klicka sedan på **Återställ**.
    
-    ![Välj återställ nu][ChooseRestoreNow]
-2. Välj först säkerhetskopian på sidan **Återställ.**
+    ![Välj Återställ nu][ChooseRestoreNow]
+2. På sidan **Återställ** väljer du först säkerhets kopierings källan.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
-    Alternativet **App backup** visar alla befintliga säkerhetskopior av den aktuella appen, och du kan enkelt välja en.
-    Med alternativet **Lagring** kan du välja en ZIP-säkerhetskopia från ett befintligt Azure Storage-konto och behållare i din prenumeration.
-    Om du försöker återställa en säkerhetskopia av en annan app använder du alternativet **Lagring.**
-3. Ange sedan målet för appåterställning i **Återställ mål**.
+    Alternativet **säkerhets kopiering av app** visar alla befintliga säkerhets kopior av den aktuella appen, och du kan enkelt välja en.
+    Med alternativet **lagring** kan du välja valfri säkerhets kopia av zip-filen från alla befintliga Azure Storage konto och behållare i din prenumeration.
+    Om du försöker återställa en säkerhets kopia av en annan app använder du alternativet **lagring** .
+3. Ange sedan målet för appen Återställ i **återställnings målet**.
    
     ![](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
-   > Om du väljer **Skriv över**raderas alla befintliga data i den aktuella appen och skrivs över. Innan du klickar på **OK**kontrollerar du att det är precis vad du vill göra.
+   > Om du väljer **Skriv över**raderas och skrivs alla befintliga data i din aktuella app över. Kontrol lera att det är precis det du vill göra innan du klickar på **OK**.
    > 
    > 
    
    > [!WARNING]
-   > Om App-tjänsten skriver data till databasen medan du återställer den kan det leda till symptom som brott mot PRIMÄRNYCKEL och dataförlust. Det föreslås att apptjänsten stoppas först innan du börjar återställa databasen.
+   > Om App Service skriver data till databasen när du återställer den, kan det leda till symptom som överträdelser av primär nyckel och data förlust. Vi rekommenderar att du stoppar App Service först innan du börjar återställa databasen.
    > 
    > 
    
-    Du kan välja **Befintlig app** om du vill återställa appsäkerhetskopiorna till en annan app i samma resursgrupp. Innan du använder det här alternativet bör du redan ha skapat en annan app i resursgruppen med spegling av databaskonfigurationen till den som definierats i appsäkerhetskopiningen. Du kan också skapa en **ny** app som du vill återställa innehållet till.
+    Du kan välja en **befintlig app** för att återställa säkerhets kopian av appen till en annan app i samma resurs grupp. Innan du använder det här alternativet bör du redan ha skapat en annan app i resurs gruppen med spegling av databas konfigurationen till den som definierats i säkerhets kopieringen av appen. Du kan också skapa en **ny** app för att återställa innehållet till.
 
 4. Klicka på **OK**.
 
 <a name="StorageAccount"></a>
 
-## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Ladda ned eller ta bort en säkerhetskopia från ett lagringskonto
-1. Välj **Lagringskonton**på sidan **Bläddra** i Huvudsidan i Azure-portalen . En lista över dina befintliga lagringskonton visas.
-2. Välj det lagringskonto som innehåller säkerhetskopian som du vill hämta eller ta bort. Sidan för lagringskontot visas.
-3. På sidan lagringskonto väljer du den behållare du vill använda
+## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Hämta eller ta bort en säkerhets kopia från ett lagrings konto
+1. Välj **lagrings konton**på den huvudsakliga sidan **Bläddra** i Azure Portal. En lista över dina befintliga lagrings konton visas.
+2. Välj det lagrings konto som innehåller den säkerhets kopia som du vill ladda ned eller ta bort. Sidan för lagrings kontot visas.
+3. På sidan lagrings konto väljer du den behållare som du vill använda
    
     ![Visa behållare][ViewContainers]
-4. Välj säkerhetskopia som du vill hämta eller ta bort.
+4. Välj den säkerhets kopia som du vill ladda ned eller ta bort.
    
-    ![Visacontainers](./media/web-sites-restore/03ViewFiles.png)
-5. Klicka på **Hämta** eller **Ta bort** beroende på vad du vill göra.  
+    ![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
+5. Klicka på **Hämta** eller **ta bort** beroende på vad du vill göra.  
 
 <a name="OperationLogs"></a>
 
-## <a name="monitor-a-restore-operation"></a>Övervaka en återställningsåtgärd
-Om du vill se information om hur åtgärden för appåterställning lyckas eller misslyckas navigerar du till sidan **Aktivitetslogg** i Azure-portalen.  
+## <a name="monitor-a-restore-operation"></a>Övervaka en återställnings åtgärd
+Om du vill se information om att återställningen av appen lyckades eller inte fungerar går du till sidan **aktivitets logg** i Azure Portal.  
  
 
-Bläddra nedåt för att hitta önskad återställning och klicka för att markera den.
+Rulla ned för att hitta önskad återställnings åtgärd och klicka för att markera den.
 
-Informationssidan visar tillgänglig information om återställningen.
+Informations sidan visar tillgänglig information relaterad till återställnings åtgärden.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
-Du kan automatisera säkerhetskopieringshantering med skript med hjälp av [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
+Du kan automatisera säkerhets kopierings hanteringen med skript med hjälp av [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
 
-För exempel, se:
+Exempel finns i:
 
 - [Azure CLI-exempel](samples-cli.md)
-- [Exempel på Azure PowerShell](samples-powershell.md)
+- [Azure PowerShell exempel](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

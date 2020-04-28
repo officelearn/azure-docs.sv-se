@@ -1,6 +1,6 @@
 ---
-title: Skapa ensidig app som anropar ett webb-API – Microsoft identity platform | Azure
-description: Lär dig hur du skapar ett ensidigt program som anropar ett webb-API
+title: Bygg en app med en sida som anropar ett webb-API – Microsoft Identity Platform | Azure
+description: Lär dig hur du skapar ett program med en enda sida som anropar ett webb-API
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,21 +12,21 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882139"
 ---
-# <a name="single-page-application-call-a-web-api"></a>Ensidigt program: Anropa ett webb-API
+# <a name="single-page-application-call-a-web-api"></a>Program med en sida: anropa ett webb-API
 
-Vi rekommenderar att `acquireTokenSilent` du anropar metoden för att hämta eller förnya en åtkomsttoken innan du anropar ett webb-API. När du har en token kan du anropa ett skyddat webb-API.
+Vi rekommenderar att du anropar `acquireTokenSilent` metoden för att hämta eller förnya en åtkomsttoken innan du anropar ett webb-API. När du har en token kan du anropa ett skyddat webb-API.
 
 ## <a name="call-a-web-api"></a>Anropa en webb-API
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Använd den förvärvade åtkomsttoken som bärare i en HTTP-begäran för att anropa webb-API, till exempel Microsoft Graph API. Ett exempel:
+Använd den hämtade åtkomsttoken som en innehavare i en HTTP-begäran för att anropa alla webb-API: er, till exempel Microsoft Graph-API. Ett exempel:
 
 ```javascript
     var headers = new Headers();
@@ -46,7 +46,7 @@ Använd den förvärvade åtkomsttoken som bärare i en HTTP-begäran för att a
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-MSAL-vinkelomslaget utnyttjar HTTP-interceptor för att automatiskt hämta åtkomsttoken tyst och bifoga dem till HTTP-begäranden till API:er. Mer information finns i [Hämta en token för att anropa ett API](scenario-spa-acquire-token.md).
+MSAL vinkel omslutningen drar nytta av HTTP-spärren för att automatiskt hämta åtkomsttoken och koppla dem till HTTP-begäranden till API: er. Mer information finns i [Hämta en token för att anropa ett API](scenario-spa-acquire-token.md).
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Komma igång med blob-lagring med Visual Studio (molntjänster)
-description: Komma igång med Azure Blob-lagring i ett molntjänstprojekt i Visual Studio efter anslutning till ett lagringskonto med Hjälp av Visual Studio-anslutna tjänster
+title: Kom igång med Blob Storage med hjälp av Visual Studio (Cloud Services)
+description: Komma igång med Azure Blob Storage i ett moln tjänst projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,46 +14,46 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d151e55f627166d8ad7d8affa53740e86cd1e501
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298803"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Blob Storage och Visual Studio-anslutna tjänster (molntjänstprojekt)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Kom igång med Azure Blob Storage-och Visual Studio-anslutna tjänster (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Översikt
-I den här artikeln beskrivs hur du kommer igång med Azure Blob Storage efter att du har skapat eller refererat till ett Azure Storage-konto med hjälp av dialogrutan **Lägg till anslutna tjänster** i Visual Studio i ett molntjänstprojekt i Visual Studio. Vi visar hur du kommer åt och skapar blob-behållare och hur du utför vanliga uppgifter som att ladda upp, lista och hämta blobbar. Exemplen skrivs\# i C och använder [Microsoft Azure Storage Client Library för .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Den här artikeln beskriver hur du kommer igång med Azure Blob Storage när du har skapat eller refererat till ett Azure Storage-konto med hjälp av Visual Studio dialog rutan **Lägg till anslutna tjänster** i ett projekt i Visual Studio Cloud Services. Vi visar dig hur du får åtkomst till och skapar BLOB-behållare och hur du utför vanliga åtgärder som att ladda upp, lista och hämta blobbar. Exemplen skrivs i C\# och använder [Microsoft Azure Storage klient biblioteket för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Azure Blob Storage är en tjänst för lagring av stora mängder ostrukturerade data som kan nås var som helst i världen via HTTP eller HTTPS. En enda blob kan vara valfri storlek. Blobbar kan vara saker som bilder, ljud- och videofiler, rådata och dokumentfiler.
+Azure Blob Storage är en tjänst för att lagra stora mängder ostrukturerade data som kan nås från var som helst i världen via HTTP eller HTTPS. En enda BLOB kan vara vilken storlek som helst. Blobbar kan vara saker som bilder, ljud-och videofiler, rå data och dokument-filer.
 
-Precis som filer finns i mappar finns lagringsblobar i behållare. När du har skapat ett lagringsutrymme skapar du en eller flera behållare i lagringen. I ett lagringsutrymme som kallas "Scrapbook" kan du till exempel skapa behållare i lagringen som kallas "bilder" för att lagra bilder och en annan som kallas "ljud" för att lagra ljudfiler. När du har skapat behållarna kan du överföra enskilda blob-filer till dem.
+Precis som filer Live i mappar, Storage blobbar i behållare. När du har skapat ett lagrings utrymme skapar du en eller flera behållare i lagrings utrymmet. I ett lagrings utrymme med namnet "klipp bok" kan du till exempel skapa behållare i lagrings utrymmet som kallas "bilder" för att lagra bilder och en annan som kallas "ljud" för att lagra ljudfiler. När du har skapat behållarna kan du överföra enskilda BLOB-filer till dem.
 
-* Mer information om att manipulera blobbar programmatiskt finns i [Komma igång med Azure Blob-lagring med .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
-* Allmän information om Azure Storage finns i [Lagringsdokumentation](https://azure.microsoft.com/documentation/services/storage/).
-* Allmän information om Azure Cloud Services finns i Dokumentationen för [Molntjänster](https://azure.microsoft.com/documentation/services/cloud-services/).
-* Mer information om programmering ASP.NET program finns [i ASP.NET](https://www.asp.net).
+* Mer information om program mässig manipulering av blobbar finns i [Kom igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+* Allmän information om Azure Storage finns i [lagrings dokumentation](https://azure.microsoft.com/documentation/services/storage/).
+* Allmän information om Azure Cloud Services finns i [Cloud Services dokumentation](https://azure.microsoft.com/documentation/services/cloud-services/).
+* Mer information om programmering av ASP.NET-program finns i [ASP.net](https://www.asp.net).
 
-## <a name="access-blob-containers-in-code"></a>Komma åt blob-behållare i kod
-Om du vill komma åt blobbar i molntjänstprojekt måste du lägga till följande objekt om de inte redan finns.
+## <a name="access-blob-containers-in-code"></a>Komma åt BLOB-behållare i kod
+För att program mässigt få åtkomst till blobbar i moln tjänst projekt måste du lägga till följande objekt, om de inte redan är närvarande.
 
-1. Lägg till följande kodnamnområdesdeklarationer överst i en C#-fil där du vill programmässigt komma åt Azure Storage.
+1. Lägg till följande kod namns deklarationer högst upp i C#-filen som du vill ha åtkomst till Azure Storage via programmering.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. Hämta ett **CloudStorageAccount-objekt** som representerar din lagringskontoinformation. Använd följande kod för att hämta din lagringsanslutningssträng och lagringskontoinformation från Azure-tjänstkonfigurationen.
+2. Hämta ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänstekonfigurationen.
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-3. Skaffa ett **CloudBlobClient-objekt** för att referera till en befintlig behållare i ditt lagringskonto.
+3. Hämta ett **CloudBlobClient** -objekt för att referera till en befintlig behållare i ditt lagrings konto.
    
         // Create a blob client.
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-4. Hämta ett **CloudBlobContainer-objekt** för att referera till en specifik blob-behållare.
+4. Hämta ett **CloudBlobContainer** -objekt för att referera till en angiven BLOB-behållare.
    
         // Get a reference to a container named "mycontainer."
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
@@ -65,17 +65,17 @@ Om du vill komma åt blobbar i molntjänstprojekt måste du lägga till följand
 
 ## <a name="create-a-container-in-code"></a>Skapa en behållare i kod
 > [!NOTE]
-> Vissa API:er som utför anrop till Azure Storage i ASP.NET är asynkrona. Se [Asynkron programmering med Async och Vänta för](https://msdn.microsoft.com/library/hh191443.aspx) mer information. Koden i följande exempel förutsätter att du använder asynkron programmeringsmetoder.
+> Vissa API: er som utför anrop till Azure Storage i ASP.NET är asynkrona. Se [asynkron programmering med async och await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden i följande exempel förutsätter att du använder asynkrona programmerings metoder.
 > 
 > 
 
-Om du vill skapa en behållare i ditt lagringskonto behöver du bara lägga till ett anrop i **CreateIfNotExistsAsync** enligt följande kod:
+Om du vill skapa en behållare i ditt lagrings konto behöver du bara lägga till ett anrop till **CreateIfNotExistsAsync** som i följande kod:
 
     // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();
 
 
-Om du vill göra filerna i behållaren tillgängliga för alla kan du ställa in behållaren så att den är offentlig med hjälp av följande kod.
+Om du vill göra filerna i behållaren tillgängliga för alla kan du ange att behållaren ska vara offentlig med hjälp av följande kod.
 
     await container.SetPermissionsAsync(new BlobContainerPermissions
     {
@@ -83,10 +83,10 @@ Om du vill göra filerna i behållaren tillgängliga för alla kan du ställa in
     });
 
 
-Alla på Internet kan se blobbar i en offentlig behållare, men du kan bara ändra eller ta bort dem om du har rätt åtkomstnyckel.
+Alla på Internet kan se blobbar i en offentlig behållare, men du kan bara ändra eller ta bort dem om du har rätt åtkomst nyckel.
 
 ## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blob till en container
-Azure Storage stöder blockblobar och sidblobar. I de flesta fall är blockblobbar den rekommenderade typen.
+Azure Storage stöder block-blobbar och Page blobbar. I de flesta fall är blockblobbar den rekommenderade typen.
 
 Om du vill ladda upp en fil till en blockblob hämtar du en referens för containern och använder den för att hämta en referens för blockbloben. När du har en blobbreferens kan du ladda upp en dataström till den genom att anropa metoden **UploadFromStream**. Den här åtgärden skapar blobben om den inte redan fanns, eller skriver över den om den finns. Följande exempel visar hur du laddar upp en blob till en container och förutsätter att containern redan hade skapats.
 
@@ -100,7 +100,7 @@ Om du vill ladda upp en fil till en blockblob hämtar du en referens för contai
     }
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
-Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Sedan kan du använda containerns **ListBlobs**-metod för att hämta blobarna och/eller katalogerna i den. Om du vill komma åt den omfattande uppsättningen egenskaper och metoder för ett returnerat **IListBlobItem**måste du casta den till ett **CloudBlockBlob-,** **CloudPageBlob-** eller **CloudBlobDirectory-objekt.** Om typen är okänd kan du använda en typkontroll för att avgöra till vilket objekt den ska skickas. Följande kod visar hur du hämtar och returnerar URI:n för varje objekt i **photos**-containern:
+Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Sedan kan du använda containerns **ListBlobs**-metod för att hämta blobarna och/eller katalogerna i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **IListBlobItem**, måste du omvandla den till ett **CloudBlockBlob**-, **CloudPageBlob**-eller **CloudBlobDirectory** -objekt. Om typen är okänd kan du använda en typkontroll för att avgöra till vilket objekt den ska skickas. Följande kod visar hur du hämtar och returnerar URI:n för varje objekt i **photos**-containern:
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -127,7 +127,7 @@ Om du vill visa blobar i en container börjar du med att hämta en referens för
         }
     }
 
-Som visas i föregående kodexempel har blob-tjänsten också begreppet kataloger i behållare. Detta för att du ska kunna ordna blobbar i en mer mappliknande struktur. Titta exempelvis på följande uppsättning blockblobar i en container med namnet **photos**:
+Som det visas i föregående kod exempel har Blob-tjänsten även begreppet kataloger i behållare. Detta är så att du kan organisera dina blobbar i en mer mappstruktur. Titta exempelvis på följande uppsättning blockblobar i en container med namnet **photos**:
 
     photo1.jpg
     2010/architecture/description.txt
@@ -138,14 +138,14 @@ Som visas i föregående kodexempel har blob-tjänsten också begreppet kataloge
     2011/architecture/description.txt
     2011/photo7.jpg
 
-När du anropar **ListBlobs** på behållaren (som i föregående exempel) innehåller samlingen som returneras **CloudBlobDirectory-** och **CloudBlockBlob-objekt** som representerar kataloger och blobbar som finns på den översta nivån. Här är den resulterande produktionen:
+När du anropar **ListBlobs** i behållaren (som i föregående exempel) innehåller samlingen som returneras **CloudBlobDirectory** och **CloudBlockBlob** objekt som representerar de kataloger och blobbar som finns på den översta nivån. Här är resultatet av utdata:
 
     Directory: https://<accountname>.blob.core.windows.net/photos/2010/
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Om du vill kan du ange parametern **UseFlatBlobListing** för **ListBlobs**-metoden till **True**. Detta resulterar i att varje blob returneras som en **CloudBlockBlob**, oavsett katalog. Här är samtalet till **ListBlobs:**
+Om du vill kan du ange parametern **UseFlatBlobListing** för **ListBlobs**-metoden till **True**. Detta resulterar i att varje BLOB returneras som en **CloudBlockBlob**, oavsett katalog. Här är anropet till **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -153,7 +153,7 @@ Om du vill kan du ange parametern **UseFlatBlobListing** för **ListBlobs**-meto
        ...
     }
 
-och här är resultaten:
+Här är resultatet:
 
     Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
     Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
@@ -164,7 +164,7 @@ och här är resultaten:
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Mer information finns i [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
+Mer information finns i [CloudBlobContainer. ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
 
 ## <a name="download-blobs"></a>Ladda ned blobbar
 Om du vill ladda ned blobbar börjar du med att hämta en blobbreferens och anropar sedan **DownloadToStream**-metoden. I följande exempel används metoden **DownloadToStream** för att överföra blobbinnehållet till ett dataströmsobjekt som du sedan kan spara till en lokal fil.
@@ -191,7 +191,7 @@ Du kan också använda metoden **DownloadToStream** för att ladda ned innehåll
     }
 
 ## <a name="delete-blobs"></a>Ta bort blobbar
-Om du vill ta bort en blob får du först en blob-referens och anropar sedan metoden **Ta bort.**
+Om du vill ta bort en BLOB måste du först skaffa en BLOB-referens och sedan anropa **Delete** -metoden.
 
     // Get a reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");

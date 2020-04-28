@@ -1,6 +1,6 @@
 ---
-title: Granska kostnadsuppskattningar i Azure Site Recovery Deployment Planner
-description: I de här artiklarna beskrivs hur du granskar kostnadsuppskattningarna i Azure Site Recovery Deployment Planner för VMware-haveriberedskap.
+title: Granska kostnads uppskattningar i Distributionshanteraren för Azure Site Recovery
+description: I den här artikeln beskrivs hur du granskar kostnads uppskattningar i Distributionshanteraren för Azure Site Recovery för katastrof återställning i VMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73953330"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Granska kostnadsuppskattningar i VMware Deployment Planner 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Granska kostnads uppskattningar i distributions planeraren för VMware 
 
 Rapporten i distributionshanteraren ger en översikt över kostnadsuppskattningen på bladet [Rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) och en detaljerad kostnadsanalys på bladet Kostnadsuppskattning. Där ges en detaljerad kostnadsanalys per virtuell dator. 
 
 >[!Note]
->Den aktuella versionen av distributionsplanerare verktyget v2.5 ger kostnadsuppskattning för virtuella datorer replikera till hanterade diskar.
+>Den aktuella versionen av Deployment Planner Tool v 2.5 tillhandahåller kostnads uppskattning för virtuella datorer som replikeras till Managed Disks.
 
 ### <a name="cost-estimation-summary"></a>Sammanfattning av kostnadsuppskattning 
 I diagrammet visas en sammanfattning av den uppskattade totala kostnaden för haveriberedskap (DR) till Azure i din valda målregion och i den valuta du har angett för rapporten.
@@ -101,7 +101,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 * Antal virtuella datorer, IaaS-storlek (dina val)
 * Lagringstyp (Standard/Premium)
-* Virtuell dators totala lagringsstorlek (GB) för källdatorn
+* VM-total lagrings storlek (GB) för käll datorn
 * Antal DR-tester under ett år 
 * Varaktighet för varje DR-test (dagar) 
 * OS-typ
@@ -122,7 +122,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Lagringstyp**: typen av lagring som används för den virtuella datorn. Det här är antingen Standard eller Premium.
 
-**VIRTUELLD total lagringsstorlek (GB)**: Den totala lagringen av källdatorn.
+**Total lagrings storlek för virtuell dator (GB)**: den totala lagrings platsen för den virtuella käll datorn.
 
 **Antal DR-tester under ett år**: antalet gånger som du utför DR-tester under ett år. Standardvärdet är 4 gånger per år. Du kan ändra perioden för specifika virtuella datorer eller använda det nya värdet för alla virtuella datorer genom att ange det nya värdet på den översta raden och klicka på knappen Använd för alla. Den totala kostnaden för DR-tester är baserad på antalet DR-tester under ett år och varaktigheten för varje DR-test.  
 
@@ -150,7 +150,7 @@ usaöstra, usaöstra2, usavästra, usacentrala, usanorracentrala, usasödracentr
 ## <a name="supported-currencies"></a>Valutor som stöds
 Distributionshanteraren för Azure Site Recovery kan generera kostnadsrapporten i någon av följande valutor.
 
-|Valuta|Namn||Valuta|Namn||Valuta|Namn|
+|Valuta|Name||Valuta|Name||Valuta|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Argentinska pesos ($)||AUD|Australiensiska dollar ($)||BRL|Brasilianska Real (R$)|
 |CAD|Kanadensiska dollar ($)||CHF|Schweiziska franc (chf)||DKK|Danska kronor (kr)|

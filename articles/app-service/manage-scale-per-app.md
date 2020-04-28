@@ -1,6 +1,6 @@
 ---
-title: Skalning per app för värdskap med hög densitet
-description: Skala appar oberoende av App Service-abonnemangen och optimera de utskalade instanserna i planen.
+title: Skalning per app för hög densitets värd
+description: Skala appar oberoende av App Service planer och optimera de utskalade instanserna i planen.
 author: btardif
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.topic: article
@@ -8,31 +8,31 @@ ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74672354"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Värdskap med hög densitet på Azure App Service med skalning per app
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hög densitets värd för Azure App Service med skalning per app
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-När du använder App Service kan du skala dina appar genom att skala [apptjänstplanen](overview-hosting-plans.md) som de körs på. När flera appar körs i samma App Service-plan körs alla appar i planen varje utskalad instans.
+När du använder App Service kan du skala dina appar genom att skala de [App Service plan](overview-hosting-plans.md) de körs på. När flera appar körs i samma App Service plan körs alla appar i planen av varje utskalad instans.
 
-*Per appskalning* kan aktiveras på apptjänstplansnivå för att tillåta skalning av en app oberoende av apptjänstplanen som är värd för den. På så sätt kan en App Service-plan skalas till 10 instanser, men en app kan ställas in så att den bara använder fem.
+*Skalning per app* kan aktive ras på App Service plan nivå för att tillåta skalning av en app oberoende av App Service plan som är värd för den. På så sätt kan en App Service plan skalas till 10 instanser, men en app kan ställas in för att endast använda fem.
 
 > [!NOTE]
-> Per appskalning är endast tillgängligt för prisnivåer **standard,** **Premium,** **Premium V2** och **Isolerade.**
+> Skalning per app är bara tillgängligt för **standard**-, **Premium**-, **Premium v2** -och **isolerade** pris nivåer.
 >
 
-Appar allokeras till tillgänglig App Service-plan med hjälp av en metod för bästa möjliga arbete för en jämn distribution mellan instanser. En jämn distribution garanteras inte, men plattformen ser till att två instanser av samma app inte finns på samma App Service-planinstans.
+Appar tilldelas till tillgängliga App Service plan med hjälp av en metod för bästa prestanda för en jämn fördelning mellan instanser. Även om en jämn fördelning inte är garanterad, ser plattformen till att två instanser av samma app inte är värdbaserade på samma App Service plan instans.
 
-Plattformen är inte beroende av mått för att besluta om arbetsallokering. Program balanseras endast om när instanser läggs till eller tas bort från App Service-planen.
+Plattformen förlitar sig inte på mått för att bestämma tilldelning av arbetare. Program är bara ombalanserade när instanser läggs till eller tas bort från App Service plan.
 
-## <a name="per-app-scaling-using-powershell"></a>Per appskalning med PowerShell
+## <a name="per-app-scaling-using-powershell"></a>Per app-skalning med hjälp av PowerShell
 
-Skapa en plan med skalning per ```-PerSiteScaling $true``` app genom ```New-AzAppServicePlan``` att skicka parametern till cmdleten.
+Skapa en plan med skalning per app genom att skicka in ```-PerSiteScaling $true``` parametern till ```New-AzAppServicePlan``` cmdleten.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -41,7 +41,7 @@ New-AzAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Aktivera skalning per app med en befintlig appserviceplan genom att skicka in parametern `-PerSiteScaling $true` till cmdleten. ```Set-AzAppServicePlan```
+Aktivera skalning per app med en befintlig App Service plan genom att skicka in `-PerSiteScaling $true` parametern till ```Set-AzAppServicePlan``` cmdleten.
 
 ```powershell
 # Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
@@ -49,9 +49,9 @@ Set-AzAppServicePlan -ResourceGroupName $ResourceGroup `
    -Name $AppServicePlan -PerSiteScaling $true
 ```
 
-Konfigurera antalet instanser som appen kan använda i App Service-planen på appnivå.
+På App-nivå konfigurerar du antalet instanser som appen kan använda i App Service plan.
 
-I exemplet nedan är appen begränsad till två instanser oavsett hur många instanser den underliggande apptjänstplanen skalas ut till.
+I exemplet nedan är appen begränsad till två instanser, oavsett hur många instanser den underliggande App Service-planen skalar ut till.
 
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
@@ -65,16 +65,16 @@ Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> `$newapp.SiteConfig.NumberOfWorkers`skiljer sig `$newapp.MaxNumberOfWorkers`från . Skalning per app `$newapp.SiteConfig.NumberOfWorkers` använder för att bestämma appens skalegenskaper.
+> `$newapp.SiteConfig.NumberOfWorkers`skiljer sig från `$newapp.MaxNumberOfWorkers`. Skalning per app använder `$newapp.SiteConfig.NumberOfWorkers` för att fastställa appens skalnings egenskaper.
 
-## <a name="per-app-scaling-using-azure-resource-manager"></a>Skalning per app med Azure Resource Manager
+## <a name="per-app-scaling-using-azure-resource-manager"></a>Skalning per app med hjälp av Azure Resource Manager
 
-Följande Azure Resource Manager-mall skapar:
+Följande Azure Resource Manager mall skapar:
 
-- En apptjänstplan som skalas ut till 10 instanser
-- en app som är konfigurerad för att skalas till högst fem instanser.
+- En App Service plan som skalas ut till 10 instanser
+- en app som har kon figurer ATS för skalning till högst fem instanser.
 
-App serviceplanen ställer in egenskapen **PerSiteScaling** på true `"perSiteScaling": true`. Appen anger **antalet arbetare som** ska användas `"properties": { "numberOfWorkers": "5" }`till 5 .
+App Service plan anger egenskapen **PerSiteScaling** till True `"perSiteScaling": true`. Appen anger **antalet arbetare** som ska användas till 5 `"properties": { "numberOfWorkers": "5" }`.
 
 ```json
 {
@@ -123,21 +123,21 @@ App serviceplanen ställer in egenskapen **PerSiteScaling** på true `"perSiteSc
 }
 ```
 
-## <a name="recommended-configuration-for-high-density-hosting"></a>Rekommenderad konfiguration för högdensitetshosting
+## <a name="recommended-configuration-for-high-density-hosting"></a>Rekommenderad konfiguration för hög densitets värd
 
-Per appskalning är en funktion som är aktiverad i både globala Azure-regioner och [App Service-miljöer](environment/app-service-app-service-environment-intro.md). Den rekommenderade strategin är dock att använda App Service-miljöer för att dra nytta av deras avancerade funktioner och den större appserviceplankapaciteten.  
+Per app-skalning är en funktion som är aktive rad i både globala Azure-regioner och [App Service miljöer](environment/app-service-app-service-environment-intro.md). Den rekommenderade strategin är dock att använda App Service miljöer för att dra nytta av de avancerade funktionerna och den större App Service plan kapaciteten.  
 
-Så här konfigurerar du värdskap med hög densitet för dina appar:
+Följ dessa steg om du vill konfigurera hög densitets värd för dina appar:
 
-1. Ange en App Service-plan som högdensitetsplan och skala ut den till önskad kapacitet.
-1. Ange `PerSiteScaling` flaggan som true på App Service-planen.
-1. Nya appar skapas och tilldelas apptjänstplanen med egenskapen **numberOfWorkers** set **1**.
-   - Om du använder den här konfigurationen får du högsta möjliga densitet.
-1. Antalet arbetare kan konfigureras oberoende av dem per app för att bevilja ytterligare resurser efter behov. Ett exempel:
-   - En app med hög användning kan ange **antalArbetare till** **3** för att få mer bearbetningskapacitet för den appen.
-   - Appar med låg användning anger **antaletArbetare** till **1**.
+1. Ange en App Service plan som hög densitets plan och skala ut den till önskad kapacitet.
+1. Ställ in `PerSiteScaling` flaggan på sant för App Service plan.
+1. Nya appar skapas och tilldelas till den App Service plan med egenskapen **numberOfWorkers** inställd på **1**.
+   - Med den här konfigurationen ger högsta möjliga densitet.
+1. Antalet arbetare kan konfigureras oberoende per app för att ge ytterligare resurser vid behov. Ett exempel:
+   - En app med hög användning kan ange **numberOfWorkers** till **3** för att få mer processor kapacitet för den appen.
+   - Appar med låg användning anger **numberOfWorkers** till **1**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure App Service-abonnemang på djupet](overview-hosting-plans.md)
+- [Översikt över Azure App Service planer i djupet](overview-hosting-plans.md)
 - [Introduktion till App Service-miljöer](environment/app-service-app-service-environment-intro.md)

@@ -1,26 +1,26 @@
 ---
-title: Azure Service Fabric-infrastruktur enligt bästa kod
-description: Metodtips och designöverväganden för hantering av Azure Service Fabric som infrastruktur som kod.
+title: Azure Service Fabric-infrastruktur som metod tips för kod
+description: Bästa praxis och design överväganden för att hantera Azure Service Fabric som infrastruktur som kod.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551836"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktur som kod
 
-Skapa Azure Service Fabric-kluster i ett produktionsscenario med Resource Manager-mallar. Resource Manager-mallar ger större kontroll över resursegenskaper och ser till att du har en konsekvent resursmodell.
+I ett produktions scenario skapar du Azure Service Fabric-kluster med hjälp av Resource Manager-mallar. Resource Manager-mallar ger bättre kontroll över resurs egenskaper och säkerställer att du har en konsekvent resurs modell.
 
-Exempel på Resource Manager-mallar är tillgängliga för Windows och Linux i [Azure-exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångspunkt för klustermallen. Ladda `azuredeploy.json` `azuredeploy.parameters.json` ner och redigera dem för att uppfylla dina egna krav.
+Exempel på Resource Manager-mallar är tillgängliga för Windows och Linux i [Azure-exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångs punkt för kluster mal len. Hämta `azuredeploy.json` och `azuredeploy.parameters.json` redigera dem så att de uppfyller dina egna krav.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du `azuredeploy.json` `azuredeploy.parameters.json` vill distribuera de mallar som du har hämtat ovan använder du följande Azure CLI-kommandon:
+Om du vill `azuredeploy.json` distribuera `azuredeploy.parameters.json` och-mallarna som du laddade ned ovan använder du följande Azure CLI-kommandon:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"
@@ -30,7 +30,7 @@ az group create --name $ResourceGroupName --location $Location
 az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
-Skapa en resurs med Powershell
+Skapa en resurs med hjälp av PowerShell
 
 ```powershell
 $ResourceGroupName="sfclustergroup"
@@ -44,7 +44,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Azure Service Fabric-resurser
 
-Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Azure Resource Manager. Mer information [finns i Hantera program och tjänster som Azure Resource Manager-resurser.](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) Följande är tjänstinfrastrukturspecifika resurser för serviceinfrastruktur som ska inkluderas i mallresurserna i Resource Manager.
+Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Azure Resource Manager. Mer information finns i [hantera program och tjänster som Azure Resource Managers resurser](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) . Följande är bästa praxis Service Fabric programspecifika resurser som du kan ta med i resurserna i Resource Manager-mallen.
 
 ```json
 {
@@ -73,7 +73,7 @@ Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Az
 }
 ```
 
-Om du vill distribuera ditt program med Azure Resource Manager måste du först [skapa ett sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric Application-paket. Följande pythonskript är ett exempel på hur du skapar en sfpkg:
+För att distribuera ditt program med hjälp av Azure Resource Manager måste du först [skapa ett sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric-programpaket. Följande Python-skript är ett exempel på hur du skapar en sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -90,8 +90,8 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
 microservices_sfpkg.close()
 ```
 
-## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Konfiguration av automatisk uppgradering av operativsystemet azure virtual machine 
-Uppgradering av virtuella datorer är en användarinitierad åtgärd och vi rekommenderar att du använder automatisk uppgradering av [det automatiska operativsystemet](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för Azure Service Fabric-kluster. Patch Orchestration Application är en alternativ lösning som är avsedd för när den finns utanför Azure, även om POA kan användas i Azure, med overhead värd för POA i Azure är en vanlig orsak att föredra automatisk uppgradering av virtuella datorer via POA. Följande är mallen Beräkna resursuppsättning för virtuell datoruppsättning för att aktivera automatisk os-uppgradering:
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Konfiguration av automatisk uppgradering av virtuella Azure-datorns operativ system 
+Uppgraderingen av dina virtuella datorer är en initierad användare och vi rekommenderar att du använder [skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) för Azure Service Fabric kluster hantering av värd korrigering för Azure-kluster. Uppdaterings Orchestration-programmet är en alternativ lösning som är avsedd för när den ligger utanför Azure, även om POA kan användas i Azure, men med att vara värd för POA i Azure är det ett vanligt skäl att föredra den virtuella datorns operativ system automatisk uppgradering över POA. Här följer de egenskaper för Resource Manager-mallen för beräkning av virtuella datorer som aktiverar automatisk uppgradering av operativ system:
 
 ```json
 "upgradePolicy": {
@@ -102,11 +102,11 @@ Uppgradering av virtuella datorer är en användarinitierad åtgärd och vi reko
     }
 },
 ```
-När du använder Automatiska OS-uppgraderingar med Service Fabric, den nya OS-avbildningen rullas ut en uppdateringsdomän i taget för att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Om du vill använda automatiska OS-uppgraderingar i Service Fabric måste klustret vara konfigurerat för att använda silverhållbarhetsnivån eller högre.
+När du använder automatiska OS-uppgraderingar med Service Fabric distribueras den nya operativ system avbildningen ut en uppdaterings domän i taget för att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Om du vill använda automatiska operativ Systems uppgraderingar i Service Fabric klustret måste konfigureras för att använda silver hållbarhets nivån eller högre.
 
-Kontrollera att följande registernyckel är inställd på false för att förhindra att windows-värddatorerna initierar icke samordnade uppdateringar: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Se till att följande register nyckel har angetts till false för att förhindra att Windows-värddatorer initierar inkoordinerade uppdateringar: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-Följande är mallegenskaperna För beräkningsskalningsuppsättningsresurshanteraren för att ange registernyckeln För WindowsUpdate till false:
+Här följer egenskaperna för den virtuella datorns skalnings uppsättning i Resource Manager för att ange att register nyckeln för WindowsUpdate ska vara falskt:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -119,12 +119,12 @@ Följande är mallegenskaperna För beräkningsskalningsuppsättningsresurshante
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Uppgraderingskonfiguration för Azure Service Fabric-kluster
-Följande är mallen Service Fabric cluster Resource Manager för automatisk uppgradering:
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Konfiguration av Azure Service Fabric Cluster-uppgradering
+Följande är mallen för Service Fabric Cluster Resource Manager-mallen för att aktivera automatisk uppgradering:
 ```json
 "upgradeMode": "Automatic",
 ```
-Om du vill uppgradera klustret manuellt laddar du ned distributionen av hytten/deb till en virtuell klusterdator och anropar sedan följande PowerShell:
+Om du vill uppgradera klustret manuellt kan du ladda ned CAB/deb-distributionen till en virtuell kluster dator och sedan anropa följande PowerShell:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
@@ -133,6 +133,6 @@ Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Skapa service fabric-kluster för Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa ett Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [skapa ett Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

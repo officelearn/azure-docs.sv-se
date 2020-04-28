@@ -1,45 +1,45 @@
 ---
-title: Designa Azure-funktioner för identiska indata
-description: Bygga Azure-funktioner som ska vara idempotenta
+title: Designa Azure Functions för identiska ingångar
+description: Skapa Azure Functions som ska idempotenta
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
 ms.openlocfilehash: 15af60ac5a862e6fb20e65ba6fbb92482420b7c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74226862"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>Designa Azure-funktioner för identiska indata
+# <a name="designing-azure-functions-for-identical-input"></a>Designa Azure Functions för identiska ingångar
 
-Verkligheten för händelsedriven och meddelandebaserad arkitektur dikterar behovet av att acceptera identiska begäranden samtidigt som dataintegritet och systemstabilitet bevaras.
+Verkligheten för händelse driven och meddelandebaserade arkitektur kräver att du accepterar identiska begär Anden samtidigt som data integriteten och system stabiliteten bevaras.
 
-För att illustrera, överväga en hiss samtalsknapp. När du trycker på knappen tänds den och en hiss skickas till ditt golv. En stund senare kommer någon annan till dig i lobbyn. Den här personen ler mot dig och trycker på den upplysta knappen en andra gång. Du ler tillbaka och skrattar till dig själv som du påminns om att kommandot för att ringa en hiss är idempotent.
+För att illustrera, kan du titta på en knapp för höjd samtal. När du trycker på knappen tänds den och en hiss skickas till golvet. En stund senare kan någon annan ansluta dig till dig i lobbyn. Den här personen är på gång och trycker på den lysande knappen en gång i taget. Du kommer tillbaka och Chuckle till dig själv när du är påmind om att kommandot för att anropa en hiss är idempotenta.
 
-Om du trycker på en hissanropsknapp en andra, tredje eller fjärde gång har den ingen betydelse för slutresultatet. När du trycker på knappen, oavsett hur många gånger, skickas hissen till ditt golv. Idempotenta system, som hissen, resulterar i samma resultat oavsett hur många gånger identiska kommandon utfärdas.
+Genom att trycka på en uttrycks samtals knapp en andra, tredje eller fjärde tiden har du inte någon betydelse för det slutliga resultatet. När du trycker på knappen skickas hissen till din våning, oavsett antalet gånger. Idempotenta system, t. ex. hissen, resulterar i samma resultat oavsett hur många gånger identiska kommandon utfärdas.
 
-När det gäller att skapa program bör du tänka på följande scenarier:
+När det gäller att skapa program bör du överväga följande scenarier:
 
-- Vad händer om ditt lagerkontrollprogram försöker ta bort samma produkt mer än en gång?
-- Hur fungerar ditt personalprogram om det finns fler än en begäran om att skapa en medarbetarpost för samma person?
-- Vart tar pengarna vägen om din bankapp får 100 förfrågningar om att göra samma uttag?
+- Vad händer om inventerings kontroll programmet försöker ta bort samma produkt mer än en gång?
+- Hur fungerar ditt personal program om det finns fler än en förfrågan om att skapa en medarbetar post för samma person?
+- Var går pengarna till om din bank app får 100-begäran om att göra samma åter kallelse?
 
-Det finns många sammanhang där begäranden till en funktion kan ta emot identiska kommandon. Vissa situationer är:
+Det finns många kontexter där förfrågningar till en funktion kan ta emot identiska kommandon. Några situationer är:
 
-- Försök igen principer som skickar samma begäran många gånger
+- Principer för återförsök skickar samma begäran flera gånger
 - Cachelagrade kommandon som spelas upp i programmet
-- Programfel som skickar flera identiska begäranden
+- Program fel som skickar flera identiska begär Anden
 
-För att skydda dataintegritet och systemhälsa innehåller ett idempotent program logik som kan innehålla följande beteenden:
+För att skydda data integriteten och system hälsan innehåller ett idempotenta-program logik som kan innehålla följande beteenden:
 
-- Verifiera förekomsten av data innan du försöker köra en borttagning
-- Kontrollera om det redan finns data innan du försöker köra en skapa-åtgärd
-- Stämma av logik som skapar eventuell konsekvens i data
-- Samtidighetskontroller
-- Identifiering av duplicering
-- Validering av datas fräschör
-- Skydda logik för att verifiera indata
+- Verifierar att det finns data innan du försöker köra en borttagning
+- Kontrollerar om det finns data som redan finns innan du försöker köra en åtgärd för att skapa
+- Synkronisera logik som skapar eventuell konsekvens i data
+- Samtidighets kontroller
+- Dubblettidentifiering
+- Verifiering av data aktualitet
+- Skydds logik för att verifiera indata
 
-I slutändan uppnås idempotency genom att säkerställa en viss åtgärd är möjlig och endast utförs en gång.
+Slutligen idempotens uppnås genom att säkerställa att en specifik åtgärd är möjlig och utförs bara en gång.

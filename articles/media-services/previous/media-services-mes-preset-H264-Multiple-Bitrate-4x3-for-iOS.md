@@ -1,6 +1,6 @@
 ---
-title: H264 Flera Bitrate 4x3 för iOS | Microsoft-dokument
-description: Avsnittet innehåller en översikt över **H264 Multiple Bitrate 4x3 för** iOS-aktivitetsförinställning.
+title: H264, flera bit hastighets 4x3 för iOS | Microsoft Docs
+description: Avsnittet ger en översikt över **4x3 för H264, av flera bit hastigheter för iOS** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 45dbaea4e2c6f8cdbe3d33df5d3b82b9df519ff2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61463658"
 ---
 # <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264, flera bithastigheter, 4x3 för iOS
-`Media Encoder Standard`definierar en uppsättning kodningsförinställningar som du kan använda när du skapar kodningsjobb. Du kan antingen `preset name` använda en för att ange i vilket format du vill koda mediefilen. Du kan också skapa egna JSON- eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Du skulle sedan skicka den anpassade förinställningen till kodaren. En lista över alla förinställda `Media Encoder Standard` namn som stöds av den här kodaren finns i [Aktivitetsförinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard` kodaren finns i [uppgifts för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- I det `H264 Multiple Bitrate 4x3 for iOS` här avsnittet visas förinställningen i XML- och JSON-format.  
+ I det här avsnittet `H264 Multiple Bitrate 4x3 for iOS` visas för inställningen i XML-och JSON-format.  
   
- Den här förinställningen ger en uppsättning 8 GOP-anpassade MP4-filer, från 8500 kbps till 200 kbps och stereo AAC-ljud. För detaljerad information om profil, bithastighet, samplingsfrekvens etc. för den här förinställningen, undersök XML eller JSON som definieras nedan. Förklaringar av vad varje element i dessa förinställningar innebär och giltiga värden för varje element finns i [schemaavsnittet Media Encoder Standard.](media-services-mes-schema.md)  
+ Den här för hands inställningen ger en uppsättning av 8 GOP MP4-filer, från 8500 kbps till 200 kbit/s och stereo AAC-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element i de här för inställningarna innebär och giltiga värden för varje element finns i avsnittet [Media Encoder Standard schema](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  När du `Width` ändrar värdena och `Height` värdena mellan lager kontrollerar du att proportionerna förblir konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640x360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640x360.  
+>  När du `Width` ändrar värdena `Height` och i lager bör du se till att proportionerna är konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

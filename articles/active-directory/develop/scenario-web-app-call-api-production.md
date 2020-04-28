@@ -1,6 +1,6 @@
 ---
-title: 'Flytta till produktion en webbapp som anropar webb-API: er - Microsoft identity platform | Azure'
-description: Läs om hur du flyttar till produktion av en webbapp som anropar webb-API:er.
+title: 'Flytta till produktion a-webbapp som anropar webb-API: er – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du flyttar till produktion a Web App som anropar webb-API: er.'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6404d00b87b9ee745b9e3a92c646404e574417c1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881669"
 ---
-# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>En webbapp som anropar webb-API:er: Flytta till produktion
+# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>En webbapp som anropar webb-API: er: flytta till produktion
 
-Nu när du vet hur du skaffar en token för att anropa webb-API:er kan du läsa om hur du flyttar till produktion.
+Nu när du vet hur du kan hämta en token för att anropa webb-API: er, lär du dig hur du flyttar till produktion.
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer genom att prova den fullständiga, progressiva självstudien för ASP.NET Core-webbappar. Handledningen:
+Lär dig mer genom att testa den fullständiga och stegvisa självstudien för ASP.NET Core Web Apps. Självstudien:
 
-- Visar hur du loggar in användare på flera målgrupper eller nationella moln, eller med hjälp av sociala identiteter.
+- Visar hur du loggar in användare i på flera mål grupper eller till nationella moln, eller genom att använda sociala identiteter.
 - Anropar Microsoft Graph.
-- Anropar flera Microsoft-API:er.
-- Hanterar inkrementellt medgivande.
+- Anropar flera Microsoft API: er.
+- Hanterar stegvist godkännande.
 - Anropar ditt eget webb-API.
 
 > [!div class="nextstepaction"]
-> [självstudiekurs för webbappar ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
+> [Själv studie kurs om ASP.NET Core Web Apps](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
 
 <!--- Removing this diagram as it's already shown from the next step linked tutorial
 

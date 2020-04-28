@@ -1,29 +1,29 @@
 ---
-title: 'Säker tjänstremoting kommunikation med C #'
-description: Lär dig hur du skyddar tjänståterbeklädnad kommunikation för C#-tillförlitliga tjänster som körs i ett Azure Service Fabric-kluster.
+title: 'Säker kommunikation via fjärr kommunikation med C #'
+description: Lär dig hur du skyddar kommunikation mellan tjänster för tillförlitliga C#-tjänster som körs i ett Azure Service Fabric-kluster.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609629"
 ---
-# <a name="secure-service-remoting-communications-in-a-c-service"></a>Säker tjänståterbekännande kommunikation i en C#-tjänst
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Säker kommunikation mellan tjänster i en C#-tjänst
 > [!div class="op_single_selector"]
-> * [C# på Windows](service-fabric-reliable-services-secure-communication.md)
+> * [C# i Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java i Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Säkerhet är en av de viktigaste aspekterna av kommunikation. Reliable Services-programramverket innehåller några fördefinierade kommunikationsstackar och verktyg som du kan använda för att förbättra säkerheten. I den här artikeln beskrivs hur du kan förbättra säkerheten när du använder tjänståterbetering i en C#-tjänst. Den bygger på ett befintligt [exempel](service-fabric-reliable-services-communication-remoting.md) som förklarar hur du ställer in ommotsättning för tillförlitliga tjänster skrivna i C#. 
+Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Services Application Framework innehåller några inbyggda kommunikations stackar och verktyg som du kan använda för att förbättra säkerheten. Den här artikeln beskriver hur du kan förbättra säkerheten när du använder tjänst-Remoting i en C#-tjänst. Det bygger på ett befintligt [exempel](service-fabric-reliable-services-communication-remoting.md) som förklarar hur du konfigurerar fjärr kommunikation för pålitliga tjänster som skrivits i C#. 
 
-Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-tjänster:
+Följ dessa steg om du vill skydda en tjänst när du använder service Remoting med C#-tjänster:
 
-1. Skapa ett `IHelloWorldStateful`gränssnitt, som definierar de metoder som ska vara tillgängliga för ett fjärrproceduranrop på din tjänst. Tjänsten kommer `FabricTransportServiceRemotingListener`att använda , `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` som deklareras i namnområdet. Det här `ICommunicationListener` är en implementering som tillhandahåller remoting-funktioner.
+1. Skapa ett gränssnitt, `IHelloWorldStateful`som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Din tjänst kommer att `FabricTransportServiceRemotingListener`använda, som deklareras i `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namn området. Det här är `ICommunicationListener` en implementering som tillhandahåller funktioner för fjärr kommunikation.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -46,16 +46,16 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
         }
     }
     ```
-2. Lägg till lyssnarinställningar och säkerhetsreferenser.
+2. Lägg till Listener-inställningar och säkerhets uppgifter.
 
-    Kontrollera att certifikatet som du vill använda för att skydda tjänstkommunikationen är installerat på alla noder i klustret. 
+    Kontrol lera att det certifikat som du vill använda för att skydda tjänst kommunikationen är installerat på alla noder i klustret. 
     
     > [!NOTE]
-    > På Linux-noder måste certifikatet finnas som PEM-formaterade filer i katalogen */var/lib/sfcerts.* Mer information finns i [Plats och format för X.509-certifikat på Linux-noder](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+    > På Linux-noder måste certifikatet finnas som PEM-formaterade filer i katalogen */var/lib/sfcerts* . Mer information finns i [plats och format för X. 509-certifikat på Linux-noder](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
 
-    Det finns två sätt att ange lyssnarinställningar och säkerhetsreferenser:
+    Det finns två sätt som du kan ange inställningar för lyssnare och säkerhets uppgifter:
 
-   1. Ge dem direkt i servicekoden:
+   1. Ange dem direkt i Service koden:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -88,9 +88,9 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
            return x509Credentials;
        }
        ```
-   2. Ge dem med hjälp av ett [config-paket:](service-fabric-application-and-service-manifests.md)
+   2. Ange dem med hjälp av ett [konfigurations paket](service-fabric-application-and-service-manifests.md):
 
-       Lägg till `TransportSettings` ett namngivet avsnitt i filen settings.xml.
+       Lägg till ett `TransportSettings` namngivet avsnitt i filen Settings. xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -106,7 +106,7 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
        </Section>
        ```
 
-       I det här `CreateServiceReplicaListeners` fallet kommer metoden att se ut så här:
+       I det här fallet kommer `CreateServiceReplicaListeners` metoden att se ut så här:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -120,7 +120,7 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
        }
        ```
 
-        Om du `TransportSettings` lägger till ett avsnitt `FabricTransportRemotingListenerSettings` i filen settings.xml läser alla inställningar från det här avsnittet som standard in.
+        Om du lägger till `TransportSettings` ett avsnitt i Settings. xml- `FabricTransportRemotingListenerSettings` filen, kommer alla inställningar från det här avsnittet att läsas in som standard.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -128,7 +128,7 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
             ...
         </Section>
         ```
-        I det här `CreateServiceReplicaListeners` fallet kommer metoden att se ut så här:
+        I det här fallet kommer `CreateServiceReplicaListeners` metoden att se ut så här:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -141,7 +141,7 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
             };
         }
         ```
-3. När du anropar metoder för en säker tjänst med hjälp `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` av remotingstacken `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`använder du i stället för att använda klassen för att skapa en tjänstproxy . Skicka `FabricTransportRemotingSettings`in , `SecurityCredentials`som innehåller .
+3. När du anropar metoder på en säker tjänst med hjälp av fjärrstacken, i stället `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` för att använda klassen för att skapa en `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`Tjänstproxy, använder du. Skicka i `FabricTransportRemotingSettings`, som innehåller `SecurityCredentials`.
 
     ```csharp
 
@@ -171,7 +171,7 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
 
     ```
 
-    Om klientkoden körs som en del av `FabricTransportRemotingSettings` en tjänst kan du läsa in filen settings.xml. Skapa ett HelloWorldClientTransportSettings-avsnitt som liknar servicekoden, som tidigare visats. Gör följande ändringar i klientkoden:
+    Om klient koden körs som en del av en tjänst kan du läsa in `FabricTransportRemotingSettings` från filen Settings. xml. Skapa ett HelloWorldClientTransportSettings-avsnitt som liknar tjänst koden, som du ser ovan. Gör följande ändringar i klient koden:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -184,11 +184,11 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
 
     ```
 
-    Om klienten inte körs som en del av en tjänst kan du skapa en client_name.settings.xml-fil på samma plats där client_name.exe finns. Skapa sedan avsnittet TransportSettings i filen.
+    Om klienten inte körs som en del av en tjänst kan du skapa en client_name. Settings. XML-fil på samma plats som client_name. exe är. Skapa sedan en TransportSettings-sektion i filen.
 
-    I likhet med tjänsten `TransportSettings` `FabricTransportRemotingSettings` läser du in alla inställningar från det här avsnittet som standard om du lägger till ett avsnitt i klientinställningarna.xml/client_name.settings.xml.
+    På samma sätt som för tjänsten, om du `TransportSettings` lägger till ett avsnitt i klient inställningar. xml/client_name. Settings. xml `FabricTransportRemotingSettings` läser in alla inställningar från det här avsnittet som standard.
 
-    I så fall förenklas den tidigare koden ytterligare:  
+    I så fall är den tidigare koden ännu enklare:  
 
     ```csharp
 
@@ -200,4 +200,4 @@ Så här skyddar du en tjänst när du använder tjänståterbefordring med C#-t
     ```
 
 
-Som ett nästa steg kan du läsa [webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+I nästa steg ska du läsa [webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md).

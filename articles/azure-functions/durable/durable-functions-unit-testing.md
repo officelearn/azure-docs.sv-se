@@ -1,37 +1,37 @@
 ---
 title: Testning av Azure Durable Functions-enhet
-description: Lär dig hur du enhetstesta varaktiga funktioner.
+description: Lär dig mer om att enhets test Durable Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74231227"
 ---
-# <a name="durable-functions-unit-testing"></a>Provning av enheten för varaktiga funktioner
+# <a name="durable-functions-unit-testing"></a>Durable Functions enhets testning
 
-Enhetstestning är en viktig del av modern mjukvaruutvecklingspraxis. Enhetstester verifierar affärslogikbeteende och skyddar mot att införa obemärkt brytande förändringar i framtiden. Varaktiga funktioner kan lätt växa i komplexitet så att införa enhetstester kommer att bidra till att undvika att bryta förändringar. I följande avsnitt beskrivs hur du enhetstestar de tre funktionstyperna - Orchestration-klient, orchestrator och aktivitetsfunktioner.
+Enhets testning är en viktig del av modern program utvecklings praxis. Enhets testerna verifierar affärs logik beteendet och skyddar mot att vi introducerar ändringar som inte uppmärksammas i framtiden. Durable Functions kan lätt växa i komplexitet så att enhets testerna kan undvika att förlora ändringar. I följande avsnitt beskrivs hur du enheten testar de tre funktions typerna-Orchestration-klient, Orchestrator-och aktivitets funktioner.
 
 > [!NOTE]
-> Den här artikeln innehåller vägledning för enhetstestning för appar med varaktiga funktioner som riktar sig till varaktiga funktioner 1.x. Det har ännu inte uppdaterats för att ta hänsyn till ändringar som införts i Varaktiga Funktioner 2.x. Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Den här artikeln innehåller rikt linjer för enhets testning för Durable Functions appar som riktar in sig på Durable Functions 1. x. Den har ännu inte uppdaterats till ändringar som gjorts i Durable Functions 2. x. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 ## <a name="prerequisites"></a>Krav
 
-Exemplen i den här artikeln kräver kunskap om följande begrepp och ramverk:
+I exemplen i den här artikeln krävs kunskaper om följande begrepp och ramverk:
 
 * Enhetstestning
 
 * Bestående funktioner
 
-* [xUnit](https://xunit.github.io/) - Testramverk
+* [xUnit](https://xunit.github.io/) -testnings ramverk
 
-* [moq](https://github.com/moq/moq4) - Hånfulla ram
+* [MOQ](https://github.com/moq/moq4) -modellerande ramverk
 
-## <a name="base-classes-for-mocking"></a>Basklasser för hån
+## <a name="base-classes-for-mocking"></a>Bas klasser för att modellera
 
-Hån stöds via tre abstrakta klasser i Varaktiga funktioner 1.x:
+Det finns stöd för att modellera genom tre abstrakta klasser i Durable Functions 1. x:
 
 * `DurableOrchestrationClientBase`
 
@@ -39,29 +39,29 @@ Hån stöds via tre abstrakta klasser i Varaktiga funktioner 1.x:
 
 * `DurableActivityContextBase`
 
-Dessa klasser är `DurableOrchestrationClient`basklasser för , `DurableOrchestrationContext`och `DurableActivityContext` som definierar metoder för Orchestration Client, Orchestrator och Activity. Den hånar kommer att ange förväntat beteende för basklass metoder så att enheten testet kan verifiera affärslogiken. Det finns ett arbetsflöde i två steg för enhet som testar affärslogiken i Orchestration Client och Orchestrator:
+Dessa klasser är bas klasser för `DurableOrchestrationClient`, `DurableOrchestrationContext`och `DurableActivityContext` som definierar Orchestration-klient, Orchestrator-och aktivitets metoder. De här modellerna anger förväntat beteende för Bask lass metoder, vilket innebär att enhets testet kan verifiera affärs logiken. Det finns ett arbets flöde i två steg för enhet som testar affärs logiken i Orchestration-klienten och Orchestrator:
 
-1. Använd basklasserna i stället för den konkreta implementeringen när orchestration-klienten och orchestrator-funktionssignaturerna ska definieras.
-2. I enhetstesterna hånar basklassernas beteende och verifierar affärslogiken.
+1. Använd bas klasserna i stället för konkret implementering när du definierar Dirigerings klienten och Orchestrator-funktionen signaturer.
+2. I enhets testerna har du till gång till bas klassernas beteende och kontrollerar affärs logiken.
 
-Mer information finns i följande stycken för att testa funktioner som använder orchestration-klientbindningen och orchestrator-utlösarbindningen.
+Mer information finns i följande stycken för att testa funktioner som använder Dirigerings klient bindning och Orchestrator trigger-bindning.
 
-## <a name="unit-testing-trigger-functions"></a>Utlösande funktioner för enhetstestning
+## <a name="unit-testing-trigger-functions"></a>Enhets testning utlöser funktioner
 
-I det här avsnittet validerar enhetstestet logiken i följande HTTP-utlösarfunktion för att starta nya orkestreringar.
+I det här avsnittet kommer enhets testet att validera logiken för följande HTTP-utlösare för att starta nya dirigeringar.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-Enhetstestaktiviteten är att verifiera `Retry-After` värdet för huvudet som anges i svarsnyttolasten. Så enhetstestet kommer `DurableOrchestrationClientBase` att håna några av metoderna för att säkerställa förutsägbart beteende.
+Uppgiften enhets test kommer att verifiera värdet för `Retry-After` huvudet i svarets nytto Last. Därför kommer enhets testet att modellera `DurableOrchestrationClientBase` några av metoderna för att säkerställa förutsägbara beteenden.
 
-Först krävs ett hån mot basklassen. `DurableOrchestrationClientBase` Den håna kan vara en `DurableOrchestrationClientBase`ny klass som implementerar . Men med hjälp av en hånfull ram som [moq](https://github.com/moq/moq4) förenklar processen:
+Först krävs en skiss av Bask Lassen `DurableOrchestrationClientBase`. De blå modellerna kan vara en ny klass som implementerar `DurableOrchestrationClientBase`. Men med hjälp av ett modell ramverk som [MOQ](https://github.com/moq/moq4) fören klar processen:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
     var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
 ```
 
-Sedan `StartNewAsync` används metoden för att returnera ett välkänt instans-ID.
+Sedan `StartNewAsync` är metoden fördelad för att returnera ett välkänt instans-ID.
 
 ```csharp
     // Mock StartNewAsync method
@@ -70,7 +70,7 @@ Sedan `StartNewAsync` används metoden för att returnera ett välkänt instans-
         ReturnsAsync(instanceId);
 ```
 
-Nästa `CreateCheckStatusResponse` är hånad att alltid returnera ett tomt HTTP 200-svar.
+Nu `CreateCheckStatusResponse` är det en tom HTTP 200-svar att returnera.
 
 ```csharp
     // Mock CreateCheckStatusResponse method
@@ -87,14 +87,14 @@ Nästa `CreateCheckStatusResponse` är hånad att alltid returnera ett tomt HTTP
         });
 ```
 
-`ILogger`är också hånad:
+`ILogger`är också modell:
 
 ```csharp
     // Mock ILogger
     var loggerMock = new Mock<ILogger>();
 ```  
 
-Nu `Run` anropas metoden från enhetstestet:
+Nu anropas `Run` metoden från enhets testet:
 
 ```csharp
     // Call Orchestration trigger function
@@ -119,25 +119,25 @@ Nu `Run` anropas metoden från enhetstestet:
     Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
-När du har kombinerat alla steg har enhetstestet följande kod:
+Efter att ha kombinerat alla steg har enhets testet följande kod:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
-## <a name="unit-testing-orchestrator-functions"></a>Enhetstestorkesorketorfunktioner
+## <a name="unit-testing-orchestrator-functions"></a>Enhets testning för Orchestrator-funktioner
 
-Orchestrator funktioner är ännu mer intressant för enhetstestning eftersom de oftast har mycket mer affärslogik.
+Orchestrator Functions är ännu mer intressant för enhets testning eftersom de ofta har mycket mer affärs logik.
 
-I det här avsnittet validerar enhetstester utdata för `E1_HelloSequence` Orchestrator-funktionen:
+I det här avsnittet kommer enhets testerna att verifiera utdata `E1_HelloSequence` från Orchestrator-funktionen:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-Enhetstestkoden börjar med att skapa ett utkast:
+Enhets test koden börjar med att skapa en modell:
 
 ```csharp
     var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
 ```
 
-Då kommer anropar aktivitetsmetoden:
+Sedan blir aktivitets metod anropen blå:
 
 ```csharp
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
@@ -145,13 +145,13 @@ Då kommer anropar aktivitetsmetoden:
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
 ```
 
-Nästa enhetstest `HelloSequence.Run` kommer att anropa metod:
+Nästa enhets test anropar `HelloSequence.Run` metoden:
 
 ```csharp
     var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
 ```
 
-Och slutligen produktionen kommer att valideras:
+Slutligen kommer utdata att val IDE ras:
 
 ```csharp
     Assert.Equal(3, result.Count);
@@ -160,19 +160,19 @@ Och slutligen produktionen kommer att valideras:
     Assert.Equal("Hello London!", result[2]);
 ```
 
-När du har kombinerat alla steg har enhetstestet följande kod:
+Efter att ha kombinerat alla steg har enhets testet följande kod:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceOrchestratorTests.cs)]
 
-## <a name="unit-testing-activity-functions"></a>Aktivitetsfunktioner för enhetstestning
+## <a name="unit-testing-activity-functions"></a>Enhets testning, aktivitets funktioner
 
-Aktivitetsfunktioner kan enhetstestas på samma sätt som icke-hållbara funktioner.
+Aktivitets funktioner kan vara en enhet testas på samma sätt som icke-varaktiga funktioner.
 
-I det här avsnittet validerar enhetstestet beteendet för `E1_SayHello` funktionen Aktivitet:
+I det här avsnittet verifierar enhets testet beteendet för `E1_SayHello` funktionen activity:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-Och enhetstesterna kommer att verifiera formatet på utdata. Enhetstesterna kan använda parametertyperna `DurableActivityContextBase` direkt eller håna klass:
+Och enhets testerna kontrollerar utdataformatets format. Enhets testerna kan använda parameter typerna direkt eller en `DurableActivityContextBase` modell klass:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 
@@ -181,4 +181,4 @@ Och enhetstesterna kommer att verifiera formatet på utdata. Enhetstesterna kan 
 > [!div class="nextstepaction"]
 > [Läs mer om xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
 > 
-> [Läs mer om moq](https://github.com/Moq/moq4/wiki/Quickstart)
+> [Läs mer om MOQ](https://github.com/Moq/moq4/wiki/Quickstart)

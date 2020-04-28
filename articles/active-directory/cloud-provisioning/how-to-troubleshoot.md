@@ -1,6 +1,6 @@
 ---
-title: Felsökning av azure AD Connect-molnetablering
-description: I den här artikeln beskrivs felsöka problem som kan uppstå med molnetableringsagenten.
+title: Azure AD Connect fel sökning av moln etablering
+description: Den här artikeln beskriver hur du felsöker problem som kan uppstå med moln etablerings agenten.
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -9,100 +9,100 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: e41be4b76245f2567015eb0ede317830120ee61a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75549493"
 ---
-# <a name="cloud-provisioning-troubleshooting"></a>Felsökning av molnetablering
+# <a name="cloud-provisioning-troubleshooting"></a>Fel sökning av moln etablering
 
-Cloud etablering berör många olika saker och har många olika beroenden. Denna breda räckvidd kan ge upphov till olika problem. Den här artikeln hjälper dig att felsöka dessa problem. Det introducerar de typiska områdena för dig att fokusera på, hur man samlar in ytterligare information, och de olika tekniker du kan använda för att spåra problem.
+Moln etablering vidrör många olika saker och har många olika beroenden. Detta breda omfång kan ge upphov till olika problem. Den här artikeln hjälper dig att felsöka problemen. Den introducerar typiska områden som du kan fokusera på, hur du samlar in ytterligare information och de olika tekniker som du kan använda för att spåra problem.
 
 
-## <a name="common-troubleshooting-areas"></a>Vanliga felsökningsområden
+## <a name="common-troubleshooting-areas"></a>Vanliga fel söknings områden
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |-----|-----|
-|[Agent problem](#agent-problems)|Kontrollera att agenten har installerats korrekt och att den kommunicerar med Azure Active Directory (Azure AD).|
-|[Problem med objektsynkronisering](#object-synchronization-problems)|Använd etableringsloggar för att felsöka problem med objektsynkronisering.|
-|[Etablering av problem i karantän](#provisioning-quarantined-problems)|Förstå etablering karantän problem och hur du åtgärdar dem.|
+|[Agent problem](#agent-problems)|Kontrol lera att agenten har installerats korrekt och att den kommunicerar med Azure Active Directory (Azure AD).|
+|[Problem med synkronisering av objekt](#object-synchronization-problems)|Använd etablerings loggar för att felsöka problem med synkronisering av objekt.|
+|[Etablering av problem i karantän](#provisioning-quarantined-problems)|Förstå hur du kan åtgärda karantän problem och åtgärda dem.|
 
 
 ## <a name="agent-problems"></a>Agent problem
-Några av de första sakerna som du vill verifiera med agenten är:
+Några av de första saker som du vill verifiera med agenten är:
 
 -  Är det installerat?
--  Är agenten igång lokalt?
+-  Körs agenten lokalt?
 -  Är agenten i portalen?
--  Är agenten märkt som frisk?
+-  Har agenten marker ATS som felfri?
 
-Dessa objekt kan verifieras i Azure-portalen och på den lokala servern som kör agenten.
+Dessa objekt kan verifieras i Azure Portal och på den lokala server som kör-agenten.
 
-### <a name="azure-portal-agent-verification"></a>Verifiering av Azure Portal-agent
+### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 
-Följ dessa steg för att verifiera att agenten visas av Azure och är felfri.
+Följ dessa steg för att kontrol lera att agenten visas av Azure och är felfri.
 
 1. Logga in på Azure Portal.
-1. Till vänster väljer du **Azure Active Directory** > **Azure AD Connect**. Välj **Hantera etablering (förhandsgranskning)** i mitten .
-1. På skärmen **Azure AD-etablering (förhandsversion)** väljer du **Granska alla agenter**.
+1. Välj **Azure Active Directory** > **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
+1. På skärmen **Azure AD Provisioning (för hands version)** väljer du **Granska alla agenter**.
 
    ![Granska alla agenter](media/how-to-install/install7.png)</br>
  
-1. På skärmen **Lokala etableringsagenter** visas de agenter som du har installerat. Kontrollera att agenten i fråga är där och är märkt *Felfri*.
+1. På skärmen **lokala etablerings agenter** visas de agenter som du har installerat. Kontrol lera att agenten i fråga finns där och har marker ATS som *felfri*.
 
-   ![Skärmen Lokalt etableringsagenter](media/how-to-install/install8.png)</br>
+   ![Skärmen lokala etablerings agenter](media/how-to-install/install8.png)</br>
 
 ### <a name="verify-the-port"></a>Verifiera porten
 
-Om du vill kontrollera att Azure lyssnar på port 443 och att din agent kan kommunicera med den använder du följande verktyg:
+För att kontrol lera att Azure lyssnar på port 443 och att agenten kan kommunicera med den, använder du följande verktyg:
 
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
-Det här testet verifierar att dina agenter kan kommunicera med Azure via port 443. Öppna en webbläsare och gå till föregående URL från servern där agenten är installerad.
+Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port 443. Öppna en webbläsare och gå till föregående URL från servern där agenten är installerad.
 
-![Kontroll av porternas nåbarhet](media/how-to-install/verify2.png)
+![Verifiering av portens tillgänglighet](media/how-to-install/verify2.png)
 
 ### <a name="on-the-local-server"></a>På den lokala servern
 
-Följ dessa steg för att kontrollera att agenten körs.
+Kontrol lera att agenten körs genom att följa dessa steg.
 
-1. Öppna **Tjänster** på servern med agenten installerad genom att antingen navigera till den eller genom att gå till **Start** > **Run** > **Services.msc**.
-1. Under **Tjänster**kontrollerar du att **Microsoft Azure AD Connect Agent Updater** och **Microsoft Azure AD Connect-etableringsagenten** finns där och att deras status *körs*.
+1. På servern där agenten är installerad öppnar du **tjänster** genom att antingen navigera till den eller **Starta** > **köra** > **Services. msc**.
+1. Under **tjänster**kontrollerar du att **Microsoft Azure AD ansluter agent uppdaterings** **agenten och Microsoft Azure AD ansluta etablerings agenten** är där och att deras status är *igång*.
 
-   ![Skärmen Tjänster](media/how-to-troubleshoot/troubleshoot1.png)
+   ![Sidan tjänster](media/how-to-troubleshoot/troubleshoot1.png)
 
-### <a name="common-agent-installation-problems"></a>Installationsproblem för vanliga agenter
+### <a name="common-agent-installation-problems"></a>Vanliga problem med agent installation
 
-I följande avsnitt beskrivs några vanliga agentinstallationsproblem och typiska lösningar.
+I följande avsnitt beskrivs några vanliga problem med agent installation och vanliga lösningar.
 
-#### <a name="agent-failed-to-start"></a>Agenten kunde inte starta
+#### <a name="agent-failed-to-start"></a>Det gick inte att starta agenten
 
-Ett felmeddelande kan visas:
+Du kan få ett fel meddelande som säger:
 
-**Tjänsten Microsoft Azure AD Connect-etableringsagenten kunde inte startas. Kontrollera att du har tillräcklig behörighet för att starta systemtjänsterna.** 
+**Det gick inte att starta tjänsten Microsoft Azure AD ansluta etablerings agenten. Kontrol lera att du har behörighet att starta system tjänsterna.** 
 
-Det här problemet orsakas vanligtvis av en grupprincip som förhindrade att behörigheter tillämpades på det lokala NT-tjänstloggkontot som skapats av installationsprogrammet (NT SERVICE\AADConnectProvisioningAgent). Dessa behörigheter krävs för att starta tjänsten.
+Det här problemet orsakas vanligt vis av en grup princip som förhindrade att behörigheter appliceras på det lokala inloggnings kontot för NT-tjänst som skapats av installations programmet (NT SERVICE\AADConnectProvisioningAgent). De här behörigheterna krävs för att starta tjänsten.
 
-LÃ¶s problemet genom att sÃ¥ att lÃ¶sa.
+Följ dessa steg för att lösa problemet.
 
-1. Logga in på servern med ett administratörskonto.
-1. Öppna **tjänster** genom att antingen navigera till den eller genom att gå till **Start** > **Run** > **Services.msc**.
-1. Dubbelklicka på **Microsoft Azure AD Connect-etableringsagent under** **Tjänster**.
-1. Ändra **Det här kontot** till en domänadministratör på fliken **Logga** in. Starta sedan om tjänsten. 
+1. Logga in på servern med ett administratörs konto.
+1. Öppna **tjänster** genom att antingen navigera till den eller genom att **Starta** > **köra** > **Services. msc**.
+1. Under **tjänster**dubbelklickar du på **Microsoft Azure AD ansluta etablerings agent**.
+1. På fliken **Logga in** ändrar du **det här kontot** till en domän administratör. Starta sedan om tjänsten. 
 
    ![Fliken Logga in](media/how-to-troubleshoot/troubleshoot3.png)
 
-#### <a name="agent-times-out-or-certificate-is-invalid"></a>Agent time out eller certifikat är ogiltigt
+#### <a name="agent-times-out-or-certificate-is-invalid"></a>Agentens tids gräns eller certifikat är ogiltigt
 
-Du kan få följande felmeddelande när du försöker registrera agenten.
+Du kan få följande fel meddelande när du försöker registrera agenten.
 
-![Felmeddelande om time out](media/how-to-troubleshoot/troubleshoot4.png)
+![Fel meddelande vid timeout](media/how-to-troubleshoot/troubleshoot4.png)
 
-Det här problemet orsakas vanligtvis av att agenten inte kan ansluta till hybrididentitetstjänsten och kräver att du konfigurerar en HTTP-proxy. LÃ¶s problemet genom att konfigurera en utgående proxy. 
+Det här problemet orsakas vanligt vis av att agenten inte kan ansluta till hybrid identitets tjänsten och kräver att du konfigurerar en HTTP-proxy. Lös problemet genom att konfigurera en utgående proxy. 
 
-Etableringsagenten stöder användning av en utgående proxy. Du kan konfigurera den genom att redigera agentkonfigurationsfilen *C:\Program\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*. Lägg till följande rader i den, mot slutet `</configuration>` av filen strax före den avslutande taggen.
-Ersätt variablerna `[proxy-server]` `[proxy-port]` och med proxyserverns namn och portvärden.
+Etablerings agenten stöder användning av en utgående proxy. Du kan konfigurera den genom att redigera agentens konfigurations fil *C:\Program Files\Microsoft Azure AD Connect etablering Agent\AADConnectProvisioningAgent.exe.config*. Lägg till följande rader i den i slutet av filen precis innan den avslutande `</configuration>` taggen.
+Ersätt variablerna `[proxy-server]` och `[proxy-port]` med proxyserverns namn och port värden.
 
 ```xml
     <system.net>
@@ -116,23 +116,23 @@ Ersätt variablerna `[proxy-server]` `[proxy-port]` och med proxyserverns namn o
     </system.net>
 ```
 
-#### <a name="agent-registration-fails-with-security-error"></a>Agentregistrering misslyckas med säkerhetsfel
+#### <a name="agent-registration-fails-with-security-error"></a>Agent registreringen Miss lyckas med ett säkerhets fel
 
-Du kan få ett felmeddelande när du installerar molnetableringsagenten.
+Du kan få ett fel meddelande när du installerar Cloud Provisioning-agenten.
 
-Det här problemet orsakas vanligtvis av att agenten inte kan köra PowerShell-registreringsskripten på grund av lokala PowerShell-körningsprinciper.
+Det här problemet orsakas vanligt vis av att agenten inte kan köra PowerShell-registrerings skripten på grund av lokala PowerShell-körnings principer.
 
-LÃ¶s problemet genom att ändra powershell-körningsprinciperna på servern. Du måste ha principer för maskin och användare som *odefinierade* eller *fjärrsignerade*. Om de är *inställda*som obegränsade visas det här felet. Mer information finns i [PowerShells körningsprinciper](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Lös problemet genom att ändra körnings principerna för PowerShell på-servern. Du måste ha dator-och användar principer inställda som *odefinierade* eller *RemoteSigned*. Om de är inställda som *obegränsade*visas det här felet. Mer information finns i [körnings principer för PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### <a name="log-files"></a>Loggfiler
 
-Som standard avger agenten minimala felmeddelanden och stackspårningsinformation. Du hittar dessa spårningsloggar i mappen *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
+Som standard avger agenten minimala fel meddelanden och stack spårnings information. Du hittar dessa spårnings loggar i mappen *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect-etablering Agent\Trace*.
 
-Så här samlar du in ytterligare information om felsökning av agentrelaterade problem.
+Följ dessa steg om du vill samla in ytterligare information om fel sökning av Agent-relaterade problem.
 
-1. Stoppa tjänsten **Microsoft Azure AD Connect Provisioning Agent**.
-1. Skapa en kopia av den ursprungliga konfigurationsfilen: *C:\Program\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
-1. Ersätt det `<system.diagnostics>` befintliga avsnittet med följande, och alla spårningsmeddelanden går till filen *ProvAgentTrace.log*.
+1. Stoppa tjänsten **Microsoft Azure AD ansluta etablerings agenten**.
+1. Skapa en kopia av den ursprungliga konfigurations filen: *C:\Program Files\Microsoft Azure AD Connect etablering Agent\AADConnectProvisioningAgent.exe.config*.
+1. Ersätt det befintliga `<system.diagnostics>` avsnittet med följande och alla spårnings meddelanden skickas till filen *ProvAgentTrace. log*.
 
    ```xml
      <system.diagnostics>
@@ -155,51 +155,51 @@ Så här samlar du in ytterligare information om felsökning av agentrelaterade 
      </system.diagnostics>
     
    ```
-1. Starta tjänsten **Microsoft Azure AD Connect Provisioning Agent**.
-1. Använd följande kommando för att skugga filen och felsöka problem. 
+1. Starta tjänsten **Microsoft Azure AD ansluta etablerings agenten**.
+1. Använd följande kommando för att ange fil-och fel söknings problem. 
     ```
     Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
     ```
-## <a name="object-synchronization-problems"></a>Problem med objektsynkronisering
+## <a name="object-synchronization-problems"></a>Problem med synkronisering av objekt
 
-Följande avsnitt innehåller information om felsökning av objektsynkronisering.
+Följande avsnitt innehåller information om fel sökning av objekt synkronisering.
 
 ### <a name="provisioning-logs"></a>Etableringsloggar
 
-I Azure-portalen kan etableringsloggar användas för att spåra och felsöka problem med objektsynkronisering. Om du vill visa loggarna väljer du **Loggar**.
+I Azure Portal kan etablerings loggar användas för att spåra och felsöka problem med synkronisering av objekt. Om du vill visa loggarna väljer du **loggar**.
 
-![Knappen Loggar](media/how-to-troubleshoot/log1.png)
+![Knappen loggar](media/how-to-troubleshoot/log1.png)
 
-Etableringsloggar ger en mängd information om tillståndet för de objekt som synkroniseras mellan din lokala Active Directory-miljö och Azure.
+Med etablerings loggar får du en mängd information om status för de objekt som synkroniseras mellan din lokala Active Directorys miljö och Azure.
 
-![Etablering loggar skärmen](media/how-to-troubleshoot/log2.png)
+![Skärmen etablering av loggar](media/how-to-troubleshoot/log2.png)
 
-Du kan använda listrutorna högst upp på sidan för att filtrera vyn till noll på specifika problem, till exempel datum. Dubbelklicka på en enskild händelse för att se ytterligare information.
+Du kan använda List rutorna överst på sidan för att filtrera vyn till noll i vid vissa problem, t. ex. datum. Dubbelklicka på en enskild händelse om du vill se ytterligare information.
 
-![Information om etablering av loggar](media/how-to-troubleshoot/log3.png)
+![List Rute information för etablerings loggar](media/how-to-troubleshoot/log3.png)
 
-Den här informationen innehåller detaljerade steg och var synkroniseringsproblemet uppstår. På så sätt kan du lokalisera den exakta platsen för problemet.
+Den här informationen innehåller detaljerade steg och var synkroniseringsproblem inträffar. På så sätt kan du hitta den exakta punkten för problemet.
 
 
 ## <a name="provisioning-quarantined-problems"></a>Etablering av problem i karantän
 
-Molnetablering övervakar hälsotillståndet för din konfiguration och placerar felaktiga objekt i karantäntillstånd. Om de flesta eller alla anrop som görs mot målsystemet konsekvent misslyckas på grund av ett fel, till exempel ogiltiga administratörsautentiseringsuppgifter, markeras etableringsjobbet som i karantän.
+Moln etablering övervakar hälso tillståndet för din konfiguration och placerar Felaktiga objekt i ett karantäns tillstånd. Om de flesta eller alla anrop som görs mot mål systemet fungerar konsekvent på grund av ett fel, till exempel ogiltiga administratörsautentiseringsuppgifter, markeras etablerings jobbet som i karantän.
 
 ![Karantänstatus](media/how-to-troubleshoot/quarantine1.png)
 
-Genom att välja status kan du se ytterligare information om karantänen. Du kan också hämta felkoden och meddelandet.
+Genom att välja status kan du se ytterligare information om karantänen. Du kan också hämta fel koden och meddelandet.
 
-![Information om karantänstatus](media/how-to-troubleshoot/quarantine2.png)
+![Information om karantän status](media/how-to-troubleshoot/quarantine2.png)
 
 ### <a name="resolve-a-quarantine"></a>Lösa en karantän
 
-- Använd Azure-portalen för att starta om etableringsjobbet. På agentkonfigurationssidan väljer du **Starta om etablering**.
+- Använd Azure Portal för att starta om etablerings jobbet. På sidan agent konfiguration väljer du **starta om etablering**.
 
   ![Starta om etablering](media/how-to-troubleshoot/quarantine3.png)
 
-- Använd Microsoft Graph för att [starta om etableringsjobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har full kontroll över vad du startar om. Du kan välja att rensa:
-  - Spärrar om du vill starta om spärrräknaren som ackumuleras mot karantänstatus.
-  - Karantän, för att ta bort programmet från karantän.
+- Använd Microsoft Graph för att [starta om etablerings jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa:
+  - Escrows för att starta om depositions-räknaren som påförs till karantäns status.
+  - Karantän för att ta bort programmet från karantänen.
   - Vattenstämplar. 
   
   Använd följande begäran:

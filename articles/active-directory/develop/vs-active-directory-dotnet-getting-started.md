@@ -1,6 +1,6 @@
 ---
-title: Komma igång med Azure AD i .NET MVC-projekt | Azure
-description: Komma igång med Azure Active Directory i .NET MVC-projekt efter anslutning till eller skapa en Azure AD med hjälp av Visual Studio-anslutna tjänster
+title: Kom igång med Azure AD i .NET MVC-projekt | Azure
+description: Komma igång med att använda Azure Active Directory i .NET MVC-projekt efter anslutning till eller skapa en Azure AD med hjälp av Visual Studio Connected Services
 author: ghogen
 manager: jillfra
 ms.prod: visual-studio-windows
@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: fe408e965c528db1d82b73ee7b20bbe3b3933657
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886134"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Komma igång med Azure Active Directory (ASP.NET MVC-projekt)
@@ -23,17 +23,17 @@ ms.locfileid: "80886134"
 > - [Komma igång](vs-active-directory-dotnet-getting-started.md)
 > - [Vad hände](vs-active-directory-dotnet-what-happened.md)
 
-Den här artikeln innehåller ytterligare vägledning när du har lagt till Active Directory i ett ASP.NET MVC-projekt via kommandot **Project > Connected Services** i Visual Studio. Om du inte redan har lagt till tjänsten i projektet kan du göra det när som helst.
+Den här artikeln ger ytterligare vägledning när du har lagt till Active Directory i ett ASP.NET MVC-projekt via kommandot **project > Connected Services** i Visual Studio. Om du inte redan har lagt till tjänsten i projektet kan du göra det när som helst.
 
-Se [Vad hände med mitt MVC-projekt?](vs-active-directory-dotnet-what-happened.md)
+Se [vad som hände med mitt MVC-projekt?](vs-active-directory-dotnet-what-happened.md) för de ändringar som gjorts i projektet när du lade till den anslutna tjänsten.
 
-## <a name="requiring-authentication-to-access-controllers"></a>Kräver autentisering för åtkomstkontrollanter
+## <a name="requiring-authentication-to-access-controllers"></a>Kräver autentisering för åtkomst till kontrollanter
 
-Alla handkontroller i projektet pryddes med `[Authorize]` attributet. Det här attributet kräver att användaren autentiseras innan du öppnar dessa styrenheter. Om du vill att styrenheten ska kunna nås anonymt tar du bort attributet från styrenheten. Om du vill ange behörigheterna på en mer detaljerad nivå använder du attributet på varje metod som kräver auktorisering i stället för att tillämpa det på controller-klassen.
+Alla kontrollanter i projektet har dekorationer med `[Authorize]` attributet. Det här attributet kräver att användaren autentiseras innan de kan komma åt dessa kontrollanter. Om du vill tillåta att styrenheten används anonymt tar du bort attributet från kontroll enheten. Om du vill ange behörigheterna på en mer detaljerad nivå använder du attributet för varje metod som kräver auktorisering i stället för att använda den i kontroll enhets klassen.
 
-## <a name="adding-signin--signout-controls"></a>Lägga till signin- och signoutkontroller
+## <a name="adding-signin--signout-controls"></a>Lägger till kontroller för inloggning/utloggning
 
-Om du vill lägga till signin-/signout-kontrollerna i vyn kan du använda den `_LoginPartial.cshtml` partiella vyn för att lägga till funktionen i en av dina vyer. Här är ett exempel på de `_Layout.cshtml` funktioner som har lagts till i standardvyn. (Notera det sista elementet i div med klass navbar-kollaps):
+Om du vill lägga till kontrollerna logga in/logga in i vyn kan du använda den `_LoginPartial.cshtml` partiella vyn för att lägga till funktionen i en av dina vyer. Här är ett exempel på funktionerna som läggs till i standardvyn `_Layout.cshtml` . (Observera det sista elementet i div med klass navigerings fält – minimera):
 
 ```html
 <!DOCTYPE html>
@@ -82,5 +82,5 @@ Om du vill lägga till signin-/signout-kontrollerna i vyn kan du använda den `_
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Autentiseringsscenarier för Azure Active Directory](authentication-scenarios.md)
+- [Autentiserings scenarier för Azure Active Directory](authentication-scenarios.md)
 - [Lägga till inloggning med Microsoft till en ASP.NET-webbapp](quickstart-v2-aspnet-webapp.md)

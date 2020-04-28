@@ -1,33 +1,33 @@
 ---
-title: Arbeta med strängar i Azure Monitor-loggfrågor | Microsoft-dokument
-description: Beskriver hur du redigerar, jämför, söker i och utför en mängd andra åtgärder på strängar i Azure Monitor-loggfrågor.
+title: Arbeta med strängar i Azure Monitor logg frågor | Microsoft Docs
+description: Beskriver hur du redigerar, jämför, söker i och utför en rad andra åtgärder på strängar i Azure Monitor logg frågor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75397474"
 ---
-# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor-loggfrågor
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor logg frågor
 
 
 > [!NOTE]
-> Du bör slutföra [Komma igång med Azure Monitor Log Analytics](get-started-portal.md) och Komma igång med Azure [Monitor-loggfrågor](get-started-queries.md) innan du slutför den här självstudien.
+> Du bör slutföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [komma igång med Azure Monitor logg frågor](get-started-queries.md) innan du slutför den här kursen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-I den här artikeln beskrivs hur du redigerar, jämför, söker i och utför en mängd andra åtgärder på strängar.
+I den här artikeln beskrivs hur du redigerar, jämför, söker i och utför en rad andra åtgärder på strängar.
 
-Varje tecken i en sträng har ett indexnummer, beroende på dess plats. Det första tecknet är på index 0, nästa tecken är 1 och så vidare. Olika strängfunktioner använder indexnummer som visas i följande avsnitt. Många av följande exempel använder **kommandot print** för att demonstrera strängmanipulering utan att använda en viss datakälla.
+Varje tecken i en sträng har ett index nummer, baserat på dess plats. Det första symbolen är vid index 0, nästa steg är 1 och så vidare. Olika sträng funktioner använder index nummer som du ser i följande avsnitt. I många av följande exempel används kommandot **Print** för att demonstrera sträng manipulation utan att använda en speciell data källa.
 
 
-## <a name="strings-and-escaping-them"></a>Strängar och fly dem
-Strängvärdena är raderade med antingen med enkla eller dubbla citattecken. Omvänt snedstreck (\\) används för att undkomma tecken till tecknet efter det, \" till exempel \t för fliken \n för nyrad och citattecknet själv.
+## <a name="strings-and-escaping-them"></a>Strängar och undantags tecken
+Sträng värden radbryts med antingen enkla eller dubbla citat tecken. Omvänt\\snedstreck () används för att undanta tecken till tecknet som följer, till exempel \t för tab, \n för ny rad \" och citat tecken.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -37,71 +37,71 @@ print "this is a 'string' literal in double \" quotes"
 print 'this is a "string" literal in single \' quotes'
 ```
 
-Om du\\vill förhindra " " från\@att fungera som ett escape-tecken, lägg till " " som ett prefix i strängen:
+Om du vill\\förhindra att "" fungerar som ett escape-tecken\@lägger du till "" som ett prefix till strängen:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
 
-## <a name="string-comparisons"></a>Strängjämnningar
+## <a name="string-comparisons"></a>Sträng jämförelser
 
-Operator       |Beskrivning                         |Skiftlägeskänsliga|Exempel (avkastning) `true`
+Operator       |Beskrivning                         |Skift läges känslig|Exempel (avkastning `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Är lika med                              |Ja           |`"aBc" == "aBc"`
 `!=`           |Inte lika med                          |Ja           |`"abc" != "ABC"`
 `=~`           |Är lika med                              |Inga            |`"abc" =~ "ABC"`
 `!~`           |Inte lika med                          |Inga            |`"aBc" !~ "xyz"`
 `has`          |Höger sida är en hel term i vänster sida |Inga|`"North America" has "america"`
-`!has`         |Höger sida är inte en hel term i vänster sida       |Inga            |`"North America" !has "amer"` 
+`!has`         |Höger sida är inte en fullständig term i vänster sida       |Inga            |`"North America" !has "amer"` 
 `has_cs`       |Höger sida är en hel term i vänster sida |Ja|`"North America" has_cs "America"`
-`!has_cs`      |Höger sida är inte en hel term i vänster sida       |Ja            |`"North America" !has_cs "amer"` 
-`hasprefix`    |Höger sida är ett termprefix i vänster sida         |Inga            |`"North America" hasprefix "ame"`
-`!hasprefix`   |Höger sida är inte ett termprefix i vänster sida     |Inga            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |Höger sida är ett termprefix i vänster sida         |Ja            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |Höger sida är inte ett termprefix i vänster sida     |Ja            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |Höger sida är ett termsuffix i vänster sida         |Inga            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Höger sida är inte ett termsuffix i vänster sida     |Inga            |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |Höger sida är ett termsuffix i vänster sida         |Ja            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Höger sida är inte ett termsuffix i vänster sida     |Ja            |`"North America" !hassuffix_cs "icA"`
-`contains`     |Höger sida uppstår som en undersekvens av vänster sida  |Inga            |`"FabriKam" contains "BRik"`
-`!contains`    |Höger sida förekommer inte i vänster sida           |Inga            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |Höger sida uppstår som en undersekvens av vänster sida  |Ja           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |Höger sida förekommer inte i vänster sida           |Ja           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |Höger sida är en första delsekvens av vänster sida|Inga            |`"Fabrikam" startswith "fab"`
-`!startswith`  |Höger sida är inte en första delsekvens av vänster sida|Inga        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |Höger sida är en första delsekvens av vänster sida|Ja            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |Höger sida är inte en första delsekvens av vänster sida|Ja        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |Höger sida är en avslutande delsekvens av vänster sida|Inga             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |Höger sida är inte en avslutande delsekvens av vänster sida|Inga         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |Höger sida är en avslutande delsekvens av vänster sida|Ja             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |Höger sida är inte en avslutande delsekvens av vänster sida|Ja         |`"Fabrikam" !endswith "brik"`
-`matches regex`|vänster sida innehåller en match för höger sida        |Ja           |`"Fabrikam" matches regex "b.*k"`
-`in`           |Är lika med ett av elementen       |Ja           |`"abc" in ("123", "345", "abc")`
-`!in`          |Inte lika med något av elementen   |Ja           |`"bca" !in ("123", "345", "abc")`
+`!has_cs`      |Höger sida är inte en fullständig term i vänster sida       |Ja            |`"North America" !has_cs "amer"` 
+`hasprefix`    |Höger sida är ett term prefix i vänster sida         |Inga            |`"North America" hasprefix "ame"`
+`!hasprefix`   |Höger sida är inte ett term prefix i vänster sida     |Inga            |`"North America" !hasprefix "mer"` 
+`hasprefix_cs`    |Höger sida är ett term prefix i vänster sida         |Ja            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |Höger sida är inte ett term prefix i vänster sida     |Ja            |`"North America" !hasprefix_cs "CA"` 
+`hassuffix`    |Höger sida är ett term suffix i vänster sida         |Inga            |`"North America" hassuffix "ica"`
+`!hassuffix`   |Höger sida är inte ett term suffix i vänster sida     |Inga            |`"North America" !hassuffix "americ"`
+`hassuffix_cs`    |Höger sida är ett term suffix i vänster sida         |Ja            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |Höger sida är inte ett term suffix i vänster sida     |Ja            |`"North America" !hassuffix_cs "icA"`
+`contains`     |Höger sida visas som en underordnad sida till vänster  |Inga            |`"FabriKam" contains "BRik"`
+`!contains`    |Höger sida visas inte i vänster sida           |Inga            |`"Fabrikam" !contains "xyz"`
+`contains_cs`   |Höger sida visas som en underordnad sida till vänster  |Ja           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |Höger sida visas inte i vänster sida           |Ja           |`"Fabrikam" !contains_cs "Kam"`
+`startswith`   |Höger sida är en inledande delsekvens av vänster sida|Inga            |`"Fabrikam" startswith "fab"`
+`!startswith`  |Höger sida är inte en inledande underordnad del i vänster sida|Inga        |`"Fabrikam" !startswith "kam"`
+`startswith_cs`   |Höger sida är en inledande delsekvens av vänster sida|Ja            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |Höger sida är inte en inledande underordnad del i vänster sida|Ja        |`"Fabrikam" !startswith_cs "fab"`
+`endswith`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Inga             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Inga         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Ja             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Ja         |`"Fabrikam" !endswith "brik"`
+`matches regex`|den vänstra hand sidan innehåller en matchning för höger sida        |Ja           |`"Fabrikam" matches regex "b.*k"`
+`in`           |Lika med ett av elementen       |Ja           |`"abc" in ("123", "345", "abc")`
+`!in`          |Är inte lika med något av elementen   |Ja           |`"bca" !in ("123", "345", "abc")`
 
 
-## <a name="countof"></a>antal
+## <a name="countof"></a>countof
 
-Räknar förekomster av en delsträng i en sträng. Kan matcha vanliga strängar eller använda regex. Vanliga strängmatchningar kan överlappa varandra medan regex-matchningar inte gör det.
+Räknar förekomster av en del sträng i en sträng. Kan matcha vanliga strängar eller använda regex. Matchningar med oformaterade strängar kan överlappa även om regex matchar inte.
 
 ### <a name="syntax"></a>Syntax
 ```
 countof(text, search [, kind])
 ```
 
-### <a name="arguments"></a>Argument:
-- `text`- Ingångssträngen 
-- `search`- Oformaterad sträng eller reguljärt uttryck för att matcha inuti text.
-- `kind` - _normal_ | _regex_ (standard: normal).
+### <a name="arguments"></a>Ogiltiga
+- `text`– Indatasträngen 
+- `search`– En vanlig sträng eller ett reguljärt uttryck som matchar text i text.
+- `kind` - _normalt_ | _regex_ (standard: normal).
 
 ### <a name="returns"></a>Returnerar
 
-Antalet gånger som söksträngen kan matchas i behållaren. Vanliga strängmatchningar kan överlappa varandra medan regex-matchningar inte gör det.
+Antalet gånger som Sök strängen kan matchas i behållaren. Matchningar med oformaterade strängar kan överlappa även om regex matchar inte.
 
 ### <a name="examples"></a>Exempel
 
-#### <a name="plain-string-matches"></a>Vanliga strängmatchningar
+#### <a name="plain-string-matches"></a>Vanliga sträng matchningar
 
 ```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
@@ -111,7 +111,7 @@ print countof("ababa", "ab", "normal");  //result: 2
 print countof("ababa", "aba");  //result: 2
 ```
 
-#### <a name="regex-matches"></a>Regex matchar
+#### <a name="regex-matches"></a>Regex matchningar
 
 ```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
@@ -120,9 +120,9 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 ```
 
 
-## <a name="extract"></a>Extrahera
+## <a name="extract"></a>utvinning
 
-Får en matchning för ett reguljärt uttryck från en viss sträng. Du kan också konvertera den extraherade delsträngen till den angivna typen.
+Hämtar en matchning för ett reguljärt uttryck från en specifik sträng. Du kan också konvertera den extraherade under strängen till den angivna typen.
 
 ### <a name="syntax"></a>Syntax
 
@@ -132,18 +132,18 @@ extract(regex, captureGroup, text [, typeLiteral])
 
 ### <a name="arguments"></a>Argument
 
-- `regex`- Ett reguljärt uttryck.
-- `captureGroup`- En positiv heltalskonstant som anger att fångstgruppen ska extraheras. 0 för hela matchen, 1 för det värde som matchas av det första ('parentesen')' i det reguljära uttrycket, 2 eller mer för efterföljande parenteser.
-- `text`- En sträng att söka.
-- `typeLiteral`- En valfri typlitteral (till exempel typeof(long)). Om det anges konverteras den extraherade delsträngen till den här typen.
+- `regex`– Ett reguljärt uttryck.
+- `captureGroup`– En positiv heltals konstant som anger vilken infångnings grupp som ska extraheras. 0 för hela matchningen 1 för det värde som matchas av den första ("parentesen") "i det reguljära uttrycket, 2 eller mer för efterföljande parenteser.
+- `text`– En sträng att söka i.
+- `typeLiteral`– En valfri typ literal (till exempel typeof (Long)). Om den extraherade del strängen har angetts konverteras den till den här typen.
 
 ### <a name="returns"></a>Returnerar
-Delsträngen matchas mot den angivna capture-gruppen captureGroup, eventuellt konverterad till typeLiteral.
-Om det inte finns någon matchning, eller om typkonverteringen misslyckas, returnerar du null.
+Del strängen matchad mot den angivna insamlings gruppen captureGroup, eventuellt konverteras till typeLiteral.
+Om det inte finns någon matchning, eller om typ konverteringen Miss lyckas, returnerar du null.
 
 ### <a name="examples"></a>Exempel
 
-I följande exempel extraheras den sista oktetten *computerIP* från en pulsslagspost:
+I följande exempel extraheras den sista oktetten *ComputerIP* från en pulsslags post:
 ```Kusto
 Heartbeat
 | where ComputerIP != "" 
@@ -151,7 +151,7 @@ Heartbeat
 | project ComputerIP, last_octet=extract("([0-9]*$)", 1, ComputerIP) 
 ```
 
-I följande exempel extraheras den sista oktetten, den kastas till en *verklig* typ (tal) och beräknar nästa IP-värde
+I följande exempel extraherar du den sista oktetten, skickar den till en *riktig* typ (nummer) och beräknar nästa IP-värde
 ```Kusto
 Heartbeat
 | where ComputerIP != "" 
@@ -161,7 +161,7 @@ Heartbeat
 | project ComputerIP, last_octet, next_ip
 ```
 
-I exemplet nedan genomsöks *strängspårningen* efter en definition av "Varaktighet". Matchen är *gjuten* till verklig och multipliceras med en tidskonstant (1 s) *som kastar Varaktighet för att skriva tidsspann*.
+I exemplet nedan genomsöks sträng *spårningen* efter en definition av "varaktighet". Matchningen omvandlas till *verkligt* värde och multipliceras med en tidskonstant (1) *som kastar varaktigheten för att skriva TimeSpan*.
 ```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
@@ -169,10 +169,10 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 ```
 
 
-## <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
+## <a name="isempty-isnotempty-notempty"></a>IsEmpty, isnotempty, nofrestar
 
-- *isempty* returnerar sant om argumentet är en tom sträng eller null (se även *isnull*).
-- *isnotempty* returnerar sant om argumentet inte är en tom sträng eller en null (se även *isnotnull*). alias: *notempty*.
+- *IsEmpty* returnerar true om argumentet är en tom sträng eller null (se även *IsNull*).
+- *isnotempty* returnerar true om argumentet inte är en tom sträng eller ett null-värde (se även *isnotnull*). alias: *nofrestar*.
 
 ### <a name="syntax"></a>Syntax
 
@@ -196,9 +196,9 @@ Heartbeat | where isnotempty(ComputerIP) | take 1  // return 1 Heartbeat record 
 ```
 
 
-## <a name="parseurl"></a>parseurl (tolk)
+## <a name="parseurl"></a>parseurl
 
-Delar en URL i dess delar (protokoll, värd, port osv.) och returnerar ett ordlisteobjekt som innehåller delarna som strängar.
+Delar upp en URL i dess delar (protokoll, värd, Port osv.) och returnerar ett Dictionary-objekt som innehåller delarna som strängar.
 
 ### <a name="syntax"></a>Syntax
 
@@ -212,7 +212,7 @@ parseurl(urlstring)
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
-Resultatet kommer att bli:
+Resultatet blir:
 ```
 {
     "Scheme" : "http",
@@ -227,7 +227,7 @@ Resultatet kommer att bli:
 ```
 
 
-## <a name="replace"></a>Ersätta
+## <a name="replace"></a>bytt
 
 Ersätter alla regex-matchningar med en annan sträng. 
 
@@ -239,12 +239,12 @@ replace(regex, rewrite, input_text)
 
 ### <a name="arguments"></a>Argument
 
-- `regex`- Det reguljära uttrycket att matcha med. Den kan innehålla insamlingsgrupper i '('parentes')'.
-- `rewrite`- Den ersättande regex för alla matcher som gjorts genom att matcha regex. Använd \0 för att referera till hela matchningen, \1 för den första insamlingsgruppen, \2, och så vidare för efterföljande insamlingsgrupper.
-- `input_text`- Indatasträngen att söka i.
+- `regex`– Det reguljära uttrycket som ska matchas av. Den kan innehålla infångnings grupper i ' (' parenteser ') '.
+- `rewrite`– Ersättnings regex för all matchning som görs genom matchande regex. Använd \ 0 om du vill referera till hela matchningen, \ 1 för den första infångnings gruppen, \ 2, och så vidare för efterföljande infångnings grupper.
+- `input_text`– Den inmatade sträng som ska genomsökas.
 
 ### <a name="returns"></a>Returnerar
-Texten efter att ha ersatt alla matchningar av regex med utvärderingar av omskrivning. Matchningar överlappar inte varandra.
+Texten efter att alla matchningar av regex har ersatts med utvärdering av omskrivning. Matchningar överlappar inte.
 
 ### <a name="examples"></a>Exempel
 
@@ -257,25 +257,25 @@ SecurityEvent
 
 Kan ha följande resultat:
 
-Aktivitet                                        |Ersatt
+Aktivitet                                        |ersätter
 ------------------------------------------------|----------------------------------------------------------
-4663 - Ett försök gjordes att komma åt ett objekt  |Aktivitets-ID 4663: Ett försök gjordes att komma åt ett objekt.
+4663 – ett försök gjordes att komma åt ett objekt  |Aktivitets-ID 4663: ett försök gjordes att komma åt ett objekt.
 
 
 ## <a name="split"></a>split
 
-Delar en viss sträng enligt en angiven avgränsare och returnerar en matris med de resulterande delsträngarna.
+Delar upp en given sträng enligt en angiven avgränsare och returnerar en matris med de resulterande del strängarna.
 
 ### <a name="syntax"></a>Syntax
 ```
 split(source, delimiter [, requestedIndex])
 ```
 
-### <a name="arguments"></a>Argument:
+### <a name="arguments"></a>Ogiltiga
 
-- `source`- Strängen som ska delas enligt den angivna avgränsaren.
-- `delimiter`- Avgränsaren som ska användas för att dela upp källsträngen.
-- `requestedIndex`- Ett valfritt nollbaserat index. Om det anges kommer den returnerade strängmatrisen endast att innehålla det objektet (om det finns).
+- `source`– Strängen som ska delas upp enligt angiven avgränsare.
+- `delimiter`– Avgränsaren som ska användas för att dela käll strängen.
+- `requestedIndex`– Ett valfritt noll-baserat index. Om den returnerade sträng mat ris filen bara innehåller objektet (om det finns).
 
 
 ### <a name="examples"></a>Exempel
@@ -289,9 +289,9 @@ print split("a__b", "_");           // result: ["a","","b"]
 print split("aabbcc", "bb");        // result: ["aa","cc"]
 ```
 
-## <a name="strcat"></a>strcat (strcat)
+## <a name="strcat"></a>strcat
 
-Sammanfoga strängargument (stöder 1-16 argument).
+Sammanfogar sträng argument (stöder 1-16 argument).
 
 ### <a name="syntax"></a>Syntax
 ```
@@ -304,7 +304,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 ```
 
 
-## <a name="strlen"></a>strlen (olika)
+## <a name="strlen"></a>strlen
 
 Returnerar längden på en sträng.
 
@@ -319,20 +319,20 @@ print strlen("hello")   // result: 5
 ```
 
 
-## <a name="substring"></a>Delsträng
+## <a name="substring"></a>under sträng
 
-Extraherar en delsträng från en viss källsträng, med början vid det angivna indexet. Du kan också ange längden på den begärda delsträngen.
+Extraherar en under sträng från en given käll sträng med början vid det angivna indexet. Du kan också ange längden på den begärda del strängen.
 
 ### <a name="syntax"></a>Syntax
 ```
 substring(source, startingIndex [, length])
 ```
 
-### <a name="arguments"></a>Argument:
+### <a name="arguments"></a>Ogiltiga
 
-- `source`- Källsträngen som delsträngen kommer att tas från.
-- `startingIndex`- Den nollbaserade startteckenpositionen för den begärda delsträngen.
-- `length`- En valfri parameter som kan användas för att ange den begärda längden på den returnerade delsträngen.
+- `source`– Käll strängen som under strängen kommer att hämtas från.
+- `startingIndex`– Den nollbaserade start tecken positionen för den begärda del strängen.
+- `length`– En valfri parameter som kan användas för att ange den begärda längden för den returnerade del strängen.
 
 ### <a name="examples"></a>Exempel
 ```Kusto
@@ -345,7 +345,7 @@ print substring("ABCD", 0, 2);  // result: "AB"
 
 ## <a name="tolower-toupper"></a>tolower, toupper
 
-Konverterar en viss sträng till alla gemener eller versaler.
+Konverterar en specifik sträng till gemener eller versaler.
 
 ### <a name="syntax"></a>Syntax
 ```
@@ -366,6 +366,6 @@ Fortsätt med de avancerade självstudierna:
 * [Aggregeringsfunktioner](aggregations.md)
 * [Avancerade aggregeringar](advanced-aggregations.md)
 * [Grafer och diagram](charts.md)
-* [Arbeta med JSON och datastrukturer](json-data-structures.md)
+* [Arbeta med JSON och data strukturer](json-data-structures.md)
 * [Avancerad frågeskrivning](advanced-query-writing.md)
-* [Kopplingar - korsanalys](joins.md)
+* [Kopplingar – kors analys](joins.md)

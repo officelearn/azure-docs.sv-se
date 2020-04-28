@@ -1,6 +1,6 @@
 ---
-title: H264 Enkel bitrate 16x9 SD Audio 5.1 | Microsoft-dokument
-description: Avsnittet ger en översikt över **H264 Single Bitrate 16x9 SD Audio 5.1** aktivitetsförinställning.
+title: H264, enkel bit hastighet 16x9 SD Audio 5,1 | Microsoft Docs
+description: Avsnittet ger en översikt över uppgifts för inställningen **H264, Single bitrs 16X9 SD Audio 5,1** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 730854f572e1e2ab21140f53d59b7593ad26cb05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61463607"
 ---
 # <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264, enkel bithastighet, 16x9, SD, Audio 5.1
-`Media Encoder Standard`definierar en uppsättning kodningsförinställningar som du kan använda när du skapar kodningsjobb. Du kan antingen `preset name` använda en för att ange i vilket format du vill koda mediefilen. Du kan också skapa egna JSON- eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Du skulle sedan skicka den anpassade förinställningen till kodaren. En lista över alla förinställda `Media Encoder Standard` namn som stöds av den här kodaren finns i [Aktivitetsförinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard` kodaren finns i [uppgifts för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- I det `H264 Single Bitrate 16x9 SD Audio 5.1` här avsnittet visas förinställningen i XML- och JSON-format.  
+ I det här avsnittet `H264 Single Bitrate 16x9 SD Audio 5.1` visas för inställningen i XML-och JSON-format.  
   
- Den här förinställningen ger en enda MP4-fil med en bithastighet på 2200 kbit/s och AAC 5.1-ljud. För detaljerad information om profil, bithastighet, samplingsfrekvens etc. för den här förinställningen, undersök XML eller JSON som definieras nedan. Förklaringar av vad varje element innebär och giltiga värden för varje element finns i [schemat Media Encoder Standard](media-services-mes-schema.md).  
+ Den här för inställningen skapar en enda MP4-fil med en bit hastighet på 2200 kbit/s och AAC 5,1-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element innebär och giltiga värden för varje element finns i [Media Encoder Standard schemat](media-services-mes-schema.md).  
   
  XML  
   

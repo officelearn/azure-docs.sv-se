@@ -1,83 +1,83 @@
 ---
-title: Använda modern lagring för säkerhetskopiering med Azure Backup Server
-description: Lär dig mer om de nya funktionerna i Azure Backup Server. I den hÃ¤r artikeln beskrivs hur du uppgraderar installationen av Ã¤ringar på Ã¤ringar på kopieringsservern.
+title: Använda Modern Backup Storage med Azure Backup Server
+description: Lär dig mer om de nya funktionerna i Azure Backup Server. Den här artikeln beskriver hur du uppgraderar installationen av säkerhets kopierings servern.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74172384"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 
-Azure Backup Server V2 och senare stöder modern säkerhetskopieringslagring som erbjuder lagringsbesparingar på 50 procent, säkerhetskopior som är tre gånger snabbare och effektivare lagring. Det erbjuder också arbetsbelastningsmedveten lagring.
+Azure Backup Server v2 och senare har stöd för Modern Backup Storage som ger lagrings besparingar på 50 procent, säkerhets kopior som är tre gånger snabbare och mer effektiv lagring. Den erbjuder även arbets belastnings medveten lagring.
 
 > [!NOTE]
-> Om du vill använda Modern Backup Storage måste du köra Backup Server V2 eller V3 på Windows Server 2016 eller V3 på Windows Server 2019.
-> Om du kör Backup Server V2 på en tidigare version av Windows Server kan Azure Backup Server inte dra nytta av modern säkerhetskopieringslagring. I stället skyddar den arbetsbelastningar som med Backup Server V1. Mer information finns i [versionsskyddsmatrisen](backup-mabs-protection-matrix.md)för säkerhetskopieringsserver .
+> Om du vill använda Modern Backup Storage måste du köra backup server v2 eller v3 på Windows Server 2016 eller v3 på Windows Server 2019.
+> Om du kör backup server v2 på en tidigare version av Windows Server kan Azure Backup Server inte dra nytta av Modern Backup Storage. I stället skyddas arbets belastningar på samma sätt som med säkerhets kopierings servern v1. Mer information finns i [matrisen](backup-mabs-protection-matrix.md)för säkerhets kopiering av Server versions skydd.
 >
-> För att uppnå förbättrade prestanda för säkerhetskopiering rekommenderar vi att du distribuerar MABS v3 med nivåindelningslagring på Windows Server 2019. Se DPM-artikeln "[Konfigurera MBS med nivåindelningslagring](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" för steg för att konfigurera nivåindelad lagring.
+> För att uppnå förbättrade prestanda för säkerhets kopiering rekommenderar vi att du distribuerar MABS v3 med skiktad lagring på Windows Server 2019. Se DPM-artikeln "[Konfigurera MB med Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" för steg för att konfigurera skiktat lagrings utrymme.
 
-## <a name="volumes-in-backup-server"></a>Volymer i Säkerhetskopieringsserver
+## <a name="volumes-in-backup-server"></a>Volymer i säkerhets kopierings Server
 
-Backup Server V2 eller senare accepterar lagringsvolymer. När du lägger till en volym formateras volymen till Resilient File System (ReFS), som modern säkerhetskopieringslagring kräver. Om du vill lägga till en volym och expandera den senare om du behöver föreslår vi att du använder det här arbetsflödet:
+Backup server v2 eller senare accepterar lagrings volymer. När du lägger till en volym formaterar backup-servern volymen till elastiskt fil system (ReFS) som Modern Backup Storage kräver. Om du vill lägga till en volym och expandera den senare om du behöver det rekommenderar vi att du använder det här arbets flödet:
 
-1. Konfigurera säkerhetskopieringsserver på en virtuell dator.
+1. Konfigurera säkerhets kopierings server på en virtuell dator.
 2. Skapa en volym på en virtuell disk i en lagringspool:
     1. Lägg till en disk i en lagringspool och skapa en virtuell disk med enkel layout.
     2. Lägg till ytterligare diskar och utöka den virtuella disken.
     3. Skapa volymer på den virtuella disken.
-3. Lägg till volymerna i Säkerhetskopieringsservern.
-4. Konfigurera arbetsbelastningsmedveten lagring.
+3. Lägg till volymerna på säkerhets kopierings servern.
+4. Konfigurera arbets belastnings medveten lagring.
 
-## <a name="create-a-volume-for-modern-backup-storage"></a>Skapa en volym för modern säkerhetskopieringslagring
+## <a name="create-a-volume-for-modern-backup-storage"></a>Skapa en volym för Modern Backup Storage
 
-Om du använder Backup Server V2 eller senare med volymer som disklagring kan du behålla kontrollen över lagringen. En volym kan vara en enda disk. Men om du vill utöka lagringsutrymmet i framtiden skapar du en volym av en disk som skapats med hjälp av lagringsutrymmen. Detta kan hjälpa om du vill utöka volymen för säkerhetskopiering lagring. Det här avsnittet innehåller metodtips för att skapa en volym med den här inställningen.
+Genom att använda backup server v2 eller senare med volymer som disk lagring kan du behålla kontrollen över lagringen. En volym kan vara en enskild disk. Men om du vill utöka lagringen i framtiden kan du skapa en volym från en disk som skapats med hjälp av lagrings utrymmen. Detta kan hjälpa dig om du vill expandera volymen för lagring av säkerhets kopior. Det här avsnittet innehåller metod tips för att skapa en volym med den här installationen.
 
-1. I Serverhanteraren väljer du**Lagringspooler**för **fil- och lagringstjänster.** > **Volumes** >  Under **FYSISKA DISKAR**väljer du **Ny lagringspool**.
+1. I Serverhanteraren väljer du **fil-och lagrings tjänst** > **volymer** > **lagringspooler**. Under **fysiska diskar**väljer du **ny lagringspool**.
 
     ![Skapa en ny lagringspool](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
-2. Välj **Ny virtuell disk**i listrutan **UPPGIFTER** .
+2. I list rutan **uppgifter** väljer du **ny virtuell disk**.
 
-    ![Lägga till en virtuell disk](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
+    ![Lägg till en virtuell disk](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
 3. Markera lagringspoolen och välj sedan **Lägg till fysisk disk**.
 
-    ![Lägga till en fysisk disk](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
+    ![Lägg till en fysisk disk](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
-4. Markera den fysiska disken och välj sedan **Utöka virtuell disk**.
+4. Välj den fysiska disken och välj sedan **utöka virtuell disk**.
 
     ![Utöka den virtuella disken](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
 
-5. Markera den virtuella disken och välj sedan **Ny volym**.
+5. Välj den virtuella disken och välj sedan **ny volym**.
 
     ![Skapa en ny volym](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. Välj servern och den nya disken i dialogrutan **Välj server och disk.** Välj sedan **Nästa**.
+6. I dialog rutan **Välj server och disk** väljer du servern och den nya disken. Välj sedan **Nästa**.
 
     ![Välj server och disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
-## <a name="add-volumes-to-backup-server-disk-storage"></a>Lägga till volymer i disklagring av Säkerhetskopieringsserver
+## <a name="add-volumes-to-backup-server-disk-storage"></a>Lägg till volymer på säkerhets kopierings serverns disk lagring
 
 > [!NOTE]
 >
-> - Lägg bara till en disk i poolen för att hålla kolumnantalet till 1. Du kan sedan lägga till diskar efter behov efteråt.
-> - Om du lägger till flera diskar i lagringspoolen samtidigt lagras antalet diskar som antalet kolumner. När fler diskar läggs till kan de bara vara en multipel av antalet kolumner.
+> - Lägg endast till en disk i poolen för att behålla kolumn antalet till 1. Sedan kan du lägga till diskar efter behov efteråt.
+> - Om du lägger till flera diskar i lagringspoolen är antalet diskar lagrade som antalet kolumner. När du lägger till fler diskar kan de bara vara en multipel av antalet kolumner.
 
-Om du vill lägga till en volym i Säkerhetskopieringsservern skannar du om lagringsutrymmet i **hanteringsfönstret** och väljer sedan **Lägg till**. En lista över alla tillgängliga volymer som ska läggas till för lagring av säkerhetskopieringsserver visas. När tillgängliga volymer har lagts till i listan över valda volymer kan du ge dem ett eget namn som hjälper dig att hantera dem. Om du vill formatera dessa volymer till ReFS så att Säkerhetskopieringsserver kan använda fördelarna med modern säkerhetskopieringslagring väljer du **OK**.
+Om du vill lägga till en volym på säkerhets kopierings servern går du igenom **hanterings** fönstret och skannar lagringen på nytt och väljer sedan **Lägg till**. En lista över alla volymer som ska läggas till för lagring av reserv servrar visas. När de tillgängliga volymerna har lagts till i listan med valda volymer kan du ge dem ett eget namn som hjälper dig att hantera dem. Om du vill formatera dessa volymer till ReFS så att backup server kan använda fördelarna med Modern Backup Storage väljer du **OK**.
 
 ![Lägg till tillgängliga volymer](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-## <a name="set-up-workload-aware-storage"></a>Konfigurera arbetsbelastningsmedveten lagring
+## <a name="set-up-workload-aware-storage"></a>Konfigurera arbets belastnings medveten lagring
 
-Med arbetsbelastningsmedveten lagring kan du välja de volymer som med företrädesvis lagrar vissa typer av arbetsbelastningar. Du kan till exempel ange dyra volymer som stöder ett stort antal in-/utdataåtgärder per sekund (IOPS) för att lagra endast arbetsbelastningar som kräver frekventa säkerhetskopior med hög volym. Ett exempel är SQL Server med transaktionsloggar. Andra arbetsbelastningar som säkerhetskopieras mindre ofta, till exempel virtuella datorer, kan säkerhetskopieras till billiga volymer.
+Med arbets belastnings medveten lagring kan du välja de volymer som i stor lag lagrar vissa typer av arbets belastningar. Du kan till exempel ange dyra volymer som har stöd för ett stort antal in-/utdata-åtgärder per sekund (IOPS) för att endast lagra arbets belastningar som kräver frekventa säkerhets kopieringar med hög volym. Ett exempel är SQL Server med transaktions loggar. Andra arbets belastningar som säkerhets kopie ras mindre ofta, t. ex. virtuella datorer, kan säkerhets kopie ras till låga volymer.
 
 ### <a name="update-dpmdiskstorage"></a>Uppdate-DPMDiskStorage
 
-Du kan ställa in arbetsbelastningsmedveten lagring med hjälp av PowerShell cmdlet Update-DPMDiskStorage, som uppdaterar egenskaperna för en volym i lagringspoolen på en Azure Backup Server.
+Du kan ställa in arbets belastnings medveten lagring med hjälp av PowerShell-cmdlet Update-DPMDiskStorage, som uppdaterar egenskaperna för en volym i lagringspoolen på en Azure Backup Server.
 
 Syntax:
 
@@ -87,50 +87,50 @@ Syntax:
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 
-Följande skärmbild visar cmdleten Update-DPMDiskStorage i PowerShell-fönstret.
+Följande skärm bild visar cmdleten Update-DPMDiskStorage i PowerShell-fönstret.
 
 ![Kommandot Update-DPMDiskStorage i PowerShell-fönstret](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
-De ändringar du gör med PowerShell återspeglas i administratörskonsolen för säkerhetskopieringsserver.
+De ändringar du gör med hjälp av PowerShell visas i Administratörskonsol för säkerhets kopierings servern.
 
-![Diskar och volymer i administratörskonsolen](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
+![Diskar och volymer i Administratörskonsol](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrera äldre lagring till modern lagring av säkerhetskopiering
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrera äldre lagrings utrymme till Modern Backup Storage
 
-När du har uppgraderat till eller installerat Backup Server V2 och uppgraderat operativsystemet till Windows Server 2016 uppdaterar du skyddsgrupperna så att de använder modern säkerhetskopieringslagring. Som standard ändras inte skyddsgrupper. De fortsätter att fungera som de ursprungligen inrättades.
+När du har uppgraderat till eller installerat säkerhets kopierings Server v2 och uppgraderat operativ systemet till Windows Server 2016 uppdaterar du skydds grupperna så att de använder Modern Backup Storage. Skydds grupper ändras inte som standard. De fortsätter att fungera som de ursprungligen konfigurerades.
 
-Uppdatering av skyddsgrupper för användning av Modern Backup Storage är valfritt. Om du vill uppdatera skyddsgruppen stoppar du skyddet av alla datakällor med hjälp av alternativet behåll data. Lägg sedan till datakällorna i en ny skyddsgrupp.
+Uppdatering av skyddsgrupper för användning av Modern Backup Storage är valfritt. Om du vill uppdatera skydds gruppen stoppar du skyddet av alla data källor med alternativet Kvarhåll data. Lägg sedan till data källorna i en ny skydds grupp.
 
-1. Välj funktionen **Skydd** i administratörskonsolen. Högerklicka på medlemmen i listan **Medlem i skyddsgrupp** och välj sedan **Stoppa skyddet för medlemmen**.
+1. I Administratörskonsol väljer du **skydds** funktionen. I listan **skydds grupps medlem** högerklickar du på medlemmen och väljer sedan **stoppa skyddet av medlem**.
 
-   ![Stoppa skyddet av medlemmar](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Stoppa skyddet av medlem](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. I dialogrutan **Ta bort från grupp** granskar du det använda diskutrymmet och det lediga utrymmet för lagringspoolen. Standardinställningen är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Klicka på **OK**.
+2. I dialog rutan **ta bort från grupp** granskar du använt disk utrymme och tillgängligt ledigt utrymme för lagringspoolen. Standardinställningen är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Klicka på **OK**.
 
-   Om du omedelbart vill returnera det använda diskutrymmet till den kostnadsfria lagringspoolen markerar du kryssrutan **Ta bort replik på disken** för att ta bort säkerhetskopierade data (och återställningspunkter) som är associerade med medlemmen.
+   Om du omedelbart vill returnera det använda disk utrymmet till den kostnads fria lagringspoolen markerar du kryss rutan **ta bort replik på disk** för att ta bort de säkerhets kopierings data (och återställnings punkter) som är associerade med medlemmen.
 
-   ![Dialogrutan Ta bort från grupp](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Dialog rutan ta bort från grupp](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
-3. Skapa en skyddsgrupp som använder modern säkerhetskopieringslagring. Inkludera de oskyddade datakällorna.
+3. Skapa en skydds grupp som använder Modern Backup Storage. Inkludera oskyddade data källor.
 
-## <a name="add-disks-to-increase-legacy-storage"></a>Lägga till diskar för att öka äldre lagring
+## <a name="add-disks-to-increase-legacy-storage"></a>Lägg till diskar för att öka äldre lagrings utrymme
 
-Om du vill använda äldre lagring med Backup Server kan du behöva lägga till diskar för att öka äldre lagring.
+Om du vill använda äldre lagrings enheter med backup server kan du behöva lägga till diskar för att öka den äldre lagringen.
 
 Lägga till disklagring:
 
-1. Välj Lägg**till**lägg till**för lagring av hanteringsdiskar** >  **Management** > i administratörskonsolen .
+1. I administratörskonsol väljer du **hantering** > **disklagring** > **Lägg till**.
 
-    ![Dialogrutan Lägg till disklagring](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Dialog rutan Lägg till Disklagring](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-2. Välj **Lägg till diskar**i dialogrutan **Lägg till disklagring** .
+2. I dialog rutan **Lägg till disklagring** väljer du **Lägg till diskar**.
 
-3. I listan över tillgängliga diskar väljer du de diskar du vill lägga till, väljer **Lägg till**och väljer sedan **OK**.
+3. I listan över tillgängliga diskar väljer du de diskar som du vill lägga till, väljer **Lägg till**och väljer sedan **OK**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har installerat Backup Server kan du läsa om hur du förbereder servern eller börjar skydda en arbetsbelastning.
+När du har installerat säkerhets kopierings servern lär du dig hur du förbereder servern eller börjar skydda en arbets belastning.
 
-- [Förbereda arbetsbelastningar för säkerhetskopieringsserver](backup-azure-microsoft-azure-backup.md)
-- [Använda Säkerhetskopieringsserver för att säkerhetskopiera en VMware-server](backup-azure-backup-server-vmware.md)
-- [Använda Säkerhetskopieringsserver för säkerhetskopiering av SQL Server](backup-azure-sql-mabs.md)
+- [Förbered arbets belastningar för säkerhets kopierings Server](backup-azure-microsoft-azure-backup.md)
+- [Säkerhetskopiera en VMware-Server med hjälp av backup server](backup-azure-backup-server-vmware.md)
+- [Använd backup server för att säkerhetskopiera SQL Server](backup-azure-sql-mabs.md)

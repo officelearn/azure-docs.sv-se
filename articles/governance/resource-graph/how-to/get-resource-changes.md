@@ -1,50 +1,50 @@
 ---
 title: Hämta resursändringar
-description: Förstå hur du hittar när en resurs har ändrats, hämta en lista över de egenskaper som har ändrats och utvärdera diffs.
+description: Lär dig hur du hittar när en resurs har ändrats, hämta en lista över de egenskaper som har ändrats och utvärdera differenserna.
 ms.date: 10/09/2019
 ms.topic: how-to
 ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873037"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
-Resurser ändras genom daglig användning, omkonfiguration och till och med omfördelning.
-Förändring kan komma från en individ eller genom en automatiserad process. De flesta förändringar är avsiktligt, men ibland är det inte. Med de senaste 14 dagarnas ändringshistorik kan du med Azure Resource Graph:
+Resurser ändras genom daglig användning, omkonfiguration och till och med omdistribution.
+Ändringen kan komma från en person eller en automatiserad process. De flesta ändringar är av design, men ibland är det inte. Med de senaste 14 dagarna i ändrings historiken kan du med Azure Resource Graph:
 
-- Hitta när ändringar upptäcktes på en Azure Resource Manager-egenskap
-- För varje resursändring, se information om egenskapsändring
+- Hitta när ändringar upptäcktes i en Azure Resource Manager-egenskap
+- Information om varje resurs ändring finns i egenskaper för egenskaps ändring
 - Se en fullständig jämförelse av resursen före och efter den identifierade ändringen
 
-Ändringsidentifiering och information är värdefulla för följande exempelscenarier:
+Ändrings identifiering och information är värdefull i följande exempel scenarier:
 
-- Under incidenthantering för att förstå _potentiellt_ relaterade förändringar. Fråga efter ändringshändelser under ett visst tidsfönster och utvärdera ändringsinformationen.
-- Hålla en configuration management-databas, känd som en CMDB, uppdaterad. I stället för att uppdatera alla resurser och deras fullständiga egenskapsuppsättningar på en schemalagd frekvens får du bara det som har ändrats.
-- Förstå vilka andra egenskaper som kan ha ändrats när en resurs ändrade efterlevnadstillståndet. Utvärdering av dessa ytterligare egenskaper kan ge insikter om andra egenskaper som kan behöva hanteras via en Azure Policy-definition.
+- Under incident hantering kan du förstå _potentiellt_ relaterade ändringar. Fråga efter ändrings händelser under en angiven tids period och utvärdera ändrings informationen.
+- Upprätthålla en databas för konfigurations hantering, som kallas en CMDB, uppdaterad. I stället för att uppdatera alla resurser och deras fullständiga egenskaps uppsättningar enligt en schemalagd frekvens får du bara det som ändrades.
+- Förstå vilka andra egenskaper som kan ha ändrats när en resurs ändrade kompatibilitetstillstånd. Utvärdering av dessa ytterligare egenskaper kan ge insikter om andra egenskaper som kan behöva hanteras via en Azure Policy-definition.
 
-Den här artikeln visar hur du samlar in den här informationen via Resource Graph SDK. Information om hur du ser den här informationen i Azure-portalen finns i Azure Policy [ändringshistorik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller Azure Activity Log [Change-historik](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
-Mer information om ändringar i dina program från infrastrukturlagret hela vägen till programdistribution finns i [Använda programändringsanalys (förhandsversion)](../../../azure-monitor/app/change-analysis.md) i Azure Monitor.
+Den här artikeln visar hur du samlar in den här informationen via resurs Diagramets SDK. Information om hur du kan se den här informationen i Azure Portal finns i Azure Policys [ändrings historik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller [ändrings historik](../../../azure-monitor/platform/activity-log-view.md#azure-portal)för Azure aktivitets loggen.
+Mer information om ändringar i dina program från infrastruktur skiktet hela vägen till program distribution finns i [använda program ändrings analys (för hands version)](../../../azure-monitor/app/change-analysis.md) i Azure Monitor.
 
 > [!NOTE]
-> Ändringsinformation i Resursdiagram är för Resource Manager-egenskaper. Information om hur du spårar ändringar inuti en virtuell dator finns i Azure Automations [ändringsspårning](../../../automation/automation-change-tracking.md) eller Azure-principens [gästkonfiguration för virtuella datorer](../../policy/concepts/guest-configuration.md).
+> Ändrings informationen i resurs diagrammet är för Resource Manager-egenskaper. Information om hur du spårar ändringar i en virtuell dator finns i Azure Automation [ändrings spårning](../../../automation/automation-change-tracking.md) eller Azure policys [gäst konfiguration för virtuella datorer](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> Ändringshistoriken i Azure Resource Graph finns i offentlig förhandsversion.
+> Ändrings historiken i Azure Resource Graph finns i en offentlig för hands version.
 
-## <a name="find-detected-change-events-and-view-change-details"></a>Hitta upptäckta ändringshändelser och visa ändringsinformation
+## <a name="find-detected-change-events-and-view-change-details"></a>Hitta identifierade ändrings händelser och Visa ändrings information
 
-Det första steget för att se vad som har ändrats på en resurs är att hitta ändringshändelser som är relaterade till den resursen inom ett tidsfönster. Varje ändringshändelse innehåller också information om vad som har ändrats på resursen. Det här steget görs via **resursenChanges** REST-slutpunkten.
+Det första steget i att se vad som har ändrats på en resurs är att hitta ändrings händelserna som är relaterade till resursen inom ett tidsintervall. Varje ändrings händelse innehåller också information om vad som har ändrats i resursen. Det här steget görs genom **resourceChanges** REST-slutpunkten.
 
-**ResursChanges-slutpunkten** accepterar följande parametrar i begärandetexten:
+**ResourceChanges** -slutpunkten accepterar följande parametrar i begär ande texten:
 
-- **resourceId** \[\]krävs: Azure-resursen att leta efter ändringar på.
-- **intervall** \[\]som krävs: En egenskap med _start-_ och _slutdatum_ för när en ändringshändelse ska sökas med **zulu tidszon (Z).**
-- **fetchPropertyChanges** (valfritt): En boolesk egenskap som anger om svarsobjektet innehåller egenskapsändringar.
+- **resourceId** \[krävs\]: Azure-resursen för att leta efter ändringar på.
+- **intervall** \[krävs\]: en egenskap med _Start_ - _och slutdatum för_ när du ska söka efter en ändrings händelse med **Zulu Time Zone (Z)**.
+- **fetchPropertyChanges** (valfritt): en boolesk egenskap som anger om Response-objektet innehåller egenskaps ändringar.
 
-Exempel begäran organ:
+Exempel på begär ande text:
 
 ```json
 {
@@ -57,13 +57,13 @@ Exempel begäran organ:
 }
 ```
 
-Med ovanstående begärandetext är REST API URI för **resourceChanges:**
+Med ovanstående begär ande text är REST API-URI: n för **resourceChanges** :
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
 ```
 
-Svaret liknar det här exemplet:
+Svaret ser ut ungefär som i det här exemplet:
 
 ```json
 {
@@ -140,30 +140,30 @@ Svaret liknar det här exemplet:
 }
 ```
 
-Varje identifierad ändringshändelse för **resourceId** har följande egenskaper:
+Varje identifierad ändrings händelse för **resourceId** har följande egenskaper:
 
-- **changeId** - Det här värdet är unikt för den resursen. Även om **changeId-strängen** ibland kan innehålla andra egenskaper, är den bara garanterad att vara unik.
-- **beforeSnapshot** - Innehåller **snapshotId** och **tidsstämpel** för resursögonblicksbilden som togs innan en ändring upptäcktes.
-- **afterSnapshot** - Innehåller **snapshotId** och **tidsstämpel** för resursögonblicksbilden som togs efter att en ändring upptäcktes.
-- **changeType** - Beskriver den typ av ändring som har identifierats för hela **ändringsposten mellan föreSnapshot** och **afterSnapshot**. Värdena är: _Skapa,_ _Uppdatera_och _Ta bort_. **EgenskapEn PropertyChanges-egenskapsmatrisen** inkluderas endast när **changeType** är _Update_.
-- **propertyChanges** - Den här matrisen med egenskaper beskriver alla resursegenskaper som uppdaterades mellan **föreSnapshot** och **afterSnapshot:**
-  - **propertyName** - Namnet på resursegenskapen som har ändrats.
-  - **changeCategory** - Beskriver vad som gjorde ändringen. Värdena är: _System_ och _Användare_.
-  - **changeType** - Beskriver vilken typ av ändring som har identifierats för den enskilda resursegenskapen.
-    Värdena är: _Infoga_, _Uppdatera_, _Ta bort_.
-  - **beforeValue** - Värdet för resursegenskapen i **beforeSnapshot**. Visas inte när **changeType** är _Infoga_.
-  - **afterValue** - Värdet för resursegenskapen i **afterSnapshot**. Visas inte när **changeType** är _Remove_.
+- **changeId** – det här värdet är unikt för den resursen. **ChangeId** -strängen kan ibland innehålla andra egenskaper, men den garanterar bara att vara unik.
+- **beforeSnapshot** – innehåller **snapshotId** och **tidsstämpel** för den resurs ögonblicks bild som togs innan en ändring upptäcktes.
+- **afterSnapshot** – innehåller **snapshotId** och **tidsstämpel** för den resurs ögonblicks bild som togs efter en ändring upptäcktes.
+- **ändrings typs** – beskriver vilken typ av ändring som har identifierats för hela ändrings posten mellan **beforeSnapshot** och **afterSnapshot**. Värdena är: _skapa_, _Uppdatera_och _ta bort_. **PropertyChanges** egenskaps mat ris ingår endast när **ändrings typs** är _Update_.
+- **propertyChanges** – denna egenskaps mat ris innehåller information om alla resurs egenskaper som har uppdaterats mellan **beforeSnapshot** och **afterSnapshot**:
+  - **PropertyName** -namnet på den resurs egenskap som har ändrats.
+  - **changeCategory** – beskriver vad som gjorde ändringen. Värdena är: _system_ och _användare_.
+  - **ändrings typs** – beskriver vilken typ av ändring som har identifierats för den enskilda resurs egenskapen.
+    Värden är: _Infoga_, _Uppdatera_och _ta bort_.
+  - **beforeValue** – värdet för resurs egenskapen i **beforeSnapshot**. Visas inte när **ändrings typs** är _insert_.
+  - **afterValue** – värdet för resurs egenskapen i **afterSnapshot**. Visas inte när **ändrings typs** är _Remove_.
 
-## <a name="compare-resource-changes"></a>Jämföra resursändringar
+## <a name="compare-resource-changes"></a>Jämför resurs ändringar
 
-Med **changeId** från **resursenÄnd-slutpunkten används** **sedan resurschangeDetails** REST-slutpunkten för att hämta före och efter ögonblicksbilder av resursen som har ändrats.
+Med **changeId** från **resourceChanges** -slutpunkten används **resourceChangeDetails** REST-slutpunkten för att hämta före och efter ögonblicks bilder av resursen som ändrades.
 
-**ResursChangeDetails-slutpunkten** kräver två parametrar i begärandetexten:
+**ResourceChangeDetails** -slutpunkten kräver två parametrar i begär ande texten:
 
-- **resourceId**: Azure-resursen att jämföra ändringar på.
-- **changeId**: Den unika ändringshändelsen för **resourceId som** samlats in från **resourceChanges**.
+- **resourceId**: Azure-resursen för att jämföra ändringar på.
+- **changeId**: den unika ändrings händelsen för **resourceId** som samlats in från **resourceChanges**.
 
-Exempel begäran organ:
+Exempel på begär ande text:
 
 ```json
 {
@@ -172,13 +172,13 @@ Exempel begäran organ:
 }
 ```
 
-Med ovanstående begärandetext är REST API URI för **resourceChangeDetails:**
+Med ovanstående begär ande text är REST API-URI: n för **resourceChangeDetails** :
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
 ```
 
-Svaret liknar det här exemplet:
+Svaret ser ut ungefär som i det här exemplet:
 
 ```json
 {
@@ -280,12 +280,12 @@ Svaret liknar det här exemplet:
 }
 ```
 
-**beforeSnapshot** och **afterSnapshot** varje ger den tid ögonblicksbilden togs och egenskaperna vid den tidpunkten. Ändringen inträffade någon gång mellan dessa ögonblicksbilder. Om man tittar på exemplet ovan kan vi se att egenskapen som ändrades **stöderHttpsTrafficOnly**.
+**beforeSnapshot** och **afterSnapshot** var och en anger tiden då ögonblicks bilden togs och egenskaperna vid denna tidpunkt. Ändringen skedde mellan dessa ögonblicks bilder. I exemplet ovan kan vi se att egenskapen som ändrades var **supportsHttpsTrafficOnly**.
 
-Om du vill jämföra resultaten använder du egenskapen **Changes** i **resourceChanges** eller **utvärderar** innehållsdelen av varje ögonblicksbild i **resourceChangeDetails** för att fastställa skillnaden. Om du jämför ögonblicksbilderna visas **tidsstämpeln** alltid som en skillnad trots att den förväntas.
+Jämför resultaten genom att antingen använda egenskapen **ändringar** i **resourceChanges** eller utvärdera **innehålls** delen av varje ögonblicks bild i **resourceChangeDetails** för att fastställa skillnaden. Om du jämför ögonblicks bilderna visas alltid **tidsstämpeln** som en differens trots att den förväntas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se språket som används i [Starter-frågor](../samples/starter.md).
-- Se avancerade användningsområden i [avancerade frågor](../samples/advanced.md).
-- Läs mer om hur du [utforskar resurser](../concepts/explore-resources.md).
+- Se språket som används i [Start frågor](../samples/starter.md).
+- Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
+- Lär dig mer om hur du [utforskar resurser](../concepts/explore-resources.md).

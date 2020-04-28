@@ -1,17 +1,17 @@
 ---
-title: Tilldela åtkomstprinciper till tjänstslutpunkter
-description: Lär dig hur du tilldelar säkerhetsåtkomstpoliser till HTTP- eller HTTPS-slutpunkter i tjänsten Service Fabric.
+title: Tilldela åtkomst principer till tjänstens slut punkter
+description: Lär dig hur du tilldelar säkerhets åtkomst principer till HTTP-eller HTTPS-slutpunkter i Service Fabrics tjänsten.
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614663"
 ---
-# <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Tilldela en säkerhetsåtkomstprincip för HTTP- och HTTPS-slutpunkter
-Om du tillämpar en körningsprincip och tjänstmanifestet deklarerar HTTP-slutpunktsresurser måste du ange en **SecurityAccessPolicy**.  **SecurityAccessPolicy** säkerställer att portar som allokerats till dessa slutpunkter är korrekt begränsade till användarkontot som tjänsten körs som. Annars har **http.sys** inte åtkomst till tjänsten och du får fel med samtal från klienten. I följande exempel tillämpas Customer1-kontot på en slutpunkt som heter **EndpointName**, vilket ger det fullständiga åtkomsträttigheter.
+# <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Tilldela en säkerhets åtkomst princip för HTTP-och HTTPS-slutpunkter
+Om du använder en kör som-princip och tjänst manifestet deklarerar resurser för HTTP-slutpunkt måste du ange en **SecurityAccessPolicy**.  **SecurityAccessPolicy** garanterar att portarna som allokeras till dessa slut punkter är korrekt begränsade till det användar konto som tjänsten kör som. Annars har **http. sys** inte åtkomst till tjänsten och du får problem med anrop från klienten. I följande exempel används Customer1-kontot till en slut punkt som kallas **EndpointName**, vilket ger fullständig åtkomst behörighet.
 
 ```xml
 <Policies>
@@ -21,7 +21,7 @@ Om du tillämpar en körningsprincip och tjänstmanifestet deklarerar HTTP-slutp
 </Policies>
 ```
 
-För en HTTPS-slutpunkt anger du också namnet på certifikatet som ska returneras till klienten. Du refererar till certifikatet med **EndpointBindingPolicy**.  Certifikatet definieras i avsnittet **Certifikat** i ansökningsmanifestet.
+För en HTTPS-slutpunkt anger du även namnet på det certifikat som ska returneras till klienten. Du refererar till certifikatet med **EndpointBindingPolicy**.  Certifikatet definieras i avsnittet **certifikat** i applikations manifestet.
 
 ```xml
 <Policies>
@@ -34,13 +34,13 @@ För en HTTPS-slutpunkt anger du också namnet på certifikatet som ska returner
 ```
 
 > [!WARNING] 
-> När du använder HTTPS ska du inte använda samma port och certifikat för olika tjänstinstanser (oberoende av programmet) som distribueras till samma nod. Om du uppgraderar två olika tjänster med samma port i olika programinstanser kan det leda till ett uppgraderingsfel. Mer information finns i [Uppgradera flera program med HTTPS-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+> När du använder HTTPS ska du inte använda samma port och certifikat för olika tjänst instanser (oberoende av programmet) som distribueras till samma nod. Uppgradering av två olika tjänster med samma port i olika program instanser leder till ett uppgraderings haveri. Mer information finns i [uppgradera flera program med https-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 > 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Nästa steg finns i följande artiklar:
-* [Förstå programmodellen](service-fabric-application-model.md)
-* [Ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md)
+För nästa steg kan du läsa följande artiklar:
+* [Förstå program modellen](service-fabric-application-model.md)
+* [Ange resurser i ett tjänst manifest](service-fabric-service-manifest-resources.md)
 * [Distribuera ett program](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

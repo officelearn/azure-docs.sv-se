@@ -1,45 +1,45 @@
 ---
-title: EXEMPEL PÅ ACR-uppgift
-description: Exempel på Azure Container Registry Tasks (ACR-uppgifter) för att skapa, köra och korrigera behållaravbildningar
+title: ACR-uppgifts exempel
+description: Exempel på Azure Container Registry uppgifter (ACR-aktiviteter) för att skapa, köra och uppdatera behållar avbildningar
 ms.topic: article
 ms.date: 11/14/2019
 ms.openlocfilehash: 49df3bf565052a729ac3c587bd2ba11a299d05f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456095"
 ---
 # <a name="acr-tasks-samples"></a>Exempel på ACR-uppgifter
 
-Den här artikeln `task.yaml` länkar till exempelfiler och associerade Dockerfiler för flera ACR-uppgifter [(Azure Container Registry)](container-registry-tasks-overview.md) scenarier. 
+Den här artikeln länkar till `task.yaml` exempel filer och associerade Dockerfiles för flera [Azure Container Registry uppgifter](container-registry-tasks-overview.md) (ACR tasks) scenarier. 
 
-Ytterligare exempel finns i repo-eran för [Azure-exempel.][task-examples]
+Fler exempel finns i Azure- [exemplen][task-examples] lagrings platsen.
 
 ## <a name="scenarios"></a>Scenarier
 
-* **Skapa avbildning** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Bygg avbildning** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Kör behållaren** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml)
+* **Kör container** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml)
 
-* **Skapa och pusha avbildning** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Bygge och push** - -[yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Skapa och köra avbildning** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Skapa och kör avbildning** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Skapa och driva flera bilder** -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Bygg och skicka flera avbildningar** -  [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Skapa och testa avbildningar parallellt** -  [med YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Bygg och testa bilder parallellt** -  [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Skapa och skicka avbildningar** - till flera register[YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile)
+* **Bygg och skicka avbildningar till flera register** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om ACR-uppgifter:
 
-* [Flerstegsuppgifter](container-registry-tasks-multi-step.md) - ACR-uppgiftsbaserade arbetsflöden för att skapa, testa och korrigera behållaravbildningar i molnet.
-* [Aktivitetsreferens](container-registry-tasks-reference-yaml.md) - Stegtyper för uppgift, deras egenskaper och användning.
-* [Cmd repo](https://github.com/AzureCR/cmd) - En samling behållare som kommandon för ACR-uppgifter.
+* [Aktiviteter med flera steg](container-registry-tasks-multi-step.md) – ACR uppgiftsbaserade arbets flöden för att skapa, testa och korrigera behållar avbildningar i molnet.
+* [Uppgifts referens](container-registry-tasks-reference-yaml.md) – uppgifts typer, egenskaper och användning.
+* [Cmd-lagrings platsen](https://github.com/AzureCR/cmd) – en samling behållare som kommandon för ACR-uppgifter.
 
 
 <!-- LINKS - External -->

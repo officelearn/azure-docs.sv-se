@@ -1,85 +1,85 @@
 ---
-title: Lägga till växlingssatser i arbetsflöden
-description: Skapa växelsatser som styr arbetsflödesåtgärder baserat på specifika värden i Azure Logic Apps
+title: Lägga till Switch-instruktioner till arbets flöden
+description: Så här skapar du switch-instruktioner som styr arbets flödes åtgärder baserat på vissa värden i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793232"
 ---
-# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa växelsatser som kör arbetsflödesåtgärder baserat på specifika värden i Azure Logic Apps
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa switch-instruktioner som kör arbets flödes åtgärder baserat på vissa värden i Azure Logic Apps
 
-Om du vill köra specifika åtgärder baserat på värdena för *switch* objekt, uttryck eller token lägger du till en switch-sats. Den här strukturen utvärderar objektet, uttrycket eller token, väljer det ärende som matchar resultatet och kör specifika åtgärder endast för det fallet. När switch-satsen körs ska endast ett ärende matcha resultatet.
+Om du vill köra vissa åtgärder baserat på värdena för objekt, uttryck eller token, lägger du till en *switch* -instruktion. Den här strukturen utvärderar objektet, uttrycket eller token, väljer det Skift läge som matchar resultatet och kör bara vissa åtgärder för det fallet. När switch-instruktionen körs ska endast ett fall matcha resultatet.
 
-Anta till exempel att du vill ha en logikapp som tar olika steg baserat på ett alternativ som valts i e-post. I det här exemplet kontrollerar logikappen en webbplats RSS-flöde efter nytt innehåll. När ett nytt objekt visas i RSS-flödet skickar logikappen e-post till en godkännare. Baserat på om godkännaren väljer "Godkänn" eller "Avvisa" följer logikappen olika steg.
+Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett alternativ som valts i e-post. I det här exemplet kontrollerar Logic-appen en webbplats RSS-flöde för nytt innehåll. När ett nytt objekt visas i RSS-flödet skickar Logic-appen e-post till en god kännare. Beroende på om god kännaren väljer "Godkänn" eller "avvisa" följer Logic-appen olika steg.
 
 > [!TIP]
-> Precis som alla programmeringsspråk stöder bytesuttalanden endast jämlikhetsoperatörer. Om du behöver andra relationsoperatorer, till exempel "större än", använder du en [villkorssats](../logic-apps/logic-apps-control-flow-conditional-statement.md).
-> För att säkerställa deterministiskt körningsbeteende måste ärenden innehålla ett unikt och statiskt värde i stället för dynamiska token eller uttryck.
+> Precis som alla programmeringsspråk stöder switch-satser bara likhets operatorer. Om du behöver andra relationella operatorer, till exempel "större än", använder du en [villkors instruktion](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+> För att säkerställa deterministiska körnings beteenden måste fall innehålla ett unikt och statiskt värde i stället för dynamiska tokens eller uttryck.
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Om du vill följa exemplet i den här artikeln [skapar du den här exempellogiken med](../logic-apps/quickstart-create-first-logic-app-workflow.md) ett Outlook.com eller Office 365 Outlook-konto.
+* Om du vill följa exemplet i den här artikeln [skapar du den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-eller Office 365 Outlook-konto.
 
-  1. När du lägger till åtgärden för att skicka e-post, hitta och välja den här åtgärden i stället: **Skicka ett godkännande e-postmeddelande**
+  1. När du lägger till åtgärden för att skicka e-post, leta upp och välj den här åtgärden i stället: **Skicka ett e-postmeddelande om godkännande**
 
      ![Välj "Skicka ett e-postmeddelande om godkännande"](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
-  1. Ange de fält som krävs, till exempel e-postadressen för den person som får e-postmeddelandet med godkännande. 
-  Under **Användaralternativ**anger du "Godkänn, Avvisa".
+  1. Ange de obligatoriska fälten, t. ex. e-postadressen för den person som får e-postmeddelandet. 
+  Under **användar alternativ**anger du "Godkänn, avvisa".
 
      ![Ange e-postinformation](./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png)
 
-## <a name="add-switch-statement"></a>Lägg till växelsats
+## <a name="add-switch-statement"></a>Lägg till Switch-instruktion
 
-1. I det här exemplet lägger du till en switch-sats i slutet av exempelarbetsflödet. Efter det sista steget väljer du **Nytt steg**.
+1. I det här exemplet lägger du till en switch-instruktion i slutet av exempel arbets flödet. Välj **nytt steg**efter det sista steget.
 
-   När du vill lägga till en växelsats mellan stegen flyttar du pekaren över pilen där du vill lägga till växelsatsen. Välj **plustecknet** **+**( ) som visas och välj sedan **Lägg till en åtgärd**.
+   När du vill lägga till en switch-sats mellan stegen flyttar du pekaren över den pil där du vill lägga till Switch-instruktionen. Välj **plus tecknet** (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. I sökrutan anger du "växla" som filter. Välj den här åtgärden: **Växla - Kontroll**
+1. Skriv "Växla" som filter i sökrutan. Välj den här åtgärden: **växel kontroll**
 
    ![Lägg till växel](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
-   En växelsats visas med ett ärende och ett standardärende. 
-   Som standard kräver en växelsats minst ett ärende plus standardfallet. 
+   En switch-instruktion visas med ett skift läge och ett standard fall. 
+   Som standard kräver en switch-instruktion minst ett fall plus standard fallet. 
 
-   ![Tomt standardväxelsats](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
+   ![Tom standard växel instruktion](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
 
-1. Klicka i rutan **På** så att listan med dynamiskt innehåll visas. I den listan väljer du det **SelectedOption-fält** vars utdata bestämmer vilken åtgärd som ska utföras. 
+1. Klicka i rutan **i** så att listan med dynamiskt innehåll visas. I listan väljer du fältet **SelectedOption** vars utdata bestämmer vilken åtgärd som ska utföras. 
 
    ![Välj "SelectedOption"](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
 
-1. Om du vill hantera de `Approve` fall `Reject`där godkännaren väljer eller lägger du till ett annat ärende mellan **Ärende** och **Standard**. 
+1. För att hantera de fall där god kännaren `Approve` väljer `Reject`eller, Lägg till ett annat Skift läge mellan **SKIFT läget** och **standard**. 
 
    ![Lägg till ett annat ärende](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
 
-1. Lägg till dessa åtgärder i motsvarande ärenden:
+1. Lägg till följande åtgärder i motsvarande fall:
 
-   | Fall # | **ValtOption** | Åtgärd |
+   | Enskilt # | **SelectedOption** | Åtgärd |
    |--------|--------------------|--------|
-   | Fall 1 | **Godkänn** | Lägg till outlook **Skicka en e-poståtgärd** för att skicka information om RSS-objektet endast när godkännaren valde **Godkänn**. |
-   | Fall 2 | **Avvisa** | Lägg till Outlook **Skicka en e-poståtgärd** för att meddela andra godkännare att RSS-objektet avvisades. |
-   | Default | Inget | Inga åtgärder behövs. I det här exemplet är **standardfallet** tomt eftersom **SelectedOption** bara har två alternativ. |
+   | Fall 1 | **Godkänn** | Lägg till Outlook **skicka en e-** poståtgärd för att skicka information om RSS-objektet endast när god kännaren valt **Godkänn**. |
+   | Fall 2 | **Avvisa** | Lägg till Outlook **skicka en e-** poståtgärd för att meddela andra god kännare om att RSS-objektet avvisades. |
+   | Default | Ingen | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
    |||
 
-   ![Sats för färdigt växel](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
+   ![Instruktionen avslutad switch](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
 1. Spara din logikapp. 
 
-   Om du vill testa det här exemplet manuellt väljer du **Kör** tills logikappen hittar ett nytt RSS-objekt och skickar ett e-postmeddelande om godkännande. 
-   Välj **Godkänn** om du vill följa resultaten.
+   Om du vill testa det här exemplet manuellt väljer du **Kör** tills Logic-appen hittar ett nytt RSS-objekt och skickar ett e-postmeddelande om godkännande. 
+   Välj **Godkänn** för att se resultatet.
 
 ## <a name="json-definition"></a>JSON-definition
 
-Nu när du har skapat en logikapp med hjälp av en switch-sats ska vi titta på koddefinitionen på hög nivå bakom switch-satsen.
+Nu när du har skapat en Logic app med en switch-instruktion ska vi titta på den övergripande kod definitionen bakom switch-instruktionen.
 
 ``` json
 "Switch": {
@@ -112,21 +112,21 @@ Nu när du har skapat en logikapp med hjälp av en switch-sats ska vi titta på 
 
 | Label (Etikett) | Beskrivning |
 |-------|-------------|
-| `"Switch"`         | Namnet på switch-satsen, som du kan byta namn på för läsbarhet |
-| `"type": "Switch"` | Anger att åtgärden är en switch-sats |
-| `"expression"`     | I det här exemplet anger godkännarens valda alternativ som utvärderas mot varje ärende som deklareras senare i definitionen |
-| `"cases"` | Definierar valfritt antal ärenden. För varje `"Case_*"` enskilt fall är standardnamnet för det fallet, som du kan byta namn på för läsbarhet |
-| `"case"` | Anger ärendets värde, som måste vara ett konstant och unikt värde som switch-satsen använder för jämförelse. Om inga ärenden matchar resultatet för växeluttryck körs åtgärderna i avsnittet. `"default"` | 
+| `"Switch"`         | Namnet på Switch-instruktionen, som du kan byta namn på för läsbarhet |
+| `"type": "Switch"` | Anger att åtgärden är en switch-instruktion |
+| `"expression"`     | I det här exemplet anger god kännaren valt alternativ som utvärderas mot varje ärende som har deklarerats senare i definitionen |
+| `"cases"` | Definierar ett valfritt antal fall. För varje fall `"Case_*"` är standard namnet för det fallet, som du kan byta namn på för läsbarhet |
+| `"case"` | Anger Case-värdet, som måste vara ett konstant värde och ett unikt värde som switch-instruktionen använder för jämförelse. Om inga fall matchar resultatet av växel uttrycket körs åtgärderna i `"default"` avsnittet. | 
 | | | 
 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta om funktioner eller förslag besöker du [webbplatsen för användarfeedback för Azure Logic Apps](https://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på funktioner eller förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kör steg baserat på ett villkor (villkorssatser)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Kör och upprepa steg (loopar)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Kör eller sammanfoga parallella steg (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Kör steg baserat på grupperad åtgärdsstatus (scope)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Kör steg baserat på ett villkor (villkorliga uttryck)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Köra och upprepa steg (slingor)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Köra eller sammanfoga parallella steg (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Kör steg baserat på grupperad åtgärds status (omfång)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

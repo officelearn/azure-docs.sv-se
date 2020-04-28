@@ -1,6 +1,6 @@
 ---
-title: Använd Azure-portalen för att felsöka Azure Data Box Edge | Microsoft-dokument
-description: Beskriver felsöka Azure Data Box Edge-problem.
+title: Använd Azure Portal för att felsöka Azure Data Box Edge | Microsoft Docs
+description: Beskriver hur du felsöker Azure Data Box Edge problem.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 3a8d1f93930d2b298eeb7d10a73624b9a19bcc0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60756263"
 ---
 # <a name="troubleshoot-your-azure-data-box-edge-issues"></a>Felsöka problem med Azure Data Box Edge 
 
-I den här artikeln beskrivs felsÃ¶kning av problem i Azure Data Box Edge. 
+I den här artikeln beskrivs hur du felsöker problem på Azure Data Box Edge. 
 
 I den här artikeln kan du se hur du:
 
@@ -33,11 +33,11 @@ Du kan köra de diagnostiska testerna för att diagnostisera och felsöka eventu
 
 1. I det lokala webbgränssnittet går du till **Felsökning > Diagnostiska tester**. Välj det test du vill köra och klicka på **Kör test**. Tester för att diagnostisera möjliga problem med nätverk, enhet, webbproxy, tid eller molninställningar körs då. Du får ett meddelande om att enheten kör testerna.
 
-    ![Välj tester](media/data-box-edge-troubleshoot/run-diag-1.png)
+    ![Välj test](media/data-box-edge-troubleshoot/run-diag-1.png)
  
 2. När testerna har slutförts visas resultatet. 
 
-    ![Granska testresultat](media/data-box-edge-troubleshoot/run-diag-2.png)
+    ![Granska test resultat](media/data-box-edge-troubleshoot/run-diag-2.png)
 
     Om testet inte kan genomföras visas en URL för rekommenderad åtgärd. Du kan klicka på URL:en om du vill visa den rekommenderade åtgärden.
  
@@ -64,9 +64,9 @@ Eventuella fel som uppstod under uppladdnings- och uppdateringsprocesserna ingå
 
 1. Om du vill visa felfilerna öppnar du resursen och klickar på den för att visa innehållet. 
 
-      ![Ansluta till och visa delningsinnehåll](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
+      ![Ansluta till och Visa resurs innehåll](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Klicka på _mappen Microsoft Data Box Edge_. Den här mappen innehåller två undermappar:
+2. Klicka på _mappen Microsoft data Box Edge_. Den här mappen innehåller två undermappar:
 
     - Ladda upp mappen som innehåller loggfiler för uppladdningsfelen.
     - Uppdatera mappen för fel som uppstått under uppdateringen.

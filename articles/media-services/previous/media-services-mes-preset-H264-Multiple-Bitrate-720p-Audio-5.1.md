@@ -1,6 +1,6 @@
 ---
-title: H264 Flera Bitrate 720p Audio 5.1 | Microsoft-dokument
-description: Ämnet ger andverview av **H264 Multiple Bitrate 720p Audio 5.1** uppgift förinställda.
+title: H264, flera bit hastighet 720p Audio 5,1 | Microsoft Docs
+description: Avsnittet ger andverview av **H264, flera bit hastighet 720p 5,1** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: ac21558b1480f43b398f44949e18416284c3f606
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61129527"
 ---
 # <a name="h264-multiple-bitrate-720p-audio-51"></a>H264, flera bithastigheter, 720p, Audio 5.1
-`Media Encoder Standard`definierar en uppsättning kodningsförinställningar som du kan använda när du skapar kodningsjobb. Du kan antingen `preset name` använda en för att ange i vilket format du vill koda mediefilen. Du kan också skapa egna JSON- eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Du skulle sedan skicka den anpassade förinställningen till kodaren. En lista över alla förinställda `Media Encoder Standard` namn som stöds av den här kodaren finns i [Aktivitetsförinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard` kodaren finns i [uppgifts för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- I det `H264 Multiple Bitrate 720p Audio 5.1` här avsnittet visas förinställningen i XML- och JSON-format.  
+ I det här avsnittet `H264 Multiple Bitrate 720p Audio 5.1` visas för inställningen i XML-och JSON-format.  
   
- Den här förinställningen ger en uppsättning 6 GOP-justerade MP4-filer, från 3400 kbps till 400 kbps och AAC 5.1-ljud. För detaljerad information om profil, bithastighet, samplingsfrekvens etc. för den här förinställningen, undersök XML eller JSON som definieras nedan. Förklaringar av vad varje element innebär och giltiga värden för varje element finns i [schemat Media Encoder Standard](media-services-mes-schema.md).  
+ Den här för hands inställningen ger en uppsättning med 6 GOP MP4-filer, från 3400 kbps till 400 kbit/s och AAC 5,1-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element innebär och giltiga värden för varje element finns i [Media Encoder Standard schemat](media-services-mes-schema.md).  
   
 > [!NOTE]
->  När du `Width` ändrar värdena och `Height` värdena mellan lager kontrollerar du att proportionerna förblir konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640x360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640x360.  
+>  När du `Width` ändrar värdena `Height` och i lager bör du se till att proportionerna är konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

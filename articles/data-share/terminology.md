@@ -1,66 +1,66 @@
 ---
 title: Terminologi för Azure Data Share
-description: Lär dig mer om vanliga termer som används för att beskriva resurser som används i Azure Data Share (dataprovider, datakonsument, datadelning, aktieprenumeration, ögonblicksbild, inbjudan, mottagare.)
+description: Lär dig mer om vanliga termer som används för att beskriva resurser som används i Azure Data Share (dataprovider, data konsument, data resurs, resurs prenumeration, ögonblicks bild, inbjudan, mottagare.)
 ms.service: data-share
 author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73468550"
 ---
 # <a name="azure-data-share-concepts"></a>Azure Data Share-koncept 
 
-Azure Data Share introducerar en del ny terminologi som är relaterad till datadelning. I den här artikeln beskrivs några vanliga termer som kan visas i hela tjänsten. 
+Azure data sharing introducerar en del nya termer som rör data delning. I den här artikeln beskrivs några vanliga villkor som kan användas i hela tjänsten. 
 
-## <a name="data-provider"></a>Uppgiftslämnare
+## <a name="data-provider"></a>Data leverantör
 
-En dataleverantör är den organisation som delar data med sina konsumenter. Vanligtvis kan dataleverantören vara ägare eller intendent för data. Uppgiftslämnare vill dela data av olika typer. Några exempel på data som en dataprovider kanske vill dela är rådata, till exempel försäljnings- eller tidsseriedata. En dataleverantör kanske också vill dela förbehandlade, kurerade data som redan innehåller analyser och insikter. 
+En data leverantör är den organisation som delar data med sina konsumenter. Data leverantören kan vanligt vis vara en ägare eller en curator av data. Data leverantörer vill dela data av olika typer. Några exempel på data som en data leverantör kan vilja dela innehåller rå data, till exempel data punkter för försäljning eller tids serier. En DataProvider kan också vilja dela förbehandlade, granskade data som redan innehåller analyser och insikter. 
 
 ## <a name="data-consumer"></a>Data konsument 
 
-En datakonsument är den organisation som tar emot data från en dataleverantör. Datakonsumenten kanske vill ansluta sig till delade data med sina egna data för att härleda insikter. I vissa fall kan datakonsumenten ta emot uppgifter som redan har behandlats. 
+En data konsument är den organisation som tar emot data från en data leverantör. Data konsumenten kanske vill ansluta till delade data med sina egna data för att kunna härleda insikter. I vissa fall kan data konsumenten ta emot data som redan har bearbetats. 
 
 ## <a name="data-share"></a>Data Share
 
-En dataresurs är en grupp datauppsättningar som delas som en enda entitet. Datauppsättningar kan vara från ett antal Azure-datakällor som stöds av Azure Data Share. För närvarande stöder Azure Data Share Azure Blob Storage och Azure Data Lake Store. 
+En data resurs är en grupp data uppsättningar som delas som en enda enhet. Data uppsättningar kan vara från ett antal Azure-datakällor som stöds av Azure Data Share. För närvarande stöder Azure Data Share Azure Blob Storage och Azure Data Lake Store. 
 
-## <a name="share-subscription"></a>Dela teckning 
+## <a name="share-subscription"></a>Dela prenumeration 
 
-En aktieprenumeration skapas när en datakonsument accepterar en datadelningsinbjudan från en dataleverantör. Dataleverantörer kan visa aktiva delningsprenumerationer genom att navigera till **Skickade resurser** i sitt Azure Data Share-konto och välja **Dela prenumerationer**.
+En resurs prenumeration skapas när en data konsument accepterar en data delnings inbjudan från en data leverantör. Data leverantörer kan visa aktiva resurs prenumerationer genom att navigera till **skickade resurser** i sitt Azure Data Share-konto och välja **dela prenumerationer**.
 
-En datakonsument kan kontrollera om de har en aktiv aktieteckning genom att navigera till **mottagna aktier** och visa status för sina mottagna aktier. 
+En data konsument kan kontrol lera om de har en aktiv resurs prenumeration genom att navigera till **mottagna resurser** och visa statusen för de mottagna resurserna. 
 
 ## <a name="snapshot"></a>Ögonblicksbild
 
-En ögonblicksbild kan skapas av en datakonsument när de accepterar en inbjudan till datadelning. När de accepterar en inbjudan kan de utlösa en fullständig ögonblicksbild av de data som delas med dem. Ögonblicksbilden är en kopia av data vid den tidpunkt då datakonsumenten genererade ögonblicksbilden. 
+En ögonblicks bild kan skapas av en data konsument när de accepterar en inbjudan om data delning. När de accepterar en inbjudan kan de utlösa en fullständig ögonblicks bild av de data som delas med dem. Ögonblicks bilden är en kopia av data vid den tidpunkt då data konsumenten skapade ögonblicks bilden. 
 
-Det finns två typer av ögonblicksbilder - fullständig och inkrementell. En fullständig ögonblicksbild innehåller alla data i dataresursen. En inkrementell ögonblicksbild innehåller alla data som har uppdaterats/lagts till sedan den senaste ögonblicksbilden utlöstes. 
+Det finns två typer av ögonblicks bilder – fullständiga och stegvisa. En fullständig ögonblicks bild innehåller alla data i data resursen. En stegvis ögonblicks bild innehåller alla data som har uppdaterats/lagts till sedan den senaste ögonblicks bilden utlöstes. 
 
-## <a name="snapshot-settings-in-azure-data-share"></a>Ögonblicksbildinställningar i Azure Data Share
+## <a name="snapshot-settings-in-azure-data-share"></a>Inställningar för ögonblicks bilder i Azure Data Share
  
-En dataprovider kan aktivera en ögonblicksbildinställning för en dataresurs. Med den här inställningen kan datakonsumenter ta emot inkrementella uppdateringar när de inträffar. Den här inställningen bör aktiveras om dataleverantören vill att deras datakonsumenter ska ta emot uppdateringar av data som har delats. 
+En DataProvider kan aktivera en inställning för ögonblicks bilder för en data resurs. Med den här inställningen kan data konsumenter ta emot stegvisa uppdateringar när de inträffar. Den här inställningen ska vara aktive rad om dataprovidern skulle gilla att deras data konsumenter tar emot uppdateringar av data som har delats. 
 
-Om en dataprovider aktiverar den här inställningen kan ett upprepningsintervall väljas. Upprepningsintervallet kan vara per timme eller dagligen. 
+Om en DataProvider aktiverar den här inställningen kan du välja ett upprepnings intervall. Upprepnings intervallet kan vara varje timme eller varje dag. 
 
-En datakonsument har möjlighet att välja det här ögonblicksbildschemat för att ta emot inkrementella uppdateringar, vilket inkluderar alla data som har ändrats sedan de först skapade en ny ögonblicksbild. 
+En data konsument har möjlighet att delta i ögonblicks bild scheman för att ta emot stegvisa uppdateringar som innehåller alla data som har ändrats sedan de först genererade en ny ögonblicks bild. 
 
 ## <a name="invitation"></a>Inbjudan
 
-En dataleverantör kan bjuda in flera mottagare till sin dataresurs. De kan göra det genom att lägga till mottagare i dataresursen. Inbjudningar kan också läggas till när en dataresurs har skapats. 
+En DataProvider kan bjuda in flera mottagare till sina data resurser. De kan göra det genom att lägga till mottagare i data resursen. Inbjudningar kan också läggas till efter att en data resurs har skapats. 
 
-En dataleverantör kan ta bort en inbjudan när den har skickats om den inte har accepterats. Om uppgiftslämnaren tar bort en inbjudan och den ännu inte har accepterats, kommer datakonsumenten inte att kunna acceptera den. 
+En DataProvider kan ta bort en inbjudan när den har skickats om den inte har accepterats. Om dataprovidern tar bort en inbjudan och den ännu inte har accepterats kommer data konsumenten inte att kunna acceptera den. 
 
-Inbjudningar kan skickas upp till fem gånger om dagen. 
+Inbjudningar kan skickas upp till fem gånger per dag. 
 
 ## <a name="recipient"></a>Mottagare
 
-En mottagare är någon som får en inbjudan till en dataresurs. Vanligtvis lägger en dataleverantör till mottagare i dataresurs som de skapar. När mottagaren av en inbjudan accepterar inbjudan blir de en datakonsument.  
+En mottagare är någon som tar emot en inbjudan till en data resurs. Normalt lägger en DataProvider till mottagare till den data resurs som de skapar. När mottagaren av en inbjudan accepterar inbjudan blir han eller hon en data konsument.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du börjar dela data fortsätter du till [att dela din datahandledning.](share-your-data.md)
+Om du vill lära dig hur du börjar dela data fortsätter du till kursen [dela data](share-your-data.md) .

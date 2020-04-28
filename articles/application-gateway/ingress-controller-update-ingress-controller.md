@@ -1,6 +1,6 @@
 ---
-title: Uppgradera ingress controller med Helm
-description: Den här artikeln innehåller information om hur du uppgraderar en Program gateway ingress med Helm.
+title: Uppgradera ingress-styrenheten med Helm
+description: Den här artikeln innehåller information om hur du uppgraderar ett Application Gateway ingress med Helm.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 3903ccd1c15765d06cd1794a40567e2c70062538
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795892"
 ---
 # <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Så här uppgraderar du en inkommande Application Gateway-styrenhet med hjälp av Helm 
 
-Azure Application Gateway Ingress Controller for Kubernetes (AGIC) kan uppgraderas med hjälp av en Helm-databas som finns på Azure Storage.
+Azure Application Gateway ingångs kontroll för Kubernetes (AGIC) kan uppgraderas med hjälp av en Helm-lagringsplats som finns på Azure Storage.
 
-Innan vi påbörjar uppgraderingsproceduren ska du se till att du har lagt till den nödvändiga databasen:
+Innan du påbörjar uppgraderings proceduren måste du kontrol lera att du har lagt till den nödvändiga lagrings platsen:
 
-- Visa dina helm-databaser som för närvarande läggs till med:
+- Visa dina nyligen tillagda Helm-databaser med:
 
     ```bash
     helm repo list
     ```
 
-- Lägg till AGIC-repoen med:
+- Lägg till AGIC-lagrings platsen med:
 
     ```bash
     helm repo add \
@@ -36,19 +36,19 @@ Innan vi påbörjar uppgraderingsproceduren ska du se till att du har lagt till 
 
 ## <a name="upgrade"></a>Uppgradera
 
-1. Uppdatera AGIC Helm-arkivet för att få den senaste versionen:
+1. Uppdatera AGIC Helm-lagringsplatsen för att få den senaste versionen:
 
     ```bash
     helm repo update
     ```
 
-1. Visa tillgängliga versioner `application-gateway-kubernetes-ingress` av diagrammet:
+1. Visa tillgängliga versioner av `application-gateway-kubernetes-ingress` diagrammet:
 
     ``` bash
     helm search -l application-gateway-kubernetes-ingress
     ```
 
-    Exempelsvar:
+    Exempel svar:
 
     ```bash
     NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION
@@ -56,22 +56,22 @@ Innan vi påbörjar uppgraderingsproceduren ska du se till att du har lagt till 
     application-gateway-kubernetes-ingress/ingress-azure    0.6.0           0.6.0           Use Azure Application Gateway as the ingress for an Azure...
     ```
 
-    Senaste tillgängliga versionen från listan ovan är:`0.7.0-rc1`
+    Den senaste tillgängliga versionen från listan ovan är:`0.7.0-rc1`
 
-1. Visa Helm-diagrammen som är installerade:
+1. Visa de Helm-diagram som för närvarande är installerade:
 
     ```bash
     helm list
     ```
 
-    Exempelsvar:
+    Exempel svar:
 
     ```bash
     NAME            REVISION        UPDATED                         STATUS  CHART                   APP VERSION     NAMESPACE
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    Helm-diagraminstallationen från exempelsvaret `odd-billygoat`ovan heter . Vi kommer att använda det här namnet för resten av kommandona. Ditt faktiska distributionsnamn kommer sannolikt att skilja sig åt.
+    Helm-diagrammets installation från exempel svaret ovan heter `odd-billygoat`. Vi kommer att använda det här namnet för resten av kommandona. Det faktiska distributions namnet är förmodligen annorlunda.
 
 1. Uppgradera Helm-distributionen till en ny version:
 
@@ -82,11 +82,11 @@ Innan vi påbörjar uppgraderingsproceduren ska du se till att du har lagt till 
         --version 0.9.0-rc2
     ```
 
-## <a name="rollback"></a>Rollback
+## <a name="rollback"></a>Ånger
 
-Om Helm-distributionen misslyckas kan du återställa till en tidigare version.
+Om distributionen av Helm skulle fungera kan du återställa till en tidigare version.
 
-1. Få det senast kända felfria versionsnumret:
+1. Hämta det senaste kända felfria versions numret:
 
     ```bash
     helm history odd-billygoat
@@ -100,9 +100,9 @@ Om Helm-distributionen misslyckas kan du återställa till en tidigare version.
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    Från exempelutdata `helm history` av kommandot ser det ut `odd-billygoat` som den senaste lyckade distributionen av vår var revision`1`
+    Från exempel resultatet av `helm history` kommandot ser det ut som den senaste lyckade distributionen av vår revision `odd-billygoat``1`
 
-1. Återställning till den senaste lyckade revideringen:
+1. Återställ till den senaste lyckade ändringen:
 
     ```bash
     helm rollback odd-billygoat 1

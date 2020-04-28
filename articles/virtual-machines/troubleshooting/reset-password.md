@@ -1,6 +1,6 @@
 ---
-title: Så här återställer du lokalt Linux-lösenord på virtuella Azure-datorer | Microsoft-dokument
-description: Introducera stegen för att återställa det lokala Linux-lösenordet på Azure VM
+title: Återställa lokala Linux-lösenord på virtuella Azure-datorer | Microsoft Docs
+description: Införa stegen för att återställa det lokala Linux-lösenordet på den virtuella Azure-datorn
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -14,61 +14,61 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71153578"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Återställa lokala Linux-lösenord i virtuella Azure-datorer
 
-Den här artikeln introducerar flera metoder för att återställa lokala Linux Virtual Machine (VM) lösenord. Om användarkontot har upphört att gälla eller om du bara vill skapa ett nytt konto kan du använda följande metoder för att skapa ett nytt lokalt administratörskonto och få åtkomst till den virtuella datorn igen.
+Den här artikeln beskriver flera metoder för att återställa lokala virtuella Linux-lösenord (Virtual Machine). Om användar kontot har upphört att gälla eller om du bara vill skapa ett nytt konto kan du använda följande metoder för att skapa ett nytt lokalt administratörs konto och få åtkomst till den virtuella datorn igen.
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan inte logga in på den virtuella datorn och du får ett meddelande som anger att lösenordet som du använde är felaktigt. Dessutom kan du inte använda VMAgent för att återställa ditt lösenord på Azure-portalen.
+Du kan inte logga in på den virtuella datorn och du får ett meddelande som anger att det lösen ord som du använde är felaktigt. Dessutom kan du inte använda VMAgent för att återställa lösen ordet på Azure Portal.
 
-## <a name="manual-password-reset-procedure"></a>Manuell procedur för återställning av lösenord
+## <a name="manual-password-reset-procedure"></a>Procedur för manuell lösen ords återställning
 
 > [!NOTE]
-> Följande steg gäller inte för den virtuella datorn med ohanterat disk.
+> Följande steg gäller inte för den virtuella datorn med en ohanterad disk.
 
-1. Ta en ögonblicksbild för OS-disken för den berörda virtuella datorn, skapa en disk från ögonblicksbilden och bifoga sedan disken till en felsöka virtuell dator. Mer information finns i [Felsöka en Virtuell Windows-dator genom att koppla OS-disken till en återställnings-VM med Azure-portalen](troubleshoot-recovery-disks-portal-linux.md).
+1. Ta en ögonblicks bild för OS-disken för den berörda virtuella datorn, skapa en disk från ögonblicks bilden och Anslut sedan disken till en Felsök virtuell dator. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal](troubleshoot-recovery-disks-portal-linux.md).
 
-2. Anslut till den virtuella felsökningsdatorn med fjärrskrivbord.
+2. Anslut till den virtuella fel söknings datorn med hjälp av fjärr skrivbord.
 
-3.  Kör följande SSH-kommando på felsöka virtuella datorer för att bli en superanvändare.
+3.  Kör följande SSH-kommando på den virtuella datorn för fel sökning för att bli en super-användare.
 
     ```bash
     sudo su
     ```
 
-4.  Kör **fdisk -l** eller titta på systemloggar för att hitta den nyligen anslutna disken. Leta reda på enhetsnamnet som ska monteras. Titta sedan i den relevanta loggfilen på den tidsmässiga virtuella datorn.
+4.  Kör **fdisk-l** eller titta på system loggarna för att hitta den nyligen anslutna disken. Leta upp enhets namnet som ska monteras. Leta sedan upp den aktuella logg filen på den temporala virtuella datorn.
 
     ```bash
     grep SCSI /var/log/kern.log (ubuntu)
     grep SCSI /var/log/messages (centos, suse, oracle)
     ```
 
-    Följande är exempel på utdata från kommandot grep:
+    Följande är exempel på en utmatning från grep-kommandot:
 
     ```bash
     kernel: [ 9707.100572] sd 3:0:0:0: [sdc] Attached SCSI disk
     ```
 
-5.  Skapa en monteringspunkt som kallas **tempmount**.
+5.  Skapa en monterings punkt med namnet **tempmount**.
 
     ```bash
     mkdir /tempmount
     ```
 
-6.  Montera OS-disken på monteringspunkten. Du behöver vanligtvis montera *sdc1* eller *sdc2*. Detta beror på värdpartitionen i */etc-katalogen* från den trasiga maskindisken.
+6.  Montera OS-disken på monterings punkten. Du behöver vanligt vis montera *sdc1* eller *sdc2*. Detta beror på värd partitionen i *volymen/etc* -katalogen från den skadade dator disken.
 
     ```bash
     mount /dev/sdc1 /tempmount
     ```
 
-7.  Skapa kopior av kärnautentiseringsuppgifterna innan du gör några ändringar:
+7.  Skapa kopior av filerna för kärn autentiseringsuppgifter innan du gör några ändringar:
 
     ```bash
     cp /etc/passwd /etc/passwd_orig    
@@ -79,13 +79,13 @@ Du kan inte logga in på den virtuella datorn och du får ett meddelande som ang
     cp /tempmount/etc/shadow /tempmount/etc/shadow_orig
     ```
 
-8.  Återställ användarens lösenord som du behöver:
+8.  Återställ användarens lösen ord som du behöver:
 
     ```bash
     passwd <<USER>> 
     ```
 
-9.  Flytta de ändrade filerna till rätt plats på den trasiga datorns disk.
+9.  Flytta de ändrade filerna till rätt plats på den skadade datorns disk.
 
     ```bash
     cp /etc/passwd /tempmount/etc/passwd
@@ -94,19 +94,19 @@ Du kan inte logga in på den virtuella datorn och du får ett meddelande som ang
     cp /etc/shadow_orig /etc/shadow
     ```
 
-10. Gå tillbaka till roten och avmontera disken.
+10. Gå tillbaka till roten och demontera disken.
 
     ```bash
     cd /
     umount /tempmount
     ```
 
-11. I Azure-portalen kan du koppla från disken från den virtuella felsökningsdatorn.
+11. I Azure Portal kopplar du bort disken från den virtuella fel söknings datorn.
 
 12. [Ändra OS-disken för den berörda virtuella datorn](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsöka Azure VM genom att koppla OS-disk till en annan Virtuell Azure-dator](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
+* [Felsöka virtuell Azure-dator genom att koppla OS-disk till en annan virtuell Azure-dator](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI: Så här tar du bort och distribuerar om en virtuell dator från VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: så här tar du bort och distribuerar om en virtuell dator från en virtuell hård disk](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

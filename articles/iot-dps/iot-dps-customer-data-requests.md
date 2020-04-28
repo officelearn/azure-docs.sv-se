@@ -1,6 +1,6 @@
 ---
-title: Funktioner för kunddatabegäran för Azure DPS-enheter
-description: För enheter som hanteras i DPS (Azure Device Provisioning Service) som är personliga visar den här artikeln administratörer hur du exporterar eller tar bort personuppgifter.
+title: Funktioner för begäran om kund data för Azure DPS-enheter
+description: För enheter som hanteras i Azure Device Provisioning-tjänsten (DPS) som är personliga visar den här artikeln administratörer hur man exporterar eller tar bort personliga data.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
@@ -8,60 +8,60 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890656"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktionerna för kunddatabegäran
+# <a name="summary-of-customer-data-request-features"></a>Översikt över funktioner för begäran om kund information
 
-Azure IoT Hub Device Provisioning Service är en REST API-baserad molntjänst som riktar sig till företagskunder som möjliggör sömlös, automatiserad zero-touch-etablering av enheter till Azure IoT Hub med säkerhet som börjar på enheten och slutar med molnet.
+Azure IoT Hub Device Provisioning Service är en REST API-baserad moln tjänst som är riktad till företags kunder och som möjliggör sömlös, automatisk etablering av enheter till Azure IoT Hub med säkerhet som börjar på enheten och slutar med molnet.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-Enskilda enheter tilldelas ett registrerings-ID och enhets-ID av en klientadministratör. Data från och om dessa enheter baseras på dessa ID:er. Microsoft har ingen information och har ingen tillgång till data som skulle tillåta korrelation av dessa enheter till en individ.
+Enskilda enheter tilldelas ett registrerings-ID och ett enhets-ID av en klient administratör. Data från och om dessa enheter baseras på dessa ID: n. Microsoft har ingen information och har ingen åtkomst till data som tillåter korrelation av dessa enheter till en individ.
 
-Många av de enheter som hanteras i enhetsetableringstjänsten är inte personliga enheter, till exempel en kontorstermostat eller fabriksrobot. Kunder kan dock betrakta vissa enheter som personligt identifierbara och efter eget gottfinnande kan behålla sina egna metoder för tillgång eller lagerspårning som binder enheter till individer. Enhetsetableringstjänsten hanterar och lagrar alla data som är associerade med enheter som om det vore personuppgifter.
+Många av enheterna som hanteras i enhets etablerings tjänsten är inte personliga enheter, till exempel en Office-termostat eller en fabriks robot. Kunder kan dock överväga att vissa enheter ska vara personligt identifierbara och att de kan behålla sina egna till gångar eller inventerings spårnings metoder som knyter enheter till individer. Enhets etablerings tjänsten hanterar och lagrar alla data som är associerade med enheter som om de vore personliga data.
 
-Klientadministratörer kan använda antingen Azure-portalen eller tjänstens REST-API:er för att uppfylla informationsbegäranden genom att exportera eller ta bort data som är associerade med ett enhets-ID eller registrerings-ID.
-
-> [!NOTE]
-> Enheter som har etablerats i Azure IoT Hub via enhetsetableringstjänsten har ytterligare data som lagras i Azure IoT Hub-tjänsten. Se [referensdokumentationen för Azure IoT Hub](../iot-hub/iot-hub-customer-data-requests.md) för att slutföra en fullständig begäran om en viss enhet.
-
-## <a name="deleting-customer-data"></a>Ta bort kunddata
-
-Enhetsetableringstjänsten lagrar registreringar och registreringsposter. Registreringar innehåller information om enheter som tillåts etableras, och registreringsposter visar vilka enheter som redan har gått igenom etableringsprocessen.
-
-Klientadministratörer kan ta bort registreringar från Azure-portalen, och detta tar också bort alla associerade registreringsposter.
-
-Mer information finns i [Så här hanterar du enhetsregistreringar](how-to-manage-enrollments.md).
-
-Det är också möjligt att utföra borttagningsåtgärder för registreringar och registreringsposter med REST-API:er:
-
-* Om du vill ta bort registreringsinformation för en enskild enhet kan du använda [Enhetsregistrering - Ta bort](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
-* Om du vill ta bort registreringsinformation för en grupp enheter kan du använda [Enhetsregistreringsgrupp - Ta bort](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
-* Om du vill ta bort information om enheter som har etablerats kan du använda [registreringstillstånd - Ta bort registreringstillstånd](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
-
-## <a name="exporting-customer-data"></a>Exportera kunddata
-
-Enhetsetableringstjänsten lagrar registreringar och registreringsposter. Registreringar innehåller information om enheter som tillåts etableras, och registreringsposter visar vilka enheter som redan har gått igenom etableringsprocessen.
-
-Klientadministratörer kan visa registreringar och registreringsposter via Azure-portalen och exportera dem med hjälp av kopiera och klistra in.
-
-Mer information om hur du hanterar registreringar finns i [Så här hanterar du enhetsregistreringar](how-to-manage-enrollments.md).
-
-Det är också möjligt att utföra exportåtgärder för registreringar och registreringsposter med REST API:er:
-
-* Om du vill exportera registreringsinformation för en enskild enhet kan du använda [Enhetsregistrering - Get](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
-* Om du vill exportera registreringsinformation för en grupp enheter kan du använda [Enhetsregistreringsgrupp - Get](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
-* Om du vill exportera information om enheter som redan har etablerats kan du använda [registreringstillstånd - Hämta registreringstillstånd](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
+Klient organisations administratörer kan använda antingen Azure Portal eller tjänstens REST-API: er för att uppfylla informations förfrågningar genom att exportera eller ta bort data som är associerade med ett enhets-ID eller registrerings-ID.
 
 > [!NOTE]
-> När du använder Microsofts företagstjänster genererar Microsoft viss information, så kallade systemgenererade loggar. Vissa systemgenererade loggar för enhetsetableringstjänsten är inte tillgängliga eller kan exporteras av klientadministratörer. Dessa loggar utgör faktiska åtgärder som utförs inom tjänsten och diagnostiska data relaterade till enskilda enheter.
+> Enheter som har etablerats i Azure IoT Hub via enhets etablerings tjänsten har ytterligare data som lagras i Azure IoT Hub-tjänsten. Se [referens dokumentationen för Azure IoT Hub](../iot-hub/iot-hub-customer-data-requests.md) för att slutföra en fullständig begäran för en specifik enhet.
+
+## <a name="deleting-customer-data"></a>Tar bort kund information
+
+Enhets etablerings tjänsten lagrar registreringar och registrerings poster. Registreringar innehåller information om enheter som har tillåtelse att tillhandahållas och registrerings poster visar vilka enheter som redan har slutfört etablerings processen.
+
+Klient organisations administratörer kan ta bort registreringar från Azure Portal, och detta tar även bort alla associerade registrerings poster.
+
+Mer information finns i [Hantera enhets registreringar](how-to-manage-enrollments.md).
+
+Det går också att utföra borttagnings åtgärder för registreringar och registrerings poster med hjälp av REST API: er:
+
+* Om du vill ta bort registrerings information för en enskild enhet kan du använda [enhets registrering – ta bort](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
+* Om du vill ta bort registrerings information för en grupp av enheter kan du använda [enhets registrerings grupp – ta bort](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
+* Om du vill ta bort information om enheter som har etablerats kan du använda [registrerings tillstånd – ta bort registrerings status](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
+
+## <a name="exporting-customer-data"></a>Exportera kund information
+
+Enhets etablerings tjänsten lagrar registreringar och registrerings poster. Registreringar innehåller information om enheter som har tillåtelse att tillhandahållas och registrerings poster visar vilka enheter som redan har slutfört etablerings processen.
+
+Klient organisations administratörer kan visa registreringar och registrerings poster via Azure Portal och exportera dem med hjälp av kopiera och klistra in.
+
+Mer information om hur du hanterar registreringar finns i [Hantera enhets registreringar](how-to-manage-enrollments.md).
+
+Det går också att utföra export åtgärder för registreringar och registrerings poster med hjälp av REST API: er:
+
+* Om du vill exportera registrerings information för en enskild enhet kan du använda [enhets registrering – Hämta](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
+* Om du vill exportera registrerings information för en grupp av enheter kan du använda [enhets registrerings grupp – Hämta](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
+* Om du vill exportera information om enheter som redan har etablerats kan du använda [registrerings tillstånd – Hämta registrerings status](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
+
+> [!NOTE]
+> När du använder Microsofts företags tjänster genererar Microsoft viss information, som kallas system genererade loggar. Vissa systemgenererade loggar för enhets etablerings tjänsten är inte tillgängliga eller kan exporteras av klient administratörer. Dessa loggar utgör faktiska åtgärder som utförs i tjänsten och diagnostikdata som är relaterade till enskilda enheter.
 
 ## <a name="links-to-additional-documentation"></a>Länkar till ytterligare dokumentation
 
-Fullständig dokumentation för API:er för [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)enhetsetableringstjänster finns på .
+Fullständig dokumentation för Device Provisioning service-API: er [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)finns på.
 
-Azure IoT Hub [kunddata begäran funktioner](../iot-hub/iot-hub-customer-data-requests.md).
+Azure IoT Hub [funktioner för kunddata-begäran](../iot-hub/iot-hub-customer-data-requests.md).

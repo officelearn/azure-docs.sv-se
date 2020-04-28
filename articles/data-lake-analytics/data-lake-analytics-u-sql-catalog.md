@@ -1,6 +1,6 @@
 ---
-title: Använda U-SQL-katalogen i Azure Data Lake Analytics
-description: Lär dig hur du använder U-SQL-katalogen för att dela kod och data. Skapa tabellvärdade funktioner, skapa vyer, skapa tabeller och fråga dem.
+title: Använd U-SQL-katalogen i Azure Data Lake Analytics
+description: Lär dig hur du använder U-SQL-katalogen för att dela kod och data. Skapa tabell värdes funktioner, skapa vyer, skapa tabeller och fråga dem.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,19 +10,19 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
 ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71672851"
 ---
-# <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Komma igång med U-SQL-katalogen i Azure Data Lake Analytics
+# <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Kom igång med U-SQL-katalogen i Azure Data Lake Analytics
 
 ## <a name="create-a-tvf"></a>Skapa en TVF
 
-I det tidigare U-SQL-skriptet upprepade du användningen av EXTRACT för att läsa från samma källfil. Med funktionen U-SQL-tabellvärderad (TVF) kan du kapsla in data för framtida återanvändning.  
+I föregående U-SQL-skript, upprepas användningen av EXTRACT för att läsa från samma källfil. Med U-SQL tabell värdes funktionen (TVF) kan du kapsla in data för framtida åter användning.  
 
-Följande skript skapar en TVF som anropas `Searchlog()` i standarddatabasen och schemat:
+Följande skript skapar en TVF som anropas `Searchlog()` i standard databasen och schemat:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -72,9 +72,9 @@ OUTPUT @res
 
 ## <a name="create-views"></a>Skapa vyer
 
-Om du har ett enda frågeuttryck kan du i stället för en TVF använda en U-SQL VIEW för att kapsla in uttrycket.
+Om du har ett enda frågeuttryck i stället för en TVF kan du använda en U-SQL-vy för att kapsla in uttrycket.
 
-I följande skript skapas `SearchlogView` en vy som anropas i standarddatabasen och standardschemat:
+Följande skript skapar en vy som anropas `SearchlogView` i standard databasen och schemat:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -109,7 +109,7 @@ OUTPUT @res
 ```
 
 ## <a name="create-tables"></a>Skapa tabeller
-Precis som med relationsdatabastabeller kan du med U-SQL skapa en tabell med ett fördefinierat schema eller skapa en tabell som härleder schemat från frågan som fyller i tabellen (kallas även CREATE TABLE AS SELECT eller CTAS).
+Precis som med relations databas tabeller, med U-SQL, kan du skapa en tabell med ett fördefinierat schema eller skapa en tabell som härleder schemat från frågan som fyller tabellen (kallas även CREATE TABLE som SELECT eller CTAS).
 
 Skapa en databas och två tabeller med hjälp av följande skript:
 
@@ -143,9 +143,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Frågetabeller
-Du kan fråga tabeller, till exempel de som skapats i föregående skript, på samma sätt som du frågar efter datafilerna. I stället för att skapa en raduppsättning med hjälp av EXTRACT kan du nu referera till tabellnamnet.
+Du kan fråga tabeller, till exempel de som skapats i föregående skript, på samma sätt som du frågar datafilerna. I stället för att skapa en rad uppsättning med EXTRAHERA kan du nu referera till tabell namnet.
 
-Om du vill läsa från tabellerna ändrar du transformeringsskriptet som du använde tidigare:
+Om du vill läsa från tabellerna ändrar du det omvandlings skript som du använde tidigare:
 
 ```
 @rs1 =
@@ -168,7 +168,7 @@ OUTPUT @res
 ```
 
  >[!NOTE]
- >För närvarande kan du inte köra en SELECT på en tabell i samma skript som den där du skapade tabellen.
+ >För närvarande kan du inte köra en markering i en tabell i samma skript som den plats där du skapade tabellen.
 
 ## <a name="next-steps"></a>Efterföljande moment
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

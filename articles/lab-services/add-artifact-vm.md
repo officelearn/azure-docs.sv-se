@@ -1,6 +1,6 @@
 ---
-title: Lägga till en artefakt till en virtuell dator i Azure DevTest Labs | Microsoft-dokument
-description: Lär dig hur du lägger till en artefakt på en virtuell dator i ett labb i Azure DevTest Labs
+title: Lägga till en artefakt till en virtuell dator i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du lägger till en artefakt till en virtuell dator i ett labb i Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,57 +15,57 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73901313"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Lägg till en artefakt till en virtuell dator
-När du skapar en virtuell dator kan du lägga till befintliga artefakter i den. Dessa artefakter kan vara från antingen den [offentliga DevTest Labs Git-databasen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller från din egen Git-databas. Den här artikeln visar hur du lägger till artefakter i Azure-portalen och med hjälp av Azure PowerShell. 
+När du skapar en virtuell dator kan du lägga till befintliga artefakter till den. Dessa artefakter kan vara antingen från den [offentliga DevTest Labs git-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller från din egen git-lagringsplats. Den här artikeln visar hur du lägger till artefakter i Azure Portal och genom att använda Azure PowerShell. 
 
-Med Azure DevTest *Labs-artefakter* kan du ange *åtgärder* som utförs när den virtuella datorn etableras, till exempel att köra Windows PowerShell-skript, köra Bash-kommandon och installera programvara. Med *artefaktparametrar* kan du anpassa artefakten för just det scenariot.
+Med Azure DevTest Labs *artefakter* kan du ange *åtgärder* som utförs när den virtuella datorn är etablerad, till exempel köra Windows PowerShell-skript, köra bash-kommandon och installera program vara. Med artefakt *parametrar* kan du anpassa artefakten för ditt specifika scenario.
 
-Mer information om hur du skapar anpassade artefakter finns i artikeln: [Skapa anpassade artefakter](devtest-lab-artifact-author.md).
+Information om hur du skapar anpassade artefakter finns i artikeln: [skapa anpassade artefakter](devtest-lab-artifact-author.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen 
 1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **Alla tjänster**och välj sedan **DevTest Labs** i listan.
-1. I listan över labb väljer du det labb som innehåller den virtuella datorn som du vill arbeta med.  
-1. Välj **Mina virtuella datorer**.
+1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
+1. I listan med labb väljer du det labb som innehåller den virtuella dator som du vill arbeta med.  
+1. Välj **mina virtuella datorer**.
 1. Välj önskad virtuell dator.
 1. Välj **Hantera artefakter**. 
-1. Välj **Använd artefakter**.
+1. Välj **tillämpa artefakter**.
 1. I fönstret **Använd artefakter** väljer du den artefakt som du vill lägga till i den virtuella datorn.
-1. I fönstret **Lägg till artefakt** anger du de parametervärden som krävs och eventuella valfria parametrar som du behöver.  
-1. Välj **Lägg till** om du vill lägga till artefakten och återgå till fönstret Använd **artefakter.**
+1. I fönstret **Lägg till artefakt** anger du de parameter värden som krävs och eventuella valfria parametrar som du behöver.  
+1. Välj **Lägg till** för att lägga till artefakten och gå tillbaka till fönstret **Använd artefakter** .
 1. Fortsätt att lägga till artefakter efter behov för den virtuella datorn.
-1. När du har lagt till dina artefakter kan du [ändra i vilken ordning artefakterna körs](#change-the-order-in-which-artifacts-are-run). Du kan också gå tillbaka för att [visa eller ändra en artefakt](#view-or-modify-an-artifact).
-1. När du är klar med att lägga till artefakter väljer du **Använd**
+1. När du har lagt till dina artefakter kan du [ändra i vilken ordning artefakterna ska köras](#change-the-order-in-which-artifacts-are-run). Du kan också gå tillbaka om du vill [Visa eller ändra en artefakt](#view-or-modify-an-artifact).
+1. När du är klar med att lägga till artefakter väljer du **tillämpa**
 
 ### <a name="change-the-order-in-which-artifacts-are-run"></a>Ändra i vilken ordning artefakter körs
-Som standard utförs åtgärderna för artefakterna i den ordning som de läggs till i den virtuella datorn. Följande steg illustrerar hur du ändrar i vilken ordning artefakterna körs.
+Som standard körs aktiviteterna i artefakterna i den ordning som de läggs till i den virtuella datorn. Följande steg illustrerar hur du ändrar i vilken ordning artefakterna körs.
 
-1. Högst upp i fönstret **Använd artefakter** väljer du länken som anger antalet artefakter som har lagts till i den virtuella datorn.
+1. Längst upp i fönstret **Använd artefakter** väljer du den länk som anger antalet artefakter som har lagts till den virtuella datorn.
    
-    ![Antal artefakter som lagts till i den virtuella datorn](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Dra och släppa artefakterna i önskad ordning i fönstret **Markerade artefakter.** Om du har problem med att dra artefakten kontrollerar du att du drar från artefaktens vänstra sida. 
+    ![Antal artefakter som har lagts till i den virtuella datorn](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. I fönstret **valda artefakter** drar du och släpper artefakterna i önskad ordning. Om du har problem med att dra artefakten ser du till att du drar från den vänstra sidan av artefakten. 
 1. Välj **OK** när du är klar.  
 
 ### <a name="view-or-modify-an-artifact"></a>Visa eller ändra en artefakt
-Följande steg illustrerar hur du visar eller ändrar parametrarna för en artefakt:
+Följande steg visar hur du visar eller ändrar parametrarna för en artefakt:
 
-1. Högst upp i fönstret **Använd artefakter** väljer du länken som anger antalet artefakter som har lagts till i den virtuella datorn.
+1. Längst upp i fönstret **Använd artefakter** väljer du den länk som anger antalet artefakter som har lagts till den virtuella datorn.
    
-    ![Antal artefakter som lagts till i den virtuella datorn](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Markera den artefakt som du vill visa eller redigera i fönstret **Markerade artefakter.**  
-1. I fönstret **Lägg till artefakt** gör du nödvändiga ändringar och väljer **OK** för att stänga fönstret Lägg **till artefakt.**
-1. Välj **OK** om du vill stänga fönstret **Markerade artefakter.**
+    ![Antal artefakter som har lagts till i den virtuella datorn](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. I fönstret **valda artefakter** väljer du den artefakt som du vill visa eller redigera.  
+1. I fönstret **Lägg till artefakt** gör du nödvändiga ändringar och väljer **OK** för att stänga fönstret **Lägg till artefakt** .
+1. Klicka på **OK** för att stänga fönstret **valda artefakter** .
 
 ## <a name="use-powershell"></a>Använd PowerShell
-Följande skript tillämpar den angivna artefakten på den angivna virtuella datorn. Kommandot [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) är det som utför åtgärden.  
+Följande skript använder den angivna artefakten på den angivna virtuella datorn. Kommandot [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) är det som utför åtgärden.  
 
 ```powershell
 #Requires -Module Az.Resources

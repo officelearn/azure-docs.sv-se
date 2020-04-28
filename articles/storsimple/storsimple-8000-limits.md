@@ -1,6 +1,6 @@
 ---
-title: Systemgränser för StorSimple 8000-serien | Microsoft-dokument
-description: Beskriver systemgränser och rekommenderade storlekar för komponenter och anslutningar i StorSimple 8000-serien.
+title: System gränser för StorSimple 8000-serien | Microsoft Docs
+description: Beskriver system begränsningar och rekommenderade storlekar för komponenter och anslutningar i StorSimple 8000-serien.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,50 +16,50 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f2d9542082ddf7ecf1d1e7361b0ecdb14c5ef8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68963374"
 ---
-# <a name="what-are-storsimple-8000-series-system-limits"></a>Vad är Systemgränser för StorSimple 8000-serien?
+# <a name="what-are-storsimple-8000-series-system-limits"></a>Vad är StorSimple 8000-seriens system gränser?
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Översikt
 
-StorSimple tillhandahåller skalbar och flexibel lagring för ditt datacenter. Det finns dock vissa gränser som du bör tänka på när du planerar, distribuerar och använder din StorSimple-lösning. I följande tabell beskrivs dessa gränser och några rekommendationer så att du kan få ut mesta möjliga av din StorSimple-lösning.
+StorSimple tillhandahåller skalbar och flexibel lagring för ditt data Center. Det finns dock vissa begränsningar som du bör ha i åtanke när du planerar, distribuerar och använder din StorSimple-lösning. I följande tabell beskrivs dessa begränsningar och det finns några rekommendationer så att du får ut mesta möjliga av din StorSimple-lösning.
 
 | Gräns för identifierare | Gräns | Kommentarer |
 | --- | --- | --- |
-| Maximalt antal autentiseringsuppgifter för lagringskonto |64 | |
-| Maximalt antal volymbehållare |64 | |
+| Maximalt antal autentiseringsuppgifter för lagrings konto |64 | |
+| Maximalt antal volym behållare |64 | |
 | Maximalt antal volymer |255 | |
 | Maximalt antal lokalt fästa volymer |32 | |
-| Maximalt antal scheman per bandbreddsmall |168 |Ett schema för varje timme, alla dagar i veckan (24 * 7). |
-| Maximal storlek på en nivåindelad volym på fysiska enheter |64 TB för 8100 och 8600 |8100 och 8600 är fysiska enheter. |
-| Maximal storlek för en nivåindelad volym på virtuella enheter i Azure |30 TB för 8010 <br></br> 64 TB för 8020 |8010 och 8020 är virtuella enheter i Azure som använder Standard Storage respektive Premium Storage. |
-| Maximal storlek på en lokalt fäst volym på fysiska enheter |8,5 TB för 8100 <br></br> 22,5 TB för 8600 |8100 och 8600 är fysiska enheter. |
+| Mall för maximalt antal scheman per bandbredd |168 |Ett schema för varje timme, varje dag i veckan (24 * 7). |
+| Maximal storlek på en nivå volym på fysiska enheter |64 TB för 8100 och 8600 |8100 och 8600 är fysiska enheter. |
+| Maximal storlek på en nivå volym på virtuella enheter i Azure |30 TB för 8010 <br></br> 64 TB för 8020 |8010 och 8020 är virtuella enheter i Azure som använder standard lagring respektive Premium Storage. |
+| Maximal storlek för en lokalt fäst volym på fysiska enheter |8,5 TB för 8100 <br></br> 22,5 TB för 8600 |8100 och 8600 är fysiska enheter. |
 | Maximalt antal iSCSI-anslutningar |512 | |
 | Maximalt antal iSCSI-anslutningar från initierare |512 | |
-| Maximalt antal åtkomstkontrollposter per enhet |64 | |
-| Maximalt antal volymer per säkerhetskopieringsprincip |20 | |
-| Maximalt antal säkerhetskopieringar som behålls per schema (i en säkerhetskopieringsprincip) |64 | |
-| Maximalt antal scheman per säkerhetskopieringsprincip |10 | |
-| Maximalt antal ögonblicksbilder av alla typer som kan behållas per volym |256 |Det här numret innehåller lokala ögonblicksbilder och ögonblicksbilder av molnet. |
-| Maximalt antal ögonblicksbilder som kan finnas i en enhet |10 000 | |
-| Maximalt antal volymer som kan bearbetas parallellt för säkerhetskopiering, återställning eller klon |16 |<ul><li>Om det finns fler än 16 volymer bearbetas de sekventiellt när bearbetningsplatser blir tillgängliga.</li><li>Nya säkerhetskopior av en klonad eller en återställd nivåindelade volym kan inte inträffa förrän åtgärden är klar. För en lokal volym tillåts dock säkerhetskopieringar när volymen är online.</li></ul> |
-| Återställa och klona återställningstid för nivåindelad volym |< 2 minuter |<ul><li>Volymen görs tillgänglig inom 2 minuter efter återställning eller kloning, oavsett volymstorlek.</li><li>Volymprestandan kan inledningsvis vara långsammare än normalt eftersom de flesta data och metadata fortfarande finns i molnet. Prestanda kan öka när data flödar från molnet till StorSimple-enheten.</li><li>Den totala tiden för hämtning av metadata beror på den allokerade volymstorleken. Metadata förs automatiskt in i enheten i bakgrunden med en hastighet av 5 minuter per TB allokerade volymdata. Den här hastigheten kan påverkas av Internet-bandbredd till molnet.</li><li>Återställnings- eller klonningsåtgärden är klar när alla metadata finns på enheten.</li><li>Säkerhetskopieringsåtgärder kan inte utföras förrän återställnings- eller klonningsåtgärden är helt klar. |
-| Återställa återställningstid för lokalt fästa volymer |< 2 minuter |<ul><li>Volymen görs tillgänglig inom 2 minuter efter återställningen, oavsett volymstorlek.</li><li>Volymprestandan kan inledningsvis vara långsammare än normalt eftersom de flesta data och metadata fortfarande finns i molnet. Prestanda kan öka när data flödar från molnet till StorSimple-enheten.</li><li>Den totala tiden för hämtning av metadata beror på den allokerade volymstorleken. Metadata förs automatiskt in i enheten i bakgrunden med en hastighet av 5 minuter per TB allokerade volymdata. Den här hastigheten kan påverkas av Internet-bandbredd till molnet.</li><li>Till skillnad från nivåindelade volymer hämtas volymdata även lokalt på enheten för lokalt fästa volymer. Återställningen är klar när alla volymdata har förts till enheten.</li><li>Återställningsåtgärderna kan vara långa. Den totala tiden för att slutföra återställningen beror på storleken på den etablerade lokala volymen, internetbandbredden och befintliga data på enheten. Säkerhetskopieringsåtgärder på den lokalt fästa volymen tillåts medan återställningen pågår. |
-| Bearbetningshastighet för ögonblicksbilder av molnet |15 minuter/TB |<ul><li>Minsta tid för att göra ögonblicksbilden av molnet klar för överföring, per TB allokerade volymdata i säkerhetskopian. </li><li> Den totala ögonblicksbildtiden för molnet beräknas genom att den här tiden läggs till i uppladdningstiden för ögonblicksbilder, som påverkas av Internet-bandbredden till molnet. |
-| Maximalt klientläsnings-/skrivflöde (när det visas från SSD-nivån)* |920/720 MB/s med ett enda 10 GbE-nätverksgränssnitt |Upp till 2x med MPIO och två nätverksgränssnitt. |
-| Maximalt dataflöde för klientläsning/skriv (när det visas från hårddisknivån)* |120/250 MB/s | |
-| Maximalt klientläsnings-/skrivflöde (när det visas från molnnivån)* för uppdatering 3 och senare** |40/60 MB/s för nivåindelade volymer<br><br>60/80 MB/s för nivåindelade volymer med arkiveringsalternativ markerat när volymen skapas |Läsdataflöde beror på klienter som genererar och underhåller tillräckligt I/O-ködjup. <br><br>Uppnådd hastighet beror på hastigheten på det underliggande lagringskonto som används. |
+| Maximalt antal åtkomst kontroll poster per enhet |64 | |
+| Maximalt antal volymer per säkerhets kopierings princip |20 | |
+| Maximalt antal säkerhets kopior som kvarhålls per schema (i en säkerhets kopierings princip) |64 | |
+| Maximalt antal scheman per säkerhets kopierings princip |10 | |
+| Maximalt antal ögonblicks bilder av alla typer som kan kvarhållas per volym |256 |Det här antalet inkluderar lokala ögonblicks bilder och moln ögonblicks bilder. |
+| Maximalt antal ögonblicks bilder som kan finnas i vilken enhet som helst |10 000 | |
+| Maximalt antal volymer som kan bearbetas parallellt för säkerhets kopiering, återställning eller kloning |16 |<ul><li>Om det finns fler än 16 volymer bearbetas de sekventiellt allteftersom bearbetnings platserna blir tillgängliga.</li><li>Nya säkerhets kopior av en klonad eller återställd nivå volym kan inte inträffa förrän åtgärden har slutförts. Men för en lokal volym tillåts säkerhets kopieringar när volymen är online.</li></ul> |
+| Återställa och klona återställnings tid för volymer på nivå |< 2 minuter |<ul><li>Volymen görs tillgänglig inom 2 minuter efter återställnings-eller klonings åtgärder, oavsett volym storlek.</li><li>Volym prestandan kan inlednings vis vara långsammare än normalt eftersom de flesta data och metadata fortfarande finns i molnet. Prestanda kan öka när data flödar från molnet till StorSimple-enheten.</li><li>Den totala tiden för hämtning av metadata beror på storleken på den allokerade volymen. Metadata överförs automatiskt till enheten i bakgrunden med en hastighet på 5 minuter per TB allokerade volym data. Den här hastigheten kan påverkas av Internet bandbredden till molnet.</li><li>Restore-eller klonings åtgärden slutförs när alla metadata finns på enheten.</li><li>Säkerhets kopierings åtgärder kan inte utföras förrän återställnings-eller klonings åtgärden har slutförts fullständigt. |
+| Återställa återställnings tid för lokalt fästa volymer |< 2 minuter |<ul><li>Volymen görs tillgänglig inom 2 minuter från återställnings åtgärden, oavsett volymens storlek.</li><li>Volym prestandan kan inlednings vis vara långsammare än normalt eftersom de flesta data och metadata fortfarande finns i molnet. Prestanda kan öka när data flödar från molnet till StorSimple-enheten.</li><li>Den totala tiden för hämtning av metadata beror på storleken på den allokerade volymen. Metadata överförs automatiskt till enheten i bakgrunden med en hastighet på 5 minuter per TB allokerade volym data. Den här hastigheten kan påverkas av Internet bandbredden till molnet.</li><li>Till skillnad från skiktade volymer, för lokalt fästa volymer, hämtas även volym data lokalt på enheten. Återställningen slutförs när alla volym data har hämtats till enheten.</li><li>Återställnings åtgärderna kan vara långa. Den totala tiden för att slutföra återställningen beror på storleken på den etablerade lokala volymen, din Internet bandbredd och befintliga data på enheten. Säkerhets kopierings åtgärder på den lokalt fästa volymen tillåts medan återställnings åtgärden pågår. |
+| Bearbetnings takt för moln ögonblicks bilder |15 minuter/TB |<ul><li>Minsta tid för att göra moln ögonblicks bilder redo att laddas upp per TB allokerade volym data i säkerhets kopieringen. </li><li> Total ögonblicks bild av molnet beräknas genom att lägga till den här tiden i ögonblicks bild överförings tiden, som påverkas av Internet bandbredden till molnet. |
+| Högsta antal lästa/skrivbara klient data flöden (när de hanteras från SSD-nivån) * |920/720 MB/s med ett enda 10 GbE-nätverks gränssnitt |Upp till 2x med MPIO och två nätverks gränssnitt. |
+| Högsta antal lästa och skrivbara klienter i klienten (när de hanteras från hård disk nivån) * |120/250 MB/s | |
+| Högsta lästa/skrivbara klient data flöde (när de hanteras från moln nivån) * för uppdatering 3 och senare * * |40/60 MB/s för skiktade volymer<br><br>60/80 MB/s för skiktade volymer med arkiverings alternativ valt när volymen skapas |Läs data flödet är beroende av klienter som genererar och upprätthåller tillräckligt I/O-ködjup. <br><br>Hastigheten uppnås beroende på hastigheten för det underliggande lagrings kontot som används. |
 
-&#42; Maximalt dataflöde per I/O-typ mättes med 100 procent läsning och 100 procent skrivscenarier. Det faktiska dataflödet kan vara lägre och beror på I/O-mix och nätverksförhållanden.
+&#42; maximalt data flöde per I/O-typ mäts med 100 procents Läs-och 100 procent Skriv scenarier. Det faktiska data flödet kan vara lägre och beror på I/O-mix och nätverks förhållanden.
 
-&#42;&#42; prestandanummer före uppdatering 3 kan vara lägre.
+&#42;&#42; prestanda nummer före uppdatering 3 kan vara lägre.
 
 ## <a name="next-steps"></a>Nästa steg
-Granska [StorSimple-systemkraven](storsimple-8000-system-requirements.md).
+Granska [system kraven för StorSimple](storsimple-8000-system-requirements.md).
 

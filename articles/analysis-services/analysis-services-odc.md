@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure Analysis Services med en ODC-fil | Microsoft-dokument
-description: Lär dig hur du skapar en Office Data Connection-fil för att ansluta till och hämta data från en Analysis Services-server i Azure.
+title: Ansluta till Azure Analysis Services med en. ODC-fil | Microsoft Docs
+description: Lär dig hur du skapar en Office-dataanslutnings fil för att ansluta till och hämta data från en Analysis Services-server i Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,34 +8,34 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: a4e2dc09c54b39d58b0193e7ac9f585236886722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572674"
 ---
-# <a name="create-an-office-data-connection-file"></a>Skapa en Office-dataanslutningsfil
+# <a name="create-an-office-data-connection-file"></a>Skapa en fil för Office-dataanslutning
 
-I informationen i den här artikeln beskrivs hur du kan skapa en Office-dataanslutningsfil för att ansluta till en Azure Analysis Services-server från Versionsnummer 16.0.7369.2117 eller tidigare, eller Excel 2013. En uppdaterad [MSOLAP.7-leverantör](analysis-services-data-providers.md) krävs också.
-
-
-1. Kopiera exempelanslutningsfilen nedan och klistra in den i en textredigerare. 
-
-2. Ändra `odc:ConnectionString`följande egenskaper i ändrar du följande egenskaper:
-
-    *   I `Data Source=asazure://<region>.asazure.windows.net/<servername>;` `<region>` förändring till regionen för din `<servername>` Analysis Services-server och till namnet på servern.
-
-    *   I `Initial Catalog=<database>;` `<database>` förändring av namnet på databasen.
-
-3. I `<odc:CommandText>Model</odc:CommandText>` `Model` förändring till namnet på din modell eller perspektiv. 
-
-4. Spara filen med `.odc` ett tillägg till\\*användarnamnet*C:\Användare \Dokument\Mina datakällor.
-
-5. Högerklicka på filen och klicka sedan på **Öppna i Excel**. Eller i Excel, klicka på **Befintliga anslutningar**i menyfliksområdet **Data,** markera filen och klicka sedan på **Öppna**.
+Informationen i den här artikeln beskriver hur du kan skapa en Office-dataanslutnings fil för att ansluta till en Azure Analysis Services-server från Excel 2016 version Number 16.0.7369.2117 eller tidigare, eller Excel 2013. Du måste också ha en uppdaterad [MSOLAP. 7-Provider](analysis-services-data-providers.md) .
 
 
+1. Kopiera exempel anslutnings filen nedan och klistra in den i en text redigerare. 
 
-**Exempel på anslutningsfil**
+2. I `odc:ConnectionString`ändrar du följande egenskaper:
+
+    *   Ändras till regionen för Analysis Services-servern och `<servername>` namnet på servern. `<region>` `Data Source=asazure://<region>.asazure.windows.net/<servername>;`
+
+    *   I `Initial Catalog=<database>;` ändra `<database>` till namnet på din databas.
+
+3. I `<odc:CommandText>Model</odc:CommandText>` ändra `Model` till namnet på din modell eller ditt perspektiv. 
+
+4. Spara filen med ett `.odc` tillägg i mappen C:\Users\\*användar namn*\Documents\My data källor.
+
+5. Högerklicka på filen och klicka sedan på **Öppna i Excel**. I Excel, i menyfliksområdet **data** , klickar du på **befintliga anslutningar**, väljer filen och klickar sedan på **Öppna**.
+
+
+
+**Exempel på anslutnings fil**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns="https://www.w3.org/TR/REC-html40">

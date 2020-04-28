@@ -1,64 +1,64 @@
 ---
 title: Skapa en Azure HPC-cache
-description: Skapa en Azure HPC-cacheinstans
+description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73582182"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planera det aggregerade namnområdet
 
-Azure HPC Cache tillåter klienter att komma åt en mängd olika lagringssystem via ett virtuellt namnområde som döljer information om backend-lagringssystemet.
+Med Azure HPC cache får klienterna åtkomst till en mängd olika lagrings system via ett virtuellt namn område som döljer information om Server dels lagrings systemet.
 
-När du lägger till ett lagringsmål anger du sökvägen till klienten. Klientdatorer monterar den här filsökvägen och kan göra filläsningsbegäranden till cachen i stället för att montera lagringssystemet direkt.
+När du lägger till ett lagrings mål anger du sökvägen till klientens fil Sök väg. Klient datorer monterar den här fil Sök vägen och kan göra fil läsnings begär anden till cacheminnet i stället för att montera lagrings systemet direkt.
 
-Eftersom Azure HPC Cache hanterar det här virtuella filsystemet kan du ändra lagringsmålet utan att ändra den klientinriktade sökvägen. Du kan till exempel ersätta ett maskinvarulagringssystem med molnlagring utan att behöva skriva om klientinriktade procedurer.
+Eftersom Azure HPC cache hanterar det här virtuella fil systemet kan du ändra lagrings målet utan att ändra sökvägen till klienten. Du kan till exempel ersätta ett maskin varu lagrings system med moln lagring utan att behöva skriva över klientbaserade procedurer.
 
-## <a name="aggregated-namespace-example"></a>Aggregerat namnområdesexempel
+## <a name="aggregated-namespace-example"></a>Exempel på sammanställd namnrymd
 
-Planera det aggregerade namnområdet så att klientdatorer enkelt kan nå den information de behöver och så att administratörer och arbetsflödestekniker enkelt kan skilja på sökvägarna.
+Planera det sammansatta namn området så att klient datorerna enkelt kan komma åt den information de behöver, och så att administratörer och arbets flödes tekniker enkelt kan särskilja Sök vägarna.
 
-Tänk dig till exempel ett system där en Azure HPC-cacheinstans används för att bearbeta data som lagras i Azure Blob. Analysen kräver mallfiler som lagras i ett lokalt datacenter.
+Anta till exempel ett system där en Azure HPC cache-instans används för att bearbeta data som lagras i Azure blob. För analysen krävs mallfiler som lagras i ett lokalt Data Center.
 
-Malldata lagras i ett datacenter och informationen som behövs för det här jobbet lagras i dessa underkataloger:
+Mal lin data lagras i ett Data Center och den information som krävs för det här jobbet lagras i följande under kataloger:
 
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-Datacentrets lagringssystem exponerar dessa exporter:
+Data Center Storage-systemet visar dessa exporter:
 
     /
     /goldline
     /goldline/templates
 
-De data som ska analyseras har kopierats till en Azure Blob-lagringsbehållare med namnet "sourcecollection" med hjälp av [verktyget CLFSLoad](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
+De data som ska analyseras har kopierats till en Azure Blob Storage-behållare med namnet "sourcecollection" med hjälp av [CLFSLoad-verktyget](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 
-Om du vill tillåta enkel åtkomst via cachen bör du överväga att skapa lagringsmål med de här virtuella namnrymdsvägarna:
+Överväg att skapa lagrings mål med dessa sökvägar för virtuella namn områden för att tillåta enkel åtkomst via cachen:
 
-| Backend lagringssystem <br/> (NFS-filsökväg eller Blob-behållare) | Sökväg till virtuellt namnområde |
+| Server dels lagrings system <br/> (NFS-filsökväg eller BLOB-behållare) | Sökväg för virtuell namnrymd |
 |-----------------------------------------|------------------------|
-| /goldline/templates/acme2017/sku798 /goldline/templates/acme2017/sku798 /goldline/templates/acme2017/sku798 /gold     | /mallar/sku798      |
-| /goldline/templates/acme2017/sku980     | /mallar/sku980      |
-| källasamling                        | /källa/               |
+| /goldline/templates/acme2017/sku798     | /templates/sku798      |
+| /goldline/templates/acme2017/sku980     | /templates/sku980      |
+| sourcecollection                        | /source               |
 
-Ett NFS-lagringsmål kan ha flera virtuella namnområdessökvägar, så länge var och en refererar till en unik exportsökväg.
+Ett NFS-lagrings mål kan ha flera sökvägar för virtuella namn områden, så länge var och en refererar till en unik export Sök väg.
 
-Eftersom NFS-källsökvägarna är underkataloger för samma export måste du definiera flera namnområdessökvägar från samma lagringsmål.
+Eftersom NFS-källans sökvägar är under kataloger för samma export, måste du definiera flera namn områdes Sök vägar från samma lagrings mål.
 
-| Värdnamn för lagringsmål  | NFS-exportsökväg      | Underkatalogsökväg | Namnområdessökväg    |
+| Värdnamn för lagrings mål  | Sökväg till NFS-export      | Sökväg till under Katalog | Sökväg till namnrymd    |
 |--------------------------|----------------------|-------------------|-------------------|
-| *IP-adress eller värdnamn* | /goldline/mallar  | acme2017/sku798   | /mallar/sku798 |
-| *IP-adress eller värdnamn* | /goldline/mallar  | acme2017/sku980   | /mallar/sku980 |
+| *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
+| *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Ett klientprogram kan montera cacheminnet och enkelt komma ``/source`` ``/templates/sku798``åt ``/templates/sku980``de aggregerade namnrymdsfilsökvägarna , och .
+Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna ``/source``för ``/templates/sku798``namn rymds filen, och ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har bestämt hur du konfigurerar det virtuella filsystemet [skapar du lagringsmål](hpc-cache-add-storage.md) för att mappa serverdelslagringen till klientinriktade virtuella filsökvägar.
+När du har bestämt dig för att konfigurera det virtuella fil systemet [skapar du lagrings mål](hpc-cache-add-storage.md) för att mappa Server dels lagringen till dina virtuella sökvägar till klienten.

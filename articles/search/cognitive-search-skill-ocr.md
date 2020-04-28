@@ -1,7 +1,7 @@
 ---
-title: OCR kognitiv skicklighet
+title: Kunskap om OCR-kognitivhet
 titleSuffix: Azure Cognitive Search
-description: Extrahera text från bildfiler med optisk teckenigenkänning (OCR) i en anrikningspipeline i Azure Cognitive Search.
+description: Extrahera text från bildfiler med optisk tecken läsning (OCR) i en pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,61 +9,61 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bdb510113a8d65ac04b54e77158f46d03cccd9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72791929"
 ---
-# <a name="ocr-cognitive-skill"></a>OCR kognitiv skicklighet
+# <a name="ocr-cognitive-skill"></a>Kunskap om OCR-kognitivhet
 
-**Ocr-färdigheten (Optical Character Recognition)** känner igen utskriven och handskriven text i bildfiler. Den här färdigheten använder maskininlärningsmodellerna som tillhandahålls av [Datorseende](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. **OCR-färdigheten** mappar till följande funktioner:
+Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
 
-+ [API:et "OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) används för andra språk än engelska. 
-+ För engelska används det nya "Läs"-API:et. ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
++ API: t ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) används för andra språk än engelska. 
++ För engelska används det nya ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) -API: et.
 
-**OCR-färdigheten** extraherar text från bildfiler. Filformat som stöds är:
+**OCR** -kompetensen extraherar text från bildfiler. Fil format som stöds är:
 
-+ . Jpeg
-+ . Jpg
-+ . Png
-+ . Bmp
-+ . Gif
-+ . Tiff
++ . -
++ . JPEG
++ . KÄLLFIL
++ . BITMAPPSBILD
++ . OBJEKT
++ . TIFF
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka bearbetningsfrekvensen, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [bifoga en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildutvinning som en del av dokumentsprickningsfasen i Azure Cognitive Search. Det finns inga avgifter för textextrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättning för avbildningsextrahering beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400)för Azure Cognitive Search .
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
-## <a name="skill-parameters"></a>Färdighetsparametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| upptäckaorientering | Aktiverar automatisk avdetection av bildorientering. <br/> Giltiga värden: sant / falskt.|
-|standardSpråkkod | <p>  Ingångstextens språkkod. Språk som stöds: <br/> zh-Hans (Kinesisksymplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (tjeckiska) <br/>da (danska) <br/>nl (nederländska) <br/>sv (Engelska) <br/>fi (finska)  <br/>fr (franska) <br/>  de (tyska) <br/>el (grekiska) <br/> hu (ungerska) <br/> det (italienska) <br/>  ja (japanska) <br/> ko (koreanska) <br/> nb (norska) <br/>   pl (polska) <br/> pt (portugisiska) <br/>  ru (ryska) <br/>  es (spanska) <br/>  sv (Svenska) <br/>  tr (turkiska) <br/> ar (arabiska) <br/> ro (rumänska) <br/> sr-Cyrl (serbiskaCyrilliska) <br/> sr-Latn (SerbiskaLatin) <br/>  (slovakiska). <br/>  unk (Okänd) <br/><br/> Om språkkoden är ospecificerad eller null ställs språket in på engelska. Om språket uttryckligen är inställt på "unk" identifieras språket automatiskt. </p> |
-|lineEnding (radEnding) | Värdet som ska användas mellan varje identifierad rad. Möjliga värden: "Space",'CarriageReturn','LineFeed'.  Standardär "Space" |
+| detectOrientation | Aktiverar automatisk identifiering av bild orientering. <br/> Giltiga värden: TRUE/FALSE.|
+|defaultLanguageCode | <p>  Språk koden för inmatad text. Språk som stöds: <br/> zh-hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (tjeckiska) <br/>da (danska) <br/>nl (nederländska) <br/>en (engelska) <br/>Fi (finska)  <br/>Frankrike (franska) <br/>  de (tyska) <br/>El (grekiska) <br/> hu (ungerska) <br/> IT (italienska) <br/>  Ja (japansk) <br/> Ko (koreanska) <br/> NB (norska) <br/>   pl (polska) <br/> PT (portugisiska) <br/>  ru (ryska) <br/>  ES (spanska) <br/>  sa (Svenska) <br/>  TR (turkiska) <br/> ar (arabiska) <br/> ro (rumänska) <br/> sr-cyrl (SerbianCyrillic) <br/> SR-latn (SerbianLatin) <br/>  SK (slovakiska). <br/>  Unk (okänd) <br/><br/> Om språk koden är ospecificerad eller null kommer språket att ställas in på engelska. Om språket uttryckligen anges till "Unk" identifieras språket automatiskt. </p> |
+|lineEnding | Det värde som ska användas mellan varje identifierad rad. Möjliga värden: ' Space ', ' CarriageReturn ', ' rad matning '.  Standardvärdet är ' Space ' |
 
-Tidigare fanns det en parameter som kallas "textExtractionAlgorithm" för att ange om färdigheten ska extrahera "tryckt" eller "handskriven" text.  Den här parametern är föråldrad och inte längre nödvändig eftersom den senaste Läs API-algoritmen kan extrahera båda typerna av text på en gång.  Om din färdighetsdefinition redan innehåller den här parametern behöver du inte ta bort den, men den kommer inte längre att användas och båda typerna av text extraheras framöver oavsett vad den är inställd på.
+Tidigare fanns det en parameter med namnet "textExtractionAlgorithm" för att ange om kunskapen ska extrahera "tryckt" eller "handskriven" text.  Den här parametern är föråldrad och behövs inte längre eftersom den senaste Read API-algoritmen kan extrahera båda typer av text samtidigt.  Om din kunskaps definition redan innehåller den här parametern behöver du inte ta bort den, men den kommer inte längre att användas och båda typerna av text kommer att extraheras, oavsett vad den är inställd på.
 
-## <a name="skill-inputs"></a>Indata för färdighet
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn      | Beskrivning                                          |
+| Inmatat namn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| image         | Komplex typ. För närvarande fungerar endast med fältet "/document/normalized_images", som produceras av ```imageAction``` Azure Blob-indexeraren när den är inställd på ett annat värde än ```none```. Mer information finns i [exemplet.](#sample-output)|
+| image         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har angetts till ett annat ```none```värde än. Se [exemplet](#sample-output) för mer information.|
 
 
-## <a name="skill-outputs"></a>Utdata för färdighet
-| Utdatanamn     | Beskrivning                   |
+## <a name="skill-outputs"></a>Kunskaps utmatningar
+| Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
-| text          | Oformaterad text extraherad från bilden.   |
-| layoutText    | Komplex typ som beskriver den extraherade texten och platsen där texten hittades.|
+| text          | Oformaterad text extraherad från avbildningen.   |
+| layoutText    | Komplex typ som beskriver den extraherade texten och den plats där texten hittades.|
 
 
-## <a name="sample-definition"></a>Exempeldefinition
+## <a name="sample-definition"></a>Exempel definition
 
 ```json
 {
@@ -96,7 +96,7 @@ Tidigare fanns det en parameter som kallas "textExtractionAlgorithm" för att an
 ```
 <a name="sample-output"></a>
 
-## <a name="sample-text-and-layouttext-output"></a>Exempel på text och layoutTextutdata
+## <a name="sample-text-and-layouttext-output"></a>Exempel text och layoutText utdata
 
 ```json
 {
@@ -134,11 +134,11 @@ Tidigare fanns det en parameter som kallas "textExtractionAlgorithm" för att an
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exempel: Sammanslagning av text som extraherats från inbäddade bilder med innehållet i dokumentet.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exempel: sammanfoga text som extraherats från inbäddade bilder med dokumentets innehåll.
 
-Ett vanligt användningsfall för Textsammanslagning är möjligheten att sammanfoga textrepresentationen av bilder (text från en OCR-färdighet eller bildtexten för en bild) till innehållsfältet i ett dokument.
+Ett vanligt användnings fall för text fusion är möjligheten att slå samman text representationen av bilder (text från en OCR-färdighet eller bild text) i innehålls fältet i ett dokument.
 
-I följande exempel skapar kunskaper ett *merged_text* fält. Det här fältet innehåller dokumentets textinnehåll och OCR-text från var och en av bilderna som är inbäddade i dokumentet.
+I följande exempel skapar färdigheter ett *merged_text* -fält. Det här fältet innehåller text innehållet i ditt dokument och OCRed-texten från var och en av de inbäddade bilderna i dokumentet.
 
 #### <a name="request-body-syntax"></a>Begärandetextsyntax
 ```json
@@ -190,7 +190,7 @@ I följande exempel skapar kunskaper ett *merged_text* fält. Det här fältet i
   ]
 }
 ```
-Exemplet ovan kompetens förutsätter att det finns ett fält med normaliserade bilder. Om du vill generera det här fältet ställer du in *imageAction-konfigurationen* i indexerdefinitionen så att *den genererarNormalizedImages* enligt nedan:
+Exemplet ovan färdigheter förutsätter att det finns ett normaliserat-avbildnings fält. Om du vill generera det här fältet anger du *imageAction* -konfigurationen i din indexerare-definition till *generateNormalizedImages* som visas nedan:
 
 ```json
 {
@@ -206,6 +206,6 @@ Exemplet ovan kompetens förutsätter att det finns ett fält med normaliserade 
 
 ## <a name="see-also"></a>Se även
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [TextMerger-färdighet](cognitive-search-skill-textmerger.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
++ [TextMerger-kompetens](cognitive-search-skill-textmerger.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

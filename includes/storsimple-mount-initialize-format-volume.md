@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 592131bf6cca4c4c3c827de23742e8d52bcb4d1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187398"
 ---
 #### <a name="to-mount-initialize-and-format-a-volume"></a>Montera, initiera och formatera en volym
@@ -30,7 +30,7 @@ ms.locfileid: "67187398"
     3. Ange en storlek på allokeringsenheterna på 64 KB. Den här storleken för allokeringsenheter fungerar väl med de dedupliceringsalgoritmer som används av StorSimple-lösningen.
     4. Utför en snabbformatering.
 
-![Video](./media/storsimple-mount-initialize-format-volume/Video_icon.png) tillgänglig **Video tillgänglig**
+![Video tillgänglig](./media/storsimple-mount-initialize-format-volume/Video_icon.png) video **tillgänglig**
 
 Om du vill se en video som visar hur du monterar, initierar och formaterar en StorSimple-volym, klickar du [här](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 

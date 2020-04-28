@@ -1,6 +1,6 @@
 ---
 title: Övervakning av fil i Azure Security Center
-description: Lär dig hur du jämför baslinjer med filintegritetsövervakning i Azure Security Center.
+description: Lär dig hur du jämför bas linjer med övervakning av fil integritet i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,57 +14,57 @@ ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
 ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73664416"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Jämföra baslinjer med hjälp av övervakning av filintegritet (FIM)
 
-Fim (File Integrity Monitoring) informerar dig när ändringar sker i känsliga områden i dina resurser, så att du kan undersöka och åtgärda obehörig aktivitet. FIM övervakar Windows-filer, Windows-register och Linux-filer.
+File Integrity Monitoring (FIM) informerar dig när ändringar sker i känsliga områden i resurserna, så att du kan undersöka och åtgärda otillåten aktivitet. FIM övervakar Windows-filer, Windows-register och Linux-filer.
 
-I det här avsnittet beskrivs hur du aktiverar FIM i filerna och registren. Mer information om FIM finns [i Filintegritetsövervakning i Azure Security Center](security-center-file-integrity-monitoring.md).
+I det här avsnittet beskrivs hur du aktiverar FIM på filer och register. Mer information om FIM finns i avsnittet [om fil integritets övervakning i Azure Security Center](security-center-file-integrity-monitoring.md).
 
-## <a name="why-use-fim"></a>Varför använda FIM?
+## <a name="why-use-fim"></a>Varför ska jag använda FIM?
 
-Operativsystem, program och associerade konfigurationer styr resursernas beteende och säkerhetstillstånd. Därför riktar angripare in sig på de filer som styr dina resurser för att köra om en resurs operativsystem och/eller utföra aktiviteter utan att identifieras.
+Operativ system, program och associerade konfigurationer styr dina resursers beteende och säkerhets tillstånd. Därför riktar angriparen filerna som styr resurserna, för att kunna ta en resurss operativ system och/eller köra aktiviteter utan att identifieras.
 
-Faktum är att många standarder för regelefterlevnad, såsom PCI-DSS & ISO 17799, kräver att FIM-kontroller implementeras.  
+I själva verket kräver många reglerande standarder som PCI-DSS & ISO 17799 implementering av FIM-kontroller.  
 
-## <a name="enable-built-in-recursive-registry-checks"></a>Aktivera inbyggda rekursiva registerkontroller
+## <a name="enable-built-in-recursive-registry-checks"></a>Aktivera inbyggda rekursiva register kontroller
 
-Fim-registrets hive-standardvärden är ett bekvämt sätt att övervaka rekursiva ändringar inom gemensamma säkerhetsområden.  En motståndare kan till exempel konfigurera ett skript så att det körs i LOCAL_SYSTEM kontext genom att konfigurera en körning vid start eller avstängning.  Aktivera den inbyggda kontrollen om du vill övervaka ändringar av den här typen.  
+Standardvärdena för FIM-Hive är ett bekvämt sätt att övervaka rekursiva ändringar inom vanliga säkerhets områden.  En angripare kan till exempel konfigurera ett skript som ska köras i LOCAL_SYSTEM-kontext genom att konfigurera en körning vid start eller avstängning.  Aktivera den inbyggda kontrollen för att övervaka ändringar av den här typen.  
 
 ![Register](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
-> Rekursiva kontroller gäller endast för rekommenderade säkerhetsfiler och inte anpassade registersökvägar.  
+> Rekursiva kontroller gäller endast för rekommenderade säkerhets strukturer och inte anpassade register Sök vägar.  
 
-## <a name="adding-a-custom-registry-check"></a>Lägga till en anpassad registerkontroll
+## <a name="adding-a-custom-registry-check"></a>Lägga till en anpassad register kontroll
 
-FIM-baslinjer börjar med att identifiera egenskaper hos ett känt tillstånd för operativsystemet och stödprogrammet.  I det här exemplet fokuserar vi på lösenordsprincipkonfigurationerna för Windows Server 2008 och senare.
+FIM-slutpunkter börjar genom att identifiera egenskaper för ett tillförlitligt tillstånd för operativ systemet och program som stöds.  I det här exemplet kommer vi att fokusera på konfigurationerna för lösen ords principer för Windows Server 2008 och högre.
 
 
 |Principnamn                 | Registerinställning|
 |---------------------------------------|-------------|
 |Domänkontrollant: Tillåt inte ändringar av lösenord för datorkonton| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
-|Domänmedlem: Kryptera eller signera data för säker kanal digitalt (alltid)|MACHINE\System\CurrentControlSet\Services \netlogon\parameters\RequireSignOrSeal|
+|Domänmedlem: Kryptera eller signera data för säker kanal digitalt (alltid)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
 |Domänmedlem: Kryptera data för säker kanal digitalt (om det är möjligt)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
 |Domänmedlem: Signera säkra kanaldata digitalt (om det är möjligt)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
 |Domänmedlem: Inaktivera ändringar av lösenord för datorkonton|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
 |Domänmedlem: Högsta ålder för lösenord för datorkontot|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
 |Domänmedlem: Kräv stark sessionsnyckel (Windows 2000 eller senare)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
-|Nätverkssäkerhet: Begränsa NTLM: NTLM-autentisering i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|Nätverks säkerhet: Begränsa NTLM: NTLM-autentisering i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
 |Nätverkssäkerhet: Begränsa NTLM: Lägg till serverundantag i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
-|Nätverkssäkerhet: Begränsa NTLM: Granska NTLM-autentisering i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
+|Nätverks säkerhet: Begränsa NTLM: Granska NTLM-autentisering i den här domänen|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Mer information om registerinställningar som stöds av olika operativsystemversioner finns i [referenskalkyl kalkylbladet Grupprincipinställningar](https://www.microsoft.com/download/confirmation.aspx?id=25250).
+> Mer information om register inställningar som stöds av olika operativ system versioner finns i [kalkyl bladet grupprincip inställningar referens](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Så här konfigurerar du FIM för att övervaka registerbaslinjer:*
+*Konfigurera FIM för att övervaka register bas linjer:*
 
-1. Ange registernyckeln i textrutan **Windows-registernyckel** i fönstret **Lägg till Windows-register för ändringsspårning.**
+1. I fönstret **Lägg till Windows-register för ändringsspårning** i text rutan **register nyckel för Windows** anger du register nyckeln.
 
     <code>
 
@@ -75,17 +75,17 @@ FIM-baslinjer börjar med att identifiera egenskaper hos ett känt tillstånd f�
 
 ## <a name="tracking-changes-to-windows-files"></a>Spåra ändringar i Windows-filer
 
-1. I textrutan **Lägg till Windows-fil för ändringsspårning** anger du mappen som innehåller de filer som du vill spåra i textrutan **Ange sökväg.** I exemplet i följande bild finns **Contoso Web App** i D:\ inom **contosWebApp-mappstrukturen.**  
-1. Skapa en anpassad Windows-filpost genom att ange ett namn på inställningsklassen, aktivera rekursion och ange den översta mappen med ett suffix för jokertecken (*).
+1. I text rutan **Ange sökväg** i fönstret **Lägg till Windows-fil för ändringsspårning** anger du den mapp som innehåller de filer som du vill spåra. I exemplet i följande figur finns **contoso-webbappen** i D:\ enhet i mappstrukturen för **ContosWebApp** .  
+1. Skapa en anpassad Windows-filpost genom att ange ett namn på inställnings klassen, aktivera rekursion och ange den översta mappen med ett jokertecken (*).
 
-    ![Aktivera FIM för en fil](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    ![Aktivera FIM på en fil](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Hämta ändringsdata
+## <a name="retrieving-change-data"></a>Hämtar ändrings data
 
-Data för filintegritetsövervakning finns i tabelluppsättningen Azure Log Analytics/ConfigurationChange.  
+Data för fil integritets övervakning finns i tabell uppsättningen för Azure Log Analytics/ConfigurationChange.  
 
  1. Ange ett tidsintervall för att hämta en sammanfattning av ändringar per resurs.
-I följande exempel hämtar vi alla ändringar under de senaste fjorton dagarna i kategorierna register och filer:
+I följande exempel hämtar vi alla ändringar under de senaste fjorton dagarna i kategorier av register och filer:
 
     <code>
 
@@ -99,10 +99,10 @@ I följande exempel hämtar vi alla ändringar under de senaste fjorton dagarna 
 
     </code>
 
-1. Så här visar du information om registerändringarna:
+1. Så här visar du information om registrets ändringar:
 
-    1. Ta bort **filer** från **den plats där** satsen, 
-    1. Ta bort summariseringsraden och ersätt den med en ordersats:
+    1. Ta bort **filer** från **WHERE** -satsen 
+    1. Ta bort sammanfattnings raden och ersätt den med en order-sats:
 
     <code>
 
@@ -116,6 +116,6 @@ I följande exempel hämtar vi alla ändringar under de senaste fjorton dagarna 
 
     </code>
 
-Rapporter kan exporteras till CSV för arkivering och/eller kanaliseras till en Power BI-rapport.  
+Rapporter kan exporteras till CSV för arkivering och/eller kanal till en Power BI rapport.  
 
 ![FIM-data](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

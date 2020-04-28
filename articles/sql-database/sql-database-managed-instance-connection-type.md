@@ -1,6 +1,6 @@
 ---
-title: Anslutningstyper för hanterade instanser
-description: Lär dig mer om anslutningstyper för hanterade instanser
+title: Anslutnings typer för hanterade instanser
+description: Lär dig mer om anslutnings typer för hanterade instanser
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,43 +10,43 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.openlocfilehash: 46223d1701b930d93de7c49c1e216a41045dda16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73819459"
 ---
-# <a name="azure-sql-database-managed-instance-connection-types"></a>Azure SQL Database-anslutningstyper för hanterade instanser
+# <a name="azure-sql-database-managed-instance-connection-types"></a>Azure SQL Database anslutnings typer för hanterade instanser
 
-I den här artikeln beskrivs hur klienter ansluter till Azure SQL Database-hanterad instans beroende på anslutningstypen. Skriptexempel för att ändra anslutningstyper finns nedan, tillsammans med överväganden som är relaterade till att ändra standardinställningarna för anslutning.
+Den här artikeln förklarar hur klienter ansluter till Azure SQL Database Hanterad instans beroende på anslutnings typen. Skript exempel för att ändra anslutnings typer anges nedan, tillsammans med överväganden om hur du ändrar standard anslutnings inställningarna.
 
 ## <a name="connection-types"></a>Anslutningstyper
 
-Azure SQL Database-hanterad instans stöder följande två anslutningstyper:
+Azure SQL Database hanterade instansen stöder följande två anslutnings typer:
 
-- **Omdirigering (rekommenderas):** Klienter upprättar anslutningar direkt till den nod som är värd för databasen. Om du vill aktivera anslutning med omdirigering måste du öppna brandväggar och NSG (Network Security Groups) för att tillåta åtkomst på portarna 1433 och 11000-11999. Paket går direkt till databasen, och därför finns det svarstid och dataflöde prestandaförbättringar med Omdirigera över Proxy.
-- **Proxy (standard):** I det här läget använder alla anslutningar en proxygatewaykomponent. För att aktivera anslutning behöver endast port 1433 för privata nätverk och port 3342 för offentlig anslutning öppnas. Om du väljer det här läget kan det leda till högre svarstid och lägre dataflöde, beroende på arbetsbelastningens art. Vi rekommenderar starkt principen om omdirigeringsanslutning över proxyanslutningsprincipen för den lägsta svarstiden och det högsta dataflödet.
+- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen. Om du vill aktivera anslutning med hjälp av omdirigering måste du öppna brand väggar och nätverks säkerhets grupper (NSG) för att tillåta åtkomst på portarna 1433 och 11000-11999. Paket går direkt till databasen och därför finns det fördröjningar och data flödes prestanda förbättringar som använder omdirigering via proxy.
+- **Proxy (standard):** I det här läget använder alla anslutningar en proxy-Gateway-komponent. Om du vill aktivera anslutning måste endast port 1433 för privata nätverk och port 3342 för offentlig anslutning öppnas. Att välja det här läget kan resultera i högre latens och lägre data flöde, beroende på arbets Belastningens natur. Vi rekommenderar starkt att du omdirigerar anslutnings principen via proxy-anslutningen för lägsta latens och högsta data flöde.
 
-## <a name="redirect-connection-type"></a>Omdirigeringsanslutningstyp
+## <a name="redirect-connection-type"></a>Anslutnings typ för omdirigering
 
-Omdirigeringsanslutningstyp innebär att när TCP-sessionen har upprättats till SQL-motorn, hämtar klientsessionen målvirklig IP för den virtuella klusternoden från belastningsutjämnaren. Efterföljande paket flödar direkt till den virtuella klusternoden och kringgår gatewayen. Följande diagram illustrerar detta trafikflöde.
+Anslutnings typ för omdirigering innebär att när TCP-sessionen har upprättats till SQL-motorn hämtar klientsessionen den virtuella mål-IP-adressen för den virtuella klusternoden från belastningsutjämnaren. Efterföljande paket flödar direkt till den virtuella klusternoden och kringgår gatewayen. Följande diagram illustrerar det här trafikflödet.
 
-![redirect.png](media/sql-database-managed-instance-connection-types/redirect.png)
+![omdirigera. png](media/sql-database-managed-instance-connection-types/redirect.png)
 
 > [!IMPORTANT]
-> Omdirigeringsanslutningstyp fungerar för närvarande endast för privat slutpunkt. Oavsett inställningen för anslutningstypen skulle anslutningar som kommer via den offentliga slutpunkten vara via en proxy.
+> Anslutnings typen för omdirigering fungerar för närvarande endast för privat slut punkt. Oavsett inställningen för anslutnings typen, kommer anslutningar via den offentliga slut punkten att ske via en proxy.
 
-## <a name="proxy-connection-type"></a>Proxyanslutningstyp
+## <a name="proxy-connection-type"></a>Typ av anslutnings proxy
 
-Proxyanslutningstyp innebär att TCP-sessionen upprättas med hjälp av gatewayen och alla efterföljande paket flödar genom den. Följande diagram illustrerar detta trafikflöde.
+Anslutnings typ för proxy innebär att TCP-sessionen upprättas med hjälp av gatewayen och alla efterföljande paket flödar genom den. Följande diagram illustrerar det här trafikflödet.
 
-![proxy.png (på andra)](media/sql-database-managed-instance-connection-types/proxy.png)
+![proxy. png](media/sql-database-managed-instance-connection-types/proxy.png)
 
-## <a name="script-to-change-connection-type-settings-using-powershell"></a>Skript för att ändra inställningar för anslutningstyp med PowerShell
+## <a name="script-to-change-connection-type-settings-using-powershell"></a>Skript för att ändra inställningar för Anslutnings typ med PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Följande PowerShell-skript visar hur du ändrar anslutningstypen för en hanterad instans till Omdirigera.
+Följande PowerShell-skript visar hur du ändrar anslutnings typen för en hanterad instans som ska omdirigeras.
 
 ```powershell
 Install-Module -Name Az
@@ -66,5 +66,5 @@ $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 ## <a name="next-steps"></a>Nästa steg
 
 - [Återställa en databas till en hanterad instans](sql-database-managed-instance-get-started-restore.md)
-- Lär dig hur du [konfigurerar en offentlig slutpunkt på hanterad instans](sql-database-managed-instance-public-endpoint-configure.md)
-- Lär dig mer om [anslutningsarkitektur för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md)
+- Lär dig hur du [konfigurerar en offentlig slut punkt på en hanterad instans](sql-database-managed-instance-public-endpoint-configure.md)
+- Lär dig mer om [arkitektur för hanterad instans anslutning](sql-database-managed-instance-connectivity-architecture.md)

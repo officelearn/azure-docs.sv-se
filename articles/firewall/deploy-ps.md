@@ -1,6 +1,6 @@
 ---
 title: Distribuera och konfigurera Azure-brandväggen med Azure PowerShell
-description: I den här artikeln får du lära dig hur du distribuerar och konfigurerar Azure-brandväggen med Azure PowerShell.
+description: I den här artikeln får du lära dig hur du distribuerar och konfigurerar Azure-brandväggen med hjälp av Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,15 +8,15 @@ ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73831846"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuera och konfigurera Azure-brandväggen med Azure PowerShell
 
-En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kanske till exempel vill begränsa åtkomsten till webbplatser. Du kanske vill begränsa de utgående IP-adresser och portar som kan nås.
+En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kanske till exempel vill begränsa åtkomsten till webbplatser. Eller så kanske du vill begränsa de utgående IP-adresserna och portarna som kan nås.
 
 Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från ett Azure-undernät. Med Azure Firewall kan du konfigurera:
 
@@ -25,7 +25,7 @@ Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från e
 
 Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebefordrar den till brandväggen som standardgateway för undernätet.
 
-I den här artikeln skapar du ett förenklat enda virtuella nätverk med tre undernät för enkel distribution. För produktionsdistributioner rekommenderas en [hubb- och ekermodell,](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) där brandväggen finns i sitt eget virtuella nätverk. Arbetsbelastningsservrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
+I den här artikeln skapar du ett förenklat enda VNet med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och eker-modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , där brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
 
 * **AzureFirewallSubnet** – brandväggen ligger i det här undernätet.
 * **Workload-SN** – arbetsbelastningsservern ligger i det här undernätet. Det här undernätets nätverkstrafik går genom brandväggen.
@@ -39,17 +39,17 @@ I den här artikeln kan du se hur du:
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
 > * Skapa en standardväg
-> * Konfigurera en programregel för att ge åtkomst till www.google.com
+> * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
 > * testa brandväggen.
 
-Om du vill kan du slutföra den här proceduren med [Azure-portalen](tutorial-firewall-deploy-portal.md).
+Om du vill kan du slutföra den här proceduren med hjälp av [Azure Portal](tutorial-firewall-deploy-portal.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Den här proceduren kräver att du kör PowerShell lokalt. Du måste ha Azure PowerShell-modulen installerad. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
+Den här proceduren kräver att du kör PowerShell lokalt. Du måste ha installerat Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="set-up-the-network"></a>Konfigurera nätverket
 
@@ -57,7 +57,7 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Resursgruppen innehåller alla resurser för distributionen.
+Resurs gruppen innehåller alla resurser för distributionen.
 
 ```azurepowershell
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
@@ -68,14 +68,14 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 Det här virtuella nätverket har tre undernät:
 
 > [!NOTE]
-> Storleken på undernätet AzureFirewallSubnet är /26. Mer information om undernätsstorleken finns i [Vanliga frågor och svar om Azure-brandväggen](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurepowershell
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
 $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
-Nu, skapa det virtuella nätverket:
+Skapa det virtuella nätverket nu:
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i respektive undernät.
 När du uppmanas anger du användarnamn och lösenord för den virtuella datorn.
 
-Skapa den virtuella datorn Srv-Jump.
+Skapa den virtuella datorn för SRV-hopp.
 
 ```azurepowershell
 New-AzVm `
@@ -100,7 +100,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-Skapa en virtuell dator för arbetsbelastning utan offentlig IP-adress.
+Skapa en virtuell arbets belastnings dator utan offentlig IP-adress.
 När du uppmanas anger du användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell
@@ -120,7 +120,7 @@ New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
 
-Distribuera nu brandväggen till det virtuella nätverket.
+Distribuera nu brand väggen till det virtuella nätverket.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -139,7 +139,7 @@ Skriv ned den privata IP-adressen. Du kommer att använda den senare när du ska
 
 ## <a name="create-a-default-route"></a>Skapa en standardväg
 
-Skapa en tabell med BGP-flödesspridning inaktiverad
+Skapa en tabell med avaktiverad BGP Route-spridning
 
 ```azurepowershell
 $routeTableDG = New-AzRouteTable `
@@ -168,7 +168,7 @@ Set-AzVirtualNetworkSubnetConfig `
 
 ## <a name="configure-an-application-rule"></a>Konfigurera en programregel
 
-Programregeln tillåter utgående åtkomst till www.google.com.
+Med program regeln tillåts utgående åtkomst till www.google.com.
 
 ```azurepowershell
 $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 `
@@ -186,7 +186,7 @@ Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn
 
 ## <a name="configure-a-network-rule"></a>Konfigurera en nätverksregel
 
-Nätverksregeln tillåter utgående åtkomst till två IP-adresser vid port 53 (DNS).
+Nätverks regeln tillåter utgående åtkomst till två IP-adresser i port 53 (DNS).
 
 ```azurepowershell
 $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAddress 10.0.2.0/24 `
@@ -202,7 +202,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Ändra den primära och sekundära DNS-adressen för nätverksgränssnittet **Srv-Work**
 
-Konfigurera serverns primära och sekundära DNS-adresser för teständamål i den här proceduren. Detta är inte ett allmänt Azure-brandväggskrav.
+Konfigurera serverns primära och sekundära DNS-adresser i test syfte i den här proceduren. Detta är inte ett allmänt krav för Azure-brandvägg.
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -212,24 +212,24 @@ $NIC | Set-AzNetworkInterface
 
 ## <a name="test-the-firewall"></a>testa brandväggen.
 
-Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
+Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
-1. Observera den privata IP-adressen för den virtuella **datorn Srv-Work:**
+1. Observera den privata IP-adressen för den virtuella **SRV-Work-** datorn:
 
    ```
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. Anslut ett fjärrskrivbord till den virtuella datorn **Srv-Jump** och logga in. Därifrån öppnar du en fjärrskrivbordsanslutning till den privata **IP-adressen Srv-Work** och loggar in.
+1. Anslut ett fjärr skrivbord till en virtuell dator med **SRV-hopp** och logga in. Därifrån öppnar du en fjärr skrivbords anslutning till den privata IP-adressen för **SRV-arbete** och loggar in.
 
-3. Öppna ett PowerShell-fönster på **SRV-Work**och kör följande kommandon:
+3. Öppna ett PowerShell-fönster i **SRV-arbete**och kör följande kommandon:
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Båda kommandona bör returnera svar som visar att dina DNS-frågor kommer igenom brandväggen.
+   Båda kommandona ska returnera svar, vilket visar att dina DNS-frågor går igenom brand väggen.
 
 1. Kör följande kommandon:
 
@@ -241,16 +241,16 @@ Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Begäranden `www.google.com` bör lyckas `www.microsoft.com` och begärandena bör misslyckas. Detta visar att brandväggsreglerna fungerar som förväntat.
+   `www.google.com` Begär Anden ska lyckas och `www.microsoft.com` begär Anden ska Miss lyckas. Detta visar att brand Väggs reglerna fungerar som förväntat.
 
-Så nu har du verifierat att brandväggsreglerna fungerar:
+Nu har du verifierat att brand Väggs reglerna fungerar:
 
 * Du kan omvandla DNS-namn med hjälp av den konfigurerade externa DNS-servern.
 * Du kan bläddra till en tillåten FQDN, men inte till andra.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan behålla brandväggsresurserna för nästa självstudiekurs, eller om det inte längre behövs, ta bort resursgruppen **Test-FW-RG** för att ta bort alla brandväggsrelaterade resurser:
+Du kan behålla dina brand Väggs resurser för nästa självstudie eller, om du inte längre behöver, ta bort resurs gruppen **test-VB-RG** för att ta bort alla brand Väggs resurser:
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

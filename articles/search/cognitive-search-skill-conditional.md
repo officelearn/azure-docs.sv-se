@@ -1,7 +1,7 @@
 ---
-title: Villkorlig kognitiv skicklighet
+title: Villkorlig kognitiva kunskaper
 titleSuffix: Azure Cognitive Search
-description: Den villkorliga färdigheten i Azure Cognitive Search gör det möjligt att filtrera, skapa standardvärden och slå samman värden i en kompetensdefinition.
+description: Den villkorliga kunskapen i Azure Kognitiv sökning möjliggör filtrering, skapande av standardvärden och sammanslagning av värden i en färdigheter-definition.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792050"
 ---
-# <a name="conditional-cognitive-skill"></a>Villkorlig kognitiv skicklighet
+# <a name="conditional-cognitive-skill"></a>Villkorlig kognitiva kunskaper
 
-Den **villkorliga** färdigheten aktiverar Azure Cognitive Search-scenarier som kräver en boolesk åtgärd för att bestämma vilka data som ska tilldelas en utdata. Dessa scenarier omfattar filtrering, tilldelning av ett standardvärde och sammanslagning av data baserat på ett villkor.
+Den **villkorliga** kompetensen gör det möjligt för Azure kognitiv sökning scenarier som kräver en boolesk åtgärd för att fastställa vilka data som ska tilldelas till utdata. I dessa scenarier ingår filtrering, tilldelning av ett standardvärde och sammanslagning av data baserat på ett villkor.
 
-Följande pseudokod visar vad den villkorliga färdigheten åstadkommer:
+Följande pseudocode visar vad den villkorliga kompetensen uppnår:
 
 ```
 if (condition) 
@@ -29,19 +29,19 @@ else
 ```
 
 > [!NOTE]
-> Den här färdigheten är inte bunden till ett Azure Cognitive Services-API och du debiteras inte för att du använder den. Du bör dock fortfarande [bifoga en Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md) för att åsidosätta resursalternativet "Gratis" som begränsar dig till ett litet antal enrichments per dag.
+> Den här kompetensen är inte kopplad till ett Azure Cognitive Services-API och du debiteras inte för att använda den. Du bör dock fortfarande [bifoga en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md) för att åsidosätta resurs alternativet "ledig" som begränsar dig till ett litet antal berikningar per dag.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.util.conditionalskill
+Microsoft. färdigheter. util. ConditionalSkill
 
 
 ## <a name="evaluated-fields"></a>Utvärderade fält
 
-Den här färdigheten är speciell eftersom dess indata utvärderas fält.
+Den här kompetensen är speciell eftersom dess indata är beräknade fält.
 
 Följande objekt är giltiga värden för ett uttryck:
 
--   Anteckningsbanor (banor i uttryck måste avgränsas med "$(" och ")")
+-   Antecknings Sök vägar (sökvägar i uttryck måste avgränsas med "$ (" och ")")
  <br/>
     Exempel:
     ```
@@ -58,21 +58,21 @@ Följande objekt är giltiga värden för ett uttryck:
        "= null"                 // null value
     ```
 
--  Uttryck som använder jämförelseoperatorer (==, !=, >=, >, <=, <) <br/>
+-  Uttryck som använder jämförelse operatorer (= =,! =, >=, >, <=, <) <br/>
     Exempel:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
--   Uttryck som använder booleska operatorer (&&, ||, !, ^) <br/>
+-   Uttryck som använder booleska operatorer (&&, | |,!, ^) <br/>
     Exempel:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
--   Uttryck som använder numeriska operatorer (+, -, \*, /, %) <br/>
+-   Uttryck som använder numeriska operatorer (+,- \*,,,/,%) <br/>
     Exempel: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -80,25 +80,25 @@ Följande objekt är giltiga värden för ett uttryck:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Eftersom den villkorliga färdigheten stöder utvärdering kan du använda den i scenarier med mindre omvandlingar. Se till exempel [färdighetsdefinition 4](#transformation-example).
+Eftersom den villkorliga kompetensen stöder utvärdering kan du använda den i scenarier med mindre omvandling. Se till exempel [kunskaps definition 4](#transformation-example).
 
-## <a name="skill-inputs"></a>Indata för färdighet
+## <a name="skill-inputs"></a>Kompetens inmatningar
 Indata är skiftlägeskänsliga.
 
 | Indata   | Beskrivning |
 |-------------|-------------|
-| Villkor   | Den här indata är ett [utvärderat fält](#evaluated-fields) som representerar villkoret att utvärdera. Detta villkor bör utvärderas till ett booleskt värde (*sant* eller *falskt*).   <br/>  Exempel: <br/> "= sant" <br/> "= $(/dokument/språk) =='fr'" <br/> "= $(/dokument/sidor/\*/språk) == $(/dokument/expectedLanguage)" <br/> |
-| whenTrue    | Den här indata är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *true*. Konstanter strängar bör returneras med enkla citattecken (' och '). <br/>Exempelvärden: <br/> "= "kontrakt""<br/>"= $(/dokument/kontraktType)" <br/> "= $(/dokument/enheter/\*)" <br/> |
-| närFalse   | Den här indata är ett [utvärderat fält](#evaluated-fields) som representerar värdet att returnera om villkoret utvärderas till *false*. <br/>Exempelvärden: <br/> "= "kontrakt""<br/>"= $(/dokument/kontraktType)" <br/> "= $(/dokument/enheter/\*)" <br/>
+| moduletype   | Indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar villkoret som ska utvärderas. Det här villkoret bör utvärderas till ett booleskt värde (*Sant* eller *falskt*).   <br/>  Exempel: <br/> "= sant" <br/> "= $ (/Document/Language) = = ' fr ' ' <br/> "= $ (/Document/Pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
+| whenTrue    | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *Sant*. Konstanter strängar ska returneras inom enkla citat tecken ("och"). <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/\*)" <br/> |
+| whenFalse   | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *false*. <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/\*)" <br/>
 
-## <a name="skill-outputs"></a>Utdata för färdighet
-Det finns en enda utgång som helt enkelt kallas "output". Värdet *returneras närFalse returneras* om villkoret är falskt eller *närBeta* om villkoret är sant.
+## <a name="skill-outputs"></a>Kunskaps utmatningar
+Det finns ett enda utdata som bara kallas "utdata". Den returnerar värdet *whenFalse* om villkoret är falskt eller *whenTrue* om villkoret är sant.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exempel på färdighetsdefinition 1: Filtrera dokument för att endast returnera franska dokument
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exempel på kunskaps definition 1: filtrera dokument för att endast returnera franska dokument
 
-Följande utdata returnerar en matris med meningar ("/dokument/frenchSentences") om språket i dokumentet är franskt. Om språket inte är franskt anges värdet till *null*.
+Följande utdata returnerar en matris med meningar ("/document/frenchSentences") om språket i dokumentet är franska. Om språket inte är franska anges värdet *Null*.
 
 ```json
 {
@@ -112,12 +112,12 @@ Följande utdata returnerar en matris med meningar ("/dokument/frenchSentences")
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Om "/document/frenchSentences" används som *kontext för* en annan färdighet körs den färdigheten endast om "/document/frenchSentences" inte är inställd på *null*.
+Om "/document/frenchSentences" används som *kontext* för en annan färdighet, körs den kunskapen bara om "/Document/frenchSentences" inte är inställt på *Null*.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Exempel på färdighetsdefinition 2: Ange ett standardvärde för ett värde som inte finns
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Exempel på kunskaps definition 2: Ange ett standardvärde för ett värde som inte finns
 
-Följande utdata skapar en anteckning ("/dokument/languageWithDefault") som är inställd på dokumentets språk eller till "es" om språket inte är inställt.
+Följande utdata skapar en anteckning ("/document/languageWithDefault") som är inställd på språket för dokumentet eller "es" om språket inte är angivet.
 
 ```json
 {
@@ -132,9 +132,9 @@ Följande utdata skapar en anteckning ("/dokument/languageWithDefault") som är 
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exempel på färdighetsdefinition 3: Sammanfoga värden från två fält till ett
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exempel på kunskaps definition 3: sammanfoga värden från två fält till ett
 
-I det här exemplet har vissa meningar en *frenchSentiment-egenskap.* När *fransmannens* egendom är null vill vi använda *värdet englishSentiment.* Vi tilldelar utdata till en medlem som kallas *sentiment* ("/document/sentiment/*/sentiment").
+I det här exemplet har vissa meningar en *frenchSentiment* -egenskap. När *frenchSentiment* -egenskapen är null vill vi använda *englishSentiment* -värdet. Vi tilldelar utdata till en medlem som heter *sentiment* ("/Document/sentiment/*/sentiment").
 
 ```json
 {
@@ -149,12 +149,12 @@ I det här exemplet har vissa meningar en *frenchSentiment-egenskap.* När *fran
 }
 ```
 
-## <a name="transformation-example"></a>Exempel på omformning
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exempel på färdighetsdefinition 4: Dataomvandling på ett enda fält
+## <a name="transformation-example"></a>Transformerings exempel
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exempel på kunskaps definition 4: data omvandling i ett enda fält
 
-I det här exemplet får vi en *känsla* som är mellan 0 och 1. Vi vill omvandla det till mellan -1 och 1. Vi kan använda den villkorliga färdigheten för att göra denna mindre omvandling.
+I det här exemplet får vi en *sentiment* som är mellan 0 och 1. Vi vill omvandla det till mellan-1 och 1. Vi kan använda den villkorliga kompetensen för att göra denna mindre omvandling.
 
-I det här exemplet använder vi inte den villkorliga aspekten av färdigheten eftersom villkoret alltid är *sant*.
+I det här exemplet använder vi inte den villkorliga aspekten av kunskapen eftersom villkoret alltid är *Sant*.
 
 ```json
 {
@@ -170,10 +170,10 @@ I det här exemplet använder vi inte den villkorliga aspekten av färdigheten e
 ```
 
 ## <a name="special-considerations"></a>Särskilda överväganden
-Vissa parametrar utvärderas, så du måste vara särskilt noga med att följa det dokumenterade mönstret. Uttryck måste börja med ett likhetstecken. En sökväg måste avgränsas med "$(" och ")". Se till att placera strängar med enkla citattecken. Det hjälper utvärderaren att skilja mellan strängar och faktiska banor och operatorer. Se också till att placera tomt utrymme runt operatörer (till exempel betyder en "*" i en bana något annat än att multiplicera).
+Vissa parametrar utvärderas, så du måste vara särskilt noga med att följa dokumenterat mönster. Uttryck måste börja med ett likhets tecken. En sökväg måste avgränsas med "$ (" och ")". Se till att lägga till strängar inom enkla citat tecken. Det hjälper utvärderaren att skilja mellan strängar och faktiska sökvägar och operatorer. Se också till att lägga till blank steg runt operatorer (t. ex. a "*" i en sökväg betyder något annat än multiplicering).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

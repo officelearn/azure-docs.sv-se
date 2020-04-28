@@ -1,6 +1,6 @@
 ---
-title: Uppgradera ett virtuellt AZURE WAN från Basic till Standard – Azure-portal | Microsoft-dokument
-description: Du kan uppgradera din virtuella WAN-typ för större funktionalitet.
+title: Uppgradera ett virtuellt Azure-nätverk från Basic till standard Azure Portal | Microsoft Docs
+description: Du kan uppgradera din virtuella WAN-typ för att öka funktionaliteten.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 83fd5bafb5496908403c50dc0e000fd33a836c95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73515816"
 ---
-# <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Uppgradera ett virtuellt WAN från Basic till Standard
+# <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Uppgradera ett virtuellt WAN-nätverk från Basic till standard
 
-Den här artikeln hjälper dig att uppgradera ett basic WAN till ett standard WAN. En WAN-typ "Basic" skapar alla hubbar inuti den som grundläggande SKU-hubbar. I en grundläggande hubb är du begränsad till VPN-funktioner från plats till plats. En WAN-typ "Standard" skapar alla nav inuti den som Standard SKU-hubbar. När du använder standardhubbar kan du aktivera ExpressRoute, User (Point-to-site) VPN, en fullständig mesh-hubb och VNet-till-VNet-överföring via Azure-hubbar.
+Den här artikeln hjälper dig att uppgradera ett grundläggande WAN till ett standard WAN. En "grundläggande" WAN-typ skapar alla hubbar i den som grundläggande SKU-hubbar. I en grundläggande hubb är du begränsad till endast plats-till-plats-VPN-funktioner. En WAN-typ "standard" skapar alla hubbar i den som standard-SKU-hubbar. När du använder standard hubbar kan du aktivera ExpressRoute, användare (punkt-till-plats) VPN, en komplett näthubb och en VNet-till-VNet-överföring via Azure-hubbarna.
 
 I följande tabell visas de konfigurationer som är tillgängliga för varje WAN-typ:
 
 [!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
 
-## <a name="to-change-the-virtual-wan-type"></a>Så här ändrar du den virtuella WAN-typen
+## <a name="to-change-the-virtual-wan-type"></a>Ändra den virtuella WAN-typen
 
-1. På sidan för det virtuella WAN-programmet väljer du **Konfiguration** för att öppna sidan Konfiguration.
+1. På sidan för ditt virtuella WAN-nätverk väljer du **konfiguration** för att öppna sidan konfiguration.
 
    ![Virtual WAN-diagram](./media/upgrade-virtual-wan/1.png)
-2. För typen Virtuellt WAN väljer du **Standard** i listrutan.
+2. För virtuell WAN-typ väljer du **standard** i list rutan.
 
    ![Virtual WAN-diagram](./media/upgrade-virtual-wan/2.png)
-3. Förstå att om du uppgraderar till ett virtuellt standard WAN kan du inte återgå till ett virtuellt WAN basic. Välj **Bekräfta** om du vill uppgradera.
+3. Om du uppgraderar till ett standard virtuellt WAN-nätverk kan du inte återgå till ett grundläggande virtuellt WAN-nätverk. Välj **Bekräfta** om du vill uppgradera.
 
    ![Virtual WAN-diagram](./media/upgrade-virtual-wan/4.png)
-4. När ändringen har sparats ser den virtuella WAN-sidan ut ungefär som det här exemplet.
+4. När ändringen har sparats ser den virtuella WAN-sidan ut ungefär som i det här exemplet.
 
    ![Virtual WAN-diagram](./media/upgrade-virtual-wan/5.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Rapportering över utskalade molndatabaser
-description: konfigurera elastiska frågor över vågräta partitioner
+title: Rapportering i utskalade moln databaser
+description: så här konfigurerar du elastiska frågor över horisontella partitioner
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,41 +12,41 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 79abaade22fc107fa4c848607ff48232eeeb58ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823768"
 ---
-# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering över utskalade molndatabaser (förhandsgranskning)
+# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering i utskalade moln databaser (för hands version)
 
-![Fråga över shards][1]
+![Fråga över Shards][1]
 
-Fragmenterade databaser distribuerar rader över en utskalad datanivå. Schemat är identiskt i alla deltagande databaser, även kallade horisontell partitionering. Med hjälp av en elastisk fråga kan du skapa rapporter som sträcker sig över alla databaser i en fragmenterad databas.
+Shardade-databaser distribuerar rader över en utskalad data nivå. Schemat är identiskt på alla deltagande databaser, även kallat horisontell partitionering. Med en elastisk fråga kan du skapa rapporter som omfattar alla databaser i en shardade-databas.
 
-En snabb start finns i [Rapportering över utskalade molndatabaser](sql-database-elastic-query-getting-started.md).
+För en snabb start, se [rapportering i utskalade moln databaser](sql-database-elastic-query-getting-started.md).
 
-För icke-fragmenterade databaser finns i [Fråga över molndatabaser med olika scheman](sql-database-elastic-query-vertical-partitioning.md).
+För icke-shardade databaser, se [fråga över moln databaser med olika scheman](sql-database-elastic-query-vertical-partitioning.md).
 
 ## <a name="prerequisites"></a>Krav
 
-* Skapa en fragmentkarta med hjälp av klientbiblioteket för elastisk databas. se [Hantering av fragmentkartläggning](sql-database-elastic-scale-shard-map-management.md). Eller använd exempelappen i [Komma igång med elastiska databasverktyg](sql-database-elastic-scale-get-started.md).
-* Du kan också se [Migrera befintliga databaser till utskalade databaser](sql-database-elastic-convert-to-use-elastic-tools.md).
-* Användaren måste ha behörigheten ÄNDRA extern datakälla. Den här behörigheten ingår i behörigheten ALTER DATABASE.
-* ÄNDRA EVENTUELLA externa datakällbehörigheter behövs för att referera till den underliggande datakällan.
+* Skapa en Shard-karta med klient biblioteket för Elastic Database. Se [Shard Map Management](sql-database-elastic-scale-shard-map-management.md). Eller Använd exempel appen i [Kom igång med elastiska databas verktyg](sql-database-elastic-scale-get-started.md).
+* Du kan också se [migrera befintliga databaser för att skala ut databaser](sql-database-elastic-convert-to-use-elastic-tools.md).
+* Användaren måste ha ÄNDRINGs behörighet för en extern DATA källa. Den här behörigheten ingår i ALTER DATABASE-behörigheten.
+* ÄNDRA behörigheter för en extern DATA källa krävs för att referera till den underliggande data källan.
 
 ## <a name="overview"></a>Översikt
 
-Dessa satser skapar metadatarepresentationen av den fragmenterade datanivån i den elastiska frågedatabasen.
+Dessa uttryck skapar metadata-representationen av shardade-datanivån i den elastiska fråge databasen.
 
-1. [SKAPA HUVUDNYCKEL](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [SKAPA DATABASSCOPED-AUTENTISERINGSUPPGIFTER](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [SKAPA EXTERN DATAKÄLLA](https://msdn.microsoft.com/library/dn935022.aspx)
+1. [SKAPA HUVUD NYCKEL](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [SKAPA DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [SKAPA EXTERN DATA KÄLLA](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [SKAPA EXTERN TABELL](https://msdn.microsoft.com/library/dn935021.aspx)
 
-## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Skapa huvudnyckel och autentiseringsuppgifter för databasscope
+## <a name="11-create-database-scoped-master-key-and-credentials"></a>1,1 Skapa databasens begränsade huvud nyckel och autentiseringsuppgifter
 
-Autentiseringsuppgifterna används av den elastiska frågan för att ansluta till fjärrdatabaserna.  
+Autentiseringsuppgiften används av den elastiska frågan för att ansluta till dina fjärrdatabaser.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -54,9 +54,9 @@ Autentiseringsuppgifterna används av den elastiska frågan för att ansluta til
     [;]
 
 > [!NOTE]
-> Kontrollera att suffixet " användarnamn " inte innehåller något " servernamn.Se till att suffixet *"\<användarnamn\>"* inte innehåller något " *\@servernamn.*
+> Se till att *\<"username\>"* inte innehåller något *"\@servername"* -suffix.
 
-## <a name="12-create-external-data-sources"></a>1.2 Skapa externa datakällor
+## <a name="12-create-external-data-sources"></a>1,2 skapa externa data källor
 
 Syntax:
 
@@ -81,14 +81,14 @@ Syntax:
         SHARD_MAP_NAME='ShardMap'
     );
 
-Hämta listan över aktuella externa datakällor:
+Hämta listan över aktuella externa data Källor:
 
     select * from sys.external_data_sources;
 
-Den externa datakällan refererar till fragmentkartan. En elastisk fråga använder sedan den externa datakällan och den underliggande fragmentmappningen för att räkna upp de databaser som deltar i datanivån.
-Samma autentiseringsuppgifter används för att läsa fragmentmappningen och för att komma åt data på shards under bearbetningen av en elastisk fråga.
+Den externa data källan refererar till din Shard-karta. En elastisk fråga använder sedan den externa data källan och den underliggande Shard-kartan för att räkna upp de databaser som ingår i data skiktet.
+Samma autentiseringsuppgifter används för att läsa Shard-kartan och för att komma åt data på Shards under bearbetningen av en elastisk fråga.
 
-## <a name="13-create-external-tables"></a>1.3 Skapa externa tabeller
+## <a name="13-create-external-tables"></a>1,3 skapa externa tabeller
 
 Syntax:  
 
@@ -136,27 +136,27 @@ Så här släpper du externa tabeller:
 
 ### <a name="remarks"></a>Anmärkningar
 
-Satsen\_DATAKÄLLA definierar den externa datakällan (en fragmentkarta) som används för den externa tabellen.  
+DATA\_källans sats definierar den externa data källan (en Shard-karta) som används för den externa tabellen.  
 
-SCHEMANAMN\_och\_OBJEKTNAMN mappar den externa tabelldefinitionen till en tabell i ett annat schema. Om det utelämnas antas fjärrobjektets schema vara "dbo" och dess namn antas vara identiskt med det externa tabellnamnet som definieras. Detta är användbart om namnet på fjärrtabellen redan finns i databasen där du vill skapa den externa tabellen. Du vill till exempel definiera en extern tabell för att få en samlad vy över katalogvyer eller DMV:er på den utskalade datanivån. Eftersom katalogvyer och DMVs redan finns lokalt kan du inte använda deras namn för den externa tabelldefinitionen. Använd i stället ett annat namn och använd katalogvyns eller DMV:s namn i schemanamns-\_och/eller objektnamnssatserna.\_ (Se exemplet nedan.)
+SCHEMA\_namnet och objekt\_namns satserna mappar den externa tabell definitionen till en tabell i ett annat schema. Om detta utelämnas antas schemat för fjärrobjektet vara "dbo" och dess namn antas vara identiskt med det externa tabell namn som definieras. Detta är användbart om namnet på fjärrtabellen redan har tagits i databasen där du vill skapa den externa tabellen. Du vill till exempel definiera en extern tabell för att få en sammanställd vy över katalogvyer eller DMV: er på din skalade datanivå. Eftersom katalogvyer och DMV: er redan finns lokalt kan du inte använda deras namn för den externa tabell definitionen. Använd i stället ett annat namn och Använd katalog vyns eller DMV: s namn i SCHEMA\_namn och/eller objekt\_namns satser. (Se exemplet nedan.)
 
-DISTRIBUTION-satsen anger den datadistribution som används för den här tabellen. Frågeprocessorn använder informationen i DISTRIBUTION-satsen för att skapa de mest effektiva frågeplanerna.
+DISTRIBUTIONs satsen anger den data distribution som används för den här tabellen. Frågan processor använder den information som anges i DISTRIBUTIONs satsen för att bygga de mest effektiva fråge planerna.
 
-1. **SHARDED** innebär att data är horisontellt partitionerade över databaserna. Partitioneringsnyckeln för datadistributionen är **parametern<sharding_column_name>.**
-2. **REPLIKERAD** innebär att det finns identiska kopior av tabellen i varje databas. Det är ditt ansvar att se till att replikerna är identiska i databaserna.
-3. **ROUND\_ROBIN** innebär att tabellen är vågrätt partitionerad med hjälp av en programberoende distributionsmetod.
+1. **Shardade** innebär att data är vågrätt partitionerade i databaserna. Partitionerings nyckeln för data distributionen är **<sharding_column_name>** -parameter.
+2. **Replikerad** innebär att identiska kopior av tabellen finns på varje databas. Det är ditt ansvar att se till att replikerna är identiska i databaserna.
+3. **Round\_Robin** innebär att tabellen är vågrätt partitionerad med en program beroende distributions metod.
 
-**Referens på datanivå**: Den externa tabellen DDL refererar till en extern datakälla. Den externa datakällan anger en fragmentkarta som ger den externa tabellen den information som behövs för att hitta alla databaser på datanivån.
+**Data nivå referens**: det externa tabell-DDL: en refererar till en extern data källa. Den externa data källan anger en Shard-karta som tillhandahåller den externa tabellen med den information som krävs för att hitta alla databaser i data skiktet.
 
 ### <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Användare med åtkomst till den externa tabellen får automatiskt åtkomst till de underliggande fjärrtabellerna under den autentiseringsuppgifter som anges i definitionen av extern datakälla. Undvik oönskad behörighetshöjning via referensen för den externa datakällan. Använd GRANT eller REVOKE för en extern tabell precis som om det vore en vanlig tabell.  
+Användare med åtkomst till den externa tabellen får automatiskt till gång till de underliggande fjärrtabellerna under de autentiseringsuppgifter som angavs i definitionen för den externa data källan. Undvik oönskad höjning av privilegier genom autentiseringsuppgifterna för den externa data källan. Använd bevilja eller återkalla en extern tabell precis som om den vore en vanlig tabell.  
 
-När du har definierat din externa datakälla och dina externa tabeller kan du nu använda fullständig T-SQL över dina externa tabeller.
+När du har definierat din externa data källa och dina externa tabeller kan du nu använda fullständig T-SQL över dina externa tabeller.
 
-## <a name="example-querying-horizontal-partitioned-databases"></a>Exempel: fråga efter vågräta partitionerade databaser
+## <a name="example-querying-horizontal-partitioned-databases"></a>Exempel: fråga vågrätt partitionerade databaser
 
-Följande fråga utför en trevägskoppling mellan lagerställen, order och orderrader och använder flera aggregat och ett selektivt filter. Det förutsätts (1) horisontell partitionering (fragmentering) och (2) att lagerställen, order och orderrader fragmenteras av lager-ID-kolumnen och att den elastiska frågan kan samlokalisera kopplingarna på fragmenten och bearbeta den dyra delen av frågan på fragmenten i Parallell.
+Följande fråga utför en tre vägs koppling mellan lager, beställningar och order rader och använder flera mängder och ett selektivt filter. Det antar (1) horisontell partitionering (horisontell partitionering) och (2) att lager, order och order rader shardades av kolumnen lager-ID och att den elastiska frågan kan samplacera kopplingarna på Shards och bearbeta den dyra delen av frågan på Shards parallellt.
 
 ```sql
     select  
@@ -175,16 +175,16 @@ Följande fråga utför en trevägskoppling mellan lagerställen, order och orde
     group by w_id, o_c_id
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Lagrad procedur för fjärr-T-SQL-körning: sp\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Lagrad procedur för fjärran sluten T-\_SQL-körning: SP execute_remote
 
-Elastisk fråga introducerar också en lagrad procedur som ger direkt åtkomst till shards. Den lagrade proceduren kallas [sp\_kör \_fjärrkontroll](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra fjärrbevarade procedurer eller T-SQL-kod på fjärrdatabaserna. Det tar följande parametrar:
+Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst till Shards. Den lagrade proceduren heter [SP\_EXECUTE \_Remote](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra fjärrlagrade procedurer eller T-SQL-kod på fjärrdatabaserna. Det tar följande parametrar:
 
-* Datakällnamn (nvarchar): Namnet på den externa datakällan för typen RDBMS.
-* Fråga (nvarchar): Den T-SQL-fråga som ska köras på varje shard.
-* Parameterdeklaration (nvarchar) - valfritt: Sträng med datatypsdefinitioner för de parametrar som används i parametern Query (t.ex. sp_executesql).
-* Parametervärdelista - valfri: Kommaavgränsad lista över parametervärden (t.ex. sp_executesql).
+* Data källans namn (nvarchar): namnet på den externa data källan av typen RDBMS.
+* Fråga (nvarchar): T-SQL-frågan som ska köras på varje Shard.
+* Parameter deklaration (nvarchar) – valfritt: sträng med data typs definitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql).
+* Parameter värde List – valfritt: kommaavgränsad lista över parameter värden (till exempel sp_executesql).
 
-F-körningsfjärrklassen\_\_använder den externa datakällan som anges i anropsparametrarna för att köra det angivna T-SQL-uttrycket på fjärrdatabaserna. Den använder autentiseringsuppgifterna för den externa datakällan för att ansluta till shardmap manager-databasen och fjärrdatabaserna.  
+Tjänsten SP\_EXECUTE\_använder den externa data källan som tillhandahölls i anrops parametrarna för att köra angivet T-SQL-uttryck på fjärrdatabaserna. Den externa data källans autentiseringsuppgifter används för att ansluta till shardmap Manager-databasen och fjärrdatabaserna.  
 
 Exempel:
 
@@ -196,22 +196,22 @@ Exempel:
 
 ## <a name="connectivity-for-tools"></a>Anslutning för verktyg
 
-Använd vanliga SQL Server-anslutningssträngar för att ansluta ditt program, din BI och dataintegrationsverktyg till databasen med dina externa tabelldefinitioner. Kontrollera att SQL Server stöds som en datakälla för ditt verktyg. Referera sedan till den elastiska frågedatabasen som alla andra SQL Server-databaser som är anslutna till verktyget och använd externa tabeller från verktyget eller programmet som om de vore lokala tabeller.
+Använd vanliga SQL Server anslutnings strängar för att ansluta ditt program, dina BI-och data integrerings verktyg till databasen med dina externa tabell definitioner. Kontrol lera att SQL Server stöds som data källa för ditt verktyg. Referera sedan till den elastiska fråge databasen som andra SQL Server databas som är ansluten till verktyget och Använd externa tabeller från verktyget eller programmet som om de vore lokala tabeller.
 
 ## <a name="best-practices"></a>Bästa praxis
 
-* Kontrollera att den elastiska frågeslutpunktsdatabasen har fått åtkomst till fragmentmappsdatabasen och alla shards via SQL DB-brandväggarna.  
-* Validera eller framtvinga den datadistribution som definieras av den externa tabellen. Om din faktiska datadistribution skiljer sig från den distribution som anges i tabelldefinitionen kan dina frågor ge oväntade resultat.
-* Elastisk fråga utför för närvarande inte fragmenteliminering när predikat över sharding-nyckeln gör det möjligt att säkert utesluta vissa shards från bearbetning.
-* Elastisk fråga fungerar bäst för frågor där det mesta av beräkningen kan göras på shards. Du får vanligtvis den bästa frågeprestanda med selektiva filter predikater som kan utvärderas på shards eller kopplingar över partitioneringsnycklar som kan utföras på ett partitionsjusterat sätt på alla shards. Andra frågemönster kan behöva läsa in stora mängder data från shards till huvudnoden och kan fungera dåligt
+* Se till att den elastiska frågans slut punkts databas har fått åtkomst till shardmap-databasen och alla Shards genom SQL DB-brandväggen.  
+* Verifiera eller Använd den data distribution som definieras av den externa tabellen. Om din faktiska data distribution skiljer sig från den distribution som anges i din tabell definition kan dina frågor ge oväntade resultat.
+* Elastisk fråga utför för närvarande inte Shard Eli minering när predikat över horisontell partitionering-nyckeln skulle göra det möjligt för IT att på ett säkert sätt utesluta vissa Shards från bearbetning.
+* Elastisk fråga fungerar bäst för frågor där merparten av beräkningen kan utföras på Shards. Du får vanligt vis bästa möjliga frågeresultat med selektiva filter-predikat som kan utvärderas på Shards eller anslutas över de partitionerings nycklar som kan utföras i ett partitions-justerat sätt på alla Shards. Andra fråge mönster kan behöva läsa in stora mängder data från Shards till Head-noden och kan fungera dåligt
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En översikt över elastisk fråga finns i [Översikt över elastiska frågor](sql-database-elastic-query-overview.md).
-* En lodrät partitioneringsdjälva finns i [Komma igång med fråga över flera databaser (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
-* Syntax- och exempelfrågor för lodrätt partitionerade data finns i [Fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
-* En självstudiekurs för vågrät partitionering (sharding) finns i [Komma igång med elastisk fråga för vågrät partitionering (sharding)](sql-database-elastic-query-getting-started.md).
-* Se [\_sp \_kör fjärrkontroll](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör en Transact-SQL-uttryck på en enda fjärr Azure SQL-databas eller uppsättning databaser som fungerar som shards i ett vågrätt partitioneringsschema.
+* En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
+* För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
+* En självstudie för horisontell partitionering (horisontell partitionering) finns i [komma igång med elastisk fråga för horisontell partitionering (horisontell partitionering)](sql-database-elastic-query-getting-started.md).
+* Se [SP\_EXECUTE \_Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png

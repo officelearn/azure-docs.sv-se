@@ -1,5 +1,5 @@
 ---
-title: Felsöka data som saknas i aktivitetsloggar | Microsoft-dokument
+title: Felsöka saknade data i aktivitets loggarna | Microsoft Docs
 description: Ger en lösning till saknade data i Azure Active Directory-aktivitetsloggar.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74014278"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Felsökning: Saknade data i Azure Active Directory-aktivitetsloggar 
@@ -94,6 +94,6 @@ Du har två alternativ för att behålla data längre än 30 dagar. Du kan anvä
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kvarhållning av Azure AD-rapportering](reference-reports-data-retention.md).
-* [Azure Active Directory rapportering latens .](reference-reports-latencies.md)
+* [Azure Active Directory rapporterings fördröjning](reference-reports-latencies.md).
 * [Vanliga frågor och svar om Azure Active Directory-rapportering](reports-faq.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Publicera Azure HDInsight-program
-description: Lär dig hur du skapar ett HDInsight-program och publicerar det sedan på Azure Marketplace.
+description: Lär dig hur du skapar ett HDInsight-program och sedan publicerar det på Azure Marketplace.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "64685329"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
-Du kan installera ett Azure HDInsight-program på ett Linux-baserat HDInsight-kluster. I den här artikeln får du lära dig hur du publicerar ett HDInsight-program på Azure Marketplace. Allmän information om publicering på Azure Marketplace finns [i Publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
+Du kan installera ett Azure HDInsight-program i ett Linux-baserat HDInsight-kluster. I den här artikeln får du lära dig hur du publicerar ett HDInsight-program på Azure Marketplace. Allmän information om hur du publicerar på Azure Marketplace finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
 
-HDInsight-program använder *byol-modellen (Bring Your Own License).* I ett BYOL-scenario ansvarar en programleverantör för licensiering av programmet till appanvändare. Appanvändare debiteras endast för de Azure-resurser som de skapar, till exempel HDInsight-klustret och klustrets virtuella datorer och noder. Fakturering för själva programmet sker för närvarande inte i Azure.
+HDInsight-program använder *BYOL-modellen (ta med din egen licens)* . I ett BYOL-scenario ansvarar en programprovider för att licensiera programmet till App-användare. App-användare debiteras bara för de Azure-resurser som de skapar, till exempel HDInsight-klustret och klustrets virtuella datorer och noder. Faktureringen av själva programmet sker för närvarande inte i Azure.
 
-Mer information finns i följande HDInsight-programrelaterade artiklar:
+Mer information finns i dessa artiklar om HDInsight-program:
 
 * [Installera HDInsight-program](hdinsight-apps-install-applications.md). Lär dig hur du installerar ett HDInsight-program i klustren.
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md). Lär dig hur du installerar och testar anpassade HDInsight-program.
 
 ## <a name="prerequisites"></a>Krav
-Om du vill skicka in ditt anpassade program på Marketplace [skapar och testar du](hdinsight-apps-install-custom-applications.md)först ditt anpassade program .
+Om du vill skicka in ditt anpassade program på Marketplace måste du först [skapa och testa ditt anpassade program](hdinsight-apps-install-custom-applications.md).
 
-Du måste också registrera ditt utvecklarkonto. Mer information finns [i Publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md) och Skapa ett Microsoft [Developer-konto](../marketplace/marketplace-publishers-guide.md).
+Du måste också registrera ditt Developer-konto. Mer information finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md) och [skapa ett Microsoft Developer-konto](../marketplace/marketplace-publishers-guide.md).
 
 ## <a name="define-the-application"></a>Definiera programmet
-Två steg är involverade i publiceringsprogram på Marketplace. Definiera först en *createUiDef.json-fil.* Filen createUiDef.json anger vilka kluster ditt program är kompatibelt med. Publicera sedan mallen från Azure-portalen. Här är ett exempel createUiDef.json fil:
+Två steg är inblandade i att publicera program på Marketplace. Börja med att definiera en *createUiDef. JSON* -fil. Filen createUiDef. JSON anger vilka kluster som programmet är kompatibelt med. Publicera sedan mallen från Azure Portal. Här är ett exempel på en createUiDef. JSON-fil:
 
 ```json
 {
@@ -49,57 +49,57 @@ Två steg är involverade i publiceringsprogram på Marketplace. Definiera förs
 | typer |De klustertyper programmet är kompatibelt med. |Hadoop, HBase, Storm, Spark (eller någon kombination av dessa) |
 | versioner |De typer av HDInsight-kluster programmet är kompatibelt med. |3.4 |
 
-## <a name="application-installation-script"></a>Skript för programinstallation
-När ett program installeras i ett kluster (antingen i ett befintligt kluster eller på ett nytt) skapas en kantnod. Programinstallationsskriptet körs på kantnoden.
+## <a name="application-installation-script"></a>Installations skript för program
+När ett program installeras i ett kluster (antingen på ett befintligt kluster eller på ett nytt) skapas en Edge-nod. Programmets installations skript körs på Edge-noden.
 
   > [!IMPORTANT]  
-  > Namnet på programinstallationsskriptet måste vara unikt för ett visst kluster. Skriptnamnet måste ha följande format:
+  > Namnet på programmets installations skript måste vara unikt för ett enskilt kluster. Skript namnet måste ha följande format:
   > 
-  > "name": "[concat('hue-install-v0','-',uniquestring('applicationName')]"
+  > "namn": "[concat (' nyans-install-v0 ', '-', uniquestring (' applicationName ')] '
   > 
-  > Skriptnamnet har tre delar:
+  > Skript namnet består av tre delar:
   > 
-  > * Ett skriptnamnsprefix som måste innehålla antingen programnamnet eller ett namn som är relevant för programmet.
+  > * Ett skript namn prefix som måste innehålla antingen program namnet eller ett namn som är relevant för programmet.
   > * Ett bindestreck, för läsbarhet.
-  > * En unik strängfunktion med programnamnet som parameter.
+  > * En unik sträng funktion med program namnet som parameter.
   > 
-  > I den beständiga skriptåtgärdslistan visas föregående exempel som **hue-install-v0-4wkahss55hlas**. Se ett [exempel på JSON-nyttolast](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > I listan bestående skript åtgärd visas föregående exempel som **nyans-install-v0-4wkahss55hlas**. Se ett [exempel](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)på en JSON-nyttolast.
   > 
 
-Installationsskriptet måste ha följande egenskaper:
-* Skriptet är idempotent. Flera anrop till skriptet ger samma resultat.
-* Skriptet är korrekt versions. Använd en annan plats för skriptet när du uppgraderar eller testar ändringar. Detta säkerställer att kunder som installerar programmet inte påverkas av dina uppdateringar eller tester. 
-* Skriptet har tillräcklig loggning vid varje punkt. Vanligtvis är skriptloggar det enda sättet att felsöka programinstallationsproblem.
-* Anrop till externa tjänster eller resurser har tillräckliga återförsök så att installationen inte påverkas av tillfälliga nätverksproblem.
-* Om skriptet startar tjänster på noderna övervakas och konfigureras tjänsterna så att de startas automatiskt om en omstart av noden inträffar.
+Installations skriptet måste ha följande egenskaper:
+* Skriptet är idempotenta. Flera anrop till skriptet ger samma resultat.
+* Skriptet har rätt versions hantering. Använd en annan plats för skriptet när du uppgraderar eller testar ändringar. Detta säkerställer att kunder som installerar programmet inte påverkas av dina uppdateringar eller tester. 
+* Skriptet har tillräckligt med loggning vid varje punkt. Skript loggar är vanligt vis det enda sättet att felsöka problem med program installationen.
+* Anrop till externa tjänster eller resurser har lämpliga återförsök så att installationen inte påverkas av tillfälliga nätverks problem.
+* Om skriptet startar tjänster på noderna övervakas och konfigureras tjänsterna så att de startar automatiskt om en nod startas om.
 
 ## <a name="package-the-application"></a>Paketera programmet
-Skapa en ZIP-fil som innehåller alla filer som krävs för att installera HDInsight-programmet. Du kan använda ZIP-filen för att publicera programmet. Zip-filen innehåller följande filer:
+Skapa en zip-fil som innehåller alla filer som krävs för att installera HDInsight-programmet. Du kan använda zip-filen för att publicera programmet. Zip-filen innehåller följande filer:
 
-* createUiDefinition.json
-* mainTemplate.json (För ett exempel, se [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).)
-* Alla skript som krävs
+* createUiDefinition. JSON
+* mainTemplate. JSON (ett exempel finns i [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).)
+* Alla nödvändiga skript
 
 > [!NOTE]  
-> Du kan vara värd för programfilerna (inklusive webbappfiler) på alla offentligt tillgängliga slutpunkter.
+> Du kan vara värd för programfilerna (inklusive alla webbappar-filer) på en offentligt tillgänglig slut punkt.
 
 ## <a name="publish-the-application"></a>Publicera programmet
 Så här publicerar du ett HDInsight-program:
 
 1. Logga in på [Azure Publishing](https://publish.windowsazure.com/).
-2. Välj **Lösningsmallar**på den vänstra menyn .
-3. Ange en rubrik och välj sedan **Skapa en ny lösningsmall**.
-4. Om du inte redan har registrerat din organisation väljer du **Skapa Dev Center-konto och går med i Azure-programmet**.  Mer information finns i [Skapa ett Microsoft Developer-konto](../marketplace/marketplace-publishers-guide.md).
-5. Välj **Definiera vissa topologier för att komma igång**. En lösningsmall är en "överordnad" till alla dess topologier. Du kan definiera flera topologier i en erbjudande- eller lösningsmall. När ett erbjudande skjuts till iscensättning, skjuts det med alla dess topologier. 
-6. Ange ett topologinamn och **+** välj sedan .
-7. Ange en ny version **+** och välj sedan .
-8. Ladda upp ZIP-filen som du skapade när du paketerade programmet.  
-9. Välj **Begär certifiering**. Microsofts certifieringsteam granskar filerna och certifierar topologin.
+2. Välj **Solution templates**i den vänstra menyn.
+3. Ange en rubrik och välj sedan **skapa en ny lösnings mall**.
+4. Om du inte redan har registrerat din organisation väljer du **skapa dev Center-konto och ansluter till Azure-programmet**.  Mer information finns i [skapa ett Microsoft Developer-konto](../marketplace/marketplace-publishers-guide.md).
+5. Välj **definiera vissa topologier för att komma igång**. En lösnings mal len är "överordnad" till alla dess topologier. Du kan definiera flera topologier i ett erbjudande eller en lösnings mall. När ett erbjudande skickas till mellanlagringen, skickas det med alla topologier. 
+6. Ange ett Topology-namn och välj **+** sedan.
+7. Ange en ny version och välj **+** sedan.
+8. Ladda upp zip-filen som du skapade när du paketerade programmet.  
+9. Välj **begär certifiering**. Microsofts certifierings team granskar filerna och certifierar topologin.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [installerar HDInsight-program](hdinsight-apps-install-applications.md) i dina kluster.
+* Lär dig hur du [installerar HDInsight-program](hdinsight-apps-install-applications.md) i klustren.
 * Lär dig hur du [installerar anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md) och distribuerar ett opublicerat HDInsight-program till HDInsight.
-* Lär dig hur du [använder Skriptåtgärd för att anpassa Linux-baserade HDInsight-kluster](hdinsight-hadoop-customize-cluster-linux.md) och lägga till fler program. 
-* Lär dig hur du [skapar Linux-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
-* Lär dig hur du [använder en tom kantnod i HDInsight](hdinsight-apps-use-edge-node.md) för att komma åt HDInsight-kluster, testa HDInsight-program och vara värd för HDInsight-program.
+* Lär dig hur du [använder skript åtgärder för att anpassa Linux-baserade HDInsight-kluster](hdinsight-hadoop-customize-cluster-linux.md) och lägga till fler program. 
+* Lär dig hur du [skapar Linux-baserade Apache Hadoop kluster i HDInsight med Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Lär dig hur du [använder en tom Edge-nod i HDInsight](hdinsight-apps-use-edge-node.md) för att komma åt HDInsight-kluster, testa HDInsight-program och vara värd för HDInsight-program.
 

@@ -1,44 +1,44 @@
 ---
-title: Uppdatera Azure Analysis Services-modeller med Azure Automation | Microsoft-dokument
-description: I den här artikeln beskrivs hur du kodar uppdateringar för modeller för Azure Analysis Services med hjälp av Azure Automation.
+title: Uppdatera Azure Analysis Services modeller med Azure Automation | Microsoft Docs
+description: I den här artikeln beskrivs hur du kodar modell uppdateringar för Azure Analysis Services med hjälp av Azure Automation.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572354"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
-Genom att använda Azure Automation och PowerShell Runbooks kan du utföra automatiska datauppdateringsåtgärder på dina Azure Analysis-tabellmodeller.  
+Med hjälp av Azure Automation-och PowerShell-Runbooks kan du utföra automatiserade data uppdaterings åtgärder på tabell modeller i Azure Analysis.  
 
-I exemplet i den här artikeln används [PowerShell SqlServer-modulerna](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
+Exemplet i den här artikeln använder [PowerShell SQLServer-modulerna](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
 
-Ett exempel på PowerShell Runbook, som visar att en modell uppdateras, finns senare i den här artikeln.  
+En PowerShell-PowerShell-Runbook som visar hur du uppdaterar en modell finns längre fram i den här artikeln.  
 
 ## <a name="authentication"></a>Autentisering
 
-Alla anrop måste autentiseras med en giltig Azure Active Directory -token (OAuth 2).  Exemplet i den här artikeln kommer att använda ett servicehuvudnamn (SPN) för att autentisera till Azure Analysis Services.
+Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  Exemplet i den här artikeln använder ett tjänst huvud namn (SPN) för att autentisera till Azure Analysis Services.
 
-Mer information om hur du skapar en tjänsthuvudnamn finns i [Skapa ett huvudnamn för tjänsten med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Mer information om hur du skapar ett huvud namn för tjänsten finns i [skapa ett tjänst objekt med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Krav
 
 > [!IMPORTANT]
-> I följande exempel förutsätts att Azure Analysis Services-brandväggen är inaktiverad. Om brandväggen är aktiverad måste den offentliga IP-adressen för begärandeinitieraren vitlistas i brandväggen.
+> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i brand väggen.
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Installera SqlServer-moduler från PowerShell-galleriet.
 
-1. I ditt Azure Automation-konto klickar du på Moduler och **bläddrar**sedan **i galleriet**.
+1. I ditt Azure Automation konto klickar du på **moduler**och **bläddrar sedan till galleriet**.
 
-2. Sök efter **SqlServer**i sökfältet .
+2. Sök efter **SQLServer**i Sök fältet.
 
-    ![Sök moduler](./media/analysis-services-refresh-azure-automation/1.png)
+    ![Sök i moduler](./media/analysis-services-refresh-azure-automation/1.png)
 
 3. Välj SqlServer och klicka sedan på **Importera**.
  
@@ -46,111 +46,111 @@ Mer information om hur du skapar en tjänsthuvudnamn finns i [Skapa ett huvudnam
 
 4. Klicka på **OK**.
  
-### <a name="create-a-service-principal-spn"></a>Skapa ett tjänsthuvudnamn (SPN)
+### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 
-Mer information om hur du skapar en tjänsthuvudnamn finns i [Skapa ett huvudnamn för tjänsten med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Information om hur du skapar ett huvud namn för tjänsten finns i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ### <a name="configure-permissions-in-azure-analysis-services"></a>Konfigurera behörigheter i Azure Analysis Services
  
-Den tjänstansvarige som du skapar måste ha serveradministratörsbehörighet på servern. Mer information finns i [Lägga till ett tjänsthuvudnamn i serveradministratörsrollen](analysis-services-addservprinc-admins.md).
+Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet på servern. Mer information finns i [lägga till ett huvud namn för tjänsten i Server administratörs rollen](analysis-services-addservprinc-admins.md).
 
-## <a name="design-the-azure-automation-runbook"></a>Designa Azure Automation Runbook
+## <a name="design-the-azure-automation-runbook"></a>Utforma Azure Automation Runbook
 
-1. Skapa en **autentiseringsresurs** som ska användas för att lagra tjänstens huvudnamn på ett säkert sätt.
+1. I Automation-kontot skapar du en resurs för **autentiseringsuppgifter** som ska användas för att lagra tjänstens huvud namn på ett säkert sätt.
 
-    ![Skapa autentiseringsuppgifter](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Skapa autentiseringsuppgift](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Ange information om autentiseringsuppgifterna.  För **användarnamnet**anger du **SPN ClientId**för **lösenordet**och anger **SPN-hemligheten**.
+2. Ange information om autentiseringsuppgiften.  För **användar namn**anger du SPN- **ClientId**för **lösen ordet**, anger **SPN-hemligheten**.
 
-    ![Skapa autentiseringsuppgifter](./media/analysis-services-refresh-azure-automation/7.png)
+    ![Skapa autentiseringsuppgift](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importera Automation Runbook
+3. Importera Automation-Runbook
 
     ![Importera Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Bläddra efter filen **Refresh-Model.ps1,** ange ett **namn** och **en beskrivning**och klicka sedan på **Skapa**.
+4. Bläddra till filen **Refresh-Model. ps1** , ange ett **namn** och en **Beskrivning**och klicka sedan på **skapa**.
 
     ![Importera Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. När Runbook har skapats går den automatiskt in i redigeringsläge.  Välj **Publicera**.
+5. När runbooken har skapats går den automatiskt till redigerings läget.  Välj **Publicera**.
 
     ![Publicera Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
     > [!NOTE]
-    > Den autentiseringsresurs som skapades tidigare hämtas av runbooken med kommandot **Get-AutomationPSCredential.**  Det här kommandot skickas sedan till kommandot **Anropa-ProcessASADatabase** PowerShell för att utföra autentiseringen till Azure Analysis Services.
+    > Den autentiseringsuppgifter-resurs som skapades tidigare hämtas av runbooken med hjälp av kommandot **Get-AutomationPSCredential** .  Kommandot skickas sedan till PowerShell-kommandot **Invoke-ProcessASADatabase** för att utföra autentiseringen till Azure Analysis Services.
 
-6. Testa runbooken genom att klicka på **Start**.
+6. Testa runbooken genom att klicka på **Starta**.
 
     ![Starta runbooken](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. Fyll i parametrarna **DATABASNAMN,** **ANALYSISSERVER**och **REFRESHTYPE** och klicka sedan på **OK**. Parametern **WEBHOOKDATA** krävs inte när Runbook körs manuellt.
+7. Fyll i parametrarna **databasename**, **ANALYSISSERVER**och **REFRESHTYPE** och klicka sedan på **OK**. **WEBHOOKDATA** -parametern krävs inte när runbook körs manuellt.
 
     ![Starta runbooken](./media/analysis-services-refresh-azure-automation/12.png)
 
-Om Runbooken har körts får du en utdata som följande:
+Om Runbook-flödet har körts får du ett resultat som liknar följande:
 
 ![Lyckad körning](./media/analysis-services-refresh-azure-automation/13.png)
 
 ## <a name="use-a-self-contained-azure-automation-runbook"></a>Använda en fristående Azure Automation Runbook
 
-Runbook kan konfigureras för att utlösa Azure Analysis Services-modellen uppdateras på schemalagd basis.
+Runbooken kan konfigureras för att utlösa uppdatering av Azure Analysis Servicess modellen enligt schema.
 
 Detta kan konfigureras på följande sätt:
 
-1. Klicka på **Scheman**i Automation Runbook och lägg sedan **till ett schema**.
+1. I Automation Runbook klickar du på **scheman**och lägger sedan **till ett schema**.
  
     ![Skapa schema](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Klicka på **Schema** > **Skapa ett nytt schema**och fyll sedan i informationen.
+2. Klicka på **Schemalägg** > **skapa ett nytt schema**och fyll sedan i informationen.
 
     ![Konfigurera schema](./media/analysis-services-refresh-azure-automation/15.png)
 
 3. Klicka på **Skapa**.
 
-4. Fyll i parametrarna för schemat. Dessa används varje gång Runbook utlöses. Parametern **WEBHOOKDATA** ska lämnas tom när du kör via ett schema.
+4. Fyll i parametrarna för schemat. Dessa kommer att användas varje gången Runbook-flödet utlöses. Parametern **WEBHOOKDATA** måste vara tom när du kör via ett schema.
 
     ![Konfigurera parametrar](./media/analysis-services-refresh-azure-automation/16.png)
 
 5. Klicka på **OK**.
 
-## <a name="consume-with-data-factory"></a>Förbruka med Data Factory
+## <a name="consume-with-data-factory"></a>Förbrukar med Data Factory
 
-Om du vill använda runbooken med hjälp av Azure Data Factory skapar du först en **Webhook** för runbooken. **Webhook** tillhandahåller en URL som kan anropas via en Azure Data Factory-webbaktivitet.
+Om du vill använda runbooken genom att använda Azure Data Factory måste du först skapa en **webhook** för runbooken. **Webhooken** tillhandahåller en URL som kan anropas via en Azure Data Factory webb aktivitet.
 
 > [!IMPORTANT]
-> Om du vill skapa en **Webhook**måste statusen för **Runbooken publiceras**.
+> Om du vill skapa en **webhook**måste status för runbooken vara **publicerad**.
 
-1. Klicka på **Webhooks**i Automation Runbook och klicka sedan på **Lägg till Webhook**.
+1. I din Automation-Runbook klickar du på **Webhooks**och sedan på **Lägg till webhook**.
 
-   ![Lägg till Webhook](./media/analysis-services-refresh-azure-automation/17.png)
+   ![Lägg till webhook](./media/analysis-services-refresh-azure-automation/17.png)
 
-2. Ge Webhook ett namn och en utgång.  Namnet identifierar bara Webhook i Automation Runbook, det utgör inte en del av webbadressen.
+2. Ge webhooken ett namn och ett förfallo datum.  Namnet identifierar bara webhooken i Automation-runbooken, den utgör inte en del av URL: en.
 
    >[!CAUTION]
-   >Se till att du kopierar webbadressen innan du stänger guiden eftersom du inte kan få tillbaka den när den är stängd.
+   >Se till att du kopierar URL: en innan du stänger guiden eftersom du inte kan återställa den igen när den har stängts.
     
-   ![Konfigurera Webhook](./media/analysis-services-refresh-azure-automation/18.png)
+   ![Konfigurera webhook](./media/analysis-services-refresh-azure-automation/18.png)
 
-    Parametrarna för webhook kan förbli tomma.  När du konfigurerar webbaktiviteten för Azure Data Factory kan parametrarna skickas till webbanropet.
+    Parametrarna för webhooken kan vara tomma.  När du konfigurerar Azure Data Factory webb aktivitet kan parametrarna skickas till webb anropets brödtext.
 
-3. Konfigurera en **webbaktivitet i** Data Factory
+3. I Data Factory konfigurerar du en **webb aktivitet**
 
 ### <a name="example"></a>Exempel
 
-   ![Exempel på webbaktivitet](./media/analysis-services-refresh-azure-automation/19.png)
+   ![Exempel på webb aktivitet](./media/analysis-services-refresh-azure-automation/19.png)
 
-**URL:en** är url:en som skapats från Webhook.
+**URL:** en är den URL som skapas från webhooken.
 
-**Brödtexten** är ett JSON-dokument som ska innehålla följande egenskaper:
+**Bröd texten** är ett JSON-dokument som innehåller följande egenskaper:
 
 
 |Egenskap  |Värde  |
 |---------|---------|
-|**AnalysisServicesDatabase**     |Namnet på Azure Analysis Services-databasen <br/> Exempel: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Servernamnet för Azure Analysis Services. <br/> Exempel: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
-|**DatabasRefreshType**     |Den typ av uppdatering som ska utföras. <br/> Exempel: Fullständig         |
+|**AnalysisServicesDatabase**     |Namnet på Azure Analysis Services databasen <br/> Exempel: AdventureWorksDB         |
+|**AnalysisServicesServer**     |Namnet på Azure Analysis Services servern. <br/> Exempel: https:\//westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/         |
+|**DatabaseRefreshType**     |Typ av uppdatering som ska utföras. <br/> Exempel: fullständig         |
 
-Exempel JSON kropp:
+Exempel på JSON-brödtext:
 
 ```json
 {
@@ -160,30 +160,30 @@ Exempel JSON kropp:
 }
 ```
 
-Dessa parametrar definieras i powershell-skriptet runbook.  När webbaktiviteten körs är den skickade JSON-nyttolasten WEBHOOKDATA.
+Dessa parametrar definieras i Runbook PowerShell-skriptet.  När webb aktiviteten körs är JSON-nyttolasten överförd WEBHOOKDATA.
 
-Detta är deserialiserat och lagrat som PowerShell-parametrar, som sedan används av kommandot Anropa-ProcesASDatabase PowerShell.
+Detta är deserialiserat och lagras som PowerShell-parametrar, som sedan används av PowerShell-kommandot Invoke-ProcesASDatabase.
 
-![Deserialiserade Webhook](./media/analysis-services-refresh-azure-automation/20.png)
+![Avserialiserad webhook](./media/analysis-services-refresh-azure-automation/20.png)
 
-## <a name="use-a-hybrid-worker-with-azure-analysis-services"></a>Använda en hybridarbetare med Azure Analysis Services
+## <a name="use-a-hybrid-worker-with-azure-analysis-services"></a>Använda en Hybrid Worker med Azure Analysis Services
 
-En virtuell Azure-dator med en statisk offentlig IP-adress kan användas som en Azure Automation Hybrid Worker.  Den här offentliga IP-adressen kan sedan läggas till i Azure Analysis Services-brandväggen.
+En virtuell Azure-dator med en statisk offentlig IP-adress kan användas som en Azure Automation Hybrid Worker.  Den här offentliga IP-adressen kan sedan läggas till i Azure Analysis Services brand väggen.
 
 > [!IMPORTANT]
-> Kontrollera att den offentliga IP-adressen för den virtuella datorn är konfigurerad som statisk.
+> Se till att den offentliga IP-adressen för den virtuella datorn är konfigurerad som statisk.
 >
->Mer information om hur du konfigurerar Azure Automation Hybrid Workers finns [i Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Mer information om hur du konfigurerar Azure Automation hybrid Worker finns i [automatisera resurser i ditt data Center eller i molnet med hjälp av hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
 
-När en hybridarbetare har konfigurerats skapar du en Webhook enligt beskrivningen i avsnittet [Förbruka med datafabriken](#consume-with-data-factory).  Den enda skillnaden här är att välja alternativet **Kör på** > **hybridarbetare** när du konfigurerar Webhook.
+När en Hybrid Worker har kon figurer ATS skapar du en webhook enligt beskrivningen i avsnittet [förbruka med Data Factory](#consume-with-data-factory).  Den enda skillnaden är att välja alternativet **kör på** > **hybrid Worker** när du konfigurerar webhooken.
 
-Exempel webhook med hybridarbetare:
+Exempel-webhook med Hybrid Worker:
 
-![Exempel på hybridarbetares webbkrok](./media/analysis-services-refresh-azure-automation/21.png)
+![Exempel Hybrid Worker webhook](./media/analysis-services-refresh-azure-automation/21.png)
 
-## <a name="sample-powershell-runbook"></a>Exempel på PowerShell-runbook
+## <a name="sample-powershell-runbook"></a>Exempel på PowerShell-Runbook
 
-Följande kodavsnitt är ett exempel på hur du utför uppdateringen av Azure Analysis Services-modellen med hjälp av en PowerShell Runbook.
+Följande kodfragment är ett exempel på hur du utför uppdatering av Azure Analysis Servicess modellen med hjälp av en PowerShell-Runbook.
 
 ```powershell
 param
@@ -226,5 +226,5 @@ else
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Prover](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[Exempel](analysis-services-samples.md)  
+[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)

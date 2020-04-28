@@ -1,6 +1,6 @@
 ---
-title: Felsökning av ingresskontroll för programgateway
-description: Den här artikeln innehåller dokumentation om hur du felsöker vanliga frågor och/eller problem med ingress-styrenheten för programgateway.
+title: Fel sökning av Application Gateway inkommande styrenhet
+description: Den här artikeln innehåller information om hur du felsöker vanliga frågor och/eller problem med Application Gateway ingångs kontroll.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: a64a9ce5e080308674893273e90a0e83686e339e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795502"
 ---
-# <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Felsöka vanliga frågor eller problem med Ingress Controller
+# <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Felsök vanliga frågor eller problem med ingångs kontroll
 
-[Azure Cloud Shell](https://shell.azure.com/) är det bekvämaste sättet att felsöka eventuella problem med din AKS- och AGIC-installation. Starta skalet från [shell.azure.com](https://shell.azure.com/) eller genom att klicka på länken:
+[Azure Cloud Shell](https://shell.azure.com/) är det enklaste sättet att felsöka problem med din AKS-och AGIC-installation. Starta ditt gränssnitt från [Shell.Azure.com](https://shell.azure.com/) eller genom att klicka på länken:
 
 [![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
@@ -24,11 +24,11 @@ ms.locfileid: "73795502"
 ## <a name="test-with-a-simple-kubernetes-app"></a>Testa med en enkel Kubernetes-app
 
 Stegen nedan förutsätter:
-  - Du har ett AKS-kluster med avancerat nätverk aktiverat
+  - Du har ett AKS-kluster med avancerade nätverksfunktioner aktiverade
   - AGIC har installerats på AKS-klustret
-  - Du har redan en programgateway på ett VNET som delas med AKS-klustret
+  - Du har redan en Application Gateway på ett VNET som delas med ditt AKS-kluster
 
-Om du vill kontrollera att installationen av Application Gateway + AKS + AGIC är korrekt konfigurerad distribuerar du den enklaste möjliga appen:
+För att kontrol lera att installationen av Application Gateway + AKS + AGIC har kon figurer ATS korrekt, distribuera den enklaste möjliga appen:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -76,64 +76,64 @@ spec:
 EOF
 ```
 
-Kopiera och klistra in alla rader samtidigt från skriptet ovan i ett [Azure Cloud Shell](https://shell.azure.com/). Kontrollera att hela kommandot kopieras `cat` - från `EOF`och med den sista .
+Kopiera och klistra in alla rader samtidigt från skriptet ovan i en [Azure Cloud Shell](https://shell.azure.com/). Se till att hela kommandot kopieras – från `cat` och med den sista. `EOF`
 
 ![apply](./media/application-gateway-ingress-controller-troubleshooting/tsg--apply-config.png)
 
-Efter en lyckad distribution av appen ovanför aks-klustret kommer att ha en ny Pod, Service och en Ingress.
+Efter en lyckad distribution av appen över ditt AKS-kluster kommer att ha en ny pod, tjänst och ett ingress.
 
-Få listan över poddar med `kubectl get pods -o wide` [Cloud Shell:](https://shell.azure.com/).
-Vi förväntar oss att en pod med namnet "test-agic-app-pod" har skapats. Det kommer att ha en IP-adress. Den här adressen måste finnas inom det virtuella nätverket för Application Gateway, som används med AKS.
+Hämta listan över poddar med [Cloud Shell](https://shell.azure.com/): `kubectl get pods -o wide`.
+Vi förväntar oss att en POD med namnet "test-Agic-app-pod" ska skapas. Den kommer att ha en IP-adress. Adressen måste ligga inom det virtuella nätverket för Application Gateway, som används med AKS.
 
-![Skida](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
-Få en lista `kubectl get services -o wide`över tjänster: . Vi förväntar oss att se en tjänst som heter "test-agic-app-service".
+Hämta listan över tjänster: `kubectl get services -o wide`. Vi förväntar oss att se en tjänst med namnet "test-Agic-App-Service".
 
-![Skida](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
-Få listan över ingresses: `kubectl get ingress`. Vi förväntar oss att en Ingress-resurs med namnet "test-agic-app-ingress" har skapats. Resursen kommer att ha ett värdnamn "test.agic.contoso.com".
+Hämta listan över ingress: `kubectl get ingress`. Vi förväntar oss att en ingress-resurs med namnet "test-Agic-app-ingress" ska skapas. Resursen har ett värdnamn ' test.agic.contoso.com '.
 
-![Skida](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-En av kapslarna kommer att vara AGIC. `kubectl get pods`kommer att visa en lista över poddar, varav en börjar med "ingress-azure". Få alla loggar av `kubectl logs <name-of-ingress-controller-pod>` pod med för att kontrollera att vi har haft en lyckad distribution. En lyckad distribution skulle ha lagt till följande rader i loggen:
+En av poddar kommer att vara AGIC. `kubectl get pods`visar en lista över poddar som kommer att börja med "ingress-Azure". Hämta alla loggar för den Pod med `kubectl logs <name-of-ingress-controller-pod>` för att kontrol lera att vi har haft en lyckad distribution. Vid en lyckad distribution lades följande rader till i loggen:
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
 I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
 ```
 
-Alternativt kan vi från [Cloud Shell](https://shell.azure.com/) endast hämta de `kubectl logs <ingress-azure-....> | grep 'Applied App Gateway config in'`rader `<ingress-azure....>` som anger framgångsrik Application Gateway-konfiguration med , där bör det exakta namnet på AGIC-podden.
+Du kan också från [Cloud Shell](https://shell.azure.com/) Hämta bara de rader som indikerar lyckad Application Gateway konfiguration med `kubectl logs <ingress-azure-....> | grep 'Applied App Gateway config in'`, där `<ingress-azure....>` ska vara det exakta namnet på AGIC-pod.
 
-Application Gateway har följande konfiguration tillämpad:
+I Application Gateway används följande konfiguration:
 
 - Lyssnare: ![lyssnare](./media/application-gateway-ingress-controller-troubleshooting/tsg--listeners.png)
 
-- Routningsregel: ![routing_rule](./media/application-gateway-ingress-controller-troubleshooting/tsg--rule.png)
+- Regel för routning ![: routing_rule](./media/application-gateway-ingress-controller-troubleshooting/tsg--rule.png)
 
-- Backend Pool:
-  - Det kommer att finnas en IP-adress i backend-adresspoolen och det `kubectl get pods -o wide` 
- ![kommer att matcha IP-adressen för pod vi observerade tidigare med backend_pool](./media/application-gateway-ingress-controller-troubleshooting/tsg--backendpools.png)
+- Backend-pool:
+  - Det kommer att finnas en IP-adress i backend-adresspoolen och den kommer att matcha IP-adressen för Pod som vi noterade `kubectl get pods -o wide` 
+ ![tidigare med backend_pool](./media/application-gateway-ingress-controller-troubleshooting/tsg--backendpools.png)
 
 
-Slutligen kan vi `cURL` använda kommandot inifrån [Cloud Shell](https://shell.azure.com/) för att upprätta en HTTP-anslutning till den nyligen distribuerade appen:
+Slutligen kan vi använda `cURL` kommandot inifrån [Cloud Shell](https://shell.azure.com/) för att upprätta en HTTP-anslutning till den nyligen distribuerade appen:
 
 1. Används `kubectl get ingress` för att hämta den offentliga IP-adressen för Application Gateway
 2. Använda `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![Skida](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
-Ett resultat `HTTP/1.1 200 OK` av indikerar att Application Gateway + AKS + AGIC-systemet fungerar som förväntat.
-
-
-## <a name="inspect-kubernetes-installation"></a>Inspektera Kubernetes-installation
-
-### <a name="pods-services-ingress"></a>Poddar, tjänster, inträngning
-AgIC (Application Gateway Ingress Controller) övervakar kontinuerligt följande Kubernetes-resurser: [Distribution](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) eller [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod), [Tjänst](https://kubernetes.io/docs/concepts/services-networking/service/), [Inträngning](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+Resultatet av `HTTP/1.1 200 OK` indikerar att systemet Application Gateway + AKS + AGIC fungerar som förväntat.
 
 
-Följande måste finnas på plats för att AGIC ska fungera som förväntat:
-  1. AKS måste ha en eller flera friska **poddar.**
-     Verifiera detta från [Cloud Shell](https://shell.azure.com/) med `kubectl get pods -o wide --show-labels` Om `apsnetapp`du har en pod med en kan utdata se ut så här:
+## <a name="inspect-kubernetes-installation"></a>Inspektera Kubernetes-installationen
+
+### <a name="pods-services-ingress"></a>Poddar, tjänster, ingress
+Application Gateway inkommande styrenhet (AGIC) övervakar kontinuerligt följande Kubernetes-resurser: [distribution](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) eller [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/#what-is-a-pod), [tjänst](https://kubernetes.io/docs/concepts/services-networking/service/), [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
+
+Följande måste finnas för att AGIC ska fungera som förväntat:
+  1. AKS måste ha en eller flera felfria **poddar**.
+     Verifiera detta från [Cloud Shell](https://shell.azure.com/) med `kubectl get pods -o wide --show-labels` om du har en POD med en `apsnetapp`, kan dina utdata se ut så här:
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
 
@@ -141,7 +141,7 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. En eller flera **tjänster**, refererar till `selector` poddar ovan via matchande etiketter.
+  2. En eller flera **tjänster**som refererar till poddar ovan via matchande `selector` etiketter.
      Verifiera detta från [Cloud Shell](https://shell.azure.com/) med`kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
@@ -150,7 +150,7 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Ingress**, kommenterad `kubernetes.io/ingress.class: azure/application-gateway`med , refererar till tjänsten ovan Verifiera detta från [Cloud Shell](https://shell.azure.com/) med`kubectl get ingress -o wide --show-labels`
+  3. **Ingress**, kommenterad med, `kubernetes.io/ingress.class: azure/application-gateway`som refererar till tjänsten ovan kontrol lera detta från [Cloud Shell](https://shell.azure.com/) med`kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -158,7 +158,7 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
      aspnetapp   *                 80      17h   <none>
      ```
 
-  4. Visa anteckningar i inträngningen `kubectl get ingress aspnetapp -o yaml` ovan: `aspnetapp` (ersätt med namnet på din inträngning)
+  4. Visa anteckningar om ingången ovan: `kubectl get ingress aspnetapp -o yaml` (Ersätt `aspnetapp` med namnet på dina ingångar)
      ```bash
      delyan@Azure:~$ kubectl get ingress aspnetapp -o yaml
 
@@ -174,12 +174,12 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
          servicePort: 80
      ```
 
-     Ingressresursen måste kommenteras `kubernetes.io/ingress.class: azure/application-gateway`med .
+     Ingress-resursen måste vara kommenterad med `kubernetes.io/ingress.class: azure/application-gateway`.
  
 
-### <a name="verify-observed-namespace"></a>Verifiera observerat namnområde
+### <a name="verify-observed-namespace"></a>Verifiera observerat namn område
 
-* Hämta befintliga namnområden i Kubernetes-klustret. Vilket namnområde körs din app i? Tittar AGIC på det namnområdet? Se dokumentationen [för support för flera namnområden](./ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support) om hur du korrekt konfigurerar observerade namnområden.
+* Hämta befintliga namn rymder i Kubernetes-kluster. Vilken namnrymd körs din app i? Ser AGIC till namn området? Mer information om hur du konfigurerar observerade namn rymder hittar du i dokumentationen för [Multiple namespace support](./ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support) .
 
     ```bash
     # What namespaces exist on your cluster
@@ -190,7 +190,7 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
     ```
 
 
-* AGIC-podden ska `default` finnas i namnområdet (se kolumn `NAMESPACE`). En hälsosam pod `Running` skulle `STATUS` ha i kolumnen. Det bör finnas minst en AGIC pod.
+* AGIC-Pod ska finnas i `default` namn området (se kolumnen `NAMESPACE`). En felfri pod skulle ha `Running` i `STATUS` kolumnen. Det måste finnas minst en AGIC-pod.
 
     ```bash
     # Get a list of the Application Gateway Ingress Controller pods
@@ -198,13 +198,13 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
     ```
 
 
-* Om AGIC-podden inte`STATUS` är felfri (kolumnen `Running`från kommandot ovan är inte ):
+* Om AGIC-Pod inte är felfri (`STATUS` kolumn från kommandot ovan är inte `Running`):
   - få loggar för att förstå varför:`kubectl logs <pod-name>`
-  - För den föregående instansen av pod:`kubectl logs <pod-name> --previous`
-  - beskriv podden för att få mer sammanhang:`kubectl describe pod <pod-name>`
+  - för föregående instans av pod:`kubectl logs <pod-name> --previous`
+  - Beskriv Pod för att få mer kontext:`kubectl describe pod <pod-name>`
 
 
-* Har du en Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) och [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resurser?
+* Har du en Kubernetes [-tjänst](https://kubernetes.io/docs/concepts/services-networking/service/) och [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) -resurser?
     
     ```bash
     # Get all services across all namespaces
@@ -215,7 +215,7 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
     ```
 
 
-* Är din [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) kommenterad `kubernetes.io/ingress.class: azure/application-gateway`med: ? AGIC kommer bara att titta efter Kubernetes Ingress-resurser som har den här anteckningen.
+* Är dina [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) ingångs kommentarer med: `kubernetes.io/ingress.class: azure/application-gateway`? AGIC kommer bara att titta på Kubernetes ingress-resurser som har anteckningen.
     
     ```bash
     # Get the YAML definition of a particular ingress resource
@@ -223,31 +223,31 @@ Följande måste finnas på plats för att AGIC ska fungera som förväntat:
     ```
 
 
-* AGIC avger Kubernetes-händelser för vissa kritiska fel. Du kan visa följande:
-  - i din terminal via`kubectl get events --sort-by=.metadata.creationTimestamp`
-  - i webbläsaren med hjälp av [Kubernetes webbgränssnitt (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+* AGIC avger Kubernetes händelser för vissa kritiska fel. Du kan visa följande:
+  - i terminalen via`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - i webbläsaren med [Kubernetes webb gränssnitt (instrument panel)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
 ## <a name="logging-levels"></a>Loggningsnivåer
 
-AGIC har 3 avverkningsnivåer. Nivå 1 är standard och visar minimalt antal logglinjer.
-Nivå 5, å andra sidan, skulle visa alla loggar, inklusive sanerat innehåll av config tillämpas på ARM.
+AGIC har 3 loggnings nivåer. Nivå 1 är standard och visar ett minimalt antal logg rader.
+Nivå 5, å andra sidan, visar alla loggar, inklusive det sanerade innehållet i konfigurationen som tillämpas på ARM.
 
-Kubernetes-communityn har etablerat 9 loggningsnivåer för [kubectl-verktyget.](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging) I detta arkiv använder vi 3 av dessa, med liknande semantik:
+Kubernetes-communityn har upprättat 9 loggnings nivåer för [kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging) -verktyget. I den här databasen använder vi 3 av dessa, med liknande semantik:
 
 
 | Utförlighet | Beskrivning |
 |-----------|-------------|
-|  1        | Standardloggnivå; visar startinformation, varningar och fel |
+|  1        | Standard loggnings nivå; visar information om Start, varningar och fel |
 |  3        | Utökad information om händelser och ändringar. listor över skapade objekt |
-|  5        | Loggar konverterade objekt; visar sanerad JSON-config appliceras på ARM |
+|  5        | Loggar konverterade objekt; visar att den sanerade JSON-konfigurationen tillämpas på ARM |
 
 
-Verbositetsnivåerna kan justeras `verbosityLevel` via variabeln i [helm-config.yaml-filen.](#sample-helm-config-file) Öka verbosity `5` nivå för att få JSON config skickas till [ARM:](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-  - lägga `verbosityLevel: 5` på en rad av sig själv i [helm-config.yaml](#sample-helm-config-file) och installera
-  - få loggar med`kubectl logs <pod-name>`
+Detalj nivån är justerbar via `verbosityLevel` variabeln i filen [Helm-config. yaml](#sample-helm-config-file) . Öka utförlig nivå till `5` för att hämta JSON-konfigurationen som skickas till [arm](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+  - Lägg `verbosityLevel: 5` till på en rad själva i [Helm-config. yaml](#sample-helm-config-file) och installera om
+  - Hämta loggar med`kubectl logs <pod-name>`
 
-### <a name="sample-helm-config-file"></a>Exempel på Helm-config-fil
+### <a name="sample-helm-config-file"></a>Exempel på Helm konfigurations fil
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 

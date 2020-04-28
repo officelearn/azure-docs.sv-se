@@ -1,43 +1,43 @@
 ---
-title: 'Designmönster för Azure Cosmos DB: Appar för sociala medier'
-description: Lär dig mer om ett designmönster för sociala nätverk genom att utnyttja lagringsflexibiliteten för Azure Cosmos DB och andra Azure-tjänster.
+title: 'Azure Cosmos DB design mönster: appar för sociala medier'
+description: Lär dig mer om ett design mönster för sociala nätverk genom att dra nytta av flexibiliteten i lagringen för Azure Cosmos DB och andra Azure-tjänster.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73827299"
 ---
-# <a name="going-social-with-azure-cosmos-db"></a>Going social med Azure Cosmos DB
+# <a name="going-social-with-azure-cosmos-db"></a>Bli social med Azure Cosmos DB
 
-Att leva i ett massivt sammanlänkat samhälle innebär att du någon gång i livet blir en del av ett **socialt nätverk.** Du använder sociala nätverk för att hålla kontakten med vänner, kollegor, familj eller ibland för att dela din passion med personer med gemensamma intressen.
+Boende i ett massivt sammankopplat samhälle innebär att du vid en viss tidpunkt kommer att bli en del av ett **socialt nätverk**. Du använder sociala nätverk för att hålla kontakt med vänner, kollegor, familj eller ibland att dela din passion med personer som har vanliga intressen.
 
-Som ingenjörer eller utvecklare kanske du har undrat hur dessa nätverk lagrar och kopplar samman dina data. Eller du kanske till och med har fått i uppdrag att skapa eller arkitekt ett nytt socialt nätverk för en viss nischmarknad. Det är då den viktiga frågan uppstår: Hur lagras alla dessa data?
+Som ingenjörer eller utvecklare kan du ha funderat på hur dessa nätverk lagrar och sammankopplar dina data. Eller så kanske du har gjort en uppgift för att skapa eller skapa ett nytt socialt nätverk för en bestämd nischmarknader-marknad. Det är när den viktiga frågan uppstår: Hur lagras alla dessa data?
 
-Anta att du skapar ett nytt och skinande socialt nätverk där användarna kan publicera artiklar med relaterade medier, till exempel bilder, videor eller till och med musik. Användare kan kommentera inlägg och ge poäng för betyg. Det kommer att finnas ett flöde av inlägg som användarna kommer att se och interagera med på huvudwebbplatsens målsida. Denna metod låter inte komplicerat i början, men för enkelhetens skull, låt oss sluta där. (Du kan gräva i anpassade användarflöden som påverkas av relationer, men det går utöver målet med den här artikeln.)
+Anta att du skapar ett nytt och blankt socialt nätverk där användarna kan publicera artiklar med relaterade medier, t. ex. bilder, videor eller till och med musik. Användare kan kommentera inlägg och ge poäng för klassificering. Det kommer att finnas ett flöde av inlägg som användarna kan se och interagera med på huvud sidan för landning av webbplatser. Den här metoden går inte att göra komplext i första hand, men för enkelhetens skull ska vi stanna där. (Du kan gå in i anpassade användar flöden som påverkas av relationer, men det går bortom målet för den här artikeln.)
 
-Så, hur lagrar du dessa data och var?
+Hur lagrar du dessa data och var?
 
-Du kan ha erfarenhet av SQL-databaser eller har en uppfattning om [relationsmodellering av data](https://en.wikipedia.org/wiki/Relational_model). Du kan börja rita något på följande sätt:
+Du kan ha erfarenhet av SQL-databaser eller ha ett begrepp för [Relations data modellering](https://en.wikipedia.org/wiki/Relational_model). Du kan börja rita något på följande sätt:
 
-![Diagram som illustrerar en relativ relationsmodell](./media/social-media-apps/social-media-apps-sql.png)
+![Diagram som illustrerar en relativ Relations modell](./media/social-media-apps/social-media-apps-sql.png)
 
-En perfekt normaliserad och vacker datastruktur... som inte skalas.
+En perfekt normaliserad och ganska data struktur... som inte skalar.
 
-Missförstå mig inte, jag har arbetat med SQL-databaser hela mitt liv. De är bra, men som alla mönster, praxis och mjukvaruplattform, det är inte perfekt för varje scenario.
+Jag får inte fel, jag har arbetat med SQL-databaser hela min livs längd. De är fantastiska, men precis som varje mönster, praxis och program varu plattform är det inte perfekt för alla scenarier.
 
-Varför är inte SQL det bästa valet i det här scenariot? Låt oss titta på strukturen i ett enda inlägg. Om jag ville visa inlägget i en webbplats eller ett program, skulle jag behöva göra en fråga med ... genom att gå med åtta tabeller (!) bara för att visa ett enda inlägg. Nu bild en ström av inlägg som dynamiskt ladda och visas på skärmen, och du kan se vart jag ska.
+Varför är inte SQL det bästa valet i det här scenariot? Nu ska vi titta på strukturen för ett enda inlägg. Om jag ville visa inlägget på en webbplats eller ett program måste jag göra en fråga med... genom att gå med i åtta tabeller (!) kan du bara visa ett enda inlägg. Nu kan du Visa en ström med inlägg som laddas dynamiskt och visas på skärmen, och du kan se var jag ska.
 
-Du kan använda en enorm SQL-instans med tillräckligt med ström för att lösa tusentals frågor med många kopplingar för att tjäna ditt innehåll. Men varför skulle du, när en enklare lösning finns?
+Du kan använda en enorma SQL-instans med tillräckligt mycket kraft för att lösa tusentals frågor med många kopplingar för att hantera ditt innehåll. Men varför skulle du, när en enklare lösning finns?
 
-## <a name="the-nosql-road"></a>Den NoSQL vägen
+## <a name="the-nosql-road"></a>NoSQL-vägen
 
-Den här artikeln hjälper dig att modellera din sociala plattforms data med Azures NoSQL-databas [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) på ett kostnadseffektivt sätt. Den berättar också hur du använder andra Azure Cosmos DB-funktioner som [Gremlin API](../cosmos-db/graph-introduction.md). Med hjälp av en [NoSQL-metod,](https://en.wikipedia.org/wiki/NoSQL) lagring av data, i JSON-format och tillämpning av [denormalisering](https://en.wikipedia.org/wiki/Denormalization)kan det tidigare komplicerade inlägget omvandlas till ett enda [dokument:](https://en.wikipedia.org/wiki/Document-oriented_database)
+Den här artikeln hjälper dig att utforma din sociala plattforms data med Azures NoSQL databas [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) kostnads effektivt. Du får också information om hur du använder andra Azure Cosmos DB funktioner som [Gremlin-API: et](../cosmos-db/graph-introduction.md). Genom att använda en [NoSQL](https://en.wikipedia.org/wiki/NoSQL) Metod, lagra data, i JSON-format och tillämpa [avnormalisering](https://en.wikipedia.org/wiki/Denormalization), kan det tidigare komplexa inlägget omvandlas till ett enda [dokument](https://en.wikipedia.org/wiki/Document-oriented_database):
 
     {
         "id":"ew12-res2-234e-544f",
@@ -56,11 +56,11 @@ Den här artikeln hjälper dig att modellera din sociala plattforms data med Azu
         ]
     }
 
-Och det kan fås med en enda fråga, och utan kopplingar. Den här frågan är mycket enkel och okomplicerad, och, budgetmässigt, kräver det mindre resurser för att uppnå ett bättre resultat.
+Och kan vara med en enda fråga och utan kopplingar. Den här frågan är mycket enkel och enkel, och budget kräver färre resurser för att uppnå ett bättre resultat.
 
-Azure Cosmos DB ser till att alla egenskaper indexeras med dess automatiska indexering. Den automatiska indexeringen kan även [anpassas.](index-policy.md) Den schemafria metoden gör att vi kan lagra dokument med olika och dynamiska strukturer. Kanske i morgon vill du inlägg att ha en lista över kategorier eller hashtags i samband med dem? Cosmos DB kommer att hantera de nya dokumenten med de tillagda attributen utan extra arbete som krävs av oss.
+Azure Cosmos DB ser till att alla egenskaper indexeras med automatisk indexering. Automatisk indexering kan till och med [anpassas](index-policy.md). Med den schema fria metoden kan vi lagra dokument med olika och dynamiska strukturer. Kanske imorgon du vill att inlägg ska ha en lista över kategorier eller hashtagg som är kopplade till dem? Cosmos DB hanterar de nya dokumenten med de tillagda attributen utan extra arbete som krävs av oss.
 
-Kommentarer till ett inlägg kan behandlas som andra inlägg med en överordnad egendom. (Den här metoden förenklar objektmappningen.)
+Kommentarer på ett inlägg kan behandlas som andra inlägg med en överordnad egenskap. (Den här övningen fören klar objekt mappningen.)
 
     {
         "id":"1234-asd3-54ts-199a",
@@ -88,7 +88,7 @@ Och alla sociala interaktioner kan lagras på ett separat objekt som räknare:
         "points":200
     }
 
-Att skapa flöden är bara en fråga om att skapa dokument som kan innehålla en lista med post-ID med en viss relevansordning:
+Att skapa feeds är bara en fråga om att skapa dokument som innehåller en lista med post-ID: n med en bestämd prioritetsordning:
 
     [
         {"relevance":9, "post":"ew12-res2-234e-544f"},
@@ -96,13 +96,13 @@ Att skapa flöden är bara en fråga om att skapa dokument som kan innehålla en
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Du kan ha en "senaste" ström med inlägg ordnade efter skapandedatum. Eller så kan du ha en "hetaste" ström med dessa inlägg med fler gillar under de senaste 24 timmarna. Du kan även implementera en anpassad ström för varje användare baserat på logik som anhängare och intressen. Det skulle fortfarande vara en lista över tjänster. Det är en fråga om hur man bygger dessa listor, men läsprestanda förblir obehindrat. När du har skaffat en av dessa listor utfärdar du en enda fråga till Cosmos DB med [nyckelordet IN](sql-query-keywords.md#in) för att få sidor med inlägg i taget.
+Du kan ha en "senaste" ström med inlägg sorterade efter skapande datum. Eller så kan du ha en "hetaste" ström med dessa inlägg med fler gillar under de senaste 24 timmarna. Du kan till och med implementera en anpassad data ström för varje användare baserat på logik som följare och intressen. Det skulle fortfarande vara en lista över inlägg. Det är en fråga om hur du skapar listorna, men läsnings prestandan förblir förhindrad. När du har skaffat en av de här listorna skickar du en enskild fråga till Cosmos DB med hjälp av [nyckelordet i](sql-query-keywords.md#in) för att hämta sidor med inlägg i taget.
 
-Flödesströmmarna kan byggas med hjälp av [Azure App Services](https://azure.microsoft.com/services/app-service/) bakgrundsprocesser: [Webjobs](../app-service/webjobs-create.md). När ett inlägg har skapats kan bakgrundsbearbetning utlösas med hjälp av [Azure](https://azure.microsoft.com/services/storage/) [Storage-köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och webbjobb som utlöses med hjälp av [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)och implementerar postspridningen inuti strömmar baserat på din egen anpassade logik.
+Feed-strömmarna kan skapas med hjälp av [Azure App tjänsters](https://azure.microsoft.com/services/app-service/) bakgrunds processer: [WebJobs](../app-service/webjobs-create.md). När ett inlägg har skapats kan bakgrunds bearbetningen utlösas med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och WebJobs som utlöses med hjälp av [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)och implementerar post spridningen i strömmar baserat på din egen anpassade logik.
 
-Poäng och gilla-markeringar över ett inlägg kan bearbetas på ett uppskjutet sätt med samma teknik för att skapa en så småningom konsekvent miljö.
+Punkter och gilla över ett inlägg kan bearbetas på ett uppskjutet sätt med samma metod för att skapa en konsekvent miljö.
 
-Anhängare är svårare. Cosmos DB har en dokumentstorleksgräns och läsning/skrivning av stora dokument kan påverka programmets skalbarhet. Så du kanske funderar på att lagra anhängare som ett dokument med denna struktur:
+Följare är trickier. Cosmos DB har en gräns för dokument storlek och läsning/skrivning av stora dokument kan påverka skalbarheten för ditt program. Så du kan tänka på att lagra följare som ett dokument med den här strukturen:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -115,9 +115,9 @@ Anhängare är svårare. Cosmos DB har en dokumentstorleksgräns och läsning/sk
         ]
     }
 
-Den här strukturen kan fungera för en användare med några tusen följare. Om någon kändis går med i leden, dock kommer detta tillvägagångssätt leda till en stor dokumentstorlek, och det kan så småningom slå dokumentet storlekstak.
+Den här strukturen kan fungera för en användare med några tusentals följare. Om vissa kändis ansluts till rangordningarna kommer den här metoden att leda till en stor dokument storlek, och det kan slutligen gå över dokumentets storleks begränsning.
 
-För att lösa detta problem kan du använda en blandad metod. Som en del av användarstatistikdokumentet kan du lagra antalet följare:
+För att lösa det här problemet kan du använda ett blandat tillvägagångs sätt. Som en del av dokumentet med användar statistik kan du lagra antalet följare:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -127,19 +127,19 @@ För att lösa detta problem kan du använda en blandad metod. Som en del av anv
         "totalPoints":11342
     }
 
-Du kan lagra det faktiska diagrammet med följare med Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md) för att skapa [hörn](http://mathworld.wolfram.com/GraphVertex.html) för varje användare och [kanter](http://mathworld.wolfram.com/GraphEdge.html) som upprätthåller "A-följer-B"-relationer. Med Gremlin API kan du hämta följare till en viss användare och skapa mer komplexa frågor för att föreslå personer gemensamt. Om du lägger till innehållskategorier som andra gillar eller gillar i diagrammet kan du börja väva upplevelser som innehåller identifiering av smart innehåll, vilket föreslår innehåll som de personer du följer gillar eller hittar personer som du kan ha mycket gemensamt med.
+Du kan lagra det faktiska diagrammet över följare med hjälp av Azure Cosmos DB [GREMLIN API](../cosmos-db/graph-introduction.md) för att skapa [hörn](http://mathworld.wolfram.com/GraphVertex.html) för varje användare och [kanter](http://mathworld.wolfram.com/GraphEdge.html) som bevarar relationerna "A-följer-B". Med Gremlin-API: et kan du hämta följare av en viss användare och skapa mer komplexa frågor för att föreslå personer gemensamt. Om du lägger till i grafen för de innehålls kategorier som människor gillar eller åtnjuter, kan du börja väv-upplevelser som innehåller Smart innehålls identifiering, föreslå innehåll som de personer som du följer eller hitta personer som du kanske har mycket gemensamt med.
 
-Dokumentet Användarstatistik kan fortfarande användas för att skapa kort i användargränssnittet eller snabbprofilförhandsgranskningar.
+Användar statistik dokumentet kan fortfarande användas för att skapa kort i för hands versionerna användar gränssnitt eller snabb profil.
 
-## <a name="the-ladder-pattern-and-data-duplication"></a>"Ladder"-mönstret och datadubbel
+## <a name="the-ladder-pattern-and-data-duplication"></a>Mönstret "stega" och data duplicering
 
-Som du kanske har märkt i JSON-dokumentet som refererar till ett inlägg, finns det många förekomster av en användare. Och du skulle ha gissat rätt, dessa dubbletter innebär att den information som beskriver en användare, med tanke på denna denormalisering, kan finnas på mer än ett ställe.
+Som du kanske har lagt märke till i JSON-dokumentet som hänvisar till ett inlägg finns det många förekomster av en användare. Och om du har gissat dig, innebär dessa dubbletter att den information som beskriver en användare, med denna denormalisering, kan finnas på mer än en plats.
 
-Om du vill tillåta snabbare frågor ådrar du dig dataduplicering. Problemet med den här bieffekten är att om en användares data ändras genom någon åtgärd måste du hitta alla aktiviteter som användaren någonsin har gjort och uppdatera dem alla. Det låter inte praktiskt, eller hur?
+Om du vill tillåta snabbare frågor kommer du att ådra sig data duplicering. Problemet med den här sidan är att om en användares data ändras vid en viss åtgärd, måste du hitta alla aktiviteter som användaren någonsin gjorde och uppdatera dem. Är du inte opraktiskt, rätt?
 
-Du ska lösa det genom att identifiera nyckelattributen för en användare som du visar i ditt program för varje aktivitet. Om du visuellt visar ett inlägg i ditt program och visar bara skaparens namn och bild, varför lagra alla användarens data i attributet "createdBy"? Om du för varje kommentar bara visar användarens bild behöver du egentligen inte resten av användarens information. Det är där något jag kallar "Ladder mönster" blir inblandad.
+Du kommer att lösa det genom att identifiera de viktiga attributen för en användare som du visar i ditt program för varje aktivitet. Om du visuellt visar ett inlägg i programmet och bara visar skaparen: s namn och bild, varför lagrar alla användares data i attributet "createdBy"? Om du för varje kommentar bara visar användarens bild behöver du faktiskt inte resten av användarens information. Det är där något som jag kallar "steg mönster" blir inblandat.
 
-Låt oss ta användarinformation som ett exempel:
+Vi tar med användar information som exempel:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -155,17 +155,17 @@ Låt oss ta användarinformation som ett exempel:
         "totalPosts":24
     }
 
-Genom att titta på denna information kan du snabbt upptäcka vilken som är kritisk information och som inte är, vilket skapar en "Ladder":
+Genom att titta på den här informationen kan du snabbt identifiera vilken som är viktig och inte, vilket innebär att du skapar en "stege":
 
-![Diagram över ett stegmönster](./media/social-media-apps/social-media-apps-ladder.png)
+![Diagram över ett steg-mönster](./media/social-media-apps/social-media-apps-ladder.png)
 
-Det minsta steget kallas en UserChunk, den minimala information som identifierar en användare och den används för dataduplicering. Genom att minska den duplicerade datastorleken till endast den information du "visar" minskar du risken för massiva uppdateringar.
+Det minsta steget kallas för en UserChunk, den minsta delen av information som identifierar en användare och den används för dataduplicering. Genom att minska den duplicerade data storleken till endast den information som du kommer att "Visa" kan du minska risken för enorma uppdateringar.
 
-Det mellersta steget kallas användaren. Det är alla data som kommer att användas på de flesta prestandaberoende frågor på Cosmos DB, den mest åtkomsttillgångna och kritiska. Den innehåller den information som representeras av en UserChunk.
+Det mittersta steget kallas för användaren. Det är fullständiga data som kommer att användas på de flesta prestanda beroende frågor på Cosmos DB, mest använda och kritiska. Den innehåller den information som representeras av en UserChunk.
 
-Den största är den utökade användaren. Den innehåller viktig användarinformation och andra data som inte behöver läsas snabbt eller har slutlig användning, till exempel inloggningsprocessen. Dessa data kan lagras utanför Cosmos DB, i Azure SQL Database eller Azure Storage Tables.
+Det största är den utökade användaren. Den innehåller viktig användar information och andra data som inte behöver läsas snabbt eller som har en eventuell användning, t. ex. inloggnings processen. Dessa data kan lagras utanför Cosmos DB i Azure SQL Database eller Azure Storage tabeller.
 
-Varför skulle du dela användaren och även lagra denna information på olika ställen? För ur prestandasynpunkt, ju större dokument, desto dyrare frågor. Håll dokumenten smala, med rätt information för att göra alla dina prestandaberoende frågor för ditt sociala nätverk. Lagra annan extra information för eventuella scenarier som fullständiga profilredigeringar, inloggningar och datautvinning för användningsanalys och Big Data-initiativ. Du bryr dig verkligen inte om datainsamlingen för datautvinning är långsammare, eftersom den körs på Azure SQL Database. Du har dock bekymmer om att användarna har en snabb och smal upplevelse. En användare som lagras på Cosmos DB skulle se ut så här:
+Varför skulle du dela användaren och till och med lagra den här informationen på olika platser? På grund av en prestanda punkt visar de större dokumenten costlier frågorna. Se till att dokumenten är tunna, med rätt information för att göra alla dina prestanda beroende frågor för ditt sociala nätverk. Lagra den andra extra informationen för andra scenarier som fullständig profil redigering, inloggningar och data utvinning för användnings analys och Big data initiativ. Du bryr mig inte om data insamlingen för Data utvinning är långsammare, eftersom den körs på Azure SQL Database. Du har problem med att dina användare har en snabb och smidig upplevelse. En användare som lagras på Cosmos DB skulle se ut som den här koden:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -176,7 +176,7 @@ Varför skulle du dela användaren och även lagra denna information på olika s
         "twitterHandle":"\@john"
     }
 
-Och ett inlägg skulle se ut:
+Och ett inlägg skulle se ut så här:
 
     {
         "id":"1234-asd3-54ts-199a",
@@ -188,68 +188,68 @@ Och ett inlägg skulle se ut:
         }
     }
 
-När en redigering uppstår där ett segmentattribut påverkas kan du enkelt hitta de berörda dokumenten. Använd bara frågor som pekar på de indexerade attributen, till exempel `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`, och uppdatera sedan segmenten.
+När en redigering uppstår där ett segment-attribut påverkas kan du enkelt hitta de berörda dokumenten. Använd bara frågor som pekar på de indexerade attributen, till `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`exempel, och sedan uppdaterar segmenten.
 
-## <a name="the-search-box"></a>Sökrutan
+## <a name="the-search-box"></a>Rutan Sök
 
-Användare kommer att generera, lyckligtvis, mycket innehåll. Och du bör kunna ge möjlighet att söka och hitta innehåll som kanske inte är direkt i deras innehåll strömmar, kanske för att du inte följer skaparna, eller kanske du bara försöker hitta det gamla inlägget du gjorde sex månader sedan.
+Användarna kommer att generera, som tur är, mycket innehåll. Och du bör kunna göra det möjligt att söka efter och hitta innehåll som kanske inte finns direkt i deras innehålls strömmar, kanske på grund av att du inte följer de här skapare eller om du kanske bara försöker hitta det gamla inlägget du sex månader sedan.
 
-Eftersom du använder Azure Cosmos DB kan du enkelt implementera en sökmotor med [Azure Cognitive Search](https://azure.microsoft.com/services/search/) på några minuter utan att skriva någon kod, förutom sökprocessen och användargränssnittet.
+Eftersom du använder Azure Cosmos DB kan du enkelt implementera en sökmotor med [Azure kognitiv sökning](https://azure.microsoft.com/services/search/) på några minuter utan att ange någon annan kod än Sök processen och användar gränssnittet.
 
-Varför är denna process så lätt?
+Varför är den här processen så enkel?
 
-Azure Cognitive Search implementerar vad de kallar [Indexerare,](https://msdn.microsoft.com/library/azure/dn946891.aspx)bakgrundsprocesser som ansluts i dina datadatabaser och automatiskt lägger till, uppdaterar eller tar bort dina objekt i indexen. De stöder en [Azure SQL Database indexerare](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blobs indexerare](../search/search-howto-indexing-azure-blob-storage.md) och tack och lov, [Azure Cosmos DB indexerare](../search/search-howto-index-documentdb.md). Övergången av information från Cosmos DB till Azure Cognitive Search är enkel. Båda teknikerna lagrar information i JSON-format, så du behöver bara [skapa ditt index](../search/search-create-index-portal.md) och mappa attributen från dina dokument som du vill indexera. Klart! Beroende på storleken på dina data kommer allt innehåll att vara tillgängligt för sökning på inom några minuter av den bästa Search-as-a-Service-lösningen i molninfrastruktur.
+Azure Kognitiv sökning implementerar vad de anropar [indexerare](https://msdn.microsoft.com/library/azure/dn946891.aspx), bakgrunds processer som hookar i dina data lager och lägger till, uppdaterar eller tar bort objekt i indexen. De stöder en [Azure SQL Database indexerare](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure blobs-indexerare](../search/search-howto-indexing-azure-blob-storage.md) och Thankfully [Azure Cosmos db indexerare](../search/search-howto-index-documentdb.md). Över gången till information från Cosmos DB till Azure Kognitiv sökning är enkelt. Båda teknikerna lagrar information i JSON-format, så du behöver bara [skapa ditt index](../search/search-create-index-portal.md) och mappa attributen från dina dokument som du vill indexera. Klart! Beroende på storleken på dina data kommer allt innehåll att vara tillgängligt för att kunna sökas på några minuter av den bästa Sök-som-tjänst-lösningen i moln infrastrukturen.
 
-Om du vill ha mer information om Azure Cognitive Search finns i [Liftarens guide till sökning](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Om du vill ha mer information om Azure Kognitiv sökning kan du gå [till Hitchhikers guide för att söka](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## <a name="the-underlying-knowledge"></a>Den underliggande kunskapen
 
-När du har lagrat allt detta innehåll som växer och växer varje dag, kanske du upptäcker att tänka: Vad kan jag göra med all denna ström av information från mina användare?
+När du har lagrat allt det här innehållet som växer och växer varje dag kan du tänka på följande: Vad kan jag göra med all den här data strömmen från mina användare?
 
-Svaret är enkelt: Sätt det att fungera och lära av det.
+Svaret är enkelt: du kan använda det för att arbeta och lära dig av det.
 
-Men vad kan du lära dig? Några enkla exempel är [sentimentanalys,](https://en.wikipedia.org/wiki/Sentiment_analysis)innehållsrekommendationer baserade på en användares preferenser eller till och med en automatiserad innehållsmoderator som ser till att innehållet som publiceras av ditt sociala nätverk är säkert för familjen.
+Men vad kan du lära dig? Några enkla exempel är [sentiment-analys](https://en.wikipedia.org/wiki/Sentiment_analysis), innehålls rekommendationer baserat på en användares preferenser eller till och med en automatiserad Content moderator som ser till att det innehåll som publiceras av ditt sociala nätverk är säkert för familjen.
 
-Nu när jag har fastnat, tror du förmodligen att du behöver lite doktorsexamen i matematik vetenskap för att extrahera dessa mönster och information ur enkla databaser och filer, men du skulle ha fel.
+Nu när jag har fått en anslutning kommer du förmodligen att behöva vissa doktors i matematik vetenskap för att extrahera dessa mönster och information från enkla databaser och filer, men du skulle vara fel.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), en del av [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), är en fullständigt hanterad molntjänst som låter dig skapa arbetsflöden med hjälp av algoritmer i ett enkelt dra-och-släpp-gränssnitt, koda dina egna algoritmer i [R](https://en.wikipedia.org/wiki/R_\(programming_language\))eller använda några av de redan inbyggda och redo att använda API: er som: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator eller [Rekommendationer](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)en del av [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), är en fullständigt hanterad moln tjänst som gör att du kan skapa arbets flöden med hjälp av algoritmer i ett enkelt dra-och-släpp-gränssnitt, koda dina egna algoritmer i [R](https://en.wikipedia.org/wiki/R_\(programming_language\))eller använda några av de redan skapade och redo att använda API: er som: [textanalys](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content moderator eller [rekommendationer](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
-För att uppnå något av dessa Machine Learning-scenarier kan du använda [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) för att få information från olika källor. Du kan också använda [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) för att bearbeta informationen och generera en utdata som kan bearbetas av Azure Machine Learning.
+För att uppnå någon av dessa Machine Learning scenarier kan du använda [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) för att mata in information från olika källor. Du kan också använda [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) för att bearbeta informationen och generera utdata som kan bearbetas av Azure Machine Learning.
 
-Ett annat tillgängligt alternativ är att använda [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) för att analysera användarnas innehåll. inte bara kan du förstå dem bättre (genom att analysera vad de skriver med [Text Analytics API),](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)men du kan också upptäcka oönskade eller mogna innehåll och agera därefter med [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services innehåller många färdiga lösningar som inte kräver någon form av maskininlärningskunskap att använda.
+Ett annat tillgängligt alternativ är att använda [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) för att analysera användarens innehåll. Du kan inte bara förstå dem bättre (genom att analysera vad de skriver med [API för textanalys](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), men du kan också identifiera oönskat eller mogna innehåll och agera i enlighet med [API för visuellt innehåll](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services innehåller många färdiga lösningar som inte kräver någon typ av Machine Learning kunskap att använda.
 
-## <a name="a-planet-scale-social-experience"></a>En social upplevelse i planetskala
+## <a name="a-planet-scale-social-experience"></a>En social upplevelse på planet nivå
 
-Det finns en sista, men inte minst, viktig artikel jag måste ta itu med: **skalbarhet**. När du utformar en arkitektur bör varje komponent skalas på egen hand. Du kommer så småningom att behöva bearbeta mer data, eller du kommer att vilja ha en större geografisk täckning. Tack och lov, att uppnå båda uppgifterna är en **nyckelfärdig upplevelse** med Cosmos DB.
+Det finns en sista, men minst, viktig artikel som jag måste åtgärda: **skalbarhet**. När du utformar en arkitektur bör varje komponent skalas separat. Du kommer att behöva bearbeta mer data, eller så vill du ha en större geografisk täckning. Thankfully för att uppnå båda uppgifterna är en **nyckel färdig upplevelse** med Cosmos dB.
 
-Cosmos DB stöder dynamisk partitionering out-of-the-box. Det skapar automatiskt partitioner baserat på en viss **partitionsnyckel**, som definieras som ett attribut i dina dokument. Definiera rätt partitionsnyckel måste göras vid designtillfället. Mer information finns [i Partitionering i Azure Cosmos DB](partitioning-overview.md).
+Cosmos DB stöder dynamisk partitionering direkt. Det skapar automatiskt partitioner baserat på en viss **partitionsnyckel**, som definieras som ett attribut i dina dokument. Du måste göra en korrekt partitionsnyckel i design läge. Mer information finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
-För en social upplevelse måste du anpassa partitioneringsstrategin till hur du frågar och skriver. (Till exempel läsningar inom samma partition är önskvärda och undviker "aktiva punkter" genom att sprida skrivningar på flera partitioner.) Några alternativ är: partitioner baserade på en temporal nyckel (dag/månad/vecka), efter innehållskategori, geografisk region eller efter användare. Allt beror egentligen på hur du ska fråga data och visa data i din sociala upplevelse.
+För en social erfarenhet måste du justera din partitionerings strategi med hur du frågar och skriver. (Läsningar inom samma partition är till exempel önskvärda och Undvik "heta fläckar" genom att sprida skrivningar på flera partitioner.) Vissa alternativ är: partitioner baserade på en temporal nyckel (dag/månad/vecka), efter innehålls kategori, efter geografiskt område eller per användare. Allt det är verkligen beroende av hur du ska fråga data och visa data i din sociala erfarenhet.
 
-Cosmos DB kör dina frågor (inklusive [aggregat)](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)över alla partitioner transparent, så du behöver inte lägga till någon logik när dina data växer.
+Cosmos DB kommer att köra dina frågor (inklusive [agg regeringar](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) över alla partitioner transparent, så du behöver inte lägga till någon logik när dina data växer.
 
-Med tiden kommer du så småningom att växa i trafiken och din resursförbrukning (mätt i [ru: er](request-units.md), eller begärandeenheter) kommer att öka. Du kommer att läsa och skriva oftare när din användarbas växer. Användarbasen börjar skapa och läsa mer innehåll. Så förmågan **att skala din genomströmning** är avgörande. Det är enkelt att öka dina ru:er. Du kan göra det med några klick på Azure-portalen eller genom [att utfärda kommandon via API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+Med tiden kan du komma att växa i trafik och resursförbrukning (mätt i [ru: er](request-units.md)eller enheter för programbegäran) ökar. Du kommer att läsa och skriva oftare när användar basen växer. Användar basen kommer att börja skapa och läsa mer innehåll. Det är därför viktigt att kunna **skala ditt data flöde** . Det är enkelt att öka din ru: er. Du kan göra det med några klick på Azure Portal eller genom [att utfärda kommandon via API: et](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Skala upp och definiera en partitionsnyckel](./media/social-media-apps/social-media-apps-scaling.png)
 
-Vad händer om det blir bättre? Anta att användare från en annan region, ett annat land eller en annan kontinent märker din plattform och börjar använda den. Vilken stor överraskning!
+Vad händer om saker fortfarande kommer att bli bättre? Anta att användare från en annan region, ett land eller ett kontinents meddelande till din plattform och börjar använda den. Vad är en fantastisk överraskning!
 
-Men vänta! Du inser snart att deras erfarenhet av din plattform inte är optimal. De är så långt borta från din operativa region att latensen är fruktansvärd. Du vill uppenbarligen inte att de ska sluta. Om det bara fanns ett enkelt sätt **att utöka din globala räckvidd?** Det finns det!
+Men vänta! Du inser snart att deras upplevelse med din plattform inte är optimal. De är så långt bort från din operativa region att svars tiden är Terrible. Det är självklart att du inte vill avsluta. Om det bara fanns ett enkelt sätt att **Utöka din globala räckvidd**? Det finns!
 
-Cosmos DB kan du [replikera dina data globalt](../cosmos-db/tutorial-global-distribution-sql-api.md) och transparent med ett par klick och automatiskt välja bland de tillgängliga regionerna från din [klientkod](../cosmos-db/tutorial-global-distribution-sql-api.md). Den här processen innebär också att du kan ha [flera redundansregioner](high-availability.md).
+Med Cosmos DB kan du [Replikera dina data globalt](../cosmos-db/tutorial-global-distribution-sql-api.md) och transparent med ett par klick och automatiskt välja bland de tillgängliga regionerna från din [klient kod](../cosmos-db/tutorial-global-distribution-sql-api.md). Den här processen innebär också att du kan ha [flera områden för växling vid fel](high-availability.md).
 
-När du replikerar dina data globalt måste du se till att dina klienter kan dra nytta av dem. Om du använder en webbklient eller använder API:er från mobila klienter kan du distribuera [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) och klona din Azure App Service i alla önskade regioner, med hjälp av en prestandakonfiguration för att stödja din utökade globala täckning. När dina klienter kommer åt frontend eller API: er dirigeras de till närmaste App Service, som i sin tur ansluter till den lokala Cosmos DB-repliken.
+När du replikerar dina data globalt måste du se till att dina klienter kan dra nytta av den. Om du använder en webb-frontend eller åtkomst till API: er från mobila klienter kan du distribuera [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) och klona dina Azure App Service på alla önskade regioner, med hjälp av en prestanda konfiguration som stöder din utökade globala täckning. När klienterna har åtkomst till klient-eller API: er kommer de att dirigeras till närmast App Service, vilket i sin tur ansluter till den lokala Cosmos DB repliken.
 
-![Lägga till global täckning till din sociala plattform](./media/social-media-apps/social-media-apps-global-replicate.png)
+![Lägga till global täckning på din sociala plattform](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>Slutsats
 
-Den här artikeln kastar lite ljus i alternativen att skapa sociala nätverk helt på Azure med billiga tjänster. Det ger resultat genom att uppmuntra användningen av en lagringslösning med flera lager och datadistribution som kallas "Ladder".
+Den här artikeln tar lite lätt till alternativen för att skapa sociala nätverk helt och hållet i Azure med tjänster med låg kostnad. den ger resultat genom att uppmuntra användningen av en lagrings lösning med flera lager och data distribution som kallas "stega".
 
 ![Diagram över interaktion mellan Azure-tjänster för sociala nätverk](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-Sanningen är att det inte finns någon silverkula för den här typen av scenarier. Det är synergin som skapas av kombinationen av bra tjänster som gör att vi kan skapa fantastiska upplevelser: hastigheten och friheten hos Azure Cosmos DB för att tillhandahålla ett bra socialt program, intelligensen bakom en förstklassig söklösning som Azure Cognitive Search, flexibiliteten i Azure App Services för att vara värd för inte ens språkoberoende program utan kraftfulla bakgrundsprocesser och den utbyggbara Azure Storage och Azure SQL Database för lagring av enorma mängder data och den analytiska kraften i Azure Machine Learning till skapa kunskap och intelligens som kan ge feedback till dina processer och hjälpa oss att leverera rätt innehåll till rätt användare.
+Sanningen är att det inte finns någon silver punkt för den här typen av scenarier. Det är den synergieffekt som skapats av kombinationen av fantastiska tjänster som gör det möjligt för oss att skapa fantastiska upplevelser: hastigheten och friheten hos Azure Cosmos DB att tillhandahålla ett bra socialt program, intelligensen bakom en lösning för första klass som Azure Kognitiv sökning, flexibiliteten i Azure App tjänster som värd för inte ens oberoende program men kraftfulla bakgrunds processer och den utbyggbara Azure Storage och Azure SQL Database för lagring av enorma mängder data och den analytiska kraften hos Azure Machine Lär dig att skapa kunskap och information som kan ge feedback till dina processer och hjälpa oss att leverera rätt innehåll till rätt användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om användningsfall för Cosmos DB finns i [Vanliga användningsfall för Cosmos DB](use-cases.md).
+Mer information om användnings fall för Cosmos DB finns i [vanliga Cosmos DB användnings fall](use-cases.md).

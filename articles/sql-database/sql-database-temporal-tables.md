@@ -12,28 +12,28 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820713"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Komma igång med temporala tabeller i Azure SQL Database
 
-Temporaltabeller är en ny programmerbarhetsfunktion i Azure SQL Database som gör att du kan spåra och analysera den fullständiga historiken över ändringar i dina data, utan att behöva anpassad kodning. Temporaltabeller håller data nära relaterade till tidskontexten så att lagrade fakta endast kan tolkas som giltiga inom den specifika perioden. Den här egenskapen för temporala tabeller möjliggör effektiv tidsbaserad analys och få insikter från datautveckling.
+Temporala tabeller är en ny programmerings funktion i Azure SQL Database som gör att du kan spåra och analysera den fullständiga historiken över ändringar i dina data, utan att behöva anpassad kod. Temporala tabeller förvarar data nära relaterade till tids sammanhang så att lagrade fakta kan tolkas som endast giltiga inom den angivna perioden. Den här egenskapen för temporala tabeller möjliggör effektiv tidsbaserad analys och hämtar insikter från data utvecklingen.
 
-## <a name="temporal-scenario"></a>Tidsmässiga scenario
+## <a name="temporal-scenario"></a>Temporalt scenario
 
-Den här artikeln illustrerar stegen för att använda temporala tabeller i ett programscenario. Anta att du vill spåra användaraktivitet på en ny webbplats som utvecklas från grunden eller på en befintlig webbplats som du vill utöka med analys av användaraktivitet. I det här förenklade exemplet antar vi att antalet besökta webbsidor under en tidsperiod är en indikator som måste fångas in och övervakas i webbplatsdatabasen som finns i Azure SQL Database. Målet med den historiska analysen av användaraktivitet är att få indata för att omforma webbplatsen och ge bättre upplevelse för besökarna.
+Den här artikeln beskriver hur du använder temporala tabeller i ett program scenario. Anta att du vill spåra användar aktiviteter på en ny webbplats som har utvecklats från början eller på en befintlig webbplats som du vill utöka med användar aktivitets analys. I det här förenklade exemplet antar vi att antalet besökta webb sidor under en viss tids period är en indikator som måste fångas och övervakas i den webbplats databas som finns på Azure SQL Database. Målet med den historiska analysen av användar aktivitet är att hämta indata till omdesignering av webbplatser och ge besökarna bättre upplevelse.
 
-Databasmodellen för det här scenariot är mycket enkel - användaraktivitetsmått representeras med ett enda heltalsfält, **PageVisited,** och fångas in tillsammans med grundläggande information om användarprofilen. Dessutom, för tidsbaserad analys, skulle du behålla en serie rader för varje användare, där varje rad representerar antalet sidor en viss användare besökte inom en viss tidsperiod.
+Databas modellen för det här scenariot är mycket enkelt-användares aktivitets mått representeras av ett enda heltals fält, **PageVisited**och samlas in tillsammans med grundläggande information om användar profilen. För tidsbaserad analys skulle du dessutom ha en serie rader för varje användare, där varje rad representerar antalet sidor som en viss användare besökt inom en viss tids period.
 
 ![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
-Lyckligtvis behöver du inte lägga någon ansträngning i din app för att upprätthålla denna aktivitetsinformation. Med temporala tabeller är denna process automatiserad - vilket ger dig full flexibilitet under webbdesign och mer tid att fokusera på själva dataanalysen. Det enda du behöver göra är att se till att **WebSiteInfo** tabellen är konfigurerad som [tidsmässiga systemversioner.](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0) De exakta stegen för att använda temporala tabeller i det här scenariot beskrivs nedan.
+Lyckligt vis behöver du inte göra något arbete i din app för att underhålla den här aktivitets informationen. Med temporala tabeller är den här processen automatiserad, vilket ger dig fullständig flexibilitet under webbplatsens design och mer tid att fokusera på själva data analysen. Det enda du behöver göra är att se till att **WebSiteInfo** -tabellen är konfigurerad som [temporal system versions hantering](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). De exakta stegen för att använda temporala tabeller i det här scenariot beskrivs nedan.
 
-## <a name="step-1-configure-tables-as-temporal"></a>Steg 1: Konfigurera tabeller som tidsmässiga
-Beroende på om du startar ny utveckling eller uppgraderar befintliga program skapar du antingen tidstabeller eller ändrar befintliga genom att lägga till temporala attribut. I allmänhet kan ditt scenario vara en blandning av dessa två alternativ. Utför dessa åtgärder med hjälp av [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), SQL Server Data [Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) eller något annat transact-SQL-utvecklingsverktyg.
+## <a name="step-1-configure-tables-as-temporal"></a>Steg 1: Konfigurera tabeller som temporala
+Du kan antingen skapa temporala tabeller eller ändra befintliga genom att lägga till temporala attribut, beroende på om du startar ny utveckling eller uppgraderar befintliga program. I generella fall kan ditt scenario vara en blandning av dessa två alternativ. Utför dessa åtgärder med hjälp av [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) eller andra verktyg för Transact-SQL-utveckling.
 
 > [!IMPORTANT]
 > Det rekommenderas att du alltid använder den senaste versionen av Management Studio för att förbli synkroniserad med uppdateringar av Microsoft Azure och SQL Database. [Uppdatera SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -41,15 +41,15 @@ Beroende på om du startar ny utveckling eller uppgraderar befintliga program sk
 > 
 
 ### <a name="create-new-table"></a>Skapa ny tabell
-Använd snabbmenyalternativet "Ny systemversionstabell" i SSMS Object Explorer för att öppna frågeredigeraren med ett temporaltabellmallsskript och använd sedan "Ange värden för mallparametrar" (Ctrl+Skift+M) för att fylla i mallen:
+Använd snabb meny alternativet "ny system versions tabell" i SSMS Object Explorer för att öppna Frågeredigeraren med ett skript för en temporal tabell mal len och Använd sedan "Ange värden för mallparametrar" (CTRL + SHIFT + M) för att fylla i mallen:
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-I SSDT väljer du mallen "Temporal Table (System-Versioned)" när du lägger till nya objekt i databasprojektet. Det öppnar bordsdesignern och gör att du enkelt kan ange tabelllayouten:
+I SSDT väljer du mallen "temporal tabell (system versioned)" när du lägger till nya objekt i databas projektet. Detta öppnar Table Designer och gör att du enkelt kan ange tabellayout:
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-Du kan också skapa temporaltabell genom att ange Transact-SQL-uttrycken direkt, som visas i exemplet nedan. Observera att de obligatoriska elementen i varje temporaltabell är PERIOD-definitionen och SYSTEM_VERSIONING-satsen med en referens till en annan användartabell som lagrar historiska radversioner:
+Du kan också skapa en temporal tabell genom att ange Transact-SQL-uttryck direkt, som du ser i exemplet nedan. Observera att de obligatoriska elementen för varje temporal tabell är PERIOD definitionen och SYSTEM_VERSIONING-satsen med en referens till en annan användar tabell som ska lagra historiska rad versioner:
 
 ```
 CREATE TABLE WebsiteUserInfo 
@@ -64,15 +64,15 @@ CREATE TABLE WebsiteUserInfo
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
 ```
 
-När du skapar tidstabellen för systemversioner skapas tabellen medföljande historik med standardkonfigurationen automatiskt. Standardhistoriktabellen innehåller ett grupperat B-trädindex i periodkolumnerna (slut, start) med sidkomprimering aktiverad. Den här konfigurationen är optimal för de flesta scenarier där tidstabeller används, särskilt för [datagranskning](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
+När du skapar den temporala system versions tabellen skapas automatiskt den tillhör ande historik tabellen med standard konfigurationen. Standard historik tabellen innehåller ett grupperat B-träd-index för period kolumnerna (End, start) med sid komprimering aktive rad. Den här konfigurationen är optimal för de flesta scenarier där temporala tabeller används, särskilt för [data granskning](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
 
-I det här fallet strävar vi efter att utföra tidsbaserad trendanalys över en längre datahistorik och med större datauppsättningar, så lagringsvalet för historiktabellen är ett grupperat columnstore-index. En klustrad columnstore ger mycket bra komprimering och prestanda för analytiska frågor. Temporaltabeller ger dig flexibiliteten att konfigurera index på aktuella och tidsmässiga tabeller helt oberoende av dem. 
+I det här fallet syftar vi på att utföra tidsbaserad trend analys över en längre data historik och med större data uppsättningar, så att lagrings alternativet för historik tabellen är ett grupperat columnstore-index. Ett grupperat columnstore ger mycket bra komprimering och prestanda för analytiska frågor. Temporala tabeller ger dig flexibiliteten att konfigurera index i aktuella och temporala tabeller helt oberoende av varandra. 
 
 > [!NOTE]
-> Columnstore-index är tillgängliga på Premium-nivån och på standardnivån, S3 och högre.
+> Columnstore-index är tillgängliga på Premium-nivån och på standard nivån, S3 och högre.
 >
 
-Följande skript visar hur standardindex i historiktabellen kan ändras till den klustrade columnstore:
+Följande skript visar hur standard indexet i historik tabellen kan ändras till det grupperade columnstore-klustret:
 
 ```
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
@@ -80,12 +80,12 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ```
 
-Temporaltabeller representeras i Objektutforskaren med den specifika ikonen för enklare identifiering, medan dess historiktabell visas som en underordnad nod.
+Temporala tabeller representeras i Object Explorer med den speciella ikonen för enklare identifiering, medan historik tabellen visas som en underordnad nod.
 
-![AlterTable (Ändra Tabell)](./media/sql-database-temporal-tables/AzureTemporal4.png)
+![Det går att omvara](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
 ### <a name="alter-existing-table-to-temporal"></a>Ändra befintlig tabell till temporal
-Låt oss täcka det alternativa scenariot där tabellen WebbplatsAnvändareInfo redan finns, men som inte har utformats för att hålla en historik över ändringar. I det här fallet kan du helt enkelt utöka den befintliga tabellen till att bli tidsmässig, vilket visas i följande exempel:
+Vi ska gå igenom det alternativa scenariot där WebsiteUserInfo-tabellen redan finns, men inte har utformats för att bevara ändringar i historiken. I det här fallet kan du helt enkelt utöka den befintliga tabellen för att bli temporal, som du ser i följande exempel:
 
 ```
 ALTER TABLE WebsiteUserInfo 
@@ -105,24 +105,24 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ```
 
-## <a name="step-2-run-your-workload-regularly"></a>Steg 2: Kör din arbetsbelastning regelbundet
-Den största fördelen med temporala tabeller är att du inte behöver ändra eller justera din webbplats på något sätt för att utföra ändringsspårning. När temporaltabellerna har skapats finns det i tidigare radversioner på ett transparent sätt varje gång du utför ändringar på dina data. 
+## <a name="step-2-run-your-workload-regularly"></a>Steg 2: kör din arbets belastning regelbundet
+Den största fördelen med temporala tabeller är att du inte behöver ändra eller justera din webbplats på något sätt för att utföra ändrings spårning. När du har skapat en temporal tabell behålls tidigare rad versioner transparent varje gång du gör ändringar i dina data. 
 
-För att utnyttja automatisk ändringsspårning för det här scenariot ska vi bara uppdatera **kolumnsidorVisiterade** varje gång en användare avslutar sin session på webbplatsen:
+För att kunna utnyttja automatisk ändrings spårning för det här scenariot, ska vi bara uppdatera kolumnen **PagesVisited** varje gång en användare avslutar sin session på webbplatsen:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
 ```
 
-Det är viktigt att notera att uppdateringsfrågan inte behöver veta den exakta tiden när den faktiska åtgärden inträffade eller hur historiska data kommer att bevaras för framtida analys. Båda aspekterna hanteras automatiskt av Azure SQL Database. Följande diagram visar hur historikdata genereras på varje uppdatering.
+Det är viktigt att Observera att uppdaterings frågan inte behöver känna till exakt den tidpunkt då den faktiska åtgärden ägde rum eller hur historiska data bevaras för framtida analyser. Båda aspekterna hanteras automatiskt av Azure SQL Database. Följande diagram illustrerar hur historik data genereras vid varje uppdatering.
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-## <a name="step-3-perform-historical-data-analysis"></a>Steg 3: Utföra historisk dataanalys
-Nu när tidsmässiga systemversioner är aktiverat är historisk dataanalys bara en fråga bort från dig. I den här artikeln kommer vi att ge några exempel som behandlar vanliga analysscenarier - för att lära dig alla detaljer, utforska olika alternativ som införts med FOR SYSTEM_TIME-klausulen. [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3)
+## <a name="step-3-perform-historical-data-analysis"></a>Steg 3: utför historisk data analys
+Nu när temporal system versions hantering är aktive rad är historisk data analys bara en fråga från dig. I den här artikeln innehåller vi några exempel på hur du kan åtgärda vanliga analys scenarier – om du vill lära dig mer om den här artikeln kan du utforska olika alternativ som introduceras med [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) -satsen.
 
-Om du vill visa de 10 användare som beställts efter antalet besökta webbsidor för en timme sedan kör du den här frågan:
+Kör den här frågan för att se de 10 främsta användare som beställts av antalet besökta webb sidor per timme sedan:
 
 ```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
@@ -130,9 +130,9 @@ SELECT TOP 10 * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME AS OF @hourAgo
 ORDER BY PagesVisited DESC
 ```
 
-Du kan enkelt ändra den här frågan för att analysera webbplatsbesöken från och med en dag sedan, för en månad sedan eller när som helst tidigare du vill.
+Du kan enkelt ändra den här frågan om du vill analysera plats besöken på en dag sedan, en månad sedan eller var som helst efter att du önskar.
 
-Om du vill utföra grundläggande statistisk analys för föregående dag använder du följande exempel:
+Använd följande exempel för att utföra grundläggande statistiska analyser för föregående dag:
 
 ```
 DECLARE @twoDaysAgo datetime2 = DATEADD(DAY, -2, SYSUTCDATETIME());
@@ -146,7 +146,7 @@ FOR SYSTEM_TIME BETWEEN @twoDaysAgo AND @aDayAgo
 GROUP BY UserId
 ```
 
-Om du vill söka efter aktiviteter för en viss användare använder du in-satsen INNE I inom en viss tidsperiod:
+Om du vill söka efter aktiviteter för en viss användare inom en viss tids period använder du satsen ingår i:
 
 ```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
@@ -156,12 +156,12 @@ FOR SYSTEM_TIME CONTAINED IN (@twoHoursAgo, @hourAgo)
 WHERE [UserID] = 1;
 ```
 
-Grafisk visualisering är särskilt bekvämt för tidsmässiga frågor som du kan visa trender och användningsmönster på ett intuitivt sätt mycket enkelt:
+Grafisk visualisering är särskilt praktisk för temporala frågor eftersom du kan visa trender och användnings mönster på ett intuitivt sätt enkelt:
 
-![TemporalGraph (TemporalGraph)](./media/sql-database-temporal-tables/AzureTemporal6.png)
+![TemporalGraph](./media/sql-database-temporal-tables/AzureTemporal6.png)
 
-## <a name="evolving-table-schema"></a>Tabellschema utvecklas
-Vanligtvis måste du ändra det tidsmässiga tabellschemat medan du gör apputveckling. För det, helt enkelt köra vanliga ALTER TABLE-satser och Azure SQL Database kommer att sprida ändringar i historiktabellen på lämpligt sätt. Följande skript visar hur du kan lägga till ytterligare attribut för spårning:
+## <a name="evolving-table-schema"></a>Schema för utveckling av tabell
+Normalt måste du ändra det temporala tabell schemat medan du gör en app-utveckling. För det här kan du köra vanliga ALTER TABLE-instruktioner och Azure SQL Database på lämpligt sätt sprida ändringar till historik tabellen. Följande skript visar hur du kan lägga till ytterligare attribut för spårning:
 
 ```
 /*Add new column for tracking source IP address*/
@@ -169,7 +169,7 @@ ALTER TABLE dbo.WebsiteUserInfo
 ADD  [IPAddress] varchar(128) NOT NULL CONSTRAINT DF_Address DEFAULT 'N/A';
 ```
 
-På samma sätt kan du ändra kolumndefinitionen medan arbetsbelastningen är aktiv:
+På samma sätt kan du ändra kolumn definitionen medan din arbets belastning är aktiv:
 
 ```
 /*Increase the length of name column*/
@@ -185,16 +185,16 @@ ALTER TABLE dbo.WebsiteUserInfo
     DROP COLUMN TemporaryColumn; 
 ```
 
-Du kan också använda senaste [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) för att ändra tidstabellschemat medan du är ansluten till databasen (onlineläge) eller som en del av databasprojektet (offlineläge).
+Du kan också använda de senaste [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) för att ändra temporal Table-schemat när du är ansluten till databasen (online-läge) eller som en del av databas projektet (offline-läge).
 
-## <a name="controlling-retention-of-historical-data"></a>Kontrollera lagring av historiska data
-Med tidstabeller med systemversioner kan historiktabellen öka databasstorleken mer än vanliga tabeller. En stor och ständigt växande historia tabell kan bli ett problem både på grund av ren lagringskostnader samt införa en prestandaskatt på tidsmässiga frågor. Att utveckla en datalagringsprincip för hantering av data i historiktabellen är därför en viktig aspekt av planering och hantering av livscykeln för varje temporal tabell. Med Azure SQL Database har du följande metoder för att hantera historiska data i den tidsmässiga tabellen:
+## <a name="controlling-retention-of-historical-data"></a>Kontrol lera kvarhållning av historiska data
+Med system versions temporala tabeller kan historik tabellen öka databas storleken mer än vanliga tabeller. En stor och ständigt växande historik tabell kan bli ett problem både på grund av rena lagrings kostnader och för att införa en prestanda skatt på temporala frågor. Därför är det viktigt att planera och hantera livs cykeln för varje temporal tabell genom att utveckla en data lagrings princip för att hantera data i historik tabellen. Med Azure SQL Database har du följande metoder för att hantera historiska data i den temporala tabellen:
 
 * [Tabellpartitionering](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
-* [Anpassat rensningsskript](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
+* [Anpassat rensnings skript](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om temporala tabeller finns i incheckning [av temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
-- Besök Kanal 9 för att höra en [riktig kund tidsmässig implementering framgångssaga](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) och titta på en [levande tidsmässig demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+- Mer information om temporala tabeller finns i checka ut [temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Besök Channel 9 om du vill höra en [lyckad kund temporal support berättelse](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) och titta på en [real tids temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

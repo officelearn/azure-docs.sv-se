@@ -1,6 +1,6 @@
 ---
-title: Migrera till nya elastiska databasjobb
-description: Migrera till de nya elastiska databasjobben.
+title: Migrera till nya Elastic Database jobb
+description: Migrera till de nya Elastic Database jobben.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,28 +12,28 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 5a7ed254de7b7ea32f2fb357d860354693e46e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827237"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrera till de nya elastiska databasjobben
+# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrera till den nya Elastic Database-jobb
 
-Det finns en uppgraderad version av [elastiska databasjobb.](elastic-jobs-overview.md)
+En uppgraderad version av [Elastic Database jobb](elastic-jobs-overview.md) är tillgänglig.
 
-Om du har en befintlig kundvärd version av elastiska databasjobb tillhandahålls migrerings cmdlets och skript för att enkelt migrera till den senaste versionen.
+Om du har en befintlig version av Elastic Database jobb för en kund finns migrerings-cmdlets och skript för att enkelt migrera till den senaste versionen.
 
 
 ## <a name="prerequisites"></a>Krav
 
-Den uppgraderade versionen av elastiska databasjobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdlets överför alla dina befintliga jobbautentiseringsuppgifter, mål (inklusive databaser, servrar, anpassade samlingar), jobbutlösare, jobbscheman, jobbinnehåll och jobb över till en ny elastisk jobbagent.
+Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installera de senaste cmdleterna Elastic Jobs
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installera de senaste elastiska jobb-cmdletarna
 
-Om du inte redan har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-Installera **förhandsversionen av Az.Sql** 1.1.1 för att få de senaste cmdleterna för elastiskt jobb. Kör följande kommandon i PowerShell med administratörsbehörighet.
+Installera **AZ. SQL** 1.1.1-Preview-modulen för att hämta de senaste elastiska jobb-cmdletarna. Kör följande kommandon i PowerShell med administratörsbehörighet.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on
@@ -54,9 +54,9 @@ Import-Module Az.Sql -RequiredVersion 1.1.1
 Get-Module Az.Sql
 ```
 
-### <a name="create-a-new-elastic-job-agent"></a>Skapa en ny elastisk jobbagent
+### <a name="create-a-new-elastic-job-agent"></a>Skapa en ny elastisk jobb agent
 
-När du har installerat de nya cmdlets, skapa en ny elastisk job agent.
+När du har installerat de nya cmdletarna skapar du en ny elastisk jobb agent.
 
 ```powershell
 # Register your subscription for the for the Elastic Jobs public preview feature
@@ -68,9 +68,9 @@ $db = Get-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serv
 $agent = $db | New-AzSqlElasticJobAgent -Name <agentName>
 ```
 
-### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>Installera de gamla cmdletsna elastiska databasjobben
+### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>Installera de gamla cmdletarna för Elastic Database-jobb
 
-Migrering måste använda några av de *gamla* elastiska jobb cmdlets, så kör följande kommandon om du inte redan har dem installerade.
+Migreringen måste använda några av de *gamla* cmdletarna för elastiska jobb, så kör följande kommandon om du inte redan har installerat dem.
 
 ```powershell
 # Install the old elastic job cmdlets if necessary and initialize the old jobs cmdlets
@@ -90,7 +90,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 ## <a name="migration"></a>Migrering
 
-Nu när både de gamla och nya elastiska jobb cmdlets initieras, migrera dina jobbuppgifter, mål och jobb till den nya *jobbdatabasen*.
+Nu när både gamla och nya jobb-cmdletar för elastiska initieras, migrerar du dina autentiseringsuppgifter, mål och jobb till den nya *jobb databasen*.
 
 ### <a name="setup"></a>Installation
 
@@ -138,7 +138,7 @@ function Migrate-Credentials ($agent) {
 }
 ```
 
-Om du vill migrera dina autentiseringsuppgifter `$agent` kör du följande kommando genom att skicka in PowerShell-objektet från tidigare.
+Om du vill migrera dina autentiseringsuppgifter kör du följande kommando genom att `$agent` skicka in PowerShell-objektet från tidigare.
 
 ```powershell
 Migrate-Credentials $agent
@@ -366,10 +366,10 @@ function Setup-TargetGroup ($tgName, $agent) {
 }
 ```
 
-Om du vill migrera dina mål (servrar, databaser och anpassade samlingar) till den nya jobbdatabasen kör du cmdleten **Migrera-TargetGroups** för att utföra följande:
+Om du vill migrera dina mål (servrar, databaser och anpassade samlingar) till den nya jobb databasen kör du cmdleten **Migrate-TargetGroups** för att utföra följande:
 
-- Rotnivåmål som är servrar och databaser migreras till en\<ny\>målgrupp \<med\>namnet "( serverName , databaseName )" som bara innehåller rotnivåmålet.
-- En anpassad samling migreras till en ny målgrupp som innehåller alla underordnade mål.
+- Mål på rotnivå som är servrar och databaser kommer att migreras till en ny mål grupp med namnet\<"\>( \<servername\>, databasename)" som bara innehåller rot nivå målet.
+- En anpassad samling migreras till en ny mål grupp som innehåller alla underordnade mål.
 
 ```powershell
 Migrate-TargetGroups $agent
@@ -562,11 +562,11 @@ function Setup-JobStep ($newJob, $job) {
 }
 ```
 
-Om du vill migrera dina jobb, jobbinnehåll, jobbutlösare och jobbscheman till den nya elastiska jobbagentens databas kör du cmdleten **Migrera-jobb** som passerar i agenten.
+Om du vill migrera dina jobb, jobb innehåll, jobb utlösare och jobb scheman till den nya elastiska jobb agentens databas kör du cmdleten **Migrate-** Job som skickas i din agent.
 
-- Jobb med flera utlösare med olika scheman delas upp\<i\> flera\<jobb\>med namngivningsschema: "jobName ( scheduleName )".
-- Jobbinnehållet migreras till ett jobb genom att lägga till ett standardjobbsteg med namnet JobStep med associerad kommandotext.
-- Jobb inaktiveras som standard så att du kan validera dem innan du aktiverar dem.
+- Jobb med flera utlösare med olika scheman är indelade i flera jobb med namngivnings\> schema\<:\>"\<jobName (scheduleName)".
+- Jobb innehållet migreras till ett jobb genom att lägga till ett standard jobb steg med namnet JobStep med tillhör ande kommando text.
+- Jobb är inaktiverade som standard så att du kan verifiera dem innan du aktiverar dem.
 
 ```powershell
 Migrate-Jobs $agent
@@ -602,11 +602,11 @@ Job job4
 
 
 
-## <a name="migration-complete"></a>Migreringen har slutförts
+## <a name="migration-complete"></a>Migrering slutförd
 
-*Jobbdatabasen* ska nu ha alla jobbautentiseringsuppgifter, mål, jobbutlösare, jobbscheman, jobbinnehåll och jobb migrerade över.
+*Jobb databasen* bör nu ha alla autentiseringsuppgifter för jobbet, mål, jobb utlösare, jobb scheman, jobb innehåll och jobb som migrerats.
 
-Om du vill bekräfta att allt har migrerats korrekt använder du följande skript:
+För att bekräfta att allt har migrerats korrekt använder du följande skript:
 
 ```powershell
 $creds = $agent | Get-AzSqlElasticJobCredential
@@ -615,13 +615,13 @@ $jobs = $agent | Get-AzSqlElasticJob
 $steps = $jobs | Get-AzSqlElasticJobStep
 ```
 
-Om du vill testa att jobb körs korrekt startar du dem:
+Starta dem för att testa att jobben körs på rätt sätt:
 
 ```powershell
 $jobs | Start-AzSqlElasticJob
 ```
 
-Kom ihåg att aktivera dem så att de kan köras i bakgrunden för alla jobb som kördes enligt ett schema:
+Kom ihåg att aktivera dem för alla jobb som kördes enligt ett schema så att de kan köras i bakgrunden:
 
 ```powershell
 $jobs | Set-AzSqlElasticJob -Enable

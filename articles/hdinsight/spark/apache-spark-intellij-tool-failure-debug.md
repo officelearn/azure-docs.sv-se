@@ -1,7 +1,7 @@
 ---
-title: Felsök Spark-jobb med IntelliJ Azure Toolkit (förhandsversion) - HDInsight
-description: Vägledning med HDInsight Tools i Azure Toolkit för IntelliJ för att felsöka program
-keywords: debug distans intellij, fjärrfelsökning intellij, ssh, intellij, hdinsight, debug intellij, felsökning
+title: Felsöka Spark-jobb med IntelliJ Azure Toolkit (för hands version) – HDInsight
+description: Vägledning för att använda HDInsight-verktyg i Azure Toolkit for IntelliJ för att felsöka program
+keywords: Felsöka fjärran IntelliJ, fjärrfelsökning IntelliJ, SSH, IntelliJ, HDInsight, felsöka IntelliJ, fel sökning
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,125 +10,125 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73494596"
 ---
-# <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Fel spark jobb felsökning med Azure Toolkit för IntelliJ (förhandsvisning)
+# <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Fel Spark fel sökning av jobb med Azure Toolkit for IntelliJ (för hands version)
 
-Den här artikeln innehåller steg-för-steg-vägledning om hur du använder HDInsight-verktyg i [Azure Toolkit för IntelliJ för](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) att köra **Spark Failure Debug-program.**
+Den här artikeln innehåller stegvisa instruktioner om hur du använder HDInsight-verktyg i [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) att köra **fel söknings** program av Spark-fel.
 
 ## <a name="prerequisites"></a>Krav
 
 * [Oracle Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Den här kursen använder Java version 8.0.202.
   
-* Intellij IDÉ. I den här artikeln används [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
+* IntelliJ idé. Den här artikeln använder [INTELLIJ idé community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
 * Azure Toolkit for IntelliJ. Se [Installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
-* Anslut till ditt HDInsight-kluster. Se [Anslut till ditt HDInsight-kluster](apache-spark-intellij-tool-plugin.md).
+* Anslut till ditt HDInsight-kluster. Se [ansluta till ditt HDInsight-kluster](apache-spark-intellij-tool-plugin.md).
 
-* Microsoft Azure Storage Explorer. Se [Hämta Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+* Microsoft Azure Storage Explorer. Se [Ladda ned Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="create-a-project-with-debugging-template"></a>Skapa ett projekt med felsökningsmall
+## <a name="create-a-project-with-debugging-template"></a>Skapa ett projekt med fel söknings mall
 
-Skapa ett spark2.3.2-projekt för att fortsätta felsöka, ta fel felsöka exempelfilen i det här dokumentet.
+Skapa ett Spark-2.3.2-projekt om du vill fortsätta fel sökningen, vidta fel söknings exempel fil för aktiviteten i det här dokumentet.
 
-1. Öppna IntelliJ IDEA. Öppna fönstret **Nytt projekt.**
+1. Öppna IntelliJ IDEA. Öppna fönstret **nytt projekt** .
 
    a. Välj **Azure Spark/HDInsight** i den vänstra rutan.
 
-   b. Välj **Spark Project med fel felsökning av aktivitet(Förhandsgranskning)(Scala)** i huvudfönstret.
+   b. Välj **Spark-projekt med fel söknings exempel för aktivitets fel (för hands version) (för hands version) (Scala)** från huvud fönstret.
 
-     ![Intellij Skapa ett felsökningsprojekt](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
+     ![IntelliJ skapa ett fel söknings projekt](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
 
    c. Välj **Nästa**.
 
-2. Gör följande i fönstret **Nytt projekt:**
+2. Utför följande steg i fönstret **nytt projekt** :
 
-   ![Intellij New Project välj Spark-version](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
+   ![IntelliJ nytt projekt Välj Spark-version](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
 
-   a. Ange ett projektnamn och en projektplats.
+   a. Ange ett projekt namn och en projekt plats.
 
-   b. I listrutan **Projekt SDK** väljer du **Java 1.8** för **Spark 2.3.2-kluster.**
+   b. I list rutan **Project SDK** väljer du **Java 1,8** för **Spark 2.3.2** -kluster.
 
-   c. I listrutan **Spark Version** väljer du **Spark 2.3.2(Scala 2.11.8)**.
+   c. I list rutan **Spark-version** väljer du **Spark 2.3.2 (Scala 2.11.8)**.
 
    d. Välj **Slutför**.
 
-3. Välj **src** > **main** > **scala** för att öppna koden i projektet. I det här exemplet används skriptet **AgeMean_Div().**
+3. Välj **src** > **main** > -**Scala** för att öppna din kod i projektet. I det här exemplet används skriptet **AgeMean_Div ()** .
 
-## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>Köra ett Spark Scala/Java-program på ett HDInsight-kluster
+## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>Köra ett Spark-Scala/Java-program i ett HDInsight-kluster
 
-Skapa ett spark Scala/Java-program och kör sedan programmet på ett Spark-kluster genom att göra följande steg:
+Skapa ett Spark-Scala/Java-program och kör sedan programmet på ett Spark-kluster genom att utföra följande steg:
 
-1. Klicka på **Lägg till konfiguration** för att öppna fönstret **Kör/felsöka konfigurationer.**
+1. Klicka på **Lägg till konfiguration** för att öppna fönstret **Kör/Felsök konfigurationer** .
 
-   ![HDI Intellij Lägg till konfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
+   ![HDI IntelliJ Lägg till konfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
 
-2. Välj **Run/Debug Configurations** plustecknet (**+**). Välj sedan alternativet **Apache Spark på HDInsight.**
+2. I dialog rutan **Kör/Felsök konfigurationer** väljer du plus tecknet (**+**). Välj sedan alternativet **Apache Spark på HDInsight** .
 
-   ![Intellij Lägg till ny konfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
+   ![IntelliJ Lägg till ny konfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. Växla till **Fjärrkörning på** fliken Kluster. Ange information för **namn,** **sparkkluster**och **huvudklassnamn**. Våra verktyg stöder felsökning med **Executors.** **NumExectors**, standardvärdet är 5 och du är bättre att inte ange högre än 3. Om du vill minska körtiden kan du lägga till **spark.yarn.maxAppAttempts** i **jobbkonfigurationer** och ange värdet till 1. Klicka på **OK** för att spara konfigurationen.
+3. Växla till **fjärran sluten på fliken kluster** . Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Våra verktyg stöder fel sökning med **körningar**. **NumExectors**är standardvärdet 5, och du har inte angett fler än 3. Du kan minska körnings tiden genom att lägga till **Spark. garn. maxAppAttempts** i **jobb konfigurationerna** och ange värdet till 1. Spara konfigurationen genom att klicka på **OK** .
 
-   ![Intellij Kör felsökningskonfigurationer nya](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
+   ![IntelliJ kör felsöknings konfiguration ny](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
-4. Konfigurationen sparas nu med det namn du angav. Om du vill visa konfigurationsinformationen väljer du konfigurationsnamnet. Om du vill göra ändringar väljer du **Redigera konfigurationer**.
+4. Konfigurationen sparas nu med det namn du angav. Välj konfigurations namnet om du vill visa konfigurations informationen. Välj **Redigera konfigurationer**om du vill göra ändringar.
 
-5. När du har slutfört konfigurationsinställningarna kan du köra projektet mot fjärrklustret.
+5. När du har slutfört konfigurations inställningarna kan du köra projektet mot fjärrklustret.
 
-   ![Knappen Intellij Debug Remote Spark Job Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
+   ![IntelliJ Felsök fjärran sluten Spark-jobb, knapp](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
 
-6. Du kan kontrollera program-ID:t från utdatafönstret.
+6. Du kan kontrol lera program-ID: t från fönstret utdata.
 
-   ![Intellij Debug Remote Spark Job Remote kör resultat](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
+   ![Fjärrkörning av IntelliJ debug-jobb fjärrstyrt resultat](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
 
-## <a name="download-failed-job-profile"></a>Hämtning av misslyckade jobbprofiler
+## <a name="download-failed-job-profile"></a>Ladda ned misslyckad jobb profil
 
-Om jobbinlämningen misslyckas kan du hämta den misslyckade jobbprofilen till den lokala datorn för ytterligare felsökning.
+Om det inte går att skicka jobb kan du hämta den misslyckade jobb profilen till den lokala datorn för ytterligare fel sökning.
 
-1. Öppna **Microsoft Azure Storage Explorer**, leta upp HDInsight-kontot för klustret för det misslyckade jobbet, hämta de misslyckade jobbresurserna från motsvarande plats: **\hdp\spark2-events\\.spark-failures\\\<application ID>** till en lokal mapp. **Aktivitetsfönstret** visar hämtningsframsteget.
+1. Öppna **Microsoft Azure Storage Explorer**, leta upp HDInsight-kontot för klustret för det misslyckade jobbet, hämta de misslyckade jobb resurserna från motsvarande plats **:\\\hdp\spark2-events. Spark-Failure\\\<program-ID>** till en lokal mapp. I fönstret **aktiviteter** visas hämtnings förloppet.
 
-   ![Hämtningsfel i Azure Storage Explorer](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   ![Azure Storage Explorer nedladdnings problem](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
-   ![Hämtningen av Azure Storage Explorer](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
+   ![Azure Storage Explorer hämtningen lyckades](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
 
-## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Konfigurera lokal felsökningsmiljö och felsöka vid fel
+## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Konfigurera lokal fel söknings miljö och Felsök vid fel
 
-1. Öppna det ursprungliga projektet eller skapa ett nytt projekt och associera det med den ursprungliga källkoden. Endast spark2.3.2-version stöds för felfelsökning för närvarande.
+1. Öppna det ursprungliga projektet eller skapa ett nytt projekt och koppla det till den ursprungliga käll koden. Endast Spark-2.3.2 version stöds för fel sökning för tillfället.
 
-1. Skapa en Spark Failure **Debug-config-fil** i IntelliJ IDEA och välj FTD-filen från de tidigare nedladdade misslyckade jobbresurserna för **platsfältet Spark Job Failure Context.**
+1. I IntelliJ idé skapar du ett **Spark-fel fel söknings** konfigurations fil, väljer du filen för dokument hantering från tidigare hämtade jobb resurser för **fel kontexten för fel kontexten för Spark-jobbet** .
 
-   ![kreakursfelkonfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   ![konfiguration av Crete-problem](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
 
-1. Klicka på den lokala körknappen i verktygsfältet, visas felet i Fönstret Kör.
+1. Klicka på knappen lokal körning i verktygsfältet. felet visas i körnings fönstret.
 
-   ![kör-fel-konfiguration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   ![Kör-Failure-configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
 
-   ![kör-fel-konfiguration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   ![Kör-Failure-configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
-1. Ställ brytpunkt som loggen anger, klicka sedan på lokal felsökningsknapp för att göra lokal felsökning precis som dina vanliga Scala / Java-projekt i IntelliJ.
+1. Ange Bryt punkt som loggen anger och klicka sedan på knappen lokal fel sökning för att utföra lokal fel sökning precis som dina normala Scala-/Java-projekt i IntelliJ.
 
-1. Efter felsökning, om projektet har slutförts, kan du skicka det misslyckade jobbet till din gnista på HDInsight-klustret.
+1. Om projektet har slutförts efter fel sökning kan du skicka det misslyckade jobbet till Spark på HDInsight-klustret igen.
 
 ## <a name="next-steps"></a><a name="seealso"></a>Nästa steg
 
-* [Översikt: Felsökning av Apache Spark-program](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Översikt: Felsöka Apache Spark program](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
 ### <a name="demo"></a>Demo
 
-* Skapa Scala-projekt (video): [Skapa Apache Spark Scala-program](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Fjärrfelsökning (video): [Använd Azure Toolkit för IntelliJ för att fjärrsöka Apache Spark-program i ett HDInsight-kluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Skapa Scala-projekt (video): [skapa Apache Spark Scala-program](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Fjärrfelsökning (video): [använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i ett HDInsight-kluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med BI: Gör interaktiv dataanalys med spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att analysera byggnadstemperaturen med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att förutsäga resultat för livsmedelsinspektion](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Apache Spark i HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att analysera skapande temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplats logg analys med Apache Spark i HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 
@@ -137,12 +137,12 @@ Om jobbinlämningen misslyckas kan du hämta den misslyckade jobbprofilen till d
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 
-* [Använd Azure Toolkit för IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md)
-* [Använd Azure Toolkit för IntelliJ för att felsöka Apache Spark-program på distans via VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använd HDInsight Tools för IntelliJ med Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Använd HDInsight-verktyg i Azure Toolkit för Eclipse för att skapa Apache Spark-program](../hdinsight-apache-spark-eclipse-tool-plugin.md)
-* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kärnor tillgängliga för Jupyter-anteckningsbok i Apache Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använd Azure Toolkit for IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md)
+* [Använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda HDInsight-verktyg för IntelliJ med begränsat läge för Hortonworks](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Skapa Apache Spark-program med hjälp av HDInsight-verktyg i Azure Toolkit for Eclipse](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels tillgängligt för Jupyter Notebook i Apache Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

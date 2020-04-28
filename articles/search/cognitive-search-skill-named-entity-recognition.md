@@ -1,7 +1,7 @@
 ---
-title: Namngiven kognitiv färdighet för entitetsigenkänning
+title: Kognitiv kompetens för entitets igenkänning
 titleSuffix: Azure Cognitive Search
-description: Extrahera namngivna entiteter för person, plats och organisation från text i en AI-anrikningspipeline i Azure Cognitive Search.
+description: Extrahera namngivna entiteter för person, plats och organisation från text i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,58 +9,58 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 127155e492b556ce1ce02b67cf0b0846b99ebcd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72791934"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>Namngiven kognitiv färdighet för entitetsigenkänning
+#    <a name="named-entity-recognition-cognitive-skill"></a>Kognitiv kompetens för entitets igenkänning
 
-Den **namngivna entitetsigenkänning** färdighet extraherar namngivna entiteter från text. Tillgängliga entiteter `person` `location` inkluderar `organization`typerna och .
+Den **namngivna Recognition** -kompetensen extraherar namngivna entiteter från text. Tillgängliga entiteter innehåller typerna `person` `location` och `organization`.
 
 > [!IMPORTANT]
-> Namngiven entitetsigenkänningsfärdighet har nu upphört ersatt av [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Supporten upphörde den 15 februari 2019 och API:et togs bort från produkten den 2 maj 2019. Följ rekommendationerna i [Inaktuella kognitiva sökfärdigheter](cognitive-search-skill-deprecated.md) för att migrera till en färdighet som stöds.
+> Den namngivna kunskapen om enhets igenkänning har nu ersatts av [Microsoft. skicklighets. text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Supporten stoppades den 15 februari 2019 och API: et togs bort från produkten den 2 maj 2019. Följ rekommendationerna i [inaktuella kognitiva Sök kunskaper](cognitive-search-skill-deprecated.md) för att migrera till en färdighet som stöds.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka bearbetningsfrekvensen, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [bifoga en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildutvinning som en del av dokumentsprickningsfasen i Azure Cognitive Search. Det finns inga avgifter för textextrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättning för avbildningsextrahering beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400)för Azure Cognitive Search .
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.NamedEntityRecognitionSkill
+Microsoft. färdigheter. text. NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken på en post bör vara 50 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)000 tecken mätt med . Om du behöver dela upp dina data innan du skickar dem till nyckelfrasutsugaren kan du använda [textdelningsfärdigheten](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-parameters"></a>Färdighetsparametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| kategorier    | Matris med kategorier som ska extraheras.  Möjliga `"Person"`kategorityper: `"Location"` `"Organization"`, , . Om ingen kategori anges returneras alla typer.|
-|standardSpråkkod |  Ingångstextens språkkod. Följande språk stöds:`de, en, es, fr, it`|
+| kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"`, `"Location"`, `"Organization"`. Om ingen kategori anges returneras alla typer.|
+|defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds:`de, en, es, fr, it`|
 | minimumPrecision  | Ett tal mellan 0 och 1. Om precisionen är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0.|
 
-## <a name="skill-inputs"></a>Indata för färdighet
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn      | Beskrivning                   |
+| Inmatat namn      | Beskrivning                   |
 |---------------|-------------------------------|
 | languageCode  | Valfri. Standardvärdet är `"en"`.  |
-| text          | Texten att analysera.          |
+| text          | Den text som ska analyseras.          |
 
-## <a name="skill-outputs"></a>Utdata för färdighet
+## <a name="skill-outputs"></a>Kunskaps utmatningar
 
-| Utdatanamn     | Beskrivning                   |
+| Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
-| Personer      | En matris med strängar där varje sträng representerar namnet på en person. |
-| platser  | En matris med strängar där varje sträng representerar en plats. |
-| organisationer  | En matris med strängar där varje sträng representerar en organisation. |
-| Enheter | En rad komplexa typer. Varje komplex typ innehåller följande fält: <ul><li>kategori`"person"`( `"organization"`, `"location"`, eller )</li> <li>värde (det faktiska enhetsnamnet)</li><li>(Den plats där den hittades i texten)</li><li>konfidens (A-värde mellan 0 och 1 som representerar det förtroende för att värdet är en faktisk enhet)</li></ul> |
+| ansvariga      | En sträng mat ris där varje sträng representerar namnet på en person. |
+| platser  | En sträng mat ris där varje sträng representerar en plats. |
+| organisationer  | En sträng mat ris där varje sträng representerar en organisation. |
+| poster | En matris med komplexa typer. Varje komplex typ innehåller följande fält: <ul><li>kategori (`"person"`, `"organization"`eller `"location"`)</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (ett värde mellan 0 och 1 som representerar det förtroende att värdet är en faktisk entitet)</li></ul> |
 
-##  <a name="sample-definition"></a>Exempeldefinition
+##  <a name="sample-definition"></a>Exempel definition
 
 ```json
   {
@@ -81,7 +81,7 @@ Parametrar är skiftlägeskänsliga.
     ]
   }
 ```
-##  <a name="sample-input"></a>Exempelinmatning
+##  <a name="sample-input"></a>Exempel på inmatade
 
 ```json
 {
@@ -150,11 +150,11 @@ Parametrar är skiftlägeskänsliga.
 ```
 
 
-## <a name="error-cases"></a>Felfall
-Om dokumentets språkkod inte stöds returneras ett fel och inga entiteter extraheras.
+## <a name="error-cases"></a>Fel fall
+Om språk koden för dokumentet inte stöds returneras ett fel och inga entiteter extraheras.
 
 ## <a name="see-also"></a>Se även
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Färdighet för entitetsigenkän](cognitive-search-skill-entity-recognition.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Kompetens för enhets igenkänning](cognitive-search-skill-entity-recognition.md)

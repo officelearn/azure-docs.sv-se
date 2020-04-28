@@ -1,5 +1,5 @@
 ---
-title: Skicka push-meddelanden till specifika användare med Azure Notification Hubs | Microsoft-dokument
+title: Skicka push-meddelanden till vissa användare med hjälp av Azure Notification Hubs | Microsoft Docs
 description: Lär dig att använda Azure Notification Hubs till att skicka push-meddelanden till specifika användare.
 documentationcenter: ios
 author: sethm
@@ -17,17 +17,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72387466"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudiekurs: Skicka push-meddelanden till specifika användare med Hjälp av Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa användare med Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Denna självstudie visar hur du använder Azure Notification Hubs till att skicka push-meddelanden till en specifik appanvändare på en specifik enhet. En ASP.NET WebAPI-backend används för att autentisera klienter och generera meddelanden, vilket visas i vägledningsavsnittet [Registrera från appens backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Denna självstudie visar hur du använder Azure Notification Hubs till att skicka push-meddelanden till en specifik appanvändare på en specifik enhet. En ASP.NET WebAPI-Server del används för att autentisera klienter och generera meddelanden, som du ser i hjälp avsnittet [Registrera från din app server](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)del.
 
 I den här självstudien gör du följande:
 
@@ -42,33 +42,33 @@ I den här självstudien gör du följande:
 
 ## <a name="prerequisites"></a>Krav
 
-Den här självstudien förutsätter att du har skapat och konfigurerat meddelandehubben enligt beskrivningen i [Komma igång med Meddelandehubbar (iOS).](notification-hubs-ios-apple-push-notification-apns-get-started.md) Den här självstudien är också en förutsättning för självstudien [Secure Push (iOS).](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med Push i mobilappar.](../app-service-mobile/app-service-mobile-ios-get-started-push.md)
+Den här självstudien förutsätter att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Den här själv studie kursen är också nödvändig för självstudierna [säker push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
+Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång med push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="modify-your-ios-app"></a>Ändra din iOS-app
 
-1. Öppna den app för enkelsidig sida som du skapade i självstudien [Komma igång med meddelandehubbar (iOS).](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+1. Öppna den enkla sidan Visa app som du skapade i självstudien [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
 
    > [!NOTE]
-   > Det här avsnittet förutsätter att projektet är konfigurerat med ett tomt organisationsnamn. Om inte, måste du förbereda organisationens namn till alla klassnamn.
+   > Det här avsnittet förutsätter att ditt projekt har kon figurer ATS med ett tomt organisations namn. Annars måste du lägga organisations namnet till alla klass namn.
 
-2. Lägg `Main.storyboard` till de komponenter som visas i skärmbilden från objektbiblioteket i filen.
+2. I `Main.storyboard` filen lägger du till de komponenter som visas i skärm bilden från objekt biblioteket.
 
-    ![Redigera storyboard i Xcode-gränssnittsverktyget][1]
+    ![Redigera storyboard i Xcode Interface Builder][1]
 
-   * **Användarnamn**: Ett UITextField med platshållartext, *Ange användarnamn*, omedelbart under etiketten skicka resultat och begränsad till vänster och höger marginal och under etiketten skicka resultat.
-   * **Lösenord**: Ett UITextField med platshållartext, *Ange lösenord*, omedelbart under textfältet för användarnamn och begränsad till vänster- och högermarginalerna och under textfältet för användarnamn. Markera alternativet **Säker textpost** i attributkontroll under *Returnyckel*.
-   * **Logga in**: Ett UIButton som är märkt omedelbart under textfältet för lösenord och avmarkera alternativet **Aktiverad** i attributinspektören under *Kontrollinnehåll*
-   * **WNS**: Etikett och switch för att aktivera skicka meddelandet Windows Notification Service om det har ställts in på navet. Se självstudien [för komma igång i Windows.](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
-   * **GCM**: Etikett och växla för att aktivera sändning av meddelandet till Google Cloud Messaging om det har konfigurerats på hubben. Se [Android Komma igång](notification-hubs-android-push-notification-google-gcm-get-started.md) handledning.
-   * **APNS**: Etikett och switch för att möjliggöra att skicka meddelandet till Apple Platform Notification Service.
-   * **Mottagare Användarnamn: En** UITextField med platshållartext, *Mottagare användarnamn tagg*, omedelbart under GCM etiketten och begränsad till vänster och höger marginaler och under GCM etiketten.
+   * **Användar namn**: en UITextField med platshållartext, *Ange användar namn*direkt under etiketten skicka resultat och begränsas till vänster och höger marginaler och under etiketten skicka resultat.
+   * **Lösen ord**: ett UITextField med platshållartext, *Ange lösen ordet*direkt under textfältet username och begränsat till vänster och höger marginaler och under text fältet användar namn. Markera alternativet för **säker text inmatning** i modulen attribut under *RETUR nyckel*.
+   * **Logga in**: en UIButton som märks direkt under fältet lösen ords text och avmarkerar alternativet **aktive rad** i kontrollen attribut under *kontroll-Content*
+   * **WNS**: etikett och växel för att aktivera sändning av Notification Service för meddelande tjänsten om den har kon figurer ATS i hubben. Se själv studie kursen om [Windows komma igång](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
+   * **GCM**: etikett och växel för att aktivera sändning av meddelandet till Google Cloud Messaging om det har kon figurer ATS i hubben. Se själv studie kursen om [Android komma igång](notification-hubs-android-push-notification-google-gcm-get-started.md) .
+   * **APN**: etikett och växel för att aktivera sändning av meddelandet till Apple Platform Notification Service.
+   * **Mottagarens användar namn: en** UITextField med platshållartext, *taggen mottagarens användar namn*, direkt under etiketten GCM och är begränsad till vänster och höger MARGINALer och under GCM-etiketten.
 
-     Vissa komponenter har lagts till i [självstudien Komma igång med meddelandehubbar (iOS).](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+     Vissa komponenter har lagts till i självstudierna [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
 
-3. **Ctrl** dra från komponenterna `ViewController.h` i vyn till och lägg till dessa nya uttag.
+3. **CTRL** dra från komponenterna i vyn till `ViewController.h` och Lägg till dessa nya utsändnings möjligheter.
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -88,13 +88,13 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. Lägg `ViewController.h`till följande `#define` efter importutdragen. Ersätta `<Enter Your Backend Endpoint>` platshållaren med den mål-URL som du använde för att distribuera appens meddel i föregående avsnitt. Till exempel `http://your_backend.azurewebsites.net`.
+4. I `ViewController.h`lägger du till följande `#define` efter dina import-instruktioner. Ersätt `<Enter Your Backend Endpoint>` plats hållaren med den mål-URL som du använde för att distribuera appens Server del i föregående avsnitt. Till exempel `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. Skapa en ny Cocoa Touch-klass `RegisterClient` som heter att samverka med den ASP.NET backend som du har skapat i projektet. Skapa klassen som `NSObject`ärver från . Lägg sedan till följande `RegisterClient.h`kod i .
+5. I ditt projekt skapar du en ny enhets touch- `RegisterClient` klass med namnet till gränssnittet med ASP.net-backend som du skapade. Skapa klassen som ärver från `NSObject`. Lägg sedan till följande kod i `RegisterClient.h`.
 
     ```objc
     @interface RegisterClient : NSObject
@@ -109,7 +109,7 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     @end
     ```
 
-6. I `RegisterClient.m`avsnittet uppdatera `@interface` du avsnittet:
+6. `RegisterClient.m`I uppdaterar du `@interface` avsnittet:
 
     ```objc
     @interface RegisterClient ()
@@ -127,7 +127,7 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     @end
     ```
 
-7. Ersätt `@implementation` avsnittet i RegisterClient.m med följande kod:
+7. Ersätt `@implementation` avsnittet i RegisterClient. m med följande kod:
 
     ```objc
     @implementation RegisterClient
@@ -288,11 +288,11 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     @end
     ```
 
-    Den här koden implementerar logiken som förklaras i vägledningsartikeln [Registrera från din app-backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) med NSURLSession för att utföra REST-anrop till appens backend och NSUserDefaults för att lagra registreringen Lokalt returneras av meddelandehubben.
+    Den här koden implementerar logiken som beskrivs i vägledningen som [registreras från din app-backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) med NSURLSession för att utföra rest-anrop till din app-backend och NSUserDefaults för att lokalt lagra registrationId som returnerades av Notification Hub.
 
-    Den här klassen `authorizationHeader` kräver att dess egenskap ställs in för att fungera korrekt. Den här egenskapen `ViewController` anges av klassen efter inloggningen.
+    Den här klassen kräver att `authorizationHeader` egenskapen anges för att fungera korrekt. Den här egenskapen anges av `ViewController` klassen efter inloggningen.
 
-8. I `ViewController.h`lägger `#import` du `RegisterClient.h`till ett utdrag för . Lägg sedan till en deklaration för `RegisterClient` enhetstoken och referens till en instans i avsnittet: `@interface`
+8. I `ViewController.h`lägger du till `#import` en instruktion `RegisterClient.h`för. Lägg sedan till en deklaration för enhetens token och referens `RegisterClient` till en instans `@interface` i avsnittet:
 
     ```objc
     #import "RegisterClient.h"
@@ -301,7 +301,7 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     @property (strong, nonatomic) RegisterClient* registerClient;
     ```
 
-9. Lägg till en deklaration för en privat `@interface` metod i avsnittet i ViewController.m:
+9. I ViewController. m lägger du till en deklaration för privat metod `@interface` i avsnittet:
 
     ```objc
     @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
@@ -314,9 +314,9 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     ```
 
     > [!NOTE]
-    > Följande kodavsnitt är inte ett säkert autentiseringsschema, `createAndSetAuthenticationHeaderWithUsername:AndPassword:` du bör ersätta implementeringen av den med din specifika autentiseringsmekanism som genererar en autentiseringstoken som ska förbrukas av registerklientklassen, t.ex.
+    > Följande kodfragment är inte ett säkert autentiseringsschema, du bör ersätta implementeringen av `createAndSetAuthenticationHeaderWithUsername:AndPassword:` med din speciella autentiseringsmekanism som genererar en autentiseringstoken som ska användas av den registrerade klient klassen, t. ex. OAuth, Active Directory.
 
-10. Lägg sedan `@implementation` till `ViewController.m`följande kod i avsnittet , som lägger till implementeringen för att ange enhetstoken och autentiseringshuvudet.
+10. I `@implementation` avsnittet i `ViewController.m`lägger du till följande kod, som lägger till implementeringen för att ange enhets-token och Authentication-huvudet.
 
     ```objc
     -(void) setDeviceToken: (NSData*) deviceToken
@@ -343,9 +343,9 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     }
     ```
 
-    Observera hur inställningen av enhetstoken aktiverar inloggningsknappen. Det beror på att vystyrenheten som en del av inloggningsåtgärden registrerar för push-meddelanden med appens backend. Därför vill du inte att inloggningsåtgärden ska vara tillgänglig förrän enhetstoken har konfigurerats korrekt. Du kan frikoppla inloggningen från push-registreringen så länge den förstnämnda inträffar innan den senare.
+    Observera hur du anger enhets-token som aktiverar knappen Logga in. Det beror på att som en del av inloggnings åtgärden registrerar visnings styrenheten för push-meddelanden med appens Server del. Vill därför inte att inloggnings åtgärder ska vara tillgängliga förrän enhetens token har kon figurer ATS korrekt. Du kan koppla från inloggningen från push-registreringen så länge den tidigare inträffar före den senare.
 
-11. I ViewController.m använder du följande utdrag för att implementera åtgärdsmetoden för **inloggningsknappen** och en metod för att skicka meddelandemeddelandet med hjälp av ASP.NET serverings-serverning.
+11. I ViewController. m använder du följande kodfragment för att implementera åtgärds metoden för **inloggnings** knappen och en metod för att skicka meddelandet med hjälp av ASP.net-backend-servern.
 
     ```objc
     - (IBAction)LogInAction:(id)sender {
@@ -420,7 +420,7 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     }
     ```
 
-12. Uppdatera åtgärden för knappen **Skicka meddelande** för att använda ASP.NET-backend och skicka till alla PNS som aktiveras av en växel.
+12. Uppdatera åtgärden för knappen **Skicka meddelande** för att använda ASP.NET-Server delen och skicka till valfri PNS som aktive ras av en växel.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -446,7 +446,7 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     }
     ```
 
-13. I `ViewDidLoad` funktionen lägger du till följande `RegisterClient` för att instansiera instansiera instansiera instansiera instansieringen och ange ombud för dina textfält.
+13. I `ViewDidLoad` funktionen lägger du till följande för att instansiera `RegisterClient` instansen och ange ombudet för dina textfält.
 
     ```objc
     self.UsernameField.delegate = self;
@@ -455,7 +455,7 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. Nu `AppDelegate.m`i , ta bort `application:didRegisterForPushNotificationWithDeviceToken:` allt innehåll på metoden och ersätta den med följande (för att se till att vystyrenheten innehåller den senaste enheten token hämtas från APNs):
+14. Ta nu `AppDelegate.m`bort allt innehåll för metoden `application:didRegisterForPushNotificationWithDeviceToken:` i och ersätt den med följande (för att se till att visnings styrenheten innehåller den senaste enhets-token som hämtats från APN):
 
     ```objc
     // Add import to the top of the file
@@ -469,7 +469,7 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
     }
     ```
 
-15. Slutligen `AppDelegate.m`i , se till att du har följande metod:
+15. `AppDelegate.m`Se till att du har följande metod:
 
     ```objc
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -481,25 +481,25 @@ Om du vill använda Mobilappar som backend-tjänst läser du [Komma igång med P
 ## <a name="test-the-application"></a>Testa programmet
 
 1. I XCode kör du appen på en fysisk iOS-enhet (push-meddelanden fungerar inte i simulatorn).
-2. Ange samma värde för både användarnamn och lösenord i iOS-appgränssnittet. Klicka sedan på **Logga in**.
+2. Ange samma värde för både användar namn och lösen ord i iOS-appens användar gränssnitt. Klicka sedan på **Logga in**.
 
-    ![iOS-testprogram][2]
+    ![test program för iOS][2]
 
-3. Du bör se en pop-up informera dig om registrering framgång. Klicka på **OK**.
+3. Du bör se ett popup-meddelande som informerar dig om att registreringen är klar. Klicka på **OK**.
 
-    ![iOS-testmeddelande visas][3]
+    ![test meddelande för iOS visas][3]
 
-4. I textfältet **Mottagares användarnamnstagg* anger du den användarnamnstagg som används med registreringen från en annan enhet.
-5. Ange ett meddelande och klicka på **Skicka meddelande**. Endast de enheter som har en registrering med mottagarens användarnamnstagg får meddelandet. Det skickas bara till dessa användare.
+4. I text fältet **mottagarens användar* namn anger du taggen User Name som används vid registreringen från en annan enhet.
+5. Ange ett meddelande och klicka på **Skicka meddelande**. Endast de enheter som har en registrering med taggen mottagarens användar namn får meddelandet. Den skickas endast till dessa användare.
 
-    ![iOS-testtaggat meddelande][4]
+    ![meddelande om att iOS-test har taggats][4]
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien har du lärt dig mer om push-meddelanden till specifika användare som har taggar associerade med sina registreringar. Information om hur du skickar platsbaserade meddelanden finns i nästa självstudie: 
 
 > [!div class="nextstepaction"]
->[Platsbaserade push-meddelanden](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+>[Skicka platsbaserade push-meddelanden](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

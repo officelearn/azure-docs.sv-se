@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem med Apache Spark-kluster i Azure HDInsight
-description: Lär dig mer om problem relaterade till Apache Spark-kluster i Azure HDInsight och hur du kan komma runt dem.
+title: Felsöka problem med Apache Spark kluster i Azure HDInsight
+description: Lär dig mer om problem som rör Apache Spark kluster i Azure HDInsight och hur du arbetar runt dem.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,111 +9,111 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73494525"
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem för Apache Spark-kluster på HDInsight
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem för Apache Spark kluster i HDInsight
 
-Det här dokumentet håller reda på alla kända problem för den offentliga förhandsversionen av HDInsight Spark.  
+Det här dokumentet håller reda på alla kända problem för den offentliga för hands versionen av HDInsight Spark.  
 
-## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy läcker interaktiv session
-När [Apache Livy](https://livy.incubator.apache.org/) startar om (från [Apache Ambari](https://ambari.apache.org/) eller på grund av headnode 0 virtuell maskin omstart) med en interaktiv session fortfarande lever, en interaktiv jobbsession läcker. Därför kan nya jobb fastna i tillståndet Accepterad.
+## <a name="apache-livy-leaks-interactive-session"></a>Apache livy läcker interaktiv session
+När [Apache livy](https://livy.incubator.apache.org/) startas om (från [Apache Ambari](https://ambari.apache.org/) eller på grund av en omstart av den virtuella datorn av huvudnoden 0), läcker en interaktiv session. Därför kan nya jobb fastna i godkänd status.
 
-**Lindring:**
+**Minskning**
 
-Använd följande procedur för att komma runt problemet:
+Använd följande procedur för att lösa problemet:
 
-1. Ssh i headnode. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+1. SSH till huvudnoden. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-2. Kör följande kommando för att hitta program-ID:erna för de interaktiva jobb som startats via Livy.
+2. Kör följande kommando för att hitta program-ID: n för de interaktiva jobb som har startats via livy.
 
         yarn application –list
 
-    Standardjobbnamnen blir Livy om jobben startades med en interaktiv livy-session utan explicita namn angivna. För Livy-sessionen som startades av [Jupyter Notebook](https://jupyter.org/)börjar jobbnamnet med `remotesparkmagics_*`.
+    Standard jobb namnen kommer att vara livy om jobben startades med en livy-interaktiv session utan att några explicita namn angavs. För livy-sessionen som startades av [Jupyter Notebook](https://jupyter.org/)börjar jobb namnet med `remotesparkmagics_*`.
 
-3. Kör följande kommando för att döda dessa jobb.
+3. Kör följande kommando för att avsluta dessa jobb.
 
         yarn application –kill <Application ID>
 
-Nya jobb börjar fungera.
+Nya jobb börjar köras.
 
-## <a name="spark-history-server-not-started"></a>Spark-historikservern har inte startats
-Spark History Server startas inte automatiskt när ett kluster har skapats.  
+## <a name="spark-history-server-not-started"></a>Spark-historik servern har inte startats
+Spark historik server startas inte automatiskt när ett kluster har skapats.  
 
-**Lindring:**
+**Minskning**
 
-Starta historikservern manuellt från Ambari.
+Starta historik servern manuellt från Ambari.
 
-## <a name="permission-issue-in-spark-log-directory"></a>Behörighetsproblem i Spark-loggkatalogen
-hdiuser får följande fel när du skickar in ett jobb med spark-skicka:
+## <a name="permission-issue-in-spark-log-directory"></a>Behörighets problem i Spark logg katalog
+hdiuser hämtar följande fel när ett jobb skickas med Spark-Submit:
 
 ```
 java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
 ```
 
-Och ingen förarlogg skrivs.
+Och ingen driv rutins logg skrivs.
 
-**Lindring:**
+**Minskning**
 
 1. Lägg till hdiuser i Hadoop-gruppen.
-2. Ange 777 behörigheter för /var/log/spark när klustret har skapats.
-3. Uppdatera gnistloggplatsen med Ambari som en katalog med 777 behörigheter.  
-4. Kör spark-submit som sudo.  
+2. Ge 777-behörigheter på/var/log/Spark när klustret har skapats.
+3. Uppdatera Spark-händelseloggen med Ambari som en katalog med 777-behörigheter.  
+4. Kör Spark-Submit som sudo.  
 
-## <a name="spark-phoenix-connector-is-not-supported"></a>Spark-Phoenix-kontakten stöds inte
+## <a name="spark-phoenix-connector-is-not-supported"></a>Spark-Phoenix-anslutning stöds inte
 
-HDInsight Spark-kluster stöder inte Spark-Phoenix-kontakten.
+HDInsight Spark-kluster stöder inte Spark-Phoenix-anslutningsprogrammet.
 
-**Lindring:**
+**Minskning**
 
-Du måste använda Spark-HBase-kontakten i stället. Instruktioner finns i [Så här använder du Spark-HBase-kontakt](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Du måste använda Spark-HBase-anslutningsprogrammet i stället. Instruktioner finns i [så här använder du Spark-HBase-anslutning](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
-## <a name="issues-related-to-jupyter-notebooks"></a>Problem med Jupyters anteckningsböcker
+## <a name="issues-related-to-jupyter-notebooks"></a>Problem som rör Jupyter-anteckningsböcker
 
-Följande är några kända problem relaterade till Jupyter bärbara datorer.
+Nedan följer några kända problem som rör Jupyter-anteckningsböcker.
 
-### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Anteckningsböcker med icke-ASCII-tecken i filnamn
+### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Antecknings böcker med icke-ASCII-tecken i fil namn
 
-Använd inte icke-ASCII-tecken i Filnamnen för Bärbara Jupyter. Om du försöker ladda upp en fil via Jupyter UI, som har en icke-ASCII filnamn, misslyckas det utan felmeddelande. Jupyter låter dig inte ladda upp filen, men det kastar inte ett synligt fel heller.
+Använd inte icke-ASCII-tecken i Jupyter Notebook-filnamn. Om du försöker ladda upp en fil via Jupyter-ANVÄNDARGRÄNSSNITTET, som har ett fil namn som inte är ASCII, Miss lyckas det utan något fel meddelande. Jupyter tillåter inte att du laddar upp filen, men det returnerar inte något synligt fel.
 
-### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fel vid inläsning av anteckningsböcker av större storlekar
+### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fel vid inläsning av antecknings böcker med större storlekar
 
-Du kan se **`Error loading notebook`** ett fel när du läser in anteckningsböcker som är större i storlek.  
+Du kan se ett fel **`Error loading notebook`** när du läser in antecknings böcker som är större i storlek.  
 
-**Lindring:**
+**Minskning**
 
-Om du får det här felet betyder det inte att dina data är skadade eller förlorade.  Dina anteckningsböcker finns `/var/lib/jupyter`fortfarande på disken i och du kan SSH i klustret för att komma åt dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+Om du får det här felet betyder det inte att dina data är skadade eller går förlorade.  Dina antecknings böcker finns fortfarande på `/var/lib/jupyter`disk i och du kan använda SSH i klustret för att få åtkomst till dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-När du har anslutit till klustret med SSH kan du kopiera dina anteckningsböcker från klustret till den lokala datorn (med SCP eller WinSCP) som en säkerhetskopia för att förhindra förlust av viktiga data i anteckningsboken. Du kan sedan SSH tunnel i din headnode vid port 8001 för att komma åt Jupyter utan att gå igenom gatewayen.  Därifrån kan du rensa utdata från din bärbara dator och spara om den för att minimera den bärbara datorns storlek.
+När du har anslutit till klustret med SSH kan du kopiera dina antecknings böcker från klustret till din lokala dator (med hjälp av SCP eller WinSCP) som en säkerhets kopia för att förhindra förlust av viktiga data i antecknings boken. Du kan sedan använda SSH-tunnlar i din huvudnoden vid Port 8001 för att få åtkomst till Jupyter utan att gå via gatewayen.  Därifrån kan du ta bort utdatan från antecknings boken och spara den igen för att minimera storleken på antecknings boken.
 
-Om du vill förhindra att det här felet inträffar i framtiden måste du följa några metodtips:
+Om du vill förhindra att det här felet uppstår i framtiden måste du följa rekommendationerna nedan:
 
-* Det är viktigt att hålla storleken på den bärbara datorn liten. Alla utdata från spark-jobben som skickas tillbaka till Jupyter sparas i anteckningsboken.  Det är en bästa praxis med Jupyter i allmänhet för att undvika att köras `.collect()` på stora RDD eller dataramar; Om du i stället vill titta på innehållet i `.take()` `.sample()` en rdd kan du överväga att köra eller så att utdata inte blir för stora.
-* När du sparar en anteckningsbok rensar du också alla utdataceller för att minska storleken.
+* Det är viktigt att hålla nere storleken på bärbara datorer. Alla utdata från dina Spark-jobb som skickas tillbaka till Jupyter sparas i antecknings boken.  Vi rekommenderar att du använder Jupyter i allmänhet för att undvika att `.collect()` köra stora RDD eller dataframes; Om du i stället vill titta på ett RDD-innehåll kan du överväga att `.take()` köra `.sample()` eller så att dina utdata inte blir för stora.
+* När du sparar en antecknings bok rensar du också alla utdata celler för att minska storleken.
 
-### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Första start för bärbara datorer tar längre tid än förväntat
+### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Den första starten av Notebook tar längre tid än förväntat
 
-Första kod uttalande i Jupyter anteckningsbok med Spark magi kan ta mer än en minut.  
+Den första kod instruktionen i Jupyter Notebook med Spark Magic kan ta mer än en minut.  
 
-**Förklaring:**
+**Skriftliga**
 
-Detta beror på att när den första kodcellen körs. I bakgrunden initierar detta sessionskonfiguration och Spark-, SQL- och Hive-kontexter anges. När dessa sammanhang har ställts in körs den första satsen och detta ger intryck av att uttalandet tog lång tid att slutföra.
+Detta inträffar eftersom när den första kod cellen körs. I bakgrunden kommer detta att initiera sessionens konfiguration och Spark-, SQL-och Hive-kontexterna anges. När dessa kontexter har ställts in körs den första instruktionen och detta ger intryck av att instruktionen tog lång tid att slutföra.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Timeout för Jupyter-anteckningsbok när du skapar sessionen
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tids gräns för Jupyter Notebook i skapandet av sessionen
 
-När Spark-klustret har på resurser tar spark- och PySpark-kärnorna i jupyter-anteckningsboken timeout när de försöker skapa sessionen.
+När Spark-klustret har slut på resurser, kommer Spark-och PySpark-kernelerna i antecknings boken för Jupyter att ta längre tid att försöka skapa sessionen.
 
-**Mitigations:**
+**Åtgärder**
 
-1. Frigör resurser i Spark-klustret genom att:
+1. Frigör några resurser i Spark-klustret genom att:
 
-   * Stoppa andra Spark-anteckningsböcker genom att gå till menyn Stäng och Stoppa eller klicka på Avstängning i utforskaren för den bärbara datorn.
-   * Stoppa andra Spark-applikationer från YARN.
+   * Stoppa andra Spark-anteckningsböcker genom att gå till menyn Stäng och stoppa eller genom att klicka på Stäng av i anteckningsbok-Utforskaren.
+   * Stoppa andra Spark-program från garn.
 
-2. Starta om anteckningsboken som du försökte starta. Det bör finnas tillräckligt med resurser för att du ska kunna skapa en session nu.
+2. Starta om den antecknings bok som du försökte starta. Det finns tillräckligt med resurser för att skapa en session nu.
 
 ## <a name="see-also"></a>Se även
 
@@ -121,10 +121,10 @@ När Spark-klustret har på resurser tar spark- och PySpark-kärnorna i jupyter-
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med BI: Utför interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att förutsäga resultat för livsmedelsinspektion](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 
@@ -134,9 +134,9 @@ När Spark-klustret har på resurser tar spark- och PySpark-kärnorna i jupyter-
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använd HDInsight Tools Plugin för IntelliJ IDEA för att felsöka Apache Spark-program på distans](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kärnor tillgängliga för Jupyter-anteckningsbok i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använd HDInsight tools-plugin för IntelliJ-idé för att felsöka Apache Spark program via fjärr anslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels tillgängliga för Jupyter Notebook i Apache Spark kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

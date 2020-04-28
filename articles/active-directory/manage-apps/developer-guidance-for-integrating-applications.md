@@ -1,6 +1,6 @@
 ---
-title: Registrera programmet för att använda Azure Active Directory | Microsoft-dokument
-description: Den här artikeln är skriven för IT Pro och innehåller riktlinjer för hur du integrerar Azure-program med Active Directory.
+title: Registrera ditt program för att använda Azure Active Directory | Microsoft Docs
+description: Den här artikeln innehåller rikt linjer för att integrera Azure-program med Active Directory för IT-proffs.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -14,66 +14,66 @@ ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba54f8042c20a00f8d559ddce28e007a93afaace
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67108286"
 ---
-# <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla branschappar för Azure Active Directory
-Den här guiden innehåller en översikt över hur du utvecklar LoB-program (Line-of-Business) för Azure Active Directory (AD). Den avsedda målgruppen är globala Active Directory/Office 365-administratörer.
+# <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla branschspecifika appar för Azure Active Directory
+Den här guiden ger en översikt över hur du utvecklar branschspecifika program (LoB) för Azure Active Directory (AD). Den avsedda mål gruppen är Active Directory/Office 365 globala administratörer.
 
 ## <a name="overview"></a>Översikt
-Om du skapar program som är integrerade med Azure AD får användare i organisationen enkel inloggning med Office 365. Att ha programmet i Azure AD ger dig kontroll över autentiseringsprincipen för programmet. Mer information om villkorlig åtkomst och hur du skyddar appar med MFA (Multifaktorautentisering) finns [i Konfigurera åtkomstregler](../conditional-access/app-based-mfa.md).
+Att skapa program som är integrerade med Azure AD ger användare i din organisation enkel inloggning med Office 365. Med programmet i Azure AD får du kontroll över autentiseringsprincip för programmet. Mer information om villkorlig åtkomst och hur du skyddar appar med Multi-Factor Authentication (MFA) finns i [Konfigurera åtkomst regler](../conditional-access/app-based-mfa.md).
 
-Registrera programmet för att använda Azure Active Directory. Registrering av programmet innebär att dina utvecklare kan använda Azure AD för att autentisera användare och begära åtkomst till användarresurser som e-post, kalender och dokument.
+Registrera ditt program för att använda Azure Active Directory. Att registrera programmet innebär att utvecklarna kan använda Azure AD för att autentisera användare och begära åtkomst till användar resurser som e-post, kalender och dokument.
 
-Alla medlemmar i din katalog (inte gäster) kan registrera ett program, annars känt som *att skapa ett programobjekt*.
+Alla medlemmar i din katalog (inte gäster) kan registrera ett program, annars kallas att *skapa ett program objekt*.
 
-Om du registrerar ett program kan alla användare göra följande:
+När du registrerar ett program kan alla användare göra följande:
 
-* Skaffa en identitet för sitt program som Azure AD känner igen
-* Få en eller flera hemligheter/nycklar som programmet kan använda för att autentisera sig själv till AD
-* Brand programmet i Azure-portalen med ett eget namn, logotyp, etc.
-* Använd Azure AD-auktoriseringsfunktioner i sin app, inklusive:
+* Få en identitet för deras program som Azure AD känner igen
+* Hämta en eller flera hemligheter/nycklar som programmet kan använda för att autentisera sig till AD
+* Anpassa programmet i Azure Portal med ett anpassat namn, en logo typ osv.
+* Använd Azure AD Authorization-funktioner i appen, inklusive:
 
   * Rollbaserad åtkomstkontroll (RBAC)
-  * Azure Active Directory som oAuth auktoriseringsserver (skydda ett API som exponeras av programmet)
+  * Azure Active Directory som oAuth-auktoriseringsbegäran (skydda ett API som exponeras av programmet)
 * Deklarera nödvändiga behörigheter som krävs för att programmet ska fungera som förväntat, inklusive:
 
-     - Appbehörigheter (endast globala administratörer). Till exempel: Rollmedlemskap i ett annat Azure AD-program eller rollmedlemskap i förhållande till en Azure-resurs, resursgrupp eller prenumeration
-     - Delegerade behörigheter (alla användare). Till exempel: Azure AD, Inloggning och Läsprofil
+     - App-behörigheter (endast globala administratörer). Exempel: roll medlemskap i ett annat Azure AD-program eller roll medlemskap i förhållande till en Azure-resurs, resurs grupp eller prenumeration
+     - Delegerade behörigheter (alla användare). Till exempel: Azure AD, inloggning och Läs profil
 
 > [!NOTE]
-> Som standard kan alla medlemmar registrera ett program. Mer information om hur du begränsar behörigheter för att registrera program till specifika medlemmar finns i [Hur program läggs till i Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Som standard kan alla medlemmar registrera ett program. Information om hur du begränsar behörigheter för att registrera program till särskilda medlemmar finns i [hur program läggs till i Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 >
 >
 
-Det här behöver du, den globala administratören, göra för att hjälpa utvecklare att göra sina program redo för produktion:
+Det här är vad du, den globala administratören, behöver göra för att hjälpa utvecklare att göra programmet redo för produktion:
 
-* Konfigurera åtkomstregler (åtkomstprincip/MFA)
-* Konfigurera appen så att den kräver användartilldelning och tilldelar användare
-* Undertrycka standardupplevelsen för användarsamtycke
+* Konfigurera åtkomst regler (åtkomst princip/MFA)
+* Konfigurera appen så att den kräver användar tilldelning och tilldela användare
+* Förhindra användning av standard användar medgivande
 
-## <a name="configure-access-rules"></a>Konfigurera åtkomstregler
-Konfigurera åtkomstregler per program till dina SaaS-appar. Du kan till exempel kräva MFA eller bara tillåta åtkomst till användare i betrodda nätverk. Informationen för detta är tillgänglig i dokumentet [Konfigurera åtkomstregler](../conditional-access/app-based-mfa.md).
+## <a name="configure-access-rules"></a>Konfigurera åtkomst regler
+Konfigurera åtkomst regler per program till dina SaaS-appar. Du kan till exempel kräva MFA eller bara tillåta åtkomst till användare i betrodda nätverk. Informationen för detta finns i dokumentet [Konfigurera åtkomst regler](../conditional-access/app-based-mfa.md).
 
-## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Konfigurera appen så att den kräver användartilldelning och tilldelar användare
-Som standard kan användare komma åt program utan att tilldelas. Om programmet exponerar roller eller om du vill att programmet ska visas på en användares åtkomstpanel bör du dock kräva användartilldelning.
+## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Konfigurera appen så att den kräver användar tilldelning och tilldela användare
+Som standard kan användare komma åt program utan att tilldelas. Men om programmet visar roller eller om du vill att programmet ska visas på användarens åtkomst panel, bör du kräva användar tilldelning.
 
-Om du prenumererar på Azure AD Premium eller Enterprise Mobility Suite (EMS) rekommenderar vi starkt att du använder grupper. Genom att tilldela grupper till programmet kan du delegera löpande åtkomsthantering till gruppens ägare. Du kan skapa gruppen eller be verksamhetsutövarna i organisationen att skapa gruppen med hjälp av din grupphanteringsanläggning.
+Om du är en Azure AD Premium-eller EMS-prenumerant (Enterprise Mobility Suite) rekommenderar vi starkt att du använder grupper. Genom att tilldela grupper till programmet kan du delegera kontinuerlig åtkomst hantering till ägare av gruppen. Du kan skapa gruppen eller be den ansvariga parten i din organisation att skapa gruppen med hjälp av din grupp hanterings funktion.
 
 [Tilldela användare och grupper till ett program](methods-for-assigning-users-and-groups.md)  
 
 
-## <a name="suppress-user-consent"></a>Undertrycka användarens medgivande
-Som standard går varje användare igenom en medgivandeupplevelse för att logga in. Samtyckesupplevelsen, där användarna uppmanas att bevilja behörigheter till ett program, kan vara oroande för användare som inte känner till att fatta sådana beslut.
+## <a name="suppress-user-consent"></a>Förhindra användar medgivande
+Som standard går varje användare igenom en medgivande upplevelse för att logga in. Medgivande upplevelsen, som ber användarna att bevilja behörighet till ett program, kan vara samordnade för användare som inte är bekanta med att fatta sådana beslut.
 
-För program som du litar på kan du förenkla användarupplevelsen genom att godkänna programmet för din organisations räkning.
+För program som du litar på kan du förenkla användar upplevelsen genom att samtycka till programmet på uppdrag av din organisation.
 
-Mer information om användarens medgivande och medgivandeupplevelsen i Azure finns i [Integrera program med Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+Mer information om användar medgivande och medgivande upplevelsen i Azure finns i [integrera program med Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Aktivera säker fjärråtkomst till lokala program med Azure AD Application Proxy](application-proxy.md)
+* [Aktivera säker fjärråtkomst till lokala program med Azure AD-programproxy](application-proxy.md)
 * [Hantera åtkomst till appar med Azure AD](what-is-access-management.md)
 

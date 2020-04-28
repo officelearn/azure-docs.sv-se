@@ -1,6 +1,6 @@
 ---
-title: Rapport om användning och insikter | Microsoft-dokument
-description: Introduktion till rapporten användning och insikter i Azure Active Directory-portalen
+title: Användnings-och insikts rapport | Microsoft Docs
+description: Introduktion till användnings-och insikts rapport i Azure Active Directory portalen
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,46 +17,46 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74008266"
 ---
-# <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Rapport om användning och insikter i Azure Active Directory-portalen
+# <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Användnings-och insikts rapport i Azure Active Directorys portalen
 
-Med rapporten användning och insikter kan du få en programcentrerad vy över dina inloggningsdata. Du hittar svar på följande frågor:
+Med hjälp av rapporten användning och insikter kan du få en programinriktad vy över dina inloggnings data. Du kan hitta svar på följande frågor:
 
 *   Vilka är de mest använda programmen i min organisation?
 *   Vilka program har de mest misslyckade inloggningarna? 
-*   Vilka är de vanligaste inloggningsfelen för varje program?
+*   Vilka är de vanligaste inloggnings felen för varje program?
 
 ## <a name="prerequisites"></a>Krav 
 
-För att komma åt data från användnings- och insiktsrapporten behöver du:
+Om du vill komma åt data från rapporten användning och insikter behöver du:
 
 * En Azure AD-klient
-* En Azure AD-premiumlicens (P1/P2) för att visa inloggningsdata
-* En användare i den globala administratören, säkerhetsadministratören, säkerhetsläsaren eller rapportläsarrollerna. Dessutom kan alla användare (icke-administratörer) komma åt sina egna inloggningar. 
+* En Azure AD Premium-licens (P1/P2) som visar inloggnings data
+* En användare i rollerna global administratör, säkerhets administratör, säkerhets läsare eller rapport läsare. Dessutom kan alla användare (icke-administratörer) komma åt sina egna inloggningar. 
 
-## <a name="access-the-usage-and-insights-report"></a>Få tillgång till rapporten användning och insikter
+## <a name="access-the-usage-and-insights-report"></a>Öppna rapporten användning och insikter
 
-1. Navigera till [Azure-portalen](https://portal.azure.com).
-2. Välj rätt katalog och välj sedan **Azure Active Directory** och välj **Enterprise-program**.
-3. I avsnittet **Aktivitet** väljer du **Användning & insikter** för att öppna rapporten. 
+1. Navigera till [Azure Portal](https://portal.azure.com).
+2. Välj rätt katalog, Välj **Azure Active Directory** och välj **företags program**.
+3. I avsnittet **aktivitet** väljer du **användning & insikter** för att öppna rapporten. 
 
 ![Rapport om användning och insikter](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Använda rapporten
 
-I rapporten Användning och insikter visas listan över program med ett eller flera inloggningsförsök och du kan sortera efter antalet lyckade inloggningar, misslyckade inloggningar och framgångsfrekvensen.
+I rapporten användning och insikter visas en lista med program med ett eller flera inloggnings försök, och du kan sortera efter antalet lyckade inloggningar, misslyckade inloggningar och antalet lyckade inloggningar.
 
-Om du klickar på Läs in mer längst ned i listan kan du visa ytterligare program på sidan. Du kan välja datumintervallet för att visa alla program som har använts inom intervallet.
+Om du klickar på Läs in mer längst ned i listan kan du Visa fler program på sidan. Du kan välja datum intervall för att visa alla program som har använts inom intervallet.
 
-Du kan också ställa in fokus på ett visst program. Välj **Visa inloggningsaktivitet** om du vill visa inloggningsaktiviteten över tid för programmet samt de vanligaste felen.  
+Du kan också ange fokus för ett angivet program. Välj **Visa inloggnings aktivitet** för att se inloggnings aktiviteten över tid för programmet och de vanligaste felen.  
 
-När du väljer en dag i programanvändningsdiagrammet får du en detaljerad lista över inloggningsaktiviteterna för programmet.  
+När du väljer en dag i program användnings diagrammet visas en detaljerad lista över inloggnings aktiviteterna för programmet.  
 
 ![Rapport om användning och insikter](./media/concept-usage-insights-report/usage-and-insights-report.png)
 

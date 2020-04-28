@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73747641"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Återhämtning och haveriberedskap
 
 Återhämtning och haveriberedskap är ett vanligt behov för onlinesystem. Azure SignalR Service garanterar redan 99,9 % tillgänglighet, men det är fortfarande en regional tjänst.
-Din tjänstinstans körs alltid i en region och växlar inte över till en annan region när det finns ett avbrott i hela regionen.
+Din tjänst instans körs alltid i en region och växlar inte över till en annan region när det finns ett områdes omfattande avbrott.
 
 I stället innehåller vår tjänst-SDK en funktion som stöder flera SignalR Service-instanser och automatiskt växlar till andra instanser när vissa av dem inte är tillgängliga.
-Med den här funktionen kan du återställa när en katastrof inträffar, men du måste ställa in rätt systemtopologi själv. Du lär dig att göra det i det här dokumentet.
+Med den här funktionen kan du återställa när en katastrof äger rum, men du måste konfigurera rätt system sto pol Ogin. Du lär dig att göra det i det här dokumentet.
 
 ## <a name="high-available-architecture-for-signalr-service"></a>Arkitektur med hög tillgänglighet för SignalR Service
 
@@ -28,8 +28,8 @@ När flera tjänstinstanser ansluts till appservern finns det två roller, den p
 Den primära är en instans som tar onlinetrafik, medan den sekundära är en helt funktionell instans som dock utgör reserv till den primära.
 I vår SDK-implementering returnerar förhandling endast primära slutpunkter, så i normala fall ansluter klienter bara till primära slutpunkter.
 Men när primära instansen är nere returnerar förhandling sekundära slutpunkter så att klienten fortfarande kan göra anslutningar.
-Primär instans och appserver är anslutna via normala serveranslutningar, men sekundär instans och appserver är anslutna via en särskild typ av anslutning som kallas svag anslutning.
-Den största skillnaden i en svag anslutning är att den inte accepterar klientanslutningsdirigering, eftersom sekundär instans finns i en annan region. Att dirigera en klient till en annan region är inte ett optimalt val (ökar svarstiden).
+Den primära instansen och App Server är anslutna via vanliga Server anslutningar, men sekundär instans och App Server är anslutna via en särskild typ av anslutning som kallas svag anslutning.
+Den största skillnaden i en svag anslutning är att den inte accepterar klient anslutnings dirigering, eftersom en sekundär instans finns i en annan region. Routning av en klient till en annan region är inte ett optimalt alternativ (ökar svars tiden).
 
 En tjänstinstans kan ha olika roller vid anslutning till flera appservrar.
 En typisk konfiguration för scenarier mellan regioner är att ha två (eller fler) par med SignalR Service-instanser och appservrar.
@@ -51,7 +51,7 @@ Det finns två sätt att göra det:
 
 ### <a name="through-config"></a>Med config
 
-Du bör redan veta hur du ställer in SignalR-tjänstanslutningssträngen via miljövariabler/appinställningar/web.cofig, i en konfigurationspost med namnet `Azure:SignalR:ConnectionString`.
+Du bör redan känna till hur du ställer in anslutnings strängen för SignalR-tjänsten via miljövariabler/app-inställningar/Web. cofig i `Azure:SignalR:ConnectionString`en konfigurations post med namnet.
 Om du har flera slutpunkter kan du ange dem i flera config-poster, var och en i följande format:
 
 ```
@@ -63,7 +63,7 @@ Namnet är valfritt men användbart om du vill anpassa routningsbeteendet mellan
 
 ### <a name="through-code"></a>Med kod
 
-Om du föredrar att lagra anslutningssträngarna någon annanstans kan du också läsa `AddAzureSignalR()` dem i koden och `MapAzureSignalR()` använda dem som parametrar när du ringer (i ASP.NET Core) eller (i ASP.NET).
+Om du föredrar att lagra anslutnings strängarna någon annan stans kan du läsa dem i din kod och använda dem som parametrar vid anrop `AddAzureSignalR()` (i ASP.net Core) eller `MapAzureSignalR()` (i ASP.net).
 
 Här är exempelkoden:
 
@@ -88,10 +88,10 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
     };
 ```
 
-Du kan konfigurera flera primära eller sekundära instanser. Om det finns flera primära och/eller sekundära instanser returnerar negotiate en slutpunkt i följande ordning:
+Du kan konfigurera flera primära eller sekundära instanser. Om det finns flera primära och/eller sekundära instanser, kommer Negotiate att returnera en slut punkt i följande ordning:
 
-1. Om det finns minst en primär instans online returnerar du en slumpmässig primär onlineinstans.
-2. Om alla primära instanser är nere returnerar du en slumpmässig sekundär onlineinstans.
+1. Om det finns minst en primär instans online returnerar du en slumpmässig primär Online instans.
+2. Returnera en slumpmässig sekundär Online instans om alla primära instanser är nere.
 
 ## <a name="failover-sequence-and-best-practice"></a>Redundanssekvens och bästa praxis
 
@@ -126,7 +126,7 @@ SignalR Service har stöd för både mönstren. Den största skillnaden är hur 
 Om appservrarna är aktiva/passiva blir SignalR Service också aktiv/passiv (eftersom den primära appservern endast returnerar sin primära SignalR Service-instans).
 Om appservrarna är aktiva/aktiva blir SignalR Service också aktiv/aktiv (eftersom alla appservrar returnerar sina egna primära SignalR-instanser så att de alla kan hämta trafik).
 
-Observera oavsett vilka mönster du väljer att använda, måste du ansluta varje SignalR-tjänstinstans till en appserver som primär.
+Observera oavsett vilka mönster du väljer att använda, måste du ansluta varje signal tjänst instans till en app server som primär.
 
 På grund av hur SignalR-anslutningen fungerar (det är en lång anslutning) kommer klienter dessutom att råka ut för anslutningsavbrott i fall av katastrof och redundansväxling.
 Du behöver hantera sådana fall på klientsidan för att göra det transparent för dina slutkunder. Till exempel bör du återansluta när en anslutning har kopplats från.
@@ -135,4 +135,4 @@ Du behöver hantera sådana fall på klientsidan för att göra det transparent 
 
 I den här artikeln har du lärt dig att konfigurera programmet för att uppnå återhämtningsförmåga för SignalR Service. Om du vill få mer information om server/klient-anslutning och anslutningsroutning i SignalR Service kan du läsa [den här artikeln](signalr-concept-internals.md) om hur SignalR Service fungerar på insidan.
 
-För skalning av scenarier som fragmentering, som använder flera instanser tillsammans för att hantera ett stort antal anslutningar, läs [hur du skalar flera instanser](signalr-howto-scale-multi-instances.md).
+För skalnings scenarier, till exempel horisontell partitionering, som använder flera instanser för att hantera ett stort antal anslutningar läser [du skala flera instanser](signalr-howto-scale-multi-instances.md).

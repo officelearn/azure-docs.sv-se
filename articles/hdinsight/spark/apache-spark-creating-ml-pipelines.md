@@ -1,6 +1,6 @@
 ---
-title: Skapa Apache Spark-pipeline för maskininlärning – Azure HDInsight
-description: Använd Apache Spark-maskininlärningsbiblioteket för att skapa datapipelmän i Azure HDInsight.
+title: Skapa Apache Spark Machine Learning pipeline – Azure HDInsight
+description: Använd Apache Spark Machine Learning-bibliotek för att skapa data pipeliner i Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,34 +9,34 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73494673"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Skapa en Apache Spark-maskininlärningspipeline
 
-Apache Sparks skalbara maskininlärningsbibliotek (MLlib) ger modelleringsfunktioner till en distribuerad miljö. Spark-paketet [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning API:er på hög nivå som bygger på DataFrames. Dessa API:er hjälper dig att skapa och justera praktiska machine learning-pipelines.  *Spark machine learning* refererar till det här MLlib DataFrame-baserade API:et, inte det äldre RDD-baserade pipeline-API:et.
+Apache Sparks skalbara Machine Learning Library (MLlib) ger modellerings funktioner till en distribuerad miljö. Spark-paketet [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning API: er på hög nivå som bygger på DataFrames. Dessa API: er hjälper dig att skapa och finjustera praktiska pipeliner för maskin inlärning.  *Spark Machine Learning* refererar till detta MLlib DataFrame-baserade API, inte det äldre RDD-baserade pipeline-API: et.
 
-En pipeline för maskininlärning (ML) är ett komplett arbetsflöde som kombinerar flera maskininlärningsalgoritmer tillsammans. Det kan finnas många steg som krävs för att bearbeta och lära av data, vilket kräver en sekvens av algoritmer. Pipelines definierar stadier och ordning på en maskininlärningsprocess. I MLlib representeras stadier av en pipeline av en specifik sekvens av PipelineStages, där en transformator och en estimator utför alla uppgifter.
+En pipeline för Machine Learning (ML) är ett komplett arbets flöde som kombinerar flera Machine Learning-algoritmer tillsammans. Det kan finnas många steg som krävs för att bearbeta och lära sig från data, vilket kräver en sekvens med algoritmer. Pipelines definierar stadierna och ordningen för en Machine Learning-process. I MLlib representeras stadierna i en pipeline av en speciell sekvens av PipelineStages, där en transformerare och en uppskattare utför uppgifter.
 
-En transformator är en algoritm som omvandlar `transform()` en DataFrame till en annan med hjälp av metoden. En funktionstransformator kan till exempel läsa en kolumn i en DataFrame, mappa den till en annan kolumn och mata ut en ny DataFrame med den mappade kolumnen bifogad till den.
+En transformator är en algoritm som transformerar en DataFrame till en annan med hjälp av `transform()` metoden. Till exempel kan en funktions transformator läsa en kolumn i en DataFrame, mappa den till en annan kolumn och skapa en ny DataFrame med den mappade kolumnen som lagts till.
 
-En estimator är en abstraktion av inlärningsalgoritmer och ansvarar för montering eller utbildning på en datauppsättning för att producera en transformator. En estimator implementerar `fit()`en metod med namnet , som accepterar en DataFrame och producerar en DataFrame, som är en transformator.
+En uppskattning är en abstraktion av inlärnings algoritmer och ansvarar för anpassning eller utbildning på en data uppsättning för att skapa en transformator. En uppskattning implementerar en metod med namnet `fit()`, som godkänner en DataFrame och skapar en DataFrame, som är en transformator.
 
-Varje tillståndslös instans av en transformator eller en estimator har sin egen unika identifierare, som används när parametrar anges. Båda använder ett enhetligt API för att ange dessa parametrar.
+Varje tillstånds lös instans av en transformator eller en uppskattare har sin egen unika identifierare, som används när du anger parametrar. Båda använder ett enhetligt API för att ange dessa parametrar.
 
-## <a name="pipeline-example"></a>Exempel på pipeline
+## <a name="pipeline-example"></a>Pipeline-exempel
 
-För att visa en praktisk användning av en `HVAC.csv` ML-pipeline använder det här exemplet exempeldatafilen som förinstallerats på standardlagringen för HDInsight-klustret, antingen Azure Storage eller Data Lake Storage. Om du vill visa innehållet i `/HdiSamples/HdiSamples/SensorSampleData/hvac` filen navigerar du till katalogen. `HVAC.csv`innehåller en uppsättning tider med både mål och faktiska temperaturer för VVS *(värme, ventilation och luftkonditionering)* system i olika byggnader. Målet är att träna modellen på data, och producera en prognostemperatur för en viss byggnad.
+För att demonstrera en praktisk användning av en ML-pipeline använder det här exemplet exempel `HVAC.csv` data filen som är förinstallerad på standard lagringen för ditt HDInsight-kluster, antingen Azure Storage eller data Lake Storage. Om du vill visa innehållet i filen navigerar du till `/HdiSamples/HdiSamples/SensorSampleData/hvac` katalogen. `HVAC.csv`innehåller en uppsättning gånger med både mål-och faktiska temperaturer för HVAC-system (*uppvärmning, ventilation och luft konditionering*) i olika byggnader. Målet är att träna modellen på data och skapa en prognos temperatur för en specifik byggnad.
 
 Följande kod:
 
-1. Definierar `LabeledDocument`en , `BuildingID`som `SystemInfo` lagrar , (ett systems identifierare `label` och ålder) och en (1.0 om byggnaden är för varm, 0.0 annars).
-2. Skapar en anpassad tolkfunktion `parseDocument` som tar en rad (rad) med data och avgör om byggnaden är "varm" genom att jämföra måltemperaturen med den faktiska temperaturen.
-3. Använder tolken när källdata extraheras.
-4. Skapar träningsdata.
+1. Definierar en `LabeledDocument`, som lagrar `BuildingID`, `SystemInfo` (ett Systems identifierare och ålder) och en `label` (1,0 om byggnaden är för het, 0,0 annars).
+2. Skapar en anpassad parser `parseDocument` -funktion som tar en rad (rad) med data och avgör om byggnaden är "frekvent" genom att jämföra mål temperaturen med den faktiska temperaturen.
+3. Använder parsern när data extraheras.
+4. Skapar tränings data.
 
 ```python
 from pyspark.ml import Pipeline
@@ -78,11 +78,11 @@ documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
 ```
 
-Det här exemplet pipeline `Tokenizer` `HashingTF` har tre steg: `Logistic Regression` och (både Transformers), och (en estimator).  Extraherade och tolkade data `training` i DataFrame flödar `pipeline.fit(training)` via pipelinen när anropas.
+Det här exemplet på pipelinen har tre `Tokenizer` steg `HashingTF` : och (båda transformatorerna `Logistic Regression` ) och (en uppskattning).  Extraherade och parsade data i `training` DataFrame flödar genom pipelinen när `pipeline.fit(training)` anropas.
 
-1. Det första `Tokenizer`steget, delar `SystemInfo` indatakolumnen (som består av systemidentifieraren och åldersvärdena) i en `words` utdatakolumn. Den `words` här nya kolumnen läggs till i DataFrame. 
-2. Det andra `HashingTF`steget, konverterar `words` den nya kolumnen till funktionsvektorer. Den `features` här nya kolumnen läggs till i DataFrame. Dessa första två arrangerar är Transformers. 
-3. Den tredje `LogisticRegression`etappen, är en estimator, och `LogisticRegression.fit()` så rörledningen anropar metoden för att producera en `LogisticRegressionModel`. 
+1. Det första steget, `Tokenizer`, delar upp `SystemInfo` inmatnings kolumnen (som består av system-ID och ålders värden `words` ) i en utgående kolumn. Den här `words` nya kolumnen läggs till i DataFrame. 
+2. Det andra steget, `HashingTF`konverterar den nya `words` kolumnen till funktions vektorer. Den här `features` nya kolumnen läggs till i DataFrame. De första två stegen är transformatorer. 
+3. Det tredje steget, `LogisticRegression`, är en uppskattning och så att pipelinen anropar `LogisticRegression.fit()` metoden för att skapa en. `LogisticRegressionModel` 
 
 ```python
 tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -95,7 +95,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(training)
 ```
 
-Om du `words` vill `features` se de `Tokenizer` `HashingTF` nya kolumnerna som lagts `LogisticRegression` till av transformatorerna och ett exempel på kalkylatorn kör du en `PipelineModel.transform()` metod på den ursprungliga DataFrame. I produktionskod är nästa steg att passera i en testdataram för att validera utbildningen.
+Om du vill se `words` de `features` nya och kolumnerna `Tokenizer` som `HashingTF` har lagts till av och-transformatorerna, och ett `LogisticRegression` exempel `PipelineModel.transform()` på uppskattningen, kör du en metod på den ursprungliga DataFrame. I produktions koden är nästa steg att skicka in ett test-DataFrame för att validera utbildningen.
 
 ```python
 peek = model.transform(training)
@@ -130,8 +130,8 @@ peek.show()
 only showing top 20 rows
 ```
 
-Objektet `model` kan nu användas för att göra förutsägelser. Det fullständiga exemplet på det här maskininlärningsprogrammet och steg-för-steg-instruktioner för att köra det finns i [Skapa Apache Spark-maskininlärningsprogram på Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
+`model` Objektet kan nu användas för att göra förutsägelser. Det fullständiga exemplet på det här Machine Learning-programmet och stegvisa anvisningar för hur du kör det finns i [utveckla Apache Spark Machine Learning-program i Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
 ## <a name="see-also"></a>Se även
 
-* [Data science med Scala och Apache Spark på Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Data vetenskap med Scala och Apache Spark på Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

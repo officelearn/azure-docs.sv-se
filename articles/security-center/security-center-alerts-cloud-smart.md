@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center-incidenter – smarta korrelationer av aviseringar
-description: I det här avsnittet beskrivs hur fusion använder molnsmart varningskorrelation för att generera säkerhetsincidenter i Azure Security Center.
+title: Azure Security Center incidenter – smarta korrelationer av aviseringar
+description: I det här avsnittet beskrivs hur Fusion använder Cloud Smart Alert-korrelation för att generera säkerhets incidenter i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,29 +14,29 @@ ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
 ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73686487"
 ---
-# <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Molnsmart varningskorrelation i Azure Security Center (incidenter)
+# <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Moln Smart aviserings korrelation i Azure Security Center (incidenter)
 
-Azure Security Center analyserar kontinuerligt hybridmolnarbetsbelastningar med hjälp av avancerad analys- och hotinformation för att varna dig om skadlig aktivitet.
+Azure Security Center kontinuerligt analyserar hybrid moln arbets belastningar med hjälp av avancerad analys och hot information för att varna dig om skadlig aktivitet.
 
-Bredden på hottäckningen växer. Behovet av att upptäcka minsta kompromiss är viktigt, och det kan vara en utmaning för säkerhetsanalytiker att triage de olika larmen och identifiera en verklig attack. Security Center hjälper analytiker att hantera denna varning trötthet. Det hjälper till att diagnostisera attacker när de inträffar, genom att korrelera olika varningar och lågåtergivningssignaler till säkerhetsincidenter.
+Risken för hot täckning växer. Behovet av att identifiera även den lättaste kompromissen är viktigt och det kan vara svårt att prioritering de olika aviseringarna och identifiera ett faktiskt angrepp. Security Center hjälper till att analysera den här aviseringen. Den hjälper till att diagnostisera attacker när de sker, genom att korrelera olika aviseringar och låg åter givning i säkerhets incidenter.
 
-Fusion analytics är den teknik och analytiska backend som driver Security Center incidenter, gör det möjligt att korrelera olika varningar och kontextuella signaler tillsammans. Fusion tittar på de olika signaler som rapporteras på en prenumeration över resurserna. Fusion hittar mönster som avslöjar attackprogression eller signaler med delad kontextuell information, vilket indikerar att du bör använda en enhetlig svarsprocedur för dem.
+Fusions analys är den teknik och den analytiska Server delen som ger Security Center incidenter, vilket gör det möjligt att korrelera olika aviseringar och kontextuella signaler tillsammans. Fusion tittar på de olika signaler som rapporteras i en prenumeration över resurserna. Fusion hittar mönster som avslöjar angrepps förlopp eller signaler med delad sammanhangsbaserad information, vilket indikerar att du bör använda en enhetlig svars procedur för dem.
 
-Fusion analytics kombinerar kunskap om säkerhetsområden med AI för att analysera aviseringar och upptäcka nya attackmönster när de inträffar. 
+Fusions analys kombinerar säkerhets domänens kunskap med AI för att analysera aviseringar, identifiera nya angrepps mönster när de inträffar. 
 
-Security Center utnyttjar MITRE Attack Matrix för att associera aviseringar med deras upplevda avsikt, vilket hjälper till att formalisera kunskap om säkerhetsdomäner. Genom att använda den information som samlas in för varje steg i en attack kan Säkerhetscenter dessutom utesluta aktivitet som verkar vara steg i en attack, men som faktiskt inte är det.
+Security Center utnyttjar MITRE-attackens matris för att koppla aviseringar till deras uppfattade avsikt, vilket underlättar formalisera säkerhets domän kunskap. Genom att använda den information som samlats in för varje steg i en attack kan Security Center dessutom utesluta aktiviteter som verkar vara steg för en attack, men egentligen inte.
 
-Eftersom attacker ofta förekommer över olika klienter kan Security Center kombinera AI-algoritmer för att analysera attacksekvenser som rapporteras för varje prenumeration. Den här tekniken identifierar attacksekvenserna som förhärskande varningsmönster, i stället för att bara vara för övrigt associerade med varandra.
+Eftersom angrepp ofta sker över olika klienter kan Security Center kombinera AI-algoritmer för att analysera angrepps sekvenser som rapporteras för varje prenumeration. Den här tekniken identifierar angrepps sekvenser som vanliga aviserings mönster, i stället för att bara vara incidenter som är associerade med varandra.
 
-Under en utredning av en incident, analytiker behöver ofta extra sammanhang för att nå en dom om vilken typ av hot och hur man kan mildra det. Till exempel, även när en nätverksanvikelse upptäcks, utan att förstå vad som händer i nätverket eller när det gäller den riktade resursen, är det svårt att förstå vilka åtgärder som ska vidtas härnäst. För att hjälpa till kan en säkerhetsincident innehålla artefakter, relaterade händelser och information. Den ytterligare information som är tillgänglig för säkerhetsincidenter varierar beroende på vilken typ av hot som har upptäckts och konfigurationen av din miljö. 
+Under en undersökning av en incident behöver analytiker ofta extra kontext för att uppnå en bedömning om hotets beskaffenhet och hur det kan minimeras. Till exempel även om en nätverks avvikelse identifieras, utan att förstå vad som händer i nätverket eller med avseende på mål resursen, är det svårt att förstå vilka åtgärder som ska vidtas härnäst. För att under lätta kan en säkerhets incident innehålla artefakter, relaterade händelser och information. Den ytterligare information som är tillgänglig för säkerhets incidenter varierar beroende på typ av hot som upptäckts och konfigurationen av din miljö. 
 
-![Skärmbild av rapporten Säkerhetsincident har upptäckts](./media/security-center-alerts-cloud-smart/security-incident.png)
+![Skärm bild av identifierad rapport för säkerhets incident](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-Information om hur du bättre kan förstå säkerhetsincidenter finns [i Så här hanterar du säkerhetsincidenter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
+För att bättre förstå säkerhets incidenter, se [hantera säkerhets incidenter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
 

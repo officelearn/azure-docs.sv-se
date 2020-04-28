@@ -1,7 +1,7 @@
 ---
-title: Text delad kognitiv färdighet
+title: Text delning kognitiv kunskap
 titleSuffix: Azure Cognitive Search
-description: Dela upp text i segment eller sidor med text baserat på längd i en AI-anrikningspipeline i Azure Cognitive Search.
+description: Dela upp text i segment eller sidor med text baserat på längd i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,48 +9,48 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73479668"
 ---
-# <a name="text-split-cognitive-skill"></a>Text delad kognitiv färdighet
+# <a name="text-split-cognitive-skill"></a>Text delning kognitiv kunskap
 
-Textdelningsfärdigheten delar upp text i textsegment. **Text Split** Du kan ange om du vill dela upp texten i meningar eller till sidor av en viss längd. Den här färdigheten är särskilt användbar om det finns maximala krav på textlängd i andra kunskaper nedströms. 
+**Texten Split** -kompetensen avbryter text i segment med text. Du kan ange om du vill dela upp texten i meningar eller på sidor med en viss längd. Den här kunskapen är särskilt användbar om det finns maximalt text längds krav i andra färdigheter. 
 
 > [!NOTE]
-> Den här färdigheten är inte bunden till ett Cognitive Services API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md)för att åsidosätta alternativet **Kostnadsfri** resurs som begränsar dig till ett litet antal dagliga berikningar per dag.
+> Den här kunskapen är inte kopplad till ett Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md), men för att åsidosätta det **kostnads fria** resurs alternativet som begränsar dig till ett litet antal dagliga berikare per dag.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.text.splitskill 
+Microsoft. färdigheter. text. SplitSkill 
 
-## <a name="skill-parameters"></a>Färdighetsparametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| textSplitMode      | Antingen "sidor" eller "meningar" | 
-| maximumPageLength | Om textSplitMode är inställd på "sidor", refererar detta `String.Length`till den maximala sidlängden mätt med . Minimivärdet är 100.  Om textenSplitMode är inställd på "sidor" kommer algoritmen att försöka dela upp texten i segment som högst är "maximumPageLength" i storlek. I det här fallet gör algoritmen sitt bästa för att bryta meningen på en meningsgräns, så storleken på segmentet kan vara något mindre än "maximumPageLength". | 
-| standardSpråkkod   | (valfritt) En av följande språkkoder: `da, de, en, es, fi, fr, it, ko, pt`. Standard är engelska (sv). Få saker att tänka på:<ul><li>Om du skickar ett språkkodslandkodformat används bara språkkodsdelen i formatet.</li><li>Om språket inte finns i föregående lista bryter den delade färdigheten texten vid teckengränser.</li><li>Att tillhandahålla en språkkod är användbart för att undvika att klippa ett ord på mitten för icke-blanktecken som kinesiska, japanska och koreanska.</li><li>Om du inte kan språket (dvs. du måste dela upp texten för inmatning i [LanguageDetectionSkill),](cognitive-search-skill-language-detection.md)bör standardvärdet för engelska (sv) vara tillräckligt. </li></ul>  |
+| textSplitMode      | Antingen "Pages" eller "meningar" | 
+| maximumPageLength | Om textSplitMode är inställt på "Pages", refererar detta till den maximala sid längden `String.Length`som mäts av. Minimivärdet är 100.  Om textSplitMode är inställt på "Pages" försöker algoritmen dela upp texten i segment som har flest "maximumPageLength" i storlek. I det här fallet gör algoritmen det bästa sättet att dela upp meningen på en mening, så storleken på segmentet kan vara något lägre än "maximumPageLength". | 
+| defaultLanguageCode   | valfritt En av följande språk koder: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.</li><li>Om språket inte finns i den föregående listan, delar den delade kompetensen texten vid tecken gränser.</li><li>Att tillhandahålla en språkkod är användbart för att undvika att klippa ut ett ord på en halv till ett språk som inte är blank steg, till exempel kinesiska, japanska och koreanska.</li><li>Om du inte känner till språket (dvs. om du behöver dela upp texten för indatamängden i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), är standardvärdet engelska (en) tillräckligt. </li></ul>  |
 
 
-## <a name="skill-inputs"></a>Indata för färdighet
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
 | Parameternamn       | Beskrivning      |
 |----------------------|------------------|
-| text  | Texten som ska delas upp i delsträng. |
-| languageCode  | (Valfritt) Språkkod för dokumentet. Om du inte kan språket (dvs. du måste dela upp texten för inmatning i [LanguageDetectionSkill),](cognitive-search-skill-language-detection.md)är det säkert att ta bort den här indata.  |
+| text  | Den text som ska delas upp i under sträng. |
+| languageCode  | Valfritt Språk kod för dokumentet. Om du inte känner till språket (d.v.s. om du behöver dela upp texten för inläsningar i [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)) är det säkert att ta bort den här indatamängden.  |
 
-## <a name="skill-outputs"></a>Utdata för färdighet 
+## <a name="skill-outputs"></a>Kunskaps utmatningar 
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| textObjekt | En matris med delsträngar som extraherades. |
+| textItems | En matris med del strängar som har extraherats. |
 
 
-##  <a name="sample-definition"></a>Exempeldefinition
+##  <a name="sample-definition"></a>Exempel definition
 
 ```json
 {
@@ -127,10 +127,10 @@ Parametrar är skiftlägeskänsliga.
 }
 ```
 
-## <a name="error-cases"></a>Felfall
-Om ett språk inte stöds genereras en varning och texten delas upp vid teckengränserna.
+## <a name="error-cases"></a>Fel fall
+Om ett språk inte stöds genereras en varning och texten delas upp vid tecken gränser.
 
 ## <a name="see-also"></a>Se även
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

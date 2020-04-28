@@ -1,7 +1,7 @@
 ---
-title: Syntaxreferens för OData-uttryck
+title: Syntax-referens för OData-uttryck
 titleSuffix: Azure Cognitive Search
-description: Formell grammatik- och syntaxspecifikation för OData-uttryck i Azure Cognitive Search-frågor.
+description: Formell grammatik-och syntax-specifikation för OData-uttryck i Azure Kognitiv sökning frågor.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,28 +20,28 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72793238"
 ---
-# <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Syntaxreferens för OData-uttryck för Azure Cognitive Search
+# <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Syntax-referens för OData-uttryck för Azure Kognitiv sökning
 
-Azure Cognitive Search använder [OData-uttryck](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i hela API:et. Oftast används OData-uttryck för parametrar `$orderby` `$filter` och parametrar. Dessa uttryck kan vara komplexa och innehålla flera satser, funktioner och operatorer. Men även enkla OData-uttryck som egenskapssökvägar används i många delar av AZURE Cognitive Search REST API. Sökvägsuttryck används till exempel för att referera till underfält i komplexa fält överallt i API:et, `$select` till exempel när du listar underfält i en [förslagsman](index-add-suggesters.md), en [bedömningsfunktion](index-add-scoring-profiles.md), parametern eller till och med [fältsök i Lucene-frågor](query-lucene-syntax.md).
+Azure Kognitiv sökning använder [OData-uttryck](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i API: et. Oftast används OData-uttryck för parametrarna `$orderby` och. `$filter` Dessa uttryck kan vara komplexa, som innehåller flera satser, funktioner och operatorer. Men även enkla OData-uttryck som egenskaps Sök vägar används i många delar av Azure Kognitiv sökning REST API. Sök vägs uttryck används till exempel för att referera till underordnade fält i komplexa fält överallt i API: t, till exempel när du visar underordnade fält i en [förslags](index-add-suggesters.md)funktion, en [bedömnings funktion](index-add-scoring-profiles.md), `$select` parametern eller t.o.m. [fälts ökning i Lucene-frågor](query-lucene-syntax.md).
 
-I den här artikeln beskrivs alla dessa former av OData-uttryck med hjälp av en formell grammatik. Det finns också ett [interaktivt diagram](#syntax-diagram) som hjälper visuellt utforska grammatiken.
+I den här artikeln beskrivs alla dessa former av OData-uttryck med hjälp av en formell grammatik. Det finns också ett [interaktivt diagram](#syntax-diagram) som hjälper dig att visuellt utforska grammatiken.
 
 ## <a name="formal-grammar"></a>Formell grammatik
 
-Vi kan beskriva delmängden av OData-språket som stöds av Azure Cognitive Search med hjälp av en EBNF-grammatik ([Extended Backus-Naur Form).](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form) Regler visas "uppifrån och ned", som börjar med de mest komplexa uttrycken, och dela upp dem i mer primitiva uttryck. Högst upp finns de grammatikregler som motsvarar specifika parametrar för AZURE Cognitive Search REST API:
+Vi kan beskriva den delmängd av OData-språket som stöds av Azure Kognitiv sökning med hjälp av en EBNF-grammatik ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). Reglerna visas i "uppifrån och ned", med de mest komplexa uttrycken och de delas upp i fler primitiva uttryck. Längst upp är de grammatikverktyg som motsvarar vissa parametrar för Azure Kognitiv sökning REST API:
 
-- [`$filter`](search-query-odata-filter.md), som `filter_expression` definieras av regeln.
-- [`$orderby`](search-query-odata-orderby.md), som `order_by_expression` definieras av regeln.
-- [`$select`](search-query-odata-select.md), som `select_expression` definieras av regeln.
-- Fältsökvägar, definierade `field_path` av regeln. Fältsökvägar används i hela API:et. De kan referera till antingen fält på den högsta nivån i ett index eller underfält med en eller flera komplexa fältförfäder. [complex field](search-howto-complex-data-types.md)
+- [`$filter`](search-query-odata-filter.md), som definieras av `filter_expression` regeln.
+- [`$orderby`](search-query-odata-orderby.md), som definieras av `order_by_expression` regeln.
+- [`$select`](search-query-odata-select.md), som definieras av `select_expression` regeln.
+- Fält Sök vägar, som definieras `field_path` av regeln. Fält Sök vägar används i hela API: et. De kan referera till fält på den översta nivån i ett index eller under fält med ett eller flera [komplexa fält](search-howto-complex-data-types.md) överordnade.
 
-Efter EBNF är ett browsable [syntaxdiagram](https://en.wikipedia.org/wiki/Syntax_diagram) som låter dig interaktivt utforska grammatiken och relationerna mellan dess regler.
+När EBNF är ett bläddringsbar- [syntaxfel](https://en.wikipedia.org/wiki/Syntax_diagram) som gör det möjligt att interaktivt utforska grammatiken och relationerna mellan reglerna.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -207,16 +207,16 @@ query_type ::= "'full'" | "'simple'"
 search_mode ::= "'any'" | "'all'"
 ```
 
-## <a name="syntax-diagram"></a>Syntaxdiagram
+## <a name="syntax-diagram"></a>Syntax-diagram
 
-Om du vill utforska OData-språk grammatiken som stöds av Azure Cognitive Search visuellt kan du prova det interaktiva syntaxdiagrammet:
+För att visuellt utforska OData-språkgrammen som stöds av Azure Kognitiv sökning, prova med det interaktiva syntax diagrammet:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/)
+> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/)
 
 ## <a name="see-also"></a>Se även  
 
-- [Filter i Azure Cognitive Search](search-filters.md)
-- [Sökdokument &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filter i Azure Kognitiv sökning](search-filters.md)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Lucene-frågesyntax](query-lucene-syntax.md)
-- [Enkel frågesyntax i Azure Cognitive Search](query-simple-syntax.md)
+- [Enkel frågesyntax i Azure Kognitiv sökning](query-simple-syntax.md)

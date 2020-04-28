@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73605724"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Använda Databricks CLI från Azure Cloud Shell
@@ -22,27 +22,27 @@ Lär dig hur du använder Databricks CLI från Azure Cloud Shell för att utför
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure Databricks-arbetsyta och ett kluster. Instruktioner finns i [Komma igång med Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
+* En Azure Databricks arbets yta och ett kluster. Instruktioner finns i [Kom igång med Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
-* Skapa en personlig åtkomsttoken i Databricks. Instruktioner finns i [Tokenhantering](/azure/databricks/dev-tools/api/latest/authentication).
+* Konfigurera en personlig åtkomsttoken i Databricks. Instruktioner finns i [token Management](/azure/databricks/dev-tools/api/latest/authentication).
 
-## <a name="use-the-azure-cloud-shell"></a>Använda Azure Cloud Shell
+## <a name="use-the-azure-cloud-shell"></a>Använd Azure Cloud Shell
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
  
-2. Klicka på ikonen **Cloud Shell** längst upp till höger.
+2. Klicka på ikonen **Cloud Shell** i det övre högra hörnet.
 
    ![Starta Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Starta Azure Cloud Shell")
 
-3. Se till att du väljer **Bash** för Cloud Shell-miljön. Du kan välja från listrutan alternativ, som visas i följande skärmdump.
+3. Se till att du väljer **bash** för Cloud Shells miljön. Du kan välja i list rutan som visas på följande skärm bild.
 
-   ![Välj Bash för Cloud Shell-miljön](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Välj Bash") 
+   ![Välj bash för Cloud Shells miljön](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Välj bash") 
 
-4. Skapa en virtuell miljö där du kan installera Databricks CLI. I kodavsnittet nedan skapar du en `databrickscli`virtuell miljö som heter .
+4. Skapa en virtuell miljö där du kan installera Databricks CLI. I kodfragmentet nedan skapar du en virtuell miljö som kallas `databrickscli`.
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
-5. Växla till den virtuella miljö som du skapade.
+5. Växla till den virtuella miljö som du har skapat.
 
        source databrickscli/bin/activate
 
@@ -50,36 +50,36 @@ Lär dig hur du använder Databricks CLI från Azure Cloud Shell för att utför
 
        pip install databricks-cli
 
-7. Konfigurera autentisering med Databricks med hjälp av åtkomsttoken som du måste ha skapat, som anges som en del av förutsättningarna. Ange följande kommando:
+7. Konfigurera autentisering med Databricks med hjälp av den åtkomsttoken som du måste skapa, som visas som en del av förutsättningarna. Ange följande kommando:
 
        databricks configure --token
 
-    Följande anvisningar får du:
+    Följande meddelanden visas:
 
-    * Först uppmanas du att ange Databricks-värden. Ange värdet i `https://eastus2.azuredatabricks.net`formatet . Här är **East US 2** den Azure-region där du skapade din Azure Databricks-arbetsyta.
+    * Först uppmanas du att ange Databricks-värden. Ange värdet i formatet `https://eastus2.azuredatabricks.net`. Här är **östra USA 2** den Azure-region där du skapade din Azure Databricks-arbetsyta.
 
-    * Därefter uppmanas du att ange en token. Ange den token som du skapade tidigare.
+    * Sedan uppmanas du att ange en token. Ange den token som du skapade tidigare.
 
 När du har slutfört de här stegen kan du börja använda Databricks CLI från Azure Cloud Shell.
 
-## <a name="use-databricks-cli"></a>Använd Databricks CLI
+## <a name="use-databricks-cli"></a>Använda Databricks CLI
 
-Du kan nu börja använda Databricks CLI. Kör till exempel följande kommando för att lista alla Databricks-kluster som du har på arbetsytan.
+Nu kan du börja använda Databricks CLI. Kör till exempel följande kommando för att visa en lista över alla Databricks-kluster som du har i din arbets yta.
 
     databricks clusters list
 
-Du kan också använda följande kommando för att komma åt Databricks filsystem (DBFS).
+Du kan också använda följande kommando för att komma åt Databricks-fil systemet (DBFS).
 
     databricks fs ls
 
 
-En fullständig referens för kommandon finns i [Databricks CLI](/azure/databricks/dev-tools/databricks-cli).
+En fullständig referens för kommandon finns i [DATABRICKS CLI](/azure/databricks/dev-tools/databricks-cli).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Azure CLI finns i [Azure CLI översikt](../cloud-shell/overview.md)
-* Information om hur du ser en lista över kommandon för Azure CLI finns i [Azure CLI-referens](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* Information om hur du ser en lista över kommandon för Databricks CLI finns i [Databricks CLI](/azure/databricks/dev-tools/databricks-cli)
+* Mer information om Azure CLI finns i [Översikt över Azure CLI](../cloud-shell/overview.md)
+* En lista över kommandon för Azure CLI finns i [Azure CLI-referens](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
+* Om du vill se en lista över kommandon för Databricks CLI, se [DATABRICKS CLI](/azure/databricks/dev-tools/databricks-cli)
 
 

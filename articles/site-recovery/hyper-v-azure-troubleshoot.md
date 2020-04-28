@@ -1,6 +1,6 @@
 ---
-title: Felsök Hyper-V-haveriberedskap med Azure Site Recovery
-description: Beskriver felsÃ¶kning av problem med haveriberedskap med Hyper-V to Azure replication med Azure Site Recovery
+title: Felsök haveri beredskap för Hyper-V med Azure Site Recovery
+description: Beskriver hur du felsöker katastrof återställnings problem med Hyper-V till Azure-replikering med hjälp av Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,164 +9,164 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73961485"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure-replikering och redundans
 
-I den här artikeln beskrivs vanliga problem som kan uppstå när du replikerar lokala virtuella hyper-virtuella datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+I den här artikeln beskrivs vanliga problem som kan uppstå i samband med replikeringen av lokala virtuella Hyper-V-datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="enable-protection-issues"></a>Aktivera skyddsproblem
+## <a name="enable-protection-issues"></a>Aktivera skydds problem
 
-Om du får problem när du aktiverar skydd för virtuella datorer med hyper-v-datorer kontrollerar du följande rekommendationer:
+Om du får problem när du aktiverar skydd för virtuella Hyper-V-datorer kontrollerar du följande rekommendationer:
 
-1. Kontrollera att dina Hyper-V-värdar och virtuella datorer uppfyller alla [krav och förutsättningar](hyper-v-azure-support-matrix.md).
-2. Om Hyper-V-servrar finns i VMM-moln (System Center Virtual Machine Manager) kontrollerar du att du har förberett [VMM-servern](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
-3. Kontrollera att hyper-V-tjänsten för hantering av virtuella datorer körs på Hyper-V-värdar.
-4. Sök efter problem som visas i Hyper-V-VMMS\Admin-inloggningen till den virtuella datorn. Den här loggen finns i **Program- och tjänstloggar** > **Microsoft** > **Windows**.
-5. Kontrollera att WMI är aktiverat och tillgängligt på gästdatorn.
-   - [Läs mer om](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) grundläggande WMI-testning.
-   - [Felsöka](https://aka.ms/WMiTshooting) Wmi.
-   - [Felsöka](https://technet.microsoft.com/library/ff406382.aspx#H22) problem med WMI-skript och -tjänster.
-6. På gästdatorn kontrollerar du att den senaste versionen av Integration Services körs.
-    - [Kontrollera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
-    - [Behåll](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integrationstjänster uppdaterade.
+1. Kontrol lera att Hyper-V-värdar och virtuella datorer uppfyller alla [krav och krav](hyper-v-azure-support-matrix.md).
+2. Om Hyper-V-servrar finns i System Center Virtual Machine Manager-moln (VMM) kontrollerar du att du har för berett [VMM-servern](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
+3. Kontrol lera att tjänsten Hyper-V Virtual Machine Management körs på Hyper-V-värdar.
+4. Sök efter problem som visas i Hyper-V-VMMS\Admin logga in på den virtuella datorn. Den här loggen finns i **program och tjänster loggar** > **Microsoft** > **Windows**.
+5. På den virtuella gäst datorn kontrollerar du att WMI är aktiverat och tillgängligt.
+   - [Lär dig mer om](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) grundläggande WMI-testning.
+   - [Felsöka](https://aka.ms/WMiTshooting) Tjänst.
+   - [Felsök](https://technet.microsoft.com/library/ff406382.aspx#H22) problem med WMI-skript och-tjänster.
+6. Se till att den senaste versionen av Integration Services körs på den virtuella gäst datorn.
+    - [Kontrol lera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
+    - [Behåll](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integrerings tjänsterna är aktuella.
     
 ## <a name="replication-issues"></a>Replikeringsproblem
 
 Felsök problem med inledande och fortlöpande replikering så här:
 
-1. Kontrollera att du kör den [senaste versionen](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) av Site Recovery-tjänster.
-2. Kontrollera om replikeringen är pausad:
-   - Kontrollera hälsotillståndet för den virtuella datorn i Hyper-V Manager-konsolen.
-   - Om det är kritiskt högerklickar du på den virtuella datorn > **replikeringsreplikeringshälsa** > **View Replication Health**.
-   - Om replikeringen pausas klickar du på **Återuppta replikering**.
-3. Kontrollera att nödvändiga tjänster körs. Om de inte är det, starta om dem.
+1. Kontrol lera att du kör den [senaste versionen](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) av Site Recovery Services.
+2. Verifiera om replikeringen har pausats:
+   - Kontrol lera hälso tillståndet för den virtuella datorn i Hyper-V Manager-konsolen.
+   - Om det är kritiskt, högerklickar du på den virtuella datorn > **replikeringens** > **hälso tillstånd**.
+   - Om replikeringen har pausats klickar du på **återuppta replikering**.
+3. Kontrol lera att de nödvändiga tjänsterna körs. Om de inte gör det startar du om dem.
     - Om du replikerar Hyper-V utan VMM kontrollerar du att dessa tjänster körs på Hyper-V-värden:
         - Tjänsten Virtual Machine Management
         - Tjänsten Microsoft Azure Recovery Services Agent
         - Tjänsten Microsoft Azure Site Recovery
         - Tjänsten WMI Provider Host
     - Om du replikerar med VMM i miljön kontrollerar du att dessa tjänster körs:
-        - Kontrollera att tjänsten Hantering av virtuella datorer, Microsoft Azure Recovery Services Agent och WMI-providervärdtjänsten körs på Hyper-V-värden.
-        - Kontrollera att Tjänsten System Center Virtual Machine Manager körs på VMM-servern.
-4. Kontrollera anslutningen mellan Hyper-V-servern och Azure. Om du vill kontrollera anslutningen öppnar du Aktivitetshanteraren på Hyper V-värden. Klicka på Öppna **resursövervakare**på fliken **Prestanda** . Kontrollera om cbengine.exe aktivt skickar stora volymer (Mbs) data på > fliken **Nätverk** med **nätverksaktivitet.**
-5. Kontrollera om Hyper-V-värdarna kan ansluta till Azure storage blob URL. Om du vill kontrollera om värdarna kan ansluta markerar du och kontrollerar **cbengine.exe**. Visa **TCP-anslutningar** för att verifiera anslutningen från värden till Azure storage blob.
-6. Kontrollera prestandaproblem enligt beskrivningen nedan.
+        - På Hyper-V-värden kontrollerar du att tjänsten hantering av virtuell dator, Microsoft Azure Recovery Services agenten och värd tjänsten för WMI-providern körs.
+        - Kontrol lera att tjänsten System Center Virtual Machine Manager körs på VMM-servern.
+4. Kontrollera anslutningen mellan Hyper-V-servern och Azure. Öppna aktivitets hanteraren på Hyper V-värden för att kontrol lera anslutningen. Klicka på **öppna resursövervakare**på fliken **prestanda** . På fliken **nätverk** > **process med nätverks aktivitet**kontrollerar du om cbengine. exe aktivt skickar stora volymer (MB) data.
+5. Kontrol lera om Hyper-V-värdarna kan ansluta till BLOB-URL: en för Azure Storage. Om du vill kontrol lera om värdarna kan ansluta väljer du och kontrollerar **cbengine. exe**. Visa **TCP-anslutningar** för att verifiera anslutningen från värden till Azure Storage-blobben.
+6. Kontrol lera prestanda problemen enligt beskrivningen nedan.
     
 ### <a name="performance-issues"></a>Prestandaproblem
 
-Begränsningar av nätverksbandbredd kan påverka replikeringen. Felsöka problem enligt följande:
+Begränsningar för nätverks bandbredd kan påverka replikeringen. Felsök problem på följande sätt:
 
-1. [Kontrollera](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) om det finns begränsningar för bandbredd eller begränsning i din miljö.
-2. Kör profiler för [distributionsplanerare](hyper-v-deployment-planner-run.md).
-3. När du har kört profileren följer du [bandbredds-](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [lagringsrekommendationerna.](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
-4. Kontrollera [begränsningar för dataomsättning](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Om du ser hög dataomsättning på en virtuell dator gör du följande:
-   - Kontrollera om den virtuella datorn är markerad för omsynkronisering.
-   - Följ [dessa steg](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) för att undersöka källan till omsättningen.
-   - Churn kan uppstå när HRL-loggfilerna överstiger 50 % av det tillgängliga diskutrymmet. Om detta är problemet, etablera mer lagringsutrymme för alla virtuella datorer där problemet uppstår.
-   - Kontrollera att replikeringen inte är pausad. Om så är fallet fortsätter den att skriva ändringarna i hrl-filen, vilket kan bidra till dess ökade storlek.
+1. [Kontrol lera](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) om det finns bandbredds-eller begränsnings begränsningar i din miljö.
+2. Kör [Deployment Planner profiler](hyper-v-deployment-planner-run.md).
+3. När du har kört profileraren följer du rekommendationerna för [bandbredd](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [lagring](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) .
+4. Kontrol lera [begränsningar för data omsättning](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Om du ser hög data omsättning på en virtuell dator gör du följande:
+   - Kontrol lera om den virtuella datorn har marker ATS för omsynkronisering.
+   - Följ [dessa steg](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) om du vill undersöka Omsättningens källa.
+   - Omsättningen kan inträffa när HRL-loggfilerna överskrider 50% av det tillgängliga disk utrymmet. Om detta är problemet etablerar du mer lagrings utrymme för alla virtuella datorer där problemet uppstår.
+   - Kontrol lera att replikeringen inte är pausad. Om så är fallet fortsätter det att skriva ändringarna till HRL-filen, vilket kan bidra till dess ökade storlek.
  
 
-## <a name="critical-replication-state-issues"></a>Problem med kritiskt replikeringstillstånd
+## <a name="critical-replication-state-issues"></a>Problem med kritisk replikeringstillstånd
 
-1. Om du vill kontrollera replikeringshälsan ansluter du till den lokala Hyper-V Manager-konsolen, väljer den virtuella datorn och verifierar hälsotillståndet.
+1. Om du vill kontrol lera replikeringstillståndet ansluter du till den lokala Hyper-V Manager-konsolen, väljer den virtuella datorn och kontrollerar hälsa.
 
-    ![Replikeringshälsa](media/hyper-v-azure-troubleshoot/replication-health1.png)
+    ![Hälso tillstånd för replikering](media/hyper-v-azure-troubleshoot/replication-health1.png)
     
 
-2. Klicka på **Visa replikeringshälsa** om du vill se mer information:
+2. Klicka på **Visa replikeringsstatus** för att se information:
 
-    - Om replikeringen pausas högerklickar du på den virtuella datorn >**Replikeringsreplikationen**för **replikering** > .
-    - Om en virtuell dator på en Hyper-V-värd som konfigurerats i Site Recovery migreras till en annan Hyper-V-värd i samma kluster, eller till en fristående dator, påverkas inte replikering för den virtuella datorn. Kontrollera bara att den nya Hyper-V-värden uppfyller alla förutsättningar och är konfigurerad i Site Recovery.
+    - Om replikeringen har pausats högerklickar du på den virtuella datorn > **replikeringen** > **återupptar replikeringen**.
+    - Om en virtuell dator på en Hyper-V-värd som kon figurer ATS i Site Recovery migreras till en annan Hyper-V-värd i samma kluster, eller till en fristående dator, påverkas inte replikeringen för den virtuella datorn. Kontrol lera bara att den nya Hyper-V-värden uppfyller alla krav och att den är konfigurerad i Site Recovery.
 
-## <a name="app-consistent-snapshot-issues"></a>Problem med appkonsekvent ögonblicksbild
+## <a name="app-consistent-snapshot-issues"></a>Problem med programkonsekventa ögonblicks bilder
 
-En appkonsekvent ögonblicksbild är en ögonblicksbild av programdata i den virtuella datorn. Vss (Volume Shadow Copy Service) säkerställer att appar på den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas.  I det här avsnittet beskrivs några vanliga problem som kan uppstå.
+En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av program data i den virtuella datorn. Tjänsten Volume Shadow Copy (VSS) säkerställer att appar på den virtuella datorn är i ett konsekvent tillstånd när ögonblicks bilden tas.  I det här avsnittet beskrivs några vanliga problem som kan uppstå.
 
-### <a name="vss-failing-inside-the-vm"></a>VSS misslyckas inuti den virtuella datorn
+### <a name="vss-failing-inside-the-vm"></a>VSS-återställning i den virtuella datorn
 
-1. Kontrollera att den senaste versionen av integrationstjänsterna är installerad och körs.  Kontrollera om en uppdatering är tillgänglig genom att köra följande kommando från en upphöjd PowerShell-prompt på Hyper-V-värden: **get-vm | välj Namn, Tillstånd, IntegrationServicesState**.
-2. Kontrollera att VSS-tjänster körs och är felfria:
-   - Om du vill kontrollera tjänsterna loggar du in på gästdatorn. Öppna sedan en kommandotolk för administratörer och kör följande kommandon för att kontrollera om alla VSS-författare är felfria.
-       - **Vssadmin lista författare**
-       - **Vssadmin lista skuggor**
-       - **Vssadmin lista leverantörer**
-   - Kontrollera utgången. Om författare är i ett misslyckat tillstånd gör du följande:
-       - Kontrollera programhändelseloggen på den virtuella datorn för VSS-åtgärdsfel.
-   - Prova att starta om dessa tjänster som är associerade med den misslyckade skrivaren:
-     - Kopiera volymskugga
-       - VSS-provider för Azure Site Recovery
-   - När du har gjort detta väntar du i ett par timmar för att se om appkonsekventa ögonblicksbilder har genererats.
-   - Som en sista utväg försöka starta om den virtuella datorn. Detta kan lösa tjänster som inte svarar.
-3. Kontrollera att du inte har dynamiska diskar i den virtuella datorn. Det här stöds inte för appkonsekventa ögonblicksbilder. Du kan checka in Diskhantering (diskmgmt.msc).
+1. Kontrol lera att den senaste versionen av Integration Services är installerad och körs.  Kontrol lera om en uppdatering är tillgänglig genom att köra följande kommando från en upphöjd PowerShell-kommandotolk på Hyper-V-värden: **Get-VM | Välj namn, tillstånd, IntegrationServicesState**.
+2. Kontrol lera att VSS-tjänsterna körs och är felfria:
+   - Logga in på den virtuella gäst datorn för att kontrol lera tjänsterna. Öppna sedan en administratörs kommando tolk och kör följande kommandon för att kontrol lera om alla VSS-skrivare är felfria.
+       - **Vssadmin list Writers**
+       - **Vssadmin list Shadows**
+       - **Vssadmin list-leverantörer**
+   - Kontrol lera utdata. Gör följande om skrivare är i ett felaktigt tillstånd:
+       - Kontrol lera program händelse loggen på den virtuella datorn för VSS-åtgärds fel.
+   - Försök att starta om de här tjänsterna som är kopplade till den misslyckade skrivaren:
+     - Skugg kopia av volym
+       - Azure Site Recovery VSS-Provider
+   - När du har gjort det väntar du några timmar för att se om programkonsekventa ögonblicks bilder genereras korrekt.
+   - Som en sista utväg försöker du starta om den virtuella datorn. Detta kan lösa tjänster som är i ett tillstånd som inte svarar.
+3. Kontrol lera att du inte har dynamiska diskar på den virtuella datorn. Detta stöds inte för programkonsekventa ögonblicks bilder. Du kan checka in disk hantering (diskmgmt. msc).
 
     ![Dynamisk disk](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
-4. Kontrollera att du inte har en iSCSI-disk kopplad till den virtuella datorn. Det stöds inte.
-5. Kontrollera att säkerhetskopieringstjänsten är aktiverad. Kontrollera att den är aktiverad i **Hyper-V-inställningar** > **Integration Services**.
-6. Kontrollera att det inte finns några konflikter med appar som tar VSS-ögonblicksbilder. Om flera appar försöker ta VSS-ögonblicksbilder samtidigt som konflikter kan uppstå. Om till exempel en säkerhetskopieringsapp tar VSS-ögonblicksbilder när site recovery schemaläggs av replikeringsprincipen för att ta en ögonblicksbild.   
-7. Kontrollera om den virtuella datorn har en hög omsättningshastighet:
-    - Du kan mäta den dagliga dataändringshastigheten för gästdatalsmaskiner med hjälp av prestandaräknare på Hyper-V-värden. Om du vill mäta dataändringshastigheten aktiverar du följande räknare. Samla ett exempel på det här värdet över VM-diskarna i 5-15 minuter för att få den virtuella datorns omsättning.
-        - Kategori: "Hyper-V virtuell lagringsenhet"
-        - Räknare: "Skriv byte / sek"</br>
-        - Den här dataomsättningshastigheten ökar eller ligger kvar på en hög nivå, beroende på hur upptagen den virtuella datorn eller dess appar är.
-        - Den genomsnittliga källdiskdataomsättningen är 2 MB/s för standardlagring för webbplatsåterställning. [Läs mer](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Dessutom kan du [verifiera lagringskalbarhetsmål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
-8. Kör [distributionsplaneraren](hyper-v-deployment-planner-run.md).
-9. Läs rekommendationerna för [nätverk](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [lagring](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
+4. Kontrol lera att du inte har någon iSCSI-disk ansluten till den virtuella datorn. Det stöds inte.
+5. Kontrol lera att säkerhets kopierings tjänsten är aktive rad. Kontrol lera att den är aktive rad i **Hyper-V-inställningar** > **integrerings tjänster**.
+6. Se till att det inte finns några konflikter med appar som tar VSS-ögonblicksbilder. Om flera appar försöker att ta VSS-ögonblicksbilder på samma tidpunkt kan konflikter uppstå. Om en säkerhets kopia till exempel tar ögonblicks bilder av VSS när Site Recovery schemaläggs enligt din replikeringsprincip för att ta en ögonblicks bild.   
+7. Kontrol lera om den virtuella datorn har en hög omsättnings taxa:
+    - Du kan mäta den dagliga data ändrings hastigheten för de virtuella gäst datorerna med hjälp av prestanda räknare på Hyper-V-värden. Aktivera följande räknare för att mäta data ändrings takten. Samla ett exempel på det här värdet mellan de virtuella dator diskarna i 5-15 minuter för att hämta VM-omsättningen.
+        - Kategori: "Hyper-V virtuell lagrings enhet"
+        - Räknare: "Skriv byte/s"</br>
+        - Den här data omsättningen ökar eller fortsätter att vara på hög nivå, beroende på hur upptagen den virtuella datorn eller dess appar är.
+        - Den genomsnittliga data omsättningen för käll disken är 2 MB/s för standard lagring för Site Recovery. [Läs mer](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+    - Dessutom kan du [Verifiera lagrings skalbarhets mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
+8. Kör [distributions planeraren](hyper-v-deployment-planner-run.md).
+9. Läs igenom rekommendationerna för [nätverk](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [lagring](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
 
-### <a name="vss-failing-inside-the-hyper-v-host"></a>VSS misslyckas inuti Hyper-V-värden
+### <a name="vss-failing-inside-the-hyper-v-host"></a>VSS-återställning i Hyper-V-värden
 
-1. Kontrollera om det finns VSS-fel och rekommendationer i händelseloggarna:
-    - Öppna händelseloggen Hyper-V Admin i **Loggboken** > **program och tjänster loggar** > **Microsoft** > **Windows** > Hyper-V Admin på**Hyper-V-värdservern** > **Admin**.
-    - Kontrollera om det finns några händelser som indikerar appkonsekventa ögonblicksbildfel.
-    - Ett typiskt fel är: "Hyper-V misslyckades med att generera VSS-ögonblicksbilduppsättning för den virtuella datorn 'XYZ': Författaren upplevde ett icke-övergående fel. Om du startar om VSS-tjänsten kan problem lösas om tjänsten inte svarar."
+1. Kontrol lera händelse loggarna för VSS-fel och rekommendationer:
+    - På Hyper-v-värdservern öppnar du Hyper-v-administratörens händelse logg i **Loggboken** > **program och tjänster loggar** > **Microsoft** > **Windows** > **Hyper-v** > -**administratör**.
+    - Kontrol lera om det finns några händelser som indikerar problem med programkonsekventa ögonblicks bilder.
+    - Ett vanligt fel är: "Hyper-V kunde inte skapa VSS-ögonblicksbilden för den virtuella datorn" XYZ ": skrivaren fick ett icke-tillfälligt fel. Att starta om VSS-tjänsten kan lösa problem om tjänsten inte svarar. "
 
-2. Om du vill generera VSS-ögonblicksbilder för den virtuella datorn kontrollerar du att Hyper-V-integrationstjänster är installerade på den virtuella datorn och att tjänsten för integrering av säkerhetskopiering (VSS) är aktiverad.
-    - Kontrollera att Tjänsten Integration Services VSS/daemons körs på gästen och är i **ok-tillstånd.**
-    - Du kan kontrollera detta från en upphöjd PowerShell-session på Hyper-V-värden med kommandot **Get-VMIntegrationService -VMName\<VMName>-Name VSS** Du kan också hämta den här informationen genom att logga in på gästdatorn. [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Kontrollera att säkerhetskopierings-/VSS-integrationstjänsterna på den virtuella datorn körs och är i felfritt tillstånd. Om inte, starta om dessa tjänster och Hyper-V Volume Shadow Copy-requestor-tjänsten på Hyper-V-värdservern.
+2. Om du vill skapa VSS-ögonblicksbilder för den virtuella datorn kontrollerar du att Hyper-V-integrerings tjänsterna är installerade på den virtuella datorn och att integrerings tjänsten för säkerhets kopiering (VSS) är aktive rad.
+    - Se till att VSS-tjänsten/daemon för integrerings tjänsterna körs på gästen och är i ett **OK** -tillstånd.
+    - Du kan kontrol lera detta från en upphöjd PowerShell-session på Hyper-V-värden med kommandot **get-\<VMIntegrationService-VMName VMName>-Name VSS** du kan också få den här informationen genom att logga in på den virtuella gäst datorn. [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Se till att tjänsterna för säkerhets kopiering/VSS-integrering på den virtuella datorn körs och är i felfritt tillstånd. Om inte, startar du om tjänsterna och tjänsten Hyper-V Volume Shadow Copy reservering på Hyper-V-värdservern.
 
 ### <a name="common-errors"></a>Vanliga fel
 
-**Felkod** | **Meddelande** | **Detaljer**
+**Felkod** | **Meddelande** | **Information**
 --- | --- | ---
-**0x800700EA** | "Hyper-V kunde inte generera VSS-ögonblicksbilduppsättning för virtuell dator: Mer data är tillgängliga. (0x800700EA). VSS ögonblicksbild uppsättning generation kan misslyckas om säkerhetskopiering pågår.<br/><br/> Replikeringsåtgärden för virtuell dator misslyckades: Det finns mer data tillgängligt." | Kontrollera om den virtuella datorn har aktiverat dynamisk disk. Det stöds inte.
-**0x80070032** | "Hyper-V Volume Shadow Copy Requestor misslyckades med att ansluta till virtuell dator </VMname> eftersom versionen inte matchar den version som förväntas av Hyper-V | Kontrollera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
+**0x800700EA** | "Hyper-V kunde inte skapa en ögonblicks bild uppsättning för VSS för virtuell dator: mer data är tillgängliga. (0x800700EA). Generering av ögonblicks bild uppsättning för VSS kan inte utföras om säkerhets kopiering pågår.<br/><br/> Det gick inte att utföra replikering för den virtuella datorn: fler data är tillgängliga. | Kontrol lera om den virtuella datorn har dynamisk disk aktive rad. Det stöds inte.
+**0x80070032** | "Det gick inte att ansluta till den virtuella datorn <./VMname> eftersom versionen inte matchar den version som förväntas av Hyper-v-providern | Kontrol lera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
 
 
 
-## <a name="collect-replication-logs"></a>Samla in replikeringsloggar
+## <a name="collect-replication-logs"></a>Samla in loggar för replikering
 
-Alla Hyper-V-replikeringshändelse loggas i Hyper-V-VMMS\Admin-loggen, som finns i **Program och tjänster loggar** > **Microsoft** > **Windows**. Dessutom kan du aktivera en analytisk logg för Hyper-V Virtual Machine Management Service enligt följande:
+All Hyper-V-replikering loggas i Hyper-V-VMMS\Admin-loggen som finns i **program och tjänster loggar** > **Microsoft** > **Windows**. Dessutom kan du aktivera en analytisk logg för tjänsten hantering av virtuell dator för Hyper-V enligt följande:
 
-1. Gör de analytiska och felsökningsloggarna synliga i Loggboken. Om du vill göra loggarna tillgängliga klickar du på **Visa** > **analytiska och felsökningsloggar**i Loggboken. Den analytiska loggen visas under **Hyper-V-VMMS**.
-2. Klicka på Aktivera **logg**i **åtgärdsfönstret** . 
+1. Gör de analytiska och fel söknings loggar som visas i Loggboken. Klicka på **Visa** > för att**Visa analytiska loggar och fel söknings loggar**i Loggboken för att göra loggarna tillgängliga. Analys loggen visas under **Hyper-V-VMMS**.
+2. I fönstret **åtgärder** klickar du på **Aktivera logg**. 
 
     ![Aktivera logg](media/hyper-v-azure-troubleshoot/enable-log.png)
     
-3. När den har aktiverats visas den i **Prestandaövervakaren**, som en **händelsespårningssession** under **datainsamlaruppsättningar**. 
-4. Om du vill visa den insamlade informationen stoppar du spårningssessionen genom att inaktivera loggen. Spara sedan loggen och öppna den igen i Loggboken, eller använd andra verktyg för att konvertera den efter behov.
+3. När den är aktive rad visas den i **prestanda övervakaren**, som en **Event Trace-Session** under **Datainsamlaruppsättningar**. 
+4. Om du vill visa insamlad information stoppar du spårningssessionen genom att inaktivera loggen. Spara sedan loggen och öppna den igen i Loggboken, eller Använd andra verktyg för att konvertera den efter behov.
 
 
-### <a name="event-log-locations"></a>Platser för händelselogg
+### <a name="event-log-locations"></a>Händelse logg platser
 
-**Händelseloggen** | **Detaljer** |
+**Händelseloggen** | **Information** |
 --- | ---
-**Program- och tjänstloggar/Microsoft/VirtualMachineManager/Server/Admin** (VMM-server) | Loggar för att felsöka VMM-problem.
-**Program och tjänstloggar/MicrosoftAzureRecoveryServices/Replication** (Hyper-V-värd) | Loggar för felsökning av Problem med Microsoft Azure Recovery Services Agent. 
-**Program- och tjänstloggar/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V-värd)| Loggar för felsökning av problem med Microsoft Azure Site Recovery Service.
-**Program- och tjänstloggar/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V-värd) | Loggar för felsökning av hanteringsproblem för virtuella datorer med virtuella datorer.
+**Program-och tjänst loggar/Microsoft/VirtualMachineManager/server/admin** (VMM-Server) | Loggar för att felsöka VMM-problem.
+**Program-och tjänst loggar/MicrosoftAzureRecoveryServices/replikering** (Hyper-V-värd) | Loggar för att felsöka problem med Microsoft Azure Recovery Services agent. 
+**Program-och tjänst loggar/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V-värd)| Loggar för att felsöka problem med Microsoft Azure Site Recovery-tjänsten.
+**Program-och tjänst loggar/Microsoft/Windows/Hyper-V-VMMS/admin** (Hyper-v-värd) | Loggar för att felsöka problem med hantering av virtuella Hyper-V-datorer.
 
-### <a name="log-collection-for-advanced-troubleshooting"></a>Loggsamling för avancerad felsökning
+### <a name="log-collection-for-advanced-troubleshooting"></a>Logg insamling för avancerad fel sökning
 
-De här verktygen kan hjälpa dig med avancerad felsökning:
+Dessa verktyg kan vara till hjälp vid avancerad fel sökning:
 
--   För VMM utför du loggsamling för platsåterställning med [verktyget Support Diagnostics Platform (SDP).](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)
--   För Hyper-V utan VMM [hämtar du det här verktyget](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)och kör det på Hyper-V-värden för att samla in loggarna.
+-   För VMM utför du Site Recovery logg insamling med hjälp av [SDP-verktyget (Support Diagnostics Platform)](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
+-   För Hyper-V utan VMM [laddar du ned det här verktyget](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)och kör det på Hyper-v-värden för att samla in loggarna.
 

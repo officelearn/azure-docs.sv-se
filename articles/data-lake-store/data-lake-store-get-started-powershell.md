@@ -1,30 +1,30 @@
 ---
-title: Komma igång med Azure Data Lake Storage Gen1 - PowerShell | Microsoft-dokument
-description: Använd Azure PowerShell för att skapa ett Azure Data Lake Storage Gen1-konto och utföra grundläggande åtgärder.
+title: Kom igång med Azure Data Lake Storage Gen1 – PowerShell | Microsoft Docs
+description: Använd Azure PowerShell för att skapa ett Azure Data Lake Storage Gen1 konto och utföra grundläggande åtgärder.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 42ddab6991b418af3e41da9966cdab69ded87461
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73837895"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Komma igång med Azure Data Lake Storage Gen1 med Azure PowerShell
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [Powershell](data-lake-store-get-started-powershell.md)
+> * [Portalen](data-lake-store-get-started-portal.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Lär dig hur du använder Azure PowerShell för att skapa ett Azure Data Lake Storage Gen1-konto och utföra grundläggande åtgärder som att skapa mappar, ladda upp och ladda ned datafiler, ta bort ditt konto osv. Mer information om Data Lake Storage Gen1 finns i [Översikt över Data Lake Storage Gen1](data-lake-store-overview.md).
+Lär dig hur du använder Azure PowerShell för att skapa ett Azure Data Lake Storage Gen1 konto och utföra grundläggande åtgärder som att skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Storage Gen1 finns i [Översikt över data Lake Storage gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -35,11 +35,11 @@ Lär dig hur du använder Azure PowerShell för att skapa ett Azure Data Lake St
 
 ## <a name="authentication"></a>Autentisering
 
-Den här artikeln använder en enklare autentiseringsmetod med Data Lake Storage Gen1 där du uppmanas att ange dina Azure-kontouppgifter. Åtkomstnivån till Data Lake Storage Gen1-konto och filsystem styrs sedan av åtkomstnivån för den inloggade användaren. Det finns dock andra metoder för att autentisera med Data Lake Storage Gen1, som är autentisering från slutanvändare eller autentisering från tjänst till tjänst. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
+Den här artikeln använder en enklare metod för autentisering med Data Lake Storage Gen1 där du uppmanas att ange dina autentiseringsuppgifter för Azure-kontot. Åtkomst nivån för Data Lake Storage Gen1 konto och fil system styrs sedan av åtkomst nivån för den inloggade användaren. Det finns dock andra metoder att autentisera med Data Lake Storage Gen1, som är autentisering med slutanvändare eller tjänst-till-tjänst-autentisering. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto
 
-1. Öppna ett nytt Windows PowerShell-fönster på skrivbordet. Ange följande kodavsnitt för att logga in på ditt Azure-konto, ange prenumerationen och registrera Data Lake Storage Gen1-providern. När du uppmanas att logga in kontrollerar du att du loggar in som en av prenumerationsadministratörerna/ägaren:
+1. Öppna ett nytt Windows PowerShell-fönster på skrivbordet. Ange följande kodfragment för att logga in på ditt Azure-konto, ange prenumerationen och registrera Data Lake Storage Gen1-providern. När du uppmanas att logga in kontrollerar du att du loggar in som en av prenumerations administratörerna/ägaren:
 
     ```PowerShell
     # Log in to your Azure account
@@ -55,14 +55,14 @@ Den här artikeln använder en enklare autentiseringsmetod med Data Lake Storage
     Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
     ```
 
-1. Ett Data Lake Storage Gen1-konto är associerat med en Azure-resursgrupp. Börja med att skapa en resursgrupp.
+1. Ett Data Lake Storage Gen1 konto är associerat med en Azure-resurs grupp. Börja med att skapa en resurs grupp.
 
     ```PowerShell
     $resourceGroupName = "<your new resource group name>"
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    ![Skapa en Azure-resursgrupp](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Skapa en Azure-resursgrupp")
+    ![Skapa en Azure-resurs grupp](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Skapa en Azure-resursgrupp")
 
 1. Skapa ett Data Lake Storage Gen1-konto. Namnet du anger får bara innehålla gemener och siffror.
 
@@ -81,9 +81,9 @@ Den här artikeln använder en enklare autentiseringsmetod med Data Lake Storage
 
     Utdata för cmdleten ska vara **Sant**.
 
-## <a name="create-directory-structures"></a>Skapa katalogstrukturer
+## <a name="create-directory-structures"></a>Skapa katalog strukturer
 
-Du kan skapa kataloger under ditt Data Lake Storage Gen1-konto för att hantera och lagra data.
+Du kan skapa kataloger under ditt Data Lake Storage Gen1 konto för att hantera och lagra data.
 
 1. Ange en rotkatalog.
 
@@ -109,7 +109,7 @@ Du kan skapa kataloger under ditt Data Lake Storage Gen1-konto för att hantera 
 
 ## <a name="upload-data"></a>Ladda upp data
 
-Du kan överföra dina data till Data Lake Storage Gen1 direkt på rotnivå eller till en katalog som du skapade i kontot. Kodavsnitten i det här avsnittet visar hur du kan ladda upp exempeldata till katalogen (**mynewdirectory**) som du skapade i föregående avsnitt.
+Du kan ladda upp data till Data Lake Storage Gen1 direkt på rotnivå eller till en katalog som du har skapat i kontot. Kodavsnitten i det här avsnittet visar hur du kan ladda upp exempeldata till katalogen (**mynewdirectory**) som du skapade i föregående avsnitt.
 
 Om du behöver exempeldata att ladda upp, kan du hämta mappen **Ambulansdata** från [Azure Data Lake Git-lagringsplatsen](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Hämta filen och lagra den i en lokal katalog på datorn, till exempel C:\sampledata\.
 
@@ -119,7 +119,7 @@ Import-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
    -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 ```
 
-## <a name="rename-download-and-delete-data"></a>Byta namn på, hämta och ta bort data
+## <a name="rename-download-and-delete-data"></a>Byta namn på, ladda ned och ta bort data
 
 Om du vill byta namn på en fil, använder du följande kommando:
 
@@ -163,8 +163,8 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prestandajusteringsvägledning för användning av PowerShell med Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
-* [Använda Azure Data Lake Storage Gen1 för stordatakrav](data-lake-store-data-scenarios.md)
+* [Vägledning för prestanda justering för att använda PowerShell med Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
+* [Använd Azure Data Lake Storage Gen1 för Big data-krav](data-lake-store-data-scenarios.md)
 * [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Använda Azure Data Lake Analytics med Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Använda Azure HDInsight med Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Använd Azure HDInsight med Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

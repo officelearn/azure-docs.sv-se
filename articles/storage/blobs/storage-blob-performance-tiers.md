@@ -1,6 +1,6 @@
 ---
-title: Prestandanivåer för blockbloblagring – Azure Storage
-description: I artikeln beskrivs skillnaden mellan premium- och standardprestandanivåer för Azure-blockbloloblagring.
+title: Blockera prestanda nivåer för Blob Storage – Azure Storage
+description: Beskriver skillnaden mellan Premium-och standard prestanda nivåer för Azure Block Blob Storage.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/12/2019
@@ -9,80 +9,80 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74270229"
 ---
-# <a name="performance-tiers-for-block-blob-storage"></a>Prestandanivåer för blockbloloblagring
+# <a name="performance-tiers-for-block-blob-storage"></a>Prestanda nivåer för Block Blob Storage
 
-När företag distribuerar prestandakänsliga molnbaserade program är det viktigt att ha alternativ för kostnadseffektiv datalagring på olika prestandanivåer.
+När företag distribuerar prestanda känsliga moln program är det viktigt att du har alternativ för kostnads effektiv data lagring på olika prestanda nivåer.
 
-Azure block blob storage erbjuder två olika prestandanivåer:
+Azure Block Blob Storage erbjuder två olika prestanda nivåer:
 
-- **Premium**: optimerad för höga transaktionshastigheter och ensiffriga konsekventa lagringsfördröjningar
-- **Standard**: optimerad för hög kapacitet och hög genomströmning
+- **Premium**: optimerat för höga transaktions priser och ensiffriga konsekvent lagrings fördröjning
+- **Standard**: optimerad för hög kapacitet och högt data flöde
 
-Följande överväganden gäller för de olika prestandanivåerna:
+Följande överväganden gäller för de olika prestanda nivåerna:
 
-| Område |Standardprestanda  |Premium prestanda  |
+| Område |Standard prestanda  |Förstklassig prestanda  |
 |---------|---------|---------|
-|Regional tillgänglighet     |   Alla regioner      | I [vissa områden](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
-|Typer av [lagringskonto som](../common/storage-account-overview.md#types-of-storage-accounts) stöds     |     Allmänt ändamål v2, BlobStorage, Allmänt ändamål v1    |    BlockBlobStorage     |
-|Stöder [blockblobar](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) med högt dataflöde     |    Ja, på större än 4 MiB PutBlock eller PutBlob storlekar     |    Ja, på större än 256 KiB PutBlock eller PutBlob storlekar    |
-|Redundans     |     Se [Typer av lagringskonton](../common/storage-account-overview.md#types-of-storage-accounts)   |  Stöder för närvarande endast lokalt redundant lagring (LRS) och zon-redudant lagring (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+|Regional tillgänglighet     |   Alla regioner      | I [Välj regioner](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
+|[Typer av lagrings konton](../common/storage-account-overview.md#types-of-storage-accounts) som stöds     |     Generell användning v2, BlobStorage, generell användning v1    |    BlockBlobStorage     |
+|Stöder [block blobbar med hög genomflöde](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Ja, med fler än 4 MiB PutBlock-eller PutBlob-storlekar     |    Ja, med fler än 256 KiB-PutBlock eller PutBlob storlek    |
+|Redundans     |     Se [typer av lagrings konton](../common/storage-account-overview.md#types-of-storage-accounts)   |  För närvarande endast stöd för lokalt redundant lagring (LRS) och redudant-lagring (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
 
-<div id="zone-redundant-storage"><sup>1.</sup> Zonupptraktad lagring (ZRS) är tillgänglig i vissa regioner för premiumprestandablock blob storage-konton.</div>
+<div id="zone-redundant-storage"><sup>1</sup> Zone-redundant lagring (ZRS) är tillgänglig i SELECT-regioner för Premium Performance Block Blob Storage-konton.</div>
 
-När det gäller kostnader ger premiumprestanda optimerad prissättning för program med höga transaktionshastigheter för att [sänka den totala lagringskostnaden](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) för dessa arbetsbelastningar.
+För kostnader ger Premium prestanda optimerade priser för program med höga transaktions priser för att [minska den totala lagrings kostnaden](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) för dessa arbets belastningar.
 
-## <a name="premium-performance"></a>Premium prestanda
+## <a name="premium-performance"></a>Förstklassig prestanda
 
-Premium prestanda block blob lagring gör data tillgängliga via högpresterande hårdvara. Data lagras på SSD-enheter (Solid State Drives) som är optimerade för låg latens. SSD ger högre dataflöde jämfört med traditionella hårddiskar.
+Med Premium Performance Block Blob Storage blir data tillgängliga via maskin vara med hög prestanda. Data lagras i solid state-hårddiskar (SSD) som är optimerade för låg latens. SSD ger högre data flöde jämfört med traditionella hård diskar.
 
-Premium prestandalagring är idealisk för arbetsbelastningar som kräver snabba och konsekventa svarstider. Det är bäst för arbetsbelastningar som utför många små transaktioner. Exempel på arbetsbelastningar är:
+Premium Performance Storage är perfekt för arbets belastningar som kräver snabba och konsekventa svars tider. Det är bäst för arbets belastningar som utför många små transaktioner. Exempel på arbets belastningar är:
 
-- **Interaktiva arbetsbelastningar**. Dessa arbetsbelastningar kräver omedelbara uppdateringar och användarfeedback, till exempel e-handel och mappningsprogram. I ett e-handelsprogram cachelagras till exempel mindre ofta visade objekt troligen inte. De måste dock visas direkt för kunden på begäran.
+- **Interaktiva arbets belastningar**. Dessa arbets belastningar kräver omedelbara uppdateringar och feedback från användaren, till exempel e-handel och mappnings program. I ett e-handelsprogram är det till exempel troligt att mindre visade objekt inte cachelagras. De måste dock visas direkt för kunden på begäran.
 
-- **Analys**. I ett IoT-scenario kan många mindre skrivåtgärder skickas till molnet varje sekund. Stora mängder data kan tas in, aggregeras för analysändamål och sedan tas bort nästan omedelbart. De höga inmatningsfunktionerna för premiumblockbloblagring gör det effektivt för den här typen av arbetsbelastning.
+- **Analys**. I ett IoT-scenario kan många mindre Skriv åtgärder flyttas till molnet varje sekund. Stora mängder data kan tas i, aggregeras i analys syfte och tas sedan bort nästan omedelbart. De höga inmatnings funktionerna i Premium Block Blob Storage gör det effektivt för den här typen av arbets belastning.
 
-- **Artificiell intelligens/maskininlärning (AI/ML).** AI/ML hanterar förbrukning och bearbetning av olika datatyper som visuella objekt, tal och text. Den här högpresterande datortypen av arbetsbelastning behandlar stora mängder data som kräver snabba svarstider och effektiva inmatningstider för dataanalys.
+- **Artificiell intelligens/Machine Learning (AI/ml)**. AI/ML hanterar användning och bearbetning av olika data typer som visuella objekt, tal och text. Den här arbets belastnings typen med hög prestanda hanterar stora mängder data som kräver snabba svars tider och effektiva inmatnings tider för data analys.
 
-- **Dataomvandling**. Processer som kräver konstant redigering, ändring och konvertering av data kräver omedelbara uppdateringar. För korrekt datarepresentation måste konsumenterna av dessa uppgifter se dessa ändringar återspeglas omedelbart.
+- **Data omvandling**. Processer som kräver konstant redigering, ändring och data konvertering kräver omedelbara uppdateringar. För korrekt data åter givning måste användarna av dessa data se att ändringarna återspeglas direkt.
 
-## <a name="standard-performance"></a>Standardprestanda
+## <a name="standard-performance"></a>Standard prestanda
 
-Standardprestanda stöder olika [åtkomstnivåer](storage-blob-storage-tiers.md) för att lagra data på det mest kostnadseffektiva sättet. Den är optimerad för hög kapacitet och hög genomströmning på stora datamängder.
+Standard prestanda stöder olika [åtkomst nivåer](storage-blob-storage-tiers.md) för att lagra data på det mest kostnads effektiva sättet. Den är optimerad för hög kapacitet och högt data flöde på stora data mängder.
 
-- **Datauppsättningar för säkerhetskopiering och haveriberedskap**. Standardprestandalagring erbjuder kostnadseffektiva nivåer, vilket gör det till ett perfekt användningsfall för både kortsiktiga och långsiktiga datauppsättningar för haveriberedskap, sekundära säkerhetskopieringar och arkivering av efterlevnadsdata.
+- **Data uppsättningar för säkerhets kopiering och haveri beredskap**. Standard prestanda lagring erbjuder kostnads effektiva nivåer, vilket gör det till ett perfekt användnings fall för både kortsiktiga och långsiktiga data uppsättningar för haveri beredskap, sekundära säkerhets kopieringar och data arkivering för regelefterlevnad.
 
-- **Medieinnehåll**. Bilder och videor används ofta ofta när de först skapas och lagras, men den här innehållstypen används mindre ofta när den blir äldre. Standardprestandalagring erbjuder lämpliga nivåer för medieinnehållsbehov. 
+- **Medie innehåll**. Bilder och videor används ofta ofta när de först skapas och lagras, men den här innehålls typen används mindre ofta när den blir äldre. Standard prestanda lagring erbjuder lämpliga nivåer för medie innehålls behov. 
 
-- **Massdatabehandling**. Dessa typer av arbetsbelastningar är lämpliga för standardlagring eftersom de kräver kostnadseffektiv lagring med högt dataflöde i stället för konsekvent låg latens. Stora, råa datauppsättningar är iscensatta för bearbetning och migrera så småningom till svalare nivåer.
+- **Mass bearbetning av data**. Dessa typer av arbets belastningar är lämpliga för standard lagring eftersom de kräver kostnads effektiv lagring med höga data flöden i stället för konsekvent låg latens. Stora data uppsättningar för RAW-datauppsättningar mellanlagras för bearbetning och slutligen till slut på låg frekventa nivåer.
 
-## <a name="migrate-from-standard-to-premium"></a>Migrera från standard till premium
+## <a name="migrate-from-standard-to-premium"></a>Migrera från standard till Premium
 
-Du kan inte konvertera ett befintligt standardkonto för prestandalagring till ett blockblobblagringskonto med premiumprestanda. Om du vill migrera till ett premiumkonto för prestandalagring måste du skapa ett BlockBlobStorage-konto och migrera data till det nya kontot. Mer information finns i [Skapa ett BlockBlobStorage-konto](storage-blob-create-account-block-blob.md).
+Du kan inte konvertera ett befintligt lagrings konto för standard prestanda till ett Block-Blob Storage-konto med förstklassig prestanda. Om du vill migrera till ett lagrings konto för Premium-prestanda måste du skapa ett BlockBlobStorage-konto och migrera data till det nya kontot. Mer information finns i [skapa ett BlockBlobStorage-konto](storage-blob-create-account-block-blob.md).
 
-Om du vill kopiera blobbar mellan lagringskonton kan du använda den senaste versionen av kommandoradsverktyget [AzCopy.](../common/storage-use-azcopy-blobs.md) Andra verktyg som Azure Data Factory är också tillgängliga för data förflyttning och omvandling.
+Om du vill kopiera blobbar mellan lagrings konton kan du använda den senaste versionen av kommando rads verktyget [AzCopy](../common/storage-use-azcopy-blobs.md) . Andra verktyg, till exempel Azure Data Factory, är också tillgängliga för data förflyttning och omvandling.
 
-## <a name="blob-lifecycle-management"></a>Blob livscykelhantering
+## <a name="blob-lifecycle-management"></a>Hantering av BLOB-livscykel
 
-Livscykelhantering för bloblagring erbjuder en omfattande, regelbaserad princip:
+Livs cykel hantering för Blob Storage erbjuder en omfattande, regelbaserade princip:
 
-- **Premium**: Förfalla data i slutet av livscykeln.
-- **Standard**: Övergångsdata till den bästa åtkomstnivån och förfallodata i slutet av livscykeln.
+- **Premium**: data förfaller i slutet av livs cykeln.
+- **Standard**: över gångs data till bästa åtkomst nivå och förfaller data i slutet av livs cykeln.
 
-Mer information finns [i Hantera azure blob-lagringslivscykeln](storage-lifecycle-management-concepts.md).
+Mer information finns i [Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md).
 
-Du kan inte flytta data som lagras i ett premiumblockbloblagringskonto mellan frekventa, svala och arkivnivåer. Du kan dock kopiera blobbar från ett blockblobblagringskonto till hot access-nivån i ett *annat* konto. Om du vill kopiera data till ett annat konto använder du [API:et För att blockera från URL](/rest/api/storageservices/put-block-from-url) eller [AzCopy v10](../common/storage-use-azcopy-v10.md). **Api:et Placera blockera från** URL kopierar avsiktligt data på servern. Anropet slutförs först när alla data har flyttats från den ursprungliga serverplatsen till målplatsen.
+Du kan inte flytta data som lagras i ett Premium Block-Blob Storage-konto mellan frekventa, låg frekventa och Arkiv lag rings nivåer. Du kan dock kopiera blobbar från ett Block Blob Storage-konto till frekvent åtkomst nivå i ett *annat* konto. Om du vill kopiera data till ett annat konto använder du alternativet för att [blockera från URL](/rest/api/storageservices/put-block-from-url) -API eller [AzCopy v10](../common/storage-use-azcopy-v10.md). Funktionen för att **blockera från URL** : er kopierar synkront data på servern. Anropet slutförs först efter att alla data har flyttats från den ursprungliga Server platsen till mål platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utvärdera frekventa, svala och arkivera i GPv2- och Blob-lagringskonton.
+Utvärdera frekvent, låg frekvent och Arkiv lag ring i GPv2-och Blob Storage-konton.
 
-- [Lär dig mer om att rehydrera blob-data från arkivnivån](storage-blob-rehydration.md)
+- [Lär dig mer om återuppväcks BLOB-data från Arkiv lag rings nivån](storage-blob-rehydration.md)
 - [Utvärdera användningen av dina aktuella lagringskonton genom att aktivera mätvärden i Azure Storage.](../common/storage-enable-and-view-metrics.md)
 - [Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)
 - [Se priser för dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/)

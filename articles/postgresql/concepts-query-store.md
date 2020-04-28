@@ -1,42 +1,42 @@
 ---
-title: Query Store - Azure-databas för PostgreSQL - Single Server
-description: I den här artikeln beskrivs funktionen Query Store i Azure Database for PostgreSQL - Single Server.
+title: Query Store – Azure Database for PostgreSQL-enskild server
+description: I den här artikeln beskrivs funktionen Query Store i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768273"
 ---
-# <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Frågearkivet
+# <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
-**Gäller:** Azure-databas för PostgreSQL - Single Server version 9.6, 10, 11
+**Gäller för:** Azure Database for PostgreSQL-enskild server version 9,6, 10, 11
 
-Funktionen Query Store i Azure Database for PostgreSQL är ett sätt att spåra frågeprestanda över tid. Query Store förenklar felsökningen av prestanda genom att hjälpa dig att snabbt hitta de mest tidskrävande och mest resursintensiva frågorna. Query Store samlar automatiskt in en historik över frågor och körningsstatistik, och den behåller dem för din granskning. Den separerar data efter tidsfönster så att du kan se databasanvändningsmönster. Data för alla användare, databaser och frågor lagras i en databas med namnet **azure_sys** i Azure-databasen för PostgreSQL-instans.
+Funktionen Query Store i Azure Database for PostgreSQL ger dig ett sätt att spåra frågeresultaten över tid. Query Store fören klar prestanda fel sökningen genom att hjälpa dig att snabbt hitta de allra som körs och de flesta resurs intensiva frågor. Query Store samlar automatiskt in en historik över frågor och körnings statistik och behåller dem för din granskning. Den separerar data efter tids period, så att du kan se databas användnings mönster. Data för alla användare, databaser och frågor lagras i en databas med namnet **azure_sys** i Azure Database for PostgreSQL-instansen.
 
 > [!IMPORTANT]
-> Ändra inte **azure_sys** eller dess scheman. Om du gör det förhindrar du att Frågearkivet och relaterade prestandafunktioner fungerar korrekt.
+> Ändra inte **azure_sys** -databasen eller dess scheman. Om du gör det förhindras Frågearkivet och relaterade prestanda funktioner från att fungera korrekt.
 
-## <a name="enabling-query-store"></a>Aktivera Frågebutik
-Query Store är en opt-in-funktion, så den är inte aktiv som standard på en server. Arkivet är aktiverat eller inaktiverat globalt för alla databaser på en viss server och kan inte aktiveras eller inaktiveras per databas.
+## <a name="enabling-query-store"></a>Aktivera Query Store
+Frågearkivet är en valbar funktion, så den är inte aktiv som standard på en server. Store är aktiverat eller inaktiverat globalt för alla databaser på en viss server och kan inte aktive ras eller stängas av per databas.
 
-### <a name="enable-query-store-using-the-azure-portal"></a>Aktivera Query Store med Azure-portalen
-1. Logga in på Azure-portalen och välj din Azure-databas för PostgreSQL-server.
-2. Välj **Serverparametrar** i avsnittet **Inställningar** på menyn.
+### <a name="enable-query-store-using-the-azure-portal"></a>Aktivera Query Store med hjälp av Azure Portal
+1. Logga in på Azure Portal och välj Azure Database for PostgreSQL-servern.
+2. Välj **Server parametrar** i avsnittet **Inställningar** på menyn.
 3. Sök efter `pg_qs.query_capture_mode` parametern.
-4. Ange värdet `TOP` till och **Spara**.
+4. Ange värdet till `TOP` och **Spara**.
 
-Så här aktiverar du väntestatistik i Frågearkivet: 
+Så här aktiverar du väntande statistik i Frågearkivet: 
 1. Sök efter `pgms_wait_sampling.query_capture_mode` parametern.
-1. Ange värdet `ALL` till och **Spara**.
+1. Ange värdet till `ALL` och **Spara**.
 
 
-Alternativt kan du ställa in dessa parametrar med hjälp av Azure CLI.
+Du kan också ange dessa parametrar med hjälp av Azure CLI.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -44,147 +44,147 @@ az postgres server configuration set --name pgms_wait_sampling.query_capture_mod
 
 Vänta 20 minuter för den första databatchen ska hinna sparas i databasen azure_sys.
 
-## <a name="information-in-query-store"></a>Information i Frågearbeta
-Query Store har två butiker:
-- Ett körningsstatistikarkiv för att bevara statistikinformationen för frågekörning.
-- En väntestatistikbutik för ihållande väntestatistikinformation.
+## <a name="information-in-query-store"></a>Information i Frågearkivet
+Frågearkivet har två butiker:
+- En körnings statistik för att spara information om statistik för körning av fråga.
+- En väntande stat för att spara information om väntande statistik.
 
 Vanliga scenarier för att använda Query Store är:
-- Bestämma hur många gånger en fråga har körts i ett visst tidsfönster
-- Jämföra den genomsnittliga körningstiden för en fråga över tidsfönster för att se stora deltan
-- Identifiera de senaste X-timmarnas tidskrävande frågor
-- Identifiera de vanligaste N-frågorna som väntar på resurser
-- Förstå vänta naturen för en viss fråga
+- Bestämma hur många gånger en fråga kördes under ett angivet tidsintervall
+- Jämför genomsnittlig körnings tid för en fråga över tid i Windows för att se stora delta
+- Identifiera de längsta körnings frågorna de senaste X timmarna
+- Identifiera de N främsta frågorna som väntar på resurser
+- Förstå vänte natur för en viss fråga
 
-För att minimera utrymmesanvändningen sammanställs körningsstatistiken i körningsstatistikarkivet över ett fast, konfigurerbart tidsfönster. Informationen i dessa butiker är synlig genom att fråga efter frågearkivvyerna.
+För att minimera utrymmes användningen sammanställs körnings statistiken för körning i körnings statistik lagret över en fast, konfigurerbar tids period. Informationen i dessa butiker är synlig genom att fråga vyn över frågearkivet.
 
-## <a name="access-query-store-information"></a>Information om Access Query Store
+## <a name="access-query-store-information"></a>Hämta information om Frågearkivet
 
-Query Store-data lagras i azure_sys-databasen på Postgres-servern. 
+Query Store-data lagras i azure_sys-databasen på din postgres-Server. 
 
-Följande fråga returnerar information om frågor i Query Store:
+Följande fråga returnerar information om frågor i Frågearkivet:
 ```sql
 SELECT * FROM query_store.qs_view; 
 ``` 
 
-Eller den här frågan för väntestatistik:
+Eller den här frågan för wait-statistik:
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
 
-Du kan också avge Query Store-data till [Azure Monitor Logs](../azure-monitor/log-query/log-query-overview.md) för analys och avisering, eventhubbar för direktuppspelning och Azure Storage för arkivering. Loggkategorierna som ska konfigureras är **QueryStoreRuntimeStatistics** och **QueryStoreWaitStatistics**. Mer information om installationen finns i artikeln [för diagnostikinställningar för Azure Monitor.](../azure-monitor/platform/diagnostic-settings.md)
+Du kan också generera Query Store-data till [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) för analys och aviseringar, Event Hubs för strömning och Azure Storage för arkivering. De logg kategorier som ska konfigureras är **QueryStoreRuntimeStatistics** och **QueryStoreWaitStatistics**. Mer information om installations programmet finns i artikeln [Azure Monitor diagnostiska inställningar](../azure-monitor/platform/diagnostic-settings.md) .
 
 
-## <a name="finding-wait-queries"></a>Hitta vänta frågor
-Vänta händelsetyper kombinerar olika vänta händelser i buckets efter likhet. Query Store innehåller typen väntad händelse, specifika vänta händelsenamn och frågan i fråga. Att kunna korrelera den här vänta-informationen med frågekörningsstatistiken innebär att du kan få en djupare förståelse för vad som bidrar till frågeprestandaegenskaper.
+## <a name="finding-wait-queries"></a>Hitta väntande frågor
+Väntande händelse typer kombinerar olika vänte händelser till buckets efter likhet. Frågearkivet innehåller vänte händelse typ, ett särskilt namn på wait-händelsen och frågan i fråga. Om du vill korrelera denna wait-information med frågans körnings statistik innebär det att du får en djupare förståelse för vad som bidrar till att fråga prestanda egenskaperna.
 
-Här är några exempel på hur du kan få mer insikter om din arbetsbelastning med hjälp av väntestatistiken i Query Store:
+Här följer några exempel på hur du kan få mer insikter om din arbets belastning med väntande statistik i Frågearkivet:
 
-| **Observation** | **Åtgärd** |
+| **Permanenta** | **Åtgärd** |
 |---|---|
-|High Lock väntar | Kontrollera frågetexterna för de berörda frågorna och identifiera målentiteterna. Leta i Query Store efter andra frågor som ändrar samma entitet, som körs ofta och/eller har hög varaktighet. När du har identifierat dessa frågor bör du överväga att ändra programlogiken för att förbättra samtidigheten eller använda en mindre restriktiv isoleringsnivå.|
-| Hög buffert-I/o väntar | Hitta frågor med ett stort antal fysiska läsningar i Query Store. Om de matchar frågorna med höga IO-väntetider kan du överväga att införa ett index på den underliggande entiteten för att göra sökningar i stället för genomsökningar. Detta skulle minimera IO omkostnader för frågorna. Kontrollera **prestandarekommendationerna** för servern i portalen för att se om det finns indexrekommendationer för den här servern som skulle optimera frågorna.|
-| Högt minne väntar | Hitta det översta minne som förbrukar frågor i Query Store. Dessa frågor försenar förmodligen ytterligare förlopp för de berörda frågorna. Kontrollera **prestandarekommendationerna** för servern i portalen för att se om det finns indexrekommendationer som skulle optimera dessa frågor.|
+|Hög lås väntar | Kontrol lera fråge texterna för de berörda frågorna och identifiera målentiteten. Leta i Frågearkivet efter andra frågor som ändrar samma entitet, som körs ofta och/eller har hög varaktighet. När du har identifierat dessa frågor bör du överväga att ändra program logiken till att förbättra samtidigheten eller använda en mindre begränsande isolerings nivå.|
+| Hög buffert i/o väntar | Hitta frågorna med ett stort antal fysiska läsningar i Frågearkivet. Om de matchar frågorna med höga i/o-väntan, bör du införa ett index för den underliggande entiteten för att göra det i stället för genomsökningar. Detta skulle minimera IO-omkostnaderna för frågorna. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer för den här servern som skulle optimera frågorna.|
+| Hög minnes väntan | Hitta de mest krävande minnes frågorna i Frågearkivet. Dessa frågor fördröjer förmodligen ytterligare förloppet för de frågor som påverkas. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer som skulle optimera dessa frågor.|
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
-När Query Store är aktiverat sparar den data i 15-minuters aggregeringsfönster, upp till 500 olika frågor per fönster. 
+När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönster, upp till 500 distinkta frågor per fönster. 
 
-Följande alternativ är tillgängliga för att konfigurera Frågelagringsparametrar.
+Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parametern** | **Beskrivning** | **Default** | **Intervall**|
+| **ProfileServiceApplicationProxy** | **Beskrivning** | **Default** | **Intervall**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Anger vilka satser som spåras. | ingen | ingen, topp, alla |
-| pg_qs.max_query_text_length | Anger den maximala frågelängden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 - 10K |
-| pg_qs.retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
-| pg_qs.track_utility | Anger om verktygskommandon spåras | på | på, av |
+| pg_qs. query_capture_mode | Anger vilka instruktioner som spåras. | ingen | ingen, Top, alla |
+| pg_qs. max_query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
+| pg_qs. retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
+| pg_qs. track_utility | Anger om verktygs kommandon spåras | på | på, av |
 
-Följande alternativ gäller specifikt för att vänta statistik.
+Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parametern** | **Beskrivning** | **Default** | **Intervall**|
+| **ProfileServiceApplicationProxy** | **Beskrivning** | **Default** | **Intervall**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Anger vilka utdrag som spåras för väntestatistik. | ingen | ingen, alla|
-| Pgms_wait_sampling.history_period | Ställ in frekvensen i millisekunder, där väntehändelser samplas. | 100 | 1-600000 |
+| pgms_wait_sampling. query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | ingen | ingen, alla|
+| Pgms_wait_sampling. history_period | Ange frekvensen, i millisekunder, vid sampling av väntande händelser. | 100 | 1-600000 |
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode** ersätter **pgms_wait_sampling.query_capture_mode**. Om pg_qs.query_capture_mode är NONE har inställningen pgms_wait_sampling.query_capture_mode ingen effekt.
+> **pg_qs. query_capture_mode** ersätter **pgms_wait_sampling. query_capture_mode**. Om pg_qs. query_capture_mode är ingen, har pgms_wait_sampling. query_capture_mode-inställningen ingen påverkan.
 
 
-Använd [Azure-portalen](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) för att hämta eller ange ett annat värde för en parameter.
+Använd [Azure Portal](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) för att hämta eller ange ett annat värde för en parameter.
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
-Visa och hantera Query Store med hjälp av följande vyer och funktioner. Alla i den offentliga rollen PostgreSQL kan använda dessa vyer för att se data i Query Store. Dessa vyer är endast tillgängliga i **azure_sys** databas.
+Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i den offentliga PostgreSQL-rollen kan använda dessa vyer för att se data i Frågearkivet. Dessa vyer är bara tillgängliga i **azure_sys** -databasen.
 
-Frågor normaliseras genom att titta på deras struktur efter att ha tagit bort litteraler och konstanter. Om två frågor är identiska med undantag för litterala värden har de samma hash.
+Frågorna normaliseras genom att titta på deras struktur efter att du tagit bort litteraler och konstanter. Om två frågor är identiska förutom literala värden, har de samma hash.
 
-### <a name="query_storeqs_view"></a>query_store.qs_view
-Den här vyn returnerar alla data i Query Store. Det finns en rad för varje distinkt databas-ID, användar-ID och fråge-ID. 
+### <a name="query_storeqs_view"></a>query_store. qs_view
+Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID och fråge-ID. 
 
 |**Namn**   |**Typ** | **Referenser**  | **Beskrivning**|
 |---|---|---|---|
-|runtime_stats_entry_id |bigint | | ID från tabellen runtime_stats_entries|
-|user_id    |Oid    |pg_authid.oid  |OID för användare som utförde utdraget|
-|db_id  |Oid    |pg_database.oid    |OID för databas där uttalandet utfördes|
-|query_id   |bigint  || Intern hash-kod som beräknas från uttryckets parsa träd|
-|query_sql_text |Varchar(10000)  || Texten till ett representativt uttalande. Olika frågor med samma struktur grupperas tillsammans. Den här texten är texten för den första av frågorna i klustret.|
-|plan_id    |bigint |   |ID för planen som motsvarar den här frågan, inte tillgänglig ännu|
-|start_time |timestamp  ||  Frågor aggregeras efter tidssegment - tidsintervallet för en bucket är 15 minuter som standard. Det här är starttiden som motsvarar tidsenheten för den här posten.|
-|end_time   |timestamp  ||  Sluttid som motsvarar tidsenheten för den här posten.|
-|Samtal  |bigint  || Antal gånger som frågan har körts|
-|total_time |dubbel precision   ||  Total körningstid för frågor i millisekunder|
-|min_time   |dubbel precision   ||  Minsta tid för körning av frågor i millisekunder|
-|max_time   |dubbel precision   ||  Maximal körningstid för frågor i millisekunder|
-|mean_time  |dubbel precision   ||  Genomsnittlig körningstid för frågor, i millisekunder|
-|stddev_time|   dubbel precision    ||  Standardavvikelse för frågekörningstiden, i millisekunder |
-|Rader   |bigint ||  Totalt antal rader som hämtats eller påverkats av utdraget|
-|shared_blks_hit|   bigint  ||  Totalt antal träffar av delad blockcache av uttrycket|
-|shared_blks_read|  bigint  ||  Totalt antal delade block som läsats av uttalandet|
-|shared_blks_dirtied|   bigint   || Totalt antal delade block som smutsats av uttalandet |
-|shared_blks_written|   bigint  ||  Totalt antal delade block skrivna av uttalandet|
-|local_blks_hit|    bigint ||   Totalt antal lokala blockcachen träffar av satsen|
-|local_blks_read|   bigint   || Totalt antal lokala block som läsats av uttalandet|
-|local_blks_dirtied|    bigint  ||  Totalt antal lokala block som smutsats av uttalandet|
-|local_blks_written|    bigint  ||  Totalt antal lokala block som skrivits av uttalandet|
-|temp_blks_read |bigint  || Totalt antal temp-block som läsats av uttalandet|
-|temp_blks_written| bigint   || Totalt antal temp block skrivna av uttalandet|
-|blk_read_time  |dubbel precision    || Total tid som satsen har spenderat läsblock i millisekunder (om track_io_timing är aktiverat, annars noll)|
-|blk_write_time |dubbel precision    || Total tid som uttalandet har spenderats på att skriva block i millisekunder (om track_io_timing är aktiverat, annars noll)|
+|runtime_stats_entry_id |bigint | | ID från runtime_stats_entriess tabellen|
+|user_id    |OID    |pg_authid. OID  |OID för den användare som körde instruktionen|
+|db_id  |OID    |pg_database. OID    |OID för databasen där instruktionen kördes|
+|query_id   |bigint  || Intern hash-kod, beräknad från instruktionens parse-träd|
+|query_sql_text |Varchar (10000)  || Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
+|plan_id    |bigint |   |ID för planen som motsvarar den här frågan, inte tillgängligt ännu|
+|start_time |timestamp  ||  Frågor sammanställs av tidsbuckets – tids perioden för en Bucket är 15 minuter som standard. Detta är start tiden som motsvarar tidsbucket för den här posten.|
+|end_time   |timestamp  ||  Slut tid som motsvarar tidsbucket för den här posten.|
+|fjärrproceduranrop  |bigint  || Antal gånger som frågan kördes|
+|total_time |dubbel precision   ||  Total körnings tid i millisekunder för fråga|
+|min_time   |dubbel precision   ||  Minsta körnings tid för fråga, i millisekunder|
+|max_time   |dubbel precision   ||  Maximal tid för frågekörning, i millisekunder|
+|mean_time  |dubbel precision   ||  Genomsnittlig tid för körning av fråga, i millisekunder|
+|stddev_time|   dubbel precision    ||  Standard avvikelse för frågans körnings tid, i millisekunder |
+|raderna   |bigint ||  Totalt antal rader som hämtats eller påverkats av instruktionen|
+|shared_blks_hit|   bigint  ||  Totalt antal träffar för delade block-cache med instruktionen|
+|shared_blks_read|  bigint  ||  Totalt antal delade block som lästs av instruktionen|
+|shared_blks_dirtied|   bigint   || Totalt antal delade block som dirtied av instruktionen |
+|shared_blks_written|   bigint  ||  Totalt antal delade block som skrivits av instruktionen|
+|local_blks_hit|    bigint ||   Totalt antal lokala block cacheträffar per instruktionen|
+|local_blks_read|   bigint   || Totalt antal lokala block som lästs av instruktionen|
+|local_blks_dirtied|    bigint  ||  Totalt antal lokala block dirtied med instruktionen|
+|local_blks_written|    bigint  ||  Totalt antal lokala block som skrivits av instruktionen|
+|temp_blks_read |bigint  || Totalt antal temporära block som lästs av instruktionen|
+|temp_blks_written| bigint   || Totalt antal temporära block som skrivits av instruktionen|
+|blk_read_time  |dubbel precision    || Total tid som instruktionen ägnat åt att läsa block, i millisekunder (om track_io_timing är aktive rad, annars noll)|
+|blk_write_time |dubbel precision    || Total tid som instruktionen ägnat åt att skriva block, i millisekunder (om track_io_timing har Aktiver ATS, annars noll)|
     
-### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
-I den här vyn returneras frågetextdata i Query Store. Det finns en rad för varje distinkt query_text.
+### <a name="query_storequery_texts_view"></a>query_store. query_texts_view
+Den här vyn returnerar text data i Frågearkivet. Det finns en rad för varje distinkt query_text.
 
 |**Namn**|  **Typ**|   **Beskrivning**|
 |---|---|---|
-|query_text_id  |bigint     |ID för tabellen query_texts|
-|query_sql_text |Varchar(10000)     |Texten till ett representativt uttalande. Olika frågor med samma struktur grupperas tillsammans. Den här texten är texten för den första av frågorna i klustret.|
+|query_text_id  |bigint     |ID för query_textss tabellen|
+|query_sql_text |Varchar (10000)     |Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
 
-### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
-I den här vyn returneras väntehändelser i Query Store. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
+### <a name="query_storepgms_wait_sampling_view"></a>query_store. pgms_wait_sampling_view
+Den här vyn returnerar information om väntande händelser i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
 
 |**Namn**|  **Typ**|   **Referenser**| **Beskrivning**|
 |---|---|---|---|
-|user_id    |Oid    |pg_authid.oid  |OID för användare som utförde utdraget|
-|db_id  |Oid    |pg_database.oid    |OID för databas där uttalandet utfördes|
-|query_id   |bigint     ||Intern hash-kod som beräknas från uttryckets parsa träd|
-|event_type |text       ||Den typ av händelse som backend väntar på|
-|händelse  |text       ||Namnet på vänta-händelse om backend väntar|
-|Samtal  |Integer        ||Antal av samma händelse som fångas|
+|user_id    |OID    |pg_authid. OID  |OID för den användare som körde instruktionen|
+|db_id  |OID    |pg_database. OID    |OID för databasen där instruktionen kördes|
+|query_id   |bigint     ||Intern hash-kod, beräknad från instruktionens parse-träd|
+|event_type |text       ||Den typ av händelse som server delen väntar på|
+|händelse  |text       ||Vänte händelse namnet om Server delen väntar på att stoppas|
+|fjärrproceduranrop  |Integer        ||Antal insamlade händelser|
 
 
-### <a name="functions"></a>Funktioner
-Query_store.qs_reset() returnerar ogiltigt
+### <a name="functions"></a>Functions
+Query_store. qs_reset () returnerar void
 
-`qs_reset` ignorerar all statistik som hittills samlats in av Query Store. Den här funktionen kan bara köras av serveradministratörsrollen.
+`qs_reset` ignorerar all statistik som har samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.
 
-Query_store.staging_data_reset() returnerar ogiltigt
+Query_store. staging_data_reset () returnerar void
 
-`staging_data_reset` ignorerar all statistik som samlas in i minnet av Query Store (det vill än data i minnet som ännu inte har spolats till databasen). Den här funktionen kan bara köras av serveradministratörsrollen.
+`staging_data_reset` ignorerar all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
-- Om en PostgreSQL-server har parametern default_transaction_read_only på, kan Query Store inte samla in data.
-- Query Store-funktionen kan avbrytas om den stöter på långa Unicode-frågor (>= 6000 byte).
-- [Läs repliker](concepts-read-replicas.md) replikera Query Store-data från huvudservern. Det innebär att en läsrepliks Query Store inte tillhandahåller statistik om frågor som körs på läsrepliken.
+- Om en PostgreSQL-Server har parametern default_transaction_read_only på, kan Query Store inte samla in data.
+- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (>= 6000 byte).
+- [Läs repliker](concepts-read-replicas.md) replikerar Query Store-data från huvud servern. Det innebär att en Läs repliks Frågearkivet inte tillhandahåller statistik om frågor som körs på Läs repliken.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [scenarier där Query Store kan vara särskilt användbart](concepts-query-store-scenarios.md).
-- Läs mer om [metodtips för att använda Query Store](concepts-query-store-best-practices.md).
+- Lär dig mer om [scenarier där Query Store kan vara särskilt användbart](concepts-query-store-scenarios.md).
+- Lär dig mer om [metod tips för att använda Query Store](concepts-query-store-best-practices.md).

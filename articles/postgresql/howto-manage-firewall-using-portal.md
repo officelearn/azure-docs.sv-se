@@ -1,64 +1,64 @@
 ---
-title: Hantera brandväggsregler - Azure portal - Azure Database för PostgreSQL - Single Server
-description: Skapa och hantera brandväggsregler för Azure Database for PostgreSQL - Single Server med Azure-portalen
+title: Hantera brand Väggs regler – Azure Portal-Azure Database for PostgreSQL-enskild server
+description: Skapa och hantera brand Väggs regler för Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770313"
 ---
-# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Skapa och hantera brandväggsregler för Azure Database for PostgreSQL - Single Server med Azure-portalen
-Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure-databas för PostgreSQL-server från en angiven IP-adress eller ett visst intervall med IP-adresser.
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Skapa och hantera brand Väggs regler för Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
+Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en Azure Database for PostgreSQL-Server från en angiven IP-adress eller ett intervall med IP-adresser.
 
-Virtuella nätverksregler (Virtual Network) kan också användas för att skydda åtkomsten till servern. Läs mer om [hur du skapar och hanterar slutpunkter och regler för tjänsten För virtuella nätverk med hjälp av Azure-portalen](howto-manage-vnet-using-portal.md).
+Virtual Network-regler (VNet) kan också användas för att skydda åtkomsten till servern. Lär dig mer om [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure Portal](howto-manage-vnet-using-portal.md).
 
 ## <a name="prerequisites"></a>Krav
-För att gå igenom den här guiden behöver du:
-- En server [Skapa en Azure-databas för PostgreSQL](quickstart-create-server-database-portal.md)
+För att gå igenom den här instruktions guiden behöver du:
+- En server [skapa en Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
-1. Klicka på **Anslutningssäkerhet** under Inställningsrubrik på postgreSQL-serversidan för att öppna säkerhetssidan Anslutning för Azure-databasen för PostgreSQL under rubriken Inställningar.
+1. På sidan PostgreSQL-Server under inställnings rubrik klickar du på **anslutnings säkerhet** för att öppna sidan anslutnings säkerhet för Azure Database for PostgreSQL.
 
-   ![Azure portal - klicka på Anslutningssäkerhet](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   ![Azure Portal på anslutnings säkerhet](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Klicka på **Lägg till min IP i** verktygsfältet. Detta skapar automatiskt en brandväggsregel med den offentliga IP-adressen för din dator, vilket uppfattas av Azure-systemet.
+2. Klicka på **Lägg till min IP** i verktygsfältet. Detta skapar automatiskt en brand Väggs regel med den offentliga IP-adressen för datorn, som den uppfattas av Azure-systemet.
 
-   ![Azure portal - klicka på Lägg till min IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
+   ![Azure Portal på Lägg till min IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
-3. Verifiera din IP-adress innan du sparar konfigurationen. I vissa situationer skiljer sig IP-adressen som observeras av Azure-portalen från IP-adressen som används vid åtkomst till Internet- och Azure-servrar. Därför kan du behöva ändra Start IP och End IP för att få regeln att fungera som förväntat.
-   Använd en sökmotor eller annat online-verktyg för att kontrollera din egen IP-adress. Sök till exempel efter "vad är min IP".
+3. Verifiera din IP-adress innan du sparar konfigurationen. I vissa situationer skiljer sig IP-adressen som observerats av Azure Portal från den IP-adress som användes vid åtkomst till Internet-och Azure-servrar. Därför kan du behöva ändra Start-IP och slut-IP för att funktionen regel ska fungera som förväntat.
+   Använd en sökmotor eller ett annat online verktyg för att kontrol lera din egen IP-adress. Sök till exempel efter "What ' min IP".
 
-   ![Bing söka efter Vad är min IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
+   ![Bing-sökning för vad är min IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Lägg till ytterligare adressintervall. I brandväggsreglerna för Azure-databasen för PostgreSQL kan du ange en enda IP-adress eller ett adressintervall. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fältet för Start IP och End IP. Om du öppnar brandväggen kan administratörer, användare och program komma åt alla databaser på PostgreSQL-servern som de har giltiga autentiseringsuppgifter till.
+4. Lägg till ytterligare adress intervall. I brand Väggs reglerna för Azure Database for PostgreSQL kan du ange en enskild IP-adress eller ett adress intervall. Om du vill begränsa regeln till en enskild IP-adress skriver du samma adress i fältet för Start-IP och slut-IP. Genom att öppna brand väggen kan administratörer, användare och program få åtkomst till alla databaser på PostgreSQL-servern som de har giltiga autentiseringsuppgifter för.
 
-   ![Azure portal - brandväggsregler](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Azure Portal-brand Väggs regler](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
-5. Klicka på **Spara** i verktygsfältet om du vill spara brandväggsregeln på servernivå. Vänta på bekräftelsen att uppdateringen av brandväggsreglerna lyckades.
+5. Klicka på **Spara** i verktygsfältet för att spara brand Väggs regeln på server nivå. Vänta tills den bekräftelse att uppdateringen av brand Väggs reglerna har slutförts.
 
-   ![Azure-portalen - klicka på Spara](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
+   ![Azure Portal på Spara](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
 ## <a name="connecting-from-azure"></a>Ansluta från Azure
-Om du vill tillåta att program från Azure ansluter till din Azure-databas för PostgreSQL-server måste Azure-anslutningar vara aktiverade. Om du till exempel vill vara värd för ett Azure Web Apps-program eller ett program som körs i en Virtuell Azure-dator eller för att ansluta från en Azure Data Factory-datahanteringsgateway. Resurserna behöver inte finnas i samma virtuella nätverk (VNet) eller resursgrupp för brandväggsregeln för att aktivera dessa anslutningar. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. Det finns ett par metoder för att aktivera dessa typer av anslutningar. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger att dessa anslutningar tillåts. Du kan också ange alternativet **Tillåt åtkomst till Azure-tjänster** till **ON** i portalen från **säkerhetsfönstret Anslutning** och trycka på **Spara**. Om anslutningsförsöket inte är tillåtet når begäran inte Azure-databasen för PostgreSQL-servern.
+Om du vill tillåta att program från Azure ansluter till din Azure Database for PostgreSQL-Server måste Azure-anslutningar vara aktiverade. Till exempel, för att vara värd för ett Azure Web Apps-program eller ett program som körs på en virtuell Azure-dator eller för att ansluta från en Azure Data Factory Data Management Gateway. Resurserna behöver inte finnas i samma Virtual Network (VNet) eller resurs gruppen för brand Väggs regeln för att aktivera dessa anslutningar. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. Det finns ett par metoder för att aktivera dessa typer av anslutningar. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger att dessa anslutningar tillåts. Alternativt kan du ställa in alternativet **Tillåt åtkomst till Azure-tjänster** på **i portalen** från fönstret **anslutnings säkerhet** och trycka på **Spara**. Om anslutnings försöket inte är tillåtet når begäran inte Azure Database for PostgreSQL servern.
 
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 > 
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Hantera befintliga brandväggsregler på servernivå via Azure Portal
-Upprepa stegen för att hantera brandväggsreglerna.
-* Om du vill lägga till den aktuella datorn klickar du på knappen till + **Lägg till min IP**. Klicka på **Spara** för att spara ändringarna.
+Upprepa stegen för att hantera brand Väggs reglerna.
+* Lägg till den aktuella datorn genom att klicka på knappen till + **Lägg till min IP**. Klicka på **Spara** för att spara ändringarna.
 * Om du vill lägga till ytterligare IP-adresser skriver du regelnamnet, start-IP-adressen och slut-IP-adressen. Klicka på **Spara** för att spara ändringarna.
 * Om du vill redigera en befintlig regel klickar du på något av fälten i regeln och redigerar det. Klicka på **Spara** för att spara ändringarna.
-* Om du vill ta bort en befintlig regel klickar du på ellipsen [...] och klickar på **Ta bort** för att ta bort regeln. Klicka på **Spara** för att spara ändringarna.
+* Ta bort en befintlig regel genom att klicka på ellipsen [...] och ta bort regeln genom att klicka på **ta bort** . Klicka på **Spara** för att spara ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
-- På samma sätt kan du skript för att [skapa och hantera Azure Database för PostgreSQL-brandväggsregler med Azure CLI](howto-manage-firewall-using-cli.md).
-- Ytterligare säker åtkomst till servern genom [att skapa och hantera slutpunkter och regler för tjänsten För virtuella nätverk med hjälp av Azure-portalen](howto-manage-vnet-using-portal.md).
-- Mer information om hur du ansluter till en Azure-databas för PostgreSQL-server finns i [Anslutningsbibliotek för Azure Database för PostgreSQL](concepts-connection-libraries.md).
+- På samma sätt kan du använda skript för att [skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md).
+- Mer säker åtkomst till servern genom [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure Portal](howto-manage-vnet-using-portal.md).
+- Information om hur du ansluter till en Azure Database for PostgreSQL-Server finns i [anslutnings bibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).

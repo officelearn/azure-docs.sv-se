@@ -1,6 +1,6 @@
 ---
-title: Problem med att konfigurera lösenord SSO för en appar som inte är galleri
-description: Vanliga problem som uppstår när du konfigurerar lösenord enkel inloggning (SSO) för anpassade appar som inte finns i Azure AD-programgalleriet.
+title: Problem med att konfigurera SSO för lösen ord för appar som inte är gallerier
+description: Vanliga problem som uppstår när du konfigurerar enkel inloggning för lösen ord (SSO) för anpassade appar som inte finns i Azure AD-programgalleriet.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -16,240 +16,240 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74274134"
 ---
-# <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problem med att konfigurera lösenord enkel inloggning för ett program som inte är galleri
+# <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problem med att konfigurera enkel inloggning för lösen ord för ett program som inte är ett galleri program
 
-I den här artikeln beskrivs vanliga problem som kan uppstå när du konfigurerar *lösenord enkel inloggning* (SSO) för en app som inte är galleri.
+I den här artikeln beskrivs vanliga problem som kan uppstå när du konfigurerar *enkel inloggning för lösen ord* (SSO) för en app som inte är en Galleri.
 
-## <a name="capture-sign-in-fields-for-an-app"></a>Samla inloggningsfält för en app
+## <a name="capture-sign-in-fields-for-an-app"></a>Avbilda inloggnings fält för en app
 
-Inhämtning av inloggningsfält stöds endast för HTML-aktiverade inloggningssidor. Det stöds inte för icke-standardiserade inloggningssidor, till exempel de som använder Adobe Flash eller andra tekniker som inte är HTML-aktiverade.
+Registrering av inloggnings fält stöds bara för HTML-aktiverade inloggnings sidor. Det stöds inte för inloggnings sidor som inte är standard, t. ex. sådana som använder Adobe Flash eller andra icke-HTML-aktiverade tekniker.
 
-Det finns två sätt att samla in inloggningsfält för dina anpassade appar:
+Det finns två sätt att registrera inloggnings fält för dina anpassade appar:
 
-- **Automatisk inloggning av inloggningsfält** fungerar bra med de flesta HTML-aktiverade inloggningssidor, *om de använder välkända DIV-ID:n* för användarnamns- och lösenordsfälten. HTML-koden på sidan skrapas för att hitta DIV-ID:er som matchar vissa villkor. Metadata sparas så att de kan spelas upp i appen senare.
+- **Automatisk insamling av inloggnings fält** fungerar bra med de flesta HTML-aktiverade inloggnings sidor, *om de använder välkända div-ID: n* för fälten användar namn och lösen ord. HTML på sidan klipps av för att hitta DIV-id: n som matchar vissa villkor. Metadata sparas så att de kan spelas upp till appen senare.
 
-- **Manuell inloggningsfältinsamling** används om appleverantören *inte etiketterar inloggningsinmatningsfälten*. Manuell hämtning används också om leverantören *återger flera fält som inte kan identifieras automatiskt*. Azure Active Directory (Azure AD) kan lagra data för så många fält som det finns på inloggningssidan, om du talar om för den var dessa fält finns på sidan.
+- **Registrering av manuellt inloggnings fält** används om app-leverantören *inte förser inloggnings fälten med inloggnings information*. Manuell fångst används också om leverantören *återger flera fält som inte kan identifieras automatiskt*. Azure Active Directory (Azure AD) kan lagra data för så många fält som finns på inloggnings sidan, om du anger var fälten finns på sidan.
 
-Om automatisk inhämtning av inloggningsfält inte fungerar kan du i allmänhet prova det manuella alternativet.
+Om det inte går att skapa automatiska inloggnings fält i allmänhet, kan du prova det manuella alternativet.
 
-### <a name="automatically-capture-sign-in-fields-for-an-app"></a>Samla in inloggningsfält automatiskt för en app
+### <a name="automatically-capture-sign-in-fields-for-an-app"></a>Registrera inloggnings fält automatiskt för en app
 
-Så här konfigurerar du lösenordsbaserad SSO genom att använda automatisk inhämtning av inloggningsfält:
+Följ dessa steg om du vill konfigurera lösenordsbaserad SSO med hjälp av automatisk registrering av inloggnings fält:
 
 1. Öppna [Azure-portalen](https://portal.azure.com/). Logga in som global administratör eller medadministratör.
 
-2. I navigeringsfönstret till vänster väljer du **Alla tjänster** för att öppna Azure AD-tillägget.
+2. I navigerings fönstret till vänster väljer du **alla tjänster** för att öppna tillägget Azure AD.
 
-3. Skriv **Azure Active Directory** i sökrutan för filtret och välj sedan Azure Active **Directory**.
+3. Skriv **Azure Active Directory** i rutan filtrera sökning och välj sedan **Azure Active Directory**.
 
-4. Välj **Företagsprogram** i navigeringsfönstret i Azure AD.
+4. Välj **företags program** i navigerings fönstret i Azure AD.
 
-5. Välj **Alla program om** du vill visa en lista över dina appar.
+5. Välj **alla program** om du vill visa en lista över dina appar.
 
    > [!NOTE]
-   > Om du inte ser den app du vill använda använder du **filterkontrollen** högst upp i listan **Alla program.** Ange alternativet **Visa** till "Alla program".
+   > Om du inte ser den app du vill använda använder du **filter** kontrollen längst upp i listan **alla program** . Ange alternativet **Visa** som "alla program".
 
 6. Välj den app som du vill konfigurera för SSO.
 
-7. När appen har läses in väljer du **Enkel inloggning** i navigeringsfönstret till vänster.
+7. När appen har lästs in väljer du **enkel inloggning** i navigerings fönstret till vänster.
 
-8. Välj **Lösenordsbaserat inloggningsläge.**
+8. Välj **lösenordsbaserad inloggnings** läge.
 
-9. Ange **inloggnings-URL:en**, som är webbadressen till den sida där användarna anger sitt användarnamn och lösenord för att logga in. *Kontrollera att inloggningsfälten visas på sidan för webbadressen som du anger*.
+9. Ange **inloggnings-URL**, som är webb adressen till sidan där användarna anger användar namn och lösen ord för att logga in. *Kontrol lera att inloggnings fälten är synliga på sidan för den URL som du anger*.
 
 10. Välj **Spara**.
 
-    Sidan skrapas automatiskt för inmatningsrutorna för användarnamn och lösenord. Du kan nu använda Azure AD för att säkert överföra lösenord till den appen med hjälp av webbläsartillägget för Åtkomstpanelen.
+    Sidan kasseras automatiskt för rutorna användar namn och lösen ord. Nu kan du använda Azure AD för att på ett säkert sätt överföra lösen ord till appen med hjälp av åtkomst panelens webb läsar tillägg.
 
-### <a name="manually-capture-sign-in-fields-for-an-app"></a>Samla in inloggningsfält manuellt för en app
+### <a name="manually-capture-sign-in-fields-for-an-app"></a>Registrera inloggnings fält manuellt för en app
 
-Om du vill samla in inloggningsfält manuellt måste du ha webbläsartillägget För åtkomstpanelen installerat. Dessutom kan din webbläsare inte köras i *inPrivate,* *inkognito*eller *privat* läge.
+Om du vill samla in inloggnings fält manuellt måste du ha åtkomst panelens webb läsar tillägg installerat. Det går inte heller att köra webbläsaren i *InPrivate*-, *Incognito*-eller *Private* -läge.
 
-Information om hur du installerar tillägget finns i avsnittet [Installera webbläsartillägget för åtkomstpanelen](#install-the-access-panel-browser-extension) i den här artikeln.
+Information om hur du installerar tillägget finns i avsnittet [Installera åtkomst panelens webb läsar tillägg](#install-the-access-panel-browser-extension) i den här artikeln.
 
-Så här konfigurerar du lösenordsbaserad SSO för en app genom att använda manuell inloggningsfältinsamling:
+Följ dessa steg om du vill konfigurera lösenordsbaserad SSO för en app med hjälp av manuella inloggnings fält för registrering:
 
 1. Öppna [Azure-portalen](https://portal.azure.com/). Logga in som global administratör eller medadministratör.
 
-2. I navigeringsfönstret till vänster väljer du **Alla tjänster** för att öppna Azure AD-tillägget.
+2. I navigerings fönstret till vänster väljer du **alla tjänster** för att öppna tillägget Azure AD.
 
-3. Skriv **Azure Active Directory** i sökrutan för filtret och välj sedan Azure Active **Directory**.
+3. Skriv **Azure Active Directory** i rutan filtrera sökning och välj sedan **Azure Active Directory**.
 
-4. Välj **Företagsprogram** i navigeringsfönstret i Azure AD.
+4. Välj **företags program** i navigerings fönstret i Azure AD.
 
-5. Välj **Alla program om** du vill visa en lista över dina appar.
+5. Välj **alla program** om du vill visa en lista över dina appar.
 
    > [!NOTE] 
-   > Om du inte ser den app du vill använda använder du **filterkontrollen** högst upp i listan **Alla program.** Ange alternativet **Visa** till "Alla program".
+   > Om du inte ser den app du vill använda använder du **filter** kontrollen längst upp i listan **alla program** . Ange alternativet **Visa** som "alla program".
 
 6. Välj den app som du vill konfigurera för SSO.
 
-7. När appen har läses in väljer du **Enkel inloggning** i navigeringsfönstret till vänster.
+7. När appen har lästs in väljer du **enkel inloggning** i navigerings fönstret till vänster.
 
-8. Välj **Lösenordsbaserat inloggningsläge.**
+8. Välj **lösenordsbaserad inloggnings** läge.
 
-9. Ange **inloggnings-URL: n**, som är den sida där användarna anger sitt användarnamn och lösenord för att logga in. *Kontrollera att inloggningsfälten visas på sidan för webbadressen som du anger*.
+9. Ange **inloggnings-URL**, som är sidan där användarna anger användar namn och lösen ord för att logga in. *Kontrol lera att inloggnings fälten är synliga på sidan för den URL som du anger*.
 
-10. Välj ** * &lt;Konfigurera&gt; lösenord för lösenord* för lösenord Enkel inloggning**.
+10. Välj **Konfigurera * &lt;&gt; * inställningar för lösen ord för enkel inloggning för APPNAME**.
 
-11. Välj **Identifiera inloggningsfält manuellt**.
+11. Välj **identifiera inloggnings fält manuellt**.
 
-14. Välj **Ok**.
+14. Välj **OK**.
 
 15. Välj **Spara**.
 
-16. Följ instruktionerna för att använda Åtkomstpanelen.
+16. Följ anvisningarna för att använda åtkomst panelen.
 
 ## <a name="troubleshoot-problems"></a>Felsökning av problem
 
-### <a name="i-get-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Jag får felmeddelandet "Vi kunde inte hitta några inloggningsfält på den webbadressen"
+### <a name="i-get-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Jag får ett fel meddelande om att det inte gick att hitta några inloggnings fält på den URL: en
 
-Det här felmeddelandet visas när automatisk identifiering av inloggningsfält misslyckas. Lös problemet genom att prova manuell inloggningsfältidentifiering. Se [inloggningsfälten manuellt för ett program i](#manually-capture-sign-in-fields-for-an-app) den här artikeln.
+Du får det här fel meddelandet när det inte går att identifiera inloggnings fält automatiskt. Försök att lösa problemet genom att försöka med manuell inloggnings fält identifiering. Se [inloggnings fälten manuellt för ett program](#manually-capture-sign-in-fields-for-an-app) i den här artikeln.
 
-### <a name="i-get-an-unable-to-save-single-sign-on-configuration-error"></a>Jag får felmeddelandet "Det går inte att spara en enda inloggningskonfiguration"
+### <a name="i-get-an-unable-to-save-single-sign-on-configuration-error"></a>Jag får fel meddelandet "det går inte att spara enkel inloggnings konfiguration"
 
-Det går sällan att uppdatera SSO-konfigurationen. LÃ¶s problemet genom att fÃ¶ ¶0ã¥ringar ã¶kã¶ Ã¶s lÃ¤5sÃ
+Det går sällan att uppdatera SSO-konfigurationen. Försök att lösa det här problemet genom att spara konfigurationen igen.
 
-Om du fortsätter att få felet öppnar du ett supportärende. Inkludera informationen som beskrivs i [information om visa portalaviseringar](#view-portal-notification-details) och [Skicka information om meddelanden till en supporttekniker för att få hjälpavsnitt](#send-notification-details-to-a-support-engineer-to-get-help) i den här artikeln.
+Om du fortfarande får felet kan du öppna ett support ärende. Ta med den information som beskrivs i [Visa Portal meddelande information](#view-portal-notification-details) och [Skicka meddelande information till en support tekniker för att få hjälp](#send-notification-details-to-a-support-engineer-to-get-help) avsnitt i den här artikeln.
 
-### <a name="i-cant-manually-detect-sign-in-fields-for-my-app"></a>Jag kan inte identifiera inloggningsfält manuellt för min app
+### <a name="i-cant-manually-detect-sign-in-fields-for-my-app"></a>Jag kan inte identifiera inloggnings fält manuellt för min app
 
 Du kan observera följande beteenden när manuell identifiering inte fungerar:
 
-- Den manuella insamlingsprocessen verkade fungera, men de infångade fälten är inte korrekta.
+- Processen för manuell inhämtning verkar fungera, men de insamlade fälten är inte korrekta.
 
-- Rätt fält markeras inte när insamlingsprocessen körs.
+- De korrekta fälten markeras inte när insamlings processen körs.
 
-- Insamlingsprocessen tar dig till appens inloggningssida som förväntat, men inget händer.
+- Hämtnings processen tar dig till appens inloggnings sida som förväntat, men ingenting händer.
 
-- Manuell hämtning verkar fungera, men SSO inträffar inte när användare navigerar till appen från Åtkomstpanelen.
+- Manuell inspelning verkar fungera, men SSO sker inte när användarna navigerar till appen från åtkomst panelen.
 
-Om du upplever något av dessa problem gör du följande:
+Om du upplever något av dessa problem kan du göra följande:
 
-- Kontrollera att du har den senaste versionen av webbläsartillägget Access Panel *installerad och aktiverad*. Se avsnittet [Installera webbläsartillägget för Åtkomstpanelen](#install-the-access-panel-browser-extension) i den här artikeln.
+- Kontrol lera att du har den senaste versionen av åtkomst panelens webb läsar tillägg *installerat och aktiverat*. Se avsnittet [Installera åtkomst panels tillägg](#install-the-access-panel-browser-extension) i den här artikeln.
 
-- Kontrollera att din webbläsare inte är *i inkognito,* *inPrivat eller* *Privat* läge under insamlingsprocessen. Tillägget till åtkomstpanelen stöds inte i dessa lägen.
+- Kontrol lera att din webbläsare inte är i *Incognito*, *InPrivate*eller *privat* läge under insamlings processen. Åtkomst panels tillägget stöds inte i de här lägena.
 
-- Kontrollera att användarna inte försöker logga in på appen från Åtkomstpanelen i *inkognito,* *inPrivate*eller *Privat läge*.
+- Se till att användarna inte försöker logga in på appen från åtkomst panelen i *Incognito*, *InPrivate*eller *privat läge*.
 
-- Prova den manuella insamlingsprocessen igen. Kontrollera att de röda markrarna är över rätt fält.
+- Försök att utföra manuell inhämtning igen. Se till att de röda markeringarna är över rätt fält.
 
-- Om den manuella insamlingsprocessen verkar sluta svara eller om inloggningssidan inte svarar provar du den manuella insamlingsprocessen igen. Men den här gången, efter att ha slutfört processen, tryck på F12 för att öppna webbläsarens utvecklarkonsol. Välj **konsolfliken.** Skriv **fönster.location="*&lt;den inloggnings-URL som du&gt;angav när du konfigurerade appen*"** och tryck sedan på Retur. Detta tvingar en sidomdirigering som avslutar insamlingsprocessen och lagrar de fält som fångades.
+- Om den manuella hämtningen verkar sluta svara eller om inloggnings sidan inte svarar, kan du försöka att utföra den manuella insamlingen igen. Men den här gången har du slutfört processen genom att trycka på F12-tangenten för att öppna webbläsarens utvecklarverktyg. Välj fliken **konsol** . Skriv **window. location = "*&lt;den inloggnings-URL som du angav när du konfigurerade appen&gt;*"** och tryck sedan på RETUR. Detta innebär en omdirigering av sidan som avslutar insamlings processen och lagrar de fält som har registrerats.
 
 ### <a name="contact-support"></a>Kontakta supporten
 
-Om du fortfarande har problem öppnar du ett ärende med Microsoft Support. Beskriv vad du försökte. Inkludera informationen som beskrivs i [information om visa portalaviseringar](#view-portal-notification-details) och [Skicka information om meddelanden till en supporttekniker för att få hjälpavsnitt](#send-notification-details-to-a-support-engineer-to-get-help) i den här artikeln (om tillämpligt).
+Om du fortfarande har problem kan du öppna ett ärende med Microsoft Support. Beskriv vad du försökte. Ta med den information som beskrivs i [Visa Portal meddelande information](#view-portal-notification-details) och [Skicka meddelande information till en support tekniker för att få hjälp](#send-notification-details-to-a-support-engineer-to-get-help) avsnitt i den här artikeln (om tillämpligt).
 
-## <a name="install-the-access-panel-browser-extension"></a>Installera webbläsartillägget för Åtkomstpanelen
+## <a name="install-the-access-panel-browser-extension"></a>Installera åtkomst panelens webb läsar tillägg
 
 Följ de här stegen:
 
-1. Öppna [Åtkomstpanelen](https://myapps.microsoft.com) i en webbläsare som stöds. Logga in på Azure AD som *användare*.
+1. Öppna [åtkomst panelen](https://myapps.microsoft.com) i en webbläsare som stöds. Logga in på Azure AD som en *användare*.
 
-2. Välj **lösenords-SSO-program** på Åtkomstpanelen.
+2. Välj **Password-SSO-program** i åtkomst panelen.
 
-3. När du uppmanas att installera programvaran väljer du **Installera nu**.
+3. När du uppmanas att installera program varan väljer du **Installera nu**.
 
-4. Du dirigeras till en nedladdningssida för din webbläsare. Välj att **lägga till** tillägget.
+4. Du dirigeras till en nedladdnings sida för din webbläsare. Välj att **lägga till** tillägget.
 
-5. Om du uppmanas att göra en fråga väljer du **Aktivera** eller **Tillåt**.
+5. Om du uppmanas väljer du **Aktivera** eller **Tillåt**.
 
 6. Starta om webbläsaren efter installationen.
 
-7. Logga in på åtkomstpanelen. Se om du kan öppna dina lösenords-SSO-aktiverade appar.
+7. Logga in på åtkomst panelen. Se om du kan öppna dina appar för inloggning med lösen ord.
 
-Du kan också direkt ladda ner webbläsartillägget för Chrome och Firefox via dessa länkar:
+Du kan också hämta webbläsarens tillägg direkt för Chrome och Firefox genom följande länkar:
 
--   [Tillägg till Chrome Access Panel](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Tillägg för Chrome Access panel](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Tillägg till Firefox Access Panel](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Åtkomst panels tillägg för Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="view-portal-notification-details"></a>Visa information om portalavisering
+## <a name="view-portal-notification-details"></a>Visa information om Portal meddelanden
 
-Så här ser du information om eventuella portalmeddelanden:
+Följ dessa steg om du vill se information om eventuella Portal meddelanden:
 
-1. Välj ikonen **Meddelanden** (klockan) i det övre högra hörnet av Azure-portalen.
+1. Välj **meddelande** ikonen (klock ikonen) i det övre högra hörnet av Azure Portal.
 
-2. Markera ett meddelande som visar ett *feltillstånd.* (De har en röd "!".)
+2. Välj ett meddelande som visar ett *fel* tillstånd. (De har ett rött "!".)
 
    > [!NOTE]
-   > Du kan inte välja aviseringar som är i tillståndet *Lyckad* eller *Pågår.*
+   > Det går inte att välja meddelanden som har statusen *lyckades* eller *pågår* .
 
-3. Fönstret **Meddelandeinformation** öppnas. Läs informationen om problemet.
+3. Fönstret **meddelande information** öppnas. Läs informationen om du vill veta mer om problemet.
 
-5. Om du fortfarande behöver hjälp kan du dela informationen med en supporttekniker eller produktgruppen. Markera **kopieringsikonen** till höger om rutan **Kopiera fel** om du vill kopiera meddelandeinformationen som ska delas.
+5. Om du fortfarande behöver hjälp kan du dela informationen med en support tekniker eller produkt gruppen. Välj **kopierings** ikonen till höger om rutan **Kopiera fel** för att kopiera meddelande informationen till resursen.
 
-## <a name="send-notification-details-to-a-support-engineer-to-get-help"></a>Skicka information om avisering till en supporttekniker för att få hjälp
+## <a name="send-notification-details-to-a-support-engineer-to-get-help"></a>Skicka meddelande information till en support tekniker för att få hjälp
 
-Det är viktigt att du delar *alla* detaljer som visas i det här avsnittet med stöd så att de kan hjälpa dig snabbt. Om du vill spela in den kan du ta en skärmbild eller välja **Kopiera fel**.
+Det är viktigt att du delar *all* information som anges i det här avsnittet med support så att de snabbt kan hjälpa dig. Om du vill spela in det kan du ta en skärm bild eller välja **Kopiera fel**.
 
-Följande information förklarar vad varje meddelandeobjekt betyder och ger exempel.
+Följande information förklarar vad varje meddelande objekt innebär och innehåller exempel.
 
-### <a name="essential-notification-items"></a>Viktiga meddelandeobjekt
+### <a name="essential-notification-items"></a>Viktiga meddelande objekt
 
-- **Benämning**: Anmälans beskrivande titel.
+- **Title**: meddelandets beskrivande rubrik.
 
-   Exempel: *Proxyinställningar för program*
+   Exempel: *Inställningar för programproxy*
 
-- **Beskrivning**: vad som hände som ett resultat av operationen.
+- **Beskrivning**: vad som har uppstått till följd av åtgärden.
 
-   Exempel: *Intern URL som anges används redan av ett annat program.*
+   Exempel: *en intern URL som angetts används redan av ett annat program.*
 
-- **Meddelande-ID:** det unika ID:t för meddelandet.
+- **Meddelande-ID**: det unika ID: t för meddelandet.
 
     Exempel: *clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068*
 
-- **Klientbegärande-ID:** det specifika begärande-ID som din webbläsare har gjort.
+- **ID för klientbegäran**: det angivna ID: t för begäran som webbläsaren har gjort.
 
     Exempel: *302fd775-3329-4670-a9f3-bea37004f0bc*
 
-- **Tidsstämpel UTC:** tidsstämpeln för när meddelandet inträffade, i UTC.
+- Tidstämpel **UTC: tidsstämpeln**för när meddelandet inträffade, i UTC.
 
-    Exempel: *2017-03-23T19:50:43.7583681Z*
+    Exempel: *2017-03-23T19:50:43.7583681 z*
 
-- **Internt transaktions-ID:** det interna ID som används för att slå upp felet i våra system.
+- **Internt transaktions-ID**: det interna ID: t som används för att leta upp felet i våra system.
 
     Exempel: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
-- **UPN**: Användaren som körde åtgärden.
+- **UPN**: den användare som körde åtgärden.
 
     Exempel: *tperkins\@f128.info*
 
-- **Klient-ID:** det unika ID:et för klienten som användaren som körde åtgärden är medlem i.
+- **Klient-ID**: det unika ID: t för den klient som den användare som körde åtgärden är medlem i.
 
     Exempel: *7918d4b5-0442-4a97-be2d-36f9f9962ece*
 
-- **Användarobjekt-ID:** Det unika ID:et för den användare som körde åtgärden.
+- **Användar objekt-ID**: det unika ID: t för den användare som körde åtgärden.
 
-    Exempel: *17f84be4-51f8-483a-b533-383791227a99*
+    Exempel: *17f84be4-51f8-483a-B533-383791227a99*
 
-### <a name="detailed-notification-items"></a>Detaljerade meddelandeobjekt
+### <a name="detailed-notification-items"></a>Detaljerade meddelande objekt
 
-- **Visningsnamn**: (kan vara tomt) ett mer detaljerat visningsnamn för felet.
+- **Visnings namn**: (kan vara tomt) ett mer detaljerat visnings namn för felet.
 
-    Exempel: *Proxyinställningar för program*
+    Exempel: *Inställningar för programproxy*
 
-- **Status**: anmälans särskilda status.
+- **Status**: meddelandets aktuella status.
 
-    Exempel: *Misslyckades*
+    Exempel: *misslyckades*
 
 - **Objekt-ID**: (kan vara tomt) det objekt-ID som åtgärden kördes mot.
 
    Exempel: *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
 
-- **Uppgifter**: Den detaljerade beskrivningen av vad som inträffade till följd av operationen.
+- **Information**: den detaljerade beskrivningen av vad som har uppstått till följd av åtgärden.
 
-    Exempel: *Intern<https://bing.com/>url ' ' är ogiltig eftersom den redan används.*
+    Exempel: *den interna URL<https://bing.com/>: en är ogiltig eftersom den redan används.*
 
-- **Kopieringsfel**: Gör att du kan välja **kopieringsikonen** till höger om textrutan **Kopiera fel** för att kopiera meddelandeinformationen för att hjälpa till med supporten.
+- **Kopierings fel**: gör att du kan välja **kopierings ikonen** till höger om text rutan **Kopiera fel** för att kopiera meddelande informationen så att du får hjälp med supporten.
 
-    Exempel:```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    Exempel```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Nästa steg
-[Ge enkel inloggning till dina appar med Programproxy](application-proxy-configure-single-sign-on-with-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

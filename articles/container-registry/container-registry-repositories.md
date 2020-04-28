@@ -1,51 +1,51 @@
 ---
 title: Visa databaser i portalen
-description: Använd Azure-portalen för att visa Azure Container Registry-databaser, som är värd för Docker-behållaravbildningar och andra artefakter som stöds.
+description: Använd Azure Portal för att Visa Azure Container Registry-databaser, som är värd för Docker-behållar avbildningar och andra artefakter som stöds.
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456291"
 ---
-# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visa behållarregisterdatabaser i Azure-portalen
+# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visa behållare register Arkiv i Azure Portal
 
-Azure Container Registry kan du lagra Docker-behållaravbildningar i databaser. Genom att lagra bilder i databaser kan du lagra grupper av bilder (eller versioner av bilder) i isolerade miljöer. Du kan ange dessa databaser när du skickar avbildningar till registret och visar deras innehåll i Azure-portalen.
+Med Azure Container Registry kan du lagra Docker-behållar avbildningar i-databaser. Genom att lagra avbildningar i lagrings utrymmen kan du lagra grupper med bilder (eller versioner av avbildningar) i isolerade miljöer. Du kan ange dessa databaser när du push-överför avbildningar till registret och visa innehållet i Azure Portal.
 
 ## <a name="prerequisites"></a>Krav
 
-* **Behållarregistret**: Skapa ett behållarregister i din Azure-prenumeration. Använd till exempel [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Docker CLI:** Installera [Docker][docker-install] på din lokala dator, som ger dig Docker kommandoradsgränssnitt.
-* **Container avbildning:** Skicka en avbildning till behållarregistret. Vägledning om hur du trycker och hämtar bilder finns i [Tryck och dra en bild](container-registry-get-started-docker-cli.md).
+* **Behållar register**: skapa ett behållar register i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Docker CLI**: installera [Docker][docker-install] på den lokala datorn, som ger dig kommando rads gränssnittet Docker.
+* **Behållar avbildning**: skicka en avbildning till behållar registret. Information om hur du push-överför och hämtar bilder finns i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md).
 
-## <a name="view-repositories-in-azure-portal"></a>Visa databaser i Azure-portalen
+## <a name="view-repositories-in-azure-portal"></a>Visa databaser i Azure Portal
 
-Du kan se en lista över de databaser som är värdar för dina avbildningar, samt avbildningstaggarna, i Azure-portalen.
+Du kan se en lista över de databaser som är värdar för dina avbildningar, samt avbildnings taggarna i Azure Portal.
 
-Om du följde stegen i [Push and pull an image](container-registry-get-started-docker-cli.md) (och inte tog bort avbildningen senare) bör du ha en Nginx-avbildning i behållarregistret. I instruktionerna i den artikeln angavs att du taggar bilden med `/samples/nginx`ett namnområde, "samples" i . Som en repetitionsåtgärd var [docker push-kommandot][docker-push] som angavs i den artikeln:
+Om du följde stegen i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md) (och sedan inte har tagit bort avbildningen) bör du ha en nginx-avbildning i ditt container Registry. Anvisningarna i artikeln anger att du taggar avbildningen med ett namn område, "Samples" i `/samples/nginx`. Som en uppdaterare var [Docker push][docker-push] -kommandot som anges i artikeln:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
- Eftersom Azure Container Registry stöder sådana namnområden för flera nivåer kan du begränsa samlingar av avbildningar som är relaterade till en viss app, eller en samling appar, till olika utvecklings- eller driftteam. Mer information om databaser i behållarregister finns i [Privata Docker-behållarregister i Azure](container-registry-intro.md).
+ Eftersom Azure Container Registry stöder lagrings utrymmen för flera platser kan du omfattnings samlingar med avbildningar relaterade till en särskild app, eller en samling av appar, till olika utvecklings-eller drift team. Om du vill läsa mer om databaser i behållar register, se [privata Docker-behållar register i Azure](container-registry-intro.md).
 
-Så här visar du en databas:
+Så här visar du en lagrings plats:
 
-1. Logga in på [Azure-portalen][portal]
-1. Välj **det Azure-behållarregister** som du tryckte Nginx-avbildningen till
-1. Välj **Databaser om** du vill visa en lista över de databaser som innehåller avbildningarna i registret
-1. Markera en databas om du vill visa bildtaggarna i databasen
+1. Logga in på [Azure Portal][portal]
+1. Välj den **Azure Container Registry** som du skickade nginx-avbildningen till
+1. Välj **databaser** om du vill visa en lista över de databaser som innehåller avbildningarna i registret
+1. Välj en lagrings plats för att se avbildnings taggarna i den lagrings platsen
 
-Om du till exempel tryckte på Nginx-bilden enligt instruktionerna i [Tryck och dra en bild](container-registry-get-started-docker-cli.md)bör du se något som liknar:
+Om du till exempel har push-överfört nginx-avbildningen enligt anvisningarna i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md), bör du se något som liknar:
 
 ![Databaser i portalen](./media/container-registry-repositories/container-registry-repositories.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet grunderna i att visa och arbeta med databaser i portalen kan du prova att använda Azure Container Registry med aks-klustret [(Azure Kubernetes Service).](../aks/tutorial-kubernetes-prepare-app.md)
+Nu när du vet grunderna för att visa och arbeta med databaser i portalen kan du prova att använda Azure Container Registry med ett [AKS-kluster (Azure Kubernetes service)](../aks/tutorial-kubernetes-prepare-app.md) .
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

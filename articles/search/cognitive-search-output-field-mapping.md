@@ -1,7 +1,7 @@
 ---
-title: Mappa indata till utdatafält
+title: Mappa indata till utdatakolumner
 titleSuffix: Azure Cognitive Search
-description: Extrahera och berika källdatafält och mappa till utdatafält i ett Azure Cognitive Search-index.
+description: Extrahera och utöka käll data fält och mappa till utmatnings fält i ett Azure Kognitiv sökning-index.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74280973"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Så här mappar du AI-berikade fält till ett sökbart index
 
-I den här artikeln får du lära dig hur du mappar utökade indatafält till utdatafält i ett sökbart index. När du har [definierat en kompetens](cognitive-search-defining-skillset.md)måste du mappa utdatafälten för alla färdigheter som direkt bidrar med värden till ett visst fält i sökindexet. 
+I den här artikeln får du lära dig hur du mappar informativa inmatnings fält till utdatakolumner i ett sökbart index. När du har [definierat en färdigheter](cognitive-search-defining-skillset.md)måste du mappa utmatnings fälten för alla färdigheter som direkt bidrar med värden till ett angivet fält i ditt sökindex. 
 
-Utdatafältmappningar krävs för att flytta innehåll från berikade dokument till indexet.  Det berikade dokumentet är verkligen ett informationsträd, och även om det finns stöd för komplexa typer i indexet, kanske du ibland vill omvandla informationen från det berikade trädet till en enklare typ (till exempel en matris med strängar). Med datafältsmappningar kan du utföra omvandlingar av dataform genom att förenkla information.
+Mappningar av utdatakolumner krävs för att flytta innehåll från berikade dokument till indexet.  Det förrikade dokumentet är egentligen ett träd med information, även om det finns stöd för komplexa typer i indexet, ibland kanske du vill omvandla informationen från det berikade trädet till en mer enkel typ (till exempel en sträng mat ris). Med mappningar av utdata fält kan du utföra transformeringar av data former genom att förenkla informationen.
 
-## <a name="use-outputfieldmappings"></a>Använda outputFieldMappings
-Om du vill `outputFieldMappings` mappa fält lägger du till indexeringsdefinitionen enligt nedan:
+## <a name="use-outputfieldmappings"></a>Använd outputFieldMappings
+Om du vill mappa fält `outputFieldMappings` lägger du till den i index definitions definitionen enligt nedan:
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -30,7 +30,7 @@ api-key: [admin key]
 Content-Type: application/json
 ```
 
-Begärans brödtext är strukturerad på följande sätt:
+Bröd texten i begäran är strukturerad enligt följande:
 
 ```json
 {
@@ -64,21 +64,21 @@ Begärans brödtext är strukturerad på följande sätt:
 }
 ```
 
-För varje utdatafältmappning anger du platsen för data i det berikade dokumentträdet (sourceFieldName) och namnet på fältet som refererat i indexet (targetFieldName).
+För varje fält mappning för utdata anger du platsen för data i det fördefinierade dokument trädet (sourceFieldName) och namnet på fältet som refereras till i indexet (targetFieldName).
 
-## <a name="flattening-information-from-complex-types"></a>Förenkla information från komplexa typer 
+## <a name="flattening-information-from-complex-types"></a>Förenkling av information från komplexa typer 
 
-Sökvägen i en sourceFieldName kan representera ett element eller flera element. I exemplet ovan ```/document/content/sentiment``` representerar ett enda ```/document/content/organizations/*/description``` numeriskt värde, medan det representerar flera organisationsbeskrivningar. 
+Sökvägen i en sourceFieldName kan representera ett eller flera element. I exemplet ovan ```/document/content/sentiment``` representerar ett enkelt numeriskt värde, medan ```/document/content/organizations/*/description``` representerar flera organisations beskrivningar. 
 
-I de fall där det finns flera element, är de "förenklade" i en matris som innehåller vart och ett av elementen. 
+I de fall där det finns flera element blir de "förenklade" i en matris som innehåller varje element. 
 
-Mer konkret, till ```/document/content/organizations/*/description``` exempel, data i *beskrivningsfältet* skulle se ut som en platt matris med beskrivningar innan det blir indexerade:
+Mer konkret, i ```/document/content/organizations/*/description``` exemplet skulle data i fältet *beskrivningar* se ut som en plan mat ris med beskrivningar innan de indexeras:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 
-Detta är en viktig princip, så vi kommer att ge ytterligare ett exempel. Föreställ dig att du har en rad komplexa typer som en del av anrikningsträdet. Anta att det finns en medlem som heter anpassade entiteter som har en matris med komplexa typer som den som beskrivs nedan.
+Detta är en viktig princip, så vi kommer att ange ett annat exempel. Anta att du har en matris med komplexa typer som en del av ditt anriknings träd. Anta att det finns en medlem med namnet customEntities som har en matris av komplexa typer som den som beskrivs nedan.
 
 ```json
 "document/customEntities": 
@@ -109,9 +109,9 @@ Detta är en viktig princip, så vi kommer att ge ytterligare ett exempel. Före
 ]
 ```
 
-Anta att indexet har ett fält som heter "sjukdomar" av typen Samling (Edm.String), där du vill lagra var och en av namnen på entiteterna. 
+Vi antar att ditt index har ett fält med namnet "sjukdomar" av typen Collection (EDM. String) där du vill lagra vart och ett av namnen på entiteterna. 
 
-Detta kan göras enkelt genom\*att använda " " symbolen, enligt följande:
+Detta kan göras enkelt med hjälp av symbolen "\*", enligt följande:
 
 ```json
     "outputFieldMappings": [
@@ -122,13 +122,13 @@ Detta kan göras enkelt genom\*att använda " " symbolen, enligt följande:
     ]
 ```
 
-Den här åtgärden kommer helt enkelt att "platta" vart och ett av namnen på de anpassade entitetselementen till en enda matris med strängar som denna:
+Den här åtgärden kommer bara att "förenkla" var och en av namnen på customEntities-elementen till en enda sträng mat ris som detta:
 
 ```json
   "diseases" : ["heart failure","morquio"]
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-När du har mappat dina utökade fält till sökbara fält kan du ange fältattribut för vart och ett av de sökbara fälten [som en del av indexdefinitionen](search-what-is-an-index.md).
+När du har mappat dina berikade fält till sökbara fält kan du ange fältattribut för varje sökbart fält [som en del av index definitionen](search-what-is-an-index.md).
 
-Mer information om fältmappning finns [i Fältmappningar i Azure Cognitive Search-indexerare](search-indexer-field-mappings.md).
+Mer information om fält mappning finns i [fält mappningar i Azure kognitiv sökning indexerare](search-indexer-field-mappings.md).

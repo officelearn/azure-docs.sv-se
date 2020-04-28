@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure-brandväggen med tillgänglighetszoner med PowerShell
-description: I den här artikeln får du lära dig hur du distribuerar en Azure-brandvägg med tillgänglighetszoner med Hjälp av Azure PowerShell.
+title: Distribuera Azure-brandväggen med Tillgänglighetszoner med PowerShell
+description: I den här artikeln får du lära dig hur du distribuerar en Azure-brandvägg med Tillgänglighetszoner med hjälp av Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 33dcebf14f4d534962783a30ec94f7ff6529ae0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74195913"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Distribuera en Azure Firewall med Tillgänglighetszoner med Azure PowerShell
 
-Azure-brandväggen kan konfigureras under distributionen för att sträcka sig över flera tillgänglighetszoner för ökad tillgänglighet.
+Azure-brandväggen kan konfigureras under distributionen för att omfatta flera Tillgänglighetszoner för ökad tillgänglighet.
 
-Med den här funktionen kan du aktivera följande scenarier:
+Den här funktionen möjliggör följande scenarier:
 
-- Du kan öka tillgängligheten till 99,99% drifttid. Mer information finns i [Service Level Agreement (SLA) (Azure](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/)Firewall Service Level Agreement). Serviceavtalet på 99,99 % drifttid erbjuds när två eller flera tillgänglighetszoner väljs.
-- Du kan också associera Azure-brandväggen till en viss zon bara av närhetsskäl med hjälp av servicestandarden 99,95 % SLA.
+- Du kan öka tillgänglighet till 99,99% drift tid. Mer information finns i Azure Firewall [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). SLA för 99,99% drift tid erbjuds när två eller fler Tillgänglighetszoner har valts.
+- Du kan också associera Azure-brandväggen till en speciell zon, precis för närhets skäl, med service standard service avtalet för 99,95%.
 
-Mer information om tillgänglighetszoner för Azure-brandväggar finns i [Vad är Azure-brandväggen?](overview.md)
+Mer information om Azure Firewall Tillgänglighetszoner finns i [Vad är Azure-brandvägg?](overview.md)
 
-Följande Azure PowerShell-exempel visar hur du kan distribuera en Azure-brandvägg med tillgänglighetszoner.
+Följande Azure PowerShell exempel visar hur du kan distribuera en Azure-brandvägg med Tillgänglighetszoner.
 
-## <a name="create-a-firewall-with-availability-zones"></a>Skapa en brandvägg med tillgänglighetszoner
+## <a name="create-a-firewall-with-availability-zones"></a>Skapa en brand vägg med Tillgänglighetszoner
 
-I det här exemplet skapas en brandvägg i zonerna 1, 2 och 3.
+I det här exemplet skapas en brand vägg i zon 1, 2 och 3.
 
-När standard-offentlig IP-adress skapas anges ingen specifik zon. Detta skapar en zonundant IP-adress som standard. Vanliga offentliga IP-adresser kan konfigureras antingen i alla zoner eller i en enda zon.
+När den offentliga standard-IP-adressen skapas, anges ingen specifik zon. Detta skapar en zon redundant IP-adress som standard. Offentliga standard IP-adresser kan konfigureras antingen i alla zoner eller i en enda zon.
 
-Det är viktigt att veta, eftersom du inte kan ha en brandvägg i zon 1 och en IP-adress i zon 2. Men du kan ha en brandvägg i zon 1 och IP-adress i alla zoner, eller en brandvägg och en IP-adress i samma enda zon för närhetsändamål.
+Det är viktigt att du vet att du inte kan ha en brand vägg i zon 1 och en IP-adress i zon 2. Men du kan ha en brand vägg i zon 1 och IP-adress i alla zoner, eller en brand vägg och en IP-adress i samma zon för närhet.
 
 ```azurepowershell
 $rgName = "resourceGroupName"

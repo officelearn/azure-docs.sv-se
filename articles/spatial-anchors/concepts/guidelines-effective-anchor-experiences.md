@@ -1,6 +1,6 @@
 ---
-title: Riktlinjer för effektiva ankarupplevelser
-description: Riktlinjer och överväganden för att skapa och hitta ankare effektivt med hjälp av Azure Spatial Anchors.
+title: Rikt linjer för effektiva Anchor-upplevelser
+description: Rikt linjer och överväganden för att skapa och hitta ankare effektivt med hjälp av Azure spatiala ankare.
 author: mattwojo
 manager: jken
 services: azure-spatial-anchors
@@ -9,107 +9,107 @@ ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74270523"
 ---
-# <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Skapa en effektiv ankarupplevelse med hjälp av Azure Spatial Anchors
+# <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Skapa en effektiv fäst punkts upplevelse med hjälp av Azure spatiala ankare
 
-Den här artikeln innehåller riktlinjer och överväganden som hjälper dig att effektivt skapa och hitta ankare med hjälp av rumsliga fästpunkter.
+Den här artikeln innehåller rikt linjer och överväganden som hjälper dig att effektivt skapa och hitta ankare med hjälp av spatiala ankare.
 
-## <a name="good-anchors"></a>Bra ankare
+## <a name="good-anchors"></a>Lämpliga ankare
 
-Spatial Anchors hjälper dig att skapa bra ankare. Det är viktigt att investera tid i att antingen utbilda eller vägleda användare i din användarupplevelse (UX) för att skapa bra ankare. Genom att investera i att skapa bra ankare på framsidan hjälper du slutanvändarna att på ett tillförlitligt sätt hitta ankare:
+Med avstånds ankare kan du skapa bra ankare. Det är viktigt att investera tid i att antingen utbilda eller guida användare i ditt användar gränssnitt (UX) för att skapa bra ankare. Genom att investera i skapa välgrundade fäst punkter kan du hjälpa slutanvändare att hitta ankare på ett tillförlitligt sätt:
 
-- Över olika enheter.
-- Vid olika tillfällen.
-- I olika ljusförhållanden.
-- Från önskat perspektiv inom utrymmet.
+- Mellan olika enheter.
+- Vid olika tidpunkter.
+- Under olika ljus förhållanden.
+- Från önskade perspektiv inom utrymmet.
 
 ## <a name="static-and-dynamic-locations"></a>Statiska och dynamiska platser
 
-En del av utformningen av ankaret erfarenhet är att välja platser. Kommer platserna att vara statiska och definieras av en administratör för utrymmet? Eller kommer de att vara dynamiska och definieras av användaren?
+En del av att designa ankaret är att välja platser. Kommer platserna att vara statiska och definierade av en administratör av utrymmet? Eller kommer de att vara dynamiska och definierade av användaren?
 
-En butikschef kanske vill ha en statisk upplevelse i butik för att locka användare att besöka. Men utvecklaren av en mixad verklighet brädspel skulle sannolikt vill låta användarna välja var de ska spela.
+En Retail Store-hanterare kanske vill ha en statisk in-Store-upplevelse för att locka användare att besöka. Men utvecklaren av ett bräde-spel i mixat verklighet vill förmodligen låta användarna välja var de ska spelas upp.
 
-För statiska platser kan du lära administratörer att spendera tid på att kurera utrymmet med bra ankare.
+För statiska platser kan du lära administratörerna att ägna tid åt att granska utrymmet med lämpliga ankare.
 
-För dynamiska platser bör du tänka på hur du lär eller guidar användare i din användarupplevelse för att skapa bra ankare.
+För dynamiska platser bör du tänka på hur du lär dig mer om hur du undervisar eller vägleder användare i ditt UX för att skapa lämpliga ankare.
 
 ## <a name="stable-visual-features"></a>Stabila visuella funktioner
 
-Visuella spårningssystem som används på enheter med mixad verklighet och förstärkt verklighet är beroende av visuella funktioner i miljön. Så här får du den mest tillförlitliga upplevelsen:
+Visuella spårnings system som används i Mixad verklighet och förhöjda Reality-enheter är beroende av visuella funktioner i miljön. För att få den mest pålitliga upplevelsen:
 
-- *Skapa* fästpunkter på platser som har stabila visuella funktioner (det vill ha funktioner som inte ändras ofta).
+- Skapa ankare på platser som har stabila visuella funktioner (det *vill* säga funktioner som inte ändras ofta).
 
-- *Skapa inte* ankare på stora tomma ytor som inte har några särskiljande egenskaper.
+- Skapa *inte* ankare på stora tomma ytor som inte har några särskiljande egenskaper.
 
-- *Skapa inte* ankare på mycket reflekterande material.
+- Skapa *inte* ankare på mycket reflekterande material.
 
-- *Skapa inte* ankare på ytor där mönstret upprepas, till exempel matta eller tapeter.
+- Skapa *inte* fäst punkter på ytor där mönstret upprepas, till exempel mattor eller tapet.
 
 ![Exempel på en bra miljö för ankare och en dålig miljö för ankare](./media/stable-visual.png)
 
-## <a name="various-viewing-perspectives"></a>Olika visningsperspektiv
+## <a name="various-viewing-perspectives"></a>Olika visnings perspektiv
 
-När du skapar ett ankare, tänk på de människor som senare kommer att försöka hitta ankaret.
+När du skapar ett ankare bör du tänka på vilka personer som senare kommer att försöka hitta ankaret.
 
-Tänk till exempel på ett ankare mitt i ett rum som har två dörrar. Du vill förmodligen tillåta användare att komma in i rummet från båda luckan. När du skapar ankaret måste du skanna dess position från båda dörröppningarna. Du ändrar perspektiv för att samla in miljödata runt ankaret så att användarna kan hitta ankaret från båda luckan.
+Överväg till exempel ett ankare mitt i ett rum som har två dörrar. Du vill förmodligen att användarna ska kunna ange rummet från dörren. När du skapar ankaret måste du skanna dess position från båda doorways. Du kan ändra perspektiv för att avbilda miljö data runt fäst punkten så att användarna kan hitta ankaret från båda dörrarna.
 
-I allmänhet, när du skapar ett ankare, skanna den ur perspektiv av de människor som kommer att försöka hitta den. Så om du placerar virtuellt innehåll på en utomhus skulptur, är det vettigt att gå runt skulpturen, medan skanna den, som du skapar ankaret. Om ankaret är i hörnet av ett rum finns det bara en riktning att närma sig det från. När du skapar det här ankaret kan du skanna det bara ur det perspektivet.
+När du skapar ett ankare bör du i allmänhet söka igenom det från perspektiven för de personer som ska försöka hitta det. Så om du placerar virtuellt innehåll på en Sculpture är det klokt att gå runt Sculpture, medan du skannar den, när du skapar ankaret. Om ankaret finns i hörnet av ett rum finns det bara en riktning att gå från. När du skapar den här fäst punkten kan du Skanna den direkt från det här perspektivet.
 
 ## <a name="multiple-anchors"></a>Flera ankare
 
-Belysning kan göra skillnad i de visuella funktioner som en app upptäcker. Ankare som skapats i starkt naturligt ljus kan vara svåra att hitta i artificiellt ljus, och vice versa.
+Belysningen kan göra skillnad i de visuella funktioner som en app identifierar. Ankare som skapats med stark naturlig belysning kan vara svåra att hitta i artificiellt ljus och vice versa.
 
-Om du har det här problemet kan det bidra till att skapa två fästpunkter. På samma plats, skapa ett ankare i dagsljus och en annan i artificiellt ljus. Appen kan sedan fråga efter båda fästpunkterna. När något av ankaret finns har appen en attityd för ankaret.
+Om du har det här problemet kan det hjälpa dig att skapa två ankare. Skapa en fäst punkt på samma plats och en annan i artificiellt ljus. Din app kan sedan fråga efter båda ankarena. När du har hittat något av fäst punkten har appen en attityd för ankaret.
 
-På samma sätt kan flera ankare hjälpa till i miljöer där de visuella funktionerna ändras eftersom de flesta objekt flyttas. När ett ankare blir för svårt att hitta på grund av betydande förändringar i miljön kan du ersätta ankaret med ett nytt. Du kan till exempel göra detta i en butik där layouten uppdateras med några månaders mellanrum.
+På samma sätt kan flera ankare i miljöer där visuella funktioner ändras eftersom de flesta objekt flyttas. När ett ankare blir för svårt att hitta på grund av betydande ändringar i miljön kan du ersätta fäst punkten med en ny. Du kan göra detta, till exempel i en butik där layouten uppdateras varje månad.
 
 ## <a name="targets-and-rooms"></a>Mål och rum
 
-I många fall är ett ankare en startpunkt för appens upplevelse. Du vill ta dig igenom det här steget snabbt och tillförlitligt så att användarna kan ange din upplevelse. Spendera tid på hur användarna kommer att hitta dina ankare är ett viktigt designsteg. Det är bra att tänka på att hitta ankare i termer av två breda scenarier: *mål* och *rum*.
+I många fall är ett ankare en start punkt för appens upplevelse. Du ska gå igenom det här steget snabbt och tillförlitligt så att användarna kan komma igång med din upplevelse. Utgifts tid för hur användarna kommer att hitta dina ankare är ett viktigt design steg. Det är bra att tänka på att hitta ankare i termer av två breda scenarier: *mål* och *rum*.
 
 ### <a name="targets"></a>Mål
 
-I målscenariot är platsen för ett ankare välkänt. I en fiktiv app för måleri med mixad verklighet placerar en användare till exempel en virtuell arbetsyta på väggen. Hon instruerar de andra användarna i rummet att rikta sina enheter på samma plats på väggen för att lokalisera ankaret och börja upplevelsen.
+I mål scenariot är platsen för en fäst punkt välkänd. I en fiktiv målnings app med blandad verklighet placerar en användare till exempel en virtuell arbets yta på väggen. Hon instruerar de andra användarna i rummet att peka sina enheter på samma plats på väggen för att hitta ankaret och börja uppleva.
 
-Ett annat exempel på ett målscenario kan vara en skylt på ett kafé med texten "Sök efter erbjudanden". Kaféet har placerat ett ankare här. Som användare skanna tecknet, de lokalisera ankaret och ange augmented-reality erfarenhet för att hitta erbjudanden på kaffe.
+Ett annat exempel på ett mål scenario är att logga in ett kafé som läser, "söka efter avtal". Kaféet har placerat ett ankare här. När användarna genomsöker inloggningen letar de efter ankaret och anger den förhöjda verkligheten för att hitta erbjudanden på kaffe.
 
-I målscenariot kan foton hjälpa till. Om du visar användarna ett foto av det avsedda målet på sin enhet kan de snabbt identifiera vad de ska skanna i den verkliga världen. Du kan till exempel hjälpa användarna att komma fram inom det allmänna området för ett avsett mål med hjälp av GPS. När användaren anländer visar appen ett foto av målet. Användaren tittar runt i utrymmet, hittar målet och söker efter ankaret.
+I mål scenariot kan foton hjälpa dig. Om du visar användare ett foto av det avsedda målet på sin enhet kan de snabbt identifiera vad som ska avsökas i verkligheten. Du kan till exempel hjälpa dina användare att komma in i det allmänna området för ett avsett mål med hjälp av GPS. När användaren kommer visar appen ett foto av målet. Användaren ser runt utrymmet, söker efter målet och söker efter ankaret.
 
 ![Illustration av ett ankare som visar ett foto av målet på en användares mobila enhet](./media/start-here-edit.png)
 
-### <a name="rooms"></a>Rum
+### <a name="rooms"></a>Kylrum
 
-I rumsscenariot går användarna in i ett utrymme bara för att veta att det finns ett ankare här någonstans. Användare skanna utrymmet med sin enhet och snabbt hitta ankaret.
+I rums scenariot anger användarna ett utrymme som bara känner till att det finns ett ankare här någonstans. Användarna genomsöker utrymmet med sin enhet och snabbt hittar fäst punkten.
 
-Den här upplevelsen kräver vanligtvis att du skapar väl kurerade ankare, som diskuteras i olika visningsperspektiv. Om du skannade rummet från många perspektiv när du skapade ankaret kan användarna skanna nästan var som helst när de försöker hitta det.
+Den här upplevelsen kräver vanligt vis att du skapar välhanterade ankare, som beskrivs i olika visnings perspektiv. Om du har skannat rummet från många perspektiv när du skapade ankaret kan användarna Skanna nästan var som helst när de försöker hitta det.
 
-![Illustration av hur en användare kan skanna ett rum för att hitta ett ankare](./media/scan-room.png)
+![Illustration av hur en användare kan skanna ett rum för att hitta en fäst punkt](./media/scan-room.png)
 
-I huvudsak spenderar du mer tid på att skanna utrymmet när du skapar ankaret så att senare användare kan söka igenom och hitta ankaret snabbt. När du skapar din upplevelse måste du överväga denna viktiga kompromiss.
+I princip ägnar du mer tid åt att skanna utrymmet när du skapar fäst punkten så att senare användare kan söka efter och hitta ankaret snabbt. När du skapar din upplevelse måste du tänka på detta viktiga kompromisser.
 
-Exemplet med mixad verklighet målning app som vi diskuterade tidigare fungerar inte bra som ett rum scenario. Här vill användaren som placerar ankaret att andra ska ansluta sig till upplevelsen snabbt. Användarna vill inte vänta med att starta upplevelsen tills rummet är väl skannat. Eftersom alla användare vet exakt var de ska peka sin enhet för att hitta fästpunkterna, fungerar det här exemplet bättre som ett målscenario.
+Exemplet på appen med blandad verklighet som vi beskrivit tidigare fungerar inte bra som ett rums scenario. Den användare som placerar fäst punkten vill att andra snabbt ska kunna delta i upplevelsen. Användarna vill inte vänta på att starta upplevelsen förrän rummet är väl genomsökt. Eftersom alla användare vet exakt var de ska peka sina enheter för att hitta ankarena fungerar det här exemplet bättre som ett mål scenario.
 
-## <a name="anchor-location"></a>Ankarplats
+## <a name="anchor-location"></a>Fäst punkt
 
-Visuella spårningssystem förlitar sig på de visuella funktionerna i en miljö. Ju fler visuella funktioner som en genomsökning innehåller, desto högre är sannolikheten för att hitta ett ankare.
+Visuella spårnings system förlitar sig på de visuella funktionerna i en miljö. Ju fler visuella funktioner som en sökning omfattar, desto högre är sannolikheten för att hitta en fäst punkt.
 
-Följ de allmänna riktlinjerna i det här avsnittet för att skapa en användarupplevelse som uppmuntrar till en användbar genomsökning av miljön.
+Följ de allmänna rikt linjerna i det här avsnittet för att bygga ett UX som uppmuntrar en användbar genomsökning av miljön.
 
-Om användaren inte hittar ett ankare inom några sekunder bör appen uppmuntra användarna att flytta enheten för att fånga fler perspektiv. Appen kan också uppmuntra användare att flytta sig runt miljön för att söka efter ankaret från fler perspektiv. Ju fler funktionsperspektiv som enheten ser, desto bättre.
+Först, om användaren inte hittar någon fäst punkt inom några sekunder, bör appen uppmuntra användarna att flytta enheten för att fånga fler perspektiv. Appen kan också uppmuntra användarna att flytta sig själva runt miljön för att söka efter fäst punkten från fler perspektiv. De mer funktions perspektiv som enheten ser, desto bättre.
 
-Om du vill göra målscenarier ber du användaren att flytta runt målet för att visa det från olika perspektiv. Med andra ord, be användaren att fånga målet från nya perspektiv tills ankaret finns.
+För mål scenarier ber du användaren att flytta runt målet för att visa den från olika perspektiv. Med andra ord ber du användaren att avbilda målet från nya perspektiv tills ankaret är placerat.
 
-Om du vill ha rumsscenarier ber du användaren att långsamt skanna rummet. Be till exempel användaren att vända sig för att fånga 180 grader eller till och med 360 grader av rummet. Eller be användaren att visa rummet från ett nytt perspektiv.
+För rums scenarier ber du användaren att sakta igenom rummet. Be till exempel användaren att slå på att fånga 180 grader eller till och med 360 grader av rummet. Eller be användaren att Visa rummet från ett nytt perspektiv.
 
-Den mest meningsfulla metoden är att skanna över rummet. En skanning över rummet fångar mer visuella funktioner i miljön än en genomsökning av en vägg i närheten, till exempel. En skanning av en vägg i närheten fångar inte lika många användbara visuella funktioner i miljön.
+Den mest meningsfulla metoden är att skanna över rummet. En sökning i rummet fångar upp fler visuella funktioner i miljön än en genomsökning av en närliggande vägg, till exempel. En skanning av en närliggande vägg kan inte skapa så många användbara visuella funktioner i miljön.
 
-Det är inte bra att upprepade gånger flytta enheten från sida till sida när du letar efter ett ankare. Detta fångar helt enkelt samma punkter från samma perspektiv.
+Det är inte bra att upprepade gånger flytta enheten från sida till sida när du söker efter ett ankare. Detta fångar helt enkelt samma punkter från samma perspektiv.
 
-## <a name="experience-tests"></a>Upplev tester
+## <a name="experience-tests"></a>Testa
 
-I den här artikeln har vi diskuterat allmänna riktlinjer. Med Spatial Anchors skriver du appar som interagerar med den verkliga världen. På grund av detta bör du ägna tid åt att testa appens ankarscenarier i verkliga miljöer. Detta gäller särskilt miljöer som representerar var du förväntar dig att användarna ska använda appen.
+I den här artikeln har vi diskuterat allmänna rikt linjer. Med spatiala ankare skriver du appar som interagerar med den verkliga världen. På grund av detta bör du ägna tid åt att testa dina appars ankar scenarier i verkliga miljöer. Detta gäller särskilt för miljöer som motsvarar var du förväntar dig att användarna ska använda appen.

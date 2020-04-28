@@ -1,6 +1,6 @@
 ---
-title: Referensguide för Azure Active Directory-styrningsåtgärder
-description: I referensguiden för åtgärder beskrivs de kontroller och åtgärder du bör vidta för att skydda styrningshantering
+title: Referens guide för Azure Active Directory styrnings åtgärder
+description: Den här åtgärds hand boken beskriver de kontroller och åtgärder som du bör vidta för att skydda styrnings hanteringen
 services: active-directory
 author: martincoetzer
 manager: daveba
@@ -12,135 +12,135 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74535462"
 ---
-# <a name="azure-active-directory-governance-operations-reference-guide"></a>Referensguide för Azure Active Directory-styrningsåtgärder
+# <a name="azure-active-directory-governance-operations-reference-guide"></a>Referens guide för Azure Active Directory styrnings åtgärder
 
-I det här avsnittet i [referensguiden för Azure AD-åtgärder](active-directory-ops-guide-intro.md) beskrivs de kontroller och åtgärder du bör vidta för att bedöma och intyga åtkomst som beviljats icke-privilegierade och privilegierade identiteter, granskning och kontrolländringar i miljön.
+Det här avsnittet i [hand boken för Azure AD-åtgärder](active-directory-ops-guide-intro.md) beskriver de kontroller och åtgärder som du bör vidta för att utvärdera och intyga åtkomsten för icke-privilegierade och privilegierade identiteter, granskning och kontroll av miljö ändringar.
 
 > [!NOTE]
-> Dessa rekommendationer är aktuella från och med publiceringsdatumet men kan ändras med tiden. Organisationer bör kontinuerligt utvärdera sina styrningsmetoder när Microsofts produkter och tjänster utvecklas med tiden.
+> Dessa rekommendationer är aktuella vid publicerings datumet, men kan ändras med tiden. Organisationer bör kontinuerligt utvärdera sina styrnings metoder när Microsofts produkter och tjänster utvecklas med tiden.
 
 ## <a name="key-operational-processes"></a>Viktiga operativa processer
 
-### <a name="assign-owners-to-key-tasks"></a>Tilldela ägare till nyckeluppgifter
+### <a name="assign-owners-to-key-tasks"></a>Tilldela ägare till viktiga uppgifter
 
-För att hantera Azure Active Directory krävs kontinuerlig körning av viktiga operativa uppgifter och processer, som kanske inte ingår i ett distributionsprojekt. Det är fortfarande viktigt att du ställer in dessa uppgifter för att optimera din miljö. De viktigaste uppgifterna och deras rekommenderade ägare är:
+Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga operativa uppgifter och processer, som kanske inte ingår i ett lanserings projekt. Det är fortfarande viktigt att du konfigurerar dessa uppgifter för att optimera din miljö. De viktigaste uppgifterna och deras rekommenderade ägare är:
 
 | Aktivitet | Ägare |
 | :- | :- |
-| Arkivera Azure AD-granskningsloggar i SIEM-systemet | InfoSec operationsteam |
-| Upptäck program som hanteras av efterlevnad | IAM Operations Team |
-| Granska regelbundet tillgången till ansökningar | InfoSec-arkitekturteam |
-| Granska regelbundet åtkomsten till externa identiteter | InfoSec-arkitekturteam |
-| Granska regelbundet vem som har privilegierade roller | InfoSec-arkitekturteam |
-| Definiera säkerhetsportar för att aktivera privilegierade roller | InfoSec-arkitekturteam |
-| Regelbundet granska samtyckesbidrag | InfoSec-arkitekturteam |
-| Designkataloger och åtkomstpaket för program och resurser baserade för anställda i organisationen | App ägare |
-| Definiera säkerhetsprinciper för att tilldela användare åtkomstpaket | InfoSec team + App Ägare |
-| Om principer innehåller godkännandearbetsflöden granskar du regelbundet arbetsflödesgodkännanden | App ägare |
-| Granska undantag i säkerhetsprinciper, till exempel principer för villkorlig åtkomst, med hjälp av åtkomstgranskningar | InfoSec operationsteam |
+| Arkivera Azure AD audit-loggar i SIEM system | Åtgärds team för informations säkerhet |
+| Identifiera program som hanteras av efterlevnad | IAM-åtgärds team |
+| Regelbundet granska åtkomst till program | Arkitektur team för informations säkerhet |
+| Granska regelbundet åtkomst till externa identiteter | Arkitektur team för informations säkerhet |
+| Granska regelbundet vilka som har privilegierade roller | Arkitektur team för informations säkerhet |
+| Definiera säkerhets portar för att aktivera privilegierade roller | Arkitektur team för informations säkerhet |
+| Granska godkännande bidrag regelbundet | Arkitektur team för informations säkerhet |
+| Utforma kataloger och åtkomst paket för program och resurser som är baserade på anställda i organisationen | App-ägare |
+| Definiera säkerhets principer för att tilldela användare åtkomst till paket | Informations informations team + program ägare |
+| Om principerna omfattar godkännande arbets flöden, granskar du regelbundet arbets flödes godkännanden | App-ägare |
+| Granska undantag i säkerhets principer, till exempel principer för villkorlig åtkomst, med åtkomst granskningar | Åtgärds team för informations säkerhet |
 
-När du granskar listan kan du behöva tilldela en ägare för uppgifter som saknar en ägare eller justera ägarskapet för uppgifter med ägare som inte är anpassade till rekommendationerna ovan.
+När du granskar listan kanske du måste tilldela en ägare för aktiviteter som saknar ägare eller justera ägarskapet för aktiviteter med ägare som inte är justerade enligt rekommendationerna ovan.
 
-#### <a name="owner-recommended-reading"></a>Ägaren rekommenderade läsning
+#### <a name="owner-recommended-reading"></a>Rekommenderad läsning av ägare
 
 - [Tilldela administratörsroller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Styrning i Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
-### <a name="configuration-changes-testing"></a>Testning av konfigurationsändringar
+### <a name="configuration-changes-testing"></a>Testning av konfigurations ändringar
 
-Det finns ändringar som kräver särskilda överväganden vid testning, från enkla tekniker som att distribuera en målundergrupp av användare till att distribuera en ändring i en parallell testklient. Om du inte har implementerat en teststrategi bör du definiera en testmetod som baseras på riktlinjerna i tabellen nedan:
+Det finns ändringar som kräver särskilda överväganden vid testning, från enkla metoder som att distribuera en mål del uppsättning av användare för att distribuera en ändring i en parallell test klient. Om du inte har implementerat en test strategi bör du definiera en test metod baserat på rikt linjerna i tabellen nedan:
 
 | Scenario| Rekommendation |
 |-|-|
-|Ändra autentiseringstypen från federerad till PHS/PTA eller vice versa| Använd [stegvis distribution](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) för att testa effekten av att ändra autentiseringstypen.|
-|Distribuera en ny certifikatutfärdarprincip eller identitetsskyddsprincip (Identity Protection Policy)|Skapa en ny ca-princip och tilldela testanvändare.|
-|Introduktion till en testmiljö för ett program|Lägg till programmet i en produktionsmiljö, dölj det från panelen MyApps och tilldela det för att testa användare under kvalitetssäkringsfasen (QA).|
-|Ändring av synkroniseringsregler|Utför ändringarna i ett test Azure AD Connect med samma konfiguration som för närvarande är i produktion, även känd som mellanlagringsläge, och analysera CSExport-resultat. Om du är nöjd, byt till produktion när den är klar.|
-|Byte av varumärkesprofilering|Testa i en separat testklient.|
-|Rulla ut en ny funktion|Om funktionen stöder utrullning till en måluppsättning användare identifierar du pilotanvändare och utbygger. Till exempel kan självbetjäningslösenordsåterställning och multifaktorautentisering rikta sig till specifika användare eller grupper.|
-|Klippa över ett program från en lokal IDP (Active Directory), till Azure AD|Om programmet stöder flera IdP-konfigurationer, till exempel Salesforce, konfigurera både och testa Azure AD under ett ändringsfönster (om programmet introducerar HRD-sida). Om programmet inte stöder flera IdPs schemalägger du testningen under ett ändringskontrollfönster och programstopp.|
-|Uppdatera dynamiska gruppregler|Skapa en parallell dynamisk grupp med den nya regeln. Jämför med det beräknade resultatet, till exempel kör PowerShell med samma villkor.<br>Om testet går igenom, byt ut de platser där den gamla gruppen användes (om möjligt).|
-|Migrera produktlicenser|Se [Ändra licens för en enskild användare i en licensierad grupp i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-change-licenses).|
-|Ändra AD FS-regler som auktorisering, emission, MFA|Använd gruppanspråk för att rikta in dig på delmängden användare.|
-|Ändra AD FS-autentiseringsupplevelse eller liknande ändringar för hela servergruppen|Skapa en parallell servergrupp med samma värdnamn, implementera konfigurationsändringar, testa från klienter med HOSTS-fil, NLB-routningsregler eller liknande routning.<br>Om målplattformen inte stöder HOSTS-filer (till exempel mobila enheter) kontrollerar du ändringen.|
+|Ändra autentiseringstypen från federerad till PHS/PTA eller vice versa| Använd [stegvis](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) distribution för att testa effekten av att ändra autentiseringstypen.|
+|Distribuera en ny princip för villkorlig åtkomst (CA) eller identitets skydds princip|Skapa en ny CA-princip och tilldela till test användare.|
+|Registrera en test miljö för ett program|Lägg till programmet i en produktions miljö, Dölj det från panelen för appar och tilldela det för att testa användare under fasen kvalitets säkring (frågor och svar).|
+|Ändra regler för synkronisering|Genomför ändringarna i ett test Azure AD Connect med samma konfiguration som för närvarande i produktion, även kallat mellanlagrings läge och analysera CSExport resultat. Om det är uppfyllt byter du till produktion när du är klar.|
+|Ändring av anpassning|Testa i en separat test klient.|
+|Distribuera en ny funktion|Om funktionen stöder distribution till en mål uppsättning användare identifierar du pilot användare och bygger ut. Till exempel kan självbetjäning för återställning av lösen ord och Multi-Factor Authentication rikta specifika användare eller grupper.|
+|Start punkt ett program från en lokal identitets leverantör (IdP), till exempel Active Directory, till Azure AD|Om programmet stöder flera IdP-konfigurationer, till exempel Salesforce, konfigurerar du både och testar Azure AD under ett ändrings fönster (om programmet introducerar HRD-sidan). Om programmet inte stöder flera IDP: er kan du schemalägga testningen under ett fönster för ändrings kontroll och avbrotts tid för programmet.|
+|Uppdatera dynamiska grupp regler|Skapa en parallell dynamisk grupp med den nya regeln. Jämför med det beräknade resultatet, till exempel, kör PowerShell med samma villkor.<br>Om test pass kan du byta plats där den gamla gruppen användes (om möjligt).|
+|Migrera produkt licenser|Se [ändra licensen för en enskild användare i en licensierad grupp i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-change-licenses).|
+|Ändra AD FS regler, till exempel auktorisering, utfärdande, MFA|Använd grupp anspråk för att ange en delmängd av användarna.|
+|Ändra AD FS autentisering eller liknande ändringar i Server gruppen|Skapa en parallell Server grupp med samma värdnamn, implementera konfigurations ändringar, testa från klienter som använder HOSTs-filer, regler för NLB-routning eller liknande routning.<br>Om mål plattformen inte stöder HOSTs-filer (t. ex. mobila enheter) styr du ändringen.|
 
 ## <a name="access-reviews"></a>Åtkomstgranskningar
 
-### <a name="access-reviews-to-applications"></a>Få tillgång till granskningar till program
+### <a name="access-reviews-to-applications"></a>Åtkomst granskningar till program
 
-Med tiden kan användare samla åtkomst till resurser när de rör sig i olika team och positioner. Det är viktigt att resursägare regelbundet granskar åtkomsten till program och tar bort privilegier som inte längre behövs under användarnas livscykel. Azure [AD-åtkomstgranskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) gör det möjligt för organisationer att effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och rolltilldelningar. Resursägare bör regelbundet granska användarnas åtkomst för att se till att endast rätt personer har fortsatt åtkomst. Helst bör du överväga att använda Azure AD-åtkomstgranskningar för den här uppgiften.
+Med tiden kan användare ackumulera åtkomst till resurser när de flyttas i olika team och på olika platser. Det är viktigt att resurs ägare granskar åtkomsten till program regelbundet och tar bort privilegier som inte längre behövs under användarens livs cykel. Med Azure AD [Access-granskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) kan organisationer effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Resurs ägare bör granska användarnas åtkomst regelbundet för att se till att endast rätt personer har fortsatt åtkomst. Vi rekommenderar att du använder Azure AD åtkomst granskningar för den här aktiviteten.
 
-![Startsida för Access-granskningar](./media/active-directory-ops-guide/active-directory-ops-img15.png)
-
-> [!NOTE]
-> Varje användare som interagerar med åtkomstgranskningar måste ha en betald Azure AD Premium P2-licens.
-
-### <a name="access-reviews-to-external-identities"></a>Få tillgång till granskningar till externa identiteter
-
-Det är viktigt att endast begränsa åtkomsten till externa identiteter till resurser som behövs under den tid som behövs. Upprätta en regelbunden automatisk åtkomstgranskningsprocess för alla externa identiteter och programåtkomst med hjälp av Azure [AD-åtkomstgranskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview). Om det redan finns en process lokalt kan du överväga att använda Azure AD-åtkomstgranskningar. När ett program har dragits tillbaka eller inte längre används tar du bort alla externa identiteter som hade åtkomst till programmet.
+![Start sida för åtkomst granskningar](./media/active-directory-ops-guide/active-directory-ops-img15.png)
 
 > [!NOTE]
-> Varje användare som interagerar med åtkomstgranskningar måste ha en betald Azure AD Premium P2-licens.
+> Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens.
+
+### <a name="access-reviews-to-external-identities"></a>Åtkomst granskningar för externa identiteter
+
+Det är viktigt att behålla åtkomst till externa identiteter som endast är begränsade till resurser som behövs, under den tid som krävs. Upprätta en normal automatiserad åtkomst gransknings process för alla externa identiteter och program åtkomst med hjälp av [åtkomst granskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)i Azure AD. Om det redan finns en process lokalt bör du överväga att använda Azure AD Access-granskningar. När ett program har dragits tillbaka eller inte längre används tar du bort alla externa identiteter som hade åtkomst till programmet.
+
+> [!NOTE]
+> Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens.
 
 ## <a name="privileged-account-management"></a>Hantering av privilegierade konton
 
 ### <a name="privileged-account-usage"></a>Användning av privilegierade konton
 
-Hackare riktar ofta in sig på administratörskonton och andra element med privilegierad åtkomst för att snabbt få tillgång till känsliga data och system.Eftersom användare med privilegierade roller tenderar att ackumuleras med tiden är det viktigt att granska och hantera administratörsåtkomst regelbundet och ge just-in-time privilegierad åtkomst till Azure AD- och Azure-resurser.
+Hackare kan ofta rikta in sig på administratörs konton och andra delar av privilegie rad åtkomst för att snabbt få åtkomst till känsliga data och system.Eftersom användare med privilegierade roller tenderar att ackumuleras över tid, är det viktigt att granska och hantera administratörs åtkomst regelbundet och ge just-in-Time-åtkomst till Azure AD och Azure-resurser.
 
-Om det inte finns någon process i organisationen för att hantera privilegierade konton, eller om du för närvarande har administratörer som använder sina vanliga användarkonton för att hantera tjänster och resurser, bör du omedelbart börja använda separata konton, till exempel ett för vanliga dagliga verksamhet. den andra för privilegierad åtkomst och konfigurerad med MFA. Ännu bättre, om din organisation har en Azure AD Premium P2-prenumeration, bör du omedelbart distribuera [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). På samma sätt bör du också granska dessa privilegierade konton och [tilldela mindre privilegierade roller](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) om tillämpligt.
+Om det inte finns någon process i organisationen för att hantera privilegierade konton, eller om du för närvarande har administratörer som använder sina vanliga användar konton för att hantera tjänster och resurser, bör du omedelbart börja använda separata konton, till exempel en för vanliga dagliga aktiviteter. den andra för privilegie rad åtkomst och konfigurerad med MFA. Om din organisation har en Azure AD Premium P2-prenumeration ännu bättre, bör du omedelbart distribuera [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). I samma token bör du även granska de privilegierade kontona och [tilldela mindre privilegierade roller](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) om tillämpligt.
 
-En annan aspekt av privilegierad kontohantering som bör implementeras är att definiera [åtkomstgranskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) för dessa konton, antingen manuellt eller [automatiserat via PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review).
+En annan aspekt av Privileged Account Management som bör implementeras är att definiera [åtkomst granskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) för dessa konton, antingen manuellt eller [automatiserat via PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review).
 
-#### <a name="privileged-account-management-recommended-reading"></a>Rekommenderad läsning av privilegierad kontohantering
+#### <a name="privileged-account-management-recommended-reading"></a>Privilegie rad konto hantering rekommenderat läsning
 
-- [Roller i Azure AD-privilegierad identitetshantering](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-roles)
+- [Roller i Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-roles)
 
-### <a name="emergency-access-accounts"></a>Konton för nödåtkomst
+### <a name="emergency-access-accounts"></a>Konton för nöd åtkomst
 
-Organisationer måste skapa [nödkonton](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) för att vara förberedda för att hantera Azure AD för fall som autentiseringsfel som:
+Organisationer måste skapa [nöd konton](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) för att kunna hantera Azure AD för fall som autentiserings avbrott som:
 
-- Avbrottskomponenter i autentiseringsinfrastrukturer (AD FS, Lokal AD, MFA-tjänst)
-- Administrativ personalomsättning
+- Avbrotts komponenter för infrastruktur för autentisering (AD FS, lokal AD, MFA-tjänst)
+- Omsättning för administrativ personal
 
-Om du vill förhindra att du oavsiktligt blir utelåst från din klientorganisation eftersom du inte kan logga in eller aktivera en befintlig enskild användares konto som administratör, bör du skapa två eller flera nödsituationskonton och se till att de implementeras och anpassas till [Microsofts metodtips](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) och [krossar glasprocedurer](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency).
+För att förhindra oavsiktligt låst av klienten, eftersom du inte kan logga in eller aktivera en befintlig enskild användares konto som administratör, bör du skapa två eller flera nödfalls konton och se till att de är implementerade och justerade med [Microsofts bästa praxis](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) och [avbrotts glas procedurer](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency).
 
-### <a name="privileged-access-to-azure-ea-portal"></a>Privilegierad åtkomst till Azure EA-portal
+### <a name="privileged-access-to-azure-ea-portal"></a>Privilegie rad åtkomst till Azure EA-portalen
 
-[Azure Enterprise Agreement (Azure EA) portalen](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) kan du skapa Azure-prenumerationer mot en huvud enterprise agreement, vilket är en kraftfull roll inom företaget. Det är vanligt att bootstrap skapandet av denna portal innan ens få Azure AD på plats, så det är nödvändigt att använda Azure AD identiteter för att låsa den, ta bort personliga konton från portalen, se till att korrekt delegering är på plats, och minska risken för lockout .
+Med [azure Enterprise-avtal-portalen (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) kan du skapa Azure-prenumerationer mot en huvud Enterprise-avtal, vilket är en kraftfull roll i företaget. Det är vanligt att du startar skapandet av den här portalen innan du kan komma igång med Azure AD, så det är nödvändigt att använda Azure AD-identiteter för att låsa den, ta bort personliga konton från portalen, se till att rätt delegering är på plats och minimera risken för utelåsning.
 
-Om EA-portalens auktoriseringsnivå för närvarande är inställd på "blandat läge" måste du ta bort alla [Microsoft-konton](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) från all privilegierad åtkomst i EA-portalen och konfigurera EA-portalen så att endast Azure AD-konton används. Om de EJ-portaldelegerade rollerna inte är konfigurerade bör du också söka efter och implementera delegerade roller för avdelningar och konton.
+Om du vill att nivån för EA-portalen för närvarande är "blandat läge" måste du ta bort alla Microsoft- [konton](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) från all privilegie rad åtkomst i EA-portalen och konfigurera EA-portalen så att endast Azure AD-konton används. Om de delegerade rollerna för EA-portalen inte har kon figurer ATS, bör du även hitta och implementera delegerade roller för avdelningar och konton.
 
-#### <a name="privileged-access-recommended-reading"></a>Privilegierad åtkomst rekommenderad läsning
+#### <a name="privileged-access-recommended-reading"></a>Privilegie rad åtkomst Rekommenderad läsning
 
 - [Behörigheter för administratörsrollen i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
 ## <a name="entitlement-management"></a>Berättigandehantering
 
-[Med RÄTTIGHETSHANTERING (EM)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) kan appägare paketera resurser och tilldela dem till specifika personer i organisationen (både interna och externa). EM tillåter självbetjäningsanmälning och delegering till företagare samtidigt som styrningsprinciper för att bevilja åtkomst, ange åtkomstvaraktighet och tillåta arbetsflöden för godkännande. 
+[Hantering av rättigheter (EM)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) gör det möjligt för appar att paketera resurser och tilldela dem till vissa personer i organisationen (både interna och externa). EM tillåter självbetjänings registrering och delegering till företags ägare samtidigt som styrnings principer används för att ge åtkomst, ange åtkomst varaktighet och tillåta arbets flöden för godkännande. 
 
 > [!NOTE]
-> Azure AD-berättigandehantering kräver Azure AD Premium P2-licenser.
+> Hantering av Azure AD-anspråk kräver Azure AD Premium P2-licenser.
 
 ## <a name="summary"></a>Sammanfattning
 
-Det finns åtta aspekter på en säker identitetsstyrning. Den här listan hjälper dig att identifiera de åtgärder du bör vidta för att bedöma och intyga åtkomsten som beviljas till icke-privilegierade och privilegierade identiteter, granskning och kontrolländringar i miljön.
+Det finns åtta aspekter av en säker identitets styrning. I den här listan får du hjälp att identifiera de åtgärder som du bör vidta för att utvärdera och intyga åtkomsten för icke privilegierade och privilegierade identiteter, gransknings-och kontroll ändringar i miljön.
 
-- Tilldela ägare till nyckeluppgifter.
-- Implementera en teststrategi.
-- Använd Azure AD Access Reviews för att effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och rolltilldelningar.
-- Upprätta en regelbunden, automatisk åtkomstgranskningsprocess för alla typer av externa identiteter och programåtkomst.
-- Upprätta en åtkomstgranskningsprocess för att granska och hantera administratörsåtkomst regelbundet och ge just-in-time privilegierad åtkomst till Azure AD- och Azure-resurser.
-- Etablera nödkonton som ska förberedas för att hantera Azure AD för oväntade avbrott.
-- Lås åtkomsten till Azure EA-portalen.
-- Implementera Rättighetshantering för att ge reglerad åtkomst till en samling resurser.
+- Tilldela ägare till viktiga uppgifter.
+- Implementera en test strategi.
+- Använd åtkomst granskningar i Azure AD för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar.
+- Upprätta en regelbunden, automatiserad åtkomst gransknings process för alla typer av externa identiteter och program åtkomst.
+- Upprätta en gransknings process för åtkomst för att granska och hantera administratörs åtkomst regelbundet och ge just-in-Time-åtkomst till Azure AD och Azure-resurser.
+- Etablera nöd konton som förbereds för att hantera Azure AD för oväntade avbrott.
+- Lås åtkomst till Azure-EA-portalen.
+- Implementera rättighets hantering för att ge reglerad åtkomst till en samling resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [Azure AD-driftkontroller och åtgärder](active-directory-ops-guide-ops.md).
+Kom igång med [drift kontroller och åtgärder för Azure AD](active-directory-ops-guide-ops.md).

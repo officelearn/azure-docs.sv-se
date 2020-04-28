@@ -1,6 +1,6 @@
 ---
 title: Felsöka långa svarstider med hjälp av loggar i Lagringsanalys
-description: Identifiera och felsöka svarstidsproblem med Azure Storage-analytiska loggar och optimera klientprogrammet.
+description: Identifiera och Felsök latens problem med Azure Storage analytiska loggar och optimera klient programmet.
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
@@ -11,25 +11,25 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74196507"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Felsöka långa svarstider med hjälp av loggar i Lagringsanalys
 
-Diagnostisera och felsöka är en viktig färdighet för att skapa och stödja klientprogram med Azure Storage.
+Diagnostisering och fel sökning är en viktig kunskap för att skapa och stödja klient program med Azure Storage.
 
-På grund av den distribuerade karaktären av ett Azure-program kan det vara mer komplicerat att diagnostisera och felsöka både fel och prestandaproblem än i traditionella miljöer.
+På grund av den distribuerade typen av ett Azure-program kan det vara mer komplicerat än i traditionella miljöer att diagnostisera och felsöka både fel och prestanda problem.
 
-Följande steg visar hur du identifierar och felsöker svarstidsproblem med Azure Storage Analytic-loggar och optimerar klientprogrammet.
+Följande steg visar hur du kan identifiera och felsöka latens problem med hjälp av Azure Storage analytiska loggar och optimera klient programmet.
 
 ## <a name="recommended-steps"></a>Rekommenderade åtgärder
 
-1. Ladda ned [lagringsanalysloggarna](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Ladda ned [Lagringsanalys loggar](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
-2. Använd följande PowerShell-skript för att konvertera råformatsloggarna till tabellformat:
+2. Använd följande PowerShell-skript för att konvertera RAW-formatet loggar till tabell format:
 
    ```Powershell
    $Columns = 
@@ -70,99 +70,99 @@ Följande steg visar hur du identifierar och felsöker svarstidsproblem med Azur
    $logs | Out-GridView -Title "Storage Analytic Log Parser"
    ```
 
-3. Skriptet startar ett GUI-fönster där du kan filtrera informationen efter kolumner, som visas nedan.
+3. Skriptet startar ett GUI-fönster där du kan filtrera informationen efter kolumner, som du ser nedan.
 
-   ![Fönstret Lagring analytisk loggtolkare](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
+   ![Fönstret lagrings analys logg tolkare](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
  
-4. Begränsa loggposterna baserat på "operationstyp" och leta efter den loggpost som skapades under problemets tidsram.
+4. Begränsa logg posterna baserat på "åtgärds typ" och leta efter logg posten som skapades under utfärdarens tidsram.
 
-   ![Loggposter av åtgärdstyp](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
+   ![Logg poster för åtgärds typ](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
 
 5. Under den tid då problemet uppstod är följande värden viktiga:
 
-   * Operation-typ = GetBlob
-   * begäran-status = SASNetworkError
-   * på slutet till slut-latens -In-Ms = 8453
-   * Server-svarstid -In-Ms = 391
+   * Åtgärds typ = GetBlob
+   * Request-status = SASNetworkError
+   * Slut punkt till slut punkt – i-MS = 8453
+   * Server-svars tid – in-MS = 391
 
-   Svarstiden från slutpunkt till slutpunkt beräknas med hjälp av följande ekvation:
+   Svars tid från slut punkt till slut punkt beräknas med hjälp av följande ekvation:
 
-   * Svarstid från till sluttid = Server-svarstid + klientsvarstid
+   * Svars tid från slut punkt till slut punkt = Server svars tid + klient svars tid
 
-   Beräkna klientsvarstiden med hjälp av loggposten:
+   Beräkna klient fördröjningen med hjälp av logg posten:
 
-   * Klientsvarstid = Svarstid från till – Server-svarstid
+   * Klient svars tid = svars tid från slut punkt till slut punkt – Server-svars tid
 
           * Example: 8453 – 391 = 8062ms
 
-   I följande tabell finns information om resultaten för den höga svarstiden OperationType och RequestStatus:
+   Följande tabell innehåller information om OperationType-och RequestStatus-resultaten med hög latens:
 
-   |   |RequestStatus=<br>Lyckades|RequestStatus=<br>Jag är mycket väl tillbaka i den här lyddorna. Nätverkare|Rekommendation|
+   |   |RequestStatus =<br>Klart|RequestStatus =<br>SÄKERHETS NetworkError|Rekommendation|
    |---|---|---|---|
-   |GetBlob (på andra et)|Ja|Inga|[**GetBlob Operation:** RequestStatus = Lyckad](#getblob-operation-requeststatus--success)|
-   |GetBlob (på andra et)|Inga|Ja|[**GetBlob Operation:** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob (1990)|Ja|Inga|[**Sätt Operation:** RequestStatus = Lyckad](#put-operation-requeststatus--success)|
-   |PutBlob (1990)|Inga|Ja|[**Sätt Operation:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Ja|Inga|[**GetBlob-åtgärd:** RequestStatus = lyckades](#getblob-operation-requeststatus--success)|
+   |GetBlob|Inga|Ja|[**GetBlob-åtgärd:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Ja|Inga|[**Placerings åtgärd:** RequestStatus = lyckades](#put-operation-requeststatus--success)|
+   |PutBlob|Inga|Ja|[**Placerings åtgärd:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
-## <a name="status-results"></a>Statusresultat
+## <a name="status-results"></a>Status resultat
 
-### <a name="getblob-operation-requeststatus--success"></a>GetBlob-åtgärd: RequestStatus = Lyckad
+### <a name="getblob-operation-requeststatus--success"></a>GetBlob-åtgärd: RequestStatus = lyckades
 
-Kontrollera följande värden som nämns i steg 5 i avsnittet "Rekommenderade steg":
+Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
-* Svarstid från till på sluten tid
-* Server-svarstid
-* Svarstid för klient
+* Svars tid från slut punkt till slut punkt
+* Server-svars tid
+* Klient svars tid
 
-I en **GetBlob-åtgärd** med **RequestStatus = Framgång**, om **maxtid** spenderas i **klient-svarstid**, indikerar detta att Azure Storage spenderar en stor mängd tidsskrivningsdata till klienten. Den här fördröjningen indikerar ett problem på klientsidan.
+I en **GetBlob-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, betyder det att Azure Storage kostar en stor mängd tid när data skrivs till klienten. Den här fördröjningen indikerar ett problem på klient sidan.
 
-**Rekommendation:**
+**Rekommenderade**
 
-* Undersök koden i din klient.
-* Använd Wireshark, Microsoft Message Analyzer eller Tcping för att undersöka problem med nätverksanslutningen från klienten. 
+* Undersök koden i klienten.
+* Använd wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten. 
 
-### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>GetBlob-åtgärd: RequestStatus = (SAS)NetworkError
+### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>GetBlob-åtgärd: RequestStatus = (SAS) NetworkError
 
-Kontrollera följande värden som nämns i steg 5 i avsnittet "Rekommenderade steg":
+Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
-* Svarstid från till på sluten tid
-* Server-svarstid
-* Svarstid för klient
+* Svars tid från slut punkt till slut punkt
+* Server-svars tid
+* Klient svars tid
 
-I en **GetBlob-åtgärd** med **RequestStatus =(SAS)NetworkError**, om **maxtid** spenderas i **klient-svarstid**, är det vanligaste problemet att klienten kopplar från innan en timeout upphör att gälla i lagringstjänsten.
+I en **GetBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError**, om den **maximala tiden** används i **klient svars**tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
 
-**Rekommendation:**
+**Rekommenderade**
 
-* Undersök koden i klienten för att förstå varför och när klienten kopplar från lagringstjänsten.
-* Använd Wireshark, Microsoft Message Analyzer eller Tcping för att undersöka problem med nätverksanslutningen från klienten. 
+* Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten.
+* Använd wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten. 
 
-### <a name="put-operation-requeststatus--success"></a>Placera åtgärd: RequestStatus = Lyckad
+### <a name="put-operation-requeststatus--success"></a>Placerings åtgärd: RequestStatus = lyckades
 
-Kontrollera följande värden som nämns i steg 5 i avsnittet "Rekommenderade steg":
+Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
-* Svarstid från till på sluten tid
-* Server-svarstid
-* Svarstid för klient
+* Svars tid från slut punkt till slut punkt
+* Server-svars tid
+* Klient svars tid
 
-I en **Put-åtgärd** med **RequestStatus = lyckades**, om **maxtid** spenderas i **klient-svarstid**, indikerar detta att klienten tar längre tid att skicka data till Azure Storage. Den här fördröjningen indikerar ett problem på klientsidan.
+I en **Placera-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, indikerar detta att klienten tar längre tid att skicka data till Azure Storage. Den här fördröjningen indikerar ett problem på klient sidan.
 
-**Rekommendation:**
+**Rekommenderade**
 
-* Undersök koden i din klient.
-* Använd Wireshark, Microsoft Message Analyzer eller Tcping för att undersöka problem med nätverksanslutningen från klienten. 
+* Undersök koden i klienten.
+* Använd wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten. 
 
-### <a name="put-operation-requeststatus--sasnetworkerror"></a>Placera åtgärd: RequestStatus = (SAS)NetworkError
+### <a name="put-operation-requeststatus--sasnetworkerror"></a>Placerings åtgärd: RequestStatus = (SAS) NetworkError
 
-Kontrollera följande värden som nämns i steg 5 i avsnittet "Rekommenderade steg":
+Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade steg":
 
-* Svarstid från till på sluten tid
-* Server-svarstid
-* Svarstid för klient
+* Svars tid från slut punkt till slut punkt
+* Server-svars tid
+* Klient svars tid
 
-I en **PutBlob-åtgärd** med **RequestStatus =(SAS)NetworkError**, om **maxtid** spenderas i **klient-svarstid**, är det vanligaste problemet att klienten kopplar från innan en timeout upphör att gälla i lagringstjänsten.
+I en **PutBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError**, om den **maximala tiden** används i **klient svars**tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
 
-**Rekommendation:**
+**Rekommenderade**
 
-* Undersök koden i klienten för att förstå varför och när klienten kopplar från lagringstjänsten.
-* Använd Wireshark, Microsoft Message Analyzer eller Tcping för att undersöka problem med nätverksanslutningen från klienten.
+* Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten.
+* Använd wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten.
 

@@ -1,36 +1,36 @@
 ---
-title: Azure Blockchain Service redovisningsversioner, korrigering, & uppgradering
-description: Översikt över de redovisningsversioner som stöds i Azure Blockchain Service, inklusive principer för systemkorrigering och systemhanterade och användarhanterade uppgraderingar.
+title: Azure blockchain service-versioner, uppdatering, & uppgradering
+description: Översikt över de redovisnings versioner som stöds i Azure blockchain-tjänsten, inklusive principer för system korrigeringar och systemhanterade uppgraderingar och användar hanterade uppgraderingar.
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 8d4a77699dd80743acfadd4d72d6d75bc1939b3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74325192"
 ---
-# <a name="supported-azure-blockchain-service-ledger-versions"></a>Azure Blockchain Service-redovisningsversioner som stöds
+# <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioner som stöds av Azure blockchain service-redovisning
 
-Azure Blockchain Service använder den Ethereum-baserade [kvorumbegeboken](https://www.goquorum.com/developers) som utformats för bearbetning av privata transaktioner inom en grupp kända deltagare, identifierade som ett konsortium i Azure Blockchain Service.
+I Azure blockchain service används den Ethereum-baserade [kvorumkonfigurationen](https://www.goquorum.com/developers) för bearbetning av privata transaktioner i en grupp kända deltagare som identifieras som konsortier i Azure blockchain-tjänsten.
 
-Azure Blockchain-tjänsten stöder för närvarande [kvorumversionen 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) och [Tessera-transaktionshanteraren](https://github.com/jpmorganchase/tessera).
+För närvarande stöder Azure blockchain-tjänsten [kvorumresursens version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) och [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Hantera uppdateringar och uppgraderingar
 
-Versionshantering i kvorum sker genom en större, mindre och patch utgåvor. Om kvorumversionen till exempel är 2.0.1 kategoriseras versionstyp på följande sätt:
+Versions hantering i kvorum görs via en större version, dels och korrigerings version. Om kvorumloggen till exempel är 2.0.1, kommer versions typen att kategoriseras på följande sätt:
 
 |Större | Mindre  | Patch  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
-Azure Blockchain Service uppdaterar automatiskt korrigeringsversioner av Quorum till befintliga medlemmar som körs inom 30 dagar efter att de gjorts tillgängliga från Quorum.
+Azure blockchain-tjänsten uppdaterar automatiskt korrigerings versioner av kvorum till befintliga aktiva medlemmar inom 30 dagar från det att de har gjorts tillgängliga från kvorum.
 
-## <a name="availability-of-new-ledger-versions"></a>Tillgänglighet för nya redovisningsversioner
+## <a name="availability-of-new-ledger-versions"></a>Tillgänglighet för nya redovisnings versioner
 
-Azure Blockchain Service tillhandahåller de senaste huvud- och delversionerna av kvorumredovisningen inom 60 dagar efter att den har varit tillgänglig från kvorumtillverkaren. Högst fyra mindre utgåvor ges till konsortier att välja mellan när de etablerar en ny medlem och ett nytt konsortium. Uppgradering från till en större eller mindre version stöds för närvarande inte. Om du till exempel kör version 2.x stöds för närvarande inte en uppgradering till version 3.x. Om du kör version 2.2 stöds för närvarande inte en uppgradering till version 2.3.
+Azure blockchain-tjänsten tillhandahåller de senaste högre och lägre versionerna av kvorum-redovisningen inom 60 dagar som är tillgängliga från kvorumdisken. Det finns högst fyra mindre versioner av konsortier som du kan välja mellan när du konfigurerar en ny medlem och konsortiet. Det finns för närvarande inte stöd för att uppgradera från till en större eller mindre version. Om du till exempel kör version 2. x stöds inte en uppgradering till version 3. x för närvarande. Om du kör version 2,2 på samma sätt stöds inte en uppgradering till version 2,3 för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Begränsningar i Azure Blockchain-tjänsten](limits.md)
+[Gränser i Azure blockchain-tjänsten](limits.md)

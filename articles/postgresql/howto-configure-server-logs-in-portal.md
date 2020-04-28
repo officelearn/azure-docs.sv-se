@@ -1,70 +1,70 @@
 ---
-title: Hantera loggar - Azure-portal - Azure Database för PostgreSQL - Single Server
-description: I den här artikeln beskrivs hur du konfigurerar och kommer åt serverloggarna (.loggfiler) i Azure Database for PostgreSQL - Single Server från Azure-portalen.
+title: Hantera loggar – Azure Portal-Azure Database for PostgreSQL-enskild server
+description: Den här artikeln beskriver hur du konfigurerar och kommer åt Server loggar (. log-filer) i Azure Database for PostgreSQL-enskild server från Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74763699"
 ---
-# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Konfigurera och komma åt Azure Database för PostgreSQL - Single Server-loggar från Azure-portalen
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Konfigurera och få åtkomst till Azure Database for PostgreSQL-enstaka server loggar från Azure Portal
 
-Du kan konfigurera, lista och hämta [Azure-databasen för PostgreSQL-loggar](concepts-server-logs.md) från Azure-portalen.
+Du kan konfigurera, lista och hämta [Azure Database for PostgreSQL loggar](concepts-server-logs.md) från Azure Portal.
 
 ## <a name="prerequisites"></a>Krav
-Stegen i den här artikeln kräver att du har [Azure Database för PostgreSQL-server](quickstart-create-server-database-portal.md).
+Anvisningarna i den här artikeln kräver att du har [Azure Database for postgresql server](quickstart-create-server-database-portal.md).
 
 ## <a name="configure-logging"></a>Konfigurera loggning
-Konfigurera åtkomst till frågeloggar och felloggar. 
+Konfigurera åtkomst till frågans loggar och fel loggar. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj din Azure Database for PostgreSQL-server.
 
-3. Under avsnittet **Övervakning** i sidofältet väljer du **Serverloggar**. 
+3. Under avsnittet **övervakning** på sid panelen väljer du **Server loggar**. 
 
-   ![Skärmbild av serverloggar](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   ![Skärm bild av alternativ för Server loggar](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
-4. Om du vill se serverparametrarna väljer du **Klicka här för att aktivera loggar och konfigurera loggparametrar**.
+4. Om du vill se server parametrarna väljer du **Klicka här för att aktivera loggar och konfigurera logg parametrar**.
 
-5. Ändra de parametrar som du behöver justera. Alla ändringar du gör i den här sessionen markeras i lila.
+5. Ändra parametrarna som du behöver justera. Alla ändringar du gör i den här sessionen är markerade i lila.
 
-   När du har ändrat parametrarna väljer du **Spara**. Eller så kan du ignorera ändringarna. 
+   När du har ändrat parametrarna väljer du **Spara**. Du kan också ignorera ändringarna. 
 
-   ![Skärmbild av alternativ för serverparametrar](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   ![Skärm bild av alternativ för Server parametrar](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-På sidan **Serverparametrar** kan du gå tillbaka till listan med loggar genom att stänga sidan.
+På sidan **Server parametrar** kan du gå tillbaka till listan över loggar genom att stänga sidan.
 
-## <a name="view-list-and-download-logs"></a>Visa list- och nedladdningsloggar
-När loggningen har börjat kan du visa en lista över tillgängliga loggar och hämta enskilda loggfiler. 
+## <a name="view-list-and-download-logs"></a>Visa lista och hämta loggar
+När loggningen har påbörjats kan du Visa en lista över tillgängliga loggar och hämta enskilda loggfiler. 
 
 1. Öppna Azure Portal.
 
 2. Välj din Azure Database for PostgreSQL-server.
 
-3. Under avsnittet **Övervakning** i sidofältet väljer du **Serverloggar**. Sidan visar en lista över dina loggfiler.
+3. Under avsnittet **övervakning** på sid panelen väljer du **Server loggar**. Sidan visar en lista över loggfilerna.
 
-   ![Skärmbild av sidan Serverloggar, med en lista över loggar markerade](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   ![Skärm bild av sidan Server loggar med lista över loggar markerade](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > Namngivningskonventionen för loggen är **postgresql-yyyy-mm-dd_hh0000.log**. Datum och tid som används i filnamnet är den tidpunkt då loggen utfärdades. Loggfilerna roterar varje timme eller 100 MB, beroende på vilket som inträffar först.
+   > Namngivnings konventionen för loggen är **postgresql-åååå-mm-dd_hh0000. log**. Datum och tid som används i fil namnet är den tidpunkt då loggen utfärdades. Loggfilerna roterar varje timme eller 100 MB, beroende på vilket som kommer först.
 
-4. Om det behövs kan du använda sökrutan för att snabbt begränsa till en viss logg, baserat på datum och tid. Sökningen är på namnet på loggen.
+4. Om det behövs kan du använda sökrutan för att snabbt begränsa till en specifik logg baserat på datum och tid. Sökningen har samma namn som loggen.
 
-   ![Skärmbild av sidan Serverloggar, med sökruta och resultat markerade](./media/howto-configure-server-logs-in-portal/5-search.png)
+   ![Skärm bild av sidan Server loggar med sökruta och resultat markerade](./media/howto-configure-server-logs-in-portal/5-search.png)
 
-5. Om du vill hämta enskilda loggfiler markerar du nedpilsikonen bredvid varje loggfil på tabellraden.
+5. Om du vill hämta enskilda loggfiler väljer du nedåtpilen bredvid varje loggfil i tabell raden.
 
-   ![Skärmbild av sidan Serverloggar med nedpilsikonen markerad](./media/howto-configure-server-logs-in-portal/6-download.png)
+   ![Skärm bild av sidan Server loggar med nedåtpil ikon markerad](./media/howto-configure-server-logs-in-portal/6-download.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- Se [Access-serverloggar i CLI](howto-configure-server-logs-using-cli.md) om du vill lära dig hur du hämtar loggar programmässigt.
-- Läs mer om [serverloggar](concepts-server-logs.md) i Azure Database för PostgreSQL. 
-- Mer information om parameterdefinitionerna och PostgreSQL-loggningen finns i PostgreSQL-dokumentationen om [felrapportering och loggning](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Se [åtkomst Server loggar i CLI](howto-configure-server-logs-using-cli.md) för att lära dig hur du hämtar loggar program mässigt.
+- Läs mer om [Server loggar](concepts-server-logs.md) i Azure Database for PostgreSQL. 
+- Mer information om parameter definitioner och PostgreSQL-loggning finns i PostgreSQL-dokumentationen om [fel rapportering och loggning](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

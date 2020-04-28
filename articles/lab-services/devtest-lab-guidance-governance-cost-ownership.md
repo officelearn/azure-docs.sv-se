@@ -1,6 +1,6 @@
 ---
-title: Hantera kostnader och ägande i Azure DevTest Labs
-description: Den här artikeln innehåller information som hjälper dig att optimera för kostnad och anpassa ägarskap i hela din miljö.
+title: Hantera kostnader och ägarskap i Azure DevTest Labs
+description: Den här artikeln innehåller information som hjälper dig att optimera för kostnader och anpassa ägandet i din miljö.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,52 +14,52 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: b82d338f85f1b43712296ac7f27bdad55f8f1919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74561663"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Styrning av Azure DevTest Labs-infrastruktur – Hantera kostnader och ägande
-Kostnad och ägande är primära problem när du överväger att bygga din utveckling och testmiljöer. I det här avsnittet hittar du information som hjälper dig att optimera för kostnad och anpassa ägarskapet i hela din miljö.
+# <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Styrning av Azure DevTest Labs infrastruktur – hantera kostnader och ägarskap
+Kostnader och ägarskap är huvudsakliga problem när du ska skapa utvecklings-och test miljöer. I det här avsnittet hittar du information som hjälper dig att optimera för kostnad och anpassa ägarskapet i din miljö.
 
 ## <a name="optimize-for-cost"></a>Optimera för kostnad
 
 ### <a name="question"></a>Fråga
-Hur kan jag optimera för kostnader i min DevTest Labs-miljö?
+Hur kan jag optimera för kostnad i min DevTest Labs-miljö?
 
 ### <a name="answer"></a>Svar
-Det finns ett antal inbyggda funktioner i DevTest Labs som hjälper dig att optimera för kostnad. Se [kostnadshantering, tröskelvärden](devtest-lab-configure-cost-management.md) [och policyartiklar](devtest-lab-set-lab-policy.md) för att begränsa användarnas aktiviteter. 
+Det finns ett antal inbyggda funktioner i DevTest Labs som hjälper dig att optimera kostnaderna. Se [Cost Management, Thresholds](devtest-lab-configure-cost-management.md) [och policys](devtest-lab-set-lab-policy.md) artiklar för att begränsa användarnas aktiviteter. 
 
-När du använder DevTest Labs för en utvecklings- och testarbetsbelastning kan du överväga att använda [Enterprise Dev/Test Subscription Benefit](https://azure.microsoft.com/offers/ms-azr-0148p/)som en del av ditt Enterprise-avtal. Alternativt, om du är en Pay as you Go kund, kanske du vill överväga [Pay-as-you go DevTest erbjudande](https://azure.microsoft.com/offers/ms-azr-0023p/).
+När du använder DevTest Labs för att utveckla och testa arbets belastningar kan du överväga att använda [Enterprise dev/test prenumerations förmån](https://azure.microsoft.com/offers/ms-azr-0148p/), som en del av din Enterprise-avtal. Alternativt, om du betalar per användning, kanske du vill överväga [DevTest-erbjudandet betala per](https://azure.microsoft.com/offers/ms-azr-0023p/)användning.
 
-Detta tillvägagångssätt ger dig många fördelar:
+Den här metoden ger flera fördelar:
 
-- Särskilda lägre utvecklings-/testpriser på virtuella Datorer i Windows, molntjänster, HDInsight, App Service och Logic Apps
-- Ea-priser (Great Enterprise Agreement) för andra Azure-tjänster
-- Tillgång till exklusiva utvecklings-/testbilder i galleriet, inklusive Windows 8.1 och Windows 10
+- Särskilda lägre kostnader för utveckling och testning på virtuella Windows-datorer, Cloud Services, HDInsight, App Service och Logic Apps
+- Fantastiska priser för Enterprise-avtal (EA) för andra Azure-tjänster
+- Åtkomst till exklusiva dev/test-bilder i galleriet, inklusive Windows 8,1 och Windows 10
  
-Endast aktiva Visual Studio-prenumeranter (standardprenumerationer, årliga molnprenumerationer och månatliga molnprenumerationer) kan använda Azure-resurser som körs inom en företagsförsak/testprenumeration. Slutanvändare kan dock komma åt programmet för att ge feedback eller utföra acceptanstester. Användningen av resurser inom den här prenumerationen är begränsad till att utveckla och testa program, och ingen drifttidsgaranti erbjuds.
+Endast aktiva Visual Studio-prenumeranter (standard prenumerationer, årliga moln prenumerationer och månatliga moln prenumerationer) kan använda Azure-resurser som körs i en Enterprise dev/test-prenumeration. Slutanvändare kan dock komma åt programmet för att ge feedback eller utföra acceptans test. Användningen av resurser i den här prenumerationen är begränsad till att utveckla och testa program och ingen garanti för drift tid erbjuds.
 
-Om du väljer att använda DevTest-erbjudandet bör du tänka på att den här förmånen uteslutande är avsedd för utveckling och testning av dina program. Användning inom prenumerationen medför inte ett ekonomiskt stödda serviceavtal, förutom användning av Azure DevOps och HockeyApp.
+Om du väljer att använda DevTest-erbjudandet noterar du att den här förmånen är enbart avsedd för utveckling och testning av dina program. Användningen i prenumerationen har inget ekonomiskt service avtal, med undantag för användning av Azure-DevOps och HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Definiera en rollbaserad åtkomst i hela organisationen
+## <a name="define-a-role-based-access-across-your-organization"></a>Definiera en rollbaserad åtkomst i organisationen
 ### <a name="question"></a>Fråga
-Hur definierar jag rollbaserad åtkomstkontroll för mina DevTest Labs-miljöer för att säkerställa att IT-tjänster kan styra medan utvecklare/test kan utföra sitt arbete? 
+Hur gör jag för att definiera rollbaserad åtkomst kontroll för mina DevTest Labs-miljöer för att säkerställa att den kan styra medan utvecklare/test kan utföra sitt arbete? 
 
 ### <a name="answer"></a>Svar
 Det finns ett brett mönster, men detaljerna beror på din organisation.
 
-Central IT bör endast äga det som är nödvändigt och göra det möjligt för projekt- och applikationsteamen att ha den kontrollnivå som krävs. Vanligtvis innebär det att central IT äger prenumerationen och hanterar centrala IT-funktioner som nätverkskonfigurationer. Ägaruppsättningen **för** en prenumeration ska vara liten. Dessa ägare kan nominera ytterligare ägare när det finns behov, eller tillämpa principer på prenumerationsnivå, till exempel "Ingen offentlig IP".
+Den centrala IT-avdelningen bör endast äga vad som är nödvändigt och göra det möjligt för projekt-och program team att ha den kontroll nivå som krävs. Det innebär vanligt vis att central IT äger prenumerationen och hanterar kärn IT-funktioner, till exempel nätverkskonfigurationer. Uppsättningen **ägare** för en prenumeration ska vara liten. Dessa ägare kan utse ytterligare ägare när det behövs eller tillämpa principer på prenumerations nivå, till exempel "ingen offentlig IP".
 
-Det kan finnas en delmängd användare som kräver åtkomst över en prenumeration, till exempel Nivå 1- eller Nivå 2-stöd. I det här fallet rekommenderar vi att du ger dessa användare åtkomst **till deltagaren** så att de kan hantera resurserna, men inte ge användaråtkomst eller justera principer.
+Det kan finnas en delmängd av användare som behöver åtkomst över en prenumeration, till exempel 1 eller support på nivå 2. I det här fallet rekommenderar vi att du ger användarna **deltagare** åtkomst så att de kan hantera resurserna, men inte ge användar åtkomst eller ändra principer.
 
-DevTest Labs-resursen ska ägas av ägare som ligger nära projekt-/programteamet. Det beror på att de förstår sina krav när det gäller maskiner, och krävs programvara. I de flesta organisationer är ägaren till den här DevTest Labs-resursen ofta projektledare för projekt/utveckling. Den här ägaren kan hantera användare och principer i labbmiljön och hantera alla virtuella datorer i DevTest Labs-miljön.
+DevTest Labs-resursen bör ägas av ägare som är nära projekt-/program gruppen. Det beror på att de förstår kraven på datorer och nödvändig program vara. I de flesta organisationer är ägaren av den här DevTest Labs-resursen ofta projekt-/utvecklings ledare. Den här ägaren kan hantera användare och principer i labb miljön och kan hantera alla virtuella datorer i DevTest Labs miljö.
 
-Projekt-/programgruppsmedlemmarna ska läggas till i rollen DevTest Labs-användare. Dessa användare kan skapa virtuella datorer (i linje med policyerna för labb- och prenumerationsnivå). De kan också hantera sina egna virtuella datorer. De kan inte hantera virtuella datorer som tillhör andra användare.
+Projekt-/program grupp medlemmar ska läggas till i rollen DevTest Labs-användare. Dessa användare kan skapa virtuella datorer (i linje med principerna för labb och prenumerations nivå). De kan också hantera sina egna virtuella datorer. De kan inte hantera virtuella datorer som tillhör andra användare.
 
-Mer information finns i [Azure enterprise scaffold – prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold) documentation.
+Mer information finns i [Azure Enterprise-Autogenerera – dokumentation om preskripts styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold) .
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se [Företagspolicy och efterlevnad](devtest-lab-guidance-governance-policy-compliance.md).
+Se [företags policy och efterlevnad](devtest-lab-guidance-governance-policy-compliance.md).

@@ -1,40 +1,40 @@
 ---
-title: Optimera massinfogningar – Azure Database för PostgreSQL - Single Server
-description: I den här artikeln beskrivs hur du kan optimera massinfogningsåtgärder på en Azure-databas för PostgreSQL - Single Server.
+title: Optimera Mass infogningar – Azure Database for PostgreSQL-enskild server
+description: Den här artikeln beskriver hur du kan optimera Mass infognings åtgärder på en Azure Database for PostgreSQL-enskild server.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770143"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optimera massinfogningar och använda tillfälliga data i en Azure-databas för PostgreSQL - Single Server 
-I den här artikeln beskrivs hur du kan optimera massinfogningsåtgärder och använda tillfälliga data på en Azure-databas för PostgreSQL-server.
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optimera Mass infogningar och använda tillfälliga data på en Azure Database for PostgreSQL-enskild server 
+Den här artikeln beskriver hur du kan optimera Mass infognings åtgärder och använda tillfälliga data på en Azure Database for PostgreSQL-Server.
 
-## <a name="use-unlogged-tables"></a>Använd ologgade tabeller
-Om du har arbetsbelastningsåtgärder som omfattar tillfälliga data eller som infogar stora datauppsättningar i grupp kan du överväga att använda ologgade tabeller.
+## <a name="use-unlogged-tables"></a>Använd ej loggade tabeller
+Om du har arbets belastnings åtgärder som involverar tillfälliga data eller lägger till stora data mängder i bulk bör du överväga att använda ej loggade tabeller.
 
-Unlogged tabeller är en PostgreSQL-funktion som kan användas effektivt för att optimera bulk skär. PostgreSQL använder Write-Ahead Logging (WAL). Det ger atomicitet och hållbarhet, som standard. Atomicitet, konsistens, isolering och hållbarhet utgör ACID-egenskaperna. 
+Ej loggade tabeller är en PostgreSQL-funktion som kan användas effektivt för att optimera Mass infogningar. PostgreSQL använder Write-Ahead-loggning (WAL). Den ger atomiska och tålighet som standard. Atomicitet, konsekvens, isolering och hållbarhet utgör egenskaperna för syror. 
 
-Att infoga i en ologgad tabell innebär att PostgreSQL infogar utan att skriva in i transaktionsloggen, vilket i sig är en I/O-åtgärd. Som ett resultat är dessa tabeller betydligt snabbare än vanliga tabeller.
+Infogning i en ej loggad tabell innebär att PostgreSQL infogar utan att skriva till transaktions loggen, som själva är en I/O-åtgärd. Därför är tabellerna betydligt snabbare än vanliga tabeller.
 
-Använd följande alternativ för att skapa en ologgad tabell:
-- Skapa en ny ologgad tabell `CREATE UNLOGGED TABLE <tableName>`med syntaxen .
-- Konvertera en befintlig loggad tabell till en ologgad tabell med syntaxen `ALTER TABLE <tableName> SET UNLOGGED`.  
+Använd följande alternativ för att skapa en ej loggad tabell:
+- Skapa en ny ej loggad tabell med hjälp av `CREATE UNLOGGED TABLE <tableName>`syntaxen.
+- Konvertera en befintlig loggad tabell till en ej loggad tabell med hjälp `ALTER TABLE <tableName> SET UNLOGGED`av syntaxen.  
 
-Om du vill vända `ALTER TABLE <tableName> SET LOGGED`på processen använder du syntaxen .
+Använd syntaxen `ALTER TABLE <tableName> SET LOGGED`om du vill ångra processen.
 
-## <a name="unlogged-table-tradeoff"></a>Ologgad bordsavvägning
-Olästa bord är inte kraschsäkra. En oläst tabell trunkeras automatiskt efter en krasch eller utsätts för en oren avstängning. Innehållet i en ologgad tabell replikeras inte heller till standby-servrar. Alla index som skapas på en ologgad tabell är automatiskt ologgade också. När insatsen är klar konverterar du tabellen till inloggad så att insatsen är hållbar.
+## <a name="unlogged-table-tradeoff"></a>Inloggad tabell kompromiss
+Ej loggade tabeller är inte krasch säkra. En ej loggad tabell trunkeras automatiskt efter en krasch eller genomgår en ren avstängning. Innehållet i en ej loggad tabell replikeras inte heller till vänte läges servrar. Alla index som skapats i en ej loggad tabell loggas inte automatiskt. När INSERT-åtgärden har slutförts konverterar du tabellen så att den loggas så att infogningen är hållbar.
 
-Vissa kundarbetsbelastningar har upplevt cirka 15 till 20 procent prestandaförbättring när ologgade tabeller användes.
+Vissa kund arbets belastningar har en över cirka 15 procent till 20 procents prestanda förbättringar när ej loggade tabeller användes.
 
 ## <a name="next-steps"></a>Nästa steg
-Granska din arbetsbelastning för användning av tillfälliga data och stora massinfogningar. Se följande PostgreSQL-dokumentation:
+Granska din arbets belastning för användning av tillfälliga data och stora Mass infogningar. Se följande PostgreSQL-dokumentation:
  
-- [Skapa SQL-kommandon för tabell](https://www.postgresql.org/docs/current/static/sql-createtable.html)
+- [Skapa tabell SQL-kommandon](https://www.postgresql.org/docs/current/static/sql-createtable.html)

@@ -1,6 +1,6 @@
 ---
-title: Hantering av filutrymme i en-/poolade databaser
-description: Den här sidan beskriver hur du hanterar filutrymme med enstaka och poolade databaser i Azure SQL Database och innehåller kodexempel för hur du tar reda på om du behöver krympa en enskild eller en poolad databas samt hur du utför en databasförminskaråtgärd.
+title: Fil utrymmes hantering med enkel/pool-databaser
+description: Den här sidan beskriver hur du hanterar fil utrymme med enkla databaser i Azure SQL Database och innehåller kod exempel för hur du avgör om du behöver krympa en enskild databas eller en databas i poolen samt hur du utför en databas krympnings åtgärd.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,22 +12,22 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74420984"
 ---
-# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera filutrymme för enstaka och poolade databaser i Azure SQL Database
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera fil utrymme för enskilda databaser och databaser i Azure SQL Database
 
-I den här artikeln beskrivs olika typer av lagringsutrymme för enskilda och poolerade databaser i Azure SQL Database och åtgärder som kan vidtas när filutrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
+I den här artikeln beskrivs olika typer av lagrings utrymme för enskilda databaser och databaser i Azure SQL Database och steg som kan vidtas när fil utrymmet som allokerats för databaser och elastiska pooler måste hanteras explicit.
 
 > [!NOTE]
-> Den här artikeln gäller inte för distributionsalternativet för hanterade instanser i Azure SQL Database.
+> Den här artikeln gäller inte distributions alternativet hanterad instans i Azure SQL Database.
 
 ## <a name="overview"></a>Översikt
 
-Med enstaka och poolade databaser i Azure SQL Database finns det arbetsbelastningsmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden använda datasidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Orsaken är att det tilldelade filutrymmet inte automatiskt hämtas när data tas bort.
+Med enkla databaser och databaser i Azure SQL Database finns det arbets belastnings mönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden använda data sidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Orsaken till detta beror på att det allokerade fil utrymmet inte frigörs automatiskt när data tas bort.
 
 I följande scenarier kan det vara nödvändigt att övervaka användningen av filutrymmet och att krympa datafiler:
 
@@ -35,47 +35,47 @@ I följande scenarier kan det vara nödvändigt att övervaka användningen av f
 - Tillåt att maxstorleken för en enskild databas eller elastisk pool minskas.
 - Tillåt att en enskild databas eller elastisk pool ändras till en annan tjänstnivå eller prestandanivå med en mindre maxstorlek.
 
-### <a name="monitoring-file-space-usage"></a>Övervaka användning av filutrymme
+### <a name="monitoring-file-space-usage"></a>Övervaka fil utrymmes användning
 
-De flesta lagringslagringslagringsmått som visas i Azure-portalen och följande API:er mäter bara storleken på använda datasidor:
+De flesta mått för lagrings utrymme som visas i Azure Portal och följande API: er mäter endast storleken på data sidor som används:
 
-- Azure Resource Manager-baserade api:er för mått, inklusive [Get-mått för](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) PowerShell
-- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- API: er för Azure Resource Manager baserade mått, inklusive PowerShell [Get-Metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
+- T-SQL: [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
-Följande API:er mäter dock också storleken på det utrymme som allokerats för databaser och elastiska pooler:
+Följande API: er mäter dock också storleken på utrymmet som allokerats för databaser och elastiska pooler:
 
-- T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-### <a name="shrinking-data-files"></a>Krympande datafiler
+### <a name="shrinking-data-files"></a>Krympa datafiler
 
-SQL Database-tjänsten förminsar inte automatiskt datafiler för att frigöra oanvänt allokerat utrymme på grund av den potentiella effekten på databasens prestanda.  Kunder kan dock krympa datafiler via självbetjäning vid en tidpunkt de själva väljer genom att följa stegen som beskrivs i [återta oanvänt allokerat utrymme](#reclaim-unused-allocated-space).
+SQL Database tjänsten krymper inte automatiskt datafiler för att frigöra oanvänt allokerat utrymme på grund av den potentiella påverkan av databasens prestanda.  Kunder kan dock krympa datafiler via självbetjäning när de väljer genom att följa stegen som beskrivs i [frigör oanvänt allokerat utrymme](#reclaim-unused-allocated-space).
 
 > [!NOTE]
-> Till skillnad från datafiler förminskar SQL Database-tjänsten automatiskt loggfiler eftersom åtgärden inte påverkar databasens prestanda.
+> Till skillnad från datafiler krymper tjänsten SQL Database tjänsten automatiskt loggfiler eftersom åtgärden inte påverkar databasens prestanda.
 
-## <a name="understanding-types-of-storage-space-for-a-database"></a>Förstå typer av lagringsutrymme för en databas
+## <a name="understanding-types-of-storage-space-for-a-database"></a>Förstå typer av lagrings utrymme för en databas
 
-Att förstå följande lagringsutrymmesmängder är viktigt för att hantera filutrymmet i en databas.
+Det är viktigt att förstå följande lagrings utrymmes mängder för att hantera fil utrymmet för en databas.
 
-|Databaskvantitet|Definition|Kommentarer|
+|Databas antal|Definition|Kommentarer|
 |---|---|---|
-|**Datautrymme som används**|Mängden utrymme som används för att lagra databasdata på 8 KB-sidor.|I allmänhet ökar (minskar) utrymmet på skär (borttagningar). I vissa fall ändras inte det utrymme som används på skär eller borttagningar beroende på mängden och mönstret för data som ingår i åtgärden och eventuell fragmentering. Om du till exempel tar bort en rad från varje datasida minskar inte nödvändigtvis det utrymme som används.|
-|**Tilldelat datautrymme**|Mängden formaterat filutrymme som gjorts tillgängligt för lagring av databasdata.|Mängden tilldelade utrymme ökar automatiskt, men minskar aldrig när borttagningarna har tas bort. Detta säkerställer att framtida infogningar är snabbare eftersom utrymmet inte behöver formateras om.|
-|**Datautrymme allokerat men oanvänt men oanvänt**|Skillnaden mellan mängden tilldelade datautrymme och datautrymme som används.|Den här kvantiteten representerar den maximala mängden ledigt utrymme som kan återanvändas genom att databasdatafiler förminskas.|
-|**Data max storlek**|Den maximala mängden utrymme som kan användas för att lagra databasdata.|Mängden tilldelade datautrymme kan inte växa utöver data maxstorleken.|
+|**Använt data utrymme**|Mängden utrymme som används för att lagra databas data på 8 KB-sidor.|Normalt ökar utrymmet som används (minskar) vid infogningar (rader). I vissa fall ändras inte utrymmet som används vid infogningar eller borttagningar beroende på mängden och mönstret för data som ingår i åtgärden och eventuell fragmentering. Att till exempel ta bort en rad från alla data sidor minskar inte nödvändigt vis det utrymme som används.|
+|**Allokerat data utrymme**|Mängden formaterat fil utrymme som är tillgängligt för lagring av databas data.|Mängden utrymme som allokeras växer automatiskt, men minskar aldrig efter borttagningarna. Det här beteendet säkerställer att framtida infogningar är snabbare eftersom utrymmet inte behöver formateras om.|
+|**Allokerat data utrymme men oanvänt**|Skillnaden mellan mängden allokerat data utrymme och använt data utrymme.|Den här kvantiteten representerar den maximala mängden ledigt utrymme som kan frigöras genom att krympa datafiler för databasen.|
+|**Max storlek för data**|Den maximala mängd utrymme som kan användas för att lagra databas data.|Mängden allokerat data utrymme kan inte växa utöver data Max storleken.|
 
-Följande diagram illustrerar förhållandet mellan de olika typerna av lagringsutrymme för en databas.
+Följande diagram illustrerar förhållandet mellan de olika typerna av lagrings utrymme för en databas.
 
-![typer och relationer för lagringsutrymme](./media/sql-database-file-space-management/storage-types.png)
+![lagrings utrymmes typer och-relationer](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-single-database-for-storage-space-information"></a>Fråga en enskild databas efter information om lagringsutrymme
+## <a name="query-a-single-database-for-storage-space-information"></a>Fråga en enskild databas om lagrings utrymmes information
 
-Följande frågor kan användas för att bestämma lagringsutrymmesmängder för en enskild databas.  
+Följande frågor kan användas för att fastställa antalet lagrings utrymmen för en enskild databas.  
 
-### <a name="database-data-space-used"></a>Databasdatautrymme som används
+### <a name="database-data-space-used"></a>Använt databas data utrymme
 
-Ändra följande fråga för att returnera mängden databasdatautrymme som används.  Enheter i frågeresultatet finns i MB.
+Ändra följande fråga för att returnera mängden databas data utrymme som används.  Enheter i frågeresultatet är i MB.
 
 ```sql
 -- Connect to master
@@ -86,9 +86,9 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Databasdatautrymme allokerat och oanvänt allokerat utrymme
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Allokerat och oanvänt utrymme för databas data utrymme
 
-Använd följande fråga för att returnera mängden databasdatautrymme som allokerats och mängden oanvänt utrymme som allokerats.  Enheter i frågeresultatet finns i MB.
+Använd följande fråga för att returnera mängden allokerat utrymme för databas data och mängden oanvänt utrymme som allokerats.  Enheter i frågeresultatet är i MB.
 
 ```sql
 -- Connect to database
@@ -100,9 +100,9 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
 
-### <a name="database-data-max-size"></a>Databasdata maxstorlek
+### <a name="database-data-max-size"></a>Maximal storlek för databas data
 
-Ändra följande fråga för att returnera databasdatas maximala storlek.  Enheter i frågeresultatet är i byte.
+Ändra följande fråga för att returnera den maximala storleken för databas data.  Enheter i frågeresultatet anges i byte.
 
 ```sql
 -- Connect to database
@@ -110,24 +110,24 @@ HAVING type_desc = 'ROWS'
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
-## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Förstå typer av lagringsutrymme för en elastisk pool
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Förstå typer av lagrings utrymme för en elastisk pool
 
-Att förstå följande lagringsutrymmesmängder är viktigt för att hantera filutrymmet i en elastisk pool.
+Det är viktigt att förstå följande lagrings utrymmes mängder för att hantera fil utrymmet för en elastisk pool.
 
-|Elastisk poolkvantitet|Definition|Kommentarer|
+|Kvantitet för elastisk pool|Definition|Kommentarer|
 |---|---|---|
-|**Datautrymme som används**|Summeringen av datautrymme som används av alla databaser i den elastiska poolen.||
-|**Tilldelat datautrymme**|Summeringen av datautrymme som allokeras av alla databaser i den elastiska poolen.||
-|**Datautrymme allokerat men oanvänt men oanvänt**|Skillnaden mellan mängden datautrymme som allokerats och datautrymme som används av alla databaser i den elastiska poolen.|Den här kvantiteten representerar den maximala mängden utrymme som allokerats för den elastiska poolen som kan återanvändas genom att databasdatafiler förminskas.|
-|**Data max storlek**|Den maximala mängden datautrymme som kan användas av den elastiska poolen för alla dess databaser.|Det utrymme som allokerats för den elastiska poolen bör inte överstiga den elastiska poolen max storlek.  Om det här villkoret inträffar kan utrymme som allokerats som inte används återanvändas genom att databasdatafiler förminskas.|
+|**Använt data utrymme**|En summering av data utrymmet som används av alla databaser i den elastiska poolen.||
+|**Allokerat data utrymme**|En summering av det data utrymme som allokerats av alla databaser i den elastiska poolen.||
+|**Allokerat data utrymme men oanvänt**|Skillnaden mellan mängden allokerat data utrymme och data utrymme som används av alla databaser i den elastiska poolen.|Den här kvantiteten representerar den maximala mängden utrymme som allokerats för den elastiska poolen som kan frigöras genom att krympa datafiler för databasen.|
+|**Max storlek för data**|Den maximala mängden data utrymme som kan användas av den elastiska poolen för alla dess databaser.|Utrymmet som allokerats för den elastiska poolen får inte överskrida den högsta tillåtna storleken för elastisk pool.  Om det här tillståndet inträffar kan allokerat utrymme som inte används frigöras genom att krympa datafiler för databasen.|
 
-## <a name="query-an-elastic-pool-for-storage-space-information"></a>Fråga en elastisk pool efter information om lagringsutrymme
+## <a name="query-an-elastic-pool-for-storage-space-information"></a>Fråga en elastisk pool för lagrings utrymmes information
 
-Följande frågor kan användas för att bestämma lagringsutrymmesmängder för en elastisk pool.  
+Följande frågor kan användas för att fastställa antalet lagrings utrymmen för en elastisk pool.  
 
-### <a name="elastic-pool-data-space-used"></a>Elastiskt pooldatautrymme som används
+### <a name="elastic-pool-data-space-used"></a>Använt data utrymme för elastisk pool
 
-Ändra följande fråga för att returnera mängden elastiskt pooldatautrymme som används.  Enheter i frågeresultatet finns i MB.
+Ändra följande fråga för att returnera mängden elastiskt data utrymme för elastisk pool.  Enheter i frågeresultatet är i MB.
 
 ```sql
 -- Connect to master
@@ -138,16 +138,16 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Elastiskt pooldatautrymme allokerat och oanvänt allokerat utrymme
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Allokerat data utrymme för elastisk pool och oanvänt allokerat utrymme
 
-Ändra följande exempel för att returnera en tabell med det tilldelade och oandelade utrymmet för varje databas i en elastisk pool. Tabellen beställer databaser från de databaser som har den största mängden oanvänt allokerat utrymme till den minsta mängden oanvänt allokerat utrymme.  Enheter i frågeresultatet finns i MB.  
+Ändra följande exempel för att returnera en tabell som visar utrymmet allokerat och oanvänt allokerat utrymme för varje databas i en elastisk pool. Tabellen beställer databaser från de databaserna med störst mängd oanvänt allokerat utrymme till minsta mängd oanvänt allokerat utrymme.  Enheter i frågeresultatet är i MB.  
 
-Frågeresultaten för att bestämma det utrymme som allokerats för varje databas i poolen kan läggas ihop för att bestämma det totala utrymme som allokerats för den elastiska poolen. Det elastiska poolutrymmet som allokerats bör inte överstiga den elastiska poolen maxstorlek.  
+Frågeresultatet för att bestämma hur mycket utrymme som allokeras för varje databas i poolen kan läggas till tillsammans för att fastställa det totala utrymmet som allokerats för den elastiska poolen. Allokerat utrymme för elastisk pool får inte överskrida den maximala storleken för elastisk pool.  
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. AzureRM-modulen fortsätter att ta emot buggfixar fram till åtminstone december 2020.  Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az).
+> PowerShell-modulen Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-PowerShell-skriptet kräver SQL Server PowerShell-modul – se [Hämta PowerShell-modul](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) för att installera.
+PowerShell-skriptet kräver SQL Server PowerShell-modul – se [Ladda ned PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) för att installera.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -180,13 +180,13 @@ Write-Output "`n" "ElasticPoolName: $poolName"
 Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocatedUnusedInMB -Descending | Format-Table
 ```
 
-Följande skärmdump är ett exempel på utskriften av skriptet:
+Följande skärm bild är ett exempel på utdata från skriptet:
 
-![elastisk pool allokerat utrymme och oanvänt allokerat utrymme exempel](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
+![exempel på allokerat utrymme för elastisk pool och oanvänt allokerat utrymme](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-data-max-size"></a>Elastiska pooldata maxstorlek
+### <a name="elastic-pool-data-max-size"></a>Maximal storlek för elastisk pool
 
-Ändra följande T-SQL-fråga för att returnera den elastiska pooldata maxstorlek.  Enheter i frågeresultatet finns i MB.
+Ändra följande T-SQL-fråga för att returnera den maximala storleken för elastiska pooler.  Enheter i frågeresultatet är i MB.
 
 ```sql
 -- Connect to master
@@ -197,46 +197,46 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-## <a name="reclaim-unused-allocated-space"></a>Återta oanvänt allokerat utrymme
+## <a name="reclaim-unused-allocated-space"></a>Frigör oanvänt allokerat utrymme
 
 > [!NOTE]
-> Det här kommandot kan påverka databasens prestanda medan den körs och bör om möjligt köras under perioder med låg användning.
+> Det här kommandot kan påverka databasens prestanda när den körs, och om möjligt bör köras under perioder med låg belastning.
 
-### <a name="dbcc-shrink"></a>DBCC krympa
+### <a name="dbcc-shrink"></a>DBCC-krympning
 
-När databaser har identifierats för att återvinna oanvänt allokerat utrymme ändrar du namnet på databasen i följande kommando för att förminska datafilerna för varje databas.
+När databaser har identifierats för att frigöra oanvänt allokerat utrymme ändrar du namnet på databasen i följande kommando för att krympa datafilerna för varje databas.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
-Det här kommandot kan påverka databasens prestanda medan den körs och bör om möjligt köras under perioder med låg användning.  
+Det här kommandot kan påverka databasens prestanda när den körs, och om möjligt bör köras under perioder med låg belastning.  
 
 Mer information om det här kommandot finns i [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>Automatisk krympning
 
-Alternativt kan automatisk förminskande aktiveras för en databas.  Automatisk krympning minskar filhanteringskomplexiteten och är `SHRINKDATABASE` mindre `SHRINKFILE`effektkänslig för databasens prestanda än eller .  Automatisk krympning kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Automatisk krympning kan dock vara mindre effektiv `SHRINKDATABASE` `SHRINKFILE`när det gäller att återvinna filutrymme än och .
-Om du vill aktivera automatisk förminskande ändrar du namnet på databasen i följande kommando.
+Du kan också aktivera automatisk krympning för en databas.  Automatisk krympning minskar fil hanterings komplexiteten och är mindre påverkan på databas prestanda `SHRINKDATABASE` än `SHRINKFILE`eller.  Automatisk krympning kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Den automatiska krympningen kan dock vara mindre effektiv när du frigör fil utrymme än `SHRINKDATABASE` och `SHRINKFILE`.
+Om du vill aktivera automatisk krympning ändrar du namnet på databasen i följande kommando.
 
 ```sql
 -- Enable auto-shrink for the database.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Mer information om det här kommandot finns i [databasuppsättningsalternativ.](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+Mer information om det här kommandot finns i alternativ för [databas uppsättning](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
 
 ### <a name="rebuild-indexes"></a>Återskapa index
 
-När databasdatafiler krymps kan index fragmenteras och förlora sin effektivitet i prestandaoptimering. Om prestandaförsämring inträffar bör du överväga att återskapa databasindex. Mer information om fragmentering och återskapande index finns i [Ordna om och återskapa index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+När datafilerna i databasen krymps kan index bli fragmenterade och förlora prestanda optimerings effektivitet. Om prestanda försämringen inträffar bör du överväga att återskapa databas index. Mer information om fragmentering och återuppbyggnad av index finns i [omorganisera och återskapa index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om databasens maxstorlekar finns i:
-  - [Azure SQL Database vCore-baserade inköpsmodellgränser för en enskild databas](sql-database-vcore-resource-limits-single-databases.md)
-  - [Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-single-databases.md)
-  - [Azure SQL Database vCore-baserade inköpsmodellgränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)
-  - [Resursgränser för elastiska pooler med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-elastic-pools.md)
+- Information om Max storlek för databas finns i:
+  - [Azure SQL Database vCore-baserade inköps modell gränser för en enskild databas](sql-database-vcore-resource-limits-single-databases.md)
+  - [Resurs gränser för enskilda databaser som använder den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-single-databases.md)
+  - [Azure SQL Database vCore-baserade inköps modell gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Resurs begränsningar för elastiska pooler med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-elastic-pools.md)
 - Mer information om `SHRINKDATABASE` kommandot finns i [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
-- Mer information om fragmentering och återskapande index finns i [Ordna om och återskapa index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+- Mer information om fragmentering och återuppbyggnad av index finns i [omorganisera och återskapa index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

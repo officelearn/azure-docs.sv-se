@@ -9,13 +9,13 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 520a0b4ec42b9a32fbd30c28c7ce311b5445f23d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74260893"
 ---
-När du skickar mallaviseringar behöver du bara ange en uppsättning egenskaper. I det här fallet innehåller uppsättningen egenskaper den lokaliserade versionen av den aktuella nyheten.
+När du skickar mal meddelanden behöver du bara ange en uppsättning egenskaper. I det här scenariot innehåller uppsättningen med egenskaper den lokaliserade versionen av aktuella nyheter.
 
 ```json
 {
@@ -25,9 +25,9 @@ När du skickar mallaviseringar behöver du bara ange en uppsättning egenskaper
 }
 ```
 
-### <a name="send-notifications-using-a-c-console-app"></a>Skicka aviseringar med en C#-konsolapp
+### <a name="send-notifications-using-a-c-console-app"></a>Skicka meddelanden med hjälp av en C#-konsol app
 
-I det här avsnittet visas hur du skickar meddelanden med en konsolapp. Koden sänder meddelanden till både Windows Store och iOS-enheter. Ändra metoden `SendTemplateNotificationAsync` i den konsolapp som du skapade tidigare med följande kod:
+I det här avsnittet visas hur du skickar meddelanden med hjälp av en-konsol program. Koden skickar meddelanden till både Windows Store-och iOS-enheter. Ändra metoden `SendTemplateNotificationAsync` i den konsolapp som du skapade tidigare med följande kod:
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
@@ -66,11 +66,11 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-Metoden SendTemplateNotificationAsync levererar den lokaliserade nyheten till **alla** dina enheter, oavsett plattform. Meddelandehubben skapar och levererar rätt inbyggd nyttolast till alla enheter som prenumererar på en viss tagg.
+Metoden SendTemplateNotificationAsync levererar den lokaliserade nyhets enheten till **alla** dina enheter, oavsett plattform. Notification Hub skapar och levererar rätt intern nytto Last till alla enheter som prenumererar på en specifik tagg.
 
-### <a name="sending-notification-with-mobile-services"></a>Skicka meddelande med mobila tjänster
+### <a name="sending-notification-with-mobile-services"></a>Skicka meddelande med Mobile Services
 
-Använd följande skript i schemaläggaren för mobila tjänster:
+Använd följande skript i Mobile Services Scheduler:
 
 ```csharp
 var azure = require('azure');

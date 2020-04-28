@@ -1,7 +1,7 @@
 ---
 title: Hämta mått med REST API
 titleSuffix: Azure Load Balancer
-description: I den här artikeln kommer du igång med Azure REST API:er för att samla in hälso- och användningsmått för Azure Load Balancer.
+description: 'I den här artikeln får du börja använda Azure REST-API: erna för att samla in hälso-och användnings statistik för Azure Load Balancer.'
 services: sql-database
 author: asudbring
 manager: KumudD
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74225247"
 ---
-# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Hämta användningsmått för belastningsutjämnare med REST API
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Hämta användnings statistik för Load Balancer med hjälp av REST API
 
-Samla in antalet byte som bearbetas av en [standardbelastningsutjämning](/azure/load-balancer/load-balancer-standard-overview) för ett tidsintervall med hjälp av [Azure REST API](/rest/api/azure/).
+Samla in antalet byte som bearbetats av en [standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) under ett tidsintervall med hjälp av [Azure REST API](/rest/api/azure/).
 
-Fullständig referensdokumentation och ytterligare exempel för REST API finns i [Azure Monitor REST-referensen](/rest/api/monitor). 
+Fullständig referens dokumentation och ytterligare exempel för REST API finns i [Azure Monitor rest-referensen](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Använd följande GET-begäran för att samla in [bytecount-måttet](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) från en standardbelastningsutjämnare. 
+Använd följande GET-begäran för att samla in [ByteCount-måttet](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) från en standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -42,23 +42,23 @@ Följande huvuden krävs:
 
 ### <a name="uri-parameters"></a>URI-parametrar
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | :--- | :---------- |
-| subscriptionId | Prenumerations-ID:t som identifierar en Azure-prenumeration. Om du har flera prenumerationer läser [du Arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| resourceGroupName | Namnet på resursgruppen som innehåller resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
+| subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| resourceGroupName | Namnet på den resurs grupp som innehåller resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
 | loadBalancerName | Namnet på Azure Load Balancer. |
-| måttnamn | Kommaavgränsad lista över giltiga [belastningsutjämnad mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| api-version | DEN API-version som ska användas för begäran.<br /><br /> Det här dokumentet `2018-01-01`täcker api-version , som ingår i ovanstående URL.  |
-| Gått | Tidsspannet för frågan. Det är en sträng med `startDateTime_ISO/endDateTime_ISO`följande format . Den här valfria parametern är inställd på att returnera en dags data i exemplet. |
+| mått namn | Kommaavgränsad lista över giltiga [load BALANCERS mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API- `2018-01-01`versionen, som ingår i ovanstående URL.  |
+| tidsintervall | Frågans TimeSpan. Det är en sträng med följande format `startDateTime_ISO/endDateTime_ISO`. Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Begärandetext
 
-Det behövs ingen begärandeorgan för den här åtgärden.
+Ingen begär ande text krävs för den här åtgärden.
 
 ## <a name="handle-the-response"></a>Hantera svaret
 
-Statuskod 200 returneras när listan över måttvärden returneras. En fullständig lista över felkoder finns i [referensdokumentationen](/rest/api/monitor/metrics/list#errorresponse).
+Status koden 200 returneras när listan med mått värden returneras. En fullständig lista över felkoder finns i [referens dokumentationen](/rest/api/monitor/metrics/list#errorresponse).
 
 ## <a name="example-response"></a>Exempelsvar 
 

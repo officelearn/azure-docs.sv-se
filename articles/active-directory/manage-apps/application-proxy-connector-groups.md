@@ -1,6 +1,6 @@
 ---
-title: Publicera appar i separata nätverk via anslutningsgrupper - Azure AD
-description: Beskriver hur du skapar och hanterar grupper av kopplingar i Azure AD Application Proxy.
+title: Publicera appar i separata nätverk via anslutnings grupper – Azure AD
+description: Beskriver hur du skapar och hanterar grupper med kopplingar i Azure AD-programproxy.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -15,116 +15,116 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74275568"
 ---
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program i separata nätverk och platser med hjälp av anslutningsgrupper
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program i separata nätverk och platser med anslutnings grupper
 
-Kunder använder Azure AD:s programproxy för fler och fler scenarier och program. Så vi har gjort App Proxy ännu mer flexibel genom att möjliggöra fler topologier. Du kan skapa application proxy-anslutningsgrupper så att du kan tilldela specifika kopplingar för att betjäna specifika program. Den här funktionen ger dig mer kontroll och sätt att optimera distributionen av programproxy.
+Kunder använder Azure ADs tillämpningsproxy för fler och fler scenarier och program. Vi har gjort App proxy ännu mer flexibel genom att aktivera fler topologier. Du kan skapa kopplings grupper för programproxy så att du kan tilldela specifika anslutningar för att betjäna specifika program. Den här funktionen ger dig större kontroll och sätt att optimera distributionen av programproxyn.
 
-Varje Programproxykoppling tilldelas en kopplingsgrupp. Alla kopplingar som tillhör samma kopplingsgrupp fungerar som en separat enhet för hög tillgänglighet och belastningsutjämning. Alla kopplingar tillhör en kopplingsgrupp. Om du inte skapar grupper finns alla kopplingar i en standardgrupp. Din administratör kan skapa nya grupper och tilldela kopplingar till dem i Azure-portalen.
+Varje Application Proxy-koppling är tilldelad till en kopplings grupp. Alla kopplingar som tillhör samma kopplings grupp fungerar som en separat enhet för hög tillgänglighet och belastnings utjämning. Alla kopplingar tillhör en kopplings grupp. Om du inte skapar grupper finns alla dina kopplingar i en standard grupp. Din administratör kan skapa nya grupper och tilldela kopplingar till dem i Azure Portal.
 
-Alla program tilldelas en kopplingsgrupp. Om du inte skapar grupper tilldelas alla program till en standardgrupp. Men om du ordnar kopplingarna i grupper kan du ställa in varje program så att det fungerar med en viss kopplingsgrupp. I det här fallet tjänar endast kopplingarna i den gruppen programmet på begäran. Den här funktionen är användbar om dina program finns på olika platser. Du kan skapa kopplingsgrupper baserat på plats, så att program alltid betjänas av kopplingar som är fysiskt nära dem.
+Alla program har tilldelats en kopplings grupp. Om du inte skapar grupper tilldelas alla dina program till en standard grupp. Men om du ordnar dina kopplingar i grupper kan du ange att varje program ska fungera med en specifik kopplings grupp. I det här fallet är det bara kopplingarna i gruppen som betjänar programmet på begäran. Den här funktionen är användbar om dina program finns på olika platser. Du kan skapa anslutnings grupper baserat på plats, så att programmen alltid betjänas av anslutningar som är fysiskt nära dem.
 
 > [!TIP]
-> Om du har en stor application proxy-distribution ska du inte tilldela några program till standardkopplingsgruppen. På så sätt får nya kopplingar ingen direkttrafik förrän du tilldelar dem till en aktiv kopplingsgrupp. Med den här konfigurationen kan du också placera kopplingar i inaktivt läge genom att flytta tillbaka dem till standardgruppen, så att du kan utföra underhåll utan att påverka användarna.
+> Om du har en stor Application Proxy-distribution ska du inte tilldela några program till standard anslutnings gruppen. På så sätt tar nya anslutningar inte emot någon Live-trafik förrän du tilldelar dem till en aktiv anslutnings grupp. Den här konfigurationen gör det också möjligt att placera anslutningar i ett inaktivt läge genom att flytta tillbaka dem till standard gruppen så att du kan utföra underhåll utan att påverka användarna.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill gruppera kopplingarna måste du se till att du [har installerat flera kopplingar](application-proxy-add-on-premises-application.md). När du installerar en ny koppling **Default** sammanfogas den automatiskt standardkopplingsgruppen för anslutningsappar.
+Om du vill gruppera dina anslutningar måste du kontrol lera att du har [installerat flera kopplingar](application-proxy-add-on-premises-application.md). När du installerar en ny anslutning kopplas den automatiskt till **standard** anslutnings gruppen.
 
-## <a name="create-connector-groups"></a>Skapa kopplingsgrupper
+## <a name="create-connector-groups"></a>Skapa anslutnings grupper
 
-Använd de här stegen om du vill skapa så många kopplingsgrupper du vill.
+Använd de här stegen för att skapa så många kopplings grupper du vill.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Azure Active Directory** > **Enterprise-programprogramproxy** > **Application proxy**.
-1. Välj **Ny kopplingsgrupp**. Bladet Ny kopplingsgrupp visas.
+1. Välj **Azure Active Directory** > **programproxy**för**företags program** > .
+1. Välj **ny anslutnings grupp**. Bladet ny kopplings grupp visas.
 
-   ![Visar skärmen för att välja en ny kopplingsgrupp](./media/application-proxy-connector-groups/new-group.png)
+   ![Visar skärmen för att välja en ny anslutnings grupp](./media/application-proxy-connector-groups/new-group.png)
 
-1. Ge den nya kopplingsgruppen ett namn och använd sedan rullgardinsmenyn för att välja vilka kopplingar som hör till den här gruppen.
+1. Ge din nya anslutnings grupp ett namn och Använd sedan List menyn för att välja vilka kopplingar som tillhör den här gruppen.
 1. Välj **Spara**.
 
-## <a name="assign-applications-to-your-connector-groups"></a>Tilldela program till dina anslutningsgrupper
+## <a name="assign-applications-to-your-connector-groups"></a>Tilldela program till dina anslutnings grupper
 
-Följ dessa steg för varje program som du har publicerat med Programproxy. Du kan tilldela ett program till en kopplingsgrupp när du först publicerar det, eller så kan du använda de här stegen för att ändra tilldelningen när du vill.
+Använd de här stegen för varje program som du har publicerat med Application Proxy. Du kan tilldela ett program till en kopplings grupp första gången du publicerar den, eller så kan du använda de här stegen för att ändra tilldelningen när du vill.
 
-1. Välj **Enterprise-program** > **Alla program** > det program som du vill tilldela en anslutningsgrupp > Application **Proxy**i katalogen.
-1. Använd listrutan **Kopplingsgrupp** för att välja den grupp som du vill att programmet ska använda.
-1. Välj **Spara** om du vill tillämpa ändringen.
+1. Från hanterings instrument panelen för din katalog väljer du **företags program** > **alla program** > det program som du vill tilldela till en anslutnings grupp > **programproxy**.
+1. Använd List Rute menyn för **kopplings grupper** för att välja den grupp som du vill att programmet ska använda.
+1. Välj **Spara** för att tillämpa ändringen.
 
-## <a name="use-cases-for-connector-groups"></a>Användningsfall för kopplingsgrupper
+## <a name="use-cases-for-connector-groups"></a>Användnings fall för anslutnings grupper
 
-Anslutningsgrupper är användbara för olika scenarier, bland annat:
+Kopplings grupper är användbara för olika scenarier, inklusive:
 
-### <a name="sites-with-multiple-interconnected-datacenters"></a>Platser med flera sammankopplade datacenter
+### <a name="sites-with-multiple-interconnected-datacenters"></a>Webbplatser med flera sammankopplade Data Center
 
-Många organisationer har ett antal sammankopplade datacenter. I det här fallet vill du behålla så mycket trafik i datacentret som möjligt eftersom länkar mellan datacenter är dyra och långsamma. Du kan distribuera kopplingar i varje datacenter för att endast betjäna de program som finns i datacentret. Den här metoden minimerar länkar mellan datacenter och ger en helt transparent upplevelse för dina användare.
+Många organisationer har ett antal sammankopplade Data Center. I det här fallet vill du ha lika mycket trafik i data centret som möjligt eftersom länkar mellan data Center är dyra och långsamma. Du kan distribuera anslutningar i varje data Center för att endast betjäna de program som finns i data centret. Den här metoden minimerar länkar mellan data Center och ger en helt transparent upplevelse för dina användare.
 
-### <a name="applications-installed-on-isolated-networks"></a>Program installerade i isolerade nätverk
+### <a name="applications-installed-on-isolated-networks"></a>Program som är installerade på isolerade nätverk
 
-Program kan finnas i nätverk som inte ingår i huvudnätverket. Du kan använda anslutningsgrupper för att installera dedikerade anslutningsappar i isolerade nätverk för att även isolera program till nätverket. Detta händer vanligtvis när en tredjepartsleverantör underhåller ett specifikt program för din organisation.
+Program kan finnas i nätverk som inte ingår i huvud företags nätverket. Du kan använda anslutnings grupper för att installera dedikerade anslutningar i isolerade nätverk för att också isolera program till nätverket. Detta inträffar vanligt vis när en leverantör av tredje part underhåller ett enskilt program för din organisation.
 
-Med anslutningsgrupper kan du installera dedikerade anslutningsappar för de nätverk som bara publicerar specifika program, vilket gör det enklare och säkrare att lägga ut programhantering på entreprenad till tredjepartsleverantörer.
+Med anslutnings grupper kan du installera dedikerade anslutningar för de nätverk som endast publicerar specifika program, vilket gör det enklare och säkrare att hantera program hantering till tredjepartsleverantörer.
 
-### <a name="applications-installed-on-iaas"></a>Program installerade på IaaS
+### <a name="applications-installed-on-iaas"></a>Program som är installerade på IaaS
 
-För program som är installerade på IaaS för molnåtkomst tillhandahåller anslutningsgrupper en gemensam tjänst för att skydda åtkomsten till alla appar. Anslutningsgrupper skapar inte ytterligare beroende av företagets nätverk eller fragmenterar appupplevelsen. Anslutningar kan installeras på alla molndatacenter och endast betjänar program som finns i nätverket. Du kan installera flera anslutningsappar för att uppnå hög tillgänglighet.
+För program som är installerade på IaaS för moln åtkomst tillhandahåller anslutnings grupper en gemensam tjänst för att skydda åtkomsten till alla appar. Kopplings grupper skapar inte ytterligare beroende på företagets nätverk eller fragmenterar appens upplevelse. Anslutningar kan installeras på alla moln Data Center och endast betjäna program som finns i nätverket. Du kan installera flera kopplingar för att uppnå hög tillgänglighet.
 
-Ta som exempel en organisation som har flera virtuella datorer anslutna till sitt eget IaaS-värdbaserade virtuella nätverk. För att anställda ska kunna använda dessa program är dessa privata nätverk anslutna till företagsnätverket med hjälp av plats-till-plats-VPN. Detta ger en bra upplevelse för medarbetare som finns lokalt. Men det kanske inte är idealiskt för fjärranställda, eftersom det kräver ytterligare lokal infrastruktur för att dirigera åtkomst, som du kan se i diagrammet nedan:
+Ta ett exempel på en organisation som har flera virtuella datorer som är anslutna till sitt eget IaaS-värdbaserade virtuella nätverk. För att anställda ska kunna använda dessa program är dessa privata nätverk anslutna till företags nätverket med plats-till-plats-VPN. Detta ger en bättre upplevelse för anställda som finns lokalt. Men det kanske inte är idealiskt för fjär anställda eftersom det krävs ytterligare lokal infrastruktur för att dirigera åtkomst, som du kan se i diagrammet nedan:
 
 ![Diagram som illustrerar Azure AD IaaS-nätverket](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
-Med Azure AD Application Proxy-anslutningsgrupper kan du aktivera en gemensam tjänst för att skydda åtkomsten till alla program utan att skapa ytterligare beroende av företagets nätverk:
+Med Azure AD-programproxy kopplings grupper kan du aktivera en gemensam tjänst för att skydda åtkomsten till alla program utan att skapa ytterligare beroende på företagets nätverk:
 
-![Azure AD IaaS flera molnleverantörer](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS flera moln leverantörer](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
-### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Multi-skog – olika kopplingsgrupper för varje skog
+### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Flera skogar – olika anslutnings grupper för varje skog
 
-De flesta kunder som har distribuerat Programproxy använder sina SSO-funktioner (Single-sign-on) genom att utföra KCD (Kerberos Constrained Delegation). För att uppnå detta måste kopplingens datorer anslutas till en domän som kan delegera användarna mot programmet. KCD stöder funktioner över skogen. Men för företag som har olika miljöer med flera skogar utan förtroende mellan dem kan en enda koppling inte användas för alla skogar. 
+De flesta kunder som har distribuerat Application Proxy använder sina funktioner för enkel inloggning (SSO) genom att utföra Kerberos-begränsad delegering (KCD). För att uppnå detta måste anslutningens datorer vara anslutna till en domän som kan delegera användarna mot programmet. KCD stöder funktioner för flera skogar. Men för företag som har skilda miljöer med flera skogar utan förtroende mellan dem, kan en enda koppling inte användas för alla skogar. 
 
-I det här fallet kan specifika kopplingar distribueras per skog och ställas in för att betjäna program som har publicerats för att endast betjäna användarna av den specifika skogen. Varje kopplingsgrupp representerar en annan skog. Innehavaren och den mesta upplevelsen är enhetlig för alla skogar, men användare kan tilldelas sina skogsprogram med Azure AD-grupper.
+I det här fallet kan specifika anslutningar distribueras per skog och konfigureras för att hantera program som har publicerats för att endast betjäna användare av den specifika skogen. Varje anslutnings grupp representerar en annan skog. Även om klienten och de flesta av erfarenheten är enhetlig för alla skogar, kan användarna tilldelas sina skogs program med hjälp av Azure AD-grupper.
 
-### <a name="disaster-recovery-sites"></a>Platser för katastrofåterställning
+### <a name="disaster-recovery-sites"></a>Katastrof återställnings webbplatser
 
-Det finns två olika tillvägagångssätt som du kan ta med en DR-plats (Disaster Recovery), beroende på hur dina webbplatser implementeras:
+Det finns två olika metoder som du kan utföra med en katastrof återställning (DR), beroende på hur dina platser implementeras:
 
-* Om DR-platsen är inbyggd i aktivt aktivt läge där den är precis som huvudplatsen och har samma nätverks- och AD-inställningar kan du skapa anslutningsapparna på DR-platsen i samma anslutningsgrupp som huvudplatsen. Detta gör det möjligt för Azure AD att identifiera redundans för dig.
-* Om DR-platsen är skild från huvudplatsen kan du skapa en annan anslutningsgrupp på DR-platsen, och antingen 1) har säkerhetskopieringsprogram eller 2) manuellt vidarekoppla det befintliga programmet till DR-anslutningsgruppen efter behov.
+* Om din DR-webbplats är inbyggd i aktivt läge där det är precis som huvud platsen och har samma inställningar för nätverk och AD, kan du skapa kopplingarna på DR-platsen i samma kopplings grupp som huvud platsen. Detta gör att Azure AD kan identifiera redundans åt dig.
+* Om din DR-webbplats är separat från huvud platsen kan du skapa en annan kopplings grupp på DR-platsen och antingen 1) ha säkerhets kopierings program eller 2) manuellt överföra det befintliga programmet till DR Connector-gruppen efter behov.
 
-### <a name="serve-multiple-companies-from-a-single-tenant"></a>Betjäna flera företag från en enda hyresgäst
+### <a name="serve-multiple-companies-from-a-single-tenant"></a>Hantera flera företag från en enda klient organisation
 
-Det finns många olika sätt att implementera en modell där en enda tjänsteleverantör distribuerar och underhåller Azure AD-relaterade tjänster för flera företag. Anslutningsgrupper hjälper administratören att segregera kopplingarna och programmen i olika grupper. Ett sätt, som är lämpligt för små företag, är att ha en enda Azure AD-klient samtidigt som de olika företagen har sitt eget domännamn och nätverk. Detta gäller även för M&A scenarier och situationer där en enda IT-division betjänar flera företag av reglerings- eller affärsskäl.
+Det finns många olika sätt att implementera en modell där en enskild tjänst leverantör distribuerar och underhåller Azure AD-relaterade tjänster för flera företag. Kopplings grupper hjälper administratören att åtskilja kopplingarna och programmen i olika grupper. Ett sätt, som lämpar sig för små företag, är att ha en enda Azure AD-klient medan de olika företagen har sitt eget domän namn och sina egna nätverk. Detta gäller även för M&scenarier och situationer där en enda IT-avdelning har flera företag för myndighets-eller affärs skäl.
 
 ## <a name="sample-configurations"></a>Exempel på konfigurationer
 
-Några exempel som du kan implementera är följande kopplingsgrupper.
+Några exempel som du kan implementera inkluderar följande anslutnings grupper.
 
-### <a name="default-configuration--no-use-for-connector-groups"></a>Standardkonfiguration – ingen användning för kopplingsgrupper
+### <a name="default-configuration--no-use-for-connector-groups"></a>Standard konfiguration – ingen användning för anslutnings grupper
 
-Om du inte använder kopplingsgrupper ser konfigurationen ut så här:
+Om du inte använder anslutnings grupper skulle konfigurationen se ut så här:
 
-![Exempel på Azure AD No Connector Groups](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![Exempel på Azure AD inga anslutnings grupper](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
-Den här konfigurationen är tillräcklig för små distributioner och tester. Det kommer också att fungera bra om din organisation har en platt nätverkstopologi.
+Den här konfigurationen räcker för små distributioner och test. Det fungerar också bra om din organisation har en plan för en enkel nätverks sto pol Ogin.
 
-### <a name="default-configuration-and-an-isolated-network"></a>Standardkonfiguration och ett isolerat nätverk
+### <a name="default-configuration-and-an-isolated-network"></a>Standard konfiguration och ett isolerat nätverk
 
-Den här konfigurationen är en utveckling av standardkonfigurationen, där det finns en specifik app som körs i ett isolerat nätverk som IaaS virtuella nätverk:
+Den här konfigurationen är en utveckling av standardvärdet, där det finns en speciell app som körs i ett isolerat nätverk, till exempel IaaS virtuellt nätverk:
 
-![Exempel på Azure AD No Connector Groups och ett isolerat nätverk](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![Exempel på Azure AD, inga anslutnings grupper och ett isolerat nätverk](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
-### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Rekommenderad konfiguration – flera specifika grupper och en standardgrupp för inaktiv
+### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Rekommenderad konfiguration – flera olika grupper och en standard grupp för inaktivitet
 
-Den rekommenderade konfigurationen för stora och komplexa organisationer är att ha standardkopplingsgruppen som en grupp som inte betjänar några program och som används för inaktiva eller nyinstallerade kopplingar. Alla program visas med anpassade anslutningsgrupper. Detta möjliggör all komplexitet i de scenarier som beskrivs ovan.
+Den rekommenderade konfigurationen för stora och komplexa organisationer är att ha standard anslutnings gruppen som en grupp som inte har några program och som används för inaktiva eller nyligen installerade anslutningar. Alla program hanteras med hjälp av anpassade anslutnings grupper. Detta möjliggör all komplexitet i scenarier som beskrivs ovan.
 
-I exemplet nedan har företaget två datacenter, A och B, med två kopplingar som betjänar varje plats. Varje plats har olika program som körs på den.
+I exemplet nedan har företaget två Data Center, A och B, med två kopplingar som hanterar varje plats. Varje plats har olika program som körs på den.
 
-![Exempel på företag med 2 datacenter och 2 anslutningar](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+![Exempel på företag med 2 data Center och 2 anslutningar](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

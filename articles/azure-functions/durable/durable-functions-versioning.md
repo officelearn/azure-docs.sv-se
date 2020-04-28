@@ -1,30 +1,30 @@
 ---
-title: Versionshantering i varaktiga funktioner - Azure
-description: Lär dig hur du implementerar versionshantering i tillägget Varaktiga funktioner för Azure Functions.
+title: Versions hantering i Durable Functions – Azure
+description: Lär dig hur du implementerar versioner i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74232760"
 ---
-# <a name="versioning-in-durable-functions-azure-functions"></a>Versionshantering i varaktiga funktioner (Azure-funktioner)
+# <a name="versioning-in-durable-functions-azure-functions"></a>Versions hantering i Durable Functions (Azure Functions)
 
-Det är oundvikligt att funktioner kommer att läggas till, tas bort och ändras under ett programs livstid. [Varaktiga funktioner](durable-functions-overview.md) möjliggör kedjefunktioner tillsammans på ett sätt som inte tidigare var möjligt, och den här chainringen påverkar hur du kan hantera versionshantering.
+Det är oundvikligt att funktioner kommer att läggas till, tas bort och ändras under ett programs livs längd. [Durable Functions](durable-functions-overview.md) tillåter länkning på ett sätt som inte tidigare var möjligt, och den här länkningen påverkar hur du kan hantera versions hantering.
 
-## <a name="how-to-handle-breaking-changes"></a>Så här hanterar du brottsändringar
+## <a name="how-to-handle-breaking-changes"></a>Så här hanterar du avbryter ändringar
 
-Det finns flera exempel på att bryta förändringar att vara medveten om. I den här artikeln beskrivs de vanligaste. Huvudtemat bakom dem alla är att både nya och befintliga funktionsorkestreringar påverkas av ändringar i funktionskoden.
+Det finns flera exempel på hur du kan bryta ändringar för att vara medveten om. Den här artikeln beskriver de vanligaste. Huvud temat bakom alla är att både nya och befintliga funktions dirigeringar påverkas av ändringar i funktions koden.
 
-### <a name="changing-activity-or-entity-function-signatures"></a>Ändra aktivitets- eller entitetsfunktionssignaturer
+### <a name="changing-activity-or-entity-function-signatures"></a>Ändra signaturer för aktivitet eller entitets funktion
 
-En signaturändring refererar till en ändring av namn, indata eller utdata för en funktion. Om den här typen av ändring görs i en aktivitets- eller entitetsfunktion kan den bryta en orchestrator-funktion som är beroende av den. Om du uppdaterar orchestrator-funktionen för att hantera den här ändringen kan du bryta befintliga instanser under flygning.
+En signatur ändras till en ändring i namn, indata eller utdata för en funktion. Om den här typen av ändring görs i en aktivitet eller en enhets funktion kan den bryta alla Orchestrator-funktioner som är beroende av den. Om du uppdaterar Orchestrator-funktionen för att hantera den här ändringen kan du bryta befintliga instansen av flyg.
 
-Anta att vi har följande orchestrator-funktion som exempel.
+Anta till exempel att vi har följande Orchestrator-funktion.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Denna förenklade funktion tar resultaten av **Foo** och skickar den till **Bar**. Låt oss anta att vi måste ändra avkastningsvärdet för **Foo** från `bool` till `int` att stödja ett bredare utbud av resultatvärden. Resultatet ser ut så här:
+Den här förenklad-funktionen tar resultatet av **foo** och skickar det till **bar**. Vi antar att vi behöver ändra returvärdet för **foo** från `bool` till `int` som stöd för en större mängd resultat värden. Resultatet ser ut så här:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,17 +47,17 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> De tidigare C#-exemplen är inriktade på varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Föregående C#-exempel riktar sig Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-Den här ändringen fungerar bra för alla nya instanser av orchestrator-funktionen, men bryter alla instanser under flygning. Tänk till exempel på det fall där en `Foo`orkestreringsinstans anropar en funktion med namnet , får tillbaka ett booleskt värde och sedan kontrollpunkter. Om signaturändringen distribueras vid denna punkt misslyckas den kontrollpunkterade instansen `context.CallActivityAsync<int>("Foo")`omedelbart när den återupptas och återupptas samtalet till . Det här felet inträffar eftersom `bool` resultatet i historiktabellen är men `int`den nya koden försöker avserialisera den till .
+Den här ändringen fungerar bra för alla nya instanser av Orchestrator-funktionen men alla eventuella instansen bryts. Anta till exempel att en Dirigerings instans anropar en funktion med namnet `Foo`, hämtar ett booleskt värde och sedan kontroll punkter. Om ändring av signaturen har distribuerats i det här läget Miss kan den inloggade instansen omedelbart när den återupptas och spelar upp `context.CallActivityAsync<int>("Foo")`anropet till. Det här felet uppstår eftersom resultatet i historik tabellen är `bool` men den nya koden försöker deserialisera den till. `int`
 
-Det här exemplet är bara ett av många olika sätt som en signaturändring kan bryta befintliga instanser. I allmänhet, om en orchestrator behöver ändra hur den anropar en funktion, då förändringen sannolikt kommer att vara problematisk.
+Det här exemplet är bara en av många olika sätt att en signaturverifiering kan bryta befintliga instanser. I allmänhet är det troligt att om en Orchestrator behöver ändra hur den anropar en funktion, är ändringen sannolikt problematisk.
 
-### <a name="changing-orchestrator-logic"></a>Ändra orchestrator logik
+### <a name="changing-orchestrator-logic"></a>Ändra Orchestrator-logik
 
-Den andra klassen av versionshanteringsproblem kommer från att ändra orchestrator-funktionskoden på ett sätt som förvirrar reprislogiken för inflygningsinstanser.
+Den andra klassen av versions problem kommer att ändra koden för Orchestrator-funktionen på ett sätt som innebär att omuppspelnings logiken för instansen i flyget aktive.
 
-Tänk på följande orchestrator-funktion:
+Överväg följande Orchestrator-funktion:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -68,7 +68,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Låt oss nu anta att du vill göra en till synes oskyldig förändring för att lägga till en annan funktion samtal.
+Nu ska vi anta att du vill göra en synes Innocent ändring för att lägga till ett annat funktions anrop.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,42 +85,42 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> De tidigare C#-exemplen är inriktade på varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Föregående C#-exempel riktar sig Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-Den här ändringen lägger till ett nytt funktionsanrop **i SendNotification** mellan **Foo** och **Bar**. Det finns inga signaturändringar. Problemet uppstår när en befintlig instans återupptas från anropet till **Stapel**. Under repris, om det ursprungliga anropet till **Foo** returneras `true`, kommer orchestrator reprisen att anropa **SendNotification**, vilket inte är i dess körningshistorik. Därför misslyckas ramverket för varaktiga uppgifter med en `NonDeterministicOrchestrationException` eftersom den påträffade ett anrop till **SendNotification** när det förväntades visas ett anrop till **stapel**. Samma typ av problem kan uppstå när du lägger `CreateTimer`till `WaitForExternalEvent`några anrop till "hållbara" API:er, inklusive , , etc.
+Den här ändringen lägger till ett nytt funktions anrop till **SendNotification** mellan **foo** och **bar**. Det finns inga ändringar i signaturen. Problemet uppstår när en befintlig instans återupptas från anropet till **bar**. Om det ursprungliga anropet till **foo** returnerades `true`under uppspelningen, kommer Orchestrator-uppspelningen att anropa till **SendNotification**, som inte finns i dess körnings historik. Därför Miss lyckas det varaktiga aktivitets ramverket med en `NonDeterministicOrchestrationException` eftersom det påträffade ett anrop till **SendNotification** när det förväntades Visa ett anrop till **bar**. Samma typ av problem kan uppstå när du lägger till anrop till "varaktiga" API: `CreateTimer`er `WaitForExternalEvent`, inklusive, osv.
 
-## <a name="mitigation-strategies"></a>Begränsningsstrategier
+## <a name="mitigation-strategies"></a>Strategier för minskning
 
-Här är några av de strategier för att hantera versionshantering utmaningar:
+Här följer några av strategierna för att hantera problem med versions hantering:
 
 * Gör ingenting
-* Stoppa alla instanser under flygning
+* Stoppa alla instansen av flyg
 * Distributioner sida vid sida
 
 ### <a name="do-nothing"></a>Gör ingenting
 
-Det enklaste sättet att hantera en bryta förändring är att låta under flygning orkestrering instanser misslyckas. Nya instanser har kört den ändrade koden.
+Det enklaste sättet att hantera en brytande ändring är att tillåta att instansen av flygbaserade Orchestration-instanser inte fungerar. Nya instanser har kört den ändrade koden.
 
-Om denna typ av fel är ett problem beror på vikten av dina fall under flygning. Om du är i aktiv utveckling och inte bryr dig om under flygning fall, kan detta vara tillräckligt bra. Du måste dock hantera undantag och fel i diagnostikpipelinen. Om du vill undvika dessa saker bör du överväga de andra versionsalternativen.
+Om den här typen av fel är ett problem beror på hur viktigt dina instansen är. Om du arbetar i aktiv utveckling och inte bryr dig om instansen av flyg kan detta vara tillräckligt tillräckligt. Du måste dock hantera undantag och fel i din diagnostiska pipeline. Om du vill undvika dessa saker bör du överväga de andra versions alternativen.
 
-### <a name="stop-all-in-flight-instances"></a>Stoppa alla instanser under flygning
+### <a name="stop-all-in-flight-instances"></a>Stoppa alla instansen av flyg
 
-Ett annat alternativ är att stoppa alla fall ombord. Stoppa alla instanser kan göras genom att rensa innehållet i den interna **kontrollkön** och **arbetsytakökön.** Instanserna kommer alltid att vara fast där de är, men de kommer inte röran dina loggar med felmeddelanden. Detta tillvägagångssätt är idealiskt i snabb prototyputveckling.
+Ett annat alternativ är att stoppa alla instansen av flyg. Du kan stoppa alla instanser genom att rensa innehållet i köerna för intern **kontroll-kö** och **WorkItem-** köer. Instanserna kommer alltid att ha fastnat där de är, men de kommer inte att göra dina loggar med meddelanden om problem. Den här metoden är idealisk i snabb prototyp utveckling.
 
 > [!WARNING]
-> Information om dessa köer kan ändras med tiden, så lita inte på den här tekniken för produktionsarbetsbelastningar.
+> Informationen om dessa köer kan ändras med tiden, så du behöver inte använda den här metoden för produktions arbets belastningar.
 
 ### <a name="side-by-side-deployments"></a>Distributioner sida vid sida
 
-Det mest felsäkra sättet att se till att bryta ändringar distribueras på ett säkert sätt är genom att distribuera dem sida vid sida med dina äldre versioner. Detta kan göras med någon av följande tekniker:
+Det vanligaste sättet att se till att de hårda ändringarna distribueras på ett säkert sätt är att distribuera dem sida vid sida med dina äldre versioner. Detta kan göras med någon av följande metoder:
 
-* Distribuera alla uppdateringar som helt nya funktioner, vilket gör att befintliga funktioner som de är. Detta kan vara knepigt eftersom de som ringer i de nya funktionsversionerna måste uppdateras och följa samma riktlinjer.
-* Distribuera alla uppdateringar som en ny funktionsapp med ett annat lagringskonto.
-* Distribuera en ny kopia av funktionsappen med `taskHub` samma lagringskonto men med ett uppdaterat namn. Distributioner sida vid sida är den rekommenderade tekniken.
+* Distribuera alla uppdateringar som helt nya funktioner och lämna befintliga funktioner i befintligt skick. Detta kan vara svårt eftersom anroparna i de nya funktions versionerna måste uppdateras och följer samma rikt linjer.
+* Distribuera alla uppdateringar som en ny function-app med ett annat lagrings konto.
+* Distribuera en ny kopia av Function-appen med samma lagrings konto, men med ett `taskHub` uppdaterat namn. Distributioner sida vid sida är den rekommenderade metoden.
 
-### <a name="how-to-change-task-hub-name"></a>Så här ändrar du namn på aktivitetsnav
+### <a name="how-to-change-task-hub-name"></a>Ändra namn på aktivitets hubb
 
-Aktivitetshubben kan konfigureras i *filen host.json* på följande sätt:
+Aktivitets navet kan konfigureras i *Host. JSON* -filen på följande sätt:
 
 #### <a name="functions-1x"></a>Functions 1.x
 
@@ -132,7 +132,7 @@ Aktivitetshubben kan konfigureras i *filen host.json* på följande sätt:
 }
 ```
 
-#### <a name="functions-20"></a>Funktioner 2.0
+#### <a name="functions-20"></a>Functions 2,0
 
 ```json
 {
@@ -144,16 +144,16 @@ Aktivitetshubben kan konfigureras i *filen host.json* på följande sätt:
 }
 ```
 
-Standardvärdet för varaktiga funktioner v1.x är `DurableFunctionsHub`. Från och med varaktiga funktioner v2.0 är standardaktivitetsnavets namn `TestHubName` detsamma som funktionsappnamnet i Azure, eller om det körs utanför Azure.
+Standardvärdet för Durable Functions v1. x `DurableFunctionsHub`. Från och med Durable Functions v 2.0 är standard namnet på aktivitets navet samma som namnet på appens funktion i Azure, `TestHubName` eller om det körs utanför Azure.
 
-Alla Azure Storage-entiteter `hubName` namnges baserat på konfigurationsvärdet. Genom att ge aktivitetshubben ett nytt namn ser du till att separata köer och historiktabeller skapas för den nya versionen av programmet. Funktionsappen stoppar dock bearbetning av händelser för orkestreringar eller entiteter som skapats under det tidigare aktivitetsnavnamnet.
+Alla Azure Storage entiteter namnges baserat på `hubName` konfiguration svärdet. Genom att ge huvudhubben ett nytt namn ser du till att separata köer och historik tabell skapas för den nya versionen av programmet. Function-appen kommer dock att sluta bearbeta händelser för dirigeringar eller entiteter som skapats under föregående aktivitets nav namn.
 
-Vi rekommenderar att du distribuerar den nya versionen av funktionsappen till en ny [distributionsplats](../functions-deployment-slots.md). Med distributionsplatser kan du köra flera kopior av funktionsappen sida vid sida med bara en av dem som aktiv *produktionsplats.* När du är redo att exponera den nya orchestration logiken till din befintliga infrastruktur, kan det vara så enkelt som att byta den nya versionen till produktionsplatsen.
+Vi rekommenderar att du distribuerar den nya versionen av Function-appen till en ny [distributions plats](../functions-deployment-slots.md). Med distributions platser kan du köra flera kopior av funktions programmet sida vid sida med bara en av dem som aktiv *produktions* plats. När du är redo att exponera den nya organisations logiken i din befintliga infrastruktur kan det vara så enkelt som att byta ut den nya versionen till produktions platsen.
 
 > [!NOTE]
-> Den här strategin fungerar bäst när du använder HTTP- och webhook-utlösare för orchestrator-funktioner. För icke-HTTP-utlösare, till exempel köer eller eventhubbar, bör utlösardefinitionen [härledas från en appinställning](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) som uppdateras som en del av växlingsåtgärden.
+> Den här strategin fungerar bäst när du använder HTTP-och webhook-utlösare för Orchestrator functions. För icke-HTTP-utlösare, till exempel köer eller Event Hubs, ska utlösnings definitionen [härledas från en app-inställning](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) som uppdateras som en del av växlings åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du hanterar prestanda- och skalningsproblem](durable-functions-perf-and-scale.md)
+> [Lär dig hur du hanterar problem med prestanda och skalning](durable-functions-perf-and-scale.md)

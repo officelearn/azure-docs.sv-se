@@ -1,6 +1,6 @@
 ---
 title: Justera kvoter och gränser i Azure Data Lake Analytics
-description: Lär dig hur du justerar och ökar kvoter och begränsningar i Adla-konton (Azure Data Lake Analytics).
+description: Lär dig hur du justerar och ökar kvoter och gränser i Azure Data Lake Analytics-konton (ADLA).
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
@@ -10,74 +10,74 @@ ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644723"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Justera kvoter och gränser i Azure Data Lake Analytics
 
-Lär dig hur du justerar och ökar kvoten och gränserna i Adla-konton (Azure Data Lake Analytics). Att känna till dessa gränser hjälper dig att förstå ditt U-SQL-jobbbeteende. Alla kvotgränser är mjuka, så du kan öka maxgränserna genom att kontakta Azure-support.
+Lär dig hur du justerar och ökar kvoten och gränserna i Azure Data Lake Analytics-konton (ADLA). Genom att känna till dessa begränsningar kan du förstå ditt U-SQL-jobb. Alla kvot gränser är mjuka, så du kan öka gränsen genom att kontakta Azure-supporten.
 
-## <a name="azure-subscriptions-limits"></a>Begränsningar för Azure-prenumerationer
+## <a name="azure-subscriptions-limits"></a>Begränsningar för Azure-prenumeration
 
 **Maximalt antal ADLA-konton per prenumeration per region:** 5
 
-Om du försöker skapa ett sjätte ADLA-konto får du ett felmeddelande "Du har nått det maximala antalet DataSjöanalyskonton som tillåts (5) i regionen under prenumerationsnamn".
+Om du försöker skapa ett sjätte ADLA-konto får du ett fel meddelande om att du har nått det maximala antalet tillåtna Data Lake Analytics-konton (5) i region under prenumerations namn.
 
-Om du vill gå längre än den här gränsen kan du prova följande alternativ:
-* välja en annan region om lämplig
-* kontakta Azure-supporten genom [att öppna en supportbiljett](#increase-maximum-quota-limits) för att begära en kvotökning.
+Om du vill gå utöver den här gränsen kan du prova följande alternativ:
+* Välj en annan region om det är lämpligt
+* kontakta Azure-supporten genom att [öppna ett support ärende](#increase-maximum-quota-limits) för att begära en kvot ökning.
 
-## <a name="default-adla-account-limits"></a>Standardbegränsningar för ADLA-konton
+## <a name="default-adla-account-limits"></a>Standard gränser för ADLA-konton
 
-**Maximalt antal Analytics-enheter per konto:** 250, standard 32
+**Maximalt antal analys enheter (Australien) per konto:** 250, standard 32
 
-Det här är det maximala antalet AUs som kan köras samtidigt i ditt konto. Om det totala antalet löpande RU:er för alla jobb överskrider den här gränsen ställs nyare jobb i kö automatiskt. Ett exempel:
+Detta är det maximala antalet Australien som kan köras samtidigt i ditt konto. Om det totala antalet aktiva Australien över alla jobb överskrider den här gränsen placeras nyare jobb automatiskt i kö. Ett exempel:
 
-* Om du bara har ett jobb som körs med 32 AUs väntar det i jobbkön när du skickar in ett andra jobb tills det första jobbet är klart.
-* Om du redan har fyra jobb som körs och var och en använder 8 AUs, när du skickar ett femte jobb som behöver 8 AUs det väntar i jobbkön tills det finns 8 AUs tillgängliga.
+* Om du bara har ett jobb som körs med 32, kommer det att vänta i jobbkön tills det första jobbet har slutförts när du skickar ett andra jobb.
+* Om du redan har fyra jobb som kör och var och en använder 8-Australien, och du skickar ett femte jobb som kräver 8 Australien väntar det i jobbkön tills det finns 8 tillgängliga.
 
-    ![Gränser och kvotsida för Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
+    ![Sidan Azure Data Lake Analytics gränser och kvot](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
-**Maximalt antal Analysenheter (AUs) per jobb:** 250, standard 32
+**Maximalt antal analys enheter per jobb:** 250, standard 32
 
-Det här är det maximala antalet AUs som varje enskilt jobb kan tilldelas i ditt konto. Jobb som tilldelas mer än den här gränsen avvisas, såvida inte inlämnaren påverkas av en beräkningsprincip (gräns för jobbinlämning) som ger dem fler AUs per jobb. Den övre gränsen för det här värdet är AU-gränsen för kontot.
+Detta är det maximala antalet Australien som varje enskilt jobb kan tilldelas i ditt konto. Jobb som har tilldelats mer än den här gränsen avvisas, såvida inte inskickaren påverkas av en beräknings princip (gräns för jobb överföring) som ger dem fler Australien per jobb. Den övre gränsen för det här värdet är den automatiska storleken för kontot.
 
 **Maximalt antal samtidiga U-SQL-jobb per konto:** 20
 
-Det här är det maximala antalet jobb som kan köras samtidigt i ditt konto. Ovanför det här värdet ställs nyare jobb i kö automatiskt.
+Detta är det maximala antalet jobb som kan köras samtidigt i ditt konto. Utöver det här värdet köas de nyare jobben automatiskt.
 
-## <a name="adjust-adla-account-limits"></a>Justera adla-kontogränser
+## <a name="adjust-adla-account-limits"></a>Justera ADLA konto gränser
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj ett befintligt ADLA-konto.
 3. Klicka på **Egenskaper**.
-4. Justera värdena för **maximal aus,** **maximalt antal jobb som körs**och **jobböverföringsgränser** för att passa dina behov.
+4. Justera värdena för **maximal Australien**, **maximalt antal jobb som körs**och begränsningar för **jobb överföring** för att passa dina behov.
 
-## <a name="increase-maximum-quota-limits"></a>Öka maximala kvotgränser
+## <a name="increase-maximum-quota-limits"></a>Öka gränserna för högsta kvot
 
-Du hittar mer information om [Azure-gränser i azure-tjänstspecifika gränser dokumentation](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits).
+Du hittar mer information om Azure-begränsningar i [dokumentationen för Azures begränsade gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits).
 
-1. Öppna en supportbegäran i Azure-portalen.
+1. Öppna en supportbegäran i Azure Portal.
 
-    ![Portalsida i Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+    ![Azure Data Lake Analytics Portal sida](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Portalsida i Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
-2. Välj **problemtypen Kvot**.
-3. Välj din **prenumeration** (se till att det inte är en "provprenumeration").
-4. Välj kvottyp **DataSjöanalys**.
+    ![Azure Data Lake Analytics Portal sida](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+2. Välj **kvoten**för ärende typen.
+3. Välj din **prenumeration** (se till att det inte är en "utvärderings prenumeration").
+4. Välj typ av kvot **data Lake Analytics**.
 
-    ![Portalsida i Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+    ![Azure Data Lake Analytics Portal sida](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. På problemsidan förklarar du din begärda ökningsgräns med **information om** varför du behöver den här extra kapaciteten.
+5. På sidan problem förklarar du din begärda öknings gräns med **information** om varför du behöver den här extra kapaciteten.
 
-    ![Portalsida i Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+    ![Azure Data Lake Analytics Portal sida](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
-6. Verifiera din kontaktinformation och skapa supportbegäran.
+6. Verifiera din kontakt information och skapa support förfrågan.
 
-Microsoft granskar din begäran och försöker tillgodose dina affärsbehov så snart som möjligt.
+Microsoft granskar din begäran och försöker hantera dina affärs behov så snart som möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
 

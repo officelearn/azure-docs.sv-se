@@ -1,6 +1,6 @@
 ---
-title: Använda partitionering för att optimera Azure Stream Analytics-jobb
-description: I den här artikeln beskrivs hur du använder partitionering för att optimera Azure Stream Analytics-jobb som inte kan parallelliseras.
+title: Använd ompartitionering för att optimera Azure Stream Analytics jobb
+description: Den här artikeln beskriver hur du använder ompartitionering för att optimera Azure Stream Analytics jobb som inte kan vara parallella.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,26 +8,26 @@ ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75732390"
 ---
-# <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Använda partitionering för att optimera bearbetningen med Azure Stream Analytics
+# <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Använd ompartitionering för att optimera bearbetningen med Azure Stream Analytics
 
-Den här artikeln visar hur du använder partitionering för att skala din Azure Stream Analytics-fråga efter scenarier som inte kan [parallelliseras](stream-analytics-scale-jobs.md)helt .
+Den här artikeln visar hur du använder ompartitionering för att skala din Azure Stream Analytics fråga efter scenarier som inte kan vara helt [parallella](stream-analytics-scale-jobs.md).
 
 Du kanske inte kan använda [parallellisering](stream-analytics-parallelization.md) om:
 
-* Du styr inte partitionsnyckeln för indataströmmen.
-* Din källa "sprayer" indata över flera partitioner som senare måste slås samman.
+* Du styr inte partitionsnyckel för indataströmmen.
+* Källan "sprayar" i flera partitioner som senare behöver slås samman.
 
-Partitionering eller omfördelning krävs när du bearbetar data på en ström som inte är fragmenterad enligt ett naturligt indataschema, till exempel **PartitionId** för händelsehubbar. När du partitionerar om kan varje shard bearbetas oberoende av varandra, vilket gör att du linjärt kan skala ut din strömningspipeline.
+Ompartitionering eller reshuffling krävs när du bearbetar data på en data ström som inte är shardade enligt ett naturligt indata schema, till exempel **PartitionID** för Event Hubs. När du partitionerar om kan varje Shard bearbetas separat, vilket gör att du kan skala ut den strömmande pipelinen linjärt.
 
-## <a name="how-to-repartition"></a>Så här partitionerar du om
+## <a name="how-to-repartition"></a>Partitionera om
 
-Om du vill partitionera om använder du nyckelordet **INTO** efter en **PARTITION BY-sats** i frågan. I följande exempel partitionerar data efter **DeviceID** till ett partitionsantal på 10. Hashing av **DeviceID** används för att avgöra vilken partition som ska acceptera vilken underström. Data rensas oberoende av varandra för varje partitionerad dataström, förutsatt att utdata stöder partitionerade skrivningar och har 10 partitioner.
+Om du vill partitionera om, använder du nyckelordet **i** efter en **partition by** -sats i frågan. I följande exempel partitioneras data efter **DeviceID** till antalet partitioner på 10. Hashing av **DeviceID** används för att avgöra vilken partition som ska acceptera vilken under data ström. Data rensas oberoende för varje partitionerad ström, förutsatt att utdata har stöd för partitionerade skrivningar och har 10 partitioner.
 
 ```sql
 SELECT * 
@@ -37,7 +37,7 @@ PARTITION BY DeviceID
 INTO 10
 ```
 
-Följande exempelfråga sammanfogar två strömmar av partitionerade data. När du ansluter till två strömmar av partitionerade data måste strömmarna ha samma partitionsnyckel och antal. Resultatet är en ström som har samma partitionsschema.
+Följande exempel fråga ansluter två strömmar av ompartitionerade data. När du ansluter två strömmar av ompartitionerade data måste strömmarna ha samma partitionsnyckel och antal. Resultatet är en ström som har samma partitionsschema.
 
 ```sql
 WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID INTO 10),
@@ -46,28 +46,28 @@ step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```
 
-Utdataschemat bör matcha nyckeln för dataströmsschema och antalet så att varje underström kan tömmas oberoende av varandra. Strömmen kan också slås samman och partitioneras om av ett annat schema innan du tömmer den metoden eftersom den lägger till den allmänna svarstiden för bearbetningen och ökar resursutnyttjandet.
+Utmatnings schema ska matcha nyckeln Stream schema och Count så att varje under data ström kan tömmas oberoende av varandra. Data strömmen kan också sammanfogas och partitioneras om igen av ett annat schema innan du tömmer, men du bör undvika den metoden eftersom den lägger till i den allmänna svars tiden för bearbetningen och ökar resursutnyttjande.
 
-## <a name="streaming-units-for-repartitions"></a>Strömningsenheter för ompartitioner
+## <a name="streaming-units-for-repartitions"></a>Enheter för strömning för ompartitionering
 
-Experimentera och observera resursanvändningen för jobbet för att fastställa det exakta antalet partitioner du behöver. Antalet [strömningsenheter (SU)](stream-analytics-streaming-unit-consumption.md) måste justeras enligt de fysiska resurser som behövs för varje partition. I allmänhet behövs sex SUs för varje partition. Om det inte finns tillräckliga resurser som tilldelats jobbet, kommer systemet bara att tillämpa partitionen om det gynnar jobbet.
+Experimentera och studera resursanvändningen för jobbet för att fastställa det exakta antalet partitioner du behöver. Antalet enheter för [strömning (SU)](stream-analytics-streaming-unit-consumption.md) måste justeras enligt de fysiska resurser som krävs för varje partition. I allmänhet behövs sex SUs för varje partition. Om det inte finns tillräckligt med resurser kopplade till jobbet, kommer systemet bara att använda ompartitionen om den har nytta av jobbet.
 
-## <a name="repartitions-for-sql-output"></a>Partitionering för SQL-utdata
+## <a name="repartitions-for-sql-output"></a>Ompartitionering för SQL-utdata
 
-När jobbet använder SQL-databas för utdata använder du explicit partitionering för att matcha det optimala partitionsantalet för att maximera dataflödet. Eftersom SQL fungerar bäst med åtta författare kan omfördelning av flödet till åtta innan du spolar, eller någonstans längre uppströms, gynna jobbprestanda. 
+När jobbet använder SQL Database för utdata använder du explicit ompartitionering för att matcha det optimala antalet partitioner för att maximera data flödet. Eftersom SQL fungerar bäst med åtta skrivare, behöver du partitionera om flödet till åtta innan du tömmer eller någonstans ytterligare överströms, vilket kan dra nytta av jobbets prestanda. 
 
-När det finns fler än 8 indatapartitioner kanske ärvning av indatapartitioneringsschemat inte vara ett lämpligt val. Överväg att använda [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) i frågan för att uttryckligen ange antalet utdataskrivare. 
+Om det finns fler än 8 inpartitioner är det inte säkert att du väljer att ärva schemat för inpartitionering. Överväg att [använda i frågan för att](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) uttryckligen ange antalet utgående skrivare. 
 
-Följande exempel läser från indata, oavsett om den är naturligt partitionerad, och partitionerar strömmen tiofaldigt enligt DeviceID-dimensionen och tömmer data till utdata. 
+Följande exempel läser från indata, oavsett om de är naturligt partitionerade och partitionerar om Stream-tiofaldig enligt DeviceID-dimensionen och tömmer data till utdata. 
 
 ```sql
 SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
 ```
 
-Mer information finns i [Azure Stream Analytics-utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
+Mer information finns i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Komma igång med Azure Stream Analytics](stream-analytics-introduction.md)
-* [Utnyttja frågeallallalisering i Azure Stream Analytics](stream-analytics-parallelization.md)
+* [Kom igång med Azure Stream Analytics](stream-analytics-introduction.md)
+* [Använd Query parallellisering i Azure Stream Analytics](stream-analytics-parallelization.md)

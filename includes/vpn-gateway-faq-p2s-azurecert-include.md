@@ -9,23 +9,23 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75751563"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Vad ska jag göra om jag får ett certifikat som inte stämmer överens när jag ansluter med certifikatautentisering?
+### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>Vad gör jag om jag får ett certifikat matchnings fel när jag ansluter med certifikatautentisering?
 
-Avmarkera **"Verifiera serverns identitet genom att verifiera certifikatet"** eller **lägg till servernS FQDN tillsammans med certifikatet** när du skapar en profil manuellt. Du kan göra detta genom att köra **rasphone** från en kommandotolk och välja profilen från listrutan.
+Avmarkera **"verifiera serverns identitet genom att verifiera certifikatet"** eller **Lägg till Server-FQDN tillsammans med certifikatet när du** skapar en profil manuellt. Du kan göra detta genom att köra **Rasphone** från en kommando tolk och välja profilen från List rutan.
 
-Att kringgå validering av serveridentitet rekommenderas inte i allmänhet, men med Azure-certifikatautentisering används samma certifikat för servervalidering i VPN-tunnelprotokollet (IKEv2/SSTP) och EAP-protokollet. Eftersom servercertifikatet och FQDN redan har validerats av VPN-tunnelprotokollet är det överflödigt att validera samma igen i EAP.
+Att kringgå Server identitets verifiering rekommenderas inte i allmänhet, men med Azure certifikatautentisering används samma certifikat för Server verifiering i protokollet IKEv2/SSTP (VPN Tunneling Protocol) och EAP-protokollet. Eftersom Server certifikatet och FQDN redan har verifierats av VPN tunneling-protokollet, är det redundant att verifiera samma igen i EAP.
 
-![punkt-till-plats](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Servercertifikat")
+![punkt-till-plats](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server certifikat")
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Kan jag använda min egen interna PKI-rotcertifikatutfärdare för att generera certifikat för point-to-site-anslutning?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Kan jag använda min egen interna PKI-rotcertifikatutfärdare för att generera certifikat för punkt-till-plats-anslutning?
 
 Ja. Tidigare kunde bara självsignerade rotcertifikat användas. Du kan fortfarande överföra 20 rotcertifikat.
 

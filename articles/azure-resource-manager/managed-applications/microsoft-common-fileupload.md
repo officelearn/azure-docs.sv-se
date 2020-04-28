@@ -1,22 +1,22 @@
 ---
-title: Gränssnittselement för FileUpload
-description: I artikeln beskrivs användargränssnittselementet Microsoft.Common.FileUpload för Azure portal. Gör det möjligt för användare att ladda upp filer när de distribuerar ett hanterat program.
+title: FileUpload-GRÄNSSNITTs element
+description: Beskriver elementet Microsoft. Common. FileUpload UI för Azure Portal. Gör det möjligt för användarna att behöva ladda upp filer när de distribuerar ett hanterat program.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 61e1c9fe07fdd29ebc00e7e3491472d073bc4e5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652494"
 ---
-# <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload användargränssnittselement
+# <a name="microsoftcommonfileupload-ui-element"></a>Elementet Microsoft. Common. FileUpload UI
 
-En kontroll som gör att en användare kan ange en eller flera filer att ladda upp.
+En kontroll som låter en användare ange en eller flera filer som ska överföras.
 
-## <a name="ui-sample"></a>Exempel på användargränssnitt
+## <a name="ui-sample"></a>UI-exempel
 
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
@@ -44,13 +44,13 @@ En kontroll som gör att en användare kan ange en eller flera filer att ladda u
 
 ## <a name="sample-output"></a>Exempel på utdata
 
-Om options.multiple är falskt och options.uploadMode är fil, har utdata innehållet i filen som en JSON-sträng:
+Om alternativen. Multiple är false och Options. uploadMode är File, innehåller utdata innehållet i filen som en JSON-sträng:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Om options.multiple är sant och'options.uploadMode är fil, har utdata innehållet i filerna som en JSON-matris:
+Om alternativen. Multiple är true and'options. uploadMode är File, kommer utdata att ha innehållet i filerna som en JSON-matris:
 
 ```json
 [
@@ -61,13 +61,13 @@ Om options.multiple är sant och'options.uploadMode är fil, har utdata innehål
 ]
 ```
 
-Om options.multiple är falskt och options.uploadMode är url, har utdata en URL som en JSON-sträng:
+Om alternativen. Multiple är false och Options. uploadMode är URL, har utdata en URL som en JSON-sträng:
 
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
-Om options.multiple är sant och options.uploadMode är url, har utdata en lista med webbadresser som en JSON-matris:
+Om alternativen. Multiple är true och Options. uploadMode är URL, innehåller utdata en lista med URL: er som en JSON-matris:
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",
@@ -76,19 +76,19 @@ Om options.multiple är sant och options.uploadMode är url, har utdata en lista
 ]
 ```
 
-När du testar en CreateUiDefinition trunkerar vissa webbläsare (som Google Chrome) webbadresser som genereras av elementet Microsoft.Common.FileUpload i webbläsarkonsolen. Du kan behöva högerklicka på enskilda länkar för att kopiera de fullständiga webbadresserna.
+När du testar en CreateUiDefinition trunkerar vissa webbläsare (som Google Chrome) webb adresser som genererats av elementet Microsoft. Common. FileUpload i webb läsar konsolen. Du kan behöva Högerklicka på enskilda Länkar för att kopiera de fullständiga URL: erna.
 
 ## <a name="remarks"></a>Anmärkningar
 
-- `constraints.accept`anger vilka typer av filer som visas i webbläsarens fildialogruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **null**.
-- Om `options.multiple` värdet är **true**får användaren välja mer än en fil i webbläsarens fildialogruta. Standardvärdet är **falskt**.
-- Det här elementet stöder överföring av filer `options.uploadMode`i två lägen baserat på värdet av . Om **filen** anges har utdata innehållet i filen som en blob. Om **url** anges överförs filen till en tillfällig plats och utdata har url:en för bloben. Tillfälliga blobbar rensas efter 24 timmar. Standardvärdet är **fil**.
-- En uppladdad fil är skyddad. Utdata-URL:en innehåller en [SAS-token](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för åtkomst till filen under distributionen.
-- Värdet för `options.openMode` avgör hur filen läsav sig. Om filen förväntas vara oformaterad text anger du **text**. annars anger du **binär .** Standardvärdet är **text**.
-- Om `options.uploadMode` är **file** inställt `options.openMode` på fil och är inställt på **binära**, utdata är base64-kodade.
-- `options.encoding`anger vilken kodning som ska användas när du läser filen. Standardvärdet är **UTF-8**och används `options.openMode` endast när är inställt på **text**.
+- `constraints.accept`anger vilka typer av filer som visas i webbläsarens fil dialog ruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **Null**.
+- Om `options.multiple` är inställt på **Sant**tillåts användaren att välja fler än en fil i webbläsarens fil dialog ruta. Standardvärdet är **falskt**.
+- Det här elementet stöder överföring av filer i två lägen baserat på värdet för `options.uploadMode`. Om **filen** har angetts innehåller utdata innehållet i filen som en blob. Om **URL** anges överförs filen till en tillfällig plats och utdata har URL: en för blobben. Tillfälliga blobbar rensas efter 24 timmar. Standardvärdet är **File**.
+- En uppladdad fil är skyddad. URL: en för utdata innehåller en [SAS-token](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att komma åt filen under distributionen.
+- Värdet för `options.openMode` avgör hur filen läses. Om filen förväntas vara oformaterad text anger du **text**. Annars anger du **Binary**. Standardvärdet är **text**.
+- Om `options.uploadMode` är inställt på `options.openMode` **File** och är inställt på **binär**, är utdata Base64-kodad.
+- `options.encoding`anger den kodning som ska användas vid läsning av filen. Standardvärdet är **UTF-8**och används bara när `options.openMode` har angetts till **text**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

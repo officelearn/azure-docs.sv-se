@@ -1,6 +1,6 @@
 ---
-title: Aktivera hanterade identiteter på dina virtuella labbdamer i Azure DevTest Labs
-description: Den här artikeln visar hur en labbägare kan aktivera användartilldelade hanterade identiteter på dina virtuella labbdatorer.
+title: Aktivera hanterade identiteter på dina virtuella labb datorer i Azure DevTest Labs
+description: Den här artikeln visar hur en labb ägare kan aktivera användare tilldelade hanterade identiteter på dina virtuella labb datorer.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,44 +14,44 @@ ms.topic: article
 ms.date: 01/03/2020
 ms.author: spelluru
 ms.openlocfilehash: 5d70f83babcf53249f581230e72326d99a0533d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75692672"
 ---
-# <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Aktivera användartilldelade hanterade identiteter på virtuella labbdatorer i Azure DevTest Labs
-Som labbägare kan du aktivera användartilldelade hanterade identiteter på dina virtuella labbdatorer (VMs) i Azure DevTest Labs.
+# <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Aktivera användar tilldelning av hanterade identiteter på virtuella labb datorer i Azure DevTest Labs
+Som labb ägare kan du aktivera användarspecifika hanterade identiteter på dina virtuella labb datorer (VM) i Azure DevTest Labs.
 
-En hanterad identitet kan användas för att autentisera till alla tjänster som stöder Azure Active Directory (AD) autentisering, inklusive Key Vault, utan att skicka några autentiseringsuppgifter i koden. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md).
+En hanterad identitet kan användas för att autentisera till en tjänst som stöder Azure Active Directory autentisering (AD), inklusive Key Vault, utan att skicka några autentiseringsuppgifter i koden. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md).
 
-Med den här funktionen kan labbanvändare dela Azure-resurser som Azure SQL Database i samband med labbet. Autentiseringen till resursen tas om hand av själva identiteten. När du har konfigurerats aktiveras alla befintliga/nyskapade labbdasss med den här identiteten. Labbanvändare kan komma åt resurser när de har loggat in på sina datorer.
+Med den här funktionen kan labb användare dela Azure-resurser, till exempel Azure SQL Database i Labbets sammanhang. Autentiseringen till resursen beaktas av själva identiteten. När den har kon figurer ATS aktive ras varje befintlig/nyligen skapad virtuell labb dator med den här identiteten. Labb användare kan komma åt resurser när de har loggat in på sina datorer.
 
 > [!NOTE]
-> Du kan lägga till flera användartilldelade hanterade identiteter som ska aktiveras på dina virtuella labb-datorer.
+> Du kan lägga till flera användare som tilldelats hanterade identiteter som ska aktive ras på dina virtuella labb datorer.
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen
-Så här lägger du till en användare som tilldelats hanterad identitet för virtuella labb-datorer:
+Följ dessa steg om du vill lägga till en användare som tilldelats hanterad identitet för virtuella labb datorer:
 
-1. [Skapa en användartilldelad hanterad identitet i din prenumeration](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
-1. Navigera till sidan **Konfiguration och principer** för ditt labb.
-2. Välj **Identitet (förhandsgranskning)** på den vänstra menyn.
-3. Välj fliken **Virtuell dator.**
-4. Välj **Lägg till** om du vill välja en befintlig identitet i en ikonberad listruta. 
+1. [Skapa en användardefinierad hanterad identitet i din prenumeration](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
+1. Gå till sidan **konfiguration och principer** för ditt labb.
+2. Välj **identitet (förhands granskning)** på den vänstra menyn.
+3. Välj fliken **virtuell dator** .
+4. Välj **Lägg till** för att välja en befintlig identitet från en i förväg ifylld listruta. 
 
     ![Knappen Lägg till identitet](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Välj en befintlig **användarhanterad identitet** i listan nedsläpp och välj **OK**. 
+5. Välj en befintlig **användare hanterad identitet** från den nedbrutna listan och välj **OK**. 
 
     ![Lägg till identitet](./media/enable-managed-identities-lab-vms/add-identity.png)
 
-## <a name="use-api"></a>Använda API
+## <a name="use-api"></a>Använd API
 
-1.  När du har skapat en identitet noterar du identitetens resurs-ID. Det bör se ut som följande exempel: 
+1.  När du har skapat en identitet noterar du resurs-ID för identiteten. Den bör se ut som i följande exempel: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-2. Kör en PUT HTTPS-metod för att lägga till en ny **ServiceRunner-resurs** i labbet som visas i följande exempel. 
+2. Kör en Lägg till en HTTPS-metod för att lägga till en ny **ServiceRunner** -resurs i labbet, som du ser i följande exempel. 
 
-    Servicerunner-resurs är en proxyresurs för att hantera och styra hanterade identiteter i DevTest Labs. Tjänstlöparens namn kan vara valfritt giltigt namn, men vi rekommenderar att du använder namnet på den hanterade identitetsresursen.
+    Service löpare-resursen är en proxykonfiguration för att hantera och kontrol lera hanterade identiteter i DevTest Labs. Namnet på tjänstens löpare kan vara ett giltigt namn, men vi rekommenderar att du använder namnet på den hanterade identitets resursen.
 
     ```json
     {

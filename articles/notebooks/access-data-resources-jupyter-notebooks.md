@@ -1,30 +1,30 @@
 ---
-title: Komma åt data i Jupyter-anteckningsböcker – förhandsversionen av Azure-anteckningsböcker
-description: Lär dig hur du kommer åt filer, REST-API:er, databaser och olika Azure Storage-resurser från en Jupyter-anteckningsbok.
+title: Få åtkomst till data i Jupyter Notebooks – Azure Notebooks för hands version
+description: 'Lär dig hur du kommer åt filer, REST-API: er, databaser och andra Azure Storage resurser från en Jupyter Notebook.'
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646355"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Komma åt molndata i en notebook-fil
 
-Att göra intressant arbete i en Jupyter anteckningsbok kräver data. Data är faktiskt livsnerven i anteckningsböcker.
+Att göra intressanta arbeten i en Jupyter Notebook kräver data. Data är faktiskt Lifeblood-antecknings böcker.
 
-Du kan säkert [importera datafiler till ett](work-with-project-data-files.md) `curl` projekt , även med kommandon som inifrån en anteckningsbok för att ladda ner en fil direkt. Det är dock troligt att du måste arbeta med mycket mer omfattande data som är tillgängliga från icke-filkällor som REST API:er, relationsdatabaser och molnlagring, till exempel Azure-tabeller.
+Du kan verkligen [importera datafiler till ett projekt](work-with-project-data-files.md), även använda kommandon som `curl` i en bärbar dator för att hämta en fil direkt. Men det är troligt att du behöver arbeta med mycket mer omfattande data som är tillgängliga från icke-filkällor som REST-API: er, Relations databaser och moln lagring som Azure-tabeller.
 
-I den här artikeln beskrivs kortfattat dessa olika alternativ. Eftersom dataåtkomst bäst visas i praktiken kan du hitta körbar kod i [Azure Notebooks Samples - Access your data](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
+I den här artikeln beskrivs de olika alternativen kortfattat. Eftersom data åtkomsten fungerar bäst i praktiken kan du hitta körbara-kod i [Azure Notebooks exempel – åtkomst till dina data](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>REST API:er
 
-Generellt sett är den stora mängden data som är tillgängliga från Internet nås inte via filer, men genom REST API: er. Lyckligtvis, eftersom en anteckningsbok cell kan innehålla vilken kod du vill, kan du använda kod för att skicka förfrågningar och ta emot JSON-data. Du kan sedan konvertera den JSON till vilket format du vill använda, till exempel en pandas dataframe.
+Generellt sett kan den stora mängden data som är tillgänglig från Internet nås inte via filer, utan via REST-API: er. Lyckligt vis, eftersom en Notebook-cell kan innehålla vilken kod du gillar, kan du använda kod för att skicka begär Anden och ta emot JSON-data. Du kan sedan konvertera JSON till det format som du vill använda, till exempel en Pandas-dataframe.
 
-Om du vill komma åt data med hjälp av ett REST API använder du samma kod i en anteckningsboks kodceller som du använder i något annat program. Den allmänna strukturen som använder biblioteket för begäranden är följande:
+Om du vill komma åt data med hjälp av en REST API använder du samma kod i en antecknings boks kod celler som du använder i ett annat program. Den allmänna strukturen med hjälp av begär ande biblioteket är följande:
 
 ```python
 import pandas
@@ -43,41 +43,41 @@ if response.status_code == 200:
 
 ## <a name="azure-sql-databases"></a>Azure SQL-databaser
 
-Du kan komma åt SQL Server-databaser med hjälp av pyodbc- eller pymssql-biblioteken.
+Du kan komma åt SQL Server-databaser med hjälp av pyodbc-eller pymssql-biblioteken.
 
-[Använd Python för att fråga en Azure SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) ger dig instruktioner om hur du skapar en databas som innehåller AdventureWorks-data och visar hur du frågar dessa data. Samma kod visas i exempelanteckningsboken för den här artikeln.
+[Använd python för att fråga en Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) ger dig instruktioner om hur du skapar en databas som innehåller AdventureWorks-data och hur du frågar efter data. Samma kod visas i exempel antecknings boken för den här artikeln.
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Azure Storage innehåller flera olika typer av icke-relationslagring, beroende på vilken typ av data du har och hur du behöver komma åt dem:
+Azure Storage tillhandahåller flera olika typer av icke-relationell lagring, beroende på vilken typ av data du har och hur du behöver åtkomst till den:
 
-- Tabelllagring: tillhandahåller billig lagring med stora volymer för tabelldata, till exempel insamlade sensorloggar, diagnostikloggar och så vidare.
-- Blob-lagring: tillhandahåller filliknande lagring för alla typer av data.
+- Table Storage: ger låg kostnad och hög volym lagring för tabell data, till exempel insamlade sensor loggar, diagnostikloggar och så vidare.
+- Blob Storage: tillhandahåller filtyper som lagring för alla typer av data.
 
-Exempelanteckningsboken visar hur du arbetar med både tabeller och blobbar, inklusive hur du använder en signatur för delad åtkomst för att tillåta skrivskyddad åtkomst till blobbar.
+Exempel antecknings boken visar hur du arbetar med både tabeller och blobbar, inklusive hur du använder en signatur för delad åtkomst för att tillåta skrivskyddad åtkomst till blobbar.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Cosmos DB tillhandahåller ett fullständigt indexerat NoSQL-arkiv för JSON-dokument). Följande artiklar innehåller ett antal olika sätt att arbeta med Cosmos DB från Python:
+Azure Cosmos DB tillhandahåller en fullständigt indexerad NoSQL-lagring för JSON-dokument. Följande artiklar innehåller ett antal olika sätt att arbeta med Cosmos DB från python:
 
-- [Skapa en SQL API-app med Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Skapa en Flask-app med Azure Cosmos DB:s API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Skapa en grafdatabas med Python och Gremlin-API:et](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
+- [Bygg en SQL API-app med python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
+- [Bygg en kolv-app med Azure Cosmos DBs API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Skapa en graf-databas med python och Gremlin-API: et](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Skapa en Cassandra-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Skapa en tabell-API-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
-När du arbetar med Cosmos DB kan du använda [azure-cosmosdb-table-biblioteket.](https://pypi.org/project/azure-cosmosdb-table/)
+När du arbetar med Cosmos DB kan du använda [Azure-cosmosdb-Table-](https://pypi.org/project/azure-cosmosdb-table/) biblioteket.
 
 ## <a name="other-azure-databases"></a>Andra Azure-databaser
 
-Azure innehåller ett antal andra databastyper som du kan använda. Artiklarna nedan ger vägledning för åtkomst till dessa databaser från Python:
+Azure tillhandahåller ett antal andra databas typer som du kan använda. Artiklarna nedan ger vägledning om hur du kommer åt dessa databaser från python:
 
 - [Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [Snabbstart: Så här använder du Azure Redis Cache med Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [Azure Database för MySQL: Använda Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-  - [Kopiera guiden för Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
+  - [Guiden Kopiera för Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här: Arbeta med projektdatafiler](work-with-project-data-files.md)
+- [Gör så här: arbeta med projektfiler](work-with-project-data-files.md)

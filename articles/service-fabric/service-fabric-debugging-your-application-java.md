@@ -1,45 +1,45 @@
 ---
-title: Felsöka ditt program i Eclipse
-description: Förbättra tillförlitligheten och prestandan hos dina tjänster genom att utveckla och felsöka dem i Eclipse i ett lokalt utvecklingskluster.
+title: Felsöka ditt program i Sol förmörkelse
+description: Förbättra tillförlitligheten och prestandan hos dina tjänster genom att utveckla och felsöka dem i Sol förmörkelse i ett lokalt utvecklings kluster.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614493"
 ---
-# <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Felsöka java-tjänst fabric-programmet med Eclipse
+# <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Felsöka Java Service Fabric program med hjälp av Sol förmörkelse
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
-> * [Eclipse/ Java](service-fabric-debugging-your-application-java.md)
+> * [Sol förmörkelse/Java](service-fabric-debugging-your-application-java.md)
 > 
 
-1. Starta ett lokalt utvecklingskluster genom att följa stegen i [Konfigurera utvecklingsmiljön för serviceinfrastruktur](service-fabric-get-started-linux.md).
+1. Starta ett lokalt utvecklings kluster genom att följa stegen i Konfigurera [din Service Fabric utvecklings miljö](service-fabric-get-started-linux.md).
 
-2. Uppdatera entryPoint.sh av den tjänst du vill felsöka, så att den startar java-processen med fjärrdebugparametrar. Den här filen finns på `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`följande plats: . Port 8001 har angetts för felsökning i det här exemplet.
+2. Uppdatera entryPoint.sh för den tjänst som du vill felsöka, så att den startar Java-processen med fjärrfelsöknings parametrar. Du hittar den här filen på följande plats: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Port 8001 har angetts för felsökning i det här exemplet.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Uppdatera programmanifestet genom att ange instansantalet eller antalet repliker för tjänsten som används för att inaktivera 1. Den här inställningen förhindrar konflikter kring den port som används för felsökning. För tillståndslösa tjänster kan du t.ex. ange `InstanceCount="1"` och för tillståndskänsliga tjänster kan du ange målet och minsta replikuppsättningsstorlek till 1 enligt följande: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
+3. Uppdatera applikations manifestet genom att ange antalet instanser eller replik antalet för tjänsten som ska felsökas till 1. Den här inställningen förhindrar konflikter kring den port som används för felsökning. För tillståndslösa tjänster kan du t.ex. ange `InstanceCount="1"` och för tillståndskänsliga tjänster kan du ange målet och minsta replikuppsättningsstorlek till 1 enligt följande: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
 
 4. Distribuera programmet.
 
-5. I Eclipse IDE väljer du **Kör -> Felsökningskonfigurationer -> egenskaper för fjärr-Java-program och egenskaper för indataanslutning** och anger egenskaperna för egenskaper enligt följande:
+5. I de Sol förmörkelse-IDE: en väljer du **kör > felsöknings konfiguration – > fjärr-Java-program och egenskaper för ingående anslutning** och anger egenskaperna enligt följande:
 
    ```
    Host: ipaddress
    Port: 8001
    ```
-6.  Ange brytpunkter vid önskade punkter och felsöka programmet.
+6.  Ange Bryt punkter i önskade punkter och Felsök programmet.
 
-Om programmet kraschar kanske du också vill aktivera coredumps. Kör `ulimit -c` i ett skal och om det returnerar 0 aktiveras inte kärndumpar. Om du vill aktivera obegränsade kärndumpar kör du följande kommando: `ulimit -c unlimited`. Du kan också verifiera status `ulimit -a`med kommandot .  Om du vill uppdatera genereringsvägen för `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`kärndump kör du . 
+Om programmet kraschar kanske du också vill aktivera coredumps. Kör `ulimit -c` i ett gränssnitt och om det returnerar 0 aktive ras inte coredumps. Om du vill aktivera obegränsade coredumps kör du följande `ulimit -c unlimited`kommando:. Du kan också kontrol lera statusen med hjälp av `ulimit -a`kommandot.  Om du vill uppdatera coredump generations Sök väg kör `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`du. 
 
 ### <a name="next-steps"></a>Nästa steg
 
-* [Samla in loggar med Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Samla in loggar med Linux Azure-diagnostik](service-fabric-diagnostics-how-to-setup-lad.md).
 * [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

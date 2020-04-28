@@ -1,6 +1,6 @@
 ---
-title: Analys på SQL Server med R, Python och T-SQL - Team Data Science Process
-description: Exempel som går igenom användningen R, Python och T-SQL i SQL Server för att göra prediktiva analyser.
+title: Analys av SQL Server med R, python och T-SQL-team data science process
+description: Exempel som går igenom use R, python och T-SQL i SQL Server för förutsägelse analys.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,41 +12,41 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864102"
 ---
-# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server-datavetenskapsgenomgångar med R, Python och T-SQL
+# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server data vetenskaps genom gångar med R, python och T-SQL
 
-Dessa genomgångar använder SQL Server, SQL Server R Services och SQL Server Python Services för att göra prediktiva analyser. R- och Python-kod distribueras i lagrade procedurer. De följer stegen som beskrivs i teamdatavetenskapsprocessen. En översikt över teamdatavetenskapsprocessen finns i [Data Science Process](overview.md). 
+De här genom gången använder SQL Server, SQL Server R Services och SQL Server python-tjänster för förutsägelse analys. R-och python-kod distribueras i lagrade procedurer. De följer de steg som beskrivs i processen för team data vetenskap. En översikt över processen för team data vetenskap finns i [data science process](overview.md). 
 
-Ytterligare genomgångar av datavetenskap som kör Team Data Science Process grupperas efter den **plattform** som de använder. Se [Genomgångar som kör Team Data Science Process](walkthroughs.md) för en specificering av dessa exempel.
-
-
-## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Förutsäga taxitips med Python- och SQL-frågor med SQL Server 
-
-[Genomgången Använd SQL Server](sql-walkthrough.md) visar hur du skapar och distribuerar maskininlärningsklassificering och regressionsmodeller.  Uppgifterna är en allmänt tillgänglig NYC taxi resa och biljettpris dataset.
+Ytterligare data vetenskaps genom gångar som kör team data vetenskaps processen grupperas efter den **plattform** som de använder. Se [genom gångar som kör team data science-processen](walkthroughs.md) för en specificering av dessa exempel.
 
 
-## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Förutsäga taxitips med Microsoft R med SQL Server 
+## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Förutsägelse taxi-tips med python-och SQL-frågor med SQL Server 
 
-[Genomgången Använd SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) visar hur du skapar och distribuerar en R-modell till SQL Server. Genomgången är utformad för att introducera R-utvecklare till R-tjänster (I-databas).
-
-
-## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Förutsäga taxitips med R från T-SQL eller lagrade procedurer med SQL Server
-
-[Data science-genomgången för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) ger SQL-programmerare erfarenhet av att skapa en avancerad analyslösning med Transact-SQL med SQL Server R Services för att operationalisera en R-lösning. 
+I genom gången [använd SQL Server](sql-walkthrough.md) visas hur du skapar och distribuerar Machine Learning-klassificering och Regressions modeller.  Datan är en offentligt tillgänglig NYC taxi resa och pris data uppsättning.
 
 
-## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Förutsäga taxitips med hjälp av Python i SQL Server-lagrade procedurer
+## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Förutsägelse taxi-tips med Microsoft R med SQL Server 
 
-[Genomgången Använd T-SQL med SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) ger SQL-programmerare erfarenhet av att skapa en maskininlärningslösning i SQL Server. Det visar hur man kan införliva Python i ett program genom att lägga till Python-kod till lagrade procedurer.
+I genom gången [använd SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) visas hur du skapar och distribuerar en R-modell till SQL Server. Genom gången är utformad för att introducera R-utvecklare för R-tjänster (i databasen).
+
+
+## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Förutsäg taxi-tips med R från T-SQL eller lagrade procedurer med SQL Server
+
+I [genom gången av data vetenskap för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) finns SQL-programmerare med erfarenhet av att skapa en avancerad analys lösning med Transact-SQL med hjälp av SQL Server R Services för att operationalisera en R-lösning. 
+
+
+## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Förutsägelse taxi-tips med python i SQL Server lagrade procedurer
+
+Genom gången [Använd T-SQL med SQL Server python-tjänster](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) finns SQL-programmerare med erfarenhet av att skapa en maskin inlärnings lösning i SQL Server. Det visar hur du införlivar python i ett program genom att lägga till python-kod till lagrade procedurer.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En diskussion om de viktigaste komponenterna som ingår i teamdatavetenskapsprocessen finns i [översikt över teamdatavetenskapsprocess](overview.md).
+En beskrivning av de viktiga komponenter som utgör team data vetenskaps processen finns i [Översikt över team data science-processen](overview.md).
 
-En diskussion om livscykeln för teamdatavetenskapsprocessen som du kan använda för att strukturera dina datavetenskapsprojekt finns i [livscykeln för Team Data Science Process](lifecycle.md). Livscykeln beskriver de steg, från början till, som projekten vanligtvis följer när de körs. 
+En beskrivning av livs cykeln för team data vetenskaps process som du kan använda för att strukturera data vetenskaps projekt finns i [livs cykeln för team data science process](lifecycle.md). Livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs. 

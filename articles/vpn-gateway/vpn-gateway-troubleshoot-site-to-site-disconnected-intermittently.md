@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure Site-to-Site VPN kopplas från periodvis
-description: Lär dig hur du felsöker problemet där VPN-anslutningen från dag till plats kopplas från regelbundet.
+title: Felsöka Azure plats-till-plats-VPN kopplas från period vis
+description: Lär dig hur du felsöker problemet där VPN-anslutningen från plats till plats kopplas från regelbundet.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: chadmath
@@ -9,63 +9,63 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862568"
 ---
-# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Felsökning: Azure Site-to-Site VPN kopplas från ibland
+# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Fel sökning: Azure plats-till-plats-VPN kopplas från period vis
 
-Det kan bero på problemet att en ny eller befintlig Microsoft Azure-plats-till-plats-VPN-anslutning inte är stabil eller kopplas från regelbundet. Den här artikeln innehåller felsökningssteg som hjälper dig att identifiera och lösa orsaken till problemet. 
+Problemet kan uppstå om att en ny eller befintlig Microsoft Azure plats-till-plats-VPN-anslutning inte är stabil eller kopplas från regelbundet. Den här artikeln innehåller fel söknings steg som hjälper dig att identifiera och lösa orsaken till problemet. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-### <a name="prerequisite-step"></a>Förutsättningssteg
+### <a name="prerequisite-step"></a>Förutsättnings steg
 
-Kontrollera typen av Azure-gateway för virtuella nätverk:
+Kontrol lera typen av Azure Virtual Network Gateway:
 
 1. Gå till [Azure Portal](https://portal.azure.com).
-2. Sök efter typinformation på sidan **Översikt** för den virtuella nätverksgatewayen.
+2. Gå till **översikts** sidan för den virtuella Nätverksgatewayen för typ information.
     
-    ![Översikten över gatewayen](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
+    ![Översikt över gatewayen](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
-### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Steg 1 Kontrollera om den lokala VPN-enheten har validerats
+### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Steg 1 kontrol lera om den lokala VPN-enheten är verifierad
 
-1. Kontrollera om du använder en [validerad VPN-enhet och operativsystemversion](vpn-gateway-about-vpn-devices.md#devicetable). Om VPN-enheten inte är validerad kan du behöva kontakta enhetstillverkaren för att se om det finns något kompatibilitetsproblem.
-2. Kontrollera att VPN-enheten är korrekt konfigurerad. Mer information finns i [Redigera exempel på enhetskonfiguration](vpn-gateway-about-vpn-devices.md#editing).
+1. Kontrol lera om du använder en [verifierad VPN-enhet och operativ system version](vpn-gateway-about-vpn-devices.md#devicetable). Om VPN-enheten inte verifieras kan du behöva kontakta enhets tillverkaren för att se om det finns några kompatibilitetsproblem.
+2. Kontrol lera att VPN-enheten är korrekt konfigurerad. Mer information finns i [Redigera enhets konfigurations exempel](vpn-gateway-about-vpn-devices.md#editing).
 
-### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>Steg 2 Kontrollera säkerhetsassociationens inställningar(för principbaserade Azure-gateways för virtuella nätverk)
+### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>Steg 2 kontrol lera inställningarna för säkerhets Association (för principbaserad Azure virtuella nätverksgateway)
 
-1. Kontrollera att det virtuella nätverket, undernäten och intervallen i definitionen **för lokal nätverksgateway** i Microsoft Azure är samma som konfigurationen på den lokala VPN-enheten.
-2. Kontrollera att säkerhetsassociationens inställningar matchar.
+1. Kontrol lera att det virtuella nätverket, undernät och, intervall i den **lokala Nätverksgatewayen** i Microsoft Azure är samma som konfigurationen på den lokala VPN-enheten.
+2. Kontrol lera att inställningarna för säkerhets associationen matchar.
 
-### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Steg 3 Sök efter användardefinierade vägar eller nätverkssäkerhetsgrupper i gatewayundernätet
+### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Steg 3 Sök efter användardefinierade vägar eller nätverks säkerhets grupper i Gateway-undernätet
 
-En användardefinierad väg i gateway-undernätet kan begränsa viss trafik och tillåta annan trafik. Detta gör att det verkar som om VPN-anslutningen är opålitlig för viss trafik och bra för andra. 
+En användardefinierad väg i Gateway-undernätet kan begränsa viss trafik och tillåta annan trafik. Detta gör att VPN-anslutningen inte är tillförlitlig för viss trafik och är lämpligt för andra. 
 
-### <a name="step-4-check-the-one-vpn-tunnel-per-subnet-pair-setting-for-policy-based-virtual-network-gateways"></a>Steg 4 Kontrollera inställningen "en VPN-tunnel per undernätspar" (för principbaserade gateways för virtuella nätverk)
+### <a name="step-4-check-the-one-vpn-tunnel-per-subnet-pair-setting-for-policy-based-virtual-network-gateways"></a>Steg 4 kontrol lera inställningen "en VPN-tunnel per undernät" (för principbaserad virtuella nätverksgateway)
 
-Kontrollera att den lokala VPN-enheten är inställd på att ha **en VPN-tunnel per undernätspar** för principbaserade virtuella nätverksgatewayer.
+Se till att den lokala VPN-enheten har angetts till att ha **en VPN-tunnel per undernät** för principbaserad virtuell nätverksgateway.
 
-### <a name="step-5-check-for-security-association-limitation-for-policy-based-virtual-network-gateways"></a>Steg 5 Sök efter begränsning av säkerhetsassociationen (för principbaserade gateways för virtuella nätverk)
+### <a name="step-5-check-for-security-association-limitation-for-policy-based-virtual-network-gateways"></a>Steg 5 kontrol lera säkerhets Associations begränsningen (för principbaserad virtuella nätverksgateway)
 
-Den principbaserade virtual network gateway har gränsen på 200 säkerhetsassociationspar. Om antalet Azure virtuella nätverk undernät multiplicerat gånger med antalet lokala undernät är större än 200, ser du sporadiska undernät frånkoppling.
+Den principbaserad virtuella Nätverksgatewayen har en gräns på 200 under nätets säkerhets Association par. Om antalet virtuella undernät i Azure-nätverk multipliceras med antalet gånger som antalet lokala undernät är större än 200, kan du se sporadiska undernät från koppling.
 
-### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Steg 6 Kontrollera extern vpn-enhets adress för VPN-enheten
+### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Steg 6 kontrol lera den lokala VPN-enhetens externa gränssnitts adress
 
-- Om VPN-enhetens IP-adresss IP-adress inkluderas i definitionen för **lokal nätverksgateway** i Azure kan det uppstå sporadiska frånkopplingar.
-- Enhetens externa gränssnitt måste vara direkt på Internet. Nat (Network Address Translation) eller brandväggen mellan Internet och enheten bör inte finnas någon NAT (Network Address Translation).
--  Om du konfigurerar brandväggskluster för att ha en virtuell IP måste du bryta klustret och exponera VPN-enheten direkt till ett offentligt gränssnitt som gatewayen kan samverka med.
+- Om VPN-enhetens IP-adress på Internet ingår i definitionen för den **lokala** Nätverksgatewayen i Azure kan det uppstå sporadiska från kopplingar.
+- Enhetens externa gränssnitt måste vara direkt på Internet. Det får inte finnas någon NAT (Network Address Translation) eller brand vägg mellan Internet och enheten.
+-  Om du konfigurerar brand Väggs kluster att ha en virtuell IP-adress måste du bryta klustret och exponera VPN-enheten direkt till ett offentligt gränssnitt som gatewayen kan använda.
 
-### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Steg 7 Kontrollera om den lokala VPN-enheten har perfect forward secrecy aktiverat
+### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Steg 7 kontrol lera om den lokala VPN-enheten har Perfect Forward Secrecy aktiverat
 
-Funktionen **Perfect Forward Secrecy** kan orsaka problem med frånkopplingen. Om VPN-enheten har **Perfect forward Secrecy** aktiverat inaktiverar du funktionen. Uppdatera sedan [IPsec-principen för virtuell nätverksgateway](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
+Funktionen för **PFS (Perfect Forward Secrecy** ) kan orsaka från kopplings problem. Om VPN-enheten har **Perfect Forward Secrecy** aktiverat inaktiverar du funktionen. [Uppdatera sedan IPsec-principen för den virtuella Nätverksgatewayen](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Konfigurera en plats-till-plats-anslutning till ett virtuellt nätverk](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Konfigurera IPsec/IKE-principen för VPN-anslutningar från plats till plats](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+- [Konfigurera IPsec/IKE-princip för plats-till-plats-VPN-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 

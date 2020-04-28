@@ -1,7 +1,7 @@
 ---
-title: Internet peering - vanliga frågor
+title: Internet-peering – vanliga frågor och svar
 titleSuffix: Azure
-description: Internet peering - vanliga frågor
+description: Internet-peering – vanliga frågor och svar
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,28 +9,28 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75775503"
 ---
-# <a name="internet-peering---faqs"></a>Internet peering - vanliga frågor
+# <a name="internet-peering---faqs"></a>Internet-peering – vanliga frågor och svar
 
 Du kan granska informationen nedan för allmänna frågor.
 
-**Vad är skillnaden mellan Internet peering och peering service?**
+**Vad är skillnaden mellan Internet peering-och peering-tjänsten?**
 
-Peering Service är en tjänst som avser att tillhandahålla offentlig IP-anslutning i företagsklass till Microsoft för sina företagskunder. Internet i företagsklass omfattar anslutning via Internetleverantörer som har hög genomströmningsanslutning till Microsoft och redundans för en HA-anslutning. Dessutom är användartrafiken optimerad för svarstid till närmaste Microsoft Edge. Peering-tjänsten bygger på peering-anslutning med partneroperatören. Peering-anslutningen med partnern måste vara direkt peering i motsats till Exchange-peering. Direkt peering måste ha lokal och geo-redundans.
+Peering-tjänsten är en tjänst som avser att ge företags klassens offentliga IP-anslutning till Microsoft för sina företags kunder. Internet i företags klass inkluderar anslutning via Internet-leverantörer som har hög genom strömnings anslutning till Microsoft och redundans för en HA-anslutning. Dessutom optimeras användar trafiken för svars tider till närmaste Microsoft Edge. Peering-tjänsten bygger på peering-anslutningar med partner företag. Peering-anslutningen med partner måste vara direkt peering i stället för Exchange-peering. Direkt peering måste ha lokal och GEO-redundans.
 
 **Vad är äldre peering?**
 
-Peering-anslutning som konfigureras med Azure PowerShell hanteras som en Azure-resurs. Peering-anslutningar som har konfigurerats tidigare lagras i vårt system som äldre peering som du kan välja att konvertera för att hantera som en Azure-resurs.
+Peering-anslutning som konfigureras med Azure PowerShell hanteras som en Azure-resurs. Peering-anslutningar som har kon figurer ATS tidigare lagras i vårt system som äldre peering som du kan välja att konvertera till att hantera som en Azure-resurs.
 
-**När New-AzPeeringDirectConnectionObject anropas, vilka IP-adresser ges till Microsoft- och Peer-enheter?**
+**Vilka IP-adresser ges till Microsoft-och peer-enheter när New-AzPeeringDirectConnectionObject anropas?**
 
-När du anropar New-AzPeeringDirectConnectionObject cmdlet anges en /31-adress (a.b.c.d/31) eller en /30-adress (a.b.c.d/30). Den första IP-adressen (a.b.c.d+0) ges till Peer enhet och andra IP-adress (a.b.c.d+1) ges till Microsoft-enheten.
+När du anropar New-AzPeeringDirectConnectionObject-cmdleten anges en/31-adress (a. b. c. d/31) eller en/30-adress (a. b. c. d/30). Den första IP-adressen (a. b. c. d + 0) tilldelas peer-enheten och den andra IP-adressen (a. b. c. d + 1) har tilldelats till Microsoft Device.
 
-**Vad är maxprefixerAdvertisedIPv4 och MaxPrefixesAdvertisedIPv6 parametrar i New-AzPeeringDirectConnectionObject cmdlet?**
+**Vad är MaxPrefixesAdvertisedIPv4 och MaxPrefixesAdvertisedIPv6-parametrar i New-AzPeeringDirectConnectionObject-cmdlet?**
 
-MaxPrefixesAdvertisedIPv4 och MaxPrefixesAdvertisedIPv6 parametrar representerar det maximala antalet IPv4 och IPv6 prefix en peer vill Microsoft att acceptera. Dessa parametrar kan ändras när som helst.
+Parametrarna MaxPrefixesAdvertisedIPv4 och MaxPrefixesAdvertisedIPv6 representerar det maximala antalet IPv4-och IPv6-prefix som en peer vill att Microsoft accepterar. Dessa parametrar kan ändras när som helst.

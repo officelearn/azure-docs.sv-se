@@ -1,31 +1,31 @@
 ---
-title: Felsöka flyttfel
-description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
+title: Felsöka flyttnings fel
+description: Använd Azure Resource Manager för att flytta resurser till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75891263"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Felsöka flytt av Azure-resurser till en ny resursgrupp eller prenumeration
 
-Den här artikeln innehåller förslag som hjälper dig att lösa problem när du flyttar resurser.
+Den här artikeln innehåller förslag på hur du kan lösa problem när du flyttar resurser.
 
 ## <a name="upgrade-a-subscription"></a>Uppgradera en prenumeration
 
-Om du verkligen vill uppgradera din Azure-prenumeration (till exempel byta från gratis till betala per användning) måste du konvertera din prenumeration.
+Om du faktiskt vill uppgradera din Azure-prenumeration (t. ex. genom att byta från kostnads fritt till betala per användning) måste du konvertera din prenumeration.
 
-* Information om hur du uppgraderar en kostnadsfri utvärderingsversion finns i [Uppgradera din kostnadsfria utvärderingsversion eller Microsoft Imagine Azure-prenumeration till Pay-As-You-Go](../../billing/billing-upgrade-azure-subscription.md).
-* Information om hur du ändrar ett pay-as-you-go-konto finns i [Ändra din Azure Pay-As-You-Go-prenumeration till ett annat erbjudande](../../billing/billing-how-to-switch-azure-offer.md).
+* Om du vill uppgradera en kostnads fri utvärderings version läser du [uppgradera din kostnads fria utvärderings version eller Microsoft Imagine Azure-prenumeration för att betala per](../../billing/billing-upgrade-azure-subscription.md)användning.
+* Om du vill ändra ett konto där du betalar per användning kan du läsa mer i [ändra din Azure-prenumeration med betala per användning till ett annat erbjudande](../../billing/billing-how-to-switch-azure-offer.md).
 
-Om du inte kan konvertera prenumerationen [skapar du en Azure-supportbegäran](../../azure-portal/supportability/how-to-create-azure-support-request.md). Välj **Prenumerationshantering** för ärendetypen.
+Om du inte kan konvertera prenumerationen [skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Välj **prenumerations hantering** för typ av problem.
 
-## <a name="service-limitations"></a>Begränsningar av tjänsten
+## <a name="service-limitations"></a>Tjänst begränsningar
 
-Vissa tjänster kräver ytterligare överväganden när resurser flyttas. Om du flyttar följande tjänster kontrollerar du riktlinjerna och begränsningarna.
+Vissa tjänster kräver ytterligare överväganden när du flyttar resurser. Om du flyttar följande tjänster, se till att du har kontroll över vägledning och begränsningar.
 
 * [App Services](./move-limitations/app-service-move-limitations.md)
 * [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
@@ -34,18 +34,18 @@ Vissa tjänster kräver ytterligare överväganden när resurser flyttas. Om du 
 * [Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Virtuella datorer](./move-limitations/virtual-machines-move-limitations.md)
 
-## <a name="large-requests"></a>Stora förfrågningar
+## <a name="large-requests"></a>Stora begär Anden
 
-När det är möjligt, bryta stora drag i separata flyttoperationer. Resource Manager returnerar omedelbart ett fel när det finns mer än 800 resurser i en enda åtgärd. Men flytta mindre än 800 resurser kan också misslyckas genom att time out.
+När det är möjligt flyttas stora steg till separata flytt åtgärder. Resource Manager returnerar omedelbart ett fel när det finns fler än 800 resurser i en enda åtgärd. Men att flytta mindre än 800 resurser kan också Miss lyckas genom timeout.
 
-## <a name="resource-not-in-succeeded-state"></a>Resursen lyckades inte
+## <a name="resource-not-in-succeeded-state"></a>Resursen har inte statusen slutförd
 
-När du får ett felmeddelande som anger att en resurs inte kan flyttas eftersom den inte är i ett efterföljande tillstånd, kan det faktiskt vara en beroende resurs som blockerar flytten. Felkoden är vanligtvis **MoveCannotProceedWithResourcesNotInSucceededState**.
+När du får ett fel meddelande som anger att en resurs inte kan flyttas eftersom den inte är i ett framgångs tillstånd, kan det hända att den faktiskt är en beroende resurs som blockerar flytten. Felkoden är vanligt vis **MoveCannotProceedWithResourcesNotInSucceededState**.
 
-Om käll- eller målresursgruppen innehåller ett virtuellt nätverk kontrolleras tillstånden för alla beroende resurser för det virtuella nätverket under flytten. Kontrollen omfattar dessa resurser direkt och indirekt beroende av det virtuella nätverket. Om någon av dessa resurser är i ett misslyckat tillstånd blockeras flytten. Om till exempel en virtuell dator som använder det virtuella nätverket har misslyckats blockeras flytten. Flytten blockeras även när den virtuella datorn inte är en av de resurser som flyttas och inte finns i en av resursgrupperna för flytten.
+Om käll-eller mål resurs gruppen innehåller ett virtuellt nätverk, kontrol leras tillståndet för alla beroende resurser för det virtuella nätverket under flytten. Kontrollen inkluderar de resurser som är direkt och indirekt beroende av det virtuella nätverket. Om någon av dessa resurser är i ett felaktigt tillstånd blockeras flyttningen. Om till exempel en virtuell dator som använder det virtuella nätverket har misslyckats blockeras flyttningen. Flyttningen blockeras även om den virtuella datorn inte är en av de resurser som flyttas och inte finns i någon av resurs grupperna för flytten.
 
-När du får det här felet har du två alternativ. Flytta antingen resurserna till en resursgrupp som inte har ett virtuellt nätverk eller [kontakta supporten](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+När du får det här felet har du två alternativ. Flytta dina resurser till en resurs grupp som inte har ett virtuellt nätverk eller [kontakta supporten](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kommandon som ska flyttas finns i [Flytta resurser till ny resursgrupp eller prenumeration](move-resource-group-and-subscription.md).
+För kommandon för att flytta resurser, se [Flytta resurser till ny resurs grupp eller prenumeration](move-resource-group-and-subscription.md).

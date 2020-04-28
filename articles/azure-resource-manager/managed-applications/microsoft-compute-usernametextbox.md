@@ -1,22 +1,22 @@
 ---
-title: Gränssnittselement för UserNameTextBox
-description: I artikeln beskrivs användargränssnittselementet Microsoft.Compute.UserNameTextBox för Azure portal. Gör det möjligt för användare att ange Windows- eller Linux-användarnamn.
+title: UserNameTextBox-GRÄNSSNITTs element
+description: Beskriver användar gränssnitts elementet Microsoft. Compute. UserNameTextBox för Azure Portal. Gör det möjligt för användare att ange Windows-eller Linux-användarnamn.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651909"
 ---
-# <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI-element
+# <a name="microsoftcomputeusernametextbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. UserNameTextBox
 
-En textrutekontroll med inbyggd validering för Windows- och Linux-användarnamn.
+En text Rute kontroll med inbyggd verifiering för Windows-och Linux-användarnamn.
 
-## <a name="ui-sample"></a>Exempel på användargränssnitt
+## <a name="ui-sample"></a>UI-exempel
 
 ![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
 
@@ -47,13 +47,13 @@ En textrutekontroll med inbyggd validering för Windows- och Linux-användarnamn
 
 ## <a name="remarks"></a>Anmärkningar
 
-- Om `constraints.required` värdet är **true**måste textrutan ha ett värde för att valideras. Standardvärdet är **sant**.
-- `osPlatform`måste anges, och kan vara antingen **Windows** eller **Linux**.
-- `constraints.regex`är ett JavaScript-mönster för reguljära uttryck. Om det anges måste textrutans värde matcha mönstret för att validera det. Standardvärdet är **null**.
-- `constraints.validationMessage`är en sträng som ska visas när textrutans `constraints.regex`värde misslyckas med den validering som anges av . Om inget anges används textrutans inbyggda valideringsmeddelanden. Standardvärdet är **null**.
-- Det här elementet har inbyggd validering som baseras `osPlatform`på det värde som angetts för . Den inbyggda valideringen kan användas tillsammans med ett anpassat reguljärt uttryck. Om ett `constraints.regex` värde för anges utlöses både de inbyggda och anpassade valideringarna.
+- Om `constraints.required` är inställt på **Sant**måste text rutan ha ett värde för att kunna verifiera. Standardvärdet är **True**.
+- `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
+- `constraints.regex`är ett mönster för reguljära JavaScript-uttryck. Om det här alternativet anges måste text rutans värde matcha mönstret för att kunna verifieras. Standardvärdet är **Null**.
+- `constraints.validationMessage`är en sträng som ska visas när text rutans värde inte klarar den verifiering som `constraints.regex`anges av. Om inget värde anges används text rutans inbyggda verifierings meddelanden. Standardvärdet är **Null**.
+- Det här elementet har en inbyggd verifiering som baseras på det värde som har angetts `osPlatform`för. Den inbyggda verifieringen kan användas tillsammans med ett anpassat reguljärt uttryck. Om ett värde för `constraints.regex` anges utlöses båda de inbyggda och anpassade valideringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

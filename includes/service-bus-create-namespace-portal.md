@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75928206"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
@@ -20,15 +20,15 @@ För att komma igång med Service Bus-meddelandeentiteter i Azure måste du för
 
 Så här skapar du ett namnområde:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Logga in på [Azure Portal](https://portal.azure.com)
 2. I det vänstra navigeringsfältet i portalen väljer du **+ Skapa en resurs** följt av **Integration** och sedan **Service Bus**.
 
     ![Skapa en resurs -> Integration -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. I dialogrutan **Skapa namnrymd** utför du följande steg: 
-    1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt. En lista över regler för namngivning av namnområden finns i [Skapa REST-API för namnområde](/rest/api/servicebus/create-namespace).
+    1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt. En lista över regler för namngivning av namn områden finns i [skapa namn område REST API](/rest/api/servicebus/create-namespace).
     2. Välj prisnivå (Basic, Standard eller Premium) för namnrymden. Om du vill använda [ämnen och prenumerationer](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) väljer du antingen Standard eller Premium. Ämnen/prenumerationer stöds inte på Basic-prisnivån.
     3. Om du valde prisnivån **Premium** utför du följande steg: 
-        1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. Ett premiumnamnområde har minst en meddelandeenhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).
+        1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. Ett Premium-namnområde har minst en meddelande enhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).
         2. Ange huruvida du vill göra namnrymden **zonredundant**. Zonredundans ger förbättrad tillgänglighet genom att sprida repliker över tillgänglighetszoner inom en region utan extra kostnad. Mer information finns i [Tillgänglighetszoner i Azure](../articles/availability-zones/az-overview.md).
     4. För **Prenumeration** väljer du en Azure-prenumeration där du ska skapa namnrymden.
     5. För **Resursgrupp** väljer du en befintlig resursgrupp där namnrymden ska finnas, eller så skapar du en ny.      

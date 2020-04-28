@@ -1,6 +1,6 @@
 ---
-title: Apache HBase Master startar inte i Azure HDInsight
-description: Apache HBase Master (HMaster) startar inte i Azure HDInsight
+title: Apache HBase Master inte att starta i Azure HDInsight
+description: Apache HBase Master (HMaster) kan inte startas i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,62 +8,62 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887214"
 ---
-# <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) startar inte i Azure HDInsight
+# <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) kan inte startas i Azure HDInsight
 
-I den här artikeln beskrivs felsökningssteg och möjliga lösningar för problem när du interagerar med Azure HDInsight-kluster.
+Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
-## <a name="scenario-atomic-renaming-failure"></a>Scenario: Atombytesfel
+## <a name="scenario-atomic-renaming-failure"></a>Scenario: Atom namnbytes problem
 
 ### <a name="issue"></a>Problem
 
-Oväntade filer som identifierats under startprocessen.
+Oväntade filer har identifierats under start processen.
 
 ### <a name="cause"></a>Orsak
 
-Under startprocessen utför HMaster många initieringssteg, inklusive att flytta data från scratch-mapp (.tmp) till datamappen. HMaster tittar också på mappen write-ahead logs (WAL) för att se om det finns några servrar som inte svarar.
+Under start processen utför HMaster många initierings steg, inklusive att flytta data från scratch-mappen (. tmp) till data-mappen. HMaster tittar också på mappen Write-Ahead-loggar (WAL) för att se om det finns några icke-tillgängliga region servrar.
 
-HMaster gör ett grundläggande listkommando på WAL-mapparna. Om HMaster vid något tillfälle ser en oväntad fil i någon av dessa mappar, genererar den ett undantag och startar inte.
+HMaster har ett grundläggande List kommando i WAL-mapparna. När som helst ser HMaster en oväntad fil i någon av dessa mappar, utlöses ett undantag och startar inte.
 
 ### <a name="resolution"></a>Lösning
 
-Kontrollera anropsstacken och försök att avgöra vilken mapp som kan orsaka problemet (det kan till exempel vara WAL-mappen eller TMP-mappen). Försök sedan att hitta problemfilen i Cloud Explorer eller med HDFS-kommandon. Vanligtvis är detta `*-renamePending.json` en fil. (Filen `*-renamePending.json` är en journalfil som används för att implementera den atomiska namnbytesåtgärden i WASB-drivrutinen. På grund av buggar i den här implementeringen kan dessa filer bli över efter att processen har krascher och så vidare.) Tvinga bort den här filen antingen i Cloud Explorer eller med hjälp av HDFS-kommandon.
+Kontrol lera anrops stacken och försök att avgöra vilken mapp som kan orsaka problemet (till exempel kan det vara mappen WAL eller mappen. tmp). Försök sedan att hitta problem filen i Cloud Explorer eller med HDFS-kommandon. Detta är vanligt vis en `*-renamePending.json` fil. ( `*-renamePending.json` Filen är en journal fil som används för att implementera Atomic Rename-åtgärden i WASB-drivrutinen. På grund av buggar i den här implementeringen kan de här filerna lämnas över efter att process kraschar och så vidare.) Framtvinga-ta bort den här filen antingen i Cloud Explorer eller med HDFS-kommandon.
 
-Ibland kan det också finnas en `$$$.$$$` tillfällig fil som heter något liknande på den här platsen. Du måste använda `ls` KOMMANDOT HDFS för att se den här filen. Du kan inte se filen i Cloud Explorer. Om du vill ta bort `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`den här filen använder du kommandot HDFS .
+Ibland kan det också finnas en temporär fil som heter något som `$$$.$$$` finns på den här platsen. Du måste använda HDFS `ls` -kommandot för att se den här filen. Du kan inte se filen i Cloud Explorer. Om du vill ta bort den här filen använder `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`du kommandot HDFS.
 
-När du har kört dessa kommandon bör HMaster starta omedelbart.
+När du har kört dessa kommandon ska HMaster starta omedelbart.
 
 ---
 
-## <a name="scenario-no-server-address-listed"></a>Scenario: Ingen serveradress listad
+## <a name="scenario-no-server-address-listed"></a>Scenario: ingen server adress visas
 
 ### <a name="issue"></a>Problem
 
-Du kan se ett meddelande `hbase: meta` som anger att tabellen inte är online. Kör `hbck` kan `hbase: meta table replicaId 0 is not found on any region.` rapportera att i HMaster loggar, kan `No server address listed in hbase: meta for region hbase: backup <region name>`du se meddelandet: .  
+Du kan se ett meddelande som anger att `hbase: meta` tabellen inte är online. Om `hbck` du kör rapporter `hbase: meta table replicaId 0 is not found on any region.` kan du se meddelandet i HMaster-loggarna: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
 
 ### <a name="cause"></a>Orsak
 
-HMaster kunde inte initiera efter omstart av HBase.
+HMaster kunde inte initieras efter omstart av HBase.
 
 ### <a name="resolution"></a>Lösning
 
-1. I HBase-skalet anger du följande kommandon (ändra faktiska värden enligt vad som är tillämpligt):
+1. I HBase-gränssnittet anger du följande kommandon (ändra de faktiska värdena efter vad som är tillämpligt):
 
     ```hbase
     scan 'hbase:meta'
     delete 'hbase:meta','hbase:backup <region name>','<column name>'
     ```
 
-1. Ta `hbase: namespace` bort posten. Den här posten kan vara samma fel `hbase: namespace` som rapporteras när tabellen genomsöks.
+1. Ta bort `hbase: namespace` posten. Posten kan vara samma fel som rapporteras när `hbase: namespace` tabellen genomsöks.
 
-1. Starta om den aktiva HMaster från Ambari UI för att få upp HBase i körläge.
+1. Starta om Active HMaster från Ambari-ANVÄNDARGRÄNSSNITTET för att hämta HBase i körnings tillstånd.
 
-1. Kör följande kommando för att visa alla offlinetabeller i HBase-skalet:
+1. Kör följande kommando i HBase-gränssnittet för att öppna alla offline-tabeller:
 
     ```hbase
     hbase hbck -ignorePreCheckPermission -fixAssignments
@@ -71,19 +71,19 @@ HMaster kunde inte initiera efter omstart av HBase.
 
 ---
 
-## <a name="scenario-javaioioexception-timedout"></a>Scenario: java.io.IOException: Timedout
+## <a name="scenario-javaioioexception-timedout"></a>Scenario: Java. io. IOException: stängningsåtgärd
 
 ### <a name="issue"></a>Problem
 
-HMaster time out med dödligt undantag som liknar: `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`.
+HMaster tids gräns med allvarligt undantag liknar: `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`.
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet kan uppstå om du har många tabeller och regioner som inte har tömts när du startar om HMaster-tjänsterna. Time-out är en känd defekt med HMaster. Allmänna klusterstartuppgifter kan ta lång tid. HMaster stängs av om namnområdestabellen ännu inte har tilldelats. De långa startaktiviteterna inträffar där det finns stora mängder data som inte har flukt och en timeout på fem minuter inte är tillräcklig.
+Det här problemet kan uppstå om du har många tabeller och regioner som inte har tömts när du startar om dina HMaster-tjänster. Timeout är ett känt fel med HMaster. Allmänna start åtgärder för klustret kan ta lång tid. HMaster stängs av om inte namn områdes tabellen har tilldelats än. Långa start aktiviteter inträffar när det finns stora mängder data som inte har rensats och tids gränsen på fem minuter inte räcker.
 
 ### <a name="resolution"></a>Lösning
 
-1. Från Apache Ambari UI, gå till **HBase** > **Configs**. Lägg till `hbase-site.xml` följande inställning i den anpassade filen:
+1. Gå till **HBase** > -**konfigurationer**från Apache Ambari UI. I den anpassade `hbase-site.xml` filen lägger du till följande inställning:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -93,11 +93,11 @@ Det här problemet kan uppstå om du har många tabeller och regioner som inte h
 
 ---
 
-## <a name="scenario-frequent-region-server-restarts"></a>Scenario: Frekvent regionserver startar om
+## <a name="scenario-frequent-region-server-restarts"></a>Scenario: frekventa omstarter av region Server
 
 ### <a name="issue"></a>Problem
 
-Noder startas om med jämna mellanrum. Från regionserverloggarna kan du se poster som liknar:
+Noder startar om regelbundet. Från region Server loggarna kan du se poster som liknar:
 
 ```
 2017-05-09 17:45:07,683 WARN  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 31000ms
@@ -107,15 +107,15 @@ Noder startas om med jämna mellanrum. Från regionserverloggarna kan du se post
 
 ### <a name="cause"></a>Orsak
 
-Lång `regionserver` JVM GC-paus. Pausen kommer `regionserver` att orsaka att inte svara och inte kunna skicka hjärtslag till HMaster inom zk session timeout 40s. HMaster kommer `regionserver` att tro är `regionserver` död och kommer att avbryta och starta om.
+Lång `regionserver` JVM GC paus. Pausen kommer att `regionserver` leda till att den inte svarar och kan inte skicka hjärter till HMaster inom ZK-sessionens tids gräns 40s. HMaster kommer att `regionserver` tro att det `regionserver` är dött och kommer att avbryta och starta om.
 
 ### <a name="resolution"></a>Lösning
 
-Ändra timeout för Zookeeper-sessionen, inte bara `hbase-site` inställning `zookeeper.session.timeout` utan även Zookeeper-inställningen `zoo.cfg` `maxSessionTimeout` måste ändras.
+Ändra tids gränsen för Zookeeper-sessionen, `hbase-site` inte `zookeeper.session.timeout` bara ange, `zoo.cfg` men `maxSessionTimeout` Zookeeper-inställningen måste ändras.
 
-1. Öppna Ambari UI, gå till **HBase -> Configs -> Inställningar**, i Timeouts avsnitt, ändra värdet för Zookeeper Session Timeout.
+1. Åtkomst till Ambari-gränssnittet, gå till **HBase-> configs – > inställningar**i avsnittet timeouter, ändra värdet för Zookeeper session timeout.
 
-1. Öppna Ambari UI, gå till **Zookeeper -> Configs -> Custom** `zoo.cfg`, lägg till/ändra följande inställning. Kontrollera att värdet är detsamma `zookeeper.session.timeout`som HBase .
+1. Komma åt Ambari-användargränssnittet, gå till **Zookeeper-> configs – > anpassad** `zoo.cfg`, Lägg till/ändra följande inställning. Kontrol lera att värdet är detsamma som HBase `zookeeper.session.timeout`.
 
     ```
     Key: maxSessionTimeout Value: 120000  
@@ -125,28 +125,28 @@ Lång `regionserver` JVM GC-paus. Pausen kommer `regionserver` att orsaka att in
 
 ---
 
-## <a name="scenario-log-splitting-failure"></a>Scenario: Loggdelningsfel
+## <a name="scenario-log-splitting-failure"></a>Scenario: logg delnings problem
 
 ### <a name="issue"></a>Problem
 
-HMasters kunde inte komma upp på ett HBase-kluster.
+HMasters kunde inte komma upp i ett HBase-kluster.
 
 ### <a name="cause"></a>Orsak
 
-Felkonfigurerade HDFS- och HBase-inställningar för ett sekundärt lagringskonto.
+Felkonfigurerat HDFS och HBase-inställningar för ett sekundärt lagrings konto.
 
 ### <a name="resolution"></a>Lösning
 
-set hbase.rootdir: wasb://@.blob.core.windows.net/hbase och starta om tjänster på Ambari.
+Ange HBase. rootdir: wasb://@.blob.core.windows.net/hbase och starta om tjänsterna på Ambari.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-* Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen. Ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i [Så här skapar du en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

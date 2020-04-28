@@ -1,42 +1,42 @@
 ---
-title: Flytta Azure extern belastningsutjämnare till en annan Azure-region med Azure PowerShell
-description: Använd Azure Resource Manager-mallen för att flytta Azure extern belastningsutjämning från en Azure-region till en annan med Azure PowerShell.
+title: Flytta externa Azure-Load Balancer till en annan Azure-region med Azure PowerShell
+description: Använd Azure Resource Manager mall för att flytta externa Azure-Load Balancer från en Azure-region till en annan med hjälp av Azure PowerShell.
 author: asudbring
 ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644825"
 ---
-# <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Flytta Azure extern belastningsutjämnare till en annan region med Azure PowerShell
+# <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Flytta externa Azure-Load Balancer till en annan region med Azure PowerShell
 
-Det finns olika scenarier där du vill flytta din befintliga externa belastningsutjämnare från en region till en annan. Du kanske till exempel vill skapa en extern belastningsutjämnare med samma konfiguration för testning. Du kanske också vill flytta en extern belastningsutjämnare till en annan region som en del av katastrofåterställningsplanering.
+Det finns olika scenarier där du vill flytta din befintliga externa belastningsutjämnare från en region till en annan. Du kanske till exempel vill skapa en extern belastningsutjämnare med samma konfiguration för testning. Du kanske också vill flytta en extern belastningsutjämnare till en annan region som en del av Disaster Recovery-planeringen.
 
-Externa belastningsutjämnare i Azure kan inte flyttas från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera den befintliga konfigurationen och den offentliga IP-adressen för en extern belastningsutjämnare.  Du kan sedan arrangera resursen i en annan region genom att exportera belastningsutjämnaren och den offentliga IP-adressen till en mall, ändra parametrarna för att matcha målregionen och sedan distribuera mallarna till den nya regionen.  Mer information om Resurshanteraren och mallar finns i [Exportera resursgrupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+Det går inte att flytta externa Azure-belastningsutjämnare från en region till en annan. Du kan dock använda en Azure Resource Manager mall för att exportera den befintliga konfigurationen och den offentliga IP-adressen till en extern belastningsutjämnare.  Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och offentliga IP-adresser till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallarna till den nya regionen.  Mer information om Resource Manager och mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
 ## <a name="prerequisites"></a>Krav
 
-- Kontrollera att Azures externa belastningsutjämnare finns i Azure-regionen som du vill flytta från.
+- Se till att den externa Azure-belastningsutjämnaren finns i den Azure-region som du vill flytta.
 
-- Azure externa belastningsutjämnare kan inte flyttas mellan regioner.  Du måste associera den nya belastningsutjämnaren med resurser i målregionen.
+- Det går inte att flytta externa Azure-belastningsutjämnare mellan regioner.  Du måste koppla den nya belastningsutjämnaren till resurser i mål regionen.
 
-- Om du vill exportera en extern belastningsutjämnad konfiguration och distribuera en mall för att skapa en extern belastningsutjämnare i en annan region behöver du rollen Nätverksbidragsgivare eller högre.
+- Om du vill exportera en extern belastnings Utjämnings konfiguration och distribuera en mall för att skapa en extern belastningsutjämnare i en annan region behöver du rollen som nätverks deltagare eller högre.
    
-- Identifiera källnätverkslayouten och alla resurser som du använder för tillfället. Den här layouten innehåller men är inte begränsad till belastningsutjämnare, nätverkssäkerhetsgrupper, offentliga IP-adresser och virtuella nätverk.
+- Identifiera käll nätverks layouten och alla resurser som du använder just nu. Den här layouten omfattar men är inte begränsad till belastningsutjämnare, nätverks säkerhets grupper, offentliga IP-adresser och virtuella nätverk.
 
-- Kontrollera att din Azure-prenumeration gör att du kan skapa externa belastningsutjämnare i målområdet som används. Kontakta supporten och aktivera den kvot som krävs.
+- Kontrol lera att din Azure-prenumeration låter dig skapa externa belastningsutjämnare i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrollera att prenumerationen har tillräckligt med resurser för att stödja tillägg av belastningsutjämnare för den här processen.  Se [Azure-prenumerations- och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastningsutjämnare för den här processen.  Se [begränsningar, kvoter och begränsningar för Azure-prenumerationen och tjänsten](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
-## <a name="prepare-and-move"></a>Förbereda och flytta
-Följande steg visar hur du förbereder den externa belastningsutjämnaren för flytten med hjälp av en Resource Manager-mall och flyttar konfigurationen för extern belastningsutjämnare till målregionen med Azure PowerShell.  Som en del av den här processen måste den offentliga IP-konfigurationen för den externa belastningsutjämnaren inkluderas och måste jag göra först innan du flyttar den externa belastningsutjämnaren.
+## <a name="prepare-and-move"></a>Förbered och flytta
+Följande steg visar hur du förbereder den externa belastningsutjämnaren för flytt med hjälp av en Resource Manager-mall och flyttar den externa belastnings Utjämnings konfigurationen till mål regionen med Azure PowerShell.  Som en del av den här processen måste den offentliga IP-konfigurationen för den externa belastningsutjämnaren inkluderas och måste först utföras innan den externa belastningsutjämnaren flyttas.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,25 +48,25 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2. Hämta resurs-ID:t för den offentliga IP som du vill flytta till målregionen och placera det i en variabel med [Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+2. Hämta resurs-ID för den offentliga IP-adress som du vill flytta till mål regionen och placera den i en variabel med hjälp av [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exportera käll-IP till en Json-fil till katalogen där du kör kommandot [Export-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
+3. Exportera den offentliga käll-IP-adressen till en. JSON-fil till den katalog där du kör kommandot [export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Filen som hämtas namnges efter den resursgrupp som resursen exporterades från.  Leta upp filen som exporterades från kommandot ** \<resource-group-name>.json** och öppna den i en valfri redigerare:
+4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot ** \<resurs grupp-namn>. JSON** och öppna den i valfritt redigerings program:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
    ```
 
-5. Om du vill redigera parametern för det offentliga IP-namnet ändrar du **egenskapsstandardvärde** för källens offentliga IP-namn till namnet på din offentliga IP-adress, och ser till att namnet är inom citationstecken:
+5. Om du vill redigera parametern för det offentliga IP-namnet ändrar du egenskapen **DefaultValue** för det offentliga IP-namnet för källan till namnet på din publika IP-adress, se till att namnet är i citat tecken:
     
     ```json
         {
@@ -81,7 +81,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
 
     ```
 
-6. Om du vill redigera målområdet där den **location** offentliga IP-adressen ska flyttas ändrar du platsegenskapen under resurser:
+6. Om du vill redigera mål regionen där den offentliga IP-adressen ska flyttas ändrar du egenskapen **location** under resurser:
 
     ```json
             "resources": [
@@ -107,16 +107,16 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
              ]             
     ```
   
-7. Om du vill hämta regionplatskoder kan du använda Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) genom att köra följande kommando:
+7. Om du vill hämta regions koderna för regionen kan du använda Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) genom att köra följande kommando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-8. Du kan också ändra andra parametrar i mallen om du vill och är valfria beroende på dina behov:
+8. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
-    * **Sku** - Du kan ändra sku för den offentliga IP i konfigurationen från standard till grundläggande eller grundläggande till standard genom att ändra **sku** > **namn** egenskap i ** \<resurs-grupp-namn>.json** fil:
+    * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > -**namn** i ** \<resurs grupps namnet>. JSON-** fil:
 
          ```json
             "resources": [
@@ -131,9 +131,9 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                     },
          ```
 
-         Mer information om skillnaderna mellan grundläggande och standardiserade offentliga IPS finns i [Skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+         Mer information om skillnaderna mellan grundläggande och standardiserade SKU: er för offentliga IP-adresser finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-    * **Offentlig IP-allokeringsmetod** och **inaktiv timeout** - Du kan ändra båda dessa alternativ i mallen genom att ändra egenskapen **publicIPAllocationMethod** från **dynamisk** till **statisk** eller **statisk** till **dynamisk**. Tidsgränsen för inaktiv kan ändras genom att ändra egenskapen **idleTimeoutInMinutes** till önskad mängd.  Standard är **4:**
+    * **Metod för offentlig IP-tilldelning** och **tids gräns för inaktivitet** – du kan ändra båda alternativen i mallen genom att ändra egenskapen **publicIPAllocationMethod** från **dynamisk** till **statisk** eller **statisk** till **dynamisk**. Tids gränsen för inaktivitet kan ändras genom att ändra egenskapen **idleTimeoutInMinutes** till önskad mängd.  Standardvärdet är **4**:
 
          ```json
          "resources": [
@@ -158,17 +158,17 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                 }            
          ```
 
-        Mer information om allokeringsmetoderna och tidsgränsen för inaktiva tidsutgång finns i [Skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Mer information om fördelnings metoder och tids gräns värden för inaktivitet finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Spara ** \<filen resursgrupp-namn>.json.**
+9. Spara ** \<resurs grupps namnet>. JSON-** fil.
 
-10. Skapa en resursgrupp i målregionen för den offentliga mål-IP-adressen som ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
+10. Skapa en resurs grupp i mål regionen för den offentliga mål-IP-adressen som ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuera den redigerade ** \<resursgruppnamnet>.json-filen** till resursgruppen som skapades i föregående steg med [New-AzResourceGroupDeployment:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)
+11. Distribuera det redigerade ** \<resurs grupps namnet>. JSON-** filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -176,7 +176,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
     
     ```
 
-12. Om du vill verifiera att resurserna skapades i målregionen använder du [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) och [Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+12. Om du vill kontrol lera att resurserna har skapats i mål regionen använder du [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) och [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -190,7 +190,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
 
     ```
 
-### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportera den externa belastningsutjämnaren och distribuera från Azure PowerShell
+### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>Exportera den externa belastnings Utjämnings mal len och distribuera från Azure PowerShell
 
 1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) och följ anvisningarna på skärmen:
     
@@ -198,24 +198,24 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
     Connect-AzAccount
     ```
 
-2. Hämta resurs-ID:t för den externa belastningsutjämnaren som du vill flytta till målregionen och placera det i en variabel med [Get-AzLoadBalancer:](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0)
+2. Hämta resurs-ID för den externa belastningsutjämnare som du vill flytta till mål regionen och placera den i en variabel med [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceExtLBID = (Get-AzLoadBalancer -Name <source-external-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exportera källans externa belastningsutjämnare till en .json-fil till katalogen där du kör kommandot [Export-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
+3. Exportera den externa käll konfigurationen för belastnings utjämning till en JSON-fil till den katalog där du kör kommandot [export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
    ```
-4. Filen som hämtas namnges efter den resursgrupp som resursen exporterades från.  Leta upp filen som exporterades från kommandot ** \<resource-group-name>.json** och öppna den i en valfri redigerare:
+4. Den hämtade filen får namnet efter resurs gruppen som resursen exporterades från.  Leta upp filen som exporterades från kommandot ** \<resurs grupp-namn>. JSON** och öppna den i valfritt redigerings program:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
    ```
 
-5. Om du vill redigera parametern för namnet på den externa belastningsutjämnaren ändrar du **egenskapsstandardvärdevärdet** för källans externa belastningsutjämnare till namnet på målutomvänd belastningsutjämnaren, se till att namnet är inom citationstecken:
+5. Om du vill redigera parametern för den externa belastnings Utjämnings namnet ändrar du egenskaps- **defaultvalueen** för det externa namnet på den externa belastningsutjämnaren till namnet på den externa mål belastnings utjämningen, se till att namnet är inom citat tecken:
 
     ```json
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -232,19 +232,19 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
 
     ```
 
-6.  Om du vill redigera värdet för den offentliga mål-IP-adressen som flyttades ovan måste du först hämta resurs-ID:et och sedan kopiera och klistra in det ** \<i filen resursgruppnamn>.json.**  Om du vill hämta ID:et använder du [Get-AzPublicIPAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)
+6.  Om du vill redigera värdet för den publika IP-adress som flyttades ovan måste du först hämta resurs-ID: t och sedan kopiera och klistra in det i ** \<resurs grupps namnet>. JSON-** fil.  Hämta ID: t med [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
     ```
-    Skriv variabeln och tryck enter för att visa resurs-ID.  Markera ID-sökvägen och kopiera den till Urklipp:
+    Skriv variabeln och tryck på RETUR för att Visa resurs-ID.  Markera ID-sökvägen och kopiera den till Urklipp:
 
     ```powershell
     PS C:\> $targetPubIPID
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  I filen ** \<resource-group-name>.json** klistrar du in **resurs-ID:n** från variabeln i stället för **standardvärde** i den andra parametern för det offentliga IP-externa ID:et, se till att du omsluter sökvägen inom citationstecken:
+7.  I ** \<resurs grupps namnet>. JSON-** fil klistrar du in **resurs-ID: t** från variabeln i stället för **DefaultValue** i den andra parametern för det offentliga IP-ID: t, se till att du omger sökvägen med citat tecken:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -261,7 +261,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
 
     ```
 
-8.  Om du har konfigurerat utgående NAT och utgående regler för belastningsutjämnaren finns en tredje post i den här filen för det externa ID:et för den utgående offentliga IP-adressen.  Upprepa stegen ovan i **målregionen** för att hämta ID:n för den utgående offentliga iP:n och klistra in posten i ** \<filen>.json för resursgrupp och namn:**
+8.  Om du har konfigurerat utgående NAT och utgående regler för belastningsutjämnaren finns en tredje post i den här filen för det externa ID: t för den utgående offentliga IP-adressen.  Upprepa stegen ovan i **mål regionen** för att hämta ID: t för den utgående offentliga IP-adressen och klistra in posten i ** \<resurs grupps namnet>. JSON-** fil:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -282,7 +282,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
         },
     ```
 
-10. Om du vill redigera målområdet där den externa belastningsutjämnarens konfiguration ska flyttas ändrar du platsegenskapen **location** **resources** ** \<** under resurser i filen>.json för resursgruppsnamn:
+10. Om du vill redigera mål regionen där den externa belastnings Utjämnings konfigurationen ska flyttas ändrar du egenskapen **location** under **resurser** i ** \<resurs grupps namnet>. JSON-** fil:
 
     ```json
         "resources": [
@@ -297,16 +297,16 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                 },
     ```
 
-11. Om du vill hämta regionplatskoder kan du använda Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) genom att köra följande kommando:
+11. Om du vill hämta regions koderna för regionen kan du använda Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) genom att köra följande kommando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-12. Du kan också ändra andra parametrar i mallen om du vill och är valfria beroende på dina behov:
+12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
     
-    * **Sku** - Du kan ändra sku för den externa belastningsutjämningen i konfigurationen från standard till grundläggande eller grundläggande till standard genom att ändra **egenskapen sku** > **name** i ** \<filen>.json för resursgruppsnamn:**
+    * **SKU** – du kan ändra SKU: n för den externa belastningsutjämnaren i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > -**namn** i ** \<resurs grupps namnet>. JSON-** fil:
 
         ```json
         "resources": [
@@ -320,9 +320,9 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                 "tier": "Regional"
             },
         ```
-      Mer information om skillnaderna mellan grundläggande belastningsutjämnare och standardstandard sku finns i [översikt över Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      Mer information om skillnaderna mellan Basic-och standard SKU-belastningsutjämnare finns i [Översikt över Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Belastningsutjämningsregler** - Du kan lägga till eller ta bort belastningsutjämningsregler i konfigurationen genom att lägga till eller ta bort poster i avsnittet **loadBalancingRules** i ** \<filen>.json för resursgruppsnamn:**
+    * **Belastnings Utjämnings regler** – du kan lägga till eller ta bort belastnings Utjämnings regler i konfigurationen genom att lägga till eller ta bort poster i avsnittet **loadBalancingRules** i ** \<resurs grupps namnet>. JSON-** fil:
 
         ```json
         "loadBalancingRules": [
@@ -352,9 +352,9 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                     }
                 ]
         ```
-       Mer information om belastningsutjämningsregler finns i [Vad är Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       Mer information om belastnings Utjämnings regler finns i [Vad är Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Avsökningar** - Du kan lägga till eller ta bort en avsökning för belastningsutjämnaren i konfigurationen genom att lägga till eller ta bort poster i avsnittet **avsökningar** i ** \<filen>.json för resursgruppsnamn:**
+    * **Avsökningar** – du kan lägga till eller ta bort en avsökning för belastningsutjämnaren i konfigurationen genom att lägga till eller ta bort poster i avsnittet **avsökningar** i ** \<resurs gruppens namn>. JSON-** fil:
 
         ```json
         "probes": [
@@ -372,9 +372,9 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                     }
                 ],
         ```
-       Mer information om hälsoavsökningar för Azure Load Balancer finns i [belastningsutjämnare hälsoavsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       Mer information om Azure Load Balancer hälso avsökningar finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Inkommande NAT-regler** - Du kan lägga till eller ta bort inkommande NAT-regler för belastningsutjämnaren genom att lägga till eller ta bort poster i avsnittet **inboundNatRules i** ** \<filen>.json för resursgruppsnamn:**
+    * **Ingående NAT-regler** – du kan lägga till eller ta bort inkommande NAT-regler för belastningsutjämnaren genom att lägga till eller ta bort poster i avsnittet **inboundNatRules** i ** \<resurs grupps namnet>. JSON-** fil:
 
         ```json
         "inboundNatRules": [
@@ -396,7 +396,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                     }
                 ]
         ```
-        Om du vill slutföra tillägget eller borttagningen av en inkommande **type** NAT-regel måste regeln finnas eller tas bort som en typegenskap i slutet av ** \<filen resursgruppnamn>.json:**
+        Om du vill slutföra tillägg eller borttagning av en inkommande NAT-regel måste regeln finnas eller tas bort som en **typ** egenskap i slutet av ** \<resurs grupps namnet>. JSON-** fil:
 
         ```json
         {
@@ -422,7 +422,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
         ```
         Mer information om inkommande NAT-regler finns i [Vad är Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Utgående regler** – Du kan lägga till eller ta bort utgående regler i konfigurationen genom att redigera egenskapen **outboundRules** i ** \<filen>.json för resursgruppsnamn:**
+    * **Utgående regler** – du kan lägga till eller ta bort utgående regler i konfigurationen genom att redigera egenskapen **outboundRules** i ** \<resurs grupps namnet>. JSON-** fil:
 
         ```json
         "outboundRules": [
@@ -448,16 +448,16 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
                 ]
         ```
 
-         Mer information om utgående regler finns i [utgående regler för belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
+         Mer information om utgående regler finns i [Load Balancer utgående regler](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
-13. Spara ** \<filen resursgrupp-namn>.json.**
+13. Spara ** \<resurs grupps namnet>. JSON-** fil.
     
-10. Skapa eller skapa en resursgrupp i målregionen för att rikta extern belastningsutjämnare som ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). Den befintliga resursgruppen ovanifrån kan också återanvändas som en del av den här processen:
+10. Skapa eller en resurs grupp i mål regionen för den externa mål belastnings utjämning som ska distribueras med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). Den befintliga resurs gruppen ovan kan också återanvändas som en del av den här processen:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Distribuera den redigerade ** \<resursgruppnamnet>.json-filen** till resursgruppen som skapades i föregående steg med [New-AzResourceGroupDeployment:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)
+11. Distribuera det redigerade ** \<resurs grupps namnet>. JSON-** filen till resurs gruppen som skapades i föregående steg med [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -465,7 +465,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
     
     ```
 
-12. Om du vill verifiera att resurserna har skapats i målregionen använder du [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) och [Get-AzLoadBalancer:](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0)
+12. Om du vill kontrol lera att resurserna har skapats i mål regionen använder du [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) och [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -481,7 +481,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
 
 ## <a name="discard"></a>Ignorera 
 
-Efter distributionen, om du vill starta om eller ignorera den offentliga IP-adressen och belastningsutjämnaren i målet, tar du bort resursgruppen som skapades i målet och den flyttade offentliga IP- och belastningsutjämnaren tas bort.  Om du vill ta bort resursgruppen använder du [Remove-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)
+Om du efter distributionen vill börja om eller ta bort den offentliga IP-adressen och belastningsutjämnaren i målet, tar du bort resurs gruppen som skapades i målet och den flyttade offentliga IP-adressen och belastningsutjämnaren kommer att tas bort.  Om du vill ta bort resurs gruppen använder du [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -491,7 +491,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## <a name="clean-up"></a>Rensa
 
-Om du vill genomföra ändringarna och slutföra flytten av NSG tar du bort käll-NSG- eller resursgruppen, använder [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) eller [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) och [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
+Om du vill genomföra ändringarna och slutföra flyttningen av NSG tar du bort käll NSG eller resurs gruppen, använder [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) eller [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) och [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
 
 ```azurepowershell-interactive
 
@@ -510,8 +510,8 @@ Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-na
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien flyttade du en Azure-nätverkssäkerhetsgrupp från en region till en annan och rensade källresurserna.  Mer information om hur du flyttar resurser mellan regioner och haveriberedskap i Azure finns i:
+I den här självstudien har du flyttat en Azure-nätverks säkerhets grupp från en region till en annan och rensade käll resurserna.  Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
 
 
 - [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Flytta virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Migrera virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

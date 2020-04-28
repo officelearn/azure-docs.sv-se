@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopieringsjobb för StorSimple Snapshot Manager | Microsoft-dokument
-description: Beskriver hur du använder MMC-snapin-modulen StorSimple Snapshot Manager för att visa och hantera schemalagda, körs och slutförda säkerhetskopieringsjobb.
+title: StorSimple Snapshot Manager säkerhets kopierings jobb | Microsoft Docs
+description: Beskriver hur du använder snapin-modulen StorSimple Snapshot Manager MMC för att visa och hantera schemalagda, pågående och slutförda säkerhets kopierings jobb.
 services: storsimple
 documentationcenter: NA
 author: twooley
@@ -15,76 +15,76 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 094b996cd3227903995c7a74ef14ed8c0561f59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933340"
 ---
-# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Använda StorSimple Snapshot Manager för att visa och hantera säkerhetskopieringsjobb
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Använd StorSimple Snapshot Manager för att visa och hantera säkerhets kopierings jobb
 
 ## <a name="overview"></a>Översikt
-Noden **Jobb** i fönstret **Scope** visar de **schemalagda,** **senaste 24 timmarna**och **Säkerhetskopieringsaktiviteterna som** du initierade interaktivt eller av en konfigurerad princip. 
+Noden **jobb** i fönstret **omfattning** visar de **schemalagda**, **senaste 24 timmarna**och **pågående** säkerhets kopierings aktiviteter som du initierade interaktivt eller av en konfigurerad princip. 
 
-I den här självstudien beskrivs hur du kan använda noden **Jobb** för att visa information om schemalagda, senaste och senaste säkerhetskopieringsjobb. (Listan över jobb och motsvarande **Results** information visas i resultatfönstret.) Dessutom kan du högerklicka på ett jobb i listan och se en snabbmeny med en lista över tillgängliga åtgärder.
+I den här självstudien beskrivs hur du kan använda noden **jobb** för att visa information om schemalagda, senaste och pågående säkerhets kopierings jobb. (Listan över jobb och motsvarande information visas i **resultat** fönstret.) Du kan också högerklicka på ett listat jobb och se en snabb meny som visar tillgängliga åtgärder.
 
 ## <a name="view-scheduled-jobs"></a>Visa schemalagda jobb
-Använd följande procedur för att visa schemalagda säkerhetskopieringsjobb.
+Använd följande procedur för att Visa schemalagda säkerhets kopierings jobb.
 
-#### <a name="to-view-scheduled-jobs"></a>Så här visar du schemalagda jobb
-1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager. 
-2. Expandera noden **Jobb** i fönstret **Omfattning** och klicka på **Schemalagd**. Följande information visas i **resultatfönstret:**
+#### <a name="to-view-scheduled-jobs"></a>Visa schemalagda jobb
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager. 
+2. I fönstret **omfattning** expanderar du noden **jobb** och klickar på **schemalagd**. Följande information visas i **resultat** fönstret:
    
-   * **Namn** – namnet på den schemalagda ögonblicksbilden
-   * **Nästa körning** – datum och tid för nästa schemalagda ögonblicksbild
-   * **Senaste körningen** – datum och tid för den senaste schemalagda ögonblicksbilden
+   * **Namn** – namnet på den schemalagda ögonblicks bilden
+   * **Nästa körning** – datum och tid för nästa schemalagda ögonblicks bild
+   * **Senaste körning** – datum och tid för senaste schemalagda ögonblicks bild
      
      > [!NOTE]
-     > För engångsögonblicksbilder kommer **nästa körning** och sista **körning** att vara desamma.
+     > Vid enstaka ögonblicks bilder är **nästa körning** och **senaste körning** detsamma.
      
-     ![Schemalagda säkerhetskopieringsjobb](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
-3. Om du vill utföra ytterligare åtgärder på ett visst jobb högerklickar du på jobbnamnet i **resultatfönstret** och väljer från menyalternativen.
+     ![Schemalagda säkerhets kopierings jobb](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
+3. Om du vill utföra ytterligare åtgärder för ett särskilt jobb högerklickar du på jobb namnet i **resultat** fönstret och väljer från meny alternativen.
 
-## <a name="view-recent-jobs"></a>Visa de senaste jobben
-Använd följande procedur för att visa säkerhetskopierings- och återställningsjobb som har slutförts under de senaste 24 timmarna.
+## <a name="view-recent-jobs"></a>Visa senaste jobb
+Använd följande procedur för att Visa säkerhets kopierings-och återställnings jobb som har slutförts under de senaste 24 timmarna.
 
-#### <a name="to-view-recent-jobs"></a>Så här visar du nya jobb
-1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
-2. Expandera noden **Jobb** i fönstret **Omfattning** och klicka på **Senaste 24 timmarna**. I **fönstret Resultat** visas säkerhetskopieringsjobb för de senaste 24 timmarna (till högst 64 jobb). Följande information visas i **resultatfönstret,** beroende på vilka **visningsalternativ** du anger:
+#### <a name="to-view-recent-jobs"></a>Visa senaste jobb
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
+2. Expandera noden **jobb** i fönstret **omfattning** och klicka på de **senaste 24 timmarna**. **Resultat** fönstret visar säkerhets kopierings jobb för de senaste 24 timmarna (till högst 64 jobb). Följande information visas i **resultat** fönstret, beroende på vilka **visnings** alternativ du anger:
    
-   * **Namn** – namnet på den schemalagda ögonblicksbilden.
-   * **Startad** – datum och tid då ögonblicksbilden började.
-   * **Stoppad** – datum och tid då ögonblicksbilden avslutades eller avslutades.
-   * **Förfluten** – hur lång tid mellan **start-** och **stopptiderna.**
-   * **Status** – tillståndet för det nyligen slutförda jobbet. **Lyckades** indikera att säkerhetskopian har skapats. **Det** gick inte att ange att jobbet inte kördes.
-   * **Information** – orsaken till felet.
-   * **Bearbetade byte (MB)** – mängden data från volymgruppen som bearbetades (i MBs). 
+   * **Namn** – namnet på den schemalagda ögonblicks bilden.
+   * **Startade** – datum och tid då ögonblicks bilden började.
+   * **Stoppad** – datum och tid då ögonblicks bilden slutfördes eller avslutades.
+   * **Förfluten** – tiden mellan **Start** -och **stopp** tiderna.
+   * **Status** – tillståndet för det senaste slutförda jobbet. **Lyckades** anger att säkerhets kopian har skapats. **Misslyckades** anger att jobbet inte har körts.
+   * **Information** – orsaken till det här problemet.
+   * **Bearbetade byte (MB)** – mängden data från volym gruppen som bearbetades (i MB). 
      
-     ![Jobb som har körts de senaste 24 timmarna](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
-3. Om du vill utföra ytterligare åtgärder på ett visst jobb högerklickar du på jobbnamnet i **resultatfönstret** och väljer från menyalternativen.
+     ![Jobb som kördes under de senaste 24 timmarna](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
+3. Om du vill utföra ytterligare åtgärder för ett särskilt jobb högerklickar du på jobb namnet i **resultat** fönstret och väljer från meny alternativen.
    
     ![Ta bort ett jobb](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Visa jobb som körs för tillfället
 Använd följande procedur för att visa jobb som körs för tillfället.
 
-#### <a name="to-view-currently-running-jobs"></a>Så här visar du jobb som körs för närvarande
-1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
-2. Expandera noden **Jobb** i fönstret **Omfattning** och klicka på **Kör**. Beroende på vilka **visningsalternativ** du anger visas följande information i **resultatfönstret:**
+#### <a name="to-view-currently-running-jobs"></a>Visa jobb som körs för tillfället
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
+2. I fönstret **omfattning** expanderar du noden **jobb** och klickar på **Kör**. Beroende på vilka **visnings** alternativ du anger visas följande information i **resultat** fönstret:
    
-   * **Namn** – namnet på den schemalagda ögonblicksbilden.
-   * **Startad** – datum och tid då ögonblicksbilden började.
-   * **Kontrollpunkt** – den aktuella åtgärden för säkerhetskopian.
-   * **Status** – slutförandeprocenten.
-   * **Förflutit** – den tid som har gått sedan säkerhetskopieringen började. 
-   * **Genomsnittligt dataflöde (MB)** – förhållandet mellan totala byte av data som bearbetats till den totala tid som tagits för bearbetning (MBs).
-   * **Bearbetade byte (MB)** – totalt antal data som bearbetas (i MBs).
-   * **Antal skrivna byte (MB)** – totalt antal data som skrivits (i MB). Den innehåller data samt metadata och är därför vanligtvis större än de bearbetade bytena.
+   * **Namn** – namnet på den schemalagda ögonblicks bilden.
+   * **Startade** – datum och tid då ögonblicks bilden började.
+   * **Checkpoint** – den aktuella åtgärden för säkerhets kopieringen.
+   * **Status** – procent andelen slutfört.
+   * **Förfluten** – den tid som har passerat sedan säkerhets kopieringen påbörjades. 
+   * **Genomsnittligt data flöde (MB)** – förhållandet mellan totalt antal byte för bearbetade data till den totala tid som tagits för bearbetning (MB).
+   * **Bearbetade byte (MB)** – totalt antal byte bearbetade data (i MB).
+   * **Skrivna byte (MB)** – totalt antal byte skrivna med data (i MB). Den innehåller både data och metadata och är därför vanligt vis större än de byte som bearbetas.
      
-     ![Jobb som körs](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
-3. Om du vill utföra ytterligare åtgärder på ett visst jobb högerklickar du på jobbnamnet i **resultatfönstret** och väljer från menyalternativen.
+     ![Jobb som körs för närvarande](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
+3. Om du vill utföra ytterligare åtgärder för ett särskilt jobb högerklickar du på jobb namnet i **resultat** fönstret och väljer från meny alternativen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
-* Lär dig hur du [använder StorSimple Snapshot Manager för att hantera säkerhetskopieringskatalogen](storsimple-snapshot-manager-manage-backup-catalog.md).
+* Lär dig hur du [använder StorSimple Snapshot Manager för att hantera säkerhets kopierings katalogen](storsimple-snapshot-manager-manage-backup-catalog.md).
 

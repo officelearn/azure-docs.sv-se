@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta ett virtuella nätverk till ett annat virtuella nätverk med en Azure VPN Gateway VNet-to-VNet-anslutning: PowerShell'
+title: 'Ansluta ett VNet till ett annat VNet med en Azure VPN Gateway VNet-till-VNet-anslutning: PowerShell'
 description: Anslut virtuella nätverk tillsammans med en VNet-till-VNet-anslutning och PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75860562"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
@@ -21,8 +21,8 @@ Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-ans
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av PowerShell. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Ansluta olika distributionsmodeller – Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -65,11 +65,11 @@ Den största skillnaden mellan uppsättningarna är att du måste använda separ
 
 För den här övningen kan du kombinera konfigurationer eller bara välja den du vill arbeta med. Alla konfigurationer använder anslutningstypen VNet-till-VNet. Nätverkstrafik flödar mellan virtuella nätverk som är direkt anslutna till varandra. I den här övningen dirigeras inte trafik från TestVNet4 till TestVNet5.
 
-* [Virtuella nätverk som finns i samma prenumeration](#samesub): Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
+* [Virtuella nätverk som finns i samma prenumeration](#samesub): i stegen för den här konfigurationen används TestVNet1 och TestVNet4.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [Virtuella nätverk som finns i olika prenumerationer](#difsub): Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
+* [Virtuella nätverk som finns i olika prenumerationer](#difsub): i stegen för den här konfigurationen används TestVNet1 och TestVNet5.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -79,9 +79,9 @@ För den här övningen kan du kombinera konfigurationer eller bara välja den d
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Eftersom det tar upp till 45 minuter att skapa en gateway, azure cloud shell kommer timeout regelbundet under den här övningen. Du kan starta om Cloud Shell genom att klicka längst upp till vänster på terminalen. Var noga med att omdeklarera alla variabler när du startar om terminalen.
+* Eftersom det tar upp till 45 minuter att skapa en gateway, kan Azure Cloud Shell tids gräns under den här övningen. Du kan starta om Cloud Shell genom att klicka längst upp till vänster i terminalen. Se till att omdeklarera eventuella variabler när du startar om terminalen.
 
-* Om du hellre vill installera den senaste versionen av Azure PowerShell-modulen lokalt läser du [Så här installerar och konfigurerar](/powershell/azure/overview)du Azure PowerShell .
+* Om du hellre vill installera den senaste versionen av modulen Azure PowerShell lokalt, se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Steg 1 – Planera dina IP-adressintervall
 
@@ -123,9 +123,9 @@ Vi använder följande värden i exemplen:
 
 ### <a name="step-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Steg 2 – Skapa och konfigurera TestVNet1
 
-1. Verifiera dina prenumerationsinställningar.
+1. Verifiera dina prenumerations inställningar.
 
-   Anslut till ditt konto om du kör PowerShell lokalt på datorn. Om du använder Azure Cloud Shell ansluts du automatiskt.
+   Anslut till ditt konto om du kör PowerShell lokalt på datorn. Om du använder Azure Cloud Shell är du ansluten automatiskt.
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -166,7 +166,7 @@ Vi använder följande värden i exemplen:
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. Skapa undernätskonfigurationerna för TestVNet1. I det här exemplet skapas ett virtuellt nätverk med namnet TestVNet1 och tre undernät – GatewaySubnet, FrontEnd och BackEnd. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen. Av denna anledning är det inte tilldelas via variabeln nedan.
+4. Skapa undernätskonfigurationerna för TestVNet1. I det här exemplet skapas ett virtuellt nätverk med namnet TestVNet1 och tre undernät – GatewaySubnet, FrontEnd och BackEnd. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen. Därför är den inte tilldelad via variabeln nedan.
 
    I följande exempel används variablerna som du angav tidigare. I det här exemplet använder gateway-undernätet en /27. Även om det är möjligt att skapa ett gatewayundernät som är så litet som /29 så rekommenderar vi att du skapar ett större undernät som inkluderar fler adresser genom att välja minst /28 eller /27. Det tillåter tillräckligt med adresser för att rymma möjliga övriga konfigurationer som du kan behöva i framtiden.
 
@@ -203,13 +203,13 @@ Vi använder följande värden i exemplen:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-När du har avslutat kommandona tar det upp till 45 minuter att skapa den här gatewayen. Om du använder Azure Cloud Shell kan du starta om din CloudShell-session genom att klicka i det övre vänstra alternativet i Cloud Shell-terminalen och sedan konfigurera TestVNet4. Du behöver inte vänta tills TestVNet1-gatewayen är klar.
+När du har slutfört kommandona tar det upp till 45 minuter att skapa den här gatewayen. Om du använder Azure Cloud Shell kan du starta om CloudShell-sessionen genom att klicka längst upp till vänster i Cloud Shell terminalen och sedan konfigurera TestVNet4. Du behöver inte vänta tills TestVNet1-gatewayen har slutförts.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Steg 3 – Skapa och konfigurera TestVNet4
 
 När du har konfigurerat TestVNet1 skapar du TestVNet4. Följ stegen nedan och ersätt värdena med dina egna vid behov.
 
-1. Anslut och deklarera variablerna. Ersätt värdena med de som du vill använda för din konfiguration.
+1. Anslut och deklarera dina variabler. Ersätt värdena med de som du vill använda för din konfiguration.
 
    ```azurepowershell-interactive
    $RG4 = "TestRG4"
@@ -268,7 +268,7 @@ När du har konfigurerat TestVNet1 skapar du TestVNet4. Följ stegen nedan och e
 
 ### <a name="step-4---create-the-connections"></a>Steg 4 – Skapa anslutningarna
 
-Vänta tills båda gatewayerna är klara. Starta om din Azure Cloud Shell-session och kopiera och klistra in variablerna från början av steg 2 och steg 3 till konsolen för att omdeklarera värden.
+Vänta tills båda gatewayerna har slutförts. Starta om Azure Cloud Shell-sessionen och kopiera och klistra in variablerna från början av steg 2 och steg 3 i-konsolen för att deklarera om värden.
 
 1. Hämta båda virtuella nätverksgatewayerna.
 
@@ -298,7 +298,7 @@ I det här scenariot ansluter vi TestVNet1 och TestVNet5. TestVNet1 och TestVNet
 
 Skillnaden mellan de här stegen och den tidigare uppsättningen är att några av konfigurationsstegen måste utföras i en separat PowerShell-session för den andra prenumerationen. Detta gäller särskilt om två prenumerationer tillhör olika organisationer.
 
-På grund av att du ändrar prenumerationskontexten i den här övningen kan det vara enklare att använda PowerShell lokalt på datorn i stället för att använda Azure Cloud Shell när du kommer till steg 8.
+På grund av en ändring av prenumerations kontexten i den här övningen kan det vara lättare att använda PowerShell lokalt på datorn i stället för att använda Azure Cloud Shell när du går till steg 8.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Steg 5 – Skapa och konfigurera TestVNet1
 
@@ -406,7 +406,7 @@ Det här steget måste utföras i den nya prenumerationen. Den här delen kan ut
 
 I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat upp steget i två PowerShell-sessioner som kallas för [Prenumeration 1] och [Prenumeration 5].
 
-1. **[Prenumeration 1]** Hämta den virtuella nätverksgatewayen för prenumeration 1. Logga in och anslut till Prenumeration 1 innan du kör följande exempel:
+1. **[Prenumeration 1]** Hämta den virtuella Nätverksgatewayen för prenumeration 1. Logga in och Anslut till prenumeration 1 innan du kör följande exempel:
 
    ```azurepowershell-interactive
    $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -427,7 +427,7 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
    PS D:\> $vnet1gw.Id
    /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
    ```
-2. **[Prenumeration 5]** Hämta den virtuella nätverksgatewayen för Prenumeration 5. Logga in och anslut till Prenumeration 5 innan du kör följande exempel:
+2. **[Prenumeration 5]** Hämta den virtuella nätverksgatewayen för Prenumeration 5. Logga in och Anslut till prenumeration 5 innan du kör följande exempel:
 
    ```azurepowershell-interactive
    $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
@@ -448,7 +448,7 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
    PS C:\> $vnet5gw.Id
    /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
-3. **[Prenumeration 1]** Skapa TestVNet1 till TestVNet5-anslutningen. I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Skillnaden här är att $vnet5gw inte kan hämtas direkt, eftersom den finns i en annan prenumeration. Du måste skapa ett nytt PowerShell-objekt med värdena från Prenumeration 1 i stegen ovan. Använd exemplet nedan. Ersätt namnet, ID:t och den delade nyckeln med dina värden. Det är viktigt att den delade nyckeln matchar båda anslutningarna. Att skapa en anslutning kan ta en stund att slutföra.
+3. **[Prenumeration 1]** Skapa TestVNet1-till-TestVNet5-anslutningen. I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Skillnaden här är att $vnet5gw inte kan hämtas direkt, eftersom den finns i en annan prenumeration. Du måste skapa ett nytt PowerShell-objekt med värdena från Prenumeration 1 i stegen ovan. Använd exemplet nedan. Ersätt namnet, ID:t och den delade nyckeln med dina värden. Det är viktigt att den delade nyckeln matchar båda anslutningarna. Att skapa en anslutning kan ta en stund att slutföra.
 
    Anslut till Prenumeration 1 innan du kör följande exempel:
 
@@ -459,7 +459,7 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
    $Connection15 = "VNet1toVNet5"
    New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
-4. **[Prenumeration 5]** Skapa TestVNet5 till TestVNet1-anslutningen. Det här steget liknar det ovan, förutom att du skapar anslutningen från TestVNet5 till TestVNet1. Samma process att skapa ett PowerShell-objekt som baseras på de värden som erhållits från Prenumeration 1 gäller även här. Var noga med att de delade nycklarna matchar i det här steget.
+4. **[Prenumeration 5]** Skapa TestVNet5-till-TestVNet1-anslutningen. Det här steget liknar det ovan, förutom att du skapar anslutningen från TestVNet5 till TestVNet1. Samma process att skapa ett PowerShell-objekt som baseras på de värden som erhållits från Prenumeration 1 gäller även här. Var noga med att de delade nycklarna matchar i det här steget.
 
    Anslut till Prenumeration 5 innan du kör följande exempel:
 

@@ -1,29 +1,29 @@
 ---
 title: Simulera fel i Azure Service Fabric-appar
-description: Lär dig mer om hur du härdar dina Azure Service Fabric-tjänster mot graciösa och ogripbara fel.
+description: Lär dig mer om hur du kan förstärka dina Azure Service Fabric-tjänster mot ett korrekt och haveri fel.
 author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645998"
 ---
-# <a name="simulate-failures-during-service-workloads"></a>Simulera fel under tjänstarbetsbelastningar
-Testabilityscenarierna i Azure Service Fabric gör det möjligt för utvecklare att inte oroa sig för att hantera enskilda fel. Det finns dock scenarier där en explicit interfoliering av klientarbetsbelastning och fel kan behövas. Interleaving av klientarbetsbelastning och fel säkerställer att tjänsten faktiskt utför vissa åtgärder när fel inträffar. Med tanke på den kontrollnivå som testbarhet ger, kan dessa vara vid exakta punkter i arbetsbelastningen körning. Denna induktion av fel i olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
+# <a name="simulate-failures-during-service-workloads"></a>Simulera problem under tjänst arbets belastningar
+Med testnings scenarier i Azure Service Fabric kan utvecklare inte bekymra sig om att hantera enskilda fel. Det finns dock scenarier där det kan krävas en uttrycklig överta klient arbets belastning och-haverier. Genom att överlåta klientens arbets belastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. På grund av den kontroll nivå som testare tillhandahåller kan detta vara en exakt punkt för arbets belastnings körningen. Denna induktion av fel i olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
 
 ## <a name="sample-custom-scenario"></a>Exempel på anpassat scenario
-Det här testet visar ett scenario som interleaves verksamheten arbetsbelastning med [graciösa och ungraceful misslyckanden](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Felen bör induceras i mitten av serviceåtgärder eller beräkna för bästa resultat.
+Det här testet visar ett scenario som överlåter affärs arbets belastningen med ett [korrekt och haveri avbrott](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Felen bör induceras i mitten av tjänst åtgärder eller beräkning för bästa resultat.
 
-Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbetsbelastningar: A, B, C och D. Var och en motsvarar en uppsättning arbetsflöden och kan vara beräkning, lagring eller en mix. För enkelhetens skull kommer vi att ta reda på arbetsbelastningarna i vårt exempel. De olika fel som utförs i det här exemplet är:
+Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbets belastningar: A, B, C och D. var och en motsvarar en uppsättning arbets flöden och kan vara beräkning, lagring eller en blandning. För enkelhetens skull kommer vi att sammansluta arbets belastningarna i vårt exempel. De olika felen som körs i det här exemplet är:
 
-* RestartNode: Ungraceful fel att simulera en omstart av datorn.
-* RestartDeployedCodePackage: Ungraceful fel att simulera tjänst värdprocessen kraschar.
-* RemoveReplica: Graciöst fel för att simulera borttagning av repliker.
-* MovePrimary: Graciöst fel för att simulera replikrörelser som utlöses av lastbalanseraren för service fabric.
+* RestartNode: ett fel som inte går att simulera en omstart av datorn.
+* RestartDeployedCodePackage: ett fel som inte går att simulera tjänstens värd process kraschar.
+* RemoveReplica: ett fel uppstår för att simulera borttagning av repliker.
+* En moveprimary: fel vid simulering av repliker som utlöses av Service Fabric belastningsutjämnare.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

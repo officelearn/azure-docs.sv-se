@@ -1,76 +1,76 @@
 ---
-title: Testa Azure Stream Analytics-frågor lokalt mot livestreamindata med hjälp av Visual Studio-kod
-description: I den här artikeln beskrivs hur du testar frågor lokalt mot livestreamindata med hjälp av Azure Stream Analytics Tools for Visual Studio Code.
+title: Testa Azure Stream Analytics frågor lokalt mot Real tids indata med hjälp av Visual Studio Code
+description: Den här artikeln beskriver hur du testar frågor lokalt mot Real tids indata med hjälp av Azure Stream Analytics verktyg för Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34ce91a1385f951847abeedd3a6b526d3a07af35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75660859"
 ---
-# <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testa Stream Analytics-frågor lokalt mot livestreamindata med hjälp av Visual Studio-kod
+# <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testa Stream Analytics frågor lokalt mot Real tids indata med hjälp av Visual Studio Code
 
-Du kan använda Azure Stream Analytics Tools för Visual Studio-kod för att testa dina Stream Analytics-jobb lokalt mot livestreamindata. Indata kan komma från en källa som Azure Event Hubs eller Azure IoT Hub. Utdataresultaten skickas som JSON-filer till en mapp i projektet **LocalRunOutputs**.
+Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt mot Real tids indata. Indatamängden kan komma från en källa som Azure Event Hubs eller Azure IoT Hub. Resultatet skickas som JSON-filer till en mapp i projektet med namnet **LocalRunOutputs**.
 
 ## <a name="prerequisites"></a>Krav
 
-* Installera [.NET Core SDK](https://dotnet.microsoft.com/download) och starta om Visual Studio-koden.
+* Installera [.net Core SDK](https://dotnet.microsoft.com/download) och starta om Visual Studio Code.
 
-* Använd [den här snabbstarten](quick-create-vs-code.md) om du vill lära dig hur du skapar ett Stream Analytics-jobb med hjälp av Visual Studio Code.
+* Använd [den här snabb](quick-create-vs-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med hjälp av Visual Studio Code.
 
-## <a name="define-a-live-stream-input"></a>Definiera en live stream-inmatning
+## <a name="define-a-live-stream-input"></a>Definiera en real tids indata
 
-1. Högerklicka på mappen **Ingångar** i Stream Analytics-projektet. Välj sedan **ASA: Lägg till indata** på snabbmenyn.
+1. Högerklicka på mappen **indata** i Stream Analytics-projektet. Välj sedan **ASA: Lägg till inmatare** på snabb menyn.
 
-   ![Lägga till indata från mappen Ingångar](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
+   ![Lägg till indata från mappen Inputs](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
 
-   Du kan också välja **Ctrl+Skift+P** för att öppna kommandopaletten och ange **ASA: Lägg till inmatning**.
+   Du kan också välja **Ctrl + Shift + P** för att öppna kommando paletten och ange **ASA: Lägg till inmatade**.
 
-   ![Lägga till Stream Analytics-indata i Visual Studio-kod](./media/quick-create-vs-code/add-input.png)
+   ![Lägg till Stream Analytics inmatade objekt i Visual Studio Code](./media/quick-create-vs-code/add-input.png)
 
-2. Välj en indatakällatyp i listrutan.
+2. Välj en typ av indatakälla från den nedrullningsbara listan.
 
-   ![Välj IoT-hubb som indataalternativ](./media/quick-create-vs-code/iot-hub.png)
+   ![Välj IoT Hub som indatamängds alternativ](./media/quick-create-vs-code/iot-hub.png)
 
-3. Om du har lagt till indata från kommandopaletten väljer du det Stream Analytics-frågeskript som ska använda indata. Det bör fyllas i automatiskt med filsökvägen till **myASAproj.asaql**.
+3. Om du har lagt till indatamängden från kommando paletten väljer du det Stream Analytics fråga-skript som ska använda indatamängden. Den ska fyllas i automatiskt med fil Sök vägen till **myASAproj. asaql**.
 
-   ![Välja ett Stream Analytics-skript i Visual Studio-kod](./media/quick-create-vs-code/asa-script.png)
+   ![Välj ett Stream Analytics skript i Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
-4. Välj **Välj bland dina Azure-prenumerationer** på den nedrullningsbara menyn.
+4. Välj **Välj från dina Azure-prenumerationer** på den nedrullningsbara menyn.
 
-    ![Välj bland prenumerationer](./media/quick-create-vs-code/add-input-select-subscription.png)
+    ![Välj från prenumerationer](./media/quick-create-vs-code/add-input-select-subscription.png)
 
-5. Konfigurera den nyligen genererade JSON-filen. Du kan använda funktionen CodeLens för att ange en sträng, välja från en listruta eller ändra texten direkt i filen. Följande skärmbild visar **Välj bland dina prenumerationer** som ett exempel.
+5. Konfigurera den nyligen genererade JSON-filen. Du kan använda funktionen CodeLens för att ange en sträng, välja i en nedrullningsbar listruta eller ändra texten direkt i filen. Följande skärm bild visar **val från dina prenumerationer** som exempel.
 
-   ![Konfigurera indata i Visual Studio-kod](./media/quick-create-vs-code/configure-input.png)
+   ![Konfigurera indatatyper i Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
 
-## <a name="preview-input"></a>Förhandsgranska indata
+## <a name="preview-input"></a>Förhandsgranska ininformation
 
-Om du vill vara säker på att indata kommer väljer du **Förhandsgranska data** i konfigurationsfilen för liveindata från den översta raden. Vissa indata kommer från en IoT-hubb och visas i förhandsgranskningsfönstret. Förhandsgranskningen kan ta några sekunder att visas.
+Se till att indata kommer genom att välja **Förhandsgranska data** i konfigurations filen för Live-indata från den översta raden. Vissa indata kommer från en IoT-hubb och visas i förhands gransknings fönstret. Det kan ta några sekunder innan för hands versionen visas.
 
- ![Förhandsgranska liveinmatning](./media/quick-create-vs-code/preview-live-input.png)
+ ![Förhandsgranska Live-ingångar](./media/quick-create-vs-code/preview-live-input.png)
 
 ## <a name="run-queries-locally"></a>Kör frågor lokalt
 
-Gå tillbaka till frågeredigeraren och välj **Kör lokalt**. Välj sedan **Använd direktinmatning** i listrutan.
+Återgå till Frågeredigeraren och välj **Kör lokalt**. Välj sedan **Använd Live-inmatare** i list rutan.
 
-![Välj "Kör lokalt" i frågeredigeraren](./media/vscode-local-run/run-locally.png)
+![Välj "kör lokalt" i Frågeredigeraren](./media/vscode-local-run/run-locally.png)
 
-![Välj "Använd liveinmatning"](./media/vscode-local-run-live-input/run-locally-use-live-input.png)
+![Välj Använd Live-indatamängden](./media/vscode-local-run-live-input/run-locally-use-live-input.png)
 
-Resultatet visas i det högra fönstret och uppdateras var tredje sekund. Du kan välja **Kör** för att testa igen. Du kan också välja **Öppna i mappen** om du vill visa resultatfilerna i Utforskaren och öppna dem med Visual Studio-kod eller ett verktyg som Excel. Observera att resultatfilerna endast är tillgängliga i JSON-format.
+Resultatet visas i det högra fönstret och uppdateras var tredje sekund. Du kan välja **Kör** för att testa igen. Du kan också välja **Öppna i mapp** för att se resultatet i Utforskaren och öppna dem med Visual Studio Code eller ett verktyg som Excel. Observera att resultat-filerna bara är tillgängliga i JSON-format.
 
-Standardtiden för jobbet att börja skapa utdata är inställd **på Nu**. Du kan anpassa tiden genom att välja knappen **Utdatastarttid** i resultatfönstret.
+Standard tiden för jobbet att börja skapa utdata har angetts till **nu**. Du kan anpassa tiden genom att välja **Start tiden för utdata** i resultat fönstret.
 
-![Visa lokalt körningsresultat](./media/vscode-local-run-live-input/vscode-livetesting.gif)
+![Visa lokalt körnings resultat](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utforska Azure Stream Analytics-jobb med Visual Studio-kod (förhandsversion)](visual-studio-code-explore-jobs.md)
+* [Utforska Azure Stream Analytics-jobb med Visual Studio Code (för hands version)](visual-studio-code-explore-jobs.md)
 
-* [Konfigurera CI/CD-pipelines med hjälp av npm-paketet](setup-cicd-vs-code.md)
+* [Konfigurera CI/CD-pipelines med hjälp av NPM-paketet](setup-cicd-vs-code.md)

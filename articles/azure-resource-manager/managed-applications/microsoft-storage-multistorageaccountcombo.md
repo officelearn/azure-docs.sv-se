@@ -1,22 +1,22 @@
 ---
-title: MultiStorageAccountCombo UI-element
-description: I artikeln beskrivs användargränssnittselementet Microsoft.Storage.MultiStorageAccountCombo för Azure portal.
+title: MultiStorageAccountCombo-GRÄNSSNITTs element
+description: Beskriver elementet Microsoft. Storage. MultiStorageAccountCombo UI för Azure Portal.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 06412a1f08f1f242a3f3bd9be17b795ee09fcf9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651883"
 ---
-# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI-element
+# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Storage. MultiStorageAccountCombo
 
-En grupp kontroller för att skapa flera lagringskonton med namn som börjar med ett gemensamt prefix.
+En grupp kontroller för att skapa flera lagrings konton med namn som börjar med ett gemensamt prefix.
 
-## <a name="ui-sample"></a>Exempel på användargränssnitt
+## <a name="ui-sample"></a>UI-exempel
 
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
@@ -60,13 +60,13 @@ En grupp kontroller för att skapa flera lagringskonton med namn som börjar med
 
 ## <a name="remarks"></a>Anmärkningar
 
-- Värdet för `defaultValue.prefix` sammanfogas med ett eller flera heltal för att generera sekvensen av lagringskontonamn. Om till `defaultValue.prefix` exempel är `count` **sa** och är **2**genereras lagringskontonamn **sa1** och **sa2.** Genererade lagringskontonamn valideras automatiskt för unikhet.
-- Lagringskontonamnen genereras lexikografiskt `count`baserat på . Om det `count` till exempel är 10 slutar lagringskontonamnen med tvåsiffriga heltal (01, 02, 03).
-- Standardvärdet för `defaultValue.prefix` är **null** `defaultValue.type` och för är **Premium_LRS**.
-- Alla typer som `constraints.allowedTypes` inte anges i döljs och `constraints.excludedTypes` alla typer som inte har angetts i visas. `constraints.allowedTypes`och `constraints.excludedTypes` är båda valfria, men kan inte användas samtidigt.
-- Förutom att generera lagringskontonamn används `count` för att ställa in lämplig multiplikator för elementet. Den stöder ett statiskt värde, som **2**, `[steps('step1').storageAccountCount]`eller ett dynamiskt värde från ett annat element, till exempel . Standardvärdet är **1**.
+- Värdet för `defaultValue.prefix` kombineras med ett eller flera heltal för att generera sekvensen av lagrings konto namn. `defaultValue.prefix` Om till exempel är **sa** och `count` är **2**genereras lagrings konto namn **SA1** och **SA2** . Genererade lagrings konto namn verifieras automatiskt för unika data.
+- Lagrings konto namnen genereras lexicographically baserat på `count`. Om `count` till exempel är 10 är lagrings kontots namn slut med tvåsiffriga heltal (01, 02, 03).
+- Standardvärdet för `defaultValue.prefix` är **Null**och för `defaultValue.type` är **Premium_LRS**.
+- Alla typer som inte anges `constraints.allowedTypes` i är dolda och alla typer som inte anges `constraints.excludedTypes` i visas. `constraints.allowedTypes`och `constraints.excludedTypes` är både valfria, men kan inte användas samtidigt.
+- Förutom att skapa lagrings konto namn `count` används för att ange lämplig multiplikator för elementet. Det stöder ett statiskt värde, till exempel **2**, eller ett dynamiskt värde från ett annat `[steps('step1').storageAccountCount]`element, t. ex.. Standardvärdet är **1**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

@@ -1,6 +1,6 @@
 ---
-title: Lista rolltilldelningar med Azure RBAC och Azure PowerShell
-description: Lär dig hur du tar reda på vilka resurser användare, grupper, tjänsthuvudnamn eller hanterade identiteter har åtkomst till med hjälp av RBAC (Azure Role-based Access Control) och Azure PowerShell.
+title: Lista roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell
+description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,28 +15,28 @@ ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75931158"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lista rolltilldelningar med Azure RBAC och Azure PowerShell
+# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lista roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]I den här artikeln beskrivs hur du listar rolltilldelningar med Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Om din organisation har lagt ut hanteringsfunktioner på entreprenad till en tjänsteleverantör som använder [Azure-delegerad resurshantering](../lighthouse/concepts/azure-delegated-resource-management.md)visas inte rolltilldelningar som auktoriserats av den tjänsteleverantören här.
+> Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
 
 ## <a name="prerequisites"></a>Krav
 
-- [PowerShell i Azure Cloud Shell](/azure/cloud-shell/overview) eller Azure [PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="list-role-assignments-for-the-current-subscription"></a>Lista rolltilldelningar för den aktuella prenumerationen
+## <a name="list-role-assignments-for-the-current-subscription"></a>Lista roll tilldelningar för den aktuella prenumerationen
 
-Det enklaste sättet att få en lista över alla rolltilldelningar i den aktuella prenumerationen (inklusive ärvda rolltilldelningar från rot- och hanteringsgrupper) är att använda [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) utan några parametrar.
+Det enklaste sättet att hämta en lista över alla roll tilldelningar i den aktuella prenumerationen (inklusive ärvda roll tilldelningar från rot-och hanterings grupper) är att använda [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) utan parametrar.
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -70,7 +70,7 @@ CanDelegate        : False
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Lista med rolltilldelningar för en prenumeration
 
-Om du vill visa alla rolltilldelningar i ett prenumerationsomfång använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). För att få prenumerations-ID:t hittar du det på **bladet Prenumerationer** i Azure-portalen eller så kan du använda [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+Om du vill visa en lista över alla roll tilldelningar i en prenumerations omfattning använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). För att hämta prenumerations-ID kan du hitta det på bladet **prenumerationer** i Azure Portal eller så kan du använda [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -96,7 +96,7 @@ RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-Om du vill visa en lista över alla roller som har tilldelats en angiven användare och de roller som har tilldelats de grupper som användaren tillhör använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Om du vill visa en lista över alla roller som har tilldelats en angiven användare och de roller som är tilldelade de grupper som användaren tillhör använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGroups
@@ -108,7 +108,7 @@ Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | F
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>Visa rolltilldelningar för en resursgrupp
 
-Om du vill visa alla rolltilldelningar i ett resursgruppomfång använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Om du vill visa en lista över alla roll tilldelningar i ett resurs grupps omfång använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
@@ -130,9 +130,9 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-## <a name="list-role-assignments-for-a-management-group"></a>Lista rolltilldelningar för en hanteringsgrupp
+## <a name="list-role-assignments-for-a-management-group"></a>Lista roll tilldelningar för en hanterings grupp
 
-Om du vill visa alla rolltilldelningar i ett hanteringsgruppomfång använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Om du vill hämta hanteringsgrupp-ID:t hittar du det på bladet **Hanteringsgrupper** i Azure-portalen eller så kan du använda [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+Om du vill visa en lista över alla roll tilldelningar i ett hanterings grupps omfång använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Om du vill hämta ID för hanterings grupp kan du hitta det på bladet **hanterings grupper** i Azure Portal eller så kan du använda [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -142,25 +142,25 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
-## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Lista rolltilldelningar för klassisk tjänstadministratör och medadministratörer
+## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Lista roll tilldelningar för klassisk tjänst administratör och medadministratörer
 
-Om du vill visa rolltilldelningar för den klassiska prenumerationsadministratören och medadministratörerna använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+Använd [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)för att visa en lista över roll tilldelningar för den klassiska prenumerations administratören och medadministratörerna.
 
 ```azurepowershell
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>Lista rolltilldelningar för en hanterad identitet
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lista roll tilldelningar för en hanterad identitet
 
-1. Hämta objekt-ID:t för den systemtilldelade eller användartilldelade hanterade identiteten. 
+1. Hämta objekt-ID: t för den systemtilldelade eller användarspecifika hanterade identiteten. 
 
-    Om du vill hämta objekt-ID:t för en användartilldelad hanterad identitet kan du använda [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+    Du kan använda [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)för att hämta objekt-ID: t för en användardefinierad hanterad identitet.
 
     ```azurepowershell
     Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
     ```
 
-1. Om du vill visa rolltilldelningar använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+1. Om du vill visa roll tilldelningarna använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
     ```azurepowershell
     Get-AzRoleAssignment -ObjectId <objectid>
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort rolltilldelningar med Azure RBAC och Azure PowerShell](role-assignments-powershell.md)
+- [Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell](role-assignments-powershell.md)

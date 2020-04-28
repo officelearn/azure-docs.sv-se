@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75708363"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Förbättra prestanda i Azure API Management med cachelagring
@@ -50,7 +50,7 @@ För att slutföra den här kursen behöver du:
 
 Med cachelagringsprinciperna i det här exemplet returnerar den första begäran till **GetSpeakers** ett svar från serverdeltjänsten. Svaret cachelagras och registreras av de angivna sidhuvudena och frågesträngsparametrarna. För efterföljande anrop till åtgärden, med matchande parametrar, returneras det cachelagrade svaret till cachlagringsintervallets slut.
 
-1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Bläddra till APIM-instansen.
 3. Välj fliken **API**.
 4. Klicka på **Demo Conference API** i API-listan.
@@ -81,7 +81,7 @@ Med cachelagringsprinciperna i det här exemplet returnerar den första begäran
 Om du vill se hur cachelagringen fungerar i praktiken kan du anropa åtgärden från utvecklarportalen.
 
 1. Bläddra till APIM-instansen i Azure Portal.
-2. Välj fliken **API:er.**
+2. Välj fliken **API: er** .
 3. Välj det API där du har lagt till cachelagringsprinciper.
 4. Välj åtgärden **GetSpeakers**.
 5. Klicka på fliken **Test** på menyn längst upp till höger.

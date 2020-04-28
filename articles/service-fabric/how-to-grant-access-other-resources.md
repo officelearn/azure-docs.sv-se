@@ -1,41 +1,41 @@
 ---
-title: Bevilja en programåtkomst till andra Azure-resurser
-description: I den här artikeln beskrivs hur du beviljar din hanterade identitetsaktiverade Service Fabric-programåtkomst till andra Azure-resurser som stöder Azure Active Directory-baserad autentisering.
+title: Ge program åtkomst till andra Azure-resurser
+description: I den här artikeln förklaras hur du beviljar åtkomst till hanterade identiteter Service Fabric program till andra Azure-resurser som stöder Azure Active Directory-baserad autentisering.
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614801"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Bevilja ett Service Fabric-programs hanterade identitetsåtkomst till Azure-resurser (förhandsversion)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Bevilja en Service Fabric programmets hanterade identitets åtkomst till Azure-resurser (förhands granskning)
 
-Innan programmet kan använda sin hanterade identitet för att komma åt andra resurser måste behörigheter beviljas till den identiteten på den skyddade Azure-resursen som används. Att bevilja behörigheter är vanligtvis en hanteringsåtgärd på "kontrollplan" för Azure-tjänsten som äger den skyddade resursen som dirigeras via Azure Resource Manager, vilket kommer att tvinga fram alla tillämpliga rollbaserade åtkomstkontroller.
+Innan programmet kan använda den hanterade identiteten för att komma åt andra resurser måste behörigheter beviljas till den identiteten på den skyddade Azure-resursen som används. Att bevilja behörigheter är vanligt vis en hanterings åtgärd på "kontroll planet" i Azure-tjänsten som äger den skyddade resursen som dirigerats via Azure Resource Manager, vilket tvingar fram en tillgänglig rollbaserad åtkomst kontroll.
 
-Den exakta sekvensen av steg beror sedan på vilken typ av Azure-resurs som används, samt vilket språk/klient som används för att bevilja behörigheter. Resten av artikeln förutsätter en användartilldelade identitet som tilldelats programmet och innehåller flera typiska exempel för din bekvämlighet, men det är inte på något sätt en uttömmande referens för det här avsnittet; Konsultera dokumentationen för respektive Azure-tjänster för uppdaterade instruktioner om hur du beviljar behörigheter.  
+De exakta stegen varierar beroende på vilken typ av Azure-resurs som används, samt vilket språk/vilken klient som ska användas för att bevilja behörigheter. Resten av artikeln förutsätter en tilldelad identitet som tilldelats programmet och innehåller flera typiska exempel för din bekvämlighet, men det är inte på något sätt en fullständig hänvisning till det här ämnet. Läs dokumentationen för respektive Azure-tjänster för uppdaterade instruktioner om hur du beviljar behörigheter.  
 
 ## <a name="granting-access-to-azure-storage"></a>Bevilja åtkomst till Azure Storage
-Du kan använda Service Fabric-programmets hanterade identitet (användartilldelad i det här fallet) för att hämta data från en Azure storage-blob. Ge identiteten de behörigheter som krävs i Azure-portalen med följande steg:
+Du kan använda det Service Fabric programmets hanterade identitet (användar tilldelning i det här fallet) för att hämta data från en Azure Storage-blob. Ge identiteten behörighet som krävs i Azure Portal med följande steg:
 
-1. Navigera till lagringskontot
+1. Navigera till lagrings kontot
 2. Klicka på länken åtkomstkontroll (IAM) i vänstra panelen.
-3. (valfritt) Kontrollera befintlig åtkomst: välj System- eller Användartilldelade hanterade identitet i kontrollen Sök. välja lämplig identitet från den efterföljande resultatlistan
-4. Klicka på + Lägg till rolltilldelning överst på sidan om du vill lägga till en ny rolltilldelning för programmets identitet.
-Välj Lagringsblobbdataläsare i listrutan under Roll.
-5. Välj under Tilldela åtkomst till i `User assigned managed identity`nästa listruta.
+3. valfritt Kontrol lera befintlig åtkomst: Välj system-eller användardefinierad hanterad identitet i find-kontrollen; Välj lämplig identitet i resultat listan
+4. Klicka på + Lägg till roll tilldelning ovanpå sidan för att lägga till en ny roll tilldelning för programmets identitet.
+Under roll i list rutan väljer du Storage BLOB data Reader.
+5. I nästa listruta under tilldela åtkomst till väljer `User assigned managed identity`du.
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan Prenumeration. Under Resursgrupper väljer du Alla resursgrupper.
-7. Under Välj väljer du UAI som motsvarar Programmet Service Fabric och klickar sedan på Spara.
+7. Under Välj väljer du den UAI som motsvarar Service Fabric programmet och klickar sedan på Spara.
 
-Stöd för systemtilldelade tjänst fabric-hanterade identiteter inkluderar inte integrering i Azure-portalen. Om ditt program använder en systemtilldelad identitet måste du först hitta klient-ID:n för programmets identitet `Azure AD user, group, or service principal` och sedan upprepa stegen ovan men välja alternativet i sökkontrollen.
+Stöd för systemtilldelade Service Fabric hanterade identiteter omfattar inte integrering i Azure Portal; om programmet använder en tilldelad identitet måste du hitta först klient-ID: t för programmets identitet och sedan upprepa stegen ovan, men välja `Azure AD user, group, or service principal` alternativet i kontrollen Sök.
 
 ## <a name="granting-access-to-azure-key-vault"></a>Bevilja åtkomst till Azure Key Vault
-På samma sätt med åtkomst till lagring kan du utnyttja den hanterade identiteten för ett Service Fabric-program för att komma åt ett Azure-nyckelvalv. Stegen för att bevilja åtkomst i Azure-portalen liknar dem som anges ovan och upprepas inte här. Se bilden nedan för skillnader.
+På samma sätt som med lagring kan du använda den hanterade identiteten för ett Service Fabric program för att få åtkomst till ett Azure Key Vault. Stegen för att bevilja åtkomst i Azure Portal liknar de som anges ovan och upprepas inte här. Se bilden nedan om du vill ha skillnader.
 
-![Åtkomstprincip för Nyckelvalv](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
+![Key Vault åtkomst princip](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-Följande exempel illustrerar beviljandet av åtkomst till ett valv via en malldistribution. lägg till kodavsnitten nedan som en `resources` annan post under elementet i mallen. Exemplet visar åtkomstgivning för både användartilldelade respektive systemtilldelade identitetstyper - välj den tillämpliga.
+I följande exempel visas hur du beviljar åtkomst till ett valv via en mall distribution. Lägg till kodfragmenten nedan som en annan post under mallens `resources` element. Exemplet visar åtkomst beviljande för både tilldelade och systemtilldelade identitets typer – Välj lämplig.
 
 ```json
     # under 'variables':
@@ -102,8 +102,8 @@ Och för systemtilldelade hanterade identiteter:
     }
 ```
 
-Mer information finns i [Arkiv - Uppdatera åtkomstprincip](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
+Mer information finns i [valv-uppdatera åtkomst princip](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera ett Azure Service Fabric-program med en systemtilldelad hanterad identitet](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Distribuera ett Azure Service Fabric-program med en användartilldelad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Distribuera ett Azure Service Fabric-program med en användardefinierad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

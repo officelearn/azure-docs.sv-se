@@ -1,6 +1,6 @@
 ---
-title: Felhantering i Azure API Management-principer | Microsoft-dokument
-description: Lär dig hur du svarar på feltillstånd som kan uppstå under bearbetningen av begäranden i Azure API Management.
+title: Fel hantering i Azure API Management-principer | Microsoft Docs
+description: Lär dig hur du svarar på fel tillstånd som kan uppstå under bearbetningen av begär anden i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75902447"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Felhantering i API Management-principer
 
-Genom att `ProxyError` tillhandahålla ett objekt tillåter Azure API Management utgivare att svara på feltillstånd, som kan uppstå under bearbetning av begäranden. Objektet `ProxyError` nås via [kontexten. Egenskapen LastError](api-management-policy-expressions.md#ContextVariables) och kan användas `on-error` av principer i principavsnittet. Den här artikeln innehåller en referens för felhanteringsfunktionerna i Azure API Management.
+Genom att tillhandahålla `ProxyError` ett objekt tillåter Azure-API Management att utgivare svarar på fel tillstånd, vilket kan inträffa under bearbetning av begär Anden. `ProxyError` Objektet nås via [kontexten. LastError](api-management-policy-expressions.md#ContextVariables) -egenskap och kan användas av principer i avsnittet `on-error` princip. Den här artikeln innehåller en referens för fel hanterings funktionerna i Azure API Management.
 
-## <a name="error-handling-in-api-management"></a>Felhantering i API Management
+## <a name="error-handling-in-api-management"></a>Fel hantering i API Management
 
-Principer i Azure API Management `inbound` `backend`är `outbound`indelade i , , och `on-error` avsnitt som visas i följande exempel.
+Principer i Azure API Management är indelade `backend`i `outbound` `inbound`,, `on-error` och avsnitt som visas i följande exempel.
 
 ```xml
 <policies>
@@ -47,92 +47,92 @@ Principer i Azure API Management `inbound` `backend`är `outbound`indelade i , ,
 </policies>
 ```
 
-Under bearbetningen av en begäran utförs inbyggda steg tillsammans med alla principer som är i omfånget för begäran. Om ett fel uppstår hoppar bearbetningen omedelbart till principavsnittet. `on-error`
-Principavsnittet `on-error` kan användas i alla scope. API-utgivare kan konfigurera anpassat beteende som att logga felet till händelsehubbar eller skapa ett nytt svar för att återgå till anroparen.
+Under bearbetningen av en begäran utförs inbyggda steg tillsammans med alla principer som omfattas av begäran. Om ett fel inträffar hoppar bearbetningen omedelbart till `on-error` princip avsnittet.
+`on-error` Princip avsnittet kan användas i valfri omfattning. API-utgivare kan konfigurera anpassade beteenden, t. ex. loggning av fel till händelse nav eller att skapa ett nytt svar som ska returneras till anroparen.
 
 > [!NOTE]
-> Avsnittet `on-error` finns inte i principer som standard. Om du `on-error` vill lägga till avsnittet i en princip bläddrar du till önskad princip i principredigeraren och lägger till det. Mer information om hur du konfigurerar principer finns [i Principer i API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> `on-error` Avsnittet finns inte i principer som standard. Om du vill `on-error` lägga till avsnittet i en princip bläddrar du till önskad princip i princip redigeraren och lägger till den. Mer information om hur du konfigurerar principer finns [i principer i API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
 >
-> Om det `on-error` inte finns något avsnitt får de som ringer 400 eller 500 HTTP-svar om ett feltillstånd inträffar.
+> Om det inte finns `on-error` något avsnitt får anroparna 400 eller 500 http-svarsmeddelanden om ett fel inträffar.
 
-### <a name="policies-allowed-in-on-error"></a>Principer som tillåts vid fel
+### <a name="policies-allowed-in-on-error"></a>Principer som tillåts vid vid fel
 
-Följande principer kan användas `on-error` i principavsnittet.
+Följande principer kan användas i avsnittet `on-error` princip.
 
--   [Välja](api-management-advanced-policies.md#choose)
--   [set-variabel](api-management-advanced-policies.md#set-variable)
--   [hitta och ersätta](api-management-transformation-policies.md#Findandreplacestringinbody)
--   [retur-svar](api-management-advanced-policies.md#ReturnResponse)
--   [set-header](api-management-transformation-policies.md#SetHTTPheader)
+-   [använder](api-management-advanced-policies.md#choose)
+-   [Set-Variable](api-management-advanced-policies.md#set-variable)
+-   [Sök och ersätt](api-management-transformation-policies.md#Findandreplacestringinbody)
+-   [returnera svar](api-management-advanced-policies.md#ReturnResponse)
+-   [Ange rubrik](api-management-transformation-policies.md#SetHTTPheader)
 -   [set-metod](api-management-advanced-policies.md#SetRequestMethod)
--   [set-status](api-management-advanced-policies.md#SetStatus)
--   [skicka-begäran](api-management-advanced-policies.md#SendRequest)
--   [skicka envägsbegäran](api-management-advanced-policies.md#SendOneWayRequest)
--   [log-till-eventhub](api-management-advanced-policies.md#log-to-eventhub)
--   [json-till-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
--   [xml-till-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
+-   [Ange status](api-management-advanced-policies.md#SetStatus)
+-   [skicka begäran](api-management-advanced-policies.md#SendRequest)
+-   [Skicka – envägs-begäran](api-management-advanced-policies.md#SendOneWayRequest)
+-   [Logga till eventhub](api-management-advanced-policies.md#log-to-eventhub)
+-   [JSON-till-XML](api-management-transformation-policies.md#ConvertJSONtoXML)
+-   [XML-till-JSON](api-management-transformation-policies.md#ConvertXMLtoJSON)
 
 ## <a name="lasterror"></a>LastError
 
-När ett fel inträffar och `on-error` kontrollen hoppar till principavsnittet lagras felet i [kontext. Egenskapen LastError,](api-management-policy-expressions.md#ContextVariables) som kan nås `on-error` av principer i avsnittet . LastError har följande egenskaper.
+När ett fel uppstår och styr hopp till `on-error` princip avsnittet lagras felet i [kontexten. LastError](api-management-policy-expressions.md#ContextVariables) -egenskap, som kan nås av principer i `on-error` avsnittet. LastError har följande egenskaper.
 
-| Namn       | Typ   | Beskrivning                                                                                               | Krävs |
+| Name       | Typ   | Beskrivning                                                                                               | Krävs |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | sträng | Namnger det element där felet uppstod. Kan vara antingen princip eller ett inbyggt pipeline-stegnamn.      | Ja      |
-| `Reason`   | sträng | Maskinvänlig felkod, som kan användas vid felhantering.                                       | Inga       |
-| `Message`  | sträng | Beskrivning av läsbart på människa.                                                                         | Ja      |
-| `Scope`    | sträng | Namn på det scope där felet uppstod och kan vara en av "global", "produkt", "api" eller "operation" | Inga       |
-| `Section`  | sträng | Avsnittsnamn där felet uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "on-error".      | Inga       |
-| `Path`     | sträng | Anger kapslad princip, till exempel "välj[3]/när[2]".                                                 | Inga       |
+| `Source`   | sträng | Namnger elementet där felet inträffade. Kan vara antingen en princip eller ett inbyggt steg namn för pipelinen.      | Ja      |
+| `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | Inga       |
+| `Message`  | sträng | Fel Beskrivning av människo läsbarhet.                                                                         | Ja      |
+| `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | Inga       |
+| `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | Inga       |
+| `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | Inga       |
 | `PolicyId` | sträng | Värdet för `id` attributet, om det anges av kunden, på principen där felet uppstod             | Inga       |
 
 > [!TIP]
-> Du kan komma åt statuskoden via kontexten. Response.StatusCode.
+> Du kan komma åt status koden via kontexten. Response. StatusCode.
 
 > [!NOTE]
-> Alla principer har `id` ett valfritt attribut som kan läggas till rotelementet i principen. Om det här attributet finns i en princip när ett feltillstånd inträffar, kan värdet för attributet hämtas med hjälp av egenskapen. `context.LastError.PolicyId`
+> Alla principer har ett valfritt `id` attribut som kan läggas till i principens rot element. Om det här attributet finns i en princip när ett fel inträffar kan värdet för attributet hämtas med hjälp av `context.LastError.PolicyId` egenskapen.
 
 ## <a name="predefined-errors-for-built-in-steps"></a>Fördefinierade fel för inbyggda steg
 
-Följande fel är fördefinierade för feltillstånd som kan uppstå under utvärderingen av inbyggda bearbetningssteg.
+Följande fel är fördefinierade för fel villkor som kan uppstå under utvärderingen av de inbyggda bearbetnings stegen.
 
 | Källa        | Villkor                                 | Orsak                  | Meddelande                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| konfiguration | Uri matchar inte med något API eller någon åtgärd | OperationIntensning       | Det gick inte att matcha inkommande begäran med en åtgärd.                                                                      |
-| auktorisering | Prenumerationsnyckeln har inte angetts             | PrenumerationKeyNotFound | Åtkomst nekad på grund av att prenumerationsnyckeln saknas. Se till att inkludera prenumerationsnyckeln när du gör begäranden till det här API:et. |
-| auktorisering | Värdet för prenumerationsnyckeln är ogiltigt         | SubscriptionKeyInvalid  | Åtkomst nekad på grund av ogiltig prenumerationsnyckel. Se till att ange en giltig nyckel för en aktiv prenumeration.            |
-| multipel | Nedströmsanslutning (från en klient till en API Management gateway) avbröts av klienten medan begäran väntade | KlientanslutningFailure | multipel |
-| multipel | Uppströmsanslutning (från en API Management-gateway till en serverd-tjänst) har inte upprättats eller avbröts av serverda | BackendConnectionFailure | multipel |
-| multipel | Körningsundantag hade inträffat under utvärderingen av ett visst uttryck | UttryckVärdeVärdesättningFailure | multipel |
+| konfiguration | URI: n matchar inte någon API eller åtgärd | OperationNotFound       | Det gick inte att matcha inkommande begäran till en åtgärd.                                                                      |
+| auktorisering | Ingen prenumerations nyckel har angetts             | SubscriptionKeyNotFound | Åtkomst nekad på grund av saknad prenumerations nyckel. Se till att inkludera prenumerations nyckel när du gör förfrågningar till detta API. |
+| auktorisering | Värdet för prenumerations nyckeln är ogiltigt         | SubscriptionKeyInvalid  | Åtkomst nekad på grund av ogiltig prenumerations nyckel. Se till att ange en giltig nyckel för en aktiv prenumeration.            |
+| multipel | Överordnad anslutning (från en klient till en API Management Gateway) avbröts av klienten medan begäran väntades | ClientConnectionFailure | multipel |
+| multipel | Överordnad anslutning (från en API Management-Gateway till en backend-tjänst) har inte upprättats eller avbröts av Server delen | BackendConnectionFailure | multipel |
+| multipel | Det uppstod ett körnings undantag vid utvärderingen av ett visst uttryck | ExpressionValueEvaluationFailure | multipel |
 
 ## <a name="predefined-errors-for-policies"></a>Fördefinierade fel för principer
 
-Följande fel är fördefinierade för feltillstånd som kan uppstå under principutvärdering.
+Följande fel är fördefinierade för fel villkor som kan uppstå under utvärdering av principer.
 
 | Källa       | Villkor                                                       | Orsak                    | Meddelande                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| hastighetsgräns   | Hastighetsgränsen har överskridits                                             | RateLimitExceed         | Hastighetsgränsen överskrids                                                                                                               |
-| kvot        | Kvoten har överskridits                                                  | KvotFördlöt             | Slut på kvot för samtalsvolym. Kvoten fylls på i xx:xx:xx. -eller- Av bandbreddskvot. Kvoten fylls på i xx:xx:xx. |
-| Jsonp        | Parametervärdet för motringning är ogiltigt (innehåller fel tecken) | MotringningParameterInvalid  | Värdet för motringningsparametern {motringningsparameter-namn} är inte en giltig JavaScript-identifierare.                                          |
-| ip-filter    | Det gick inte att tolka anropar-IP från begäran                          | FailedToParseCallerIP     | Det gick inte att upprätta IP-adressen för anroparen. Åtkomst nekad.                                                                        |
-| ip-filter    | Anropar-IP finns inte i listan över tillåtna                                | AnropareIpNotAllowed        | Anropar-IP-adress {ip-address} är inte tillåten. Åtkomst nekad.                                                                        |
-| ip-filter    | Anroparens IP finns i en blockerad lista                                    | AnroparBlockerad           | Anroparens IP-adress är blockerad. Åtkomst nekad.                                                                                         |
-| check-header | Obligatoriskt huvud som inte visas eller värdet saknas               | HeaderNotFound (Olikartade)            | Det gick inte att hitta namnet {header-name} i begäran. Åtkomst nekad.                                                                    |
-| check-header | Obligatoriskt huvud som inte visas eller värdet saknas               | HeaderValueNotAllowed     | Huvudet {header-name} värdet {header-value} är inte tillåtet. Åtkomst nekad.                                                          |
-| validera-jwt | Jwt token saknas i begäran                                 | TokenNotFound (TokenNotFound)             | JWT hittades inte i begäran. Åtkomst nekad.                                                                                         |
-| validera-jwt | Signaturvalidering misslyckades                                     | TokenSignatureInvalid     | <meddelande från JVM-biblioteket\>. Åtkomst nekad.                                                                                          |
-| validera-jwt | Ogiltig målgrupp                                                | TokenAudienceNotAllowed   | <meddelande från JVM-biblioteket\>. Åtkomst nekad.                                                                                          |
-| validera-jwt | Ogiltig utfärdare                                                  | TokenIssuerNotAllowed     | <meddelande från JVM-biblioteket\>. Åtkomst nekad.                                                                                          |
-| validera-jwt | Token har upphört att gälla                                                   | TokenExpired              | <meddelande från JVM-biblioteket\>. Åtkomst nekad.                                                                                          |
-| validera-jwt | Signaturnyckeln löstes inte av ID                            | TokenSignatureKeyNotFound | <meddelande från JVM-biblioteket\>. Åtkomst nekad.                                                                                          |
-| validera-jwt | Obligatoriska anspråk saknas från token                          | TokenClaimNotFound        | JWT token saknar följande påståenden: <c1\>, <\>c2 , ... Åtkomst nekad.                                                            |
-| validera-jwt | Anspråksvärden som inte stämmer överens                                           | TokenClaimValueNotAllowed | Anspråk {anspråksnamn} värdet {anspråksvärde} är inte tillåtet. Åtkomst nekad.                                                             |
-| validera-jwt | Andra valideringsfel                                       | JwtInvalid (på)                | <meddelande från JVM-biblioteket\>                                                                                                          |
-| vidarebefordran eller skicka begäran | HTTP-svarsstatuskod och -huvuden togs inte emot från servergången i den konfigurerade tidsgränsen | Timeout | multipel |
+| hastighets begränsning   | Hastighets gränsen har överskridits                                             | RateLimitExceeded         | Hastighets gränsen har överskridits                                                                                                               |
+| kvot        | Kvoten överskreds                                                  | QuotaExceeded             | Slut på kvot för samtalsvolym. Kvoten kommer att fyllas i XX: XX: xx. -eller-slut på bandbredds kvot. Kvoten kommer att fyllas i XX: XX: xx. |
+| JSONP        | Parametervärdet för återanrop är ogiltigt (innehåller fel tecken) | CallbackParameterInvalid  | Värdet för callback-parametern {callback-parameter-Name} är inte en giltig JavaScript-identifierare.                                          |
+| IP-filter    | Det gick inte att parsa anropar-IP från begäran                          | FailedToParseCallerIP     | Det gick inte att upprätta en IP-adress för anroparen. Åtkomst nekad.                                                                        |
+| IP-filter    | Uppringaren IP är inte i listan över tillåtna                                | CallerIpNotAllowed        | Uppringaren IP-adress {IP-Address} är inte tillåten. Åtkomst nekad.                                                                        |
+| IP-filter    | Uppringaren IP är i listan över blockerade                                    | CallerIpBlocked           | Anrops-IP-adressen är blockerad. Åtkomst nekad.                                                                                         |
+| Check-sidhuvud | Obligatorisk rubrik saknas eller så saknas värdet               | HeaderNotFound            | Det gick inte att hitta huvudet {header-Name} i begäran. Åtkomst nekad.                                                                    |
+| Check-sidhuvud | Obligatorisk rubrik saknas eller så saknas värdet               | HeaderValueNotAllowed     | Huvudet {header-name} värdet {header-Value} är inte tillåtet. Åtkomst nekad.                                                          |
+| verifiera-JWT | JWT-token saknas i begäran                                 | TokenNotFound             | JWT hittades inte i begäran. Åtkomst nekad.                                                                                         |
+| verifiera-JWT | Det gick inte att verifiera signaturen                                     | TokenSignatureInvalid     | <meddelande från JWT-\>biblioteket. Åtkomst nekad.                                                                                          |
+| verifiera-JWT | Ogiltig mål grupp                                                | TokenAudienceNotAllowed   | <meddelande från JWT-\>biblioteket. Åtkomst nekad.                                                                                          |
+| verifiera-JWT | Ogiltig utfärdare                                                  | TokenIssuerNotAllowed     | <meddelande från JWT-\>biblioteket. Åtkomst nekad.                                                                                          |
+| verifiera-JWT | Token har upphört att gälla                                                   | TokenExpired              | <meddelande från JWT-\>biblioteket. Åtkomst nekad.                                                                                          |
+| verifiera-JWT | Signaturnyckel matchades inte av ID                            | TokenSignatureKeyNotFound | <meddelande från JWT-\>biblioteket. Åtkomst nekad.                                                                                          |
+| verifiera-JWT | Obligatoriska anspråk saknas från token                          | TokenClaimNotFound        | JWT-token saknar följande anspråk: <C1\>, <C2\>,... Åtkomst nekad.                                                            |
+| verifiera-JWT | Felaktig matchning av anspråks värden                                           | TokenClaimValueNotAllowed | Anspråk {Claim-name} värdet {Claim-Value} är inte tillåtet. Åtkomst nekad.                                                             |
+| verifiera-JWT | Andra verifierings problem                                       | JwtInvalid                | <meddelande från JWT-biblioteket\>                                                                                                          |
+| vidarebefordra-begäran eller skicka begäran | HTTP-svarets status kod och huvuden togs inte emot från Server delen inom den angivna tids gränsen | Timeout | multipel |
 
 ## <a name="example"></a>Exempel
 
-Ställa in en API-princip till:
+Ange en API-princip till:
 
 ```xml
 <policies>
@@ -175,15 +175,15 @@ Ställa in en API-princip till:
 </policies>
 ```
 
-och skicka en obehörig begäran kommer att resultera i följande svar:
+och sändning av en otillåten begäran kommer att resultera i följande svar:
 
-![Obehörigt felsvar](media/api-management-error-handling-policies/error-response.png)
+![Obehörigt fel svar](media/api-management-error-handling-policies/error-response.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du arbetar med principer finns i:
 
--   [Principer i API-hantering](api-management-howto-policies.md)
--   [Omvandla API:er](transform-api.md)
--   [Principreferens](api-management-policy-reference.md) för en fullständig lista över policyutdrag och deras inställningar
--   [Policyexempel](policy-samples.md)
+-   [Principer i API Management](api-management-howto-policies.md)
+-   [Transformera API: er](transform-api.md)
+-   [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
+-   [Princip exempel](policy-samples.md)

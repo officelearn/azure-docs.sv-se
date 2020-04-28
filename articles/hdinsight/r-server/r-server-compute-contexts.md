@@ -1,6 +1,6 @@
 ---
-title: Beräkna kontextalternativ för ML-tjänster på HDInsight - Azure
-description: Lär dig mer om de olika beräkningskontextalternativ som är tillgängliga för användare med ML Services på HDInsight
+title: Alternativ för beräknings kontext för ML-tjänster i HDInsight – Azure
+description: Lär dig mer om de olika beräknings kontext alternativen som är tillgängliga för användare med ML-tjänster i HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,77 +9,77 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: b67bd5b6310e1f8ce35dc14690757209ef62c9d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75660264"
 ---
-# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Beräkna kontextalternativ för ML-tjänster på HDInsight
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Alternativ för beräknings kontext för ML-tjänster i HDInsight
 
-ML Services på Azure HDInsight styr hur anrop körs genom att ange beräkningskontexten. I den här artikeln beskrivs de alternativ som är tillgängliga för att ange om och hur körningen parallelliseras mellan kärnorna i kantnoden eller HDInsight-klustret.
+ML-tjänster i Azure HDInsight styr hur anrop utförs genom att ange beräknings kontexten. Den här artikeln beskriver de alternativ som är tillgängliga för att ange om och hur körningen ska vara parallell över kärnor i Edge-noden eller HDInsight-klustret.
 
-Kantnoden i ett kluster är en praktisk plats för att ansluta till klustret och köra dina R-skript. Med en kantnod har du möjlighet att köra de parallelliserade distribuerade funktionerna i RevoScaleR över kärnorna på kantnodservern. Du kan också köra dem över noderna i klustret med hjälp av RevoScaleR:s Hadoop Map Reduce- eller Apache Spark-beräkningskontexter.
+Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript. Med en Edge-nod kan du välja att köra de parallella distribuerade funktionerna i RevoScaleR över kärnorna i Edge-nodens Server. Du kan också köra dem på noderna i klustret genom att använda RevoScaleR för att minska eller Apache Spark Compute-kontexter.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML-tjänster på Azure HDInsight
 
-[ML Services på Azure HDInsight](r-server-overview.md) ger de senaste funktionerna för R-baserad analys. Den kan använda data som lagras i en Apache Hadoop HDFS-behållare i ditt [Azure Blob-lagringskonto,](../../storage/common/storage-introduction.md "Azure Blob Storage") ett DataSjölag eller det lokala Linux-filsystemet. Eftersom ML Services bygger på R med öppen källkod kan de R-baserade program som du skapar använda något av de 8000+ R-paket med öppen källkod. De kan också använda rutinerna i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts stordataanalyspaket som ingår i ML Services.  
+[Ml-tjänster i Azure HDInsight](r-server-overview.md) tillhandahåller de senaste funktionerna för R-baserade analyser. Den kan använda data som lagras i en Apache Hadoop HDFS-behållare i ditt [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") Storage-konto, en data Lake Store eller det lokala Linux-filsystemet. Eftersom ML-tjänster bygger på öppen källkod R kan de R-baserade program som du skapar använda alla R-paket med öppen källkod. De kan också använda rutinerna i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts Big data Analytics-paket som ingår i ml-tjänster.  
 
-## <a name="compute-contexts-for-an-edge-node"></a>Beräkna kontexter för en kantnod
+## <a name="compute-contexts-for-an-edge-node"></a>Compute-kontexter för en Edge-nod
 
-I allmänhet körs ett R-skript som körs i ML Services-klustret på kantnoden inom R-tolken på den noden. Undantagen är de steg som anropar en RevoScaleR-funktion. RevoScaleR-anrop körs i en beräkningsmiljö som bestäms av hur du anger beräkningskontexten RevoScaleR.  När du kör R-skriptet från en kantnod är de möjliga värdena för beräkningskontexten:
+I allmänhet körs ett R-skript som körs i ML Services-kluster på Edge-noden i R-tolken på den noden. Undantagen är de steg som anropar en RevoScaleR-funktion. RevoScaleR-anropen körs i en beräknings miljö som bestäms av hur du ställer in beräknings kontexten för RevoScaleR.  När du kör R-skriptet från en Edge-nod, är möjliga värden för beräknings kontexten följande:
 
-- lokala sekventiella (*lokala*)
-- lokal parallell *(localpar)*
-- Karta Minska
+- lokal ordning (*lokal*)
+- lokal parallell (*localpar*)
+- Reducera karta
 - Spark
 
-Alternativen *för lokala* och *lokalapar* skiljer sig bara åt i hur **rxExec-anrop** körs. De båda kör andra rx-funktion samtal på ett parallellt sätt över alla tillgängliga kärnor om inte annat anges med `rxOptions(numCoresToUse=6)`hjälp av RevoScaleR **numCoresToUse** alternativet, till exempel . Parallella körningsalternativ ger optimal prestanda.
+De *lokala* alternativen och *localpar* -alternativen skiljer sig bara i hur **rxExec** -anrop utförs. Båda kör andra RX-funktions anrop på ett parallellt sätt i alla tillgängliga kärnor, om inget annat anges genom användning av alternativet RevoScaleR **numCoresToUse** , till exempel `rxOptions(numCoresToUse=6)`. Alternativ för parallell körning ger optimala prestanda.
 
-I följande tabell sammanfattas de olika beräkningskontextalternativen för att ange hur anrop ska utföras:
+I följande tabell sammanfattas olika beräknings kontext alternativ för att ange hur samtal ska utföras:
 
 | Beräkningskontext  | Så här ställer du in                      | Körningskontext                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
-| Lokalt sekventiellt | rxSetComputeContext('lokal')    | Parallelliserad körning över kärnorna på kantnodservern, med undantag för rxExec-anrop, som körs seriellt |
-| Lokal parallell   | rxSetComputeContext('localpar') | Parallelliserad körning över kärnorna på kantnodsservern |
-| Spark            | RxSpark()                       | Parallelliserad distribuerad körning via Spark över noderna i HDI-klustret |
-| Karta Minska       | RxHadoopMR()                    | Parallelliserad distribuerad körning via karta Minska över noderna i HDI-klustret |
+| Lokal sekventiell | rxSetComputeContext (' Local ')    | Parallell körning över kärnorna i Edge Node Server, förutom för rxExec-anrop, som körs seriellt |
+| Lokal parallell   | rxSetComputeContext('localpar') | Parallell körning över kärnorna i Edge Node Server |
+| Spark            | Rxspark beräkningskontexten ()                       | Parallellt distribuerad körning via spark över noderna i HDI-klustret |
+| Reducera karta       | RxHadoopMR()                    | Parallellt distribuerad körning via kart minskning över noderna i HDI-klustret |
 
-## <a name="guidelines-for-deciding-on-a-compute-context"></a>Riktlinjer för att besluta om en beräkningskontext
+## <a name="guidelines-for-deciding-on-a-compute-context"></a>Rikt linjer för att bestämma en beräknings kontext
 
-Vilket av de tre alternativ du väljer som ger parallelliserad körning beror på typ av analysarbete, storlek och plats för dina data. Det finns ingen enkel formel som talar om för dig, vilken beräkningskontext som ska användas. Det finns dock några vägledande principer som kan hjälpa dig att göra rätt val, eller åtminstone hjälpa dig att begränsa dina val innan du kör ett riktmärke. Dessa vägledande principer omfattar:
+Vilken av de tre alternativen du väljer som ger parallella körningar beror på analys arbetets typ, storleken och platsen för dina data. Det finns ingen enkel formel som visar vilken beräknings kontext som ska användas. Det finns dock vissa GUID-principer som kan hjälpa dig att välja rätt eller, minst, hjälpa dig att begränsa dina val innan du kör ett riktmärke. Dessa GUID-principer omfattar:
 
 - Det lokala Linux-filsystemet är snabbare än HDFS.
-- Upprepade analyser är snabbare om data är lokala och om de finns i XDF.
-- Det är bättre att strömma små mängder data från en textdatakälla. Om mängden data är större konverterar du den till XDF före analys.
-- Omkostnaderna för kopiering eller direktuppspelning av data till kantnoden för analys blir ohanterlig för mycket stora mängder data.
-- ApacheSpark är snabbare än Karta Minska för analys i Hadoop.
+- Upprepade analyser är snabbare om data är lokala och om de är i XDF.
+- Det är bättre att strömma små mängder data från en text data källa. Om mängden data är större kan du konvertera den till XDF innan du analyserar.
+- Omkostnaderna för att kopiera eller strömma data till Edge-noden för analys blir ohanterade för mycket stora data mängder.
+- ApacheSpark är snabbare än kart minskning för analys i Hadoop.
 
-Med tanke på dessa principer erbjuder följande avsnitt några allmänna tumregler för att välja en beräkningskontext.
+Med hänsyn till dessa principer, erbjuder följande avsnitt några allmänna regler för att välja en beräknings kontext.
 
 ### <a name="local"></a>Lokal
 
-- Om mängden data som ska analyseras är liten och inte kräver upprepad analys, strömma den direkt till analysrutinen med hjälp av *local* eller *localpar*.
-- Om mängden data som ska analyseras är liten eller medelstor och kräver upprepad analys, kopiera den sedan till det lokala filsystemet, importera den till XDF och analysera den via *local* or *localpar*.
+- Om mängden data som ska analyseras är liten och inte kräver upprepad analys kan du strömma den direkt till analys rutinen med hjälp av *lokala* eller *localpar*.
+- Om mängden data som ska analyseras är liten eller medels Tor och kräver upprepad analys, kopierar du den sedan till det lokala fil systemet, importerar den till XDF och analyserar den via *lokala* eller *localpar*.
 
 ### <a name="apache-spark"></a>Apache Spark
 
-- Om mängden data som ska analyseras är stor importerar du den till en Spark DataFrame med **RxHiveData** eller **RxParquetData**eller till XDF i HDFS (såvida inte lagring är ett problem) och analyserar den med beräkningskontexten Spark.
+- Om mängden data som ska analyseras är stor importerar du den till en spark-DataFrame med hjälp av **RxHiveData** eller **RxParquetData**, eller till XDF i HDFS (om det inte finns något problem med lagringen) och analyserar den med hjälp av Spark Compute-kontexten.
 
-### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop Karta Minska
+### <a name="apache-hadoop-map-reduce"></a>Minska Apache Hadoop karta
 
-- Använd endast beräkningskontexten Förminska mappning om du stöter på ett oöverstigligt problem med Spark-beräkningskontexten eftersom det i allmänhet är långsammare.  
+- Använd kartan minska beräknings kontexten endast om du stöter på ett insurmountable-problem med Spark Compute context eftersom det är i allmänhet långsammare.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Infogad hjälp på rxSetComputeContext
-Mer information och exempel på RevoScaleR-beräkningskontexter finns i hjälpen för infogade funktioner i R på metoden rxSetComputeContext, till exempel:
+Mer information och exempel på RevoScaleR Compute-kontexter finns i den infogade hjälpen i R på rxSetComputeContext-metoden, till exempel:
 
     > ?rxSetComputeContext
 
-Du kan också läsa [översikten Distribuerad datoranvändning](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) i [Machine Learning Server-dokumentationen](https://docs.microsoft.com/machine-learning-server/).
+Du kan också läsa [översikten över distribuerade data behandling](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) i [Machine Learning Server-dokumentationen](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om de alternativ som är tillgängliga för att ange om och hur körningen parallelliseras mellan kärnorna i kantnoden eller HDInsight-klustret. Mer information om hur du använder ML-tjänster med HDInsight-kluster finns i följande avsnitt:
+I den här artikeln har du lärt dig om vilka alternativ som är tillgängliga för att ange om och hur körningen ska vara parallell över kärnor i Edge-noden eller HDInsight-klustret. Mer information om hur du använder ML-tjänster med HDInsight-kluster finns i följande avsnitt:
 
 - [Översikt över ML-tjänster för Apache Hadoop](r-server-overview.md)
-- [Azure Storage-alternativ för ML-tjänster på HDInsight](r-server-storage.md)
+- [Azure Storage alternativ för ML-tjänster i HDInsight](r-server-storage.md)

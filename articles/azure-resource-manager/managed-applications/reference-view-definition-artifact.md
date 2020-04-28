@@ -1,24 +1,24 @@
 ---
-title: Visa artefaktreferens för vydefinition
-description: Innehåller ett exempel på vydefinitionsartefakt för Azure Managed Applications. Filnamnet är viewDefinition.json.
+title: Visa definition artefakt referens
+description: Innehåller ett exempel på visnings definitions artefakt för Azure Managed Applications. Fil namnet är viewDefinition. JSON.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651207"
 ---
-# <a name="reference-view-definition-artifact"></a>Referens: Visa definitionsartefakt
+# <a name="reference-view-definition-artifact"></a>Referens: Visa definitions artefakt
 
-Den här artikeln är en referens för en *viewDefinition.json-artefakt* i Azure Managed Applications. Mer information om hur du redigerar vykonfiguration finns i [Visa definitionsartefakt](concepts-view-definition.md).
+Den här artikeln är en referens för en *viewDefinition. JSON* -artefakt i Azure Managed Applications. Mer information om hur du redigerar vyer finns i [Visa definitions artefakt](concepts-view-definition.md).
 
 ## <a name="view-definition"></a>Visa definition
 
-Följande JSON visar ett exempel *på viewDefinition.json-fil* för Azure Managed Applications:
+Följande JSON visar ett exempel på *viewDefinition. JSON* -fil för Azure Managed Applications:
 
 ```json
 {
@@ -87,6 +87,6 @@ Följande JSON visar ett exempel *på viewDefinition.json-fil* för Azure Manage
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudiekurs: Skapa hanterade program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
-- [Referens: Artefakt för användargränssnittselement](reference-createuidefinition-artifact.md)
-- [Referens: Distributionsmallartefakt](reference-main-template-artifact.md)
+- [Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
+- [Referens: artefakt för användar gränssnitts element](reference-createuidefinition-artifact.md)
+- [Referens: artefakt för distributions mal len](reference-main-template-artifact.md)

@@ -9,94 +9,94 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75772839"
 ---
-Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Felsökningsläget aktiveras genom att skicka **-debug-växeln** med CLI och **-Debug-växeln** med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
+Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Fel söknings läge har Aktiver ATS genom att skicka växeln **-Debug** med CLI och växeln **-Debug** med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Det går inte att skapa ett delat bildgalleri
 
 Möjliga orsaker:
 
-*Gallerinamnet är ogiltigt.*
+*Galleri namnet är ogiltigt.*
 
-Tillåtna tecken för Gallerinamn är versaler eller gemener, siffror, punkter och punkter. Gallerinamnet får inte innehålla streck. Ändra galleriets namn och försök igen. 
+Tillåtna tecken för Galleri namn är versaler eller gemener, siffror, punkter och punkter. Galleri namnet får inte innehålla bindestreck. Ändra namnet på galleriet och försök igen. 
 
-*Gallerinamnet är inte unikt i din prenumeration.*
+*Galleri namnet är inte unikt i din prenumeration.*
 
-Välj ett annat gallerinamn och försök igen.
+Välj ett annat namn på galleriet och försök igen.
 
 
 ## <a name="unable-to-create-an-image-definition"></a>Det går inte att skapa en bilddefinition 
 
 Möjliga orsaker:
 
-*bilddefinitionsnamnet är ogiltigt.*
+*bild definitions namnet är ogiltigt.*
 
-Tillåtna tecken för bilddefinition är versaler eller gemener, siffror, punkter, streck och punkter. Ändra bilddefinitionsnamnet och försök igen.
+Tillåtna tecken för bild definition är versaler eller gemener, siffror, punkter, streck och punkter. Ändra namnet på bild definitionen och försök igen.
 
-*De obligatoriska egenskaperna för att skapa en bilddefinition fylls inte i.*
+*De obligatoriska egenskaperna för att skapa en avbildnings definition är inte ifyllda.*
 
-Egenskaper som namn, utgivare, erbjudande, sku och OS-typ är obligatoriska. Kontrollera om alla egenskaper skickas.
+Egenskaperna, till exempel namn, utgivare, erbjudande, SKU och OS-typ är obligatoriska. Kontrol lera om alla egenskaper har skickats.
 
-Kontrollera att **OSType**, antingen Linux eller Windows, av avbildningsdefinitionen är samma som den källhanterade avbildningen som du använder för att skapa avbildningsversionen. 
+Kontrol lera att **OSType**, antingen Linux eller Windows, för avbildnings definitionen är samma som den hanterade avbildningen som du använder för att skapa avbildnings versionen. 
 
 
 ## <a name="unable-to-create-an-image-version"></a>Det går inte att skapa en bildversion 
 
 Möjliga orsaker:
 
-*Bildversionsnamnet är ogiltigt.*
+*Bild versionens namn är ogiltigt.*
 
-Tillåtna tecken för bildversion är siffror och punkter. Talen måste ligga inom intervallet för ett 32-bitars heltal. Format: *MajorVersion.MinorVersion.Patch*. Ändra bildversionsnamnet och försök igen.
+Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version. MinorVersion. patch*. Ändra avbildningens versions namn och försök igen.
 
-*Källhanterad bild från vilken bildversionen skapas hittades inte.* 
+*Käll hanterad avbildning från vilken avbildnings versionen skapas går inte att hitta.* 
 
-Kontrollera om källbilden finns och är i samma område som avbildningsversionen.
+Kontrol lera om käll avbildningen finns och är i samma region som avbildnings versionen.
 
-*Den hanterade avbildningen görs inte.*
+*Den hanterade avbildningen har inte kon figurer ATS.*
 
-Kontrollera att etableringstillståndet för den hanterade avbildningen för källan **har slutförts**.
+Se till att etablerings statusen för den hanterade käll avbildningen har **slutförts**.
 
-*Målområdeslistan innehåller inte källregionen.*
+*Mål regions listan innehåller inte käll regionen.*
 
-Målområdeslistan måste innehålla källregionen för bildversionen. Se till att du har inkluderat källregionen i listan över målområden där du vill att Azure ska replikera avbildningsversionen till.
+Mål regions listan måste innehålla bild versionens käll område. Se till att du har inkluderat käll regionen i listan över mål regioner där du vill att Azure ska replikera avbildnings versionen till.
 
-*Replikering till alla målregioner har inte slutförts.*
+*Replikeringen till alla mål regioner har inte slutförts.*
 
-Använd flaggan **--expand ReplicationStatus** för att kontrollera om replikeringen till alla angivna målområden har slutförts. Om inte, vänta upp till 6 timmar för jobbet att slutföra. Om det misslyckas kör du kommandot igen för att skapa och replikera avbildningsversionen. Om det finns många målområden som avbildningsversionen replikeras till bör du överväga att göra replikeringen i faser.
+Använd flaggan **--Expand ReplicationStatus** för att kontrol lera om replikeringen till alla angivna mål regioner har slutförts. Om inte, vänta upp till 6 timmar tills jobbet har slutförts. Om det Miss lyckas kör du kommandot igen för att skapa och replikera avbildnings versionen. Om det finns många mål regioner som avbildnings versionen replikeras till, bör du utföra replikeringen i faser.
 
 ## <a name="unable-to-create-a-vm-or-a-scale-set"></a>Det går inte att skapa en virtuell dator eller en skalningsuppsättning 
 
 Möjliga orsaker:
 
-*Användaren som försöker skapa en vm- eller virtuell datorskalauppsättning har inte läsbehörighet till avbildningsversionen.*
+*Användaren som försöker skapa en virtuell dator eller skalnings uppsättning för virtuell dator har inte Läs behörighet till avbildnings versionen.*
 
-Kontakta prenumerationsägaren och be dem att ge läsbehörighet till bildversionen eller de överordnade resurserna (som det delade bildgalleriet eller bilddefinitionen) via [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Kontakta Prenumerationens ägare och be dem att ge Läs behörighet till avbildnings versionen eller de överordnade resurserna (t. ex. det delade avbildnings galleriet eller avbildnings definitionen) via [rollbaserad Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
-*Det gick inte att hitta bildversionen.*
+*Det gick inte att hitta avbildnings versionen.*
 
-Kontrollera att den region som du försöker skapa en virtuell dator eller skala för virtuella datorer i ingår i listan över målområden i avbildningsversionen. Om regionen redan finns i listan över målområden kontrollerar du om replikeringsjobbet har slutförts. Du kan använda flaggan **-ReplicationStatus** för att kontrollera om replikeringen till alla angivna målområden har slutförts. 
+Kontrol lera att den region som du försöker skapa en virtuell dator eller skalning av virtuella datorer i ingår i listan över mål regioner i avbildnings versionen. Om regionen redan finns i listan över mål regioner kontrollerar du om replikeringen har slutförts. Du kan använda flaggan **-ReplicationStatus** för att kontrol lera om replikeringen till alla angivna mål regioner har slutförts. 
 
-*Det tar lång tid att skapa den virtuella datorn eller den virtuella datorns skaluppsättning.*
+*Skapandet av skalnings uppsättningen för virtuella datorer eller virtuella datorer tar lång tid.*
 
-Kontrollera att **OSType** för den avbildningsversion som du försöker skapa den virtuella datorn eller skalningsuppsättningen för virtuella datorer från har samma **OSType** för källhanterad avbildning som du använde för att skapa avbildningsversionen. 
+Kontrol lera att **OSType** för den avbildnings version som du försöker skapa den virtuella datorn eller den virtuella datorns skalnings uppsättning från har samma **OSType** som den hanterade käll avbildningen som du använde för att skapa avbildnings versionen. 
 
 ## <a name="unable-to-share-resources"></a>Det går inte att dela resurser
 
-Delning av delade bildgalleri, bilddefinition och bildversionsresurser mellan prenumerationer är aktiverat med hjälp av [RBAC (Role-Based Access Control).](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) 
+Delning av delade avbildnings gallerier, avbildnings definitioner och avbildnings versions resurser över prenumerationer aktive ras med [rollbaserad Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>Replikeringen är långsam
 
-Använd flaggan **--expand ReplicationStatus** för att kontrollera om replikeringen till alla angivna målområden har slutförts. Om inte, vänta i upp till 6 timmar för jobbet att slutföra. Om det misslyckas, utlösa kommandot igen för att skapa och replikera avbildningsversionen. Om det finns många målområden som avbildningsversionen replikeras till bör du överväga att göra replikeringen i faser.
+Använd flaggan **--Expand ReplicationStatus** för att kontrol lera om replikeringen till alla angivna mål regioner har slutförts. Om inte, vänta i upp till 6 timmar tills jobbet har slutförts. Om det Miss lyckas utlöser du kommandot igen för att skapa och replikera avbildnings versionen. Om det finns många mål regioner som avbildnings versionen replikeras till, bör du utföra replikeringen i faser.
 
 ## <a name="azure-limits-and-quotas"></a>Begränsningar och kvoter för Azure 
 
-[Azure-gränser och kvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) gäller för alla delade bildgalleri, bilddefinition och avbildningsversionsresurser. Kontrollera att du är inom gränserna för dina prenumerationer. 
+[Azure-gränser och kvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) gäller för alla delade avbildnings gallerier, avbildnings definitioner och avbildnings versions resurser. Se till att du är inom gränserna för dina prenumerationer. 
 
 
 

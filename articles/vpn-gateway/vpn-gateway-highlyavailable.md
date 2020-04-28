@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway: Översikt – konfigurationer med högtillgänglig gateway'
+title: 'Azure VPN Gateway: översikt – Gateway-konfigurationer med hög tillgänglighet'
 description: Den här artikeln ger en översikt över konfigurationsalternativen för hög tillgänglighet med Azure VPN Gateway.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779628"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning
@@ -41,7 +41,7 @@ Med den här konfigurationen får du flera aktiva tunnlar från samma Azure VPN-
 3. BGP krävs för den här konfigurationen. Varje lokal nätverksgateway som representerar en VPN-enhet måste ha en unik IP-adress för BGP-peer angiven i BgpPeerIpAddress-egenskapen.
 4. AddressPrefix-egenskapsfältet i varje lokal nätverksgateway får inte överlappa varandra. Du måste ange "BgpPeerIpAddress" i /32 CIDR-format i fältet AddressPrefix, till exempel 10.200.200.254/32.
 5. Du bör använda BGP så att samma prefix visas för samma lokala nätverksprefix för Azure VPN-gatewayen, och trafiken vidarebefordras samtidigt genom dessa tunnlar.
-6. Du måste använda Routning med flera sökvägar för flera sökvägar (Equal-cost.
+6. Du måste använda ECMP (lika-kostnad multi-path routing).
 7. Varje anslutning räknas av mot det maximala antalet tunnlar för din Azure VPN-gateway: 10 för Basic- och Standard-SKU:er och 30 för HighPerformance-SKU. 
 
 I den här konfigurationen är Azure VPN-gatewayen fortfarande i aktiv-standby-läge, vilket innebär att det redundansbeteende och korta avbrott som beskrivs [ovan](#activestandby) fortfarande gäller. Men konfigurationen skyddar mot fel och avbrott i ditt lokala nätverk och dina VPN-enheter.

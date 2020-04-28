@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskontroller för Azure API Management
-description: En checklista över säkerhetskontroller för utvärdering av API Management
+title: Säkerhets kontroller för Azure API Management
+description: En check lista över säkerhets kontroller för utvärdering av API Management
 services: api-management
 author: vladvino
 ms.service: api-management
@@ -8,68 +8,68 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75751136"
 ---
-# <a name="security-controls-for-api-management"></a>Säkerhetskontroller för API-hantering
+# <a name="security-controls-for-api-management"></a>Säkerhets kontroller för API Management
 
-Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i API Management.
+I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i API Management.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhetskontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
-| Support för tjänstens slutpunkt| Inga | |  |
-| Stöd för VNet-injektion| Ja | |  |
-| Stöd för nätverksisolering och brandväggar| Ja | Använda nsg (networking) respektive Azure Application Gateway (eller annan programvaruinstallation). |  |
-| Stöd för påtvingad tunnelning| Ja | Azure-nätverk ger påtvingad tunnel. |  |
+| Stöd för tjänst slut punkt| Inga | |  |
+| Stöd för VNet-injektering| Ja | |  |
+| Stöd för nätverks isolering och brand vägg| Ja | Använda nätverks säkerhets grupper (NSG) och Azure Application Gateway (eller annan program varu installation). |  |
+| Stöd för Tvingad tunnel trafik| Ja | Azure-nätverk tillhandahåller Tvingad tunnel trafik. |  |
 
-## <a name="monitoring--logging"></a>Övervakning & loggning
+## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
-| Azure övervakningsstöd (Logganalys, App insikter, etc.)| Ja | | |
-| Kontroll- och hanteringsplan loggning och revision| Ja | [Aktivitetsloggar för Azure Monitor](../azure-monitor/platform/platform-logs-overview.md) | |
-| Loggning och granskning av dataplan| Ja | [Diagnostikloggar för Azure Monitor](../azure-monitor/platform/platform-logs-overview.md) och (eventuellt) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  | |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | | |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | [Azure Monitor aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md) | |
+| Loggning och granskning av data planet| Ja | [Azure Monitor diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md) och (valfritt) [Azure Application insikter](../azure-monitor/app/app-insights-overview.md).  | |
 
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
 | Autentisering| Ja | |  |
 | Auktorisering| Ja | |  |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhetskontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
-| Kryptering på serversidan i vila: Microsoft-hanterade nycklar | Ja | Känsliga data som certifikat, nycklar och värden med hemligt namn krypteras med tjänsthanterade, per tjänstinstansnycklar. |  |
-| Kryptering på serversidan i vila: kundhanterade nycklar (BYOK) | Inga | Alla krypteringsnycklar är per tjänstinstans och hanteras. |  |
-| Kryptering på kolumnnivå (Azure Data Services)| Ej tillämpligt | |  |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, vnet-kryptering och VNet-VNet-kryptering)| Ja | [Express Route](../expressroute/index.yml) och VNet-kryptering tillhandahålls av [Azure-nätverk](../virtual-network/index.yml). |  |
-| API-anrop krypterade| Ja | Hanteringsplananrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. En giltig JSON-webbtoken (JWT) krävs.  Dataplansamtal kan säkras med TLS och en av autentiseringsmekanismer som stöds (till exempel klientcertifikat eller JWT). |   |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Känsliga data, till exempel certifikat, nycklar och hemliga värden, krypteras med hanterade tjänst instanser, per tjänst instans nycklar. |  |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Inga | Alla krypterings nycklar är per tjänst instans och hanteras av tjänsten. |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt | |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | [Express Route](../expressroute/index.yml) och VNET-kryptering tillhandahålls av [Azure-nätverk](../virtual-network/index.yml). |  |
+| Krypterade API-anrop| Ja | Hanterings Plans anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. En giltig JSON Web token (JWT) krävs.  Data Plans anrop kan skyddas med TLS och en av de autentiseringsmekanismer som stöds (till exempel klient certifikat eller JWT). |   |
  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
-| Stöd för konfigurationshantering (versionshantering av konfiguration osv.)| Ja | Använda [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) |  |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Använda [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) |  |
 
-## <a name="vulnerability-scans-false-positives"></a>Sårbarhet skannar falska positiva
+## <a name="vulnerability-scans-false-positives"></a>Sårbarhet söker efter falska positiva identifieringar
 
-Det här avsnittet dokumenterar vanliga säkerhetsproblem som inte påverkar Azure API Management.
+I det här avsnittet dokumenteras vanliga sårbarheter som inte påverkar Azure API Management.
 
 | Säkerhetsrisk               | Beskrivning                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Biljettblet (CVE-2016-9244) | Ticketbleed är säkerhetsproblem i implementeringen av TLS SessionTicket-tillägget som finns i vissa F5-produkter. Det möjliggör läckage ("blödning") på upp till 31 byte data från oinitierat minne. Detta orsakas av TLS stack utfyllnad ett sessions-ID, skickas från klienten, med data för att göra det 32 bitar lång. |
+| Ticketbleed (CVE-2016-9244) | Ticketbleed är ett säkerhets problem i implementeringen av TLS SessionTicket-tillägget som finns i vissa F5-produkter. Det tillåter läckage ("avblödning") på upp till 31 byte data från ej initierat minne. Detta orsakas av att utfyllnaden av TLS-stacken är ett sessions-ID som skickas från klienten, med data som gör den 32 bitar lång. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om de [inbyggda säkerhetskontrollerna för Azure-tjänster](../security/fundamentals/security-controls.md).
+- Lär dig mer om de [inbyggda säkerhets kontrollerna i Azure-tjänster](../security/fundamentals/security-controls.md).

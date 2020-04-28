@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Så här migrerar du SQLite-databasen till Azure SQL Database Serverless'
-description: Lär dig att utföra en offlinemigrering från SQLite till Azure SQL Database Serverless med hjälp av Azure Data Factory.
+title: 'Självstudie: så här migrerar du din SQLite-databas till Azure SQL Database Server lös'
+description: Lär dig att utföra en offline-migrering från SQLite till Azure SQL Database Server lös genom att använda Azure Data Factory.
 services: sql-database
 author: joplum
 ms.author: joplum
@@ -10,76 +10,76 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75780514"
 ---
-# <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Migrera din SQLite-databas till Azure SQL Database Serverless
-För många människor ger SQLite sin första erfarenhet av databaser och SQL-programmering. Det är inkludering i många operativsystem och populära applikationer gör SQLite till en av de mest använda och använda databasmotorerna i världen. Och eftersom det är sannolikt den första databasmotorn många människor använder, kan det ofta hamna som en central del av projekt eller applikationer. I sådana fall där projektet eller programmet utgår från den ursprungliga SQLite-implementeringen kan utvecklare behöva migrera sina data till ett tillförlitligt, centraliserat datalager.
+# <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Migrera din SQLite-databas till Azure SQL Database Server lös
+För många användare ger SQLite sin första upplevelse av databaser och SQL-programmering. Den ingår i många operativ system och populära program gör SQLite till en mest distribuerad och använda databas motorer i världen. Och eftersom det är troligt att den första databas motorn många användare använder, kan den ofta bli en central del av projekt eller program. I sådana fall där projektet eller programmet ökar den inledande SQLite-implementeringen, kan utvecklare behöva migrera sina data till ett tillförlitligt centraliserat data lager.
 
-Azure SQL Database serverless är en beräkningsnivå för enskilda databaser som automatiskt skalar beräkning baserat på arbetsbelastningsbehov och räkningar för mängden beräkning som används per sekund. Den serverlösa beräkningsnivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och automatiskt återupptar databaser när aktiviteten returnerar.
+Azure SQL Database utan server är en beräknings nivå för enskilda databaser som automatiskt skalar beräkning baserat på arbets belastnings behov och fakturerar för mängden data bearbetning som används per sekund. Server lös beräknings nivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och återupptar automatiskt databaser när aktiviteten returnerar.
 
-När du har följt stegen nedan migreras databasen till Azure SQL Database Serverless, så att du kan göra databasen tillgänglig för andra användare eller program i molnet och bara betala för det du använder, med minimala programkodändringar.
+När du har följt stegen nedan kommer databasen att migreras till Azure SQL Database Server lös, så att du kan göra databasen tillgänglig för andra användare eller program i molnet och bara betala för det du använder, med minimala program kod ändringar.
 
 ## <a name="prerequisites"></a>Krav
 - En Azure-prenumeration
-- SQLite2 eller SQLite3 databas som du vill migrera
+- SQLite2-eller SQLite3-databas som du vill migrera
 - En Windows-miljö
-  - Om du inte har en lokal Windows-miljö kan du använda en Windows VM i Azure för migreringen. Flytta och gör din SQLite-databasfil tillgänglig på den virtuella datorn med Azure Files and Storage Explorer.
+  - Om du inte har en lokal Windows-miljö kan du använda en virtuell Windows-dator i Azure för migreringen. Flytta och gör din SQLite-databasfil tillgänglig på den virtuella datorn med hjälp av Azure Files och Storage Explorer.
 
 ## <a name="steps"></a>Steg
 
-1. Etablera en ny Azure SQL-databas på beräkningsnivån Serverlös.
+1. Etablera en ny Azure SQL Database i Server lös beräknings nivån.
 
-    ![skärmbild av Azure-portal som visar etableringsexempel för azure sql database serverless](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/provision-serverless.png)
+    ![skärm bild av Azure Portal som visar etablerings exemplet för Azure SQL Database Server lös](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/provision-serverless.png)
 
-2. Se till att du har din SQLite-databasfil tillgänglig i din Windows-miljö. Installera en SQLite ODBC-drivrutin om du inte redan har en (det finns många tillgängliga i Öppen källkod, http://www.ch-werner.de/sqliteodbc/)till exempel .
+2. Se till att du har din SQLite-databasfil tillgänglig i Windows-miljön. Installera en SQLite ODBC-drivrutin om du inte redan har en (det finns många tillgängliga i öppen källkod, till exempel http://www.ch-werner.de/sqliteodbc/).
 
-3. Skapa ett system-DSN för databasen. Se till att du använder datakälladministratörsprogrammet som matchar systemarkitekturen (32-bitars vs 64-bitars). Du hittar vilken version du kör i systeminställningarna.
+3. Skapa en system-DSN för-databasen. Se till att du använder den data källans administratörs program som matchar system arkitekturen (32-bitars vs 64-bit). Du kan ta reda på vilken version som körs i systeminställningarna.
 
-    - Öppna ODBC-datakällaadministratören i din miljö.
-    - Klicka på fliken System-DSN och klicka på "Lägg till"
+    - Öppna ODBC-administratör för data källa i din miljö.
+    - Klicka på fliken System-DSN och klicka på Lägg till
     - Välj den SQLite ODBC-anslutning som du har installerat och ge anslutningen ett meningsfullt namn, till exempel sqlitemigrationsource
-    - Ange databasnamnet till DB-filen
+    - Ange databas namnet till. DB-filen
     - Spara och avsluta
 
-4. Hämta och installera den självvärderade integrationskörningen. Det enklaste sättet att göra detta är alternativet Express installera, som beskrivs i dokumentationen. Om du väljer en manuell installation måste du förse programmet med en autentiseringsnyckel som kan placeras i din Data Factory-instans genom att:
+4. Ladda ned och installera integration runtime med egen värd. Det enklaste sättet att göra detta är alternativet snabb installation enligt beskrivningen i dokumentationen. Om du väljer att installera manuellt måste du ange programmet med en autentiseringsnyckel, som kan finnas i din Data Factory instans genom att:
 
-    - Starta ADF (Författare och övervakare från tjänsten i Azure-portalen)
-    - Klicka på fliken "Författare" (Blå penna) till vänster
-    - Klicka på Anslutningar (längst ned till vänster) och sedan integrationskörningar
-    - Lägg till nya självvärderade integrationskörning, ge den ett namn, välj *Alternativ 2*.
+    - Starta ADF (författare och övervakare från tjänsten i Azure Portal)
+    - Klicka på fliken "författare" (blå penna) till vänster
+    - Klicka på anslutningar (längst ned till vänster) och sedan på integration runtime
+    - Lägg till en ny egen värd Integration Runtime ge den ett namn och välj *Alternativ 2*.
 
-5. Skapa en ny länkad tjänst för källdatabasen SQLite i datafabriken.
+5. Skapa en ny länkad tjänst för käll-SQLite-databasen i din Data Factory.
 
-    ![skärmbild som visar tomt blad av länkade tjänster i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create.png)
+    ![skärm bild som visar tomma blad för länkade tjänster i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create.png)
 
-6. Klicka på Ny under Länkad tjänst i Anslutningar
+6. I anslutningar, under länkad tjänst, klickar du på ny
 
-7. Sök efter och välj "ODBC"-kontakten
+7. Sök efter och välj "ODBC"-anslutningen
 
 
-    ![skärmbild som visar ODBC-anslutningslogotyp i bladet för länkade tjänster i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-odbc.png)
+    ![skärm bild som visar ODBC Connector-logotypen på bladet länkade tjänster i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-odbc.png)
 
-8. Ge den länkade tjänsten ett meningsfullt namn, till exempel "sqlite_odbc". Välj din integrationskörning från listrutan "Anslut via integrationskörning". Ange nedanstående i anslutningssträngen och ersätt variabeln Initial Catalog med filsökvägen för DB-filen och DSN med namnet på system-DSN-anslutningen: 
+8. Ge den länkade tjänsten ett beskrivande namn, till exempel "sqlite_odbc". Välj integration runtime från List rutan "Anslut via integration runtime". Ange följande i anslutnings strängen, Ersätt den inledande katalog variabeln med fil Sök vägen för. DB-filen och DSN med namnet på system-DSN-anslutningen: 
 
     ```
     Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite;Initial Catalog=C:\sqlitemigrationsource.db;DSN=sqlitemigrationsource
     ```
 
-9. Ange autentiseringstypen till Anonym
+9. Ange autentiseringstypen Anonym
 
 10. Testa anslutningen
 
-    ![skärmbild som visar lyckad anslutning i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-test-successful.png)
+    ![skärm bild som visar lyckad anslutning i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-test-successful.png)
 
-11. Skapa en annan länkad tjänst för ditt Serverless SQL-mål. Markera databasen med hjälp av guiden länkad tjänst och ange SQL-autentiseringsuppgifter.
+11. Skapa en annan länkad tjänst för server utan SQL-mål. Välj databasen med guiden länkad tjänst och ange autentiseringsuppgifterna för SQL-autentisering.
 
-    ![skärmbild som visar Azure SQL Database som valts i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create-target.png)
+    ![skärm bild som visar Azure SQL Database valt i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create-target.png)
 
-12. Extrahera CREATE TABLE-satserna från din SQLite-databas. Du kan göra detta genom att köra nedanstående Python-skript på databasfilen.
+12. Extrahera CREATE TABLE-satserna från din SQLite-databas. Du kan göra detta genom att köra det tidigare python-skriptet på databas filen.
 
     ```
     #!/usr/bin/python
@@ -96,15 +96,15 @@ När du har följt stegen nedan migreras databasen till Azure SQL Database Serve
     c.close()
     ```
 
-13. Skapa landningstabellerna i serverlös SQL-målmiljö genom att kopiera CREATE-tabellsatserna från filen CreateTables.sql och köra SQL-uttrycken i Frågeredigeraren i Azure-portalen.
+13. Skapa landnings tabellerna i din server utan SQL-mål miljö genom att kopiera instruktionen CREATE tables från CreateTables. SQL-filen och köra SQL-instruktionerna i Frågeredigeraren i Azure Portal.
 
-14. Gå tillbaka till startskärmen på datafabriken och klicka på "Kopiera data" för att köra igenom guiden skapa arbetstillfällen.
+14. Gå tillbaka till Start skärmen för din Data Factory och klicka på "Kopiera data" för att köra guiden skapa jobb.
 
-    ![skärmbild som visar kopiera dataguidens logotyp i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/copy-data.png)
+    ![skärm bild som visar Kopiera data-guidens logo typ i Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/copy-data.png)
 
-15. Markera alla tabeller från källdatabasen SQLite med kryssrutorna och mappa dem till måltabellerna i Azure SQL. När jobbet har körts har du migrerat dina data från SQLite till Azure SQL!
+15. Välj alla tabeller från käll-SQLite-databasen med hjälp av kryss rutorna och mappa dem till mål tabellerna i Azure SQL. När jobbet har körts har du migrerat dina data från SQLite till Azure SQL!
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du kommer igång finns [i Snabbstart: Skapa en enda databas i Azure SQL Database med Azure-portalen](sql-database-single-database-get-started.md).
-- För resursbegränsningar finns i [Resursgränser för serverlös beräkningsnivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+- Information om hur du kommer igång finns i [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](sql-database-single-database-get-started.md).
+- För resurs gränser, se [resurs gränser för Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

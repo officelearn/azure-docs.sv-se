@@ -1,7 +1,7 @@
 ---
-title: Associera peer-ASN till Azure-prenumeration med PowerShell
+title: Koppla peer-ASN till Azure-prenumeration med hjälp av PowerShell
 titleSuffix: Azure
-description: Associera peer-ASN till Azure-prenumeration med PowerShell
+description: Koppla peer-ASN till Azure-prenumeration med hjälp av PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,44 +9,44 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75908991"
 ---
-# <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associera peer-ASN till Azure-prenumeration med PowerShell
+# <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Koppla peer-ASN till Azure-prenumeration med hjälp av PowerShell
 
-Innan du skickar en peering-begäran bör du först associera din ASN med Azure-prenumeration med hjälp av stegen nedan.
+Innan du skickar in en peering-begäran bör du först associera ditt ASN med Azure-prenumerationen genom att följa stegen nedan.
 
 Om du vill kan du slutföra den här guiden med hjälp av [portalen](howto-subscription-association-portal.md).
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Skapa PeerASN för att associera din ASN med Azure-prenumeration
+## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Skapa PeerASN för att koppla ditt ASN med Azure-prenumeration
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Logga in på ditt Azure-konto och välj din prenumeration
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="register-for-peering-resource-provider"></a>Registrera dig för peering-resursprovider
-Registrera dig för peering-resursprovider i din prenumeration med kommandot nedan. Om du inte kör detta är Azure-resurser som krävs för att konfigurera peering inte tillgängliga.
+### <a name="register-for-peering-resource-provider"></a>Registrera dig för peering Resource Provider
+Registrera dig för peering Resource Provider i prenumerationen med hjälp av kommandot nedan. Om du inte kör det går det inte att komma åt de Azure-resurser som krävs för att konfigurera peering.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 ```
 
-Du kan kontrollera registreringsstatus med hjälp av kommandona nedan:
+Du kan kontrol lera registrerings statusen med hjälp av kommandona nedan:
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 ```
 
 > [!IMPORTANT]
-> Vänta *tills RegistrationState* har vänt "Registrerad" innan du fortsätter. Det kan ta 5 till 30 minuter efter att du har utfört kommandot.
+> Vänta tills *RegistrationState* har aktiverat "registrerad" innan du fortsätter. Det kan ta 5 till 30 minuter innan du kör kommandot.
 
 ### <a name="update-the-peer-information-associated-with-this-subscription"></a>Uppdatera peer-informationen som är associerad med den här prenumerationen
 
-Nedan finns ett exempel för att uppdatera peer-information.
+Nedan visas ett exempel på hur du uppdaterar peer-information.
 
 ```powershell
 New-AzPeerAsn `
@@ -58,23 +58,23 @@ New-AzPeerAsn `
 ```
 
 > [!NOTE]
-> -Namnet motsvarar resursnamn och kan vara vad du vill. -peerName motsvarar dock företagets namn och måste vara så nära din PeeringDB-profil som möjligt. Observera att värdet för -peerName endast stöder tecken a-z, A-Ö och blanksteg.
+> – Namnet motsvarar resurs namnet och kan vara allt du väljer. -PeerName motsvarar dock företagets namn och måste vara så nära som möjligt för din PeeringDB-profil. Observera att värdet för-peerName endast stöder tecknen a-z, A-Z och blank steg.
 
-En prenumeration kan ha flera ASN.A subscription can have multiple ASN. Uppdatera peering-informationen för varje ASN. Se till att "namn" är unikt för varje ASN.
+En prenumeration kan ha flera ASN: er. Uppdatera peering-informationen för varje ASN. Se till att "name" är unikt för varje ASN.
 
-Peer-datorer förväntas ha en fullständig och uppdaterad profil på [PeeringDB](https://www.peeringdb.com). Vi använder denna information under registreringen för att validera peer-uppgifter såsom NOC-information, teknisk kontaktinformation och deras närvaro på peering-anläggningar etc.
+Peer-datorer förväntas ha en fullständig och aktuell profil på [PeeringDB](https://www.peeringdb.com). Vi använder den här informationen under registreringen för att verifiera motpartens information, till exempel NOC information, teknisk kontakt information och deras närvaro vid peering-anläggningarna osv.
 
-Observera att i stället **för {subscriptionId}** i utdata ovan visas faktiskt prenumerations-ID.
+Observera att det faktiska prenumerations-ID: t visas i stället för **{subscriptionId}** i utdata ovan.
 
-## <a name="view-status-of-a-peerasn"></a>Visa status för ett PeerASN
+## <a name="view-status-of-a-peerasn"></a>Visa status för en PeerASN
 
-Sök efter ASN-valideringstillstånd med kommandot nedan:
+Sök efter ASN-validerings tillstånd med hjälp av kommandot nedan:
 
 ```powershell
 Get-AzPeerAsn
 ```
 
-Nedan följer ett exempel på svar:
+Nedan visas ett exempel på ett svar:
 ```powershell
 PeerContactInfo : Microsoft.Azure.PowerShell.Cmdlets.Peering.Models.PSContactInfo
 PeerName        : Contoso
@@ -86,19 +86,19 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Vänta tills ValidationState har vänt "Godkänd" innan du skickar en peering-begäran. Det kan ta upp till 12 timmar för detta godkännande.
+> Vänta tills ValidationState för att aktivera "godkänd" innan du skickar en peering-begäran. Det kan ta upp till 12 timmar innan detta godkännande.
 
 ## <a name="modify-peerasn"></a>Ändra PeerAsn
-Du kan ändra NOC-kontaktinformation när som helst.
+Du kan ändra NOC kontakt information när som helst.
 
-Nedan är ett exempel:
+Nedan visas ett exempel:
 
 ```powershell
 Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
 ## <a name="delete-peerasn"></a>Ta bort PeerAsn
-Det går inte att ta bort ett PeerASN.Topvisa en PeerASN stöds inte för närvarande. Om du behöver ta bort PeerASN kontaktar du [Microsoft peering](mailto:peering@microsoft.com).
+Det finns för närvarande inte stöd för att ta bort en PeerASN. Om du behöver ta bort PeerASN kontaktar du [Microsoft-peering](mailto:peering@microsoft.com).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -109,4 +109,4 @@ Det går inte att ta bort ett PeerASN.Topvisa en PeerASN stöds inte för närva
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-Mer information finns på [vanliga frågor om internet peering](faqs.md)
+Mer information finns i [vanliga frågor och svar om Internet-peering](faqs.md)

@@ -1,6 +1,6 @@
 ---
-title: 'ExpressRoute: Flytta kretsar från klassiska till Azure Resource Manager'
-description: Översikt över att överbrygga de klassiska och Resource Manager-distributionsmodellerna.
+title: 'ExpressRoute: flytta kretsar från klassisk till Azure Resource Manager'
+description: Översikt över hur du överbrygger de klassiska och Resource Manager-distributions modellerna.
 services: expressroute
 author: ganesr
 ms.service: expressroute
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
 ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645913"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
@@ -57,7 +57,7 @@ Följande klassiska åtgärder stöds på en ExpressRoute-krets när **allowClas
 * Skapa/uppdatera/hämta/ta bort virtuella nätverkslänkar till klassiska virtuella nätverk
 * Skapa/uppdatera/hämta/ta bort auktoriseringar för virtuella nätverkslänkar till anslutningen mellan prenumerationer
 
-Men när **allowClassicOperations** är inställt på SANT kan du inte utföra följande klassiska åtgärder:
+Men när **allowClassicOperations** har angetts till true kan du inte utföra följande klassiska åtgärder:
 
 * Skapa/uppdatera/hämta/ta bort BGP-peerings (Border Gateway Protocol) för Azures privata, Azures offentliga och Microsoft-peerings
 * Ta bort ExpressRoute-kretsar

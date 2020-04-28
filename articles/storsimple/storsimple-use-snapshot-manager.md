@@ -1,6 +1,6 @@
 ---
-title: Användargränssnittet För StorSimple Snapshot Manager | Microsoft-dokument
-description: Beskriver användargränssnittet i StorSimple Snapshot Manager och förklarar hur du använder det för att hantera säkerhetskopieringsjobb och säkerhetskopieringskatalogen.
+title: StorSimple Snapshot Manager användar gränssnitt | Microsoft Docs
+description: Beskriver StorSimple-Snapshot Manager användar gränssnitt och förklarar hur du använder det för att hantera säkerhets kopierings jobb och säkerhets kopierings katalogen.
 services: storsimple
 documentationcenter: NA
 author: twooley
@@ -16,435 +16,435 @@ ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
 ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933976"
 ---
-# <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Använd StorSimple Snapshot Manager-användargränssnittet för att hantera säkerhetskopieringsjobb och säkerhetskopieringskatalog
+# <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Använd StorSimple-Snapshot Manager användar gränssnitt för att hantera säkerhets kopierings jobb och säkerhets kopierings katalog
 
 ## <a name="overview"></a>Översikt
-StorSimple Snapshot Manager har ett intuitivt användargränssnitt som du kan använda för att ta och hantera säkerhetskopior. Den här självstudien ger en introduktion till användargränssnittet och förklarar sedan hur du använder var och en av komponenterna. En detaljerad beskrivning av StorSimple Snapshot Manager finns i [Vad är StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+StorSimple Snapshot Manager har ett intuitivt användar gränssnitt som du kan använda för att skapa och hantera säkerhets kopior. I den här självstudien får du en introduktion till användar gränssnittet och sedan beskrivs hur du använder varje komponent. En detaljerad beskrivning av StorSimple Snapshot Manager finns i [Vad är StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-### <a name="console-description"></a>Beskrivning av konsolen
-Om du vill visa användargränssnittet klickar du på ikonen StorSimple Snapshot Manager på skrivbordet. Konsolfönstret visas, som visas i följande bild.
+### <a name="console-description"></a>Konsol Beskrivning
+Om du vill visa användar gränssnittet klickar du på ikonen StorSimple Snapshot Manager på Skriv bordet. Konsol fönstret visas, som du ser i följande bild.
 
-![Fönsterrutor för StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
+![StorSimple Snapshot Managers fönster](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
 
-Konsolfönstret har fem huvudelement. Klicka på lämplig länk för en fullständig beskrivning av varje element.
+Konsol fönstret innehåller fem huvud element. Klicka på lämplig länk för en fullständig beskrivning av varje element.
 
-* [Menyraden](#menu-bar) 
-* [Verktygsfält](#tool-bar) 
-* [Fönstret Omfattning](#scope-pane) 
-* [Resultatfönstret](#results-pane) 
-* [Fönstret Åtgärder](#actions-pane) 
+* [Menyrad](#menu-bar) 
+* [Verktygsfältet](#tool-bar) 
+* [Omfattnings fönster](#scope-pane) 
+* [Resultat fönster](#results-pane) 
+* [Åtgärds fönstret](#actions-pane) 
 
-Dessutom stöder StorSimple Snapshot Manager [tangentbordsnavigering och ett antal genvägar](#keyboard-navigation-and-shortcuts).
+Dessutom stöder StorSimple-Snapshot Manager [tangent bords navigering och ett antal genvägar](#keyboard-navigation-and-shortcuts).
 
-### <a name="console-accessibility"></a>Konsoltillgänglighet
-Användargränssnittet i StorSimple Snapshot Manager stöder hjälpmedelsfunktionerna i Windows operativsystem och Microsoft Management Console (MMC), samt vissa StorSimple Snapshot Manager-specifika kortkommandon. 
+### <a name="console-accessibility"></a>Konsol tillgänglighet
+Användar gränssnittet för StorSimple Snapshot Manager har stöd för de hjälpmedels funktioner som tillhandahålls av Windows-operativsystemet och Microsoft Management Console (MMC), samt vissa StorSimple Snapshot Manager – särskilda kortkommandon. 
 
-* En beskrivning av hjälpmedelsfunktionerna i Windows finns i [Kortkommandon för Windows](https://support.microsoft.com/kb/126449). 
-* En beskrivning av MMC-hjälpmedelsfunktionerna finns i [Hjälpmedel för MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
-* En beskrivning av hjälpmedelsfunktionerna i StorSimple Snapshot Manager finns i [Tangentbordsnavigering och genvägar](#keyboard-navigation-and-shortcuts).
+* En beskrivning av hjälpmedels funktionerna i Windows finns i kortkommandon [för Windows](https://support.microsoft.com/kb/126449). 
+* En beskrivning av hjälpmedels funktionerna i MMC finns i [hjälpmedel för mmc 3,0](https://technet.microsoft.com/library/cc766075.aspx)
+* En beskrivning av StorSimple Snapshot Manager hjälpmedels funktioner finns i [tangent bords navigering och genvägar](#keyboard-navigation-and-shortcuts).
 
-## <a name="menu-bar"></a>Menyraden
-Menyraden högst upp i konsolfönstret innehåller menyerna [Arkiv,](#file-menu) [Åtgärd](#action-menu), [Visa,](#view-menu) [Favoriter,](#favorites-menu) [Fönster](#window-menu)och [Hjälp.](#help-menu)
+## <a name="menu-bar"></a>Menyrad
+Meny fältet överst i konsol fönstret innehåller [fil](#file-menu), [åtgärd](#action-menu), [Visa](#view-menu), [Favoriter](#favorites-menu), [fönster](#window-menu)och [Hjälp](#help-menu) menyer.
 
-Klicka på ett objekt på menyraden om du vill visa en lista över tillgängliga kommandon på den menyn. I följande exempel **View** visas visa-menyn som valts på menyraden.
+Klicka på ett objekt på Meny raden för att se en lista över tillgängliga kommandon på menyn. I följande exempel visas menyn **Visa** som valts på Meny raden.
 
-![Visa-menyn markerad](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+![Visa-menyn har valts](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
 ### <a name="file-menu"></a>Arkivmenyn
-**Arkiv-menyn** innehåller mmc-standardkommandon (Standard.
+Menyn **Arkiv** innehåller standard kommandon i Microsoft Management Console (MMC).
 
-#### <a name="menu-access"></a>Menyåtkomst
-Om du vill visa **Arkiv-menyn** klickar du på **Arkiv** på menyraden. Följande meny visas.
+#### <a name="menu-access"></a>Meny åtkomst
+Om du vill visa **Arkiv** -menyn klickar du på **fil** på Meny raden. Följande meny visas.
 
-![Arkiv-menyn StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png) 
+![Menyn StorSimple Snapshot Manager File](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png) 
 
-#### <a name="menu-description"></a>Menybeskrivning
-I följande tabell beskrivs objekt som visas på **Arkiv-menyn.**
+#### <a name="menu-description"></a>Meny Beskrivning
+I följande tabell beskrivs de objekt som visas på menyn **Arkiv** .
 
-| Menyalternativet | Beskrivning |
+| Meny alternativ | Beskrivning |
 |:--- |:--- |
-| Ny |Klicka på **Ny** om du vill skapa en ny konsol baserat på StorSimple Snapshot Manager. |
-| Öppna |Öppna en befintlig konsol genom att klicka på **Öppna.** |
-| Spara |Klicka på **Spara** om du vill spara den aktuella konsolen. |
-| Spara som |Klicka på **Spara som** om du vill skapa en ny, omdöpt förekomst av den aktuella konsolen. Använd alternativet **Spara som** för att anpassa en vy och spara den för senare hämtning. Du kan till exempel skapa snapin-moduler för StorSimple Snapshot Manager som pekar på specifika servrar. |
-| Lägg till/ta bort snapin-modulen |Klicka på **Lägg till/ta bort snapin-modulen** om du vill lägga till eller ta bort snapin-moduler och ordna noder i **scopefönstret.** Mer information finns [i Lägg till, Ta bort och Ordna snapin-moduler och tillägg i MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
-| Alternativ |Klicka på **Alternativ** om du vill ändra konsolikonen, ange användaråtkomstlägen och behörigheter eller ta bort konsolfiler för att öka tillgängligt diskutrymme. |
-| Lista över filsökvägar |Klicka på en sökväg i den numrerade listan om du vill öppna en fil som du nyligen har öppnat. |
-| Avsluta |Stäng **Arkiv-menyn** genom att klicka på **Avsluta.** |
+| Ny |Klicka på **ny** för att skapa en ny konsol som baseras på StorSimple Snapshot Manager. |
+| Öppna |Klicka på **Öppna** för att öppna en befintlig konsol. |
+| Spara |Klicka på **Spara** för att spara den aktuella konsolen. |
+| Spara som |Klicka på **Spara som** för att skapa en ny, döpt instans av den aktuella konsolen. Använd alternativet **Spara som** för att anpassa en vy och spara den för senare hämtning. Du kan till exempel skapa StorSimple Snapshot Manager snapin-moduler som pekar på vissa servrar. |
+| Lägg till/ta bort snapin-modul |Klicka på **Lägg till/ta bort snapin-modulen** för att lägga till eller ta bort snapin-moduler och organisera noder i fönstret **omfattning** . Mer information finns [i lägga till, ta bort och ordna snapin-moduler och tillägg i MMC 3,0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Alternativ |Klicka på **alternativ** för att ändra konsol ikonen, Ange användar åtkomst lägen och behörigheter, eller ta bort konsolfiler för att öka det tillgängliga disk utrymmet. |
+| Lista över fil Sök vägar |Klicka på en sökväg i den numrerade listan för att öppna en fil som du nyligen har öppnat. |
+| Avsluta |Klicka på **Avsluta** för att stänga menyn **Arkiv** . |
 
-### <a name="action-menu"></a>Åtgärdsmenyn
-Använd **Åtgärdsmenyn** för att välja bland tillgängliga åtgärder. Vilka objekt som är tillgängliga beror på vilken markering du gör i **fönstret Scope** eller **Resultat.**
+### <a name="action-menu"></a>Åtgärds meny
+Använd menyn **åtgärd** för att välja bland tillgängliga åtgärder. Vilka objekt som är tillgängliga beror på vilket val du gör i fönstret **omfattning** eller **resultat** .
 
-#### <a name="menu-access"></a>Menyåtkomst
-Så här visar du **Åtgärdsmenyn:**
+#### <a name="menu-access"></a>Meny åtkomst
+Gör något av följande om du vill visa **Åtgärds** menyn:
 
-* Högerklicka på ett objekt i **fönstret Scope** eller **Resultatfönstret.**
-* Markera ett objekt i **fönstret Scope** eller **Resultat** och klicka sedan på **Åtgärd** på menyraden. 
+* Högerklicka på ett objekt i fönstret **omfång** eller **resultat** fönstret.
+* Välj ett objekt i rutan **omfattning** eller **resultat** och klicka sedan på **åtgärd** på Meny raden. 
 
-Om du till exempel markerar den översta noden i **scopefönstret** och sedan högerklickar eller klickar på **Åtgärd** på menyraden visas följande meny.
+Om du till exempel väljer den översta noden i fönstret **omfattning** och högerklickar eller klickar på **åtgärd** i meny raden visas följande meny.
 
-![Snabb åtgärdsmenyn För ögonblicksbildhanterare](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
+![Åtgärds menyn StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-**Åtgärdsfönstret** (till höger om konsolen) innehåller samma åtgärdslista som **Åtgärdsmenyn.** Dessutom innehåller **åtgärdsfönstret** alternativ på **Visa-menyn,** där du kan skapa en anpassad vy av **resultatfönstret.**
+**Åtgärds fönstret (** till höger i konsolen) innehåller samma åtgärds lista som **Åtgärds** menyn. Dessutom innehåller **Åtgärds** fönstret **Visa** meny alternativ som gör att du kan skapa en anpassad vy av **resultat** fönstret.
 
-![Fönstret Åtgärder med Visa-menyn öppen](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Åtgärds fönstret med Visa-menyn öppen](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-#### <a name="menu-description"></a>Menybeskrivning
-Följande tabell innehåller en alfabetisk lista över Åtgärder för StorSimple Snapshot Manager. 
+#### <a name="menu-description"></a>Meny Beskrivning
+Följande tabell innehåller en alfabetisk lista över StorSimple-Snapshot Manager åtgärder. 
 
-* I kolumnen **Åtgärd** visas åtgärder som du kan utföra på noder och resultat. 
-* I kolumnen **Navigering** beskrivs hur du visar lämplig **Åtgärdsmeny** så att du kan välja åtgärden. Vissa åtgärder visas **Action** på flera Åtgärdsmenyer. För dessa åtgärder väljer du ett **navigeringsalternativ** i punktlistan. 
-* I kolumnen **Beskrivning** beskrivs hur du använder varje åtgärd på **åtgärdsmenyn** eller åtgärdsfönstret och förklarar vad den gör.
+* I kolumnen **åtgärd** visas åtgärder som du kan utföra på noder och resultat. 
+* **Navigerings** kolumnen förklarar hur du visar lämplig **Åtgärds** meny så att du kan välja åtgärden. Vissa åtgärder visas i flera **Åtgärds** menyer. Välj ett **navigerings** alternativ i punkt listan för dessa åtgärder. 
+* I kolumnen **Beskrivning** beskrivs hur du använder varje åtgärd på **Åtgärds menyn eller åtgärds** fönstret och förklarar vad det gör.
 
 > [!NOTE]
-> **Åtgärdsfönstret** och Åtgärdsmenyerna innehåller ytterligare alternativ, till exempel **Visa**, **Nytt fönster härifrån**, **Uppdatera,** **Exportera lista**och **hjälp**. **Action** Dessa alternativ är tillgängliga som en del av MMC och är inte specifika för StorSimple Snapshot Manager. Tabellen innehåller beskrivningar av dessa alternativ.
+> Åtgärds **fönstret** och **Åtgärds** menyerna innehåller ytterligare alternativ, till exempel **Visa**, **nytt fönster**, **Uppdatera**, **Exportera lista**och **Hjälp**. De här alternativen är tillgängliga som en del av MMC och är inte bara för StorSimple Snapshot Manager. Tabellen innehåller beskrivningar av de här alternativen.
 > 
 > 
 
 | Åtgärd | Navigering | Beskrivning |
 |:--- |:--- |:--- |
-| Autentisera |Klicka på noden **Enheter** och högerklicka på en enhet i **fönstret Resultat.** |Klicka på **Autentisera** om du vill ange det lösenord som du har konfigurerat för enheten. |
-| Klona |Expandera **säkerhetskopieringskatalog,** expandera ögonblicksbilder av **molnet,** klicka på en daterad säkerhetskopia och välj sedan en volym i **fönstret Resultat.** |Klicka på **Klona** om du vill skapa en kopia av en ögonblicksbild i molnet och lagra den på en plats som du anger. |
-| Konfigurera en enhet |Högerklicka på noden **Enheter.** |Klicka på **Konfigurera en enhet** om du vill konfigurera en enhet eller flera enheter för att ansluta till Windows-värden. |
-| Skapa princip för säkerhetskopiering |Gör något av följande:<ul><li>Högerklicka på **principer för säkerhetskopiering**.</li><li>Klicka eller expandera **Volymgrupper**och högerklicka sedan på en volymgrupp.</li><li>Klicka eller expandera **Säkerhetskopieringskatalog**och högerklicka sedan på en volymgrupp.</li></ul> |Klicka på **Skapa princip för säkerhetskopiering** om du vill konfigurera en schemalagd säkerhetskopia för en volymgrupp. |
-| Skapa volymgrupp |Gör något av följande:<ul><li>Klicka på noden **Volymer** och högerklicka sedan på en volym i **fönstret Resultat.**</li><li>Högerklicka på noden **Volymgrupper.**</li></ul> |Klicka på **Skapa volymgrupp** om du vill tilldela volymer till en volymgrupp. |
-| Ta bort |Klicka på en nod eller ett resultat (Det här objektet visas på många **åtgärdsmenyer** och åtgärdsfönster.) **Actions** |Klicka på **Ta bort** om du vill ta bort noden eller resultatet som du har markerat. När bekräftelsedialogrutan visas bekräftar eller avbryter du borttagningen. |
-| Information |Klicka på noden **Enheter** och högerklicka sedan på en enhet i **fönstret Resultat.** |Klicka på **Information** om du vill visa konfigurationsinformation för en enhet. |
-| Redigera |Klicka på **Principer för säkerhetskopiering**och högerklicka sedan på en princip i **resultatfönstret.** |Klicka på **Redigera** om du vill ändra säkerhetskopieringsschemat för en volymgrupp. |
-| Exportlista |Klicka på en nod eller ett resultat (Det här objektet visas på alla **åtgärdsmenyer** och åtgärdsfönster.) **Actions** |Klicka på **Exportera lista** om du vill spara en lista i en CSV-fil (kommaavgränsad värde). Du kan sedan importera den här filen till ett kalkylbladsprogram för analys. |
-| Hjälp |Klicka på en nod eller ett resultat. (Det här objektet visas på alla **åtgärdsmenyer** och åtgärdsfönster.) **Actions** |Klicka på **Hjälp** om du vill öppna onlinehjälpen i ett separat webbläsarfönster. |
-| Nytt fönster från här |Klicka på en nod eller ett resultat (Det här objektet visas på alla **åtgärdsmenyer** och åtgärdsfönster.) **Actions** |Klicka på **Nytt fönster härifrån** om du vill öppna ett nytt StorSimple Snapshot Manager-fönster. |
-| Uppdatera |Klicka på en nod eller ett resultat (Det här objektet visas på alla **åtgärdsmenyer** och åtgärdsfönster.) **Actions** |Klicka på **Uppdatera** om du vill uppdatera det fönster som visas i StorSimple Snapshot Manager. |
-| Uppdatera enhet |Klicka på noden **Enheter** och högerklicka på en enhet i **fönstret Resultat.** |Klicka på **Uppdatera enhet** om du vill synkronisera en viss ansluten enhet med StorSimple Snapshot Manager. |
-| Uppdatera enheter |Högerklicka på noden **Enheter.** |Klicka på **Uppdatera enheter** om du vill synkronisera listan över anslutna enheter med StorSimple Snapshot Manager. |
-| Omsökningsvolymer |Högerklicka på **noden Volymer.** |Klicka på **Omsökningsvolymer** om du vill uppdatera listan över volymer som visas i **resultatfönstret.** |
-| Återställ |Expandera **säkerhetskopieringskatalog,** expandera en volymgrupp, expandera **Lokala ögonblicksbilder** eller **ögonblicksbilder av molnet**och högerklicka sedan på en säkerhetskopia. |Klicka på **Återställ** om du vill ersätta de aktuella volymgruppsdata med data från den valda säkerhetskopian. |
-| Ta backup |Gör något av följande:<ul><li>Expandera **volymgrupper**och högerklicka sedan på en volymgrupp.</li><li>Expandera **säkerhetskopieringskatalog**och högerklicka sedan på en volymgrupp.</li></ul> |Klicka på **Ta med säkerhetskopiering** om du vill starta ett säkerhetskopieringsjobb omedelbart. |
-| Visa växlingsimport |Högerklicka på den övre noden i **scopefönstret** (Noden **StorSimple Snapshot Manager** i exemplen). |Klicka på **Växla importvisning** om du vill visa eller dölja de volymgrupper och associerade säkerhetskopior som importerades från tjänstinstrumentpanelen För StorSimple-enhetshanteraren. |
+| Autentisera |Klicka på noden **enheter** och högerklicka på en enhet i **resultat** fönstret. |Klicka på **autentisera** för att ange det lösen ord som du konfigurerade för enheten. |
+| Klona |Expandera **säkerhets kopierings katalog**, expandera **moln ögonblicks bilder**, klicka på en säkerhets kopia och välj sedan en volym i **resultat** fönstret. |Klicka på **klona** för att skapa en kopia av en ögonblicks bild av molnet och lagra den på en plats som du anger. |
+| Konfigurera en enhet |Högerklicka på noden **enheter** . |Klicka på **Konfigurera en enhet** om du vill konfigurera en enskild enhet eller flera enheter för att ansluta till Windows-värden. |
+| Skapa säkerhets kopierings princip |Gör något av följande:<ul><li>Högerklicka på **säkerhets kopierings principer**.</li><li>Klicka på eller expandera **volym grupper**och högerklicka sedan på en volym grupp.</li><li>Klicka eller expandera **säkerhets kopierings katalogen**och högerklicka sedan på en volym grupp.</li></ul> |Klicka på **skapa säkerhets kopierings princip** om du vill konfigurera en schemalagd säkerhets kopiering för en volym grupp. |
+| Skapa volym grupp |Gör något av följande:<ul><li>Klicka på noden **volymer** och högerklicka sedan på en volym i **resultat** fönstret.</li><li>Högerklicka på noden **volym grupper** .</li></ul> |Klicka på **Skapa volym grupp** för att tilldela volymer till en volym grupp. |
+| Ta bort |Klicka på en nod eller ett resultat (detta objekt visas på många **Åtgärds** **menyer och** åtgärds fönster.) |Klicka på **ta bort** för att ta bort den nod eller det resultat som du har valt. Bekräfta eller Avbryt borttagningen när dialog rutan Bekräfta visas. |
+| Information |Klicka på noden **enheter** och högerklicka sedan på en enhet i **resultat** fönstret. |Klicka på **information** om du vill visa konfigurations information för en enhet. |
+| Redigera |Klicka på **säkerhets kopierings principer**och högerklicka sedan på en princip i **resultat** fönstret. |Klicka på **Redigera** om du vill ändra schemat för säkerhets kopiering för en volym grupp. |
+| Exportera lista |Klicka på en nod eller ett resultat (detta objekt visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Exportera lista** för att spara en lista i en fil med kommaavgränsade värden (CSV). Sedan kan du importera den här filen till ett kalkyl blads program för analys. |
+| Hjälp |Klicka på en nod eller ett resultat. (Det här objektet visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Hjälp** för att öppna onlinehjälpen i ett separat webbläsarfönster. |
+| Nytt fönster från här |Klicka på en nod eller ett resultat (detta objekt visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **nytt fönster** härifrån för att öppna ett nytt StorSimple Snapshot Manager-fönster. |
+| Uppdatera |Klicka på en nod eller ett resultat (detta objekt visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Uppdatera** för att uppdatera den aktuella StorSimple Snapshot Manager fönstret. |
+| Uppdatera enhet |Klicka på noden **enheter** och högerklicka på en enhet i **resultat** fönstret. |Klicka på **Uppdatera enhet** för att synkronisera en angiven ansluten enhet med StorSimple Snapshot Manager. |
+| Uppdatera enheter |Högerklicka på noden **enheter** . |Klicka på **Uppdatera enheter** för att synkronisera listan över anslutna enheter med StorSimple Snapshot Manager. |
+| Genomsök volymer på nytt |Högerklicka på noden **volymer** . |Klicka på **Genomsök volymer igen** för att uppdatera listan över volymer som visas i **resultat** fönstret. |
+| Återställ |Expandera **säkerhets kopierings katalog**, expandera en volym grupp, expandera **lokala ögonblicks bilder** eller **moln ögonblicks bilder**och högerklicka sedan på en säkerhets kopia. |Klicka på **Återställ** för att ersätta de aktuella volym grupps data med data från den valda säkerhets kopian. |
+| Ta säkerhets kopia |Gör något av följande:<ul><li>Expandera **volym grupper**och högerklicka sedan på en volym grupp.</li><li>Expandera **säkerhets kopierings katalogen**och högerklicka sedan på en volym grupp.</li></ul> |Klicka på **ta säkerhets kopiering** för att starta ett säkerhets kopierings jobb direkt. |
+| Växla visning av importer |Högerklicka på den översta noden i rutan **omfång** (noden **StorSimple Snapshot Manager** i exemplen). |Klicka på **Växla importer visas** för att visa eller dölja volym grupperna och tillhör ande säkerhets kopior som har importer ATS från instrument panelen för StorSimple-Enhetshanteraren. |
 
 ### <a name="view-menu"></a>Visa-menyn
-Använd **Visa-menyn** för att skapa en anpassad vy av **resultatfönstrets** innehåll. **Visa-menyn** innehåller **alternativ för Lägg till/ta bort kolumner** och **anpassa.**
+Använd menyn **Visa** för att skapa en anpassad vy av **resultat** fönstrets innehåll. **Visa** -menyn innehåller **kolumner för att lägga till/ta bort kolumner** och **Anpassa** alternativ.
 
-#### <a name="menu-access"></a>Menyåtkomst
-Du kan komma åt **Visa-menyn** på menyraden eller i **åtgärdsfönstret.**
+#### <a name="menu-access"></a>Meny åtkomst
+Du kan öppna menyn **Visa** på Meny raden eller i **Åtgärds** fönstret.
 
-![Visa-menyn StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png) 
+![StorSimple Snapshot Manager Visa-menyn](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png) 
 
-#### <a name="menu-description"></a>Menybeskrivning
-I följande tabell beskrivs objekt som visas på **Visa-menyn.**
+#### <a name="menu-description"></a>Meny Beskrivning
+I följande tabell beskrivs de objekt som visas på menyn **Visa** .
 
-| Menyalternativet | Beskrivning |
+| Meny alternativ | Beskrivning |
 |:--- |:--- |
-| Lägga till/ta bort kolumner |Klicka på **Lägg till/ta bort kolumner** om du vill lägga till eller ta bort kolumner i **resultatfönstret.** |
-| Anpassa |Klicka på **Anpassa** om du vill visa eller dölja objekt i konsolfönstret För StorSimple Snapshot Manager. |
+| Lägg till/ta bort kolumner |Klicka på **Lägg till/ta bort kolumner** om du vill lägga till eller ta bort kolumner i **resultat** fönstret. |
+| Anpassa |Klicka på **Anpassa** för att visa eller dölja objekt i StorSimple Snapshot Manager konsol fönstret. |
 
-### <a name="favorites-menu"></a>Menyn Favoriter
-Använd **menyn Favoriter** för att lägga till, ta bort och ordna sidvisningar och uppgifter som du använder ofta. 
+### <a name="favorites-menu"></a>Favoriter-menyn
+Använd menyn **Favoriter** för att lägga till, ta bort och ordna sidvyer och aktiviteter som du använder ofta. 
 
-#### <a name="menu-access"></a>Menyåtkomst
-Du kan komma åt **menyn Favoriter** i menyraden.
+#### <a name="menu-access"></a>Meny åtkomst
+Du kan komma åt **Favoriter** -menyn på Meny raden.
 
-![Menyn StorSimple Snapshot Manager Favoriter](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
+![StorSimple Snapshot Manager Favoriter-menyn](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-#### <a name="menu-description"></a>Menybeskrivning
-I följande tabell beskrivs objekt som visas på **menyn Favoriter.**
+#### <a name="menu-description"></a>Meny Beskrivning
+I följande tabell beskrivs de objekt som visas på **Favoriter** -menyn.
 
-| Menyalternativet | Beskrivning |
+| Meny alternativ | Beskrivning |
 |:--- |:--- |
-| Lägg till i favoriter |Klicka på **Lägg till i Favoriter** om du vill lägga till den aktuella vyn i listan med favoriter. |
-| Ordna favoriter |Klicka på **Ordna favoriter** om du vill ordna innehållet i mappen Favoriter. |
+| Lägg till i favoriter |Klicka på **Lägg till i favoriter** för att lägga till den aktuella vyn i listan över favoriter. |
+| Ordna favoriter |Klicka på **Ordna Favoriter** för att ordna innehållet i mappen Favoriter. |
 
-### <a name="window-menu"></a>Fönstermeny
-Använd **Fönster-menyn** för att lägga till och ordna om Konsolfönster för StorSimple Snapshot Manager.
+### <a name="window-menu"></a>Fönster-menyn
+Använd menyn **fönster** för att lägga till och arrangera om StorSimple Snapshot Manager konsol fönster.
 
-#### <a name="menu-access"></a>Menyåtkomst
-Du kommer åt **fönstermenyn** i menyraden.
+#### <a name="menu-access"></a>Meny åtkomst
+Du kan komma åt menyn **fönster** på Meny raden.
 
-![Fönstermeny för StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
+![StorSimple Snapshot Manager fönster-menyn](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
 
-Den numrerade listan längst ned på menyn visar de fönster som för närvarande är öppna. Klicka på ett fönster i listan om du vill föra in fönstret i förgrunden. 
+I den numrerade listan längst ned på menyn visas de fönster som är öppna för tillfället. Klicka på ett fönster i listan för att visa fönstret i förgrunden. 
 
-#### <a name="menu-description"></a>Menybeskrivning
-I följande tabell beskrivs de objekt som visas på Fönster-menyn.
+#### <a name="menu-description"></a>Meny Beskrivning
+I följande tabell beskrivs de objekt som visas på menyn fönster.
 
-| Menyalternativet | Beskrivning |
+| Meny alternativ | Beskrivning |
 |:--- |:--- |
-| Nytt fönster |Klicka på **Nytt fönster** om du vill öppna ett nytt konsolfönster (förutom det befintliga fönstret). |
-| Cascade |Klicka på **Kaskad** om du vill visa de öppna konsolfönstren i ett övergripande format. |
-| Sida vid sida vågrätt |Klicka på **Panel vågrätt** om du vill visa de öppna konsolfönstren i ett panelformat (eller rutnät). |
-| Ordna ikoner |Om du har flera konsolfönster öppna och utspridda över skrivbordet **minimerar** du dem och klickar sedan på Ordna ikoner för att ordna dem i en vågrät rad längst ned på skärmen. |
+| Nytt fönster |Klicka på **nytt fönster** för att öppna ett nytt konsol fönster (förutom det befintliga fönstret). |
+| Sprid |Klicka på **kaskad** för att visa öppna konsol fönster i ett sammanhängande format. |
+| Panel vågrätt |Klicka på **panel vågrätt** för att visa öppna konsol fönster i ett panel format (eller rutnät). |
+| Ordna ikoner |Om du har flera konsol fönster öppna och spridda över ditt skriv bord, minimerar du dem och klickar sedan på **Ordna ikoner** för att ordna dem i en vågrät rad längst ned på skärmen. |
 
 ### <a name="help-menu"></a>Hjälp-menyn
-Använd **hjälpmenyn** för att visa tillgänglig onlinehjälp för StorSimple Snapshot Manager och MMC. Du kan också visa information om programversionerna för MMC och StorSimple Snapshot Manager som för närvarande är installerade på datorn. 
+Använd **Hjälp** -menyn om du vill visa tillgänglig Onlinehjälp för StorSimple Snapshot Manager och MMC. Du kan också visa information om MMC-och StorSimple-Snapshot Manager program varu versioner som är installerade på systemet. 
 
-Du kan komma åt **hjälpmenyn** i menyraden. Du kan också komma åt Hjälpavsnitt för StorSimple Snapshot Manager från **åtgärdsfönstret.**
+Du kan komma åt **Hjälp** -menyn på Meny raden. Du kan också komma åt StorSimple-Snapshot Manager Hjälp ämnen från fönstret **åtgärder** .
 
-![Hjälp-menyn För StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
+![StorSimple Snapshot Manager Hjälp-menyn](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
-#### <a name="menu-description"></a>Menybeskrivning
-I följande tabell beskrivs objekt som visas på Hjälp-menyn.
+#### <a name="menu-description"></a>Meny Beskrivning
+I följande tabell beskrivs de objekt som visas på Hjälp-menyn.
 
-| Menyalternativet | Beskrivning |
+| Meny alternativ | Beskrivning |
 |:--- |:--- |
-| Hjälp om StorSimple Snapshot Manager |Klicka **på Hjälp på StorSimple Snapshot Manager** för att öppna Hjälpen för StorSimple Snapshot Manager i ett separat fönster. |
-| Hjälpavsnitt |Klicka på **Hjälpavsnitt** om du vill öppna MMC:s onlinehjälp i ett separat fönster. |
-| TechCenter-webbplats |Klicka på **TechCenters webbplats** om du vill öppna startsidan för Microsoft TechNet Tech Center i ett separat fönster. |
-| Om Microsoft Management Console |Klicka på **Om Microsoft Management Console** om du vill se vilken version av Microsoft Management Console som är installerad på datorn. |
-| Om StorSimple Snapshot Manager |Klicka på **Om StorSimple Snapshot Manager** för att se vilken version av snapin-modulen som är installerad på datorn. |
+| Hjälp om StorSimple Snapshot Manager |Klicka på **hjälp på StorSimple Snapshot Manager** för att öppna StorSimple Snapshot Manager hjälp i ett separat fönster. |
+| Hjälp avsnitt |Klicka på **Hjälp avsnitt** om du vill öppna hjälpen för MMC i ett separat fönster. |
+| TechCenter-webbplats |Klicka på **TechCenter-webbplats** för att öppna Start sidan för Microsoft TechNet Tech Center i ett separat fönster. |
+| Om Microsoft Management Console |Klicka **om Microsoft Management Console** för att se vilken version av Microsoft Management Console som är installerad på datorn. |
+| Om StorSimple Snapshot Manager |Klicka på **om StorSimple Snapshot Manager** för att se vilken version av snapin-modulen som är installerad på datorn. |
 
-## <a name="tool-bar"></a>Verktygsfält
-Verktygsfältet, som finns under menyraden, innehåller navigerings- och uppgiftsikoner. Varje ikon är en genväg till en viss uppgift.
+## <a name="tool-bar"></a>Verktygsfältet
+Verktygsfältet, som finns under meny raden, innehåller navigerings-och aktivitets ikoner. Varje ikon är en genväg till en speciell uppgift.
 
-### <a name="icon-descriptions"></a>Ikonbeskrivningar
-I följande tabell beskrivs ikonerna som visas i verktygsfältet. 
+### <a name="icon-descriptions"></a>Ikon beskrivningar
+I följande tabell beskrivs de ikoner som visas i verktygsfältet. 
 
 | Ikon | Beskrivning |
 |:--- |:--- |
-| ![Vänsterpil](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Klicka på vänsterpilsikonen för att återgå till föregående sida. |
+| ![Vänsterpil](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Klicka på vänsterpilen för att återgå till föregående sida. |
 | ![Högerpil](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Klicka på högerpilen för att gå till nästa sida (om pilen är grå är åtgärden inte tillgänglig). |
-| ![Ikon för Upp](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) |Klicka på ikonen upp om du vill gå upp en nivå i konsolträdet **(scopefönstret).** |
-| ![Visa/dölja konsolträd](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) |Klicka på ikonen visa/dölj konsolträd om du vill visa eller dölja **scopefönstret.** |
-| ![Exportlista](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) |Klicka på exportlistikonen om du vill exportera en lista till en CSV-fil som du anger. |
-| ![Hjälp-ikonen](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png) |Klicka på hjälpikonen för att öppna ett mmc-hjälpavsnitt online. |
-| ![Fönstret Visa/dölja åtgärder](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) |Klicka på ikonen **För att** visa/dölja åtgärder om du vill visa eller dölja **åtgärdsfönstret.** |
+| ![Uppåt-ikon](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) |Klicka på upp-ikonen för att gå upp en nivå i konsol trädet ( **omfattnings** fönstret). |
+| ![Visa/Dölj konsol träd](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) |Klicka på ikonen Visa/Dölj konsol träd för att visa eller dölja **omfattnings** fönstret. |
+| ![Exportera lista](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) |Klicka på Exportera List-ikonen för att exportera en lista till en CSV-fil som du anger. |
+| ![Hjälp ikon](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png) |Klicka på hjälp ikonen för att öppna ett online-hjälp avsnitt för MMC. |
+| ![Visa/Dölj åtgärds fönstret](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) |Klicka på ikonen Visa/Dölj **Åtgärds** fönstret för att visa eller dölja **Åtgärds** fönstret. |
 
-## <a name="scope-pane"></a>Fönstret Omfattning
-**Scope-fönstret** är den vänstra rutan i storsimpleögonblickshanterarens användargränssnitt. Den innehåller konsolträdet (eller noden) och är den primära navigeringsmekanismen för StorSimple Snapshot Manager. 
+## <a name="scope-pane"></a>Omfattnings fönster
+Fönstret **omfattning** är fönstret längst till vänster i STORSIMPLE Snapshot Manager UI. Den innehåller konsol trädet (eller noden) och är den primära navigerings mekanismen för StorSimple Snapshot Manager. 
 
-### <a name="scope-pane-structure"></a>Struktur för scopefönster
-**Fönstret Scope** innehåller en serie klickbara objekt (noder) ordnade i en trädstruktur. 
+### <a name="scope-pane-structure"></a>Struktur för omfattnings fönstret
+Fönstret **omfattning** innehåller en serie objekt (noder) som är ordnade i en träd struktur. 
 
-![Fönstret Omfattning](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png) 
+![Omfattnings fönster](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png) 
 
-* Om du vill expandera eller komprimera en nod klickar du på pilikonen bredvid nodnamnet.
-* Om du vill visa status eller innehåll för en nod klickar du på nodnamnet. Informationen visas i **fönstret Resultat.** 
+* Om du vill expandera eller komprimera en nod klickar du på pilen bredvid nodnamn.
+* Om du vill visa status eller innehåll för en nod klickar du på namnet på noden. Informationen visas i **resultat** fönstret. 
 
-**Fönstret Omfattning** innehåller följande noder: 
+Rutan **omfattning** innehåller följande noder: 
 
-* [Nod för enheter](#devices-node) 
-* [Nod för volymer](#volumes-node) 
-* [Nod för volymgrupper](#volume-groups-node) 
-* [Nod för principer för säkerhetskopiering](#backup-policies-node) 
-* [Nod för katalog för säkerhetskopiering](#backup-catalog-node) 
-* [Jobbnod](#jobs-node) 
+* [Noden enheter](#devices-node) 
+* [Noden volymer](#volumes-node) 
+* [Noden volym grupper](#volume-groups-node) 
+* [Noden säkerhets kopierings principer](#backup-policies-node) 
+* [Nod för säkerhets kopierings katalog](#backup-catalog-node) 
+* [Noden jobb](#jobs-node) 
 
-### <a name="scope-pane-tasks"></a>Aktiviteter i scopefönstret
-Du kan använda **scopefönstret** för att slutföra en åtgärd på en viss nod. Gör något av följande om du vill markera en uppgift:
+### <a name="scope-pane-tasks"></a>Åtgärder i omfattnings fönstret
+Du kan använda fönstret **omfattning** för att slutföra en åtgärd på en speciell nod. Gör något av följande om du vill välja en uppgift:
 
-* Högerklicka på noden och välj sedan uppgiften på menyn som visas.
-* Klicka på noden och sedan på **Åtgärd** i menyraden. Markera uppgiften på menyn som visas.
-* Klicka på noden och markera sedan åtgärden i **åtgärdsfönstret.**
+* Högerklicka på noden och välj sedan aktiviteten i menyn som visas.
+* Klicka på noden och sedan på **åtgärd** på Meny raden. Välj uppgiften i menyn som visas.
+* Klicka på noden och välj sedan åtgärden i **Åtgärds** fönstret.
 
-När du väljer en nod och använder någon av dessa metoder för att se en uppgiftslista visas endast de åtgärder som kan utföras på den noden.
+När du väljer en nod och använder någon av dessa metoder för att se en uppgifts lista visas bara de åtgärder som kan utföras på noden.
 
-### <a name="devices-node"></a>Nod för enheter
-Noden **Enheter** representerar StorSimple-enheter och StorSimple-virtuella enheter som är anslutna till StorSimple Snapshot Manager. Välj den här noden om du vill ansluta och konfigurera en enhet och importera tillhörande volymer, volymer och befintliga säkerhetskopior. Flera enheter kan anslutas till en enda värd.
+### <a name="devices-node"></a>Noden enheter
+Noden **enheter** representerar de StorSimple-enheter och StorSimple-virtuella enheter som är anslutna till StorSimple Snapshot Manager. Välj den här noden för att ansluta och konfigurera en enhet och importera tillhör ande volymer, volym grupper och befintliga säkerhets kopior. Flera enheter kan anslutas till en enda värd.
 
-* Om du vill expandera noden klickar du på pilikonen bredvid **Enheter**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på noden **Enheter** eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Klicka på **Enheter** i **fönstret Scope** om du vill visa en lista över konfigurerade enheter. Listan över enheter, tillsammans med information om varje enhet, visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **enheter**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **enheter** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över konfigurerade enheter klickar du på **enheter** i fönstret **omfång** . Listan över enheter, tillsammans med information om varje enhet, visas i **resultat** fönstret.
 
-### <a name="volumes-node"></a>Nod för volymer
-**Noden Volymer** representerar de enheter som motsvarar de volymer som monterats av värden, inklusive de som upptäcks via iSCSI och de som identifieras via en enhet. Använd den här noden om du vill visa listan över tillgängliga volymer och tilldela enskilda volymer till volymgrupper.
+### <a name="volumes-node"></a>Noden volymer
+Noden **volymer** representerar de enheter som motsvarar de volymer som monteras av värden, inklusive de som identifierats via iSCSI och de som identifierats via en enhet. Använd den här noden för att visa listan över tillgängliga volymer och tilldela enskilda volymer till volym grupper.
 
-* Om du vill expandera noden klickar du på pilikonen **bredvid Volymer**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på **noden Volymer** eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Klicka på **Volymer** i **fönstret Scope** om du vill visa en lista över volymer. Listan över volymer, tillsammans med information om varje volym, visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **volymer**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **volymer** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över volymer klickar du på **volymer** i fönstret **omfång** . Listan över volymer, tillsammans med information om varje volym, visas i **resultat** fönstret.
 
-### <a name="volume-groups-node"></a>Nod för volymgrupper
-Volymgrupper kallas också konsekvensgrupper. Varje volymgrupp är en pool med programrelaterade volymer som hjälper till att säkerställa programkonsekvens under säkerhetskopieringsåtgärder. Använd noden **Volymgrupper** för att konfigurera dessa grupper och för att ta interaktiva säkerhetskopior eller skapa säkerhetskopieringsscheman. 
+### <a name="volume-groups-node"></a>Noden volym grupper
+Volym grupper kallas även för konsekvens grupper. Varje volym grupp är en pool med programrelaterade volymer som hjälper till att säkerställa programmets konsekvens under säkerhets kopierings åtgärder. Använd noden **volym grupper** för att konfigurera dessa grupper och för att utföra interaktiva säkerhets kopieringar eller skapa säkerhets kopierings scheman. 
 
-* Om du vill expandera noden klickar du på pilikonen **bredvid Volymgrupper**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på noden **Volymgrupper** eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Om du vill visa en lista över volymgrupper klickar du på **Volymgrupper** i **fönstret Scope.** Listan över volymgrupper, tillsammans med information om varje volymgrupp, visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **volym grupper**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **volym grupper** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över volym grupper klickar du på **volym grupper** i fönstret **omfång** . Listan över volym grupper, tillsammans med information om varje volym grupp, visas i **resultat** fönstret.
 
-### <a name="backup-policies-node"></a>Nod för principer för säkerhetskopiering
-Principer för säkerhetskopiering är jobbscheman för lokala ögonblicksbilder och ögonblicksbilder av molnet. Använd **noden Principer** för säkerhetskopiering för att ange hur ofta en säkerhetskopia skapas och hur länge en säkerhetskopia ska behållas. 
+### <a name="backup-policies-node"></a>Noden säkerhets kopierings principer
+Säkerhets kopierings principer är jobb scheman för lokala och molnbaserade ögonblicks bilder. Använd noden **säkerhets kopierings principer** för att ange hur ofta en säkerhets kopia ska skapas och hur länge en säkerhets kopia ska behållas. 
 
-* Om du vill expandera noden klickar du på pilikonen **bredvid Principer för säkerhetskopiering**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på **noden Principer för säkerhetskopiering** eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Om du vill visa en lista över principer för säkerhetskopiering klickar du på **Principer för säkerhetskopiering** i **fönstret Scope.** Listan över principer för säkerhetskopiering, tillsammans med information om varje princip, visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **säkerhets kopierings principer**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **säkerhets kopierings principer** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över säkerhets kopierings principer klickar du på **säkerhets kopierings principer** i fönstret **omfång** . Listan över säkerhets kopierings principer, tillsammans med information om varje princip, visas i **resultat** fönstret.
 
 > [!NOTE]
-> Du kan behålla maximalt 64 säkerhetskopior.
+> Du kan behålla högst 64 säkerhets kopieringar.
 
 
-### <a name="backup-catalog-node"></a>Nod för katalog för säkerhetskopiering
-**Noden Säkerhetskopieringskatalog** innehåller listor över säkerhetskopieringar på plats och säkerhetskopiering på annan plats av Azure StorSimple-volymer. Den här noden är ordnad efter volymgrupp och varje volymgruppbehållare innehåller separata strukturer för lokala ögonblicksbilder **(den lokala ögonblicksbildens**nod) och ögonblicksbilder av molnet (cloud **snapshots-noden).** När den expanderas listar varje volymgruppbehållare alla lyckade säkerhetskopior som har gjorts interaktivt eller av en konfigurerad princip.
+### <a name="backup-catalog-node"></a>Nod för säkerhets kopierings katalog
+Noden **säkerhets kopierings katalog** innehåller listor över säkerhets kopior på plats och utanför platsen för Azure StorSimple-volymer. Den här noden är ordnad efter volym grupp och varje volym grupp behållare innehåller separata strukturer för lokala ögonblicks bilder (den **lokala ögonblicks bilden**s nod) och moln ögonblicks bilder (noden **moln ögonblicks bilder** ). När varje volym grupp behållare expanderas visas alla lyckade säkerhets kopieringar som har gjorts interaktivt eller av en konfigurerad princip.
 
-* Om du vill expandera noden klickar du på pilikonen **bredvid Säkerhetskopieringskatalogen**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på noden **Säkerhetskopieringskatalog** eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Om du vill visa en lista över ögonblicksbilder av säkerhetskopior klickar du på **Säkerhetskopieringskatalog** i **scopefönstret.** Listan över ögonblicksbilder, tillsammans med information om varje ögonblicksbild, visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **säkerhets kopierings katalogen**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **säkerhets kopierings katalog** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över ögonblicks bilder av säkerhets kopior klickar du på **säkerhets kopierings katalog** i fönstret **omfattning** . Listan över ögonblicks bilder, tillsammans med information om varje ögonblicks bild, visas i **resultat** fönstret.
 
-### <a name="local-snapshots-node"></a>Nod för lokala ögonblicksbilder
-Noden **Lokala ögonblicksbilder listar** lokala ögonblicksbilder för en viss volymgrupp. Noden finns under **noden Säkerhetskopieringskatalog** i **fönstret Scope.** Lokala ögonblicksbilder är punkt-i-tid-kopior av volymdata som lagras på Azure StorSimple-enheten. Vanligtvis kan den här typen av säkerhetskopiering skapas och återställas snabbt. Du kan använda en lokal ögonblicksbild på samma sätt som en lokal säkerhetskopia.
+### <a name="local-snapshots-node"></a>Nod för lokala ögonblicks bilder
+Noden **lokala ögonblicks bilder** visar lokala ögonblicks bilder för en speciell volym grupp. Noden finns under noden **säkerhets kopierings katalog** i fönstret **omfång** . Lokala ögonblicks bilder är tidpunkts kopior av volym data som lagras på Azure StorSimple-enheten. Den här typen av säkerhets kopiering kan vanligt vis skapas och återställas snabbt. Du kan använda en lokal ögonblicks bild som en lokal säkerhets kopia.
 
-* Om du vill expandera noden klickar du på pilikonen **bredvid Lokala ögonblicksbilder**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på noden **Lokala ögonblicksbilder** eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Om du vill visa en lista över lokala ögonblicksbilder klickar du på **Lokala ögonblicksbilder** i **fönstret Scope.** Listan över ögonblicksbilder, tillsammans med information om varje ögonblicksbild, visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **lokala ögonblicks bilder**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **lokala ögonblicks bilder** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över lokala ögonblicks bilder klickar du på **lokala ögonblicks bilder** i fönstret **omfång** . Listan över ögonblicks bilder, tillsammans med information om varje ögonblicks bild, visas i **resultat** fönstret.
 
-### <a name="cloud-snapshots-node"></a>Nod för ögonblicksbilder i molnet
-Noden **Cloud Snapshots listar** ögonblicksbilder av molnet för en viss volymgrupp. Noden finns under **noden Säkerhetskopieringskatalog** i **fönstret Scope.** Ögonblicksbilder av molnet är punkt-i-tid-kopior av volymdata som lagras i molnet. En ögonblicksbild i molnet motsvarar en ögonblicksbild som replikeras på ett annat lagringssystem utanför platsen. Ögonblicksbilder av molnet är särskilt användbara i katastrofåterställningsscenarier.
+### <a name="cloud-snapshots-node"></a>Noden moln ögonblicks bilder
+I noden **moln ögonblicks bilder** visas moln ögonblicks bilder för en speciell volym grupp. Noden finns under noden **säkerhets kopierings katalog** i fönstret **omfång** . Moln ögonblicks bilder är tidpunkts kopior av volym data som lagras i molnet. En moln ögonblicks bild motsvarar en ögonblicks bild som replikeras på ett annat lagrings system utanför platsen. Moln ögonblicks bilder är särskilt användbara i scenarier med haveri beredskap.
 
-* Om du vill expandera noden klickar du på pilikonen bredvid **Ögonblicksbilder av molnet**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på noden **Ögonblicksbilder** i molnet eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Om du vill visa en lista över ögonblicksbilder i molnet klickar du på **Ögonblicksbilder** av molnet i **fönstret Scope.** Listan över ögonblicksbilder, tillsammans med information om varje ögonblicksbild, visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **moln ögonblicks bilder**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **moln ögonblicks bilder** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över ögonblicks bilder av molnet klickar du på **moln ögonblicks bilder** i fönstret **omfång** . Listan över ögonblicks bilder, tillsammans med information om varje ögonblicks bild, visas i **resultat** fönstret.
 
-### <a name="jobs-node"></a>Jobbnod
-Noden **Jobb** innehåller information om schemalagda, körande och nyligen slutförda säkerhetskopieringsjobb. 
+### <a name="jobs-node"></a>Noden jobb
+**Jobb** -noden innehåller information om schemalagda, pågående och nyligen slutförda säkerhets kopierings jobb. 
 
-* Om du vill expandera noden klickar du på pilikonen bredvid **Jobb**.
-* Om du vill visa en meny med tillgängliga åtgärder högerklickar du på noden **Jobb** eller högerklickar på någon av de noder som visas i den expanderade vyn.
-* Om du vill visa en lista över schemalagda jobb expanderar du noden **Jobb** och klickar sedan på **Schemalagd**. Listan över tidigare konfigurerade jobb och information om varje jobb visas i **fönstret Resultat.** 
-* Om du vill visa en lista över nyligen slutförda jobb expanderar du noden **Jobb** och klickar sedan på **Senaste 24 timmarna**. En lista över jobb som har slutförts under de senaste 24 timmarna visas i **fönstret Resultat.** Fönstret **Resultat** innehåller också information om varje slutfört jobb.
-* Om du vill visa en lista över jobb som körs expanderar du noden **Jobb** och klickar sedan på **Kör**. Listan över jobb som körs och information om varje jobb visas i **fönstret Resultat.**
+* Om du vill expandera noden klickar du på pilen bredvid **jobb**.
+* Om du vill se en meny med tillgängliga åtgärder högerklickar du på noden **jobb** eller högerklickar på någon av noderna som visas i den utökade vyn.
+* Om du vill se en lista över schemalagda jobb expanderar du noden **jobb** och klickar sedan på **schemalagd**. Listan över tidigare konfigurerade jobb och information om varje jobb visas i **resultat** fönstret. 
+* Om du vill se en lista över de senaste slutförda jobben expanderar du noden **jobb** och klickar sedan på de **senaste 24 timmarna**. En lista över jobb som har slutförts under de senaste 24 timmarna visas i **resultat** fönstret. **Resultat** fönstret innehåller också information om varje slutfört jobb.
+* Om du vill se en lista över jobb som körs för tillfället expanderar du noden **jobb** och klickar sedan på **Kör**. En lista över jobb som körs och information om varje jobb visas i **resultat** fönstret.
 
-## <a name="results-pane"></a>Resultatfönstret
-**Fönstret Resultat** är mittfönstret i storsimpleögonblickshanterarens användargränssnitt. Den innehåller listor och detaljerad statusinformation för den nod som du valde i **fönstret Scope.**
+## <a name="results-pane"></a>Resultat fönster
+**Resultat** fönstret är mitten-fönstret i STORSIMPLE Snapshot Manager UI. Den innehåller listor och detaljerad statusinformation för den nod som du valde i fönstret **omfång** .
 
 ### <a name="example"></a>Exempel
-Klicka på noden **Volymgrupper** i fönstret **Scope** om du vill visa följande exempel. I **fönstret Resultat** visas en lista över volymgrupper med information om varje grupp.
+Om du vill se följande exempel klickar du på noden **volym grupper** i fönstret **omfång** . I **resultat** fönstret visas en lista över volym grupper med information om varje grupp.
 
-![Resultatfönstret](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
+![Resultat fönster](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
-Du kan konfigurera informationen i **resultatfönstret:** högerklicka på en nod i **fönstret Scope,** klicka på **Visa**och klicka sedan på **Lägg till/ta bort kolumner**.
+Du kan konfigurera informationen som visas i **resultat** fönstret: Högerklicka på en nod i fönstret **omfång** , klicka på **Visa**och klicka sedan på **Lägg till/ta bort kolumner**.
 
-## <a name="actions-pane"></a>Fönstret Åtgärder
-**Åtgärdsfönstret** är den högra rutan i storsimpleögonblickshanterarens användargränssnitt. Den innehåller en meny med åtgärder som du kan utföra på noden, vyn eller data som du väljer i **fönstret Scope** eller **resultatfönstret.** Åtgärdsfönstret innehåller samma kommandon som **åtgärdsmenyerna** som är tillgängliga för objekt i **fönstret Scope** och **resultat.** **Actions** En beskrivning av varje åtgärd finns i tabellen i avsnittet **Åtgärdsmeny.**
+## <a name="actions-pane"></a>Åtgärds fönstret
+Fönstret **åtgärder** är det högra fönstret i STORSIMPLE Snapshot Manager UI. Den innehåller en meny med åtgärder som du kan utföra på den nod, vy eller data som du väljer i fönstret **omfattning** eller **resultat** . Fönstret **åtgärder** innehåller samma kommandon som de **Åtgärds** menyer som är tillgängliga för objekt i fönstret **omfattning** och **resultat** . En beskrivning av varje åtgärd finns i tabellen i **Åtgärds** menyn.
 
 ### <a name="examples"></a>Exempel
-Om du vill visa följande exempel expanderar du noden **Jobb** i fönstret **Omfattning** och klickar på **Schemalagd**. I fönstret **Åtgärder** visas tillgängliga åtgärder för den **schemalagda** noden.
+Om du vill se följande exempel i rutan **omfång** expanderar du noden **jobb** och klickar på **schemalagd**. I fönstret **åtgärder** visas tillgängliga åtgärder för den **schemalagda** noden.
 
-![Exempel på schemalagda jobb i åtgärdsfönstret](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 
+![Exempel på schemalagda jobb i åtgärds fönstret](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 
 
-Om du vill se fler alternativ expanderar du noden **Jobb** i **fönstret Scope,** klickar på **Schemalagd**och klickar sedan på ett schemalagt jobb i **resultatfönstret.** I fönstret **Åtgärder** visas tillgängliga åtgärder för det schemalagda jobbet, vilket visas i följande exempel.
+Om du vill se fler alternativ går du till fönstret **omfång** , expanderar noden **jobb** , klickar på **schemalagd**och klickar sedan på ett schemalagt jobb i **resultat** fönstret. I fönstret **åtgärder** visas tillgängliga åtgärder för det schemalagda jobbet, som du ser i följande exempel.
 
-![Exempel på åtgärder i åtgärdsfönstrets jobbåtgärder](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Åtgärds rutan jobb i åtgärds exempel](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-## <a name="keyboard-navigation-and-shortcuts"></a>Tangentbordsnavigering och kortkommandon
-StorSimple Snapshot Manager aktiverar hjälpmedelsfunktionerna i Operativsystemet Windows och Microsoft Management Console (MMC). Den innehåller också vissa funktioner och kortkommandon för tangentbordsnavigering som är specifika för StorSimple Snapshot Manager, enligt beskrivningen i följande avsnitt.
+## <a name="keyboard-navigation-and-shortcuts"></a>Tangent bords navigering och genvägar
+StorSimple Snapshot Manager aktiverar hjälpmedels funktionerna i Windows operativ system och Microsoft Management Console (MMC). Den innehåller också vissa tangent bords navigerings funktioner och genvägar som är speciella för StorSimple-Snapshot Manager, enligt beskrivningen i följande avsnitt.
 
-* [Navigeringstangenter för tangentbord](#keyboard-navigation-keys) 
-* [Kortkommandon för menyraden](#menu-bar-shortcut-keys) 
-* [Kortkommandon i scopefönstret](#scope-pane-shortcut-keys) 
+* [Tangent bords navigerings nycklar](#keyboard-navigation-keys) 
+* [Kortkommandon för meny raden](#menu-bar-shortcut-keys) 
+* [Kortkommandon för omfattnings fönstret](#scope-pane-shortcut-keys) 
 
-### <a name="keyboard-navigation-keys"></a>Navigeringstangenter för tangentbord
-I följande tabell beskrivs de nycklar som du kan använda för att navigera i användargränssnittet i StorSimple Snapshot Manager. 
+### <a name="keyboard-navigation-keys"></a>Tangent bords navigerings nycklar
+I följande tabell beskrivs de nycklar som du kan använda för att navigera i StorSimple Snapshot Manager användar gränssnitt. 
 
-| Navigeringsnyckel | Åtgärd |
+| Navigerings nyckel | Åtgärd |
 |:--- |:--- |
-| Nedpil |Använd nedpiltangenten för att flytta lodrätt till nästa objekt i en meny eller ett fönster. |
-| Ange |Tryck på Retur för att slutföra en åtgärd och fortsätt sedan till nästa steg. Du kan till exempel trycka på Retur för att välja **Nästa**, **OK**eller **Skapa**och sedan gå till nästa steg i en guide. |
-| Esc |Tryck på Esc för att stänga en meny eller för att avbryta och stänga en sida. |
-| F1 |Tryck på F1 för att visa ett hjälpavsnitt för det aktiva fönstret. |
+| NEDPIL-tangenten |Använd nedåtpilen för att flytta lodrätt till nästa objekt på en meny eller i ett fönster. |
+| Ange |Tryck på RETUR-tangenten för att slutföra en åtgärd och fortsätt sedan till nästa steg. Du kan till exempel trycka på RETUR för att välja **Nästa**, **OK**eller **skapa**och sedan gå till nästa steg i en guide. |
+| Esc |Tryck på ESC-tangenten för att stänga en meny eller för att avbryta och stänga en sida. |
+| F1 |Tryck på F1-tangenten om du vill visa ett hjälp avsnitt för det aktiva fönstret. |
 | F5 |Tryck på F5 för att uppdatera en nod. |
-| F6 |Tryck på F6 för att gå från **scopefönstret** till **resultatfönstret.** |
-| F10 |Tryck på F10 för att gå till menyraden. |
-| Vänsterpil |Använd vänsterpilen för att flytta vågrätt från ett menyradsalternativ till föregående alternativ. När du flyttar till föregående objekt på menyraden visas åtgärdsmenyn (eller snabbmenyn) för föregående objekt. |
-| Högerpil |Använd högerpilen för att flytta vågrätt från ett menyradsalternativ till nästa. När du flyttar till nästa objekt på menyraden visas åtgärdsmenyn (eller snabbmenyn) för det nya objektet. |
-| Tabbtangent |Använd tabbtangenten för att gå till nästa fönster på konsolen eller till nästa markering eller textruta på en sida. |
-| Uppil |Använd uppåtpiltangenten för att flytta lodrätt till föregående objekt på en meny eller ett fönster. |
+| F6 |Tryck på F6-tangenten för att flytta från fönstret **omfång** till **resultat** fönstret. |
+| F10 |Tryck på tangenten F10 för att gå till meny raden. |
+| Vänsterpil |Använd vänsterpil-tangenten för att flytta vågrätt från meny rads alternativet till föregående alternativ. När du flyttar till föregående objekt i meny raden visas åtgärds menyn (eller kontexten) för föregående objekt. |
+| Högerpil |Använd högerpilen för att flytta vågrätt från ett meny rads alternativ till nästa. När du flyttar till nästa objekt på Meny raden visas åtgärds menyn (eller kontexten) för det nya objektet. |
+| TABB-nyckel |Använd tabbtangenten för att flytta till nästa-fönstret i-konsolen eller till nästa markering eller text ruta på en sida. |
+| UPPIL-nyckel |Använd uppil-tangenten för att flytta lodrätt till föregående objekt på en meny eller i ett fönster. |
 
-### <a name="menu-bar-shortcut-keys"></a>Kortkommandon för menyraden
-I följande tabell beskrivs kombinationerna av kortkommandon för menyraden. När du har tryckt på kortkommandona och menyn öppnas kan du använda menygenvägar (de understrukna tangenterna på menyn). Mer information om menyraden finns i [Menyraden](#menu-bar).
+### <a name="menu-bar-shortcut-keys"></a>Kortkommandon för meny raden
+I följande tabell beskrivs kortkommandona på Meny raden. När du har tryckt på kortkommandon och menyn öppnas kan du använda kortkommandon för menyer (de understrukna tangenterna på menyn). Om du vill ha mer information om meny raden går du till [meny raden](#menu-bar).
 
-| Genväg | Resultat | Snabbknapp för meny | Resultat |
+| Genvägar | Resultat | Snabb tangent för meny | Resultat |
 |:--- |:--- |:--- |:--- |
-| ALT+F |Öppnar **Arkiv-menyn.** |N |Öppnar en ny konsolinstans. |
-|  |O |Öppnar sidan **Administrationsverktyg.** | |
-|  |S |Sparar StorSimple Snapshot Manager-konsolen. | |
-|  |A |Öppnar sidan **Spara som.** | |
-|  |M |Öppnar **snapin-modulen Lägg till/ta bort.** | |
-|  |P |Öppnar sidan **Alternativ.** | |
-|  |H |Öppnar onlinehjälp. | |
-| ALT+A |Öppnar **åtgärdsmenyn.** |I |Aktiverar och inaktiverar alternativet för importvisning. |
+| ALT + F |Öppnar **Arkiv** -menyn. |N |Öppnar en ny konsol instans. |
+|  |O |Öppnar sidan **administrations verktyg** . | |
+|  |S |Sparar StorSimple-Snapshot Manager-konsolen. | |
+|  |A |Öppnar sidan **Spara som** . | |
+|  |M |Öppnar sidan **Lägg till/ta bort snapin-modul** . | |
+|  |P |Öppnar sidan **alternativ** . | |
+|  |H |Öppnar direkt hjälpen. | |
+| ALT + A |Öppnar **Åtgärds** menyn. |I |Aktiverar och inaktiverar alternativet för att importera visning. |
 |  |W |Öppnar en ny StorSimple Snapshot Manager-konsol. | |
 |  |F |Uppdaterar StorSimple Snapshot Manager-konsolen. | |
-|  |L |Öppnar sidan **Exportera lista.** | |
-|  |H |Öppnar onlinehjälp. | |
-| ALT+V |Öppnar **Visa-menyn.** |A |Öppnar sidan **Lägg till/ta bort kolumner.** |
-|  |U |Öppnar sidan **Anpassa vy.** | |
-| ALT+O |Öppnar menyn **Favoriter.** |A |Öppnar sidan **Lägg till i favoriter.** |
-|  |O |Öppnar sidan **Ordna favoriter.** | |
-| ALT+W |Öppnar **fönstermenyn.** |N |Öppnar ett annat StorSimple Snapshot Manager-fönster. |
-|  |C |Visar alla öppna konsolfönster i ett kaskadformat. | |
-|  |T |Visar alla öppna konsolfönster i ett rutnätsmönster. | |
-|  |I |Ordnar ikoner i en vågrät rad längst ned på skärmen. | |
-| ALT+H |Öppnar **hjälpmenyn.** |H |Öppnar onlinehjälp. |
-|  |T |Öppnar webbsidan Microsoft TechNet Tech Center. | |
-|  |A |Öppnar sidan **Om Microsoft Management Console.** | |
+|  |L |Öppnar sidan **Exportera lista** . | |
+|  |H |Öppnar direkt hjälpen. | |
+| ALT + V |Öppnar **Visa** -menyn. |A |Öppnar sidan **Lägg till/ta bort kolumner** . |
+|  |U |Öppnar sidan **Anpassa vy** . | |
+| ALT+O |Öppnar **Favoriter** -menyn. |A |Öppnar sidan **Lägg till i favoriter** . |
+|  |O |Öppnar sidan **Ordna Favoriter** . | |
+| ALT + W |Öppnar menyn **fönster** . |N |Öppnar ett annat StorSimple Snapshot Manager-fönster. |
+|  |C |Visar alla öppna konsol fönster i ett sammanhängande format. | |
+|  |T |Visar alla öppna konsol fönster i ett rutnäts mönster. | |
+|  |I |Ordnar ikonerna i en vågrät rad längst ned på skärmen. | |
+| ALT + H |Öppnar **Hjälp** -menyn. |H |Öppnar direkt hjälpen. |
+|  |T |Öppnar webb sidan Microsoft TechNet Tech Center. | |
+|  |A |Öppnar sidan **om Microsoft Management Console** . | |
 
-### <a name="scope-pane-shortcut-keys"></a>Kortkommandon i scopefönstret
-I följande tabeller visas kombinationerna av kortkommandon för varje nod i **fönstret Scope.** 
+### <a name="scope-pane-shortcut-keys"></a>Kortkommandon för omfattnings fönstret
+I följande tabeller visas kortkommandona för varje nod i **omfattnings** fönstret. 
 
-* [Kortkommandon för enhetsnod](#devices-node-shortcut-keys)
-* [Kortkommandon för volymernod](#volumes-node-shortcut-keys)
-* [Kortkommandon för nodknappar för volymgrupper](#volume-groups-node-shortcut-keys)
-* [Kortkommandon för nodknappar för säkerhetskopieringsprinciper](#backup-policies-node-shortcut-keys)
-* [Kortkommandon för säkerhetskopieringskatalognod](#backup-catalog-node-shortcut-keys)
-* [Kortkommandon för jobbnod](#jobs-node-shortcut-keys)
+* [Kortkommandon för enhets nod](#devices-node-shortcut-keys)
+* [Kortkommandon för noden volymer](#volumes-node-shortcut-keys)
+* [Snabbkommandon i noden volym grupper](#volume-groups-node-shortcut-keys)
+* [Kortkommandon för noden säkerhets kopierings principer](#backup-policies-node-shortcut-keys)
+* [Kortkommandon för noden katalog för säkerhets kopiering](#backup-catalog-node-shortcut-keys)
+* [Kortkommandon för jobb nod](#jobs-node-shortcut-keys)
 
-#### <a name="devices-node-shortcut-keys"></a>Kortkommandon för enhetsnod
-| Menygenväg | Resultat |
+#### <a name="devices-node-shortcut-keys"></a>Kortkommandon för enhets nod
+| Snabb meny | Resultat |
 |:--- |:--- |
-| C |Öppnar sidan **Konfigurera en enhet.** |
-| D |Uppdaterar listan över enheter och enhetsinformation. |
-| V |Öppnar **Visa-menyn.** |
-| W |Öppnar en ny StorSimple Snapshot Manager-konsol med fokus på **informationsnoden.** |
+| C |Öppnar sidan **Konfigurera en enhet** . |
+| D |Uppdaterar listan över enheter och enhets information. |
+| V |Öppnar **Visa** -menyn. |
+| W |Öppnar en ny StorSimple-Snapshot Manager-konsol fokuserad på noden **information** . |
 | F |Uppdaterar StorSimple Snapshot Manager-konsolen. |
-| L |Öppnar sidan **Exportera lista.** |
-| H |Öppnar onlinehjälp. |
+| L |Öppnar sidan **Exportera lista** . |
+| H |Öppnar direkt hjälpen. |
 
-#### <a name="volumes-node-shortcut-keys"></a>Kortkommandon för volymernod
-| Menygenväg | Resultat |
+#### <a name="volumes-node-shortcut-keys"></a>Kortkommandon för noden volymer
+| Snabb meny | Resultat |
 |:--- |:--- |
 | V |Uppdaterar listan över volymer. |
-| V (tryck två gånger) |Öppnar **Visa-menyn.** |
-| W |Öppnar en ny StorSimple Snapshot Manager-konsol med fokus på **noden Volymer.** |
+| V (tryck två gånger) |Öppnar **Visa** -menyn. |
+| W |Öppnar en ny StorSimple-Snapshot Manager-konsol fokuserad på noden **volymer** . |
 | F |Uppdaterar StorSimple Snapshot Manager-konsolen. |
-| L |Öppnar sidan **Exportera lista.** |
-| H |Öppnar onlinehjälp. |
+| L |Öppnar sidan **Exportera lista** . |
+| H |Öppnar direkt hjälpen. |
 
-#### <a name="volume-groups-node-shortcut-keys"></a>Kortkommandon för nodknappar för volymgrupper
-| Menygenväg | Resultat |
+#### <a name="volume-groups-node-shortcut-keys"></a>Snabbkommandon i noden volym grupper
+| Snabb meny | Resultat |
 |:--- |:--- |
-| G |Öppnar sidan **Skapa en volymgrupp.** |
-| V |Öppnar **Visa-menyn.** |
-| W |Öppnar en ny StorSimple Snapshot Manager-konsol med fokus på noden **Volymgrupper.** |
+| G |Öppnar sidan **skapa en volym grupp** . |
+| V |Öppnar **Visa** -menyn. |
+| W |Öppnar en ny StorSimple-Snapshot Manager-konsol fokuserad på **volym grupper** -noden. |
 | F |Uppdaterar StorSimple Snapshot Manager-konsolen. |
-| L |Öppnar sidan **Exportera lista.** |
-| H |Öppnar onlinehjälp. |
+| L |Öppnar sidan **Exportera lista** . |
+| H |Öppnar direkt hjälpen. |
 
-#### <a name="backup-policies-node-shortcut-keys"></a>Kortkommandon för nodknappar för säkerhetskopieringsprinciper
-| Menygenväg | Resultat |
+#### <a name="backup-policies-node-shortcut-keys"></a>Kortkommandon för noden säkerhets kopierings principer
+| Snabb meny | Resultat |
 |:--- |:--- |
-| B |Öppnar sidan **Skapa en princip.** |
-| V |Öppnar **Visa-menyn.** |
-| W |Öppnar en ny StorSimple Snapshot Manager-konsol med fokus på noden **Volymgrupper.** |
+| B |Öppnar sidan **skapa en princip** . |
+| V |Öppnar **Visa** -menyn. |
+| W |Öppnar en ny StorSimple-Snapshot Manager-konsol fokuserad på **volym grupper** -noden. |
 | F |Uppdaterar StorSimple Snapshot Manager-konsolen. |
-| L |Öppnar sidan **Exportlista **. |
-| H |Öppnar onlinehjälp. |
+| L |Öppnar * * sidan Exportera lista * *. |
+| H |Öppnar direkt hjälpen. |
 
-#### <a name="backup-catalog-node-shortcut-keys"></a>Kortkommandon för säkerhetskopieringskatalognod
-| Menygenväg | Resultat |
+#### <a name="backup-catalog-node-shortcut-keys"></a>Kortkommandon för noden katalog för säkerhets kopiering
+| Snabb meny | Resultat |
 |:--- |:--- |
-| W |Öppnar en ny StorSimple Snapshot Manager-konsol med fokus på noden **Volymgrupper.** |
+| W |Öppnar en ny StorSimple-Snapshot Manager-konsol fokuserad på **volym grupper** -noden. |
 | F |Uppdaterar StorSimple Snapshot Manager-konsolen. |
-| H |Öppnar onlinehjälp. |
+| H |Öppnar direkt hjälpen. |
 
-#### <a name="jobs-node-shortcut-keys"></a>Kortkommandon för jobbnod
-| Menygenväg | Resultat |
+#### <a name="jobs-node-shortcut-keys"></a>Kortkommandon för jobb nod
+| Snabb meny | Resultat |
 |:--- |:--- |
-| V |Öppnar **Visa-menyn.** |
-| W |Öppnar en ny StorSimple Snapshot **Jobs** Manager-konsol med fokus på jobbnoden. |
+| V |Öppnar **Visa** -menyn. |
+| W |Öppnar en ny StorSimple-Snapshot Manager-konsol fokuserad på **jobb** -noden. |
 | F |Uppdaterar StorSimple Snapshot Manager-konsolen. |
-| L |Öppnar sidan **Exportera lista.** |
+| L |Öppnar sidan **Exportera lista** . |
 | H |Öppnar onlinehjälp |
 
 ## <a name="next-steps"></a>Nästa steg

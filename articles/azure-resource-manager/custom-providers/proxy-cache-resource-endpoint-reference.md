@@ -1,26 +1,26 @@
 ---
 title: Skapa referens för resurscache
-description: Anpassad resurscachereferens för Azure Custom Resource Providers. Den här artikeln kommer att gå igenom kraven för slutpunkter som implementerar anpassade cacheresurser.
+description: Anpassad Resource cache-referens för Azure-anpassade resurs leverantörer. Den här artikeln går igenom kraven för slut punkter som implementerar cache-anpassade resurser.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75650388"
 ---
-# <a name="custom-resource-cache-reference"></a>Anpassad resurscachereferens
+# <a name="custom-resource-cache-reference"></a>Anpassad Resource cache-referens
 
-Den här artikeln kommer att gå igenom kraven för slutpunkter som implementerar anpassade cacheresurser. Om du inte känner till Azure Custom Resource Providers läser du [översikten över anpassade resursleverantörer](overview.md).
+Den här artikeln går igenom kraven för slut punkter som implementerar cache-anpassade resurser. Om du inte är bekant med Azures anpassade resurs leverantörer kan du läsa [Översikt över anpassade resurs leverantörer](overview.md).
 
-## <a name="how-to-define-a-cache-resource-endpoint"></a>Så här definierar du en slutpunkt för cacheresurs
+## <a name="how-to-define-a-cache-resource-endpoint"></a>Definiera en slut punkt för en cache-resurs
 
-En proxyresurs kan skapas genom att ange **routingType** till "Proxy, Cache".
+Du kan skapa en proxyadress genom att ange **routingType** till "proxy, cache".
 
-Exempel på anpassad resursprovider:
+Exempel på anpassad resurs leverantör:
 
 ```JSON
 {
@@ -40,13 +40,13 @@ Exempel på anpassad resursprovider:
 }
 ```
 
-## <a name="building-proxy-resource-endpoint"></a>Slutpunkt för skapa proxyresurs
+## <a name="building-proxy-resource-endpoint"></a>Skapar resurs slut punkt för proxy
 
-En **slutpunkt** som implementerar en "Proxy, **Cache"-resursslutpunkt** måste hantera begäran och svaret för det nya API:et i Azure. I det här fallet genererar **resourceType** ett `PUT`nytt `GET`Azure-resurs-API för , och `DELETE` för `GET` att utföra CRUD på en enda resurs samt hämta alla befintliga resurser:
+En **slut punkt** som implementerar en "proxy, cache"-resurs **slut punkt** måste hantera begäran och svara på det nya API: et i Azure. I det här fallet genererar **resourceType** ett nytt Azure Resource API `PUT`för, `GET`och `DELETE` för att utföra CRUD på en enskild resurs, samt `GET` för att hämta alla befintliga resurser:
 
 > [!NOTE]
-> Azure-API:et genererar `PUT` `GET`begärandemetoderna , , `DELETE`och , `DELETE`men **cacheslutpunkten** behöver bara hantera `PUT` och .
-> Vi rekommenderar att **slutpunkten** `GET`också implementerar .
+> Azure API genererar förfrågnings metoderna `PUT`, `GET`och `DELETE`, men cache- **slutpunkten** behöver bara hantera `PUT` och. `DELETE`
+> Vi rekommenderar också att **slut punkten** också implementerar `GET`.
 
 ### <a name="create-a-custom-resource"></a>Skapa en anpassad resurs
 
@@ -67,7 +67,7 @@ Content-Type: application/json
 }
 ```
 
-Den här begäran vidarebefordras sedan till **slutpunkten** i formuläret:
+Den här begäran kommer sedan att vidarebefordras till **slut punkten** i formuläret:
 
 ``` HTTP
 PUT https://{endpointURL}/?api-version=2018-09-01-preview
@@ -84,14 +84,14 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-På samma sätt vidarebefordras svaret från **slutpunkten** tillbaka till kunden. Svaret från slutpunkten ska returneras:
+På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
-- Ett giltigt JSON-objektdokument. Alla matriser och strängar ska kapslas under ett överkant objekt.
-- Huvudet `Content-Type` ska ställas in på "application/json; charset=utf-8".
-- Den anpassade resursprovidern `name`skriver `type`över `id` fälten , och för begäran.
-- Den anpassade resursprovidern returnerar bara fält under `properties` objektet för en cacheslutpunkt.
+- Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
+- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- Den anpassade resurs leverantören kommer att skriva över `name`fälten `type`,, `id` och för begäran.
+- Den anpassade resurs leverantören kommer bara att returnera fält under `properties` objektet för en cache-slutpunkt.
 
-**Slutpunkt** Svar:
+**Slut punkt** Svarade
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -107,9 +107,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-`name`Fälten `id`, `type` och genereras automatiskt för den anpassade resursen av den anpassade resursleverantören.
+Fälten `name`, `id`och `type` kommer automatiskt att genereras för den anpassade resursen av den anpassade resurs leverantören.
 
-Azure Custom Resource Provider Svar:
+Svar från Azures anpassade resurs leverantör:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -138,7 +138,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Den här begäran vidarebefordras sedan till **slutpunkten** i formuläret:
+Den här begäran kommer sedan att vidarebefordras till **slut punkten** i formuläret:
 
 ``` HTTP
 Delete https://{endpointURL}/?api-version=2018-09-01-preview
@@ -146,20 +146,20 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-På samma sätt vidarebefordras svaret från **slutpunkten** tillbaka till kunden. Svaret från slutpunkten ska returneras:
+På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
-- Ett giltigt JSON-objektdokument. Alla matriser och strängar ska kapslas under ett överkant objekt.
-- Huvudet `Content-Type` ska ställas in på "application/json; charset=utf-8".
-- Azure Custom Resource Provider tar bara bort objektet från cacheminnet om ett svar på 200-nivå returneras. Även om resursen inte finns bör **slutpunkten** returnera 204.
+- Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
+- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- Den anpassade Azure-providern tar bara bort objektet från cachen om ett svar på 200 nivå returneras. Även om resursen inte finns ska **slut punkten** returnera 204.
 
-**Slutpunkt** Svar:
+**Slut punkt** Svarade
 
 ``` HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
 
-Azure Custom Resource Provider Svar:
+Svar från Azures anpassade resurs leverantör:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -176,9 +176,9 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Begäran vidarebefordras **inte** till **slutpunkten**.
+Begäran kommer **inte** att vidarebefordras till **slut punkten**.
 
-Azure Custom Resource Provider Svar:
+Svar från Azures anpassade resurs leverantör:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -207,9 +207,9 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-Den här begäran vidarebefordras **inte** till **slutpunkten**.
+Den här begäran kommer **inte** att vidarebefordras till **slut punkten**.
 
-Azure Custom Resource Provider Svar:
+Svar från Azures anpassade resurs leverantör:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -234,8 +234,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure Custom Resource Providers](overview.md)
-- [Snabbstart: Skapa Azure Custom Resource Provider och distribuera anpassade resurser](./create-custom-provider.md)
-- [Självstudiekurs: Skapa anpassade åtgärder och resurser i Azure](./tutorial-get-started-with-custom-providers.md)
-- [Så här lägger du till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Referens: Anpassad resursproxyreferens](proxy-resource-endpoint-reference.md)
+- [Översikt över Azures anpassade resurs leverantörer](overview.md)
+- [Snabb start: skapa en anpassad resurs leverantör för Azure och distribuera anpassade resurser](./create-custom-provider.md)
+- [Självstudie: skapa anpassade åtgärder och resurser i Azure](./tutorial-get-started-with-custom-providers.md)
+- [Gör så här: lägga till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [Referens: referens för en anpassad resurs-proxy](proxy-resource-endpoint-reference.md)

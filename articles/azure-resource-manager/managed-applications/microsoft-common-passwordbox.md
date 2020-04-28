@@ -1,22 +1,22 @@
 ---
-title: Gränssnittselement för PasswordBox
-description: I artikeln beskrivs användargränssnittselementet Microsoft.Common.PasswordBox för Azure portal. Gör det möjligt för användare att ange ett hemligt värde när de distribuerar hanterade program.
+title: GRÄNSSNITTs element för lösen ord
+description: Beskriver användar gränssnitts elementet Microsoft. Common. password för Azure Portal. Gör att användarna kan ange ett hemligt värde när de distribuerar hanterade program.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5f7d3a47482ccec9778b102d3509b5f8ef343185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652312"
 ---
-# <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI-element
+# <a name="microsoftcommonpasswordbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. password
 
-En kontroll som kan användas för att ange och bekräfta ett lösenord.
+En kontroll som kan användas för att ange och bekräfta ett lösen ord.
 
-## <a name="ui-sample"></a>Exempel på användargränssnitt
+## <a name="ui-sample"></a>UI-exempel
 
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
@@ -51,11 +51,11 @@ En kontroll som kan användas för att ange och bekräfta ett lösenord.
 
 ## <a name="remarks"></a>Anmärkningar
 
-- Det här elementet `defaultValue` stöder inte egenskapen.
-- Information om `constraints`implementering i finns i [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- Om `options.hideConfirmation` värdet är **true**döljs den andra textrutan för att bekräfta användarens lösenord. Standardvärdet är **falskt**.
+- Det här elementet har inte `defaultValue` stöd för egenskapen.
+- Information om implementeringen `constraints`av finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
+- Om `options.hideConfirmation` är inställt på **Sant**döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **falskt**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

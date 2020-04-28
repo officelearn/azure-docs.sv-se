@@ -1,63 +1,63 @@
 ---
-title: Säkerhetskontroller för Azure Service Fabric
-description: Läs mer om säkerhetskontroller för Azure Service Fabric. Innehåller en checklista med inbyggda säkerhetskontroller.
+title: Säkerhets kontroller för Azure Service Fabric
+description: Lär dig mer om säkerhets kontroller för Azure Service Fabric. Innehåller en check lista med inbyggda säkerhets kontroller.
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645437"
 ---
-# <a name="security-controls-for-azure-service-fabric"></a>Säkerhetskontroller för Azure Service Fabric
+# <a name="security-controls-for-azure-service-fabric"></a>Säkerhets kontroller för Azure Service Fabric
 
-Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i Azure Service Fabric. 
+I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azure Service Fabric. 
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhetskontroll | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Support för tjänstens slutpunkt| Ja |  |
-| Stöd för VNet-injektion| Ja |  |
-| Stöd för nätverksisolering och brandväggar| Ja | Använda säkerhetsgrupper för nätverk (NSG). |
-| Stöd för påtvingad tunnelning| Ja | Azure-nätverk ger påtvingad tunnel. |
+| Stöd för tjänst slut punkt| Ja |  |
+| Stöd för VNet-injektering| Ja |  |
+| Stöd för nätverks isolering och brand vägg| Ja | Använda nätverks säkerhets grupper (NSG). |
+| Stöd för Tvingad tunnel trafik| Ja | Azure-nätverk tillhandahåller Tvingad tunnel trafik. |
 
-## <a name="monitoring--logging"></a>Övervakning & loggning
+## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhetskontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Logganalys, App insikter, etc.)| Ja | Använda Azure-övervakningsstöd och support från tredje part. |
-| Kontroll- och hanteringsplan loggning och revision| Ja | Alla styrplansoperationer går igenom processer för granskning och godkännanden. |
-| Loggning och granskning av dataplan| Ej tillämpligt | Kunden äger klustret.  |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Använda Azure Monitoring support och stöd från tredje part. |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Alla kontroll Plans åtgärder körs genom processer för granskning och godkännanden. |
+| Loggning och granskning av data planet| Ej tillämpligt | Kunden äger klustret.  |
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhetskontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Autentisering sker via Azure Active Directory. |
-| Auktorisering| Ja | Identitets- och åtkomsthantering (IAM) för samtal via SFRP. Anrop direkt till klusterslutpunkten stöder två roller: Användare och Administratör. Kunden kan mappa API:erna till båda rollerna. |
+| Autentisering| Ja | Autentisering är via Azure Active Directory. |
+| Auktorisering| Ja | Identitets-och åtkomst hantering (IAM) för anrop via SFRP. Anrop direkt till kluster slut punkten har stöd för två roller: användare och administratör. Kunden kan mappa API: erna till vilken roll som möjligt. |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhetskontroll | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på serversidan i vila: Microsoft-hanterade nycklar | Ja | Kunden äger klustret och den virtuella datorn skala uppsättning som klustret är byggt. Azure-diskkryptering kan aktiveras på den virtuella datorns skalningsuppsättning. |
-| Kryptering på serversidan i vila: kundhanterade nycklar (BYOK) | Ja | Kunden äger klustret och den virtuella datorn skala uppsättning som klustret är byggt. Azure-diskkryptering kan aktiveras på den virtuella datorns skalningsuppsättning. |
-| Kryptering på kolumnnivå (Azure Data Services)| Ej tillämpligt |  |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, vnet-kryptering och VNet-VNet-kryptering)| Ja |  |
-| API-anrop krypterade| Ja | Api-anrop för tjänstinfrastruktur görs via Azure Resource Manager. En giltig JSON-webbtoken (JWT) krävs. |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Kunden äger klustret och den skalnings uppsättning för virtuella datorer som klustret har skapats på. Azure Disk Encryption kan aktive ras på den virtuella datorns skal uppsättning. |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kunden äger klustret och den skalnings uppsättning för virtuella datorer som klustret har skapats på. Azure Disk Encryption kan aktive ras på den virtuella datorns skal uppsättning. |
+| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja |  |
+| Krypterade API-anrop| Ja | Service Fabric API-anrop görs via Azure Resource Manager. En giltig JSON Web token (JWT) krävs. |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetskontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Stöd för konfigurationshantering (versionshantering av konfiguration osv.)| Ja | |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om de [inbyggda säkerhetskontrollerna för Azure-tjänster](../security/fundamentals/security-controls.md).
+- Lär dig mer om de [inbyggda säkerhets kontrollerna i Azure-tjänster](../security/fundamentals/security-controls.md).

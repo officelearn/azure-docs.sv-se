@@ -1,121 +1,121 @@
 ---
-title: Vägledning för katastrofåterställning för Avere vFXT för Azure
-description: Så här skyddar du data i Avere vFXT för Azure från oavsiktlig borttagning eller avbrott
+title: Vägledning för haveri beredskap för AVERT vFXT för Azure
+description: Skydda data i aver vFXT för Azure från oavsiktlig borttagning eller avbrott
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75966654"
 ---
-# <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Vägledning för katastrofåterställning för Avere vFXT för Azure
+# <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Vägledning för haveri beredskap för AVERT vFXT för Azure
 
-I den här artikeln beskrivs strategier för att skydda ditt Avere vFXT för Azure-arbetsflöde och vägledning för säkerhetskopiering av data så att du kan återställa från olyckor eller avbrott.
+Den här artikeln beskriver strategier för att skydda ditt AVERT vFXT för Azure-arbetsflöde och ger vägledning för att säkerhetskopiera data så att du kan återställa från haverier eller avbrott.
 
-Avere vFXT för Azure lagrar tillfälligt data i cacheminnet. Data lagras långsiktigt i backend-lagringssystem – lokala maskinvarusystem, Azure Blob-lagringsbehållare eller båda.
+Aver vFXT for Azure lagrar tillfälligt data i cacheminnet. Data lagras långsiktigt i Server dels lagrings system – lokala maskin varu system, Azure Blob Storage-behållare eller båda.
 
-Om du vill skydda dig mot avbrott och eventuell dataförlust bör du tänka på följande fyra områden:
+Överväg följande fyra områden för att skydda mot avbrott och möjliga data förluster:
 
-* Skydd mot driftstopp om ett Avere vFXT för Azure-system blir otillgängligt
-* Skydda data i klustercachen
-* Skydda data i fjärrdyna-lagring av NAS-maskinvara
-* Skydda data i azure blob-molnlagring på andra sätt
+* Skydd mot nedtid om ett AVERT vFXT för Azure-system blir otillgängligt
+* Skydda data i klustrets cacheminne
+* Skydda data i backend-maskinvara på Server Sidan
+* Skydda data i Server dels Azure Blob-moln lagring
 
-Varje Avere vFXT för Azure-kund måste skapa sin egen omfattande katastrofåterställningsplan som innehåller planer för dessa artiklar. Du kan också skapa återhämtning i program som du använder med vFXT-klustret. Läs länkarna i [Nästa steg](#next-steps) för hjälp.
+Varje AVERT vFXT för Azure-kunder måste skapa en egen omfattande katastrof återställnings plan som innehåller planer för dessa objekt. Du kan också bygga återhämtning till program som du använder med vFXT-klustret. Läs länkarna i [Nästa steg](#next-steps) för att få hjälp.
 
-## <a name="protect-against-downtime"></a>Skydda mot driftstopp
+## <a name="protect-against-downtime"></a>Skydda mot drift stopp
 
-Redundans är inbyggt i Avere vFXT för Azure-produkten:
+Redundans är inbyggt i AVERT vFXT för Azure-produkten:
 
-* Klustret är mycket tillgängligt och enskilda klusternoder kan växla över med minimalt avbrott.
-* Data som ändras i cacheminnet skrivs regelbundet till backend-kärnfilers (hardware NAS eller Azure Blob) för långsiktig lagring.
+* Klustret har hög tillgänglighet och enskilda klusternoder kan redundansväxla med minimalt avbrott.
+* Data som har ändrats i cachen skrivs regelbundet till Server dels Core-(maskinvaru-NAS eller Azure-Blob) för långsiktig lagring.
 
-Varje Avere vFXT för Azure-kluster måste finnas i en enda tillgänglighetszon, men du kan använda redundanta kluster som finns i olika zoner eller olika regioner för att ge åtkomst snabbt i händelse av ett regionalt avbrott.
+Varje AVERT vFXT för Azure-kluster måste finnas i en enda tillgänglighets zon, men du kan använda redundanta kluster som finns i olika zoner eller i olika regioner för att snabbt ge åtkomst i händelse av ett regionalt avbrott.
 
-Du kan också placera lagringsbehållare i flera regioner om du är orolig för att förlora åtkomst till data. Tänk dock på att transaktioner mellan regioner har högre svarstid och högre kostnad än transaktioner som stannar inom en region.
+Du kan också placera lagrings behållare i flera regioner om du är bekymrad om att förlora åtkomsten till data. Tänk dock på att transaktioner mellan regioner har högre latens och högre kostnad än transaktioner som ligger inom en region.
 
-## <a name="protect-data-in-the-cluster-cache"></a>Skydda data i klustercachen
+## <a name="protect-data-in-the-cluster-cache"></a>Skydda data i klustrets cacheminne
 
-Cachelagrade data skrivs alltid till kärnfilersna före en vanlig avstängning, men i en okontrollerad avstängning kan ändrade data i cacheminnet gå förlorade.
+Cachelagrade data skrivs alltid till core-filer före en vanlig avstängning, men i en okontrollerad avstängning kan ändrade data i cacheminnet gå förlorade.
 
-Om du bara använder klustret för att optimera filläsningar finns det inga ändringar att förlora. Om du också använder klustret för att cachelagra filändringar (skrivningar) bör du överväga om du vill justera kärnfilers [cacheprinciper](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html)<!-- link to legacy doc --> för att anpassa hur ofta data skrivs till långsiktig lagring.
+Om du använder klustret för att optimera fil läsningar finns det inga ändringar att förlora. Om du också använder klustret för att cachelagra fil ändringar (skrivningar) bör du överväga om du vill justera Core-filvägarnas [cache-principer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html)<!-- link to legacy doc --> för att anpassa hur ofta data skrivs till långsiktig lagring.
 
-I allmänhet bör återställningsplanen fokusera på att säkerhetskopiera backend-lagringssystemen, som innehåller mer data och vanligtvis är viktigare för att återupprätta arbetsflödet efter ett fel.
+I allmänhet bör din återställnings plan fokusera på att säkerhetskopiera backend-lagrings systemen, som innehåller mer data och är vanligt vis viktiga för att återupprätta arbets flödet efter ett haveri.
 
-## <a name="protect-data-in-nas-core-filers"></a>Skydda data i NAS-kärnfilers
+## <a name="protect-data-in-nas-core-filers"></a>Skydda data i NAS Core-Filskydd
 
-Använd accepterade metoder för att skydda data som lagras i en lokal NAS-maskinvarukärna filer, inklusive ögonblicksbilder och fullständiga säkerhetskopior som rekommenderas av NAS-leverantören. Haveriberedskap för dessa kärnfilers är utanför ramen för den här artikeln.
+Använd godkända metoder för att skydda data som lagras i en lokal NAS-maskinvara, inklusive ögonblicks bilder och fullständiga säkerhets kopior som rekommenderas av NAS-providern. Haveri beredskap för dessa Core-ligger utanför den här artikelns omfång.
 
-## <a name="protect-data-in-azure-blob-storage"></a>Skydda data i Azure Blob-lagring
+## <a name="protect-data-in-azure-blob-storage"></a>Skydda data i Azure Blob Storage
 
-Avere vFXT för Azure använder lokalt redundant lagring (LRS) för Azure Blob core filers. Det innebär att data i Blob-behållarna automatiskt kopieras för skydd mot tillfälliga maskinvarufel i ett datacenter.
+Aver vFXT for Azure använder lokalt redundant lagring (LRS) för Azure Blob Core-Filskydd. Det innebär att data i dina BLOB-behållare kopieras automatiskt för skydd mot tillfälliga maskin varu problem i ett Data Center.
 
-I det här avsnittet får du tips om hur du skyddar dina data i Blob-lagring ytterligare från sällsynta avbrott i hela regionen eller oavsiktliga borttagningar.
+Det här avsnittet innehåller tips om hur du ytterligare skyddar dina data i Blob Storage från ovanliga avbrott i regioner eller oavsiktliga borttagningar.
 
-Metodtips för att skydda data i Azure Blob-lagring är:
+Metod tips för att skydda data i Azure Blob Storage är:
 
-* Kopiera dina kritiska data till ett annat lagringskonto i en annan region ofta (så ofta som bestäms av din haveriberedskapsplan).
-* Kontrollera åtkomsten till data på alla målsystem för att förhindra oavsiktlig borttagning eller skada. Överväg att använda [resurslås](../azure-resource-manager/management/lock-resources.md) på datalagring.
-* Aktivera funktionen Avere vFXT för [Azure-molnögonblicksbild](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) för dina Blob-kärnfilers.
+* Kopiera dina viktiga data till ett annat lagrings konto i en annan region ofta (så ofta som det bestäms av din katastrof återställnings plan).
+* Kontrol lera åtkomsten till data på alla mål system för att förhindra oavsiktlig borttagning eller skada. Överväg att använda [resurs lås](../azure-resource-manager/management/lock-resources.md) på data lagring.
+* Aktivera funktionen aver vFXT för [ögonblicks bilder](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) av Azure-molnet för dina BLOB core-filer.
 
-### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Kopiera Avere vFXT core filer data till ett backup-konto
+### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Kopiera aver vFXT core-filer till ett säkerhets kopierings konto
 
-Följ dessa steg för att upprätta en säkerhetskopiering av data i ett annat konto.
+Följ dessa steg om du vill upprätta en säkerhets kopia av data i ett annat konto.
 
-1. Om det behövs, generera en ny krypteringsnyckel och lagra den säkert utanför de berörda systemen.
+1. Om det behövs kan du generera en ny krypterings nyckel och lagra den på ett säkert sätt utanför de berörda systemen.
 
-   Om dina data krypteras av Avere vFXT för Azure-kluster bör du generera en ny krypteringsnyckel innan du kopierar data till ett annat lagringskonto. Lagra nyckeln och lösenordet säkert i en anläggning som är säker och som inte påverkas av ett regionalt fel.
+   Om dina data har krypterats av AVERT vFXT för Azure-kluster, bör du skapa en ny krypterings nyckel innan du kopierar data till ett annat lagrings konto. Lagra nyckeln och lösen ordet säkert i en säker funktion som inte påverkas av ett regionalt fel.
 
-   Du måste ange den här nyckeln när du lägger till behållaren i ett kluster - även om du lägger till den i det ursprungliga klustret igen.
+   Du måste ange den här nyckeln när du lägger till behållaren i ett kluster, även om du lägger till den i det ursprungliga klustret igen.
 
-   Läs [inställningar för molnkryptering](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html>)<!-- link to legacy doc site --> för detaljerad information.
+   Läs [moln krypterings inställningar](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_encryption_settings.html>)<!-- link to legacy doc site --> för detaljerad information.
 
-   Om din behållare endast använder Azures inbyggda kryptering kan du hoppa över det här steget.
+   Om din behållare använder Azures inbyggda kryptering, kan du hoppa över det här steget.
 
-1. Ta bort kärnfilerna från systemet. Detta tvingar klustret att skriva alla ändrade data till backend-lagringen.
+1. Ta bort kärn filen från systemet. Detta tvingar klustret att skriva alla ändrade data till Server delens lagrings plats.
 
-   Även om du måste lägga till kärnan filer efter säkerhetskopieringen, ta bort det är det bästa sättet att garantera att alla data är helt skriven till baksidan. (Alternativet "pausa" kan ibland lämna ändrade data i cacheminnet.) <!-- xxx true? or just metadata? -->
+   Även om du kommer att behöva lägga till kärn filen efter säkerhets kopieringen är det bästa sättet att garantera att alla data skrivs fullständigt till Server delen. (Alternativet "pausa" kan ibland lämna kvar ändrade data i cacheminnet.) <!-- xxx true? or just metadata? -->
 
-   Anteckna kärnfilernas namn- och korsningsinformation (listad på **sidan Namnrymd** på kontrollpanelen) så att du kan replikera den när du lägger till behållaren igen efter säkerhetskopieringen.
+   Anteckna huvud namn och kopplings information (visas på sidan **namn område** i kontroll panelen) så att du kan replikera den när du lägger till behållaren igen efter säkerhets kopieringen.
 
-   Använd klusterkontrollpanelen för att ta bort kärnfilerna. [Öppna klusterkontrollpanelen](avere-vfxt-cluster-gui.md) och välj **Core filer** > **Hantera kärnfilers**. Leta reda på det lagringssystem som du vill säkerhetskopiera och använd knappen **Ta bort** för att ta bort det från klustret.
+   Använd kluster kontroll panelen för att ta bort kärn filer. [Öppna kluster kontroll panelen](avere-vfxt-cluster-gui.md) och välj **Core** > -**filer hantera Core**-. Hitta det lagrings system som du vill säkerhetskopiera och Använd knappen **ta bort** för att ta bort det från klustret.
 
-1. Skapa en ny, tom Blob-lagringsbehållare i ett annat lagringskonto i en annan region.
+1. Skapa en ny, Tom Blob Storage-behållare i ett annat lagrings konto i en annan region.
 
-1. Använd ett bekvämt kopieringsverktyg för att kopiera data på kärnfilerna till den nya behållaren. Kopian måste replikera data utan ändringar och utan att störa det egna molnfilsystemformatet som används av Avere vFXT för Azure. Azure-baserade verktyg inkluderar [AzCopy,](../storage/common/storage-use-azcopy-v10.md) [Azure PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)och [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
+1. Använd valfritt användbart kopierings verktyg för att kopiera data från kärn filen till den nya behållaren. Kopian måste replikera data utan ändringar och utan att störa det patentskyddade moln fil system formatet som används av AVERT vFXT för Azure. Azure-baserade verktyg omfattar [AzCopy](../storage/common/storage-use-azcopy-v10.md), [Azure PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)och [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
-1. När du har kopierat data till behållaren för säkerhetskopiering lägger du till den ursprungliga behållaren i klustret enligt beskrivningen i [Konfigurera lagring](avere-vfxt-add-storage.md).
+1. När du har kopierat data till behållaren för säkerhets kopiering lägger du till den ursprungliga behållaren tillbaka till klustret enligt beskrivningen i [Konfigurera lagring](avere-vfxt-add-storage.md).
 
-   * Använd samma kärnfilernamn och korsningsinformation så att klientarbetsflödena inte behöver ändras.
-   * Ange **innehållsvärdet för bucket till** det befintliga dataalternativet.
-   * Om behållaren krypterades av klustret måste du ange den aktuella krypteringsnyckeln för dess innehåll. (Det här är nyckeln som du uppdaterade i steg ett.)
+   * Använd samma namn och kopplings information för kärnor så att klient arbets flöden inte behöver ändras.
+   * Ange värdet för **Bucket-innehåll** till det befintliga data alternativet.
+   * Om behållaren har krypterats av klustret måste du ange den aktuella krypterings nyckeln för innehållet. (Det här är den nyckel som du uppdaterade i steg ett.)
 
-För säkerhetskopior efter den första behöver du inte skapa en ny lagringsbehållare. Men överväg att generera en ny krypteringsnyckel varje gång du gör en säkerhetskopia för att se till att du har den aktuella nyckeln lagras på en plats du kommer ihåg.
+För säkerhets kopieringar efter den första måste du inte skapa en ny lagrings behållare. Men du kan skapa en ny krypterings nyckel varje gång du gör en säkerhets kopia för att kontrol lera att du har den aktuella nyckeln lagrad på en plats som du kommer ihåg.
 
-### <a name="access-a-backup-data-source-during-an-outage"></a>Komma åt en datakälla för säkerhetskopiering under ett avbrott
+### <a name="access-a-backup-data-source-during-an-outage"></a>Få åtkomst till en säkerhets kopie rad data källa under ett avbrott
 
-Så här kommer du åt behållaren för säkerhetskopiering från ett Avere vFXT för Azure-kluster:
+Följ den här processen om du vill komma åt behållaren för säkerhets kopiering från ett AVERT vFXT för Azure-kluster:
 
-1. Om det behövs skapar du ett nytt Avere vFXT för Azure-kluster i en opåverkad region.
+1. Om det behövs kan du skapa ett nytt AVERT vFXT för Azure-kluster i en region som inte påverkas.
 
    > [!TIP]
-   > När du skapar ett Avere vFXT för Azure-kluster kan du spara en kopia av dess skapande mall och parametrar. Om du sparar den här informationen när du skapar det primära klustret kan du använda den för att skapa ett ersättningskluster med samma egenskaper. Klicka på länken **Hämta mall och parametrar** på [sammanfattningssidan.](avere-vfxt-deploy.md#validation-and-purchase) Spara informationen i en fil innan du skapar klustret.
+   > När du skapar en aver-vFXT för Azure-kluster kan du spara en kopia av dess mall och parametrar. Om du sparar den här informationen när du skapar ditt primära kluster kan du använda det för att skapa ett ersättnings kluster med samma egenskaper. På sidan [Sammanfattning](avere-vfxt-deploy.md#validation-and-purchase) klickar du på länken **Hämta mall och parametrar** . Spara informationen i en fil innan du skapar klustret.
 
-1. Lägg till en ny cloud core filer som pekar på den dubbla Blob-behållaren.
+1. Lägg till en ny Cloud core-filer som pekar på den duplicerade BLOB-behållaren.
 
-   Se till att ange att målbehållaren redan innehåller data i **inlagens innehållsinställning** för guiden skapa kärnfiler. (Systemet bör varna dig om du av misstag lämnar den här uppsättningen till **Tom**.)  <!-- you can't add a populated volume at cluster creation time via template, only create a fresh one -->
+   Se till att ange att mål behållaren redan innehåller data i inställningen **Bucket-innehåll** i guiden för att skapa kärn filer. (Systemet varnar dig om du av misstag lämnar den här inställningen **Tom**.)  <!-- you can't add a populated volume at cluster creation time via template, only create a fresh one -->
 
-1. Om det behövs uppdaterar du klienter så att de monterar det nya klustret eller nya kärnfiler i stället för originalet. (Om du lägger till ersättningskärvar med samma namn och korsningssökväg som den ursprungliga behållaren behöver du inte uppdatera klientprocesser om du inte behöver montera det nya klustret på en ny IP-adress.)
+1. Vid behov kan du uppdatera klienter så att de monterar det nya klustret eller nya kärnor i stället för originalet. (Om du lägger till ersättnings core-filer med samma namn och knutna sökväg som den ursprungliga behållaren behöver du inte uppdatera klient processerna om du inte behöver montera det nya klustret på en ny IP-adress.)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du anpassar inställningar för Avere vFXT för Azure finns i [Klusterjustering](avere-vfxt-tuning.md).
-* Läs mer om katastrofåterställning och skapande av fjädrande program i Azure:
+* Läs [kluster justeringen](avere-vfxt-tuning.md)om du vill ha mer information om att anpassa inställningar för AVERT VFXT för Azure.
+* Lär dig mer om haveri beredskap och att skapa elastiska program i Azure:
 
   * [Azure-återhämtning, tekniska riktlinjer](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
   * [Återställa från regionomfattande tjänststörningar](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)

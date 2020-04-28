@@ -9,49 +9,49 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: d88fcfc4d3e073bf544f2ca0f4d01dbe305b45da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75775516"
 ---
 # <a name="direct-peering-walkthrough"></a>Genomgång av Direct-peering
 
-I det här avsnittet beskrivs de steg du behöver följa för att konfigurera och hantera en direkt peering.
+I det här avsnittet beskrivs de steg du måste följa för att konfigurera och hantera en direkt peering.
 
 ## <a name="create-a-direct-peering"></a>Skapa en direkt peering
 > [!div class="mx-imgBorder"]
-> ![Arbetsflödes- och anslutningstillstånd för direkt peering](./media/direct-peering.png)
+> ![Arbets flöde för direkt peering och anslutnings tillstånd](./media/direct-peering.png)
 
-Följande steg måste följas för att etablera en direkt peering:
-1. Granska [Microsofts peering-policy](https://peering.azurewebsites.net/peering) för att förstå kraven för direkt peering.
-1. Följ instruktionerna i [Skapa eller ändra en direkt peering](howto-direct-powershell.md) för att skicka en peering-begäran.
-1. När du har skickat en peering-begäran kontaktar Microsoft din registrerade e-postadress för att tillhandahålla LOA (Letter Of Authorization) eller för annan information.
-1. När peering-begäran har godkänts ändras anslutningstillståndet till EtableringStartad.
+Följande steg måste följas för att tillhandahålla en direkt peering:
+1. Granska Microsofts [peering-princip](https://peering.azurewebsites.net/peering) för att förstå krav för direkt peering.
+1. Följ instruktionerna i [skapa eller ändra en direkt peering](howto-direct-powershell.md) för att skicka en peering-begäran.
+1. När du har skickat in en peering-begäran kommer Microsoft att kontaktas med din registrerade e-postadress för att tillhandahålla LOA (rem bur tillstånd) eller för annan information.
+1. När peering-begäran har godkänts ändras anslutnings status till ProvisioningStarted.
 1. Du måste:
-    1. komplett ledningar enligt LOA
-    1. (valfritt) utföra länktest med 169.254.0.0/16
-    1. konfigurera BGP-session och meddela oss.
-1. Microsoft bestämmelser BGP session med neka alla princip och validera end-to-end.
-1. Om det lyckas får du ett meddelande om att peering-anslutningstillståndet är aktivt.
-1. Trafiken kommer då att tillåtas genom den nya peering.
+    1. Slutför kablar enligt LOA
+    1. (valfritt) utför Link-test med 169.254.0.0/16
+    1. Konfigurera BGP-sessionen och meddela oss sedan oss.
+1. Microsoft etablerar BGP-sessionen med neka ALL-princip och validerar slut punkt till slut punkt.
+1. Om det lyckas visas ett meddelande om att peering-anslutningens status är aktiv.
+1. Trafiken kommer sedan att tillåtas via den nya peering.
 
-Observera att anslutningstillstånd inte ska förväxlas med vanliga [BGP-sessionstillstånd.](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
+Observera att anslutnings tillstånd inte kan förväxlas med standard tillstånd för [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) -sessioner.
 
 ## <a name="convert-a-legacy-direct-peering-to-azure-resource"></a>Konvertera en äldre Direct-peering till en Azure-resurs
-Följande steg måste följas för att konvertera en äldre direct peering till Azure-resurs:
-1. Följ instruktionerna i [Konvertera en äldre direkt peering till Azure-resurs](howto-legacy-direct-powershell.md)
-1. När du har skickat in konverteringsbegäran granskar Microsoft begäran och kontaktar dig om det behövs.
-1. När du har godkänts kommer du att se din Direkt peering med ett anslutningstillstånd som Aktiv.
+Följande steg måste följas för att konvertera en äldre direkt peering till Azure-resursen:
+1. Följ instruktionerna i [konvertera en äldre direkt peering till Azure Resource](howto-legacy-direct-powershell.md)
+1. När du har skickat en konverterings förfrågan granskar Microsoft begäran och kontaktar dig om det behövs.
+1. När den har godkänts visas din direkta peering med anslutnings status som aktiv.
 
-## <a name="deprovision-direct-peering"></a>Avetablering Direkt peering
-Kontakta [Microsofts peering-team](mailto:peering@microsoft.com) för att avetablera direkt peering.
+## <a name="deprovision-direct-peering"></a>Avetablera direkt peering
+Kontakta [Microsofts peering](mailto:peering@microsoft.com) -team för att avetablera direkt peering.
 
-När en direkt peering är inställd för avetablering visas anslutningstillståndet som **PendingRemove**
+När en direkt peering har angetts för avetablering visas anslutnings statusen som **PendingRemove**
 
 > [!NOTE]
-> Om du kör PowerShell-cmdlet för att ta bort direct-peering när ConnectionState är EtableringStarted eller EtableringKomelt misslyckas åtgärden.
+> Om du kör PowerShell-cmdleten för att ta bort direkt peering när ConnectionState är ProvisioningStarted eller ProvisioningCompleted kommer åtgärden att Miss par.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [Förutsättningar för att konfigurera peering med Microsoft](prerequisites.md).
+* Läs om [förutsättningar för att konfigurera peering med Microsoft](prerequisites.md).

@@ -1,21 +1,21 @@
 ---
 title: Anpassa en HTTP-slutpunkt i Azure Functions
-description: Lär dig hur du anpassar en HTTP-utlösarslutpunkt i Azure Functions
+description: Lär dig hur du anpassar en HTTP trigger-slutpunkt i Azure Functions
 author: mattchenderson
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75769276"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
-I den här artikeln får du lära dig hur Azure Functions gör att du kan skapa mycket skalbara API:er. Azure Functions levereras med en samling inbyggda HTTP-utlösare och bindningar, vilket gör det enkelt att skapa en slutpunkt på en mängd olika språk, inklusive Node.js, C#, med mera. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera specifika åtgärder i API-designen. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
+I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en samling inbyggda HTTP-utlösare och bindningar som gör det enkelt att skapa en slut punkt på flera olika språk, inklusive Node. js, C# med mera. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
 
 ## <a name="prerequisites"></a>Krav 
 
@@ -25,7 +25,7 @@ Den resulterande funktionen kommer att användas för resten av den här artikel
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Öppna Azure Portal. För att göra detta [https://portal.azure.com](https://portal.azure.com) loggar du in med ditt Azure-konto.
+Öppna Azure Portal. Det gör du genom att logga in [https://portal.azure.com](https://portal.azure.com) på med ditt Azure-konto.
 
 ## <a name="customize-your-http-function"></a>Anpassa din HTTP-funktion
 
@@ -99,7 +99,7 @@ Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure
 
     | Field | Exempelvärde | Beskrivning |
     |---|---|---|
-    | Namn | HelloProxy | Ett eget namn som endast används för hantering |
+    | Name | HelloProxy | Ett eget namn som endast används för hantering |
     | Flödesmall | /api/remotehello | Avgör vilket flöde som används för att anropa den här proxyn |
     | Webbadress för serverdel | https://%HELLO_HOST%/api/hello | Anger den slutpunkt som begäran ska nå via proxy |
     
@@ -172,13 +172,13 @@ Härnäst lägger du till ditt fingerade API. Ersätt din proxies.json-fil med f
 }
 ```
 
-Då läggs en ny proxy till, ”GetUserByName”, utan egenskapen backendUri. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. Detta är särskilt användbart när proxy till ett äldre system, där du kan behöva ändra rubriker, frågeparametrar, etc. Mer information om åsidosättningar för begäran och svar finns [i Ändra begäranden och svar i Proxyservrar](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Då läggs en ny proxy till, ”GetUserByName”, utan egenskapen backendUri. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. Detta är särskilt användbart vid proxyering till ett äldre system, där du kan behöva ändra huvuden, frågeparametrar osv. Mer information om åsidosättningar av förfrågningar och svar finns i [ändra förfrågningar och svar i proxyservrar](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Testa ditt fingerade API genom att anropa slutpunkten `<YourProxyApp>.azurewebsites.net/api/users/{username}` med en webbläsare eller den REST-klient du föredrar. Se till att ersätta _{username}_ med ett strängvärde som representerar ett användarnamn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig hur du skapar och anpassar ett API på Azure Functions. Du lärde dig också att hantera flera API:er, även fingerade, tillsammans som en enhetlig API-yta. Du kan använda de här metoderna för att bygga ut API:er i olika komplexitetsgrader medan de körs på den serverlösa beräkningsmodell som Azure Functions ger.
+I den här artikeln har du lärt dig hur du skapar och anpassar ett API på Azure Functions. Du lärde dig också att hantera flera API:er, även fingerade, tillsammans som en enhetlig API-yta. Du kan använda de här metoderna för att bygga ut API:er i olika komplexitetsgrader medan de körs på den serverlösa beräkningsmodell som Azure Functions ger.
 
 Följande referenser kan vara till hjälp när du utvecklar ditt API vidare:
 

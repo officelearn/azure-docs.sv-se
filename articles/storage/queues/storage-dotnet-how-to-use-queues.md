@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure-kölagring med .NET - Azure Storage
+title: Kom igång med Azure Queue Storage med hjälp av .NET – Azure Storage
 description: Azure Queues ger tillförlitliga, asynkrona meddelandefunktioner mellan programkomponenter. Med hjälp av molnmeddelanden kan programkomponenter skalas separat.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 0806c1101c0bc93a1b917cb2d18709721ff0c6d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75968303"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
@@ -34,10 +34,10 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 ### <a name="prerequisites"></a>Krav
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Gemensamt azure storage-klientbibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-* [Klientbiblioteket för Azure Storage Queue för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Azure Storage vanliga klient bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Klient bibliotek för Azure Storage kö för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* Ett [Azure-lagringskonto](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* Ett [Azure Storage-konto](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -49,61 +49,61 @@ Konfigurera sedan din utvecklingsmiljö i Visual Studio så att du är redo att 
 
 ### <a name="create-a-windows-console-application-project"></a>Skapa ett Windows-konsolprogramprojekt
 
-Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsolprogram i Visual Studio 2019. Stegen är ungefär som i andra versioner av Visual Studio.
+Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsol program i Visual Studio 2019. Stegen är ungefär som i andra versioner av Visual Studio.
 
-1. Välj Nytt**New** > **projekt för** **fil** > 
-2. Välj > **plattformsfönster** **Platform**
+1. Välj **Arkiv** > **nytt** > **projekt**
+2. Välj **plattforms** > **fönster**
 3. Välj **Konsolprogram (.NET Framework)**
 4. Välj **Nästa**
-5. Ange ett namn på programmet i fältet **Projektnamn**
-6. Välj **Skapa**
+5. Ange ett namn för ditt program i fältet **projekt namn**
+6. Välj **skapa**
 
-Alla kodexempel i den här självstudien kan läggas till **i Main()-metoden** i konsolprogrammets **Program.cs-fil.**
+Alla kod exempel i den här självstudien kan läggas till i **Main ()-** metoden i konsol programmets **program.cs** -fil.
 
-Du kan använda Azure Storage-klientbiblioteken i alla typer av .NET-program, inklusive en Azure-molntjänst eller webbapp och skrivbords- och mobilappar. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
+Du kan använda Azure Storage klient bibliotek i vilken typ av .NET-program som helst, inklusive en Azure-moln tjänst eller webbapp, samt Skriv bords-och mobil program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
 
 Du måste referera till följande tre paket i projektet för att slutföra den här självstudien:
 
-* [Microsoft Azure Storage Common Client Library för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
-* [Microsoft Azure Storage Queue Library för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Det här klientbiblioteket gör det möjligt att arbeta med Tjänsten Microsoft Azure Storage Queue för lagring av meddelanden som kan kommas åt av en klient.
+* [Microsoft Azure Storage vanliga klient bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): det här paketet ger programmatisk åtkomst till data resurser i ditt lagrings konto.
+* [Microsoft Azure Storage Queue-bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): det här klient biblioteket gör det möjligt att arbeta med Microsoft Azure Storage-kötjänst för att lagra meddelanden som kan nås av en klient.
 * [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
-Du kan använda NuGet för att hämta dessa paket. Följ de här stegen:
+Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 
-1. Högerklicka på projektet i **Solution Explorer**och välj **Hantera NuGet-paket**.
+1. Högerklicka på ditt projekt i **Solution Explorer**och välj **Hantera NuGet-paket**.
 2. Välj **Bläddra**
-3. Sök online efter "Microsoft.Azure.Storage.Queue" och välj **Installera** för att installera lagringsklientbiblioteket och dess beroenden. Detta kommer också att installera Microsoft.Azure.Storage.Common-biblioteket, som är ett beroende av köbiblioteket.
-4. Sök online efter "Microsoft.Azure.ConfigurationManager" och välj **Installera** för att installera Azure Configuration Manager.
+3. Sök online efter "Microsoft. Azure. Storage. Queue" och välj **Installera** för att installera lagrings klient biblioteket och dess beroenden. Detta kommer också att installera Microsoft. Azure. Storage. common-biblioteket, vilket är ett beroende av Queue-biblioteket.
+4. Sök online efter "Microsoft. Azure. ConfigurationManager" och välj **Installera** för att installera Azure-Configuration Manager.
 
 > [!NOTE]
-> Paketen Lagringsklientbibliotek ingår också i [Azure SDK för .NET](https://azure.microsoft.com/downloads/). Vi rekommenderar dock att du även installerar lagringsklientbiblioteken från NuGet för att säkerställa att du alltid har de senaste versionerna.
+> Paket för lagrings klient bibliotek ingår också i [Azure SDK för .net](https://azure.microsoft.com/downloads/). Vi rekommenderar dock att du även installerar lagrings klient biblioteken från NuGet för att säkerställa att du alltid har de senaste versionerna.
 >
-> ODataLib-beroendena i Storage-klientbiblioteken för .NET matchas av ODataLib-paket som är tillgängliga på NuGet, inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De specifika ODataLib-paket som används av storage-klientbiblioteken är [OData,](https://nuget.org/packages/Microsoft.Data.OData/) [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)och [Spatial](https://nuget.org/packages/System.Spatial/). Även om dessa bibliotek används av Azure Table-lagringsklasserna, krävs beroenden för programmering med lagringsklientbiblioteken.
+> ODataLib-beroendena i lagrings klient biblioteken för .NET löses av ODataLib-paketen som är tillgängliga på NuGet, inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De speciella ODataLib-paket som används av lagrings klient biblioteken är [OData](https://nuget.org/packages/Microsoft.Data.OData/), [EDM](https://nuget.org/packages/Microsoft.Data.Edm/)och [spatial](https://nuget.org/packages/System.Spatial/). Även om dessa bibliotek används av Azure Table Storage-klasser, är de nödvändiga beroenden för programmering med lagrings klient biblioteken.
 
 ### <a name="determine-your-target-environment"></a>Fastställ målmiljön
 
 Du har två miljöalternativ för att köra exemplen i den här guiden:
 
 * Du kan köra din kod mot ett Azure Storage-konto i molnet.
-* Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använda Azure-lagringsemulatorn för utveckling och testning](../common/storage-use-emulator.md).
+* Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [använda Azure Storage-emulatorn för utveckling och testning](../common/storage-use-emulator.md).
 
-Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Hantera åtkomstnycklar för lagringskonto](../common/storage-account-keys-manage.md).
+Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > Du kan använda lagringsemulatorn för att undvika kostnader associerade med Azure Storage. Men även om du väljer att använda ett Azure-lagringskonto i molnet, kommer kostnaderna för att genomföra den här guiden vara minimala.
 
 ### <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
-Azure Storage-klientbiblioteken för .NET-stöd med hjälp av en lagringsanslutningssträng för att konfigurera slutpunkter och autentiseringsuppgifter för åtkomst till lagringstjänster. Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil.
+Azure Storage klient bibliotek för .NET-stöd med en lagrings anslutnings sträng för att konfigurera slut punkter och autentiseringsuppgifter för åtkomst till lagrings tjänster. Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil.
 
 Mer information om anslutningssträngar finns i [Konfigurera en anslutningssträng för Azure Storage](../common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din lagringskontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den i en oformaterad textfil som andra har åtkomst till. Återskapa din nyckel med hjälp av Azure Portal om du misstänker att den komprometterats.
 
-Om du vill konfigurera anslutningssträngen öppnar du **filen app.config** från Solution Explorer i Visual Studio. Lägg till innehållet i ** \<\> appSettings-elementet** som visas nedan. Ersätt *kontonamn* med namnet på ditt lagringskonto och *kontonyckel* med din kontoåtkomstnyckel:
+Om du vill konfigurera anslutnings strängen öppnar du filen **app. config** från Solution Explorer i Visual Studio. Lägg till innehållet i elementet ** \<appSettings\> ** som visas nedan. Ersätt *Account-name* med namnet på ditt lagrings konto och *konto nyckeln* med din konto åtkomst nyckel:
 
 ```xml
 <configuration>
@@ -142,7 +142,7 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 Exempelkoden måste autentisera åtkomsten till lagringskontot. När du vill autentisera tillhandahåller du autentiseringsuppgifterna för ditt lagringskonto i form av en anslutningssträng i programmet. Visa autentiseringsuppgifterna för lagringskontot:
 
-1. Navigera till [Azure-portalen](https://portal.azure.com).
+1. Navigera till [Azure Portal](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.
 3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.
 4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
@@ -375,7 +375,7 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 
 * Fullständig information om tillgängliga API:er finns i referensdokumentationen för kötjänsten:
   * [Storage-klientbibliotek för .NET-referens](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [REST API-referens](https://msdn.microsoft.com/library/azure/dd179355)
+  * [REST API referens](https://msdn.microsoft.com/library/azure/dd179355)
 * Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
   * [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) om du vill lagra strukturerade data.

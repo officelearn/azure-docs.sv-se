@@ -1,38 +1,38 @@
 ---
-title: Ui-element för CredentialsCombo
-description: I artikeln beskrivs användargränssnittselementet Microsoft.Compute.CredentialsCombo för Azure portal.
+title: CredentialsCombo-GRÄNSSNITTs element
+description: Beskriver användar gränssnitts elementet Microsoft. Compute. CredentialsCombo för Azure Portal.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652143"
 ---
-# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI-element
+# <a name="microsoftcomputecredentialscombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. CredentialsCombo
 
-En grupp kontroller med inbyggd validering för Lösenord för Windows och Linux och SSH-offentliga nycklar.
+En grupp med kontroller med inbyggd verifiering för Windows-och Linux-lösenord och offentliga SSH-nycklar.
 
-## <a name="ui-sample"></a>Exempel på användargränssnitt
+## <a name="ui-sample"></a>UI-exempel
 
-För Windows läser användarna:
+För Windows ser användarna:
 
-![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft. Compute. CredentialsCombo-fönster](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
 
-För Linux med valt lösenord, användare se:
+För Linux med lösen ord valt ser användarna:
 
-![Microsoft.Compute.CredentialsCombo Linux lösenord](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Microsoft. Compute. CredentialsCombo Linux-lösenord](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
 
-För Linux med SSH offentlig nyckel vald, användare se:
+För Linux med offentlig SSH-nyckel vald ser användarna:
 
-![Microsoft.Compute.CredentialsCombo Linux-nyckel](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Microsoft. Compute. CredentialsCombo Linux-nyckel](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Schema
 
-Använd följande schema i Windows:
+För Windows använder du följande schema:
 
 ```json
 {
@@ -91,7 +91,7 @@ För **Linux**använder du följande schema:
 
 ## <a name="sample-output"></a>Exempel på utdata
 
-Om `osPlatform` **Windows**är Windows `osPlatform` , eller är **Linux** och användaren angav ett lösenord i stället för en SSH offentlig nyckel, returnerar kontrollen följande utdata:
+Om `osPlatform` är **Windows**, eller `osPlatform` är **Linux** och användaren har angett ett lösen ord i stället för en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -100,7 +100,7 @@ Om `osPlatform` **Windows**är Windows `osPlatform` , eller är **Linux** och an
 }
 ```
 
-Om `osPlatform` **är Linux** och användaren som en SSH offentlig nyckel, returnerar kontrollen följande utdata:
+Om `osPlatform` är **Linux** och användaren tillhandahöll en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -111,13 +111,13 @@ Om `osPlatform` **är Linux** och användaren som en SSH offentlig nyckel, retur
 
 ## <a name="remarks"></a>Anmärkningar
 
-- `osPlatform`måste anges, och kan vara antingen **Windows** eller **Linux**.
-- Om `constraints.required` värdet är **true**måste textrutorna för lösenord eller SSH ha värden för att valideras. Standardvärdet är **sant**.
-- Om `options.hideConfirmation` värdet är **true**döljs den andra textrutan för att bekräfta användarens lösenord. Standardvärdet är **falskt**.
-- Om `options.hidePassword` värdet är **true**döljs alternativet att använda lösenordsautentisering. Det kan endast `osPlatform` användas när är **Linux**. Standardvärdet är **falskt**.
-- Ytterligare begränsningar för tillåtna lösenord kan implementeras `customPasswordRegex` med hjälp av egenskapen. Strängen `customValidationMessage` i visas när ett lösenord misslyckas anpassad validering. Standardvärdet för båda egenskaperna är **null**.
+- `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
+- Om `constraints.required` är inställt på **Sant**måste text rutorna lösen ord eller SSH-offentlig nyckel ha värden för att kunna verifiera. Standardvärdet är **True**.
+- Om `options.hideConfirmation` är inställt på **Sant**döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **falskt**.
+- Om `options.hidePassword` är inställt på **Sant**är alternativet för att använda lösenordsautentisering dolt. Den kan endast användas när `osPlatform` är **Linux**. Standardvärdet är **falskt**.
+- Ytterligare begränsningar för tillåtna lösen ord kan implementeras med hjälp av `customPasswordRegex` egenskapen. Strängen i `customValidationMessage` visas när ett lösen ord Miss lyckas med anpassad verifiering. Standardvärdet för båda egenskaperna är **Null**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

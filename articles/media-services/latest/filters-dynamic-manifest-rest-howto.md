@@ -1,6 +1,6 @@
 ---
 title: Skapa filter med Azure Media Services v3 REST API
-description: I det här avsnittet beskrivs hur du skapar filter så att klienten kan använda dem för att strömma specifika avsnitt i en ström. Media Services skapar dynamiska manifest för att uppnå denna selektiva strömning.
+description: I det här avsnittet beskrivs hur du skapar filter så att klienten kan använda dem för att strömma vissa delar av en ström. Media Services skapar dynamiska manifest för att uppnå denna selektiva strömning.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75780342"
 ---
-# <a name="creating-filters-with-media-services-rest-api"></a>Skapa filter med REST API FÖR Media Services
+# <a name="creating-filters-with-media-services-rest-api"></a>Skapa filter med Media Services REST API
 
-När du levererar ditt innehåll till kunder (strömma livehändelser eller Video on Demand) kan din klient behöva mer flexibilitet än vad som beskrivs i standardtillgångens manifestfil. Med Azure Media Services kan du definiera kontofilter och tillgångsfilter för ditt innehåll. 
+När du levererar ditt innehåll till kunder (strömma live-händelser eller video på begäran) kan din klient behöva större flexibilitet än vad som beskrivs i standard till gångens manifest fil. Med Azure Media Services kan du definiera konto filter och till gångs filter för ditt innehåll. 
 
-Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [Dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
+Detaljerad beskrivning av den här funktionen och scenarier där den används finns i [dynamiska manifest](filters-dynamic-manifest-overview.md) och [filter](filters-concept.md).
 
-Det här avsnittet visar hur du definierar ett filter för en video på begäran tillgång och använda REST API: er för att skapa [kontofilter](https://docs.microsoft.com/rest/api/media/accountfilters) och [tillgångsfilter](https://docs.microsoft.com/rest/api/media/assetfilters). 
+Det här avsnittet visar hur du definierar ett filter för en video på begäran till gång och använder REST-API: er för att skapa [konto filter](https://docs.microsoft.com/rest/api/media/accountfilters) och [filter för till gångar](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
 > [!NOTE]
 > Se till att granska [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Krav 
 
-För att kunna utföra stegen som beskrivs i det här avsnittet måste du:
+För att slutföra stegen som beskrivs i det här avsnittet måste du:
 
 - Granska [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
-- [Konfigurera Postman för REST API-anrop för Azure Media Services](media-rest-apis-with-postman.md).
+- [Konfigurera PostMan för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).
 
-    Se till att följa det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Kontrol lera att du följer det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Definiera ett filter  
 
-Följande är **brödtextexempelet Begär** som definierar de villkor för spårval som läggs till i manifestet. Det här filtret innehåller alla ljudspår som är EC-3 och alla videospår som har bithastighet i intervallet 0-1000000.
+Följande är exempel på **begär ande text** som definierar de villkor för spårnings val som läggs till i manifestet. Det här filtret innehåller alla ljud spår som är EC-3 och alla video spår som har bit hastighet i intervallet 0-1000000.
 
 ```json
 {
@@ -81,53 +81,53 @@ Följande är **brödtextexempelet Begär** som definierar de villkor för spår
 }
 ```
 
-## <a name="create-account-filters"></a>Skapa kontofilter
+## <a name="create-account-filters"></a>Skapa konto filter
 
-I postmanssamlingen som du hämtade väljer du **Kontofilter**->**Skapa eller uppdatera ett kontofilter**.
+I Postman-samlingen som du laddade ned väljer du **konto filter**->**skapa eller uppdatera ett konto filter**.
 
-Metoden **PUT** HTTP-begäran liknar:
+Metoden för att **Skicka** http-begäran liknar:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
 ```
 
-Markera fliken **Brödtext** och klistra in json-koden som du [definierade tidigare](#define-a-filter).
+Välj fliken **brödtext** och klistra in den JSON-kod som du [definierade tidigare](#define-a-filter).
 
 Välj **Skicka**. 
 
 Filtret har skapats.
 
-Mer information finns i [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Mer information finns i [skapa eller uppdatera](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
-## <a name="create-asset-filters"></a>Skapa tillgångsfilter  
+## <a name="create-asset-filters"></a>Skapa till gångs filter  
 
-I postmansamlingen "Media Services v3" som du hämtade väljer du **Tillgångar**->**Skapa eller uppdatera tillgångsfilter**.
+I Postman-samlingen "Media Services v3" som du laddade ned väljer du **till gångar**->**skapa eller uppdatera till gångs filter**.
 
-Metoden **PUT** HTTP-begäran liknar:
+Metoden för att **Skicka** http-begäran liknar:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
 ```
 
-Markera fliken **Brödtext** och klistra in json-koden som du [definierade tidigare](#define-a-filter).
+Välj fliken **brödtext** och klistra in den JSON-kod som du [definierade tidigare](#define-a-filter).
 
 Välj **Skicka**. 
 
-Tillgångsfiltret har skapats.
+Till gångs filtret har skapats.
 
-Mer information om hur du skapar eller uppdaterar tillgångsfilter finns i [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
+Mer information om hur du skapar eller uppdaterar till gångs filter finns i [skapa eller uppdatera](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Se även [JSON-exempel för filter](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
-## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streamingpositionerare
+## <a name="associate-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
-Du kan ange en lista över tillgångs- eller kontofilter som gäller för din streamingpositionerare. Den [dynamiska paketeraren (Streaming Endpoint)](dynamic-packaging-overview.md) tillämpar den här listan med filter tillsammans med de som klienten anger i URL:en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i URL + filter som du anger på strömningspositioneraren. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill visa filternamnen i URL:en.
+Du kan ange en lista över till gångs-eller konto filter, som gäller för din strömmande positionerare. Den [dynamiska Paketeraren (slut punkt för direkt uppspelning)](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i de URL: er som du anger på en strömmande positionerare. Vi rekommenderar att du använder den här funktionen om du vill tillämpa filter men inte vill visa filter namnen i URL: en.
 
-Om du vill skapa och associera filter med en strömningspositionerare `properties.filters` med REST använder du [strömningspositionerarna - Skapa](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API och anger i [begärandetexten](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+Om du vill skapa och associera filter med en strömmande positionerare med hjälp av REST använder du [strömmande positionerare-skapa](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API och anger `properties.filters` i [begär ande texten](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
                                 
-## <a name="stream-using-filters"></a>Strömma med hjälp av filter
+## <a name="stream-using-filters"></a>Data ström med filter
 
-När du har definierat filter kan klienterna använda dem i webbadressen för direktuppspelning. Filter kan användas för adaptiv bitrate streaming protokoll: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming.
+När du har definierat filter kan klienterna använda dem i strömnings-URL: en. Filter kan tillämpas på strömnings protokoll med anpassningsbar bit hastighet: Apple HTTP Live Streaming (HLS), MPEG-streck och Smooth Streaming.
 
-I följande tabell visas några exempel på webbadresser med filter:
+I följande tabell visas några exempel på URL: er med filter:
 
 |Protokoll|Exempel|
 |---|---|

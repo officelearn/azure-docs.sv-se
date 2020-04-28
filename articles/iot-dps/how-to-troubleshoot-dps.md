@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera och felsöka frånkopplingar med Azure IoT Hub DPS
-description: Lär dig att diagnostisera och felsöka vanliga fel med enhetsanslutning för DPS (Azure IoT Hub Device Provisioning Service)
+title: Diagnostisera och Felsök från kopplingar med Azure IoT Hub DPS
+description: Lär dig att diagnostisera och felsöka vanliga fel med enhets anslutning för Azure IoT Hub Device Provisioning Service (DPS)
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps
@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646480"
 ---
-# <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Felsökning med Azure IoT Hub Device Provisioning Service
+# <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Fel sökning med Azure IoT Hub Device Provisioning Service
 
-Anslutningsproblem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga felpunkter, till exempel attesteringsfel, registreringsfel etc. Den här artikeln innehåller vägledning om hur du identifierar och felsöker problem med enhetsanslutning via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga fel punkter, till exempel attesterings fel, registrerings fel osv. Den här artikeln innehåller vägledning om hur du identifierar och felsöker problem med enhets anslutningar via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 
-## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Använda Azure Monitor för att visa mått och ställa in aviseringar
+## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Använda Azure Monitor för att visa mått och konfigurera aviseringar
 
-I följande procedur beskrivs hur du visar och ställer in avisering på mätvärden för etablering av IoT Hub Device Provisioning Service. 
+Följande procedur beskriver hur du visar och ställer in aviseringar för IoT Hub Device Provisioning Service mått. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Bläddra till etableringstjänsten för IoT Hub Device.
+2. Bläddra till IoT Hub Device Provisioning Service.
 
 3. Välj **Mått**.
 
 4. Välj önskat mått. 
    <br />För närvarande finns det tre mått för DPS:
 
-    | Måttnamn | Beskrivning |
+    | Mått namn | Beskrivning |
     |-------|------------|
-    | Attesteringsförsök | Antal enheter som försökte autentisera med enhetsetableringstjänsten|
-    | Registreringsförsök | Antal enheter som försökte registrera sig till IoT Hub efter lyckad autentisering|
+    | Attesterings försök | Antal enheter som försökte autentisera med enhets etablerings tjänsten|
+    | Registrerings försök | Antal enheter som försökte registrera sig för IoT Hub efter en lyckad autentisering|
     | Enhet tilldelad | Antal enheter som har tilldelats IoT Hub|
 
-5. Välj önskad aggregeringsmetod för att skapa en visuell vy av måttet. 
+5. Välj önskad agg regerings metod för att skapa en visuell vy av måttet. 
 
-6. Om du vill ställa in en avisering om ett mått väljer du **Nya aviseringsregler** längst upp till höger i måttbladet, på samma sätt kan du gå till **Varningsbladet** och välja **Nya varningsregler**.
+6. Om du vill ställa in en varning för ett mått väljer du **nya varnings regler** längst upp till höger på bladet mått, på samma sätt som du kan gå till **varnings** bladet och välja **nya varnings regler**.
 
-7. Välj **Lägg till villkor**och välj sedan önskat mått och tröskelvärde genom att följa uppmaningar.
+7. Välj **Lägg till villkor**och välj sedan önskat mått och tröskelvärde genom att följa instruktionerna nedan.
 
-Mer information finns [i Vad är klassiska aviseringar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
+Mer information finns [i vad är klassiska varningar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
 
-## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Använda Loggalytic för att visa och lösa fel
+## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Använda logg analys för att visa och lösa fel
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -60,16 +60,16 @@ Mer information finns [i Vad är klassiska aviseringar i Microsoft Azure?](../az
 
     | Loggnamn | Beskrivning |
     |-------|------------|
-    | DeviceOperations | Loggar relaterade till enhetsanslutningshändelser |
-    | ServiceOperations | Händelseloggar relaterade till användning av tjänst SDK (t.ex. skapa eller uppdatera registreringsgrupper)|
+    | DeviceOperations | Loggar relaterade till anslutnings händelser för enheter |
+    | ServiceOperations | Händelse loggar som är relaterade till användningen av service SDK (t. ex. för att skapa eller uppdatera registrerings grupper)|
 
-6. Aktivera **Skicka till logganalys** ([se priser](https://azure.microsoft.com/pricing/details/log-analytics/)). 
+6. Aktivera **Skicka till Log Analytics** ([Se prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)). 
 
-7. Gå till fliken **Loggar** i Azure-portalen under Enhetsetableringstjänstresurs.
+7. Gå till fliken **loggar** i Azure Portal under enhets Provisioning service-resursen.
 
-8. Klicka på **Kör** om du vill visa de senaste händelserna.
+8. Klicka på **Kör** för att visa de senaste händelserna.
 
-9. Om det finns resultat `OperationName` `ResultType`letar `ResultSignature`du `ResultDescription` efter , , och (felmeddelande) för att få mer information om felet.
+9. Om det finns resultat kan du söka `OperationName`efter `ResultType`, `ResultSignature`, och `ResultDescription` (fel meddelande) för att få mer information om felet.
 
 
 ## <a name="common-error-codes"></a>Vanliga felkoder
@@ -77,9 +77,9 @@ Använd den här tabellen för att förstå och lösa vanliga fel.
 
 | Felkod| Beskrivning | HTTP-statuskod |
 |-------|------------|------------|
-| 400 | Begärans brödtext är ogiltig. Det går till exempel inte att tolkas eller så kan inte objektet valideras.| 400 Dåligt format |
-| 401 | Auktoriseringstoken kan inte valideras. Den har till exempel upphört att gälla eller gäller inte för begärans URI. Den här felkoden returneras också till enheter som en del av TPM-attestationflödet. | 401 Obehörig|
-| 404 | Instansen enhetsetableringstjänst eller en resurs (t.ex. en registrering) finns inte. |404 – Hittades inte |
-| 412 | ETag i begäran matchar inte ETag för den befintliga resursen, enligt RFC7232. | 412 Förutsättningen misslyckades |
-| 429 | Åtgärder begränsas av tjänsten. Information om specifika tjänstbegränsningar finns i begränsningar för [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 För många förfrågningar |
-| 500 | Ett internt fel uppstod. | 500 Internt serverfel|
+| 400 | Bröd texten i begäran är inte giltig. Det går till exempel inte att parsa den, eller så går det inte att verifiera objektet.| 400 felaktigt format |
+| 401 | Det går inte att verifiera autentiseringstoken. till exempel har den upphört att gälla eller gäller inte för frågans URI. Den här felkoden returneras även till enheter som en del av flödet för TPM-attestering. | 401 obehörig|
+| 404 | Enhets etablerings tjänstens instans eller en resurs (t. ex. en registrering) finns inte. |404 – Hittades inte |
+| 412 | ETag i begäran matchar inte den befintliga resursens ETag, som per RFC7232. | 412-villkoret misslyckades |
+| 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 för många begär Anden |
+| 500 | Ett internt fel har inträffat. | 500 Internt serverfel|

@@ -10,10 +10,10 @@ ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887792"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(INAKTUELL) Vanliga frågor och svar om Container Service
@@ -56,7 +56,7 @@ Om du använder Azure CLI-kommandon för att distribuera ett kluster för contai
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Hur skapar jag ett huvudnamn för mitt Kubernetes-kluster?
 
-Ett ID och lösenord krävs också för Azure Active Directory-tjänstens huvudnamn när du skapar ett Kubernetes-kluster i Azure Container Service. Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](../../container-service/kubernetes/container-service-kubernetes-service-principal.md).
+Ett ID och lösenord krävs också för Azure Active Directory-tjänstens huvudnamn när du skapar ett Kubernetes-kluster i Azure Container Service. Mer information finns i [om tjänstens huvud namn för ett Kubernetes-kluster](../../container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
 Om du använder [Azure CLI-kommandon](../../container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) för att distribuera ett Kubernetes-kluster kan autentiseringsuppgifter för tjänstens huvudnamn genereras automatiskt för klustret.
 
@@ -114,7 +114,7 @@ Mer information finns i [Ansluta till ett Azure Container Service-kluster](../..
 
 ### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>DNS-namnmatchningen fungerar inte i Windows. Vad ska jag göra?
 
-Det finns några kända DNS-problem i Windows vars korrigeringar fortfarande håller på att fasas ut aktivt. Kontrollera att du använder den mest uppdaterade acs-motorn och Windows-versionen (med [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) och [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installerat) så att din miljö kan dra nytta av detta. Annars se tabellen nedan för migreringsstegen:
+Det finns vissa kända DNS-problem i Windows vars korrigeringar fortfarande pågår. Kontrol lera att du använder den senaste uppdaterade versionen av ACS-motorn och Windows (med [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) och [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installerat) så att din miljö kan dra nytta av detta. Annars se tabellen nedan för migreringsstegen:
 
 | DNS-problem | Lösning  |
 |-------------|-------------|

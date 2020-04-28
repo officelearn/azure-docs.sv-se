@@ -1,6 +1,6 @@
 ---
-title: Så här använder du kölagring (C++) – Azure Storage
-description: Lär dig hur du använder tjänsten Kölagring i Azure. Prover skrivs i C++.
+title: Så här använder du Queue Storage (C++) – Azure Storage
+description: Lär dig hur du använder Queue Storage-tjänsten i Azure. Exempel skrivs i C++.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/11/2017
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4fe543010df9514cb2b22c56482a4b592574e917
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75941768"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Så använder du Queue Storage från C++
@@ -21,7 +21,7 @@ ms.locfileid: "75941768"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Queue storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarierna som omfattas omfattar **att infoga,** **kika,** **hämta**och **ta bort** kömeddelanden samt skapa och ta **bort köer**.
+I den här guiden får du lära dig hur du utför vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
 
 > [!NOTE]
 > För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Den rekommenderade versionen är Storage-klientbibliotek 2.2.0, som är tillgängligt via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -33,58 +33,58 @@ Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Queue 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c-application"></a>Skapa ett C++-program
-I den här guiden använder du lagringsfunktioner som kan köras i ett C++-program.
+I den här guiden ska du använda lagrings funktioner som kan köras i ett C++-program.
 
 För att göra det måste du installera Azure Storage-klientbiblioteket för C++ och skapa ett Azure Storage-konto i din Azure-prenumeration.
 
 Du kan installera Azure Storage-klientbiblioteket för C++ med någon av följande metoder:
 
-* **Linux:** Följ instruktionerna i [Azure Storage Client Library for C++ README: Komma igång på Linux-sidan.](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux)
-* **Windows:** I Windows använder du [vcpkg](https://github.com/microsoft/vcpkg) som beroendehanterare. Följ [snabbstarten](https://github.com/microsoft/vcpkg#quick-start) för att initiera vcpkg. Använd sedan följande kommando för att installera biblioteket:
+* **Linux:** Följ anvisningarna i avsnittet [Azure Storage klient bibliotek för C++ viktigt: komma igång på Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) -sidan.
+* **Windows:** Använd [vcpkg](https://github.com/microsoft/vcpkg) som beroende hanterare i Windows. Följ [snabb starten](https://github.com/microsoft/vcpkg#quick-start) för att initiera vcpkg. Använd sedan följande kommando för att installera biblioteket:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-Du kan hitta en guide för hur du skapar källkoden och exporterar till NuGet i [README-filen.](https://github.com/Azure/azure-storage-cpp#download--install)
+Du hittar en guide för hur du skapar käll koden och exporterar till NuGet i [README](https://github.com/Azure/azure-storage-cpp#download--install) -filen.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Konfigurera ditt program för åtkomst till kölagring
-Lägg till följande inkludera-satser högst upp i C++-filen där du vill använda Azure storage API:er för att komma åt köer:  
+## <a name="configure-your-application-to-access-queue-storage"></a>Konfigurera ditt program till att få åtkomst till Queue Storage
+Lägg till följande include-instruktioner överst i C++-filen där du vill använda Azure Storage-API: er för att komma åt köer:  
 
 ```cpp
 #include <was/storage_account.h>
 #include <was/queue.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurera en Azure-lagringsanslutningssträng
-En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klientprogram måste du ange lagringsanslutningssträngen i följande format med namnet på ditt lagringskonto och lagringsåtkomstnyckeln för lagringskontot som anges i [Azure Portal](https://portal.azure.com) för *accountName-* och *AccountKey-värdena.* Information om lagringskonton och åtkomstnycklar finns i [Om Azure Storage Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:  
+## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurera en anslutnings sträng för Azure Storage
+En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format, med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för värdena *AccountName* och *AccountKey* . Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-Om du vill testa ditt program på din lokala Windows-dator kan du använda Microsoft [Azure-lagringsemulatorn](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) som är installerad med [Azure SDK](https://azure.microsoft.com/downloads/). Lagringsemulatorn är ett verktyg som simulerar Blob-, kö- och tabelltjänsterna som är tillgängliga i Azure på din lokala utvecklingsdator. Följande exempel visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen i den lokala lagringsemulatorn:  
+Om du vill testa programmet på den lokala Windows-datorn kan du använda Microsoft Azure- [emulatorn](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) som är installerad med [Azure SDK](https://azure.microsoft.com/downloads/). Lagringsprovidern är ett verktyg som simulerar BLOB-, kö-och tabell tjänster som är tillgängliga i Azure på din lokala utvecklings dator. Följande exempel visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen i den lokala lagringsemulatorn:  
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Om du vill starta Azure-lagringsemulatorn väljer du **Start-knappen** eller trycker på Windows-tangenten. **Windows** Börja skriva **Azure Storage Emulator**och välj **Microsoft Azure Storage Emulator** i listan över program.
+Starta Azure Storage-emulatorn genom att välja **Start** -knappen eller trycka på **Windows** -tangenten. Börja skriva **Azure Storage emulator**och välj **Microsoft Azure Storage-emulator** i listan med program.
 
 Följande exempel förutsätter att du har använt någon av dessa två metoder för att hämta Azure Storage-anslutningssträngen.
 
 ## <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
-Du kan använda **klassen cloud_storage_account** för att representera din lagringskontoinformation. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.
+Du kan använda **cloud_storage_account** -klassen för att representera din lagrings konto information. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.
 
 ```cpp
 // Retrieve storage account from connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>Så här skapar du en kö
-Med **ett cloud_queue_client** objekt kan du hämta referensobjekt för köer. Följande kod skapar ett **cloud_queue_client** objekt.
+## <a name="how-to-create-a-queue"></a>Gör så här: skapa en kö
+Med ett **cloud_queue_client** objekt kan du hämta referens objekt för köer. Följande kod skapar ett **cloud_queue_client** -objekt.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -94,7 +94,7 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 ```
 
-Använd **det cloud_queue_client** objektet för att få en referens till den kö du vill använda. Du kan skapa kön om den inte finns.
+Använd **cloud_queue_client** -objektet för att få en referens till den kö som du vill använda. Du kan skapa kön om den inte finns.
 
 ```cpp
 // Retrieve a reference to a queue.
@@ -104,8 +104,8 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Så här infogar du ett meddelande i en kö
-Om du vill infoga ett meddelande i en befintlig kö skapar du först ett nytt **cloud_queue_message**. Anropa sedan **add_message** metoden. En **cloud_queue_message** kan skapas från antingen en sträng eller en **bytematris.** Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
+## <a name="how-to-insert-a-message-into-a-queue"></a>Så här gör du: infoga ett meddelande i en kö
+Om du vill infoga ett meddelande i en befintlig kö skapar du först ett nytt **cloud_queue_message**. Anropa sedan metoden **add_message** . En **cloud_queue_message** kan skapas antingen från en sträng eller en **byte** mat ris. Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -125,8 +125,8 @@ azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Så här: Kika på nästa meddelande
-Du kan granska meddelandet framför en kö utan att ta bort **peek_message** det från kön genom att anropa peek_message-metoden.
+## <a name="how-to-peek-at-the-next-message"></a>Gör så här: granska vid nästa meddelande
+Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa metoden **peek_message** .
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -145,7 +145,7 @@ azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här ändrar du innehållet i ett köat meddelande
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här gör du: ändra innehållet i ett köat meddelande
 Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. Följande kod uppdaterar kömeddelandet med nytt innehåll och utökar tidsgränsen för visning med ytterligare 60 sekunder. Koden sparar statusen för arbetsuppgiften som associeras med meddelandet och ger klienten ytterligare en minut att fortsätta arbeta med meddelandet. Du kan använda den här tekniken för att spåra arbetsflöden med flera steg i kömeddelanden, utan att behöva börja om från början om ett bearbetningssteg misslyckas på grund av maskin- eller programvarufel. Normalt räknar du även antalet omförsök och tar bort meddelandet om fler än n försök misslyckas. Detta skyddar mot meddelanden som utlöser ett programfel varje gång de bearbetas.
 
 ```cpp
@@ -171,8 +171,8 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>Så här köar du nästa meddelande
-Koden tar bort ett meddelande från en kö i två steg. När du ringer **get_message**får du nästa meddelande i en kö. Ett meddelande som returneras från **get_message** blir osynligt för andra kodläsningsmeddelanden från den här kön. Om du vill ta bort meddelandet från kön måste du också ringa **delete_message**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Dina kodanrop **delete_message** direkt efter att meddelandet har bearbetats.
+## <a name="how-to-de-queue-the-next-message"></a>Så här gör du: ta bort nästa meddelande i kön
+Koden tar bort ett meddelande från en kö i två steg. När du anropar **get_message**får du nästa meddelande i en kö. Ett meddelande som returnerades från **get_message** blir osynligt för all annan kod som läser meddelanden från den här kön. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Dina kod anrop **delete_message** direkt efter att meddelandet har bearbetats.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -192,8 +192,8 @@ std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() <<
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Så här: Utnyttja ytterligare alternativ för deköingsmeddelanden
-Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kodexempel används **get_messages** metod för att hämta 20 meddelanden i ett samtal. Sedan bearbetar varje **for** meddelande med hjälp av en för-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att 5 minuter börjar för alla meddelanden samtidigt, så efter 5 minuter har gått sedan samtalet till **get_messages**, alla meddelanden som inte har tagits bort kommer att bli synliga igen.
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Så här gör du: Använd ytterligare alternativ för meddelanden i kön
+Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kod exempel används metoden **get_messages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att 5 minuter startar för alla meddelanden samtidigt, så att när fem minuter har gått sedan anropet till **get_messages**visas alla meddelanden som inte har tagits bort.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -220,8 +220,8 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Så här: Få kölängden
-Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden **download_attributes** ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Metoden **approximate_message_count** får det ungefärliga antalet meddelanden i kön.
+## <a name="how-to-get-the-queue-length"></a>Så här gör du: Hämta Kölängd
+Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden **download_attributes** ber kötjänst att hämta attributen för kön, inklusive antalet meddelanden. Metoden **approximate_message_count** hämtar det ungefärliga antalet meddelanden i kön.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -243,8 +243,8 @@ int cachedMessageCount = queue.approximate_message_count();
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a>Så här tar du bort en kö
-Om du vill ta bort en kö och alla meddelanden som finns i den anropar du **delete_queue_if_exists** metoden i köobjektet.
+## <a name="how-to-delete-a-queue"></a>Så här gör du: ta bort en kö
+Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **delete_queue_if_exists** på objektet köobjekt.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -261,10 +261,10 @@ queue.delete_queue_if_exists();
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna i kölagring följer du dessa länkar för att lära dig mer om Azure Storage.
+Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar om du vill veta mer om Azure Storage.
 
-* [Så här använder du Blob Storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Så här använder du Tabelllagring från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Lista Azure Storage-resurser i C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Lagringsklientbibliotek för C++-referens](https://azure.github.io/azure-storage-cpp)
-* [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Använda Blob Storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Visa Azure Storage resurser i C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Lagrings klient bibliotek för C++-referens](https://azure.github.io/azure-storage-cpp)
+* [Azure Storage dokumentation](https://azure.microsoft.com/documentation/services/storage/)

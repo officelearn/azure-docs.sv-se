@@ -1,26 +1,26 @@
 ---
 title: Lägga till anpassade åtgärder i Azure REST API
-description: Lär dig hur du lägger till anpassade åtgärder i Azure REST API. Den här artikeln kommer att gå igenom krav och metodtips för slutpunkter som vill implementera anpassade åtgärder.
+description: Lär dig hur du lägger till anpassade åtgärder i Azure-REST API. Den här artikeln går igenom kraven och bästa praxis för slut punkter som vill implementera anpassade åtgärder.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75650401"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Lägga till anpassade åtgärder i Azure REST API
 
-Den här artikeln kommer att gå igenom de krav och metodtips för att skapa Azure Custom Resource Provider slutpunkter som implementerar anpassade åtgärder. Om du inte känner till Azure Custom Resource Providers läser du [översikten över anpassade resursleverantörer](overview.md).
+Den här artikeln går igenom kraven och bästa praxis för att skapa Azure-slutpunkter för resurs leverantören som implementerar anpassade åtgärder. Om du inte är bekant med Azures anpassade resurs leverantörer kan du läsa [Översikt över anpassade resurs leverantörer](overview.md).
 
-## <a name="how-to-define-an-action-endpoint"></a>Så här definierar du en åtgärdsslutpunkt
+## <a name="how-to-define-an-action-endpoint"></a>Definiera en åtgärds slut punkt
 
-En **slutpunkt** är en URL som pekar på en tjänst som implementerar det underliggande kontraktet mellan den och Azure. Slutpunkten definieras i den anpassade resursleverantören och kan vara alla offentligt tillgängliga URL. Exemplet nedan har **action** en `myCustomAction` åtgärd `endpointURL`som kallas implementerad av .
+En **slut punkt** är en URL som pekar på en tjänst, som implementerar det underliggande kontraktet mellan det och Azure. Slut punkten definieras i den anpassade resurs leverantören och kan vara en offentligt tillgänglig URL. Exemplet nedan har en **åtgärd** som kallas `myCustomAction` implementerad `endpointURL`av.
 
-Exempel **ResourceProvider:**
+Exempel på **ResourceProvider**:
 
 ```JSON
 {
@@ -40,9 +40,9 @@ Exempel **ResourceProvider:**
 }
 ```
 
-## <a name="building-an-action-endpoint"></a>Skapa en åtgärdsslutpunkt
+## <a name="building-an-action-endpoint"></a>Skapa en åtgärds slut punkt
 
-En **slutpunkt** som implementerar en **åtgärd** måste hantera begäran och svar för det nya API:et i Azure. När en anpassad resursleverantör med en **åtgärd** skapas genererar den en ny uppsättning API:er i Azure. I det här fallet genererar åtgärden ett `POST` nytt Azure-åtgärds-API för anrop:
+En **slut punkt** som implementerar en **åtgärd** måste hantera begäran och svar för det nya API: et i Azure. När en anpassad resurs leverantör med en **åtgärd** skapas, kommer den att generera en ny uppsättning API: er i Azure. I det här fallet genererar åtgärden ett nytt Azure Action API för `POST` anrop:
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction
@@ -63,7 +63,7 @@ Content-Type: application/json
 }
 ```
 
-Den här begäran vidarebefordras sedan till **slutpunkten** i formuläret:
+Den här begäran kommer sedan att vidarebefordras till **slut punkten** i formuläret:
 
 ``` HTTP
 POST https://{endpointURL}/?api-version=2018-09-01-preview
@@ -78,10 +78,10 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-På samma sätt vidarebefordras svaret från **slutpunkten** tillbaka till kunden. Svaret från slutpunkten ska returneras:
+På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
-- Ett giltigt JSON-objektdokument. Alla matriser och strängar ska kapslas under ett överkant objekt.
-- Huvudet `Content-Type` ska ställas in på "application/json; charset=utf-8".
+- Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
+- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -95,7 +95,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Azure Custom Resource Provider Svar:
+Svar från Azures anpassade resurs leverantör:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -111,10 +111,10 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="calling-a-custom-action"></a>Anropa en anpassad åtgärd
 
-Det finns två huvudsakliga sätt att anropa en anpassad åtgärd från en anpassad resursleverantör:
+Det finns två huvudsakliga sätt att anropa en anpassad åtgärd av en anpassad resurs leverantör:
 
 - Azure CLI
-- Azure Resource Manager-mallar
+- Azure Resource Manager mallar
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -133,15 +133,15 @@ az resource invoke-action --action {actionName} \
 Parameter | Krävs | Beskrivning
 ---|---|---
 åtgärd | *Ja* | Namnet på åtgärden som definierats i **ResourceProvider**.
-Id | *Ja* | Resurs-ID för **ResourceProvider**.
-begäran-organ | *nej* | Det förfråkomsstext som ska skickas till **slutpunkten**.
+kompatibilitet | *Ja* | Resurs-ID för **ResourceProvider**.
+Request-Body | *Nej* | Begär ande texten som ska skickas till **slut punkten**.
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
 > [!NOTE]
-> Åtgärder har begränsat stöd i Azure Resource Manager-mallar. För att åtgärden ska kunna anropas i en [`list`](../templates/template-functions-resource.md#list) mall måste den innehålla prefixet i dess namn.
+> Åtgärder har begränsat stöd i Azure Resource Manager mallar. För att åtgärden ska kunna anropas inuti en mall måste den innehålla [`list`](../templates/template-functions-resource.md#list) prefixet i sitt namn.
 
-Exempel **på ResourceProvider** med liståtgärd:
+Exempel på **ResourceProvider** med list åtgärd:
 
 ```JSON
 {
@@ -158,7 +158,7 @@ Exempel **på ResourceProvider** med liståtgärd:
 }
 ```
 
-Exempel på Azure Resource Manager-mall:
+Exempel på Azure Resource Manager mall:
 
 ``` JSON
 {
@@ -187,12 +187,12 @@ Exempel på Azure Resource Manager-mall:
 Parameter | Krävs | Beskrivning
 ---|---|---
 resourceIdentifier | *Ja* | Resurs-ID för **ResourceProvider**.
-apiVersion | *Ja* | API-versionen av resurskörningen. Detta bör alltid vara "2018-09-01-preview".
-funktionVärderar | *nej* | Det förfråkomsstext som ska skickas till **slutpunkten**.
+apiVersion | *Ja* | API-versionen för resurs körningen. Detta bör alltid vara "2018-09-01-för hands version".
+functionValues | *Nej* | Begär ande texten som ska skickas till **slut punkten**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure Custom Resource Providers](overview.md)
-- [Snabbstart: Skapa Azure Custom Resource Provider och distribuera anpassade resurser](./create-custom-provider.md)
-- [Självstudiekurs: Skapa anpassade åtgärder och resurser i Azure](./tutorial-get-started-with-custom-providers.md)
-- [Så här lägger du till anpassade resurser i Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+- [Översikt över Azures anpassade resurs leverantörer](overview.md)
+- [Snabb start: skapa en anpassad resurs leverantör för Azure och distribuera anpassade resurser](./create-custom-provider.md)
+- [Självstudie: skapa anpassade åtgärder och resurser i Azure](./tutorial-get-started-with-custom-providers.md)
+- [Gör så här: lägga till anpassade resurser i Azure REST API](./custom-providers-resources-endpoint-how-to.md)

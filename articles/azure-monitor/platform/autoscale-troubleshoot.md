@@ -1,161 +1,161 @@
 ---
-title: Felsöka automatisk azure-skalning
-description: Spåra problem med Azure-automatisk skalning som används i Service Fabric, Virtuella datorer, Webbappar och molntjänster.
+title: Felsöka Azures autoskalning
+description: Spåra problem med automatisk skalning i Azure som används i Service Fabric, Virtual Machines, Web Apps och moln tjänster.
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75751329"
 ---
-# <a name="troubleshooting-azure-autoscale"></a>Felsöka automatisk azure-skalning
+# <a name="troubleshooting-azure-autoscale"></a>Felsöka Azures autoskalning
  
-Azure Monitor automatisk skalning hjälper dig att ha rätt mängd resurser som körs för att hantera belastningen på ditt program. Det gör att du kan lägga till resurser för att hantera ökningar i belastning och även spara pengar genom att ta bort resurser som sitter inaktiva. Du kan skala baserat på ett schema, fast datumtid eller resursmått som du väljer. Mer information finns i [Översikt över automatisk skalning](autoscale-overview.md).
+Azure Monitor autoskalning hjälper dig att få rätt mängd resurser som körs för att hantera belastningen på ditt program. Det gör att du kan lägga till resurser för att hantera ökad belastning och även spara pengar genom att ta bort resurser som är inaktiva. Du kan skala baserat på ett schema, fast datum/tid eller resurs mått som du väljer. Mer information finns i [Översikt över autoskalning](autoscale-overview.md).
 
-Tjänsten automatisk skalning ger dig mått och loggar för att förstå vilka skalningsåtgärder som har inträffat och utvärderingen av de villkor som ledde till dessa åtgärder. Du kan hitta svar på frågor som:
+Med tjänsten för autoskalning får du mått och loggar för att förstå vilka skalnings åtgärder som har inträffat och utvärderingen av de villkor som ledde till dessa åtgärder. Du kan hitta svar på frågor som:
 
-- Varför har min service skalas ut eller in?
-- Varför har inte min tjänst skalats?
-- Varför misslyckades en åtgärd för automatisk skalning?
-- Varför tar en åtgärd för automatisk skalning tid att skala?
+- Varför är min tjänst skalbar eller i?
+- Varför är min tjänst inte skalad?
+- Varför misslyckades en autoskalning-åtgärd?
+- Varför tar det tid att skala ut en åtgärd?
   
-## <a name="autoscale-metrics"></a>Mätvärden för automatisk skalning
+## <a name="autoscale-metrics"></a>Autoskalning av mått
 
-Automatisk skalning ger dig [fyra mått](metrics-supported.md#microsoftinsightsautoscalesettings) för att förstå dess funktion. 
+Med autoskalning får du [fyra mått](metrics-supported.md#microsoftinsightsautoscalesettings) för att förstå driften. 
 
-- **Observerat måttvärde** - Värdet för det mått som du valde att vidta skalningsåtgärden på, som den kan ses eller beräknas av motorn för automatisk skalning. Eftersom en enda automatisk skalningsinställning kan ha flera regler och därmed flera måttkällor kan du filtrera med "måttkälla" som en dimension.
-- **Tröskelvärde** för mått – Tröskelvärdet som du anger för att vidta skalningsåtgärden. Eftersom en enda automatisk skalningsinställning kan ha flera regler och därmed flera måttkällor kan du filtrera med hjälp av "måttregel" som en dimension.
-- **Observerad kapacitet** - Det aktiva antalet instanser av målresursen som ses av motor för automatisk skalning.
-- **Skalningsåtgärder har initierats** – Antalet åtgärder för att skala ut och skala in som har initierats av autoskalningsmotorn. Du kan filtrera efter utskalning jämfört med skala i åtgärder.
+- **Observerat mått värde** – värdet för det mått som du valde att vidta skalnings åtgärden på, som det visas eller beräknas av den automatiska skalnings motorn. Eftersom en enskild inställning för autoskalning kan ha flera regler och därför flera metriska källor, kan du filtrera med "mått källa" som en dimension.
+- **Mått tröskelvärde** – det tröskelvärde du ställer in för att utföra skalnings åtgärden. Eftersom en enskild inställning för autoskalning kan ha flera regler och därför flera metriska källor kan du filtrera med "mått regel" som en dimension.
+- **Observerad kapacitet** – det aktiva antalet instanser av mål resursen som visas av motorn för autoskalning.
+- **Skalningsåtgärder har initierats** – Antalet åtgärder för att skala ut och skala in som har initierats av autoskalningsmotorn. Du kan filtrera genom att skala ut eller skala ut i åtgärder.
 
-Du kan använda [Statistikutforskaren](metrics-getting-started.md) för att kartlägga ovanstående mått på ett och samma ställe. Diagrammet ska visa:
+Du kan använda [Metrics Explorer](metrics-getting-started.md) för att rita ut ovanstående mått på samma ställe. Diagrammet ska visa:
 
-  - det faktiska måttet
-  - måttet som sett/beräknats av motor för automatisk skalning
-  - tröskelvärdet för en skalningsåtgärd
-  - kapacitetsförändringen 
+  - faktiskt mått
+  - måttet som läst/beräknad av autoskalning-motorn
+  - tröskeln för en skalnings åtgärd
+  - förändringen i kapaciteten 
 
-## <a name="example-1---analyzing-a-simple-autoscale-rule"></a>Exempel 1 - Analysera en enkel regel för automatisk skalning 
+## <a name="example-1---analyzing-a-simple-autoscale-rule"></a>Exempel 1 – analysera en enkel regel för autoskalning 
 
-Vi har en enkel automatisk skalningsinställning för en skalningsuppsättning för virtuella datorer som:
+Vi har en enkel autoskalning-inställning för en skalnings uppsättning för virtuella datorer som:
 
-- skalas ut när den genomsnittliga CPU-procentandelen för en uppsättning är större än 70 % i 10 minuter 
-- när processorprocenten för uppsättningen är mindre än 5 % i mer än 10 minuter. 
+- skalar ut när den genomsnittliga CPU-procenten för en mängd är större än 70% i 10 minuter 
+- skalar i när PROCESSORns procent andel är mindre än 5% i mer än 10 minuter. 
 
-Nu ska vi granska måtten från tjänsten för automatisk skalning.
+Vi går igenom måtten från AutoScale-tjänsten.
  
-![Exempel på cpu-processorexempel för virtuell datorskala](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Procent processor exempel för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
-![Exempel på cpu-processorexempel för virtuell datorskala](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
+![Procent processor exempel för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Bild 1a - Procent cpu-mått för skalningsuppsättning för virtuella datorer och måttet Observerat måttvärde för automatisk skalning***
+***Bild 1a – procent andel CPU-mått för skalnings uppsättningen för den virtuella datorn och det observerade mått svärdet mått för autoskalning-inställningen***
 
-![Metrisk tröskel och observerad kapacitet](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
+![Mätnings tröskel och observerad kapacitet](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figur 1b - Metrisk tröskel och observerad kapacitet***
+***Figur 1b – mätnings tröskel och observerad kapacitet***
 
-I figur 1b är **tröskelvärdet för metrisktröskel** (ljusblå linje) för skalningsregeln 70.  Den **observerade kapaciteten** (mörkblå linje) visar antalet aktiva instanser, som för närvarande är 3. 
+I bild 1b är **mått tröskelvärdet** (ljusblå blå linje) för den skalbara regeln 70.  Den **observerade kapaciteten** (mörk blå linje) visar antalet aktiva instanser, som för närvarande är 3. 
 
 > [!NOTE]
-> Du måste filtrera **tröskelvärdet för måtttröskel** efter måttutlösareregeldimensionen skala ut (öka) för att se utskalningströskeln och av skalan i regel (minskning). 
+> Du måste filtrera **mått tröskelvärdet** efter regel utlösare regel för regel utskalning (öka) för att se tröskelvärdet för skala ut och av skalan i regeln (minska). 
 
-## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Exempel 2 - Avancerad automatisk skalning för en skalningsuppsättning för virtuella datorer
+## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Exempel 2 – avancerad autoskalning för en skalnings uppsättning för virtuella datorer
 
-Vi har en automatisk skalningsinställning som gör att en virtuell datorskala inställd resurs skalas ut baserat på dess egna mått **Utgående flöden**. Observera att alternativet **dividera mått efter instansantal** för måtttröskeln är markerat. 
+Vi har en inställning för autoskalning som gör att en resurs för skalnings uppsättningar för virtuella datorer kan skalas ut baserat på sina egna mått **utgående flöden**. Observera att alternativet **dividera mått per instans antal** för mått tröskelvärdet är markerat. 
 
-Åtgärdsregeln för skala är: 
+Skalnings åtgärds regeln är: 
 
-Om värdet **för utgående flöde per instans** är större än 10, bör tjänsten för automatisk skalning skalas ut med 1 instans. 
+Om värdet för **utgående flöde per instans** är större än 10 bör AutoScale-tjänsten skalas ut med en instans. 
 
-I det här fallet beräknas den automatiska skalningsmotorns observerade måttvärde som det faktiska måttvärdet dividerat med antalet instanser. Om det observerade måttvärdet är mindre än tröskelvärdet initieras ingen utskalningsåtgärd. 
+I det här fallet beräknas det observerade mått svärdet för autoskalning som det faktiska mått svärdet dividerat med antalet instanser. Om det observerade Metric-värdet är mindre än tröskelvärdet initieras ingen skalnings åtgärd. 
  
-![Exempel på diagram för skalning av automatisk datorskalning](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Exempel på skalnings uppsättning för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
-![Exempel på diagram för skalning av automatisk datorskalning](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
+![Exempel på skalnings uppsättning för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Bild 2 - Exempel på måttdiagram för automatisk skalning av virtuella datorer***
+***Bild 2 – exempel på skalnings uppsättningar för virtuell dator***
 
-I figur 2 kan du se två måttdiagram. 
+I bild 2 kan du se två mått diagram. 
 
-Diagrammet överst visar det faktiska värdet för måttet **Utgående flöden.** Det faktiska värdet är 6. 
+Diagrammet överst visar det faktiska värdet för måttet **utgående flöden** . Det faktiska värdet är 6. 
 
 Diagrammet längst ned visar några värden. 
- - Det **observerade måttvärdet** (ljusblått) är 3 eftersom det finns 2 aktiva instanser och 6 dividerat med 2 är 3. 
- - **Den observerade kapaciteten** (lila) visar antalet instanser som ses av motorn med automatisk skalning. 
- - **Tröskelvärdet för metrisktröskel** (ljusgrönt) är inställt på 10. 
+ - Det **observerade mått svärdet** (ljus blått) är 3 eftersom det finns 2 aktiva instanser och 6 dividerat med 2 är 3. 
+ - Den **observerade kapaciteten** (lila) visar antalet instanser som visas för autoskalning-motorn. 
+ - **Mått tröskelvärdet** (ljus grönt) är inställt på 10. 
 
-Om det finns flera skalningsåtgärdsregler kan du använda delnings- eller **tilläggsfilteralternativet** i diagrammet för statistikutforskaren för att titta på mått efter en viss källa eller regel. Mer information om hur du delar upp ett måttdiagram finns i [Avancerade funktioner i måttdiagram - delning](metrics-charts.md#apply-splitting-to-a-chart)
+Om det finns flera skalnings åtgärds regler kan du använda dela upp eller **Lägg till filter** i diagrammet Metrics Explorer för att titta på mått med en bestämd källa eller regel. Mer information om hur du delar ett mått diagram finns i [avancerade funktioner i mått diagram – dela upp](metrics-charts.md#apply-splitting-to-a-chart)
 
-## <a name="example-3---understanding-autoscale-events"></a>Exempel 3 - Förstå händelser för automatisk skalning
+## <a name="example-3---understanding-autoscale-events"></a>Exempel 3 – förstå autoskalning-händelser
 
-På inställningsskärmen för automatisk skalning går du till fliken **Körhistorik** för att se de senaste skalningsåtgärderna. Fliken visar också förändringen i **Observerad kapacitet** över tid. Om du vill veta mer om alla åtgärder för automatisk skalning, inklusive åtgärder som inställningar för uppdatering/borttagning av automatisk skalning, visar du aktivitetsloggen och filtrerar efter automatisk skalning.
+På skärmen Inställningar för autoskalning går du till fliken **körnings historik** för att se de senaste skalnings åtgärderna. Fliken visar även ändringen av den **observerade kapaciteten** över tid. Om du vill ha mer information om alla åtgärder för autoskalning, inklusive åtgärder som uppdatera/ta bort inställningar för autoskalning, kan du Visa aktivitets loggen och filtrera efter automatiska skalnings åtgärder.
 
-![Kör historik för automatisk skalning](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
+![Kör historik för inställningar för autoskalning](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
 
-## <a name="autoscale-resource-logs"></a>Resursloggar för automatisk skalning
+## <a name="autoscale-resource-logs"></a>Autoskala resurs loggar
 
-Precis som alla andra Azure-resurser tillhandahåller tjänsten för automatisk skalning [resursloggar](platform-logs-overview.md). Det finns två kategorier av loggar.
+På samma sätt som andra Azure-resurser innehåller AutoScale-tjänsten [resurs loggar](platform-logs-overview.md). Det finns två typer av loggar.
 
-- **Utvärderingar för** automatisk skalning - Den automatiska skalningsmotorn registrerar loggposter för varje enskild villkorsutvärdering varje gång den gör en kontroll.  Posten innehåller information om de observerade värdena för måtten, de utvärderade reglerna och om utvärderingen resulterade i en skalningsåtgärd eller inte.
+- **Autoskalning-utvärderingar** – den automatiska skalnings motorn registrerar logg poster för varje enskild villkors utvärdering varje gång en kontroll utförs.  Posten innehåller information om de observerade värdena för måtten, reglerna utvärderas och om utvärderingen resulterade i en skalnings åtgärd eller inte.
 
-- **Åtgärder för skalskalning** för automatisk skalning – Motorn registrerar skalningsåtgärder som initierats av tjänsten för automatisk skalning och resultaten av dessa skalningsåtgärder (framgång, fel och hur mycket skalning som inträffade enligt tjänsten för automatisk skalning).
+- **Åtgärder för automatisk skalnings skalning** – motorn registrerar skalnings åtgärds händelser som initieras av tjänsten för automatisk skalning och resultatet av dessa skalnings åtgärder (lyckade, misslyckade och hur mycket skalning som har gjorts enligt autoskalning tjänsten).
 
-Precis som med alla Azure Monitor-tjänster som stöds kan du använda [diagnostikinställningar](diagnostic-settings.md) för att dirigera dessa loggar:
+Precis som med alla Azure Monitor tjänster som stöds kan du använda [diagnostikinställningar](diagnostic-settings.md) för att dirigera dessa loggar:
 
-- till din Log Analytics-arbetsyta för detaljerad analys
-- till Event Hubs och sedan till icke-Azure-verktyg
-- till ditt Azure-lagringskonto för arkivering  
+- till din Log Analytics arbets yta för detaljerad analys
+- för att Event Hubs och sedan till icke-Azure-verktyg
+- till ditt Azure Storage-konto för arkivering  
 
-![Diagnostikinställningar för automatisk skalning](media/autoscale-troubleshoot/diagnostic-settings.png)
+![Inställningar för autoskalning av diagnostik](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-Den föregående bilden visar diagnostikinställningarna för automatisk skalning av Azure-portalen. Där kan du välja fliken Diagnostik-/resursloggar och aktivera logginsamling och routning. Du kan också utföra samma åtgärd med REST API-, CLI-, PowerShell-, Resource Manager-mallar för diagnostikinställningar genom att välja resurstypen som *Microsoft.Insights/AutoscaleSettings*. 
+Föregående bild visar Azure Portal inställningarna för autoskalning av diagnostik. Där kan du välja fliken diagnostik/resurs loggar och aktivera logg insamling och routning. Du kan också utföra samma åtgärd med REST API, CLI, PowerShell, Resource Manager-mallar för diagnostikinställningar genom att välja resurs typ som *Microsoft. Insights/AutoscaleSettings*. 
 
-## <a name="troubleshooting-using-autoscale-logs"></a>Felsöka med loggar för automatisk skalning 
+## <a name="troubleshooting-using-autoscale-logs"></a>Felsöka med hjälp av automatiska skalnings loggar 
 
-För bästa felsökningsupplevelse rekommenderar vi att du dirigerar loggarna till Azure Monitor Logs (Log Analytics) via en arbetsyta när du skapar inställningen för automatisk skalning. Den här processen visas i bilden i föregående avsnitt. Du kan validera utvärderingarna och skala åtgärder bättre med hjälp av Log Analytics.
+För bästa fel söknings upplevelse rekommenderar vi att du dirigerar loggarna till Azure Monitor loggar (Log Analytics) via en arbets yta när du skapar inställningen för autoskalning. Den här processen visas i bilden i föregående avsnitt. Du kan validera utvärderingarna och skala åtgärder bättre med Log Analytics.
 
-När du har konfigurerat loggarna för automatisk skalning så att de skickas till log analytics-arbetsytan kan du köra följande frågor för att kontrollera loggarna. 
+När du har konfigurerat dina autoskalning-loggar som ska skickas till Log Analytics arbets ytan kan du köra följande frågor för att kontrol lera loggarna. 
 
-Prova den här frågan om du vill komma igång och visa de senaste utvärderingsloggarna för automatisk skalning:
+Kom igång genom att testa den här frågan för att visa de senaste utvärderings loggarna för autoskalning:
 
 ```Kusto
 AutoscaleEvaluationsLog
 | limit 50
 ```
 
-Eller prova följande fråga för att visa de senaste åtgärdsloggarna för skala:
+Eller prova följande fråga för att visa de senaste skalnings åtgärds loggarna:
 
 ```Kusto
 AutoscaleScaleActionsLog
 | limit 50
 ```
 
-Använd följande avsnitt för att de här frågorna ska användas. 
+Använd följande avsnitt för dessa frågor. 
 
-## <a name="a-scale-action-occurred-that-i-didnt-expect"></a>En skalningsåtgärd inträffade som jag inte förväntade mig
+## <a name="a-scale-action-occurred-that-i-didnt-expect"></a>En skalnings åtgärd genomfördes som jag inte förväntade mig
 
-Kör först frågan för skalningsåtgärd för att hitta den skalningsåtgärd som du är intresserad av. Om det är den senaste skalningsåtgärden använder du följande fråga:
+Kör först frågan för skalnings åtgärd för att hitta den skalnings åtgärd som du är intresse rad av. Om det är den senaste skalnings åtgärden använder du följande fråga:
 
 ```Kusto
 AutoscaleScaleActionsLog
 | take 1
 ```
 
-Välj fältet CorrelationId i skalningsåtgärdersloggen. Använd CorrelationId för att hitta rätt utvärderingslogg. Om du kör nedanstående fråga visas alla utvärderade regler och villkor som leder till den skalningsåtgärden.
+Välj fältet CorrelationId i loggen för skalnings åtgärder. Använd CorrelationId för att hitta rätt utvärderings logg. Om du kör frågan nedan visas alla regler och villkor som har utvärderats som inledande i denna skalnings åtgärd.
 
 ```Kusto
 AutoscaleEvaluationsLog
 | where CorrelationId = "<correliationId>"
 ```
 
-## <a name="what-profile-caused-a-scale-action"></a>Vilken profil orsakade en skalningsåtgärd?
+## <a name="what-profile-caused-a-scale-action"></a>Vilken profil orsakade en skalnings åtgärd?
 
-En skalad åtgärd inträffade, men du har överlappande regler och profiler och måste spåra vilken åtgärd som orsakade åtgärden. 
+En åtgärd som har skalats har inträffat, men du har överlappande regler och profiler och behöver spåra vilken som orsakade åtgärden. 
 
-Hitta korrelationPå grund av skalningsåtgärden (som förklaras i exempel 1) och kör sedan frågan i utvärderingsloggar för att lära dig mer om profilen.
+Hitta correlationId för skalnings åtgärden (enligt beskrivningen i exempel 1) och kör sedan frågan på utvärderings loggar för att lära dig mer om profilen.
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -164,7 +164,7 @@ AutoscaleEvaluationsLog
 | project ProfileEvaluationTime, Profile, ProfileSelected, EvaluationResult
 ```
 
-Hela profilutvärderingen kan också förstås bättre med hjälp av följande fråga
+Utvärderingen av hela profilen kan också tolkas bättre med hjälp av följande fråga
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -173,13 +173,13 @@ AutoscaleEvaluationsLog
 | project OperationName, Profile, ProfileEvaluationTime, ProfileSelected, EvaluationResult
 ```
 
-## <a name="a-scale-action-did-not-occur"></a>En skalningsåtgärd har inte inträffat
+## <a name="a-scale-action-did-not-occur"></a>En skalnings åtgärd utfördes inte
 
-Jag förväntade mig en skala åtgärd och det inträffade inte. Det kanske inte finns några åtgärdshändelser eller loggar för skalning.
+Jag förväntade en skalnings åtgärd och den utfördes inte. Det kan finnas inga skalnings åtgärds händelser eller loggar.
 
-Granska mätvärdena för automatisk skalning om du använder en måttbaserad skalningsregel. Det är möjligt att det **observerade måttvärdet** eller **observerad kapacitet** inte är vad du förväntade dig att de skulle vara och därför sköt inte skalningsregeln. Du skulle fortfarande se utvärderingar, men inte en utskalningsregel. Det är också möjligt att nedkylningstiden höll en skala åtgärd från att inträffa. 
+Granska måtten för autoskalning om du använder en Metric-baserad skalnings regel. Det är möjligt att det **observerade mått svärdet** eller den **observerade kapaciteten** inte är det du förväntade dig att du skulle vara och därför gick det inte att starta skalnings regeln. Du kan fortfarande se utvärderingar, men inte en skalbar regel. Det är också möjligt att den nedkylnings tid som behålls av en skalnings åtgärd inträffar. 
 
- Granska utvärderingsloggarna för automatisk skalning under den tidsperiod som du förväntade dig att skalningsåtgärden skulle inträffa. Granska alla utvärderingar den gjorde och varför den beslutade att inte utlösa en skala åtgärd.
+ Granska utvärderings loggarna för autoskalning under den tids period som du förväntar dig att skalnings åtgärden ska ske. Granska alla utvärderingar som det gjorde och varför det beslutade att inte utlösa en skalnings åtgärd.
 
 
 ```Kusto
@@ -189,9 +189,9 @@ AutoscaleEvaluationsLog
 | project OperationName, MetricData, ObservedValue, Threshold, EstimateScaleResult
 ```
 
-## <a name="scale-action-failed"></a>Åtgärden Skala misslyckades
+## <a name="scale-action-failed"></a>Skalnings åtgärden misslyckades
 
-Det kan finnas ett fall där tjänsten för automatisk skalning vidtog skalningsåtgärden, men systemet beslutade att inte skala eller misslyckades med att slutföra skalningsåtgärden. Använd den här frågan för att hitta de misslyckade skalningsåtgärderna.
+Det kan finnas ett fall där den automatiska skalnings tjänsten vidtog åtgärden, men systemet beslutade inte att skala eller slutföra skalnings åtgärden. Använd den här frågan för att hitta fel skalnings åtgärder.
 
 ```Kusto
 AutoscaleScaleActionsLog
@@ -199,11 +199,11 @@ AutoscaleScaleActionsLog
 | project ResultDescription
 ```
 
-Skapa varningsregler för att få meddelanden om åtgärder eller fel för automatisk skalning. Du kan också skapa varningsregler för att få meddelanden om händelser med automatisk skalning.
+Skapa aviserings regler för att få meddelanden om automatiska skalnings åtgärder eller problem. Du kan också skapa aviserings regler för att få meddelanden om automatiska skalnings händelser.
 
-## <a name="schema-of-autoscale-resource-logs"></a>Schema för resursloggar för automatisk skalning
+## <a name="schema-of-autoscale-resource-logs"></a>Schema för resurs loggar för autoskalning
 
-Mer information finns i [resursloggar för automatisk skalning](autoscale-resource-log-schema.md)
+Mer information finns i [Autoskala resurs loggar](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs information om [metodtips för automatisk skalning](autoscale-best-practices.md). 
+Läs information om [bästa metoder för autoskalning](autoscale-best-practices.md). 

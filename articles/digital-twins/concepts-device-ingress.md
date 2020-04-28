@@ -1,6 +1,6 @@
 ---
-title: Inträngning för enhetsanslutning och telemetri – Azure Digital Twins | Microsoft-dokument
-description: Lär dig hur du ansluter, ar ombord och skickar telemetri från en IoT-enhet i Azure Digital Twins.
+title: Enhets anslutning och telemetri ingångar – Azure Digitals dubblare | Microsoft Docs
+description: Lär dig att ansluta, publicera och skicka telemetri från en IoT-enhet i Azure Digitals.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,37 +9,37 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862483"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
-Telemetridata som skickas av enheter och sensorer utgör ryggraden i alla IoT-lösningar. Hur man representerar dessa olika resurser och hantera dem inom ramen för en plats är främsta oro i IoT app utveckling. Azure Digital Twins förenklar processen att utveckla IoT-lösningar genom att förena enheter och sensorer med en spatial intelligens graf.
+Telemetri-data som skickas av enheter och sensorer utgör stamnätet i alla IoT-lösningar. Hur du representerar dessa olika resurser och hanterar dem inom ramen för en plats är Chief-problem i IoT app-utveckling. Azure Digitals dubbla steg fören klar processen att utveckla IoT-lösningar genom att enhets enheter och sensorer med ett geografiskt informations diagram.
 
-För att komma igång, skapa en Azure IoT Hub-resurs i roten av det rumsliga diagrammet. IoT Hub-resursen gör att alla enheter under rotutrymmet kan skicka meddelanden. När IoT Hub har skapats registrerar du enheter med sensorer i Digital Twins-instansen. Enheterna kan skicka data till en Digital Twins-tjänst via [Azure IoT-enheten SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
+Kom igång genom att skapa en Azure IoT Hub-resurs i roten för det spatiala diagrammet. Med IoT Hub-resursen kan du skicka meddelanden från alla enheter under rot utrymmet. När IoT Hub har skapats registrerar du enheter med sensorer i den digitala dubbla instansen. Enheterna kan skicka data till en digital enhets tjänst via [Azure IoT-enhetens SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-En steg-för-steg-guide om hur du tar med enheter ombord läser [du självstudien för att distribuera och konfigurera Digitala tvillingar](tutorial-facilities-setup.md). I korthet är stegen:
+En steg-för-steg-guide om hur du hanterar enheter finns i [självstudien för att distribuera och konfigurera digitala dubbla](tutorial-facilities-setup.md). Du kan snabbt och enkelt följa stegen:
 
-- Distribuera en Digital Twins-instans från [Azure-portalen](https://portal.azure.com).
-- Skapa blanksteg i diagrammet.
-- Skapa en IoT Hub-resurs och tilldela den till ett utrymme i diagrammet.
-- Skapa enheter och sensorer i diagrammet och tilldela dem till de utrymmen som skapats i föregående steg.
-- Skapa en matchning för att filtrera telemetrimeddelanden baserat på villkor.
-- Skapa en [användardefinierad funktion](concepts-user-defined-functions.md)och tilldela den till ett utrymme i diagrammet för anpassad bearbetning av telemetrimeddelanden.
-- Tilldela en roll så att den användardefinierade funktionen kan komma åt diagramdata.
-- Hämta anslutningssträngen för IoT Hub-enheten från Digital Twins Management API:er.
-- Konfigurera enhetens anslutningssträng på enheten med Azure IoT-enheten SDK.
+- Distribuera en Digitals dubbla instanser från [Azure Portal](https://portal.azure.com).
+- Skapa blank steg i grafen.
+- Skapa en IoT Hub resurs och tilldela den till ett utrymme i grafen.
+- Skapa enheter och sensorer i grafen och tilldela dem till de utrymmen som skapats i föregående steg.
+- Skapa en matchning för att filtrera telemetri-meddelanden baserat på villkor.
+- Skapa en [användardefinierad funktion](concepts-user-defined-functions.md)och tilldela den till ett blank steg i grafen för anpassad bearbetning av telemetri-meddelanden.
+- Tilldela en roll för att tillåta den användardefinierade funktionen att komma åt graf-data.
+- Hämta anslutnings strängen för IoT Hub enhet från de digitala API: erna för hantering av digitala dubbla.
+- Konfigurera enhets anslutnings strängen på enheten med Azure IoT-enhetens SDK.
 
-I följande avsnitt får du lära dig hur du hämtar anslutningssträngen för IoT Hub-enheten från Digital Twins Management API. Du lär dig också hur du använder ioT Hub telemetri meddelandeformat för att skicka sensorbaserad telemetri. Digital Twins kräver varje bit telemetri som den tar emot för att associeras med en sensor i den rumsliga grafen. Detta krav säkerställer att data bearbetas och dirigeras inom lämplig rumslig kontext.
+I följande avsnitt får du lära dig hur du hämtar den IoT Hub enhets anslutnings strängen från Digitals hanterings-API. Du lär dig också hur du använder meddelande formatet IoT Hub telemetri för att skicka sensorbaserade telemetri. Digitala enheter kräver varje telemetri som den tar emot för att associeras med en sensor i det spatiala diagrammet. Detta krav säkerställer att data bearbetas och dirigeras inom lämplig rums kontext.
 
-## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>Hämta anslutningssträngen för IoT Hub-enheten från hanterings-API:et
+## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>Hämta anslutnings strängen för IoT Hub enhet från hanterings-API: et
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Gör ett GET-anrop på `includes=ConnectionString` enhets-API:et med en parameter för att hämta anslutningssträngen för IoT Hub-enheten. Filtrera efter enhetens GUID eller maskinvaru-ID för att hitta den angivna enheten.
+Gör ett anrop på enhets-API: et `includes=ConnectionString` med en parameter för att hämta IoT Hub enhets anslutnings sträng. Filtrera efter enhetens GUID eller maskinvaru-ID för att hitta den aktuella enheten.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
@@ -47,7 +47,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 
 | Parameter | Ersätt med |
 | --- | --- |
-| *YOUR_DEVICE_GUID* | Enhets-ID:et |
+| *YOUR_DEVICE_GUID* | Enhets-ID |
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
@@ -57,27 +57,27 @@ YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 | --- | --- |
 | *YOUR_DEVICE_HARDWARE_ID* | Enhetens maskinvaru-ID |
 
-Kopiera enhetens **connectionString-egenskap** i svarsnyttolasten. Du använder den när du anropar Azure IoT-enheten SDK för att skicka data till Digital Twins.
+Kopiera enhetens **ConnectionString** -egenskap i svarets nytto Last. Du använder den när du anropar Azure IoT-enhetens SDK för att skicka data till digitala dubbla.
 
 ## <a name="device-to-cloud-message"></a>Meddelande från enhet till moln
 
-Du kan anpassa enhetens meddelandeformat och nyttolast så att de passar din lösnings behov. Använd alla datakontrakt som kan serialiseras till en byte-matris eller ström som stöds av [klassen Azure IoT Device Client Message, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Meddelandet kan vara ett anpassat binärt format som du väljer, så länge du avkodar datakontraktet i en motsvarande användardefinierad funktion. Det finns bara ett krav för ett meddelande från enhet till moln. Underhåll en uppsättning egenskaper för att se till att meddelandet dirigeras på rätt sätt till bearbetningsmotorn.
+Du kan anpassa enhetens meddelande format och nytto Last så att den passar din lösnings behov. Använd alla data kontrakt som kan serialiseras i en byte mat ris eller data ström som stöds av [klient meddelande klassen i Azure IoT-enheten, meddelande (byte [] ByteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Meddelandet kan vara ett anpassat binärt format som du väljer så länge du avkodar data kontraktet i en motsvarande användardefinierad funktion. Det finns bara ett krav för ett meddelande från enhet till moln. Behåll en uppsättning egenskaper för att se till att ditt meddelande dirigeras korrekt till bearbetnings motorn.
 
 ### <a name="telemetry-properties"></a>Egenskaper för telemetri
 
- Nyttolastens innehåll i ett **meddelande** kan vara godtyckliga data upp till 256 kB i storlek. Det finns några krav som [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) förväntas för egenskaper av typen. Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
+ Nytto Last innehållet i ett **meddelande** kan vara godtyckligt data upp till 256 kB. Det finns några krav som förväntas för egenskaper [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) av typen. Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
 
 | Egenskapsnamn | Värde | Krävs | Beskrivning |
 |---|---|---|---|
-| **DigitalTwins-telemetri** | 1.0 | Ja | Ett konstant värde som identifierar ett meddelande till systemet. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar **meddelandet**. Det här värdet måste matcha egenskapen **HardwareId** för att systemet ska kunna bearbetas. Till exempel `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | Inga | En [ISO 8601-formaterad](https://www.iso.org/iso-8601-date-and-time-format.html) datumsträng som identifierar samplingstiden för nyttolasten. Till exempel `2018-09-20T07:35:00.8587882-07:00`. |
-| **KorrelationId** | `string` | Inga | En UUID som används för att spåra händelser i hela systemet. Till exempel `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins – telemetri** | 1.0 | Ja | Ett konstant värde som identifierar ett meddelande i systemet. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar **meddelandet**. Värdet måste matcha ett objekts **HardwareId** -egenskap för att systemet ska kunna bearbeta det. Till exempel `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | Inga | En [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) -formaterad datum sträng som identifierar nytto lastens samplings tid. Till exempel `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | Inga | Ett UUID som används för att spåra händelser i systemet. Till exempel `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
-### <a name="send-your-message-to-digital-twins"></a>Skicka ditt meddelande till Digital Twins
+### <a name="send-your-message-to-digital-twins"></a>Skicka meddelandet till digitala dubbla
 
-Använd callen DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) eller [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) för att skicka meddelandet till Digital Twins.
+Använd DeviceClient- [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) eller [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) -anropet för att skicka meddelandet till digitala dubbla.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om Azure Digital Twins databehandling och användardefinierade funktioner funktioner funktioner, läsa [Azure Digital Twins databehandling och användardefinierade funktioner](concepts-user-defined-functions.md).
+- Om du vill veta mer om Azure Digitals data behandling och användardefinierade funktioner kan du läsa mer i [Azure Digitals data behandling och användardefinierade funktioner](concepts-user-defined-functions.md).

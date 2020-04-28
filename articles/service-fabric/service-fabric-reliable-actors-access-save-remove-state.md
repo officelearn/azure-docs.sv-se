@@ -1,34 +1,34 @@
 ---
-title: Hantera tillståndet Azure Service Fabric
-description: Lär dig mer om hur du använder, sparar och tar bort tillstånd för en tillförlitlig aktör för Azure Service Fabric och överväganden när du utformar ett program.
+title: Hantera Azure Service Fabric-tillstånd
+description: Lär dig mer om att komma åt, Spara och ta bort tillstånd för Azure Service Fabric Reliable skådespelare och överväganden när du skapar ett program.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645641"
 ---
-# <a name="access-save-and-remove-reliable-actors-state"></a>Komma åt, spara och ta bort tillståndet För tillförlitliga aktörer
-[Reliable Actors](service-fabric-reliable-actors-introduction.md) är entrådiga objekt som kan kapsla in både logik och tillstånd och underhålla tillstånd på ett tillförlitligt sätt. Varje aktörsinstans har sin egen [tillståndshanterare:](service-fabric-reliable-actors-state-management.md)en ordlisteliknande datastruktur som på ett tillförlitligt sätt lagrar nyckel-/värdepar. Tillståndshanteraren är ett omslag runt en tillståndsprovider. Du kan använda den för att lagra data oavsett vilken [beständighetsinställning](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) som används.
+# <a name="access-save-and-remove-reliable-actors-state"></a>Åtkomst, Spara och ta bort Reliable Actors tillstånd
+[Reliable Actors](service-fabric-reliable-actors-introduction.md) är entrådade objekt som kan kapsla in både logik och tillstånd och bevara tillstånd på ett tillförlitligt sätt. Varje aktörs instans har sin egen [tillstånds ansvarig](service-fabric-reliable-actors-state-management.md): en ord lista som är en data struktur som på ett tillförlitligt sätt lagrar nyckel/värde-par. Tillstånds hanteraren är en omslutning runt en tillstånds leverantör. Du kan använda den för att lagra data oavsett vilken [beständighets inställning](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) som används.
 
-Tangenter för tillståndshanteraren måste vara strängar. Värden är generiska och kan vara vilken typ som helst, inklusive anpassade typer. Värden som lagras i tillståndshanteraren måste vara serialiserbara för datakontrakt eftersom de kan överföras över nätverket till andra noder under replikeringen och kan skrivas till disk, beroende på aktörens inställning för tillståndsbeständighet.
+Tillstånds hanterarens nycklar måste vara strängar. Värdena är generiska och kan vara vilken typ som helst, inklusive anpassade typer. Värden som lagras i tillstånds hanteraren måste vara serialiserbar för data kontrakt eftersom de kan överföras via nätverket till andra noder under replikeringen och kan skrivas till disk, beroende på en aktörs inställning för tillstånds persistence.
 
-Tillståndshanteraren exponerar vanliga ordlistemetoder för att hantera tillstånd, liknande dem som finns i Tillförlitlig ordlista.
+Tillstånds hanteraren visar gemensamma ordboks metoder för att hantera tillstånd, liknande de som finns i en tillförlitlig ord lista.
 
-Mer information finns [i metodtips för hantering av aktörstillstånd](service-fabric-reliable-actors-state-management.md#best-practices).
+Mer information finns [i metod tips i hantera aktörs tillstånd](service-fabric-reliable-actors-state-management.md#best-practices).
 
-## <a name="access-state"></a>Åtkomsttillstånd
-Tillstånd nås via tillståndshanteraren efter nyckel. State manager metoder är alla asynkrona eftersom de kan kräva disk I / O när aktörer har beständigt tillstånd. Vid första åtkomsten cachelagras tillståndsobjekt i minnet. Upprepa åtkomståtgärder åtkomstobjekt direkt från minnet och returnera synkront utan att ådra sig disk-I/O eller asynkron kontextväxling. Ett tillståndsobjekt tas bort från cacheminnet i följande fall:
+## <a name="access-state"></a>Åtkomst tillstånd
+Tillstånd nås via tillstånds hanteraren efter nyckel. Tillstånds hanterarens metoder är alla asynkrona eftersom de kan kräva disk-I/O när aktörer har sparat tillstånd. Vid första åtkomst cachelagras tillstånds objekt i minnet. Upprepa åtkomst åtgärder åtkomst objekt direkt från minnet och returnera dem synkront utan att behöva dra på disk-I/O eller asynkron kontext växling. Ett tillstånds objekt tas bort från cachen i följande fall:
 
-* En aktörsmetod genererar ett ohanterat undantag när den har hämtat ett objekt från tillståndshanteraren.
-* En aktör återaktiveras, antingen efter att ha inaktiverats eller efter fel.
-* Tillståndsproviderns sidor uppger disken. Detta beror på tillståndsproviderns implementering. Standardtillståndsprovidern `Persisted` för inställningen har detta beteende.
+* En aktörs metod genererar ett ohanterat undantag efter att det har hämtat ett objekt från tillstånds hanteraren.
+* En aktör återaktiveras, antingen efter att ha inaktiverats eller efter ett haveri.
+* Statusen för tillstånds leverantörens sidor till disk. Detta beteende beror på implementeringen av tillstånds leverantören. Standardprovidern för `Persisted` inställningen har det här beteendet.
 
-Du kan hämta tillstånd med hjälp av en *standardhämtningsåtgärd* som genererar `KeyNotFoundException`(C#) eller `NoSuchElementException`(Java) om det inte finns någon post för nyckeln:
+Du kan hämta tillstånd genom att använda en standard åtgärd för *hämtning* som `KeyNotFoundException`returnerar (C#) `NoSuchElementException`eller (Java) om det inte finns någon post för nyckeln:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -61,7 +61,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Du kan också hämta tillstånd med hjälp av en *TryGet-metod* som inte genererar om en post inte finns för en nyckel:
+Du kan också hämta tillstånd genom att använda en *TryGet* -metod som inte utlöses om det inte finns någon post för en nyckel:
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -104,9 +104,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 ```
 
 ## <a name="save-state"></a>Spara tillstånd
-Metoderna för hämtning av tillståndshanterare returnerar en referens till ett objekt i det lokala minnet. Om du ändrar det här objektet i det lokala minnet kan det inte sparas på ett sätt. När ett objekt hämtas från tillståndshanteraren och ändras måste det återinföras i tillståndshanteraren för att kunna sparas på ett sätt.
+Hämtnings metoder för tillstånds hanteraren returnerar en referens till ett objekt i lokalt minne. Att bara ändra det här objektet i lokalt minne gör att det inte kan sparas varaktigt. När ett objekt hämtas från tillstånds hanteraren och ändras, måste det infogas i tillstånds hanteraren för att kunna sparas varaktigt.
 
-Du kan infoga tillstånd *Set*med hjälp av en `dictionary["key"] = value` ovillkorlig uppsättning , vilket motsvarar syntaxen:
+Du kan infoga tillstånd genom att använda en ovillkorlig *uppsättning*, vilket är motsvarigheten till `dictionary["key"] = value` syntaxen:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -139,7 +139,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Du kan lägga till tillstånd med hjälp av metoden *Lägg till.* Den här `InvalidOperationException`metoden genererar (C#) eller `IllegalStateException`(Java) när den försöker lägga till en nyckel som redan finns.
+Du kan lägga till tillstånd med hjälp av en *Add* -metod. Den här metoden genererar `InvalidOperationException`(C#) eller `IllegalStateException`(Java) när den försöker lägga till en nyckel som redan finns.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -172,7 +172,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Du kan också lägga till tillstånd med hjälp av en *TryAdd-metod.* Den här metoden kastas inte när den försöker lägga till en nyckel som redan finns.
+Du kan också lägga till tillstånd med hjälp av en *TryAdd* -metod. Den här metoden utlöses inte när den försöker lägga till en nyckel som redan finns.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -215,9 +215,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-I slutet av en aktörsmetod sparar tillståndshanteraren automatiskt alla värden som har lagts till eller ändrats av en infoga eller uppdateringsåtgärd. En "spara" kan innehålla beständiga till disk och replikering, beroende på de inställningar som används. Värden som inte har ändrats sparas inte eller replikeras. Om inga värden har ändrats gör sparåtgärden ingenting. Om sparandet misslyckas ignoreras det ändrade tillståndet och det ursprungliga tillståndet läss in igen.
+I slutet av en aktörs metod sparar tillstånds hanteraren automatiskt alla värden som har lagts till eller ändrats av en infognings-eller uppdaterings åtgärd. Ett "Spara" kan omfatta beständighet till disk och replikering, beroende på vilka inställningar som används. Värden som inte har ändrats sparas inte eller replikeras inte. Om inga värden har ändrats gör Spara-åtgärden ingenting. Om det inte går att spara ignoreras statusen ändrad och det ursprungliga läget läses in igen.
 
-Du kan också spara tillstånd `SaveStateAsync` manuellt genom att anropa metoden på aktörsbasen:
+Du kan också spara tillstånd manuellt genom att anropa `SaveStateAsync` metoden i aktörs basen:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -239,7 +239,7 @@ interface MyActor {
 ```
 
 ## <a name="remove-state"></a>Ta bort tillstånd
-Du kan ta bort tillståndet permanent från en aktörs tillståndshanterare genom att anropa metoden *Ta bort.* Den här `KeyNotFoundException`metoden genererar (C#) eller `NoSuchElementException`(Java) när den försöker ta bort en nyckel som inte finns.
+Du kan ta bort statusen permanent från en aktörs tillstånds ansvarig genom att anropa metoden *Remove* . Den här metoden genererar `KeyNotFoundException`(C#) eller `NoSuchElementException`(Java) när den försöker ta bort en nyckel som inte finns.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -272,7 +272,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Du kan också ta bort tillståndet permanent med hjälp av *Metoden TryRemove.* Den här metoden kastas inte när den försöker ta bort en nyckel som inte finns.
+Du kan också ta bort statusen permanent genom att använda metoden *TryRemove* . Den här metoden utlöses inte när den försöker ta bort en nyckel som inte finns.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -317,6 +317,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## <a name="next-steps"></a>Nästa steg
 
-Tillstånd som lagras i Reliable Actors måste serialiseras innan det skrivs till disk och replikeras för hög tillgänglighet. Läs mer om [serialisering av aktörstyp](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Tillstånd som lagras i Reliable Actors måste serialiseras innan den skrivs till disk och replikeras för hög tillgänglighet. Läs mer om [typ serialisering för aktör](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-Läs sedan mer om [skådespelares diagnostik och prestandaövervakning](service-fabric-reliable-actors-diagnostics.md).
+Läs sedan mer om [aktörs diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md).

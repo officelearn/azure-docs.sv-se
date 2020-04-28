@@ -1,24 +1,24 @@
 ---
-title: Gränssnittselement för InfoBox
-description: I artikeln beskrivs användargränssnittselementet Microsoft.Common.InfoBox för Azure portal. Används för att lägga till text eller varningar när du distribuerar hanterade program.
+title: GRÄNSSNITTs element för informations instans
+description: Beskriver användar gränssnitts elementet Microsoft. Common. info i Azure Portal. Använd för att lägga till text eller varningar när du distribuerar hanterade program.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: 6d1e4a84904ef7022d9ce85803bf10285bf0b8ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652481"
 ---
-# <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI-element
+# <a name="microsoftcommoninfobox-ui-element"></a>Användar gränssnitts element för Microsoft. Common. info
 
-En kontroll som lägger till en informationsruta. Rutan innehåller viktig text eller varningar som hjälper användarna att förstå de värden de tillhandahåller. Det kan också länka till en URI för mer information.
+En kontroll som lägger till en informations ruta. Rutan innehåller viktig text eller varningar som hjälper användarna att förstå de värden som de tillhandahåller. Den kan också länka till en URI för mer information.
 
-## <a name="ui-sample"></a>Exempel på användargränssnitt
+## <a name="ui-sample"></a>UI-exempel
 
-![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+![Microsoft. Common. info](./media/managed-application-elements/microsoft.common.infobox.png)
 
 
 ## <a name="schema"></a>Schema
@@ -44,10 +44,10 @@ En kontroll som lägger till en informationsruta. Rutan innehåller viktig text 
 
 ## <a name="remarks"></a>Anmärkningar
 
-* För `icon`använder **du Ingen**, **Info,** **Varning**eller **Fel**.
-* Boendet `uri` är valfritt.
+* För `icon`, Använd **ingen**, **information**, **Varning**eller **fel**.
+* `uri` Egenskapen är valfri.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

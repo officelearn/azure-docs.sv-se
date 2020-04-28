@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta ett virtuella nätverk till ett VNet med en VNet-till-VNet-anslutning: Azure CLI'
+title: 'Ansluta ett VNet till ett VNet med en VNet-till-VNet-anslutning: Azure CLI'
 description: Anslut virtuella nätverk tillsammans med en VNet-till-VNet-anslutning och Azure CLI.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75834578"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
@@ -22,8 +22,8 @@ Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-ans
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure CLI. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Ansluta olika distributionsmodeller – Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -269,7 +269,7 @@ I det här scenariot ansluter vi TestVNet1 och TestVNet5. VNets finns i olika pr
 
 ### <a name="step-5---create-and-configure-testvnet1"></a><a name="TestVNet1diff"></a>Steg 5 – Skapa och konfigurera TestVNet1
 
-Dessa instruktioner bygger på stegen i föregående avsnitt. Du måste slutföra [steg 1](#Connect) och [steg 2](#TestVNet1) för att kunna skapa och konfigurera TestVNet1 och VPN Gateway för TestVNet1. I den här konfigurationen krävs det inte att du skapar TestVNet4 i enlighet med föregående avsnitt, men om du gör det går det ändå att använda de här instruktionerna. När du har slutfört steg 1 och steg 2 fortsätter du med steg 6 (nedan).
+Dessa instruktioner bygger på stegen i föregående avsnitt. Du måste slutföra [steg 1](#Connect) och [steg 2](#TestVNet1) för att skapa och konfigurera TestVNet1 och VPN gateway för TestVNet1. I den här konfigurationen krävs det inte att du skapar TestVNet4 i enlighet med föregående avsnitt, men om du gör det går det ändå att använda de här instruktionerna. När du har slutfört steg 1 och steg 2 fortsätter du med steg 6 (nedan).
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a><a name="verifyranges"></a>Steg 6 – Kontrollera IP-adressintervaller
 
@@ -292,7 +292,7 @@ När du skapar ytterligare anslutningar är det viktigt att se till att IP-adres
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Steg 7 – Skapa och konfigurera TestVNet5
 
-Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. Om du vill `az account list --all` växla mellan prenumerationer använder du för `az account set --subscription <subscriptionID>` att lista de prenumerationer som är tillgängliga för ditt konto och sedan använda för att växla till den prenumeration som du vill använda.
+Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den här delen kan utföras av administratören i en annan organisation som äger prenumerationen. Om du vill växla mellan `az account list --all` prenumerationer använder du för att lista de prenumerationer som `az account set --subscription <subscriptionID>` är tillgängliga för ditt konto och använder för att växla till den prenumeration som du vill använda.
 
 1. Kontrollera att du är ansluten till prenumeration 5 och sedan skapa en resursgrupp.
 
@@ -331,7 +331,7 @@ Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den 
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Steg 8 – Skapa anslutningarna
 
-Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. Om du vill `az account list --all` växla mellan prenumerationer använder du för `az account set --subscription <subscriptionID>` att lista de prenumerationer som är tillgängliga för ditt konto och sedan använda för att växla till den prenumeration som du vill använda.
+Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. Om du vill växla mellan `az account list --all` prenumerationer använder du för att lista de prenumerationer som `az account set --subscription <subscriptionID>` är tillgängliga för ditt konto och använder för att växla till den prenumeration som du vill använda.
 
 1. **[Prenumeration 1]** Logga in och anslut till Prenumeration 1. Kör följande kommando för att hämta namn och ID för gatewayen från utdata:
 

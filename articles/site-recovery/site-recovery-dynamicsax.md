@@ -1,185 +1,185 @@
 ---
-title: Haveriberedskap för Dynamics AX med Azure Site Recovery
-description: Lär dig hur du konfigurerar haveriberedskap för Dynamics AX med Azure Site Recovery
+title: Haveri beredskap för Dynamics AX med Azure Site Recovery
+description: Lär dig hur du konfigurerar haveri beredskap för Dynamics AX med Azure Site Recovery
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75941595"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera haveriberedskap för ett multitiert Dynamics AX-program   
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera katastrof återställning för ett Dynamics AX-program med flera nivåer   
 
 
 
 
- Dynamics AX är en av de mest populära affärssystemlösningar som används av företag för att standardisera processer på olika platser, hantera resurser och förenkla efterlevnaden. Eftersom programmet är avgörande för en organisation, i händelse av en katastrof, bör programmet vara igång på korttid.
+ Dynamics AX är en av de mest populära ERP-lösningar som används av företag för att standardisera processer mellan platser, hantera resurser och förenkla efterlevnad. Eftersom programmet är kritiskt för en organisation, bör programmet vara igång på kort tid, i händelse av en katastrof.
 
-Idag tillhandahåller Dynamics AX inga funktioner för in-the-box-katastrofåterställning. Dynamics AX består av många serverkomponenter, till exempel Windows Application Object Server, Azure Active Directory, Azure SQL Database, SharePoint Server och Reporting Services. Att hantera haveriberedskapen för var och en av dessa komponenter manuellt är inte bara dyrt utan också felbenägna.
+I dag tillhandahåller inte Dynamics AX några inaktuella funktioner för katastrof återställning. Dynamics AX består av många Server komponenter, t. ex. Windows program objekt Server, Azure Active Directory, Azure SQL Database, SharePoint Server och repor ting Services. För att hantera haveri beredskap för var och en av dessa komponenter manuellt är det inte bara dyrt utan också fel som kan uppstå.
 
-I den här artikeln beskrivs hur du kan skapa en katastrofåterställningslösning för ditt Dynamics AX-program med hjälp av [Azure Site Recovery](site-recovery-overview.md). Den omfattar även planerade/oplanerade testundans med hjälp av en återställningsplan med ett klick, konfigurationer och förutsättningar som stöds.
+Den här artikeln förklarar hur du kan skapa en katastrof återställnings lösning för Dynamics AX-programmet med hjälp av [Azure Site Recovery](site-recovery-overview.md). Den täcker även planerade/oplanerade redundanstest genom att använda en återställnings plan med ett klick, konfigurationer som stöds och krav.
 
 
 
 ## <a name="prerequisites"></a>Krav
 
-Implementera haveriberedskap för Dynamics AX-program med hjälp av Site Recovery kräver följande förutsättningar:
+Att implementera haveri beredskap för Dynamics AX-program genom att använda Site Recovery kräver följande krav:
 
-• Ställ in en lokal Dynamics AX-distribution.
+• Konfigurera en lokal Dynamics AX-distribution.
 
-• Skapa ett site recovery-valv i en Azure-prenumeration.
+• Skapa ett Site Recovery-valv i en Azure-prenumeration.
 
-• Om Azure är din återställningsplats kör du verktyget för bedömning av azure virtual machine readiness assessment på de virtuella datorerna. De måste vara kompatibla med Azure Virtual Machines och Site Recovery services.
+• Om Azure är din återställnings plats kör du verktyget Azure Virtual Machine readiness Assessment på de virtuella datorerna. De måste vara kompatibla med Azure-Virtual Machines och Site Recovery-tjänster.
 
 ## <a name="site-recovery-support"></a>Site Recovery-stöd
 
-I den här artikeln använde vi virtuella VMware-datorer med Dynamics AX 2012 R3 på Windows Server 2012 R2 Enterprise. Eftersom site recovery-replikering är programagnostiker förväntar vi oss att rekommendationerna här ska spärras för följande scenarier.
+För att kunna skapa den här artikeln använde vi virtuella VMware-datorer med Dynamics AX 2012 R3 på Windows Server 2012 R2 Enterprise. Eftersom Site Recovery replikeringen är en oberoende för program, förväntar vi rekommendationerna som finns här för följande scenarier.
 
 ### <a name="source-and-target"></a>Källa och mål
 
 **Scenario** | **Till en sekundär plats** | **Till Azure**
 --- | --- | ---
 **Hyper-V** | Ja | Ja
-**Vmware** | Ja | Ja
+**VMware** | Ja | Ja
 **Fysisk server** | Ja | Ja
 
-## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Aktivera haveriberedskap av Dynamics AX-programmet med hjälp av Site Recovery
+## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Aktivera haveri beredskap för Dynamics AX-programmet genom att använda Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Skydda ditt Dynamics AX-program
 För att aktivera fullständig programreplikering och återställning måste varje komponent i Dynamics AX skyddas.
 
-### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Konfigurera Active Directory- och DNS-replikering
+### <a name="1-set-up-active-directory-and-dns-replication"></a>1. konfigurera Active Directory och DNS-replikering
 
-Active Directory krävs på haveriberedskapsplatsen för att Dynamics AX-programmet ska fungera. Vi rekommenderar följande två alternativ baserat på komplexiteten i kundens lokala miljö.
+Active Directory krävs på webbplatsen för haveri beredskap för att Dynamics AX-programmet ska fungera. Vi rekommenderar följande två alternativ beroende på hur komplex kundens lokala miljö är.
 
 **Alternativ 1**
 
-Kunden har ett litet antal program och en enda domänkontrollant för hela den lokala platsen och planerar att växla över hela webbplatsen tillsammans. Vi rekommenderar att du använder Site Recovery-replikering för att replikera domänkontrollantdatorn till en sekundär plats (gäller för både plats-till-plats- och plats-till-Azure-scenarier).
+Kunden har ett litet antal program och en enda domänkontrollant för hela den lokala platsen och planerar att redundansväxla hela platsen. Vi rekommenderar att du använder Site Recovery replikering för att replikera domänkontrollantens dator till en sekundär plats (gäller för både plats-till-plats-och plats-till-Azure-scenarier).
 
 **Alternativ 2**
 
-Kunden har ett stort antal program och kör en Active Directory-skog och planerar att växla över några program åt gången. Vi rekommenderar att du konfigurerar ytterligare en domänkontrollant på platsen för haveriberedskap (en sekundär plats eller i Azure).
+Kunden har ett stort antal program och kör en Active Directory skog och planerar att redundansväxla några program i taget. Vi rekommenderar att du konfigurerar ytterligare en domänkontrollant på webbplatsen för haveri beredskap (en sekundär plats eller i Azure).
 
- Mer information finns i [Göra en domänkontrollant tillgänglig på en plats för haveriberedskap](site-recovery-active-directory.md). För resten av det här dokumentet förutsätter vi att en domänkontrollant är tillgänglig på haveriberedskapsplatsen.
+ Mer information finns i [göra en domänkontrollant tillgänglig på en katastrof återställnings plats](site-recovery-active-directory.md). I resten av det här dokumentet förutsätter vi att en domänkontrollant är tillgänglig på återställnings platsen för haveri beredskap.
 
-### <a name="2-set-up-sql-server-replication"></a>2. Konfigurera SQL Server-replikering
-Teknisk vägledning om det rekommenderade alternativet för att skydda SQL-nivån finns i [Replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
+### <a name="2-set-up-sql-server-replication"></a>2. Konfigurera SQL Server replikering
+Teknisk vägledning för det rekommenderade alternativet för att skydda SQL-nivån finns i [Replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
 
-### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Aktivera skydd för virtuella dynamics AX-klient- och programobjektserver
-Utför relevant konfiguration för platsåterställning baserat på om de virtuella datorerna distribueras på [Hyper-V](site-recovery-hyper-v-site-to-azure.md) eller [VMware](site-recovery-vmware-to-azure.md).
+### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Aktivera skydd för de virtuella datorerna för Dynamics AX-klienten och program objekt servern
+Utför relevant Site Recovery konfiguration baserat på om de virtuella datorerna distribueras på [Hyper-V](site-recovery-hyper-v-site-to-azure.md) eller [VMware](site-recovery-vmware-to-azure.md).
 
 > [!TIP]
-> Vi rekommenderar att du konfigurerar den kraschkonsekventa frekvensen till 15 minuter.
+> Vi rekommenderar att du konfigurerar den kraschbaserade frekvensen till 15 minuter.
 >
 
-Följande ögonblicksbild visar skyddsstatus för virtuella dynamics-komponent-datorer i ett VMware-site-to-Azure-skyddsscenario.
+Följande ögonblicks bild visar skydds status för virtuella datorer i Dynamics-komponenter i ett VMware-scenario för plats-till-Azure-skydd.
 
 ![Skyddade objekt](./media/site-recovery-dynamics-ax/protecteditems.png)
 
 ### <a name="4-configure-networking"></a>4. Konfigurera nätverk
-**Konfigurera VM-beräknings- och nätverksinställningar**
+**Konfigurera beräknings-och nätverks inställningar för virtuella datorer**
 
-Konfigurera nätverksinställningar i Site Recovery för Dynamics AX-klienten och Application Object Server så att VM-nätverken kopplas till rätt katastrofåterställningsnätverk efter redundans. Kontrollera att haveriberedskapsnätverket för dessa nivåer är dirigerbart till SQL-nivån.
+För de virtuella datorerna i Dynamics AX-klienten och program objekt servern konfigurerar du nätverks inställningar i Site Recovery så att de virtuella dator nätverken blir anslutna till rätt haveri beredskap efter redundansväxlingen. Se till att Disaster Recovery-nätverket för dessa nivåer är flyttbara till SQL-nivån.
 
-Du kan välja den virtuella datorn i de replikerade objekten för att konfigurera nätverksinställningarna, vilket visas i följande ögonblicksbild:
+Du kan välja den virtuella datorn i de replikerade objekten för att konfigurera nätverks inställningarna, som du ser i följande ögonblicks bild:
 
-* För Programobjektserverservrar väljer du rätt tillgänglighetsuppsättning.
+* För program objekt Server servrar väljer du rätt tillgänglighets uppsättning.
 
-* Om du använder en statisk IP anger du den IP som du vill att den virtuella datorn ska ta i textrutan **Mål-IP.**
+* Om du använder en statisk IP-adress anger du den IP-adress som du vill att den virtuella datorn ska ta i text rutan **mål-IP** .
 
     ![Nätverksinställningar](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
-### <a name="5-create-a-recovery-plan"></a>5. Skapa en återhämtningsplan
+### <a name="5-create-a-recovery-plan"></a>5. skapa en återställnings plan
 
-Du kan skapa en återställningsplan i Site Recovery för att automatisera redundansprocessen. Lägg till en appnivå och en webbnivå i återställningsplanen. Beställ dem i olika grupper så att frontend stängs av före appnivån.
+Du kan skapa en återställnings plan i Site Recovery för att automatisera redundansväxlingen. Lägg till en app-nivå och en webb nivå i återställnings planen. Ordna dem i olika grupper så att klient delen stängs av innan app-nivån.
 
-1. Välj valv för webbplatsåterställning i prenumerationen och välj panelen **Återställningsplaner.**
+1. Välj Site Recovery valv i prenumerationen och välj panelen **återställnings planer** .
 
-2. Välj **+ Återställningsplan**och ange ett namn.
+2. Välj **+ återställnings plan**och ange ett namn.
 
-3. Välj **källa** och **mål**. Målet kan vara Azure eller en sekundär plats. Om du väljer Azure måste du ange distributionsmodellen.
+3. Välj **källa** och **mål**. Målet kan vara Azure eller en sekundär plats. Om du väljer Azure måste du ange distributions modellen.
 
     ![Skapa en återställningsplan](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
-4. Välj programobjektservern och klientens virtuella datorer för återställningsplanen och välj ✓.
+4. Välj program objekt servern och de virtuella klient datorerna för återställnings planen och välj ✓.
 
-    ![Markera objekt](./media/site-recovery-dynamics-ax/selectvms.png)
+    ![Välj objekt](./media/site-recovery-dynamics-ax/selectvms.png)
 
-    Exempel på återställningsplan:
+    Exempel på återställnings plan:
 
     ![Information om återställningsplan](./media/site-recovery-dynamics-ax/recoveryplan.png)
 
-Du kan anpassa återställningsplanen för Dynamics AX-programmet genom att lägga till följande steg. Den föregående ögonblicksbilden visar hela återställningsplanen när du har lagt till alla steg.
+Du kan anpassa återställnings planen för Dynamics AX-programmet genom att lägga till följande steg. Den tidigare ögonblicks bilden visar hela återställnings planen när du har lagt till alla steg.
 
 
-* **SQL Server redundanssteg:** Information om återställningssteg som är specifika för SQL-servern finns i [Replikeringsprogram med SQL Server och Azure Site Recovery](site-recovery-sql.md).
+* **SQL Server redundans**: Mer information om återställnings steg som är speciella för SQL Server finns i [program för replikering med SQL Server och Azure Site Recovery](site-recovery-sql.md).
 
-* **Redundansgrupp 1:** Växla över virtuella datorer för programobjektservern.
-Kontrollera att den valda återställningspunkten är så nära databasen PIT som möjligt, men inte före den.
+* **Redundans grupp 1**: redundansväxla de virtuella datorerna i program objekt servern.
+Se till att den valda återställnings punkten är så nära databasens depå som möjligt, men inte före den.
 
 * **Skript**: Lägg till belastningsutjämnare (endast E-A).
-Lägg till ett skript (via Azure Automation) när vm-gruppen Application Object Server har lagt till en belastningsutjämnare i den. Du kan använda ett skript för att utföra den här uppgiften. Mer information finns i [Så här lägger du till en belastningsutjämnare för multitier-programkatastrofåterställning](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
+Lägg till ett skript (via Azure Automation) efter att program objekt serverns VM-grupp har registrerats för att lägga till en belastningsutjämnare till den. Du kan använda ett skript för att utföra den här uppgiften. Mer information finns i [så här lägger du till en belastningsutjämnare för haveri beredskap för program](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)i flera nivåer.
 
-* **Redundansgrupp 2:** Växla över virtuella dynamics AX-klient-klientdatorerna. Växla över virtuella datorer på webbnivå som en del av återställningsplanen.
+* **Redundans grupp 2**: redundansväxla virtuella Dynamics AX-klientdatorer. Redundansväxla de virtuella datorerna på webb nivå som en del av återställnings planen.
 
 
-### <a name="perform-a-test-failover"></a>Utföra en testväxling
+### <a name="perform-a-test-failover"></a>Utför ett redundanstest
 
-Mer information som är specifik för Active Directory under test redundans finns i kompletterande guide för "Active Directory disaster recovery solution".
+Mer information om hur du Active Directory under redundanstest finns i hand boken "Active Directory katastrof återställnings lösning".
 
-Mer information som är specifik för SQL-servern under test redundans finns i [Replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
+Mer information om SQL Server under redundanstest finns i [Replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
 
-1. Gå till Azure-portalen och välj ditt site recovery-valv.
+1. Gå till Azure Portal och välj Site Recovery valvet.
 
-2. Välj den återställningsplan som skapats för Dynamics AX.
+2. Välj den återställnings plan som skapats för Dynamics AX.
 
 3. Välj **Testa redundans**.
 
-4. Välj det virtuella nätverket för att starta test failover-processen.
+4. Välj det virtuella nätverket för att starta processen för redundanstest.
 
-5. När den sekundära miljön är kan du utföra dina valideringar.
+5. När den sekundära miljön är upp kan du utföra dina verifieringar.
 
-6. När valideringarna är klara väljer du **Valideringar slutförda** och testundanundansmiljön rensas.
+6. När verifieringen är klar väljer du **valideringar som slutförts** och testa redundansväxlingen är rensad.
 
-Mer information om hur du utför en testväxling finns i [Testa redundans till Azure i Site Recovery](site-recovery-test-failover-to-azure.md).
+Mer information om hur du utför redundanstest finns i [testa redundans till Azure i Site Recovery](site-recovery-test-failover-to-azure.md).
 
-### <a name="perform-a-failover"></a>Utföra en redundans
+### <a name="perform-a-failover"></a>Utföra en redundansväxling
 
-1. Gå till Azure-portalen och välj ditt site recovery-valv.
+1. Gå till Azure Portal och välj Site Recovery valvet.
 
-2. Välj den återställningsplan som skapats för Dynamics AX.
+2. Välj den återställnings plan som skapats för Dynamics AX.
 
-3. Välj **Redundans**och välj **Redundans**.
+3. Välj **redundans**och välj **redundans**.
 
-4. Välj målnätverket och välj **✓** för att starta redundansprocessen.
+4. Välj mål nätverket och välj **✓** för att starta redundansväxlingen.
 
-Mer information om hur du gör en redundans finns [i Redundans i Site Recovery](site-recovery-failover.md).
+Mer information om hur du utför en växling vid fel finns [i redundansväxlingen i Site Recovery](site-recovery-failover.md).
 
 ### <a name="perform-a-failback"></a>Utföra en återställning efter fel
 
-Om du vill ha några säröverväganden som är specifika för SQL Server under återställning efter fel finns [i Replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
+Information om hur du SQL Server under återställning efter fel finns i [Replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
 
-1. Gå till Azure-portalen och välj ditt site recovery-valv.
+1. Gå till Azure Portal och välj Site Recovery valvet.
 
-2. Välj den återställningsplan som skapats för Dynamics AX.
+2. Välj den återställnings plan som skapats för Dynamics AX.
 
-3. Välj **Redundans**och välj **Redundans**.
+3. Välj **redundans**och välj **redundans**.
 
-4. Välj **Ändra riktning**.
+4. Välj **ändra riktning**.
 
-5. Välj lämpliga alternativ: datasynkronisering och skapande av virtuella datorer.
+5. Välj lämpliga alternativ: datasynkronisering och skapande av virtuell dator.
 
-6. Välj **✓** om du vill starta återställningen av återställningen.
+6. Välj **✓** för att starta processen för återställning efter fel.
 
 
-Mer information om hur du gör en återställning efter fel finns i Virtuella datorer med återställning av [VMware från Azure till lokala](site-recovery-failback-azure-to-vmware.md).
+Mer information om hur du utför en återställning efter fel finns i [återställning av virtuella VMware-datorer från Azure till lokala platser](site-recovery-failback-azure-to-vmware.md).
 
 ## <a name="summary"></a>Sammanfattning
-Genom att använda Site Recovery kan du skapa en fullständig automatisk haveriberedskapsplan för ditt Dynamics AX-program. I händelse av ett avbrott kan du initiera redundansen inom några sekunder från var som helst och få igång programmet på några minuter.
+Med hjälp av Site Recovery kan du skapa en fullständig automatiserad katastrof återställnings plan för ditt Dynamics AX-program. I händelse av ett avbrott kan du initiera redundansväxlingen inom några sekunder från var som helst och få programmet igång på några minuter.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du skyddar företagets arbetsbelastningar med Site Recovery finns i [Vilka arbetsbelastningar kan jag skydda?](site-recovery-workload.md)
+Mer information om hur du skyddar företags arbets belastningar med Site Recovery finns i [vilka arbets belastningar kan jag skydda?](site-recovery-workload.md).

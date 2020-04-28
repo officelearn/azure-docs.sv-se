@@ -1,6 +1,6 @@
 ---
-title: Diagnostikloggar för Azure Media Services - Azure
-description: Den här artikeln visar diagnostikloggscheman för Diagnostikloggar för Azure Media Services.
+title: Scheman för Azure Media Services diagnostiska loggar – Azure
+description: Den här artikeln visar scheman för Azure Media Services diagnostiska loggar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,41 +14,41 @@ ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
 ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75750884"
 ---
 # <a name="diagnostic-logs-schemas"></a>Scheman för diagnostikloggar
 
-[Med Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program fungerar. Du kan övervaka Diagnostikloggar för Media Services och skapa aviseringar och meddelanden för insamlade mått och loggar. Du kan skicka loggar till [Azure Storage,](https://azure.microsoft.com/services/storage/)strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/)eller använda tjänster från tredje part.
+Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program presterar. Du kan övervaka Media Services diagnostikloggar och skapa aviseringar och aviseringar för insamlade mått och loggar. Du kan skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/)eller använda tjänster från tredje part.
 
-Detaljerad information finns i [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) och [Azure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md).
+Detaljerad information finns i [Azure Monitor mått](../../azure-monitor/platform/data-platform.md) och [Azure Monitor diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md).
 
-I den här artikeln beskrivs diagnostikloggscheman för diagnostikloggar för Media Services.
+I den här artikeln beskrivs scheman för Media Services diagnostiska loggar.
 
-## <a name="top-level-diagnostic-logs-schema"></a>Schema för diagnostikloggar på högsta nivå
+## <a name="top-level-diagnostic-logs-schema"></a>Schema för diagnostiska loggar på högsta nivån
 
-Detaljerad beskrivning av schemat för diagnostikloggar på den högsta nivån finns i [Tjänster, scheman och kategorier som stöds för Azure Diagnostic Logs](../../azure-monitor/platform/tutorial-dashboards.md).
+Detaljerad beskrivning av schemat på den högsta nivån av diagnostiska loggar finns i [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../azure-monitor/platform/tutorial-dashboards.md).
 
-## <a name="key-delivery-log-schema"></a>Schema för logg för nyckelleverans
+## <a name="key-delivery-log-schema"></a>Logg schema för nyckel leverans
 
 ### <a name="properties"></a>Egenskaper
 
-Dessa egenskaper är specifika för nyckelleveransloggschemat.
+De här egenskaperna är speciella för logg schema för nyckel leverans.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-|keyId (keyId)|ID:an för den begärda nyckeln.|
-|Keytype|Kan vara ett av följande värden: "Clear" (ingen kryptering), "FairPlay", "PlayReady" eller "Widevine".|
-|policyName|Azure Resource Manager-namnet på principen.|
-|tokenType (tokenType)|Tokentypen.|
-|statusMessage|Statusmeddelandet.|
+|keyId|ID för den begärda nyckeln.|
+|keyType|Kan vara något av följande värden: "Clear" (ingen kryptering), "FairPlay", "PlayReady" eller "Widevine".|
+|policyName|Principens Azure Resource Manager namn.|
+|tokenType|Tokentyp.|
+|statusMessage|Status meddelandet.|
 
 ### <a name="examples"></a>Exempel
 
-Egenskaper för schemat för nyckelleveransbegäranden.
+Egenskaper för nyckel leverans begär ande schema.
 
 ```json
 {
@@ -110,8 +110,8 @@ Egenskaper för schemat för nyckelleveransbegäranden.
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Övervaka Media Services-mått och diagnostikloggar](media-services-metrics-diagnostic-logs.md)
+[Övervaka Media Servicess statistik och diagnostiska loggar](media-services-metrics-diagnostic-logs.md)

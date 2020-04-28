@@ -1,6 +1,6 @@
 ---
-title: Licenskrav för att använda Privilegierad identitetshantering – Azure Active Directory | Microsoft-dokument
-description: Beskriver licenskraven för att använda Azure AD Privileged Identity Management (PIM).
+title: Licens krav för att använda Privileged Identity Management-Azure Active Directory | Microsoft Docs
+description: Beskriver licens kraven för att använda Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -18,15 +18,15 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75932325"
 ---
-# <a name="license-requirements-to-use-privileged-identity-management"></a>Licenskrav för att använda privilegierad identitetshantering
+# <a name="license-requirements-to-use-privileged-identity-management"></a>Licens krav för att använda Privileged Identity Management
 
-Om du vill använda AZURE Active Directory (Azure AD) Privilegierad identitetshantering (PIM) måste en katalog ha en giltig licens. Dessutom måste licenser tilldelas administratörer och relevanta användare. I den här artikeln beskrivs licenskraven för att använda Privilegierad identitetshantering.
+Om du vill använda Azure Active Directory (Azure AD) Privileged Identity Management (PIM) måste en katalog ha en giltig licens. Dessutom måste licenser tilldelas till administratörer och relevanta användare. I den här artikeln beskrivs licens kraven för att använda Privileged Identity Management.
 
 ## <a name="valid-licenses"></a>Giltiga licenser
 
@@ -34,42 +34,42 @@ Om du vill använda AZURE Active Directory (Azure AD) Privilegierad identitetsha
 
 ## <a name="how-many-licenses-must-you-have"></a>Hur många licenser måste du ha?
 
-Kontrollera att katalogen har minst lika många Azure AD Premium P2-licenser som du har anställda som utför följande uppgifter:
+Se till att katalogen har minst så många Azure AD Premium P2-licenser som du har anställda som ska utföra följande uppgifter:
 
-- Användare som tilldelats som berättigade till Azure AD-roller som hanteras med PIM
-- Användare som kan godkänna eller avvisa aktiveringsbegäranden i PIM
-- Användare som tilldelats en Azure-resursroll med just-in-time- eller direct-tilldelningar (tidsbaserade)  
-- Användare som tilldelats en åtkomstgranskning
-- Användare som utför åtkomstgranskningar
+- Användare som är behöriga för Azure AD-roller som hanteras med PIM
+- Användare kan godkänna eller avvisa aktiverings begär anden i PIM
+- Användare som tilldelats en Azure-resurs roll med just-in-Time-eller Direct (tidsbaserad) tilldelningar  
+- Användare som tilldelats åtkomst granskning
+- Användare som utför åtkomst granskningar
 
 Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
 
-- Inga licenser krävs för användare med rollrollerna Global administratör eller Privilegierad rolladministratör som konfigurerar PIM, konfigurerar principer, tar emot aviseringar och konfigurerar åtkomstgranskningar.
+- Inga licenser krävs för användare med administratörs rollerna global administratör eller privilegie rad roll som konfigurerar PIM, konfigurerar principer, tar emot aviseringar och ställer in åtkomst granskningar.
 
-Mer information om licenser finns i [Tilldela eller ta bort licenser med Azure Active Directory-portalen](../fundamentals/license-users-groups.md).
+Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 
-## <a name="example-license-scenarios"></a>Exempel på licensscenarier
+## <a name="example-license-scenarios"></a>Exempel på licens scenarier
 
-Här är några exempel på licensscenarier som hjälper dig att avgöra hur många licenser du måste ha.
+Här följer några exempel på licens scenarier som hjälper dig att fastställa antalet licenser som du måste ha.
 
 | Scenario | Beräkning | Antal licenser |
 | --- | --- | --- |
-| Woodgrove Bank har 10 administratörer för olika avdelningar och 2 globala administratörer som konfigurerar och hanterar PIM. De gör fem administratörer kvalificerade. | Fem licenser för administratörer som är berättigade | 5 |
-| Graphic Design Institute har 25 administratörer varav 14 hanteras via PIM. Rollaktivering kräver godkännande och det finns tre olika användare i organisationen som kan godkänna aktiveringar. | 14 licenser för berättigade roller + tre godkännare | 17 |
-| Contoso har 50 administratörer varav 42 hanteras via PIM. Rollaktivering kräver godkännande och det finns fem olika användare i organisationen som kan godkänna aktiveringar. Contoso gör också månatliga granskningar av användare som tilldelats administratörsroller och granskare är användarnas chefer som sex inte är i administratörsroller som hanteras av PIM. | 42 licenser för berättigade roller + fem godkännare + sex granskare | 53 |
+| Sparbanken bank har 10 administratörer för olika avdelningar och 2 globala administratörer som konfigurerar och hanterar PIM. De gör fem administratörer berättigade. | Fem licenser för administratörer som är berättigade | 5 |
+| Graphic Design Institute har 25 administratörer av vilka 14 hanteras via PIM. Roll aktivering kräver godkännande och det finns tre olika användare i organisationen som kan godkänna aktiveringar. | 14 licenser för berättigade roller + tre god kännare | 17 |
+| Contoso har 50 administratörer av vilka 42 hanteras via PIM. Roll aktivering kräver godkännande och det finns fem olika användare i organisationen som kan godkänna aktiveringar. Contoso visar också månads Visa de användare som har tilldelats administratörs roller och granskare, där de sex inte finns i administratörs roller som hanteras av PIM. | 42 licenser för de berättigade rollerna + fem god kännare + sex granskare | 53 |
 
-## <a name="what-happens-when-a-license-expires"></a>Vad händer när en licens går ut?
+## <a name="what-happens-when-a-license-expires"></a>Vad händer när en licens upphör att gälla?
 
-Om en Azure AD Premium P2-, EMS E5- eller utvärderingslicens upphör att gälla är funktioner för privilegierad identitetshantering inte längre tillgängliga i din katalog:
+Om en Azure AD Premium P2, EMS E5 eller utvärderings licens upphör att gälla, kommer Privileged Identity Management funktioner inte längre att vara tillgängliga i din katalog:
 
-- Permanenta rolltilldelningar till Azure AD-roller påverkas inte.
-- Tjänsten Privilegierad identitetshantering i Azure-portalen, liksom Graph API-cmdlets och PowerShell-gränssnitt för privilegierad identitetshantering, kommer inte längre att vara tillgänglig för användare att aktivera privilegierade roller, hantera privilegierad åtkomst eller utföra åtkomstgranskningar av privilegierade roller.
-- Kvalificerade rolltilldelningar av Azure AD-roller tas bort, eftersom användarna inte längre kan aktivera privilegierade roller.
-- Alla pågående åtkomstgranskningar av Azure AD-roller avslutas och konfigurationsinställningar för privilegierad identitetshantering tas bort.
-- Privilegierad identitetshantering skickar inte längre e-postmeddelanden om rolltilldelningsändringar.
+- Permanenta roll tilldelningar till Azure AD-roller kommer inte att påverkas.
+- Privileged Identity Management tjänst i Azure Portal, samt Graph API-cmdletar och PowerShell-gränssnitt för Privileged Identity Management, kommer inte längre att vara tillgängliga för användare att aktivera privilegierade roller, hantera privilegie rad åtkomst eller utföra åtkomst granskningar av privilegierade roller.
+- Kvalificerade roll tilldelningar för Azure AD-roller tas bort eftersom användarna inte längre kan aktivera privilegierade roller.
+- Pågående åtkomst granskningar av Azure AD-roller kommer att avslutas och Privileged Identity Management konfigurations inställningar tas bort.
+- Privileged Identity Management kommer inte längre att skicka e-postmeddelanden om roll tilldelnings ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Distribuera Privileged Identity Management](pim-deployment-plan.md)
 - [Börja använda Privileged Identity Management](pim-getting-started.md)
-- [Roller som du inte kan hantera i privilegierad identitetshantering](pim-roles.md)
+- [Roller som du inte kan hantera i Privileged Identity Management](pim-roles.md)

@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 49f48c2d0bf865cf8c8fde831e7a597f8701d213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187171"
 ---
 Du kan kontrol lera att anslutningen har lyckats med hjälp av cmdleten "Get-AzVirtualNetworkGatewayConnection", med eller utan "-debug". 

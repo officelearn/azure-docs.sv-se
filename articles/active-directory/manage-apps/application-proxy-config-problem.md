@@ -1,6 +1,6 @@
 ---
-title: Problem med att skapa ett programproxyprogram | Microsoft-dokument
-description: Felsöka problem med att skapa programproxyprogram i Azure AD Admin-portalen
+title: Problem med att skapa ett program för programproxy | Microsoft Docs
+description: Så här felsöker du problem med att skapa Application Proxy-program i Azure AD admin-portalen
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,39 +17,39 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65825807"
 ---
-# <a name="problem-creating-an-application-proxy-application"></a>Problem med att skapa ett programproxyprogram 
+# <a name="problem-creating-an-application-proxy-application"></a>Problem med att skapa ett program för programproxy 
 
-Nedan följer några av de vanligaste problemen som människor står inför när de skapar ett nytt programproxyprogram.
+Nedan visas några vanliga problem när man skapar ett nytt program för programproxy.
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument 
 
-Mer information om hur du skapar ett programproxyprogram via administratörsportalen finns i [Publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
+Mer information om hur du skapar ett program-proxy-program via administrations portalen finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md).
 
-Om du följer stegen i dokumentet och får ett felmeddelande om hur du skapar programmet läser du felinformationen för information och förslag på hur du åtgärdar programmet. De flesta felmeddelanden innehåller en föreslagen korrigering. 
+Om du följer stegen i dokumentet och får ett fel när du skapar programmet, kan du läsa mer i fel informationen och förslag på hur du kan åtgärda programmet. De flesta fel meddelanden innehåller en föreslagen korrigering. 
 
-## <a name="specific-things-to-check"></a>Specifika saker att kontrollera
+## <a name="specific-things-to-check"></a>Vissa saker att kontrol lera
 
-För att undvika vanliga fel, kontrollera:
+För att undvika vanliga fel, verifiera:
 
--   Du är administratör med behörighet att skapa ett programproxyprogram
+-   Du är administratör med behörighet att skapa ett program för programproxy
 
--   Den interna webbadressen är unik
+-   Den interna URL: en är unik
 
--   Den externa webbadressen är unik
+-   Den externa URL: en är unik
 
--   Webbadresserna börjar med http eller https och slutar med ett "/"
+-   URL: erna börjar med http eller https och slutar med "/"
 
--   Webbadressen ska vara ett domännamn och inte en IP-adress
+-   URL: en måste vara ett domän namn och inte en IP-adress
 
-Felmeddelandet ska visas i det övre högra hörnet när du skapar programmet. Du kan också välja meddelandeikonen för att se felmeddelandena.
+Fel meddelandet bör visas i det övre högra hörnet när du skapar programmet. Du kan också välja meddelande ikonen för att se fel meddelandena.
 
-   ![Meddelandefråga](./media/application-proxy-config-problem/error-message.png)
+   ![Meddelande prompt](./media/application-proxy-config-problem/error-message.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Aktivera Application Proxy på Azure-portalen](application-proxy-add-on-premises-application.md)

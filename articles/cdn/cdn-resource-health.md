@@ -1,6 +1,6 @@
 ---
-title: Övervaka hälsotillståndet för Azure CDN-resurser| Microsoft-dokument
-description: Lär dig hur du övervakar hälsotillståndet för dina Azure CDN-resurser med Hjälp av Azure Resource Health.
+title: Övervaka hälsan för Azure CDN resurser | Microsoft Docs
+description: Lär dig hur du övervakar Azure CDN resursers hälso tillstånd med hjälp av Azure Resource Health.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -15,53 +15,53 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 6710f5e5b873f751ad21068acdc15d38574f8378
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593447"
 ---
-# <a name="monitor-the-health-of-azure-cdn-resources"></a>Övervaka hälsotillståndet för Azure CDN-resurser
+# <a name="monitor-the-health-of-azure-cdn-resources"></a>Övervaka hälsan för Azure CDN resurser
   
-Azure CDN Resource health är en delmängd av [Azure-resurshälsa](../resource-health/resource-health-overview.md).  Du kan använda Azure-resurshälsa för att övervaka hälsotillståndet för CDN-resurser och få användbar vägledning för att felsöka problem.
+Azure CDN Resource Health är en del av [Azures resurs hälsa](../resource-health/resource-health-overview.md).  Du kan använda Azure Resource Health för att övervaka hälso tillståndet för CDN-resurser och få instruktioner som kan åtgärdas för att felsöka problem.
 
 >[!IMPORTANT] 
->Azure CDN-resurshälsa endast för närvarande står för hälsan för globala CDN-leverans- och API-funktioner.  Azure CDN-resurshälsa verifierar inte enskilda CDN-slutpunkter.
+>Azure CDN resurs hälsa för närvarande endast för hälso tillstånd för globala CDN-leverans-och API-funktioner.  Azure CDN resurs hälsa verifierar inte enskilda CDN-slutpunkter.
 >
->Signalerna som matar Azure CDN-resurshälsa kan vara upp till 15 minuter försenade.
+>Signalerna som matar Azure CDN resurs hälsa kan vara upp till 15 minuter försenade.
 
-## <a name="how-to-find-azure-cdn-resource-health"></a>Så här hittar du azure CDN-resurshälsa
+## <a name="how-to-find-azure-cdn-resource-health"></a>Så här hittar du Azure CDN resurs hälsa
 
-1. I [Azure-portalen](https://portal.azure.com)bläddrar du till din CDN-profil.
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till din CDN-profil.
 
-2. Klicka på knappen **Inställningar.**
+2. Klicka på knappen **Inställningar** .
 
     ![Knappen Inställningar](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. Klicka på **Resurshälsa**under *Support + felsökning*.
+3. Klicka på **resurs hälsa**under *support + fel sökning*.
 
-    ![Hälsa för CDN-resurs](./media/cdn-resource-health/cdn-resource-health3.png)
+    ![CDN-resurs hälsa](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->Du kan också hitta CDN-resurser som visas på *panelen Resurshälsa* i *supportbladet Hjälp +.*  Du kan snabbt komma till *Hjälp + stöd* genom att klicka på den inringade? **?** i det övre högra hörnet av portalen.
+>Du kan också hitta CDN-resurser som visas i panelen *resurs hälsa* på bladet *Hjälp + Support* .  Du kan snabbt komma till *Hjälp + Support* genom att klicka på cirkeln **?** i det övre högra hörnet i portalen.
 >
 > ![Hjälp + support](./media/cdn-resource-health/cdn-help-support.png)
 
-## <a name="azure-cdn-specific-messages"></a>Azure CDN-specifika meddelanden
+## <a name="azure-cdn-specific-messages"></a>Azure CDN-/regionsspecifika meddelanden
 
-Statusar relaterade till Azure CDN-resurshälsa finns nedan.
+Status som är relaterade till Azure CDN resurs hälsa kan hittas nedan.
 
 |Meddelande | Rekommenderad åtgärd |
 |---|---|
 |Du kan ha stoppat, tagit bort eller felaktigt konfigurerat en eller flera CDN-slutpunkter | Du kan ha stoppat, tagit bort eller felaktigt konfigurerat en eller flera CDN-slutpunkter.|
-|CDN-hanteringstjänsten är tyvärr inte tillgänglig just nu | Kom tillbaka hit för statusuppdateringar; Om problemet kvarstår efter den förväntade lösningstiden kontaktar du supporten.|
-|Ett aktuellt problem med några av våra CDN-leverantörer kan tyvärr påverka dina CDN-slutpunkter | Kom tillbaka hit för statusuppdateringar; Använd felsökningsverktyget för att lära dig hur du testar ditt ursprung och CDN-slutpunkten. Om problemet kvarstår efter den förväntade lösningstiden kontaktar du supporten. |
-|Det tar tyvärr längre tid att sprida konfigurationsändringar i CDN-slutpunkter | Kom tillbaka hit för statusuppdateringar; Om konfigurationsändringarna inte sprids helt under den förväntade tiden kontaktar du supporten.|
-|Just nu har vi tyvärr problem med att läsa in den kompletterande portalen | Kom tillbaka hit för statusuppdateringar; Om problemet kvarstår efter den förväntade lösningstiden kontaktar du supporten.|
-Vi har tyvärr problem med några av våra CDN-leverantörer | Kom tillbaka hit för statusuppdateringar; Om problemet kvarstår efter den förväntade lösningstiden kontaktar du supporten. |
+|CDN-hanteringstjänsten är tyvärr inte tillgänglig just nu | Kom tillbaka hit för status uppdateringar; Kontakta supporten om problemet kvarstår efter den förväntade lösnings tiden.|
+|Ett aktuellt problem med några av våra CDN-leverantörer kan tyvärr påverka dina CDN-slutpunkter | Kom tillbaka hit för status uppdateringar; Använd fel söknings verktyget för att lära dig hur du testar din start-och CDN-slutpunkt. Kontakta supporten om problemet kvarstår efter den förväntade lösnings tiden. |
+|Det tar tyvärr längre tid att sprida konfigurationsändringar i CDN-slutpunkter | Kom tillbaka hit för status uppdateringar; Kontakta supporten om konfigurations ändringarna inte är fullständigt spridda under den förväntade tiden.|
+|Just nu har vi tyvärr problem med att läsa in den kompletterande portalen | Kom tillbaka hit för status uppdateringar; Kontakta supporten om problemet kvarstår efter den förväntade lösnings tiden.|
+Vi har tyvärr problem med några av våra CDN-leverantörer | Kom tillbaka hit för status uppdateringar; Kontakta supporten om problemet kvarstår efter den förväntade lösnings tiden. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs en översikt över Azure-resurshälsa](../resource-health/resource-health-overview.md)
-- [Felsöka problem med CDN-komprimering](./cdn-troubleshoot-compression.md)
-- [Felsöka problem med 404 fel](./cdn-troubleshoot-endpoint.md)
+- [Läs en översikt över Azure Resource Health](../resource-health/resource-health-overview.md)
+- [Felsök problem med CDN-komprimering](./cdn-troubleshoot-compression.md)
+- [Felsök problem med 404-fel](./cdn-troubleshoot-endpoint.md)

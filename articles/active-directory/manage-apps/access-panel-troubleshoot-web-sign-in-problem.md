@@ -1,6 +1,6 @@
 ---
-title: Problem med att logga in på webbplatsen för åtkomstpanelen | Microsoft-dokument
-description: Vägledning för felsökning av problem som kan uppstå när du försöker logga in för att använda åtkomstpanelen
+title: Problem med att logga in på åtkomst panelens webbplats | Microsoft Docs
+description: Vägledning för att felsöka problem som du kan stöta på när du försöker logga in för att använda åtkomst panelen
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,269 +17,269 @@ ms.author: mimart
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65784313"
 ---
-# <a name="problem-signing-in-to-the-access-panel-website"></a>Problem med att logga in på åtkomstpanelens webbplats
+# <a name="problem-signing-in-to-the-access-panel-website"></a>Problem med att logga in på åtkomst panelens webbplats
 
-Åtkomstpanelen är en webbaserad portal som gör det möjligt för en användare som har ett arbets- eller skolkonto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har gett dem åtkomst till. En användare som har Azure AD-versioner kan också använda funktioner för självbetjäningsgrupp och apphantering via åtkomstpanelen. Åtkomstpanelen är skild från Azure-portalen och kräver inte att användare har en Azure-prenumeration.
+Åtkomst panelen är en webbaserad portal som gör det möjligt för en användare som har ett arbets-eller skol konto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har beviljat åtkomst till. En användare som har Azure AD-versioner kan också använda funktioner för självbetjänings grupp och program hantering via åtkomst panelen. Åtkomst panelen är separat från Azure Portal och kräver inte att användare har en Azure-prenumeration.
 
-Användare kan logga in på åtkomstpanelen om de har ett arbets- eller skolkonto i Azure AD.
+Användare kan logga in på åtkomst panelen om de har ett arbets-eller skol konto i Azure AD.
 
 -   Användare kan autentiseras av Azure AD direkt.
 
--   Användare kan autentiseras med hjälp av AD FS (Active Directory Federation Services).
+-   Användare kan autentiseras med hjälp av Active Directory Federation Services (AD FS) (AD FS).
 
--   Användare kan autentiseras av Active Directory för Windows Server.
+-   Användare kan autentiseras av Windows Server Active Directory.
 
-Om en användare har en prenumeration för Azure eller Office 365 och har använt Azure-portalen eller ett Office 365-program kan de använda åtkomstpanelen sömlöst utan att behöva logga in igen. Användare som inte autentiseras uppmanas att logga in med användarnamn och lösenord för sitt konto i Azure AD. Om organisationen har konfigurerat federationen är det tillräckligt att skriva användarnamnet.
+Om en användare har en prenumeration på Azure eller Office 365 och har använt Azure Portal eller ett Office 365-program, kan de använda åtkomst panelen sömlöst utan att behöva logga in igen. Användare som inte är autentiserade uppmanas att logga in med användar namnet och lösen ordet för sitt konto i Azure AD. Om organisationen har konfigurerat Federation räcker det att ange användar namnet.
 
-## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrollera först 
+## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrol lera först 
 
--   Kontrollera att användaren loggar in på **rätt webbadress:**<https://myapps.microsoft.com>
+-   Kontrol lera att användaren loggar in på **rätt URL**:<https://myapps.microsoft.com>
 
--   Kontrollera att användarens webbläsare har lagt till webbadressen på sina **betrodda webbplatser**
+-   Kontrol lera att användarens webbläsare har lagt till URL: en till dess **Betrodda platser**
 
--   Kontrollera att användarens konto är **aktiverat** för inloggningar.
+-   Kontrol lera att användar kontot är **aktiverat** för inloggningar.
 
--   Kontrollera att användarens konto inte är **utelåst.**
+-   Kontrol lera att användarens konto **inte är utelåst.**
 
--   Kontrollera att användarens **lösenord inte har upphört att gälla eller glömts bort.**
+-   Kontrol lera att användarens **lösen ord inte har upphört att gälla eller är bortglömt.**
 
--   Kontrollera att **multifaktorautentisering** inte blockerar användaråtkomst.
+-   Kontrol lera att **Multi-Factor Authentication** inte blockerar användar åtkomsten.
 
--   Kontrollera att en **princip för villkorlig åtkomst** eller **identitetsskydd** inte blockerar användaråtkomst.
+-   Se till att en **princip för villkorlig åtkomst** eller **identitets skydds** princip inte blockerar användar åtkomst.
 
--   Kontrollera att en användares **autentiseringskontaktinformation** är uppdaterad så att principer för multifaktorautentisering eller villkorlig åtkomst kan tillämpas.
+-   Se till att en användares **kontakt information för autentisering** är uppdaterad för att tillåta att Multi-Factor Authentication eller villkorliga åtkomst principer tillämpas.
 
--   Se till att också försöka rensa webbläsarens cookies och försöka logga in igen.
+-   Se till att du också försöker rensa webbläsarens cookies och försöka logga in igen.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Uppfyller webbläsarkraven för åtkomstpanelen
+## <a name="meeting-browser-requirements-for-the-access-panel"></a>Mötes webbläsarens krav på åtkomst panelen
 
-Åtkomstpanelen kräver en webbläsare som stöder JavaScript och har CSS aktiverat. Om du vill använda lösenordsbaserad enkel inloggning (SSO) på åtkomstpanelen måste tillägget för åtkomstpanelen installeras i användarens webbläsare. Det här tillägget hämtas automatiskt när en användare väljer ett program som är konfigurerat för lösenordsbaserad SSO.
+Åtkomst panelen kräver en webbläsare som stöder Java Script och har CSS aktiverat. Om du vill använda lösenordsbaserad enkel inloggning (SSO) i åtkomst panelen måste åtkomst panels tillägget vara installerat i användarens webbläsare. Det här tillägget hämtas automatiskt när en användare väljer ett program som har kon figurer ATS för lösenordsbaserad SSO.
 
-För lösenordsbaserad SSO kan slutanvändarens webbläsare vara:
+För lösenordsbaserad SSO kan användarens webbläsare vara:
 
 -   Internet Explorer 8, 9, 10, 11 – på Windows 7 eller senare
 
--   Microsoft Edge på Windows 10 Anniversary Edition eller senare 
+-   Microsoft Edge på Windows 10-jubileums version eller senare 
 
 -   Chrome – på Windows 7 eller senare och på MacOS X eller senare
 
--   Firefox 26.0 eller senare – på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare
+-   Firefox 26,0 eller senare –-på Windows XP SP2 eller senare och på Mac OS X 10,6 eller senare
 
 
 ## <a name="problems-with-the-users-account"></a>Problem med användarens konto
 
-Åtkomst till åtkomstpanelen kan blockeras på grund av ett problem med användarens konto. Här följer några sätt att felsöka och lösa problem med användare och deras kontoinställningar:
+Åtkomst till åtkomst panelen kan blockeras på grund av ett problem med användarens konto. Här följer några exempel på hur du kan felsöka och lösa problem med användare och deras konto inställningar:
 
--   [Kontrollera om det finns ett användarkonto i Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
+-   [Kontrol lera om ett användar konto finns i Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 
--   [Kontrollera en användares kontostatus](#check-a-users-account-status)
+-   [Kontrol lera en användares konto status](#check-a-users-account-status)
 
--   [Återställa en användares lösenord](#reset-a-users-password)
+-   [Återställa en användares lösen ord](#reset-a-users-password)
 
 -   [Aktivera lösenordsåterställning via självbetjäning](#enable-self-service-password-reset)
 
--   [Kontrollera en användares multifaktorautentiseringsstatus](#check-a-users-multi-factor-authentication-status)
+-   [Kontrol lera en användares Multi-Factor Authentication-status](#check-a-users-multi-factor-authentication-status)
 
--   [Kontrollera en användares autentiseringskontaktinformation](#check-a-users-authentication-contact-info)
+-   [Kontrol lera en användares kontakt information för autentisering](#check-a-users-authentication-contact-info)
 
--   [Kontrollera en användares gruppmedlemskap](#check-a-users-group-memberships)
+-   [Kontrol lera en användares grupp medlemskap](#check-a-users-group-memberships)
 
--   [Kontrollera en användares tilldelade licenser](#check-a-users-assigned-licenses)
+-   [Kontrol lera en användares tilldelade licenser](#check-a-users-assigned-licenses)
 
--   [Tilldela en användare en licens](#assign-a-user-a-license)
+-   [Tilldela en licens för en användare](#assign-a-user-a-license)
 
-### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Kontrollera om det finns ett användarkonto i Azure Active Directory
+### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Kontrol lera om ett användar konto finns i Azure Active Directory
 
-Så här kontrollerar du om det finns en användares konto:
+Följ dessa steg om du vill kontrol lera om det finns ett användar konto:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  Kontrollera egenskaperna för användarobjektet för att vara säker på att de ser ut som förväntat och inga data saknas.
+7.  Kontrol lera egenskaperna för användarobjektet och se till att de ser ut som du förväntar dig och att inga data saknas.
 
-### <a name="check-a-users-account-status"></a>Kontrollera en användares kontostatus
+### <a name="check-a-users-account-status"></a>Kontrol lera en användares konto status
 
-Så här kontrollerar du en användares kontostatus:
+Följ dessa steg om du vill kontrol lera en användares konto status:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  klicka på **Profil**.
+7.  Klicka på **profil**.
 
-8.  Under **Inställningar** kontrollerar du att **Blockera inloggning** är inställt på **Nr**.
+8.  Under **Inställningar** kontrollerar du att **blockera inloggning** är inställt på **Nej**.
 
-### <a name="reset-a-users-password"></a>Återställa en användares lösenord
+### <a name="reset-a-users-password"></a>Återställa en användares lösen ord
 
-Så här återställer du en användares lösenord:
+Följ dessa steg om du vill återställa en användares lösen ord:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  Klicka på knappen **Återställ lösenord** högst upp i användarfönstret.
+7.  Klicka på knappen **Återställ lösen ord** överst i fönstret användare.
 
-8.  Klicka på knappen **Återställ lösenord** i fönstret **Återställ lösenord** som visas.
+8.  Klicka på knappen **Återställ lösen ord** i rutan **Återställ lösen ord** som visas.
 
-9.  Kopiera det **tillfälliga lösenordet** eller ange ett **nytt lösenord** för användaren.
+9.  Kopiera det **tillfälliga lösen ordet** eller **Ange ett nytt lösen ord** för användaren.
 
-10. Kommunicera det här nya lösenordet till användaren, de måste ändra det här lösenordet under sin nästa inloggning till Azure Active Directory.
+10. Skicka det nya lösen ordet till användaren, de måste ändra lösen ordet vid nästa inloggning till Azure Active Directory.
 
 ### <a name="enable-self-service-password-reset"></a>Aktivera lösenordsåterställning via självbetjäning
 
-Så här aktiverar du återställning av lösenord för självbetjäning:
+Följ dessa distributions steg för att aktivera självbetjäning för återställning av lösen ord:
 
--   [Gör det möjligt för användare att återställa sina Azure Active Directory-lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Gör det möjligt för användare att återställa sina Azure Active Directory lösen ord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [Gör det möjligt för användare att återställa eller ändra sina lokala active directory-lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Gör det möjligt för användare att återställa eller ändra sina Active Directory lokala lösen ord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-### <a name="check-a-users-multi-factor-authentication-status"></a>Kontrollera en användares multifaktorautentiseringsstatus
+### <a name="check-a-users-multi-factor-authentication-status"></a>Kontrol lera en användares Multi-Factor Authentication-status
 
-Så här kontrollerar du en användares multifaktorautentiseringsstatus:
+Följ dessa steg om du vill kontrol lera en användares Multi-Factor Authentication-status:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. klicka på **Användare och grupper** i navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigerings menyn.
 
-5. klicka på **Alla användare**.
+5. Klicka på **alla användare**.
 
-6. Klicka på knappen **Multifaktorautentisering** högst upp i fönstret.
+6. Klicka på knappen **Multi-Factor Authentication** överst i fönstret.
 
-7. När **Multifaktorautentiseringsadministrationsportalen** har läses in kontrollerar du att du är på fliken **Användare.**
+7. Se till att du är på fliken **användare** när **Multi-Factor Authentication administrations Portal** har lästs in.
 
-8. Leta reda på användaren i listan över användare genom att söka, filtrera eller sortera.
+8. Hitta användaren i listan med användare genom att söka, filtrera eller sortera.
 
-9. Välj användaren i listan över användare och **Aktivera**, **Inaktivera**eller **Framtvinga** multifaktorautentisering som du vill.
+9. Välj användaren i listan med användare och **Aktivera**, **inaktivera**eller **tillämpa** Multi-Factor Authentication som önskade.
 
    >[!NOTE]
-   >Om en användare är i ett **verkställt** tillstånd kan du ställa in dem på **Inaktiverat** tillfälligt så att de kan komma tillbaka till sitt konto. När de är tillbaka i, kan du sedan ändra deras tillstånd till **Aktiverad** igen för att kräva att de ska registrera sina kontaktuppgifter under sin nästa inloggning. Du kan också följa stegen i [autentiseringsinformationen för kontrollera en användares autentiseringsinformation](#check-a-users-authentication-contact-info) för att verifiera eller ange dessa data.
+   >Om en användare är i **tvingande** tillstånd kan du ange att de tillfälligt **inaktive ras** för att låta dem gå tillbaka till sitt konto. När du har loggat in igen kan du ändra deras status till **aktive rad** för att kräva att de registrerar sin kontakt information igen under nästa inloggning. Du kan också följa stegen i [kontakt informationen för en användares autentisering](#check-a-users-authentication-contact-info) för att verifiera eller ange data för dem.
    >
    >
 
-### <a name="check-a-users-authentication-contact-info"></a>Kontrollera en användares autentiseringskontaktinformation
+### <a name="check-a-users-authentication-contact-info"></a>Kontrol lera en användares kontakt information för autentisering
 
-Så här kontrollerar du en användares autentiseringsinformation som används för multifaktorautentisering, villkorlig åtkomst, identitetsskydd och återställning av lösenord:
+Följ dessa steg om du vill kontrol lera en användares kontaktinfo kontakt information som används för Multi-Factor Authentication, villkorlig åtkomst, identitets skydd och lösen ords återställning:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  klicka på **Profil**.
+7.  Klicka på **profil**.
 
-8.  Bläddra ned till **Autentiseringskontaktinformation**.
+8.  Rulla ned till **autentisering kontakt information**.
 
-9.  **Granska** data som registrerats för användaren och uppdatera efter behov.
+9.  **Granska** de data som har registrerats för användaren och uppdatera dem efter behov.
 
-### <a name="check-a-users-group-memberships"></a>Kontrollera en användares gruppmedlemskap
+### <a name="check-a-users-group-memberships"></a>Kontrol lera en användares grupp medlemskap
 
-Så här kontrollerar du en användares gruppmedlemskap:
+Följ dessa steg om du vill kontrol lera en användares grupp medlemskap:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  Klicka på **Grupper** för att se vilka grupper användaren är medlem i.
+7.  Klicka på **grupper** för att se vilka grupper användaren är medlem i.
 
-### <a name="check-a-users-assigned-licenses"></a>Kontrollera en användares tilldelade licenser
+### <a name="check-a-users-assigned-licenses"></a>Kontrol lera en användares tilldelade licenser
 
-Så här kontrollerar du en användares tilldelade licenser:
+Följ dessa steg om du vill kontrol lera en användares tilldelade licenser:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  Klicka på **Licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
+7.  Klicka på **licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
 
-### <a name="assign-a-user-a-license"></a>Tilldela en användare en licens 
+### <a name="assign-a-user-a-license"></a>Tilldela en licens för en användare 
 
-Så här tilldelar du en licens till en användare:
+Följ dessa steg om du vill tilldela en licens till en användare:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  Klicka på **Licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
+7.  Klicka på **licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
 
-8.  klicka på knappen **Tilldela.**
+8.  Klicka på knappen **tilldela** .
 
-9.  Välj **en eller flera produkter** i listan över tillgängliga produkter.
+9.  Välj **en eller flera produkter** i listan med tillgängliga produkter.
 
-10. **Valfritt** klicka på **tilldelningsalternativsartikeln** om du vill tilldela produkter på ett detaljerat sätt. Klicka på **Ok** när detta är klart.
+10. **Valfritt** Klicka på objektet **tilldelnings alternativ** om du vill tilldela produkter i detalj. Klicka på **OK** när det är klart.
 
-11. Klicka på knappen **Tilldela** om du vill tilldela dessa licenser till den här användaren.
+11. Klicka på knappen **tilldela** för att tilldela dessa licenser till den här användaren.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Om dessa felsökningssteg inte löser problemet
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Om de här fel söknings stegen inte löser problemet
 
-öppna en supportbiljett med följande information om sådan finns:
+öppna ett support ärende med följande information om den är tillgänglig:
 
--   Korrelationsfel-ID
+-   Korrelations fel-ID
 
 -   UPN (användarens e-postadress)
 
@@ -287,9 +287,9 @@ Så här tilldelar du en licens till en användare:
 
 -   Typ av webbläsare
 
--   Tidszon och tid/tidsram under fel inträffar
+-   Tidszon och tid/tidsram vid fel inträffar
 
--   Spelman spår
+-   Fiddler-spår
 
 ## <a name="next-steps"></a>Nästa steg
-[Ge enkel inloggning till dina appar med Programproxy](application-proxy-configure-single-sign-on-with-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

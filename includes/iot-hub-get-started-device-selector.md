@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 943e3e153411459a66aaffac68658e0780a25734
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69638306"
 ---
 > [!div class="op_single_selector"]
@@ -16,7 +16,7 @@ ms.locfileid: "69638306"
 > * [Simulerad enhet med .NET](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
 > * [Simulerad enhet med Java](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Simulerad enhet med Node.js](../articles/iot-hub/quickstart-send-telemetry-node.md)
-> * [Simulerad enhet med Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
+> * [Simulerad enhet med python](../articles/iot-hub/quickstart-send-telemetry-python.md)
 > * [IoT DevKit AZ3166 med VS-kod](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi med Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi med C](../articles/iot-hub/iot-hub-raspberry-pi-kit-c-get-started.md)

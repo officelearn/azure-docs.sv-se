@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 29be95a53004070753ca742cd8d76ca9d8384ea0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70166788"
 ---
 ## <a name="specifying-formats"></a>Ange format
 Azure Data Factory har stöd för följande typer av format:
 
 * [Textformat](#specifying-textformat)
-* [JSON-Format](#specifying-jsonformat)
+* [JSON-format](#specifying-jsonformat)
 * [Avro-format](#specifying-avroformat)
 * [ORC-format](#specifying-orcformat)
 * [Parquet-format](#specifying-parquetformat)
@@ -69,7 +69,7 @@ Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du ra
 * Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
 ### <a name="specifying-jsonformat"></a>Ange JsonFormat
-Om du vill **importera/exportera JSON-filer som de är i/från Azure Cosmos DB**läser du avsnittet [Importera/exportera JSON-dokument](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) i Azure Cosmos DB-kopplingen med information.
+Om du vill **Importera/exportera JSON-filer som de är i/från Azure Cosmos DB**, se avsnittet [Importera/exportera JSON-dokument](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) i Azure Cosmos DB-anslutningen med information.
 
 Om du vill parsa JSON-filerna eller skriva data i JSON-format anger du egenskapen `format` `type` till **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
 
@@ -207,14 +207,14 @@ I det här exemplet mappas ett JSON-rotobjekt till en enskild post i tabellforma
 ```
 och du vill kopiera den till en Azure SQL-tabell i följande format, genom att extrahera data från både objekten och matrisen:
 
-| id | deviceType | targetResourceType | resursHanagementProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
 - Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i avsnittet Specifying structure definition for rectangular datasets (Ange strukturdefinition för rektangulära datauppsättningar).
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Om du vill kopiera data från matrisen kan du använda **egenskapen [x].för** att extrahera värdet för den angivna egenskapen från xth-objektet, eller så kan du använda **matris [*].egenskap** för att hitta värdet från ett objekt som innehåller en sådan egenskap.
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Om du vill kopiera data från matrisen kan du använda **matris [x]. Property** för att extrahera värdet för den aktuella egenskapen från XTH-objektet, eller så kan du använda **matris [*]. Property** för att hitta värdet från alla objekt som innehåller egenskapen.
 
 ```json
 "properties": {

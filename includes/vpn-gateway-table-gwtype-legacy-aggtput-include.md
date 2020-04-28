@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187233"
 ---
-Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter gateway-SKU. Den här tabellen gäller för Resource Manager och klassiska distributionsmodeller. 
+Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter gateway-SKU. Den här tabellen gäller för Resource Manager-och klassiska distributions modeller. 
 
 Prissättningen skiljer sig åt mellan gateway-SKU:er. Mer information finns i [Prissättning för VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
@@ -38,4 +38,4 @@ Observera att UltraPerformance gateway-SKU inte visas i den här tabellen. Infor
 
 (5) S2S VPN Gateway-anslutningar av typen aktiv-aktiv stöds inte för denna SKU. Aktiv-aktiv stöds enbart på HighPerformance SKU.
 
-(6) Basic SKU är föråldrad för användning med ExpressRoute.
+(6) Basic SKU är inaktuell för användning med ExpressRoute.

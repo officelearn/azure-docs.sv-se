@@ -1,6 +1,6 @@
 ---
-title: Skydda Azure CDN-resurser med tokenautentisering| Microsoft-dokument
-description: Lär dig hur du använder tokenautentisering för att skydda åtkomsten till dina Azure CDN-resurser.
+title: Skydda Azure CDN-tillgångar med token-autentisering | Microsoft Docs
+description: Lär dig hur du använder token-autentisering för att skydda åtkomsten till dina Azure CDN-tillgångar.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -15,60 +15,60 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
 ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593394"
 ---
-# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-resurser med tokenautentisering
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-tillgångar med token-autentisering
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Översikt
 
-Tokenautentisering är en mekanism som gör att du kan förhindra att CDN (Azure Content Delivery Network) betjänar tillgångar till obehöriga klienter. Tokenautentisering görs vanligtvis för att förhindra *hotlinking* av innehåll, där en annan webbplats, till exempel en anslagstavla, använder dina tillgångar utan tillstånd. Hotlinking kan påverka dina leveranskostnader för innehåll. Genom att aktivera tokenautentisering på CDN autentiseras begäranden av CDN-edgeservern innan CDN levererar innehållet. 
+Token-autentisering är en mekanism som gör att du kan förhindra att Azure-Content Delivery Network (CDN) kan betjäna till gångar till obehöriga klienter. Token-autentisering görs vanligt vis för att förhindra *hotlinking* av innehåll, där en annan webbplats, till exempel ett meddelande kort, använder dina till gångar utan behörighet. Hotlinking kan påverka dina kostnader för innehålls leverans. Genom att aktivera token-autentisering i CDN autentiseras begär anden av CDN Edge-servern innan CDN levererar innehållet. 
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Tokenautentisering verifierar att begäranden genereras av en betrodd plats genom att begäranden måste innehålla ett tokenvärde som innehåller kodad information om beställaren. Innehållet överförs endast till en beställare om den kodade informationen uppfyller kraven. I annat fall nekas begäranden. Du kan ställa in kraven med hjälp av en eller flera av följande parametrar:
+Token-autentiseringen verifierar att begär Anden genereras av en betrodd plats genom att kräva att begär Anden innehåller ett token-värde som innehåller kodad information om beställaren. Innehållet hanteras endast till en beställare om den kodade informationen uppfyller kraven. annars nekas förfrågningar. Du kan ställa in kraven genom att använda en eller flera av följande parametrar:
 
-- Land: Tillåt eller neka begäranden som kommer från de länder/regioner som anges i [landskoden](/previous-versions/azure/mt761717(v=azure.100)).
-- URL: Tillåt endast begäranden som matchar den angivna tillgången eller sökvägen.
-- Värd: Tillåt eller neka begäranden som använder de angivna värdarna i begäranden.
-- Referen: Tillåt eller neka begäran från den angivna referenten.
-- IP-adress: Tillåt endast begäranden som kommer från specifik IP-adress eller IP-undernät.
-- Protokoll: Tillåt eller neka begäranden baserat på det protokoll som används för att begära innehållet.
-- Förfallotid: Tilldela ett datum och en tidsperiod för att säkerställa att en länk endast förblir giltig under en begränsad tidsperiod.
+- Land: Tillåt eller neka begär Anden som kommer från de länder/regioner som anges i [lands koden](/previous-versions/azure/mt761717(v=azure.100)).
+- URL: Tillåt endast begär Anden som matchar den angivna till gången eller sökvägen.
+- Host: Tillåt eller neka begär Anden som använder de angivna värdarna i begär ande huvudet.
+- Referent: Tillåt eller neka begäran från angiven referent.
+- IP-adress: Tillåt endast begär Anden som kommer från en speciell IP-adress eller IP-undernät.
+- Protokoll: Tillåt eller neka begär Anden baserat på det protokoll som används för att begära innehållet.
+- Förfallo tid: tilldela en datum-och tids period för att säkerställa att en länk endast är giltig under en begränsad tids period.
 
-Mer information finns i de detaljerade konfigurationsexexemplen för varje parameter i [Konfigurera tokenautentisering](#setting-up-token-authentication).
+Mer information finns i de detaljerade konfigurations exemplen för varje parameter i [ställa in token-autentisering](#setting-up-token-authentication).
 
 >[!IMPORTANT] 
-> Om tokenauktorisering är aktiverat för en sökväg för det här kontot är standardcacheläget det enda läge som kan användas för frågesträngcachelagring. Mer information finns i [Kontrollera cachelagringsbeteendet med frågesträngar](cdn-query-string-premium.md).
+> Om token-auktorisering har Aktiver ATS för en sökväg i det här kontot är standard-cache läget det enda läget som kan användas för cachelagring av frågesträngar. Mer information finns i [Kontrollera cachelagringsbeteendet med frågesträngar](cdn-query-string-premium.md).
 
 ## <a name="reference-architecture"></a>Referensarkitektur
 
-I följande arbetsflödesdiagram beskrivs hur CDN använder tokenautentisering för att arbeta med webbappen.
+Följande arbets flödes diagram beskriver hur CDN använder token-autentisering för att arbeta med din webbapp.
 
-![Arbetsflöde för autentisering av CDN-token](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
+![Arbets flöde för CDN-token-autentisering](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
 
-## <a name="token-validation-logic-on-cdn-endpoint"></a>Tokenverifieringslogik på CDN-slutpunkten
+## <a name="token-validation-logic-on-cdn-endpoint"></a>Validerings logik för token på CDN-slutpunkten
     
-Följande flödesschema beskriver hur Azure CDN validerar en klientbegäran när tokenautentisering konfigureras på CDN-slutpunkten.
+Följande flödes schema beskriver hur Azure CDN verifierar en klientbegäran när token-autentisering konfigureras på CDN-slutpunkten.
 
-![VALIDERINGslogik för CDN-token](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
+![Validerings logik för CDN-token](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
-## <a name="setting-up-token-authentication"></a>Ställa in tokenautentisering
+## <a name="setting-up-token-authentication"></a>Konfigurera token-autentisering
 
-1. Från [Azure-portalen](https://portal.azure.com)bläddrar du till din CDN-profil och väljer sedan **Hantera** för att starta den kompletterande portalen.
+1. Från [Azure Portal](https://portal.azure.com)bläddrar du till din CDN-profil och väljer sedan **Hantera** för att starta tilläggs portalen.
 
     ![Knappen Hantera CDN-profil](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Hovra över **HTTP Large**och välj sedan **Token Auth** i det utfällbara. Du kan sedan ställa in krypteringsnyckeln och krypteringsparametrarna enligt följande:
+2. Hovra över **http stor**och välj sedan **token auth** i utfällandet. Du kan sedan konfigurera krypterings nyckeln och krypterings parametrarna på följande sätt:
 
-   1. Skapa en eller flera krypteringsnycklar. En krypteringsnyckel är skiftlägeskänslig och kan innehålla valfri kombination av alfanumeriska tecken. Andra typer av tecken, inklusive blanksteg, är inte tillåtna. Den maximala längden är 250 tecken. För att säkerställa att krypteringsnycklarna är slumpmässiga rekommenderar vi att du skapar dem med hjälp av [OpenSSL-verktyget](https://www.openssl.org/). 
+   1. Skapa en eller flera krypterings nycklar. En krypterings nyckel är Skift läges känslig och kan innehålla en kombination av alfanumeriska tecken. Andra typer av tecken, inklusive blank steg, är inte tillåtna. Den maximala längden är 250 tecken. För att säkerställa att dina krypterings nycklar är slumpmässiga rekommenderar vi att du skapar dem med hjälp av [openssl-verktyget](https://www.openssl.org/). 
 
-      OpenSSL-verktyget har följande syntax:
+      Verktyget OpenSSL har följande syntax:
 
       ```rand -hex <key length>```
 
@@ -76,21 +76,21 @@ Följande flödesschema beskriver hur Azure CDN validerar en klientbegäran när
 
       ```OpenSSL> rand -hex 32``` 
 
-      För att undvika driftstopp skapar du både en primär och en säkerhetskopieringsnyckel. En säkerhetskopia ger oavbruten åtkomst till ditt innehåll när primärnyckeln uppdateras.
+      Skapa både en primär och en säkerhets kopierings nyckel för att undvika drift stopp. En säkerhets kopierings nyckel ger oavbruten åtkomst till ditt innehåll när den primära nyckeln uppdateras.
     
-   2. Ange en unik krypteringsnyckel i rutan **Primärnyckel** och ange eventuellt en säkerhetskopieringsnyckel i rutan **Säkerhetskopieringsnyckel.**
+   2. Ange en unik krypterings nyckel i rutan **primär nyckel** och ange en säkerhets kopierings nyckel i rutan **säkerhets kopierings nyckel** om du vill.
 
-   3. Välj den lägsta krypteringsversionen för varje nyckel från listan **Lägsta krypteringsversion** och välj sedan **Uppdatera:**
-      - **V2**: Anger att nyckeln kan användas för att generera version 2.0- och 3.0-token. Använd det här alternativet endast om du övergår från en äldre version 2.0-krypteringsnyckel till en version 3.0-nyckel.
-      - **V3**: (Rekommenderas) Anger att nyckeln endast kan användas för att generera version 3.0-token.
+   3. Välj den minsta krypterings versionen för varje nyckel från listan **lägsta krypterings version** och välj sedan **Uppdatera**:
+      - **V2**: anger att nyckeln kan användas för att generera version 2,0 och 3,0-token. Använd bara det här alternativet om du övergår från en äldre version 2,0-krypterings nyckel till en version 3,0-nyckel.
+      - **V3**: (rekommenderas) anger att nyckeln endast kan användas för att generera version 3,0-token.
 
-      ![CDN token auth setup key CDN token auth setup key CDN token auth setup key CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+      ![Konfigurations nyckel för CDN token auth](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Använd krypteringsverktyget för att ställa in krypteringsparametrar och generera en token. Med krypteringsverktyget kan du tillåta eller neka begäranden baserat på förfallotid, land/region, hänvisning, protokoll och klient-IP (i valfri kombination). Även om det inte finns någon gräns för antalet och kombinationen av parametrar som kan kombineras för att bilda en token, är den totala längden på en token begränsad till 512 tecken. 
+   4. Använd krypterings verktyget för att konfigurera krypterings parametrar och generera en token. Med krypterings verktyget kan du tillåta eller Neka förfrågningar baserat på förfallo tid, land/region, referent, protokoll och klient-IP (i valfri kombination). Även om det inte finns någon gräns för antalet och kombinationen av parametrar som kan kombineras för att bilda en token, är den totala längden på en token begränsad till 512 tecken. 
 
-      ![Cdn-krypteringsverktyg](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+      ![Verktyget CDN-kryptering](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-      Ange värden för en eller flera av följande krypteringsparametrar i avsnittet **Kryptera verktyg:** 
+      Ange värden för en eller flera av följande krypterings parametrar i avsnittet **kryptera verktyg** : 
 
       > [!div class="mx-tdCol2BreakAll"] 
       > <table>
@@ -100,94 +100,94 @@ Följande flödesschema beskriver hur Azure CDN validerar en klientbegäran när
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
-      >    <td>Tilldelar en förfallotid till en token, varefter token upphör att gälla. Begäranden som skickas efter utgångsdatumet nekas. Den här parametern använder en Unix-tidsstämpel, som baseras på antalet `1/1/1970 00:00:00 GMT`sekunder sedan standardepixepoken för Unix i . (Du kan använda onlineverktyg för att konvertera mellan standardtid och Unix-tid.)> 
-      >    Om du till exempel vill att `12/31/2016 12:00:00 GMT`token ska upphöra att gälla `1483185600`vid anger du tidsstämpelvärdet Unix. 
+      >    <td>Tilldelar en förfallo tid till en token, efter vilken token upphör att gälla. Begär Anden som skickats efter att förfallo tiden har nekats. Den här parametern använder en Unix-tidsstämpel, som baseras på antalet sekunder sedan standard-UNIX-epoken `1/1/1970 00:00:00 GMT`. (Du kan konvertera mellan standard tid och UNIX-tid med hjälp av online-verktyg.)> 
+      >    Om du till exempel vill att token ska upphöra att gälla `12/31/2016 12:00:00 GMT`anger du värdet för UNIX- `1483185600`tidsstämpel. 
       > </tr>
       > <tr>
       >    <td><b>ec_url_allow</b></td> 
-      >    <td>Gör att du kan skräddarsy token till en viss tillgång eller sökväg. Det begränsar åtkomsten till begäranden vars URL börjar med en viss relativ sökväg. Webbadresser är skiftlägeskänsliga. Mata in flera sökvägar genom att avgränsa varje sökväg med ett kommatecken. Lägg inte till blanksteg. Beroende på dina behov kan du ställa in olika värden för att ge olika åtkomstnivåer.> 
-      >    För URL:en `http://www.mydomain.com/pictures/city/strasbourg.png`tillåts till exempel dessa begäranden för följande indatavärden: 
+      >    <td>Gör att du kan skräddarsy tokens till en viss till gång eller sökväg. Den begränsar åtkomsten till begär Anden vars URL börjar med en viss relativ sökväg. URL: er är Skift läges känsliga. Mata in flera sökvägar genom att avgränsa varje sökväg med kommatecken. Lägg inte till blank steg. Beroende på dina behov kan du ange olika värden för att ge olika åtkomst nivåer.> 
+      >    För webb adressen `http://www.mydomain.com/pictures/city/strasbourg.png`är till exempel dessa begär Anden tillåtna för följande indatavärden: 
       >    <ul>
-      >       <li>Indatavärde `/`: Alla begäranden är tillåtna.</li>
-      >       <li>Indatavärde `/pictures`tillåts följande begäranden: <ul>
+      >       <li>Indatavärde `/`: alla begär Anden tillåts.</li>
+      >       <li>Inmatat värde `/pictures`, följande begär Anden tillåts: <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Indatavärde `/pictures/`: Endast `/pictures/` begäranden som innehåller sökvägen tillåts. Till exempel `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Indatavärde `/pictures/city/strasbourg.png`: Endast begäranden för den här specifika sökvägen och tillgången tillåts.</li>
+      >       <li>Indatavärde `/pictures/`: endast begär Anden som innehåller `/pictures/` sökvägen tillåts. Till exempel `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Indatavärde `/pictures/city/strasbourg.png`: endast begär Anden för denna angivna sökväg och till gång är tillåtna.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Tillåter endast begäranden som kommer från ett eller flera angivna länder/regioner. Begäranden som kommer från alla andra länder/regioner nekas. Använd en landskod med två bokstäver i [ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) för varje land och separera var och en med kommatecken. Lägg inte till ett blanksteg. Om du till exempel vill tillåta åtkomst från endast `US,FR`USA och Frankrike anger du .</td>
+      >    <td>Tillåter endast förfrågningar som härstammar från ett eller flera specificerade länder/regioner. Begär Anden som kommer från alla andra länder/regioner nekas. Använd en [ISO 3166-landskod](/previous-versions/azure/mt761717(v=azure.100)) med två bokstäver för varje land och avgränsa var och en med kommatecken. Lägg inte till ett blank steg. Om du till exempel bara vill tillåta åtkomst från USA och Frankrike anger `US,FR`du.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Nekar begäranden som kommer från ett eller flera angivna länder/regioner. Begäranden som kommer från alla andra länder/regioner är tillåtna. Implementeringen är densamma som <b>parametern ec_country_allow.</b> Om det finns en landskod i parametrarna <b>ec_country_allow</b> och <b>ec_country_deny</b> har <b>parametern ec_country_allow</b> företräde.</td>
+      >    <td>Nekar förfrågningar som kommer från ett eller flera specificerade länder/regioner. Begär Anden som kommer från alla andra länder/regioner är tillåtna. Implementeringen är samma som <b>ec_country_allow</b> -parametern. Om det finns en landskod i både <b>ec_country_allow</b> -och <b>ec_country_deny</b> -parametrarna har <b>ec_country_allow</b> -parametern företräde.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
-      >    <td>Tillåter endast begäranden från den angivna referenten. En referent identifierar webbadressen till webbsidan som är länkad till den begärda resursen. Ta inte med protokollet i parametervärdet.> 
-      >    Följande typer av indata är tillåtna:
+      >    <td>Tillåter endast förfrågningar från angiven referent. En referent identifierar URL: en för den webb sida som är länkad till den resurs som begärs. Ta inte med protokollet i parametervärdet.> 
+      >    Följande typer av indatatyper tillåts:
       >    <ul>
       >       <li>Ett värdnamn eller ett värdnamn och en sökväg.</li>
-      >       <li>Flera värvare. Om du vill lägga till flera referenter separerar du varje referent med ett kommatecken. Lägg inte till ett blanksteg. Om du anger ett hänvisningsvärde, men hänvisningsinformationen inte skickas i begäran på grund av webbläsarkonfigurationen, nekas begäran som standard.</li> 
-      >       <li>Begäranden med information om saknad eller tom referer. Som standard blockerar <b>parametern ec_ref_allow</b> dessa typer av begäranden. Om du vill tillåta dessa begäranden anger du antingen texten "saknas" eller anger ett tomt värde (med hjälp av ett avslutande kommatecken).</li> 
-      >       <li>Underdomäner. Om du vill tillåta underdomäner\*anger du en asterisk ( ). Om du till exempel vill tillåta `contoso.com`alla `*.contoso.com`underdomäner i anger du .</li>
+      >       <li>Flera referenter. Om du vill lägga till flera referenter avgränsar du varje referent med kommatecken. Lägg inte till ett blank steg. Om du anger ett referent värde, men referent-informationen inte skickas i begäran på grund av webb läsar konfigurationen, nekas begäran som standard.</li> 
+      >       <li>Begär Anden med saknad eller tom referent information. Som standard blockerar den <b>ec_ref_allow</b> parametern dessa typer av begär Anden. Om du vill tillåta dessa förfrågningar anger du antingen texten, "saknas" eller anger ett tomt värde (genom att använda ett avslutande kommatecken).</li> 
+      >       <li>Under domäner. Ange en asterisk (\*) om du vill tillåta under domäner. Om du till exempel vill tillåta alla under domäner av `contoso.com`anger `*.contoso.com`du.</li>
       >    </ul> 
-      >    Om du till exempel vill `www.contoso.com`tillåta åtkomst för `contoso2.com`begäranden från , alla underdomäner under och begäranden med tomma eller saknade referenter anger du `www.contoso.com,*.contoso.com,missing`.</td>
+      >    Om du till exempel vill tillåta åtkomst för förfrågningar `www.contoso.com`från, alla under domäner under `contoso2.com`och begär Anden med tomma eller saknade referenter, anger `www.contoso.com,*.contoso.com,missing`du.</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_ref_deny</b></td>
-      >    <td>Nekar begäranden från den angivna referenten. Implementeringen är densamma som <b>parametern ec_ref_allow.</b> Om det finns en referent i parametrarna <b>ec_ref_allow</b> och <b>ec_ref_deny</b> har <b>parametern ec_ref_allow</b> företräde.</td>
+      >    <td>Nekar förfrågningar från angiven referent. Implementeringen är samma som <b>ec_ref_allow</b> -parametern. Om det finns en referent i både <b>ec_ref_allow</b> -och <b>ec_ref_deny</b> -parametrarna har <b>ec_ref_allow</b> -parametern företräde.</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_proto_allow</b></td> 
-      >    <td>Tillåter endast begäranden från det angivna protokollet. Giltiga värden `http` `https`är `http,https`, eller .</td>
+      >    <td>Tillåter endast begär Anden från det angivna protokollet. Giltiga värden är `http`, `https`, eller `http,https`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_proto_deny</b></td>
-      >    <td>Nekar begäranden från det angivna protokollet. Implementeringen är densamma som <b>parametern ec_proto_allow.</b> Om det finns ett protokoll i parametrarna <b>ec_proto_allow</b> och <b>ec_proto_deny</b> har <b>parametern ec_proto_allow</b> företräde.</td>
+      >    <td>Nekar förfrågningar från det angivna protokollet. Implementeringen är samma som <b>ec_proto_allow</b> -parametern. Om det finns ett protokoll i både <b>ec_proto_allow</b> -och <b>ec_proto_deny</b> -parametrarna har <b>ec_proto_allow</b> -parametern företräde.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_clientip</b></td>
-      >    <td>Begränsar åtkomsten till den angivna beställarens IP-adress. Både IPV4 och IPV6 stöds. Du kan ange antingen en enda IP-adress för begäran eller IP-adresser som är associerade med ett visst undernät. Tillåt till `11.22.33.0/22` exempel begäranden från IP-adresser 11.22.32.1 till 11.22.35.254.</td>
+      >    <td>Begränsar åtkomsten till den angivna förfrågans IP-adress. Både IPV4 och IPV6 stöds. Du kan antingen ange en enskild IP-adress för begäran eller IP-adresser som är associerade med ett visst undernät. `11.22.33.0/22` Tillåter till exempel förfrågningar från IP-adresser 11.22.32.1 till 11.22.35.254.</td>
       > </tr>
       > </table>
 
-   5. När du har angett värden för krypteringsparameter väljer du en nyckel som ska krypteras (om du har skapat både en primär och en reservnyckel) i listan **Nyckel att kryptera.**
+   5. När du är klar med att ange värden för krypterings parameter väljer du en nyckel som ska krypteras (om du har skapat både en primär nyckel och en säkerhets kopierings nyckel) från **nyckeln för att kryptera** listan.
     
-   6. Välj en krypteringsversion i listan **Krypteringsversion:** **V2** för version 2 eller **V3** för version 3 (rekommenderas). 
+   6. Välj en krypterings version från listan **krypterings version** : **v2** för version 2 eller **v3** för version 3 (rekommenderas). 
 
-   7. Välj **Kryptera för** att generera token.
+   7. Välj **kryptera** för att generera token.
 
-      När token har genererats visas den i rutan **Genererad token.** Om du vill använda token lägger du till den som en frågesträng i slutet av filen i URL-sökvägen. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      När token har skapats visas den i rutan **genererad token** . Om du vill använda token lägger du till den som en frågesträng i slutet av filen i URL-sökvägen. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Du kan också testa din token med dekrypteringsverktyget så att du kan visa tokens parametrar. Klistra in tokenvärdet i rutan **Token till Dekryptering.** Välj den krypteringsnyckel som ska användas i listan **Nyckel till dekryptering** och välj sedan **Dekryptera**.
+   8. Du kan också testa din token med dekrypterings verktyget så att du kan visa din tokens parametrar. Klistra in token-värdet i rutan **token för att dekryptera** . Välj den krypterings nyckel som du vill använda från **nyckeln för att dekryptera** listan och välj sedan **dekryptera**.
 
-      När token har dekrypterats visas dess parametrar i rutan **Ursprungliga parametrar.**
+      När token har dekrypterats visas parametrarna i rutan **ursprungliga parametrar** .
 
-   9. Du kan också anpassa den typ av svarskod som returneras när en begäran nekas. Välj **Aktiverad**och välj sedan svarskoden i listan **Svarskod.** **Sidhuvudnamn** ställs automatiskt in på **Plats**. Välj **Spara** om du vill implementera den nya svarskoden. För vissa svarskoder måste du också ange url:en för felsidan i rutan **Sidhuvudvärde.** **403-svarskoden** (Forbidden) är markerad som standard. 
+   9. Du kan också anpassa den typ av svarskod som returneras när en begäran nekas. Välj **aktive rad**och sedan svars koden från listan **svars kod** . **Huvud namnet** anges automatiskt till **location**. Välj **Spara** för att implementera den nya svars koden. För vissa svars koder måste du också ange webb adressen till fel sidan i rutan **rubrik värde** . **403** -svars koden (förbjuden) är markerad som standard. 
 
-3. Under **HTTP Large**väljer du **Regelmotor**. Du använder regelmotorn för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen tokenautentisering och aktivera ytterligare tokenautentiseringsrelaterade funktioner. Mer information finns i [Regelmotorreferens](cdn-rules-engine-reference.md).
+3. Välj **regel motor**under **http Large**. Du använder regel motorn för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen token Authentication och aktivera ytterligare funktioner för token-autentisering. Mer information finns i [regel motor referens](cdn-rules-engine-reference.md).
 
-   1. Välj en befintlig regel eller skapa en ny regel för att definiera den tillgång eller sökväg som du vill tillämpa tokenautentisering för. 
-   2. Om du vill aktivera tokenautentisering på en regel väljer du **[Token Auth](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** i **listan Funktioner** och väljer sedan **Aktiverad**. Välj **Uppdatera** om du uppdaterar en regel eller **Lägg till** om du skapar en regel.
+   1. Välj en befintlig regel eller skapa en ny regel för att definiera den till gång eller sökväg för vilken du vill använda token-autentisering. 
+   2. Om du vill aktivera token-autentisering för en regel väljer du **[token auth](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** i listan **funktioner** och väljer sedan **aktive rad**. Välj **Uppdatera** om du vill uppdatera en regel eller **lägga till** om du skapar en regel.
         
-      ![CDN regler motor token autentisering aktivera exempel](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
+      ![CDN-regler motor för token-autentisering aktivera exempel](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. I regelmotorn kan du också aktivera ytterligare tokenautentiseringsrelaterade funktioner. Om du vill aktivera någon av följande funktioner markerar du den i listan **Funktioner** och väljer sedan **Aktiverad**.
+4. I regel motorn kan du också aktivera ytterligare funktioner för token-autentisering. Om du vill aktivera någon av följande funktioner väljer du den i listan **funktioner** och väljer sedan **aktive rad**.
     
-   - **[Token Auth Denial Code](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)**: Bestämmer vilken typ av svar som returneras till en användare när en begäran nekas. Regler som anges här åsidosätter svarskoden som anges i avsnittet **Anpassad förnekelsehantering** på den tokenbaserade autentiseringssidan.
+   - **[Denial Code för token-autentisering](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)**: bestämmer vilken typ av svar som returneras till en användare när en begäran nekas. Regel uppsättningen här åsidosätter svars koden som anges i avsnittet **anpassad Denial-hantering** på sidan för tokenbaserad autentisering.
 
-   - **[Token Auth Ignore URL Case](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Avgör om den URL som används för att validera token är skiftlägeskänslig.
+   - **[Token auth IGNORE URL Case](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**: anger om den URL som används för att validera token är Skift läges känslig.
 
-   - **[TokenAuth Parameter](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**: Byter namn på parametern token auth query string som visas i den begärda URL:en. 
+   - **[Parameter för autentiseringstoken](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**: byter namn på frågesträngparametern för token som visas i den begärda URL: en. 
         
-     ![Exempel på autentiseringsinställningar för CDN-regler motortoken](./media/cdn-token-auth/cdn-rules-engine2.png)
+     ![Exempel på Inställningar för CDN-autentiseringsinställningar för motor](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. Du kan anpassa din token genom att komma åt källkoden i [GitHub](https://github.com/VerizonDigital/ectoken).
+5. Du kan anpassa din token genom att öppna käll koden i [GitHub](https://github.com/VerizonDigital/ectoken).
    Tillgängliga språk är:
     
    - C
@@ -197,6 +197,6 @@ Följande flödesschema beskriver hur Azure CDN validerar en klientbegäran när
    - Java
    - Python 
 
-## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN-funktioner och leverantörspriser
+## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funktioner och priser för Provider
 
-Information om funktioner finns i [Azure CDN-produktfunktioner](cdn-features.md). Information om priser finns i [priser för Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
+Information om funktioner finns i [Azure CDN produkt funktioner](cdn-features.md). Information om priser finns i [Content Delivery Network priser](https://azure.microsoft.com/pricing/details/cdn/).

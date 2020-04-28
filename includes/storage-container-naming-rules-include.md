@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: aeca3550b5fc58694779e7e54ce6ca547ba30e17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187958"
 ---
 Varje blob i Azure-lagring måste befinna sig i en container. Containern utgör en del av blobnamnet. ph x="1" /&gt; är till exempel namnet på containern i de här exempelblob-URI:erna:

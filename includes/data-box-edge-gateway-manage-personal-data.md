@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187984"
 ---
-- **Beställ information**. När en order skapas lagras användarens leveransadress, e-postadress och kontaktinformation i Azure-portalen. Informationen som sparas omfattar:
+- **Beställnings information**. När en order skapas lagras leverans adress, e-postadress och kontakt information för användaren i Azure Portal. Informationen som sparas omfattar:
   - Kontaktnamn
   - Telefonnummer
   - E-postadress
   - Gatuadress
   - Ort
-  - Postnummer/postnummer
+  - POST nummer
   - Status
   - Land/provins/region
   - Spårningsnummer för leveransen
 
-    Orderinformation krypteras och lagras i tjänsten. Tjänsten behåller informationen tills du uttryckligen tar bort resursen eller ordern. Borttagningen av resursen och motsvarande order blockeras från den tidpunkt då enheten levereras tills enheten återgår till Microsoft.
+    Order Detaljer krypteras och lagras i tjänsten. Tjänsten behåller informationen tills du uttryckligen tar bort resursen eller ordningen. Borttagningen av resursen och motsvarande ordning blockeras från den tidpunkt då enheten levereras tills enheten återgår till Microsoft.
 
-- **Leveransadress**. När en beställning har gjorts tillhandahåller Data Box-tjänsten leveransadressen till tredjepartsföretag som UPS.
+- **Leverans adress**. När en beställning har placerats tillhandahåller Data Box-enhet tjänsten leverans adressen till tredjeparts-leverantörer som UPS.
 
-- **Dela användare**. Användare på enheten kan också komma åt data som finns på resurserna. En lista över användare som kan komma åt delningsdata kan visas. När resurserna tas bort tas även den här listan bort.
+- **Dela användare**. Användare på enheten kan även komma åt data som finns på resurserna. En lista över användare som kan komma åt resurs data kan visas. När resurserna tas bort raderas även den här listan.

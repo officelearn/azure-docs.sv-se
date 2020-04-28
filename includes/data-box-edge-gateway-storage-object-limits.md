@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 02/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 563849d3875ed0156d81770f58340633d90d515b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187796"
 ---
-Här är storleken på Azure-objekt som kan skrivas. Kontrollera att alla filer som överförs överensstämmer med dessa gränser.
+Här följer storleken på de Azure-objekt som kan skrivas. Se till att alla filer som överförs följer dessa gränser.
 
-| Azure-objekttyp | Överladdningsgräns                                             |
+| Objekt typ för Azure | Uppladdnings gräns                                             |
 |-------------------|-----------------------------------------------------------|
-| Block Blob        | ~ 4,75 TB                                                 |
-| Sidblob         | 1 TB <br> Varje fil som laddas upp i Sidblobbformat måste vara 512 byte justerad (en integrerad multipel), annars misslyckas överföringen. <br> DEN VHD och VHDX är 512 byte justerat. |
-| Azure Files         | 1 TB <br> Varje fil som laddas upp i Sidblobbformat måste vara 512 byte justerad (en integrerad multipel), annars misslyckas överföringen. <br> DEN VHD och VHDX är 512 byte justerat. |
+| Blockera BLOB        | ~ 4,75 TB                                                 |
+| Sid-BLOB         | 1 TB <br> Alla filer som överförs i Page BLOB-format måste vara 512 byte-justerade (en integral), annars Miss lyckas överföringen. <br> VHD och VHDX är 512 byte-justerade. |
+| Azure Files         | 1 TB <br> Alla filer som överförs i Page BLOB-format måste vara 512 byte-justerade (en integral), annars Miss lyckas överföringen. <br> VHD och VHDX är 512 byte-justerade. |
 
 > [!IMPORTANT]
-> Skapande av filer (oavsett lagringstyp) tillåts upp till 5 TB. Om du däremot skapar en fil vars storlek är större än överföringsgränsen som definierats i föregående tabell, överförs inte filen. Du måste manuellt ta bort filen för att frigöra utrymmet.
+> Att skapa filer (oberoende av lagrings typen) tillåts upp till 5 TB. Men om du skapar en fil vars storlek är större än den uppladdnings gräns som anges i tabellen ovan överförs inte filen. Du måste ta bort filen manuellt för att frigöra utrymme.

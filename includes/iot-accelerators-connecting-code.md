@@ -9,52 +9,52 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: c79b6f854dc78670a7eb8a1275c3e2fc46fcdd99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187778"
 ---
 ### <a name="code-walkthrough"></a>Steg-för-steg-beskrivning av kod
 
-I det här avsnittet beskrivs några av de viktigaste delarna av exempelkoden och hur de relaterar till lösningsacceleratorn för fjärrövervakning.
+I det här avsnittet beskrivs några av de viktigaste delarna i exempel koden och hur de relaterar till lösnings acceleratorn för fjärrövervakning.
 
-Följande kodavsnitt visar hur de rapporterade egenskaperna som beskriver enhetens funktioner definieras. Dessa egenskaper inkluderar:
+Följande kodfragment visar hur de rapporterade egenskaperna som beskriver enhetens funktioner definieras. Bland dessa egenskaper finns:
 
-- Enhetens placering för att göra det möjligt för lösningsacceleratorn att lägga till enheten på kartan.
-- Den aktuella firmware-versionen.
-- Listan över metoder som enheten stöder.
-- Schemat för telemetrimeddelanden som skickas av enheten.
+- Platsen för enheten för att aktivera Solution Accelerator för att lägga till enheten på kartan.
+- Aktuell version av inbyggd program vara.
+- Listan med metoder som enheten stöder.
+- Schemat för telemetri-meddelanden som skickas av enheten.
 
 [!code-cpp[Define data structures for Chiller](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=datadefinition "Define data structures for Chiller")]
 
-Exemplet innehåller en **serializeToJson-funktion** som serialiserar den här datastrukturen med hjälp av Parson-biblioteket.
+Exemplet innehåller en **serializeToJson** -funktion som serialiserar den här data strukturen med hjälp av Parson-biblioteket.
 
-Exemplet innehåller flera motringningsfunktioner som skriver ut information till konsolen när klienten interagerar med lösningsacceleratorn:
+Exemplet innehåller flera återanrops funktioner som skriver ut information till-konsolen när klienten interagerar med Solution Accelerator:
 
 - **connection_status_callback**
 - **send_confirm_callback**
 - **reported_state_callback**
 - **device_method_callback**
 
-Följande kodavsnitt visar **funktionen device_method_callback.** Den här funktionen bestämmer vilken åtgärd som ska vidtas när ett metodanrop tas emot från lösningsacceleratorn. Funktionen får en referens till **Chiller-datastrukturen** i parametern **userContextCallback.** Värdet **för userContextCallback** ställs in när motringningsfunktionen konfigureras i **huvudfunktionen:**
+Följande kodfragment visar **device_method_callback** -funktionen. Den här funktionen avgör vilken åtgärd som ska vidtas när ett metod anrop tas emot från Solution Accelerator. Funktionen tar emot en referens till **kyl** data strukturen i **userContextCallback** -parametern. Värdet för **userContextCallback** anges när motringningsfunktionen har kon figurer ATS i **huvud** funktionen:
 
 [!code-cpp[Device method callback](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=devicemethodcallback "Device method callback")]
 
-När lösningsacceleratorn anropar uppdateringsmetoden för inbyggd programvara avsererialiserar exemplet JSON-nyttolasten och startar en bakgrundstråd för att slutföra uppdateringsprocessen. Följande kodavsnitt visar **do_firmware_update** som körs på tråden:
+När Solution Accelerator anropar uppdaterings metoden för inbyggd program vara deserialiserar exemplet JSON-nyttolasten och startar en bakgrunds tråd för att slutföra uppdaterings processen. Följande fragment visar **do_firmware_update** som körs på tråden:
 
 [!code-cpp[Firmware update thread](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=firmwareupdate "Firmware update thread")]
 
-Följande kodavsnitt visar hur klienten skickar ett telemetrimeddelande till lösningsacceleratorn. Meddelandeegenskaperna inkluderar meddelandeschemat som hjälper lösningsacceleratorn att visa telemetrin på instrumentpanelen:
+Följande kodfragment visar hur klienten skickar ett telemetri-meddelande till Solution Accelerator. Meddelande egenskaperna innehåller meddelande scheman för att hjälpa Solution Accelerator att Visa telemetri på instrument panelen:
 
 [!code-cpp[Send telemetry](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=sendmessage "Send telemetry")]
 
-**Huvudfunktionen** i provet:
+**Huvud** funktionen i exemplet:
 
-- Initierar och stänger av SDK-undersystemet.
-- Initierar **kylmaskinsdatastrukturen.**
-- Skickar de rapporterade egenskaperna till lösningsacceleratorn.
-- Konfigurerar motringningsfunktionen för enhetsmetoden.
-- Skickar simulerade telemetrivärden till lösningsacceleratorn.
+- Initierar och stänger av under systemet SDK.
+- Initierar **kyl** data strukturen.
+- Skickar de rapporterade egenskaperna till Solution Accelerator.
+- Konfigurerar återanrops funktionen för enhets metoden.
+- Skickar simulerade telemetri värden till Solution Accelerator.
 
 [!code-cpp[Main](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=main "Main")]

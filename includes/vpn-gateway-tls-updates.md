@@ -9,22 +9,22 @@ ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e4d20cd39d2a843ee1ab57a412ac668b3495fdb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187167"
 ---
 >[!NOTE]
->Från och med 1 juli 2018 tas stödet för TLS 1.0 och 1.1 bort från Azure VPN Gateway. VPN Gateway kommer endast att stödja TLS 1.2. Om du vill behålla supporten läser du [uppdateringarna för att aktivera stöd för TLS1.2](#tls1).
+>Från och med 1 juli 2018 tas stödet för TLS 1.0 och 1.1 bort från Azure VPN Gateway. VPN Gateway kommer endast att stödja TLS 1.2. Information om hur du underhåller support finns i [uppdateringar för att aktivera stöd för TLS 1.2](#tls1).
 
-Dessutom kommer följande äldre algoritmer också att vara inaktuella för TLS den 1 juli 2018:
+Dessutom kommer följande äldre algoritmer också att föråldras för TLS den 1 juli 2018:
 
 * RC4 (Rivest Cipher 4)
 * DES (Data Encryption Algorithm, datakrypteringsalgoritm)
 * 3DES (Triple Data Encryption Algorithm, tredubbel datakrypteringsalgoritm)
 * MD5 (Message Digest 5)
 
-### <a name="how-do-i-enable-support-for-tls-12-in-windows-7-and-windows-81"></a><a name="tls1"></a>Hur aktiverar jag stöd för TLS 1.2 i Windows 7 och Windows 8.1?
+### <a name="how-do-i-enable-support-for-tls-12-in-windows-7-and-windows-81"></a><a name="tls1"></a>Hur gör jag för att aktivera stöd för TLS 1,2 i Windows 7 och Windows 8,1?
 
 [!INCLUDE [tls 1.2](vpn-gateway-tls-include.md)]

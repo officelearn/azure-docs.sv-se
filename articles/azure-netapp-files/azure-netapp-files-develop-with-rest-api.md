@@ -1,6 +1,6 @@
 ---
-title: Utveckla för Azure NetApp-filer med REST API | Microsoft-dokument
-description: Beskriver hur du kommer igång med att använda REST-API:et för Azure NetApp Files REST.
+title: Utveckla för Azure NetApp Files med REST API | Microsoft Docs
+description: Beskriver hur du kommer igång med att använda Azure NetApp Files REST API.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: b-juche
 ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65957036"
 ---
-# <a name="develop-for-azure-netapp-files-with-rest-api"></a>Utveckla för Azure NetApp-filer med REST API 
+# <a name="develop-for-azure-netapp-files-with-rest-api"></a>Utveckla för Azure NetApp Files med REST API 
 
-REST API för Azure NetApp Files-tjänsten definierar HTTP-åtgärder mot resurser som NetApp-kontot, kapacitetspoolen, volymerna och ögonblicksbilderna. Den här artikeln hjälper dig att komma igång med att använda AZURE NetApp Files REST API.
+REST API för Azure NetApp Files-tjänsten definierar HTTP-åtgärder mot resurser, till exempel NetApp-konto, kapacitets uppsättning, volymer och ögonblicks bilder. Den här artikeln hjälper dig att komma igång med att använda Azure NetApp Files REST API.
 
-## <a name="azure-netapp-files-rest-api-specification"></a>AZURE NetApp Files REST API-specifikation
+## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp Files REST API specifikation
 
-REST API-specifikationen för Azure NetApp-filer publiceras via [GitHub:](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)
+REST APIs specifikationen för Azure NetApp Files publiceras via [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
 
 `https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
 
 
-## <a name="access-the-azure-netapp-files-rest-api"></a>Få tillgång till REST-APIN för Azure NetApp-filer  
+## <a name="access-the-azure-netapp-files-rest-api"></a>Få åtkomst till Azure NetApp Files REST API  
 
 1. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan har gjort det.
-2. Skapa ett tjänsthuvudnamn i Din Azure Active Directory (Azure AD):
-   1. Kontrollera att du har [tillräcklig behörighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+2. Skapa ett huvud namn för tjänsten i din Azure Active Directory (Azure AD):
+   1. Kontrol lera att du har [tillräcklig behörighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
    1. Ange följande kommando i Azure CLI:  
 
            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-      Kommandoutdata liknar följande exempel:  
+      Kommandots utdata liknar följande exempel:  
 
            { 
                "appId": "appIDgoeshere", 
@@ -52,13 +52,13 @@ REST API-specifikationen för Azure NetApp-filer publiceras via [GitHub:](https:
                "tenant": "tenantIDgoeshere" 
            } 
 
-      Behåll kommandoutdata.  Du behöver `appId` `password` `tenant` värdena och värdena. 
+      Behåll kommandots utdata.  Du kommer att behöva `appId`värdena `password`, och `tenant` . 
 
 3. Begär en OAuth-åtkomsttoken:
 
-    Exemplen i den här artikeln använder cURL.  Du kan också använda olika API-verktyg som [Brevbärare](https://www.getpostman.com/), [Sömnlöshet](https://insomnia.rest/)och [Paw](https://paw.cloud/).  
+    I exemplen i den här artikeln används sväng.  Du kan också använda olika API-verktyg som [Postman](https://www.getpostman.com/), [sömnlöshet](https://insomnia.rest/)och [Paw](https://paw.cloud/).  
 
-    Ersätt variablerna i följande exempel med kommandoutdata från steg 2 ovan. 
+    Ersätt variablerna i följande exempel med kommandots utdata från steg 2 ovan. 
 
         curl -X POST -d 'grant_type=client_credentials&client_id=[APP_ID]&client_secret=[PASSWORD]&resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/[TENANT_ID]/oauth2/token
 
@@ -66,24 +66,24 @@ REST API-specifikationen för Azure NetApp-filer publiceras via [GitHub:](https:
 
         eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
 
-    Token som visas är giltig i 3600 sekunder. Därefter måste du begära en ny token. 
-    Spara token i en textredigerare.  Du behöver det för nästa steg.
+    Den visade token är giltig i 3600 sekunder. Efter det måste du begära en ny token. 
+    Spara token i en text redigerare.  Du behöver den för nästa steg.
 
-4. Skicka ett testanrop och inkludera token för att verifiera din åtkomst till REST API:
+4. Skicka ett test samtal och inkludera token för att verifiera åtkomsten till REST API:
 
         curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2016-08-01
 
-## <a name="examples-using-the-api"></a>Exempel med API:et  
+## <a name="examples-using-the-api"></a>Exempel som använder API: et  
 
-I den här artikeln används följande URL för baslinjen för begäranden. Den här URL:en pekar på roten för namnområdet Azure NetApp Files. 
+I den här artikeln används följande URL för bas linjen för begär Anden. URL: en pekar till roten i Azure NetApp Files namn området. 
 
 `https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15`
 
-Du bör `subID` ersätta `resourceGroups` värdena och värdena i följande exempel med dina egna värderingar. 
+Du bör ersätta värdena `subID` och `resourceGroups` i följande exempel med dina egna värden. 
 
-### <a name="get-request-examples"></a>EXEMPEL PÅ BEGÄRAN
+### <a name="get-request-examples"></a>GET Request-exempel
 
-Du använder en GET-begäran för att fråga objekt av Azure NetApp-filer i en prenumeration, som följande exempel visar: 
+Du kan använda en GET-begäran för att skicka frågor mot objekt i Azure NetApp Files i en prenumeration, som i följande exempel: 
 
         #get NetApp accounts 
         curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15
@@ -97,9 +97,9 @@ Du använder en GET-begäran för att fråga objekt av Azure NetApp-filer i en p
         #get snapshots for a volume 
         curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2017-08-15
 
-### <a name="put-request-examples"></a>EXEMPEL PÅ PUT-begäran
+### <a name="put-request-examples"></a>Lägg till exempel på begäran
 
-Du använder en PUT-begäran för att skapa nya objekt i Azure NetApp-filer, som följande exempel visar. Brödtexten i PUT-begäran kan innehålla JSON-formaterade data för ändringarna, eller så kan den ange en fil som ska läsas från. 
+Du kan använda en skicka-begäran för att skapa nya objekt i Azure NetApp Files, vilket visas i följande exempel. Bröd texten i begäran kan innehålla de JSON-formaterade data för ändringarna, eller så kan du ange en fil att läsa från. 
 
         #create a NetApp account  
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2017-08-15
@@ -113,7 +113,7 @@ Du använder en PUT-begäran för att skapa nya objekt i Azure NetApp-filer, som
         #create a volume snapshot  
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2017-08-15
 
-### <a name="json-examples"></a>JSON exempel
+### <a name="json-examples"></a>JSON-exempel
 
 I följande exempel visas hur du skapar ett NetApp-konto:
 
@@ -126,7 +126,7 @@ I följande exempel visas hur du skapar ett NetApp-konto:
         }
     } 
 
-I följande exempel visas hur du skapar en kapacitetspool: 
+I följande exempel visas hur du skapar en pool för kapacitet: 
 
     {
         "name": "MYNETAPPACCOUNT/POOLNAME",
@@ -154,7 +154,7 @@ I följande exempel visas hur du skapar en ny volym:
             }
     }
 
-I följande exempel visas hur du skapar en ögonblicksbild av en volym: 
+I följande exempel visas hur du skapar en ögonblicks bild av en volym: 
 
     {
         "name": "apitest2/apiPool01/apiVol01/snap02",
@@ -167,8 +167,8 @@ I följande exempel visas hur du skapar en ögonblicksbild av en volym:
     }
 
 > [!NOTE] 
-> Du måste `fileSystemId` ange för att skapa en ögonblicksbild.  Du kan `fileSystemId` hämta värdet med en GET-begäran till en volym. 
+> Du måste ange `fileSystemId` för att skapa en ögonblicks bild.  Du kan hämta `fileSystemId` värdet med en get-begäran till en volym. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Se AZURE NetApp Files REST API-referens](https://docs.microsoft.com/rest/api/netapp/)
+[Se referens för Azure NetApp Files REST API](https://docs.microsoft.com/rest/api/netapp/)

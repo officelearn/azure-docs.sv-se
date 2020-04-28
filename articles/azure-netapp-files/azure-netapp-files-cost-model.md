@@ -1,6 +1,6 @@
 ---
-title: Kostnadsmodell för Azure NetApp-filer | Microsoft-dokument
-description: Beskriver kostnadsmodellen för Azure NetApp-filer för hantering av utgifter från tjänsten.
+title: Kostnads modell för Azure NetApp Files | Microsoft Docs
+description: Beskriver kostnads modellen för Azure NetApp Files för att hantera utgifter från tjänsten.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,80 +15,80 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
 ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70995104"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Kostnadsmodell för Azure NetApp Files 
 
-Genom att förstå kostnadsmodellen för Azure NetApp Files kan du hantera dina utgifter från tjänsten.
+Att förstå kostnads modellen för Azure NetApp Files hjälper dig att hantera dina utgifter från tjänsten.
 
-## <a name="calculation-of-capacity-consumption"></a>Beräkning av kapacitetsförbrukning
+## <a name="calculation-of-capacity-consumption"></a>Beräkning av kapacitets förbrukning
 
-Azure NetApp-filer faktureras på etablerad lagringskapacitet.  Etablerad kapacitet allokeras genom att skapa kapacitetspooler.  Kapacitetspooler faktureras baserat på $/provisioned-GiB/month i steg per timme. Den minsta storleken för en enda kapacitet pool är 4 TiB, och kapacitet pooler kan därefter utökas i 1-TiB steg. Volymer skapas inom kapacitetspooler.  Varje volym tilldelas en kvot som minskar från den pooler-etablerade kapaciteten. Den kvot som kan tilldelas volymer varierar från minst 100 GiB till högst 100 TiB.  
+Azure NetApp Files debiteras för allokerad lagrings kapacitet.  Etablerad kapacitet tilldelas genom att kapacitets grupper skapas.  Kapacitets grupper faktureras baserat på $/provisioned-GiB/month i timmar. Den minsta storleken för en pool med enskild kapacitet är 4 TiB och kapacitets grupper kan sedan utökas i steg om 1-TiB. Volymer skapas i kapacitets grupper.  Varje volym tilldelas en kvot som avgränsar från de pooler som har allokerats. Kvoten som kan tilldelas till volym intervall från minst 100 GiB till högst 100 TiB.  
 
-För en aktiv volym baseras kapacitetsförbrukning mot kvot på logisk (effektiv) kapacitet.
+För en aktiv volym baseras kapacitets förbrukning mot kvoten på den logiska (effektiv) kapaciteten.
 
-Om den faktiska kapacitetsförbrukningen för en volym överstiger dess lagringskvot kan volymen fortsätta att öka. Skrivningar är fortfarande tillåtna så länge den faktiska volymstorleken är mindre än systemgränsen (100 TiB).  
+Om den faktiska kapacitets förbrukningen för en volym överskrider lagrings kvoten kan volymen fortsätta att växa. Skrivningar kommer fortfarande att tillåtas så länge den faktiska volym storleken är mindre än system gränsen (100 TiB).  
 
-Den totala använda kapaciteten i en kapacitetspool mot det avsatta beloppet är summan av summan av antingen den tilldelade kvoten eller den faktiska förbrukningen av alla volymer inom poolen: 
+Den totala använda kapaciteten i en kapacitetsutnyttjande mot dess etablerade belopp är summan av antingen den tilldelade kvoten eller den faktiska förbrukningen av alla volymer i poolen: 
 
-   ![Beräkning av total använd kapacitet](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
+   ![Total Använd kapacitets beräkning](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
 Diagrammet nedan illustrerar dessa begrepp.  
-* Vi har en kapacitet pool med 4 TiB av etablerad kapacitet.  Poolen innehåller tre volymer.  
+* Vi har en pool med 4 TiB med etablerad kapacitet.  Poolen innehåller tre volymer.  
     * Volym 1 tilldelas en kvot på 2 TiB och har 800 GiB förbrukning.  
-    * Volym 2 tilldelas en kvot på 1 TiB och har 100 GiB förbrukning.  
-    * Volym 3 tilldelas en kvot på 500 GiB men har 800 GiB förbrukning (överanvändning).  
-* Kapacitetspoolen mäts för 4 TiB kapacitet (det avstämmda beloppet).  
-    3.8 TB kapacitet förbrukas (2 TiB och 1 TiB kvot från volym 1 och 2 och 800 GiB av den faktiska förbrukningen för volym 3). Och 200 GiB kapacitet återstår.
+    * Volym 2 har tilldelats en kvot på 1 TiB och har 100 GiB förbrukning.  
+    * Volym 3 har tilldelats en kvot på 500 GiB men har 800 GiB (överförbrukning).  
+* Kapacitets gruppen mäts för 4 TiB (det etablerade beloppet).  
+    3,8 TiB-kapacitet förbrukas (2 TiB och 1 TiB kvot från volymer 1 och 2, och 800 GiB av faktisk konsumtion för volym 3). Och 200 GiB-kapacitet är kvar.
 
-   ![Kapacitetspool med tre volymer](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
+   ![Kapacitets grupp med tre volymer](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
-## <a name="overage-in-capacity-consumption"></a>Överförbrukning av kapacitet  
+## <a name="overage-in-capacity-consumption"></a>Överförbrukning i kapacitets förbrukning  
 
-När den totala använda kapaciteten för en pool överskrider sin etablerade kapacitet är dataskrivningar fortfarande tillåtna.  Efter respitperioden (en timme), om poolens använda kapacitet fortfarande överstiger dess etablerade kapacitet, ökas poolstorleken automatiskt i steg om 1 tib tills den etablerade kapaciteten är större än den totala använda kapaciteten.  Till exempel, i bilden ovan, om volym 3 fortsätter att växa och den faktiska förbrukningen når 1,2 TiB, sedan efter respitperioden, kommer poolen automatiskt att ändra storlek till 5 TiB.  Resultatet är att den etablerade poolkapaciteten (5 TiB) överstiger den använda kapaciteten (4,2 TiB).  
+När den totala använda kapaciteten för en pool överskrider den etablerade kapaciteten tillåts data skrivningar fortfarande.  Efter respitperioden (en timme) ökar Poolens storlek automatiskt i steg om 1 TiB tills den etablerade kapaciteten är större än den totala använda kapaciteten, om den använda kapaciteten för poolen fortfarande överskrider sin etablerade kapacitet.  Till exempel, i bilden ovan, om volym 3 fortsätter att växa och den faktiska förbrukningen når 1,2 TiB, kommer poolen automatiskt att ändra storlek till 5 TiB efter Grace-perioden.  Resultatet är att den etablerade poolens kapacitet (5 TiB) överskrider den använda kapaciteten (4,2 TiB).  
 
 ## <a name="manual-changes-of-the-pool-size"></a>Manuella ändringar av poolens storlek  
 
-Du kan manuellt öka eller minska poolens storlek. Följande begränsningar gäller dock:
-* Lägsta och högsta tillåtna servicegränser  
-    Se artikeln om [resursgränser](azure-netapp-files-resource-limits.md).
-* En 1-TiB ökning efter den första 4-TiB minsta köp
-* En minsta faktureringsökning på en timme
-* Den etablerade poolens storlek får inte minskas till mindre än den totala använda kapaciteten i poolen.
+Du kan öka eller minska storleken på poolen manuellt. Följande begränsningar gäller dock:
+* Lägsta och högsta gräns för tjänsten  
+    Se artikeln om [resurs begränsningar](azure-netapp-files-resource-limits.md).
+* En 1-TiB-ökning efter det första inköpet av 4-TiB minimalt
+* En minsta fakturerings ökning på en timme
+* Den etablerade poolen kan inte minskas till mindre än den totala använda kapaciteten i poolen.
 
-## <a name="behavior-of-maximum-size-pool-overage"></a>Beteende för högsta storlek pool överkörning   
+## <a name="behavior-of-maximum-size-pool-overage"></a>Beteende för maximal storlek för poolen   
 
-Den maximala storleken på en kapacitetspool som du kan skapa eller ändra storlek på är 500 TiB.  När den totala använda kapaciteten i en kapacitetspool överstiger 500 TiB uppstår följande situationer:
-* Dataskrivningar kommer fortfarande att tillåtas (om volymen är lägre än systemet högst 100 TiB).
-* Efter en timmes respitperiod ändras poolen automatiskt i steg om 1-TiB, tills den poolbeetablerade kapaciteten överstiger den totala använda kapaciteten.
-* Den ytterligare etablerade och fakturerade poolkapaciteten som överstiger 500 TiB kan inte användas för att tilldela volymkvot. Det kan inte heller användas för att utöka prestanda QoS gränser.  
-    Se [servicenivåer](azure-netapp-files-service-levels.md) om prestandagränser och QoS-storlek.
+Den maximala storleken för en kapacitets pool som du kan skapa eller ändra storlek till är 500 TiB.  När den totala använda kapaciteten i en kapacitets pool överskrider 500 TiB inträffar följande situationer:
+* Data skrivningar tillåts fortfarande (om volymen är lägre än systemets max 100 TiB).
+* Efter Grace-perioden för en timme ändras poolen automatiskt i steg om 1-TiB, tills den allokerade kapaciteten för poolen överskrider den totala använda kapaciteten.
+* Den ytterligare etablerade och debiterbara pool kapaciteten som överstiger 500 TiB kan inte användas för att tilldela volym kvot. Den kan också inte användas för att expandera QoS-gränser för prestanda.  
+    Se [service nivåer](azure-netapp-files-service-levels.md) om prestanda begränsningar och QoS-storlek.
 
-Diagrammet nedan illustrerar följande begrepp:
-* Vi har en kapacitetspool med en Premium-lagringsnivå och en kapacitet på 500 TIB. Poolen innehåller nio volymer.
-    * Volymerna 1 till 8 tilldelas en kvot på 60 TiB vardera.  Den totala använda kapaciteten är 480 TiB.  
-        Varje volym har en QoS-gräns på 3,75 GiB/s genomströmning (60 TiB * 64 MiB/s).  
-    * Volym 9 tilldelas en kvot på 20 TiB.  
-        Volym 9 har en QoS-gräns på 1,25 GiB/s genomströmning (20 TiB * 64 MiB/s).
-* Volym 9 är ett överkörningsscenario. Den har 25 TiB av faktisk förbrukning.  
-    * Efter en timmes respitperiod kommer kapacitetspoolen att storleksas om till 505 TiB.  
-        Det vill än den totala använda kapaciteten = 8 * 60-TiB-kvot för volymerna 1 till 8 och 25 Tiab för den faktiska förbrukningen för volym 9.
+Diagrammet nedan illustrerar dessa begrepp:
+* Vi har en kapacitets uppsättning med en Premium Storage-nivå och en 500-TiB kapacitet. Poolen innehåller nio volymer.
+    * Volymerna 1 till 8 tilldelas en kvot på 60 TiB.  Den totala använda kapaciteten är 480 TiB.  
+        Varje volym har en QoS-gräns på 3,75 GiB/s med data flöde (60 TiB * 64 MiB/s).  
+    * Volym 9 har tilldelats en kvot på 20 TiB.  
+        Volym 9 har en QoS-gräns på 1,25 GiB/s med data flöde (20 TiB * 64 MiB/s).
+* Volume 9 är ett överutnyttjande scenario. Den har 25 TiB faktisk konsumtion.  
+    * Efter Grace-perioden för en timme ändras kapacitets gruppen till 505 TiB.  
+        Det vill säga total använt kapacitet = 8 * 60-TiB kvot för volymerna 1 till 8 och 25 TiB faktisk konsumtion för volym 9.
     * Den fakturerade kapaciteten är 505 TiB.
-    * Volymkvoten för volym 9 kan inte ökas (eftersom den totala tilldelade kvoten för poolen inte får överstiga 500 TiB).
-    * Ytterligare QoS-dataflöde kanske inte tilldelas (eftersom den totala QoS för poolen fortfarande baseras på 500 TiB).
+    * Volym kvoten för volym 9 kan inte ökas (eftersom den totala tilldelade kvoten för poolen inte får överstiga 500 TiB).
+    * Ytterligare QoS-dataflöde kan inte tilldelas (eftersom det totala QoS-värdet för poolen fortfarande baseras på 500 TiB).
 
-   ![Kapacitetspool med nio volymer](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
+   ![Kapacitets grupp med nio volymer](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
 
-## <a name="capacity-consumption-of-snapshots"></a>Kapacitetsförbrukning för ögonblicksbilder 
+## <a name="capacity-consumption-of-snapshots"></a>Kapacitets förbrukning för ögonblicks bilder 
 
-Kapacitetsförbrukningen för ögonblicksbilder i Azure NetApp-filer debiteras mot kvoten för den överordnade volymen.  Som ett resultat delar den samma faktureringsgrad som kapacitetspoolen som volymen tillhör.  Till skillnad från den aktiva volymen mäts dock ögonblicksbildförbrukningen baserat på den inkrementella kapacitet som förbrukas.  Ögonblicksbilder av Azure NetApp-filer är av olika karaktär. Beroende på dataändringshastigheten förbrukar ögonblicksbilderna ofta mycket mindre kapacitet än den aktiva volymens logiska kapacitet. Anta till exempel att du har en ögonblicksbild av en 500-GiB-volym som bara innehåller 10 GiB differentiella data. Den kapacitet som debiteras mot volymkvoten för den ögonblicksbilden skulle vara 10 GiB, inte 500 GiB. 
+Kapacitets förbrukningen för ögonblicks bilder i Azure NetApp Files debiteras mot kvoten för den överordnade volymen.  Därför delar den samma fakturerings takt som den kapacitets uppsättning som volymen tillhör.  Till skillnad från den aktiva volymen mäts dock förbrukningen av ögonblicks bilder baserat på den stegvisa kapaciteten som används.  Azure NetApp Files ögonblicks bilder är differentiella. Beroende på data ändrings takten använder ögonblicks bilderna ofta mycket mindre kapacitet än den logiska kapaciteten hos den aktiva volymen. Anta till exempel att du har en ögonblicks bild av en 500-GiB-volym som bara innehåller 10 GiB differentiella data. Kapaciteten som debiteras mot volym kvoten för ögonblicks bilden skulle vara 10 GiB, inte 500 GiB. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prissida för Azure NetApp-filer](https://azure.microsoft.com/pricing/details/storage/netapp/)
+* [Sidan Azure NetApp Files prissättning](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Tjänstnivåer för Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)

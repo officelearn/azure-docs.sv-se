@@ -9,19 +9,19 @@ ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187076"
 ---
- Om du använder Azure Cloud Shell loggar du in på ditt Azure-konto automatiskt efter att ha klickat på "Prova". Om du vill logga in lokalt öppnar du PowerShell-konsolen med förhöjda privilegier och kör cmdleten för att ansluta.
+ Om du använder Azure Cloud Shell loggar du in på ditt Azure-konto automatiskt när du har klickat på "testa". Logga in lokalt genom att öppna PowerShell-konsolen med utökade privilegier och köra cmdleten för att ansluta.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Om du har mer än en prenumeration får du en lista över dina Azure-prenumerationer.
+Om du har mer än en prenumeration hämtar du en lista över dina Azure-prenumerationer.
 
 ```azurepowershell-interactive
 Get-AzSubscription

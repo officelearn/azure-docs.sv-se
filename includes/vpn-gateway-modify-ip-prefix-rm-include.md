@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 13089a2514229c5c5bc7b40d9447719247b23405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187180"
 ---
 ### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Ändra IP-adressprefix för nätverksgateway – ingen gatewayanslutning
@@ -33,14 +33,14 @@ Så här lägger du till ytterligare adressprefix:
 
 Så här tar du bort adressprefix:
 
-  Utelämna de prefix som du inte längre behöver. I det här exemplet behöver vi inte längre prefix 10.101.2.0/24 (från föregående exempel), så vi uppdaterar den lokala nätverksgatewayen, exklusive det prefixet.
+  Utelämna de prefix som du inte längre behöver. I det här exemplet behöver vi inte längre prefix 10.101.2.0/24 (från föregående exempel), så vi uppdaterar den lokala Nätverksgatewayen, förutom det prefixet.
 
 1. Ställ in variabeln för LocalNetworkGateway.
 
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-2. Ställ in gatewayen med de uppdaterade prefixen.
+2. Ange gatewayen med de uppdaterade prefixen.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
@@ -56,7 +56,7 @@ Om du har en gatewayanslutning och vill lägga till eller ta bort IP-adressprefi
    ```azurepowershell-interactive
    Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
    ```
-2. Ange den lokala nätverksgatewayen med de ändrade adressprefixen.
+2. Ange den lokala Nätverksgatewayen med de ändrade adressprefix.
    
    Ställ in variabeln för LocalNetworkGateway.
 

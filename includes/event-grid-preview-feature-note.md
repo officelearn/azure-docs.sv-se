@@ -9,34 +9,34 @@ ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66814841"
 ---
-Den här funktionen är en förhandsversion. Om du vill använda den måste du installera ett förhandsgranskningstillägg eller en modul.
+Den här funktionen är en förhandsversion. Om du vill använda den måste du installera ett för hands versions tillägg eller en modul.
 
-### <a name="install-extension-for-azure-cli"></a>Installationstillägg för Azure CLI
+### <a name="install-extension-for-azure-cli"></a>Installera tillägg för Azure CLI
 
-För Azure CLI behöver du [tillägget Event Grid](/cli/azure/azure-cli-extensions-list).
+För Azure CLI behöver du Event Grid- [tillägget](/cli/azure/azure-cli-extensions-list).
 
-I [CloudShell:](/azure/cloud-shell/quickstart)
+I [CloudShell](/azure/cloud-shell/quickstart):
 
 * Om du har installerat tillägget tidigare uppdaterar du det`az extension update -n eventgrid`
 * Om du inte har installerat tillägget tidigare installerar du det`az extension add -n eventgrid`
 
 För en lokal installation:
 
-1. [Installera Azure CLI](/cli/azure/install-azure-cli). Kontrollera att du har den senaste `az --version`versionen genom att kontrollera med .
+1. [Installera Azure CLI](/cli/azure/install-azure-cli). Kontrol lera att du har den senaste versionen genom att kontrol lera `az --version`med.
 1. Avinstallera tidigare versioner av tillägget`az extension remove -n eventgrid`
 1. Installera `eventgrid` tillägget med`az extension add -n eventgrid`
 
 ### <a name="install-module-for-powershell"></a>Installera modul för PowerShell
 
-För PowerShell behöver du [modulen AzureRM.EventGrid](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+För PowerShell behöver du [modulen AzureRM. EventGrid](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
 
-I [CloudShell:](/azure/cloud-shell/quickstart-powershell)
+I [CloudShell](/azure/cloud-shell/quickstart-powershell):
 
 * Installera modulen`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
@@ -45,10 +45,10 @@ För en lokal installation:
 1. Öppna PowerShell-konsolen som administratör
 1. Installera modulen`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
-Om `-AllowPrerelease` parametern inte är tillgänglig gör du så här:
+Om `-AllowPrerelease` parametern inte är tillgänglig använder du följande steg:
 
 1. Kör `Install-Module PowerShellGet -Force`
 1. Kör `Update-Module PowerShellGet`
-1. Stänga PowerShell-konsolen
+1. Stäng PowerShell-konsolen
 1. Starta om PowerShell som administratör
 1. Installera modulen`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`

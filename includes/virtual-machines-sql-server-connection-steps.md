@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187284"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Öppna TCP-portar i Windows-brandväggen för standardinstansen av databasmotorn
 1. Anslut till den virtuella datorn med Fjärrskrivbord. Detaljerade instruktioner om hur du ansluter till den virtuella datorn finns i [Öppna den virtuella SQL-datorn med Fjärrskrivbord](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
-2. När du har loggat in skriver du **WF.msc**på Startskärmen och trycker sedan på RETUR.
+2. När du är inloggad skriver du **WF. msc**på Start skärmen och trycker sedan på RETUR.
    
     ![Starta brandväggsprogrammet](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 3. I **Windows-brandväggen med avancerad säkerhet** högerklickar du på **Regler för inkommande trafik** i den vänstra rutan. Klicka sedan på **Ny regel** i åtgärdsfönstret.
@@ -55,7 +55,7 @@ SQL Server-databasmotorn kan inte använda Windows-autentisering utan domänmilj
 1. När du är ansluten till den virtuella datorn skriver du **SQL Server Management Studio** på startsidan och klickar sedan på den valda ikonen.
    
     Första gången du öppnar Management Studio måste programmet skapa en Management Studio-miljö för användarna. Det kan ta en stund.
-2. Management Studio presenterar dialogrutan **Anslut till Server**. I rutan **Servernamn** skriver du namnet på den virtuella datorn som ska anslutas till databasmotorn med Object Explorer (i stället för namnet på den virtuella datorn kan du också använda **(lokal)** eller en punkt som **Servernamn**). Välj **Windows-autentisering**och lämna ***your_VM_name\your_local_administrator*** i rutan **Användarnamn.** Klicka på **Anslut**.
+2. Management Studio presenterar dialogrutan **Anslut till Server**. I rutan **Servernamn** skriver du namnet på den virtuella datorn som ska anslutas till databasmotorn med Object Explorer (i stället för namnet på den virtuella datorn kan du också använda **(lokal)** eller en punkt som **Servernamn**). Välj **Windows-autentisering**och lämna ***your_VM_name \ Your_local_administrator*** i rutan **användar namn** . Klicka på **Anslut**.
    
     ![Anslut till server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. Högerklicka på instansen av SQL Server (namnet på den virtuella datorn) i Object Explorer i SQL Server Management Studio. Klicka sedan på **Egenskaper**.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67565732"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Rotera åtkomstnyckel för Azure SignalR Service
@@ -23,7 +23,7 @@ Av säkerhets- och efterlevnadsskäl ska åtkomstnycklarna regelbundet roteras.
 
 ## <a name="regenerate-access-keys"></a>Återskapa åtkomstnycklar
 
-1. Gå till [Azure-portalen](https://portal.azure.com/)och logga in med dina autentiseringsuppgifter.
+1. Gå till [Azure Portal](https://portal.azure.com/)och logga in med dina autentiseringsuppgifter.
 
 1. Leta upp avsnittet **Nycklar** i Azure SignalR Service-instansen med de nycklar som du vill återskapa.
 
@@ -59,4 +59,4 @@ I den här guiden har du lärt att återskapa åtkomstnycklar. Gå vidare till n
 > [Integrera med ASP.NET Core-identitet](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Skapa en serverlös app i realtid med autentisering](./signalr-tutorial-authenticate-azure-functions.md)
+> [Bygg en server lös real tids app med autentisering](./signalr-tutorial-authenticate-azure-functions.md)

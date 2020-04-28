@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187542"
 ---
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 
 Utför följande steg för att hämta programuppdateringen från Microsoft Update Catalog.
 
-1. Starta Internet Explorer [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)och navigera till .
+1. Starta Internet Explorer och gå till [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 
     ![Installera katalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,20 +26,20 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
    
     ![Sökkatalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Klicka på **Ladda ner**. Ange eller **Bläddra** till en lokal plats där du vill att nedladdningarna ska läggas. Klicka på filerna för att hämta till den angivna platsen och mappen. Mappen kan också kopieras till en nätverksresurs som kan nås från enheten.
-5. Sök efter ytterligare snabbkorrigeringar som anges i tabellen ovan (**4011841**) och hämta motsvarande filer till de specifika mappar som anges i tabellen ovan.
+4. Klicka på **Hämta**. Ange eller **Bläddra** till en lokal plats där du vill att nedladdningarna ska läggas. Klicka på de filer som ska laddas ned till den angivna platsen och mappen. Mappen kan också kopieras till en nätverksresurs som kan nås från enheten.
+5. Sök efter ytterligare snabb korrigeringar som anges i tabellen ovan (**4011841**) och ladda ned motsvarande filer till de mappar som anges i tabellen ovan.
 
 > [!NOTE]
-> Snabbkorrigeringarna måste vara tillgängliga från båda styrenheterna för att identifiera eventuella felmeddelanden från peer-styrenheten.
+> Snabb korrigeringarna måste vara tillgängliga från båda styrenheterna för att kunna identifiera eventuella fel meddelanden från peer-styrenheten.
 >
-> Snabbkorrigeringarna måste kopieras till tre separata mappar. Uppdateringen av enhetsprogramvaran/Cis/MDS-agenten kan till exempel kopieras i mappen _FirstOrderUpdate,_ alla andra icke-störande uppdateringar kan kopieras i mappen _SecondOrderUpdate_ och uppdateringar av underhållsläge som kopieras i mappen _ThirdOrderUpdate._
+> Snabbkorrigeringarna måste kopieras till tre separata mappar. Uppdatering av enhetens program vara/CIS/MDS-agent kan till exempel kopieras i _FirstOrderUpdate_ -mappen, alla andra icke-störande uppdateringar kan kopieras i mappen _SecondOrderUpdate_ och uppdatering av underhålls läge kopieras i mappen _ThirdOrderUpdate_ .
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Installera och verifiera snabbkorrigeringar i normalläge
 
 Utför följande steg för att installera och verifiera snabbkorrigeringar i normalläge. Om du redan har installerat dem med hjälp av den klassiska Azure-portalen kan du gå vidare för att [installera och verifiera snabbkorrigeringar i underhållsläge](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Gå in i Windows PowerShell-gränssnittet på din StorSimple-enhets seriekonsol för att installera snabbkorrigerarna. Följ de detaljerade instruktionerna i [Använd PuTTY för att ansluta till enhetens seriekonsol](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Tryck på **Retur** i kommandotolken.
-2. Välj alternativ 1, **Logga in med full åtkomst**. Vi rekommenderar att du installerar snabbkorrigeringen på den passiva styrenheten först.
+2. Välj alternativ 1, **Logga in med fullständig åtkomst**. Vi rekommenderar att du installerar snabbkorrigeringen på den passiva styrenheten först.
 3. Ange följande i kommandotolken för att installera snabbkorrigeringen:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -50,7 +50,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
    
     Ange lösenordet när du uppmanas att göra så.
    
-    Ett exempel på utdata för att installera första orderns uppdateringar visas nedan. För den första orderuppdateringen måste du peka på den specifika filen.
+    Ett exempel på utdata för att installera första orderns uppdateringar visas nedan. För den första order uppdateringen måste du peka på den aktuella filen.
    
         ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -104,10 +104,10 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
      Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
      
      > [!IMPORTANT]
-     > Du måste starta om `Restart-HcsController` den aktiva styrenheten via cmdleten innan du installerar nästa uppdatering.
+     > Du måste starta om den aktiva styrenheten `Restart-HcsController` via cmdleten innan du använder nästa uppdatering.
      
-7. Upprepa steg 3-5 för att installera Cis/MDS-agenten som hämtats till mappen _FirstOrderUpdate._ 
-8. Upprepa steg 3-5 för att installera andra orderns uppdateringar. **För andra orderuppdateringar kan flera uppdateringar installeras `Start-HcsHotfix cmdlet` genom att bara köra och peka på mappen där andra orderuppdateringar finns. Cmdleten kör alla uppdateringar som är tillgängliga i mappen.** Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen. 
+7. Upprepa steg 3-5 för att installera CIS/MDS-agenten som hämtats till din _FirstOrderUpdate_ -mapp. 
+8. Upprepa steg 3-5 för att installera andra orderns uppdateringar. **För andra order uppdateringar kan flera uppdateringar installeras genom att du `Start-HcsHotfix cmdlet` kör och pekar på den mapp där andra order uppdateringar finns. Cmdleten kommer att köra alla uppdateringar som är tillgängliga i mappen.** Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen. 
 
 När alla snabbkorrigeringar har installerats använder du `Get-HcsSystem`-cmdleten. Versionerna bör vara:
 
@@ -123,7 +123,7 @@ Observera att om den inbyggda programvaran för disken redan är uppdaterad så 
 
 Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggda programvaran för disken.
 
-1. Sätt enheten i underhållsläge. **Observera att du inte bör använda Windows PowerShell-omordning när du ansluter till en enhet i underhållsläge. Kör i stället den här cmdleten på enhetsstyrenheten när den är ansluten via enhetens seriekonsol.** Ange:
+1. Sätt enheten i underhållsläge. **Observera att du inte bör använda Windows PowerShell-fjärrkommunikation när du ansluter till en enhet i underhålls läge. Kör i stället denna cmdlet på enhets styrenheten när du är ansluten via enhetens serie konsol.** Ange:
    
     `Enter-HcsMaintenanceMode`
    
@@ -164,7 +164,7 @@ Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggd
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Övervaka installationsförloppet med `Get-HcsUpdateStatus`-kommandot. Uppdateringen är slutförd när `RunInProgress` ändras till `False`.
-4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga in som alternativ 1, **Logga in med full åtkomst**och verifiera den inbyggda programvaran för disken. Ange:
+4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga in som alternativ 1, **Logga in med fullständig åtkomst**och kontrol lera den inbyggda diskens version. Ange:
    
    `Get-HcsFirmwareVersion`
    

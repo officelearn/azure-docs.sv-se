@@ -9,13 +9,13 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187169"
 ---
-1. Öppna en kommandotolk med förhöjda privilegier genom att högerklicka på **Kommandotolken** och välja **Kör som administratör**.
+1. Öppna en kommando tolk med förhöjd behörighet genom att högerklicka på **kommando tolken** och välja **Kör som administratör**.
 2. Kör följande kommandon i kommandotolken:
 
    ```
@@ -33,5 +33,5 @@ ms.locfileid: "67187169"
 5. Anslut till VPN.
 
 > [!NOTE]
-> Du måste ställa in ovanstående registernyckel om du kör en äldre version av Windows 10 (10240).
+> Du måste ange register nyckeln ovan om du kör en äldre version av Windows 10 (10240).
 >

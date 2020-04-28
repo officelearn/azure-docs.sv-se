@@ -1,6 +1,6 @@
 ---
-title: Koncept för Azure IoT Hub X.509-säkerhet | Microsoft-dokument
-description: Koncept - förstå värdet X.509 certifikatutfärdare certifikat i IoT-enhet tillverkning och autentisering .
+title: Begrepp för Azure IoT Hub X. 509-säkerhet | Microsoft Docs
+description: Koncept – förstå värdet X. 509 certifikat utfärdare i IoT Device Manufacturing och autentisering.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -9,124 +9,124 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61320489"
 ---
-# <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Begreppsmässig förståelse av X.509 CA-certifikat i IoT-branschen
+# <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Konceptuell förståelse för X. 509 CA-certifikat i IoT-branschen
 
-I den här artikeln beskrivs värdet av att använda Certifikatutfärdarecertifikat för X.509 i IoT-enhetens tillverkning och autentisering till IoT Hub. Den innehåller information om supply chain setup och markera fördelar.
+I den här artikeln beskrivs värdet för att använda certifikat från X. 509 certifikat utfärdare (CA) i IoT Device Manufacturing och autentisering för att IoT Hub. Den innehåller information om installation av leverans kedja och markerings fördelar.
 
 I den här artikeln beskrivs:
 
-* Vad X.509 CA-certifikat är och hur du får dem
+* Vad X. 509 CA-certifikat är och hur du hämtar dem
 
-* Så här registrerar du ditt X.509 CA-certifikat till IoT Hub
+* Registrera ditt X. 509-CA-certifikat för att IoT Hub
 
-* Konfigurera en tillverkningsförsörjningskedja för X.509 CA-baserad autentisering
+* Så här konfigurerar du en tillverknings leverans kedja för X. 509 CA-baserad autentisering
 
-* Så här ansluter enheter signerade med X.509 CA till IoT Hub
+* Hur enheter signerade med X. 509 CA ansluter till IoT Hub
 
 ## <a name="overview"></a>Översikt
 
-X.509 Certifikatutfärdaresautentisering är en metod för att autentisera enheter till IoT Hub med en metod som dramatiskt förenklar skapandet av enhetsidentitet och livscykelhantering i leveranskedjan.
+X. 509-autentisering för certifikat utfärdare är en metod för att autentisera enheter till IoT Hub med hjälp av en metod som dramatiskt fören klar genereringen av enhetens identitet och livs cykel hantering i leverans kedjan.
 
-Ett särskiljande attribut för X.509 CA-autentisering är en 1:1-relation som ett CA-certifikat har med sina underordnade enheter. Den här relationen möjliggör registrering av valfritt antal enheter i IoT Hub genom att registrera ett X.509 CA-certifikat en gång, annars måste enhetsunika certifikat vara förregistrerade för varje enhet innan en enhet kan ansluta. Den här 1:1-relationen förenklar också livscykelhanteringsåtgärder för enhetscertifikat.
+Ett särskiljande attribut för X. 509-CA-autentisering är en en-till-många-relation som ett CA-certifikat har med sina efterföljande enheter. Den här relationen gör det möjligt att registrera ett valfritt antal enheter i IoT Hub genom att registrera ett X. 509 CA-certifikat en gång, annars måste enhetens unika certifikat vara förregistrerade för varje enhet innan en enhet kan ansluta. Den här en-till-många-relationen fören klar också enhets certifikatets livs cykel hanterings åtgärder.
 
-Ett annat viktigt attribut för X.509 CA-autentiseringen är förenkling av logistiken i leveranskedjan. Säker autentisering av enheter kräver att varje enhet har en unik hemlighet som en nyckel som grund för förtroende. I certifikatbaserad autentisering är den här hemligheten en privat nyckel. Ett typiskt enhetstillverkningsflöde innebär flera steg och vårdnadshavare. Det är svårt och dyrt att hantera enhetsprivata nycklar på ett säkert sätt över flera vårdnadshavare och att upprätthålla förtroendet. Använda certifikatutfärdare löser detta problem genom att signera varje vårdnadshavare i en kryptografisk förtroendekedja i stället för att anförtro dem med enhetsprivatnycklar. Varje vårdnadshavare i sin tur undertecknar enheter vid sina respektive processsteg i tillverkningsflödet. Det övergripande resultatet är en optimal leveranskedja med inbyggd ansvarsskyldighet genom användning av den kryptografiska förtroendekedjan. Det är värt att notera att denna process ger mest säkerhet när enheter skyddar sina unika privata nycklar. För detta ändamål uppmanar vi användning av Hardware Secure Modules (HSM) som kan internt generera privata nycklar som aldrig kommer att se dagens ljus.
+Ett annat viktigt attribut för X. 509-CA-autentiseringen är förenkling av logistik för leverans kedja. Säker autentisering av enheter kräver att varje enhet har en unik hemlighet som en nyckel som grund för förtroende. I certifikatbaserad autentisering är den här hemligheten en privat nyckel. Ett typiskt enhets tillverknings flöde omfattar flera steg och förmyndare komponenter. Att säkert hantera enhetens privata nycklar över flera förmyndare komponenter och upprätthålla förtroende är svårt och dyrt. Att använda certifikat utfärdare löser problemet genom att logga varje övervakare i en kryptografisk förtroende kedja i stället för att lita på dem med privata enhets nycklar. Varje övervakare i tur och ordning signerar enheter i respektive process steg i tillverknings flödet. Det totala resultatet är en optimal leverans kedja med inbyggd ansvars linje genom att använda den kryptografiska förtroende kedjan. Det är värt att notera att den här processen ger störst säkerhet när enheterna skyddar sina unika privata nycklar. I detta fall rekommenderar vi att du använder HSM (Secure modules) som kan generera privata nycklar som aldrig kommer att se dagen.
 
-Den här artikeln innehåller en heltäckande vy för att använda X.509 CA-autentisering, från leveranskedjans inställning till enhetsanslutning, samtidigt som du använder ett verkligt exempel för att befästa förståelsen.
+Den här artikeln ger en heltäckande vy av hur du använder 509 med X., från leverans kedja till enhets anslutning, samtidigt som du använder ett verkligt världs exempel för att stärka förståelse.
 
 ## <a name="introduction"></a>Introduktion
 
-X.509 CA-certifikatet är ett digitalt certifikat vars innehavare kan signera andra certifikat. Det här digitala certifikatet är X.509 eftersom det överensstämmer med en certifikatformateringsstandard som föreskrivs i IETF:s RFC 5280-standard och är certifikatutfärdare eftersom innehavaren kan signera andra certifikat.
+CA-certifikatet för X. 509 är ett digitalt certifikat vars innehavare kan signera andra certifikat. Det här digitala certifikatet är X. 509 eftersom det överensstämmer med en certifikat formats standard som föreskrivs i IETF: s RFC 5280 standard och är en certifikat utfärdare (CA) eftersom dennes innehavare kan signera andra certifikat.
 
-Användningen av X.509 CA förstås bäst i förhållande till ett konkret exempel. Tänk på Company-X, en tillverkare av Smart-X-Widgets som utformats för professionell installation. Företag-X lägger ut både tillverkning och installation. Företaget har kontrakt med tillverkaren Factory-Y för att tillverka Smart-X-Widgets och serviceleverantören Technician-Z att installera. Företaget-X önskar att Smart-X-Widget direkt levereras från Factory-Y till Technician-Z för installation och att det ansluter direkt till Company-X: s instans av IoT Hub efter installationen utan ytterligare ingripande från Company-X. För att detta ska ske måste Company-X slutföra några engångsinstallationsåtgärder för att förbereda Smart-X-Widget för automatisk anslutning. Med scenariot från slutna till är resten av den här artikeln strukturerad på följande sätt:
+Användningen av X. 509-CA: n tolkas bäst i relation till ett konkret exempel. Överväg företags-X, en tillverkare av smarta X-widgetar utformade för professionell installation. Företags-X-utkälla, både för tillverkning och installation. Leverantören tillverkar Factory-Y för att tillverka tjänsterna Smart-X-widget och service provider – Z för att installera. Företags-X önskar att Smart-X-widgeten direkt levereras från fabriken-Y till tekniker-Z för installation och att den ansluts direkt till företags instansen av IoT Hub efter installationen utan ytterligare åtgärder från företaget-X. För att detta ska ske måste företags-X slutföra en del konfigurations åtgärder för en viss tidpunkt till primär Smart-X-widget för automatisk anslutning. Med scenariot från slut punkt till slut punkt i åtanke struktureras resten av den här artikeln enligt följande:
 
-* Skaffa X.509-ca-certifikatet
+* Hämta CA-certifikatet för X. 509
 
-* Registrera X.509 CA-certifikat till IoT Hub
+* Registrera X. 509 CA-certifikat till IoT Hub
 
-* Logga in enheter i en certifikatkedja med förtroende
+* Signera enheter till en certifikat kedja med förtroende
 
-* Enhetsanslutning
+* Enhets anslutning
 
-## <a name="acquire-the-x509-ca-certificate"></a>Skaffa X.509-ca-certifikatet
+## <a name="acquire-the-x509-ca-certificate"></a>Hämta CA-certifikatet för X. 509
 
-Företag-X har möjlighet att köpa ett X.509 CA-certifikat från en offentlig rotcertifikatutfärdande myndighet eller skapa ett genom en självsignerad process. Ett alternativ skulle vara optimalt jämfört med det andra beroende på programscenariot. Oavsett alternativet innebär processen två grundläggande steg, vilket genererar ett offentligt/privat nyckelpar och signerar den offentliga nyckeln till ett certifikat.
+Företags-X har möjlighet att köpa ett X. 509 CA-certifikat från en offentlig rot certifikat utfärdare eller skapa ett via en självsignerad process. Ett alternativ skulle vara optimalt jämfört med det andra, beroende på program scenariot. Oavsett vilket alternativ som används i processen finns två grundläggande steg som genererar ett offentligt/privat nyckel par och signerar den offentliga nyckeln till ett certifikat.
 
 ![Flöde för att generera ett X509CA-certifikat](./media/iot-hub-x509ca-concept/csr-flow.png)
 
-Information om hur du utför dessa steg skiljer sig åt med olika tjänsteleverantörer.
+Information om hur du utför de här stegen skiljer sig mellan olika tjänst leverantörer.
 
-### <a name="purchasing-an-x509-ca-certificate"></a>Köpa ett X.509 CA-certifikat
+### <a name="purchasing-an-x509-ca-certificate"></a>Köpa ett X. 509 CA-certifikat
 
-Att köpa ett CA-certifikat har fördelen av att ha en välkänd rotcertifikatutfärdar fungera som en betrodd tredje part för att gå i god för legitimiteten för IoT-enheter när enheterna ansluter. Företag-X skulle välja det här alternativet om de avser Smart-X-Widget att interagera med produkter eller tjänster från tredje part efter första anslutningen till IoT Hub.
+Att köpa ett CA-certifikat har fördelen att en välkänd rot certifikat utfärdare fungerar som en betrodd tredje part för att kunna identifiera giltighet av IoT-enheter när enheterna ansluter. Företag-X väljer det här alternativet om de avser en smart-X-widget för att interagera med produkter eller tjänster från tredje part efter den första anslutningen till IoT Hub.
 
-Om du vill köpa ett X.509 CA-certifikat väljer Company-X en rotcertifikattjänstleverantör. En sökning på Internet efter frasen "Root CA" kommer att ge bra leads. Rotcertifikatutfärdaren guidar Företag-X om hur du skapar det offentliga/privata nyckelparet och hur du genererar en begäran om certifikatsignering (CSR) för sina tjänster. En kundtjänstrepresentant är den formella processen att ansöka om ett certifikat från en certifikatutfärdare. Resultatet av det här inköpet är ett certifikat som kan användas som ett myndighetscertifikat. Med tanke på allestädes närvarande X.509 certifikat, är certifikatet sannolikt har formaterats korrekt till IETF: s RFC 5280 standard.
+För att köpa ett X. 509 CA-certifikat, väljer företaget-X en rot certifikat tjänst leverantör. En Internets ökning för frasen "rot certifikat utfärdare" ger en bättre lead. Rot certifikat utfärdaren leder till företags-X om hur du skapar ett offentligt/privat nyckel par och hur du skapar en begäran om certifikat signering för deras tjänster. En CSR är den formella processen att tillämpa för ett certifikat från en certifikat utfärdare. Resultatet av det här köpet är ett certifikat som används som auktoritets certifikat. Med tanke på allmän förekomst för X. 509-certifikat, har certifikatet förmodligen formaterats korrekt i IETF: s RFC 5280-standard.
 
-### <a name="creating-a-self-signed-x509-ca-certificate"></a>Skapa ett självsignerat X.509-certifikat
+### <a name="creating-a-self-signed-x509-ca-certificate"></a>Skapa ett självsignerat X. 509 CA-certifikat
 
-Processen för att skapa ett självsignerat X.509 CA-certifikat liknar inköp med undantag för att involvera en tredjeparts undertecknare som rotcertifikatutfärdaren. I vårt exempel signerar Company-X sitt myndighetscertifikat i stället för en rotcertifikatutfärdande. Company-X kan välja det här alternativet för testning tills de är redo att köpa ett myndighetscertifikat. Company-X kan också använda ett självsignerat X.509 CA-certifikat i produktion, om Smart-X-Widget inte är avsedd att ansluta till tjänster från tredje part utanför IoT Hub.
+Processen för att skapa ett självsignerat X. 509-CA-certifikat liknar köpet med undantag av en tredje parts-signering som rot certifikat utfärdaren. I vårt exempel kommer företag-X att signera sitt auktoritets certifikat i stället för en rot certifikat utfärdare. Företag-X kan välja det här alternativet för testning tills de är redo att köpa ett auktoritets certifikat. Företag-X kan också använda ett självsignerat X. 509 CA-certifikat i produktion, om Smart-X-widget inte är avsett att ansluta till några tjänster från tredje part utanför IoT Hub.
 
-## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrera X.509-certifikatet till IoT Hub
+## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrera X. 509-certifikatet för att IoT Hub
 
-Company-X måste registrera X.509 CA till IoT Hub där det kommer att tjäna till att autentisera Smart-X-Widgets när de ansluter. Detta är en engångsprocess som gör det möjligt att autentisera och hantera valfritt antal Smart-X-Widget-enheter. Den här processen är en gång på grund av en 1:1-relation mellan myndighetscertifikat och enheter och utgör också en av de främsta fördelarna med att använda X.509 CA-autentiseringsmetoden. Alternativet är att ladda upp enskilda certifikat tumavtryck för varje Smart-X-Widget enhet och därmed lägga till driftskostnader.
+Företags-X måste registrera X. 509-CA: n för att IoT Hub där den ska kunna autentisera smarta X-widgetar när de ansluter. Detta är en engångs process som gör det möjligt att autentisera och hantera valfritt antal enheter med smarta X-widgetar. Den här processen är engångs på grund av en en-till-många-relation mellan auktoritets certifikat och enheter och utgör även en av de största fördelarna med att använda metoden X. 509 CA-autentisering. Alternativet är att ladda upp enskilda certifikat tumavtrycken för varje enhet med Smart-X-widget och därmed lägga till drifts kostnader.
 
-Att registrera X.509 CA-certifikatet är en tvåstegsprocess, certifikatöverföringen och certifikatet som bevis på innehav.
+Att registrera X. 509 CA-certifikatet är en två stegs process, certifikat uppladdning och certifikats bevis.
 
 ![Registrera ett X509CA-certifikat](./media/iot-hub-x509ca-concept/pop-flow.png)
 
-### <a name="x509-ca-certificate-upload"></a>Uppladdning av X.509 CA-certifikat
+### <a name="x509-ca-certificate-upload"></a>X. 509 CA-certifikat uppladdning
 
-X.509 CA-certifikatuppladdningsprocessen är just det, ladda upp CA-certifikatet till IoT Hub. IoT Hub förväntar sig att certifikatet i en fil. Company-X laddar helt enkelt upp certifikatfilen. Certifikatfilen får inte under några omständigheter innehålla några privata nycklar. Bästa praxis från standarder som styr PKI (Public Key Infrastructure) ger mandat att kunskap om Company-X:s privata i detta fall uteslutande finns inom Company-X.
+Uppladdnings processen för X. 509 certifikat utfärdare är bara att ladda upp CA-certifikatet till IoT Hub. IoT Hub förväntar sig certifikatet i en fil. Företag-X laddar bara upp certifikat filen. Certifikat filen får inte under några omständigheter innehålla några privata nycklar. Bästa praxis från standarder som styr PKI-myndigheter (Public Key Infrastructure) som har kunskap om företagets privata i det här fallet finns bara i företaget-X.
 
-### <a name="proof-of-possession-of-the-certificate"></a>Bevis på innehav av intyget
+### <a name="proof-of-possession-of-the-certificate"></a>Certifikatets besittnings bevis
 
-X.509 CA-certifikatet är, precis som alla digitala certifikat, offentlig information som kan avlyssnas. Som sådan kan en tjuvlyssnare fånga upp ett certifikat och försöka ladda upp det som sin egen. I vårt exempel vill IoT Hub se till att ca-certifikatet Company-X laddar upp verkligen tillhör Company-X. Det gör det genom att utmana Company-X att bevisa att de faktiskt har certifikatet genom ett [bevis på innehav (PoP) flöde](https://tools.ietf.org/html/rfc5280#section-3.1). Proof-of-possession-flödet innebär att IoT Hub genererar ett slumptal som ska signeras av Company-X med hjälp av sin privata nyckel. Om Company-X följde PKI:s bästa praxis och skyddade sin privata nyckel skulle endast de kunna svara korrekt på beviskravsutmaningen. IoT Hub fortsätter att registrera X.509 CA-certifikatet på ett framgångsrikt svar på bevis-of-possession utmaning.
+X. 509-CA-certifikatet, precis som alla digitala certifikat, är offentlig information som är mottaglig för avlyssning. På så sätt kan en avlyssning fånga ett certifikat och försöka överföra det som ett eget. I vårt exempel vill IoT Hub se till att CA-certifikatets företags-X-överföring verkligen tillhör företags-X. Det gör det genom att göra det svårt för företags-X att bevisa att de faktiskt besitter certifikatet genom ett [pop-flöde (proof-of-Drive)](https://tools.ietf.org/html/rfc5280#section-3.1). Det huvudsakliga flödet är IoT Hub att generera ett slumptal som ska signeras av företags-X med hjälp av den privata nyckeln. Om bästa praxis för företags-X följde PKI och skyddar sin privata nyckel, skulle det bara finnas plats för att svara på korrekt utmaning. IoT Hub fortsätter att registrera X. 509 CA-certifikatet på ett framgångs rik svars bevis.
 
-Ett framgångsrikt svar på proof-of-possession utmaning från IoT Hub kompletterar X.509 CA registrering.
+Ett lyckat svar på en utmanings utmaning från IoT Hub Slutför 509 CA-registrering.
 
-## <a name="sign-devices-into-a-certificate-chain-of-trust"></a>Logga in enheter i en förtroendekedja
+## <a name="sign-devices-into-a-certificate-chain-of-trust"></a>Signera enheter till en certifikat kedja med förtroende
 
-IoT kräver att varje enhet har en unik identitet. Dessa identiteter finns i formulärcertifikaten för certifikatbaserade autentiseringsscheman. I vårt exempel innebär detta att varje Smart-X-Widget måste ha ett unikt enhetscertifikat. Hur företag-X setup för detta i sin leveranskedja?
+IoT kräver varje enhet för att ha en unik identitet. Dessa identiteter har formatet certifikat för certifikatbaserade autentiseringsscheman. I vårt exempel innebär detta att varje smart-X-widget måste ha ett unikt enhets certifikat. Hur fungerar företags-X-installationen i dess leverans kedja?
 
-Ett sätt att gå tillväga är att iföra certifikat för Smart-X-Widgets och anförtro kunskap om motsvarande unika enhetsprivatnycklar med supply chain-partners. För Company-X innebär detta att man anförtror Factory-Y och Tekniker-Z. Även om detta är en giltig metod, det kommer med utmaningar som måste övervinnas för att säkerställa förtroende enligt följande:
+Ett sätt att gå vidare med detta är att i förväg generera certifikat för smarta X-widgetar och att lita på kunskaper om motsvarande unika privata enhets privata nycklar med partners för leverans kedja. För företag-X innebär detta att lita på fabriks-Y och tekniker-Z. Även om detta är en giltig metod, medföljer de utmaningar som måste lösas för att säkerställa förtroende enligt följande:
 
-1. Att behöva dela enhetsprivata nycklar med supply chain-partner, förutom att ignorera PKI:s bästa praxis att aldrig dela privata nycklar, gör det dyrt att bygga förtroende i leveranskedjan. Det innebär kapitalsystem som säkra rum för att hysa enhet privata nycklar, och processer som regelbundna säkerhetsgranskningar måste installeras. Båda lägger till kostnader i leveranskedjan.
+1. För att kunna dela enhetens privata nycklar med partner partner, förutom att ignorera PKI: ns bästa praxis att aldrig dela privata nycklar, gör det kostsamt att skapa förtroende i leverans kedjan. Det innebär att kapital system som till exempel säkra rum för att ta del av privata enhets privata nycklar och processer som regelbunden säkerhets granskning måste installeras. Lägg till kostnad i leverans kedjan.
 
-2. Säkert redovisning av enheter i leveranskedjan och senare hantera dem i distributionen blir en en-till-en uppgift för varje nyckel-till-enhet par från den punkt av enhetens unika certifikat (därav privat nyckel) generation till enhetspensionering. Detta utesluter grupphantering av enheter om inte begreppet grupper uttryckligen är inbyggt i processen på något sätt. Säker redovisning och enhetens livscykelhantering blir därför en tung driftbörda. I vårt exempel skulle Company-X bära denna börda.
+2. På ett säkert sätt kan redovisning av enheter i leverans kedjan och senare hantera dem i distributionen bli en en-till-en-aktivitet för varje nyckel-till-enhet-par från enhetens unika certifikat (därmed privat nyckel) för att dra tillbaka enheten. Detta utesluter grupp hantering av enheter om inte begreppet grupper uttryckligen är inbyggda i processen. Säker hantering av redovisning och enhets cykel, är därför en hög belastning. I vårt exempel skulle företags-X ha den här belastningen.
 
-X.509 CA-certifikatautentisering erbjuder eleganta lösningar på tidigare listade utmaningar med hjälp av certifikatkedjor. En certifikatkedja är resultatet av en certifikatutfärdare som signerar en mellanliggande certifikatutfärdare som i sin tur signerar en annan mellanliggande certifikatutfärdare och fortsätter tills en slutlig mellanliggande certifikatutfärdare signerar en enhet. I vårt exempel tecknar Company-X Factory-Y, som i sin tur signerar Technician-Z som slutligen signerar Smart-X-Widget.
+X. 509 CA-certifikatautentisering ger eleganta lösningar för att afore listade utmaningar genom att använda certifikat kedjor. En certifikat kedja resulterar från en CA-signering av en mellanliggande certifikat utfärdare som i sin tur signerar en annan mellanliggande certifikat utfärdare och så vidare till en sluten mellanliggande CA I vårt exempel är företags-X tecken Factory-Y, som i sin tur registrerar tekniker-Z som slutligen signerar Smart-X-widget.
 
-![Hierarki för certifikatkedja](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
+![Certifikat kedja-hierarki](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
 
-Ovanför kaskad av certifikat i kedjan presenterar den logiska hand-off av myndigheten. Många leveranskedjor följer denna logiska hand-off där varje mellanliggande CA blir inloggad i kedjan samtidigt som de tar emot alla uppströms CA-certifikat, och den sista mellanliggande CA slutligen tecken varje enhet och injicera alla certifikat myndighet från kedjan in i enheten. Detta är vanligt när kontraktet tillverkande företag med en hierarki av fabriker provisioner en viss fabrik för att göra tillverkningen. Hierarkin kan vara flera nivåer djupa (till exempel efter geografi/produkttyp/tillverkningslinje), men endast fabriken i slutet får interagera med enheten men kedjan underhålls från toppen av hierarkin.
+Över överlappande av certifikat i kedjan visar den logiska överlämnande av utfärdaren. Många leverans kedjor följer denna logiska hand om varje mellanliggande certifikat utfärdare är inloggad i kedjan och tar emot alla överordnade CA-certifikat, och den senaste mellanliggande CA: n signerar varje enhet och matar in alla certifikat från kedjan i enheten. Detta är vanligt när kontraktet Manufacturing Company med en hierarki med fabriker provisiorar en viss fabrik för tillverkning. Även om hierarkin kan vara flera nivåer (till exempel per geografi/produkt typ/tillverknings linje), kommer bara fabriken i slutet att samverka med enheten, men kedjan bevaras från toppen av hierarkin.
 
-Alternativa kedjor kan ha olika mellanliggande ca interagera med enheten i vilket fall certifikatutfärdaren interagerar med enheten injicerar certifikatkedja innehåll vid den tidpunkten. Hybridmodeller är också möjliga om endast en del av certifikatutfärdaren har fysisk interaktion med enheten.
+Alternativa kedjor kan ha olika mellanliggande certifikat utfärdare som interagerar med enheten, vilket innebär att CA: n som kommunicerar med enheten infogar innehåll för certifikat kedjan. Hybrid modeller är också möjliga om bara en del av CA: n har fysisk interaktion med enheten.
 
-I vårt exempel interagerar både Factory-Y och Technician-Z med Smart-X-Widget. Medan Company-X äger Smart-X-Widget, interagerar det faktiskt inte fysiskt med den i hela leveranskedjan. Certifikatkedjan för förtroende för Smart-X-Widget består därför av Company-X-signering Factory-Y som i sin tur undertecknar Tekniker-Z som sedan kommer att ge slutlig signatur till Smart-X-Widget. Tillverkningen och installationen av Smart-X-Widget omfattar Factory-Y och Technician-Z med hjälp av sina respektive mellanliggande CA-certifikat för att signera varje Smart-X-Widgets. Slutresultatet av hela den här processen är Smart-X-Widgets med unika enhetscertifikat och certifikatkedja som går upp till Company-X CA-certifikat.
+I vårt exempel interagerar både Factory-Y-och tekniker-Z med Smart-X-widgeten. Även om företags-X äger Smart-X-widgeten, interagerar den faktiskt inte fysiskt med den i hela leverans kedjan. Certifikat kedjan för smart-X-widget utgör därför en företags-X-signerings fabrik-Y som i sin tur registrerar tekniker-Z som sedan ger den slutliga signaturen till Smart-X-widget. Tillverkning och installation av Smart-X-widget utgör fabriks-Y och tekniker-Z med deras respektive mellanliggande CA-certifikat för att signera var och en av de smarta X-widgetarna. Slut resultatet av hela processen är smart-X-widgetar med unika enhets certifikat och certifikat kedjan som går upp till företags-X CA-certifikat.
 
-![Förtroendekedjan från ett företags cert till ett annat företags certs](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![Förtroende kedja från certifikaten för ett företag till certifikaten för ett annat företag](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
-Detta är en bra punkt att granska värdet av X.509 CA-metoden. Istället för att förgenerera och lämna ut certifikat för varje Smart-X-Widget i leveranskedjan, var Company-X bara tvungen att underteckna Factory-Y en gång. Istället för att behöva spåra alla enheter under enhetens hela livscykel kan Company-X nu spåra och hantera enheter genom grupper som naturligt kommer ut ur leveranskedjan, till exempel enheter som installerats av Tekniker-Z efter juli något år.
+Det här är en lämplig punkt för att granska värdet för CA-metoden X. 509. I stället för att skapa och lämna ut certifikat för varje smart-X-widget till leverans kedjan var företags X bara tvungen att signera Factory-Y en gång. I stället för att behöva spåra alla enheter i enhetens livs cykel, kan företags-X nu spåra och hantera enheter genom grupper som naturligt kommer från leverans kedjan, till exempel enheter som installeras av tekniker-ö efter en gång i juli år.
 
-Sist men inte minst ingjuter ca-metoden för autentisering säker ansvarsskyldighet i leveranskedjan för tillverkning av enhet. På grund av certifikatkedjans process registreras och kanseraråtgärderna för varje medlem i kedjan kryptografiskt registreras och kan verifieras.
+Senast men minst, certifikat utfärdarens metod för autentisering skyddar säkert ansvar i enhetens tillverknings kedja. På grund av processen för certifikat kedjan registreras alla medlemmar i kedjan kryptografiskt och verifierbara.
 
-Denna process bygger på vissa antaganden som måste tas upp för fullständighet. Det kräver oberoende skapande av enhetens unika offentliga/privata nyckelpar och att den privata nyckeln skyddas i enheten. Lyckligtvis finns säkra kiselchips i form av Hardware Secure Modules (HSM) som kan generera nycklar internt och skydda privata nycklar. Företag-X behöver bara lägga till en av sådana marker i Smart-X-Widgets komponent räkning av material.
+Den här processen är beroende av vissa antaganden som måste vara tilldelad för att vara klar. Det kräver oberoende skapande av enhetens unika offentliga/privata nyckel par och att den privata nyckeln skyddas i enheten. Lyckligt vis är säker Silicon-chips i form av HSM (Secure modules) som kan generera nycklar och skydda privata nycklar. Företag-X behöver bara lägga till en sådan chips i komponent strukturen för smart-X-widget.
 
-## <a name="device-connection"></a>Enhetsanslutning
+## <a name="device-connection"></a>Enhets anslutning
 
-Tidigare avsnitt ovan har byggt upp till enhetsanslutning. Genom att helt enkelt registrera ett X.509 CA-certifikat till IoT Hub en gång, hur kan miljontals enheter ansluta och autentiseras från första gången?  Enkelt; genom samma certifikatuppladdning och bevis på innehavsflöde som vi tidigare stötte på när du registrerade X.509 CA-certifikatet.
+Föregående avsnitt ovan har byggts upp till enhets anslutning. Genom att helt enkelt registrera ett X. 509 CA-certifikat för att IoT Hub en gång, hur kan miljon tals enheter ansluta och bli autentiserade från första gången?  Gång genom samma certifikat överföring och det bevis som du har påträffat, gick det tidigare att registrera CA-certifikatet för X. 509.
 
-Enheter som tillverkas för X.509 CA-autentisering är utrustade med enhetsunika certifikat och en certifikatkedja från deras respektive tillverkningsförsörjningskedja. Enhetsanslutning, även för första gången, sker i en tvåstegsprocess: uppladdning av certifikatkedja och bevis på innehav.
+Enheter som tillverkats för X. 509-CA-autentisering är utrustade med enhetens unika certifikat och en certifikat kedja från respektive tillverknings leverantör. Enhets anslutning, även för första gången, sker i en två stegs process: certifikat kedjans uppladdning och bevis-för-besittning.
 
-Under uppladdningen av certifikatkedjan laddar enheten upp sitt enhets unika certifikat tillsammans med certifikatkedjan som är installerad i den till IoT Hub. Med hjälp av det förregistrerade X.509 CA-certifikatet kan IoT Hub kryptografiskt validera ett par saker, att den uppladdade certifikatkedjan är internt konsekvent och att kedjan har sitt ursprung i den giltiga ägaren av X.509 CA-certifikatet. Bara var med X.509 CA registreringsprocessen, IoT Hub skulle inleda ett bevis på innehav utmaning-svar process för att fastställa att kedjan och därmed enhetscertifikat faktiskt tillhör enheten ladda upp den. Det gör det genom att generera en slumpmässig utmaning som ska signeras av enheten med hjälp av dess privata nyckel för validering av IoT Hub. Ett lyckat svar utlöser IoT Hub för att acceptera enheten som autentisk och bevilja den anslutning.
+När certifikat kedjan har laddats upp laddar enheten upp enhetens unika certifikat tillsammans med certifikat kedjan som installerades i IoT Hub. Med hjälp av det förregistrerade X. 509-CA-certifikatet kan IoT Hub verifiera ett par saker som den uppladdade certifikat kedjan är internt konsekvent och att kedjan har sitt ursprung av den giltiga ägaren av CA-certifikatet för X. 509. Med en registrerings process för X. 509-certifikat utfärdare skulle IoT Hub starta en process med en utmanings process för att kontrol lera att kedjan och därmed enhets certifikatet verkligen tillhör den enhet som laddar upp den. Det gör det genom att generera en slumpmässig utmaning som signeras av enheten med hjälp av den privata nyckeln för verifiering med IoT Hub. Ett lyckat svar utlöser IoT Hub att acceptera enheten som autentisk och bevilja den anslutning.
 
-I vårt exempel skulle varje Smart-X-Widget ladda upp sitt enhets unika certifikat tillsammans med Factory-Y- och Technician-Z X.509 CA-certifikat och sedan svara på proof-of-possession-utmaningen från IoT Hub.
+I vårt exempel överför varje smart-X-widget sitt unika enhets certifikat tillsammans med Factory-Y-och tekniker-Z X. 509 CA-certifikat och svarar sedan på den utmanings utmaning från IoT Hub.
 
-![Flöda från ett certifikat till ett annat, poputmaning från nav](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![Flöda från ett certifikat till ett annat, pop-Challenge från hubben](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
-Observera att grunden för förtroende vilar på att skydda privata nycklar, inklusive privata enhetsnycklar. Vi kan därför inte nog betona vikten av säkra kiselchips i form av Hardware Secure Modules (HSM) för att skydda privata nycklar för enheten, och den övergripande bästa praxisen att aldrig dela några privata nycklar, som en fabrik som anförtror en annan med sina privat nyckel.
+Observera att stiftelsen i förtroendet är att skydda privata nycklar, inklusive enhetens privata nycklar. Vi kan därför inte stressa tillräckligt vikten av säker Silicon-chips i form av HSM (Secure modules) för att skydda enhetens privata nycklar och den övergripande bästa praxis att aldrig dela privata nycklar, t. ex. en fabrik som litar på en annan med den privata nyckeln.

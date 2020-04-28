@@ -1,64 +1,64 @@
 ---
-title: Så här kommenterar du datakällor i Azure Data Catalog
-description: Instruktioner som visar hur du kommenterar datatillgångar i Azure Data Catalog, inklusive egna namn, taggar, beskrivningar och experter.
+title: Kommentera data källor i Azure Data Catalog
+description: Instruktions artikel som markerar hur du kommenterar data till gångar i Azure Data Catalog, inklusive egna namn, taggar, beskrivningar och experter.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68950261"
 ---
-# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Så här kommenterar du datakällor i Azure Data Catalog
+# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Kommentera data källor i Azure Data Catalog
 
 ## <a name="introduction"></a>Introduktion
 
-**Microsoft Azure Data Catalog** är en fullständigt hanterad molntjänst som fungerar som ett system för registrering och identifieringssystem för företagets datakällor. Med andra ord handlar Data Catalog om att hjälpa människor att upptäcka, förstå och använda datakällor och hjälpa organisationer att få mer värde från sina befintliga data. När en datakälla registreras med Data Catalog kopieras metadata och indexeras av tjänsten, men artikeln slutar inte där. Data Catalog tillåter användare att ge sina egna beskrivande metadata – till exempel beskrivningar och taggar – för att komplettera metadata som extraherats från datakällan och göra datakällan mer begriplig för fler.
+**Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Med andra ord är Data Catalog att hjälpa människor att upptäcka, förstå och använda data källor och hjälpa organisationer att få mer värde än befintliga data. När en data källa registreras med Data Catalog kopieras och indexeras dess metadata av tjänsten, men artikeln slutar inte där. Data Catalog gör det möjligt för användarna att tillhandahålla egna beskrivande metadata – till exempel beskrivningar och taggar – för att komplettera de metadata som extraheras från data källan och för att göra data källan mer begriplig för fler personer.
 
-## <a name="annotation-and-crowdsourcing"></a>Anteckningar och crowdsourcing
-Alla har en åsikt. Och det här är bra.
-Data Catalog erkänner att olika användare har olika perspektiv på företagets datakällor och att vart och ett av dessa perspektiv kan vara värdefullt. Föreställ dig följande scenario:
+## <a name="annotation-and-crowdsourcing"></a>Anteckningar och gemensamt skapade
+Alla har fått ett yttrande. Och det här är en bra sak.
+Data Catalog känner av att olika användare har olika perspektiv i företags data källor och att vart och ett av dessa perspektiv kan vara värdefulla. Föreställ dig följande scenario:
 
-* Systemadministratören känner till servicenivåavtalet för de servrar eller tjänster som är värdar för datakällan.
-* Databasadministratören känner till säkerhetskopieringsschemat för varje databas och de tillåtna ETL-bearbetningsfönstren.
-* Systemägaren känner till processen för användare att begära åtkomst till datakällan.
-* Dataansvarig vet hur tillgångarna och attributen i datakällen mappas till företagets datamodell.
-* Analytikern vet hur data används i samband med de affärsprocesser de stöder.
+* System administratören känner till service nivå avtalet för de servrar eller tjänster som är värdar för data källan.
+* Databas administratören känner till schemat för säkerhets kopiering för varje databas och det tillåtna ETL-bearbetnings fönstret.
+* System ägaren vet att användare kan begära åtkomst till data källan.
+* Data bevarandet känner till hur till gångar och attribut i data källan mappar till företags data modellen.
+* Analytikern vet hur data används i samband med de affärs processer som de stöder.
 
-Vart och ett av dessa perspektiv är värdefullt, och Data Catalog använder en crowdsourcing-metod för metadata som gör att var och en kan fångas in och användas för att ge en fullständig bild av registrerade datakällor. Med hjälp av datakatalogportalen kan varje användare lägga till och redigera sina egna anteckningar, samtidigt som de kan visa anteckningar som tillhandahålls av andra användare.
+Vart och ett av dessa perspektiv är värdefullt och Data Catalog använder en gemensamt skapade metod för metadata som gör att de kan samlas in och användas för att tillhandahålla en komplett bild av registrerade data källor. Med hjälp av Data Catalog Portal kan varje användare lägga till och redigera sina egna anteckningar samtidigt som du kan Visa anteckningar från andra användare.
 
 ## <a name="different-types-of-annotations"></a>Olika typer av anteckningar
-Datakatalogen stöder följande typer av anteckningar:
+Data Catalog stöder följande typer av anteckningar:
 
 | Anteckning | Anteckningar |
 | --- | --- |
-| Eget namn |Egna namn kan tillhandahållas på datatillgångsnivå, för att göra datatillgångarna lättare att förstå. Egna namn är mest användbara när det underliggande objektnamnet är kryptiskt, förkortat eller på annat sätt inte meningsfullt för användarna. |
-| Beskrivning |Beskrivningar kan tillhandahållas på datatillgångs- och attribut-/kolumnnivåer. Beskrivningar är korta textanteckningar i fri form som beskriver användarens perspektiv på datatillgången eller dess användning. |
-| Taggar (användartaggar) |Taggar kan levereras på datatillgång och attribut / kolumn nivåer. Användartaggar är användardefinierade etiketter som kan användas för att kategorisera datatillgångar eller attribut. |
-| Taggar (ordlista taggar) |Taggar kan levereras på datatillgång och attribut / kolumn nivåer. Ordlistetaggar är centralt definierade ordlistor som kan användas för att kategorisera datatillgångar eller attribut med hjälp av en vanlig affärstaxonomi. Mer information finns i [Så här konfigurerar du en företagsordlista för hanterade taggar](data-catalog-how-to-business-glossary.md) |
-| Experter |Experter kan tillhandahållas på datatillgångsnivå. Experter identifierar användare eller grupper med expertperspektiv på data och kan fungera som kontaktpunkter för användare som upptäcker registrerade datakällor och har frågor som inte besvaras av de befintliga anteckningarna. |
-| Begär åtkomst |Information om begärandeåtkomst kan tillhandahållas på datatillgångsnivå. Den här informationen är till för användare som upptäcker en datakälla som de ännu inte har behörighet att komma åt. Användare kan ange e-postadressen till den användare eller grupp som beviljar åtkomst, webbadressen till processen eller verktyget som användarna behöver för att få åtkomst till eller ange själva processen som text. |
-| Dokumentation |Dokumentation kan tillhandahållas på datatillgångsnivå. Tillgångsdokumentation är RTF-information som kan innehålla länkar och bilder och som kan ge all information som inte förmedlas genom beskrivningar och taggar. |
+| Eget namn |Du kan ange egna namn på data till gångs nivå för att göra data till gångar lättare att förstå. Användarvänliga namn är mest användbara när det underliggande objekt namnet är krypterat, förkortat eller på annat sätt inte meningsfullt för användarna. |
+| Beskrivning |Beskrivningar kan anges i nivåerna data till gång och attribut/kolumn. Beskrivningar är kostnads fria korta text anteckningar som beskriver användarens perspektiv på data till gången eller dess användning. |
+| Taggar (användar etiketter) |Taggar kan anges i nivåerna data till gång och attribut/kolumn. Användar taggar är användardefinierade etiketter som kan användas för att kategorisera data till gångar eller attribut. |
+| Taggar (ord listans taggar) |Taggar kan anges i nivåerna data till gång och attribut/kolumn. Ord listas taggar är centralt definierade ord uppsättningar som kan användas för att kategorisera data till gångar eller attribut med en gemensam affärstaxonomi. Mer information finns i [Så här konfigurerar du en företagsordlista för hanterade taggar](data-catalog-how-to-business-glossary.md) |
+| Låta |Experter kan ges på data till gångs nivå. Experter identifierar användare eller grupper med expert perspektiv på data och kan fungera som kontakt punkter för användare som identifierar registrerade data källor och har frågor som inte besvaras av befintliga anteckningar. |
+| Begär åtkomst |Information om begär ande åtkomst kan anges på data till gångs nivå. Den här informationen är för användare som identifierar en data källa som de inte har behörighet att komma åt. Användare kan ange e-postadressen för den användare eller grupp som beviljar åtkomst, URL: en för den process eller det verktyg som användarna behöver för att få åtkomst, eller kan ange själva processen som text. |
+| Dokumentation |Dokumentation kan anges på nivån data till gång. Till gångs dokumentationen är RTF-information som kan innehålla länkar och bilder, och som kan ge information som inte förmedlas via beskrivningar och taggar. |
 
-## <a name="annotating-multiple-assets"></a>Kommentera flera tillgångar
-När du väljer flera datatillgångar i datakatalogportalen kan användare kommentera alla valda tillgångar i en enda åtgärd. Anteckningar gäller för alla valda tillgångar, vilket gör det enkelt att välja och ge en konsekvent beskrivning och uppsättningar av taggar och experter för relaterade datatillgångar.
+## <a name="annotating-multiple-assets"></a>Kommentera flera till gångar
+När du väljer flera data till gångar i Data Catalog Portal kan användarna kommentera alla valda till gångar i en enda åtgärd. Anteckningarna gäller för alla valda till gångar, vilket gör det enkelt att välja och tillhandahålla en konsekvent beskrivning och uppsättningar av taggar och experter för relaterade data till gångar.
 
 > [!NOTE]
-> Taggar och experter kan också tillhandahållas när datatillgångar registreras med hjälp av registreringsverktyget för datakatalogen.
+> Taggar och experter kan också tillhandahållas när du registrerar data till gångar med hjälp av Data Catalog registrerings verktyget för data källor.
 >
 >
 
-När du väljer flera tabeller och vyer visas endast kolumner som alla valda datatillgångar har gemensamt i datakatalogportalen. På så sätt kan användare ange taggar och beskrivningar för alla kolumner med samma namn för alla valda tillgångar.
+När du väljer flera tabeller och vyer visas bara kolumner som alla valda data till gångar har gemensamt i Data Catalog portalen. Detta gör att användarna kan ange Taggar och beskrivningar för alla kolumner med samma namn för alla valda till gångar.
 
-## <a name="annotations-and-discovery"></a>Anteckningar och upptäckt
-På samma sätt som metadata som extraheras från datakällan under registreringen läggs till i datakatalogens sökindex indexeras även metadata som tillhandahålls av användaren. Detta innebär att inte bara anteckningar gör det lättare för användare att förstå de data de upptäcker, anteckningar gör det också lättare för användare att upptäcka kommenterade datatillgångar genom att söka med hjälp av de termer som är meningsfulla för dem.
+## <a name="annotations-and-discovery"></a>Anteckningar och identifiering
+Precis som de metadata som extraheras från data källan under registreringen läggs till i Data Catalog Sök indexet indexeras även användardefinierade metadata. Det innebär att inte bara göra anteckningarna gör det enklare för användarna att förstå de data de känner till, vilket gör det enklare för användarna att upptäcka de kommenterade data till gångarna genom att söka med hjälp av de termer som passar dem bäst.
 
 ## <a name="summary"></a>Sammanfattning
-Om du registrerar en datakälla med Data Catalog kan data identifieras genom att strukturella och beskrivande metadata kopieras från datakällan till katalogtjänsten. När en datakälla har registrerats kan användarna tillhandahålla anteckningar för att göra det lättare att upptäcka och förstå inifrån datakatalogportalen.
+Registrering av en data källa med Data Catalog gör att data kan identifieras genom att kopiera strukturella och beskrivande metadata från data källan till katalog tjänsten. När en data källa har registrerats kan användarna ge anteckningar som gör det lättare att identifiera och förstå i Data Catalog portalen.
 
 ## <a name="see-also"></a>Se även
-* [Komma igång med](data-catalog-get-started.md) azure datakatalogsjälvstudie för steg-för-steg-information om hur du kommenterar datakällor.
+* [Kom igång med Azure Data Catalog](data-catalog-get-started.md) själv studie kurs för steg-för-steg-anvisningar om hur du kommenterar data källor.

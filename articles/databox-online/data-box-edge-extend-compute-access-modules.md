@@ -1,6 +1,6 @@
 ---
-title: Hantera beräkningsnätverk på Azure Data Box Edge för att komma åt moduler| Microsoft-dokument
-description: Beskriver hur du utökar beräkningsnätverket på databoxens edge för att komma åt moduler via en extern IP.
+title: Hantera beräknings nätverk på Azure Data Box Edge för att komma åt moduler | Microsoft Docs
+description: Beskriver hur du utökar beräknings nätverket på Data Box Edge för att få åtkomst till moduler via en extern IP-adress.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,61 +9,61 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 907647725dd6795b3b6482476de7442fbbf66114
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65917242"
 ---
-# <a name="enable-compute-network-on-your-azure-data-box-edge"></a>Aktivera beräkningsnätverk på azure databox edge
+# <a name="enable-compute-network-on-your-azure-data-box-edge"></a>Aktivera beräknings nätverk på Azure Data Box Edge
 
-I den här artikeln beskrivs hur modulerna som körs på din Azure Data Box Edge kan komma åt det beräkningsnätverk som är aktiverat på enheten.
+I den här artikeln beskrivs hur modulerna som körs på Azure Data Box Edge kan komma åt beräknings nätverket som är aktiverat på enheten.
 
-Så här konfigurerar du nätverket:
+Utför följande steg för att konfigurera nätverket:
 
-- Aktivera ett nätverksgränssnitt på Data Box Edge-enheten för beräkning
-- Lägga till en modul för att komma åt beräkningsnätverket på databoxkanten
-- Kontrollera att modulen kan komma åt det aktiverade nätverksgränssnittet
+- Aktivera ett nätverks gränssnitt på din Data Box Edge enhet för data bearbetning
+- Lägg till en modul för att få åtkomst till Compute Network på din Data Box Edge
+- Kontrol lera att modulen har åtkomst till det aktiverade nätverks gränssnittet
 
-I den här självstudien använder du en webbserverappmodul för att demonstrera scenariot.
+I den här självstudien använder du en modul för webserver-app för att demonstrera scenariot.
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar behöver du:
 
-- En Data Box Edge-enhet med enhetskonfigurationen klar.
-- Du har slutfört **konfigurera beräkningssteg** enligt [självstudiekursen: Omvandla data med Azure Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md#configure-compute) på din enhet. Enheten ska ha en associerad IoT Hub-resurs, en IoT-enhet och en IoT Edge-enhet.
+- En Data Box Edge enhet med enhets konfigurationen har slutförts.
+- Du har slutfört **Konfigurera beräknings** steget enligt [självstudien: transformera data med Azure Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md#configure-compute) på enheten. Enheten bör ha en tillhör ande IoT Hub resurs, en IoT-enhet och en IoT Edge enhet.
 
-## <a name="enable-network-interface-for-compute"></a>Aktivera nätverksgränssnitt för beräkning
+## <a name="enable-network-interface-for-compute"></a>Aktivera nätverks gränssnitt för beräkning
 
-Om du vill komma åt modulerna som körs på enheten via ett externt nätverk måste du tilldela en IP-adress till ett nätverksgränssnitt på enheten. Du kan hantera dessa beräkningsinställningar från det lokala webbgränssnittet.
+Om du vill komma åt modulerna som körs på enheten via ett externt nätverk måste du tilldela en IP-adress till ett nätverks gränssnitt på enheten. Du kan hantera dessa beräknings inställningar från det lokala webb gränssnittet.
 
-Gör så här i det lokala webbgränssnittet för att konfigurera beräkningsinställningar.
+Utför följande steg i det lokala webb gränssnittet för att konfigurera beräknings inställningar.
 
-1. Gå till **konfigurations-> beräkningsinställningar i**det lokala webbgränssnittet .  
+1. I det lokala webb gränssnittet går du till **konfiguration > beräknings inställningar**.  
 
-2. **Aktivera** det nätverksgränssnitt som du vill använda för att ansluta till en beräkningsmodul som du ska köra på enheten.
+2. **Aktivera** det nätverks gränssnitt som du vill använda för att ansluta till en Compute-modul som du kör på enheten.
 
-    - Om du använder statiska IP-adresser anger du en IP-adress för nätverksgränssnittet.
+    - Om du använder statiska IP-adresser anger du en IP-adress för nätverks gränssnittet.
     - Om du använder DHCP tilldelas IP-adresserna automatiskt. I det här exemplet används DHCP.
 
-    ![Aktivera beräkningsinställningar 1](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-1.png)
+    ![Aktivera beräknings inställningar 1](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-1.png)
 
-3. Välj **Använd** om du vill använda inställningarna. Anteckna den IP-adress som tilldelats nätverksgränssnittet om du använder DHCP.
+3. Tillämpa inställningarna genom att välja **Verkställ** . Anteckna IP-adressen som tilldelats nätverks gränssnittet om du använder DHCP.
 
-    ![Aktivera beräkningsinställningar](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-2.png)
+    ![Aktivera beräknings inställningar](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-2.png)
 
-## <a name="add-webserver-app-module"></a>Lägg till appmodul för webbserver
+## <a name="add-webserver-app-module"></a>Lägg till modul för webserver-app
 
-Gör så här för att lägga till en webbserverappmodul på databoxens edge-enhet.
+Utför följande steg för att lägga till en modul för webserver-app på din Data Box Edge-enhet.
 
-1. Gå till IoT Hub-resursen som är associerad med databoxens edge-enhet och välj sedan **IoT Edge-enhet**.
-2. Välj den IoT Edge-enhet som är associerad med databoxens edge-enhet. Välj **Ange moduler** **på enhetsinformationen**. På **Lägg till moduler**väljer du + Lägg **till** och väljer sedan **IoT Edge Module**.
-3. I **bladet IoT Edge anpassade moduler:**
+1. Gå till den IoT Hub resurs som är kopplad till din Data Box Edge-enhet och välj sedan **IoT Edge enhet**.
+2. Välj den IoT Edge enhet som är kopplad till Data Box Edge enheten. Välj **Ange moduler**på **enhets informationen**. I **Lägg till moduler**väljer du **+ Lägg till** och väljer sedan **IoT Edge modul**.
+3. På bladet **IoT Edge anpassade moduler** :
 
-    1. Ange ett **namn** för webbserverappmodulen som du vill distribuera.
-    2. Ange en **bild-URI** för din modulavbildning. En modul som matchar det angivna namnet och taggarna hämtas. I det `nginx:stable` här fallet kommer att dra en stabil nginx bild (taggad som stabil) från den offentliga [Docker-databasen](https://hub.docker.com/_/nginx/).
-    3. Klistra in följande exempelkod i **alternativen För behållar skapa:**  
+    1. Ange ett **namn** för den webserver-app som du vill distribuera.
+    2. Ange en **bild-URI** för din modul-avbildning. En modul som matchar det tillhandahållna namnet och taggarna hämtas. I det här fallet `nginx:stable` hämtar en stabil nginx-avbildning (Taggad som stabil) från den offentliga [Docker-lagringsplatsen](https://hub.docker.com/_/nginx/).
+    3. I **behållaren skapa alternativ**klistrar du in följande exempel kod:  
 
         ```
         {
@@ -79,20 +79,20 @@ Gör så här för att lägga till en webbserverappmodul på databoxens edge-enh
         }
         ```
 
-        Med den här konfigurationen kan du komma åt modulen med hjälp av beräkningsnätverkets IP över *http* på TCP-port 8080 (med standardwebbserverporten 80).
+        Med den här konfigurationen kan du komma åt modulen med Compute Network IP över *http* på TCP-port 8080 (med standard porten för webserver som 80).
 
-        ![Ange portinformation i anpassade modulblad för IoT Edge](media/data-box-edge-extend-compute-access-modules/module-information.png)
+        ![Ange portinformation i bladet för anpassade moduler för IoT Edge](media/data-box-edge-extend-compute-access-modules/module-information.png)
 
     4. Välj **Spara**.
 
-## <a name="verify-module-access"></a>Verifiera modulåtkomst
+## <a name="verify-module-access"></a>Verifiera åtkomst till modulen
 
-1. Kontrollera att modulen har distribuerats och körs. På sidan **Enhetsinformation,** på fliken Moduler, ska **körningsstatusen** för modulen **köras**.  
-2. Anslut till webbserverappmodulen. Öppna ett webbläsarfönster och skriv:
+1. Kontrol lera att modulen har distribuerats och att den körs. Körnings status för modulen ska **köras**på fliken **moduler** på sidan med **enhets information** .  
+2. Anslut till app-modulen för webb server. Öppna ett webbläsarfönster och skriv:
 
     `http://<compute-network-IP-address>:8080`
 
-    Du bör se att webbserverappen körs.
+    Du bör se att webserver-appen körs.
 
     ![Verifiera anslutning till modul över angiven port](media/data-box-edge-extend-compute-access-modules/verify-connect-module-1.png)
 

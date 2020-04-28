@@ -1,6 +1,6 @@
 ---
-title: Azure CDN realtidsaviseringar | Microsoft-dokument
-description: Aviseringar i realtid i Microsoft Azure CDN. Aviseringar i realtid ger meddelanden om slutpunkternas prestanda i CDN-profilen.
+title: Azure CDN real tids aviseringar | Microsoft Docs
+description: Aviseringar i real tid i Microsoft Azure CDN. Aviseringar i real tid ger aviseringar om prestanda för slut punkterna i din CDN-profil.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -15,85 +15,85 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593485"
 ---
-# <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Aviseringar i realtid i Microsoft Azure CDN
+# <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Aviseringar i real tid i Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Översikt
-I det här dokumentet beskrivs aviseringar i realtid i Microsoft Azure CDN. Den här funktionen ger meddelanden i realtid om slutpunkternas prestanda i CDN-profilen.  Du kan ställa in e-post- eller HTTP-aviseringar baserat på:
+I det här dokumentet förklaras aviseringar i real tid i Microsoft Azure CDN. Den här funktionen ger meddelanden i real tid om prestanda för slut punkterna i din CDN-profil.  Du kan ställa in e-post eller HTTP-aviseringar baserat på:
 
 * Bandbredd
 * Statuskoder
-* Cachestatus
+* Cache status
 * Anslutningar
 
-## <a name="creating-a-real-time-alert"></a>Skapa en avisering i realtid
-1. I [Azure-portalen](https://portal.azure.com)bläddrar du till din CDN-profil.
+## <a name="creating-a-real-time-alert"></a>Skapa en avisering i real tid
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till din CDN-profil.
    
     ![CDN-profil](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-1. Klicka på knappen **Hantera** i CDN-profilbladet.
+1. På bladet CDN-profil klickar du på knappen **Hantera** .
    
     ![Knappen Hantera CDN-profil](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
-    CDN-hanteringsportalen öppnas.
-3. Håll muspekaren över fliken **Analytics** och hovra sedan över **utfällningen av statistik i realtid.**  Klicka på **realtidsvarningar**.
+    Hanterings portalen för CDN öppnas.
+3. Hovra över fliken **analys** och hovra över den utfällbara **statistiken i real tid** .  Klicka på **aviseringar i real tid**.
    
-    ![CDN-hanteringsportal](./media/cdn-real-time-alerts/cdn-premium-portal.png)
+    ![Hanterings Portal för CDN](./media/cdn-real-time-alerts/cdn-premium-portal.png)
    
-    Listan över befintliga varningskonfigurationer (om sådana finns) visas.
-4. Klicka på knappen **Lägg till avisering.**
+    Listan över befintliga aviserings konfigurationer (om sådana finns) visas.
+4. Klicka på knappen **Lägg till avisering** .
    
-    ![Knappen Lägg till varning](./media/cdn-real-time-alerts/cdn-add-alert.png)
+    ![Knappen Lägg till avisering](./media/cdn-real-time-alerts/cdn-add-alert.png)
    
     Ett formulär för att skapa en ny avisering visas.
    
-    ![Nytt aviseringsformulär](./media/cdn-real-time-alerts/cdn-new-alert.png)
-5. Om du vill att den här aviseringen ska vara aktiv när du klickar på **Spara**markerar du kryssrutan **Aviseringsaktiverad.**
-6. Ange ett beskrivande namn för aviseringen i fältet **Namn.**
-7. Välj **HTTP Stora objekt**i listrutan **Medietyp** .
+    ![Nytt aviserings formulär](./media/cdn-real-time-alerts/cdn-new-alert.png)
+5. Om du vill att den här aviseringen ska vara aktiv när du klickar på **Spara**markerar du kryss rutan **avisering aktive rad** .
+6. Ange ett beskrivande namn för aviseringen i fältet **namn** .
+7. I list rutan **medietyp** väljer du **http-stort objekt**.
    
-    ![Medietyp med HTTP Stort objekt markerat](./media/cdn-real-time-alerts/cdn-http-large.png)
+    ![Medietyp med ett stort HTTP-objekt har valts](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > Du måste välja **HTTP Large Object** som **medietyp**.  De andra alternativen används inte av **Azure CDN från Verizon**.  Om du inte väljer **HTTP-stort objekt** utlöses inte aviseringen.
+   > Du måste välja ett **stort http-objekt** som **medietyp**.  De andra alternativen används inte av **Azure CDN från Verizon**.  Om du inte väljer ett **stort http-objekt** utlöses aviseringen aldrig.
    > 
    > 
-8. Skapa ett **uttryck** som ska övervakas genom att välja ett **mått,** **operatör**och **utlösarvärde**.
+8. Skapa ett **uttryck** som ska övervakas genom att välja ett **mått**, en **operator**och ett **Utlösar-värde**.
    
-   * För **Mått**väljer du den typ av villkor som du vill övervaka.  **Bandbredd Mbps** är mängden bandbreddsanvändning i megabit per sekund.  **Totalt antal anslutningar** är antalet samtidiga HTTP-anslutningar till våra kantservrar.  Definitioner av de olika cachestatusarna och statuskoderna finns i [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)) och Azure [CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100))
-   * **Operator** är den matematiska operator som upprättar relationen mellan måttet och utlösarvärdet.
-   * **Utlösarvärde** är tröskelvärdet som måste uppfyllas innan ett meddelande skickas.
+   * För **mått**väljer du den typ av villkor som du vill övervaka.  **Bandbredd Mbit/** s är mängden bandbredds användning i megabit per sekund.  **Totalt antal anslutningar** är antalet samtidiga http-anslutningar till våra Edge-servrar.  Definitioner av olika cache-statusar och status koder finns i [Azure CDN cache status koder](/previous-versions/azure/mt759237(v=azure.100)) och [Azure CDN HTTP-statuskod](/previous-versions/azure/mt759238(v=azure.100))
+   * **Operatorn** är den matematiska operator som upprättar relationen mellan måttet och Utlösar svärdet.
+   * **Utlösarens värde** är tröskelvärdet som måste uppfyllas innan ett meddelande skickas.
      
-     I följande exempel anger det skapade uttrycket att ett meddelande skickas när antalet 404 statuskoder är större än 25.
+     I följande exempel anger uttrycket CREATE att ett meddelande skickas när antalet status koder för 404 är större än 25.
      
-     ![Exempeluttryck för aviseringar i realtid](./media/cdn-real-time-alerts/cdn-expression.png)
-9. För **Intervall**anger du hur ofta du vill att uttrycket ska utvärderas.
-10. Välj när du vill bli meddelad när uttrycket är sant i listrutan **Meddela** vid.
+     ![Exempel uttryck i real tids avisering](./media/cdn-real-time-alerts/cdn-expression.png)
+9. För **intervall**anger du hur ofta du vill att uttrycket ska utvärderas.
+10. I list rutan **meddela om** väljer du när du vill bli meddelad när uttrycket är sant.
     
-    * **Villkorsstart** anger att ett meddelande skickas när det angivna villkoret först identifieras.
-    * **Villkorsslut** anger att ett meddelande skickas när det angivna villkoret inte längre identifieras. Det här meddelandet kan bara utlösas när vårt nätverk övervakningssystem upptäckt att det angivna villkoret inträffade.
-    * **Kontinuerlig anger** att ett meddelande skickas varje gång nätverksövervakningssystemet upptäcker det angivna villkoret. Tänk på att nätverksövervakningssystemet bara kontrollerar ett gång per intervall efter det angivna villkoret.
-    * **Villkorsstart och slut** anger att ett meddelande skickas första gången som det angivna villkoret identifieras och återigen när villkoret inte längre identifieras.
-1. Om du vill få aviseringar via e-post markerar du kryssrutan **Meddela via e-post.**  
+    * **Villkors start** anger att ett meddelande skickas när det angivna villkoret identifieras första gången.
+    * **Villkors slut** anger att ett meddelande skickas när det angivna villkoret inte längre identifieras. Det här meddelandet kan bara aktive ras efter att vårt nätverks övervaknings system har identifierat att det angivna villkoret har inträffat.
+    * **Kontinuerlig** anger att ett meddelande skickas varje stund som nätverks övervaknings systemet identifierar det angivna villkoret. Tänk på att nätverks övervaknings systemet bara kontrollerar en gång per intervall för det angivna villkoret.
+    * **Villkors start och slut** anger att ett meddelande skickas första gången det angivna villkoret upptäcks och återigen när villkoret inte längre identifieras.
+1. Om du vill ta emot aviseringar via e-post markerar du kryss rutan **meddela per e-post** .  
     
-    ![Meddela via e-postformulär](./media/cdn-real-time-alerts/cdn-notify-email.png)
+    ![Meddela per e-postformulär](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
-    I fältet **Till** anger du den e-postadress du vill ha meddelanden skickade. För **Ämne** och **Brödtext**kan du lämna standardinställningen eller anpassa meddelandet med hjälp av listan **Tillgängliga nyckelord** för att dynamiskt infoga varningsdata när meddelandet skickas.
+    I fältet **till** anger du den e-postadress som du vill att meddelanden ska skickas till. För **ämne** och **brödtext**kan du lämna standardvärdet, eller så kan du anpassa meddelandet med hjälp av listan **tillgängliga nyckelord** för att dynamiskt infoga aviserings data när meddelandet skickas.
     
     > [!NOTE]
-    > Du kan testa e-postmeddelandet genom att klicka på knappen **Testa meddelanden,** men först efter att aviseringskonfigurationen har sparats.
+    > Du kan testa e-postmeddelandet genom att klicka på knappen **testa aviseringen** , men endast efter att aviserings konfigurationen har sparats.
     > 
     > 
-12. Om du vill att meddelanden ska publiceras på en webbserver markerar du kryssrutan **Meddela via HTTP-inlägg.**
+12. Om du vill att meddelanden ska publiceras på en webb server markerar du kryss rutan **meddela efter http post** .
     
-    ![Meddela via formuläret HTTP-inlägg](./media/cdn-real-time-alerts/cdn-notify-http.png)
+    ![Meddela efter HTTP post-formulär](./media/cdn-real-time-alerts/cdn-notify-http.png)
     
-    I fältet **Url** anger du den URL där du vill att HTTP-meddelandet ska publiceras. Ange de HTTP-huvuden som ska skickas i begäran i textrutan **Rubriker.**  För **Brödtext**kan du anpassa meddelandet med hjälp av listan **Tillgängliga nyckelord** för att dynamiskt infoga varningsdata när meddelandet skickas.  **Rubriker** och **brödtext** som standard till en XML-nyttolast som liknar följande exempel:
+    I fältet **URL** anger du den URL som du vill att http-meddelandet ska skickas till. I text rutan **sidhuvud** anger du de HTTP-huvuden som ska skickas i begäran.  För **brödtext**kan du anpassa meddelandet genom att använda listan **tillgängliga nyckelord** för att dynamiskt infoga aviserings data när meddelandet skickas.  **Sidhuvud** och **brödtext** som standard till en XML-nyttolast som liknar följande exempel:
     
     ```
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
@@ -102,13 +102,13 @@ I det här dokumentet beskrivs aviseringar i realtid i Microsoft Azure CDN. Den 
     ```
     
     > [!NOTE]
-    > Du kan testa HTTP-postmeddelandet genom att klicka på knappen **Testa meddelanden,** men först efter att aviseringskonfigurationen har sparats.
+    > Du kan testa HTTP post-meddelandet genom att klicka på knappen **testa meddelande** , men endast efter att aviserings konfigurationen har sparats.
     > 
     > 
-13. Klicka på knappen **Spara** för att spara aviseringskonfigurationen.  Om du har **markerat Alert Enabled** i steg 5 är aviseringen nu aktiv.
+13. Klicka på knappen **Spara** för att spara aviserings konfigurationen.  Om du har markerat **avisering aktive rad** i steg 5 är din avisering nu aktiv.
 
 ## <a name="next-steps"></a>Efterföljande moment
-* Analysera [statistik i realtid i Azure CDN](cdn-real-time-stats.md)
-* Djupare med [avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
-* Analysera [användningsmönster](cdn-analyze-usage-patterns.md)
+* Analysera [real tids statistik i Azure CDN](cdn-real-time-stats.md)
+* Gräv djupare med [avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
+* Analysera [användnings mönster](cdn-analyze-usage-patterns.md)
 

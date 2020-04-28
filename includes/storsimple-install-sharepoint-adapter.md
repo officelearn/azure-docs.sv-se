@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187384"
 ---
-#### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>Så här installerar du StorSimple-kortet för SharePoint
-1. Kopiera installationsprogrammet till WFE-servern (Web Front end) som också är konfigurerad för att köra sharepoint-webbprogrammet för central administration. 
-2. Använd ett konto med administratörsbehörighet för att logga in på WFE-servern.
-3. Dubbelklicka på installationsprogrammet. Guiden StorSimple-kort för installationsprogrammet för SharePoint startar. Klicka på **Nästa** för att påbörja installationen.
+#### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>Så här installerar du StorSimple Adapter för SharePoint
+1. Kopiera installations programmet till webb server delen (WFE) som också är konfigurerad för att köra SharePoint-webbprogrammet för Central administration. 
+2. Använd ett konto med administratörs behörighet för att logga in på WFE-servern.
+3. Dubbelklicka på installations programmet. Installations guiden för StorSimple Adapter för SharePoint startas. Klicka på **Nästa** för att påbörja installationen.
    
-    ![Startsida för installation av StorSimple-kort](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
-4. På konfigurationssidan för StorSimple-kortet för SharePoint väljer du en installationsplats, skriver IP-adressen för DATA 0-nätverksgränssnittet på StorSimple-enheten och klickar sedan på **Nästa**. 
+    ![Start sida för StorSimple Adapter setup](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
+4. På sidan konfiguration av installations program för StorSimple Adapter för SharePoint väljer du en installations plats, anger IP-adressen för nätverks gränssnittet för DATA 0 på din StorSimple-enhet och klickar sedan på **Nästa**. 
    
-    ![Konfigurationssida för installation av StorSimple-kort](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
-5. Klicka på **Installera**på sidan för inställningsbekräftelse.
+    ![Konfigurations sida för StorSimple Adapter setup](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
+5. På sidan installations bekräftelse klickar du på **Installera**.
    
-    ![Bekräftelsesida för installation av StorSimple-kort](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png) 
-6. Stäng installationsguiden genom att klicka på **Slutför.**
+    ![Bekräftelse sida för StorSimple Adapter](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png) 
+6. Klicka på **Slutför** för att stänga installations guiden.
    
-    ![Sidan Färdigt för Installation av StorSimple-kort](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
-7. Öppna sidan Central administration i SharePoint. Du bör se en StorSimple-konfigurationsgrupp som innehåller StorSimple-kortet för SharePoint-länkar.
+    ![Sidan installation av StorSimple Adapter har slutförts](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
+7. Öppna sidan Central administration av SharePoint. Du bör se en konfigurations grupp för StorSimple som innehåller StorSimple Adapter för SharePoint-länkar.
 8. Gå till nästa steg: [Konfigurera RBS](#configure-rbs).
 

@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure CDN-biblioteket för .NET | Microsoft-dokument
+title: Kom igång med Azure CDN-biblioteket för .NET | Microsoft Docs
 description: Lär dig hur du skriver .NET-program för att hantera Azure CDN med Visual Studio.
 services: cdn
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594168"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
@@ -28,40 +28,40 @@ ms.locfileid: "67594168"
 > 
 > 
 
-Du kan använda [Azure CDN-biblioteket för .NET för](/dotnet/api/overview/azure/cdn) att automatisera skapandet och hanteringen av CDN-profiler och slutpunkter.  Den här självstudien går igenom skapandet av ett enkelt .NET-konsolprogram som visar flera av de tillgängliga åtgärderna.  Den här självstudien är inte avsedd att beskriva alla aspekter av Azure CDN-biblioteket för .NET i detalj.
+Du kan använda [Azure CDN-biblioteket för .net](/dotnet/api/overview/azure/cdn) för att automatisera skapandet och hanteringen av CDN-profiler och slut punkter.  Den här självstudien vägleder dig genom skapandet av ett enkelt .NET-konsol program som visar flera av de tillgängliga åtgärderna.  Den här självstudien är inte avsedd att beskriva alla aspekter av Azure CDNs biblioteket för .NET i detalj.
 
-Du behöver Visual Studio 2015 för att slutföra den här självstudien.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) är fritt tillgänglig för nedladdning.
+Du behöver Visual Studio 2015 för att slutföra den här kursen.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) är gratis tillgängligt för hämtning.
 
 > [!TIP]
-> Det [slutförda projektet från den här självstudien](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) är tillgängligt för nedladdning på MSDN.
+> Det [färdiga projektet från den här självstudien](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) är tillgängligt för hämtning på MSDN.
 > 
 > 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## <a name="create-your-project-and-add-nuget-packages"></a>Skapa ditt projekt och lägg till Nuget-paket
-Nu när vi har skapat en resursgrupp för våra CDN-profiler och gett vår Azure AD-programbehörighet för att hantera CDN-profiler och slutpunkter i den gruppen, kan vi börja skapa vårt program.
+## <a name="create-your-project-and-add-nuget-packages"></a>Skapa ditt projekt och Lägg till NuGet-paket
+Nu när vi har skapat en resurs grupp för våra CDN-profiler och gett vår Azure AD-program behörighet att hantera CDN-profiler och slut punkter inom gruppen kan vi börja skapa vårt program.
 
-I Visual Studio 2015 klickar du på **Arkiv**, **Nytt**, **Projekt...** för att öppna den nya projektdialogrutan.  Expandera **Visual C#** och välj sedan **Windows** i fönstret till vänster.  Klicka på **Konsolprogram** i mittfönstret.  Namnge projektet och klicka sedan på **OK**.  
+I Visual Studio 2015 klickar du på **Arkiv**, **nytt**, **projekt...** för att öppna dialog rutan nytt projekt.  Expandera **Visual C#** och välj sedan **Windows** i rutan till vänster.  Klicka på **konsol program** i rutan i mitten.  Namnge projektet och klicka sedan på **OK**.  
 
 ![Nytt projekt](./media/cdn-app-dev-net/cdn-new-project.png)
 
-Vårt projekt kommer att använda vissa Azure-bibliotek som finns i Nuget-paket.  Låt oss lägga till dem i projektet.
+Vårt projekt kommer att använda vissa Azure-bibliotek som finns i NuGet-paket.  Nu ska vi lägga till dem i projektet.
 
-1. Klicka på **Verktyg-menyn,** **Nuget Package Manager**och sedan **Package Manager Console**.
+1. Klicka på **verktyg** -menyn, **NuGet Package Manager**och sedan **Package Manager-konsolen**.
    
-    ![Hantera Nuget-paket](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. Kör följande kommando i Package Manager Console för att installera **Active Directory Authentication Library (ADAL):**
+    ![Hantera NuGet-paket](./media/cdn-app-dev-net/cdn-manage-nuget.png)
+2. Kör följande kommando i Package Manager-konsolen för att installera **Active Directory-autentiseringsbibliotek (ADAL)**:
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
-3. Kör följande för att installera **Azure CDN Management Library:**
+3. Kör följande för att installera **Azure CDN hanterings biblioteket**:
    
     `Install-Package Microsoft.Azure.Management.Cdn`
 
-## <a name="directives-constants-main-method-and-helper-methods"></a>Direktiv, konstanter, huvudmetod och hjälpmetoder
+## <a name="directives-constants-main-method-and-helper-methods"></a>Direktiv, konstanter, huvudsakliga metoder och hjälp metoder
 Låt oss få den grundläggande strukturen i vårt program skrivet.
 
-1. Tillbaka på fliken Program.cs ersätter `using` du direktiven högst upp med följande:
+1. Gå tillbaka till Program.cs-fliken och Ersätt `using` direktiven överst med följande:
    
     ```csharp
     using System;
@@ -73,7 +73,7 @@ Låt oss få den grundläggande strukturen i vårt program skrivet.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Vi måste definiera några konstanter våra metoder kommer att använda.  Lägg `Program` till följande i `Main` klassen, men före metoden.  Var noga med att ersätta platshållarna, inklusive ** &lt;vinkelparenteserna,&gt;** med dina egna värden efter behov.
+2. Vi måste definiera vissa konstanter som metoderna kommer att använda.  I- `Program` klassen, men före- `Main` metoden lägger du till följande.  Se till att ersätta plats hållarna, inklusive ** &lt;vinkel paren tes&gt;**, med dina egna värden efter behov.
    
     ```csharp
     //Tenant app constants
@@ -88,13 +88,13 @@ Låt oss få den grundläggande strukturen i vårt program skrivet.
     private const string resourceGroupName = "CdnConsoleTutorial";
     private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. Också på klassnivå definierar du dessa två variabler.  Vi använder dessa senare för att avgöra om vår profil och slutpunkt redan finns.
+3. Definiera även dessa två variabler på klass nivå.  Vi använder dem senare för att avgöra om vår profil och slut punkt redan finns.
    
     ```csharp
     static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
     ```
-4. Ersätt `Main` metoden enligt följande:
+4. Ersätt `Main` metoden på följande sätt:
    
    ```csharp
    static void Main(string[] args)
@@ -129,7 +129,7 @@ Låt oss få den grundläggande strukturen i vårt program skrivet.
        Console.ReadLine();
    }
    ```
-5. Några av våra andra metoder kommer att uppmana användaren med "Ja / Nej" frågor.  Lägg till följande metod för att göra det lite enklare:
+5. Några av våra andra metoder kommer att uppmana användaren att ange "Ja/Nej"-frågor.  Lägg till följande metod för att göra det lite enklare:
    
     ```csharp
     private static bool PromptUser(string Question)
@@ -153,10 +153,10 @@ Låt oss få den grundläggande strukturen i vårt program skrivet.
     }
     ```
 
-Nu när den grundläggande strukturen i vårt program är skriven, bör vi skapa de metoder som kallas med `Main` metoden.
+Nu när den grundläggande strukturen i programmet är skriven bör vi skapa de metoder som anropas av `Main` metoden.
 
 ## <a name="authentication"></a>Autentisering
-Innan vi kan använda Azure CDN Management Library måste vi autentisera vårt tjänsthuvudnamn och hämta en autentiseringstoken.  Den här metoden använder ADAL för att hämta token.
+Innan vi kan använda Azure CDN hanterings biblioteket måste vi autentisera tjänstens huvud namn och skaffa en autentiseringstoken.  Den här metoden använder ADAL för att hämta token.
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -170,10 +170,10 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Om du använder individuell användarautentisering ser `GetAccessToken` metoden lite annorlunda ut.
+Om du använder individuell användarautentisering ser `GetAccessToken` metoden annorlunda ut.
 
 > [!IMPORTANT]
-> Använd bara det här kodexemplet om du väljer att ha individuell användarautentisering i stället för ett huvudnamn för tjänsten.
+> Använd bara det här kod exemplet om du väljer att ha individuell användarautentisering i stället för ett huvud namn för tjänsten.
 > 
 > 
 
@@ -188,10 +188,10 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Var noga `<redirect URI>` med att ersätta med den omdirigera URI du angav när du registrerade programmet i Azure AD.
+Se till att ersätta `<redirect URI>` med den omdirigerings-URI som du angav när du registrerade programmet i Azure AD.
 
-## <a name="list-cdn-profiles-and-endpoints"></a>Lista CDN-profiler och slutpunkter
-Nu är vi redo att utföra CDN-åtgärder.  Det första vår metod gör är att lista alla profiler och slutpunkter i vår resursgrupp, och om den hittar en matchning för profil- och slutpunktsnamn som anges i våra konstanter, noterar det för senare så att vi inte försöker skapa dubbletter.
+## <a name="list-cdn-profiles-and-endpoints"></a>Lista CDN-profiler och slut punkter
+Nu är vi redo att utföra CDN-åtgärder.  Den första metoden är att visa en lista över alla profiler och slut punkter i vår resurs grupp, och om den hittar en matchning för profil-och slut punkts namnen som anges i våra konstanter, antecknar du detta för senare så att vi inte försöker skapa dubbletter.
 
 ```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
@@ -224,8 +224,8 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 }
 ```
 
-## <a name="create-cdn-profiles-and-endpoints"></a>Skapa CDN-profiler och slutpunkter
-Därefter skapar vi en profil.
+## <a name="create-cdn-profiles-and-endpoints"></a>Skapa CDN-profiler och slut punkter
+Nu ska vi skapa en profil.
 
 ```csharp
 private static void CreateCdnProfile(CdnManagementClient cdn)
@@ -244,7 +244,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 }
 ```
 
-När profilen har skapats skapar vi en slutpunkt.
+När profilen har skapats skapar vi en slut punkt.
 
 ```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
@@ -270,12 +270,12 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> Exemplet ovan tilldelar slutpunkten ett ursprung med namnet `www.contoso.com` *Contoso* med ett värdnamn .  Du bör ändra detta så att det pekar på ditt eget ursprungs värdnamn.
+> Exemplet ovan tilldelar slut punkten ett ursprung med namnet *contoso* med ett värdnamn `www.contoso.com`.  Du bör ändra detta så att det pekar på ditt eget ursprungs namn.
 > 
 > 
 
-## <a name="purge-an-endpoint"></a>Rensa en slutpunkt
-Förutsatt att slutpunkten har skapats, en gemensam uppgift som vi kanske vill utföra i vårt program är att rensa innehållet i vår slutpunkt.
+## <a name="purge-an-endpoint"></a>Rensa en slut punkt
+Förutsatt att slut punkten har skapats kan en vanlig uppgift som vi vill utföra i programmet rensa innehållet i vår slut punkt.
 
 ```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
@@ -291,12 +291,12 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> I exemplet ovan anger `/*` strängen att jag vill rensa allt i roten på slutpunktssökvägen.  Detta motsvarar att kontrollera **Rensa alla** i Azure-portalens "purge"-dialog. I `CreateCdnProfile` metoden skapade jag vår profil som en **Azure CDN från Verizon-profil** med koden `Sku = new Sku(SkuName.StandardVerizon)`, så detta kommer att lyckas.  Azure **CDN från Akamai-profiler** stöder dock inte **Rensa alla**, så om jag använde en Akamai-profil för den här självstudien skulle jag behöva inkludera specifika sökvägar för att rensa.
+> I exemplet ovan noterar strängen `/*` att jag vill rensa allt i roten för slut punkts Sök vägen.  Det motsvarar att kontrol lera **Rensa alla** i dialog rutan för Azure Portal rensa. I- `CreateCdnProfile` metoden skapade jag vår profil som en **Azure CDN från Verizon** -profilen med hjälp av `Sku = new Sku(SkuName.StandardVerizon)`koden, så det kommer att lyckas.  **Azure CDN från Akamai** -profiler stöder dock inte **Rensa alla**, så om jag använde en Akamai-profil för den här själv studie kursen skulle jag behöva inkludera vissa sökvägar för att rensa.
 > 
 > 
 
-## <a name="delete-cdn-profiles-and-endpoints"></a>Ta bort CDN-profiler och slutpunkter
-De sista metoderna kommer att ta bort vår slutpunkt och profil.
+## <a name="delete-cdn-profiles-and-endpoints"></a>Ta bort CDN-profiler och slut punkter
+De sista metoderna tar bort vår slut punkt och profil.
 
 ```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
@@ -323,22 +323,22 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 ```
 
 ## <a name="running-the-program"></a>Köra programmet
-Vi kan nu sammanställa och köra programmet genom att klicka på **Start-knappen** i Visual Studio.
+Nu kan vi kompilera och köra programmet genom att klicka på **Start** -knappen i Visual Studio.
 
-![Program igång](./media/cdn-app-dev-net/cdn-program-running-1.png)
+![Program som körs](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
-När programmet når ovanstående fråga bör du kunna återgå till din resursgrupp i Azure-portalen och se att profilen har skapats.
+När programmet når ovanstående prompt ska du kunna återgå till resurs gruppen i Azure Portal och se att profilen har skapats.
 
 ![Lyckades!](./media/cdn-app-dev-net/cdn-success.png)
 
-Vi kan sedan bekräfta uppmaningarna att köra resten av programmet.
+Vi kan sedan bekräfta prompterna för att köra resten av programmet.
 
 ![Programmet slutförs](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
 ## <a name="next-steps"></a>Efterföljande moment
-Om du vill se det slutförda projektet från den här genomgången [hämtar du exemplet](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+[Hämta exemplet](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c)för att se det slutförda projektet från den här genom gången.
 
-Om du vill hitta ytterligare dokumentation om Azure CDN Management Library för .NET kan du visa [referensen på MSDN](/dotnet/api/overview/azure/cdn).
+Om du vill ha mer dokumentation om Azure CDN hanterings bibliotek för .NET kan du läsa [referens på MSDN](/dotnet/api/overview/azure/cdn).
 
-Hantera CDN-resurser med [PowerShell](cdn-manage-powershell.md).
+Hantera dina CDN-resurser med [PowerShell](cdn-manage-powershell.md).
 

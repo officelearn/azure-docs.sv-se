@@ -9,10 +9,10 @@ ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 820a6a4da9f5c466e694f247d09393474d8464ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187192"
 ---
 Du kan ansluta till en virtuell dator som är distribuerad till ditt VNet genom att skapa en anslutning till fjärrskrivbord till den virtuella datorn. Det bästa sättet att först kontrollera att du kan ansluta till den virtuella datorn är att ansluta via dess privata IP-adress snarare än datornamnet. På så sätt kan du testa om du kan ansluta, men inte om namnmatchningen är korrekt konfigurerad.
@@ -37,7 +37,7 @@ Du kan ansluta till en virtuell dator som är distribuerad till ditt VNet genom 
      ```
 
 2. Kontrollera att du är ansluten till ditt VNet med VPN-anslutning.
-3. Öppna **Anslutning till fjärrskrivbord** genom att skriva "RDP" eller "Anslutning till fjärrskrivbord" i sökrutan i Aktivitetsfältet och välj sedan Anslutning till fjärrskrivbord. Du kan även öppna Anslutning till fjärrskrivbord med hjälp av kommandot ”mstsc” i PowerShell. 
+3. Öppna **anslutning till fjärrskrivbord** genom att skriva "RDP" eller "anslutning till fjärrskrivbord" i sökrutan i aktivitets fältet och välj sedan anslutning till fjärrskrivbord. Du kan även öppna Anslutning till fjärrskrivbord med hjälp av kommandot ”mstsc” i PowerShell. 
 4. I fjärrskrivbordsanslutningen anger du den virtuella datorns privata IP-adress. Du kan klicka på "Visa alternativ" för att justera inställningar och sedan ansluta.
 
 ### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Felsöka en RDP-anslutning till en virtuell dator

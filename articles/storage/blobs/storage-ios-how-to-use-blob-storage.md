@@ -1,5 +1,5 @@
 ---
-title: Så här använder du objektlagring (Blob) från iOS - Azure | Microsoft-dokument
+title: Använda objekt lagring (BLOB) från iOS – Azure | Microsoft Docs
 description: Lagra ostrukturerade data i molnet med Azure Blob Storage (objektlagring).
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,30 +8,30 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68726407"
 ---
-# <a name="how-to-use-blob-storage-from-ios"></a>Så här använder du Blob-lagring från iOS
+# <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob Storage från iOS
 
-Den här artikeln visar hur du utför vanliga scenarier med Microsoft Azure Blob-lagring. Exemplen skrivs i Objective-C och använder [Azure Storage Client Library för iOS](https://github.com/Azure/azure-storage-ios). Scenarierna omfattar uppladdning, listning, nedladdning och borttagning av blobbar. Mer information om blobbar finns i avsnittet [Nästa steg.](#next-steps) Du kan också ladda ned [exempelappen](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) för att snabbt se användningen av Azure Storage i ett iOS-program.
+Den här artikeln visar hur du utför vanliga scenarier med Microsoft Azure Blob Storage. Exemplen skrivs i mål-C och använder [Azure Storage klient bibliotek för iOS](https://github.com/Azure/azure-storage-ios). I scenarierna ingår överföring, registrering, hämtning och borttagning av blobbar. Mer information om blobbar finns i avsnittet [Nästa steg](#next-steps) . Du kan också hämta [exempel appen](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) för att snabbt se användningen av Azure Storage i ett iOS-program.
 
-Mer information om Blob-lagring finns i [Introduktion till Azure Blob storage](storage-blobs-introduction.md).
+Mer information om Blob Storage finns i [Introduktion till Azure Blob Storage](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Importera Azure Storage iOS-biblioteket till ditt program
 
-Du kan importera Azure Storage iOS-biblioteket till ditt program antingen med hjälp av [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) eller genom att importera **Framework-filen.** CocoaPod är det rekommenderade sättet eftersom det gör att integrera biblioteket lättare, men att importera från ramfilen är mindre påträngande för ditt befintliga projekt.
+Du kan importera Azure Storage iOS-biblioteket till ditt program antingen med hjälp av [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) eller genom att importera **Ramverks** filen. CocoaPod är det rekommenderade sättet eftersom det gör det enklare att integrera biblioteket, men att importera från Framework-filen är mindre påträngande för ditt befintliga projekt.
 
-För att kunna använda det här biblioteket behöver du följande:
+Om du vill använda det här biblioteket behöver du följande:
 
-- iOS 8+
-- Xcode 7+
+- iOS 8 +
+- Xcode 7 +
 
-## <a name="cocoapod"></a>CocoaPod (cocoaPod)
+## <a name="cocoapod"></a>CocoaPod
 
 1. Om du inte redan har gjort det [installerar du CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) på datorn genom att öppna ett terminalfönster och köra följande kommando
 
@@ -39,7 +39,7 @@ För att kunna använda det här biblioteket behöver du följande:
     sudo gem install cocoapods
     ```
 
-2. Skapa sedan en ny fil som heter _Podfile_(inget filtillägg) i projektkatalogen (katalogen som innehåller xcodeproj-filen). Lägg till följande i _Podfile_ och spara.
+2. Därefter skapar du en ny fil med namnet _Podfile_(inga fil namns tillägg) i projekt katalogen (katalogen som innehåller din. XCODEPROJ-fil). Lägg till följande i _Podfile_ och spara.
 
     ```ruby
     platform :ios, '8.0'
@@ -49,31 +49,31 @@ För att kunna använda det här biblioteket behöver du följande:
     end
     ```
 
-3. I terminalfönstret navigerar du till projektkatalogen och kör följande kommando
+3. I terminalfönstret navigerar du till projekt katalogen och kör följande kommando
 
     ```shell
     pod install
     ```
 
-4. Om xcodeproj är öppen i Xcode stänger du den. Öppna den nyskapade projektfilen i projektkatalogen som har tillägget .xcworkspace. Det här är filen du kommer att arbeta från och med nu.
+4. Om din. XCODEPROJ är öppen i Xcode, Stäng den. Öppna den nya projekt filen i projekt katalogen som har fil namns tillägget. xcworkspace. Det här är den fil som du kommer att arbeta från för tillfället.
 
 ## <a name="framework"></a>Ramverk
 
 Det andra sättet att använda biblioteket är att bygga ramverket manuellt:
 
-1. Hämta eller klona först [azure-storage-ios repo](https://github.com/azure/azure-storage-ios).
-2. Gå till *azure-storage-ios* -> *Lib* -> Azure Storage `AZSClient.xcodeproj` Client*Library*och öppna i Xcode.
-3. Längst upp till vänster i Xcode ändrar du det aktiva schemat från "Azure Storage Client Library" till "Framework".
-4. Bygg projektet (-+B). Då skapas `AZSClient.framework` en fil på skrivbordet.
+1. Börja med att hämta eller klona [Azure-Storage-iOS-lagrings platsen](https://github.com/azure/azure-storage-ios).
+2. Gå till *Azure-Storage – iOS* -> *lib* -> *Azure Storage klient bibliotek*och öppna `AZSClient.xcodeproj` i Xcode.
+3. Ändra det aktiva schemat från "Azure Storage klient bibliotek" till "Framework" längst upp till vänster i Xcode.
+4. Bygg projektet (⌘ + B). Då skapas en `AZSClient.framework` fil på Skriv bordet.
 
-Du kan sedan importera ramfilen till ditt program genom att göra följande:
+Du kan sedan importera Ramverks filen till ditt program genom att göra följande:
 
-1. Skapa ett nytt projekt eller öppna ditt befintliga projekt i Xcode.
-2. Dra och `AZSClient.framework` släpp in i din Xcode-projektnavigator.
+1. Skapa ett nytt projekt eller öppna det befintliga projektet i Xcode.
+2. Dra och släpp `AZSClient.framework` i Xcode-projekt navigeringen.
 3. Välj *Kopiera objekt om det behövs*och klicka på *Slutför*.
-4. Klicka på projektet i vänsternavigering och klicka på fliken *Allmänt* högst upp i projektredigeraren.
-5. Klicka på knappen Lägg till under avsnittet *Länkade ramverk och bibliotek* (+).
-6. Sök efter `libxml2.2.tbd` och lägg till den i projektet i listan över bibliotek som redan finns.
+4. Klicka på ditt projekt i det vänstra navigerings fältet och klicka på fliken *Allmänt* längst upp i projekt redigeraren.
+5. Under avsnittet *länkade ramverk och bibliotek* klickar du på knappen Lägg till (+).
+6. I listan över bibliotek som redan har angetts kan du `libxml2.2.tbd` söka efter och lägga till det i projektet.
 
 ## <a name="import-the-library"></a>Importera biblioteket
 
@@ -82,24 +82,24 @@ Du kan sedan importera ramfilen till ditt program genom att göra följande:
 #import <AZSClient/AZSClient.h>
 ```
 
-Om du använder Swift måste du skapa ett överbryggande \<huvud och importera AZSClient/AZSClient.h> där:
+Om du använder Swift måste du skapa ett bryggnings huvud och importera \<AZSClient/AZSClient. h> där:
 
-1. Skapa en `Bridging-Header.h`rubrikfil och lägg till importsatsen ovan.
-2. Gå till fliken *Bygginställningar* och sök efter *mål-C-brygghuvud*.
-3. Dubbelklicka på fältet *mål-C bridging header* och lägga till sökvägen till din header fil:`ProjectName/Bridging-Header.h`
-4. Skapa projektet (-+B) för att kontrollera att brygghuvudet plockades upp av Xcode.
-5. Börja använda biblioteket direkt i en Swift-fil, det finns inget behov av importutdrag.
+1. Skapa en rubrik fil `Bridging-Header.h`och Lägg till import instruktionen ovan.
+2. Gå till fliken *versions inställningar* och Sök efter *mål-C-bryggnings huvud*.
+3. Dubbelklicka på fältet för *mål-C-bryggnings rubriken* och Lägg till sökvägen till huvud filen:`ProjectName/Bridging-Header.h`
+4. Skapa projektet (⌘ + B) för att kontrol lera att bryggnings huvudet hämtades av Xcode.
+5. Börja använda biblioteket direkt i en SWIFT-fil, det finns inget behov av import-instruktioner.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]
 
-## <a name="asynchronous-operations"></a>Asynkrona operationer
+## <a name="asynchronous-operations"></a>Asynkrona åtgärder
 
 > [!NOTE]
-> Alla metoder som utför en begäran mot tjänsten är asynkrona åtgärder. I kodexemplen, hittar du att dessa metoder har en kompletteringshanterare. Koden i slutförandehanteraren körs **när** begäran har slutförts. Koden efter att slutförandehanteraren körs **medan** begäran görs.
+> Alla metoder som utför en begäran mot tjänsten är asynkrona åtgärder. I kod exemplen kommer du att se att dessa metoder har en slut för ande hanterare. Koden i slut för ande hanteraren kommer att köras **när** begäran har slutförts. Koden efter att slut för ande hanteraren körs **medan** begäran görs.
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Varje blob i Azure Storage måste finnas i en behållare. I följande exempel visas hur du skapar en behållare, kallad *newcontainer,* i ditt Lagringskonto om den inte redan finns. När du väljer ett namn för din behållare, vara uppmärksam på de namngivningsregler som nämns ovan.
+Varje BLOB i Azure Storage måste finnas i en behållare. I följande exempel visas hur du skapar en behållare, som kallas *newcontainer*, i ditt lagrings konto om det inte redan finns. När du väljer ett namn för din behållare ska du vara mindful av de namngivnings regler som anges ovan.
 
 ```objc
 -(void)createContainer{
@@ -127,17 +127,17 @@ Varje blob i Azure Storage måste finnas i en behållare. I följande exempel vi
 }
 ```
 
-Du kan bekräfta att detta fungerar genom att titta på [Microsoft Azure Storage Explorer](https://storageexplorer.com) och verifiera att den nya *behållaren* finns i listan över behållare för ditt lagringskonto.
+Du kan bekräfta att detta fungerar genom att titta på [Microsoft Azure Storage Explorer](https://storageexplorer.com) och kontrol lera att *newcontainer* finns i listan över behållare för ditt lagrings konto.
 
-## <a name="set-container-permissions"></a>Ange behållarbehörigheter
+## <a name="set-container-permissions"></a>Ange behållar behörigheter
 
-En behållares behörigheter är konfigurerade för **privat** åtkomst som standard. Behållare innehåller dock några olika alternativ för åtkomst till behållare:
+En behållares behörigheter har kon figurer ATS för **privat** åtkomst som standard. Behållare innehåller dock några olika alternativ för behållar åtkomst:
 
-- **Privat**: Behållar- och blob-data kan endast läsas av kontoägaren.
-- **Blob**: Blob-data i den här behållaren kan läsas via anonym begäran, men behållardata är inte tillgängliga. Klienter kan inte räkna upp blobbar i behållaren via anonym begäran.
-- **Behållare:** Container- och blob-data kan läsas via anonym begäran. Klienter kan räkna upp blobbar i behållaren via anonym begäran, men kan inte räkna upp behållare i lagringskontot.
+- **Privat**: endast behållare och BLOB-data kan läsas av konto ägaren.
+- **BLOB**: BLOB-data i den här behållaren kan läsas via en anonym begäran, men behållar data är inte tillgängliga. Klienter kan inte räkna upp blobar i behållaren via anonym begäran.
+- **Container**: behållare och BLOB-data kan läsas via anonym begäran. Klienter kan räkna upp blobar i behållaren via anonym begäran, men kan inte räkna upp behållare i lagrings kontot.
 
-I följande exempel visas hur du skapar en behållare med **behörigheter för behållaråtkomst,** vilket ger offentlig och skrivskyddad åtkomst för alla användare på Internet:
+I följande exempel visas hur du skapar en behållare med åtkomst behörigheter för **behållaren** , vilket ger offentlig, skrivskyddad åtkomst för alla användare på Internet:
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -167,9 +167,9 @@ I följande exempel visas hur du skapar en behållare med **behörigheter för b
 
 ## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blob till en container
 
-Som nämns i avsnittet Blob-tjänstbegrepp erbjuder Blob Storage tre olika typer av blobbar: blockblobar, tilläggsblobbar och sidblobar. Azure Storage iOS-biblioteket stöder alla tre typerna av blobbar. I de flesta fall är blockblob den rekommenderade typen.
+Som nämnts i avsnittet Blob Service-begrepp erbjuder Blob Storage tre olika typer av blobbar: block-blobar, bifoga blobbar och sid-blobar. Azure Storage iOS-biblioteket stöder alla tre typer av blobbar. I de flesta fall är blockblob den rekommenderade typen.
 
-I följande exempel visas hur du laddar upp en blockblob från en NSString. Om det redan finns en blob med samma namn i den här behållaren skrivs innehållet i den här blobben över.
+I följande exempel visas hur du laddar upp en Block-Blob från en NSString. Om det redan finns en blob med samma namn i den här behållaren kommer innehållet i denna BLOB att skrivas över.
 
 ```objc
 -(void)uploadBlobToContainer{
@@ -208,32 +208,32 @@ I följande exempel visas hur du laddar upp en blockblob från en NSString. Om d
 }
 ```
 
-Du kan bekräfta att detta fungerar genom att titta på [Microsoft Azure Storage Explorer](https://storageexplorer.com) och kontrollera att behållaren, *containerpublic*, innehåller blob, *sampleblob*. I det här exemplet använde vi en offentlig behållare så att du också kan verifiera att det här programmet fungerade genom att gå till blobs URI:
+Du kan bekräfta att detta fungerar genom att titta på [Microsoft Azure Storage Explorer](https://storageexplorer.com) och kontrol lera att behållaren, *containerpublic*, innehåller blobben, *sampleblob*. I det här exemplet använde vi en offentlig behållare så att du kan kontrol lera att det här programmet fungerade genom att gå till BLOB-URI: n:
 
 ```http
 https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 ```
 
-Förutom att ladda upp en blockblob från en NSString finns liknande metoder för NSData, NSInputStream eller en lokal fil.
+Förutom att ladda upp en Block-Blob från en NSString, finns det liknande metoder för NSData, NSInputStream eller en lokal fil.
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-I följande exempel visas hur du listar alla blobbar i en behållare. När du utför den här åtgärden bör du tänka på följande parametrar:
+I följande exempel visas hur du visar en lista över alla blobbar i en behållare. När du utför den här åtgärden måste du vara mindful av följande parametrar:
 
-- **continuationToken** - Fortsättningstoken representerar var listningsåtgärden ska starta. Om ingen token anges visas blobbar från början. Valfritt antal blobbar kan visas, från noll upp till ett inställt maximum. Även om den här metoden `results.continuationToken` returnerar noll resultat, om den inte är noll, kan det finnas fler blobbar på tjänsten som inte har listats.
-- **prefix** - Du kan ange det prefix som ska användas för blob-listning. Endast blobbar som börjar med det här prefixet visas.
-- **useFlatBlobListing** - Som nämns i avsnittet [Namngivning och refererande av behållare och blobbar,](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) även om Blob-tjänsten är ett platt lagringsschema, kan du skapa en virtuell hierarki genom att namnge blobbar med sökvägsinformation. En icke-platt notering stöds dock för närvarande inte. Den här funktionen kommer snart. För tillfället bör det här värdet vara **JA**.
-- **blobListingDetails** - Du kan ange vilka objekt som ska inkluderas när du listar blobbar
-  - _AZSBlobListingDetailsNone_: Lista endast bekräftade blobbar och returnera inte blobmetadata.
-  - _AZSBlobListingDetailsSnapshots_: Lista bekräftade blobbar och blob-ögonblicksbilder.
-  - _AZSBlobListingDetailsMetadata_: Hämta blobmetadata för varje blob som returneras i listan.
-  - _AZSBlobListingDetailsUncommittedBlobs_: Lista engagerade och oengagerade blobbar.
-  - _AZSBlobListingDetailsCopy_: Inkludera kopieringsegenskaper i listan.
-  - _AZSBlobListingDetailsAll_: Lista alla tillgängliga bekräftade blobbar, oengagerade blobbar och ögonblicksbilder och returnera alla metadata och kopieringsstatus för dessa blobbar.
-- **maxResults** - Det maximala antalet resultat som ska returneras för den här åtgärden. Använd -1 för att inte ange en gräns.
-- **completionHandler** - Det kodblock som ska köras med resultatet av listningsåtgärden.
+- **continuationToken** – den fortsättnings-token representerar där registrerings åtgärden ska starta. Om ingen token anges, visar den en lista över blobar från början. Ett valfritt antal blobbar kan anges, från noll till en högsta mängd. Även om den här metoden returnerar noll resultat, `results.continuationToken` om inte är Nil, kan det finnas fler blobbar på tjänsten som inte har listats.
+- **prefix** – du kan ange det prefix som ska användas för BLOB-listan. Endast blobbar som börjar med det här prefixet visas i listan.
+- **useFlatBlobListing** – som nämnts i avsnittet [namnge och referera till behållare och blobbar](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , även om BLOB service är ett plant lagrings schema, kan du skapa en virtuell hierarki genom att namnge blobbar med Sök vägs information. Icke-flata listor stöds inte för närvarande. Den här funktionen kommer snart. För tillfället ska det här värdet vara **Ja**.
+- **blobListingDetails** – du kan ange vilka objekt som ska inkluderas vid registrering av blobbar
+  - _AZSBlobListingDetailsNone_: lista endast allokerade blobbar och returnera inte BLOB-metadata.
+  - _AZSBlobListingDetailsSnapshots_: lista dedikerade blobbar och blob-ögonblicksbilder.
+  - _AZSBlobListingDetailsMetadata_: hämtar BLOB-metadata för varje blob som returneras i listan.
+  - _AZSBlobListingDetailsUncommittedBlobs_: visar lista över allokerade och avallokerade blobbar.
+  - _AZSBlobListingDetailsCopy_: inkludera Kopiera egenskaper i listan.
+  - _AZSBlobListingDetailsAll_: Visa en lista över alla tillgängliga allokerade blobbar, avallokerade blobbar och ögonblicks bilder och returnera alla metadata och kopierings status för dessa blobbar.
+- **maxResults** – det maximala antalet resultat som ska returneras för den här åtgärden. Använd-1 om du inte vill ange en gräns.
+- **completionHandler** – kod blocket som ska köras med resultaten från List åtgärden.
 
-I det här exemplet används en hjälpmetod för att rekursivt anropa metoden listblobar varje gång en fortsättningstoken returneras.
+I det här exemplet används en hjälp metod för att rekursivt anropa List BLOB-metoden varje gång som en fortsättnings-token returneras.
 
 ```objc
 -(void)listBlobsInContainer{
@@ -288,7 +288,7 @@ I det här exemplet används en hjälpmetod för att rekursivt anropa metoden li
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-I följande exempel visas hur du hämtar en blob till ett NSString-objekt.
+I följande exempel visas hur du laddar ned en blob till ett NSString-objekt.
 
 ```objc
 -(void)downloadBlobToString{
@@ -355,7 +355,7 @@ I följande exempel visas hur du tar bort en blob.
 }
 ```
 
-## <a name="delete-a-blob-container"></a>Ta bort en blob-behållare
+## <a name="delete-a-blob-container"></a>Ta bort en BLOB-behållare
 
 I följande exempel visas hur du tar bort en behållare.
 
@@ -387,12 +387,12 @@ I följande exempel visas hur du tar bort en behållare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder Blob Storage från iOS följer du dessa länkar för att lära dig mer om iOS-biblioteket och lagringstjänsten.
+Nu när du har lärt dig hur du använder Blob Storage från iOS kan du följa dessa länkar om du vill veta mer om iOS-biblioteket och lagrings tjänsten.
 
-- [Azure Storage Client Library för iOS](https://github.com/azure/azure-storage-ios)
-- [Referensdokumentation för Azure Storage iOS](https://azure.github.io/azure-storage-ios/)
+- [Azure Storage klient bibliotek för iOS](https://github.com/azure/azure-storage-ios)
+- [Dokumentation om Azure Storage iOS-referens](https://azure.github.io/azure-storage-ios/)
 - [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blogg för Azure Storage Team](https://blogs.msdn.com/b/windowsazurestorage)
+- [Azure Storage teamets blogg](https://blogs.msdn.com/b/windowsazurestorage)
 
-Om du har frågor om det här biblioteket är du välkommen att publicera i vårt [MSDN Azure-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
-Om du har funktionsförslag för Azure Storage kan du publicera i [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
+Om du har frågor om det här biblioteket är du välkommen att publicera till vårt [MSDN Azure-forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Om du har funktions förslag för Azure Storage kan du skicka vidare till [Azure Storage feedback](https://feedback.azure.com/forums/217298-storage/).

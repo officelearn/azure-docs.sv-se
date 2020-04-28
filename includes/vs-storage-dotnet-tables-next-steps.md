@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: aff0ac5f2b761047a3e365e8e6702909a673e464
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187239"
 ---
-Nu när du har lärt dig grunderna i Azure Table storage följer du dessa länkar för att lära dig mer komplexa lagringsuppgifter.
+Nu när du har lärt dig grunderna i Azure Table Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* Mer information om tillgängliga API:er finns i referensdokumentationen för table service i Azure Storage Client Library för [.NET-referens.](https://go.microsoft.com/fwlink/?LinkID=390731)
-* Om du vill veta hur du förenklar koden du skriver för att fungera med Azure Storage kan du läsa [Vad är Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Visa tabell tjänst referens dokumentationen i [Azure Storage klient bibliotek för .net](https://go.microsoft.com/fwlink/?LinkID=390731) -referens för fullständig information om tillgängliga API: er.
+* Om du vill lära dig hur du fören klar koden som du skriver för att arbeta med Azure Storage, se [Vad är Azure WEBJOBS SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
-  * Information om hur du arbetar med Azure Storage Blobbar finns [i Komma igång med Azure Blob-lagring med .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
-  * Kom [igång med Azure-kölagring med .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
-  * Information om hur du lagrar relationsdata finns i [Anslut till SQL Database med hjälp av .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+  * Information om hur du arbetar med Azure Storage blobbar finns i [komma igång med Azure Blob Storage med hjälp av .net](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
+  * [Kom igång med Azure Queue Storage med hjälp av .net](../articles/storage/queues/storage-dotnet-how-to-use-queues.md)om du vill arbeta med Azure Storage köer.
+  * Information om hur du lagrar Relations data finns i [Anslut till SQL Database med hjälp av .net (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

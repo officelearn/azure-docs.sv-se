@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: apimpm
 ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70072493"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Använda en extern Azure Cache for Redis i Azure API Management
@@ -60,7 +60,7 @@ Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azur
 ![Ta din egen cache till APIM](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> Inställningen **Använd från** anger vilken regional distribution för API Management som ska kommunicera med den konfigurerade cachen vid en multiregional konfiguration av API Management. Den cache som anges som **standard** åsidosätts av cacher med ett regionalt värde.
+> Inställningen **Använd från** anger vilken API Management regional-distributionen kommer att kommunicera med den konfigurerade cachen i händelse av en multi-regional konfiguration av API Management. Den cache som anges som **standard** åsidosätts av cacher med ett regionalt värde.
 >
 > Om till exempel API Management hanteras i regionerna USA, östra, Asien, sydöstra och Europa, västra och det finns två cacher konfigurerade, en för **Standard** och en för **Asien, sydöstra**, använder API Management i **Asien, sydöstra** sin egen cache, medan de andra två regionerna använder cacheposten **Standard**.
 
@@ -70,7 +70,7 @@ Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azur
 2. Välj fliken **Extern cache** på menyn till vänster.
 3. Klicka på knappen **+ Lägg till**.
 4. Välj din cache i det nedrullningsbara fältet **Cacheinstans**.
-5. Välj **Standard** eller ange önskat område i listrutan **Använd från.**
+5. Välj **standard** eller ange önskad region i list rutan **Använd från** .
 6. Klicka på **Spara**.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Lägga till en Azure Cache for Redis som hanteras utanför den aktuella Azure-prenumerationen eller Azure i allmänhet
@@ -79,7 +79,7 @@ Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azur
 2. Välj fliken **Extern cache** på menyn till vänster.
 3. Klicka på knappen **+ Lägg till**.
 4. Välj **Anpassad** i det nedrullningsbara fältet **Cacheinstans**.
-5. Välj **Standard** eller ange önskat område i listrutan **Använd från.**
+5. Välj **standard** eller ange önskad region i list rutan **Använd från** .
 6. Ange din anslutningssträng för Azure Cache for Redis i fältet **Anslutningssträng**.
 7. Klicka på **Spara**.
 

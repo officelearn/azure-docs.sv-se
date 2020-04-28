@@ -1,6 +1,6 @@
 ---
-title: H264 Standard för mediumkodare för enkel bithastighet 1080p - Azure | Microsoft-dokument
-description: Avsnittet ger en översikt över **H264 Single Bitrate 1080p-aktivitetsförinställningen.**
+title: H264, enbits 1080p Media Encoder Standard för inställning – Azure | Microsoft Docs
+description: Avsnittet ger en översikt över den förinställda **H264, enhastighets 1080p** -uppgiften.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 04333e54566d8535f3d5ba98f32650d30f5fbfc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61463590"
 ---
 # <a name="h264-single-bitrate-1080p"></a>H264, enkel bithastighet, 1080p
-`Media Encoder Standard`definierar en uppsättning kodningsförinställningar som du kan använda när du skapar kodningsjobb. Du kan antingen `preset name` använda en för att ange i vilket format du vill koda mediefilen. Du kan också skapa egna JSON- eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Du skulle sedan skicka den anpassade förinställningen till kodaren. En lista över alla förinställda `Media Encoder Standard` namn som stöds av den här kodaren finns i [Aktivitetsförinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard` kodaren finns i [uppgifts för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- I det `H264 Single Bitrate 1080p` här avsnittet visas förinställningen i XML- och JSON-format.  
+ I det här avsnittet `H264 Single Bitrate 1080p` visas för inställningen i XML-och JSON-format.  
   
- Den här förinställningen ger en enda MP4-fil med en bithastighet på 6750 kbit/s och stereo-AAC-ljud. För detaljerad information om profil, bithastighet, samplingsfrekvens etc. för den här förinställningen, undersök XML eller JSON som definieras nedan. Förklaringar av vad varje element i dessa förinställningar innebär och giltiga värden för varje element finns i [schemaavsnittet Media Encoder Standard.](media-services-mes-schema.md)  
+ Den här för inställningen skapar en enda MP4-fil med en bit hastighet på 6750 kbit/s och stereo AAC-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element i de här för inställningarna innebär och giltiga värden för varje element finns i avsnittet [Media Encoder Standard schema](media-services-mes-schema.md) .  
   
  XML  
   

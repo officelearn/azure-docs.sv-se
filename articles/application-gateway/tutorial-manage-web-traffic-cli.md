@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/20/2019
 ms.author: victorh
 ms.openlocfilehash: 3064def2eac0aaee5c04f7ab736cf539ae372cb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68359896"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Hantera webbtrafik med en programgateway som använder Azure CLI
 
-Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI för att skapa en [programgateway](overview.md) som använder en [skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för virtuell dator för serverdelar. I det här exemplet innehåller skalningsuppsättningen två instanser för virtuella datorer. Skalningsuppsättningen läggs till i standardserveringpoolen för programgatewayen.
+Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller skalnings uppsättningen två instanser av virtuella datorer. Skalnings uppsättningen läggs till i standard server delen för programgatewayen.
 
 I den här artikeln kan du se hur du:
 
@@ -25,13 +25,13 @@ I den här artikeln kan du se hur du:
 > * Skapa en programgateway
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här snabbstarten att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

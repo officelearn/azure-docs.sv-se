@@ -1,6 +1,6 @@
 ---
-title: Om nätverksövervakning i Azure Monitor-loggar | Microsoft-dokument
-description: Översikt över nätverksövervakningslösningar, inklusive NPM, för att hantera nätverk i moln-, lokala miljöer och hybridmiljöer.
+title: Om nätverks övervakning i Azure Monitor loggar | Microsoft Docs
+description: Översikt över lösningar för nätverks övervakning, inklusive NPM, för att hantera nätverk i molnet, lokalt och i hybrid miljöer.
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
@@ -16,108 +16,108 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67672187"
 ---
-# <a name="network-monitoring-solutions"></a>Lösningar för nätverksövervakning 
+# <a name="network-monitoring-solutions"></a>Lösningar för nätverks övervakning 
 
-Azure erbjuder en mängd lösningar för att övervaka dina nätverkstillgångar. Azure har lösningar och verktyg för att övervaka nätverksanslutning, hälsotillståndet för ExpressRoute-kretsar och analysera nätverkstrafik i molnet.
+Azure erbjuder en värd med lösningar för att övervaka dina nätverks resurser. Azure har lösningar och verktyg för att övervaka nätverks anslutningen, hälsan för ExpressRoute-kretsar och analysera nätverks trafik i molnet.
 
 ## <a name="network-performance-monitor-npm"></a>Övervakare av nätverksprestanda (NPM)
 
-NPM (Network Performance Monitor) är en uppsättning funktioner som var och en är inriktad på att övervaka nätverkets hälsa, nätverksanslutning till dina program och ger insikter om nätverkets prestanda. NPM är molnbaserat och tillhandahåller en hybridnätverksövervakningslösning som övervakar anslutningen mellan:
+Övervakare av nätverksprestanda (NPM) är en uppsättning funktioner, som var och en är inriktad på att övervaka nätverkets hälso tillstånd, nätverks anslutning till dina program och ger insikter om nätverkets prestanda. NPM är molnbaserad och tillhandahåller en hybrid nätverks övervaknings lösning som övervakar anslutningar mellan:
  
-* Molndistributioner och lokala platser
-* Flera datacenter och filialkontor
-* Verksamhetskritiska flernivåapplikationer/mikrotjänster
-* Användarplatser och webbaserade program (HTTP/HTTPs) 
+* Moln distributioner och lokala platser
+* Flera data Center och avdelnings kontor
+* Verksamhets kritiska program på flera nivåer/Micro-tjänster
+* Användar platser och webbaserade program (HTTP/HTTPs) 
 
-Performance Monitor, ExpressRoute Monitor och Service Connectivity Monitor övervakar funktioner inom NPM och beskrivs nedan.
+Prestanda övervakaren, ExpressRoute-övervakaren och tjänst anslutnings övervakaren övervakar funktioner i NPM och beskrivs nedan.
 
 ## <a name="performance-monitor"></a>Prestandaövervakaren
 
-Performance Monitor är en del av NPM och är nätverksövervakning för moln-, hybrid- och lokala miljöer. Du kan övervaka nätverksanslutningen över fjärrkontor och fältkontor, lagra platser, datacenter och moln. Du kan identifiera nätverksproblem innan användarna klagar. De viktigaste fördelarna är:
+Prestanda övervakaren är en del av NPM och är nätverks övervakning för moln-, hybrid-och lokala miljöer. Du kan övervaka nätverks anslutningar över fjärranslutna förgreningar och fält kontor, lagrings platser, data Center och moln. Du kan identifiera nätverks problem innan användarna klagar. Viktiga fördelar är:
 
-* Övervaka förlust och svarstid i olika undernät och ställa in aviseringar
+* Övervaka förlust och svars tid i olika undernät och Ställ in aviseringar
 * Övervaka alla sökvägar (inklusive redundanta sökvägar) i nätverket
-* Felsöka tillfälliga och punkt-i-tid nätverksproblem, som är svåra att replikera
-* Bestäm det specifika segmentet i nätverket, som ansvarar för försämrad prestanda
-* Övervaka nätverkets hälsa, utan att det behövs SNMP
+* Felsök tillfälliga och tidpunkts nätverks problem som är svåra att replikera
+* Fastställ det speciella segmentet i nätverket, som ansvarar för försämrade prestanda
+* Övervaka nätverkets hälso tillstånd utan behov av SNMP
 
-![NPM-topologi karta](./media/network-monitoring-overview/npm-topology-map.png) 
+![Karta över NPM-topologi](./media/network-monitoring-overview/npm-topology-map.png) 
 
 Mer information finns i följande artiklar:
 
-* [Konfigurera en lösning för nätverksprestandaövervakare i Azure Monitor-loggar](../azure-monitor/insights/network-performance-monitor.md) 
+* [Konfigurera en Övervakare av nätverksprestanda-lösning i Azure Monitor loggar](../azure-monitor/insights/network-performance-monitor.md) 
 * [Användningsfall](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-* Produktuppdateringar:
+* Produkt uppdateringar:
   * [Februari 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
   * [Augusti 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>ExpressRoute-övervakare
+## <a name="expressroute-monitor"></a>Övervakaren ExpressRoute
 
-NPM för ExpressRoute erbjuder omfattande ExpressRoute-övervakning för Azure Private peering och Microsoft peering-anslutningar. Du kan övervaka E2E-anslutning och prestanda mellan dina filialkontor och Azure via ExpressRoute. De viktigaste funktionerna är:
+NPM för ExpressRoute erbjuder omfattande ExpressRoute övervakning för Azures privata peering och Microsoft-peering-anslutningar. Du kan övervaka E2E-anslutningar och prestanda mellan dina avdelnings kontor och Azure över ExpressRoute. Huvud funktionerna är:
 
 * Automatisk identifiering av ER-kretsar som är associerade med din prenumeration
-* Identifiering av nätverkstopologi från lokalt till dina molnprogram
-* Kapacitetsplanering, bandbreddsutnyttjandeanalys
-* Övervakning och avisering på både primära och sekundära sökvägar
-* Övervaka anslutning till Azure-tjänster som Office 365, Dynamics 365, ... över ExpressRoute
+* Identifiering av nätverkstopologi från lokal plats till dina moln program
+* Kapacitets planering, analys av bandbredds användning
+* Övervakning och aviseringar på både primära och sekundära sökvägar
+* Övervaka anslutning till Azure-tjänster som Office 365, Dynamics 365,... över ExpressRoute
 * Identifiera försämring av anslutningen till virtuella nätverk
 
-![Geokarta som visar trafik mellan regioner](./media/network-monitoring-overview/expressroute-topology-map.png) 
+![Geo-karta som visar trafik över regioner](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Mer information finns i följande artiklar:
 
 * [Konfigurera övervakare av nätverksprestanda för ExpressRoute](../expressroute/how-to-npm.md)
-* [Blogginlägg](https://aka.ms/NPMExRmonitorGA)
+* [Blogg inlägg](https://aka.ms/NPMExRmonitorGA)
 
 ## <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
-Med övervakning av tjänstanslutning kan du nu testa programens räckvidd och upptäcka flaskhalsar i prestanda i lokala nätverk, operatörsnätverk och moln/privata datacenter.
+Med övervakning av tjänst anslutning kan du nu testa nåbarhet för program och identifiera prestanda Flask halsar i lokala, transport företags nätverk och moln/privata data Center.
 
-* Övervaka nätverksanslutning från slutpunkt till slutpunkt till program
-* Korrelera programleverans med nätverksprestanda, identifiera exakt plats för nedbrytning längs sökvägen mellan användaren och programmet
-* Testa programmets nåbarhet från flera användarplatser över hela världen
-* Fastställ nätverksfördröjning och paketförlust för din bransch och SaaS-program
-* Bestäm aktiva punkter i nätverket, som kan orsaka dålig programprestanda
-* Övervaka räckvidden för Office 365-program med hjälp av inbyggda tester för Microsoft Office 365, Dynamics 365, Skype för företag och andra Microsoft-tjänster
+* Övervaka nätverks anslutningar från slut punkt till slut punkt för program
+* Korrelera program leverans med nätverks prestanda, identifiera exakt plats för försämring längs sökvägen mellan användaren och programmet
+* Testa program tillgänglighet från flera användar platser över hela världen
+* Bestäm nätverks fördröjning och paket förlust för dina affärs-och SaaS-program
+* Fastställa aktiva punkter i nätverket, som kan orsaka dåliga program prestanda
+* Övervaka nåbarhet för Office 365-program med hjälp av inbyggda tester för Microsoft Office 365, Dynamics 365, Skype för företag och andra Microsoft-tjänster
 
 Mer information finns i följande artiklar:
 
-* [Konfigurera nätverksprestandaövervakaren för övervakning av tjänstslutpunkter](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
-* [Blogginlägg](https://aka.ms/svcendptmonitor)
+* [Konfigurera Övervakare av nätverksprestanda för övervakning av tjänst slut punkter](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
+* [Blogg inlägg](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Trafikanalys
-Traffic Analytics är en molnbaserad lösning som ger insyn i användar- och programaktivitet i dina molnnätverk. NSG Flow loggar analyseras för att ge insikter i:
+Trafikanalys är en molnbaserad lösning som ger insyn i användar-och program aktivitet i moln nätverk. NSG flödes loggar analyseras för att ge insikter om:
 
-* Trafikflöden över dina nätverk mellan Azure och Internet, offentliga molnregioner, virtuella nätverk och undernät
-* Program och protokoll i nätverket, utan behov av sniffers eller dedikerade flödesinsamlare
-* Top talare, pratsamma program, VM-konversationer i molnet, trafik hotspots
-* Källor och trafikdestinationer över VNETs, relationer mellan kritiska affärstjänster och applikationer
-* Säkerhet – skadlig trafik, portar som är öppna för Internet, program eller virtuella datorer som försöker komma åt Internet...
-* Kapacitetsutnyttjande - hjälper dig att eliminera problem med överetablering eller underutnyttjande genom att övervaka användningstrender för VPN-gateways och andra tjänster
+* Trafik flödar över nätverk mellan Azure och Internet, offentliga moln regioner, virtuella nätverk och undernät
+* Program och protokoll i nätverket, utan att behöva Sniffer eller dedikerade insamlings utrustning
+* Främsta pratare, chattprogram, virtuella dator konversationer i molnet, trafik hotspots
+* Källor och mål för trafik över virtuella nätverk, mellan relationer mellan viktiga företags tjänster och program
+* Säkerhet – skadlig trafik, portar öppna för Internet, program eller virtuella datorer som försöker ansluta till Internet...
+* Kapacitets användning – hjälper dig att undvika problem med överetablering eller under användning genom att övervaka användnings trender för VPN-gatewayer och andra tjänster
 
-Traffic Analytics förser dig med användbar information som hjälper dig att granska organisationens nätverksaktivitet, säkra program och data, optimera arbetsbelastningsprestanda och hålla dig kompatibel.
+Trafikanalys förser dig med åtgärds bara information som hjälper dig att granska organisationens nätverks aktivitet, säkra program och data, optimera arbets Belastningens prestanda och hålla dig uppdaterad.
 
-![Geokarta som visar trafik mellan regioner](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![Geo-karta som visar trafik över regioner](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Relaterade länkar:
-* [Blogginlägg](https://aka.ms/trafficanalytics), [Dokumentation](https://aka.ms/trafficanalyticsdocs), [Vanliga frågor och svar](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [Blogg inlägg](https://aka.ms/trafficanalytics), [dokumentation](https://aka.ms/trafficanalyticsdocs), [vanliga frågor och svar](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>DNS-analys
-Den här lösningen är byggd för DNS-administratörer och samlar in, analyserar och korrelerar DNS-loggar för att tillhandahålla säkerhets-, åtgärders- och prestandarelaterade insikter.  Några av funktionerna är:
+Den här lösningen är byggd för DNS-administratörer och samlar in, analyserar och korrelerar DNS-loggar för att tillhandahålla säkerhet, åtgärder och prestanda relaterade insikter.  Några av funktionerna är:
 
-* Identifiering av klienter som försöker lösa till skadliga domäner
-* Identifiering av inaktuella resursposter
-* Insyn i ofta efterfrågade domännamn och pratsamma DNS-klienter
-* Insyn i begäranden på DNS-servrar
-* Övervakning av dynamiska DNS-registreringsfel
+* Identifiering av klienter som försöker matcha till skadliga domäner
+* Identifiering av inaktuella resurs poster
+* Insyn i domän namn som efter frågas och pratsam DNS-klienter
+* Insyn i begär ande belastningen på DNS-servrar
+* Övervakning av dynamiska DNS-registrerings fel
 
-![Instrumentpanel för DNS-analys](./media/network-monitoring-overview/dns-analytics-overview.png) 
+![DNS-analys instrument panel](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Relaterade länkar:
 * [Blogginlägg](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Dokumentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)

@@ -1,6 +1,6 @@
 ---
-title: Använda dynamisk DNS för att registrera värdnamn i Azure | Microsoft-dokument
-description: Lär dig hur du konfigurerar dynamisk DNS för att registrera värdnamn på dina egna DNS-servrar.
+title: Använda dynamisk DNS för att registrera värdnamn i Azure | Microsoft Docs
+description: Lär dig hur du ställer in dynamisk DNS för att registrera värdnamn på dina egna DNS-servrar.
 services: dns
 documentationcenter: na
 author: subsarma
@@ -15,27 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60640386"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Använd dynamisk DNS för att registrera värdnamn i DNS-servern
 
-[Azure tillhandahåller namnmatchning](virtual-networks-name-resolution-for-vms-and-role-instances.md) för virtuella datorer (VM) och rollinstanser. När dina namnmatchningsbehov överskrider funktionerna i Azures standard-DNS kan du tillhandahålla dina egna DNS-servrar. Genom att använda dina egna DNS-servrar kan du skräddarsy din DNS-lösning så att den passar dina egna specifika behov. Du kan till exempel behöva komma åt lokala resurser via Active Directory-domänkontrollanten.
+[Azure tillhandahåller namn matchning](virtual-networks-name-resolution-for-vms-and-role-instances.md) för virtuella datorer och roll instanser. När namn matchningen behöver överskrida de funktioner som tillhandahålls av Azures standard-DNS, kan du ange dina egna DNS-servrar. Med hjälp av dina egna DNS-servrar kan du skräddarsy DNS-lösningen så att den passar dina specifika behov. Du kan till exempel behöva komma åt lokala resurser via din Active Directory domänkontrollant.
 
-När dina anpassade DNS-servrar är värd för Azure-virtuella datorer kan du vidarebefordra värdnamnsfrågor för samma virtuella nätverk till Azure för att matcha värdnamn. Om du inte vill använda det här alternativet kan du registrera värdnamnen för virtuella datorer i DNS-servern med dynamisk DNS (DDNS). Azure har inte autentiseringsuppgifter för att direkt skapa poster i dina DNS-servrar, så alternativa arrangemang behövs ofta. Några vanliga scenarier, med alternativ följer:
+När dina anpassade DNS-servrar är värdar för virtuella Azure-datorer kan du vidarebefordra värd namns frågor för samma virtuella nätverk till Azure för att matcha värdnamn. Om du inte vill använda det här alternativet kan du registrera dina VM-värdnamn på DNS-servern med hjälp av dynamisk DNS (DDNS). Azure har inte de autentiseringsuppgifter som krävs för att direkt skapa poster i dina DNS-servrar, så det krävs ofta alternativa regler. Några vanliga scenarier, med alternativ följer:
 
 ## <a name="windows-clients"></a>Windows-klienter
-Windows-klienter som inte är anslutna till domän försöker identifiera DDNS-uppdateringar när de startas eller när deras IP-adress ändras. DNS-namnet är värdnamnet plus det primära DNS-suffixet. Azure lämnar det primära DNS-suffixet tomt, men du kan ställa in suffixet i den virtuella datorn, via [användargränssnittet](https://technet.microsoft.com/library/cc794784.aspx) eller [PowerShell](/powershell/module/dnsclient/set-dnsclient).
+Icke-domänanslutna Windows-klienter försöker med oskyddade DDNS-uppdateringar när de startar eller när deras IP-adress ändras. DNS-namnet är värd namnet och det primära DNS-suffixet. Azure lämnar det primära DNS-suffixet tomt, men du kan ange suffixet i den virtuella datorn via [användar gränssnittet](https://technet.microsoft.com/library/cc794784.aspx) eller [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
-Domänanslutna Windows-klienter registrerar sina IP-adresser med domänkontrollanten med hjälp av säkra DDNS. Domänkopplingsprocessen anger det primära DNS-suffixet på klienten och skapar och underhåller förtroenderelationen.
+Domänanslutna Windows-klienter registrerar sina IP-adresser med domänkontrollanten med hjälp av säker DDNS. Processen för domän anslutning anger det primära DNS-suffixet på klienten och skapar och underhåller förtroende relationen.
 
 ## <a name="linux-clients"></a>Linux-klienter
-Linux-klienter registrerar sig i allmänhet inte med DNS-servern vid start, de antar att DHCP-servern gör det. Azures DHCP-servrar har inte behörighet att registrera poster på DNS-servern. Du kan använda `nsupdate`ett verktyg som heter , som ingår i Bind-paketet, för att skicka DDNS-uppdateringar. Eftersom DDNS-protokollet är standardiserat `nsupdate` kan du använda även när du inte använder Bind på DNS-servern.
+Linux-klienter registrerar vanligt vis inte sig själva med DNS-servern vid start, de antar att DHCP-servern gör det. Azures DHCP-servrar har inte de autentiseringsuppgifter som krävs för att registrera poster på din DNS-server. Du kan använda ett verktyg som `nsupdate`kallas, som ingår i bind-paketet, för att skicka DDNS-uppdateringar. Eftersom DDNS-protokollet är standardiserat kan du använda `nsupdate` även när du inte använder Bind på DNS-servern.
 
-Du kan använda de krokar som tillhandahålls av DHCP-klienten för att skapa och underhålla värdnamnsposten på DNS-servern. Under DHCP-cykeln kör klienten skripten i */etc/dhcp/dhclient-exit-hooks.d/*. Du kan använda krokarna för att `nsupdate`registrera den nya IP-adressen med . Ett exempel:
+Du kan använda hookarna som tillhandahålls av DHCP-klienten för att skapa och underhålla hostname-posten på DNS-servern. Under DHCP-cykeln kör klienten skripten i */etc/DHCP/dhclient-Exit-hooks.d/*. Du kan använda hookarna för att registrera den nya IP-adressen `nsupdate`med hjälp av. Ett exempel:
 
 ```bash
 #!/bin/sh
@@ -61,11 +61,11 @@ then
 fi
 ```
 
-Du kan också `nsupdate` använda kommandot för att utföra säkra DDNS-uppdateringar. När du till exempel använder en Bind DNS-server [genereras](http://linux.yyz.us/nsupdate/)ett offentligt-privat nyckelpar . DNS-servern är [konfigurerad](http://linux.yyz.us/dns/ddns-server.html) med den offentliga delen av nyckeln, så att den kan verifiera signaturen på begäran. Om du vill ange `nsupdate`nyckelparet `-k` till använder du alternativet för att DDNS-uppdateringsbegäran ska signeras.
+Du kan också använda `nsupdate` kommandot för att utföra säkra DDNS-uppdateringar. När du använder en DNS-server för bind [skapas](http://linux.yyz.us/nsupdate/)till exempel ett offentligt privat privat nyckel par. DNS-servern [konfigureras](http://linux.yyz.us/dns/ddns-server.html) med den offentliga delen av nyckeln, så att den kan verifiera signaturen på begäran. Om du vill ange nyckel paret `nsupdate`för använder du `-k` alternativet för att DDNS ska signeras.
 
-När du använder en Windows DNS-server kan du `-g` använda `nsupdate`Kerberos-autentisering med parametern i `nsupdate`, men den är inte tillgänglig i Windows-versionen av . Om du vill `kinit` använda Kerberos använder du för att läsa in autentiseringsuppgifterna. Du kan till exempel läsa in autentiseringsuppgifter `nsupdate -g` från en [keytab-fil](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)) och sedan hämta autentiseringsuppgifterna från cacheminnet.
+När du använder en Windows DNS-server kan du använda Kerberos-autentisering med `-g` parametern i `nsupdate`, men den är inte tillgänglig i Windows-versionen av. `nsupdate` Använd `kinit` för att läsa in autentiseringsuppgifterna för att använda Kerberos. Du kan till exempel läsa in autentiseringsuppgifter från en [keytab-fil](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)och sedan `nsupdate -g` hämta autentiseringsuppgifterna från cachen.
 
-Om det behövs kan du lägga till ett DNS-söksuffix i dina virtuella datorer. DNS-suffixet anges i filen */etc/resolv.conf.* De flesta Linux-distributioner hanterar automatiskt innehållet i den här filen, så oftast kan du inte redigera den. Du kan dock åsidosätta suffixet med `supersede` hjälp av DHCP-klientens kommando. Om du vill åsidosätta suffixet lägger du till följande rad i filen */etc/dhcp/dhclient.conf:*
+Om det behövs kan du lägga till ett DNS-söksuffix till dina virtuella datorer. DNS-suffixet anges i */etc/resolv.conf* -filen. De flesta Linux-distributioner hanterar automatiskt innehållet i den här filen, så vanligt vis kan du inte redigera den. Du kan dock åsidosätta suffixet med hjälp av DHCP-klientens `supersede` kommando. Om du vill åsidosätta suffixet lägger du till följande rad i */etc/DHCP/dhclient.conf* -filen:
 
 ```
 supersede domain-name <required-dns-suffix>;

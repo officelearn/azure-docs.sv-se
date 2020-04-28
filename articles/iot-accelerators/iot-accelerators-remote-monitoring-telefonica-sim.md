@@ -1,6 +1,6 @@
 ---
-title: Integrera SIM-data i lösningen för fjärrövervakning – Azure| Microsoft-dokument
-description: I den här artikeln beskrivs hur du integrerar Telefónica SIM-data i lösningen för fjärrövervakning.
+title: Integrera SIM-data i fjärr styrnings lösningen – Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du integrerar Telefónica SIM-data i lösningen för fjärrövervakning.
 author: hegate
 manager: ''
 ms.author: hegate
@@ -9,65 +9,65 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61442247"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrera SIM-data i lösningen för fjärrövervakning
 
-IoT-enheter ansluter ofta till molnet med ett SIM-kort som gör att de kan skicka dataströmmar var som helst. Azure IoT Remote Monitoring-lösningen möjliggör integrering av IoT-hanterade anslutningsdata, så att operatörerna också kan spåra enhetens hälsa via data som tillhandahålls av IoT SIM-kortet.
+IoT-enheter ansluter ofta till molnet med ett SIM-kort som gör det möjligt för dem att skicka data strömmar från var som helst. Med Azure IoT Remote Monitoring-lösningen kan du integrera IoT-hanterade anslutnings data, så att operatörerna även kan spåra enhetens hälso tillstånd genom de data som tillhandahålls av IoT SIM.
 
-Fjärrövervakning tillhandahåller direktintegrering med Telefónica IoT-anslutning, så att kunder som använder sin IoT-anslutningsplattform kan synkronisera sina enhets-SIM-anslutningsdata till sina lösningar. Den här lösningen kan utökas för att stödja andra IoT-anslutningsleverantörer via [GitHub-databasen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+Fjärrövervakning ger direkt integrering med Telefónica IoT-anslutning, så att kunder som använder sin IoT Connectivity-plattform synkroniserar sina enheters SIMs anslutnings data till sina lösningar. Den här lösningen kan utökas till att stödja andra IoT Connectivity-providrar via GitHub- [lagringsplatsen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 * Integrera Telefónica IoT SIM-data i lösningen för fjärrövervakning
 * Visa telemetri i realtid
 * Visa SIM-data
 
-## <a name="telefnica-iot-integration-setup"></a>Konfiguration av Integrering av Telefónica IoT
+## <a name="telefnica-iot-integration-setup"></a>Konfiguration av Telefónica IoT-integrering
 
 ### <a name="prerequisites"></a>Krav
 
-Den här ytterligare funktionen för fjärrövervakning är för närvarande i förhandsversion. Så här synkroniserar du anslutningsdata till Azure Remote Monitoring Solution:
+Denna ytterligare fjärr styrnings funktion är för närvarande en för hands version. Följ dessa steg om du vill synkronisera dina anslutnings data till Azure-fjärrövervakningen:
 
-1. Fyll i en begäran på [Telefónicas webbplats,](https://iot.telefonica.com/contact)välj alternativet **Azure Remote Monitoring**, inklusive dina kontaktdata.
+1. Fyll i en begäran på [Telefónica's plats](https://iot.telefonica.com/contact), Välj alternativet **Azure-fjärrövervakning**, inklusive dina kontakt data.
 2. Telefónica aktiverar ditt konto.
-3. Om du inte är en Telefónica klient ännu och du vill njuta av detta eller andra IoT Connectivity Cloud Ready tjänster, besök [Telefónica webbplats](https://iot.telefonica.com/) och välj alternativet **Anslutning**.
+3. Om du inte är en Telefónica-klient än och du vill njuta av detta eller andra IoT-anslutningar för att ansluta till molnet går du till [Telefónica's-webbplatsen](https://iot.telefonica.com/) och väljer alternativet **anslutning**.
 
-### <a name="telefnica-sim-setup"></a>Konfiguration av Telefónica SIM
-Telefónica SIM & Azure Twin-enhets-ID-associationen baseras på telefónica IoT SIM "alias"-egenskapen. 
+### <a name="telefnica-sim-setup"></a>Telefónica SIM-installation
+Telefónica SIM & associationen för en delad Azure-enhets-ID baseras på Telefónica IoT SIM "alias"-egenskapen. 
 
-Navigera till [Telefónica IoT Connectivity Platform Portal](https://m2m-movistar-es.telefonica.com/) > SIM-inventering > Välj sim-kort och uppdatera varje SIM-format med önskat Twin deviceID. Denna uppgift kan också göras i massläge (se Telefónica IoT Connectivity Platform användarmanualer).
+Gå till [Telefónica IoT Connectivity Platform Portal](https://m2m-movistar-es.telefonica.com/) > SIM inventory > Välj ditt SIM och uppdatera varje SIM-"alias" med din önskade dubbla deviceID. Den här uppgiften kan också göras i Mass läge (se Telefónica IoT Connectivity Platform User Manuals).
 
-Denna uppgift kan också göras i bulkläge (se Telefónica IoT Connectivity Platform användarmanualer)
+Den här uppgiften kan också göras i Mass läge (se Telefónica IoT Connectivity Platform User Manuals)
 
-![Telefónica Uppdatering](./media/iot-accelerators-remote-monitoring-telefonica-sim/telefonica_site.png)
+![Telefónica-uppdatering](./media/iot-accelerators-remote-monitoring-telefonica-sim/telefonica_site.png)
 
-Om du vill ansluta enheten till fjärrövervakningen kan du följa dessa självstudier med [C](iot-accelerators-connecting-devices-linux.md) eller [Node](iot-accelerators-connecting-devices-node.md). 
+Om du vill ansluta din enhet till fjärrövervakningen kan du följa de här självstudierna med hjälp av [C](iot-accelerators-connecting-devices-linux.md) eller [Node](iot-accelerators-connecting-devices-node.md). 
 
-## <a name="view-device-telemetry-and-sim-properties"></a>Visa enhetstelemetri och SIM-egenskaper
+## <a name="view-device-telemetry-and-sim-properties"></a>Visa enhetens telemetri och SIM-egenskaper
 
-När ditt Telefónica-konto är korrekt konfigurerat och enheten är ansluten kan du visa enhetsinformation och SIM-data.
+När ditt Telefónica-konto har kon figurer ATS korrekt och enheten är ansluten kan du Visa enhets information och SIM-data.
 
-Följande anslutningsparametrar publiceras:
+Följande anslutnings parametrar publiceras:
 
 * ICCID
 * IP-adress
-* Nätverksnärvaro
+* Nätverks närvaro
 * SIM-status
-* Nätverksbaserad plats
-* Förbrukad datatrafik
+* Nätverks baserad plats
+* Förbrukad data trafik
 
 ![Instrumentpanel](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en översikt över hur du integrerar SIM-data i Azure IoT Remote Monitoring föreslås här nästa steg för lösningar acceleratorer:
+Nu när du har en översikt över hur du integrerar SIM-data i Azure IoT Remote Monitoring föreslås följande steg för lösningar acceleratorer:
 
-* [Använda Azure IoT Remote Monitoring-lösningen](quickstart-remote-monitoring-deploy.md)
+* [Använda Azure IoT-lösningen för fjärrövervakning](quickstart-remote-monitoring-deploy.md)
 * [Utföra avancerad övervakning](iot-accelerators-remote-monitoring-monitor.md)
 * [Hantera dina enheter](iot-accelerators-remote-monitoring-manage.md)
 * [Felsöka enhetsproblem](iot-accelerators-remote-monitoring-maintain.md)

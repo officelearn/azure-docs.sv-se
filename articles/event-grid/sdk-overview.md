@@ -1,6 +1,6 @@
 ---
-title: SDK:er för Azure-händelserutnät
-description: Beskriver SDK:erna för Azure Event Grid. Dessa SDK:er tillhandahåller hantering, publicering och förbrukning.
+title: 'Azure Event Grid SDK: er'
+description: 'Beskriver SDK: er för Azure Event Grid. Dessa SDK: er ger hantering, publicering och konsumtion.'
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60822835"
 ---
-# <a name="event-grid-sdks-for-management-and-publishing"></a>SDK:er för händelserutnät för hantering och publicering
+# <a name="event-grid-sdks-for-management-and-publishing"></a>Event Grid SDK: er för hantering och publicering
 
-Event Grid innehåller SDK:er som gör att du kan hantera dina resurser och publicera händelser programmässigt.
+Event Grid innehåller SDK: er som gör att du kan hantera dina resurser och publicera händelser via programmering.
 
-## <a name="management-sdks"></a>Hantering SDK
+## <a name="management-sdks"></a>Hanterings-SDK: er
 
-Med hanterings-SDK:erna kan du skapa, uppdatera och ta bort ämnen och prenumerationer på händelserutnät. För närvarande är följande SDK:er tillgängliga:
+Med SDK: er för hantering kan du skapa, uppdatera och ta bort event Grid-ämnen och-prenumerationer. För närvarande är följande SDK: er tillgängliga:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Kör](https://github.com/Azure/azure-sdk-for-go)
@@ -30,9 +30,9 @@ Med hanterings-SDK:erna kan du skapa, uppdatera och ta bort ämnen och prenumera
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)
 
-## <a name="data-plane-sdks"></a>Dataplan SDK:er
+## <a name="data-plane-sdks"></a>SDK: er för data plan
 
-Med dataplanets SDK:er kan du publicera händelser i ämnen genom att ta hand om autentisering, skapa händelsen och asynkront bokföra till den angivna slutpunkten. De gör det också möjligt för dig att konsumera första part händelser. För närvarande är följande SDK:er tillgängliga:
+Med data Plans-SDK: erna kan du publicera händelser till ämnen genom att ta hand om autentisering, bilda händelsen och asynkront publicera till den angivna slut punkten. De gör det också möjligt att använda första part händelser. För närvarande är följande SDK: er tillgängliga:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
 * [Kör](https://github.com/Azure/azure-sdk-for-go)
@@ -43,7 +43,7 @@ Med dataplanets SDK:er kan du publicera händelser i ämnen genom att ta hand om
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Till exempel program, se [Exempelexempel för händelserutnätskod](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
-* En introduktion till Händelserutnätet finns i [Vad är händelserutnät?](overview.md)
-* Kommandon för händelserutnät i Azure CLI finns i [Azure CLI](/cli/azure/eventgrid).
-* Kommandon för händelserutnät i PowerShell finns i [PowerShell](/powershell/module/az.eventgrid).
+* Exempel program finns i [Event Grid kod exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
+* En introduktion till Event Grid finns i [Vad är event Grid?](overview.md)
+* Event Grid-kommandon i Azure CLI finns i [Azure CLI](/cli/azure/eventgrid).
+* För Event Grid kommandon i PowerShell, se [PowerShell](/powershell/module/az.eventgrid).

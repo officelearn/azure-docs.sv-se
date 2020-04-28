@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 5c7c2fe101315959d07ce4912905bbf59a7ee664
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67187931"
 ---
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
@@ -23,7 +23,7 @@ Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio.
 
 1. Högerklicka på det nyskapade projektet och välj sedan **Hantera NuGet-paket**.
 2. Välj alternativet **Ta med förhandsversion**. 
-3. Välj **Bläddra** och sök sedan efter **Microsoft.Azure.Relay**. Välj Microsoft Azure **Relay**i sökresultaten .
+3. Välj **Bläddra** och sök sedan efter **Microsoft.Azure.Relay**. I Sök resultaten väljer du **Microsoft Azure relä**.
 4. Välj **2.0.0-preview1-20180523** som version. 
 5. Välj **Installera** för att slutföra installationen. Stäng dialogrutan.
 

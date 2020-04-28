@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187375"
 ---
-#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Så här installerar du vanliga snabbkorrigeringar via Windows PowerShell för StorSimple
-1. Anslut till enhetens seriekonsol. Mer information finns i [steg 1: Anslut till seriekonsolen](../articles/storsimple/storsimple-update-device.md#step1).
-2. I menyn för seriell konsol väljer du alternativ 1, **Logga in med full åtkomst**. Skriv lösenordet. Standardlösenordet är **Password1**.
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Installera vanliga snabb korrigeringar via Windows PowerShell för StorSimple
+1. Anslut till enhetens serie konsol. Mer information finns i [steg 1: Anslut till serie konsolen](../articles/storsimple/storsimple-update-device.md#step1).
+2. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange lösen ordet. Standard lösen ordet är **Password1**.
 3. Skriv följande i kommandotolken:
    
     ```
@@ -22,9 +22,9 @@ ms.locfileid: "67187375"
    
     > [!IMPORTANT]
     >
-    > Det här kommandot gäller endast vanliga snabbkorrigeringar. Du kör det här kommandot på endast en handkontroll, men båda styrenheterna uppdateras.
-    > Du kan märka en rederingsunderhandla under uppdateringsprocessen. Redundansen påverkar dock inte systemets tillgänglighet eller åtgärd.
+    > Detta kommando gäller endast för vanliga snabb korrigeringar. Du kör bara det här kommandot på en kontroll enhet, men båda styrenheterna kommer att uppdateras.
+    > Du kanske upptäcker att en styrenhets fel uppstår under uppdaterings processen. redundansväxlingen kommer dock inte att påverka systemets tillgänglighet eller åtgärd.
 
-4. När du uppmanas till det nätverk som delas mappen angers anger du sökvägen till den delade mappen för nätverket som innehåller snabbkorrigeringsfilerna.
-5. Du uppmanas att bekräfta. Skriv **Y** för att fortsätta med snabbkorrigeringsinstallationen.
+4. När du uppmanas till det anger du sökvägen till den delade nätverksmapp som innehåller snabbkorrigeringsfilerna.
+5. Du uppmanas att bekräfta. Skriv in **Y** om du vill fortsätta med installationen av snabb korrigeringen.
 

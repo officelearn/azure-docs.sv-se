@@ -9,40 +9,40 @@ ms.date: 09/20/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 1ec3ecdafb8e475f5f13372789528612ccd7b8b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66226031"
 ---
-## <a name="using-rbac-to-share-images"></a>Använda RBAC för att dela bilder
+## <a name="using-rbac-to-share-images"></a>Använda RBAC för att dela avbildningar
 
-Du kan dela avbildningar mellan prenumerationer med rollbaserad åtkomstkontroll (RBAC). Alla användare som har läsbehörighet till en avbildningsversion, även mellan prenumerationer, kan distribuera en virtuell dator med avbildningsversionen.
+Du kan dela avbildningar över prenumerationer med hjälp av rollbaserad Access Control (RBAC). Alla användare som har Läs behörighet till en avbildnings version, även över prenumerationer, kan distribuera en virtuell dator med hjälp av avbildnings versionen.
 
 Mer information om hur du delar resurser med RBAC finns i [Hantera åtkomst med RBAC och Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
 
 
-## <a name="list-information"></a>Lista information
+## <a name="list-information"></a>List information
 
-Hämta plats, status och annan information om tillgängliga bildgallerier med hjälp av [az sig-listan](/cli/azure/sig#az-sig-list).
+Hämta plats, status och annan information om tillgängliga bild gallerier med hjälp av [AZ sig-listan](/cli/azure/sig#az-sig-list).
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-Lista bilddefinitionerna i ett galleri, inklusive information om OS-typ och status, med hjälp av [az sig-bilddefinitionslista](/cli/azure/sig/image-definition#az-sig-image-definition-list).
+Visa en lista över bild definitionerna i ett galleri, inklusive information om OS-typ och status, med hjälp av [AZ sig-avbildnings definitions lista](/cli/azure/sig/image-definition#az-sig-image-definition-list).
 
 ```azurecli-interactive 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-Lista de delade bildversionerna i ett galleri med hjälp av [az sig bildversionslista](/cli/azure/sig/image-version#az-sig-image-version-list).
+Visa en lista med delade avbildnings versioner i ett galleri med hjälp av [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version#az-sig-image-version-list).
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
-Hämta ID för en bildversion med [az sig bildversion show](/cli/azure/sig/image-version#az-sig-image-version-show).
+Hämta ID för en avbildnings version med hjälp av [AZ sig-avbildning-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
 
 ```azurecli-interactive
 az sig image-version show \

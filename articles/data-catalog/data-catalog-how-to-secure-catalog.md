@@ -1,66 +1,66 @@
 ---
-title: Så här skyddar du åtkomst till Azure Data Catalog
-description: I den här artikeln beskrivs hur du skyddar en datakatalog och dess datatillgångar i Azure Data Catalog.
+title: Skydda åtkomsten till Azure Data Catalog
+description: Den här artikeln förklarar hur du skyddar en data katalog och dess data till gångar i Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b0972be2b8a6e05d3d90cde7354b4890ea95cbe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68976766"
 ---
-# <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Så här skyddar du åtkomst till datakatalog och datatillgångar
+# <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Skydda åtkomsten till Data Catalog och data till gångar
 
 > [!IMPORTANT]
-> Den här funktionen är endast tillgänglig i standardutgåvan av Azure Data Catalog.
+> Den här funktionen är endast tillgänglig i standard versionen av Azure Data Catalog.
 
-Med Azure Data Catalog kan du ange vem som kan komma åt datakatalogen och vilka åtgärder (registrera, kommentera, bli ägare) som de kan utföra på metadata i katalogen. 
+Med Azure Data Catalog kan du ange vem som kan komma åt data katalogen och vilka åtgärder (registrera, kommentera, bli ägare) som de kan utföra på metadata i katalogen. 
 
-## <a name="catalog-users-and-permissions"></a>Kataloganvändare och behörigheter
+## <a name="catalog-users-and-permissions"></a>Katalog användare och behörigheter
 
-Så här ger du en användare eller en grupp åtkomst till en datakatalog och anger behörigheter:
+För att ge en användare eller grupp åtkomst till en data katalog och ange behörigheter:
 
-1. Klicka på **Inställningar** i verktygsfältet på [startsidan i datakatalogen.](https://www.azuredatacatalog.com)
+1. Klicka på **Inställningar** i verktygsfältet på [Start sidan i din Data Catalog](https://www.azuredatacatalog.com).
 
-   ![Knappen Inställningar för startsidan i Azure Data Catalog](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
+   ![Knappen Azure Data Catalog start sid inställningar](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 
-2. Expandera avsnittet **Kataloganvändare** på inställningssidan.
+2. På sidan Inställningar expanderar du avsnittet **katalog användare** .
 
-   ![Knappen Lägg till i Azure Data Catalog-användare](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
+   ![Azure Data Catalog användare Lägg till knapp](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 
 3. Klicka på **Lägg till**.
 
-4. Ange det fullständigt kvalificerade **användarnamnet** eller namnet på **säkerhetsgruppen** i Azure Active Directory (AAD) som är associerat med katalogen. Använd komma (',') som avgränsare om du lägger till mer än en användare eller grupp.
+4. Ange det fullständigt kvalificerade **användar namnet** eller namnet på **säkerhets gruppen** i Azure Active Directory (AAD) som är associerad med katalogen. Använd kommatecken (,) som avgränsare om du lägger till fler än en användare eller grupp.
 
-   ![Azure Data Catalog användare - användare eller grupper](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
+   ![Azure Data Catalog användare – användare eller grupper](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 
-5. Tryck **på RETUR** eller **TABB** ut ur textrutan. 
+5. Tryck på **RETUR** eller **tabba** ut ur text rutan. 
 
-6. Bekräfta att alla behörigheter (**Kommentera**, **Registrera**och **Bli ägarskap**) tilldelas dessa användare eller grupper som standard. Det vill än, användaren eller gruppen kan [registrera datatillgångar,]( data-catalog-how-to-register.md) [kommentera datatillgångar]( data-catalog-how-to-annotate.md)och [bli ägare till datatillgångar]( data-catalog-how-to-manage.md). 
+6. Bekräfta att alla behörigheter (**anteckna**, **Registrera**och **bli ägare**) är kopplade till dessa användare eller grupper som standard. Det innebär att användaren eller gruppen kan [registrera data till gångar]( data-catalog-how-to-register.md), [kommentera data till gångar]( data-catalog-how-to-annotate.md)och [bli ägare till data till gångar]( data-catalog-how-to-manage.md). 
 
-   ![Azure Data Catalog-användare - standardbehörigheter](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
+   ![Azure Data Catalog användare – standard behörigheter](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
 
-7. Om du bara vill ge en användare eller grupp läsbehörighet till katalogen **avmarkerar** du anteckningsalternativet för den användaren eller gruppen. När du gör det kan användaren eller gruppen inte kommentera datatillgångar i katalogen, men de kan visa dem. 
+7. Om du vill ge en användare eller grupp endast Läs behörighet till katalogen tar du bort alternativet **anteckna** för användaren eller gruppen. När du gör det kan användaren eller gruppen inte kommentera data till gångar i katalogen, men de kan visa dem. 
 
-8. Om du vill neka en användare eller grupp att registrera datatillgångar avmarkerar du **registeralternativet** för den användaren eller gruppen.
+8. Om du vill neka en användare eller grupp från att registrera data till gångar avmarkerar du alternativet **Registrera** för användaren eller gruppen.
 
-9. Om du vill neka en användare att bli ägare till en datatillgång avmarkerar du alternativet **ta över ägarskapet** för den användaren eller gruppen. 
+9. Om du vill neka en användare från att bli ägare till en data till gång avmarkerar du alternativet **bli ägare** för den användaren eller gruppen. 
 
-10. Om du vill ta bort en användare/grupp från kataloganvändare klickar du på **x** för användaren/gruppen längst ned i listan. 
+10. Om du vill ta bort en användare/grupp från katalog användare klickar du på **x** för användaren/gruppen längst ned i listan. 
 
-   ![Azure Data Catalog-kataloganvändare - ta bort användar X-ikonen](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
+   ![Azure Data Catalog katalog användare – ta bort användare X-ikonen](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
 
    > [!IMPORTANT]
-   > Vi rekommenderar att du lägger till säkerhetsgrupper i kataloganvändare i stället för att lägga till användare direkt och tilldela behörigheter. Lägg sedan till användare i säkerhetsgrupperna som matchar deras roller och deras nödvändiga åtkomst till katalogen.
+   > Vi rekommenderar att du lägger till säkerhets grupper i katalog användare i stället för att lägga till användare direkt och tilldela behörigheter. Lägg sedan till användare i de säkerhets grupper som matchar deras roller och deras nödvändiga åtkomst till katalogen.
 
 ## <a name="special-considerations"></a>Särskilda överväganden
 
-- Behörigheterna som tilldelats säkerhetsgrupper är additiva. En användare finns i två grupper. En grupp har kommenterade behörigheter och en annan grupp har inga kommenterade behörigheter. Sedan har användaren kommentera behörigheter. 
-- De behörigheter som uttryckligen tilldelas en användare åsidosätter de behörigheter som tilldelats grupper som användaren tillhör. I föregående exempel, säg, du uttryckligen lagt till användaren i kataloganvändare och inte tilldela kommentera behörigheter. Användaren kan inte kommentera datatillgångar även om användaren är medlem i en grupp som har kommenterade behörigheter.
+- Behörigheterna som tilldelas till säkerhets grupper är additiva. Anta att en användare finns i två grupper. En grupp har kommentarer behörigheter och andra grupper har inte behörighet till kommentarer. Sedan har användaren antecknings behörigheter. 
+- Behörigheterna som tilldelas direkt till en användare åsidosätter de behörigheter som tilldelats grupper som användaren tillhör. I det tidigare exemplet lade du uttryckligen till användaren i katalog användare och tilldelar inte behörighet till kommentarer. Användaren kan inte kommentera data till gångar, även om användaren är medlem i en grupp som har kommentarer till behörigheter.
 
 ## <a name="next-steps"></a>Nästa steg
 

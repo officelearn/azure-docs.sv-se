@@ -1,61 +1,140 @@
 ---
 title: Hantera kontots åtkomstnycklar
 titleSuffix: Azure Storage
-description: Läs om hur du visar, hanterar och roterar åtkomstnycklarna för lagringskontot.
+description: Lär dig hur du visar, hanterar och roterar åtkomst nycklar för lagrings kontot.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454670"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176640"
 ---
-# <a name="manage-storage-account-access-keys"></a>Hantera åtkomstnycklar för lagringskonto
+# <a name="manage-storage-account-access-keys"></a>Hantera åtkomst nycklar för lagrings konton
 
-När du skapar ett lagringskonto genererar Azure två 512-bitars åtkomstnycklar för lagringskonto. Dessa nycklar kan användas för att auktorisera åtkomst till data i ditt lagringskonto via auktorisering av delade nycklar.
+När du skapar ett lagrings konto genererar Azure åtkomst nycklar för 2 512-bitars lagrings konto. Dessa nycklar kan användas för att ge åtkomst till data i ditt lagrings konto via autentisering med delad nyckel.
 
-Microsoft rekommenderar att du använder Azure Key Vault för att hantera dina åtkomstnycklar och att du regelbundet roterar och återskapar dina nycklar. Med Hjälp av Azure Key Vault blir det enkelt att rotera dina nycklar utan avbrott i dina program. Du kan också rotera tangenterna manuellt.
+Microsoft rekommenderar att du använder Azure Key Vault för att hantera dina åtkomst nycklar och att du regelbundet roterar och återskapar dina nycklar. Med hjälp av Azure Key Vault är det enkelt att rotera dina nycklar utan avbrott i dina program. Du kan också rotera dina nycklar manuellt.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-## <a name="view-access-keys-and-connection-string"></a>Visa åtkomstnycklar och anslutningssträng
+## <a name="view-account-access-keys"></a>Visa konto åtkomst nycklar
 
-[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
+Du kan visa och kopiera åtkomst nycklar för ditt konto med Azure Portal, PowerShell eller Azure CLI. Azure Portal innehåller också en anslutnings sträng för ditt lagrings konto som du kan kopiera.
 
-## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Använda Azure Key Vault för att hantera dina åtkomstnycklar
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-Microsoft rekommenderar att du använder Azure Key Vault för att hantera och rotera dina åtkomstnycklar. Ditt program kan komma åt dina nycklar på ett säkert sätt i Key Vault, så att du kan undvika att lagra dem med din programkod. Mer information om hur du använder Key Vault för nyckelhantering finns i följande artiklar:
+Visa och kopiera åtkomst nycklar för lagrings kontot eller anslutnings strängen från Azure Portal:
 
-- [Hantera lagringskontonycklar med Azure Key Vault och PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
-- [Hantera lagringskontonycklar med Azure Key Vault och Azure CLI](../../key-vault/secrets/overview-storage-keys.md)
+1. Navigera till ditt lagrings konto i [Azure Portal](https://portal.azure.com).
+1. Under **Inställningar**väljer du **åtkomst nycklar**. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.
+1. Leta upp **nyckelvärdet** under **KEY1**och klicka på knappen **Kopiera** för att kopiera konto nyckeln.
+1. Alternativt kan du kopiera hela anslutnings strängen. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**.
 
-## <a name="manually-rotate-access-keys"></a>Rotera åtkomsttangenter manuellt
+    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Skärm bild som visar hur du visar åtkomst nycklar i Azure Portal":::
 
-Microsoft rekommenderar att du roterar dina åtkomstnycklar regelbundet för att skydda ditt lagringskonto. Om möjligt kan du använda Azure Key Vault för att hantera dina åtkomstnycklar. Om du inte använder Key Vault måste du rotera tangenterna manuellt.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Två åtkomstnycklar tilldelas så att du kan rotera tangenterna. Med två nycklar säkerställer att ditt program behåller åtkomsten till Azure Storage under hela processen.
+Anropa kommandot [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) för att hämta åtkomst nycklar för ditt konto med PowerShell.
+
+I följande exempel hämtas den första nyckeln. Om du vill hämta den andra nyckeln `Value[1]` använder du `Value[0]`i stället för. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
+
+```powershell
+$storageAccountKey = `
+    (Get-AzStorageAccountKey `
+    -ResourceGroupName <resource-group> `
+    -Name <storage-account>).Value[0]
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Om du vill visa en lista med åtkomst nycklar för ditt konto med Azure CLI anropar du kommandot [AZ Storage konto Keys List](/cli/azure/storage/account/keys#az-storage-account-keys-list) , som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden. 
+
+```azurecli-interactive
+az storage account keys list \
+  --resource-group <resource-group> \
+  --account-name <storage-account>
+```
+
+---
+
+Du kan använda någon av de två nycklarna för att komma åt Azure Storage, men i allmänhet är det en bra idé att använda den första nyckeln och reservera användningen av den andra nyckeln för när du roterar nycklar.
+
+Om du vill visa eller läsa ett kontos åtkomst nycklar måste användaren antingen vara tjänst administratör eller ha tilldelats en RBAC-roll som innehåller **Microsoft. Storage/storageAccounts/listnycklar/Action**. Några inbyggda RBAC-roller som innehåller den här åtgärden är roll rollerna **ägare**, **deltagare**och **lagrings konto nyckel operatörer** . Mer information om rollen tjänst administratör finns i [klassisk prenumerations administratörs roller, RBAC-roller i Azure och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md). Detaljerad information om inbyggda roller för Azure Storage finns i avsnittet **Storage** i [inbyggda Azure-roller för Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+
+## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Använd Azure Key Vault för att hantera dina åtkomst nycklar
+
+Microsoft rekommenderar att du använder Azure Key Vault för att hantera och rotera dina åtkomst nycklar. Ditt program kan komma åt dina nycklar i Key Vault på ett säkert sätt, så att du kan undvika att lagra dem med program koden. Mer information om hur du använder Key Vault för nyckel hantering finns i följande artiklar:
+
+- [Hantera lagrings konto nycklar med Azure Key Vault och PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Hantera lagrings konto nycklar med Azure Key Vault och Azure CLI](../../key-vault/secrets/overview-storage-keys.md)
+
+## <a name="manually-rotate-access-keys"></a>Rotera åtkomst nycklar manuellt
+
+Microsoft rekommenderar att du roterar dina åtkomst nycklar regelbundet för att skydda ditt lagrings konto. Använd om möjligt Azure Key Vault för att hantera dina åtkomst nycklar. Om du inte använder Key Vault måste du rotera dina nycklar manuellt.
+
+Två åtkomst nycklar tilldelas så att du kan rotera dina nycklar. Att ha två nycklar säkerställer att ditt program behåller åtkomsten till Azure Storage under hela processen.
 
 > [!WARNING]
-> Återskapa dina åtkomstnycklar kan påverka alla program eller Azure-tjänster som är beroende av lagringskontonyckeln. Alla klienter som använder kontonyckeln för att komma åt lagringskontot måste uppdateras för att kunna använda den nya nyckeln, inklusive medietjänster, moln-, skrivbords- och mobilprogram och grafiska användargränssnittsprogram för Azure Storage, till exempel [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> Återskapande av åtkomst nycklar kan påverka alla program eller Azure-tjänster som är beroende av lagrings konto nyckeln. Alla klienter som använder konto nyckeln för att komma åt lagrings kontot måste uppdateras för att använda den nya nyckeln, inklusive Media Services, moln, skriv bords-och mobil program och grafiska användar gränssnitts program för Azure Storage, till exempel [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-Följ den här processen för att rotera dina lagringskontonycklar:
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-1. Uppdatera anslutningssträngarna i programkoden om du vill använda den sekundära nyckeln.
-2. Återskapa lagringskontots primära åtkomstnyckel. Klicka på **Återskapa nyckel1**på bladet **Åtkomstnycklar** i Azure-portalen och klicka sedan på **Ja** för att bekräfta att du vill generera en ny nyckel.
-3. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
-4. Återskapa den sekundära åtkomstnyckeln på samma sätt.
+Så här roterar du åtkomst nycklar för lagrings kontot i Azure Portal:
+
+1. Uppdatera anslutnings strängarna i program koden så att de refererar till den sekundära åtkomst nyckeln för lagrings kontot.
+1. Navigera till ditt lagrings konto i [Azure Portal](https://portal.azure.com).
+1. Under **Inställningar**väljer du **åtkomst nycklar**.
+1. Om du vill återskapa den primära åtkomst nyckeln för ditt lagrings konto väljer du knappen **skapa** igen bredvid den primära åtkomst nyckeln.
+1. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
+1. Återskapa den sekundära åtkomstnyckeln på samma sätt.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Så här roterar du dina åtkomst nycklar för lagrings konton med PowerShell:
+
+1. Uppdatera anslutnings strängarna i program koden så att de refererar till den sekundära åtkomst nyckeln för lagrings kontot.
+1. Anropa kommandot [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) för att återskapa den primära åtkomst nyckeln, som du ser i följande exempel:
+
+    ```powershell
+    New-AzStorageAccountKey -ResourceGroupName <resource-group> `
+      -Name <storage-account> `
+      -KeyName key1
+    ```
+
+1. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
+1. Återskapa den sekundära åtkomstnyckeln på samma sätt. Om du vill återskapa den sekundära nyckeln använder `key2` du som nyckel namn i stället `key1`för.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Så här roterar du dina åtkomst nycklar för lagrings konton med Azure CLI:
+
+1. Uppdatera anslutnings strängarna i program koden så att de refererar till den sekundära åtkomst nyckeln för lagrings kontot.
+1. Anropa kommandot [AZ Storage Account Keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) för att återskapa den primära åtkomst nyckeln, som du ser i följande exempel:
+
+    ```azurecli-interactive
+    az storage account keys renew \
+      --resource-group <resource-group> \
+      --account-name <storage-account>
+      --key primary
+    ```
+
+1. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
+1. Återskapa den sekundära åtkomstnyckeln på samma sätt. Om du vill återskapa den sekundära nyckeln använder `key2` du som nyckel namn i stället `key1`för.
+
+---
 
 > [!NOTE]
-> Microsoft rekommenderar att du bara använder en av nycklarna i alla dina program samtidigt. Om du använder Nyckel 1 på vissa ställen och Nyckel 2 i andra, du vilja inte kunde rotera din nyckel utan något applicering förlora tillträde.
+> Microsoft rekommenderar att du bara använder en av nycklarna i alla dina program på samma tidpunkt. Om du använder nyckel 1 på vissa platser och nyckel 2 i andra kommer du inte att kunna rotera dina nycklar utan att några program förlorar åtkomst.
 
-Om du vill rotera ett kontos åtkomstnycklar måste användaren antingen vara tjänstadministratör eller tilldelas en RBAC-roll som innehåller **Microsoft.Storage/storageAccounts/regeneratekey/action**. Några inbyggda RBAC-roller som innehåller den här åtgärden är rollerna **Ägare,** **Deltagare**och **Nyckeloperatörsroll för lagringskonto.** Mer information om rollen Tjänstadministratör finns i [Klassiska prenumerationsadministratörsroller, Azure RBAC-roller och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md). Detaljerad information om inbyggda RBAC-roller för Azure Storage finns i **avsnittet Lagring** [i Azures inbyggda roller för Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Användaren måste antingen vara tjänst administratör för att kunna rotera ett kontos åtkomst nycklar eller måste tilldelas en RBAC-roll som innehåller **Microsoft. Storage/storageAccounts/regeneratekey/Action**. Några inbyggda RBAC-roller som innehåller den här åtgärden är roll rollerna **ägare**, **deltagare**och **lagrings konto nyckel operatörer** . Mer information om rollen tjänst administratör finns i [klassisk prenumerations administratörs roller, RBAC-roller i Azure och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md). Detaljerad information om inbyggda RBAC-roller för Azure Storage finns i avsnittet **Storage** i [inbyggda Azure-roller för Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure-lagringskonto](storage-account-overview.md)
+- [Översikt över Azure Storage-kontot](storage-account-overview.md)
 - [skapar ett lagringskonto](storage-account-create.md)

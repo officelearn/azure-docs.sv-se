@@ -1,65 +1,65 @@
 ---
-title: Övervaka Azure-säkerhetskopiering med Azure Monitor
-description: Övervaka Azure Backup-arbetsbelastningar och skapa anpassade aviseringar med hjälp av Azure Monitor.
+title: Övervaka Azure Backup med Azure Monitor
+description: Övervaka Azure Backup arbets belastningar och skapa anpassade aviseringar med Azure Monitor.
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 547cef66be9902468f4e2755c31e5f586eccad5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54a98cebc2887f7508543a4dc752b2145c3bbda2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459522"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183661"
 ---
-# <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i stor skala med hjälp av Azure Monitor
+# <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
-Azure Backup tillhandahåller [inbyggda övervaknings- och aviseringsfunktioner](backup-azure-monitoring-built-in-monitor.md) i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan ytterligare hanteringsinfrastruktur. Men den här inbyggda tjänsten är begränsad i följande scenarier:
+Azure Backup tillhandahåller [inbyggda övervaknings-och aviserings funktioner](backup-azure-monitoring-built-in-monitor.md) i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan någon ytterligare hanterings infrastruktur. Men den här inbyggda tjänsten är begränsad i följande scenarier:
 
-- Om du övervakar data från flera Recovery Services-valv mellan prenumerationer
-- Om den önskade meddelandekanalen *inte* är e-post
+- Om du övervakar data från flera Recovery Services-valv över prenumerationer
+- Om den önskade aviserings kanalen *inte* är e-post
 - Om användarna vill ha aviseringar för fler scenarier
-- Om du vill visa information från en lokal komponent, till exempel System Center Data Protection Manager i Azure, som portalen inte visas i [**Säkerhetskopieringsjobb**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) eller [**säkerhetskopior**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
+- Om du vill visa information från en lokal komponent, till exempel System Center Data Protection Manager i Azure, som portalen inte visas i [**säkerhets kopierings jobb**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) eller [**säkerhets kopierings aviseringar**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
-## <a name="using-log-analytics-workspace"></a>Använda log analytics-arbetsyta
+## <a name="using-log-analytics-workspace"></a>Använda Log Analytics arbets yta
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Skapa aviseringar med hjälp av Log Analytics
 
-I Azure Monitor kan du skapa egna aviseringar på en Log Analytics-arbetsyta. På arbetsytan använder du *Azure-åtgärdsgrupper* för att välja önskad meddelandemekanism.
+I Azure Monitor kan du skapa egna aviseringar i en Log Analytics arbets yta. I arbets ytan använder du *Azures åtgärds grupper* för att välja önskad meddelande funktion.
 
 > [!IMPORTANT]
-> Information om kostnaden för att skapa den här frågan finns i [Azure Monitor-priser](https://azure.microsoft.com/pricing/details/monitor/).
+> Information om kostnaden för att skapa den här frågan finns [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
-Öppna avsnittet **Loggar** på arbetsytan Log Analytics och skapa en fråga för dina egna loggar. När du väljer **Ny varningsregel**öppnas sidan Azure Monitor alert-creation, vilket visas i följande bild.
+Öppna avsnittet **loggar** i Log Analytics arbets ytan och skapa en fråga för dina egna loggar. När du väljer **ny varnings regel**öppnas sidan Azure Monitor aviserings skapande som visas i följande bild.
 
-![Skapa en avisering på en log Analytics-arbetsyta](media/backup-azure-monitoring-laworkspace/custom-alert.png)
+![Skapa en avisering i en Log Analytics arbets yta](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-Här är resursen redan markerad som Log Analytics-arbetsytan och åtgärdsgruppintegration tillhandahålls.
+Här är resursen redan markerad som Log Analytics arbets yta och integration av åtgärds gruppen.
 
-![Sidan Skapa aviseringsgenerering för Logganalys](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
+![Sidan Log Analytics aviserings skapande](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
-#### <a name="alert-condition"></a>Varningsvillkor
+#### <a name="alert-condition"></a>Aviserings villkor
 
-Den definierande egenskapen för en avisering är dess utlösande tillstånd. Välj **Villkor om** du vill läsa in Kusto-frågan automatiskt på sidan **Loggar** enligt följande bild. Här kan du redigera villkoret så att det passar dina behov. Mer information finns i [Exempel på Kusto-frågor](#sample-kusto-queries).
+Den definiering av egenskaperna för en avisering är dess Utlös ande villkor. Välj **villkor** om du vill läsa in Kusto-frågan automatiskt på sidan **loggar** som du ser i följande bild. Här kan du redigera villkoret så att det passar dina behov. Mer information finns i [exempel på Kusto-frågor](#sample-kusto-queries).
 
-![Ställa in ett varningsvillkor](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
+![Konfigurera ett varnings villkor](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Om det behövs kan du redigera Kusto-frågan. Välj ett tröskelvärde, en period och en frekvens. Tröskelvärdet avgör när aviseringen ska höjas. Perioden är det tidsfönster då frågan körs. Om tröskelvärdet till exempel är större än 0 är perioden 5 minuter och frekvensen är 5 minuter, kör regeln frågan var femte minut och granskar de föregående 5 minuterna. Om antalet resultat är större än 0 meddelas du via den valda åtgärdsgruppen.
+Om det behövs kan du redigera frågan Kusto. Välj ett tröskelvärde, en period och en frekvens. Tröskelvärdet avgör när aviseringen ska höjas. Perioden är tiden då frågan körs. Om tröskelvärdet till exempel är större än 0, är perioden 5 minuter och frekvensen är 5 minuter, kör regeln frågan var 5: e minut, och granska de senaste 5 minuterna. Om antalet resultat är större än 0 får du ett meddelande via den valda åtgärds gruppen.
 
-#### <a name="alert-action-groups"></a>Grupper för varningsåtgärd
+#### <a name="alert-action-groups"></a>Aviserings åtgärds grupper
 
-Använd en åtgärdsgrupp för att ange en meddelandekanal. Om du vill visa tillgängliga meddelandemekanismer väljer du **Skapa ny**under **Åtgärdsgrupper**.
+Använd en åtgärds grupp för att ange en meddelande kanal. Om du vill se tillgängliga aviserings mekanismer väljer du **Skapa nytt**under **Åtgärds grupper**.
 
-![Tillgängliga meddelandemekanismer i fönstret "Lägg till åtgärdsgrupp"](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
+![Tillgängliga aviserings mekanismer i fönstret Lägg till åtgärds grupp](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
 
-Du kan uppfylla alla varnings- och övervakningskrav enbart från Log Analytics, eller så kan du använda Log Analytics för att komplettera inbyggda meddelanden.
+Du kan uppfylla alla varnings-och övervaknings krav från Log Analytics ensamma, eller så kan du använda Log Analytics för att komplettera inbyggda meddelanden.
 
-Mer information finns i [Skapa, visa och hantera loggaviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) och Skapa och hantera [åtgärdsgrupper i Azure-portalen](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Mer information finns i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) och [skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 
 ### <a name="sample-kusto-queries"></a>Exempel på Kusto-frågor
 
-Standarddiagrammen ger dig Kusto-frågor för grundläggande scenarier där du kan skapa aviseringar. Du kan också ändra frågorna för att få de data som du vill bli aviserad på. Klistra in följande exempel på Kusto-frågor på sidan **Loggar** och skapa sedan aviseringar för frågorna:
+Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan använda för att skapa aviseringar. Du kan också ändra frågorna för att hämta de data som du vill bli aviserad om. Klistra in följande exempel på Kusto frågor på sidan **loggar** och skapa sedan aviseringar för frågorna:
 
-- Alla lyckade säkerhetskopieringsjobb
+- Alla slutförda säkerhets kopierings jobb
 
     ````Kusto
     AddonAzureBackupJobs
@@ -67,7 +67,7 @@ Standarddiagrammen ger dig Kusto-frågor för grundläggande scenarier där du k
     | where JobStatus=="Completed"
     ````
 
-- Alla misslyckade säkerhetskopieringsjobb
+- Alla misslyckade säkerhets kopierings jobb
 
     ````Kusto
     AddonAzureBackupJobs
@@ -75,7 +75,7 @@ Standarddiagrammen ger dig Kusto-frågor för grundläggande scenarier där du k
     | where JobStatus=="Failed"
     ````
 
-- Alla lyckade azure vm-säkerhetskopieringsjobb
+- Alla lyckade säkerhets kopierings jobb för virtuella Azure-datorer
 
     ````Kusto
     AddonAzureBackupJobs
@@ -91,7 +91,7 @@ Standarddiagrammen ger dig Kusto-frågor för grundläggande scenarier där du k
     on BackupItemUniqueId
     ````
 
-- Alla lyckade SQL-loggsäkerhetsjobb
+- Alla lyckade säkerhets kopierings jobb för SQL-logg
 
     ````Kusto
     AddonAzureBackupJobs
@@ -107,7 +107,7 @@ Standarddiagrammen ger dig Kusto-frågor för grundläggande scenarier där du k
     on BackupItemUniqueId
     ````
 
-- Alla lyckade Azure Backup-agentjobb
+- Alla lyckade Azure Backup Agent jobb
 
     ````Kusto
     AddonAzureBackupJobs
@@ -123,7 +123,7 @@ Standarddiagrammen ger dig Kusto-frågor för grundläggande scenarier där du k
     on BackupItemUniqueId
     ````
 
-- Säkerhetskopieringslagring förbrukas per säkerhetskopieringsobjekt
+- Säkerhets kopiering förbrukad lagring per säkerhets kopierings objekt
 
     ````Kusto
     CoreAzureBackup
@@ -135,62 +135,61 @@ Standarddiagrammen ger dig Kusto-frågor för grundläggande scenarier där du k
     (AddonAzureBackupStorage
     | where OperationName == "StorageAssociation"
     //Get latest record for each Backup Item
-    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
     | project BackupItemUniqueId , StorageConsumedInMBs)
     on BackupItemUniqueId
-    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs
     | sort by StorageConsumedInMBs desc
     ````
 
+### <a name="diagnostic-data-update-frequency"></a>Uppdaterings frekvens för diagnostikdata
 
-### <a name="diagnostic-data-update-frequency"></a>Uppdateringsfrekvens för diagnostikdata
+Diagnostikdata från valvet pumpas till Log Analytics arbets ytan med en fördröjning. Varje händelse anländer till Log Analytics arbets ytan *20 till 30 minuter* efter att den har överförts från Recovery Services-valvet. Här är mer information om fördröjningen:
 
-Diagnostikdata från valvet pumpas till Log Analytics-arbetsytan med viss fördröjning. Varje händelse anländer till Log Analytics arbetsytan *20 till 30 minuter* efter att den har skjutits från Recovery Services-valvet. Här är mer information om eftersläpningen:
+- I alla lösningar skickas säkerhets kopierings tjänstens inbyggda aviseringar så snart de har skapats. De visas vanligt vis i arbets ytan Log Analytics efter 20 till 30 minuter.
+- I alla lösningar skickas säkerhets kopierings jobb på begäran och återställnings jobb så fort de är *klara*.
+- För alla lösningar utom SQL-säkerhetskopiering skickas schemalagda säkerhets kopierings jobb så snart de är *klara*.
+- För SQL-säkerhetskopiering, eftersom logg säkerhets kopieringar kan ske var 15: e minut, är information för alla schemalagda säkerhets kopierings jobb, inklusive loggar, batch och push-överförd var 6: e timme.
+- Alla lösningar, annan information som säkerhets kopierings objekt, princip, återställnings punkter, lagring och så vidare, överförs minst *en gång per dag.*
+- En ändring i konfigurationen för säkerhets kopiering (till exempel att ändra princip eller redigera princip) utlöser en push av all relaterad säkerhets kopierings information.
 
-- Alla lösningar skjuts säkerhetskopieringstjänstens inbyggda aviseringar så fort de skapas. Så de visas vanligtvis i Log Analytics arbetsytan efter 20 till 30 minuter.
-- I alla lösningar skjuts säkerhetskopieringsjobb på begäran och återställningsjobb så fort de *är klara.*
-- För alla lösningar utom SQL-säkerhetskopiering skjuts schemalagda säkerhetskopieringsjobb ut så fort de *är klara.*
-- För SQL-säkerhetskopiering, eftersom säkerhetskopiering av loggar kan ske var 15:e minut, batchas och skjuts information om alla slutförda schemalagda säkerhetskopieringsjobb, inklusive loggar, och skjuts in var 6:e timme.
-- Alla lösningar, annan information som säkerhetskopieringsobjekt, princip, återställningspunkter, lagring och så vidare, skjuts minst *en gång per dag.*
-- En ändring i konfigurationen för säkerhetskopiering (till exempel ändra princip eller redigeringsprincip) utlöser en push av all relaterad säkerhetskopieringsinformation.
-
-## <a name="using-the-recovery-services-vaults-activity-logs"></a>Använda recovery services-valvets aktivitetsloggar
+## <a name="using-the-recovery-services-vaults-activity-logs"></a>Använda aktivitets loggarna i Recovery Services Vault
 
 > [!CAUTION]
-> Följande steg gäller endast för *Azure VM-säkerhetskopior.* Du kan inte använda dessa steg för lösningar som Azure Backup-agenten, SQL-säkerhetskopior i Azure eller Azure-filer.
+> Följande steg gäller endast för *säkerhets kopiering av virtuella Azure-datorer.* Du kan inte använda de här stegen för lösningar som Azure Backup Agent, SQL-säkerhetskopieringar i Azure eller Azure Files.
 
-Du kan också använda aktivitetsloggar för att få meddelanden om händelser som säkerhetskopiering. Börja med att följa dessa steg:
+Du kan också använda aktivitets loggar för att få meddelanden om händelser som till exempel säkerhets kopieringen lyckades. Börja med att följa dessa steg:
 
 1. Logga in på Azure Portal.
-1. Öppna det relevanta valvet för återställningstjänster.
-1. Öppna avsnittet **Aktivitetslogg** i valvets egenskaper.
+1. Öppna det relevanta Recovery Services-valvet.
+1. I valvets egenskaper öppnar du avsnittet **aktivitets logg** .
 
-Så här identifierar du lämplig logg och skapar en avisering:
+Identifiera lämplig logg och skapa en avisering:
 
-1. Kontrollera att du får aktivitetsloggar för lyckade säkerhetskopior genom att använda filtren som visas i följande bild. Ändra värdet för **Tidsspansintervall** om det behövs för att visa poster.
+1. Kontrol lera att du har fått aktivitets loggar för lyckade säkerhets kopieringar genom att använda de filter som visas i följande bild. Ändra **TimeSpan** -värdet vid behov för att visa poster.
 
-   ![Filtrering för att hitta aktivitetsloggar för Azure VM-säkerhetskopior](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
+   ![Filtrera för att hitta aktivitets loggar för virtuella Azure-säkerhetskopieringar](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Välj operationsnamnet om du vill visa relevant information.
-1. Välj **Ny aviseringsregel** om du vill öppna sidan **Skapa regel.**
-1. Skapa en avisering genom att följa stegen i [Skapa, visa och hantera aktivitetsloggaviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+1. Välj ett åtgärds namn för att se relevant information.
+1. Välj **ny varnings regel** för att öppna sidan **Skapa regel** .
+1. Skapa en avisering genom att följa stegen i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-   ![Ny varningsregel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
+   ![Ny varnings regel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Här är resursen själva valvet för Återställningstjänster. Upprepa samma steg för alla valv där du vill bli meddelad via aktivitetsloggar. Villkoret har ingen tröskel, period eller frekvens eftersom den här aviseringen baseras på händelser. Så snart den relevanta aktivitetsloggen genereras utlöses aviseringen.
+Här är resursen själva Recovery Services själva valvet. Upprepa samma steg för alla valv där du vill bli meddelad via aktivitets loggarna. Villkoret har ingen tröskel, period eller frekvens eftersom den här aviseringen baseras på händelser. Så snart den relevanta aktivitets loggen har genererats, utlöses aviseringen.
 
-## <a name="using-log-analytics-to-monitor-at-scale"></a>Använda Log Analytics för att övervaka i stor skala
+## <a name="using-log-analytics-to-monitor-at-scale"></a>Använda Log Analytics för att övervaka i skala
 
-Du kan visa alla aviseringar som skapats från aktivitetsloggar och Log Analytics-arbetsytor i Azure Monitor. Öppna bara fönstret **Aviseringar** till vänster.
+Du kan visa alla aviseringar som skapats från aktivitets loggar och Log Analytics arbets ytor i Azure Monitor. Öppna bara **aviserings** rutan till vänster.
 
-Även om du kan få meddelanden via aktivitetsloggar rekommenderar vi starkt att du använder Log Analytics i stället för aktivitetsloggar för övervakning i stor skala. Skälet är följande:
+Även om du kan få aviseringar via aktivitets loggar rekommenderar vi starkt att du använder Log Analytics snarare än aktivitets loggar för övervakning i stor skala. Skälet är följande:
 
-- **Begränsade scenarier**: Meddelanden via aktivitetsloggar gäller endast för Azure VM-säkerhetskopior. Meddelandena måste ställas in för varje Recovery Services-valv.
-- **Definitionspassning**: Den schemalagda säkerhetskopieringsaktiviteten passar inte in i den senaste definitionen av aktivitetsloggar. I stället justeras den mot [resursloggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Den här justeringen orsakar oväntade effekter när data som flödar genom aktivitetsloggkanalen ändras.
-- **Problem med aktivitetsloggkanalen**: I Recovery Services-valv följer aktivitetsloggar som pumpas från Azure Backup en ny modell. Tyvärr påverkar den här ändringen genereringen av aktivitetsloggar i Azure Government, Azure Germany och Azure China 21Vianet. Om användare av dessa molntjänster skapar eller konfigurerar aviseringar från aktivitetsloggar i Azure Monitor utlöses inte aviseringarna. Om en användare [samlar in återställningstjänster-aktivitetsloggar i en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)visas inte heller dessa loggar i alla offentliga Azure-regioner.
+- **Begränsade scenarier**: meddelanden via aktivitets loggar gäller endast för virtuella Azure-säkerhetskopieringar. Meddelandena måste konfigureras för varje Recovery Services valv.
+- **Definitions passning**: den schemalagda säkerhets kopierings aktiviteten passar inte med den senaste definitionen av aktivitets loggarna. I stället justeras det med [resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Den här justeringen orsakar oväntade effekter när de data som flödar genom aktivitets loggs kanalen ändras.
+- **Problem med aktivitets logg kanalen**: i Recovery Services valv följer aktivitets loggar som pumpas från Azure Backup en ny modell. Den här ändringen påverkar tyvärr genereringen av aktivitets loggar i Azure Government, Azure Germany och Azure Kina 21Vianet. Om användarna av dessa moln tjänster skapar eller konfigurerar aviseringar från aktivitets loggar i Azure Monitor utlöses inte aviseringarna. I alla offentliga Azure-regioner visas även dessa loggar om en användare [samlar in Recovery Services aktivitets loggar till en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs).
 
-Använd en Log Analytics-arbetsyta för övervakning och avisering i stor skala för alla dina arbetsbelastningar som skyddas av Azure Backup.
+Använd en Log Analytics arbets yta för övervakning och avisering i skala för alla arbets belastningar som skyddas av Azure Backup.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du skapar anpassade frågor finns i [Logganalysdatamodell](backup-azure-reports-data-model.md).
+Information om hur du skapar anpassade frågor finns i [Log Analytics data modell](backup-azure-reports-data-model.md).

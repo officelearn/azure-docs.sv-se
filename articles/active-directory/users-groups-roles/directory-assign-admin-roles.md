@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401a39d4a65c7aee67d62ed0a6ba77893a11c2d1
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101152"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181298"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -645,7 +645,7 @@ Kan utföra vanliga fakturerings aktiviteter, t. ex. uppdatering av betalnings i
 | Microsoft. Directory/Organization/Basic/Update | Uppdatera grundläggande egenskaper för organisation i Azure Active Directory. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
-| Microsoft. Commerce. debitering/allTasks | Hantera alla aspekter av Office 365-fakturering. |
+| Microsoft. Commerce. debitering/allTasks | Hantera alla aspekter av faktureringen. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
@@ -755,7 +755,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använder Azur
 | Microsoft. Azure. informationProtection/upplånade/allTasks | Hantera alla aspekter av Azure Information Protection. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
-| Microsoft. Commerce. debitering/allTasks | Hantera alla aspekter av Office 365-fakturering. |
+| Microsoft. Commerce. debitering/allTasks | Hantera alla aspekter av faktureringen. |
 | Microsoft. Intune/upplånade/allTasks | Hantera alla aspekter av Intune. |
 | Microsoft. Office365. complianceManager/uplånar/allTasks | Hantera alla aspekter av Compliance Manager för Office 365 |
 | Microsoft. Office365. desktopAnalytics/uplånar/allTasks | Hantera alla aspekter av Skriv bords analys. |
@@ -1048,7 +1048,7 @@ Kan läsa allt som en global administratör kan, men inte redigera något.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. Commerce. fakturering/utlånare/Läs    | Läs alla aspekter av Office 365-fakturering. |
+| Microsoft. Commerce. fakturering/utlånare/Läs    | Läs alla aspekter av faktureringen. |
 | Microsoft. Directory/administrativeUnits/Basic/Read    | Läsa grundläggande egenskaper för administrativeUnits i Azure Active Directory. |
 | Microsoft. Directory/administrativeUnits/members/Read    | Läs administrativeUnits. members-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/program/Basic/Read    | Läsa grundläggande egenskaper för program i Azure Active Directory. |

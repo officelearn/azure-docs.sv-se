@@ -1,6 +1,6 @@
 ---
-title: Problem med att installera Application Proxy Agent Connector | Microsoft-dokument
-description: Felsöka problem som du kan ställas inför när du installerar Application Proxy Agent Connector
+title: Problem med att installera agent anslutnings programmet för programproxy | Microsoft Docs
+description: Så här felsöker du problem som du kan stöta på när du installerar Application Proxy agent-anslutningen
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,58 +16,58 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d773e6302edf0b799e6dfccc702750a9cc74f60
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406686"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82172414"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
 
-Microsoft AAD Application Proxy Connector är en intern domänkomponent som använder utgående anslutningar för att upprätta anslutningen från den molnbaserade slutpunkten till den interna domänen.
+Microsoft AAD Application Proxy Connector är en intern domän komponent som använder utgående anslutningar för att upprätta anslutningen från moln tillgänglig slut punkt till den interna domänen.
 
-## <a name="general-problem-areas-with-connector-installation"></a>Allmänna problemområden med anslutningsinstallation
+## <a name="general-problem-areas-with-connector-installation"></a>Allmänna problemområden med anslutnings installation
 
-När installationen av en koppling misslyckas är grundorsaken vanligtvis ett av följande områden:
+När installationen av en anslutning Miss lyckas är rotor saken vanligt vis något av följande områden:
 
-1.  **Anslutning** – för att slutföra en lyckad installation måste den nya anslutningen registrera och upprätta framtida förtroendeegenskaper. Detta görs genom att ansluta till molntjänsten AAD Application Proxy.
+1.  **Anslutning** – för att slutföra installationen måste den nya anslutningen registrera och upprätta framtida förtroende egenskaper. Detta görs genom att ansluta till moln tjänsten AAD Application Proxy.
 
-2.  **Förtroendeetablering** – den nya kopplingen skapar ett självsignerat certifikat och registrerar sig till molntjänsten.
+2.  **Förtroende etablering** – den nya anslutningen skapar ett självsignerat certifikat och registrerar sig för moln tjänsten.
 
-3.  **Autentisering av administratören** – under installationen måste användaren ange administratörsautentiseringsuppgifter för att slutföra anslutningsinstallationen.
+3.  **Autentisering av administratören** – under installationen måste användaren ange administratörsautentiseringsuppgifter för att slutföra anslutnings installationen.
 
 > [!NOTE]
-> Anslutningsinstallationsloggarna finns i mappen %TEMP% och kan ge ytterligare information om vad som orsakar ett installationsfel.
+> Installations loggarna för Connector finns i mappen% TEMP% och kan hjälpa dig att ge ytterligare information om vad som orsakar ett installations fel.
 
-## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifiera anslutning till cloud application proxy-tjänsten och Microsoft-inloggningssidan
+## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Kontrol lera anslutningen till tjänsten Cloud Application Proxy och sidan Microsoft-inloggning
 
-**Syfte:** Kontrollera att anslutningsdatorn kan ansluta till slutpunkten för AAD Application Proxy-registrering samt Microsofts inloggningssida.
+**Mål:** Kontrol lera att anslutnings datorn kan ansluta till registrerings slut punkten för AAD-programproxyn och sidan Microsoft-inloggning.
 
-1.  På anslutningsservern kör du ett porttest med [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) eller annat porttestverktyg för att kontrollera att portarna 443 och 80 är öppna.
+1.  På kopplings servern kör du ett port test genom att använda [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) eller något annat port test verktyg för att kontrol lera att portarna 443 och 80 är öppna.
 
-2.  Om någon av dessa portar inte lyckas kontrollerar du att brandväggen eller serverdelsproxyn har åtkomst till de domäner och portar som krävs, [Förbered din lokala miljö](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
+2.  Om någon av dessa portar inte lyckas kontrollerar du att brand väggen eller backend-proxyn har åtkomst till de nödvändiga domänerna och portarna i, [förbereder din lokala miljö](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Öppna en webbläsare (separat flik) och `https://login.microsoftonline.com`gå till följande webbsida: , se till att du kan logga in på den sidan.
+3.  Öppna en webbläsare (separat flik) och gå till följande webb sida: `https://login.microsoftonline.com`, se till att du kan logga in på sidan.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Verifiera stöd för dator- och serverdelar för certifikat för application proxy-förtroende
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Verifiera stöd för maskin-och Server dels komponenter för certifikat för programproxy-förtroende
 
-**Syfte:** Kontrollera att anslutningsmaskinen, serverdproxyn och brandväggen kan stödja certifikatet som skapats av kopplingen för framtida förtroende och att certifikatet är giltigt.
+**Mål:** Kontrol lera att anslutnings datorn, backend-proxyn och brand väggen kan stödja certifikatet som skapats av anslutnings tjänsten för framtida förtroende och att certifikatet är giltigt.
 
 >[!NOTE]
->Kopplingen försöker skapa ett SHA512-certifikat som stöds av TLS1.2. Om datorn eller servergruppsbrandväggen och proxyn inte stöder TLS1.2 misslyckas installationen.
+>Anslutningen försöker skapa ett SHA512-certifikat som stöds av TLS 1.2. Om datorn eller Server dels brand väggen och proxyn inte stöder TLS 1.2, Miss lyckas installationen.
 >
 >
 
-**Granska de förutsättningar som krävs:**
+**Granska de krav som krävs:**
 
-1.  Kontrollera att datorn stöder TLS1.2 – Alla Windows-versioner efter 2012 R2 bör ha stöd för TLS 1.2. Om anslutningsdatorn kommer från en version av 2012 R2 eller tidigare kontrollerar du att följande KBs är installerade på datorn:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Kontrol lera att datorn har stöd för TLS 1.2 – alla Windows-versioner efter 2012 R2 ska ha stöd för TLS 1,2. Om din kopplings dator är från en version av 2012 R2 eller tidigare kontrollerar du att följande KB är installerade på datorn:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
-2.  Kontakta nätverksadministratören och be att du kontrollerar att serverdproxyn och brandväggen inte blockerar SHA512 för utgående trafik.
+2.  Kontakta nätverks administratören och be om att kontrol lera att backend-proxyn och brand väggen inte blockerar SHA512 för utgående trafik.
 
-**Så här verifierar du klientcertifikatet:**
+**Så här verifierar du klient certifikatet:**
 
-Kontrollera tumavtrycket för det aktuella klientcertifikatet. Certifikatarkivet finns i %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+Verifiera tumavtrycket för det aktuella klient certifikatet. Du hittar certifikat arkivet i%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,50 +79,50 @@ Kontrollera tumavtrycket för det aktuella klientcertifikatet. Certifikatarkivet
 </ConnectorTrustSettingsFile>
 ```
 
-Här är möjliga **IsInUserStore** värden och betydelser:
+Här följer de möjliga **IsInUserStore** -värdena och betydelser:
 
-- **false** - Klientcertifikatet skapades under installationen eller registreringen som initierades av kommandot Register-AppProxyConnector. Den lagras i den personliga behållaren i certifikatarkivet för den lokala datorn. 
-
-Följ stegen för att verifiera certifikatet:
-
-1. Kör **certlm.msc**
-2. I hanteringskonsolen utöka den personliga behållaren och klicka på Certifikat
-3. Leta reda på certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
-
-- **sant** - Det automatiskt förnyade certifikatet lagras i den personliga behållaren i nätverkstjänstens användarcertifikatarkiv. 
+- **false** -klient certifikatet skapades under installationen eller registreringen initierades av kommandot registrera-AppProxyConnector. Den lagras i den personliga behållaren i certifikat arkivet på den lokala datorn. 
 
 Följ stegen för att verifiera certifikatet:
 
-1. Ladda ner [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extrahera [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) från paketet och kör **psexec -i -u "nt authority\network service" cmd.exe** från en upphöjd kommandotolk.
-3. Kör **certmgr.msc** i den nyligen visades kommandotolken
-2. I hanteringskonsolen utöka den personliga behållaren och klicka på Certifikat
-3. Leta reda på certifikatet utfärdat av **connectorregistrationca.msappproxy.ne
+1. Kör **certlm. msc**
+2. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
+3. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
 
-**Så här förnyar du klientcertifikatet:**
+- **Sant** – det automatiskt förnyade certifikatet lagras i den personliga behållaren i användar certifikat arkivet för nätverks tjänsten. 
 
-Om en anslutning inte är ansluten till tjänsten på flera månader kan dess certifikat vara inaktuella. Fel på certifikatförnyelsen leder till ett certifikat som har upphört att gälla. Detta gör att anslutningstjänsten slutar fungera. Händelsen 1000 registreras i administratörsloggen för kopplingen:
+Följ stegen för att verifiera certifikatet:
 
-"Omregistrering av anslutningsappen misslyckades: Anslutningsförtroendecertifikatet har upphört att gälla. Kör PowerShell cmdlet Register-AppProxyConnector på datorn där anslutningen körs för att registrera din connector igen."
+1. Hämta [PsTools. zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Extrahera [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) från paketet och kör **PsExec-i-u "NT Authority\Network Service" cmd. exe** från en upphöjd kommando tolk.
+3. Kör **certmgr. msc** i den nyligen visade kommando tolken
+2. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
+3. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
 
-I det här fallet avinstallerar och installerar du om kopplingen för att utlösa registrering eller så kan du köra följande PowerShell-kommandon:
+**Så här förnyar du klient certifikatet:**
+
+Om en anslutning inte är ansluten till tjänsten under flera månader kan dess certifikat vara inaktuella. Haverit vid certifikat förnyelsen leder till ett utgånget certifikat. Detta gör att kopplings tjänsten upphör att fungera. Händelse 1000 registreras i administratörs loggen för anslutningen:
+
+"Det gick inte att registrera anslutningen: anslutnings förtroende certifikatet har upphört att gälla. Kör PowerShell-cmdleten register-AppProxyConnector på den dator där anslutningen körs för att registrera anslutningen på nytt. "
+
+I det här fallet måste du avinstallera och installera om anslutningen för att utlösa registreringen eller köra följande PowerShell-kommandon:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Mer information om kommandot Register-AppProxyConnector finns i [Skapa ett obevakat installationsskript för Azure AD Application Proxy-anslutningen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Mer information om kommandot register-AppProxyConnector finns i [skapa ett skript för obevakad installation för Azure AD-programproxy-anslutningen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
-## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifiera admin används för att installera anslutningen
+## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifiera att administratören används för att installera anslutningen
 
-**Syfte:** Kontrollera att användaren som försöker installera anslutningen är administratör med korrekta autentiseringsuppgifter. För närvarande måste användaren vara minst en programadministratör för att installationen ska lyckas.
+**Mål:** Kontrol lera att den användare som försöker installera anslutningen är administratör med rätt autentiseringsuppgifter. För närvarande måste användaren minst ha en program administratör för att installationen ska lyckas.
 
 **Så här kontrollerar du att autentiseringsuppgifterna är korrekta:**
 
-Anslut `https://login.microsoftonline.com` till och använd samma autentiseringsuppgifter. Kontrollera att inloggningen lyckas. Du kan kontrollera användarrollen genom att gå till **Azure Active Directory**  - &gt; **- användare och grupperar**  - &gt; **alla användare**. 
+Anslut till `https://login.microsoftonline.com` och Använd samma autentiseringsuppgifter. Kontrol lera att inloggningen har slutförts. Du kan kontrol lera användar rollen genom att gå till **Azure Active Directory**  - &gt; **användare och grupper**  - &gt; **alla användare**. 
 
-Välj ditt användarkonto och sedan "Katalogroll" på den resulterande menyn. Kontrollera att den valda rollen är "Programadministratör". Om du inte kan komma åt någon av sidorna i de här stegen har du inte den roll som krävs.
+Välj ditt användar konto och sedan "katalog roll" på den resulterande menyn. Kontrol lera att den valda rollen är "program administratör". Om du inte kan komma åt någon av sidorna tillsammans med de här stegen har du inte den roll som krävs.
 
 ## <a name="next-steps"></a>Nästa steg
 [Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)

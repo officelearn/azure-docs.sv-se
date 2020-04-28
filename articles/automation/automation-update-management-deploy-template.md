@@ -1,72 +1,79 @@
 ---
-title: Använda Azure Resource Manager-mallar för att uppdatera uppdateringshantering ombord | Microsoft-dokument
-description: Du kan använda en Azure Resource Manager-mall för att gå in på Azure Automation Update Management-lösningen.
+title: Använd Azure Resource Manager mallar för att publicera Uppdateringshantering | Microsoft Docs
+description: Du kan använda en Azure Resource Manager-mall för att publicera Azure Automation Uppdateringshantering-lösningen.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/30/2020
-ms.openlocfilehash: 81f9d242d93ffe513c0c3733ceb9d38ca9cadc1c
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 04/24/2020
+ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617457"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165798"
 ---
-# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Uppdaterad hanteringslösning med Azure Resource Manager-mall
+# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Publicera Uppdateringshantering-lösning med Azure Resource Manager-mall
 
-Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md) för att aktivera Azure Automation Update Management-lösningen i din resursgrupp. Den här artikeln innehåller en exempelmall som automatiserar följande:
+Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md) för att aktivera Azure Automation uppdateringshantering-lösningen i din resurs grupp. Den här artikeln innehåller en exempel mall som automatiserar följande:
 
 * Skapa en Azure Monitor Log Analytics-arbetsyta.
 * Skapa ett Azure Automation-konto.
-* Länka Automation-kontot till log analytics-arbetsytan, om det inte redan är länkat.
-* Introduktion till Azure Automation Update Management-lösningen.
+* Länkar Automation-kontot till Log Analytics-arbetsytan, om det inte redan är länkat.
+* Onboarding The Azure Automation Uppdateringshantering-lösningen.
 
-Mallen automatiserar inte introduktionen av en eller flera virtuella Azure- eller icke-Azure-datorer.
+Mallen automatiserar inte onboarding av en eller flera virtuella Azure-eller icke-Azure-datorer.
 
-Om du redan har ett Log Analytics-arbetsyta och Automation-konto distribuerat i en region som stöds i din prenumeration är de inte länkade. Arbetsytan har inte redan lösningen update management distribuerad. Om du använder den här mallen skapas länken och lösningen för uppdateringshantering distribueras. 
+Om du redan har en Log Analytics arbets yta och ett Automation-konto som har distribuerats i en region som stöds i din prenumeration är de inte länkade. Den Uppdateringshantering-lösningen har inte distribuerats på arbets ytan. Genom att använda den här mallen skapas länken och distribuerar Uppdateringshantering-lösningen. 
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="api-versions"></a>API-versioner
 
-I följande tabell visas API-versioner för de resurser som används i den här mallen.
+I följande tabell visas API-versionerna för de resurser som används i den här mallen.
 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|
-| Arbetsyta | arbetsytor | 2017-03-15-förhandsvisning |
+| Arbetsyta | arbetsytor | 2017-03-15 – för hands version |
 | Automation-konto | automation | 2015-10-31 | 
-| Lösning | lösningar | 2015-11-01-förhandsvisning |
+| Lösning | lösningar | 2015-11-01 – för hands version |
 
 ## <a name="before-using-the-template"></a>Innan du använder mallen
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell Az-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) för att skapa en anslutning med Azure. Med Azure PowerShell använder distributionen [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell AZ-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) för att skapa en anslutning till Azure. Med Azure PowerShell använder distributionen [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI version 2.1.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Med Azure CLI använder den här distributionen [az-gruppdistribution skapa](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.1.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Med Azure CLI använder den här distributionen [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
-JSON-mallen är konfigurerad för att fråga dig om:
+JSON-mallen har kon figurer ATS för att uppmana dig att:
 
-* Namnet på arbetsytan
-* Den region där arbetsytan ska skapas
+* Namnet på arbets ytan
+* Regionen där arbets ytan ska skapas
 * Namnet på Automation-kontot
-* Den region där kontot ska skapas
+* Regionen där kontot ska skapas
 
-JSON-mallen anger ett standardvärde för de andra parametrar som sannolikt kommer att användas för en standardkonfiguration i din miljö. Du kan lagra mallen i ett Azure-lagringskonto för delad åtkomst i din organisation. Mer information om hur du arbetar med mallar finns i [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+JSON-mallen anger ett standardvärde för de andra parametrarna som sannolikt kommer att användas för en standard konfiguration i din miljö. Du kan lagra mallen i ett Azure Storage-konto för delad åtkomst i din organisation. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-Följande parametrar i mallen anges med ett standardvärde för log analytics-arbetsytan:
+Följande parametrar i mallen anges med ett standardvärde för Log Analytics arbets ytan:
 
-* sku - standardvärden till den nya prisnivån per GB som släpptes i april 2018-prismodellen
-* lagring av data - standardvärden till trettio dagar
-* kapacitetsreservation - standardvärdet till 100 GB
+* SKU – standardvärdet för den nya pris nivån per GB som lanseras i pris sättnings modellen från april 2018
+* data kvarhållning – standardvärdet är trettio dagar
+* kapacitets reservation – standardvärdet är 100 GB
 
 >[!WARNING]
->Om du skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt prismodellen april 2018 är den enda giltiga log analytics-prisnivån **PerGB2018**.
+>Om du skapar eller konfigurerar en Log Analytics arbets yta i en prenumeration som har valt att ha en ny pris modell på april 2018 är den enda giltiga Log Analytics pris nivån **PerGB2018**.
 >
 
->[!NOTE]
->Innan du använder den här mallen bör du granska [ytterligare information](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) för att till fullo förstå konfigurationsalternativ för arbetsytor, till exempel åtkomstkontrollläge, prisnivå, kvarhållning och kapacitetsreservationsnivå. Om du inte har använt Azure Monitor-loggar och inte redan har distribuerat en arbetsyta bör du granska [arbetsytedesignvägledningen](../azure-monitor/platform/design-logs-deployment.md) för att lära dig mer om åtkomstkontroll och förstå de designimplementeringsstrategier som vi rekommenderar för din organisation.
+JSON-mallen anger ett standardvärde för de andra parametrarna som sannolikt används som standard konfiguration i din miljö. Du kan lagra mallen i ett Azure Storage-konto för delad åtkomst i din organisation. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+
+Det är viktigt att förstå följande konfigurations information om du är nybörjare på Azure Automation och Azure Monitor, för att undvika fel vid försök att skapa, konfigurera och använda en Log Analytics arbets yta som är länkad till det nya Automation-kontot.
+
+* Granska [Ytterligare information](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) för att helt förstå konfigurations alternativ för arbets ytor, till exempel åtkomst kontrol läge, pris nivå, kvarhållning och kapacitets reservations nivå.
+
+* Eftersom bara vissa regioner stöds för att länka en Log Analytics-arbetsyta och ett Automation-konto i din prenumeration, kan du granska [mappningar för arbets ytor](how-to/region-mappings.md) för att ange de regioner som stöds infogade eller i en parameter fil.
+
+* Om du inte har använt Azure Monitor loggar och inte har distribuerat en arbets yta redan, bör du gå igenom design vägledningen för [arbets ytan](../azure-monitor/platform/design-logs-deployment.md) för att lära dig mer om åtkomst kontroll och förstå de design implementerings strategier som vi rekommenderar för din organisation.
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
@@ -116,32 +123,6 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -236,11 +217,11 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
     }
     ```
 
-2. Redigera mallen för att uppfylla dina krav. Överväg att skapa en [Resource Manager-parameterfil](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
+2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [Resource Manager-parameter fil](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
 
-3. Spara filen i en lokal mapp som **deployUMSolutiontemplate.json**.
+3. Spara filen i en lokal mapp som **deployUMSolutiontemplate. JSON**.
 
-4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett jobbyte- och Automation-kontonamn anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
+4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett namn på en arbets yta och ett Automation-konto anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
 
     **PowerShell**
 
@@ -260,10 +241,10 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har distribuerat lösningen Update Management kan du aktivera virtuella datorer för hantering, granska uppdateringsutvärderingar och distribuera uppdateringar för att få dem att följa reglerna.
+Nu när du har distribuerat Uppdateringshantering-lösningen kan du aktivera virtuella datorer för hantering, granska uppdaterings utvärderingar och distribuera uppdateringar för att göra dem kompatibla.
 
-- Från ditt [Azure Automation-konto](automation-onboard-solutions-from-automation-account.md) för en eller flera Azure-datorer och manuellt för datorer som inte är Azure.
+- Från ditt [Azure Automation-konto](automation-onboard-solutions-from-automation-account.md) för en eller flera Azure-datorer och manuellt för datorer som inte är Azure-datorer.
 
-- För en enda Azure-virtuell dator från sidan för den virtuella datorn i Azure-portalen. Det här scenariot är tillgängligt för [virtuella Linux-](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) och [Windows-datorer.](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
+- För en enskild virtuell Azure-dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) -och [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) -datorer.
 
-- För [flera virtuella Azure-datorer](manage-update-multi.md) genom att välja dem från sidan **Virtuella datorer** i Azure-portalen. 
+- För [flera virtuella Azure-datorer](manage-update-multi.md) genom att välja dem från sidan **virtuella datorer** i Azure Portal. 

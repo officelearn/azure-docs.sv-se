@@ -7,77 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 59f9fecb3d949d9cdf48719e6329b066d9eb3fc5
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 7bfc74b2d27a879352f54df0772784a98e15e46d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393523"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865546"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Förbereda dina tekniska resurser för Azure-program
 
-I den här artikeln beskrivs resurserna för att förbereda de tekniska resurserna för ditt Azure-programerbjudande.
+[Cloud Partner Portal](https://cloudpartner.azure.com/) stöder inte längre skapandet och hanteringen av Azure-programerbjudanden. I stället har den här funktionen flyttats till Microsoft [Partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [Skapa ett Azure-programerbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).
 
-## <a name="before-you-begin"></a>Innan du börjar
-
-Granska följande video, [Skapa lösningsmallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603), en översikt över hur du skapar en Azure Resource Manager-mall för att definiera en Azure-programlösning och sedan hur du publicerar apperbjudandet till Azure Marketplace.
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
-
-
-Granska följande Azure-programdokumentation, som innehåller snabbstarter, självstudier och exempel.
-
-- [Förstå Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-- Snabbstarter:
-
-  - [Snabbstartsmallar för Azure](https://azure.microsoft.com/documentation/templates/)
-  - [Snabbstartsmallar för GitHub Azure](https://github.com/azure/azure-quickstart-templates)
-  - [Publicera programdefinition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-  - [Distribuera tjänstkatalogapp](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
-
-  
-- Självstudier:
-
-  - [Skapa definitionsfiler](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-  - [Publicera marknadsplatsprogram](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
-
-  - Prover:
-
-    - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-    - [Hanterade programlösningar](https://docs.microsoft.com/azure/managed-applications/sample-projects)
-
-## <a name="fundamental-technical-knowledge"></a>Grundläggande teknisk kunskap
-
-Designa, bygga och testa dessa tillgångar tar tid och kräver teknisk kunskap om både Azure-plattformen och de tekniker som används för att skapa erbjudandet.
-
-Ditt ingenjörsteam bör ha kunskap om följande Microsoft-tekniker:
-
-- Grundläggande förståelse för [Azure Services](https://azure.microsoft.com/services/)
-- Så här [utformar och arkitekt azure-program utformas](https://azure.microsoft.com/solutions/architecture/)
-- Kunskap om [virtuella Azure-datorer,](https://azure.microsoft.com/services/virtual-machines/) [Azure Storage](https://azure.microsoft.com/services/?filter=storage)och Azure [Networking](https://azure.microsoft.com/services/?filter=networking)
-- Kunskap om [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
-- Arbetskunskap om [JSON](https://www.json.org/)
-
-## <a name="suggested-tools"></a>Föreslagna verktyg
-
-Välj en eller båda av följande skriptmiljöer för att hantera ditt Azure-program:
-
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
-
-Vi rekommenderar att du lägger till följande verktyg i utvecklingsmiljön:
-
-- [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-- [Visual Studio-kod](https://code.visualstudio.com/) med följande tillägg:
-
-  - Tillägg: [Verktyg för Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-  - Förlängning: [Försköna](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-  - Förlängning: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
-
-Vi föreslår också att du granskar de tillgängliga verktygen på sidan [Azure Developer Tools](https://azure.microsoft.com/tools/) och, om du använder Visual Studio, Visual Studio [Marketplace](https://marketplace.visualstudio.com/).
-
-## <a name="next-steps"></a>Nästa steg
-
-[Skapa ett erbjudande för Azure-program](./cpp-create-offer.md)
-
+Innan du skapar ett nytt Azure-programerbjudande bör du läsa [Skapa ett Partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrumentpanelen för Kommersiella Marknadsplatser](https://partner.microsoft.com/dashboard/directory) med den **översiktssida** som valts. Följ instruktionerna i [Skapa ett Azure-programerbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) för att skapa ditt erbjudande.

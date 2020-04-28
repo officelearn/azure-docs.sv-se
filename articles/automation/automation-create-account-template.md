@@ -1,31 +1,31 @@
 ---
-title: Använda Azure Resource Manager-mallar för att skapa Automation-konto | Microsoft-dokument
+title: Använd Azure Resource Manager mallar för att skapa Automation-konto | Microsoft Docs
 description: Du kan använda en Azure Resource Manager-mall för att skapa ett Azure Automation-konto.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/15/2020
-ms.openlocfilehash: efe51fbada8ac70b24c16a5c7c1e0e91879e5e9f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 04/24/2020
+ms.openlocfilehash: 431b89df0ce06736a2e76e58797ded65751bb404
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618690"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165832"
 ---
-# <a name="create-automation-account-using-azure-resource-manager-template"></a>Skapa Automation-konto med Azure Resource Manager-mall
+# <a name="create-automation-account-using-azure-resource-manager-template"></a>Skapa Automation-konto med Azure Resource Manager mall
 
-Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md) för att skapa ett Azure Automation-konto i din resursgrupp. Den här artikeln innehåller en exempelmall som automatiserar följande:
+Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md) för att skapa ett Azure Automation konto i din resurs grupp. Den här artikeln innehåller en exempel mall som automatiserar följande:
 
 * Skapa en Azure Monitor Log Analytics-arbetsyta.
 * Skapa ett Azure Automation-konto.
-* Länkar automationskontot till log analytics-arbetsytan.
+* Länkar Automation-kontot till Log Analytics-arbetsytan.
 
-Mallen automatiserar inte introduktionen av en eller flera virtuella Azure- eller icke-Azure-datorer eller lösningar. 
+Mallen automatiserar inte onboarding av en eller flera virtuella Azure-eller icke-Azure-datorer eller lösningar. 
 
 >[!NOTE]
->Skapa automation kör som-konto stöds inte när du använder en Azure Resource Manager-mall. Om du vill skapa ett Run As-konto manuellt från portalen eller med PowerShell finns i [Hantera kör som-konto](manage-runas-account.md).
+>Det finns inte stöd för att skapa Automation-kör som-kontot när du använder en Azure Resource Manager-mall. Information om hur du skapar ett Kör som-konto manuellt från portalen eller med PowerShell finns i [Hantera kör som-konto](manage-runas-account.md).
 
 ## <a name="api-versions"></a>API-versioner
 
@@ -33,36 +33,41 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|
-| Arbetsyta | arbetsytor | 2017-03-15-förhandsvisning |
+| Arbetsyta | arbetsytor | 2017-03-15 – för hands version |
 | Automation-konto | automation | 2015-10-31 | 
 
 ## <a name="before-using-the-template"></a>Innan du använder mallen
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell Az-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure. Med Azure PowerShell använder distributionen [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell AZ-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure. Med Azure PowerShell använder distributionen [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI version 2.1.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Med Azure CLI använder den här distributionen [az-gruppdistribution skapa](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.1.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Med Azure CLI använder den här distributionen [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
-JSON-mallen är konfigurerad för att fråga dig om:
+JSON-mallen har kon figurer ATS för att uppmana dig att:
 
-* Namnet på arbetsytan
-* Regionen för att skapa arbetsytan i
+* Namnet på arbets ytan
+* Regionen som arbets ytan ska skapas i
 * Namnet på Automation-kontot
-* Den region som ska skapa kontot i
+* Regionen som kontot ska skapas i
 
-JSON-mallen anger ett standardvärde för de andra parametrar som troligen skulle användas som standardkonfiguration i din miljö. Du kan lagra mallen i ett Azure-lagringskonto för delad åtkomst i din organisation. Mer information om hur du arbetar med mallar finns i [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+Följande parametrar i mallen anges med ett standardvärde för Log Analytics arbets ytan:
 
-Följande parametrar i mallen anges med ett standardvärde för log analytics-arbetsytan:
-
-* sku - standardvärden till den nya prisnivån per GB som släpptes i april 2018-prismodellen
-* lagring av data - standardvärden till trettio dagar
-* kapacitetsreservation - standardvärdet till 100 GB
+* SKU – standardvärdet för den nya pris nivån per GB som lanseras i pris sättnings modellen från april 2018
+* data kvarhållning – standardvärdet är trettio dagar
+* kapacitets reservation – standardvärdet är 100 GB
 
 >[!WARNING]
->Om du skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt den nya prismodellen april 2018 är den enda giltiga log analytics-prisnivån **PerGB2018**.
+>Om du skapar eller konfigurerar en Log Analytics arbets yta i en prenumeration som har valt att ha en ny pris modell på april 2018 är den enda giltiga Log Analytics pris nivån **PerGB2018**.
 >
 
->[!NOTE]
->Innan du använder den här mallen bör du granska [ytterligare information](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) för att till fullo förstå konfigurationsalternativ för arbetsytor, till exempel åtkomstkontrollläge, prisnivå, kvarhållning och kapacitetsreservationsnivå. Om du inte har använt Azure Monitor-loggar och inte redan har distribuerat en arbetsyta bör du granska [arbetsytedesignvägledningen](../azure-monitor/platform/design-logs-deployment.md) för att lära dig mer om åtkomstkontroll och en förståelse för de designimplementeringsstrategier som vi rekommenderar för din organisation.
+JSON-mallen anger ett standardvärde för de andra parametrarna som sannolikt används som standard konfiguration i din miljö. Du kan lagra mallen i ett Azure Storage-konto för delad åtkomst i din organisation. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+
+Det är viktigt att förstå följande konfigurations information om du är nybörjare på Azure Automation och Azure Monitor, för att undvika fel vid försök att skapa, konfigurera och använda en Log Analytics arbets yta som är länkad till det nya Automation-kontot.
+
+* Granska [Ytterligare information](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) för att helt förstå konfigurations alternativ för arbets ytor, till exempel åtkomst kontrol läge, pris nivå, kvarhållning och kapacitets reservations nivå.
+
+* Eftersom bara vissa regioner stöds för att länka en Log Analytics-arbetsyta och ett Automation-konto i din prenumeration, kan du granska [mappningar för arbets ytor](how-to/region-mappings.md) för att ange de regioner som stöds infogade eller i en parameter fil.
+
+* Om du inte har använt Azure Monitor loggar och inte har distribuerat en arbets yta redan, bör du gå igenom design vägledningen för [arbets ytan](../azure-monitor/platform/design-logs-deployment.md) för att lära dig mer om åtkomst kontroll och förstå de design implementerings strategier som vi rekommenderar för din organisation.
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
@@ -112,32 +117,6 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -307,11 +286,11 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
     }
     ```
 
-2. Redigera mallen för att uppfylla dina krav. Överväg att skapa en [Resource Manager-parameterfil](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
+2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [Resource Manager-parameter fil](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
 
-3. Spara den här filen som deployAzAutomationAccttemplate.json till en lokal mapp.
+3. Spara filen som deployAzAutomationAccttemplate. json i en lokal mapp.
 
-4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett jobbyte- och Automation-kontonamn anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
+4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett namn på en arbets yta och ett Automation-konto anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
 
     **PowerShell**
 
@@ -331,4 +310,4 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har ett Automation-konto kan du skapa runbooks och automatisera manuella processer.
+Nu när du har ett Automation-konto kan du skapa Runbooks och automatisera manuella processer.

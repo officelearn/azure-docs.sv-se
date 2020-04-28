@@ -1,51 +1,51 @@
 ---
 title: Fastställa orsaker till icke-kompatibilitet
-description: När en resurs inte är kompatibel finns det många möjliga orsaker. Lär dig att ta reda på vad som orsakade bristande efterlevnad.
+description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
 ms.date: 04/26/2019
 ms.topic: how-to
-ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 395c70309ceca6e38f9f62522d80fb588821b886
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "79264640"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182590"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
-När en Azure-resurs bedöms vara icke-kompatibel med en principregel är det bra att förstå vilken del av regeln som resursen inte är kompatibel med. Det är också användbart att förstå vilken ändring som ändrade en tidigare kompatibel resurs för att göra den inte kompatibel. Det finns två sätt att hitta den här informationen:
+När en Azure-resurs bedöms vara icke-kompatibel med en princip regel är det bra att förstå vilken del av regeln som resursen inte är kompatibel med. Det är också bra att förstå vilken ändring som har ändrat en tidigare kompatibel resurs för att göra den icke-kompatibel. Det finns två sätt att hitta den här informationen:
 
 > [!div class="checklist"]
 > - [Information om efterlevnad](#compliance-details)
-> - [Ändra historik (förhandsgranskning)](#change-history)
+> - [Ändrings historik (förhands granskning)](#change-history)
 
 ## <a name="compliance-details"></a>Information om efterlevnad
 
-När en resurs inte är kompatibel är efterlevnadsinformationen för den resursen tillgänglig från sidan **Principefterlevnad.** Fönstret information om efterlevnad innehåller följande information:
+Om en resurs är icke-kompatibel, är kompatibilitetsinformation för resursen tillgängliga **från sidan efterlevnadsprincip** . I fönstret information om efterlevnad finns följande information:
 
-- Resursinformation som namn, typ, plats och resurs-ID
-- Efterlevnadstillstånd och tidsstämpel för den senaste utvärderingen för den aktuella principtilldelningen
-- En lista över _orsaker till_ att resursen inte uppfyller kraven
+- Resurs information som namn, typ, plats och resurs-ID
+- Kompatibilitetstillstånd och tidsstämpel för den senaste utvärderings versionen för den aktuella princip tilldelningen
+- En lista över _orsaker_ till att resursen inte uppfyller kraven
 
 > [!IMPORTANT]
-> Eftersom efterlevnadsinformationen för en _icke-kompatibel_ resurs visar det aktuella värdet för egenskaper på den resursen, måste användaren ha **läst** åtgärd till **resurstypen.** Om den _icke-kompatibla_ resursen till exempel är **Microsoft.Compute/virtualMachines** måste användaren ha åtgärden **Microsoft.Compute/virtualMachines/read.** Om användaren inte har den nödvändiga åtgärden visas ett åtkomstfel.
+> Eftersom kompatibilitetsinformation för en _icke-kompatibel_ resurs visar det aktuella värdet för egenskaperna för den resursen, måste användaren ha **Läs** åtgärd för resurs **typen** . Om den _icke-kompatibla_ resursen till exempel är **Microsoft. Compute/virtualMachines** måste användaren ha åtgärden **Microsoft. Compute/virtualMachines/Read** . Om användaren inte har den nödvändiga åtgärden visas ett åtkomst fel.
 
-Så här visar du efterlevnadsinformationen:
+Följ dessa steg om du vill visa kompatibilitetsinformation:
 
 1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
-1. På sidan **Översikt** eller **Efterlevnad** väljer du en princip i ett **efterlevnadstillstånd** som inte är _kompatibelt_.
+1. På sidan **Översikt** eller **efterlevnad** väljer du en princip i ett **kompatibilitetstillstånd** som _inte är kompatibelt_.
 
-1. Högerklicka eller välj ellipsen för en resurs under fliken **Resursefterlevnad** på _Non-compliant_sidan **Principefterlevnad.** **compliance state** Välj sedan **Visa efterlevnadsinformation**.
+1. På fliken **Resource Compliance (Resource Compliance** ) **på sidan efterlevnadsprincip** högerklickar du på eller väljer tre punkter i en resurs i ett kompatibelt **tillstånd** som _inte är kompatibelt_. Välj sedan **Visa Kompatibilitetsrapport**.
 
-   ![Visa alternativet För efterlevnadsinformation](../media/determine-non-compliance/view-compliance-details.png)
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Visa alternativ för efterlevnad" border="false":::
 
-1. I fönstret **Information om efterlevnad** visas information från den senaste utvärderingen av resursen till den aktuella principtilldelningen. I det här exemplet visar sig fältet **Microsoft.Sql/servers/version** vara _12.0_ medan principdefinitionen förväntades _14.0_. Om resursen inte är kompatibel av flera skäl visas var och en i det här fönstret.
+1. I fönstret **kompatibilitetsinformation** visas information från den senaste utvärderings versionen av resursen till den aktuella princip tilldelningen. I det här exemplet finns fältet **Microsoft. SQL/Servers/version** som _12,0_ medan princip definitionen förväntar sig _14,0_. Om resursen inte är kompatibel av flera orsaker visas varje lista i det här fönstret.
 
-   ![Fönstret Information om efterlevnad och orsaker till bristande efterlevnad](../media/determine-non-compliance/compliance-details-pane.png)
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Fönstret information om efterlevnad och orsaker till inkompatibilitet" border="false":::
 
-   För en **auditIfNotExists** eller **deployIfNotExists** principdefinition innehåller informationen egenskapen **details.type** och eventuella valfria egenskaper. En lista finns i [egenskaper för auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) och [deployIfNotExists egenskaper](../concepts/effects.md#deployifnotexists-properties). **Senast utvärderad resurs** är en relaterad resurs från **informationsavsnittet** i definitionen.
+   För en **auditIfNotExists** -eller **deployIfNotExists** -princip definition innehåller informationen **information. Type** -egenskapen och eventuella valfria egenskaper. En lista finns i [auditIfNotExists egenskaper](../concepts/effects.md#auditifnotexists-properties) och [deployIfNotExists egenskaper](../concepts/effects.md#deployifnotexists-properties). Den **senaste utvärderade resursen** är en relaterad resurs från avsnittet **information** i definitionen.
 
-   Exempel partiell **deployIfNotExists** definition:
+   Exempel på partiell **deployIfNotExists** -definition:
 
    ```json
    {
@@ -70,68 +70,68 @@ Så här visar du efterlevnadsinformationen:
    }
    ```
 
-   ![Fönstret Information om efterlevnad - *ifNotExists](../media/determine-non-compliance/compliance-details-pane-existence.png)
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Informations fönstret för efterlevnad – * ifNotExists" border="false":::
 
 > [!NOTE]
-> För att skydda data, när ett egenskapsvärde är en _hemlighet,_ visar det aktuella värdet asterisker.
+> Om ett egenskaps värde är _hemligt_ för att skydda data visas asterisker i det aktuella värdet.
 
-De här detaljerna förklarar varför en resurs för närvarande inte är kompatibel, men visas inte när ändringen gjordes av resursen som gjorde att den inte var kompatibel. Den informationen finns i [Ändra historik (förhandsgranskning)](#change-history) nedan.
+Informationen förklarar varför en resurs för närvarande inte är kompatibel, men visas inte när ändringen gjordes till den resurs som gjorde att den blev inkompatibel. Mer information finns i [ändrings historik (förhands granskning)](#change-history) nedan.
 
 ### <a name="compliance-reasons"></a>Orsaker till efterlevnad
 
-Matrisen kartlägger efter varje möjlighet _resonerar_ till [ansvarigt villkorar](../concepts/definition-structure.md#conditions) i den politiska definitionen:
+Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](../concepts/definition-structure.md#conditions) i princip definitionen:
 
 |Orsak | Villkor |
 |-|-|
-|Det aktuella värdet måste innehålla målvärdet som en nyckel. |innehållerNyckel eller **not** inteContainsKey |
-|Aktuellt värde måste innehålla målvärdet. |innehåller eller **inte** inteContains |
-|Det aktuella värdet måste vara lika med målvärdet. |är lika med eller **inte** InteEquals |
-|Det aktuella värdet måste vara mindre än målvärdet. |mindre eller **inte** störreOrEquals |
-|Det aktuella värdet måste vara större än eller lika med målvärdet. |störreOrEquals eller **inte** mindre |
-|Det aktuella värdet måste vara större än målvärdet. |större eller **inte** utReorEquals |
-|Det aktuella värdet måste vara mindre än eller lika med målvärdet. |mindre Än Minst Eller **inte** större |
-|Det aktuella värdet måste finnas. |Finns |
-|Det aktuella värdet måste finnas i målvärdet. |i eller **inte** InteIn |
-|Det aktuella värdet måste vara som målvärdet. |gilla eller **inte** InteSom |
-|Aktuellt värde måste skiftlägeskänsligt matcha målvärdet. |matcha eller **inteMatcha** |
-|Det aktuella värdet måste skiftlägesokänsligt matcha målvärdet. |matchInkänsligt eller **not** inteMatchInsensitively |
-|Det aktuella värdet får inte innehålla målvärdet som en nyckel. |notContainsKey eller **inte** innehållerNyckel|
-|Det aktuella värdet får inte innehålla målvärdet. |inte Innehåller eller **inte** innehåller |
-|Det aktuella värdet får inte vara lika med målvärdet. |notEquals eller **inte** är lika med |
-|Det aktuella värdet får inte finnas. |**inte** existerar  |
-|Det aktuella värdet får inte finnas i målvärdet. |notIn eller **inte** i |
-|Det aktuella värdet får inte vara som målvärdet. |notLike eller **inte** som |
-|Det aktuella värdet får inte skiftlägeskänsligt matcha målvärdet. |notMatch eller **inte** matcha |
-|Det aktuella värdet får inte skiftlägesokänsligt matcha målvärdet. |inteMatchInsensitively eller **inte** matchInsensitively |
-|Inga relaterade resurser matchar effektdetaljerna i principdefinitionen. |En resurs av typen som definieras i **then.details.type** och relaterad till resursen som definierats i **om** delen av principregeln inte finns. |
+|Det aktuella värdet måste innehålla målvärdet som en nyckel. |containsKey eller **inte** notContainsKey |
+|Det aktuella värdet måste innehålla målvärdet. |innehåller eller **inte** notContains |
+|Det aktuella värdet måste vara lika med målvärdet. |lika med eller **inte** notEquals |
+|Det aktuella värdet måste vara mindre än målvärdet. |mindre eller **inte** större |
+|Det aktuella värdet måste vara större än eller lika med målvärdet. |Större eller **inte** mindre |
+|Det aktuella värdet måste vara större än målvärdet. |större eller **icke** -lessOrEquals |
+|Det aktuella värdet måste vara mindre än eller lika med målvärdet. |lessOrEquals eller **inte** större |
+|Det aktuella värdet måste finnas. |finns |
+|Det aktuella värdet måste vara i målvärdet. |i eller **inte** notIn |
+|Det aktuella värdet måste vara samma som målvärdet. |gilla eller **inte** notLike |
+|Det aktuella värdet måste Skift läges känsligt matcha målvärdet. |matcha eller **not** notMatch |
+|Det aktuella värdet måste vara Skift läges okänsligt matcha målvärdet. |matchInsensitively eller **inte** notMatchInsensitively |
+|Det aktuella värdet får inte innehålla målvärdet som en nyckel. |notContainsKey eller **inte** containsKey|
+|Det aktuella värdet får inte innehålla målvärdet. |notContains eller **inte** innehåller |
+|Det aktuella värdet får inte vara samma som målvärdet. |notEquals eller **inte** lika med |
+|Det aktuella värdet får inte finnas. |finns **inte**  |
+|Det aktuella värdet får inte vara i målvärdet. |notIn eller **inte** i |
+|Det aktuella värdet får inte vara samma som målvärdet. |notLike eller **inte** gilla |
+|Det aktuella värdet får inte Skift läges känsligt matcha målvärdet. |notMatch eller **not** match |
+|Det aktuella värdet får inte Skift läges okänsligt matcha målvärdet. |notMatchInsensitively eller **inte** matchInsensitively |
+|Inga relaterade resurser matchar träd informationen i princip definitionen. |En resurs av den typ som definierats i **sedan. details. Type** och relaterad till den resurs som definierats i **IF** -delen i princip regeln finns inte. |
 
-## <a name="compliance-details-for-guest-configuration"></a>Efterlevnadsinformation för gästkonfiguration
+## <a name="compliance-details-for-guest-configuration"></a>Information om efterlevnad för gäst konfiguration
 
-För _auditIfNotExists_ principer i kategorin _Gästkonfiguration_ kan det finnas flera inställningar utvärderade inuti den virtuella datorn och du måste visa information per inställning. Om du till exempel granskar en lista över lösenordsprinciper och bara en av dem har status _som icke-kompatibla_måste du veta vilka specifika lösenordsprinciper som inte uppfyller kraven och varför.
+För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera inställningar utvärderas i den virtuella datorn och du måste visa information om varje inställning. Om du till exempel granskar en lista över lösen ords principer och bara en av dem har status _inkompatibel_, behöver du veta vilka principer för lösen ord som inte är kompatibla och varför.
 
-Du kanske inte heller har åtkomst till inloggning till den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn inte är _kompatibel_.
+Du kanske inte har behörighet att logga in på den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn är _icke-kompatibel_.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Börja med att följa samma steg i avsnittet ovan för att visa information om policyefterlevnad.
+Börja med att följa samma steg i avsnittet ovan för att visa information om efterlevnad av policy.
 
-Klicka på länken **Senast utvärderad resurs**i fönstret **Kompatibilitetsinformation** .
+I fönstret **Kompatibilitetsrapport** klickar du på länken **senaste utvärderade resursen**.
 
-   ![Visa definitionsinformation för auditIfNotExists](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Visa information om auditIfNotExists-definitioner" border="false":::
 
-På sidan **Gästtilldelning** visas alla tillgängliga efterlevnadsuppgifter. Varje rad i vyn representerar en utvärdering som utfördes inuti maskinen. I kolumnen **Orsak** visas en fras som beskriver varför gästtilldelningen inte är _kompatibel._ Om du till exempel granskar lösenordsprinciper visar kolumnen **Orsak** text inklusive det aktuella värdet för varje inställning.
+På sidan **gäst tilldelning** visas all tillgänglig information om kompatibilitet. Varje rad i vyn representerar en utvärdering som utförts i datorn. I kolumnen **orsak** visas en fras som beskriver varför gäst tilldelningen inte är _kompatibel_ . Om du till exempel granskar lösen ords principer visar kolumnen **orsak** att texten innehåller det aktuella värdet för varje inställning.
 
-![Visa efterlevnadsinformation](../media/determine-non-compliance/guestconfig-compliance-details.png)
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Visa information om efterlevnad" border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Du kan också visa efterlevnadsinformation från Azure PowerShell. Kontrollera först att du har modulen Gästkonfiguration installerad.
+Du kan också visa information om efterlevnad från Azure PowerShell. Kontrol lera först att du har modulen gäst konfiguration installerad.
 
 ```azurepowershell-interactive
 Install-Module Az.GuestConfiguration
 ```
 
-Du kan visa aktuell status för alla gästtilldelningar för en virtuell dator med följande kommando:
+Du kan visa den aktuella statusen för alla gäst tilldelningar för en virtuell dator med hjälp av följande kommando:
 
 ```azurepowershell-interactive
 Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
@@ -144,7 +144,7 @@ Audit that an application is installed inside Windows VMs                 {[Inst
 Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
 ```
 
-Om du bara vill visa orsaksfrasen som beskriver varför den virtuella datorn inte är _kompatibel_returnerar du bara egenskapen Reason child. _reason_
+Om du bara vill visa _orsaken_ till varför den virtuella datorn är _icke-kompatibel_, returnerar du endast den underordnade egenskapen orsak.
 
 ```azurepowershell-interactive
 Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
@@ -154,7 +154,7 @@ Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname
 The following applications are not installed: '<name>'.
 ```
 
-Du kan också ange en efterlevnadshistorik för gästtilldelningar i omfånget för datorn. Utdata från det här kommandot innehåller information om varje rapport för den virtuella datorn.
+Du kan också skriva ut en efterlevnadsprincip för gäst tilldelningar i omfånget för datorn. Utdata från det här kommandot innehåller information om varje rapport för den virtuella datorn.
 
 > [!NOTE]
 > Utdata kan returnera en stor mängd data. Vi rekommenderar att du lagrar utdata i en variabel.
@@ -172,7 +172,7 @@ PolicyDisplayName                                                         Compli
 <truncated>
 ```
 
-Om du vill förenkla den här vyn använder du parametern **ShowChanged.** Utdata från det här kommandot innehåller endast rapporter som följde på en ändring av efterlevnadsstatus.
+Använd parametern **ShowChanged** för att förenkla den här vyn. Utdata från det här kommandot innehåller bara rapporter som följde en ändring av kompatibilitetsstatus.
 
 ```azurepowershell-interactive
 $guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
@@ -188,34 +188,34 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="change-history-preview"></a><a name="change-history"/>Ändra historik (förhandsgranskning)
+## <a name="change-history-preview"></a><a name="change-history"/>Ändrings historik (förhands granskning)
 
-Som en del av en ny **offentlig förhandsversion**är de senaste 14 dagarnas ändringshistorik tillgänglig för alla Azure-resurser som stöder [fullständig borttagning av läge](../../../azure-resource-manager/templates/complete-mode-deletion.md). Ändringshistoriken innehåller information om när en ändring upptäcktes och en _visuell diff_ för varje ändring. En ändringsidentifiering utlöses när Resource Manager-egenskaperna läggs till, tas bort eller ändras.
+Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i ändrings historiken tillgängliga för alla Azure-resurser som stöder [borttagning av fullständigt läge](../../../azure-resource-manager/templates/complete-mode-deletion.md). Ändrings historiken innehåller information om när en ändring upptäcktes och en _visuell skillnad_ för varje ändring. En ändrings identifiering utlöses när Resource Manager-egenskaperna läggs till, tas bort eller ändras.
 
 1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
-1. På sidan **Översikt** eller **Efterlevnad** väljer du en princip i alla **efterlevnadstillstånd**.
+1. På sidan **Översikt** eller **efterlevnad** väljer du en princip i valfritt **kompatibilitetstillstånd**.
 
-1. Välj en resurs under fliken **Resursefterlevnad** på sidan **Principefterlevnad.**
+1. På fliken **Resource Compliance (Resource Compliance** ) **på sidan efterlevnadsprincip** väljer du en resurs.
 
-1. Välj fliken **Ändra historik (förhandsgranskning)** på sidan **Resursefterlevnad.** En lista över identifierade ändringar, om sådana finns, visas.
+1. Välj fliken **ändrings historik (förhands granskning)** på sidan **resurs efterlevnad** . En lista över identifierade ändringar, om sådana finns, visas.
 
-   ![Fliken Historik för Azure-principändring på sidan Resursefterlevnad](../media/determine-non-compliance/change-history-tab.png)
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Fliken Azure Policy ändrings historik på sidan resurs efterlevnad" border="false":::
 
-1. Markera en av de identifierade ändringarna. _Resursens visuella diff_ för resursen visas på sidan **Ändra historik.**
+1. Välj en av de identifierade ändringarna. Den _visuella differensen_ för resursen visas på sidan **Ändra historik** .
 
-   ![Visual Diff för visuella datahistorik för Azure Policy Change på sidan Ändra historik](../media/determine-non-compliance/change-history-visual-diff.png)
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Azure Policy ändra historik för visuell skillnad på ändrings historik Sidan" border="false":::
 
-Den _visuella diff_ medhjälpare att identifiera ändringar i en resurs. De ändringar som har identifierats kanske inte är relaterade till resursens aktuella efterlevnadstillstånd.
+Den _visuella diff_ -aides för att identifiera ändringar av en resurs. De ändringar som upptäcktes kanske inte är relaterade till resursens aktuella kompatibilitetstillstånd.
 
-Ändringshistorikdata tillhandahålls av [Azure Resource Graph](../../resource-graph/overview.md). Information om hur du frågar den här informationen utanför Azure-portalen finns i [Hämta resursändringar](../../resource-graph/how-to/get-resource-changes.md).
+Data för ändrings historiken tillhandahålls av [Azure Resource Graph](../../resource-graph/overview.md). Information om hur du frågar den här informationen utanför Azure Portal finns i [Hämta resurs ändringar](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska exempel i [Azure policy exempel](../samples/index.md).
 - Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
 - Granska [Förstå policy-effekter](../concepts/effects.md).
-- Förstå hur du [programmässigt skapar principer](programmatically-create.md).
-- Läs om hur du [hämtar efterlevnadsdata](get-compliance-data.md).
+- Lär dig att [program mässigt skapa principer](programmatically-create.md).
+- Lär dig hur du [hämtar efterlevnadsprinciper](get-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](remediate-resources.md).
-- Granska vad en hanteringsgrupp är med [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

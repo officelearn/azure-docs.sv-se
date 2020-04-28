@@ -1,23 +1,19 @@
 ---
 title: Installation av AMD GPU-drivrutin i Azure N-serien för Windows
 description: Konfigurera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows Server eller Windows i Azure
-services: virtual-machines-windows
 author: vikancha
 manager: jkabat
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 02213feb507e9a032a50241fddf31714b9dfd7ee
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 63114bdf60c1feb2b6cb1092ef78397efdc5b666
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011093"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865759"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner på virtuella datorer i N-serien som kör Windows
 

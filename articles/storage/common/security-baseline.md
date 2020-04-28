@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d083ba757004fa477038750ad6210e4bb30659ee
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120761"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176608"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
@@ -140,7 +140,7 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 ### <a name="110-document-traffic-configuration-rules"></a>1,10: dokumentera trafik konfigurations regler
 
-**Vägledning**: Använd taggar för nätverks säkerhets grupper (NSG) och andra resurser som rör nätverks säkerhets-och trafikflödet. För enskilda NSG-regler använder du fältet Beskrivning för att ange affärs behov och/eller varaktighet (osv.) för alla regler som tillåter trafik till/från ett nätverk. Använd någon av de inbyggda definitioner av Azure-principer som är relaterade till taggning, till exempel "Kräv tagg och dess värde" för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser. Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar. 
+**Vägledning**: Använd taggar för nätverks säkerhets grupper (NSG) och andra resurser som rör nätverks säkerhets-och trafikflödet. För enskilda NSG-regler använder du fältet Beskrivning för att ange affärs behov och/eller varaktighet (osv.) för alla regler som tillåter trafik till/från ett nätverk. Använd någon av de inbyggda Azure Policy definitionerna som är relaterade till taggning, till exempel "Kräv tagg och dess värde" för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser. Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar. 
 
 - [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -783,7 +783,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. Storage" för att skapa anpassade principer för att granska eller framtvinga konfigurationen av dina lagrings konto instanser. Du kan också använda inbyggda definitioner av Azure-principer för Azure Storage konto, till exempel: 
+**Vägledning**: Använd Azure policy alias i namn området "Microsoft. Storage" för att skapa anpassade principer för att granska eller framtvinga konfigurationen av dina lagrings konto instanser. Du kan också använda inbyggda Azure Policy definitioner för Azure Storage konto, till exempel: 
 
 Granska obegränsad nätverks åtkomst till lagrings konton distribuera Avancerat skydd på lagrings konton lagrings konton ska migreras till nya Azure Resource Manager resurser säker överföring till lagrings konton ska aktive ras 
 
@@ -807,7 +807,7 @@ Använd rekommendationer från Azure Security Center som en säker konfiguration
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7,3: underhåll säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] om du vill framtvinga säkra inställningar för dina lagrings konto resurser. 
+**Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar över dina lagrings konto resurser. 
 
 - [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

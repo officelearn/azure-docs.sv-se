@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bb1059087bdf8fc4eb852be7a995febc3336713
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 10fa16767061506eccf212c182e738246dc9fe7b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115285"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867227"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Skapa ett nytt Dynamics 365 Business Central-erbjudande
 
@@ -192,6 +192,9 @@ Ange minst ett (och upp till tre) relaterade marknadsföringsdokument här, till
 ### <a name="marketplace-images"></a>Marketplace-bilder
 
 I det här avsnittet kan du ange logotyper och bilder som ska användas när du visar ditt erbjudande till kunden. Alla bilder måste vara i PNG-format. Ladda upp din erbjudandelogotyp i två storlekar: **Small (48 x 48)** och **Large (216 x 216)**.
+
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
 
 #### <a name="screenshots"></a>Skärmbilder
 

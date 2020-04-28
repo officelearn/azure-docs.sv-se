@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69dc34c3989adee3af69613617368c29072a7650
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244945"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186109"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverks gränssnitt
 
@@ -49,7 +49,7 @@ När du skapar en virtuell dator med hjälp av Azure Portal skapar portalen ett 
 
     |Inställning|Krävs?|Information|
     |---|---|---|
-    |Namn|Ja|Namnet måste vara unikt inom den resurs grupp du väljer. Med tiden har du troligen flera nätverks gränssnitt i din Azure-prenumeration. Förslag när du skapar en namngivnings konvention för att göra det enklare att hantera flera nätverks gränssnitt finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Namnet kan inte ändras efter att nätverks gränssnittet har skapats.|
+    |Name|Ja|Namnet måste vara unikt inom den resurs grupp du väljer. Med tiden har du troligen flera nätverks gränssnitt i din Azure-prenumeration. Förslag när du skapar en namngivnings konvention för att göra det enklare att hantera flera nätverks gränssnitt finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Namnet kan inte ändras efter att nätverks gränssnittet har skapats.|
     |Virtuellt nätverk|Ja|Välj det virtuella nätverket för nätverks gränssnittet. Du kan bara tilldela ett nätverks gränssnitt till ett virtuellt nätverk som finns i samma prenumeration och plats som nätverks gränssnittet. När ett nätverks gränssnitt har skapats kan du inte ändra det virtuella nätverk som det har tilldelats. Den virtuella dator som du lägger till nätverks gränssnittet till måste också finnas på samma plats och i samma prenumeration som nätverks gränssnittet.|
     |Undernät|Ja|Välj ett undernät i det virtuella nätverk som du har valt. Du kan ändra det undernät som nätverks gränssnittet tilldelas efter att det har skapats.|
     |Tilldelning av privat IP-adress|Ja| I den här inställningen väljer du tilldelnings metod för IPv4-adressen. Välj mellan följande tilldelnings metoder: **dynamiska:** när du väljer det här alternativet tilldelar Azure automatiskt nästa tillgängliga adress från det valda under nätets adress utrymme. **Statisk:** När du väljer det här alternativet måste du manuellt tilldela en tillgänglig IP-adress från det valda under nätets adress utrymme. Statiska och dynamiska adresser ändras inte förrän du ändrar dem eller nätverks gränssnittet har tagits bort. Du kan ändra tilldelnings metoden när nätverks gränssnittet har skapats. Azure DHCP-servern tilldelar den här adressen till nätverks gränssnittet i den virtuella datorns operativ system.|
@@ -251,7 +251,7 @@ Nästa hopp-funktion i Azure Network Watcher kan också hjälpa dig att avgöra 
 
 För att utföra åtgärder på nätverks gränssnitt måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats rätt behörigheter i följande tabell:
 
-| Åtgärd                                                                     | Namn                                                      |
+| Åtgärd                                                                     | Name                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft. Network/networkInterfaces/Read                                   | Hämta nätverks gränssnitt                                     |
 | Microsoft. Network/networkInterfaces/Write                                  | Skapa eller uppdatera nätverks gränssnitt                        |
@@ -273,4 +273,4 @@ För att utföra åtgärder på nätverks gränssnitt måste ditt konto tilldela
 - Skapa en virtuell dator med en virtuell NIC med flera IPv4-adresser med hjälp av [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) eller [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 - Skapa en virtuell nätverkskort virtuell dator med en privat IPv6-adress (bakom en Azure Load Balancer) med hjälp av [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-, [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-eller [Azure Resource Manager-mallen](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Skapa ett nätverks gränssnitt med [PowerShell](powershell-samples.md) -eller [Azure CLI](cli-samples.md) -exempel skript eller med Azure [Resource Manager-mall](template-samples.md)
-- Skapa och tillämpa [Azure policy](policy-samples.md) för virtuella nätverk
+- Skapa och tilldela [Azure policy definitioner](policy-samples.md) för virtuella nätverk

@@ -1,24 +1,18 @@
 ---
 title: Flytta en Windows VM-resurs i Azure
 description: Flytta en Windows-virtuell dator till en annan Azure-prenumeration eller resursgrupp i Resurshanterarens distributionsmodell.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: ed29c92d20a6b0d749ec44a22f42ec446ec58650
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c3f5541405d1fd983bbf988b99d2b4e10d8908c
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919574"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865664"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Flytta en virtuell Windows-dator till en annan Azure-prenumeration eller resursgrupp
 I den här artikeln får du lära dig hur du flyttar en virtuell Dator (VM) mellan resursgrupper eller prenumerationer. Det kan vara praktiskt att flytta mellan prenumerationer om du ursprungligen skapade en virtuell dator i en personlig prenumeration och nu vill flytta den till företagets prenumeration för att fortsätta ditt arbete. Du behöver inte starta den virtuella datorn för att flytta den och den bör fortsätta att köras under flytten.

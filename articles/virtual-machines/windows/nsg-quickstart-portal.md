@@ -1,24 +1,18 @@
 ---
 title: Öppna portar till en virtuell dator med Azure-portalen
-description: Lär dig hur du öppnar en port /skapar en slutpunkt till din Virtuella Windows-dator med resurshanterarens distributionsmodell i Azure Portal
-services: virtual-machines-windows
-documentationcenter: ''
+description: Lär dig hur du öppnar en port /skapar en slutpunkt till din Virtuella Windows-dator med Azure Portal
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1844236a77b688819832b3fe0bf6736beea4bfae
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75371419"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865493"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Så här öppnar du portar till en virtuell dator med Azure-portalen
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]

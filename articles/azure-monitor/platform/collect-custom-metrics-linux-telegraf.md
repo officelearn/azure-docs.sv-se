@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c5ea32fb198a61391e1be3648d1d2d2e829a7214
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137271"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186449"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 
@@ -32,6 +32,9 @@ Genom att använda Azure Monitor kan du samla in anpassade mått via din program
 I den här självstudien distribuerar vi en virtuell Linux-dator som kör operativ systemet Ubuntu 16,04 LTS. Teleympkvistar-agenten stöds för de flesta Linux-operativsystem. Både Debian-och RPM-paket är tillgängliga tillsammans med unpaketerade Linux-binärfiler på [InfluxData nedladdnings Portal](https://portal.influxdata.com/downloads). I den här [installations guiden för netympkvistar](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) finns ytterligare installationsinstruktioner och alternativ. 
 
 Logga in på [Azure-portalen](https://portal.azure.com).
+
+> [!NOTE]  
+> Om du vill migrera klassiska aviserings regler och använda en befintlig virtuell Linux-dator kontrollerar du att virtuellt-datorn har en tilldelad identitet inställd **på**.
 
 Skapa en ny virtuell Linux-dator: 
 

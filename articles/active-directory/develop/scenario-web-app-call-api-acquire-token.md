@@ -1,6 +1,6 @@
 ---
-title: Skaffa en token i en webbapp som anropar webb-API:er – Microsoft identity platform | Azure
-description: Lär dig hur du skaffar en token för en webbapp som anropar webb-API:er
+title: 'Hämta en token i en webbapp som anropar webb-API: er – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du hämtar en token för en webbapp som anropar webb-API: er'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,23 +11,23 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1069b4288f8253ccb9a7774b3144d10d85dcdd36
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537125"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181740"
 ---
-# <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>En webbapp som anropar webb-API:er: Skaffa en token för appen
+# <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>En webbapp som anropar webb-API: er: Hämta en token för appen
 
-Du har skapat ditt klientprogramobjekt. Nu ska du använda den för att hämta en token för att anropa ett webb-API. I ASP.NET eller ASP.NET Core görs anropande av ett webb-API i styrenheten:
+Du har skapat ditt klient program objekt. Nu ska du använda den för att hämta en token för att anropa ett webb-API. Anropa ett webb-API i ASP.NET eller ASP.NET Core på kontrollanten:
 
-- Hämta en token för webb-API:et med hjälp av tokencachen. För att få den `AcquireTokenSilent` här token anropar du metoden.
-- Anropa det skyddade API:et och skicka åtkomsttoken till det som en parameter.
+- Hämta en token för webb-API: et med hjälp av token-cachen. För att hämta denna token anropar du `AcquireTokenSilent` MSAL-metoden (eller motsvarande i Microsoft. Identity. Web).
+- Anropa det skyddade API: et och skicka åtkomsttoken till den som en parameter.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Styrenhetsmetoderna skyddas `[Authorize]` av ett attribut som tvingar användare att autentiseras för att använda webbappen. Här är koden som anropar Microsoft Graph:
+Styrenhets metoderna skyddas av ett `[Authorize]` attribut som tvingar användare att autentiseras att använda webbappen. Här är koden som anropar Microsoft Graph:
 
 ```csharp
 [Authorize]
@@ -45,16 +45,16 @@ public class HomeController : Controller
 }
 ```
 
-Tjänsten `ITokenAcquisition` injiceras av ASP.NET med hjälp av beroendeinjektion.
+`ITokenAcquisition` Tjänsten injiceras av ASP.net med hjälp av beroende inmatning.
 
-Här är förenklad kod för `HomeController`åtgärden av , som får en token att ringa Microsoft Graph:
+Här är den `HomeController`förenklade koden för åtgärden, som hämtar en token för att anropa Microsoft Graph:
 
 ```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
@@ -63,28 +63,28 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-För att bättre förstå koden som krävs för det här scenariot, se fas 2[(2-1-Web app Calls Microsoft Graph)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)steg [ms-identity-aspnetcore-webapp-tutorial.](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
+För att bättre förstå koden som krävs för det här scenariot, se steg 2 ([2-1 – webapps-anrop Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) i självstudien [MS-Identity-aspnetcore-webapp – självstudie](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) .
 
 Det finns andra komplexa variationer, till exempel:
 
-- Anropar flera API:er.
-- Bearbetning av inkrementellt medgivande och villkorad åtkomst.
+- Anropar flera API: er.
+- Bearbetning av stegvist godkännande och villkorlig åtkomst.
 
-Dessa avancerade steg beskrivs i kapitel 3 i [3-WebApp-multi-API:er](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs) självstudiekurs.
+Dessa avancerade steg beskrivs i kapitel 3 i själv studie kursen [3-webapp-multi-API: er](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs) .
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Koden för ASP.NET liknar koden som visas för ASP.NET Core:
 
-- En styrenhetsåtgärd, skyddad av ett [Authorize]-attribut, extraherar `ClaimsPrincipal` klient-ID och användar-ID för medlemmen i styrenheten. (ASP.NET använder `HttpContext.User`.)
-- Därifrån bygger det ett MSAL.NET `IConfidentialClientApplication` objekt.
-- Slutligen anropas `AcquireTokenSilent` metoden för det konfidentiella klientprogrammet.
+- En kontroll enhets åtgärd, som skyddas av ett [auktorisera]-attribut, extraherar klient-ID `ClaimsPrincipal` och användar-ID för kontrollantens medlem. (ASP.NET använder `HttpContext.User`.)
+- Därifrån skapar den ett MSAL.NET `IConfidentialClientApplication` -objekt.
+- Slutligen anropar den `AcquireTokenSilent` metoden för det konfidentiella klient programmet.
 
 # <a name="java"></a>[Java](#tab/java)
 
-I java-exemplet finns koden som anropar ett API i metoden getUsersFromGraph i [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
+I Java-exemplet finns den kod som anropar ett API i getUsersFromGraph-metoden i [AuthPageController. java # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
-Metoden försöker anropa `getAuthResultBySilentFlow`. Om användaren behöver samtycka till fler `MsalInteractionRequiredException` scope bearbetar koden objektet för att utmana användaren.
+Metoden försöker anropa `getAuthResultBySilentFlow`. Om användaren behöver samtycka till fler omfattningar, bearbetar koden `MsalInteractionRequiredException` objektet för att utmana användaren.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")
@@ -144,9 +144,9 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 # <a name="python"></a>[Python](#tab/python)
 
-I exemplet Python finns koden som anropar Microsoft Graph i [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
+I python-exemplet finns den kod som anropar Microsoft Graph i [app. py # L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
 
-Koden försöker hämta en token från tokencachen. Sedan, efter att ha ställt in auktoriseringshuvudet, anropas webb-API:et. Om den inte kan få en token signerar den användaren igen.
+Koden försöker hämta en token från token-cachen. När du har angett Authorization-huvudet anropas webb-API: et. Om det inte går att hämta en token loggas användaren in igen.
 
 ```python
 @app.route("/graphcall")
@@ -160,6 +160,8 @@ def graphcall():
         ).json()
     return render_template('display.html', result=graph_data)
 ```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

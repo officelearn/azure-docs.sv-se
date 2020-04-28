@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs: Azure Active Directory-integrering med Bpm'online | Microsoft-dokument"
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bpm'online.
+title: 'Självstudie: Azure Active Directory integrering med creatio | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och creatio.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,186 +11,150 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2019
+ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937278f6a9261ca807f934718bc108bf125f44a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: feffefbc9da15dc074d69549446b471984e4422d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67106030"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183372"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Självstudiekurs: Azure Active Directory-integrering med Bpm'online
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-creatio"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med creatio
 
-I den här självstudien får du lära dig hur du integrerar Bpm'online med Azure Active Directory (Azure AD).
-Genom att integrera Bpm'online med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar creatio med Azure Active Directory (Azure AD). När du integrerar creatio med Azure AD kan du:
 
-* Du kan styra i Azure AD som har åtkomst till Bpm'online.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Bpm'online (Enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till creatio.
+* Gör det möjligt för användarna att logga in automatiskt till creatio med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Bpm'online behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Bpm'online enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Creatio för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Bpm'online stöder **SP och IDP** initierade SSO
+* Creatio stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-bpmonline-from-the-gallery"></a>Lägga till Bpm'online från galleriet
+* När du har konfigurerat creatio kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-Om du vill konfigurera integreringen av Bpm'online i Azure AD måste du lägga till Bpm'online från galleriet i listan över hanterade SaaS-appar.
+## <a name="adding-creatio-from-the-gallery"></a>Lägga till creatio från galleriet
 
-**Så här lägger du till Bpm'online från galleriet:**
+Om du vill konfigurera integreringen av Creatio i Azure AD måste du lägga till creatio från galleriet i listan över hanterade SaaS-appar.
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **creatio** i sökrutan.
+1. Välj **creatio** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-creatio"></a>Konfigurera och testa enkel inloggning med Azure AD för creatio
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+Konfigurera och testa Azure AD SSO med creatio med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i creatio.
 
-3. Om du vill lägga till ett nytt program klickar du på knappen **Nytt program** högst upp i dialogrutan.
+Om du vill konfigurera och testa Azure AD SSO med creatio, slutför du följande Bygg stenar:
 
-    ![Knappen Nytt program](common/add-new-app.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera CREATIO SSO](#configure-creatio-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa creatio test User](#create-creatio-test-user)** -om du vill ha en motsvarighet till B. Simon i creatio som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-4. Skriv **Bpm'online**i sökrutan och välj **Bpm'online** på resultatpanelen och klicka sedan på knappen **Lägg** till för att lägga till programmet.
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Bpm'online i resultatlistan](common/search-new-app.png)
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **creatio** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Bpm'online baserat på en testanvändare som heter **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Bpm'online upprättas.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Bpm'online måste du slutföra följande byggblock:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Bpm'online Enkel inloggning](#configure-bpmonline-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Bpm'online testanvändare](#create-bpmonline-test-user)** - att ha en motsvarighet till Britta Simon i Bpm'online som är kopplad till Azure AD representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://<client site name>.bpmonline.com/`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Bpm'online:
-
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Bpm'online-programintegration** . **Single sign-on**
-
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
-
-    ![Bpm'online Domän och webbadresser enkel inloggningsinformation](common/idp-intiated.png)
-
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<client site name>.bpmonline.com/`
-
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
-
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
-
-    ![Bpm'online Domän och webbadresser enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
-
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<client site name>.bpmonline.com/`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<client site name>.bpmonline.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Bpm'online Client support team](mailto:support@bpmonline.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [creatio client support team](mailto:support@creatio.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+
+1. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-bpmonline-single-sign-on"></a>Konfigurera Bpm'online Enkel inloggning
-
-Om du vill konfigurera enkel inloggning på **Bpm'online-sidan** måste du skicka **url:en till App Federation Metadata url** till [Bpm'online supportteam](mailto:support@bpmonline.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** högst upp på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Bpm'online.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till creatio.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Bpm'online**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **creatio**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. Välj **Bpm'online**i programlistan .
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken Bpm'online i programlistan](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+## <a name="configure-creatio-sso"></a>Konfigurera creatio SSO
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+Om du vill konfigurera enkel inloggning på **creatio** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för creatio](mailto:support@creatio.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+### <a name="create-creatio-test-user"></a>Skapa creatio test användare
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+I det här avsnittet skapar du en användare som heter Britta Simon i creatio. Arbeta med [creatio support team](mailto:support@creatio.com) för att lägga till användare i creatio-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-bpmonline-test-user"></a>Skapa Bpm'online testanvändare
-
-I det här avsnittet skapar du en användare som heter Britta Simon i Bpm'online. Arbeta med [Bpm'online supportteam](mailto:support@bpmonline.com) för att lägga till användarna i Bpm'online-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Bpm'online på åtkomstpanelen ska du automatiskt loggas in på den Bpm'online som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen creatio på åtkomst panelen, bör du loggas in automatiskt på den creatio som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova creatio med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

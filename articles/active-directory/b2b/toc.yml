@@ -17,7 +17,7 @@
       items:
         - name: Massinbjudan via PowerShell
           href: bulk-invite-powershell.md
-        - name: Massinbjudan via portalen (förhandsversion)
+        - name: Massinbjudan via portalen
           href: tutorial-bulk-invite.md
         - name: Använda multifaktorautentisering
           href: b2b-tutorial-require-mfa.md

@@ -1,6 +1,6 @@
 ---
-title: Använda Min personal för att delegera användarhantering (förhandsversion) – Azure AD | Microsoft-dokument
-description: Delegera användarhantering med min personal och administrativa enheter
+title: Använda min personal för att delegera användar hantering (för hands version) – Azure AD | Microsoft Docs
+description: Delegera användar hantering med min personal och administrativa enheter
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,96 +9,114 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 04/23/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7c12612dbe37de6b08cb05a64af460296ade93
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 282946a023e4e79ee79b05cc2a317efc5a4056e4
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394220"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165881"
 ---
-# <a name="manage-your-users-with-my-staff-preview"></a>Hantera användarna med Min personal (förhandsgranskning)
+# <a name="manage-your-users-with-my-staff-preview"></a>Hantera dina användare med min personal (förhands granskning)
 
-Med min personal kan du delegera till en auktoritet, till exempel en butikschef eller en gruppledning, behörigheterna för att säkerställa att deras anställda kan komma åt sina Azure AD-konton. I stället för att förlita sig på en central helpdesk kan organisationer delegera vanliga uppgifter som att återställa lösenord eller ändra telefonnummer till en teammanager. Med Min personal kan en användare som inte kan komma åt sitt konto få åtkomst med bara ett par klick, utan att någon helpdesk eller IT-personal krävs.
+Med min personal kan du delegera till en bild av auktoriteten, till exempel en butiks chef eller en grupp ledare, behörigheterna för att säkerställa att deras personal medlemmar kan komma åt sina Azure AD-konton. I stället för att lita på en central helpdesk kan organisationer delegera vanliga uppgifter, till exempel att återställa lösen ord eller ändra telefonnumret till en team chef. Med min personal kan en användare som inte har åtkomst till sitt konto få åtkomst på bara några klick, utan supportavdelningen eller IT-personal som krävs.
 
-Innan du konfigurerar Min personal för din organisation rekommenderar vi att du granskar den här dokumentationen samt [användardokumentationen](../user-help/my-staff-team-manager.md) för att se till att du förstår funktionens funktioner och inverkan på användarna. Du kan använda användardokumentationen för att träna och förbereda användarna för den nya upplevelsen och bidra till att säkerställa en lyckad distribution.
+Innan du konfigurerar min personal för din organisation rekommenderar vi att du läser igenom den här dokumentationen och [användar dokumentationen](../user-help/my-staff-team-manager.md) för att se till att du förstår funktionerna och effekten av den här funktionen på användarna. Du kan använda användar dokumentationen för att träna och förbereda dina användare för den nya upplevelsen och hjälpa till att se till att distributionen lyckas.
 
 ## <a name="how-my-staff-works"></a>Så här fungerar min personal
 
-Min personal baseras på administrativa enheter som är en behållare med resurser som kan användas för att begränsa omfattningen av ett rolltilldelnings administrativa kontroll. I Min personal används AUs för att definiera en delmängd av en organisations användare, till exempel ett lager eller en avdelning. Sedan kan till exempel en gruppchef tilldelas en roll vars omfattning är en eller flera AUs. I exemplet nedan har användaren tilldelats rollen Autentiseringsarministrativa och de tre AUs är omfattningen av rollen. Mer information om administrativa enheter finns [i Hantering av administrativa enheter i Azure Active Directory](directory-administrative-units.md).
+Min personal är baserad på administrativa enheter (Australien), som är en behållare med resurser som kan användas för att begränsa omfattningen av en roll tilldelnings administrativ kontroll. I min personal används Australien för att definiera en delmängd av en organisations användare, till exempel en butik eller avdelning. Till exempel kan en team ansvarig tilldelas till en roll vars omfång är en eller flera Australien. I exemplet nedan har användaren beviljats den administrativa rollen för autentisering och de tre centrala mapparna är rollens omfattning. Mer information om administrativa enheter finns [i hantering av administrativa enheter i Azure Active Directory](directory-administrative-units.md).
 
-## <a name="how-to-enable-my-staff"></a>Så här aktiverar du Min personal
+## <a name="how-to-enable-my-staff"></a>Så här aktiverar du min personal
 
-När du har konfigurerat AUs kan du använda det här scopet på användarna som har åtkomst till Min personal. Endast användare som har tilldelats en administrativ roll kan komma åt Min personal. Så här aktiverar du Min personal:
+När du har konfigurerat Australien kan du tillämpa det här omfånget på dina användare som har åtkomst till min personal. Endast användare som har tilldelats en administrativ roll har åtkomst till min personal. Utför följande steg för att aktivera min personal:
 
-1. Logga in på Azure-portalen som användaradministratör.
-2. Bläddra till **Azure Active Directory** > **Användarinställningar** > **Användarfunktionsförhandsvisningar** > **Hantera förhandsgranskningsinställningar för användarfunktionen**.
-3. Under **Administratörer kan komma åt Min personal**kan du välja att aktivera för alla användare, valda användare eller ingen användaråtkomst.
+1. Logga in på Azure Portal som användar administratör.
+2. Bläddra till **Azure Active Directory** > **användar inställningar** > **användar funktions** > förhands**granskningar hantera användar funktions förhands gransknings inställningar**.
+3. Under **Administratörer kan komma åt min personal**kan du välja att aktivera för alla användare, valda användare eller ingen användar åtkomst.
 
 > [!Note]
-> Endast användare som har tilldelats en administratörsroll kan komma åt Min personal. Om du aktiverar Min personal för en användare som inte har tilldelats en administratörsroll kan de inte komma åt Min personal.
+> Endast användare som har tilldelats en administratörs roll har åtkomst till min personal. Om du aktiverar min personal för en användare som inte har tilldelats någon administratörs roll kan de inte komma åt min personal.
+
+## <a name="conditional-access"></a>Villkorlig åtkomst
+
+Du kan skydda min personal Portal med hjälp av principen för villkorlig åtkomst för Azure AD. Använd den för aktiviteter som kräver multifaktorautentisering innan du får åtkomst till min personal.
+
+Vi rekommenderar starkt att du skyddar min personal med [villkorliga åtkomst principer för Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Om du vill tillämpa en princip för villkorlig åtkomst för min personal måste du skapa tjänstens huvud namn för min personal manuellt med hjälp av PowerShell.
+
+### <a name="apply-a-----conditional-access-policy-to-my-staff"></a>Tillämpa en princip för villkorlig åtkomst för min personal
+
+1. Installera [PowerShell-cmdletarna för Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
+1. Kör följande kommandon:
+
+        Connect-Graph -Scopes "Directory.AccessAsUser.All"
+        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+
+1. Skapa en princip för villkorlig åtkomst som gäller för moln programmet min personal.
+
+    ![Skapa en princip för villkorlig åtkomst för min personal-appen](media/my-staff-configure/conditional-access.png)
 
 ## <a name="using-my-staff"></a>Använda min personal
 
-När en användare går till Min personal visas namnen på de [administrativa enheter](directory-administrative-units.md) som de har administratörsbehörighet över. I [användardokumentationen För Min personal](../user-help/my-staff-team-manager.md)använder vi termen "plats" för att referera till administrativa enheter. Om en administratörs behörigheter inte har au-scope gäller behörigheterna i hela organisationen. När Min personal har aktiverats kan de användare som är aktiverade och [https://mystaff.microsoft.com](https://mystaff.microsoft.com)har tilldelats en administrativ roll komma åt den via . De kan välja en AU för att visa användarna i au:et och välja en användare för att öppna sin profil.
+När en användare går till min personal visas namnen på de [administrativa enheter](directory-administrative-units.md) som de har administratörs behörighet för. I [användar dokumentationen för min personal](../user-help/my-staff-team-manager.md)använder vi termen "plats" för att referera till administrativa enheter. Om en administratörs behörighet inte har någon AU-omfattning gäller behörigheterna i hela organisationen. När min personal har Aktiver ATS kan de användare som är aktiverade och har tilldelats en administrativ roll komma åt den via [https://mystaff.microsoft.com](https://mystaff.microsoft.com). De kan välja en AU för att visa användarna i den AU och välja en användare för att öppna profilen.
 
 ## <a name="licenses"></a>Licenser
 
-Varje användare som är aktiverad i Min personal måste vara licensierad, även om de inte använder portalen Min personal. Varje aktiverad användare måste ha någon av följande Azure AD- eller Microsoft 365-licenser:
+Varje användare som är aktive rad i min personal måste vara licensierad, även om de inte använder min personal Portal. Varje aktive rad användare måste ha någon av följande Azure AD-eller Microsoft 365-licenser:
 
 - Azure AD Premium P1 eller P2
 - Microsoft 365 F1 eller F3
 
 ## <a name="reset-a-users-password"></a>Återställa ett användarlösenord
 
-Följande roller har behörighet att återställa en användares lösenord:
+Följande roller har behörighet att återställa en användares lösen ord:
 
 - [Administratör för autentisering](directory-assign-admin-roles.md#authentication-administrator)
-- [Privilegierad autentiseringsadministratör](directory-assign-admin-roles.md#privileged-authentication-administrator)
+- [Administratör för privilegie rad autentisering](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Global administratör](directory-assign-admin-roles.md#global-administrator--company-administrator)
-- [Helpdesk-administratör](directory-assign-admin-roles.md#helpdesk-administrator)
-- [Användaradministratör](directory-assign-admin-roles.md#user-administrator)
+- [Support administratör](directory-assign-admin-roles.md#helpdesk-administrator)
+- [Användar administratör](directory-assign-admin-roles.md#user-administrator)
 - [Lösenordsadministratör](directory-assign-admin-roles.md#password-administrator)
 
-Öppna en användares profil från **Min personal.** Välj **Återställ lösenord**.
+Öppna en användar profil från **min personal**. Välj **Återställ lösen ord**.
 
-- Om användaren endast är molnfri kan du se ett tillfälligt lösenord som du kan ge till användaren.
-- Om användaren synkroniseras från den lokala Active Directory kan du ange ett lösenord som uppfyller dina lokala AD-principer. Du kan sedan ge det lösenordet till användaren.
+- Om användaren endast är molnbaserad kan du se ett tillfälligt lösen ord som du kan ge användaren.
+- Om användaren har synkroniserats från lokala Active Directory kan du ange ett lösen ord som uppfyller dina lokala AD-principer. Du kan sedan ange lösen ordet för användaren.
 
-    ![Statusindikator för återställning av lösenord och meddelande om lyckad gång](media/my-staff-configure/reset-password.png)
+    ![Förlopps indikator för lösen ords återställning och lyckad avisering](media/my-staff-configure/reset-password.png)
 
-Användaren måste ändra sitt lösenord nästa gång de loggar in.
+Användaren måste ändra sitt lösen ord nästa gången de loggar in.
 
 ## <a name="manage-a-phone-number"></a>Hantera ett telefonnummer
 
-Öppna en användares profil från **Min personal.**
+Öppna en användar profil från **min personal**.
 
-- Välj **Lägg till telefonnummeravsnitt** för att lägga till ett telefonnummer för användaren
-- Välj **Redigera telefonnummer** om du vill ändra telefonnumret
-- Välj **Ta bort telefonnummer** för att ta bort telefonnumret för användaren
+- Lägg till ett telefonnummer för användaren genom att välja **Lägg till telefonnummer**
+- Välj **redigera telefonnummer** för att ändra telefonnumret
+- Ta bort telefonnumret för användaren genom att välja **ta bort telefonnummer**
 
-Beroende på dina inställningar kan användaren sedan använda det telefonnummer som du ställer in för att logga in med SMS, utföra multifaktorautentisering och utföra återställning av lösenord för självbetjäning.
+Beroende på dina inställningar kan användaren sedan använda det telefonnummer som du ställt in för att logga in med SMS, utföra Multi-Factor Authentication och utföra lösen ords återställning via självbetjäning.
 
-Om du vill hantera en användares telefonnummer måste du tilldelas en av följande roller:
+Om du vill hantera en användares telefonnummer måste du ha tilldelats någon av följande roller:
 
 - [Administratör för autentisering](directory-assign-admin-roles.md#authentication-administrator)
-- [Privilegierad autentiseringsadministratör](directory-assign-admin-roles.md#privileged-authentication-administrator)
+- [Administratör för privilegie rad autentisering](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Global administratör](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
 ## <a name="search"></a>Search
 
-Du kan söka efter AUs och användare i organisationen med hjälp av sökfältet i Min personal. Du kan söka bland alla ru:er och användare i organisationen, men du kan bara göra ändringar för användare som befinner sig i en AU som du har fått administratörsbehörighet över.
+Du kan söka efter Australien och användare i din organisation med hjälp av Sök fältet i min personal. Du kan söka i alla Australien och användare i din organisation, men du kan bara göra ändringar i användare som är i en AU som du har fått administratörs behörighet för.
 
-Du kan också söka efter en användare inom en AU. Det gör du genom att använda sökfältet högst upp i användarlistan.
+Du kan också söka efter en användare i AU. Det gör du genom att använda Sök fältet överst i användar listan.
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-Du kan visa granskningsloggar för åtgärder som vidtas i Min personal i Azure Active Directory-portalen. Om en granskningslogg genererades av en åtgärd som vidtagits i Min personal visas detta under YTTERLIGARE INFORMATION i granskningshändelsen.
+Du kan visa gransknings loggar för åtgärder som vidtagits i min personal på Azure Active Directory-portalen. Om en Gransknings logg har genererats av en åtgärd som vidtagits i min personal visas detta under ytterligare information i gransknings händelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Dokumentation av min personalanvändare](../user-help/my-staff-team-manager.md)
-[Administrativa enheter](directory-administrative-units.md)
+[Dokumentation om mina anställdas användar dokumentation](../user-help/my-staff-team-manager.md)
+[administrativa enheter](directory-administrative-units.md)

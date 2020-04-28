@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs för JavaScript-appar - Microsoft identity platform | Azure
-description: Så här kan JavaScript SPA-program anropa ett API som kräver åtkomsttoken av Azure Active Directory v2.0-slutpunkten
+title: Själv studie kurs om JavaScript-program med enkel sida – Microsoft Identity Platform | Azure
+description: Hur Java Script SPA-program kan anropa ett API som kräver åtkomsttoken från Azure Active Directory v 2.0-slutpunkt
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -11,64 +11,58 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52b7c582848dd24f6d9963a9d37c8f12c5db6149
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678030"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181570"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph API från ett javascript-ensidigt program (SPA)
+# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
-Den här guiden visar hur ett javascript-program (SPA) kan:
-- Logga in personliga konton samt arbets- och skolkonton
+Den här guiden visar hur ett Java Script (Single-Side Application) kan:
+- Logga in personliga konton, samt arbets-och skol konton
 - Hämta en åtkomsttoken
-- Anropa Microsoft Graph API eller andra API:er som kräver åtkomsttoken från slutpunkten för *Microsoft-identitetsplattformen*
+- Anropa API: et för Microsoft Graph eller andra API: er som kräver åtkomsttoken från *Microsoft Identity Platform-slutpunkten*
 
 >[!NOTE]
-> Om du inte har tillgång till Microsofts identitetsplattform tidigare rekommenderar vi att du börjar med [inloggningsanvändarna och får en åtkomsttoken i en Snabbstart för JavaScript SPA.](quickstart-v2-javascript.md)
+> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med [inloggnings användarna och får en åtkomsttoken i en snabb start för Java Script](quickstart-v2-javascript.md).
 
-## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelappen som genereras av den här guiden
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
-![Visar hur exempelappen som genereras av den här självstudien fungerar](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Visar hur exempel appen som genereras av den här själv studie kursen fungerar](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-Exempelprogrammet som skapas av den här guiden gör det möjligt för ett JavaScript SPA att fråga Microsoft Graph API eller ett webb-API som accepterar token från slutpunkten för Microsoft-identitetsplattformen. I det här fallet när en användare loggar in, begärs en åtkomsttoken och läggs till HTTP-begäranden via auktoriseringshuvudet. Den här token används för att hämta användarens profil och e-post via **MS Graph API**. Tokenförvärv och förnyelse hanteras av **Microsoft Authentication Library (MSAL) för JavaScript**.
+Det exempel program som skapats av den här guiden gör det möjligt för ett Java Script SPA att fråga Microsoft Graph-API eller ett webb-API som accepterar token från Microsoft Identity Platform-slutpunkten. I det här scenariot begärs en åtkomsttoken efter att användaren loggar in och läggs till i HTTP-begäranden via Authorization-huvudet. Denna token kommer att användas för att hämta användarens profil och e-post via **MS Graph API**. Hämtning av token och förnyelse hanteras av **Microsoft Authentication Library (MSAL) för Java Script**.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### <a name="libraries"></a>Bibliotek
 
-Den här guiden använder följande bibliotek:
+I den här guiden används följande bibliotek:
 
 |Bibliotek|Beskrivning|
 |---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för JavaScript|
+|[msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script|
 
-<!--end-collapse-->
+## <a name="set-up-your-web-server-or-project"></a>Konfigurera din webb server eller ditt projekt
 
-## <a name="set-up-your-web-server-or-project"></a>Konfigurera webbservern eller webbprojektet
-
-> Föredrar du att ladda ned det här exemplets projekt istället? [Ladda ner projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
+> Vill du ladda ned det här exemplets projekt i stället? [Ladda ned projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
-> Om du vill konfigurera kodexemplet innan du kör det går du till [konfigurationssteget](#register-your-application).
+> Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfigurations steget](#register-your-application).
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du vill köra den här självstudien behöver du en lokal webbserver, till exempel [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core)eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* För att kunna köra den här självstudien behöver du en lokal webb server, till exempel [Node. js](https://nodejs.org/en/download/), [.net Core](https://www.microsoft.com/net/core)eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-* Instruktionerna i den här guiden baseras på en webbserver som är inbyggd i Node.js. Vi rekommenderar att du använder [Visual Studio Code](https://code.visualstudio.com/download) som din integrerade utvecklingsmiljö (IDE).
+* Anvisningarna i den här guiden baseras på en webb server som skapats i Node. js. Vi rekommenderar att du använder [Visual Studio Code](https://code.visualstudio.com/download) som Integrated Development Environment (IDE).
 
 ## <a name="create-your-project"></a>Skapa ditt projekt
 
-Kontrollera att du har [nod.js](https://nodejs.org/en/download/) installerat och skapa sedan en mapp som är värd för ditt program. Där kommer vi att [Express](https://expressjs.com/) implementera en enkel `index.html` Express webbserver för att tjäna din fil.
+Kontrol lera att du har [Node. js](https://nodejs.org/en/download/) installerat och skapa sedan en mapp som är värd för ditt program. Där ska vi implementera en enkel [Express](https://expressjs.com/) -webbserver för att hantera din `index.html` fil.
 
-1. Först med integrerad Visual Studio Code-terminal, leta reda på projektmappen och installera sedan Express med NPM.
+1. Börja med att använda Visual Studio Code Integrated Terminal, leta upp projektmappen och installera sedan Express med NPM.
 
-1. Skapa sedan en .js-fil med namnet `server.js`och lägg sedan till följande kod:
+1. Skapa därefter en. js-fil med `server.js`namnet och Lägg sedan till följande kod:
 
    ```JavaScript
    const express = require('express');
@@ -97,15 +91,15 @@ Kontrollera att du har [nod.js](https://nodejs.org/en/download/) installerat och
    console.log('Listening on port ' + port + '...');
    ```
 
-Du har nu en enkel server för att tjäna ditt SPA. Den avsedda mappstrukturen i slutet av den här självstudien är följande:
+Nu har du en enkel server som kan hantera din SPA. Den avsedda mappstrukturen i slutet av den här självstudien är följande:
 
-![en textskildring av den avsedda SPA-mappstrukturen](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure.png)
+![en text som beskriver den avsedda SPA-mappstrukturen](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure.png)
 
-## <a name="create-the-spa-ui"></a>Skapa SPA-användargränssnittet
+## <a name="create-the-spa-ui"></a>Skapa SPA-ANVÄNDARGRÄNSSNITTET
 
-1. Skapa `index.html` en fil för ditt JavaScript SPA. Den här filen implementerar ett användargränssnitt byggt med **Bootstrap 4 Framework** och importerar skriptfiler för konfiguration, autentisering och API-anrop.
+1. Skapa en `index.html` fil för Java Script Spa. Den här filen implementerar ett användar gränssnitt som skapats med **bootstrap 4 Framework** och importerar skriptfiler för konfigurations-, autentiserings-och API-anrop.
 
-   Lägg `index.html` till följande kod i filen:
+   I `index.html` filen lägger du till följande kod:
 
    ```html
    <!DOCTYPE html>
@@ -183,9 +177,9 @@ Du har nu en enkel server för att tjäna ditt SPA. Den avsedda mappstrukturen i
    ```
 
    > [!TIP]
-   > Du kan ersätta versionen av MSAL.js i det föregående skriptet med den senast utgivna versionen under [MSAL.js-versioner](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+   > Du kan ersätta versionen av MSAL. js i skriptet ovan med den senaste utgivna versionen under [MSAL. js-versioner](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-2. Nu skapar du en .js-fil med namnet `ui.js`, som kommer åt och uppdaterar DOM-element, och lägger till följande kod:
+2. Nu ska du skapa en. js- `ui.js`fil med namnet, som kommer att få åtkomst till och uppdatera dom-element och lägga till följande kod:
 
    ```JavaScript
    // Select DOM elements to work with
@@ -259,35 +253,35 @@ Du har nu en enkel server för att tjäna ditt SPA. Den avsedda mappstrukturen i
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-Innan du fortsätter med autentiseringen registrerar du ditt program på **Azure Active Directory**.
+Registrera ditt program på **Azure Active Directory**innan du fortsätter med autentiseringen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-1. Om ditt konto ger dig åtkomst till mer än en klient väljer du kontot längst upp till höger och ställer sedan in portalsessionen på den Azure AD-klient som du vill använda.
-1. Gå till sidan Microsoft identity platform for developers [App registrations.](https://go.microsoft.com/fwlink/?linkid=2083908)
+1. Om ditt konto ger dig åtkomst till fler än en klient väljer du kontot längst upp till höger och anger sedan din portal-session till den Azure AD-klient som du vill använda.
+1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-1. I avsnittet **Omdirigera URI** väljer du **webbplattformen** i listrutan och anger sedan värdet till program-URL:en som baseras på webbservern.
+1. I avsnittet **omdirigerings-URI** väljer du **webb** plattformen i list rutan och anger sedan värdet till den program-URL som är baserad på din webb server.
 1. Välj **Registrera**.
-1. På sidan Översikt **över** appen noterar du **värdet program (klient)** för senare användning.
-1. Den här snabbstarten kräver att [flödet för implicit beviljande](v2-oauth2-implicit-grant-flow.md) aktiveras. Välj **Autentisering**i den vänstra rutan i det registrerade programmet .
-1. I **Avancerade inställningar**under Implicit **beviljande**markerar du **kryssrutorna ID-token** och **Access-token.** ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
+1. På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
+1. Den här snabbstarten kräver att [flödet för implicit beviljande](v2-oauth2-implicit-grant-flow.md) aktiveras. I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
+1. I **Avancerade inställningar**, under **implicit tilldelning**, markerar du kryss rutorna **ID-token** och **åtkomst-token** . ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
 1. Välj **Spara**.
 
-> ### <a name="set-a-redirect-url-for-nodejs"></a>Ange en omdirigerings-URL för Node.js
+> ### <a name="set-a-redirect-url-for-nodejs"></a>Ange en omdirigerings-URL för Node. js
 >
-> För Node.js kan du ange webbserverporten i *filen server.js.* Den här självstudien använder port 3000, men du kan använda alla andra tillgängliga portar.
+> För Node. js kan du ange webb Server porten i filen *Server. js* . I den här självstudien används port 3000, men du kan använda någon annan tillgänglig port.
 >
-> Om du vill konfigurera en url för omdirigering i programregistreringsinformationen växlar du tillbaka till fönstret **Programregistrering** och gör något av följande:
+> Om du vill konfigurera en omdirigerings-URL i program registrerings informationen växlar du tillbaka till fönstret för **program registrering** och gör något av följande:
 >
-> - Ange *`http://localhost:3000/`* som **url för omdirigering**.
-> - Om du använder en anpassad TCP-port använder du *`http://localhost:<port>/`* (där * \<port>* är det anpassade TCP-portnumret).
->   1. Kopiera **URL-värdet.**
->   1. Växla tillbaka till **fönstret Programregistrering** och klistra in det kopierade värdet som **url för omdirigering**.
+> - Ange *`http://localhost:3000/`* som **omdirigerings-URL**.
+> - Om du använder en anpassad TCP-port använder *`http://localhost:<port>/`* du (där * \<port>* är det anpassade TCP-portnumret).
+>   1. Kopiera **URL** -värdet.
+>   1. Växla tillbaka till fönstret **program registrering** och klistra in det kopierade värdet som **omdirigerings-URL**.
 >
 
-### <a name="configure-your-javascript-spa"></a>Konfigurera ditt JavaScript SPA
+### <a name="configure-your-javascript-spa"></a>Konfigurera ditt Java Script SPA
 
-Skapa en ny .js-fil med namnet `authConfig.js`, som innehåller dina konfigurationsparametrar för autentisering, och lägg till följande kod:
+Skapa en ny. js-fil `authConfig.js`med namnet, som innehåller dina konfigurations parametrar för autentisering och Lägg till följande kod:
 
 ```javascript
   const msalConfig = {
@@ -314,17 +308,17 @@ Skapa en ny .js-fil med namnet `authConfig.js`, som innehåller dina konfigurati
 ```
 
  Där:
- - Enter_the_Application_Id_Here>är **programmets (klient)-ID** för det program du registrerade. * \<*
- - Enter_the_Cloud_Instance_Id_Here>är instansen av Azure-molnet. * \<* För huvud- eller globala Azure-molnet anger du *https://login.microsoftonline.com*bara . För **nationella** moln (till exempel Kina), se [Nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
- - Enter_the_Tenant_info_here>är inställt på något av följande alternativ: * \<*
-   - Om ditt program stöder *konton i den här organisationskatalogen*ersätter du det här värdet med **klient-ID: n** eller **klientnamnet** (till exempel *contoso.microsoft.com*).
-   - Om programmet stöder *konton i en organisationskatalog* **ersätter**du det här värdet med organisationer .
-   - Om programmet stöder *konton i en organisationskatalog och personliga Microsoft-konton*ersätter du det här värdet med **vanliga**. Om du bara vill begränsa supporten till *personliga Microsoft-konton*ersätter du det här värdet med **konsumenter**.
+ - Enter_the_Application_Id_Here>är **program-ID: t (Client)** för det program som du har registrerat. * \<*
+ - Enter_the_Cloud_Instance_Id_Here>är instansen av Azure-molnet. * \<* För det största eller globala Azure-molnet anger *https://login.microsoftonline.com*du bara. För **nationella** moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - Enter_the_Tenant_info_here>har angetts till något av följande alternativ: * \<*
+   - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
+   - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
+   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**.
 
 
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använda Microsoft Authentication Library (MSAL) för att logga in användaren
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
 
-Skapa en ny .js-fil med namnet `authPopup.js`, som innehåller autentiserings- och tokeninsamlingslogiken, och lägg till följande kod:
+Skapa en ny. js-fil `authPopup.js`med namnet, som innehåller din autentiserings-och token förvärvs logik och Lägg till följande kod:
 
    ```JavaScript
    const myMSALObj = new Msal.UserAgentApplication(msalConfig);
@@ -400,38 +394,36 @@ Skapa en ny .js-fil med namnet `authPopup.js`, som innehåller autentiserings- o
    }
    ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-När en användare har valt knappen **Logga** in `signIn` för `loginPopup` första gången anropas metoden för att logga in användaren. Den här metoden öppnar ett popup-fönster med *slutpunkten* för Microsoft identity platform för att fråga och validera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index.html-sidan.* En token tas emot, `msal.js`bearbetas av och informationen i token cachelagras. Den här token kallas *ID-token* och innehåller grundläggande information om användaren, till exempel användarnamnet. Om du planerar att använda data som tillhandahålls av den här token för något ändamål måste du se till att den här token valideras av serverdservern för att garantera att token har utfärdats till en giltig användare för ditt program.
+När en användare väljer knappen **Logga in** för första gången, anropar `signIn` `loginPopup` metoden för att logga in användaren. Den här metoden öppnar ett popup-fönster med *Microsoft Identity Platform-slutpunkten* för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index. html-* sidan. En token tas emot, bearbetas av `msal.js`och den information som finns i token cachelagras. Denna token kallas *ID-token* och innehåller grundläggande information om användaren, t. ex. användarens visnings namn. Om du planerar att använda data som tillhandahålls av denna token i något syfte, måste du se till att denna token verifieras av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
 
-Spa-åtkomstanrop som `acquireTokenSilent` genereras `acquireTokenPopup` av den här handboken anropar och/eller hämtar en *åtkomsttoken* som används för att fråga microsoft graph-API:et efter användarprofilinformation. Om du behöver ett exempel som validerar ID-token kan du ta en titt på [det här](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 exempel") exempelprogrammet i GitHub. Exemplet använder ett ASP.NET webb-API för tokenverifiering.
+Det SPA som genereras av den här `acquireTokenSilent` guiden anropar `acquireTokenPopup` och/eller *hämtar en åtkomsttoken som används* för att fråga Microsoft Graph-API: t för användar profil information. Ta en titt på [det här](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub Active-Directory-JavaScript-singlepageapp-dotNet-WebAPI-v2-exempel") exempel programmet i GitHub om du behöver ett exempel som VALIDERAR ID-token. Exemplet använder ett ASP.NET webb-API för verifiering av token.
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen vill du inte be användarna att omauktorisera varje gång de behöver begära en token för att komma åt en resurs. Så *acquireTokenSilent* bör användas för det mesta för att förvärva tokens. Det finns dock situationer där du måste tvinga användare att interagera med Slutpunkten för Microsoft identity platform. Exempel på rekommendationer:
+Efter den första inloggningen vill du inte be användarna att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Så *acquireTokenSilent* bör användas mest av tiden för att hämta tokens. Det finns dock situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel på rekommendationer:
 
-- Användarna måste ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla.
-- Ditt program begär åtkomst till en resurs och du behöver användarens samtycke.
-- Tvåfaktorsautentisering krävs.
+- Användare måste ange sina autentiseringsuppgifter på grund av att lösen ordet har upphört att gälla.
+- Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.
+- Tvåfaktorautentisering krävs.
 
-Anropar *acquireTokenPopup* öppnar ett popup-fönster (eller *förvärvarTokenRedirect* omdirigerar användare till slutpunkten för Microsoft-identitetsplattformen). I det fönstret måste användarna interagera genom att bekräfta sina autentiseringsuppgifter, ge medgivande till den nödvändiga resursen eller slutföra tvåfaktorsautentiseringen.
+När du anropar *acquireTokenPopup* öppnas ett popup-fönster (eller *acquireTokenRedirect* omdirigerar användare till Microsoft Identity Platform-slutpunkten). I det fönstret måste användarna interagera genom att bekräfta sina autentiseringsuppgifter, ge tillåtelse till den begärda resursen eller utföra tvåfaktorautentisering.
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Metoden `acquireTokenSilent` hanterar tokenanskaffning och förnyelse utan någon användarinteraktion. När `loginPopup` (eller `loginRedirect`) körs för första `acquireTokenSilent` gången, är den metod som vanligen används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop. (Anrop för att begära eller förnya token görs tyst.) `acquireTokenSilent` kan misslyckas i vissa fall. Användarens lösenord kan till exempel ha upphört att gälla. Ditt program kan hantera det här undantaget på två sätt:
+`acquireTokenSilent` Metoden hanterar hämtning av token och förnyelsen utan några åtgärder från användaren. När `loginPopup` (eller `loginRedirect`) körs för första gången `acquireTokenSilent` är metoden ofta använd för att hämta tokens som används för att komma åt skyddade resurser för efterföljande anrop. (Anrop till begäran eller förnya token görs i bakgrunden.) `acquireTokenSilent` kan Miss lyckas i vissa fall. Användarens lösen ord kan till exempel ha upphört att gälla. Ditt program kan hantera detta undantag på två sätt:
 
-1. Ring ett `acquireTokenPopup` samtal till omedelbart, vilket utlöser en användares inloggningsfråga. Det här mönstret används ofta i onlineprogram där det inte finns något oautenterat innehåll i programmet tillgängligt för användaren. Exemplet som genereras av den här guidade inställningen använder det här mönstret.
+1. Gör ett anrop `acquireTokenPopup` direkt, vilket utlöser en användar inloggnings meddelande. Det här mönstret används ofta i online-program där det inte finns något oautentiserat innehåll i programmet som är tillgängligt för användaren. I det exempel som genereras av den här guidade installationen används det här mönstret.
 
-1. Program kan också göra en visuell indikation till användaren att en interaktiv inloggning krävs, så att användaren kan `acquireTokenSilent` välja rätt tid att logga in, eller programmet kan försöka igen vid ett senare tillfälle. Detta används ofta när användaren kan använda andra funktioner i programmet utan att störas. Det kan till exempel finnas oautentiserade innehåll som är tillgängligt i programmet. I det här fallet kan användaren bestämma när de vill logga in för att komma åt den skyddade resursen eller uppdatera den inaktuella informationen.
+1. Program kan också göra en visuell indikation på användaren om att en interaktiv inloggning krävs, så att användaren kan välja rätt tid för att logga in, eller så kan programmet försöka igen `acquireTokenSilent` vid ett senare tillfälle. Detta används vanligt vis när användaren kan använda andra funktioner i programmet utan att störas. Det kan till exempel finnas oautentiserat innehåll tillgängligt i programmet. I så fall kan användaren bestämma när de vill logga in för att komma åt den skyddade resursen eller uppdatera den inaktuella informationen.
 
 > [!NOTE]
-> Den här snabbstarten använder metoderna `loginPopup` och `acquireTokenPopup` som standard. Om du använder Internet Explorer som webbläsare rekommenderas `loginRedirect` `acquireTokenRedirect` att använda och metoder på grund av ett [känt problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som rör hur popup-fönster hanteras i Internet Explorer. Om du vill se hur du uppnår `Redirect methods`samma resultat med , [se](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
-<!--end-collapse-->
+> I den här snabb `loginPopup` starten `acquireTokenPopup` används som standard metoderna och. Om du använder Internet Explorer som webbläsare rekommenderar vi att du använder `loginRedirect` och `acquireTokenRedirect` metoder, på grund av ett [känt problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som är relaterade till hur Internet Explorer hanterar popup-fönster. Om du vill se hur du uppnår samma resultat med hjälp av `Redirect methods`, kan du [läsa mer i](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Anropa Microsoft Graph API med hjälp av den token du just fått
+## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Anropa Microsoft Graph-API: et genom att använda den token som du nyss hämtade
 
-1. Skapa först en .js-fil med namnet `graphConfig.js`, som lagrar REST-slutpunkterna. Lägg till följande kod:
+1. Börja med att skapa en. js- `graphConfig.js`fil med namnet, som lagrar dina rest-slutpunkter. Lägg till följande kod:
 
    ```JavaScript
       const graphConfig = {
@@ -441,9 +433,9 @@ Metoden `acquireTokenSilent` hanterar tokenanskaffning och förnyelse utan någo
    ```
 
    Där:
-   - Enter_the_Graph_Endpoint_Here>är instansen av MS Graph API. * \<* För den globala MS Graph API-slutpunkten `https://graph.microsoft.com`ersätter du bara den här strängen med . Nationella molndistributioner finns i [Graph API-dokumentation](https://docs.microsoft.com/graph/deployments).
+   - Enter_the_Graph_Endpoint_Here>är instansen av MS Graph API. * \<* För den globala MS Graph API-slutpunkten ersätter du bara `https://graph.microsoft.com`den här strängen med. För nationella moln distributioner, se Graph API- [dokumentationen](https://docs.microsoft.com/graph/deployments).
 
-1. Skapa sedan en .js-fil med namnet `graph.js`, som ska göra ett REST-anrop till Microsoft Graph API, och lägga till följande kod:
+1. Skapa sedan en. js-fil med `graph.js`namnet, som kommer att göra ett rest-anrop till Microsoft Graph API och lägga till följande kod:
 
    ```javascript
    function callMSGraph(endpoint, token, callback) {
@@ -466,52 +458,45 @@ Metoden `acquireTokenSilent` hanterar tokenanskaffning och förnyelse utan någo
    }
    ```
 
-<!--start-collapse-->
-
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du gör ett REST-anrop mot ett skyddat API
 
-I exempelprogrammet som skapats `callMSGraph()` av den här guiden `GET` används metoden för att göra en HTTP-begäran mot en skyddad resurs som kräver en token. Begäran returnerar sedan innehållet till anroparen. Den här metoden lägger till den förvärvade token i *HTTP-auktoriseringshuvudet*. För exempelprogrammet som skapats av den här guiden är resursen slutpunkten Microsoft Graph API *me,* som visar användarens profilinformation.
-
-<!--end-collapse-->
+I det exempel program som skapats av den här guiden `callMSGraph()` används metoden för att göra en http `GET` -begäran mot en skyddad resurs som kräver en token. Begäran returnerar sedan innehållet till anroparen. Den här metoden lägger till den hämtade token i *http-Authorization-huvudet*. För det exempel program som skapas av den här hand boken är resursen den Microsoft Graph API: t *mig* -slutpunkt, som visar användarens profil information.
 
 ## <a name="test-your-code"></a>Testa koden
 
-1. Konfigurera servern så att den lyssnar på en TCP-port som baseras på platsen för *filen index.html.* För Node.js startar du webbservern för att lyssna på porten genom att köra följande kommandon vid en kommandoradsfråga från programmappen:
+1. Konfigurera servern så att den lyssnar på en TCP-port som är baserad på platsen för din *index. html-* fil. För Node. js startar du webb servern för att lyssna på porten genom att köra följande kommandon i kommando tolken från programmappen:
 
    ```bash
    npm install
    npm start
    ```
-1. I webbläsaren anger **http://localhost:3000** **http://localhost:{port}** eller , där *porten* är den port som webbservern lyssnar på. Du bör se innehållet i filen *index.html* och **inloggningsknappen.**
+1. I webbläsaren anger **http://localhost:3000** eller **http://localhost:{port}**, där *port* är den port som webb servern lyssnar på. Du bör se innehållet i filen *index. html* och knappen **Logga in** .
 
 ## <a name="test-your-application"></a>Testa ditt program
 
-När webbläsaren har läser in filen *index.html* väljer du **Logga in**. Du uppmanas att logga in med slutpunkten för Microsoft identity platform:
+När webbläsaren har läst in filen *index. html* väljer du **Logga**in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
 
-![Inloggningsfönstret för JavaScript SPA-konto](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
+![Inloggnings fönstret för Java scripts SPA-konto](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
-### <a name="provide-consent-for-application-access"></a>Ge samtycke till tillgång till program
+### <a name="provide-consent-for-application-access"></a>Ge tillstånd för program åtkomst
 
 Första gången du loggar in på ditt program uppmanas du att ge den åtkomst till din profil och logga in dig:
 
-![Fönstret "Begärda behörigheter"](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
+![Fönstret "behörigheter begärd"](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
-### <a name="view-application-results"></a>Visa programresultat
+### <a name="view-application-results"></a>Visa program resultat
 
-När du har loggat in returneras din användarprofilinformation i Microsoft Graph API-svar som visas:
+När du har loggat in returneras din användar profil information i det Microsoft Graph API-svar som visas:
 
-![Resultat från Microsoft Graph API-anrop](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
+![Resultat från API-anropet Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
-<!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om omfattningar och delegerade behörigheter
 
-Microsoft Graph API kräver *att användaren.läser* omfång för att läsa en användares profil. Som standard läggs det här scopet automatiskt till i alla program som är registrerade på registreringsportalen. Andra API:er för Microsoft Graph, samt anpassade API:er för backend-servern, kan kräva ytterligare scope. Microsoft Graph API kräver till exempel *e-post.Läs-scopet* för att kunna visa användarens e-post.
+Microsoft Graph-API: t kräver att *User. Read* -omfånget läser en användar profil. Som standard läggs det här omfånget automatiskt till i varje program som är registrerat på registrerings portalen. Andra API: er för Microsoft Graph, samt anpassade API: er för backend-servern, kan kräva ytterligare omfång. Till exempel kräver Microsoft Graph-API: t *e-post. Read-* omfånget för att kunna lista användarens e-post.
 
 > [!NOTE]
-> Användaren kan uppmanas att ange ytterligare medgivanden när du ökar antalet scope.
+> Användaren kan tillfrågas om ytterligare medgivanden när du ökar antalet omfång.
 
-Om ett backend-API inte kräver ett scope (rekommenderas inte) kan du använda *clientId* som scope i anropen för att hämta token.
-
-<!--end-collapse-->
+Om ett Server dels-API inte kräver ett omfång (rekommenderas inte), kan du använda *clientId* som omfånget i anropen för att hämta tokens.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

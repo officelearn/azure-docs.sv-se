@@ -18,7 +18,7 @@
       href: groups-quickstart-naming-policy.md
 - name: Självstudier
   items:
-    - name: Skapa en dynamiskt uppdaterad grupp
+    - name: Skapa en dynamisk grupp
       href: groups-dynamic-tutorial.md
 - name: Begrepp
   expanded: true
@@ -40,21 +40,23 @@
       items:
         - name: Skapa användare
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Massgenerering av användare (förhandsversion)
+        - name: Masskapa användare
           href: users-bulk-add.md
         - name: Hantera användarprofiler
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Hämta användarinformation (förhandsversion)
+        - name: Min personal-delegering
+          href: my-staff-configure.md
+        - name: Hämta användarinformation
           href: users-bulk-download.md
         - name: Dela användarkonton
           href: users-sharing-accounts.md
         - name: Tilldela användare administrativa roller
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Massborttagning av användare (förhandsversion)
+        - name: Massborttag användare
           href: users-bulk-delete.md
         - name: Återställa en borttagen användare
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Massåterställning av användare (förhandsversion)
+        - name: Massåterställ användare
           href: users-bulk-restore.md
         - name: Stänga ett konto i en ohanterad katalog
           href: users-close-account.md
@@ -82,42 +84,18 @@
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Hantera grupper
       items:
-        - name: Söka grupp- och medlemslistor (förhandsversion)
-          href: groups-members-owners-search.md
+        - name: Hantera åtkomst med Azure AD-grupper
+          href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Skapa en grupp (Azure-portalen)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Tilldela känslighetsetiketter (förhandsversion)
-          href: groups-assign-sensitivity-labels.md
         - name: Hantera grupper i PowerShell för Graph (v2)
           href: groups-settings-v2-cmdlets.md
-        - name: Hantera grupper i PowerShell MSOnline
+        - name: Hantera grupper med PowerShell MSOnline
           href: groups-settings-cmdlets.md
+        - name: Söka grupp- och medlemslistor
+          href: groups-members-owners-search.md
         - name: Lägga till eller ta bort gruppmedlemmar
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Masstillägg av medlemmar (förhandsversion)
-          href: groups-bulk-import-members.md
-        - name: Massborttagning av medlemmar (förhandsversion)
-          href: groups-bulk-remove-members.md
-        - name: Massnedladdning av medlemslistor (förhandsversion)
-          href: groups-bulk-download-members.md
-        - name: Hantera gruppägare
-          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Massnedladdning av grupplistor (förhandsversion)
-          href: groups-bulk-download.md
-        - name: Hantera grupper i grupper
-          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Hantera gruppåtkomst till SaaS-appar
-          href: groups-saasapps.md
-        - name: Referens för namngivning av grupper
-          href: groups-naming-policy.md
-        - name: Referens för utgångsdatum för grupper
-          href: groups-lifecycle.md
-        - name: Återställa borttagna grupper
-          href: groups-restore-deleted.md
-        - name: Hantera gruppinställningar
-          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Konfigurera självbetjäningsgrupper
-          href: groups-self-service-management.md
         - name: Dynamiska grupper
           items:
             - name: Skapa en dynamisk grupp
@@ -128,6 +106,32 @@
               href: groups-dynamic-rule-validation.md
             - name: Ändra typ av gruppmedlemskap
               href: groups-change-type.md
+        - name: Masstillägg medlemmar
+          href: groups-bulk-import-members.md
+        - name: Massborttag medlemmar
+          href: groups-bulk-remove-members.md
+        - name: Massnedladdning av medlemslistor
+          href: groups-bulk-download-members.md
+        - name: Massnedladdning av gruppslistor
+          href: groups-bulk-download.md
+        - name: Återställa borttagna grupper
+          href: groups-restore-deleted.md
+        - name: Hantera gruppinställningar
+          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera gruppägare
+          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera grupper i grupper
+          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera gruppåtkomst till SaaS-appar
+          href: groups-saasapps.md
+        - name: Ange namngivningsprincip för grupp
+          href: groups-naming-policy.md
+        - name: Ange gruppförfalloprincip
+          href: groups-lifecycle.md
+        - name: Konfigurera självbetjäningsgrupper
+          href: groups-self-service-management.md
+        - name: Tilldela känslighetsetiketter
+          href: groups-assign-sensitivity-labels.md
     - name: Tilldela licenser
       items:
         - name: Tilldela licenser till en grupp
@@ -145,14 +149,15 @@
         - name: 'Tjänstplan-ID:n för licensiering'
           href: licensing-service-plan-reference.md
     - name: Azure AD-administratörsroller
+      expanded: true
       items:
         - name: Roller och behörigheter
           href: directory-assign-admin-roles.md
         - name: Visa och tilldela roller
           href: directory-manage-roles-portal.md
-        - name: Förhandsversion av anpassade roller
+        - name: Anpassad roll
           items:
-            - name: Förhandsversion av anpassade roller
+            - name: Anpassad roll
               href: roles-custom-overview.md
             - name: Skapa anpassad roll
               href: roles-create-custom.md
@@ -162,7 +167,7 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Tilldela anpassade roller i PowerShell
               href: roles-assign-powershell.md
-            - name: Förhandsgranskningsbehörigheter för anpassade roller
+            - name: Anpassade rollbehörigheter
               href: roles-custom-available-permissions.md
             - name: Delegera behörigheter för appadministratörer
               href: roles-delegate-app-roles.md
@@ -176,8 +181,20 @@
               href: directory-admin-roles-secure.md
             - name: Skapa nödkonton
               href: directory-emergency-access.md
-        - name: Administrativa enheter
-          href: directory-administrative-units.md
+        - name: Administratörsenhet
+          items:
+            - name: Administrativa enheter – översikt
+              href: directory-administrative-units.md
+            - name: 'Lägga till och hantera AU:er'
+              href: roles-admin-units-manage.md
+            - name: 'Lägga till och hantera användare i AU:er'
+              href: roles-admin-units-add-manage-users.md
+            - name: 'Lägga till och hantera grupper i AU:er'
+              href: roles-admin-units-add-manage-groups.md
+            - name: Tilldela en roll med AU-omfånget
+              href: roles-admin-units-assign-roles.md
+            - name: Vanliga frågor och felsökning
+              href: roles-admin-units-faq-troubleshoot.md
     - name: Hantera inloggning
       items:
         - name: Anpassa varumärkesexponering

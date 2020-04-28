@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430960"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866255"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
@@ -80,10 +80,10 @@ Den adresserbara nyckeln och hemligheten hämtar sina attribut från KV-certifik
 ## <a name="partnered-ca-providers"></a>Partnerleverantörer
 Skapandet av certifikat kan slutföras manuellt eller med hjälp av en "Self"-utfärdare. Key Vault samarbetar också med vissa emittentleverantörer för att förenkla skapandet av certifikat. Följande typer av certifikat kan beställas för nyckelvalv med dessa partnerutfärdare.  
 
-|Leverantör|Certifikattyp|  
-|--------------|----------------------|  
-|DigiCert|Key Vault erbjuder OV- eller EV SSL-certifikat med DigiCert|
-|GlobalSign|Key Vault erbjuder OV- eller EV SSL-certifikat med GlobalSign|
+|Leverantör|Certifikattyp|Konfigurationsinställningar  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault erbjuder OV- eller EV SSL-certifikat med DigiCert| [Integrationsguide](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault erbjuder OV- eller EV SSL-certifikat med GlobalSign| [Integrationsguide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  En certifikatutfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat. utfärdarens namn, leverantör, autentiseringsuppgifter och annan administrativ information.
 

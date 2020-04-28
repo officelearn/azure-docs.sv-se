@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: aa3617b30fe1ef9b4d4a6c5fe5aac51bff95bb92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047989"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866679"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka problem med tillhörighet för Azure Application Gateway-session
 
@@ -97,7 +97,7 @@ Det här problemet beror på att Internet Explorer och andra webbläsare kanske 
 
 #### <a name="resolution"></a>Lösning
 
-Åtgärda problemet genom att ansluta till Application Gateway med hjälp av ett fullständigt domännamn. Använd [http://website.com](https://website.com/) eller [http://appgw.website.com](http://appgw.website.com/) .
+Åtgärda problemet genom att ansluta till Application Gateway med hjälp av ett fullständigt domännamn. Använd [http://website.com](https://website.com/) eller [http://appgw.website.com](http://website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Ytterligare loggar att felsöka
 

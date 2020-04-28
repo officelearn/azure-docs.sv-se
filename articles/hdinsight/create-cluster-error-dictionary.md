@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Skapa ett kluster - felordlista
+title: Azure HDInsight skapa ett kluster-fel ord lista
 description: Lär dig hur du felsöker fel som uppstår när du skapar Azure HDInsight-kluster
 author: karkrish
 ms.author: v-todmc
@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618906"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186642"
 ---
-# <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Fel för att skapa kluster
+# <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: fel vid skapande av kluster
 
 I den här artikeln beskrivs lösningar på fel som du kan stöta på när du skapar kluster.
 
 > [!NOTE]
-> De tre första felen som beskrivs i den här artikeln är valideringsfel. De kan uppstå när en Azure HDInsight-produkt använder **klassen CsmDocument_2_0.**
+> De första tre fel som beskrivs i den här artikeln är verifierings fel. De kan inträffa när en Azure HDInsight-produkt använder klassen **CsmDocument_2_0** .
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument 'CsmDocument_2_0' misslyckades valideringen
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument ' CsmDocument_2_0 ' misslyckades med verifieringen
 
 ### <a name="error"></a>Fel
 
-"Det går inte att komma\<åt URI: SCRIPT ACTION URL"\>
+"Det går inte att få åtkomst till skript åtgärdens plats-URI:\<URL\>för skript åtgärd
 
 #### <a name="error-message"></a>Felmeddelande
 
@@ -34,69 +34,69 @@ I den här artikeln beskrivs lösningar på fel som du kan stöta på när du sk
 
 ### <a name="cause"></a>Orsak
 
-HdInsight-tjänsten kan inte komma åt skriptåtgärds-URL:en som du angav som en del av begäran om skapa kluster. Tjänsten får föregående felmeddelande när den försöker komma åt skriptåtgärden.
+HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som du angav som en del av förfrågan om att skapa kluster. Tjänsten tar emot föregående fel meddelande när det försöker få åtkomst till skript åtgärden.
 
 ### <a name="resolution"></a>Lösning
 
-- För en HTTP- eller HTTPS-URL kontrollerar du URL:en genom att försöka gå till den från ett inkognitowebbläsare.
-- För en WASB-URL bör du se till att skriptet finns i lagringskontot som du anger i begäran. Kontrollera också att lagringsnyckeln för det här lagringskontot är korrekt.
-- För en ADLS-URL kontrollerar du att skriptet finns i lagringskontot.
+- För en HTTP-eller HTTPS-URL, verifiera URL: en genom att försöka gå till den från ett Incognito webbläsarfönster.
+- För en WASB-URL, se till att skriptet finns i det lagrings konto som du har angett i begäran. Kontrol lera också att lagrings nyckeln för det här lagrings kontot är korrekt.
+- Se till att skriptet finns i lagrings kontot för en ADLS-URL.
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument 'CsmDocument_2_0' misslyckades valideringen
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument ' CsmDocument_2_0 ' misslyckades med verifieringen
 
 ### <a name="error"></a>Fel
 
-"Det går inte att komma \<åt URI:en\>skriptåtgärd: SCRIPT_ACTION_URL "
+"Det går inte att komma åt URI för skript \<åtgärd\>: SCRIPT_ACTION_URL"
 
 #### <a name="error-message"></a>Felmeddelande
 
-"Det angivna skriptet \<URI\> SCRIPT_URI finns i ADLS, men det här klustret har inget huvudnamn för lagring av datasjölagring"
+"Den aktuella skript- \<URI\> : n SCRIPT_URI är i ADLS, men det här klustret har inget data Lake Storage-huvudobjekt"
 
 ### <a name="cause"></a>Orsak
 
-HdInsight-tjänsten kan inte komma åt skriptåtgärds-URL:en som du angav som en del av begäran om skapa kluster. Tjänsten får föregående felmeddelande när den försöker komma åt skriptåtgärden.
+HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som du angav som en del av förfrågan om att skapa kluster. Tjänsten tar emot föregående fel meddelande när det försöker få åtkomst till skript åtgärden.
 
 ### <a name="resolution"></a>Lösning
 
-Lägg till motsvarande Azure Data Lake Storage Gen 1-konto i klustret. Lägg också till tjänstens huvudnamn som kommer åt datasjölagringsgenm 1-kontot i klustret.
+Lägg till motsvarande Azure Data Lake Storage gen 1-konto i klustret. Lägg också till tjänstens huvud namn som ansluter till Data Lake Storage gen 1-konto till klustret.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument 'CsmDocument_2_0' misslyckades valideringen
+## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument ' CsmDocument_2_0 ' misslyckades med verifieringen
 
 ### <a name="error"></a>Fel
 
-"VM-storlek\<'\>CUSTOMER_SPECIFIED_VM_SIZE' som anges i begäran är ogiltig\<\>eller stöds inte för rollen ' ROLL '. Giltiga värden \<är: VALID_VM_SIZE_FOR_ROLE\>."
+Storleken på den virtuella\<dator\>CUSTOMER_SPECIFIED_VM_SIZE som tillhandahölls i begäran är ogiltig eller stöds inte för rollen\<roll\>. Giltiga värden är: \<VALID_VM_SIZE_FOR_ROLE\>. "
 
 ### <a name="cause"></a>Orsak
 
-Den virtuella datorns storlek som du angav är inte tillåten för rollen. Det här felet kan uppstå eftersom storleksvärdet för den virtuella datorn inte fungerar som förväntat eller inte är lämpligt för datorrollen.
+Den angivna storleken för den virtuella datorn är inte tillåten för rollen. Det här felet kan inträffa eftersom värdet för VM-storlek inte fungerar som förväntat eller inte är lämpligt för dator rollen.
 
 ### <a name="resolution"></a>Lösning
 
-Felmeddelandet visar giltiga värden för vm-storleken. Välj ett av dessa värden och försök återskapa begäran om skapa kluster.
+Fel meddelandet visar en lista över giltiga värden för VM-storleken. Välj ett av dessa värden och försök att skapa en kluster förfrågan igen.
 
 ---
 
-## <a name="error-codeinvalidvirtualnetworkid"></a>Felkod: OgiltigtVirtualNetworkId  
+## <a name="error-codeinvalidvirtualnetworkid"></a>Felkod: InvalidVirtualNetworkId  
 
 ### <a name="error"></a>Fel
 
-"VirtualNetworkId är ogiltigt. VirtualNetworkId\<" USER_VIRTUALNETWORKID\>'*"
+"VirtualNetworkId är ogiltig. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>' * "
 
 ### <a name="cause"></a>Orsak
 
-**VirtualNetworkId-värdet** som du angav när klustret skapades är inte i rätt format.
+Det **VirtualNetworkId** -värde som du angav när klustret skapades har inte rätt format.
 
 ### <a name="resolution"></a>Lösning
 
-Kontrollera att **VirtualNetworkId-** och undernätsvärdena är i rätt format. Så här hämtar du **VirtualNetworkId-värdet:**
+Kontrol lera att värdena för **VirtualNetworkId** och under nätet är i rätt format. Så här hämtar du **VirtualNetworkId** -värdet:
 
 1. Gå till Azure Portal.
 1. Välj ditt virtuella nätverk.
-1. Välj menyalternativet **Egenskaper.** Egenskapsvärdet **för ResourceID** är **VirtualNetworkId-värdet.**
+1. Välj meny alternativet **Egenskaper** . Värdet för egenskapen **ResourceID** är **VirtualNetworkId** -värdet.
 
 Här är ett exempel på ett virtuellt nätverks-ID:
 
@@ -108,15 +108,15 @@ Här är ett exempel på ett virtuellt nätverks-ID:
 
 ### <a name="error"></a>Fel
 
-"Klusterdistributionen misslyckades på grund av ett fel i den anpassade skriptåtgärden. Misslyckade åtgärder: \<SCRIPT_NAME\>, Gå till Ambari UI för att ytterligare felsöka felet."
+"Kluster distributionen misslyckades på grund av ett fel i den anpassade skript åtgärden. Misslyckade åtgärder \<:\>SCRIPT_NAME, gå till Ambari UI för att ytterligare Felsöka fel. "
 
 ### <a name="cause"></a>Orsak
 
-Det anpassade skriptet som du angav under begäran om skapa kluster körs när klustret har distribuerats. Den här felkoden anger att ett fel uppstod \<under\>körningen av det anpassade skriptet med namnet SCRIPT_NAME .
+Det anpassade skript som du angav under Create Cluster-begäran körs när klustret har distribuerats. Den här felkoden anger att ett fel uppstod under körningen av det anpassade \<skriptet\>med namnet SCRIPT_NAME.
 
 ### <a name="resolution"></a>Lösning
 
-Eftersom skriptet är ditt anpassade skript rekommenderar vi att du felsöker problemet och kör skriptet igen om det behövs. Om du vill felsöka skriptfelet undersöker du loggarna i mappen /var/lib/ambari-agent/*. Eller öppna sidan **Operationer** i Ambari-användargränssnittet och välj sedan **den run_customscriptaction** åtgärden för att visa felinformationen.
+Eftersom skriptet är ditt anpassade skript rekommenderar vi att du felsöker problemet och kör skriptet igen om det behövs. Om du vill felsöka skript fel granskar du loggarna i mappen/var/lib/Ambari-agent/*. Eller öppna sidan **åtgärder** i AMBARI-användargränssnittet och välj sedan åtgärden **run_customscriptaction** för att visa fel information.
 
 ---
 
@@ -124,15 +124,15 @@ Eftersom skriptet är ditt anpassade skript rekommenderar vi att du felsöker pr
 
 ### <a name="error"></a>Fel
 
-"Den \<META_STORE_TYPE\> metastore \<schemaversionen METASTORE_MAJOR_VERSION\> i \<databasen DATABASE_NAME\> är inte kompatibel \<med klusterversion\>CLUSTER_VERSION "
+\<"META_STORE_TYPE\> metaarkiv schema version \<METASTORE_MAJOR_VERSION\> i databas \<DATABASE_NAME\> är inkompatibel med kluster version \<CLUSTER_VERSION\>"
 
 ### <a name="cause"></a>Orsak
 
-Den anpassade metabutiken är inkompatibel med den valda HDInsight-klusterversionen. För närvarande stöder HDInsight 4.0-kluster endast Metastore version 3.0 och senare, medan HDInsight 3.6-kluster inte stöder Metastore version 3.0 och senare.
+Den anpassade metaarkiv är inte kompatibel med den valda HDInsight-klustrets version. HDInsight 4,0-kluster stöder för närvarande endast Metaarkiv version 3,0 och senare, medan HDInsight 3,6-kluster inte stöder Metaarkiv-version 3,0 och senare.
 
 ### <a name="resolution"></a>Lösning
 
-Använd bara Metastore-versioner som din HDInsight-klusterversion stöder. Om du inte anger en anpassad metabutik skapar HDInsight internt en metabutik och tar sedan bort den vid klusterborttagning.
+Använd endast Metaarkiv-versioner som stöds av din HDInsight-kluster version. Om du inte anger en anpassad metaarkiv skapar HDInsight en metaarkiv internt och tar sedan bort den när klustret tas bort.
 
 ---
 
@@ -140,20 +140,20 @@ Använd bara Metastore-versioner som din HDInsight-klusterversion stöder. Om du
 
 ### <a name="error"></a>Fel
 
-"Det gick inte att ansluta till slutpunkten för klusterhantering för att utföra skalningsåtgärden. Kontrollera att nätverkssäkerhetsregler inte blockerar extern åtkomst till klustret och att klusterhanteraren (Ambari) användargränssnittet kan nås."
+"Det gick inte att ansluta till kluster hanterings slut punkten för att utföra skalnings åtgärden. Kontrol lera att nätverks säkerhets reglerna inte blockerar extern åtkomst till klustret och att Ambari-gränssnittet (Cluster Manager) kan nås. "
 
 ### <a name="cause"></a>Orsak
 
-En brandväggsregel för nätverkssäkerhetsgruppen (NSG) blockerar klusterkommunikation med kritiska Azure-hälso- och hanteringstjänster.
+En brand Väggs regel i nätverks säkerhets gruppen (NSG) blockerar kluster kommunikation med kritiska Azure-tjänster för hälso tillstånd och hantering.
 
 ### <a name="resolution"></a>Lösning
 
-Om du planerar att använda nätverkssäkerhetsgrupper för att styra nätverkstrafiken vidtar du följande åtgärder innan du installerar HDInsight:
+Om du planerar att använda nätverks säkerhets grupper för att kontrol lera nätverks trafiken vidtar du följande åtgärder innan du installerar HDInsight:
 
 - Identifiera den Azure-region som du planerar att använda för HDInsight.
 - Identifiera de IP-adresser som krävs av HDInsight. Mer information finns i avsnittet om [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
-  - Skapa eller ändra nätverkssäkerhetsgrupperna för undernätet som du planerar att installera HDInsight i.
-  - För nätverksskyddsgrupper tillåter du inkommande trafik på port 443 från IP-adresserna. Den här konfigurationen säkerställer att HDInsight-hanteringstjänster kan nå klustret utanför det virtuella nätverket.
+  - Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
+  - För nätverks säkerhets grupper tillåter du inkommande trafik på port 443 från IP-adresserna. Den här konfigurationen säkerställer att hanterings tjänster för HDInsight kan komma åt klustret utanför det virtuella nätverket.
 
 ---
 
@@ -161,20 +161,20 @@ Om du planerar att använda nätverkssäkerhetsgrupper för att styra nätverkst
 
 ### <a name="error"></a>Fel
 
-"Den hanterade identiteten har inte behörighet för lagringskontot. Kontrollera att rollen Storage Blob Data Owner har tilldelats den hanterade identiteten för lagringskontot. Lagring: \</subscriptions/\> Prenumerations-ID\< /resourceGroups/ Resursgruppnamn\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Hanterad identitet: /prenumerationer/ \<Prenumerations-ID\> /resourceGroups/ / \<\>\< Resursgruppnamn\> /providers/Microsoft.ManagedIdentity/userAssignedId-enheter/ Användarhanterat identitetsnamn "
+"Den hanterade identiteten har inte behörighet för lagrings kontot. Verifiera att rollen Storage BLOB data Owner har tilldelats till den hanterade identiteten för lagrings kontot. Lagring:/Subscriptions/ \<PRENUMERATIONS\> -\< ID/resourceGroups/resurs\> grupp \<namn/providers/Microsoft.Storage/storageAccounts/lagrings konto\>namn, hanterad identitet\> :/Subscriptions/\< \<-prenumerations\> - \<ID/resourceGroups//resurs\>grupp namn/providers/Microsoft.ManagedIdentity/userAssignedIdentities/användarens hanterade identitets namn "
 
 ### <a name="cause"></a>Orsak
 
-Du angav inte de behörigheter som krävs för att hantera identiteten. Den användartilldelade hanterade identiteten har inte rollen Blob Storage Contributor på Azure Data Lake Storage Gen2-lagringskontot.
+Du har inte angett de behörigheter som krävs för att hantera identiteten. Den användardefinierade hanterade identiteten har inte rollen Blob Storage Contributor på Azure Data Lake Storage Gen2 lagrings konto.
 
 ### <a name="resolution"></a>Lösning
 
 1. Öppna Azure Portal.
 1. Gå till ditt lagringskonto.
-1. Titta under **Åtkomstkontroll (IAM)**.
-1. Kontrollera att användaren har rollen Storage Blob Data Contributor eller rollen Storage Blob Data Owner tilldelat dem.
+1. Titta under **Access Control (IAM)**.
+1. Se till att användaren har rollen Storage BLOB data Contributor eller rollen som ägare till lagrings-BLOB-data.
 
-Mer information finns i [Konfigurera behörigheter för den hanterade identiteten på datasjölagringsgenm2-kontot](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Mer information finns i [Konfigurera behörigheter för den hanterade identiteten på data Lake Storage Gen2-kontot](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ---
 
@@ -182,35 +182,35 @@ Mer information finns i [Konfigurera behörigheter för den hanterade identitete
 
 ### <a name="error"></a>Fel
 
-"Säkerhetsreglerna\<i nätverkssäkerhetsgruppen /prenumerationer/\>SubscriptionID /resourceGroups/<Resource\> Group namn default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\<\>\<\> \<\>\<\> \> konfigurerat med undernät /prenumerationer/ SubscriptionID /resource Grupp/Resursgruppnamn RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/ Virtual Network Name /subnets/ Subnet Name tillåter inte obligatorisk inkommande och/eller utgående anslutning. Mer information finns i [Planera ett virtuellt nätverk för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)eller kontakta supporten."
+"Säkerhets\<reglerna i nätverks säkerhets gruppen/Subscriptions/SubscriptionID\>/resourceGroups/<resurs grupp namn\> standard/providers/Microsoft. nätverks-/networkSecurityGroups/\<nätverks säkerhets grupp namn\> som kon figurer ATS\<med\>undernät\</Subscriptions/SubscriptionID/ResourceGroups/\> resurs grupp namn RG-westeurope-VNet-TomTom-default/providers/Microsoft.\<Network/\>virtualNetworks\</Virtual Network\> namn/subnets/under nät namnet tillåter inte obligatorisk inkommande och/eller utgående anslutning. Om du vill ha mer information går du [till planera ett virtuellt nätverk för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)eller kontaktar supporten. "
 
 ### <a name="cause"></a>Orsak
 
-Om nätverkssäkerhetsgrupper eller användardefinierade vägar (UDRs) styr inkommande trafik till ditt HDInsight-kluster, se till att klustret kan kommunicera med kritiska Azure-hälso- och hanteringstjänster.
+Om nätverks säkerhets grupper eller användardefinierade vägar (UDR) kontrollerar inkommande trafik till ditt HDInsight-kluster måste du se till att klustret kan kommunicera med kritiska Azure-tjänster för hälso tillstånd och hantering.
 
 ### <a name="resolution"></a>Lösning
 
-Om du planerar att använda nätverkssäkerhetsgrupper för att styra nätverkstrafiken vidtar du följande åtgärder innan du installerar HDInsight:
+Om du planerar att använda nätverks säkerhets grupper för att kontrol lera nätverks trafiken vidtar du följande åtgärder innan du installerar HDInsight:
 
-- Identifiera den Azure-region som du planerar att använda för HDInsight och skapa en säker lista över IP-adresser för din region. Mer information finns i [Hälso- och förvaltningstjänster: Specifika regioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
-- Identifiera de IP-adresser som HDInsight kräver. Mer information finns i [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
-- Skapa eller ändra nätverkssäkerhetsgrupperna för undernätet som du planerar att installera HDInsight i. För nätverksskyddsgrupper tillåter du inkommande trafik på port 443 från IP-adresserna. Den här konfigurationen säkerställer att HDInsight-hanteringstjänster kan nå klustret utanför det virtuella nätverket.
+- Identifiera den Azure-region som du planerar att använda för HDInsight och skapa en säker lista över IP-adresserna för din region. Mer information finns i [hälso-och hanterings tjänster: vissa regioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
+- Identifiera de IP-adresser som HDInsight kräver. Mer information finns i avsnittet om [hantering av HDInsight-IP-adresser](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+- Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i. För nätverks säkerhets grupper tillåter du inkommande trafik på port 443 från IP-adresserna. Den här konfigurationen säkerställer att hanterings tjänster för HDInsight kan komma åt klustret utanför det virtuella nätverket.
 
 ---
 
-## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Felkod: Klusterinstallationen kunde inte installera komponenter på en eller flera värdar
+## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Felkod: kluster installationen kunde inte installera komponenter på en eller flera värdar
 
 ### <a name="error"></a>Fel
 
-"Klusterinstallationen kunde inte installera komponenter på en eller flera värdar. Försök igen din begäran."
+"Det gick inte att installera komponenter på en eller flera värdar under kluster installationen. Gör om begäran. "
 
 ### <a name="cause"></a>Orsak 
 
-Vanligtvis genereras det här felet när det finns ett tillfälligt problem eller ett Azure-avbrott.
+Detta fel uppstår vanligt vis när det uppstår ett tillfälligt problem eller ett Azure-avbrott.
 
 ### <a name="resolution"></a>Lösning
 
-Kontrollera [azure-statussidan](https://status.azure.com) för alla Azure-avbrott som kan påverka klusterdistributionen. Om det inte finns några avbrott försöker du om klusterdistributionen.
+På sidan [Azure-status](https://status.azure.com) finns några Azure-avbrott som kan påverka kluster distributionen. Försök att distribuera kluster igen om det inte finns några avbrott.
 
 ---
 
@@ -218,36 +218,36 @@ Kontrollera [azure-statussidan](https://status.azure.com) för alla Azure-avbrot
 
 ### <a name="error"></a>Fel
 
-Det gick inte att ansluta till slutpunkten för klusterhantering. Försök igen senare.
+Det går inte att ansluta till kluster hanterings slut punkten. Försök igen senare.
 
 ### <a name="cause"></a>Orsak
 
-HDInsight-tjänsten kan inte ansluta till klustret när du försöker skapa klustret
+HDInsight-tjänsten kan inte ansluta till klustret vid försök att skapa klustret
 
 ### <a name="resolution"></a>Lösning
 
-Om du använder anpassade VNet-nätverkssäkerhetsgrupp (NSG) och användardefinierade vägar (UDRs) kontrollerar du att klustret kan kommunicera med HDInsight-hanteringstjänster. Mer information finns i [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+Om du använder anpassade säkerhets grupper för VNet-nätverk (NSG: er) och användardefinierade vägar (UDR), måste du se till att klustret kan kommunicera med HDInsight Management Services. Mer information finns i [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Felkod: Distributioner misslyckades på grund av<Resource URI>principöverträdelse: "Resurs" inte godkändes av principen. Principidentifierare: '["policyAssignment":{"name":"<Policy Name> ","id":"/providers/Microsoft.Management/managementGroups/providers/Microsoft.Authorization/policyAssignments/<Management Group Name> <Policy Name>'},"policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Felkod: distributioner misslyckades på grund av princip överträdelse: resursen<Resource URI>tilläts inte av principen. Princip identifierare: [{"policyAssignment": {"name": "<Policy Name> ", "ID": "/providers/Microsoft.Management/managementGroups/<Management Group Name> providers/Microsoft. Authorization/policyAssignments/<Policy Name>"}, "policyDefinition":<Policy Definition>
 
 ### <a name="cause"></a>Orsak
 
-Prenumerationsbaserade Azure-principer kan neka skapandet av offentliga IP-adresser. Skapande av HDInsight-klustret kräver två offentliga IP-adresser.
+Med prenumerations Azure-principer kan du inte skapa offentliga IP-adresser. Skapande av HDInsight-klustret kräver två offentliga IP-adresser.
 
-Följande principer påverkar i allmänhet skapandet av kluster:
+Följande principer påverkar normalt kluster skapande:
 
-* Principer som förhindrar att ip-adresser eller belastningsutjämnare skapas i prenumerationen.
-* Princip som förhindrar att skapa lagringskonton.
-* Princip som förhindrar att nätverksresurser som IP-adresser eller belastningsutjämnare tas bort.
+* Principer som förhindrar att du skapar IP-adresser eller belastningsutjämnare i prenumerationen.
+* Princip som förhindrar skapande av lagrings konton.
+* Princip som förhindrar borttagning av nätverks resurser, till exempel IP-adresser eller belastningsutjämnare.
 
 ### <a name="resolution"></a>Lösning
 
-Ta bort eller inaktivera den prenumerationsbaserade Azure-principen när HDInsight Cluster skapas.
+Ta bort eller inaktivera den prenumeration som är baserad på Azure Policy tilldelning när du skapar HDInsight-kluster.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om felsökning av fel i klustergenerering finns i [Felsöka klusterskapande fel med Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
+Mer information om hur du felsöker fel i skapa kluster finns i [Felsöka kluster skapande fel med Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).

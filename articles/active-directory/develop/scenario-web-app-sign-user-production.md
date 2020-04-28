@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a8e275a41637950139598ac7c4f2513841bb4d0d
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 47a45b52ac10a44b6efd54c41b3fec1e61a47a35
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82112515"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181638"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Webbapp som loggar in användare: flytta till produktion
 
@@ -41,6 +41,8 @@ Se till att du förstår möjliga problem med nya versioner av Chrome-webbläsar
 
 > [!div class="nextstepaction"]
 > [Så här hanterar du ändringar i SameSite cookies i Chrome-webbläsaren](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
+Paketet Microsoft. Identity. Web NuGet hanterar de vanligaste SameSite-problemen.
 
 ### <a name="scenario-for-calling-web-apis"></a>Scenario för att anropa webb-API: er
 

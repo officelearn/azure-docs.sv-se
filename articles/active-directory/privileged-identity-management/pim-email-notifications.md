@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/05/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 201abd24bc4056337f1ffecd2dabd002ae352c74
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72756389"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866426"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
@@ -76,6 +76,18 @@ E-postmeddelandet innehåller fyra paneler:
 | **Rolltilldelningar utanför PIM** | Antal gånger användare tilldelas en permanent roll utanför Privilegierad identitetshantering (i Azure AD). |
 
 I avsnittet **Översikt över dina topproller** visas de fem översta rollerna i din klientorganisation baserat på det totala antalet permanenta och kvalificerade administratörer för varje roll. Länken **Vidta åtgärd** öppnar [PIM-guiden](pim-security-wizard.md) där du kan konvertera permanenta administratörer till kvalificerade administratörer i batchar.
+
+## <a name="email-timing-for-activation-approvals"></a>E-posttid för aktiveringsgodkännanden
+
+När användare aktiverar sin roll och rollinställningen kräver godkännande får godkännare tre e-postmeddelanden för varje godkännande:
+
+- Begäran om att godkänna eller neka användarens aktiveringsbegäran (skickas av begäran approval engine)
+- Användarens begäran godkänns (skickas av begäran godkännande motor)
+- Användarens roll aktiveras (skickas av Privilegierad identitetshantering)
+
+De två första e-postmeddelandena som skickas av begäran godkännande motorn kan fördröjas. För närvarande tar 90% av e-postmeddelanden tre till tio minuter, men för 1% kunder kan det vara mycket längre, upp till femton minuter.
+
+Om en godkännandebegäran godkänns i Azure-portalen innan det första e-postmeddelandet skickas, kommer det första e-postmeddelandet inte längre att utlösas och andra godkännare meddelas inte via e-post om godkännandebegäran. Det kan verka som om de inte fick ett e-postmeddelande men det är det förväntade beteendet.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>PIM-e-postmeddelanden för Azure-resursroller
 

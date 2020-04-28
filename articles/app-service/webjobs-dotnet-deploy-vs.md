@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 75e1f5fbfa41ac310d2a737dcfe28199715a094b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d73c858bdbfee7c5b7c7e31b62b1f601b7b6838a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312883"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866444"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera webbjobb med hjälp av Visual Studio – Azure App Service
 
@@ -175,7 +175,7 @@ När du konfigurerar ett konsolprogram för WebJobs-distribution installerar Vis
           "runMode": "Continuous"
         }
 
-Du kan redigera den här filen direkt och Visual Studio tillhandahåller IntelliSense. Filschemat lagras [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) på och kan visas där.  
+Du kan redigera den här filen direkt och Visual Studio tillhandahåller IntelliSense. Filschemat lagras [https://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) på och kan visas där.  
 
 ### <a name="webjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
 När du länkar ett WebJobs-aktiverat projekt till ett webbprojekt lagrar Visual Studio namnet på WebJobs-projektet i en *webjobs-list.json-fil* i webbprojektets *egenskapsmapp.* Listan kan innehålla flera WebJobs-projekt, vilket visas i följande exempel:
@@ -192,7 +192,7 @@ När du länkar ett WebJobs-aktiverat projekt till ett webbprojekt lagrar Visual
           ]
         }
 
-Du kan redigera den här filen direkt och Visual Studio tillhandahåller IntelliSense. Filschemat lagras [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) på och kan visas där.
+Du kan redigera den här filen direkt och Visual Studio tillhandahåller IntelliSense. Filschemat lagras [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) på och kan visas där.
 
 ### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>Distribuera ett WebJobs-projekt
 Ett WebJobs-projekt som du har länkat till ett webbprojekt distribueras automatiskt med webbprojektet. Information om distribution av webbprojekt finns i **Hur du använder** > **appen Distribuera** i den vänstra navigeringen.

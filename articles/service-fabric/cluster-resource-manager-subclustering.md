@@ -1,109 +1,109 @@
 ---
-title: Balansering av subclustered mått
-description: Effekten av placeringsbegränsningar på balansering och hur man hanterar det
+title: Balansering av underklustrade mått
+description: Effekterna av placerings begränsningar vid balansering och hur du hanterar dem
 author: nipavlo
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
-ms.openlocfilehash: 23782a86d31251cb1a3474e0395df716a2e832df
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430648"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183132"
 ---
-# <a name="balancing-of-subclustered-metrics"></a>Balansering av subclustered mått
+# <a name="balancing-of-subclustered-metrics"></a>Balansering av underklustrade mått
 
-## <a name="what-is-subclustering"></a>Vad är subclustering
+## <a name="what-is-subclustering"></a>Vad är underklustring
 
-Subclustering inträffar när tjänster med olika placeringsbegränsningar har ett gemensamt mått och de båda rapporterar belastning för det. Om belastningen som rapporteras av tjänsterna skiljer sig avsevärt, kommer den totala belastningen på noderna att ha en stor standardavvikelse och det skulle se ut som om klustret är obalanserat, även när det har bästa möjliga balans.
+Under kluster sker när tjänster med olika placerings begränsningar har ett gemensamt mått och de båda rapport belastningen. Om belastningen som rapporteras av tjänsterna skiljer sig avsevärt, kommer den totala belastningen på noderna att ha en stor standard avvikelse och det ser ut som att klustret är obalanserat, även om det har bästa möjliga balans.
 
-## <a name="how-subclustering-affects-load-balancing"></a>Hur delkluseringen påverkar belastningsutjämning
+## <a name="how-subclustering-affects-load-balancing"></a>Hur under kluster påverkar belastnings utjämning
 
-Om belastningen som rapporteras av tjänsterna på olika noder skiljer sig avsevärt, kan det se ut som det finns en stor obalans där det inte finns någon. Om den falska obalansen som orsakas av delkluseringen är större än den faktiska obalansen, har den också potential att förvirra resurshanterarens balanseringsalgoritm och skapa suboptimal balans i klustret.
+Om belastningen som rapporteras av tjänsterna på olika noder skiljer sig avsevärt, kan det se ut som om det finns en stor obalans där det inte finns någon. Om den falska obalansen som orsakas av under klustring är större än den faktiska obalansen, kan det också vara förvirrande att blanda Resource Manager-algoritmen och skapa en optimal balans i klustret.
 
-Anta till exempel att vi har fyra tjänster och att alla rapporterar en belastning för måttet Metric1:
+Anta till exempel att vi har fyra tjänster och att alla rapporterar en belastning för mått Metric1:
 
-* Tjänst A – har ett placeringsvillkor "NodeType==Type1", rapporterar en belastning på 10
-* Tjänst B – har ett placeringsvillkor "NodeType==Type1", rapporterar en belastning på 10
-* Tjänst C – har ett placeringsvillkor "NodeType==Type2", rapporterar en belastning på 100
-* Service D – har ett placeringsvillkor "NodeType==Type2", rapporterar en belastning på 100
-* Och vi har fyra noder. Två av dem har NodeType som "Type1" och de andra två är "Type2"
+* Tjänst A – har en placerings begränsning "NodeType = = klient del", rapporterar en belastning på 10
+* Service B – har en placerings begränsning "NodeType = = frontend", rapporterar en belastning på 10
+* Service C – har en placerings begränsning "NodeType = = Server del", rapporterar en belastning på 100
+* Tjänst D – har en placerings begränsning "NodeType = = Server del", rapporterar en belastning på 100
+* Och vi har fyra noder. Två av dem har NodeType inställd som "frontend" och de andra två är "backend"
 
 Och vi har följande placering:
 
 <center>
 
-![Exempel på subkluserad placering][Image1]
+![Exempel på underklustrad placering][Image1]
 </center>
 
-Klustret kan se obalanserat ut, vi har en stor belastning på noderna 3 och 4, men den här placeringen skapar bästa möjliga balans i den här situationen.
+Klustret kan se obalanser, vi har en stor belastning på noderna 3 och 4, men den här placeringen skapar det bästa möjliga saldot i den här situationen.
 
-Resource Manager kan känna igen subclustering situationer och i nästan alla fall kan det ge den optimala balansen för den givna situationen.
+Resource Manager kan identifiera scenarier med under kluster och i nästan samtliga fall kan det ge optimala balans för den aktuella situationen.
 
-För vissa exceptionella situationer när Resource Manager inte kan optimalt balansera ett subclustered mått det kommer fortfarande att upptäcka subclustering och det kommer att generera en hälsorapport för att råda dig att åtgärda problemet.
+I vissa undantagsfall när Resource Manager inte kan utjämna en optimalt balans för ett underordnat mått kommer det fortfarande att identifiera under klustringen och den genererar en hälso rapport som hjälper dig att åtgärda problemet.
 
-## <a name="types-of-subclustering-and-how-they-are-handled"></a>Typer av delklusive och hur de hanteras
+## <a name="types-of-subclustering-and-how-they-are-handled"></a>Typer av under kluster och hur de hanteras
 
-Subclustering situationer kan delas in i tre olika kategorier. Kategorin för en specifik subclustering situation avgör hur den ska hanteras av Resource Manager.
+Under kluster situationer kan klassificeras i tre olika kategorier. Kategorin för en viss del kluster situation bestämmer hur den ska hanteras av Resource Manager.
 
-### <a name="first-category--flat-subclustering-with-disjoint-node-groups"></a>Första kategorin – platt delklus med osammanhängande nodgrupper
+### <a name="first-category--flat-subclustering-with-disjoint-node-groups"></a>Första kategori – platt del kluster med åtskilda noder i grupper
 
-Den här kategorin har den enklaste formen av subclustering där noder kan delas upp i olika grupper och varje tjänst endast kan placeras på noder i en av dessa grupper. Varje nod tillhör endast en grupp och en grupp. Den situation som beskrivs ovan hör hemma i denna kategori liksom de flesta av de subclustering situationer. 
+Den här kategorin har den enklaste formen av del kluster där noder kan delas upp i olika grupper och varje tjänst kan bara placeras på noder i någon av dessa grupper. Varje nod tillhör bara en grupp och en grupp. Situationen som beskrivs ovan tillhör den här kategorin som gör de flesta av del kluster situationer. 
 
-För situationerna i den här kategorin kan Resurshanteraren skapa den optimala balansen och inga ytterligare åtgärder behövs.
+I den här kategorin kan Resource Manager producera den optimala balansen och ingen ytterligare åtgärd krävs.
 
-### <a name="second-category--subclustering-with-hierarchical-node-groups"></a>Andra kategorin – subclustering med hierarkiska nodgrupper
+### <a name="second-category--subclustering-with-hierarchical-node-groups"></a>Andra kategorin – del klustring med hierarkiska noder i grupper
 
-Den här situationen inträffar när en grupp noder som tillåts för en tjänst är en delmängd av den grupp noder som tillåts för en annan tjänst. Det vanligaste exemplet på den här situationen är när vissa tjänster har en definierad placeringsbegränsning och en annan tjänst inte har någon placeringsbegränsning och kan placeras på vilken nod som helst.
+Den här situationen inträffar när en grupp noder som tillåts för en tjänst är en delmängd av gruppen med noder som tillåts för en annan tjänst. Det vanligaste exemplet på den här situationen är när en viss tjänst har en definierad placerings begränsning och en annan tjänst har ingen placerings begränsning och kan placeras på vilken nod som helst.
 
 Exempel:
 
-* Tjänst A: ingen placeringsbegränsning
-* Tjänst B: placeringsvillkor "NodeType==Type1"
-* Tjänst C: placeringsvillkor "NodeType==Type2"
+* Tjänst A: ingen placerings begränsning
+* Tjänst B: placerings begränsning "NodeType = = frontend"
+* Service C: placerings begränsning "NodeType = = backend"
 
-Den här konfigurationen skapar en delmängds-supersetrelation mellan nodgrupper för olika tjänster.
+Den här konfigurationen skapar en delmängd-supermängd mellan noder för olika tjänster.
 
 <center>
 
-![Delmängd superset subkluster][Image2]
+![Del kluster med supermängd][Image2]
 </center>
 
-I denna situation finns det en chans att en suboptimal balans blir gjord.
+I det här fallet är det en risk att ett underoptimerat saldo blir gjort.
 
-Resource Manager kommer att känna igen den här situationen och producera en hälsorapport som ger dig råd att dela upp tjänst A i två tjänster – Service A1 som kan placeras på typ1-noder och tjänst A2 som kan placeras på Type2-noder. Detta kommer att föra oss tillbaka till första kategorin situation som kan balanseras optimalt.
+Resurs hanteraren kommer att känna igen den här situationen och skapa en hälso rapport som uppmanar dig att dela upp tjänsten A i två tjänster – service a1 som kan placeras på klient dels-noder och service a2 som kan placeras på backend-noder. Detta kommer tillbaka till den första kategori situationen som kan bal anse ras optimalt.
 
-### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Tredje kategorin – subclustering med partiell överlappning mellan noduppsättningar
+### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Tredje kategori – under kluster med partiell överlappning mellan Node-uppsättningar
 
 Den här situationen inträffar när det finns en partiell överlappning mellan uppsättningar av noder som vissa tjänster kan placeras på.
 
-Om vi till exempel har en nodegenskap som heter NodeColor och vi har tre noder:
+Om vi till exempel har en Node-egenskap med namnet NodeColor och vi har tre noder:
 
-* Nod 1: NodeColor=Röd
-* Nod 2: NodeColor=Blå
-* Nod 2: NodeColor=Grön
+* Nod 1: NodeColor = Red
+* Nod 2: NodeColor = blå
+* Nod 2: NodeColor = grön
 
 Och vi har två tjänster:
 
-* Tjänst A: med placeringsvillkor "Color==Red || Färg==Blå"
-* Tjänst B: med placeringsvillkor "Color==Blue || Färg==Grön"
+* Tjänst A: med placerings begränsning "Color = = Red | | Färg = = blå "
+* Tjänst B: med placerings begränsning "färg = = blå | | Color = = grönt "
 
-På grund av detta kan service A placeras på noderna 1 och 2 och service B kan placeras på noderna 2 och 3.
+Därför kan service A placeras på noderna 1 och 2 och service B kan placeras på noderna 2 och 3.
 
-I denna situation finns det en chans att en suboptimal balans blir gjord.
+I det här fallet är det en risk att ett underoptimerat saldo blir gjort.
 
-Resource Manager kommer att känna igen den här situationen och ta fram en hälsorapport som rekommenderar dig att dela upp några av tjänsterna.
+Resurs hanteraren kommer att känna igen den här situationen och skapa en hälso rapport som uppmanar dig att dela upp några av tjänsterna.
 
-I det här fallet kan Resurshanteraren inte ge ett förslag om hur tjänsterna ska delas upp, eftersom flera delningar kan göras och det inte finns något sätt att uppskatta vilken väg som skulle vara den optimala för att dela upp tjänsterna.
+I den här situationen kan inte Resource Manager ge förslag på hur du delar upp tjänsterna, eftersom flera delningar kan utföras och det inte finns något sätt att uppskatta vilket sätt som är det bästa sättet att dela tjänsterna.
 
-## <a name="configuring-subclustering"></a>Konfigurera underkräpning
+## <a name="configuring-subclustering"></a>Konfigurera under kluster
 
-Resurshanterarens beteende vid delklustering kan ändras genom att ändra följande konfigurationsparametrar:
-* SubclusteringEnabled - parametern avgör om Resource Manager tar med sig att ta hänsyn till delkluseringen när belastningsutjämningen sker. Om den här parametern är inaktiverad ignorerar Resource Manager underkval och försöker uppnå optimal balans på global nivå. Standardvärdet för den här parametern är falskt.
-* SubclusteringReportingPolicy - bestämmer hur Resource Manager ska avge hälsorapporter för hierarkisk och partiell överlappningsunderklystna. Värdet noll innebär att hälsorapporter om delkluseringen är inaktiverade, "1" innebär att varningshälsorapporter kommer att tas fram för suboptimala subclustering situationer och ett värde av "2" kommer att producera "OK" hälsorapporter. Standardvärdet för den här parametern är "1".
+Resurs hanterarens beteende om under klustring kan ändras genom att ändra följande konfigurations parametrar:
+* SubclusteringEnabled-parameter bestämmer om resurs hanteraren kommer att ta under kluster i kontot när belastnings utjämning utförs. Om den här parametern är inaktive rad ignorerar Resource Manager underkluster och försöker uppnå optimalt saldo på global nivå. Standardvärdet för den här parametern är false.
+* SubclusteringReportingPolicy – anger hur resurs hanteraren ska generera hälso rapporter för hierarkiskt och partiellt överlappande under kluster. Värdet noll innebär att hälso rapporter om under klustring är inaktiverade, "1" innebär att varnings hälso rapporter skapas för under kluster med optimala under kluster och värdet "2" kommer att skapa hälso rapporter för "OK". Standardvärdet för den här parametern är "1".
 
-ClusterManifest.xml:
+ClusterManifest. XML:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -112,7 +112,7 @@ ClusterManifest.xml:
         </Section>
 ```
 
-via ClusterConfig.json för fristående distributioner eller Template.json för Azure-värdkluster:
+via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [
@@ -133,8 +133,8 @@ via ClusterConfig.json för fristående distributioner eller Template.json för 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill veta mer om hur Cluster Resource Manager hanterar och balanserar belastning i klustret kan du läsa artikeln om [utjämningsbelastning](service-fabric-cluster-resource-manager-balancing.md)
-* Om du vill veta mer om hur dina tjänster kan begränsas till att endast placeras på vissa noder se [Nodegenskaper och placeringsbegränsningar](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
+* Om du vill veta mer om hur kluster resurs hanteraren hanterar och balanserar belastningen i klustret kan du läsa artikeln om [balansering av belastning](service-fabric-cluster-resource-manager-balancing.md)
+* För att ta reda på hur dina tjänster kan begränsas till att endast placeras på vissa noder, se [Node-egenskaper och placerings begränsningar](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 [Image1]:./media/cluster-resource-manager-subclustering/subclustered-placement.png
 [Image2]:./media/cluster-resource-manager-subclustering/subset-superset-nodes.png

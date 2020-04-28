@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 01121612c5574544ef6985d33f56f3e334f8d37c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8c2ef8d174e8449b88f2257074bee69c3f45c6d9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120657"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181947"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Principer för data säkerhet och sekretess för Google-anslutningar i Azure Logic Apps
 
@@ -34,13 +34,13 @@ Om du har Logi Kap par som använder Gmail Connector får du ett e-postmeddeland
 
 När du använder ett Gmail-konto i den här principen kan du använda Gmail-anslutningen med enbart vissa Google-godkända tjänster, som kan ändras. Våra tekniska team fortsätter att arbeta med Google för att lägga till fler tjänster i listan. Nu är här de Google-godkända utlösare, åtgärder och kopplingar som du kan använda i samma Logic app-arbetsflöde med Gmail Connector när du använder ett Gmail-konsument konto:
 
-* Logic Apps inbyggda utlösare och åtgärder: batch, kontroll, data åtgärder, datum tid, flat fil, flytande, begäran, schema, variabler och XML
+* Logic Apps inbyggda utlösare och åtgärder: batch, kontroll, data åtgärder, datum tid, flat fil, HTTP, flytande, begäran, schema, variabler och XML
 
 * Google-tjänster: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets och Google tasks
 
 * Godkända Microsoft-tjänster: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive och SharePoint Online
 
-* Anslutningar för Kundhanterade data Källor: FTP, HTTP, RSS, SFTP, SMTP och SQL Server
+* Anslutningar för Kundhanterade data Källor: FTP, RSS, SFTP, SMTP och SQL Server
 
 Den senaste informationen finns i [Gmail Connectors tekniska referens dokumentation](https://docs.microsoft.com/connectors/gmail/).
 

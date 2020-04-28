@@ -1,6 +1,6 @@
 ---
-title: Anropa ett webb-API från en webbapp - Microsoft identity platform | Azure
-description: Lär dig hur du skapar en webbapp som anropar webb-API:er (anropar ett skyddat webb-API)
+title: Anropa ett webb-API från en webbapp – Microsoft Identity Platform | Azure
+description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (som anropar ett skyddat webb-API)'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,20 +11,24 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 84df33137566445015848655cfecb87ba67ef123
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868721"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181689"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>En webbapp som anropar webb-API:er: Anropa ett webb-API
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>En webbapp som anropar webb-API: er: anropa ett webb-API
 
 Nu när du har en token kan du anropa ett skyddat webb-API.
 
+## <a name="call-a-protected-web-api"></a>Anropa ett skyddat webb-API
+
+Att anropa ett skyddat webb-API beror på vilket språk och ramverk du väljer:
+
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Här är förenklad kod för `HomeController`åtgärden av . Den här koden får en token för att anropa Microsoft Graph. Kod har lagts till för att visa hur du anropar Microsoft Graph som REST API. URL:en för Microsoft Graph API finns i filen appsettings.json `webOptions`och läses i en variabel med namnet :
+Här är den `HomeController`förenklade koden för åtgärden. Den här koden hämtar en token för att anropa Microsoft Graph. Koden har lagts till för att visa hur du anropar Microsoft Graph som ett REST API. URL: en för Microsoft Graph-API: n finns i filen appSettings. JSON och läses i en variabel med `webOptions`namnet:
 
 ```json
 {
@@ -40,48 +44,33 @@ Här är förenklad kod för `HomeController`åtgärden av . Den här koden får
 ```csharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+ // Acquire the access token.
+ string[] scopes = new string[]{"user.read"};
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Get the account.
- IAccount account = await application.GetAccountAsync(accountIdentifier);
+ // Use the access token to call a protected web API.
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ 
+  var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
- // Special case for guest users, because the guest ID / tenant ID are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
+  if (response.StatusCode == HttpStatusCode.OK)
+  {
+   var content = await response.Content.ReadAsStringAsync();
 
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
+   dynamic me = JsonConvert.DeserializeObject(content);
+   return me;
+  }
 
- // Calls the web API (Microsoft Graph in this case).
- HttpClient httpClient = new HttpClient();
- httpClient.DefaultRequestHeaders.Authorization =
-     new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
- var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
-
- if (response.StatusCode == HttpStatusCode.OK)
- {
-  var content = await response.Content.ReadAsStringAsync();
-
-  dynamic me = JsonConvert.DeserializeObject(content);
-  return me;
- }
-
- ViewData["Me"] = me;
- return View();
+  ViewData["Me"] = me;
+  return View();
 }
 ```
 
 > [!NOTE]
-> Du kan använda samma princip för att anropa alla webb-API.
+> Du kan använda samma princip för att anropa alla webb-API: er.
 >
-> De flesta Azure-webb-API:er tillhandahåller en SDK som förenklar anropande av API:et. Detta gäller även för Microsoft Graph. I nästa artikel får du lära dig var du hittar en självstudiekurs som illustrerar API-användning.
+> De flesta Azure Web API: er tillhandahåller en SDK som fören klar anropet till API: et. Detta gäller även för Microsoft Graph. I nästa artikel lär du dig var du hittar en själv studie kurs som illustrerar API-användning.
 
 # <a name="java"></a>[Java](#tab/java)
 

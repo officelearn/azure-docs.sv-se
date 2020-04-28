@@ -1,6 +1,6 @@
 ---
-title: Aktivera kapslad virtualisering på en virtuell mall-dator i Azure Lab Services | Microsoft-dokument
-description: Lär dig hur du skapar en virtuell mall med flera virtuella datorer inuti.  Med andra ord aktivera kapslad virtualisering på en virtuell mall-dator i Azure Lab Services.
+title: Aktivera kapslad virtualisering på en virtuell mall i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du skapar en mall för virtuella datorer med flera virtuella datorer i.  Med andra ord aktiverar du kapslad virtualisering på en virtuell mall i Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,51 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 59b32834369f76d39bb4a253dad4ec541e7ef999
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502003"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184681"
 ---
-# <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Aktivera kapslad virtualisering på en virtuell malldator i Azure Lab Services
+# <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Aktivera kapslad virtualisering på en virtuell mall på en virtuell dator i Azure Lab Services
 
-För närvarande kan Azure Lab Services du ställa in en mall virtuell dator i ett labb och göra en enda kopia tillgänglig för var och en av dina användare. Om du undervisar i nätverk, säkerhet eller IT-klasser kan du behöva ge var och en av dina elever en miljö där flera virtuella datorer kan prata med varandra via ett nätverk.
+För närvarande kan du med Azure Lab Services konfigurera en virtuell mall för virtuella datorer i ett labb och göra en enskild kopia tillgänglig för varje användare. Om du är en lärare som underhåller nätverk, säkerhet eller IT-klasser kan du behöva ge varje studenter en miljö där flera virtuella datorer kan kommunicera med varandra via ett nätverk.
 
-Kapslad virtualisering gör att du kan skapa en miljö med flera virtuella datorer i ett labbs virtuella malldator. Publicera mallen kommer att ge varje användare i labbet med en virtuell dator som inrättats med flera virtuella datorer i den.  Den här artikeln beskriver hur du konfigurerar kapslad virtualisering på en malldator i Azure Lab Services.
+Kapslad virtualisering gör att du kan skapa en miljö med flera virtuella datorer i en labbs mall för virtuella datorer. Genom att publicera mallen får du varje användare i labbet med en virtuell dator som är konfigurerad med flera virtuella datorer i den.  Den här artikeln beskriver hur du konfigurerar kapslad virtualisering på en mallfil i Azure Lab Services.
 
 ## <a name="what-is-nested-virtualization"></a>Vad är kapslad virtualisering?
 
-Kapslad virtualisering gör att du kan skapa virtuella datorer på en virtuell dator. Kapslad virtualisering sker via Hyper-V och är endast tillgängligt på virtuella datorer i Windows.
+Kapslad virtualisering gör att du kan skapa virtuella datorer i en virtuell dator. Kapslad virtualisering görs via Hyper-V och är bara tillgänglig på virtuella Windows-datorer.
 
 Mer information om kapslad virtualisering finns i följande artiklar:
 
 - [Kapslad virtualisering i Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
-- [Aktivera kapslad virtualisering i en virtuell Azure-dator](../../virtual-machines/windows/nested-virtualization.md)
+- [Så här aktiverar du kapslad virtualisering i en virtuell Azure-dator](../../virtual-machines/windows/nested-virtualization.md)
 
 ## <a name="considerations"></a>Överväganden
 
-Innan du ställer in ett labb med kapslad virtualisering, här är några saker att ta hänsyn till.
+Här är några saker att tänka på innan du konfigurerar ett labb med kapslad virtualisering.
 
-- När du skapar ett nytt labb väljer du **Medelstora (kapslade virtualiserings-** eller **stora (kapslade virtualiseringsstorlekar)** för den virtuella datorns storlek. Dessa storlekar för virtuella datorer stöder kapslad virtualisering.
-- Välj en storlek som ger bra prestanda för både värd- och klient virtuella datorer.  Kom ihåg att när du använder virtualisering måste den storlek du väljer vara tillräcklig för inte bara en dator, men värden samt alla klientdatorer som måste köras samtidigt.
-- Klient virtuella datorer kommer inte att ha åtkomst till Azure-resurser, till exempel DNS-servrar i det virtuella Azure-nätverket.
-- Värd virtuell dator kräver installation för att klientdatorn ska ha internetanslutning.
-- Klient virtuella datorer är licensierade som oberoende datorer. Mer information om licensiering av Microsofts operativsystem och produkter finns i [Microsofts](https://www.microsoft.com/licensing/default) licensieringstillstånd. Kontrollera licensavtal för andra program som används innan du ställer in mallen maskinen.
+- När du skapar ett nytt labb väljer du **medium (kapslad virtualisering)** eller **stor (kapslad virtualisering)** storlek för den virtuella dator storleken. De här virtuella dator storlekarna stöder kapslad virtualisering.
+- Välj en storlek som ger bästa prestanda för både värd-och klientens virtuella datorer.  Kom ihåg att när du använder virtualisering måste den storlek du väljer vara tillräcklig för inte bara en dator, men både värden och Hyper-V-datorer som körs samtidigt.
+- Klientens virtuella datorer har inte åtkomst till Azure-resurser, till exempel DNS-servrar, på det virtuella Azure-nätverket.
+- Den virtuella värd datorn kräver att installations programmet tillåter att klient datorn har Internet anslutning.
+- Virtuella klient datorer licensieras som oberoende datorer. Se [Microsoft-licensiering](https://www.microsoft.com/licensing/default) för information om licensiering för Microsoft operation Systems och produkter. Kontrol lera licens avtal för all annan program vara som används innan du konfigurerar mallen Machine.
 
 ## <a name="enable-nested-virtualization-on-a-template-vm"></a>Aktivera kapslad virtualisering på en virtuell malldator
 
-Den här artikeln förutsätter att du har skapat ett labbkonto och labb.  Mer information om hur du skapar ett nytt labbkonto finns i [självstudiekursen för att konfigurera ett labbkonto](tutorial-setup-lab-account.md). Mer information om hur du skapar labb finns i [konfigurera en självstudiekurs för klassrumslabb](tutorial-setup-classroom-lab.md).
+Den här artikeln förutsätter att du har skapat ett labb konto och labb.  Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md). Mer information om hur du skapar labb finns i avsnittet [Konfigurera en labb Guide för klass rummet](tutorial-setup-classroom-lab.md).
 
 >[!IMPORTANT]
->Välj **Stor (kapslad virtualisering)** eller **Medel (kapslad virtualisering)** för den virtuella datorns storlek när du skapar labbet.  Kapslad virtualisering fungerar inte annars.  
+>Välj **stor (kapslad virtualisering)** eller **medium (kapslad virtualisering)** för den virtuella dator storleken när du skapar labbet.  Kapslad virtualisering kommer inte att fungera på annat sätt.  
 
-Information om hur du ansluter till mallens dator finns i [skapa och hantera en klassrumsmall](how-to-create-manage-template.md).
+Information om hur du ansluter till mallen finns i [skapa och hantera en klass rums mall](how-to-create-manage-template.md).
 
-### <a name="using-script-to-enable-nested-virtualization"></a>Använda skript för att aktivera kapslad virtualisering
+Om du vill aktivera kapslad virtualisering finns det några åtgärder att utföra.  
 
-Information om hur du använder den automatiska installationen för kapslad virtualisering med Windows Server 2016 eller Windows Server 2019 finns [i Aktivera kapslad virtualisering på en virtuell malldator i Azure Lab Services med ett skript](how-to-enable-nested-virtualization-template-vm-using-script.md). Du kommer att använda skript från [Lab Services Hyper-V-skript](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV) för att installera Hyper-V-rollen.  Skripten kommer också att konfigurera nätverk så att Hyper-V virtuella datorer kan ha tillgång till Internet.
+- **Aktivera Hyper-V-rollen**. Hyper-V-rollen måste vara aktive rad för att skapa och köra virtuella Hyper-V-datorer på den virtuella datorn för labb tjänster.
+- **Aktivera DHCP**.  Om DHCP-rollen är aktive rad i labb tjänsternas virtuella dator kan virtuella Hyper-V-datorer automatiskt tilldelas en IP-adress.
+- **Skapa NAT-nätverk för virtuella Hyper-V-datorer**.  NAT-nätverket är konfigurerat för att tillåta Internet åtkomst för virtuella Hyper-V-datorer.  Virtuella Hyper-V-datorer kan kommunicera med varandra.
 
-### <a name="using-windows-tools-to-enable-nested-virtualization"></a>Använda Windows-verktyg för att aktivera kapslad virtualisering
+>[!NOTE]
+>NAT-nätverket som skapades på den virtuella labb tjänster-datorn gör att en virtuell Hyper-V-dator får åtkomst till Internet och andra virtuella Hyper-V-datorer på samma virtuella dator i labb tjänster.  Den virtuella Hyper-V-datorn kommer inte att kunna komma åt Azure-resurser, till exempel DNS-servrar, på det virtuella Azure-nätverket.
 
-Den kapslade virtualiseringen av Windows Server 2016 eller Windows Server 2019 med Windows-roller och administrationsverktyg finns [i Aktivera kapslad virtualisering på en virtuell malldator i Azure Lab Services manuellt](how-to-enable-nested-virtualization-template-vm-ui.md).  Instruktioner kommer också att omfatta hur du ställer in nätverk så att Hyper-V virtuella datorer kan ha tillgång till Internet.
+Att utföra de uppgifter som anges ovan kan göras med hjälp av ett skript eller med hjälp av Windows-verktyg.  Läs avsnitten nedan om du vill ha mer information.
+
+### <a name="using-script-to-enable-nested-virtualization"></a>Aktivera kapslad virtualisering med hjälp av skript
+
+Om du vill använda den automatiserade installationen av kapslad virtualisering med Windows Server 2016 eller Windows Server 2019, se [Aktivera kapslad virtualisering på en virtuell mall i Azure Lab Services med hjälp av ett skript](how-to-enable-nested-virtualization-template-vm-using-script.md). Du kommer att använda skript från [labb tjänster Hyper-v-skript](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV) för att installera Hyper-v-rollen.  Skripten kan också konfigurera nätverk så att virtuella Hyper-V-datorer kan ha Internet åtkomst.
+
+### <a name="using-windows-tools-to-enable-nested-virtualization"></a>Aktivera kapslad virtualisering med hjälp av Windows-verktyg
+
+Konfigurera kapslad virtualisering för Windows Server 2016 eller Windows Server 2019 med Windows-roller och administrations verktyg, se [Aktivera kapslad virtualisering på en virtuell mall i Azure Lab Services manuellt](how-to-enable-nested-virtualization-template-vm-ui.md).  Instruktioner beskriver också hur du konfigurerar nätverk så att virtuella Hyper-V-datorer kan ha Internet åtkomst.

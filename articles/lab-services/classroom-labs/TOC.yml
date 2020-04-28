@@ -108,6 +108,8 @@
           href: how-to-windows-shutdown.md
         - name: Visa supportinformation (instruktör)
           href: lab-creator-support-information.md
+        - name: Få åtkomst till virtuella datorer för studenter från instruktörsvyn
+          href: instructor-access-virtual-machines.md
     - name: Ansluta till virtuella datorer i klassrumslabb (elev)
       items:
         - name: Åtkomst till klassrumslabb

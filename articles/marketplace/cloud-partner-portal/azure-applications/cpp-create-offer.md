@@ -7,29 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 823c9cbe8c850fbc4170a5734305f9cc5e45be83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405593a97571ac5be351011890d162b5c0396966
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285290"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865583"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
-I den här artikeln beskrivs hur du skapar och publicerar en Azure-programerbjudandepost för Azure Marketplace. Varje erbjudande visas som sin egen enhet på Azure Marketplace och består av följande grupperingar av tillgångar och stödtjänster: erbjudandeinformation, SKU: marknadsföringsartefakter och supportinformation.
+[Cloud Partner Portal](https://cloudpartner.azure.com/) stöder inte längre skapandet och hanteringen av Azure-programerbjudanden. I stället har den här funktionen flyttats till Microsoft [Partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [Skapa ett Azure-programerbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).
 
-## <a name="new-offer-form"></a>Formulär för nytt erbjudande
-
-Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/)och välj sedan + Nytt **erbjudande** i den vänstra menyraden. På menyn Nytt erbjudande väljer du **Azure-program** för att visa formuläret **Nytt erbjudande** och starta processen med att definiera resurser för ett nytt erbjudande.
-
-![Nytt erbjudandeformulär](./media/azure-new-managedapp-offer.png)
-
-## <a name="next-steps"></a>Nästa steg
-
-På sidan Nytt erbjudande finns en uppsättning flikar och formulärfält som du ska använda för att skapa ett nytt erbjudande. I följande artiklar beskrivs hur du definierar tillgångsgrupper och stödtjänster för ditt nya erbjudande.
-
-* [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
-* [fliken SKU:er](./cpp-skus-tab.md)
-* [Fliken Test Drive](./cpp-testdrive-tab.md)
-* [fliken Marketplace](./cpp-marketplace-tab.md)
-* [fliken Stöd](./cpp-support-tab.md)
+Innan du skapar ett nytt Azure-programerbjudande bör du läsa [Skapa ett Partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrumentpanelen för Kommersiella Marknadsplatser](https://partner.microsoft.com/dashboard/directory) med den **översiktssida** som valts. Följ instruktionerna i [Skapa ett Azure-programerbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) för att skapa ditt erbjudande.

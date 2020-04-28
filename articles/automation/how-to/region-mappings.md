@@ -9,18 +9,18 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bc47fe6e1f0730bcff49e138df92f85ba3ef1a8
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 607cebca3e6e8ddd95900ecdbd7041e5f7bb50cc
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114487"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165781"
 ---
 # <a name="workspace-mappings"></a>Mappningar av arbetsytor
 
 När du aktiverar Uppdateringshantering, Ändringsspårning och inventering eller Starta/stoppa virtuella datorer när de inte används är det bara vissa regioner som stöds för att länka en Log Analytics arbets yta och ett Automation-konto i din prenumeration. Den här mappningen gäller endast Automation-kontot och Log Analytics-arbetsytan. Log Analytics-arbetsytan och automation-kontot måste finnas i samma prenumeration, men kan finnas i olika resurs grupper som distribueras till samma region.
 
-Mer information finns i [Log Analytics arbets yta och Automation-konto](../azure-monitor/insights/solutions.md#log-analytics- workspace-and-automation-account).
+Mer information finns i [Log Analytics arbets yta och Automation-konto](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mappningar som stöds
 

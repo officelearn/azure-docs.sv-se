@@ -1,30 +1,31 @@
 ---
-title: Transportlagersäkerhet i Azure HDInsight
-description: Transportlagersäkerhet (TLS) och SSL (Secure Sockets Layer) är kryptografiska protokoll som ger kommunikationssäkerhet över ett datornätverk.
+title: Säkerhet på transport nivå i Azure HDInsight
+description: TLS (Transport Layer Security) och SSL (Secure Sockets Layer) är krypterings protokoll som ger kommunikations säkerhet i ett dator nätverk.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: fbe602581ebcea6385fb9cc9953d8e48272ce429
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: b74ca75b26d4d98c79091683f428eb39e5827665
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771968"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183508"
 ---
-# <a name="transport-layer-security-in-azure-hdinsight"></a>Transportlagersäkerhet i Azure HDInsight
+# <a name="transport-layer-security-in-azure-hdinsight"></a>Säkerhet på transport nivå i Azure HDInsight
 
-Anslutningar till HDInsight-klustret via `https://CLUSTERNAME.azurehdinsight.net` slutpunkten för det offentliga klustret proxyseras via klustergatewaynoder. Dessa anslutningar är säkrade med hjälp av ett protokoll som kallas TLS. Genom att tillämpa högre versioner av TLS på gateways förbättras säkerheten för dessa anslutningar. Mer information om varför du bör använda nyare versioner av TLS finns i [Lösa TLS 1.0-problemet](https://docs.microsoft.com/security/solving-tls1-problem).
+Anslutningar till HDInsight-klustret via den offentliga kluster slut `https://CLUSTERNAME.azurehdinsight.net` punkten är proxy via klusternoder. Dessa anslutningar skyddas med hjälp av ett protokoll som kallas TLS. Att framtvinga högre versioner av TLS på gateways förbättrar säkerheten för dessa anslutningar. Mer information om varför du bör använda nyare versioner av TLS finns i [lösa problemet med tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 
-Som standard accepterar Azure HDInsight-kluster TLS 1.2-anslutningar på offentliga HTTPS-slutpunkter och äldre versioner för bakåtkompatibilitet. Du kan styra den minsta TLS-versionen som stöds på gatewaynoderna när kluster skapas med hjälp av antingen Azure-portalen eller en Resource Manager-mall. För portalen väljer du TLS-versionen på fliken **Säkerhet + nätverk** när klustret skapas. Använd egenskapen **minSupportedTlsVersion** för en Resource Manager-mall vid distributionen. En exempelmall finns i [hdinsight minimum TLS 1.2 Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Den här egenskapen stöder tre värden: "1,0", "1,1" och "1,2", vilket motsvarar TLS 1,0+, TLS 1.1+ respektive TLS 1.2+ .
+Som standard godkänner Azure HDInsight-kluster TLS 1,2-anslutningar på offentliga HTTPS-slutpunkter och äldre versioner för bakåtkompatibilitet. Du kan kontrol lera den lägsta TLS-version som stöds på Gateway-noderna när klustret skapas, antingen med hjälp av Azure Portal eller en Resource Manager-mall. För portalen väljer du TLS-versionen från fliken **säkerhet + nätverk** när klustret skapas. Använd egenskapen **minSupportedTlsVersion** för en Resource Manager-mall vid distributions tiden. En exempel-mall finns i [snabb starts mal len för HDInsight-lägsta TLS 1,2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Den här egenskapen stöder tre värden: "1,0", "1,1" och "1,2", som motsvarar TLS 1.0 +, TLS 1.1 + och TLS 1.2 + respektive.
 
 > [!IMPORTANT]
-> Från och med den 30 juni 2020 kommer Azure HDInsight att framtvinga TLS 1.2 eller senare versioner för alla HTTPS-anslutningar. Vi rekommenderar att du ser till att alla dina klienter är redo att hantera TLS 1.2 eller senare versioner. Mer information finns i [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
+> Från och med den 30 juni 2020 kommer Azure HDInsight att verkställa TLS 1,2 eller senare versioner för alla HTTPS-anslutningar. Vi rekommenderar att du ser till att alla klienter är redo att hantera TLS 1,2 eller senare versioner. Mer information finns i [Azure HDInsight TLS 1,2 Enforcement](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Planera ett virtuellt nätverk för Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)
 * [Skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md).
-* [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+* [Nätverks säkerhets grupper](../virtual-network/security-overview.md).

@@ -1,163 +1,163 @@
 ---
-title: Azure Principtillägg för Visual Studio-kod
-description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio-kod för att slå upp Resurshanterarens alias.
+title: Azure Policy tillägg för Visual Studio Code
+description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Resource Manager-alias.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641028"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182573"
 ---
-# <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använda Azure-principtillägg för Visual Studio-kod
+# <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
-> Gäller för Azure Policy-tillägg version **0.0.21** och nyare
+> Gäller Azure Policy Extension version **0.0.21** och senare
 
-Lär dig hur du använder Azure Policy-tillägget för Visual Studio-kod för att slå upp [alias](../concepts/definition-structure.md#aliases) och granska resurser och principer. Först beskriver vi hur du installerar Azure Policy-tillägget i Visual Studio Code. Sen går vi igenom hur man slår upp alias.
+Lär dig hur du använder Azure Policy tillägget för Visual Studio Code för att söka efter [alias](../concepts/definition-structure.md#aliases) och granska resurser och principer. Först beskriver vi hur du installerar tillägget Azure Policy i Visual Studio Code. Sedan kommer vi att gå igenom hur du söker efter alias.
 
-Azure Policy-tillägg för Visual Studio-kod kan installeras på alla plattformar som stöds av Visual Studio Code. Det här stödet omfattar Windows, Linux och macOS.
+Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattformar som stöds av Visual Studio Code. Det här stödet omfattar Windows, Linux och macOS.
 
 > [!NOTE]
-> Ändringar som görs lokalt i principer som visas i Azure Policy-tillägget för Visual Studio-kod synkroniseras inte med Azure.
+> Ändringar som görs lokalt i principer som visas i Azure Policy-tillägget för Visual Studio Code synkroniseras inte med Azure.
 
 ## <a name="prerequisites"></a>Krav
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-- [Visual Studio-kod](https://code.visualstudio.com).
+- [Visual Studio Code](https://code.visualstudio.com).
 
-## <a name="install-azure-policy-extension"></a>Installera Azure-principtillägg
+## <a name="install-azure-policy-extension"></a>Installera Azure Policy tillägg
 
-När du har uppfyllt förutsättningarna kan du installera Azure Policy-tillägg för Visual Studio-kod genom att följa dessa steg:
+När du uppfyller kraven kan du installera Azure Policy tillägget för Visual Studio Code genom att följa dessa steg:
 
 1. Öppna Visual Studio Code.
 
-1. Gå till **Visa** > **tillägg**på menyraden .
+1. Gå till **Visa** > **tillägg**i meny raden.
 
-1. Ange **Azure Policy**i sökrutan .
+1. I rutan Sök anger du **Azure policy**.
 
-1. Välj **Azure-princip** i sökresultaten och välj sedan **Installera**.
+1. Välj **Azure policy** från Sök resultaten och välj sedan **Installera**.
 
-1. Välj **Ladda om** vid behov.
+1. Välj **Läs in igen** när det behövs.
 
-## <a name="set-the-azure-environment"></a>Ange Azure-miljö
+## <a name="set-the-azure-environment"></a>Ange Azure-miljön
 
-För en nationell molnanvändare följer du dessa steg för att ställa in Azure-miljön först:
+För en nationell moln användare följer du de här stegen för att ställa in Azure-miljön först:
 
-1. Välj **Arkiv\Inställningar\Inställningar**.
+1. Välj **File\Preferences\Settings**.
 
-1. Sök på följande sträng: _Azure: Cloud_
+1. Sök efter följande sträng: _Azure: Cloud_
 
-1. Välj nationmolnet i listan:
+1. Välj nation-molnet i listan:
 
-   ![Ange standardinformation från Azure-molnet för Visual Studio-kod](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Ange standard Azure Cloud-inloggning för Visual Studio Code" border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Ansluta till ett Azure-konto
 
-Om du vill utvärdera resurser och uppslagsalias måste du ansluta till ditt Azure-konto. Så här ansluter du till Azure från Visual Studio Code:
+Om du vill utvärdera resurser och uppslags-alias måste du ansluta till ditt Azure-konto. Följ dessa steg för att ansluta till Azure från Visual Studio Code:
 
-1. Logga in på Azure från Azure-principtillägget eller kommandopaletten.
+1. Logga in på Azure från Azure Policy-tillägget eller paletten Command.
 
-   - Azure Principtillägg
+   - Azure Policy tillägg
 
-     Välj **Logga in på Azure**.
+     Från Azure Policy-tillägget väljer **du logga in på Azure**.
 
-     ![Azure-moln logga in för Visual Studio-kod från Azure Policy-tillägget](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Azure Cloud-inloggning för Visual Studio Code från Azure Policy-tillägget" border="false":::
 
-   - Kommandopalett
+   - Kommando palett
 
-     Gå till **Visa** > **kommandopalett**på menyraden och ange **Azure: Logga in**.
+     I meny raden går du till **Visa** > **kommando-palett**och anger **Azure: Logga**in.
 
-     ![Azure-moln logga in för Visual Studio-kod från kommandopalett](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Azure Cloud-inloggning för Visual Studio Code från kommando paletten" border="false":::
 
-1. Följ inloggningsinstruktionerna för att logga in på Azure. När du är ansluten visas ditt Azure-kontonamn i statusfältet längst ned i Visual Studio-kodfönstret.
+1. Följ anvisningarna för inloggning för att logga in på Azure. När du är ansluten visas namnet på ditt Azure-konto i statusfältet längst ned i Visual Studio Code-fönstret.
 
 ## <a name="select-subscriptions"></a>Välj prenumerationer
 
-När du loggar in första gången läses endast standardprenumerationsresurserna och standardprinciperna in av Azure Policy-tillägget. Så här lägger du till eller tar bort prenumerationer från att visa resurser och principer:
+Första gången du loggar in, läses endast standard prenumerations resurser och principer in av Azure Policy-tillägget. Följ dessa steg om du vill lägga till eller ta bort prenumerationer från att visa resurser och principer:
 
-1. Starta prenumerationskommandot från kommandopaletten eller fönsterfoten.
+1. Starta kommandot prenumeration från kommando tolken eller fönster foten.
 
-   - Kommandopalett: 
+   - Kommando palett: 
 
-     Gå till **Visa** > **kommandopalett**på menyraden och ange **Azure: Välj Prenumerationer**.
+     I meny raden går du till **Visa** > **kommando-palett**och anger **Azure: Välj prenumerationer**.
 
-   - Fönsterfot
+   - Fönster fot
 
-     I fönsterfoten längst ned på skärmen väljer du det segment som matchar **Azure: \<ditt konto\>**.
+     I fönster foten längst ned på skärmen väljer du det segment som matchar **Azure: \<ditt konto\>**.
 
-1. Använd filterrutan för att snabbt hitta prenumerationer efter namn. Kontrollera eller ta sedan bort checken från varje prenumeration för att ange prenumerationer som visas i Azure Policy-tillägget. När du har lagt till eller tagit bort prenumerationer som ska visas väljer du **OK**.
+1. Använd filter rutan för att snabbt hitta prenumerationer efter namn. Markera eller ta bort kontrollen från varje prenumeration för att ange de prenumerationer som visas i Azure Policy tillägget. När du har lagt till eller tagit bort prenumerationer som ska visas väljer du **OK**.
 
-## <a name="search-for-and-view-resources"></a>Söka efter och visa resurser
+## <a name="search-for-and-view-resources"></a>Sök efter och visa resurser
 
-Azure-principtillägget listar resurser i de valda prenumerationerna efter resursprovider och resursgrupp i **fönstret Resurser.** Trädvyn innehåller följande grupperingar av resurser inom den valda prenumerationen eller på prenumerationsnivå:
+I Azure Policy-tillägget visas resurser i de valda prenumerationerna per resurs leverantör och resurs grupp i fönstret **resurser** . Trädvyn innehåller följande grupperingar av resurser i den valda prenumerationen eller på prenumerations nivån:
 
 - **Resursprovidrar**
-  - Varje registrerad resursprovider med resurser och relaterade underordnade resurser som har principalias
-- **Resursgrupper**
-  - Alla resurser efter resursgruppen de befinner sig i
+  - Varje registrerad resurs leverantör med resurser och relaterade underordnade resurser som har princip-alias
+- **Resurs grupper**
+  - Alla resurser av resurs gruppen som de befinner sig i
 
-Som standard filtrerar tillägget resursproviderdelen med befintliga resurser och resurser som har principalias. Ändra det här beteendet i**Azure-princip** **för inställningar** > **för** > att se alla resursleverantörer utan filtrering.
+Som standard filtrerar tillägget "Resource Provider"-delen av befintliga resurser och resurser som har princip-alias. Ändra det här beteendet i **Inställningar** > **tillägg** > **Azure policy** om du vill se alla resurs leverantörer utan att filtrera.
 
-Kunder med hundratals eller tusentals resurser i en enda prenumeration kanske föredrar ett sökbart sätt att hitta sina resurser. Azure Policy-tillägget gör det möjligt att söka efter en viss resurs med följande steg:
+Kunder med hundratals eller tusentals resurser i en enda prenumeration kan föredra ett sökbart sätt att hitta sina resurser. Med Azure Policy-tillägget kan du söka efter en speciell resurs med följande steg:
 
-1. Starta sökgränssnittet från Azure Policy-tillägget eller kommandopaletten.
+1. Starta Sök gränssnittet från Azure Policy-tillägget eller paletten Command.
 
-   - Azure Principtillägg
+   - Azure Policy tillägg
 
-     Från Azure Policy-tillägget hovrar du över **resurspanelen** och väljer ellipsen och väljer sedan **Sökresurser**.
+     Från Azure Policy tillägget, Hovra över panelen **resurser** och välj ellipsen och välj sedan **Sök resurser**.
 
-   - Kommandopalett:
+   - Kommando palett:
 
-     Gå till **Visa** > **kommandopalett**på menyraden och ange **Resurser: Sökresurser**.
+     I meny raden går du till **Visa** > **kommando-palett**och anger **resurser: Sök efter resurser**.
 
-1. Om mer än en prenumeration är markerad för visning använder du filtret för att välja vilken prenumeration som ska sökas.
+1. Om fler än en prenumeration har valts för visning använder du filtret för att välja vilken prenumeration som ska genomsökas.
 
-1. Använd filtret för att välja vilken resursgrupp som ska sökas efter som ingår i den tidigare valda prenumerationen.
+1. Använd filtret för att välja vilken resurs grupp som ska genomsökas som är en del av den tidigare valda prenumerationen.
 
-1. Använd filtret för att välja vilken resurs som ska visas. Filtret fungerar för både resursnamnet och resurstypen.
+1. Använd filtret för att välja vilken resurs som ska visas. Filtret fungerar både för resurs namnet och resurs typen.
 
-## <a name="discover-aliases-for-resource-properties"></a>Identifiera alias för resursegenskaper
+## <a name="discover-aliases-for-resource-properties"></a>Identifiera alias för resurs egenskaper
 
-När en resurs har valts, antingen via sökgränssnittet eller genom att välja den i trädvyn, öppnar Azure Policy-tillägget JSON-filen som representerar resursen och alla dess Resource Manager-egenskapsvärden.
+När en resurs väljs, oavsett om Sök gränssnittet eller genom att markera det i trädvyn, öppnar Azure Policy-tillägget JSON-filen som representerar resursen och alla dess egenskaps värden för Resource Manager.
 
-När en resurs är öppen visas Azure Policy-aliaset om det finns ett alias för Att hovra över egenskapsnamnet eller värdet i Resource Manager. I det här exemplet `Microsoft.Compute/virtualMachines` är resursen en resurstyp och egenskapen **properties.storageProfile.imageReference.offer** hovrar över. Hovring visar matchande alias.
+När en resurs är öppen visas Azure Policy alias om ett sådant finns under hovring över resurs hanterarens egenskaps namn eller värde. I det här exemplet är resursen en `Microsoft.Compute/virtualMachines` resurs typ och egenskapen **Properties. storageProfile. imageReference. erbjudande** hovras över. Vid hovring visas matchande alias.
 
-![Azure Princip-tillägg hovrar visar egenskapsaliasal för Resurshanteraren](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy förlängnings hovring visar resurs hanterarens egenskaps-alias" border="false":::
 
-## <a name="search-for-and-view-policies-and-assignments"></a>Sök efter och visa principer och tilldelningar
+## <a name="search-for-and-view-policies-and-assignments"></a>Sök efter och Visa principer och tilldelningar
 
-Azure-principtillägget listar principtyper och principtilldelningar som en trädvy för de prenumerationer som valts som ska visas i fönstret **Principer.** Kunder med hundratals eller tusentals principer eller tilldelningar i en enda prenumeration kanske föredrar ett sökbart sätt att hitta sina principer eller tilldelningar. Azure Policy-tillägget gör det möjligt att söka efter en specifik princip eller tilldelning med följande steg:
+I Azure Policy-tillägget visas princip typer och princip tilldelningar som en TreeView för de prenumerationer som valts för att visas i fönstret **principer** . Kunder med hundratals eller tusentals principer eller tilldelningar i en enda prenumeration kan föredra ett sökbart sätt att hitta sina principer eller uppgifter. Med Azure Policy-tillägget kan du söka efter en speciell princip eller tilldelning med följande steg:
 
-1. Starta sökgränssnittet från Azure Policy-tillägget eller kommandopaletten.
+1. Starta Sök gränssnittet från Azure Policy-tillägget eller paletten Command.
 
-   - Azure Principtillägg
+   - Azure Policy tillägg
 
-     Från Azure Policy-tillägget hovrar du över **panelen Principer** och väljer ellipsen och väljer sedan **Sökprinciper**.
+     Från Azure Policy tillägget, Hovra över panelen **principer** och välj ellipsen och välj sedan **Sök principer**.
 
-   - Kommandopalett:
+   - Kommando palett:
 
-     Gå till **Visa** > **kommandopalett**på menyraden och ange **principer: Sökregler**.
+     I meny raden går du till **Visa** > **kommando-palett**och anger **principer: Sök principer**.
 
-1. Om mer än en prenumeration är markerad för visning använder du filtret för att välja vilken prenumeration som ska sökas.
+1. Om fler än en prenumeration har valts för visning använder du filtret för att välja vilken prenumeration som ska genomsökas.
 
-1. Använd filtret för att välja vilken principtyp eller tilldelning som ska sökas efter som ingår i den tidigare valda prenumerationen.
+1. Använd filtret för att välja vilken princip typ eller tilldelning som ska genomsökas som är en del av den tidigare valda prenumerationen.
 
-1. Använd filtret för att välja vilken princip eller vilken princip som ska visas. Filtret fungerar för _displayName_ för principdefinitionen eller principtilldelningen.
+1. Använd filtret för att välja vilken princip eller Visa. Filtret fungerar för _DisplayName_ för princip definitionen eller princip tilldelningen.
 
-När du väljer en princip eller tilldelning, antingen via sökgränssnittet eller genom att välja den i trädvyn, öppnar Azure Policy-tillägget JSON som representerar principen eller tilldelningen och alla dess Resource Manager-egenskapsvärden. Tillägget kan validera det öppnade Azure Policy JSON-schemat.
+När du väljer en princip eller tilldelning, oavsett om du väljer att använda Sök gränssnittet eller genom att markera det i trädvyn, öppnar Azure Policy-tillägget den JSON som representerar principen eller tilldelningen och alla dess egenskaps värden för Resource Manager. Tillägget kan verifiera det öppnade Azure Policy JSON-schemat.
 
 ## <a name="sign-out"></a>Logga ut
 
-Gå till **Visa** > **kommandopalett**på menyraden och ange sedan **Azure: Logga ut**.
+I meny raden går du till **Visa** > **kommando-palett**och anger sedan **Azure: Logga ut**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska exempel i [Azure policy exempel](../samples/index.md).
 - Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
 - Granska [Förstå policy-effekter](../concepts/effects.md).
-- Förstå hur du [programmässigt skapar principer](programmatically-create.md).
+- Lär dig att [program mässigt skapa principer](programmatically-create.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](remediate-resources.md).
-- Granska vad en hanteringsgrupp är med [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

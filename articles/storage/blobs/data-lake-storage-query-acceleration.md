@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 70a087e106e632d697052461928f3e1123a06b1b
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137543"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176710"
 ---
 # <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage fråga om acceleration (för hands version)
 
@@ -71,7 +71,7 @@ Ett exempel på hur ett program kan integrera frågans acceleration finns i [fil
 
 ## <a name="pricing"></a>Prissättning
 
-På grund av den ökade beräknings belastningen i Azure Data Lake Storages tjänsten skiljer sig pris modellen för att använda frågans acceleration från den normala Azure Data Lake Storage transaktions modellen. För fråga acceleration debiteras en kostnad för mängden data som genomsöks samt en kostnad för den mängd data som returneras till anroparen.
+På grund av den ökade beräknings belastningen i Azure Data Lake Storages tjänsten skiljer sig pris modellen för att använda frågans acceleration från den normala Azure Data Lake Storage transaktions modellen. För fråga acceleration debiteras en kostnad för mängden data som genomsöks samt en kostnad för den mängd data som returneras till anroparen. Mer information finns i [Azure Data Lake Storage Gen2 prissättning](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 Trots ändringen av fakturerings modellen är pris sättnings modellen för frågekörning utformad för att sänka den totala ägande kostnaden för en arbets belastning, med hänsyn till minskningen av de mycket dyrare kostnaderna för virtuella datorer.
 

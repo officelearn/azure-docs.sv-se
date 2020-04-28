@@ -10,20 +10,23 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9f12b2b31da4c7fe67eef9674d96b517d4e2bfa
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266577"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867756"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Säkerhetsguiden för Azure AD-roller i privilegierad identitetshantering
 
 Om du är den första personen som använder PIM (Privileged Identity Management) i din Azure Active Directory -organisation (Azure AD) visas en guide för att komma igång. Guiden hjälper dig att förstå säkerhetsriskerna med privilegierade identiteter och hur du använder privilegierad identitetshantering för att minska dessa risker. Du behöver inte göra några ändringar i befintliga rolltilldelningar i guiden om du föredrar att göra det senare.
+
+> [!Important]
+> Säkerhetsguiden är inte tillgänglig för tillfället. Tack för ert tålamod.
 
 ## <a name="wizard-overview"></a>Översikt över guiden
 
@@ -32,7 +35,7 @@ Innan din organisation börjar använda Privilegierad identitetshantering är al
 Det andra steget i guiden ger dig möjlighet att ändra administratörens rolltilldelningar.  
 
 > [!WARNING]
-> Det är viktigt att du har minst en global administratör och mer än en administratör för privilegierad roll med ett organisationskonto (inte ett Microsoft-konto). Om det bara finns en administratör för privilegierad roll kan organisationen inte hantera privilegierad identitetshantering om kontot tas bort.
+> Det är viktigt att du har minst en global administratör och mer än en administratör för privilegierade roller med ett arbets- eller skolkonto (inte ett Microsoft-konto). Om det bara finns en administratör för privilegierad roll kan organisationen inte hantera privilegierad identitetshantering om kontot tas bort.
 > Håll också rolltilldelningar permanenta om en användare har ett Microsoft-konto (med andra ord ett konto som de använder för att logga in på Microsoft-tjänster som Skype och Outlook.com). Om du planerar att kräva multifaktorautentisering för aktivering för den rollen, kommer den användaren att vara utelåst.
 
 ## <a name="run-the-wizard"></a>Kör guiden

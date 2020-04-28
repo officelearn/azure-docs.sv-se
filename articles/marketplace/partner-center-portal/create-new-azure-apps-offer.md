@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 516ebce176f53a0495ea493f5327658162e7ea9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730624"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867267"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -221,6 +221,9 @@ I avsnittet **Supportkontakt** måste du också ange **support-URL:en** där CSP
 
 I det här avsnittet kan du ange logotyper och bilder som ska användas när du visar ditt erbjudande till kunden. Alla bilder måste vara i PNG-format.
 
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
+
 #### <a name="store-logos"></a>Lagra logotyper
 
 Ange ditt erbjudandes logotyp i tre storlekar: **Small (48 x 48)**, **Medium (90 X 90)** och **Large (216 x 216)**.
@@ -355,7 +358,7 @@ Om du redan har angett priser för din plan i USA-dollar (USD) och lägger till 
 
 Ange månadspriset för den här planen.  Det här priset är utöver alla Azure-infrastruktur- eller användningsbaserade programvarukostnader som uppstår för de resurser som distribueras av den här lösningen.
 
-Priserna som anges i lokal valuta (USD = US-dollar) konverteras till lokal valuta för alla valda marknader med hjälp av aktuella valutakurser som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera priskalkylbladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar och importerar du priskalkylbladet. 
+Priserna som anges i USD (USD = US-dollar) konverteras till lokal valuta för alla valda marknader med hjälp av aktuella valutakurser när de sparas. Validera dessa priser innan du publicerar genom att exportera priskalkylbladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar och importerar du priskalkylbladet. 
 
 >[!Note]
 >Du måste först spara dina prisändringar för att aktivera export av prisdata.
@@ -397,7 +400,16 @@ Alla Azure-programplanpaket måste innehålla dessa två filer `.zip` i rotmappe
 
 * En användargränssnittsdefinition för azure-programskapande upplevelse som heter [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
+Maximala filstorlekar som stöds är:
+
+* Upp till 1 Gb `.zip` i total komprimerad arkivstorlek
+
+* Upp till 1 Gb för en enskild `.zip` okomprimerad fil i arkivet  
+
 Alla nya Azure-programerbjudanden måste också innehålla ett GUID för [azure-partnerkundanvändningsattribution.](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution)
+
+>[!Note]
+>Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
 
 ### <a name="previously-published-packages"></a>Tidigare publicerade paket 
 

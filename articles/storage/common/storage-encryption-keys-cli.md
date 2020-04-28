@@ -1,7 +1,7 @@
 ---
-title: Använda Azure CLI för att konfigurera kundhanterade nycklar
+title: Konfigurera Kundhanterade nycklar med hjälp av Azure CLI
 titleSuffix: Azure Storage
-description: Lär dig hur du använder Azure CLI för att konfigurera kundhanterade nycklar med Azure Key Vault för Azure Storage-kryptering.
+description: Lär dig hur du använder Azure CLI för att konfigurera Kundhanterade nycklar med Azure Key Vault för Azure Storage kryptering.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,24 +10,24 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456780"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176353"
 ---
-# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurera kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med Azure CLI. Mer information om hur du skapar ett nyckelvalv med Azure CLI finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure CLI](../../key-vault/secrets/quick-create-cli.md).
+Den här artikeln visar hur du konfigurerar en Azure Key Vault med Kundhanterade nycklar med hjälp av Azure CLI. Information om hur du skapar ett nyckel valv med Azure CLI finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med Azure CLI](../../key-vault/secrets/quick-create-cli.md).
 
-## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela en identitet till lagringskontot
+## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela lagrings kontot en identitet
 
-Om du vill aktivera kundhanterade nycklar för ditt lagringskonto tilldelar du först en systemtilldelad hanterad identitet till lagringskontot. Du ska använda den här hanterade identiteten för att bevilja lagringskontobehörigheter för åtkomst till nyckelvalvet.
+Om du vill aktivera Kundhanterade nycklar för ditt lagrings konto tilldelar du först en systemtilldelad hanterad identitet till lagrings kontot. Du använder den här hanterade identiteten för att ge lagrings kontots behörigheter åtkomst till nyckel valvet.
 
-Om du vill tilldela en hanterad identitet med Azure CLI anropar du [uppdatering av az-lagringskonto](/cli/azure/storage/account#az-storage-account-update). Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden.
+Om du vill tilldela en hanterad identitet med Azure CLI anropar du [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update). Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```azurecli-interactive
 az account set --subscription <subscription-id>
@@ -38,13 +38,13 @@ az storage account update \
     --assign-identity
 ```
 
-Mer information om hur du konfigurerar systemtilldelade hanterade identiteter med Azure CLI finns i [Konfigurera hanterade identiteter för Azure-resurser på en Azure VM med Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
+Mer information om hur du konfigurerar systemtilldelade hanterade identiteter med Azure CLI finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
 
-## <a name="create-a-new-key-vault"></a>Skapa ett nytt nyckelvalv
+## <a name="create-a-new-key-vault"></a>Skapa ett nytt nyckel valv
 
-Nyckelvalvet som du använder för att lagra kundhanterade nycklar för Azure Storage-kryptering måste ha två nyckelskyddsinställningar aktiverade, **Mjuk borttagning** och **Rensa inte**. Om du vill skapa ett nytt nyckelvalv med PowerShell eller Azure CLI med dessa inställningar aktiverade kör du följande kommandon. Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden.
+Nyckel valvet som du använder för att lagra Kundhanterade nycklar för Azure Storage kryptering måste ha två nyckel skydds inställningar aktiverade, **mjuk borttagning** och **Rensa inte**. Om du vill skapa ett nytt nyckel valv med hjälp av PowerShell eller Azure CLI med de här inställningarna aktiverade kör du följande kommandon. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
-Om du vill skapa ett nytt nyckelvalv med Azure CLI anropar du [az keyvault create](/cli/azure/keyvault#az-keyvault-create). Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden.
+Skapa ett nytt nyckel valv med Azure CLI genom att anropa [AZ](/cli/azure/keyvault#az-keyvault-create)-nyckelpar Create. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```azurecli-interactive
 az keyvault create \
@@ -55,13 +55,13 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Mer information om hur du aktiverar **Mjuk borttagning** och **rensar inte** på ett befintligt nyckelvalv med Azure CLI finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i [Så här använder du mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
+Information om hur du aktiverar **mjuk borttagning** och **inte rensar** på ett befintligt nyckel valv med Azure CLI finns i avsnitten med rubriken **Aktivera mjuk borttagning** och **Aktivera rensnings skydd** i [använda mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
 
-## <a name="configure-the-key-vault-access-policy"></a>Konfigurera principen för nyckelvalvsåtkomst
+## <a name="configure-the-key-vault-access-policy"></a>Konfigurera åtkomst principen för nyckel valvet
 
-Konfigurera sedan åtkomstprincipen för nyckelvalvet så att lagringskontot har behörighet att komma åt det. I det här steget ska du använda den hanterade identitet som du tidigare tilldelat lagringskontot.
+Konfigurera sedan åtkomst principen för nyckel valvet så att lagrings kontot har behörighet att komma åt det. I det här steget ska du använda den hanterade identitet som du tidigare tilldelade till lagrings kontot.
 
-Om du vill ange åtkomstprincipen för nyckelvalvet anropar du [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy). Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden.
+Om du vill ange åtkomst principen för nyckel valvet anropar du [AZ Key Vault set-policy](/cli/azure/keyvault#az-keyvault-set-policy). Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```azurecli-interactive
 storage_account_principal=$(az storage account show \
@@ -78,21 +78,21 @@ az keyvault set-policy \
 
 ## <a name="create-a-new-key"></a>Skapa en ny nyckel
 
-Skapa sedan en nyckel i nyckelvalvet. Om du vill skapa en nyckel anropar du [az keyvault-tangenten create](/cli/azure/keyvault/key#az-keyvault-key-create). Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden.
+Skapa sedan en nyckel i nyckel valvet. Anropa [AZ Key Vault Create](/cli/azure/keyvault/key#az-keyvault-key-create)för att skapa en nyckel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```azurecli-interactive
-az keyvault key create
+az keyvault key create \
     --name <key> \
     --vault-name <key-vault>
 ```
 
-Endast 2048-bitars RSA- och RSA-HSM-nycklar stöds med Azure Storage-kryptering. Mer information om nycklar finns i **Key Vault-nycklar** i [Om Azure Key Vault-nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Endast 2048-bitars RSA-och RSA-HSM-nycklar stöds med Azure Storage kryptering. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Konfigurera kryptering med kundhanterade nycklar
+## <a name="configure-encryption-with-customer-managed-keys"></a>Konfigurera kryptering med Kundhanterade nycklar
 
-Som standard använder Azure Storage-kryptering Microsoft-hanterade nycklar. Konfigurera ditt Azure Storage-konto för kundhanterade nycklar och ange nyckeln som ska associeras med lagringskontot.
+Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. Konfigurera ditt Azure Storage konto för Kundhanterade nycklar och ange nyckeln som ska associeras med lagrings kontot.
 
-Om du vill uppdatera krypteringsinställningarna för lagringskontot anropar du [uppdatering av az-lagringskontot,](/cli/azure/storage/account#az-storage-account-update)vilket visas i följande exempel. Inkludera `--encryption-key-source` parametern och `Microsoft.Keyvault` ställ in den på att aktivera kundhanterade nycklar för lagringskontot. Exemplet frågar också efter uri-kort för nyckelvalvet och den senaste nyckelversionen, som båda värdena behövs för att associera nyckeln med lagringskontot. Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden.
+Om du vill uppdatera lagrings kontots krypterings inställningar kan du anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update), som visas i följande exempel. Inkludera `--encryption-key-source` parametern och Ställ in den på `Microsoft.Keyvault` för att aktivera Kundhanterade nycklar för lagrings kontot. Exemplet frågar även efter Key Vault-URI: n och den senaste nyckel versionen, båda värdena som krävs för att associera nyckeln med lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -114,17 +114,17 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## <a name="update-the-key-version"></a>Uppdatera nyckelversionen
+## <a name="update-the-key-version"></a>Uppdatera nyckel versionen
 
-När du skapar en ny version av en nyckel måste du uppdatera lagringskontot för att kunna använda den nya versionen. Först fråga efter nyckeln valv URI genom att ringa [az keyvault visa](/cli/azure/keyvault#az-keyvault-show), och för nyckelversionen genom att ringa [az keyvault nyckel lista-versioner](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Anropa sedan uppdatering av [az-lagringskontot](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagringskontots krypteringsinställningar för att använda den nya versionen av nyckeln, som visas i föregående avsnitt.
+När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot för att använda den nya versionen. Börja med att fråga efter Key Vault-URI: n genom att anropa AZ-nyckelpar [show](/cli/azure/keyvault#az-keyvault-show)och för nyckel versionen genom att anropa [AZ Key Vault Key List-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Anropa sedan [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen av nyckeln, som du ser i föregående avsnitt.
 
-## <a name="use-a-different-key"></a>Använda en annan nyckel
+## <a name="use-a-different-key"></a>Använd en annan nyckel
 
-Om du vill ändra nyckeln som används för Azure Storage-kryptering anropar du [uppdatering av az-lagringskonto](/cli/azure/storage/account#az-storage-account-update) som visas i [Konfigurera kryptering med kundhanterade nycklar](#configure-encryption-with-customer-managed-keys) och tillhandahåller det nya nyckelnamnet och versionen. Om den nya nyckeln finns i ett annat nyckelvalv uppdaterar du även uri-kort för nyckelvalvet.
+Om du vill ändra den nyckel som används för Azure Storage-kryptering kan du anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) som visas i [Konfigurera kryptering med Kundhanterade nycklar](#configure-encryption-with-customer-managed-keys) och ange det nya nyckel namnet och versionen. Om den nya nyckeln finns i ett annat nyckel valv uppdaterar du även Key Vault-URI: n.
 
-## <a name="revoke-customer-managed-keys"></a>Återkalla kundhanterade nycklar
+## <a name="revoke-customer-managed-keys"></a>Återkalla Kundhanterade nycklar
 
-Om du tror att en nyckel kan ha komprometterats kan du återkalla kundhanterade nycklar genom att ta bort åtkomstprincipen för nyckelvalvet. Om du vill återkalla en kundhanterad nyckel anropar du kommandot [az keyvault delete-policy,](/cli/azure/keyvault#az-keyvault-delete-policy) som visas i följande exempel. Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden och använda de variabler som definierats i föregående exempel.
+Om du tror att en nyckel kan ha komprometterats kan du återkalla Kundhanterade nycklar genom att ta bort åtkomst principen för nyckel valvet. Om du vill återkalla en kundhanterad nyckel anropar du kommandot [AZ Key Vault Delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) , som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```azurecli-interactive
 az keyvault delete-policy \
@@ -132,9 +132,9 @@ az keyvault delete-policy \
     --object-id $storage_account_principal
 ```
 
-## <a name="disable-customer-managed-keys"></a>Inaktivera kundhanterade nycklar
+## <a name="disable-customer-managed-keys"></a>Inaktivera Kundhanterade nycklar
 
-När du inaktiverar kundhanterade nycklar krypteras ditt lagringskonto återigen med Microsoft-hanterade nycklar. Om du vill inaktivera kundhanterade nycklar `--encryption-key-source parameter` anropar du [uppdatering av az-lagringskontot](/cli/azure/storage/account#az-storage-account-update) och ställer in till `Microsoft.Storage`, som visas i följande exempel. Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden och använda de variabler som definierats i föregående exempel.
+När du inaktiverar Kundhanterade nycklar är ditt lagrings konto återigen krypterat med Microsoft-hanterade nycklar. Om du vill inaktivera Kundhanterade nycklar, anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) och `--encryption-key-source parameter` Ställ `Microsoft.Storage`in på, som visas i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```azurecli-interactive
 az storage account update
@@ -145,5 +145,5 @@ az storage account update
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage-kryptering för data i vila](storage-service-encryption.md) 
-- [Vad är Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+- [Azure Storage kryptering för vilande data](storage-service-encryption.md) 
+- [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

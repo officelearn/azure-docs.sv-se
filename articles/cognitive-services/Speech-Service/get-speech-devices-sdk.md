@@ -1,7 +1,7 @@
 ---
 title: Hämta Speech Devices SDK
 titleSuffix: Azure Cognitive Services
-description: Taltjänsten fungerar med en mängd olika enheter och ljudkällor. Nu kan du ta dina talprogram till nästa nivå med matchad maskinvara och programvara. I den här artikeln får du lära dig hur du får tillgång till Talenheter SDK och börja utveckla.
+description: Tal tjänsten fungerar med en mängd olika enheter och ljud källor. Nu kan du ta dina tal program till nästa nivå med matchad maskin vara och program vara. I den här artikeln får du lära dig hur du får åtkomst till tal enheter SDK och börjar utveckla.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 756ec976c4643c1cd80552b7fa552b70fd1f5d24
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: ed3400689272d262ff5c8cda3cc2bd451f2ced4d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391274"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184902"
 ---
-# <a name="get-the-cognitive-services-speech-devices-sdk"></a>Hämta SDK för Cognitive Services-talenheter
+# <a name="get-the-cognitive-services-speech-devices-sdk"></a>Hämta Cognitive Services Speech-enheter SDK
 
-Speech Devices SDK är ett förinstämt bibliotek som utformats för att fungera med specialbyggda utvecklingspaket och olika konfigurationer av mikrofonmatris.
+Tal enheter SDK är ett förjusterat bibliotek som utformats för att fungera med syftes färdiga utvecklings paket och varierande konfigurationer för mikrofon mat ris.
 
-## <a name="choose-a-development-kit"></a>Välj ett utvecklingspaket
+## <a name="choose-a-development-kit"></a>Välj ett utvecklings paket
 
 |Enheter|Specifikation|Beskrivning|Scenarier|
 |--|--|--|--|
-|[URbetter T11 Utveckling styrelse](https://www.alibaba.com/product-detail/URBETTER-Dev-Kits-for-Microsoft-Speech_62358746402.html)![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 Mic Array, ARM SOC, WIFI, Ethernet, HDMI, USB-kamera. <br>Linux|En talenhet på branschnivå SDK som anpassar Microsoft Mic-matrisen och stöder utökad I/O som HDMI/Ethernet och mer USB-kringutrustning|Konversation transkription, Utbildning, Sjukhus, Robotar, OTT Box, Röstagent, Drive Thru|
-|[Roobo Smart Audio Dev Kit](https://ddk.roobo.com)<br>[Installation](speech-devices-sdk-roobo-v1.md) / [Quickstart](speech-devices-sdk-android-quickstart.md)![Roobo Smart Audio Dev Kit](media/speech-devices-sdk/device-roobo-v1.jpg)|7 Mic Array, ARM SOC, WIFI, Audio Out, IO. <br>[Android](speech-devices-sdk-android-quickstart.md)|Den första Speech Devices SDK att anpassa Microsoft Mic Array och frontbearbetning SDK, för att utveckla högkvalitativa transkription och talscenarier|Konversationsavskrift, smart högtalare, röstagent, bärbar|
-|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Snabbstart azure](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / Kinect DK för[installation](speech-devices-sdk-windows-quickstart.md)![](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 Mic Array RGB och Djup kameror. <br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Ett utvecklarpaket med avancerade artificiell intelligenssensorer (AI) för att bygga sofistikerade datorseende- och talmodeller. Den kombinerar en förstklassig rumslig mikrofonmatris och djupkamera med en videokamera och orienteringssensor – allt i en liten enhet med flera lägen, alternativ och SDK:er för att rymma en rad beräkningstyper.|Konversation transkription, Robotics, Smart Building|
-|Roobo Smart Audio Dev Kit 2<br>[Installation](speech-devices-sdk-roobo-v2.md)<br>![Roobo Smart Audio Dev Kit 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 Mic Array, ARM SOC, WIFI, Bluetooth, IO. <br>Linux|Den andra generationens Talenheter SDK som ger alternativa OPERATIVSYSTEM och fler funktioner i en kostnadseffektiv referensdesign.|Konversationsavskrift, smart högtalare, röstagent, bärbar|
+|[URbetter dev kit](http://www.urbetter.com/products_56/278.html)![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 MIC-matris, ARM-SOC, WIFI, Ethernet, HDMI, USB-kamera. <br>Linux|En nivå för tal enheter på bransch nivå som anpassar Microsoft MIC-matrisen och stöder utökade I/O, till exempel HDMI/Ethernet och mer USB-kringutrustning|Konversations avskrift, utbildning, sjukhus, robots, OTT Box, Voice agent, enhet till|
+|[Roobo Smart Audio dev-paket](https://ddk.roobo.com)<br>[Installera](speech-devices-sdk-roobo-v1.md) / [snabb start](speech-devices-sdk-android-quickstart.md)![Roobo Smart Audio dev kit](media/speech-devices-sdk/device-roobo-v1.jpg)|7 MIC-matris, ARM-SOC, WIFI, ljud ut, i/o. <br>[Android](speech-devices-sdk-android-quickstart.md)|De första tal enheternas SDK för att anpassa Microsoft MIC-matrisen och front bearbetnings-SDK: n för att utveckla högkvalitativa avskrifter och tal scenarier|Konversations avskrift, smart högtalare, röst agent, Wearable|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Installera](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [snabb start](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 MIC mat ris RGB-och djup kameror. <br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Ett Developer Kit med AI-sensorer (Advanced artificiell Intelligence) för att skapa sofistikerade modeller för dator vision och tal. Den kombinerar en förstklassig mat ris-och djup kamera med hög klass med en video kamera och orienterings sensor – allt i en liten enhet med flera lägen, alternativ och SDK: er för att hantera en mängd olika beräknings typer.|Konversations avskrift, Robotics, smart uppbyggnad|
+|Roobo Smart Audio dev kit 2<br>[Installation](speech-devices-sdk-roobo-v2.md)<br>![Roobo Smart Audio dev kit 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 MIC-matris, ARM-SOC, WIFI, Bluetooth, i/o. <br>Linux|De andra generationens tal enheter SDK som tillhandahåller alternativa OS och fler funktioner i en kostnads effektiv referens design.|Konversations avskrift, smart högtalare, röst agent, Wearable|
 
 
-## <a name="download-the-speech-devices-sdk"></a>Ladda ner SDK för talenheter
+## <a name="download-the-speech-devices-sdk"></a>Hämta tal enheter SDK
 
-Ladda ner [SDK för talenheter](https://aka.ms/sdsdk-download).
+Hämta [tal enheter SDK](https://aka.ms/sdsdk-download).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Komma igång med SDK för talenheter](https://aka.ms/sdsdk-quickstart)
+> [Kom igång med tal enheter SDK](https://aka.ms/sdsdk-quickstart)

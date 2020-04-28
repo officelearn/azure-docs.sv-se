@@ -1,6 +1,6 @@
 ---
-title: Använd Azure-portalen för att konfigurera kundhanterade nycklar för tjänsten Import/Export
-description: Lär dig hur du använder Azure-portalen för att konfigurera kundhanterade nycklar med Azure Key Vault för Azure Import/Export-tjänsten. Med kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomstkontroller.
+title: Använd Azure Portal för att konfigurera Kundhanterade nycklar för import/export-tjänsten
+description: Lär dig hur du använder Azure Portal för att konfigurera Kundhanterade nycklar med Azure Key Vault för Azure import/export-tjänsten. Med Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomst kontroller.
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,103 +8,102 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456506"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176336"
 ---
-# <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Använda kundhanterade nycklar i Azure Key Vault for Import/Export-tjänsten
+# <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Använda Kundhanterade nycklar i Azure Key Vault för import/export-tjänsten
 
-Azure Import/Export skyddar BitLocker-nycklarna som används för att låsa enheterna via en krypteringsnyckel. Som standard krypteras BitLocker-nycklar med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypteringsnycklar kan du också tillhandahålla kundhanterade nycklar.
+Azure import/export skyddar de BitLocker-nycklar som används för att låsa enheterna via en krypterings nyckel. Som standard krypteras BitLocker-nycklar med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklarna kan du även tillhandahålla Kundhanterade nycklar.
 
-Kundhanterade nycklar måste skapas och lagras i ett Azure Key Vault. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md)
+Kundhanterade nycklar måste skapas och lagras i en Azure Key Vault. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md)
 
-Den här artikeln visar hur du använder kundhanterade nycklar med tjänsten Import/Export i [Azure-portalen](https://portal.azure.com/).
+Den här artikeln visar hur du använder Kundhanterade nycklar med import/export-tjänsten i [Azure Portal](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har skapat ett import- eller exportjobb enligt instruktionerna i:
+1. Du har skapat en import-eller export jobb enligt instruktionerna i:
 
-    - [Skapa ett importjobb för blobbar](storage-import-export-data-to-blobs.md).
-    - [Skapa ett importjobb för filer](storage-import-export-data-to-files.md).
-    - [Skapa ett exportjobb för blobbar](storage-import-export-data-from-blobs.md)
+    - [Skapa ett import jobb för blobbar](storage-import-export-data-to-blobs.md).
+    - [Skapa ett import jobb för filer](storage-import-export-data-to-files.md).
+    - [Skapa ett export jobb för blobbar](storage-import-export-data-from-blobs.md)
 
-2. Du har ett befintligt Azure Key Vault med en nyckel i det som du kan använda för att skydda din BitLocker-nyckel. Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../../key-vault/secrets/quick-create-portal.md).
+2. Du har en befintlig Azure Key Vault med en nyckel som du kan använda för att skydda din BitLocker-nyckel. Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../../key-vault/secrets/quick-create-portal.md).
 
-    - **Mjuk borttagning** **och Rensa inte** är inställda på ditt befintliga Key Vault. Dessa egenskaper är inte aktiverade som standard. Om du vill aktivera dessa egenskaper finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i någon av följande artiklar:
+    - **Mjuk borttagning** och **Rensa inte** är inställda på din befintliga Key Vault. De här egenskaperna är inte aktiverade som standard. Om du vill aktivera dessa egenskaper kan du läsa avsnitten med rubriken **Aktivera mjuk borttagning** och **Aktivera rensnings skydd** i någon av följande artiklar:
 
-        - [Så här använder du mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md).
-        - [Så här använder du mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
-    - Det befintliga nyckelvalvet bör ha en RSA-nyckel på 2048 storlek eller mer. Mer information om nycklar finns i **Key Vault-nycklar** i [Om Azure Key Vault-nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
-    - Nyckelvalvet måste finnas i samma region som lagringskontot för dina data.  
-    - Om du inte har ett befintligt Azure Key Vault kan du också skapa det infogat enligt beskrivningen i följande avsnitt.
+        - [Använda mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md).
+        - [Använda mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
+    - Det befintliga nyckel valvet ska ha en RSA-nyckel på 2048 storlek eller mer. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+    - Nyckel valvet måste finnas i samma region som lagrings kontot för dina data.  
+    - Om du inte har en befintlig Azure Key Vault kan du också skapa den i enlighet med följande avsnitt.
 
 ## <a name="enable-keys"></a>Aktivera nycklar
 
-Det är valfritt att konfigurera kundhanterad nyckel för tjänsten Importera/Exportera. Som standard använder tjänsten Import/Export en Microsoft-hanterad nyckel för att skydda bitlockernyckeln. Så här aktiverar du kundhanterade nycklar i Azure-portalen:
+Det är valfritt att konfigurera kundhanterad nyckel för import/export-tjänsten. Som standard använder tjänsten import/export en Microsoft-hanterad nyckel för att skydda din BitLocker-nyckel. Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
 
-1. Gå till **bladet Översikt** för ditt importjobb.
-2. Välj **hur BitLocker-tangenterna ska krypteras**i den högra rutan .
+1. Gå till **översikts** bladet för ditt import jobb.
+2. I den högra rutan väljer du **Välj hur dina BitLocker-nycklar ska krypteras**.
 
-    ![Välj krypteringsalternativ](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
+    ![Välj krypterings alternativ](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
-3. I **krypteringsbladet** kan du visa och kopiera enhetens BitLocker-nyckel. Under **Krypteringstyp**kan du välja hur du vill skydda BitLocker-tangenten. Som standard används en Hanterad Microsoft-nyckel.
+3. På bladet **kryptering** kan du Visa och kopiera enhetens BitLocker-nyckel. Under **krypterings typ**kan du välja hur du vill skydda din BitLocker-nyckel. Som standard används en hanterad Microsoft-nyckel.
 
-    ![Visa BitLocker-tangent](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
+    ![Visa BitLocker-nyckel](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
-4. Du har möjlighet att ange en kundhanterad nyckel. När du har valt den hanterade nyckeln för kunden **väljer du nyckelvalv och en nyckel**.
+4. Du kan välja att ange en kund hanterad nyckel. När du har valt kundens hanterade nyckel **väljer du Key Vault och en nyckel**.
 
-    ![Välj kundhanterad nyckel](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
+    ![Välj kund hanterad nyckel](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
-5. I **bladet Välj nyckel från Azure Key Vault** fylls prenumerationen i automatiskt. För **Key vault**kan du välja ett befintligt nyckelvalv i listrutan.
+5. I bladet **Välj nyckel från Azure Key Vault** fylls prenumerationen i automatiskt. För **Key Vault**kan du välja ett befintligt nyckel valv i list rutan.
 
-    ![Markera eller skapa Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
+    ![Välj eller skapa Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. Du kan också välja **Skapa ny** för att skapa ett nytt nyckelvalv. I **bladet Skapa nyckelvalv**anger du resursgruppen och nyckelvalvets namn. Acceptera alla andra standardvärden. Välj **Granska + Skapa**.
+6. Du kan också välja **Skapa nytt** för att skapa ett nytt nyckel valv. På **bladet skapa nyckel valv**anger du resurs gruppen och namnet på nyckel valvet. Acceptera alla andra standardvärden. Välj **Granska + skapa**.
 
     ![Skapa nytt Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
-7. Granska informationen som är associerad med nyckelvalvet och välj **Skapa**. Vänta ett par minuter innan nyckelvalvet har skapats.
+7. Granska informationen som är kopplad till ditt nyckel valv och välj **skapa**. Vänta några minuter tills nyckel valvet har skapats.
 
     ![Skapa Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
-8. I **Välj-tangenten från Azure Key Vault**kan du välja en nyckel i det befintliga nyckelvalvet.
+8. I **Välj nyckel från Azure Key Vault**kan du välja en nyckel i det befintliga nyckel valvet.
 
-9. Om du har skapat ett nytt nyckelvalv väljer du **Skapa nytt** för att skapa en nyckel. RSA-nyckelstorlek kan vara 2048 eller högre.
+9. Om du har skapat ett nytt nyckel valv väljer du **Skapa nytt** för att skapa en nyckel. RSA-nyckelns storlek kan vara 2048 eller högre.
 
     ![Skapa ny nyckel i Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-7.png)
 
-    Om skyddet för mjuk borttagning och rensning inte är aktiverat när du skapar nyckelvalvet uppdateras nyckelvalvet så att det har aktiverat mjukt borttagnings- och rensningsskydd.
+    Om det mjuka borttagnings-och rensnings skyddet inte är aktiverat när du skapar nyckel valvet, uppdateras nyckel valvet för att aktivera mjuk borttagning och tömnings skydd.
 
-10. Ange namnet på nyckeln, acceptera de andra standardinställningarna och välj **Skapa**.
+10. Ange namnet på nyckeln, acceptera de andra standardinställningarna och välj **skapa**.
 
     ![Skapa ny nyckel](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Markera **versionen** och välj sedan **Välj**. Du får ett meddelande om att en nyckel har skapats i nyckelvalvet.
+11. Välj **version** och välj sedan **Välj**. Du får ett meddelande om att en nyckel har skapats i ditt nyckel valv.
 
-    ![Ny nyckel skapad i nyckelvalvet](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
+    ![Ny nyckel har skapats i Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
-I **krypteringsbladet** kan du se nyckelvalvet och nyckeln som valts för kundens hanterade nyckel.
+På bladet **kryptering** kan du se nyckel valvet och nyckeln som valts för din kund hanterade nyckel.
 
 ## <a name="disable-keys"></a>Inaktivera nycklar
 
-Du kan bara inaktivera Hanterade Microsoft-nycklar och gå till kundhanterade nycklar när som helst i import-/exportjobbet. Du kan dock inte inaktivera den hanterade nyckeln för kunden när du har skapat den.
+Du kan bara inaktivera Microsoft-hanterade nycklar och flytta till kundens hanterade nycklar i alla steg i import/export-jobbet. Du kan dock inte inaktivera kundens hanterade nyckel när du har skapat den.
 
-## <a name="troubleshoot-customer-managed-key-errors"></a>Felsöka kundhanterade nyckelfel
+## <a name="troubleshoot-customer-managed-key-errors"></a>Felsöka kund hanterade nyckel fel
 
-Om du får några fel relaterade till kundens hanterade nyckel använder du följande tabell för att felsöka:
+Om du får fel som rör din kund hanterade nyckel kan du använda följande tabell för att felsöka:
 
-| Felkod     |Information     | Ersättningsgilla?    |
+| Felkod     |Information     | Återställnings bara?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Tillämpade en kundhanterad nyckel men nyckelåtkomsten har återkallats. Mer information finns i aktivera [nyckelåtkomsten](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Ja, kontrollera om: <ol><li>Nyckelvalvet har fortfarande MSI i åtkomstprincipen.</li><li>Åtkomstprincipen ger behörighet till Hämta, Radbryt, Packa upp.</li><li>Om nyckelvalvet finns i ett vNet bakom brandväggen kontrollerar du om **Tillåt Microsoft Trusted Services** är aktiverat.</li></ol>                                                                                            |
-| CmkErrorDisabled      | Använde en kundhanterad nyckel men nyckeln är inaktiverad. Mer information finns i aktivera [nyckeln](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Ja, genom att aktivera nyckelversionen     |
-| CmkErrorNotFound      | Tillämpade en kundhanterad nyckel men kan inte hitta nyckeln. <br>Om nyckeln tas bort och rensas efter kvarhållningsperioden kan du inte återställa nyckeln. Om du säkerhetskopierade nyckeln kan du återställa nyckeln för att lösa problemet. | Nej, nyckeln har tagits bort och har även rensats efter kvarhållningsperioden. <br>Ja, bara om kunden har nyckeln säkerhetskopierad och återställer den.  |
-| CmkErrorVaultNotFound | Tillämpade en kundhanterad nyckel men kan inte hitta nyckelvalvet som är associerat med nyckeln.<br>Om du har tagit bort nyckelvalvet kan du inte återställa den hanterade nyckeln för kunden.  Om du har migrerat nyckelvalvet till en annan klient kan du [se Ändra ett klient-ID för nyckelvalv efter ett prenumerationssteg](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Nej, om kunden har tagit bort nyckelvalvet.<br> Ja, om nyckelvalvet genomgick en klientmigrering gör du en av: <ol><li>flytta tillbaka nyckelvalvet till den gamla klienten.</li><li>ange Identitet = Ingen och sedan tillbaka till Identity = SystemAssigned, tas bort och återskapar identiteten</li></ol>|
+| CmkErrorAccessRevoked | Tillämpade en kundhanterad nyckel men nyckel åtkomsten är för närvarande återkallad. Mer information finns i så här [aktiverar du åtkomst till nyckeln](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Ja, kontrol lera om: <ol><li>Key Vault har fortfarande MSI i åtkomst principen.</li><li>Åtkomst principen ger behörighet att hämta, figursätta och packa upp.</li><li>Om nyckel valvet finns i ett vNet bakom brand väggen kontrollerar du om **Tillåt Microsoft-betrodda tjänster** är aktiverat.</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | Tillämpade en kundhanterad nyckel men nyckeln är inaktive rad. Mer information finns i så här [aktiverar du nyckeln](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Ja, genom att aktivera nyckel versionen     |
+| CmkErrorKeyNotFound      | Tillämpade en kundhanterad nyckel men det går inte att hitta nyckel valvet som är associerat med nyckeln.<br>Om du har tagit bort nyckel valvet kan du inte återställa kundens hanterade nyckel.  Om du har migrerat nyckel valvet till en annan klient organisation läser du [ändra ett klient-ID för Key Vault efter att prenumerationen har flyttats](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Om du har tagit bort nyckel valvet:<ol><li>Ja, om det är i rensnings skydds tiden, med hjälp av stegen i [återställa ett nyckel valv](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Nej, om det ligger utanför rensnings skyddets varaktighet.</li></ol><br>Om nyckel valvet har genomgått en klient migrering, ja, kan den återställas med hjälp av något av stegen nedan: <ol><li>Återställ Key Vault tillbaka till den gamla klienten.</li><li>Ange `Identity = None` och ange värdet tillbaka till `Identity = SystemAssigned`. Detta tar bort och återskapar identiteten när den nya identiteten har skapats. Aktivera `Get`, `Wrap`och `Unwrap` behörighet till den nya identiteten i nyckel valvets åtkomst princip.</li></ol>|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+- [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

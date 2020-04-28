@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 04/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 681723ee9370f889ef86e6eae0878b148c17606b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268358"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176370"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfigurera Azure Storage-anslutningssträngar
 
@@ -25,11 +25,9 @@ En anslutnings sträng innehåller den autentiseringsinformation som krävs för
 * Få åtkomst till ett lagrings konto i Azure.
 * Få åtkomst till angivna resurser i Azure via en signatur för delad åtkomst (SAS).
 
+Information om hur du visar åtkomst nycklar för ditt konto och kopierar en anslutnings sträng finns i [Hantera lagrings kontots åtkomst nycklar](storage-account-keys-manage.md).
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
-
-## <a name="view-and-copy-a-connection-string"></a>Visa och kopiera en anslutnings sträng
-
-[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ## <a name="store-a-connection-string"></a>Lagra en anslutnings sträng
 

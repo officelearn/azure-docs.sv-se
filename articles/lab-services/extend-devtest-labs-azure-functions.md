@@ -1,6 +1,6 @@
 ---
-title: Utöka Azure DevTest Labs med Azure Functions | Microsoft-dokument
-description: Lär dig hur du utökar Azure DevTest Labs med Hjälp av Azure Functions.
+title: Utöka Azure DevTest Labs med Azure Functions | Microsoft Docs
+description: Lär dig hur du utökar Azure DevTest Labs med hjälp av Azure Functions.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,107 +12,107 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: spelluru
 ms.openlocfilehash: dd1fc4c1076d89c12b25837db9fa6a0ac3e1f3a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70014365"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Använda Azure Functions för att utöka DevTest Labs
-Du kan använda Azure Functions för att stödja ytterligare scenarier utöver de som redan stöds av DevTest Labs. Azure Functions kan användas för att utöka den inbyggda funktionen för tjänsten för att uppfylla dina företagsspecifika behov. Följande lista innehåller några av de möjliga scenarierna. Den här artikeln visar hur du implementerar något av dessa exempelscenarier.
+Du kan använda Azure Functions för att stödja ytterligare scenarier utöver de som redan stöds av DevTest Labs. Azure Functions kan användas för att utöka de inbyggda funktionerna i tjänsten för att möta dina verksamhets specifika behov. I följande lista finns några möjliga scenarier. Den här artikeln visar hur du implementerar ett av dessa exempel scenarier.
 
-- Ge en sammanfattning på den översta nivån av virtuella datorer i labbet
+- Tillhandahålla en sammanfattning på den översta nivån för virtuella datorer i labbet
 - [Konfigurera ett labb för användning med en fjärrskrivbords-gateway](configure-lab-remote-desktop-gateway.md)
-- Efterlevnadsrapportering på den interna supportsidan
-- Gör det möjligt för användare att slutföra åtgärder som kräver ökade behörigheter i prenumerationen
-- [Starta arbetsflöden baserat på DevTest Labs-händelser](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
+- Kompatibilitetsrapport på sidan intern support
+- Gör det möjligt för användare att slutföra åtgärder som kräver ökad behörighet i prenumerationen
+- [Starta arbets flöden baserat på DevTest Labs-händelser](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
 
 ## <a name="overview"></a>Översikt
-[Azure Functions](../azure-functions/functions-overview.md) är en serverlös datorplattform i Azure. Genom att använda Azure Functions i en lösning med DevTest Labs kan vi utöka de befintliga funktionerna med vår egen anpassade kod. Mer information om Azure Functions finns i [Azure Functions-dokumentationen](../azure-functions/functions-overview.md). För att illustrera hur Azure Functions kan hjälpa dig att uppfylla dina krav eller slutföra scenarier i DevTest Labs, använder den här artikeln ett exempel på att tillhandahålla en sammanfattning på den översta nivån av virtuella datorer i labbet enligt följande:
+[Azure Functions](../azure-functions/functions-overview.md) är en server lös data behandlings plattform i Azure. Genom att använda Azure Functions i en lösning med DevTest Labs kan vi utöka de befintliga funktionerna med vår egen anpassade kod. Mer information om Azure Functions finns i [Azure Functions dokumentation](../azure-functions/functions-overview.md). För att illustrera hur Azure Functions kan hjälpa dig att uppfylla dina krav eller slutföra scenarier i DevTest Labs, använder den här artikeln ett exempel på att tillhandahålla en toppnivå Sammanfattning av virtuella datorer i labbet på följande sätt:
 
-**Exempel på krav/scenario**: Användare kan se information om alla virtuella datorer i ett labb, inklusive operativsystem, ägare och alla tillämpade artefakter.  Om artefakten **Använd Windows-uppdateringar** inte nyligen har tillämpats finns det dessutom ett enkelt sätt att använda den.
+**Exempel krav/scenario**: användarna kan se information om alla virtuella datorer i ett labb, inklusive operativ system, ägare och eventuella artefakter som används.  Dessutom är det ett enkelt sätt att tillämpa en artefakt för att **tillämpa Windows-uppdateringar** som inte har tillämpats nyligen.
 
-För att slutföra scenariot använder du två funktioner enligt beskrivningen i följande diagram:  
+För att slutföra scenariot kommer du att använda två funktioner som beskrivs i följande diagram:  
 
-![Totalt flöde](./media/extend-devtest-labs-azure-functions/flow.png)
+![Övergripande flöde](./media/extend-devtest-labs-azure-functions/flow.png)
 
-Källkoden för dessa exempelfunktioner finns i [DevTest Labs GitHub-databasen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions) (både C# och PowerShell-implementeringar är tillgängliga).
+Käll koden för dessa exempel funktioner finns i [DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions) (både C#-och PowerShell-implementeringar är tillgängliga).
 
-- **UpdateInternalSupportPage**: Den här funktionen frågar DevTest Labs och uppdaterar den interna supportsidan direkt med information om de virtuella datorerna.
-- **ApplyWindowsUpdateArtifact**: För en virtuell dator i ett labb tillämpar den här funktionen Windows Update-artefakten. **Windows update**
+- **UpdateInternalSupportPage**: den här funktionen frågar DevTest Labs och uppdaterar den interna support sidan direkt med information om de virtuella datorerna.
+- **ApplyWindowsUpdateArtifact**: den här funktionen tillämpar **Windows Update** -ARTEFAKTEN för en virtuell dator i ett labb.
 
 ## <a name="how-it-works"></a>Hur det fungerar
-När användare väljer sidan **Intern support** i DevTest Labs har de en förifylld sida med information om virtuella datorer, labbägare och supportkontakter.  
+När användarna väljer den **interna support** sidan i DevTest Labs har de en förifylld sida med information om virtuella datorer, labb ägare och support kontakter.  
 
-När du väljer knappen **Välj här för att uppdatera** anropas den första Azure-funktionen: **UpdateInternalSupportPage**. Funktionen frågar DevTest Labs efter information och skriver sedan om den **interna supportsidan** med den nya informationen.
+När du väljer knappen **Välj här för att uppdatera** anropar sidan den första Azure-funktionen: **UpdateInternalSupportPage**. Funktionen frågar DevTest Labs efter information och skriver sedan om den **interna support** sidan med den nya informationen.
 
-Det finns ytterligare en åtgärd som kan vidtas, för alla virtuella datorer där Windows Update-artefakterna inte har tillämpats nyligen, kommer det att finnas en knapp för att tillämpa Windows-uppdateringar på den virtuella datorn. När du väljer knappen ***Kör Windows update** för en virtuell dator anropas den andra Azure-funktionen: **ApplyWindowsUpdateArtifact**. Den här funktionen kontrollerar om den virtuella datorn körs och i så fall tillämpas [windows update-artefakten](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) direkt.
+Det finns ytterligare en åtgärd som kan vidtas för virtuella datorer där Windows Update artefakter inte har använts nyligen, det finns en knapp för att tillämpa Windows-uppdateringar på den virtuella datorn. När du väljer ***kör Windows Update** -knappen för en virtuell dator anropar sidan den andra Azure-funktionen: **ApplyWindowsUpdateArtifact**. Den här funktionen kontrollerar om den virtuella datorn körs och använder [Windows Update](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) artefakten direkt.
 
-## <a name="step-by-step-walkthrough"></a>Steg-för-steg-genomgång
-Det här avsnittet innehåller steg-för-steg-instruktioner för att konfigurera Azure-resurser som behövs för att uppdatera den **interna supportsidan.** Den här genomgången är ett exempel på hur du utökar DevTest Labs. Du kan använda det här mönstret för andra scenarier.
+## <a name="step-by-step-walkthrough"></a>Steg för steg-genom gång
+Det här avsnittet innehåller stegvisa instruktioner för hur du konfigurerar de Azure-resurser som krävs för att uppdatera den **interna support** sidan. Den här genom gången innehåller ett exempel på att utöka DevTest Labs. Du kan använda det här mönstret för andra scenarier.
 
-### <a name="step-1-create-a-service-principal"></a>Steg 1: Skapa ett huvudnamn för tjänsten 
-Det första steget är att få ett tjänsthuvudnamn med behörighet till prenumerationen som innehåller labbet. Tjänstens huvudnamn måste använda den lösenordsbaserade autentiseringen. Det kan göras med [Azure CLI,](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)eller [Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md). Om du redan har ett huvudnamn för tjänsten att använda kan du hoppa över det här steget.
+### <a name="step-1-create-a-service-principal"></a>Steg 1: skapa ett huvud namn för tjänsten 
+Det första steget är att hämta ett huvud namn för tjänsten med behörighet till den prenumeration som innehåller labbet. Tjänstens huvud namn måste använda lösenordsbaserad autentisering. Det kan göras med [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)eller [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md). Om du redan har ett huvud namn för tjänsten kan du hoppa över det här steget.
 
-Anteckna **program-ID,** **nyckel**och **klient-ID** för tjänstens huvudnamn. Du kommer att behöva dem senare i denna genomgång. 
+Anteckna **program-ID**, **nyckel**och **klient-ID** för tjänstens huvud namn. Du kommer att behöva dem senare i den här genom gången. 
 
-### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Steg 2: Ladda ned exemplet och öppna i Visual Studio 2019
-Hämta en kopia av [exemplet C# Azure Functions](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) lokalt (antingen genom att klona databasen eller hämta databasen [härifrån).](https://github.com/Azure/azure-devtestlab/archive/master.zip)  
+### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Steg 2: Hämta exemplet och öppna i Visual Studio 2019
+Ladda ned en kopia av [C# Azure Functions exemplet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) lokalt (antingen genom att klona lagrings platsen eller hämta lagrings platsen [härifrån).](https://github.com/Azure/azure-devtestlab/archive/master.zip)  
 
-1. Öppna exempellösningen med Visual Studio 2019.  
-1. Installera **Azure-utvecklingsarbetsbelastningen** för Visual Studio om du inte redan har installerat den. Den kan installeras via **Verktyg** -> **Få verktyg och funktioner menyalternativ).**
+1. Öppna exempel lösningen med Visual Studio 2019.  
+1. Installera arbets belastningen **Azure Development** för Visual Studio om du inte redan har den installerad. Det kan installeras via **verktyg** -> -menyn**Hämta verktyg och funktioner** ).
 
-    ![Azure-utvecklingsarbetsbelastning](./media/extend-devtest-labs-azure-functions/azure-development-workload-vs.png)
-1. Skapa lösningen. Välj **Bygg** och sedan **skapa lösningsmenyalternativ.**
+    ![Arbets belastning för Azure-utveckling](./media/extend-devtest-labs-azure-functions/azure-development-workload-vs.png)
+1. Skapa lösningen. Välj **build** och sedan meny alternativ för **lösning** .
 
 ### <a name="step-3-deploy-the-sample-to-azure"></a>Steg 3: Distribuera exemplet till Azure
-Högerklicka på **AzureFunctions-projektet** i Fönstret **Lösningsutforskare** i Visual Studio och välj sedan **Publicera**. Följ guiden för att slutföra publiceringen till antingen en ny eller en befintlig Azure Function App. Detaljerad information om hur du utvecklar och distribuerar Azure-funktioner med Visual Studio finns i [Utveckla Azure-funktioner med Visual Studio](../azure-functions/functions-develop-vs.md).
+I Visual Studio, i fönstret **Solution Explorer** högerklickar du på projektet **AzureFunctions** och väljer sedan **publicera**. Följ guiden för att slutföra publiceringen till antingen en ny eller en befintlig Azure-Funktionsapp. Detaljerad information om hur du utvecklar och distribuerar Azure Functions med hjälp av Visual Studio finns i [utveckla Azure Functions med Visual Studio](../azure-functions/functions-develop-vs.md).
 
-![Dialogrutan Publicera](./media/extend-devtest-labs-azure-functions/publish-dialog.png)
-
-
-### <a name="step-4--gather-application-settings"></a>Steg 4: Samla in programinställningar
-När funktionerna har publicerats måste du hämta webbadresser för dessa funktioner från Azure-portalen. 
-
-1. Navigera till [Azure-portalen](https://portal.azure.com). 
-1. Hitta funktionsappen.
-1. Välj funktionen på sidan **Funktionsappar.** 
-1. Välj **Hämta funktions-URL** som visas i följande bild. 
-
-    ![Url:er för Azure-funktioner](./media/extend-devtest-labs-azure-functions/function-url.png)
-4. Kopiera och spara webbadressen. Upprepa dessa steg för den andra Azure-funktionen. 
-
-Du behöver också ytterligare information om tjänstens huvudnamn, till exempel program-ID, nyckel och klient-ID.
+![Dialog rutan publicera](./media/extend-devtest-labs-azure-functions/publish-dialog.png)
 
 
-### <a name="step-5--update-application-settings"></a>Steg 5: Uppdatera programinställningar
-I Visual Studio, när du har publicerat Azure-funktionen, väljer du **inställningarna för Redigera Azure App Service** under **Åtgärder**. Uppdatera följande programinställningar (fjärr):
+### <a name="step-4--gather-application-settings"></a>Steg 4: samla in program inställningar
+När funktionerna har publicerats måste du hämta URL: er för dessa funktioner från Azure Portal. 
+
+1. Navigera till [Azure Portal](https://portal.azure.com). 
+1. Hitta Function-appen.
+1. På sidan **Function Apps** väljer du funktionen. 
+1. Välj **Hämta funktions webb adress** som visas i följande bild. 
+
+    ![URL: er för Azure Functions](./media/extend-devtest-labs-azure-functions/function-url.png)
+4. Kopiera och spara URL: en. Upprepa de här stegen för den andra Azure-funktionen. 
+
+Du behöver också ytterligare information om tjänstens huvud namn, till exempel program-ID, nyckel och klient-ID.
+
+
+### <a name="step-5--update-application-settings"></a>Steg 5: uppdatera program inställningar
+När du har publicerat Azure-funktionen i Visual Studio väljer du **redigera Azure App Service inställningar** under **åtgärder**. Uppdatera följande program inställningar (fjärran sluten):
 
 - AzureFunctionUrl_ApplyUpdates
 - AzureFunctionUrl_UpdateSupportPage
-- WindowsUpdateTillåteradedagar (standard till 7)
+- WindowsUpdateAllowedDays (standardvärdet 7)
 - ServicePrincipal_AppId
 - ServicePrincipal_Key
 - ServicePrincipal_Tenant
 
     ![Programinställningar](./media/extend-devtest-labs-azure-functions/application-settings.png)
 
-### <a name="step-6-test-the-azure-function"></a>Steg 6: Testa Azure-funktionen
-Det sista steget i den här genomgången är att testa Azure-funktionen.  
+### <a name="step-6-test-the-azure-function"></a>Steg 6: testa Azure-funktionen
+Det sista steget i den här genom gången är att testa Azure-funktionen.  
 
-1. Navigera till funktionen **UpdateInternalSupportPage** i funktionsappen som skapades i steg 3. 
-1. Välj **Testa** till höger på sidan. 
-1. Ange i flödesegenskaperna (LABNAME, RESOURCEGROUPNAME och SUBSCRIPTIONID).
+1. Navigera till funktionen **UpdateInternalSupportPage** i Function-appen som skapats i steg 3. 
+1. Välj **testa** på höger sida av sidan. 
+1. Ange i Route-egenskaperna (LABNAME, RESOURCEGROUPNAME och SUBSCRIPTIONID).
 1. Välj **Kör** för att köra funktionen.  
 
-    Den här funktionen uppdaterar den interna supportsidan för det angivna labbet. Den innehåller också en knapp för användare att direkt ringa funktionen nästa gång
+    Den här funktionen kommer att uppdatera den interna support sidan för det angivna labbet. Den innehåller också en knapp för användarna att direkt anropa funktionen nästa gången
 
-    ![Testfunktion](./media/extend-devtest-labs-azure-functions/test-function.png)
+    ![Test funktion](./media/extend-devtest-labs-azure-functions/test-function.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Azure Functions kan hjälpa till att utöka funktionaliteten i DevTest Labs utöver vad som redan är inbyggt och hjälpa kunderna att uppfylla sina unika krav för sina team. Detta mönster kan utökas & utökas ytterligare för att täcka ännu mer.  Mer information om DevTest Labs finns i följande artiklar: 
+Azure Functions kan förbättra funktionerna i DevTest Labs utöver vad som redan är inbyggt och hjälpa kunder att uppfylla sina unika krav för sina team. Det här mönstret kan utökas & utökas ytterligare för att omfatta ännu mer.  Mer information om DevTest Labs finns i följande artiklar: 
 
-- [DevTest Labs Företagsreferensarkitektur](devtest-lab-reference-architecture.md)
+- [Referens arkitektur för DevTest Labs Enterprise](devtest-lab-reference-architecture.md)
 - [Vanliga frågor och svar](devtest-lab-faq.md)
 - [Skala upp DevTest Labs](devtest-lab-guidance-scale.md)
 - [Automatisera DevTest Labs med PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library/Tests)

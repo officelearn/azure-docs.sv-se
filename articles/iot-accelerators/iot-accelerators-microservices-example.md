@@ -1,5 +1,5 @@
 ---
-title: Ändra och distribuera om en mikrotjänst – Azure | Microsoft-dokument
+title: Ändra och distribuera om en mikrotjänst – Azure | Microsoft Docs
 description: Den här självstudien visar hur du ändrar och distribuerar om en mikrotjänst i fjärrövervakning
 author: dominicbetts
 ms.author: dobett
@@ -8,25 +8,25 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61447649"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Anpassa och distribuera om en mikrotjänst
 
-Den här självstudien visar hur du redigerar en av [mikrotjänsterna](https://azure.com/microservices) i lösningen för fjärrövervakning, skapar en avbildning av din mikrotjänst, distribuerar avbildningen till docker-hubben och använder den sedan i lösningen för fjärrövervakning. För att introducera det här konceptet använder självstudien ett grundläggande scenario där du anropar ett api för mikrotjänst och ändrar statusmeddelandet från "Alive and Well" till "Nya redigeringar som görs här!"
+Den här självstudien visar hur du redigerar en av [mikrotjänster](https://azure.com/microservices) i lösningen för fjärrövervakning, skapar en avbildning av mikrotjänsten, distribuerar avbildningen till Docker-hubben och använder den i lösningen för fjärrövervakning. För att införa det här konceptet använder självstudien ett grundläggande scenario där du anropar ett mikrotjänst-API och ändrar status meddelandet från "Alive" till "nya ändringar som görs här!"
 
-Remote Monitoring-lösningen använder mikrotjänster som är byggda med dockeravbildningar som hämtas från en dockernav. 
+Lösningen för fjärrövervakning använder mikrotjänster som har skapats med Docker-avbildningar som hämtas från en Docker-hubb. 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 >[!div class="checklist"]
-> * Redigera och skapa en mikrotjänst i lösningen för fjärrövervakning
-> * Skapa en dockeravbildning
-> * Driva en dockeravbildning till dockerhubben
-> * Dra den nya dockerbilden
+> * Redigera och bygg en mikrotjänst i lösningen för fjärrövervakning
+> * Bygg en Docker-avbildning
+> * Push-överför en Docker-avbildning till Docker-hubben
+> * Hämta den nya Docker-avbildningen
 > * Visualisera ändringarna 
 
 ## <a name="prerequisites"></a>Krav
@@ -34,28 +34,28 @@ I den här självstudiekursen får du lära du dig att:
 För att följa den här självstudien behöver du:
 
 >[!div class="checklist"]
-> * [Distribuera lösningsacceleratorn för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Distribuera lösnings acceleratorn för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Ett Docker-konto](https://hub.docker.com/)
-> * [Brevbärare](https://www.getpostman.com/) - Behövs för att visa API-svaret
+> * [Postman](https://www.getpostman.com/) – krävs för att Visa API-svaret
 
-## <a name="call-the-api-and-view-response-status"></a>Anropa API- och visa svarsstatus
+## <a name="call-the-api-and-view-response-status"></a>Anropa API: et och Visa svars status
 
-I den här delen anropar du standard-IoT hub manager-api:et för i-hubbhanteraren. API:et returnerar ett statusmeddelande som du ändrar senare genom att anpassa mikrotjänsten.
+I den här delen anropar du standard-API: t för IoT Hub Manager. API: et returnerar ett status meddelande som du senare ändrar genom att anpassa mikrotjänsten.
 
-1. Kontrollera att lösningen för fjärrövervakning körs lokalt på datorn.
-2. Leta reda på var du hämtade Postman och öppna den.
-3. I Postman anger du följande `http://localhost:8080/iothubmanager/v1/status`i GET: .
-4. Visa returen och du bör se, "Status": "OK: Alive and Well".
+1. Kontrol lera att lösningen för fjärrövervakning körs lokalt på datorn.
+2. Leta reda på var du laddade ned Postman och öppna den.
+3. I Postman anger du följande i avsnittet GET: `http://localhost:8080/iothubmanager/v1/status`.
+4. Visa returen och du bör se, "status": "OK: Alive".
 
-    ![Levande och väl Postman Meddelande](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+    ![Meddelande om Alive och bra Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
-## <a name="change-the-status-and-build-the-image"></a>Ändra status och skapa avbildningen
+## <a name="change-the-status-and-build-the-image"></a>Ändra status och bygga avbildningen
 
-Nu ändra statusmeddelandet för Iot Hub Manager mikrotjänst till "Nya redigeringar made here!" och sedan bygga om dockeravbildningen med den här nya statusen. Om du stöter på problem här läser du avsnittet [Felsökning.](#Troubleshoot)
+Ändra nu status meddelandet för tjänsten IoT Hub Manager till "nya ändringar som gjorts här!" och återskapa Docker-avbildningen med den nya statusen. Om du stöter på problem här läser du avsnittet om [fel sökning](#Troubleshoot) .
 
-1. Kontrollera att terminalen är öppen och ändras till katalogen där du har klonat lösningen för fjärrövervakning. 
-1. Ändra din katalog till "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
-1. Öppna StatusService.cs i alla textredigerare eller IDE som du gillar. 
+1. Se till att terminalen är öppen och ändras till den katalog där du har klonat lösningen för fjärrövervakning. 
+1. Ändra katalogen till "Azure-IoT-PC-Remote-Monitoring-dotNet/Services/iothub-Manager/Services".
+1. Öppna StatusService.cs i valfri text redigerare eller IDE som du vill. 
 1. Leta upp följande kod:
 
     ```csharp
@@ -68,8 +68,8 @@ Nu ändra statusmeddelandet för Iot Hub Manager mikrotjänst till "Nya redigeri
     var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
-5. Gå tillbaka till din terminal men nu ändra till följande katalog: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
-6. Om du vill skapa den nya dockerbilden skriver du
+5. Gå tillbaka till terminalen, men ändra nu till följande katalog: "Azure-IoT-PC-Remote-Monitor-dotNet/Services/iothub-Manager/scripts/Docker".
+6. Om du vill bygga den nya Docker-avbildningen skriver du
 
     ```sh
     sh build
@@ -81,121 +81,121 @@ Nu ändra statusmeddelandet för Iot Hub Manager mikrotjänst till "Nya redigeri
     ./build.cmd
     ```
 
-7. Om du vill kontrollera att den nya avbildningen har skapats skriver du
+7. Om du vill kontrol lera att den nya avbildningen har skapats skriver du
 
     ```cmd/sh
     docker images 
     ```
 
-Databasen ska vara "azureiotpcs/iothub-manager-dotnet".
+Lagrings platsen ska vara "azureiotpcs/iothub-Manager-dotNet".
 
-![Lyckad dockeravbildning](./media/iot-accelerators-microservices-example/successful-docker-image.png)
+![Lyckad Docker-avbildning](./media/iot-accelerators-microservices-example/successful-docker-image.png)
 
 ## <a name="tag-and-push-the-image"></a>Tagga och överföra avbildningen
-Innan du kan skicka den nya dockeravbildningen till en dockernav förväntar sig Docker att dina avbildningar ska taggas. Om du stöter på problem här läser du avsnittet [Felsökning.](#Troubleshoot)
+Innan du kan push-överföra den nya Docker-avbildningen till en Docker-hubb förväntar dock dina bilder som taggade. Om du stöter på problem här läser du avsnittet om [fel sökning](#Troubleshoot) .
 
-1. Leta reda på bild-ID för docker-avbildningen som du skapade genom att skriva:
+1. Leta upp bild-ID: t för den Docker-avbildning som du skapade genom att skriva:
 
     ```cmd/sh
     docker images
     ```
 
-2. Så här taggar du bilden med typen "testning"
+2. Tagga din avbildning med "test typ"
 
     ```cmd/sh
     docker tag [Image ID] [docker ID]/iothub-manager-dotnet:testing 
     ```
 
-3. Om du vill skicka den nyligen taggade bilden till dockerhubben skriver du
+3. Om du vill skicka den nyligen taggade avbildningen till Docker-hubben skriver du
 
     ```cmd/sh
     docker push [docker ID]/iothub-manager-dotnet:testing
     ```
 
-4. Öppna din webbläsare och gå till [din docker hub](https://hub.docker.com/) och logga in.
-5. Du bör nu se din nyligen skjutna docker-avbildning på dockerhubben.
-![Docker-bild i dockernav](./media/iot-accelerators-microservices-example/docker-image-in-docker-hub.png)
+4. Öppna din webbläsare och gå till din [Docker-hubb](https://hub.docker.com/) och logga in.
+5. Nu bör du se den nyligen publicerade Docker-avbildningen på Docker-hubben.
+![Docker-avbildning i Docker Hub](./media/iot-accelerators-microservices-example/docker-image-in-docker-hub.png)
 
-## <a name="update-your-remote-monitoring-solution"></a>Uppdatera lösningen för fjärrövervakning
-Nu måste du uppdatera din lokala docker-compose.yml för att hämta den nya dockeravbildningen från dockerhubben. Om du stöter på problem här läser du avsnittet [Felsökning.](#Troubleshoot)
+## <a name="update-your-remote-monitoring-solution"></a>Uppdatera din lösning för fjärr styrning
+Nu måste du uppdatera din lokala filen Docker. yml för att hämta den nya Docker-avbildningen från Docker-hubben. Om du stöter på problem här läser du avsnittet om [fel sökning](#Troubleshoot) .
 
-1. Gå tillbaka till terminalen och ändra till följande katalog: "azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
-2. Öppna docker-compose.yml i någon textredigerare eller IDE som du gillar.
+1. Gå tillbaka till terminalen och ändra till följande katalog: "Azure-IoT-PC-Remote-Monitoring-dotNet/Services/scripts/Local".
+2. Öppna filen Docker. yml i valfri text redigerare eller IDE som du vill.
 3. Leta upp följande kod:
 
     ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
-    och ändra den för att se ut som bilden nedan och spara den.
+    ändra den så att den ser ut som på bilden nedan och spara den.
 
     ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
-## <a name="view-the-new-response-status"></a>Visa den nya svarsstatusen
-Slutför genom att distribuera om en lokal instans av lösningen för fjärrövervakning och visa det nya statussvaret i Postman.
+## <a name="view-the-new-response-status"></a>Visa den nya svars statusen
+Slutför genom att distribuera om en lokal instans av lösningen för fjärrövervakning och visa det nya status svaret i Postman.
 
-1. Gå tillbaka till din terminal och ändra till följande katalog: "azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
-2. Starta den lokala instansen av fjärrövervakningslösningen genom att skriva följande kommando i terminalen:
+1. Gå tillbaka till terminalen och ändra till följande katalog: "Azure-IoT-PC-Remote-Monitoring-dotNet/scripts/Local".
+2. Starta din lokala instans av lösningen för fjärrövervakning genom att skriva följande kommando i terminalen:
 
     ```cmd/sh
     docker-compose up
     ```
 
-3. Leta reda på var du hämtade Postman och öppna den.
-4. I Postman anger du följande begäran `http://localhost:8080/iothubmanager/v1/status`i GET: . Du bör nu se, "Status": "OK: Nya redigeringar som gjorts här!".
+3. Leta reda på var du laddade ned Postman och öppna den.
+4. I Postman anger du följande begäran i avsnittet GET: `http://localhost:8080/iothubmanager/v1/status`. Nu bör du se "status": "OK: nya ändringar har gjorts här!".
 
-![Nya redigeringar Made Here brevbärare meddelande](./media/iot-accelerators-microservices-example/new-postman-message.png)
+![Nya ändringar gjorda här Postman-meddelande](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
 ## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Felsöka
 
-Om du stöter på problem kan du prova att ta bort dockeravbildningar och behållare på den lokala datorn.
+Om du stöter på problem kan du försöka med att ta bort Docker-avbildningarna och behållarna på den lokala datorn.
 
-1. Om du vill ta bort alla behållare måste du först stoppa alla behållare som körs. Öppna din terminal och skriv
+1. Om du vill ta bort alla behållare måste du först stoppa alla behållare som körs. Öppna terminalen och skriv
 
     ```cmd/sh
     docker stop $(docker ps -aq)
     docker rm $(docker ps -aq)
     ```
     
-2. Om du vill ta bort alla bilder öppnar du terminalen och skriver 
+2. Om du vill ta bort alla avbildningar öppnar du terminalen och skriver 
 
     ```cmd/sh
     docker rmi $(docker images -q)
     ```
 
-3. Du kan kontrollera om det finns några behållare på maskinen genom att skriva
+3. Du kan kontrol lera om det finns behållare på datorn genom att skriva
 
     ```cmd/sh
     docker ps -aq 
     ```
 
-    Om du har tagit bort alla behållare ska ingenting dyka upp.
+    Om du har tagit bort alla behållare bör inget visas.
 
-4. Du kan kontrollera om det finns några bilder på maskinen genom att skriva
+4. Du kan kontrol lera om det finns några bilder på datorn genom att skriva
 
     ```cmd/sh
     docker images
     ```
 
-    Om du har tagit bort alla behållare ska ingenting dyka upp.
+    Om du har tagit bort alla behållare bör inget visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden såg du hur du:
+I den här självstudien fick du lära dig att:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Redigera och skapa en mikrotjänst i lösningen för fjärrövervakning
-> * Skapa en dockeravbildning
-> * Driva en dockeravbildning till dockerhubben
-> * Dra den nya dockerbilden
+> * Redigera och bygg en mikrotjänst i lösningen för fjärrövervakning
+> * Bygg en Docker-avbildning
+> * Push-överför en Docker-avbildning till Docker-hubben
+> * Hämta den nya Docker-avbildningen
 > * Visualisera ändringarna 
 
-Nästa sak att prova är att [anpassa enheten simulator mikrotjänst i remote monitoring-lösningen](iot-accelerators-microservices-example.md)
+Nästa sak är att [Anpassa enhets Simulatorns mikrotjänst i lösningen för fjärrövervakning](iot-accelerators-microservices-example.md)
 
-Mer information om lösningen för fjärrövervakning finns i:
+Mer information om utvecklings lösningen finns i:
 
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 <!-- Next tutorials in the sequence -->

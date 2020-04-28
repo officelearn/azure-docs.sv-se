@@ -1,6 +1,6 @@
 ---
-title: Ett tilldelat program visas inte på åtkomstpanelen | Microsoft-dokument
-description: Felsöka varför ett program inte visas på åtkomstpanelen
+title: Ett tilldelat program visas inte på åtkomst panelen | Microsoft Docs
+description: Felsöka varför ett program inte visas på åtkomst panelen
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,656 +17,656 @@ ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67272756"
 ---
-# <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Ett tilldelat program visas inte på åtkomstpanelen
+# <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Ett tilldelat program visas inte på åtkomst panelen
 
-Åtkomstpanelen är en webbaserad portal som gör det möjligt för en användare med ett arbets- eller skolkonto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har gett dem åtkomst till. Dessa program konfigureras för användarens räkning i Azure AD-portalen. Programmet måste konfigureras korrekt och tilldelas användaren eller en grupp som användaren är medlem i för att kunna se programmet på åtkomstpanelen.
+Åtkomst panelen är en webbaserad portal som gör det möjligt för en användare med ett arbets-eller skol konto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har beviljat åtkomst till. Dessa program är konfigurerade för användarens räkning i Azure AD-portalen. Programmet måste vara korrekt konfigurerat och tilldelat användaren eller en grupp som användaren är medlem i för att kunna se programmet i åtkomst panelen.
 
-Den typ av appar som en användare ser faller i följande kategorier:
+Den typ av appar som en användare kan se hamnar i följande kategorier:
 
 -   Office 365-program
 
--   Microsoft- och tredjepartsprogram som konfigurerats med federationsbaserad SSO
+-   Program från Microsoft och tredje part som kon figurer ATS med Federation-baserad SSO
 
 -   Lösenordsbaserade SSO-program
 
 -   Program med befintliga SSO-lösningar
 
-## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrollera först
+## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrol lera först
 
--   Om ett program har lagts till en användare försöker du logga in och ut igen i användarens åtkomstpanel efter några minuter för att se om programmet läggs till.
+-   Om ett program precis har lagts till i en användare kan du försöka logga in och ut igen i användarens åtkomst panel efter några minuter för att se om programmet har lagts till.
 
--   Om en licens just har tagits bort från en användare eller grupp kan det ta lång tid att användaren är medlem i den här, beroende på gruppens storlek och komplexitet för ändringar. Vänta på extra tid innan du loggar in på åtkomstpanelen.
+-   Om en licens precis har tagits bort från en användare eller grupp, kan användaren ta lång tid, beroende på storleken och komplexiteten i gruppen för att ändringar ska göras. Tillåt extra tid innan du loggar in på åtkomst panelen.
 
-## <a name="problems-related-to-application-configuration"></a>Problem relaterade till programkonfiguration
+## <a name="problems-related-to-application-configuration"></a>Problem som rör program konfiguration
 
-Ett program kanske inte visas på en användares åtkomstpanel eftersom det inte är korrekt konfigurerat. Nedan finns några sätt att felsöka problem relaterade till programkonfiguration:
+Ett program kanske inte visas i en användares åtkomst panel eftersom det inte har kon figurer ATS korrekt. Nedan visas några exempel på hur du kan felsöka problem som rör program konfigurationen:
 
--   [Konfigurera federerad enkel inloggning för ett Azure AD-galleriprogram](#how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application)
+-   [Så här konfigurerar du federerad enkel inloggning för ett Azure AD Gallery-program](#how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application)
 
--   [Konfigurera federerad enkel inloggning för ett program som inte är galleri](#how-to-configure-federated-single-sign-on-for-a-non-gallery-application)
+-   [Så här konfigurerar du federerad enkel inloggning för ett program som inte är ett galleri program](#how-to-configure-federated-single-sign-on-for-a-non-gallery-application)
 
--   [Konfigurera ett lösenordsbaserat inloggningsprogram för ett Azure AD-galleriprogram](#how-to-configure-password-single-sign-on-for-a-non-gallery-application)
+-   [Konfigurera ett program för enkel inloggning med lösen ord för ett Azure AD-galleriprogram](#how-to-configure-password-single-sign-on-for-a-non-gallery-application)
 
--   [Konfigurera ett lösenordsansökningsprogram för ett program som inte är galleri](#how-to-configure-password-single-sign-on-for-a-non-gallery-application)
+-   [Så här konfigurerar du ett lösen ord för enkel inloggning för ett program som inte är ett galleri program](#how-to-configure-password-single-sign-on-for-a-non-gallery-application)
 
-### <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Konfigurera federerad enkel inloggning för ett Azure AD-galleriprogram
+### <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett Azure AD Gallery-program
 
-Alla program i Azure AD-galleriet som är aktiverade med Enterprise Single Sign-On-funktionen har en steg-för-steg-självstudie. Du kan komma åt [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) för en detaljerad steg-för-steg-vägledning.
+Alla program i Azure AD-galleriet som är aktiverade med funktionen för enkel inloggning i Enterprise har en stegvis själv studie kurs tillgänglig. Du kan få åtkomst till [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) för en detaljerad steg-för-steg-guide.
 
 Om du vill konfigurera ett program från Azure AD-galleriet måste du:
 
 -   [Lägga till ett program från Azure AD-galleriet](#add-an-application-from-the-azure-ad-gallery)
 
--   [Konfigurera programmets metadatavärden i Azure AD (Sign on URL, Identifier, Reply URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
+-   [Konfigurera programmets metadata-värden i Azure AD (inloggnings-URL, identifierare, svars-URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Välj Användaridentifierare och lägg till användarattribut som ska skickas till programmet](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
+-   [Välj användar-ID och Lägg till användarattribut som ska skickas till programmet](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
--   [Hämta Azure AD-metadata och -certifikat](#download-the-azure-ad-metadata-or-certificate)
+-   [Hämta Azure AD-metadata och certifikat](#download-the-azure-ad-metadata-or-certificate)
 
--   [Konfigurera Azure AD-metadatavärden i programmet (Logga in på URL, Utfärdare, URL för utloggning och certifikat)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
+-   [Konfigurera Azure AD metadata-värden i programmet (inloggnings-URL, utfärdare, utloggnings-URL och certifikat)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
 #### <a name="add-an-application-from-the-azure-ad-gallery"></a>Lägga till ett program från Azure AD-galleriet
 
-Så här lägger du till ett program från Azure AD Gallery:
+Följ stegen nedan om du vill lägga till ett program i Azure AD-galleriet:
 
-1.  Öppna [Azure-portalen](https://portal.azure.com) och logga in som **global administratör** eller **medadministratör**
+1.  Öppna [Azure Portal](https://portal.azure.com) och logga in som **Global administratör** eller **medadministratör**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4.  Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **Företagsprogram.**
+5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **företags program** .
 
-6.  Skriv namnet på programmet i textrutan **Ange ett namn** från **galleriet.**
+6.  I text rutan **Ange ett namn** i avsnittet **Lägg till från galleriet** skriver du namnet på programmet.
 
 7.  Välj det program som du vill konfigurera för enkel inloggning.
 
-8.  Innan du lägger till programmet kan du ändra dess namn från textrutan **Namn.**
+8.  Innan du lägger till programmet kan du ändra dess namn i text rutan **namn** .
 
-9.  Klicka på **Lägg** till om du vill lägga till programmet.
+9.  Klicka på knappen **Lägg till** för att lägga till programmet.
 
-Efter en kort period kan du se programmets konfigurationsfönster.
+Efter en kort period kan du se programmets konfigurations fönster.
 
 #### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Konfigurera enkel inloggning för ett program från Azure AD-galleriet
 
-Så här konfigurerar du enkel inloggning för ett program:
+Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera enkel inloggning för.
 
-7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-8. Välj **SAML-baserad inloggning** i listrutan **Läge.**
+8. Välj **SAML-baserad inloggning** från List rutan **läge** .
 
-9. Ange de värden som krävs i **domän och webbadresser.** Du bör hämta dessa värden från programleverantören.
+9. Ange de värden som krävs i **domän och URL: er.** Du bör hämta dessa värden från program leverantören.
 
-   1. Om du vill konfigurera programmet som SP-initierad SSO är inloggnings-URL:en ett obligatoriskt värde. För vissa program är identifieraren också ett obligatoriskt värde.
+   1. Om du vill konfigurera programmet som SP-initierad SSO måste inloggnings-URL: en vara ett obligatoriskt värde. För vissa program är identifieraren också ett obligatoriskt värde.
 
-   2. Om du vill konfigurera programmet som IdP-initierad SSO är svars-URL:en ett obligatoriskt värde. För vissa program är identifieraren också ett obligatoriskt värde.
+   2. Om du vill konfigurera programmet som IdP-initierad SSO måste svars-URL: en vara ett obligatoriskt värde. För vissa program är identifieraren också ett obligatoriskt värde.
 
-10. **Valfritt:** Klicka på **Visa avancerade URL-inställningar** om du vill visa de värden som inte krävs.
+10. **Valfritt:** Klicka på **Visa avancerade URL-inställningar** om du vill se de värden som inte krävs.
 
-11. I **användarattributen**väljer du den unika identifieraren för användarna i **listrutan Användaridentifierare.**
+11. I användarattribut **väljer**du den unika identifieraren för dina användare i list rutan **användar identifierare** .
 
-12. **Valfritt:** Klicka på **Visa och redigera alla andra användarattribut** för att redigera de attribut som ska skickas till programmet i SAML-token när användare loggar in.
+12. **Valfritt:** Klicka på **Visa och redigera alla andra** användarattribut för att redigera de attribut som ska skickas till programmet i SAML-token när användarna loggar in.
 
     Så här lägger du till ett attribut:
 
-    1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värde** i listrutan.
+    1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värdet** i list rutan.
 
     2. Klicka på **Spara.** Det nya attributet visas i tabellen.
 
-13. Klicka på ** &lt;Konfigurera programnamn&gt; ** för att komma åt dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också de metadata-URL:er och certifikat som krävs för att konfigurera SSO med programmet.
+13. Klicka **på &lt;Konfigurera program&gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också de metadata-URL: er och det certifikat som krävs för att konfigurera SSO med programmet.
 
-14. Klicka på **Spara** om du vill spara konfigurationen.
+14. Klicka på **Spara** för att spara konfigurationen.
 
 15. Tilldela användare till programmet.
 
-#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Välj Användaridentifierare och lägg till användarattribut som ska skickas till programmet
+#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Välj användar-ID och Lägg till användarattribut som ska skickas till programmet
 
-Så här väljer du användaridentifieraren eller lägger till användarattribut:
+Följ stegen nedan om du vill välja användar-ID eller lägga till användarattribut:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program som du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Välj det program som du har konfigurerat enkel inloggning.
+6. Välj det program som du har konfigurerat enkel inloggning för.
 
-7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-8. Under avsnittet **Användarattribut** väljer du den unika identifieraren för användarna i listrutan **Användaridentifierare.** Det valda alternativet måste matcha det förväntade värdet i programmet för att autentisera användaren.
+8. Under avsnittet **användarattribut** väljer du den unika identifieraren för dina användare i list rutan **användar identifierare** . Det valda alternativet måste matcha det förväntade värdet i programmet för att autentisera användaren.
 
    >[!NOTE] 
-   >Azure AD väljer formatet för NameID-attributet (User Identifier) baserat på det valda värdet eller det format som begärs av programmet i SAML AuthRequest. Mer information finns i artikeln [Single Sign-On SAML protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under avsnittet NameIDPolicy.
+   >Azure AD väljer formatet för attributet NameID (användar identifierare) baserat på det värde som valts eller det format som begärdes av programmet i SAML-AuthRequest. Mer information finns i artikeln [Single Sign-on SAML Protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) i avsnittet NameIDPolicy.
    >
    >
 
-9. Om du vill lägga till användarattribut klickar du på **Visa och redigerar alla andra användarattribut** för att redigera de attribut som ska skickas till programmet i SAML-token när användare loggar in.
+9. Om du vill lägga till användarattribut klickar du på **Visa och redigera alla andra** användarattribut för att redigera de attribut som ska skickas till programmet i SAML-token när användarna loggar in.
 
    Så här lägger du till ett attribut:
 
-   1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värde** i listrutan.
-
-   2. Klicka på **Spara.** Du kommer att se det nya attributet i tabellen.
-
-#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Ladda ned Azure AD-metadata eller -certifikatet
-
-Så här hämtar du programmets metadata eller certifikat från Azure AD:
-
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
-
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
-
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
-
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
-
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
-
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
-
-6. Välj det program som du har konfigurerat enkel inloggning.
-
-7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
-
-8. Gå till avsnittet **SAML-signeringscertifikat** och klicka sedan på **Hämta** kolumnvärde. Beroende på vad programmet kräver att du konfigurerar enkel inloggning visas antingen alternativet att hämta METADATA-XML:en eller certifikatet.
-
-   Azure AD tillhandahåller ingen URL för att hämta metadata. Metadata kan bara hämtas som en XML-fil.
-
-### <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Konfigurera federerad enkel inloggning för ett program som inte är galleri
-
-Om du vill konfigurera ett program som inte är galleri måste du ha Azure AD-premium och programmet stöder SAML 2.0. Mer information om Azure AD-versioner finns i [Azure AD-priser](https://azure.microsoft.com/pricing/details/active-directory/).
-
--   [Konfigurera programmets metadatavärden i Azure AD (Sign on URL, Identifier, Reply URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
-
--   [Välj Användaridentifierare och lägg till användarattribut som ska skickas till programmet](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
-
--   [Hämta Azure AD-metadata och -certifikat](#download-the-azure-ad-metadata-or-certificate)
-
--   [Konfigurera Azure AD-metadatavärden i programmet (Logga in på URL, Utfärdare, URL för utloggning och certifikat)](#configure-the-application-for-password-single-sign-on-1)
-
-#### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Konfigurera programmets metadatavärden i Azure AD (Sign on URL, Identifier, Reply URL)
-
-Så här konfigurerar du enkel inloggning för ett program som inte finns i Azure AD-galleriet nedan:
-
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
-
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
-
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
-
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
-
-5. Klicka på knappen **Lägg till** längst upp till höger i fönstret **Företagsprogram.**
-
-6. Klicka på **Program för icke-galleri** i avsnittet **Lägg till din egen app.**
-
-7. Ange namnet på programmet i textrutan **Namn.**
-
-8. Klicka på **Lägg** till om du vill lägga till programmet.
-
-9. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
-
-10. Välj **SAML-baserad inloggning** i listrutan **Läge.**
-
-11. Ange de värden som krävs i **domän och webbadresser.** Du bör hämta dessa värden från programleverantören.
-
-    1. Om du vill konfigurera programmet som IdP-initierad SSO anger du svars-URL:en och identifieraren.
-
-    2.  **Valfritt:** Om du vill konfigurera programmet som SP-initierad SSO är inloggnings-URL:en ett obligatoriskt värde.
-
-12. I **användarattributen**väljer du den unika identifieraren för användarna i **listrutan Användaridentifierare.**
-
-13. **Valfritt:** Klicka på **Visa och redigera alla andra användarattribut** för att redigera de attribut som ska skickas till programmet i SAML-token när användare loggar in.
-
-    Så här lägger du till ett attribut:
-
-    1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värde** i listrutan.
-
-    2. Klicka på **Spara.** Det nya attributet visas i tabellen.
-
-14. Klicka på ** &lt;Konfigurera programnamn&gt; ** för att komma åt dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också Azure AD-url:er och certifikat som krävs för programmet.
-
-#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Välj Användaridentifierare och lägg till användarattribut som ska skickas till programmet
-
-Så här väljer du användaridentifieraren eller lägger till användarattribut:
-
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
-
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
-
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
-
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
-
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
-
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
-
-6. Välj det program som du har konfigurerat enkel inloggning.
-
-7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
-
-8. Under avsnittet **Användarattribut** väljer du den unika identifieraren för användarna i listrutan **Användaridentifierare.** Det valda alternativet måste matcha det förväntade värdet i programmet för att autentisera användaren.
-
-   >[!NOTE] 
-   >Azure AD väljer formatet för NameID-attributet (User Identifier) baserat på det valda värdet eller det format som begärs av programmet i SAML AuthRequest. Mer information finns i artikeln [Single Sign-On SAML protokoll](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under avsnittet NameIDPolicy.
-   >
-   >
-
-9. Om du vill lägga till användarattribut klickar du på **Visa och redigerar alla andra användarattribut** för att redigera de attribut som ska skickas till programmet i SAML-token när användare loggar in.
-
-   Så här lägger du till ett attribut:
-
-   1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värde** i listrutan.
+   1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värdet** i list rutan.
 
    2. Klicka på **Spara.** Det nya attributet visas i tabellen.
 
-#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Ladda ned Azure AD-metadata eller -certifikatet
+#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Ladda ned Azure AD-metadata eller certifikatet
 
-Så här hämtar du programmets metadata eller certifikat från Azure AD:
+Följ stegen nedan om du vill ladda ned metadata för programmet eller certifikatet från Azure AD:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Välj det program som du har konfigurerat enkel inloggning.
+6. Välj det program som du har konfigurerat enkel inloggning för.
 
-7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-8. Gå till avsnittet **SAML-signeringscertifikat** och klicka sedan på **Hämta** kolumnvärde. Beroende på vad programmet kräver att du konfigurerar enkel inloggning visas antingen alternativet att hämta METADATA-XML:en eller certifikatet.
+8. Gå till avsnittet **SAML-signeringscertifikat** och klicka sedan på **Hämta** kolumn värde. Beroende på vad programmet kräver för att konfigurera enkel inloggning, ser du antingen alternativet att ladda ned XML-metadata eller certifikatet.
 
-Azure AD tillhandahåller ingen URL för att hämta metadata. Metadata kan bara hämtas som en XML-fil.
+   Azure AD tillhandahåller inte en URL för att hämta metadata. Det går bara att hämta metadata som en XML-fil.
 
-### <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Konfigurera lösenordsbaserad inloggning för ett Azure AD-galleriprogram
+### <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett program som inte är ett galleri program
+
+Om du vill konfigurera ett program som inte är ett galleri program måste du ha Azure AD Premium och programmet har stöd för SAML 2,0. Mer information om Azure AD-versioner finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+
+-   [Konfigurera programmets metadata-värden i Azure AD (inloggnings-URL, identifierare, svars-URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
+
+-   [Välj användar-ID och Lägg till användarattribut som ska skickas till programmet](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
+
+-   [Hämta Azure AD-metadata och certifikat](#download-the-azure-ad-metadata-or-certificate)
+
+-   [Konfigurera Azure AD metadata-värden i programmet (inloggnings-URL, utfärdare, utloggnings-URL och certifikat)](#configure-the-application-for-password-single-sign-on-1)
+
+#### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Konfigurera programmets metadata-värden i Azure AD (inloggnings-URL, identifierare, svars-URL)
+
+Följ stegen nedan om du vill konfigurera enkel inloggning för ett program som inte finns i Azure AD-galleriet:
+
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
+
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
+
+5. Klicka på knappen **Lägg till** längst upp till höger i fönstret **företags program** .
+
+6. Klicka på **program som inte är Galleri** i avsnittet **Lägg till din egen app** .
+
+7. Ange namnet på programmet i text rutan **namn** .
+
+8. Klicka på knappen **Lägg till** för att lägga till programmet.
+
+9. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
+
+10. Välj **SAML-baserad inloggning** i list rutan **läge** .
+
+11. Ange de värden som krävs i **domän och URL: er.** Du bör hämta dessa värden från program leverantören.
+
+    1. Ange svars-URL och identifierare för att konfigurera programmet som IdP-initierad SSO.
+
+    2.  **Valfritt:** Om du vill konfigurera programmet som SP-initierad SSO måste inloggnings-URL: en vara ett obligatoriskt värde.
+
+12. I användarattribut **väljer**du den unika identifieraren för dina användare i list rutan **användar identifierare** .
+
+13. **Valfritt:** Klicka på **Visa och redigera alla andra** användarattribut för att redigera de attribut som ska skickas till programmet i SAML-token när användarna loggar in.
+
+    Så här lägger du till ett attribut:
+
+    1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värdet** i list rutan.
+
+    2. Klicka på **Spara.** Det nya attributet visas i tabellen.
+
+14. Klicka **på &lt;Konfigurera program&gt; namn** för att få åtkomst till dokumentation om hur du konfigurerar enkel inloggning i programmet. Du har också Azure AD-URL: er och certifikat som krävs för programmet.
+
+#### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Välj användar-ID och Lägg till användarattribut som ska skickas till programmet
+
+Följ stegen nedan om du vill välja användar-ID eller lägga till användarattribut:
+
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
+
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
+
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
+
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
+
+6. Välj det program som du har konfigurerat enkel inloggning för.
+
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
+
+8. Under avsnittet **användarattribut** väljer du den unika identifieraren för dina användare i list rutan **användar identifierare** . Det valda alternativet måste matcha det förväntade värdet i programmet för att autentisera användaren.
+
+   >[!NOTE] 
+   >Azure AD väljer formatet för attributet NameID (användar identifierare) baserat på det värde som valts eller det format som begärdes av programmet i SAML-AuthRequest. Mer information finns i artikeln [Single Sign-on SAML Protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) i avsnittet NameIDPolicy.
+   >
+   >
+
+9. Om du vill lägga till användarattribut klickar du på **Visa och redigera alla andra** användarattribut för att redigera de attribut som ska skickas till programmet i SAML-token när användarna loggar in.
+
+   Så här lägger du till ett attribut:
+
+   1. Klicka på **Lägg till attribut**. Ange **namnet** och välj **värdet** i list rutan.
+
+   2. Klicka på **Spara.** Det nya attributet visas i tabellen.
+
+#### <a name="download-the-azure-ad-metadata-or-certificate"></a>Ladda ned Azure AD-metadata eller certifikatet
+
+Följ stegen nedan om du vill ladda ned metadata för programmet eller certifikatet från Azure AD:
+
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
+
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
+
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
+
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
+
+6. Välj det program som du har konfigurerat enkel inloggning för.
+
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
+
+8. Gå till avsnittet **SAML-signeringscertifikat** och klicka sedan på **Hämta** kolumn värde. Beroende på vad programmet kräver för att konfigurera enkel inloggning, ser du antingen alternativet att ladda ned XML-metadata eller certifikatet.
+
+Azure AD tillhandahåller inte en URL för att hämta metadata. Det går bara att hämta metadata som en XML-fil.
+
+### <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Konfigurera enkel inloggning med lösen ord för ett Azure AD Gallery-program
 
 Om du vill konfigurera ett program från Azure AD-galleriet måste du:
 
 -   [Lägga till ett program från Azure AD-galleriet](#add-an-application-from-the-azure-ad-gallery)
 
--   [Konfigurera programmet för enkel inloggning för lösenord](#configure-the-application-for-password-single-sign-on)
+-   [Konfigurera programmet för enkel inloggning med lösen ord](#configure-the-application-for-password-single-sign-on)
 
 #### <a name="add-an-application-from-the-azure-ad-gallery"></a>Lägga till ett program från Azure AD-galleriet
 
-Så här lägger du till ett program från Azure AD Gallery:
+Följ stegen nedan om du vill lägga till ett program i Azure AD-galleriet:
 
-1.  Öppna [Azure-portalen](https://portal.azure.com) och logga in som **global administratör** eller **medadministratör**
+1.  Öppna [Azure Portal](https://portal.azure.com) och logga in som **Global administratör** eller **medadministratör**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4.  Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **Företagsprogram.**
+5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **företags program** .
 
-6.  Skriv namnet på programmet i textrutan **Ange ett namn** från **galleriet.**
+6.  I text rutan **Ange ett namn** i avsnittet **Lägg till från galleriet** skriver du namnet på programmet.
 
 7.  Välj det program som du vill konfigurera för enkel inloggning.
 
-8.  Innan du lägger till programmet kan du ändra dess namn från textrutan **Namn.**
+8.  Innan du lägger till programmet kan du ändra dess namn i text rutan **namn** .
 
-9.  Klicka på **Lägg** till om du vill lägga till programmet.
+9.  Klicka på knappen **Lägg till** för att lägga till programmet.
 
-Efter en kort period kan du se programmets konfigurationsfönster.
+Efter en kort period kan du se programmets konfigurations fönster.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Konfigurera programmet för enkel inloggning för lösenord
+#### <a name="configure-the-application-for-password-single-sign-on"></a>Konfigurera programmet för enkel inloggning med lösen ord
 
-Så här konfigurerar du enkel inloggning för ett program:
+Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera enkel inloggning för.
 
-7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-8. Välj läge **Lösenordsbaserad inloggning.**
+8. Välj läge för **lösenordsbaserad inloggning.**
 
 9. [Tilldela användare till programmet](#how-to-assign-a-user-to-an-application-directly).
 
-10. Dessutom kan du också ange autentiseringsuppgifter för användaren genom att välja användarnas rader och klicka på **Uppdatera autentiseringsuppgifter** och ange användarnamn och lösenord för användarnas räkning. Annars uppmanas användarna att ange autentiseringsuppgifterna själva vid lanseringen.
+10. Dessutom kan du ange autentiseringsuppgifter för användarens räkning genom att markera användarens rader och klicka på **uppdatera autentiseringsuppgifter** och ange användar namn och lösen ord för användarnas räkning. Annars uppmanas användarna att ange sina autentiseringsuppgifter vid start.
 
-### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Konfigurera lösenordsbaserad inloggning för ett program som inte är galleri
+### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du enkel inloggning för lösen ord för ett program som inte är ett galleri program
 
 Om du vill konfigurera ett program från Azure AD-galleriet måste du:
 
--   [Lägga till ett program som inte är galleri](#add-a-non-gallery-application)
+-   [Lägg till ett program som inte är ett galleri program](#add-a-non-gallery-application)
 
--   [Konfigurera programmet för enkel inloggning för lösenord](#configure-the-application-for-password-single-sign-on)
+-   [Konfigurera programmet för enkel inloggning med lösen ord](#configure-the-application-for-password-single-sign-on)
 
-#### <a name="add-a-non-gallery-application"></a>Lägga till ett program som inte är galleri
+#### <a name="add-a-non-gallery-application"></a>Lägg till ett program som inte är ett galleri program
 
-Så här lägger du till ett program från Azure AD Gallery:
+Följ stegen nedan om du vill lägga till ett program i Azure AD-galleriet:
 
-1.  Öppna [Azure-portalen](https://portal.azure.com) och logga in som **global administratör** eller **medadministratör**.
+1.  Öppna [Azure Portal](https://portal.azure.com) och logga in som **Global administratör** eller **medadministratör**.
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4.  Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **Företagsprogram.**
+5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **företags program** .
 
-6.  Klicka på **Program för icke-galleri.**
+6.  Klicka på **program som inte är Galleri.**
 
-7.  Ange namnet på programmet i textrutan **Namn.** Välj **Lägg till.**
+7.  Ange namnet på ditt program i text rutan **namn** . Välj **Lägg till.**
 
-Efter en kort period kan du se programmets konfigurationsfönster.
+Efter en kort period kan du se programmets konfigurations fönster.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a><a name="configure-the-application-for-password-single-sign-on-1"></a>Konfigurera programmet för enkel inloggning för lösenord
+#### <a name="configure-the-application-for-password-single-sign-on"></a><a name="configure-the-application-for-password-single-sign-on-1"></a>Konfigurera programmet för enkel inloggning med lösen ord
 
-Så här konfigurerar du enkel inloggning för ett program:
+Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4.  Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5.  Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5.  Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-    1.  Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+    1.  Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6.  Välj det program som du vill konfigurera enkel inloggning.
+6.  Välj det program som du vill konfigurera enkel inloggning för.
 
-7.  När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
+7.  När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-8.  Välj läge **Lösenordsbaserad inloggning.**
+8.  Välj läge för **lösenordsbaserad inloggning.**
 
-9.  Ange **inloggnings-URL.** Det här är webbadressen där användarna anger sitt användarnamn och lösenord för att logga in på. Kontrollera att inloggningsfälten visas på webbadressen.
+9.  Ange **inloggnings-URL: en**. Detta är URL: en där användarna anger sitt användar namn och lösen ord för att logga in på. Se till att inloggnings fälten visas på URL: en.
 
 10. [Tilldela användare till programmet](#how-to-assign-a-user-to-an-application-directly).
 
-11. Dessutom kan du också ange autentiseringsuppgifter för användaren genom att välja användarnas rader och klicka på **Uppdatera autentiseringsuppgifter** och ange användarnamn och lösenord för användarnas räkning. Annars uppmanas användarna att ange autentiseringsuppgifterna själva vid lanseringen.
+11. Dessutom kan du ange autentiseringsuppgifter för användarens räkning genom att markera användarens rader och klicka på **uppdatera autentiseringsuppgifter** och ange användar namn och lösen ord för användarnas räkning. Annars uppmanas användarna att ange sina autentiseringsuppgifter vid start.
 
-## <a name="problems-related-to-assigning-applications-to-users"></a>Problem med att tilldela program till användare
+## <a name="problems-related-to-assigning-applications-to-users"></a>Problem som rör tilldelning av program till användare
 
-En användare kanske inte ser ett program på åtkomstpanelen eftersom de inte har tilldelats programmet. Nedan följer några sätt att kontrollera:
+En användare kanske inte ser något program på sin åtkomst panel eftersom de inte är kopplade till programmet. Nedan visas några sätt att kontrol lera:
 
--   [Kontrollera om en användare har tilldelats programmet](#check-if-a-user-is-assigned-to-the-application)
+-   [Kontrol lera om en användare är tilldelad till programmet](#check-if-a-user-is-assigned-to-the-application)
 
 -   [Så här tilldelar du en användare till ett program direkt](#how-to-assign-a-user-to-an-application-directly)
 
--   [Kontrollera om en användare har tilldelats en licens som är relaterad till programmet](#check-if-a-user-is-under-a-license-related-to-the-application)
+-   [Kontrol lera om en användare har tilldelats en licens som är relaterad till programmet](#check-if-a-user-is-under-a-license-related-to-the-application)
 
--   [Så här tilldelar du en licens till en användare](#how-to-assign-a-user-a-license)
+-   [Tilldela en licens till en användare](#how-to-assign-a-user-a-license)
 
-### <a name="check-if-a-user-is-assigned-to-the-application"></a>Kontrollera om en användare har tilldelats programmet
+### <a name="check-if-a-user-is-assigned-to-the-application"></a>Kontrol lera om en användare är tilldelad till programmet
 
-Så här kontrollerar du om en användare har tilldelats programmet:
+Om du vill kontrol lera om en användare är tilldelad till programmet följer du stegen nedan:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-6. **Sök efter** namnet på programmet i fråga.
+6. **Sök** efter namnet på programmet i fråga.
 
-7. klicka på **Användare och grupper**.
+7. Klicka på **användare och grupper**.
 
-8. Kontrollera om användaren har tilldelats programmet.
+8. Kontrol lera om användaren är tilldelad till programmet.
 
-   * Om inte följa stegen i "Hur man tilldelar en användare till ett program direkt" för att göra det.
+   * Om du inte följer stegen i "så här tilldelar du en användare till ett program direkt" för att göra det.
 
 ### <a name="how-to-assign-a-user-to-an-application-directly"></a>Så här tilldelar du en användare till ett program direkt
 
-Så här tilldelar du en eller flera användare ett program direkt:
+Om du vill tilldela en eller flera användare till ett program direkt följer du stegen nedan:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör**.
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör**.
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Välj det program som du vill tilldela en användare till i listan.
+6. Välj det program som du vill tilldela en användare till från listan.
 
-7. När programmet har läses in klickar du på **Användare och grupper** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigerings meny.
 
-8. Klicka på knappen **Lägg** till högst upp i listan **Användare och grupper** för att öppna fönstret Lägg till **tilldelning.**
+8. Klicka på knappen **Lägg till** överst i listan **användare och grupper** för att öppna fönstret **Lägg till tilldelning** .
 
-9. Klicka på väljaren **Användare och grupper** i fönstret Lägg till **tilldelning.**
+9. Klicka på Välj **användare och grupper** i fönstret **Lägg till tilldelning** .
 
-10. Skriv in det **fullständiga namnet** eller **e-postadressen** till den användare som du är intresserad av att tilldela sökrutan Sök efter **namn eller e-postadress.**
+10. Skriv in det **fullständiga namnet** eller **e-postadressen** för den användare som du är intresse rad av att tilldela till sökrutan **Sök efter namn eller e-postadress** .
 
-11. Hovra över **användaren** i listan för att visa en **kryssruta**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp om du vill lägga till användaren i listan **Markerad.**
+11. Hovra över **användaren** i listan för att visa en **kryss ruta**. Klicka på kryss rutan bredvid användarens profil bild eller logo typ för att lägga till din användare i den **markerade** listan.
 
-12. **Valfritt:** Om du vill lägga till **fler än en användare**skriver du in ett annat fullständigt namn eller en annan **fullständig** **adress** i sökrutan Sök efter namn **eller e-postadress** och klickar på kryssrutan om du vill lägga till den här användaren i listan **Markerad.**
+12. **Valfritt:** Om du vill **lägga till fler än en användare**skriver du in ett annat **fullständigt namn** eller **e-postadress** i sökrutan **Sök efter namn eller e-postadress** och klickar sedan på kryss rutan för att lägga till användaren i den **markerade** listan.
 
-13. När du är klar med att välja användare klickar du på knappen **Välj** om du vill lägga till dem i listan över användare och grupper som ska tilldelas programmet.
+13. När du är färdig med att välja användare klickar du på knappen **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
-14. **Valfritt:** Klicka på **selectorn Välj roll** i fönstret Lägg till **tilldelning** om du vill välja en roll som du vill tilldela de användare som du har markerat.
+14. **Valfritt:** Klicka på **Välj roll** väljare i fönstret **Lägg till tilldelning** för att välja en roll som ska tilldelas de användare som du har valt.
 
-15. Klicka på knappen **Tilldela** om du vill tilldela programmet till de markerade användarna.
+15. Klicka på knappen **tilldela** för att tilldela programmet till de valda användarna.
 
-Efter en kort period kan de användare som du har valt starta dessa program på åtkomstpanelen.
+Efter en kort period kan de användare du har valt kunna starta dessa program på åtkomst panelen.
 
-### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Kontrollera om en användare har en licens som är relaterad till programmet
+### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Kontrol lera om en användare har en licens som är relaterad till programmet
 
-Så här kontrollerar du en användares tilldelade licenser:
+Följ stegen nedan om du vill kontrol lera en användares tilldelade licenser:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. klicka på **Användare och grupper** i navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigerings menyn.
 
-5. klicka på **Alla användare**.
+5. Klicka på **alla användare**.
 
-6. **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6. **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7. Klicka på **Licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
+7. Klicka på **licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
 
-   * Om användaren har tilldelats en Office-licens gör detta att Office-program för första part kan visas på användarens åtkomstpanel.
+   * Om användaren är tilldelad en Office-licens så gör det möjligt för första partens Office-program att visas på användarens åtkomst panel.
 
-### <a name="how-to-assign-a-user-a-license"></a>Så här tilldelar du en användare en licens 
+### <a name="how-to-assign-a-user-a-license"></a>Tilldela en licens för en användare 
 
-Så här tilldelar du en licens till en användare:
+Följ stegen nedan om du vill tilldela en licens till en användare:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  klicka på **Alla användare**.
+5.  Klicka på **alla användare**.
 
-6.  **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  Klicka på **Licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
+7.  Klicka på **licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
 
-8.  klicka på knappen **Tilldela.**
+8.  Klicka på knappen **tilldela** .
 
-9.  Välj **en eller flera produkter** i listan över tillgängliga produkter.
+9.  Välj **en eller flera produkter** i listan med tillgängliga produkter.
 
-10. **Valfritt** klicka på **tilldelningsalternativsartikeln** om du vill tilldela produkter på ett detaljerat sätt. Klicka på **Ok** när detta är klart.
+10. **Valfritt** Klicka på objektet **tilldelnings alternativ** om du vill tilldela produkter i detalj. Klicka på **OK** när det är klart.
 
-11. Klicka på knappen **Tilldela** om du vill tilldela dessa licenser till den här användaren.
+11. Klicka på knappen **tilldela** för att tilldela dessa licenser till den här användaren.
 
-## <a name="problems-related-to-assigning-applications-to-groups"></a>Problem med att tilldela program till grupper
+## <a name="problems-related-to-assigning-applications-to-groups"></a>Problem som rör tilldelning av program till grupper
 
-En användare kan se ett program på åtkomstpanelen eftersom de ingår i en grupp som har tilldelats programmet. Nedan följer några sätt att kontrollera:
+En användare kan se ett program på sin åtkomst panel eftersom de ingår i en grupp som har tilldelats programmet. Nedan visas några sätt att kontrol lera:
 
--   [Kontrollera en användares gruppmedlemskap](#check-a-users-group-memberships)
+-   [Kontrol lera en användares grupp medlemskap](#check-a-users-group-memberships)
 
 -   [Så här tilldelar du ett program till en grupp direkt](#how-to-assign-an-application-to-a-group-directly)
 
--   [Kontrollera om en användare ingår i en grupp som tilldelats en licens](#check-if-a-user-is-part-of-group-assigned-to-a-license)
+-   [Kontrol lera om en användare är en del av en grupp som har tilldelats en licens](#check-if-a-user-is-part-of-group-assigned-to-a-license)
 
 -   [Så här tilldelar du en licens till en grupp](#how-to-assign-a-license-to-a-group)
 
-### <a name="check-a-users-group-memberships"></a>Kontrollera en användares gruppmedlemskap
+### <a name="check-a-users-group-memberships"></a>Kontrol lera en användares grupp medlemskap
 
-Så här kontrollerar du en grupps medlemskap:
+Följ stegen nedan om du vill kontrol lera en grupps medlemskap:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. klicka på **Användare och grupper** i navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigerings menyn.
 
-5. klicka på **Alla användare**.
+5. Klicka på **alla användare**.
 
-6. **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6. **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7. klicka på **Grupper**.
+7. Klicka på **grupper**.
 
-8. Kontrollera om användaren ingår i en grupp som har tilldelats programmet.
+8. Kontrol lera om användaren är en del av en grupp som tilldelats programmet.
 
-   * Om du vill ta bort användaren från gruppen **klickar du på gruppens rad** och väljer ta bort.
+   * Om du vill ta bort användaren från gruppen **klickar du på raden** i gruppen och väljer Ta bort.
 
 ### <a name="how-to-assign-an-application-to-a-group-directly"></a>Så här tilldelar du ett program till en grupp direkt
 
-Så här tilldelar du en eller flera grupper till ett program direkt:
+Om du vill tilldela en eller flera grupper till ett program direkt följer du stegen nedan:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör**.
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör**.
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Välj det program som du vill tilldela en användare till i listan.
+6. Välj det program som du vill tilldela en användare till från listan.
 
-7. När programmet har läses in klickar du på **Användare och grupper** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigerings meny.
 
-8. Klicka på knappen **Lägg** till högst upp i listan **Användare och grupper** för att öppna fönstret Lägg till **tilldelning.**
+8. Klicka på knappen **Lägg till** överst i listan **användare och grupper** för att öppna fönstret **Lägg till tilldelning** .
 
-9. Klicka på väljaren **Användare och grupper** i fönstret Lägg till **tilldelning.**
+9. Klicka på Välj **användare och grupper** i fönstret **Lägg till tilldelning** .
 
-10. Skriv in det **fullständiga gruppnamnet** för den grupp som du är intresserad av att tilldela sökrutan Sök efter **namn eller e-postadress.**
+10. Skriv in det **fullständiga grupp namnet** för den grupp som du vill tilldela till sökrutan **Sök efter namn eller e-postadress** .
 
-11. Hovra över **gruppen** i listan för att visa en **kryssruta**. Klicka på kryssrutan bredvid gruppens profilfoto eller logotyp om du vill lägga till användaren i listan **Markerad.**
+11. Hovra över **gruppen** i listan för att visa en **kryss ruta**. Klicka på kryss rutan bredvid gruppens profil bild eller logo typ för att lägga till din användare i den **markerade** listan.
 
-12. **Valfritt:** Om du vill lägga till **mer än en grupp**skriver du in ett annat fullständigt **gruppnamn** i sökrutan **Sök efter namn eller e-postadress** och klickar på kryssrutan om du vill lägga till den här gruppen i listan **Markerad.**
+12. **Valfritt:** Om du vill **lägga till fler än en grupp**skriver du in ett annat **fullständigt grupp namn** i sökrutan **Sök efter namn eller e-postadress** och klickar sedan på kryss rutan för att lägga till den här gruppen i den **markerade** listan.
 
-13. När du är klar med att välja grupper klickar du på knappen **Välj** om du vill lägga till dem i listan över användare och grupper som ska tilldelas programmet.
+13. När du är färdig med att välja grupper klickar du på knappen **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
-14. **Valfritt:** Klicka på **selectorn Välj roll** i fönstret Lägg till **tilldelning** om du vill välja en roll som ska tilldelas de grupper som du har markerat.
+14. **Valfritt:** Klicka på **Välj roll** väljare i fönstret **Lägg till tilldelning** för att välja en roll som du vill tilldela till de grupper som du har valt.
 
-15. Klicka på knappen **Tilldela** om du vill tilldela programmet till de markerade grupperna.
+15. Klicka på knappen **tilldela** för att tilldela programmet till de valda grupperna.
 
-Efter en kort period kan de användare som du har valt starta dessa program på åtkomstpanelen.
+Efter en kort period kan de användare du har valt kunna starta dessa program på åtkomst panelen.
 
-### <a name="check-if-a-user-is-part-of-group-assigned-to-a-license"></a>Kontrollera om en användare ingår i en grupp som tilldelats en licens
+### <a name="check-if-a-user-is-part-of-group-assigned-to-a-license"></a>Kontrol lera om en användare är en del av en grupp som har tilldelats en licens
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. klicka på **Användare och grupper** i navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigerings menyn.
 
-5. klicka på **Alla användare**.
+5. Klicka på **alla användare**.
 
-6. **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
+6. **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7. klicka på **Grupper**.
+7. Klicka på **grupper**.
 
-8. klicka på raden för en viss grupp.
+8. Klicka på raden för en speciell grupp.
 
-9. Klicka på **Licenser** för att se vilka licenser gruppen har tilldelat den.
+9. Klicka på **licenser** för att se vilka licenser gruppen har tilldelats till den.
 
-   * Om gruppen har tilldelats en Office-licens kan detta göra det möjligt för vissa Office-program från första part att visas på användarens åtkomstpanel.
+   * Om gruppen är tilldelad en Office-licens kan detta medföra att vissa Office-program från första part visas på användarens åtkomst panel.
 
 ### <a name="how-to-assign-a-license-to-a-group"></a>Så här tilldelar du en licens till en grupp
 
-Så här tilldelar du en licens till en grupp:
+Följ stegen nedan om du vill tilldela en licens till en grupp:
 
-1.  Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  klicka på **Användare och grupper** i navigeringsmenyn.
+4.  Klicka på **användare och grupper** på navigerings menyn.
 
-5.  Klicka på **Alla grupper**.
+5.  Klicka på **alla grupper**.
 
-6.  **Sök efter** den grupp du är intresserad av och **klicka på raden** för att välja.
+6.  **Sök** efter den grupp du är intresse rad av och **Klicka på den rad** som du vill välja.
 
-7.  Klicka på **Licenser** för att se vilka licenser gruppen har tilldelat.
+7.  Klicka på **licenser** för att se vilka licenser som gruppen för närvarande har tilldelats.
 
-8.  klicka på knappen **Tilldela.**
+8.  Klicka på knappen **tilldela** .
 
-9.  Välj **en eller flera produkter** i listan över tillgängliga produkter.
+9.  Välj **en eller flera produkter** i listan med tillgängliga produkter.
 
-10. **Valfritt** klicka på **tilldelningsalternativsartikeln** om du vill tilldela produkter på ett detaljerat sätt. Klicka på **Ok** när detta är klart.
+10. **Valfritt** Klicka på objektet **tilldelnings alternativ** om du vill tilldela produkter i detalj. Klicka på **OK** när det är klart.
 
-11. Klicka på knappen **Tilldela** om du vill tilldela dessa licenser till den här gruppen. Detta kan ta lång tid, beroende på gruppens storlek och komplexitet.
+11. Klicka på knappen **tilldela** för att tilldela dessa licenser till den här gruppen. Detta kan ta lång tid, beroende på gruppens storlek och komplexitet.
 
 >[!NOTE]
->Om du vill göra detta snabbare bör du tillfälligt tilldela en licens till användaren direkt. 
+>För att göra detta snabbare bör du tillfälligt tilldela en licens till användaren direkt. 
 >
 >
 

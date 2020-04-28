@@ -1,6 +1,6 @@
 ---
-title: Undantagshantering – Microsofts verktyg för hotmodellering – Azure | Microsoft-dokument
-description: mildrande åtgärder för hot som exponeras i hotmodelleringsverktyget
+title: Undantags hantering – Microsoft Threat Modeling Tool – Azure | Microsoft Docs
+description: begränsningar för hot som exponeras i Threat Modeling Tool
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,32 +16,32 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728081"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Säkerhetsram: Undantagshantering | Mitigations 
+# <a name="security-frame-exception-management--mitigations"></a>Säkerhets ram: undantags hantering | Åtgärder 
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
-| **WCF** | <ul><li>[WCF- Inkludera inte serviceDebug-nod i konfigurationsfilen](#servicedebug)</li><li>[WCF- Inkludera inte serviceMetadata-nod i konfigurationsfilen](#servicemetadata)</li></ul> |
-| **Webb-API** | <ul><li>[Kontrollera att korrekt undantagshantering utförs i ASP.NET webb-API](#exception)</li></ul> |
-| **Webbprogram** | <ul><li>[Visa inte säkerhetsinformation i felmeddelanden](#messages)</li><li>[Implementera sidan Standardfelhantering](#default)</li><li>[Ange distributionsmetod till butik i IIS](#deployment)</li><li>[Undantag bör misslyckas på ett säkert sätt](#fail)</li></ul> |
+| **WCF** | <ul><li>[WCF – ta inte med serviceDebug-noden i konfigurations filen](#servicedebug)</li><li>[WCF – ta inte med serviceMetadata-noden i konfigurations filen](#servicemetadata)</li></ul> |
+| **Webb-API** | <ul><li>[Kontrol lera att rätt undantags hantering görs i ASP.NET webb-API](#exception)</li></ul> |
+| **Webb program** | <ul><li>[Visa inte säkerhets information i fel meddelanden](#messages)</li><li>[Implementera standard fel hanterings sida](#default)</li><li>[Ange distributions metod för åter försäljning i IIS](#deployment)</li><li>[Undantag bör inte fungera säkert](#fail)</li></ul> |
 
-## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF- Inkludera inte serviceDebug-nod i konfigurationsfilen
+## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF – ta inte med serviceDebug-noden i konfigurations filen
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämplig teknik** | Allmänt, NET Framework 3 |
+| **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
-| **Steg** | WCF-tjänster (Windows Communication Framework) kan konfigureras för att exponera felsökningsinformation. Felsökningsinformation bör inte användas i produktionsmiljöer. Taggen `<serviceDebug>` definierar om felsökningsinformationsfunktionen är aktiverad för en WCF-tjänst. Om attributet includeExceptionDetailInFaults är inställt på true returneras undantagsinformation från programmet till klienter. Angripare kan utnyttja den ytterligare information som de får från felsökning av utdata för att montera attacker som är inriktade på ramverket, databasen eller andra resurser som används av programmet. |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Sätt** | WCF-tjänster (Windows Communication Framework) kan konfigureras för att Visa felsöknings information. Felsöknings information ska inte användas i produktions miljöer. `<serviceDebug>` Taggen definierar om funktionen för fel söknings information är aktive rad för en WCF-tjänst. Om attributet includeExceptionDetailInFaults har angetts till True returneras undantags information från programmet till klienter. Angripare kan utnyttja den ytterligare information som de får från att felsöka utdata för att montera attacker riktade mot ramverket, databasen eller andra resurser som används av programmet. |
 
 ### <a name="example"></a>Exempel
-Följande konfigurationsfil `<serviceDebug>` innehåller taggen: 
+Följande konfigurations fil innehåller `<serviceDebug>` taggen: 
 ```
 <configuration> 
 <system.serviceModel> 
@@ -51,32 +51,32 @@ Följande konfigurationsfil `<serviceDebug>` innehåller taggen:
 <serviceDebug includeExceptionDetailInFaults=""True"" httpHelpPageEnabled=""True""/> 
 ... 
 ```
-Inaktivera felsökningsinformation i tjänsten. Detta kan åstadkommas genom `<serviceDebug>` att ta bort taggen från programmets konfigurationsfil. 
+Inaktivera fel söknings information i tjänsten. Detta kan åstadkommas genom att `<serviceDebug>` taggen tas bort från programmets konfigurations fil. 
 
-## <a name="wcf--do-not-include-servicemetadata-node-in-configuration-file"></a><a id="servicemetadata"></a>WCF- Inkludera inte serviceMetadata-nod i konfigurationsfilen
+## <a name="wcf--do-not-include-servicemetadata-node-in-configuration-file"></a><a id="servicemetadata"></a>WCF – ta inte med serviceMetadata-noden i konfigurations filen
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämplig teknik** | Allmänna |
+| **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Allmänt, NET Framework 3 |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
-| **Steg** | Att offentligt exponera information om en tjänst kan ge angripare värdefull insikt i hur de kan utnyttja tjänsten. Taggen `<serviceMetadata>` aktiverar funktionen för metadatapublicering. Tjänstmetadata kan innehålla känslig information som inte bör vara allmänt tillgänglig. Åtminstone tillåter endast betrodda användare att komma åt metadata och se till att onödig information inte exponeras. Ännu bättre, helt inaktivera möjligheten att publicera metadata. En säker WCF-konfiguration `<serviceMetadata>` innehåller inte taggen. |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Sätt** | Offentligt exponerande information om en tjänst kan ge angripare en värdefull inblick i hur de kan utnyttja tjänsten. `<serviceMetadata>` Taggen aktiverar funktionen för metadata-publicering. Metadata för tjänsten kan innehålla känslig information som inte ska vara offentligt tillgänglig. Låt minst bara tillåta betrodda användare att komma åt metadata och se till att onödig information inte visas. Ännu bättre, inaktivera möjligheten att publicera metadata. En säker WCF-konfiguration kommer inte att `<serviceMetadata>` innehålla taggen. |
 
-## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Kontrollera att korrekt undantagshantering utförs i ASP.NET webb-API
+## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Kontrol lera att rätt undantags hantering görs i ASP.NET webb-API
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämplig teknik** | MVC 5, MVC 6 |
+| **Tillämpliga tekniker** | MVC 5, MVC 6 |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [Undantagshantering i ASP.NET webb-API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [modellvalidering i ASP.NET webb-API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Steg** | Som standard översätts de flesta oåtgärdsundantag undantag i ASP.NET webb-API till ett HTTP-svar med statuskod`500, Internal Server Error`|
+| **Referenser**              | [Undantags hantering i ASP.net webb-API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [modell validering i ASP.net webb-API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Sätt** | Som standard översätts de mest undantagna undantagen i ASP.NET webb-API till ett HTTP-svar med status kod`500, Internal Server Error`|
 
 ### <a name="example"></a>Exempel
-För att styra statuskoden som `HttpResponseException` returneras av API: et, kan användas som visas nedan: 
+Om du vill kontrol lera status koden som returneras av `HttpResponseException` API: t kan du använda det som visas nedan: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -90,7 +90,7 @@ public Product GetProduct(int id)
 ```
 
 ### <a name="example"></a>Exempel
-För ytterligare kontroll av undantagssvaret `HttpResponseMessage` kan klassen användas enligt nedan: 
+Om du vill ha mer kontroll över undantags `HttpResponseMessage` svaret kan klassen användas på det sätt som visas nedan: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -107,10 +107,10 @@ public Product GetProduct(int id)
     return item;
 }
 ```
-Om du vill fånga upp ohanterade undantag som inte är av typen `HttpResponseException`kan undantagsfilter användas. Undantagsfilter `System.Web.Http.Filters.IExceptionFilter` implementerar gränssnittet. Det enklaste sättet att skriva ett undantagsfilter är att härleda från `System.Web.Http.Filters.ExceptionFilterAttribute` klassen och åsidosätta OnException-metoden. 
+Undantags filter kan användas för att fånga upp ohanterade undantag `HttpResponseException`som inte är av typen. Undantags filter implementerar `System.Web.Http.Filters.IExceptionFilter` gränssnittet. Det enklaste sättet att skriva ett undantags filter är att härleda från `System.Web.Http.Filters.ExceptionFilterAttribute` klassen och åsidosätta metoden OnException. 
 
 ### <a name="example"></a>Exempel
-Här är ett filter `NotImplementedException` som konverterar `501, Not Implemented`undantag till HTTP-statuskod: 
+Här är ett filter som konverterar `NotImplementedException` undantag till http-status `501, Not Implemented`kod: 
 ```csharp
 namespace ProductStore.Filters
 {
@@ -132,13 +132,13 @@ namespace ProductStore.Filters
 }
 ```
 
-Det finns flera sätt att registrera ett undantagsfilter för webb-API:
-- Genom åtgärd
-- Efter handkontroll
+Det finns flera sätt att registrera ett webb-API undantags filter:
+- Efter åtgärd
+- Efter kontrollant
 - Globalt
 
 ### <a name="example"></a>Exempel
-Om du vill använda filtret på en viss åtgärd lägger du till filtret som ett attribut i åtgärden: 
+Om du vill tillämpa filtret på en speciell åtgärd lägger du till filtret som ett attribut i åtgärden: 
 ```csharp
 public class ProductsController : ApiController
 {
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 }
 ```
 ### <a name="example"></a>Exempel
-Om du vill använda filtret `controller`på alla åtgärder i en `controller` lägger du till filtret som ett attribut i klassen: 
+Om du vill tillämpa filtret på alla åtgärder i en `controller`lägger du till filtret som ett attribut i `controller` klassen: 
 
 ```csharp
 [NotImplExceptionFilter]
@@ -161,14 +161,14 @@ public class ProductsController : ApiController
 ```
 
 ### <a name="example"></a>Exempel
-Om du vill använda filtret globalt på alla webb-API-styrenheter lägger du till en instans av filtret i `GlobalConfiguration.Configuration.Filters` samlingen. Undantagsfilter i den här samlingen gäller för alla åtgärder för webb-API-styrenhet. 
+Om du vill tillämpa filtret globalt på alla webb-API-kontroller lägger du till en instans av `GlobalConfiguration.Configuration.Filters` filtret i samlingen. Undantags filter i den här samlingen gäller för alla åtgärder för webb-API-kontroller. 
 ```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Exempel
-För modellvalidering kan modelltillståndet skickas till Metoden CreateErrorResponse enligt nedan: 
+För modell valideringen kan modell statusen skickas till CreateErrorResponse-metoden enligt nedan: 
 ```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
@@ -180,51 +180,51 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Mer information om exceptionell hantering och modellvalidering finns ASP.NET i länkarna i referensavsnittet. 
+Se länkarna i avsnittet referenser om du vill ha mer information om exceptionell hantering och modell validering i ASP.NET webb-API 
 
-## <a name="do-not-expose-security-details-in-error-messages"></a><a id="messages"></a>Visa inte säkerhetsinformation i felmeddelanden
+## <a name="do-not-expose-security-details-in-error-messages"></a><a id="messages"></a>Visa inte säkerhets information i fel meddelanden
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämplig teknik** | Allmänna |
+| **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
-| **Steg** | <p>Allmänna felmeddelanden tillhandahålls direkt till användaren utan att inkludera känsliga programdata. Exempel på känsliga data är:</p><ul><li>Servernamn</li><li>Anslutningssträngar</li><li>Användarnamn</li><li>Lösenord</li><li>SQL-procedurer</li><li>Information om dynamiska SQL-fel</li><li>Stackspårning och kodrader</li><li>Variabler som lagras i minnet</li><li>Enhets- och mappplatser</li><li>Installationspunkter för program</li><li>Konfigurationsinställningar för värd</li><li>Andra interna ansökningsuppgifter</li></ul><p>Genom att svälla alla fel i ett program och tillhandahålla allmänna felmeddelanden, samt aktivera anpassade fel i IIS, förhindrar du att informationen lämnas ut. SQL Server-databas och .NET Undantagshantering, bland andra felhanteringsarkitekturer, är särskilt utförliga och mycket användbara för en skadlig användarprofilering av ditt program. Visa inte direkt innehållet i en klass som härleds från klassen .NET Exception och se till att du har rätt undantagshantering så att ett oväntat undantag inte oavsiktligt utlöses direkt till användaren.</p><ul><li>Ge allmänna felmeddelanden direkt till användaren som abstrahera bort specifik information som finns direkt i undantaget/felmeddelandet</li><li>Visa inte innehållet i en .NET-undantagsklass direkt för användaren</li><li>Svälla alla felmeddelanden och informera användaren om det är lämpligt via ett allmänt felmeddelande som skickas till programklienten</li><li>Visa inte innehållet i klassen Undantag direkt för användaren, `.ToString()`särskilt inte returvärdet från eller värdena för egenskaperna Meddelande eller StackTrace. Logga den här informationen på ett säkert sätt och visa ett mer harmlöst meddelande till användaren</li></ul>|
+| **Sätt** | <p>Allmänna fel meddelanden tillhandahålls direkt till användaren utan att inkludera känsliga program data. Exempel på känsliga data är:</p><ul><li>Server namn</li><li>Anslutningssträngar</li><li>Användar namn</li><li>Lösenord</li><li>SQL-procedurer</li><li>Information om dynamiska SQL-problem</li><li>Stack spårning och kodrader</li><li>Variabler lagrade i minnet</li><li>Platser för enheter och mappar</li><li>Program installations punkter</li><li>Konfigurations inställningar för värd</li><li>Information om andra interna program</li></ul><p>Att svälla alla fel i ett program och tillhandahålla allmänna fel meddelanden, samt att aktivera anpassade fel i IIS, förhindrar att information avslöjas. SQL Server databas-och .NET-undantags hantering, bland annat fel hanterings arkitekturer, är särskilt utförligt och mycket användbart för en skadlig användare som profileringr ditt program. Visa inte direkt innehållet i en klass som härletts från .NET-undantags klassen och se till att du har rätt undantags hantering så att ett oväntat undantag inte oavsiktligt höjs direkt till användaren.</p><ul><li>Ange allmänna fel meddelanden direkt till användaren som har abstrakt information som finns direkt i undantags-eller fel meddelandet</li><li>Visa inte innehållet i en .NET-undantags klass direkt till användaren</li><li>Sväll alla fel meddelanden och meddela användaren via ett allmänt fel meddelande som skickas till program klienten</li><li>Exponera inte innehållet i undantags klassen direkt till användaren, särskilt returvärdet från `.ToString()`, eller värdena för egenskaperna för meddelandet eller stacktrace. Logga informationen på ett säkert sätt och visa ett mer innocuous-meddelande till användaren</li></ul>|
 
-## <a name="implement-default-error-handling-page"></a><a id="default"></a>Implementera sidan Standardfelhantering
+## <a name="implement-default-error-handling-page"></a><a id="default"></a>Implementera standard fel hanterings sida
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämplig teknik** | Allmänna |
+| **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Redigera dialogrutan för inställningar av ASP.NET-felsidor](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Steg** | <p>När ett ASP.NET program misslyckas och ett http/1.x 500 internt serverfel eller en funktionskonfiguration (till exempel begärandefiltrering) förhindrar att en sida visas genereras ett felmeddelande. Administratörer kan välja om programmet ska visa ett eget meddelande till klienten, ett detaljerat felmeddelande till klienten eller ett detaljerat felmeddelande endast till localhost. Taggen `<customErrors>` i web.config har tre lägen:</p><ul><li>**På:** Anger att anpassade fel är aktiverade. Om inget defaultRedirect-attribut har angetts ser användarna ett allmänt fel. De anpassade felen visas för fjärrklienterna och för den lokala värden</li><li>**Av:** Anger att anpassade fel är inaktiverade. De detaljerade ASP.NET felen visas för fjärrklienterna och för den lokala värden</li><li>**Fjärrdred:** Anger att anpassade fel endast visas för fjärrklienterna och att ASP.NET fel visas för den lokala värden. Det här är standardvärdet</li></ul><p>Öppna `web.config` filen för programmet/platsen och se till `<customErrors mode="RemoteOnly" />` `<customErrors mode="On" />` att taggen har antingen eller definierats.</p>|
+| **Sätt** | <p>När ett ASP.NET-program Miss lyckas och orsakar ett internt HTTP/1. x 500-server fel eller en funktions konfiguration (till exempel filtrering av begär Anden) förhindrar att en sida visas, kommer ett fel meddelande att genereras. Administratörer kan välja om programmet ska visa ett eget meddelande för klienten, ett detaljerat fel meddelande till klienten eller enbart ett detaljerat fel meddelande till localhost. `<customErrors>` Taggen i Web. config har tre lägen:</p><ul><li>**På:** Anger att anpassade fel har Aktiver ATS. Om inget defaultRedirect-attribut anges ser användarna ett allmänt fel. De anpassade felen visas för fjärrklienter och till den lokala värden</li><li>**Av:** Anger att anpassade fel har inaktiverats. De detaljerade ASP.NET-felen visas för fjärrklienterna och den lokala värden</li><li>**RemoteOnly:** Anger att anpassade fel endast visas för fjärrklienter och att ASP.NET-fel visas för den lokala värden. Detta är standardvärdet</li></ul><p>Öppna `web.config` filen för programmet/platsen och kontrol lera att taggen har antingen `<customErrors mode="RemoteOnly" />` eller `<customErrors mode="On" />` definierats.</p>|
 
-## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Ange distributionsmetod till butik i IIS
+## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Ange distributions metod för åter försäljning i IIS
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Distribution |  
-| **Tillämplig teknik** | Allmänna |
+| **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [distributionselement (ASP.NET inställningsschema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
-| **Steg** | <p>Växeln `<deployment retail>` är avsedd att användas av produktions-IIS-servrar. Den här växeln används för att hjälpa program att köras med bästa möjliga prestanda och minsta möjliga säkerhetsinformationsläckage genom att inaktivera programmets förmåga att generera spårningsutdata på en sida, vilket inaktiverar möjligheten att visa detaljerade felmeddelanden till slutanvändare och inaktivera felsökningsväxeln.</p><p>Ofta aktiveras växlar och alternativ som är utvecklarfokuserade, till exempel spårning av misslyckade begäranden och felsökning, under aktiv utveckling. Distributionsmetoden på alla produktionsserverr bör anges till återförsäljarberäkning. öppna filen machine.config och `<deployment retail="true" />` se till att den förblir inställd på true.</p>|
+| **Referenser**              | [distributions element (ASP.NET Settings schema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Sätt** | <p>`<deployment retail>` Växeln är avsedd att användas av produktions-IIS-servrar. Den här växeln används för att hjälpa program att köra med bästa möjliga prestanda och minst möjliga läckage av säkerhets information genom att inaktivera programmets möjlighet att generera spårningsutdata på en sida, inaktivera möjligheten att visa detaljerade fel meddelanden för slutanvändare och inaktivera fel söknings växeln.</p><p>Ofta kan växlar och alternativ som är förfokuserade för utvecklare, till exempel spårning av misslyckade begär Anden och fel sökning, aktive ras under pågående utveckling. Vi rekommenderar att distributions metoden på alla produktions servrar anges till återförsäljarversion. öppna filen Machine. config och se till att `<deployment retail="true" />` den är inställd på True.</p>|
 
-## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Undantag bör misslyckas på ett säkert sätt
+## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Undantag bör inte fungera säkert
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
-| **Tillämplig teknik** | Allmänna |
+| **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [Misslyckas på ett säkert sätt](https://www.owasp.org/index.php/Fail_securely) |
-| **Steg** | Programmet bör misslyckas på ett säkert sätt. Alla metoder som returnerar ett booleskt värde, baserat på vilket visst beslut fattas, bör ha undantagsblock noggrant skapat. Det finns många logiska fel på grund av vilka säkerhetsproblem kryper in, när undantagsblocket skrivs slarvigt.|
+| **Referenser**              | [Rapportera ett problem](https://www.owasp.org/index.php/Fail_securely) |
+| **Sätt** | Programmet bör inte fungera på ett säkert sätt. Alla metoder som returnerar ett booleskt värde, baserat på vilka ett visst beslut fattas, bör ha ett noggrant skapat undantags block. Det finns många logiska fel på grund av vilka säkerhets problem som är krypa i när undantags blocket skrivs carelessly.|
 
 ### <a name="example"></a>Exempel
 ```csharp
@@ -267,4 +267,4 @@ Mer information om exceptionell hantering och modellvalidering finns ASP.NET i l
             }
         }
 ```
-Ovanstående metod returnerar alltid Sant, om något undantag inträffar. Om slutanvändaren tillhandahåller en felaktig webbadress, som webbläsaren respekterar, men `Uri()` konstruktorn inte gör det, kommer detta att utlösa ett undantag och offret kommer att tas till den giltiga men missbildade webbadressen. 
+Metoden ovan returnerar alltid True, om ett undantag inträffar. Om slutanvändaren tillhandahåller en felaktig URL, som webbläsaren följer, men `Uri()` konstruktorn inte, kommer detta att generera ett undantag och den skadelidande kommer att tas till den giltiga men felaktiga URL: en. 

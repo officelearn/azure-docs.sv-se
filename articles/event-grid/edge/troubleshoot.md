@@ -1,6 +1,6 @@
 ---
-title: Felsöka – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Felsökning i händelserutnät på IoT Edge.
+title: Felsök – Azure Event Grid IoT Edge | Microsoft Docs
+description: Fel sökning i Event Grid på IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,27 +10,27 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73100163"
 ---
 # <a name="common-issues"></a>Vanliga problem
 
-Om du får problem med att använda Azure Event Grid på IoT Edge i din miljö använder du den här artikeln som en guide för felsökning och lösning.
+Om du får problem med att använda Azure Event Grid på IoT Edge i din miljö kan du använda den här artikeln som en guide för fel sökning och lösning.
 
-## <a name="view-event-grid-module-logs"></a>Visa modulloggar för händelserutnät
+## <a name="view-event-grid-module-logs"></a>Visa Event Grid-modul loggar
 
-Om du vill felsöka kan du behöva komma åt moduleloggar för Event Grid. Det gör du på den virtuella datorn där modulen distribueras kör följande kommando:
+Om du vill felsöka kan du behöva komma åt Event Grid-modulens loggar. Det gör du genom att köra följande kommando på den virtuella datorn där modulen har distribuerats:
 
-I Windows
+I Windows,
 
 ```sh
 docker -H npipe:////./pipe/iotedge_moby_engine container logs eventgridmodule
 ```
 
-På Linux,
+I Linux,
 
 ```sh
 sudo docker logs eventgridmodule
@@ -38,13 +38,13 @@ sudo docker logs eventgridmodule
 
 ## <a name="unable-to-make-https-requests"></a>Det går inte att göra HTTPS-begäranden
 
-* Kontrollera först att modulen Event Grid har **inkommande:serverAuth:tlsPolicy** inställd på **strikt** eller **aktiverad**.
+* Kontrol lera först att Event Grid modul har **inkommande: serverAuth: tlsPolicy** inställd på **strict** eller **Enabled**.
 
-* Om dess modul-till-modul-kommunikation, se till att du ringer samtalet på port **4438** och namnet på modulen matchar vad som distribueras. 
+* Om dess modul-till-modul-kommunikation sker kontrollerar du att anropet görs på port **4438** och att namnet på modulen matchar vad som distribueras. 
 
-  Om modulen Event Grid har distribuerats med namn **eventgridmodule** ska webbadressen vara **https://eventgridmodule:4438**. Kontrollera att höljet och portnumret är korrekta.
+  Till exempel, om Event Grid modul har distribuerats med namnet **eventgridmodule** ska din URL vara **https://eventgridmodule:4438**. Kontrol lera att Skift läge och port nummer är korrekta.
     
-* Om det kommer från icke-IoT-modul kontrollerar du att Event Grid-porten är mappad till värddatorn under distributionen, till exempel
+* Om det är från en modul som inte är IoT kontrollerar du att Event Grid porten är mappad till värddatorn under distributionen, till exempel
 
     ```json
     "HostConfig": {
@@ -60,13 +60,13 @@ sudo docker logs eventgridmodule
 
 ## <a name="unable-to-make-http-requests"></a>Det går inte att göra HTTP-begäranden
 
-* Kontrollera först att modulen Event Grid har **inkommande:serverAuth:tlsPolicy** inställd på **aktiverad** eller **inaktiverad**.
+* Se först till Event Grid modul har **inkommande: serverAuth: tlsPolicy** inställt på **aktive rad** eller **inaktive**rad.
 
-* Om dess modul-till-modul-kommunikation, se till att du ringer samtalet på port **5888** och namnet på modulen matchar vad som distribueras. 
+* Om dess modul-till-modul-kommunikation sker kontrollerar du att anropet görs på port **5888** och att namnet på modulen matchar vad som distribueras. 
 
-  Om modulen Event Grid har distribuerats med namn **eventgridmodule** ska webbadressen vara **http://eventgridmodule:5888**. Kontrollera att höljet och portnumret är korrekta.
+  Till exempel, om Event Grid modul har distribuerats med namnet **eventgridmodule** ska din URL vara **http://eventgridmodule:5888**. Kontrol lera att Skift läge och port nummer är korrekta.
     
-* Om det kommer från icke-IoT-modul kontrollerar du att Event Grid-porten är mappad till värddatorn under distributionen, till exempel
+* Om det är från en modul som inte är IoT kontrollerar du att Event Grid porten är mappad till värddatorn under distributionen, till exempel
 
     ```json
     "HostConfig": {
@@ -80,32 +80,32 @@ sudo docker logs eventgridmodule
     }
     ```
 
-## <a name="certificate-chain-was-issued-by-an-authority-thats-not-trusted"></a>Certifikatkedjan har utfärdats av en myndighet som inte är betrodd
+## <a name="certificate-chain-was-issued-by-an-authority-thats-not-trusted"></a>Certifikat kedjan utfärdades av en utfärdare som inte är betrodd
 
-Som standard är Event Grid-modulen konfigurerad för att autentisera klienter med certifikat utfärdat av säkerhetsdemonen IoT Edge. Kontrollera att klienten presenterar ett certifikat som är förankrat i den här kedjan.
+Som standard konfigureras Event Grid-modulen att autentisera klienter med certifikat som utfärdats av IoT Edge Security daemon. Kontrol lera att klienten presenterar ett certifikat som är kopplat till den här kedjan.
 
-**IoTSecurity-klass** [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) visar hur du hämtar certifikat från IoT Edge Security daemon och använder den för att konfigurera utgående samtal.
+**IoTSecurity** -klassen [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) i visar hur du hämtar certifikat från IoT Edge Security daemon och använder det för att konfigurera utgående samtal.
 
-Om det inte är produktionsmiljö har du möjlighet att inaktivera klientautentisering. Mer information om hur du gör detta finns i [Säkerhet och autentisering.](security-authentication.md)
+Om den inte är en produktions miljö har du möjlighet att inaktivera klientautentisering. Information om hur du gör detta finns i [säkerhet och autentisering](security-authentication.md) .
 
-## <a name="debug-events-not-received-by-subscriber"></a>Felsökningshändelser som inte tas emot av prenumerant
+## <a name="debug-events-not-received-by-subscriber"></a>Fel söknings händelser som inte tagits emot av prenumeranten
 
-Typiska orsaker till detta är:
+Vanliga orsaker till detta är:
 
-* Händelsen har aldrig bokförts. En HTTP-statuskod på 200(OK) ska tas emot vid bokföring av en händelse i modulen Event Grid.
+* Händelsen har aldrig publicerats. En HTTP-StatusCode på 200 (OK) ska tas emot vid bokföring av en händelse till Event Grid modul.
 
-* Kontrollera händelseprenumerationen för att verifiera:
-    * Url:en för slutpunkt är giltig
-    * Alla filter i prenumerationen gör inte att händelsen "tas bort".
+* Kontrol lera händelse prenumerationen för att verifiera:
+    * Slut punktens URL är giltig
+    * Eventuella filter i prenumerationen orsakar inte att händelsen "släpps".
 
-* Kontrollera om abonnentmodulen körs
+* Verifiera att Subscriber-modulen körs
 
-* Logga in på den virtuella datorn där modulen Event Grid distribueras och visa dess loggar.
+* Logga in på den virtuella datorn där Event Grid modul distribueras och visa dess loggar.
 
-* Aktivera per leveransloggning genom att ange **broker:logDeliverySuccess=true** och distribuera om event grid-modulen och försöka igen begäran. Aktivera loggning per leverans kan påverka dataflöde och svarstid så när felsökning är klar är vår rekommendation att vända tillbaka detta till **broker:logDeliverySuccess=false** och omfördelning av event grid-modul.
+* Aktivera loggning per leverans genom att ställa in **Service Broker: logDeliverySuccess = True** och omdistribuera Event Grid-modulen och försöka utföra begäran igen. Att aktivera loggning per leverans kan påverka data flödet och svars tiden, så när fel sökningen är klar är vår rekommendation att aktivera **Service Broker igen: logDeliverySuccess = false** och omdistribution av event Grid modul.
 
-* Aktivera mått genom att ange **mått:reportertype=console** och omdedela Event Grid-modulen. Alla åtgärder efter det kommer att resultera i att mått loggas på konsolen för Event Grid-modulen, som kan användas för att felsöka ytterligare. Vår rekommendation är att aktivera mått endast för felsökning och när det är klart för att stänga av den genom att ange **mått:reportertype=none** och omdeställa eventrutnätsmodulen.
+* Aktivera mått genom att ange **mått: reportertype = konsol** och omdistribuera Event Grid modul. Alla åtgärder efter detta leder till att måtten loggas i konsolen för Event Grid modul, som kan användas för att felsöka ytterligare. Vi rekommenderar att du aktiverar mått endast för fel sökning och när du har slutfört den genom att ange **mått: reportertype = ingen** och omdistribuera Event Grid modul.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Rapportera eventuella problem, förslag med att använda [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)Händelserutnät på IoT Edge på .
+Rapportera eventuella problem, förslag med att använda Event Grid på IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)på.

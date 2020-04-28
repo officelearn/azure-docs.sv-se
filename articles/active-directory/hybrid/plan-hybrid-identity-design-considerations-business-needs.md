@@ -1,6 +1,6 @@
 ---
-title: Identitetskrav för Azure azure för hybridmolnidentitetsdesign | Microsoft-dokument
-description: Identifiera företagets affärsbehov som leder dig att definiera kraven för hybrididentitetsdesign.
+title: Identitets krav för Hybrid moln Identitets design Azure | Microsoft Docs
+description: Identifiera företagets affärs behov som gör att du kan definiera kraven för Hybrid identitets designen.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,98 +18,98 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65950894"
 ---
-# <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitetskrav för din hybrididentitetslösning
-Det första steget i utformningen av en hybrid identitetslösning är att fastställa kraven för den affärsorganisation som kommer att utnyttja den här lösningen.  Hybrididentitet startar som en stödjande roll (den stöder alla andra molnlösningar genom att tillhandahålla autentisering) och fortsätter med att tillhandahålla nya och intressanta funktioner som låser upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för användarna kommer att diktera kraven för hybrididentitetsdesignen.  Dessa tjänster och arbetsbelastningar måste utnyttja hybrididentitet både lokalt och i molnet.  
+# <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitets krav för din hybrid identitets lösning
+Det första steget i att designa en hybrid identitets lösning är att fastställa kraven för den affärs organisation som kommer att använda den här lösningen.  Hybrid identitet startar som en stödjande roll (den stöder alla andra moln lösningar genom att tillhandahålla autentisering) och är på för att tillhandahålla nya och intressanta funktioner som låser upp nya arbets belastningar för användare.  De arbets belastningar eller tjänster som du vill använda för dina användare avgör kraven för Hybrid identitets designen.  Dessa tjänster och arbets belastningar behöver utnyttja hybrid identitet både lokalt och i molnet.  
 
-Du måste gå igenom dessa viktiga aspekter av verksamheten för att förstå vad det är ett krav nu och vad företaget planerar för framtiden. Om du inte har synligheten för den långsiktiga strategin för hybrididentitetsdesign är chansen stor att din lösning inte kommer att vara skalbar när affärsbehoven växer och förändras. Diagrammet nedan visar ett exempel på en hybrididentitetsarkitektur och de arbetsbelastningar som låses upp för användare. Detta är bara ett exempel på alla nya möjligheter som kan låsas upp och levereras med en solid hybrid identitetsstrategi. 
+Du måste gå igenom dessa viktiga aspekter av verksamheten för att förstå vad det är ett krav nu och vad företaget planerar för framtiden. Om du inte har insyn i den långsiktiga strategin för Hybrid Identitets design, är det sannolikt att din lösning inte är skalbar eftersom affärs behoven växer och förändras. Diagrammet nedan visar ett exempel på en hybrid identitets arkitektur och de arbets belastningar som ska låsas upp för användare. Detta är bara ett exempel på alla nya möjligheter som kan låsas upp och levereras med en solid hybrid identitets strategi. 
 
-Vissa komponenter som ingår i ![hybrididentitetshybridens hybrididentitetsarkitekturarkitektur](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Vissa komponenter som ingår i ![hybrid identitets arkitekturen hybrid identitets arkitektur](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
-## <a name="determine-business-needs"></a>Bestäm affärsbehov
-Varje företag kommer att ha olika krav, även om dessa företag är en del av samma bransch, kan de verkliga affärskraven variera. Du kan fortfarande utnyttja bästa praxis från branschen, men i slutändan är det företagets affärsbehov som leder dig att definiera kraven för hybrididentitetsdesign. 
+## <a name="determine-business-needs"></a>Fastställa affärs behov
+Varje företag har olika krav, även om dessa företag ingår i samma bransch, kan de verkliga affärs kraven variera. Du kan fortfarande utnyttja bästa praxis från branschen, men i slut änden är det företagets affärs behov som kommer att leda till att du definierar kraven för Hybrid identitets designen. 
 
-Se till att svara på följande frågor för att identifiera dina affärsbehov:
+Var noga med att besvara följande frågor för att identifiera dina affärs behov:
 
-* Är ditt företag ute efter att minska IT driftskostnader?
-* Vill ditt företag skydda molntillgångar (SaaS-appar, infrastruktur)?
-* Är ditt företag ute efter att modernisera din IT?
-  * Är dina användare mer mobila och krävande IT för att skapa undantag i din DMZ för att tillåta olika typer av trafik för att komma åt olika resurser?
-  * Har ditt företag äldre appar som behövde publiceras för dessa moderna användare men är inte lätta att skriva om?
-  * Behöver ditt företag utföra alla dessa uppgifter och få det under kontroll på samma gång?
-* Vill ditt företag skydda användarnas identiteter och minska riskerna genom att ta med nya verktyg som utnyttjar expertisen från Microsofts Azure-säkerhetsexpertis lokalt?
-* Är ditt företag försöker bli av med den fruktade "externa" konton på plats och flytta dem till molnet där de inte längre är en vilande hot i din lokala miljö?
+* Vill företaget klippa ut drifts kostnaderna?
+* Vill företaget se till att skydda moln till gångar (SaaS appar, infrastruktur)?
+* Vill företaget modernisera din IT?
+  * Är dina användare mer mobila och kräver det för att skapa undantag i din DMZ så att olika typer av trafik kan komma åt olika resurser?
+  * Har företaget äldre appar som behövs för att publiceras till dessa moderna användare, men det är inte enkelt att skriva om?
+  * Behöver företaget utföra alla dessa uppgifter och få dem att kontrol lera på samma tidpunkt?
+* Är ditt företag som vill skydda användarnas identiteter och minska riskerna genom att införa nya verktyg som utnyttjar expert isen i Microsofts Azure-säkerhetsexpertis lokalt?
+* Försöker företaget att ta bort dreaded "externa" konton lokalt och flytta dem till molnet där de inte längre är ett inaktivt hot i din lokala miljö?
 
-## <a name="analyze-on-premises-identity-infrastructure"></a>Analysera lokal identitetsinfrastruktur
-Nu när du har en idé om företagets affärsbehov måste du utvärdera din lokala identitetsinfrastruktur. Den här utvärderingen är viktig för att definiera de tekniska kraven för att integrera din nuvarande identitetslösning i molnet identitetshanteringssystem. Se till att svara på följande frågor:
+## <a name="analyze-on-premises-identity-infrastructure"></a>Analysera lokal identitets infrastruktur
+Nu när du har en uppfattning om företagets affärs krav måste du utvärdera din lokala identitets infrastruktur. Den här utvärderingen är viktig för att definiera de tekniska kraven för att integrera din aktuella identitets lösning med moln identitets hanterings systemet. Se till att besvara följande frågor:
 
-* Vilken autentiserings- och auktoriseringslösning använder ditt företag lokalt? 
-* Har ditt företag för närvarande några lokala synkroniseringstjänster?
-* Använder ditt företag någon tredjepartsidentitetsleverantörer (IdP)?
+* Vilken autentiserings-och auktoriserad lösning använder företaget lokalt? 
+* Har företaget för närvarande några lokala Sync-tjänster?
+* Använder företaget eventuella identitets leverantörer från tredje part (IdP)?
 
-Du måste också vara medveten om de molntjänster som ditt företag kan ha. Att göra en bedömning för att förstå den aktuella integrationen med SaaS-, IaaS- eller PaaS-modeller i din miljö är mycket viktigt. Se till att svara på följande frågor under denna bedömning:
+Du måste också vara medveten om de moln tjänster som företaget kan ha. Det är mycket viktigt att utföra en utvärdering för att förstå den aktuella integrationen med SaaS-, IaaS-och PaaS-modeller i din miljö. Se till att besvara följande frågor under utvärderingen:
 
-* Har ditt företag någon integration med en molntjänstleverantör?
+* Har företaget någon integrering med en moln tjänst leverantör?
 * Om ja, vilka tjänster används?
-* Är denna integration för närvarande i produktion eller är det en pilot?
+* Är denna integrering för närvarande i produktion eller är den en pilot?
 
 > [!NOTE]
-> Cloud Discovery analyserar dina trafikloggar mot Microsoft Cloud App Securitys molnappkatalog med över 16 000 molnappar som rankas och poängsätts baserat på mer än 70 riskfaktorer, för att ge dig kontinuerlig insyn i molnanvändning, Shadow IT och risken shadow IT utgör i din organisation. Kom igång finns [konfigurera Molnidentifiering](/cloud-app-security/set-up-cloud-discovery).
+> Cloud Discovery analyserar dina trafik loggar mot Microsoft Cloud App Securitys moln program katalog över 16 000-molnappar som rangordnas och poängs ätts baserat på fler än 70 riskfaktorer, för att ge dig en kontinuerlig insyn i moln användningen, skugga den och risken för att skugga den ingår i din organisation. Kom igång genom att se [konfigurera Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 
-## <a name="evaluate-identity-integration-requirements"></a>Utvärdera krav på identitetsintegrering
-Därefter måste du utvärdera kraven för identitetsintegrering. Den här utvärderingen är viktig för att definiera de tekniska kraven för hur användare ska autentisera, hur organisationens närvaro kommer att se ut i molnet, hur organisationen tillåter auktorisering och vad användarupplevelsen kommer att bli. Se till att svara på följande frågor:
+## <a name="evaluate-identity-integration-requirements"></a>Utvärdera krav för identitets integrering
+Sedan måste du utvärdera kraven för identitets integrering. Den här utvärderingen är viktig för att definiera de tekniska kraven för hur användarna ska autentiseras, hur organisationens närvaro kommer att se ut i molnet, hur organisationen tillåter auktorisering och vad användar upplevelsen kommer att vara. Se till att besvara följande frågor:
 
-* Kommer din organisation att använda federation, standardautentisering eller båda?
+* Kommer din organisation att använda Federation, standard-autentisering eller både och?
 * Är federationen ett krav?  På grund av följande:
   * Kerberos-baserad SSO
-  * Ditt företag har ett lokalt program (antingen inbyggda interna eller tredje part) som använder SAML eller liknande federationsfunktioner.
-  * MFA via smartkort. RSA SecurID, etc.
-  * Regler för klientåtkomst som behandlar frågorna nedan:
+  * Ditt företag har ett lokalt program (antingen inbyggt eller tredje part) som använder SAML eller liknande Federations funktioner.
+  * MFA via smartkort. RSA-SecurID, osv.
+  * Klient åtkomst regler som åtgärdar frågorna nedan:
     1. Kan jag blockera all extern åtkomst till Office 365 baserat på klientens IP-adress?
     2. Kan jag blockera all extern åtkomst till Office 365, förutom Exchange ActiveSync?
-    3. Kan jag blockera all extern åtkomst till Office 365, förutom webbläsarbaserade appar (OWA, SPO)
-    4. Kan jag blockera all extern åtkomst till Office 365 för medlemmar i utsedda AD-grupper
-* Oro för säkerhet/revision
-* Redan befintliga investeringar i federerad autentisering
+    3. Kan jag blockera all extern åtkomst till Office 365, förutom för webbläsarbaserade appar (OWA, SPO)
+    4. Kan jag blockera all extern åtkomst till Office 365 för medlemmar i angivna AD-grupper
+* Säkerhet/gransknings problem
+* Redan befintlig investering i federerad autentisering
 * Vilket namn kommer vår organisation att använda för vår domän i molnet?
 * Har organisationen en anpassad domän?
-  1. Är det domän offentligt och lätt kontrollerbart via DNS?
-  2. Om så inte är fallet, då har du en allmän egendom som kan användas för att registrera en alternativ UPN i AD?
-* Är användaridentifierarna konsekventa för molnrepresentation? 
-* Har organisationen appar som kräver integrering med molntjänster?
-* Har organisationen flera domäner och kommer de alla att använda standard eller federerad autentisering?
+  1. Är domänen offentlig och lätt att verifiera via DNS?
+  2. Om så inte är fallet har du en offentlig domän som kan användas för att registrera ett alternativt UPN i AD?
+* Är användar identifierarna konsekventa för moln representation? 
+* Har organisationen appar som kräver integrering med moln tjänster?
+* Har organisationen flera domäner och kommer alla använda standard-eller federerad autentisering?
 
 ## <a name="evaluate-applications-that-run-in-your-environment"></a>Utvärdera program som körs i din miljö
-Nu när du har en uppfattning om din lokala infrastruktur och molninfrastruktur måste du utvärdera de program som körs i dessa miljöer. Den här utvärderingen är viktig för att definiera de tekniska kraven för att integrera dessa program i molnet identitetshanteringssystem. Se till att svara på följande frågor:
+Nu när du har en idé om din lokala och moln infrastruktur måste du utvärdera de program som körs i dessa miljöer. Den här utvärderingen är viktig för att definiera de tekniska kraven för att integrera dessa program till moln identitets hanterings systemet. Se till att besvara följande frågor:
 
-* Var kommer våra ansökningar att leva?
+* Var kommer våra program att vara Live?
 * Kommer användarna att komma åt lokala program?  I molnet? Eller både och?
-* Finns det planer på att ta befintliga programarbetsbelastningar och flytta dem till molnet?
-* Finns det planer på att utveckla nya program som kommer att finnas antingen lokalt eller i molnet som kommer att använda molnautentisering?
+* Finns det planer på att ta befintliga arbets belastningar för program och flytta dem till molnet?
+* Finns det planer på att utveckla nya program som kommer att finnas antingen lokalt eller i molnet som ska använda molnbaserad autentisering?
 
-## <a name="evaluate-user-requirements"></a>Utvärdera användarkrav
-Du måste också utvärdera användarkraven. Den här utvärderingen är viktig för att definiera de steg som kommer att behövas för ombordstigning och hjälpa användare när de övergår till molnet. Se till att svara på följande frågor:
+## <a name="evaluate-user-requirements"></a>Utvärdera användar krav
+Du måste också utvärdera användar kraven. Den här utvärderingen är viktig för att definiera de steg som behövs för att hålla igång och hjälpa användare när de övergår till molnet. Se till att besvara följande frågor:
 
-* Kommer användarna att komma åt program lokalt?
-* Kommer användarna att komma åt program i molnet?
-* Hur loggar användarna vanligtvis in på sin lokala miljö?
-* Hur loggar användarna in på molnet?
+* Kommer användarna att få åtkomst till program lokalt?
+* Kommer användarna att få åtkomst till program i molnet?
+* Hur loggar användare vanligt vis in på den lokala miljön?
+* Hur kommer användarna att logga in i molnet?
 
 > [!NOTE]
-> Skriv ner varje svar och försök förstå anledningen till svaret. [Bestäm incidentresponskrav](plan-hybrid-identity-design-considerations-incident-response-requirements.md) kommer att gå igenom de tillgängliga alternativen och för-/nackdelarna med varje alternativ.  Genom att ha svarat på dessa frågor väljer du vilket alternativ som bäst passar dina affärsbehov.
+> Skriv ner varje svar och försök förstå anledningen till svaret. [Fastställ krav på incident svar](plan-hybrid-identity-design-considerations-incident-response-requirements.md) över tillgängliga alternativ och för-och nack delar med respektive alternativ.  Genom att ha besvarat dessa frågor väljer du det alternativ som passar dina affärs behov bäst.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-[Fastställ krav på katalogsynkronisering](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+[Fastställa krav för katalog synkronisering](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## <a name="see-also"></a>Se även
-[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
 

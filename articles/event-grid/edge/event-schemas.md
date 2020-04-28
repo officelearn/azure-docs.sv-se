@@ -1,6 +1,6 @@
 ---
-title: Händelsescheman – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Händelsescheman i händelserutnät på IoT Edge.
+title: Händelse scheman – Azure Event Grid IoT Edge | Microsoft Docs
+description: Händelse scheman i Event Grid på IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,28 +10,28 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73242460"
 ---
 # <a name="event-schemas"></a>Händelsescheman
 
-Event Grid-modulen accepterar och levererar händelser i JSON-format. Det finns för närvarande tre scheman som stöds av Event Grid: -
+Event Grid-modulen accepterar och levererar händelser i JSON-format. Det finns för närvarande tre scheman som stöds av Event Grid:-
 
 * **EventGridSchema**
-* **Anpassatschema**
+* **CustomSchema**
 * **CloudEventSchema**
 
-Du kan konfigurera schemat som en utgivare måste följa när ämnet skapas. Om det inte anges, standard är **EventGridSchema**. Händelser som inte överensstämmer med det förväntade schemat kommer att avvisas.
+Du kan konfigurera det schema som en utgivare måste följa när ämnet skapas. Om inget värde anges används **EventGridSchema**som standard. Händelser som inte följer det förväntade schemat avvisas.
 
-Prenumeranter kan också konfigurera schemat där de vill att händelserna ska levereras. Om det inte anges är standardschemat för ämnet.
-För närvarande måste prenumerantleveransschema matcha ämnets indataschema. 
+Prenumeranter kan också konfigurera det schema som de vill att de levererade händelserna ska skickas till. Om inget värde anges är standardvärdet för ämnets schema.
+Schemat för prenumerations leverans måste matcha dess ämnes schema. 
 
 ## <a name="eventgrid-schema"></a>EventGrid-schema
 
-EventGrid-schemat består av en uppsättning obligatoriska egenskaper som en publiceringsenhet måste följa. Varje utgivare måste fylla i fälten på den översta nivån.
+EventGrid-schemat består av en uppsättning obligatoriska egenskaper som en publicerings enhet måste följa. Varje Utgivare måste fylla i fälten på översta nivån.
 
 ```json
 [
@@ -50,22 +50,22 @@ EventGrid-schemat består av en uppsättning obligatoriska egenskaper som en pub
 ]
 ```
 
-### <a name="eventgrid-schema-properties"></a>Egenskaper för EventGrid-schema
+### <a name="eventgrid-schema-properties"></a>EventGrid schema egenskaper
 
-Alla händelser har följande data på den högsta nivån:
+Alla händelser har följande data på översta nivån:
 
 | Egenskap | Typ | Krävs | Beskrivning |
 | -------- | ---- | ----------- |-----------
-| ämne | sträng | Inga | Ska matcha det ämne som det publiceras på. Event Grid fyller den med namnet på det ämne som det publiceras om det är ospecificerat. |
-| Ämne | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
-| Händelsetyp | sträng | Ja | Händelsetyp för den här händelsekällan, till exempel BlobCreated. |
-| Händelsetid | sträng | Ja | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| ID | sträng | Inga | Unik identifierare för händelsen. |
-| data | objekt | Inga | Används för att samla in händelsedata som är specifika för publiceringsentiteten. |
+| ämne | sträng | Inga | Ska matcha avsnittet som det publiceras på. Event Grid fyller i den med namnet på ämnet som det publiceras på om det inte har angetts. |
+| motiv | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | Ja | Händelse typ för den här händelse källan, till exempel BlobCreated. |
+| Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| ID | sträng | Inga | Unikt ID för händelsen. |
+| data | objekt | Inga | Används för att avbilda händelse data som är speciella för entiteten publicering. |
 | Dataversion | sträng | Ja | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Inga | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-### <a name="example--eventgrid-schema-event"></a>Exempel — Händelse-schemahändelse
+### <a name="example--eventgrid-schema-event"></a>Exempel – EventGrid schema event
 
 ```json
 [
@@ -85,13 +85,13 @@ Alla händelser har följande data på den högsta nivån:
 
 ## <a name="customevent-schema"></a>CustomEvent-schema
 
-I anpassat schema finns det inga obligatoriska egenskaper som tillämpas som EventGrid-schemat. Publiceringsentiteten kan styra händelseschemat helt och hållet. Det ger maximal flexibilitet och möjliggör scenarier där du redan har ett händelsebaserat system och vill återanvända befintliga händelser och/eller inte vill vara bunden till ett visst schema.
+I anpassat schema finns det inga obligatoriska egenskaper som tillämpas som EventGrid-schema. Publicerings entiteten kan endast styra själva händelse schemat. Det ger maximal flexibilitet och möjliggör scenarier där du redan har ett händelsebaserat system som redan finns på plats och vill återanvända befintliga händelser och/eller inte vill vara knutna till ett särskilt schema.
 
-### <a name="custom-schema-properties"></a>Anpassade schemaegenskaper
+### <a name="custom-schema-properties"></a>Anpassade schema egenskaper
 
-Inga obligatoriska egenskaper. Det är upp till publiceringsentiteten att bestämma nyttolasten.
+Inga obligatoriska egenskaper. Det är upp till entiteten publicering som fastställer nytto lasten.
 
-### <a name="example--custom-schema-event"></a>Exempel – Anpassad schemahändelse
+### <a name="example--custom-schema-event"></a>Exempel – anpassad schema händelse
 
 ```json
 [
@@ -106,13 +106,13 @@ Inga obligatoriska egenskaper. Det är upp till publiceringsentiteten att bestä
 
 ## <a name="cloudevent-schema"></a>CloudEvent-schema
 
-Utöver ovanstående scheman stöder Event Grid inbyggt händelser i [CloudEvents JSON-schemat](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents är en öppen specifikation för att beskriva händelsedata. Det förenklar interoperabilitet genom att tillhandahålla ett gemensamt händelseschema för publicering och tidskrävande händelser. Det är en del av [CNCF](https://www.cncf.io/) och för närvarande tillgänglig version är 1,0-rc1.
+Förutom ovanstående scheman har Event Grid inbyggt stöd för händelser i [JSON-schemat CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents är en öppen specifikation för att beskriva händelse data. Det fören klar samverkan genom att tillhandahålla ett gemensamt händelse schema för publicering och användning av händelser. Den är en del av [CNCF](https://www.cncf.io/) och den version som för närvarande är tillgänglig är 1,0 – RC1.
 
-### <a name="cloudevent-schema-properties"></a>CloudEvent-schemaegenskaper
+### <a name="cloudevent-schema-properties"></a>CloudEvent schema egenskaper
 
-Se [CloudEvents-specifikationen](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) på de obligatoriska kuvertegenskaperna.
+Se [CloudEvents-specifikationen](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) på de obligatoriska kuvert egenskaperna.
 
-### <a name="example--cloud-event"></a>Exempel – molnhändelse
+### <a name="example--cloud-event"></a>Exempel – moln händelse
 ```json
 [{
        "id": "1807",

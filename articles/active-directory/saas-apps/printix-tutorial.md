@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Printix | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Printix | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Printix.
 services: active-directory
 documentationCenter: na
@@ -16,30 +16,30 @@ ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e883833f7998c073b574c892ed5c7777e01faab4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "62111467"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-printix"></a>Självstudiekurs: Azure Active Directory-integrering med Printix
+# <a name="tutorial-azure-active-directory-integration-with-printix"></a>Självstudie: Azure Active Directory integrering med Printix
 
 I den här självstudien får du lära dig hur du integrerar Printix med Azure Active Directory (Azure AD).
 
 Genom att integrera Printix med Azure AD får du följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Printix
-- Du kan göra det möjligt för användarna att automatiskt logga in på Printix (Enkel inloggning) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats - Azure-portalen
+- Du kan låta dina användare automatiskt bli inloggade på Printix (enkel inloggning) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure Portal
 
-Om du vill veta mer om Integrering av SaaS-appar med Azure AD läser du [vad som är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om SaaS-appens integrering med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Printix behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Printix-prenumeration med enkel inloggning
+- En aktive rad Printix-prenumeration med enkel inloggning
 
 > [!NOTE]
 > Vi rekommenderar att du inte använder en produktionsmiljö för att testa stegen i den här självstudien.
@@ -47,24 +47,24 @@ Om du vill konfigurera Azure AD-integrering med Printix behöver du följande ob
 Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en utvärderingsmiljö för Azure AD kan du få en utvärderingsversion på en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderings miljö för Azure AD kan du få en månads utvärderings version [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien testar du azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två huvudbyggstenar:
+I den här självstudien testar du enkel inloggning i Azure AD i en test miljö. Det scenario som beskrivs i den här självstudien består av två huvud Bygg stenar:
 
 1. Lägga till Printix från galleriet
-1. Konfigurera och testa enkel inloggning i Azure AD
+1. Konfigurera och testa enkel inloggning för Azure AD
 
 ## <a name="adding-printix-from-the-gallery"></a>Lägga till Printix från galleriet
 Om du vill konfigurera integreringen av Printix i Azure AD måste du lägga till Printix från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Printix från galleriet:**
+**Utför följande steg för att lägga till Printix från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen. 
 
     ![Active Directory][1]
 
-1. Navigera till **Enterprise-program**. Gå sedan till **Alla program**.
+1. Navigera till **företags program**. Gå sedan till **alla program**.
 
     ![Program][2]
     
@@ -72,53 +72,53 @@ Om du vill konfigurera integreringen av Printix i Azure AD måste du lägga till
 
     ![Program][3]
 
-1. Skriv **Printix**i sökrutan .
+1. I rutan Sök skriver du **Printix**.
 
     ![Skapa en testanvändare för Azure AD](./media/printix-tutorial/tutorial_printix_search.png)
 
-1. Välj **Printix**på resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+1. I resultat panelen väljer du **Printix**och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
     ![Skapa en testanvändare för Azure AD](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning i Azure AD
-I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Printix baserat på en testanvändare som heter "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning för Azure AD
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Printix baserat på en test användare som kallas "Britta Simon".
 
-För att enkel inloggning ska fungera måste Azure AD veta vad motpartsanvändaren i Printix är för en användare i Azure AD. Med andra ord måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Printix upprättas.
+För att enkel inloggning ska fungera måste Azure AD veta vad motsvarande användare i Printix är till en användare i Azure AD. Med andra ord måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Printix.
 
-I Printix tilldelar du värdet för **användarnamnet** i Azure AD som värdet för **användarnamnet** för att upprätta länkrelationen.
+I Printix tilldelar du värdet för **användar namnet** i Azure AD som värdet för **användar** namnet för att upprätta länk relationen.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Printix måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Printix i Azure AD måste du slutföra följande Bygg stenar:
 
-1. **[Konfigurera Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med Britta Simon.
-1. **[Skapa en Printix-testanvändare](#creating-a-printix-test-user)** - att ha en motsvarighet till Britta Simon i Printix som är länkad till Azure AD-representationen av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assigning-the-azure-ad-test-user)** – så att Britta Simon kan använda azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)** - för att kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning i Azure AD](#configuring-azure-ad-single-sign-on)** så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-test](#creating-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med Britta Simon.
+1. **[Skapa en Printix-test användare](#creating-a-printix-test-user)** – för att få en motsvarighet till Britta Simon i Printix som är länkad till Azure AD-representation av användare.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)** -för att aktivera Britta Simon för att använda enkel inloggning i Azure AD.
+1. **[Testa enkel inloggning](#testing-single-sign-on)** – för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning i Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning för Azure AD
 
-I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen och konfigurerar enkel inloggning i ditt Printix-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal och konfigurerar enkel inloggning i ditt Printix-program.
 
-**Så här konfigurerar du en enkel Azure AD-inloggning med Printix:**
+**Utför följande steg för att konfigurera enkel inloggning med Printix i Azure AD:**
 
-1. Klicka på Enkel inloggning på sidan Printix-programintegrering **på Azure-portalen.** **Printix**
+1. Klicka på **enkel inloggning**på sidan **Printix** Application Integration i Azure Portal.
 
     ![Konfigurera enkel inloggning][4]
 
-1. I dialogrutan **Enkel inloggning** väljer du **Läge** som **SAML-baserad inloggning** för att aktivera enkel inloggning.
+1. I dialog rutan **enkel inloggning** väljer du **läge** som **SAML-baserad inloggning** för att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
-1. Gör följande i avsnittet **Printix-domän och URL:er:**
+1. Utför följande steg i avsnittet **Printix-domän och URL: er** :
 
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_url.png)
 
-    Skriv en URL i textrutan **Sign-on URL** med följande mönster:`https://<subdomain>.printix.net`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<subdomain>.printix.net`
 
     > [!NOTE] 
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta Supportteamet för [Printix-klienten](mailto:support@printix.net) för att få värdet. 
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Printix client support team](mailto:support@printix.net) för att hämta värdet. 
  
-1. Klicka på **Metadata XML** i avsnittet **SAML-signeringscertifikat** och spara sedan metadatafilen på datorn.
+1. I avsnittet **SAML-signeringscertifikat** klickar du på **metadata-XML** och sparar sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
@@ -126,33 +126,33 @@ I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen och
 
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_general_400.png)
 
-1. Logga in på din Printix-klient som administratör.
+1. Logga in på Printix-klienten som administratör.
 
-1. Klicka på ikonen längst upp till höger i menyn högst upp och välj "**Autentisering**".
+1. I menyn högst upp klickar du på ikonen i det övre högra hörnet och väljer "**autentisering**".
    
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_06.png)
 
-1. Välj **Aktivera Azure/Office 365-autentisering** på fliken **Installation**
+1. På fliken **installation** väljer du **Aktivera Azure/Office 365-autentisering**
    
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_07.png)
 
-1. På fliken **Azure,** indatafederation metadata URL till textrutan för "**Federation metadata dokument**". 
+1. På fliken **Azure** i URL: en för indatakälla-metadata till text rutan för "**federationsmetadata**". 
 
-    Bifoga metadata xml-filen som du hämtade från Azure AD till [Printix supportteam](mailto:support@printix.net). Sedan laddar de upp xml-filen och tillhandahåller en url för federationsmetadata.
+    Bifoga metadata-XML-filen som du laddade ned från Azure AD till [Printix support team](mailto:support@printix.net). Sedan laddar de upp XML-filen och anger en URL för federationsmetadata.
    
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_08.png)
    
-1. Klicka på knappen "**Testa**" och klicka på "**OK**" om testet lyckades.
+1. Klicka på knappen "**test**" och klicka på**OK**om testet lyckades.
    
-     Azure active directory-sidan visas när du har klickat på **testknappen.** "Testet lyckades" här innebär att efter att ha angett autentiseringsuppgifterna för ditt Azure-testkonto kommer det att dyka upp ett meddelande "Inställningar testade OK". Klicka sedan **OK** på OK-knappen.
+     Sidan Azure Active Directory visas när du klickar på knappen **testa** . "Testet lyckades" här betyder att när du har angett autentiseringsuppgifterna för ditt Azure test-konto visas ett meddelande om att inställningar har testats OK. Klicka sedan på **OK** .
    
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_09.png)
 
-1. Klicka på sidan **Spara** på sidan "**Autentisering**".
+1. Klicka på knappen **Spara** på sidan**autentisering**.
 
 
 > [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om den inbäddade dokumentationsfunktionen här: [Azure AD inbäddad dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om den inbäddade dokumentations funktionen här: [Azure AD Embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare för Azure AD
@@ -160,82 +160,82 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ![Skapa Azure AD-användare][100]
 
-**Så här skapar du en testanvändare i Azure AD:**
+**Utför följande steg för att skapa en test användare i Azure AD:**
 
-1. Klicka på Azure Active Directory i det vänstra navigeringsfönstret i **Azure-portalen**. **Azure Active Directory**
+1. I **Azure Portal**i det vänstra navigerings fönstret klickar du på **Azure Active Directory** ikon.
 
     ![Skapa en testanvändare för Azure AD](./media/printix-tutorial/create_aaduser_01.png) 
 
-1. Om du vill visa listan över användare går du till **Användare och grupper** och klickar på Alla **användare**.
+1. Om du vill visa listan över användare går du till **användare och grupper** och klickar på **alla användare**.
     
     ![Skapa en testanvändare för Azure AD](./media/printix-tutorial/create_aaduser_02.png) 
 
-1. Om du vill öppna dialogrutan **Användare** klickar du på **Lägg till** högst upp i dialogrutan.
+1. Öppna dialog rutan **användare** genom att klicka på **Lägg till** längst upp i dialog rutan.
  
     ![Skapa en testanvändare för Azure AD](./media/printix-tutorial/create_aaduser_03.png) 
 
-1. Gör följande på dialogrutan **Användare:**
+1. Utför följande steg på sidan **användare** :
  
     ![Skapa en testanvändare för Azure AD](./media/printix-tutorial/create_aaduser_04.png) 
 
-    a. Skriv **BrittaSimon**i textrutan **Namn** .
+    a. Skriv **BrittaSimon**i text rutan **namn** .
 
-    b. Skriv **e-postadressen** till BrittaSimon i textrutan **Användarnamn.**
+    b. Skriv **e-postadressen** för BrittaSimon i text rutan **användar namn** .
 
-    c. Välj **Visa lösenord** och skriv ned värdet för **lösenordet**.
+    c. Välj **Visa lösen ord** och skriv ned värdet för **lösen ordet**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-printix-test-user"></a>Skapa en Printix-testanvändare
+### <a name="creating-a-printix-test-user"></a>Skapa en Printix-test användare
 
-Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i Printix. Printix stöder just-in-time-etablering, vilket är aktiverat som standard.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Printix. Printix stöder just-in-Time-etablering, som är aktiverat som standard.
 
-Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas under ett försök att komma åt Printix om det inte finns ännu. 
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt Printix om den inte redan finns. 
 
 > [!NOTE]
-> Om du behöver skapa en användare manuellt måste du kontakta [Printix supportteam](mailto:support@printix.net).
+> Om du behöver skapa en användare manuellt måste du kontakta [Printix support-teamet](mailto:support@printix.net).
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-test användare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Printix.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Printix.
 
 ![Tilldela användare][200] 
 
-**Så här tilldelar du Britta Simon till Printix:**
+**Utför följande steg för att tilldela Britta Simon till Printix:**
 
-1. Öppna programvyn i Azure-portalen och navigera sedan till katalogvyn och gå till **Enterprise-program** och klicka sedan på **Alla program**.
+1. Öppna vyn program i Azure Portal och navigera sedan till vyn katalog och gå till **företags program** och klicka sedan på **alla program**.
 
     ![Tilldela användare][201] 
 
-1. Välj **Printix**i programlistan .
+1. I listan program väljer du **Printix**.
 
     ![Konfigurera enkel inloggning](./media/printix-tutorial/tutorial_printix_app.png) 
 
-1. Klicka på Användare och **grupper**på menyn till vänster .
+1. I menyn till vänster klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-1. Klicka på knappen **Lägg till**. Välj sedan **Användare och grupper** i dialogrutan Lägg till **tilldelning.**
+1. Klicka på knappen **Lägg till**. Välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Tilldela användare][203]
 
-1. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan Användare.
+1. I dialog rutan **användare och grupper väljer du** **Britta Simon** i listan användare.
 
-1. Klicka på **Knappen Välj** i dialogrutan Användare **och grupper.**
+1. Klicka på knappen **Välj** i dialog rutan **användare och grupper** .
 
-1. Klicka på **Knappen Tilldela** i dialogrutan Lägg **till tilldelning.**
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Printix på Åtkomstpanelen bör du automatiskt logga in på printix-programmet.
+När du klickar på panelen Printix på åtkomst panelen, bör du få automatiskt inloggad till ditt Printix-program.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

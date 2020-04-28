@@ -1,6 +1,6 @@
 ---
-title: Ändra Läge för StorSimple-enhet | Microsoft-dokument
-description: Beskriver lägena för StorSimple-enheten och förklarar hur du använder Windows PowerShell för StorSimple för att ändra enhetsläget.
+title: Ändra enhets läge för StorSimple | Microsoft Docs
+description: Beskriver enhets lägena i StorSimple och förklarar hur du använder Windows PowerShell för StorSimple för att ändra enhets läget.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,75 +15,75 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60576099"
 ---
-# <a name="change-the-device-mode-on-your-storsimple-device"></a>Ändra enhetsläget på StorSimple-enheten
+# <a name="change-the-device-mode-on-your-storsimple-device"></a>Ändra enhets läge på din StorSimple-enhet
 
-Den här artikeln innehåller en kort beskrivning av de olika lägen där Din StorSimple-enhet kan fungera. Din StorSimple-enhet kan fungera i tre lägen: normalt, underhåll och återställning.
+Den här artikeln innehåller en kort beskrivning av de olika lägena som din StorSimple-enhet kan använda. Din StorSimple-enhet kan fungera i tre lägen: normal, underhåll och återställning.
 
-Efter att ha läst den här artikeln, vet du:
+När du har läst den här artikeln kan du se:
 
-* Vad StorSimple-enhetslägena är
-* Ta reda på vilket läge StorSimple-enheten är i
-* Hur man ändrar från normalt till underhållsläge och *vice versa*
+* Vad StorSimple-enhets lägena är
+* Så här avbildar du vilket läge som StorSimple-enheten finns i
+* Ändra från normal till underhålls läge och *vice versa*
 
-Ovanstående hanteringsuppgifter kan endast utföras via Windows PowerShell-gränssnittet på din StorSimple-enhet.
+Ovanstående hanterings aktiviteter kan bara utföras via Windows PowerShell-gränssnittet på din StorSimple-enhet.
 
-## <a name="about-storsimple-device-modes"></a>Om StorSimple-enhetslägen
+## <a name="about-storsimple-device-modes"></a>Om enhets lägen för StorSimple
 
-Din StorSimple-enhet kan fungera i normalt, underhålls- eller återställningsläge. Vart och ett av dessa lägen beskrivs kortfattat nedan.
+Din StorSimple-enhet kan användas i normal läge, underhåll eller återställnings läge. Vart och ett av dessa lägen beskrivs kortfattat nedan.
 
 ### <a name="normal-mode"></a>Normalt läge
 
-Detta definieras som det normala driftläget för en fullständigt konfigurerad StorSimple-enhet. Som standard bör enheten vara i normalt läge.
+Detta definieras som normalt drift läge för en helt konfigurerad StorSimple-enhet. Enheten bör som standard vara i normal läge.
 
 ### <a name="maintenance-mode"></a>Underhållsläge
 
-Ibland kan StorSimple-enheten behöva placeras i underhållsläge. I det här läget kan du utföra underhåll på enheten och installera störande uppdateringar, till exempel de som är relaterade till den inbyggda programvaran för disk.
+Ibland kan StorSimple-enheten behöva placeras i underhålls läge. Med det här läget kan du utföra underhåll på enheten och installera störande uppdateringar, till exempel de som är relaterade till inbyggd disk.
 
-Du kan endast placera systemet i underhållsläge via Windows PowerShell för StorSimple. Alla I/O-begäranden pausas i det här läget. Tjänster som icke-flyktigt slumpmässigt åtkomstminne (NVRAM) eller klustertjänsten stoppas också. Båda styrenheterna startas om när du går in i eller avslutar det här läget. När du avslutar underhållsläget återupptas alla tjänster och bör vara felfria. Det kan ta några minuter.
-
-> [!NOTE]
-> **Underhållsläge stöds endast på en väl fungerande enhet. Det stöds inte på en enhet där en eller båda av styrenheterna inte fungerar.**
-
-
-### <a name="recovery-mode"></a>Återställningsläge
-
-Återställningsläge kan beskrivas som "Felsäkert läge i Windows med nätverksstöd". Återställningsläget engagerar Microsoft Support-teamet och gör det möjligt för dem att utföra diagnostik på systemet. Det primära målet med återställningsläget är att hämta systemloggarna.
-
-Om systemet går in i återställningsläge bör du kontakta Microsoft Support för nästa steg. Mer information finns i [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+Du kan endast försätta systemet i underhålls läge via Windows PowerShell för StorSimple. Alla I/O-begäranden pausas i det här läget. Tjänster som icke-flyktigt RAM-minne (Random Access Memory) eller kluster tjänsten stoppas också. Båda styrenheterna startas om när du anger eller avslutar det här läget. När du avslutar underhålls läget kommer alla tjänster att återupptas och bör vara felfria. Det kan ta några minuter.
 
 > [!NOTE]
-> **Du kan inte placera enheten i återställningsläge. Om enheten är i dåligt tillstånd försöker återställningsläget att få enheten i ett tillstånd där Microsoft Support-personal kan undersöka den.**
+> **Underhålls läget stöds endast på en korrekt fungerande enhet. Det finns inte stöd för en enhet där en eller båda styrenheterna inte fungerar.**
+
+
+### <a name="recovery-mode"></a>Återställnings läge
+
+Återställnings läget kan beskrivas som "Windows fel säkert läge med nätverks stöd". Återställnings läget engagerar Microsoft Support teamet och gör det möjligt för dem att utföra diagnostik i systemet. Det primära målet för återställnings läge är att hämta system loggarna.
+
+Om systemet går in i återställnings läge bör du kontakta Microsoft Support för nästa steg. Mer information finns på [kontakt Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+
+> [!NOTE]
+> **Du kan inte placera enheten i återställnings läge. Om enheten är i ett felaktigt tillstånd försöker återställnings läget få enheten i ett tillstånd där Microsoft Support personal kan undersöka den.**
 
 ## <a name="determine-storsimple-device-mode"></a>Identifiera StorSimple-enhetsläget
 
-#### <a name="to-determine-the-current-device-mode"></a>Så här tar du reda på det aktuella enhetsläget
+#### <a name="to-determine-the-current-device-mode"></a>Så här fastställer du det aktuella enhets läget
 
-1. Logga in på enhetens seriekonsol genom att följa stegen i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. Titta på banderollmeddelandet i enhetens seriella konsolmeny. Det här meddelandet anger uttryckligen om enheten är i underhålls- eller återställningsläge. Om meddelandet inte innehåller någon specifik information om systemläget är enheten i normalt läge.
+1. Logga in på enhetens serie konsol genom att följa stegen i [använda SparaTillFil för att ansluta till enhetens serie konsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. Titta på informations meddelandet i den seriella konsol menyn på enheten. Det här meddelandet anger uttryckligen om enheten är i underhålls läge eller återställnings läge. Om meddelandet inte innehåller någon speciell information som rör system läget är enheten i normalt läge.
 
-## <a name="change-the-storsimple-device-mode"></a>Ändra StorSimple-enhetsläge
+## <a name="change-the-storsimple-device-mode"></a>Ändra enhets läget för StorSimple
 
-Du kan placera StorSimple-enheten i underhållsläge (från normalt läge) för att utföra uppdateringar av underhålls- eller installationsunderhållsläge. Utför följande procedurer för att gå in i eller avsluta underhållsläge.
+Du kan placera StorSimple-enheten i underhålls läge (från normalt läge) för att utföra underhåll eller installera uppdatering av underhålls läge. Utför följande procedurer för att ange eller avsluta underhålls läget.
 
 > [!IMPORTANT]
-> Innan du går in i underhållsläge kontrollerar du att båda enhetskontrollanterna är felfria genom att komma åt **enhetsinställningarna > maskinvaruhälsan** för enheten i Azure-portalen. Om en eller båda styrenheterna inte är felfria kontaktar du Microsoft Support för nästa steg. Mer information finns i [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+> Innan du går in i underhålls läge kontrollerar du att båda styrenheterna är felfria genom att komma åt **enhets inställningarna > maskin varu hälsa** för enheten i Azure Portal. Om en eller båda kontroll enheterna inte är felfria kontaktar du Microsoft Support för nästa steg. Mer information finns på [kontakt Microsoft Support](storsimple-8000-contact-microsoft-support.md).
  
 
-#### <a name="to-enter-maintenance-mode"></a>Så här går du in i underhållsläge
+#### <a name="to-enter-maintenance-mode"></a>Ange underhålls läge
 
-1. Logga in på enhetens seriekonsol genom att följa stegen i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. I den seriella konsolmenyn väljer du alternativ 1, **Logga in med full åtkomst**. Ange **lösenordet för enhetsadministratören**när du uppmanas att göra det. Standardlösenordet `Password1`är: .
-3. Skriv i kommandotolken 
+1. Logga in på enhetens serie konsol genom att följa stegen i [använda SparaTillFil för att ansluta till enhetens serie konsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är: `Password1`.
+3. Skriv i kommando tolken 
    
     `Enter-HcsMaintenanceMode`
-4. Du kommer att se ett varningsmeddelande som talar om att underhållsläget kommer att störa alla I/O-begäranden och bryta anslutningen till Azure-portalen, och du kommer att uppmanas att bekräfta. Skriv **Y** för att gå in i underhållsläge.
-5. Båda styrenheterna startas om. När omstarten är klar anger banderollen för seriell konsol att enheten är i underhållsläge. Ett exempel på utdata visas nedan.
+4. Ett varnings meddelande visas som talar om att underhålls läget avbryter alla I/O-begäranden och ger anslutningen till Azure Portal och du uppmanas att bekräfta. Skriv **Y** för att ange underhålls läge.
+5. Båda styrenheterna kommer att startas om. När omstarten är klar visar den seriella konsolens banderoll att enheten är i underhålls läge. Ett exempel på utdata visas nedan.
 
 ```
     ---------------------------------------------------------------
@@ -119,14 +119,14 @@ Du kan placera StorSimple-enheten i underhållsläge (från normalt läge) för 
 
 ```
 
-#### <a name="to-exit-maintenance-mode"></a>Så här avslutar du underhållsläget
+#### <a name="to-exit-maintenance-mode"></a>Avsluta underhålls läget
 
-1. Logga in på enhetens seriekonsol. Kontrollera från bannermeddelandet att enheten är i underhållsläge.
+1. Logga in på enhetens serie konsol. Verifiera från det informations meddelande som enheten är i underhålls läge.
 2. Skriv följande i kommandotolken:
    
     `Exit-HcsMaintenanceMode`
-3. Ett varningsmeddelande och ett bekräftelsemeddelande visas. Skriv **Y** för att avsluta underhållsläget.
-4. Båda styrenheterna startas om. När omstarten är klar anger banderollen för seriell konsol att enheten är i normalt läge. Ett exempel på utdata visas nedan.
+3. Ett varnings meddelande och ett bekräftelse meddelande visas. Avsluta underhålls läget genom att skriva **Y** .
+4. Båda styrenheterna kommer att startas om. När omstarten är klar visar serie konsolens banderoll att enheten är i normalt läge. Ett exempel på utdata visas nedan.
 
 ```
     -----------------------MAINTENANCE MODE------------------------
@@ -163,5 +163,5 @@ Du kan placera StorSimple-enheten i underhållsläge (från normalt läge) för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [installerar uppdateringar i normalt och underhållsläge](storsimple-update-device.md) på Din StorSimple-enhet.
+Lär dig hur du [använder uppdateringar för normala och underhålls läge](storsimple-update-device.md) på din StorSimple-enhet.
 

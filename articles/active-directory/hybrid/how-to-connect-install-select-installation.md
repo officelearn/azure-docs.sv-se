@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Välj din installationstyp | Microsoft-dokument'
-description: I det här avsnittet får du lära dig hur du väljer den installationstyp som ska användas för Azure AD Connect
+title: 'Azure AD Connect: Välj Installations typ | Microsoft Docs'
+description: Det här avsnittet beskriver hur du väljer vilken Installations typ som ska användas för Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,62 +17,62 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60348288"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Välj vilken installationstyp du vill använda för Azure AD Connect
-Azure AD Connect har två installationstyper för ny installation: Express och anpassad. Det här avsnittet hjälper dig att bestämma vilket alternativ som ska användas under installationen.
+Azure AD Connect har två installations typer för en ny installation: Express och anpassad. Det här avsnittet hjälper dig att bestämma vilket alternativ som ska användas under installationen.
 
 ## <a name="express"></a>Express
-Express är det vanligaste alternativet och används av cirka 90% av alla nya installationer. Den har utformats för att tillhandahålla en konfiguration som fungerar för de vanligaste kundscenarierna.
+Express är det vanligaste alternativet och används av cirka 90% av alla nya installationer. Den har utformats för att tillhandahålla en konfiguration som fungerar för de vanligaste kund scenarierna.
 
 Det förutsätter:
 
-- Du har en enda Active Directory-skog lokalt.
-- Du har ett företagsadministratörskonto som du kan använda för installationen.
-- Du har färre än 100 000 objekt i den lokala Active Directory.You have less than 100,000 objects in your local Active Directory.
+- Du har en enda Active Directory skog lokalt.
+- Du har ett företags administratörs konto som du kan använda för installationen.
+- Du har färre än 100 000 objekt i din lokala Active Directory.
 
 Du får:
 
-- [Synkronisering av lösenord hash-synkronisering](how-to-connect-password-hash-synchronization.md) från lokalt till Azure AD för enkel inloggning.
-- En konfiguration som synkroniserar [datorer för användare, grupper, kontakter och Windows 10](concept-azure-ad-connect-sync-default-configuration.md).
-- Synkronisering av alla kvalificerade objekt i alla domäner och alla ru:er.
-- [Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md) är aktiverad för att se till att du alltid använder den senaste tillgängliga versionen.
+- [Password-hash-synkronisering](how-to-connect-password-hash-synchronization.md) från lokal plats till Azure AD för enkel inloggning.
+- En konfiguration som synkroniserar [användare, grupper, kontakter och Windows 10-datorer](concept-azure-ad-connect-sync-default-configuration.md).
+- Synkronisering av alla kvalificerade objekt i alla domäner och alla organisationsenheter.
+- [Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md) är aktiverat för att se till att du alltid använder den senaste tillgängliga versionen.
 
 Alternativ där du fortfarande kan använda Express:
 
-- Om du inte vill synkronisera alla ru: er kan du fortfarande använda Express och på sista sidan avmarkera **Starta synkroniseringsprocessen...***. Kör sedan installationsguiden igen och ändra de uppbest i [konfigurationsalternativen](how-to-connect-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
-- Du vill aktivera en av funktionerna i Azure AD Premium, till exempel återställning av lösenord. Först gå igenom Express för att få den första installationen klar. Kör sedan installationsguiden igen och ändra [konfigurationsalternativen](how-to-connect-installation-wizard.md#customize-synchronization-options).
+- Om du inte vill synkronisera alla organisationsenheter kan du fortfarande använda Express och på den sista sidan, avmarkera * * starta synkroniseringsprocessen... * * *. Kör sedan installations guiden igen och ändra organisationsenheterna i [konfigurations alternativen](how-to-connect-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
+- Du vill aktivera en av funktionerna i Azure AD Premium, till exempel tillbakaskrivning av lösen ord. Börja med Express för att få den första installationen slutförd. Kör sedan installations guiden igen och ändra [konfigurations alternativen](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
-## <a name="custom"></a>Anpassat
-Den anpassade sökvägen tillåter många fler alternativ än express. Den bör användas i alla fall där konfigurationen som beskrivs i föregående avsnitt för express inte är representativ för din organisation.
+## <a name="custom"></a>Anpassad
+Den anpassade sökvägen tillåter många fler alternativ än Express. Den bör användas i samtliga fall där konfigurationen som beskrivs i föregående avsnitt för Express inte är representativ för din organisation.
 
 Använd när:
 
-- Du har inte åtkomst till ett företagsadministratörskonto i Active Directory.
-- Du har mer än en skog eller planerar att synkronisera mer än en skog i framtiden.
-- Du har domäner i skogen som inte kan nås från Connect-servern.
-- Du planerar att använda federations- eller direktautentisering för användarloggning.
-- Du har fler än 100 000 objekt och måste använda en fullständig SQL Server.
-- Du planerar att använda gruppbaserad filtrering och inte bara domän- eller organisationsenhetsbaserad filtrering.
+- Du har inte åtkomst till ett företags administratörs konto i Active Directory.
+- Du har mer än en skog eller så planerar du att synkronisera fler än en skog i framtiden.
+- Det går inte att komma åt domäner i skogen från Connect-servern.
+- Du planerar att använda Federation eller direktautentisering för användar inloggning.
+- Du har fler än 100 000 objekt och behöver använda en fullständig SQL Server.
+- Du planerar att använda gruppbaserad filtrering och inte bara domän-eller OU-baserad filtrering.
 
 ## <a name="upgrade-from-dirsync"></a>Uppgradera från DirSync
-Om du för närvarande använder DirSync följer du stegen i [Uppgradera från DirSync](how-to-dirsync-upgrade-get-started.md) för att uppgradera din befintliga konfiguration. Det finns två olika uppgraderingsalternativ:
+Om du för närvarande använder DirSync följer du stegen i [Uppgradera från DirSync](how-to-dirsync-upgrade-get-started.md) för att uppgradera den befintliga konfigurationen. Det finns två olika uppgraderings alternativ:
 
 - Uppgradering på plats för att installera Connect på samma server.
-- Parallell distribution för att installera Connect på en ny server medan den befintliga DirSync-servern fortfarande är i drift.
+- Parallell distribution för att installera Connect på en ny server medan den befintliga DirSync-servern fortfarande fungerar.
 
 ## <a name="upgrade-from-azure-ad-sync"></a>Uppgradera från Azure AD Sync
-Om du för närvarande använder Azure AD Sync kan du följa [samma steg](how-to-upgrade-previous-version.md) som när du uppgraderar från en Connect-version till en nyare. Det finns två olika uppgraderingsalternativ:
+Om du för närvarande använder Azure AD Sync kan du följa [samma steg](how-to-upgrade-previous-version.md) som när du uppgraderar från en Connect-version till en nyare. Det finns två olika uppgraderings alternativ:
 
 - Uppgradering på plats för att installera Connect på samma server.
-- Swing-migrering för att installera Connect på en ny server medan den befintliga Azure AD Sync-servern fortfarande är i drift.
+- Flytta – migrering om du vill installera Connect på en ny server medan den befintliga Azure AD Sync servern fortfarande fungerar.
 
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrera från FIM2010 eller MIM2016
-Om du för närvarande använder Forefront Identity Manager 2010 eller Microsoft Identity Manager 2016 med Azure AD Connector är ditt enda alternativ en migrering. Följ stegen som beskrivs i [swing-migration](how-to-upgrade-previous-version.md#swing-migration). Ersätt eventuell omnämnande av Azure AD Sync med FIM2010/MIM2016 i stegen.
+Om du för närvarande använder Forefront Identity Manager 2010 eller Microsoft Identity Manager 2016 med Azure AD Connector är ditt enda alternativ en migrering. Följ stegen som beskrivs i flytta [– migrering](how-to-upgrade-previous-version.md#swing-migration). I stegen ersätter du eventuella omnämnanden av Azure AD Sync med FIM2010/MIM2016.
 
 ## <a name="next-steps"></a>Nästa steg
-Beroende på vilket alternativ du har valt att använda använder du innehållstabellen till vänster för att hitta artikeln med detaljerade steg.
+Beroende på vilket alternativ du har valt att använda använder du innehålls förteckningen till vänster för att hitta din artikel med detaljerade anvisningar.

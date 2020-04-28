@@ -1,121 +1,121 @@
 ---
-title: Skapa en utvärdering med Utvärdering av Azure Migrate Server | Microsoft-dokument
-description: Beskriver hur du skapar en utvärdering med verktyget Utvärdering av Azure Migrate Server
+title: Skapa en utvärdering med Azure Migrate Server utvärdering | Microsoft Docs
+description: Beskriver hur du skapar en utvärdering med verktyget Azure Migrate Server Assessment
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68229107"
 ---
 # <a name="create-an-assessment"></a>Skapa en utvärdering
 
-I den här artikeln beskrivs hur du skapar en utvärdering för lokala virtuella datorer med VMware eller virtuella datorer med Hyper-V med Azure Migrate: Server Assessment.
+Den här artikeln beskriver hur du skapar en utvärdering för lokala virtuella VMware-datorer eller virtuella Hyper-V-datorer med Azure Migrate: Server utvärdering.
 
-[Azure Migrate](migrate-services-overview.md) hjälper dig att migrera till Azure. Azure Migrate tillhandahåller en centraliserad hubb för att spåra identifiering, utvärdering och migrering av lokal infrastruktur, program och data till Azure. Hubben tillhandahåller Azure-verktyg för utvärdering och migrering samt ISV-erbjudanden (Independent Software Vendor) från tredje part. 
+[Azure Migrate](migrate-services-overview.md) hjälper dig att migrera till Azure. Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av lokal infrastruktur, program och data till Azure. Hubben ger Azure-verktyg för utvärdering och migrering, samt oberoende program varu leverantörer från tredje part (ISV). 
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Kontrollera att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
-- Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) verktyget Azure Migrate: Server Assessment.
-- Om du vill skapa en utvärdering måste du konfigurera en Azure Migrate-installation för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Installationen identifierar lokala datorer och skickar metadata och prestandadata till Azure Migrate: Server Assessment. [Läs mer](migrate-appliance.md).
+- Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
+- Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
+- Om du vill skapa en utvärdering måste du konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. [Läs mer](migrate-appliance.md).
 
 
 ## <a name="assessment-overview"></a>Utvärderingsöversikt
-Det finns två typer av utvärderingar som du kan skapa med Azure Migrate: Server Assessment.
+Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Utvärdering** | **Detaljer** | **Data**
+**Utvärdering** | **Information** | **Data**
 --- | --- | ---
-**Prestationsbaserad** | Bedömningar baserade på insamlade resultatdata | **Rekommenderad VM-storlek:** Baserat på CPU- och minnesanvändningsdata.<br/><br/> **Rekommenderad disktyp (standard eller premiumhanterad disk)**: Baserat på IOPS och dataflöde för de lokala diskarna.
-**Som lokalt** | Bedömningar baserade på lokal storlek. | **Rekommenderad VM-storlek:** Baserat på den lokala vm-storleken<br/><br> **Rekommenderad disktyp**: Baserat på den lagringstyp som du väljer för utvärderingen.
+**Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
+**Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala virtuella dator storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
 
 ## <a name="run-an-assessment"></a>Köra en utvärdering
 
-Gör en bedömning på följande sätt:
+Kör en utvärdering på följande sätt:
 
-1. Granska [metodtipsen](best-practices-assessment.md) för att skapa utvärderingar.
-2. Klicka på **Utvärdera**i panelen **Serverutvärdering** på fliken **Servrar.**
+1. Gå igenom [metod tipsen](best-practices-assessment.md) för att skapa utvärderingar.
+2. Klicka på **utvärdera**i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
 
     ![Utvärdera](./media/how-to-create-assessment/assess.png)
 
-2. Ange ett namn för utvärderingen i **Bedöma servrar.**
+2. I **utvärdera servrar**anger du ett namn för utvärderingen.
 3. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
 
-    ![Bedömningsegenskaper](./media/how-to-create-assessment//view-all.png)
+    ![Bedömnings egenskaper](./media/how-to-create-assessment//view-all.png)
 
-3. Välj **Skapa ny**i Markera eller skapa **en grupp**och ange ett gruppnamn. En grupp samlar ihop en eller flera virtuella datorer för bedömning.
-4. I **Lägg till datorer i gruppen**väljer du virtuella datorer som ska läggas till i gruppen.
-5. Klicka på **Skapa utvärdering** om du vill skapa gruppen och köra utvärderingen.
+3. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
+4. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
+5. Klicka på **Skapa utvärdering** för att skapa gruppen och kör utvärderingen.
 
     ![Skapa en utvärdering](./media/how-to-create-assessment//assessment-create.png)
 
-6. När utvärderingen har skapats visar du den i **Servrar** > **Azure Migrera: Serverutvärderingsutvärderingar** > **Assessments**.
+6. När utvärderingen har skapats kan du Visa den på **servrar** > **Azure Migrate:** > **utvärderingar**av Server bedömning.
 7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 
 
-## <a name="review-an-assessment"></a>Granska en bedömning
+## <a name="review-an-assessment"></a>Granska en utvärdering
 
-En bedömning beskriver:
+En utvärdering beskriver:
 
-- **Azure-beredskap**: Om virtuella datorer är lämpliga för migrering till Azure.
-- **Uppskattning av månadskostnad**: Uppskattade månatliga beräknings- och lagringskostnader för att köra de virtuella datorerna i Azure.
-- **Uppskattning av månatliga lagringskostnader**: Uppskattade kostnader för disklagring efter migreringen.
+- **Azure-beredskap**: om virtuella datorer är lämpliga för migrering till Azure.
+- **Månads kostnads uppskattning**: beräknad kostnad för beräkning och lagring för de virtuella datorerna i Azure.
+- **Kostnads uppskattning för månatlig lagring**: beräknade kostnader för disk lagring efter migrering.
 
-### <a name="view-an-assessment"></a>Visa en bedömning
+### <a name="view-an-assessment"></a>Visa en utvärdering
 
-1. Klicka på **Utvärderingar** i **Azure Migrera: Serverutvärdering**i servrar för **migreringsmål.** >  **Servers**
-2. I **Bedömningar**klickar du på en bedömning för att öppna den.
+1. I **mål** >  **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
+2. I **bedömningar**klickar du på en utvärdering för att öppna den.
 
-    ![Sammanfattning av bedömning](./media/how-to-create-assessment/assessment-summary.png)
+    ![Utvärderings Sammanfattning](./media/how-to-create-assessment/assessment-summary.png)
 
-### <a name="review-azure-readiness"></a>Granska Azure-beredskap
+### <a name="review-azure-readiness"></a>Granska Azure readiness
 
-1. I **Azure-beredskap**kontrollerar du om virtuella datorer är redo för migrering till Azure.
-2. Granska vm-statusen:
-    - **Klar för Azure:** Azure Migrate rekommenderar en vm-storlek och kostnadsuppskattningar för virtuella datorer i utvärderingen.
-    - **Redo med villkor**: Visar problem och föreslagen reparation.
-    - **Inte redo för Azure**: Visar problem och föreslagen reparation.
-    - **Okänd beredskap**: Används när Azure Migrate inte kan bedöma beredskapen på grund av problem med datatillgänglighet.
+1. I **Azure-beredskap**kontrollerar du om de virtuella datorerna är klara för migrering till Azure.
+2. Granska VM-statusen:
+    - **Redo för Azure**: Azure Migrate rekommenderar en VM-storlek och kostnads uppskattning för virtuella datorer i utvärderingen.
+    - **Klar med villkor**: visar problem och Rekommenderad reparation.
+    - **Inte redo för Azure**: visar problem och förslag på åtgärder.
+    - **Beredskap okänd**: används när Azure Migrate inte kan utvärdera beredskap på grund av problem med data tillgänglighet.
 
-2. Klicka på en **Azure-beredskapsstatus.** Du kan visa information om vm-beredskap och öka detaljnivån för att se vm-information, inklusive beräknings-, lagrings- och nätverksinställningar.
+2. Klicka på en status för **Azure-beredskap** . Du kan visa information om VM-beredskap och öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
 
 
 
-### <a name="review-cost-details"></a>Granska kostnadsinformation
+### <a name="review-cost-details"></a>Granska kostnads information
 
-Den här vyn visar den uppskattade beräknings- och lagringskostnaden för att köra virtuella datorer i Azure.
+I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virtuella datorer som körs i Azure.
 
-1. Granska de månatliga beräknings- och lagringskostnaderna. Kostnaderna aggregeras för alla virtuella datorer i den bedömda gruppen.
+1. Granska kostnader för beräkning och lagring per månad. Kostnaderna sammanställs för alla virtuella datorer i den utvärderade gruppen.
 
-    - Kostnadsuppskattningar baseras på storleksrekommendationerna för en dator och dess diskar och egenskaper.
-    - Beräknade månadskostnader för beräkning och lagring visas.
-    - Kostnadsuppskattningen är för att köra de lokala virtuella datorerna som virtuella IaaS-datorer. Azure Migrate Server Assessment tar inte hänsyn till PaaS eller SaaS kostnader.
+    - Kostnads uppskattningar baseras på storleks rekommendationerna för en dator och dess diskar och egenskaper.
+    - Uppskattade månatliga kostnader för beräkning och lagring visas.
+    - Kostnads uppskattningen är att köra lokala virtuella datorer som virtuella IaaS-datorer. Azure Migrate Server-utvärderingen beaktar inte PaaS-eller SaaS-kostnader.
 
-2. Du kan granska uppskattningar av månatliga lagringskostnader. Den här vyn visar aggregerade lagringskostnader för den bedömda gruppen, uppdelade över olika typer av lagringsdiskar.
-3. Du kan öka detaljnivån för att se information om specifika virtuella datorer.
+2. Du kan granska månads beräkningarna för lagrings kostnader. Den här vyn visar aggregerade lagrings kostnader för den utvärderade gruppen och delas upp över olika typer av lagrings diskar.
+3. Du kan öka detalj nivån för att se information om vissa virtuella datorer.
 
 
 ### <a name="review-confidence-rating"></a>Granska säkerhetsomdöme
 
-När du kör resultatbaserade utvärderingar tilldelas en konfidensklassificering till utvärderingen.
+När du kör prestandabaserade utvärderingar tilldelas utvärderingen en förtroende nivå.
 
 ![Säkerhetsomdöme](./media/how-to-create-assessment/confidence-rating.png)
 
-- Betyg från 1-stjärniga (lägsta) till 5-stjärniga (högsta) delas ut.
-- Konfidensklassificeringen hjälper dig att uppskatta tillförlitligheten hos de storleksrekommendationer som tillhandahålls av bedömningen.
-- Konfidensklassificeringen baseras på tillgången på datapunkter som behövs för att beräkna bedömningen.
+- En klassificering från 1 – stjärna (lägsta) till 5-stjärnor (högst) tilldelas.
+- Förtroende omdömet hjälper dig att beräkna tillförlitligheten för de storleks rekommendationer som tillhandahålls av utvärderingen.
+- Förtroende omdömet baseras på tillgängligheten för data punkter som behövs för att beräkna utvärderingen.
 
-Förtroendebetyg för en bedömning är följande.
+Tillförlitlighets klassificeringar för en utvärdering är följande.
 
-**Tillgänglighet för datapunkt** | **Säkerhetsomdöme**
+**Tillgänglighet för data punkt** | **Säkerhetsomdöme**
 --- | ---
 0 %–20 % | 1 stjärna
 21 %–40 % | 2 stjärnor
@@ -128,5 +128,5 @@ Förtroendebetyg för en bedömning är följande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du använder [beroendemappning](how-to-create-group-machine-dependencies.md) för att skapa grupper med högt förtroende.
+- Lär dig hur du använder [beroende mappning](how-to-create-group-machine-dependencies.md) för att skapa grupper med hög exakthet.
 - [Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.

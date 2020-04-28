@@ -1,6 +1,6 @@
 ---
-title: Integrera nyckelvalv med SQL Server på virtuella Windows-datorer i Azure (Resource Manager) | Microsoft-dokument
-description: Lär dig hur du automatiserar konfigurationen av SQL Server-kryptering för användning med Azure Key Vault. I det här avsnittet beskrivs hur du använder Azure Key Vault-integrering med virtuella SQL Server-datorer som skapats med Resource Manager.
+title: Integrera Key Vault med SQL Server på virtuella Windows-datorer i Azure (Resource Manager) | Microsoft Docs
+description: Lär dig hur du automatiserar konfigurationen av SQL Server kryptering för användning med Azure Key Vault. I det här avsnittet beskrivs hur du använder Azure Key Vault-integrering med SQL Server virtuella datorer som skapats med Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -16,10 +16,10 @@ ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: cad70169e88e1fafa129c02f30d5288d39e30a9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70102137"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines (Resource Manager)
@@ -29,44 +29,44 @@ ms.locfileid: "70102137"
 > * [Klassisk](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>Översikt
-Det finns flera SQL Server-krypteringsfunktioner, till exempel [transparent datakryptering (TDE),](https://msdn.microsoft.com/library/bb934049.aspx) [kryptering på kolumnnivå (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)och [kryptering för säkerhetskopiering](https://msdn.microsoft.com/library/dn449489.aspx). Dessa krypteringsformer kräver att du hanterar och lagrar de kryptografiska nycklar som du använder för kryptering. Azure Key Vault (AKV) -tjänsten är utformad för att förbättra säkerheten och hanteringen av dessa nycklar på en säker och högtillgänglig plats. [SQL Server Connector](https://www.microsoft.com/download/details.aspx?id=45344) gör det möjligt för SQL Server att använda dessa nycklar från Azure Key Vault.
+Det finns flera SQL Server krypterings funktioner, till exempel [transparent data kryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (Column Level Encryption)](https://msdn.microsoft.com/library/ms173744.aspx)och [kryptering av säkerhets kopior](https://msdn.microsoft.com/library/dn449489.aspx). Dessa krypterings former kräver att du hanterar och lagrar de kryptografiska nycklar som du använder för kryptering. Tjänsten Azure Key Vault (AKV) är utformad för att förbättra säkerheten och hanteringen av dessa nycklar på en säker plats med hög tillgänglighet. Med [SQL Server-anslutning](https://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server använda nycklarna från Azure Key Vault.
 
-Om du kör SQL Server med lokala datorer finns det [steg du kan följa för att komma åt Azure Key Vault från din lokala SQL Server-dator](https://msdn.microsoft.com/library/dn198405.aspx). Men för SQL Server i virtuella Azure-datorer kan du spara tid med hjälp av azure *key vault-integreringsfunktionen.*
+Om du kör SQL Server med lokala datorer finns det [steg du kan följa för att få åtkomst till Azure Key Vault från din lokala SQL Server dator](https://msdn.microsoft.com/library/dn198405.aspx). Men för SQL Server i virtuella Azure-datorer kan du spara tid genom att använda funktionen för *Azure Key Vault-integrering* .
 
-När den här funktionen är aktiverad installeras SQL Server Connector automatiskt, EKM-providern konfigureras för åtkomst till Azure Key Vault och skapar autentiseringsuppgifterna så att du kan komma åt ditt valv. Om du har tittat på stegen i den tidigare nämnda lokala dokumentationen kan du se att den här funktionen automatiserar steg 2 och 3. Det enda du fortfarande skulle behöva göra manuellt är att skapa nyckeln valv och nycklar. Därifrån är hela installationen av din SQL VM automatiserad. När den här funktionen har slutfört den här installationen kan du köra T-SQL-uttryck för att börja kryptera dina databaser eller säkerhetskopior som vanligt.
+När den här funktionen är aktive rad installerar den automatiskt SQL Server-anslutning, konfigurerar EKM-providern för att få åtkomst till Azure Key Vault och skapar autentiseringsuppgiften så att du kan komma åt ditt valv. Om du har tittat på stegen i den tidigare nämnda dokumentationen kan du se att den här funktionen automatiserar steg 2 och 3. Det enda du behöver göra är att skapa nyckel valvet och nycklarna manuellt. Därifrån kommer hela installationen av den virtuella SQL-datorn att automatiseras. När den här funktionen har slutfört den här installationen kan du köra T-SQL-uttryck för att börja kryptera dina databaser eller säkerhets kopior på vanligt sätt.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
   >[!NOTE]
-  > EKM Provider version 1.0.4.0 installeras på SQL Server VM via [SQL IaaS-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Uppgradering av SQL IaaS-tillägget uppdaterar inte providerversionen. Överväg att uppgradera EKM-providerversionen manuellt om det behövs (till exempel när du migrerar till en SQL-hanterad instans).
+  > EKM-providerns version 1.0.4.0 är installerad på SQL Server VM via [SQL IaaS-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Uppgradering av SQL IaaS-tillägget kommer inte att uppdatera providerns version. Överväg att uppgradera EKM-providerns version manuellt om det behövs (till exempel vid migrering till en SQL-hanterad instans).
 
 
 ## <a name="enabling-and-configuring-akv-integration"></a>Aktivera och konfigurera AKV-integrering
-Du kan aktivera AKV-integrering under etablering eller konfigurera den för befintliga virtuella datorer.
+Du kan aktivera AKV-integrering under etableringen eller konfigurera den för befintliga virtuella datorer.
 
 ### <a name="new-vms"></a>Nya virtuella datorer
-Om du etablerar en ny virtuell SQL Server-dator med Resource Manager är Azure-portalen ett sätt att aktivera Azure Key Vault-integrering. Azure Key Vault-funktionen är endast tillgänglig för SQL Server-versioner av Företag, Utvecklare och Utvärdering.
+Om du skapar en ny SQL Server virtuell dator med Resource Manager, är Azure Portal ett sätt att aktivera Azure Key Vault integrering. Azure Key Vault funktionen är bara tillgänglig för SQL Server för Enterprise, Developer och Evaluation.
 
 ![SQL Azure Key Vault-integrering](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-En detaljerad genomgång av etableringen finns i [Etablera en virtuell SQL Server-dator i Azure-portalen](virtual-machines-windows-portal-sql-server-provision.md).
+En detaljerad genom gång av etableringen finns i [etablera en SQL Server virtuell dator i Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Befintliga virtuella datorer
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-För befintliga virtuella SQL Server-datorer öppnar du [resursen virtuella SQL-datorer](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) och väljer **Säkerhet** under **Inställningar**. Välj **Aktivera** om du vill aktivera Azure Key Vault-integrering. 
+För befintliga SQL Server virtuella datorer öppnar du [resursen SQL Virtual Machines](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) och väljer **säkerhet** under **Inställningar**. Välj **Aktivera** för att aktivera Azure Key Vault-integrering. 
 
 ![SQL AKV-integrering för befintliga virtuella datorer](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-När du är klar väljer du knappen **Använd** längst ned på sidan **Säkerhet** för att spara ändringarna.
+När du är färdig väljer du knappen **tillämpa** längst ned på sidan **säkerhet** för att spara ändringarna.
 
 > [!NOTE]
-> Det namn som vi skapade här mappas till en SQL-inloggning senare. Detta gör att SQL-inloggning för att komma åt nyckelvalvet. 
+> Namnet på autentiseringsuppgifterna som vi skapade här kommer att mappas till en SQL-inloggning senare. Detta gör att SQL-inloggningen kan komma åt nyckel valvet. 
 
 
 > [!NOTE]
-> Du kan också konfigurera AKV-integrering med hjälp av en mall. Mer information finns i [Azure quickstart-mall för Azure Key Vault-integrering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
+> Du kan också konfigurera AKV-integrering med en mall. Mer information finns i [Azure snabb starts mal len för Azure Key Vault-integrering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]

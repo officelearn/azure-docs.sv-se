@@ -1,6 +1,6 @@
 ---
 title: Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark (Mängdåtgärder i Azure Cosmos DB med API för Cassandra-tabeller från Spark)
-description: Den här artikeln innehåller grundläggande aggregeringsåtgärder mot Azure Cosmos DB Cassandra API-tabeller från Spark
+description: Den här artikeln beskriver grundläggande agg regerings åtgärder mot Azure Cosmos DB API för Cassandra tabeller från Spark
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4fbb86f4fbda9b8e521f7465bb8bb3d18602ca13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60894194"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark (Mängdåtgärder i Azure Cosmos DB med API för Cassandra-tabeller från Spark) 
@@ -20,9 +20,9 @@ ms.locfileid: "60894194"
 I den här artikeln beskrivs grundläggande aggregeringsåtgärder mot Azure Cosmos DB med API för Cassandra-tabeller från Spark. 
 
 > [!NOTE]
-> Serverfiltrering och aggregering på serversidan stöds för närvarande inte i Azure Cosmos DB Cassandra API.
+> Filtrering på Server sidan och insamling på Server sidan stöds för närvarande inte i Azure Cosmos DB API för Cassandra.
 
-## <a name="cassandra-api-configuration"></a>Cassandra API-konfiguration
+## <a name="cassandra-api-configuration"></a>API för Cassandra konfiguration
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -48,7 +48,7 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="sample-data-generator"></a>Exempel på datagenerator
+## <a name="sample-data-generator"></a>Exempel på data Generator
 
 ```scala
 // Generate a simple dataset containing five values
@@ -67,7 +67,7 @@ booksDF.write
   .save()
 ```
 
-## <a name="count-operation"></a>Åtgärden Antal
+## <a name="count-operation"></a>Count-åtgärd
 
 
 ### <a name="rdd-api"></a>RDD-API
@@ -76,30 +76,30 @@ booksDF.write
 sc.cassandraTable("books_ks", "books").count
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 res48: Long = 5
 ```
 
-### <a name="dataframe-api"></a>Api för dataram
+### <a name="dataframe-api"></a>Dataframe-API
 
-Antal mot dataramar stöds för närvarande inte.  Exemplet nedan visar hur du kör ett dataromantal efter att dataramen har sparats till minnet som en lösning.
+Count to dataframes stöds inte för närvarande.  Exemplet nedan visar hur du kör ett dataframe-antal när du har sparat dataframe till minnet som en lösning.
 
-Välj ett [lagringsalternativ]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) bland följande tillgängliga alternativ för att undvika att stöta på problem med på minne:
+Välj ett [lagrings alternativ]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) från följande tillgängliga alternativ för att undvika att köra "slut på minne"-problem:
 
-* MEMORY_ONLY: Detta är standardlagringsalternativet. Lagrar RDD som deserialiserade Java-objekt i JVM. Om RDD inte får plats i minnet cachelagras inte vissa partitioner och de beräknas om i farten varje gång de behövs.
+* MEMORY_ONLY: det här är standard alternativet för lagring. Lagrar RDD som avserialiserade Java-objekt i JVM. Om RDD inte passar i minnet kommer vissa partitioner inte att cachelagras, och de omberäknas på samma sätt varje tid de behöver.
 
-* MEMORY_AND_DISK: Lagrar RDD som deserialiserade Java-objekt i JVM. Om RDD:n inte får plats i minnet lagrar du de partitioner som inte får plats på disken och läser dem från den plats de lagras när det behövs.
+* MEMORY_AND_DISK: lagrar RDD som avserialiserade Java-objekt i JVM. Om RDD inte passar i minnet lagrar du partitionerna som inte ryms på disken, och när det behövs kan du läsa dem från den plats där de lagras.
 
-* MEMORY_ONLY_SER (Java/Scala): Lagrar RDD som serialiserade Java-objekt- en byte-matris per partition. Det här alternativet är utrymmeseffektivt jämfört med deserialiserade objekt, särskilt när du använder en snabb serialiserare, men mer CPU-intensiv att läsa.
+* MEMORY_ONLY_SER (Java/Scala): lagrar RDD som serialiserade Java-objekt – en byte mat ris per partition. Det här alternativet är utrymmes effektivt jämfört med avserialiserade objekt, särskilt när du använder en snabb serialisering, men mer processor intensiv att läsa.
 
-* MEMORY_AND_DISK_SER (Java/Scala): Det här lagringsalternativet är som MEMORY_ONLY_SER, är den enda skillnaden att det spiller partitioner som inte får plats i diskminnet istället för att omdatorn dem när de behövs.
+* MEMORY_AND_DISK_SER (Java/Scala): det här lagrings alternativet är som MEMORY_ONLY_SER, den enda skillnaden är att den inte tar bort partitioner som inte ryms i disk minnet i stället för att omdistribuera dem när de behövs.
 
-* DISK_ONLY: Lagrar endast RDD-partitioner på disken.
+* DISK_ONLY: lagrar endast RDD-partitionerna på disken.
 
-* MEMORY_ONLY_2 MEMORY_AND_DISK_2...: Samma som nivåerna ovan, men replikerar varje partition på två klusternoder.
+* MEMORY_ONLY_2 MEMORY_AND_DISK_2...: samma som nivåerna ovan, men replikerar varje partition på två klusternoder.
 
-* OFF_HEAP (experimentell): Liknar MEMORY_ONLY_SER, men lagrar data i off-heap minne, och det kräver off-heap minne aktiveras i förväg. 
+* OFF_HEAP (experimentell): liknar MEMORY_ONLY_SER, men lagrar data i minnet på annan heap, och det krävs minne av heap för att aktive ras i förväg. 
 
 ```scala
 //Workaround
@@ -142,12 +142,12 @@ select count(*) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Double) => c).mean
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 res24: Double = 16.016000175476073
 ```
 
-### <a name="dataframe-api"></a>Api för dataram
+### <a name="dataframe-api"></a>Dataframe-API
 
 ```scala
 spark
@@ -159,7 +159,7 @@ spark
   .show
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 +------------------+
 |   avg(book_price)|
@@ -173,12 +173,12 @@ spark
 ```sql
 select avg(book_price) from books_vw;
 ```
-**Resultat:**
+**Utdataparametrar**
 ```
 16.016000175476073
 ```
 
-## <a name="min-operation"></a>Min drift
+## <a name="min-operation"></a>Min åtgärd
 
 ### <a name="rdd-api"></a>RDD-API
 
@@ -186,12 +186,12 @@ select avg(book_price) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).min
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 res31: Float = 11.33
 ```
 
-### <a name="dataframe-api"></a>Api för dataram
+### <a name="dataframe-api"></a>Dataframe-API
 
 ```scala
 spark
@@ -203,7 +203,7 @@ spark
   .show
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 +---------------+
 |min(book_price)|
@@ -218,12 +218,12 @@ spark
 select min(book_price) from books_vw;
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 11.33
 ```
 
-## <a name="max-operation"></a>Max drift
+## <a name="max-operation"></a>Maximal åtgärd
 
 ### <a name="rdd-api"></a>RDD-API
 
@@ -231,7 +231,7 @@ select min(book_price) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).max
 ```
 
-### <a name="dataframe-api"></a>Api för dataram
+### <a name="dataframe-api"></a>Dataframe-API
 
 ```scala 
 spark
@@ -243,7 +243,7 @@ spark
   .show
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 +---------------+
 |max(book_price)|
@@ -257,12 +257,12 @@ spark
 ```sql
 select max(book_price) from books_vw;
 ```
-**Resultat:**
+**Utdataparametrar**
 ```
 22.45
 ```
 
-## <a name="sum-operation"></a>Summaåtgärd
+## <a name="sum-operation"></a>Sum-åtgärd
 
 ### <a name="rdd-api"></a>RDD-API
 
@@ -270,12 +270,12 @@ select max(book_price) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).sum
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 res46: Double = 80.08000087738037
 ```
 
-### <a name="dataframe-api"></a>Api för dataram
+### <a name="dataframe-api"></a>Dataframe-API
 
 ```scala
 spark
@@ -286,7 +286,7 @@ spark
   .agg(sum("book_price"))
   .show
 ```
-**Resultat:**
+**Utdataparametrar**
 ```
 +-----------------+
 |  sum(book_price)|
@@ -301,12 +301,12 @@ spark
 select sum(book_price) from books_vw;
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 80.08000087738037
 ```
 
-## <a name="top-or-comparable-operation"></a>Topp- eller jämförbar drift
+## <a name="top-or-comparable-operation"></a>Topp eller jämförbar åtgärd
 
 ### <a name="rdd-api"></a>RDD-API
 
@@ -315,14 +315,14 @@ val readCalcTopRDD = sc.cassandraTable("books_ks", "books").select("book_name","
 readCalcTopRDD.zipWithIndex.filter(_._2 < 3).collect.foreach(println)
 //delivers the first top n items without collecting the rdd to the driver.
 ```
-**Resultat:**
+**Utdataparametrar**
 ```
 (CassandraRow{book_name: A sign of four, book_price: 22.45},0)
 (CassandraRow{book_name: The adventures of Sherlock Holmes, book_price: 19.83},1)
 (CassandraRow{book_name: The memoirs of Sherlock Holmes, book_price: 14.22},2)
 readCalcTopRDD: org.apache.spark.rdd.RDD[com.datastax.spark.connector.CassandraRow] = MapPartitionsRDD[430] at sortBy at command-2371828989676374:1
 ```
-### <a name="dataframe-api"></a>Api för dataram
+### <a name="dataframe-api"></a>Dataframe-API
 
 ```scala
 import org.apache.spark.sql.functions._
@@ -341,7 +341,7 @@ readBooksDF.explain
 readBooksDF.show
 ```
 
-**Resultat:**
+**Utdataparametrar**
 ```
 == Physical Plan ==
 TakeOrderedAndProject(limit=3, orderBy=[book_price#1840 DESC NULLS LAST], output=[book_name#1839,book_price#1840])
@@ -366,6 +366,6 @@ select book_name,book_price from books_vw order by book_price desc limit 3;
 
 ## <a name="next-steps"></a>Nästa steg
 
-Så här utför du tabellkopieringsåtgärder:
+Information om hur du utför tabell kopierings åtgärder finns i:
 
-* [Tabellkopieringsåtgärder](cassandra-spark-table-copy-ops.md)
+* [Åtgärder för tabell kopiering](cassandra-spark-table-copy-ops.md)

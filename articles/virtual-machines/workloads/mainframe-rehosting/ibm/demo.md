@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en ADCD (Application Developers Controlled Distribution) i IBM zD&T v1 | Microsoft-dokument
-description: Kör en IBM Z-utvecklings- och testmiljö (zD&T) på virtuella Azure-datorer (VIRTUELLA datorer).
+title: Konfigurera en programutvecklare styrd distribution (ADCD) i IBM zD&T v1 | Microsoft Docs
+description: Kör en miljö för IBM Z-utveckling och test miljö (zD&T) i Azure Virtual Machines (VM).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
 documentationcenter: ''
@@ -13,185 +13,185 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68841384"
 ---
-# <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurera en ADCD (Application Developers Controlled Distribution) i IBM zD&T v1
+# <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurera en programutvecklare styrd distribution (ADCD) i IBM zD&T v1
 
-Du kan köra en IBM Z Development and Test Environment (zD&T) på Virtuella Azure-datorer (VIRTUELLA datorer). Den här miljön emulerar IBM Z-seriens arkitektur. Den kan vara värd för en mängd olika Z-serien operativsystem eller installationer (även kallad Z instanser eller paket), som görs tillgängliga via anpassade paket som kallas IBM Application Developers Controlled Distributions (ADCDs).
+Du kan köra en miljö för IBM Z-utveckling och test miljö (zD&T) i Azure Virtual Machines (VM). Den här miljön emulerar arkitekturen i IBM Z-serien. Det kan vara värd för en rad olika operativ system eller installationer i Z-serien (kallas även Z-instanser eller-paket), som görs tillgängliga via anpassade paket som kallas IBM-programutvecklare kontrollerade distributioner (ADCDs).
 
-Den här artikeln visar hur du konfigurerar en ADCD-instans i en zD&T-miljö på Azure. ADCDs skapar kompletta implementeringar av Z-serien för utvecklings- och testmiljöer som körs i zD&T.
+Den här artikeln visar hur du konfigurerar en ADCD-instans i en zD&T-miljö på Azure. ADCDs skapa fullständiga operativ Systems implementeringar i Z-serien för utvecklings-och test miljöer som körs i zD&T.
 
-Liksom zD&T är ADCDs endast tillgängliga för IBM-kunder och partners och är uteslutande avsedda för utvecklings- och testningsändamål. De får inte användas för produktionsmiljöer. Många IBM-installationspaket finns tillgängliga för nedladdning via [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) eller [IBM PartnerWorld.](https://www.ibm.com/partnerworld/public)
+Precis som zD&T är ADCDs bara tillgängliga för IBM-kunder och-partner och är endast avsedda för utvecklings-och testnings ändamål. De ska inte användas i produktions miljöer. Det finns flera IBM-installations paket tillgängliga för hämtning via [Passport-förmån](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) eller [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## <a name="prerequisites"></a>Krav
 
-- En Azure-prenumeration. Om du inte har ett, skapa ett [gratis konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- [ZD-&T-miljön][ibm-install-z] har tidigare konfigurerats på Azure. Den här artikeln förutsätter att du använder samma Ubuntu 16.04 VM-avbildning som skapats tidigare.
+- [ZD&T-miljö][ibm-install-z] tidigare konfigurerat på Azure. Den här artikeln förutsätter att du använder samma Ubuntu 16,04 VM-avbildning som skapades tidigare.
 
-- Tillgång till ADCD-media via IBM PartnerWorld eller Passport Advantage.
+- Åtkomst till ADCD media via IBM PartnerWorld eller Passport-fördel.
 
-- En [licensieringsserver](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Detta krävs för att köra IBM zD&T. Hur du skapar den beror på hur du licensierar programvaran från IBM:
+- En [licensierings Server](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Detta krävs för att köra IBM zD&T. Hur du skapar det beror på hur du licensierar program varan från IBM:
 
-  - **Maskinvarubaserad licensieringsserver** kräver en USB-maskinvaruenhet som innehåller de rationella token som krävs för att komma åt alla delar av programvaran. Du måste få detta från IBM.
+  - **Maskinvarubaserad licens Server** kräver en USB-maskinvara som innehåller de rationella tokens som krävs för att få åtkomst till alla delar av program varan. Du måste hämta detta från IBM.
 
-  - **Programvarubaserad licensieringsserver** kräver att du konfigurerar en centraliserad server för hantering av licensnycklarna. Den här metoden är att föredra och kräver att du ställer in nycklarna du får från IBM i hanteringsservern.
+  - Med **programvarubaserad licens Server** måste du konfigurera en central server för hantering av licens nycklarna. Den här metoden är önskad och kräver att du konfigurerar de nycklar du får från IBM i hanterings servern.
 
-## <a name="download-the-installation-packages-from-passport-advantage"></a>Ladda ner installationspaketen från Passport Advantage
+## <a name="download-the-installation-packages-from-passport-advantage"></a>Hämta installations paketen från Passport-fördel
 
-Åtkomst till ADCD-mediet krävs. Stegen nedan förutsätter att du är en IBM-kunder och kan använda Passport Advantage. IBM-partner kan använda [IBM PartnerWorld.](https://www.ibm.com/partnerworld/public)
+Åtkomst till ADCD Media krävs. Stegen nedan förutsätter att du är IBM-kunder och kan använda Passport-fördel. IBM-partner kan använda [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 > [!NOTE]
-> Den här artikeln förutsätter att en Windows-dator används för att komma åt Azure-portalen och hämta IBM-media. Om du använder ett Mac- eller Ubuntu-skrivbord kan kommandona och processen för att hämta IBM-mediet skilja sig något åt.
+> Den här artikeln förutsätter att en Windows-dator används för att komma åt Azure Portal och för att ladda ned IBM-mediet. Om du använder en Mac-eller Ubuntu Desktop kan kommandona och processen för att hämta IBM-mediet skilja sig något.
 
-1. Logga in på [Passport Advantage](https://www.ibm.com/software/howtobuy/passportadvantage/paocustomer).
+1. Logga in på [Passport-fördel](https://www.ibm.com/software/howtobuy/passportadvantage/paocustomer).
 
-2. Välj **Nedladdning av programvara** och Media **Access**.
+2. Välj **hämtning av program vara** och **medie åtkomst**.
 
-3. Välj **Programerbjudande och avtalsnummer**och klicka på **Fortsätt**.
+3. Välj **program erbjudande och avtals nummer**och klicka på **Fortsätt**.
 
-4. Ange artikelbeskrivningen eller artikelnumret och klicka på **Finder**.
+4. Ange del beskrivningen eller del numret och klicka på **Finder**.
 
-5. Du kan också klicka på den alfabetiska ordningslistan för att visa och visa produkten efter namn.
+5. Du kan också klicka på listan alfabetisk ordning om du vill visa och Visa theproduct efter namn.
 
-6. Välj **Alla operativsystem** i fältet **Operativsystem**och Alla **språk** i fältet **Språk**. Klicka sedan på **Gå**.
+6. Välj **alla operativ system** i **fältet operativ system**och **alla språk** i **fältet språk**. Klicka sedan på **gå**.
 
-7. Klicka på **Välj enskilda filer** om du vill expandera listan och visa det enskilda mediet som ska hämtas.
+7. Klicka på **Välj enskilda filer** för att expandera listan och Visa de enskilda media som ska laddas ned.
 
-8. Kontrollera vilka paket som du vill hämta, välj **Hämta**och hämta sedan filerna till den katalog du vill använda.
+8. Verifiera de paket som du vill ladda ned, Välj **Ladda ned**och ladda ned filerna till den katalog som du vill använda.
 
-## <a name="upload-the-adcd-packages"></a>Ladda upp ADCD-paketen(er)
+## <a name="upload-the-adcd-packages"></a>Ladda upp ADCD-paketen
 
-Nu när du har paketen måste du ladda upp dem till din virtuella dator på Azure.
+Nu när du har paket måste du ladda upp dem till den virtuella datorn i Azure.
 
-1. Starta en **ssh-session** med den virtuella Ubuntu-datorn som du skapade i Azure-portalen. Gå till den virtuella datorn, välj **bladet Översikt** och välj sedan **Anslut**.
+1. I Azure Portal initierar du en **SSH** -session med den virtuella datorn Ubuntu som du skapade. Gå till den virtuella datorn, Välj bladet **Översikt** och välj sedan **Anslut**.
 
-2. Markera fliken **SSH** och kopiera sedan kommandot ssh till Urklipp.
+2. Välj fliken **SSH** och kopiera sedan SSH-kommandot till Urklipp.
 
-3. Logga in på den virtuella datorn med dina autentiseringsuppgifter och den [SSH-klient](/azure/virtual-machines/linux/use-remote-desktop) som du väljer. Denna demo använder Linux-tillägg för Windows 10, som lägger till en bash skal till Windows kommandotolken. PuTTY fungerar lika bra.
+3. Logga in på den virtuella datorn med dina autentiseringsuppgifter och valfri [SSH-klient](/azure/virtual-machines/linux/use-remote-desktop) . Den här demon använder Linux-tilläggen för Windows 10, som lägger till ett bash-gränssnitt i kommando tolken i Windows. SparaTillFil fungerar lika bra.
 
-4. När du är inloggad skapar du en katalog för att ladda upp IBM-paketen. Tänk på linux är skiftlägeskänslig. Den här demon förutsätter till exempel att paketen överförs till:
+4. När du är inloggad skapar du en katalog för att ladda upp IBM-paketen. Kom ihåg att Linux är Skift läges känsligt. Den här demon förutsätter till exempel att paketen laddas upp till:
 
         /home/MyUserID/ZDT/adcd/nov2017/volumes
 
-5. Ladda upp filerna med en SSH-klient som[WinSCP](https://winscp.net/eng/index.php). Eftersom SCP är en del av SSH använder den port 22, vilket är vad SSH använder. Om den lokala datorn inte är Windows kan du skriva [scp-kommandot](http://man7.org/linux/man-pages/man1/scp.1.html) i SSH-sessionen.
+5. Ladda upp filerna med en SSH-klient, till exempel[WinSCP](https://winscp.net/eng/index.php). Eftersom SCP är en del av SSH använder den port 22, som är vad SSH använder. Om den lokala datorn inte är Windows kan du ange SCP- [kommandot](http://man7.org/linux/man-pages/man1/scp.1.html) i SSH-sessionen.
 
-6. Initiera överföringen till Azure VM-katalogen som du skapade, som blir avbildningslagring för zD&T.
+6. Initiera överföringen till Azure VM-katalogen som du skapade, vilket blir avbildnings lagringen för zD&T.
 
     > [!NOTE]
-    > Se till att **ADCDTOOLS. XML** ingår i katalogen **hem/MyUserID/ZDT/adcd/nov2017.** Du behöver den senare.
+    > Kontrol lera att **ADCDTOOLS. XML** ingår i överföringen till katalogen **Home/ZDT//adcd/nov2017** . Du behöver den senare.
 
-7. Vänta tills filerna har överförts, vilket kan ta lite tid beroende på din anslutning till Azure.
+7. Vänta tills filerna har laddats upp, vilket kan ta lite tid beroende på din anslutning till Azure.
 
-8. När uppladdningarna är klara navigerar du till volymkatalogen och expanderar alla **gz-volymer:**
+8. När uppladdningarna är klara navigerar du till katalogen volymer och dekomprimerar alla **gz** -volymer:
 
     ```
         gunzip \*.gz
     ```
     
-![Utforskaren som visar expanderade gz-volymer](media/01-gunzip.png)
+![Utforskaren visar dekomprimerade gz-volymer](media/01-gunzip.png)
 
-## <a name="configure-the-image-storage"></a>Konfigurera avbildningslagringen
+## <a name="configure-the-image-storage"></a>Konfigurera avbildnings lagringen
 
-Nästa steg är att konfigurera zD&T för att använda de uppladdade paketen. Avbildningen lagringsprocessen inom zD&T kan du montera och använda bilderna. Den kan använda SSH eller FTP.
+Nästa steg är att konfigurera zD&T för att använda de uppladdade paketen. Avbildnings lagrings processen i zD&T kan du montera och använda avbildningarna. Den kan använda SSH eller FTP.
 
 1. Starta **zDTServer**. För att göra detta måste du vara på rotnivå. Ange följande två kommandon i ordning:
     ```
         sudo su -
         /opt/ibm/zDT/bin/startServer
     ```
-2. Observera URL-utdata med kommandot och använd den här URL:en för att komma åt webbservern. Det liknar:
-     > https://(ditt VM-namn eller IP-adress):9443/ZDTMC/index.html
+2. Observera URL-utdata med kommandot och Använd denna URL för att få åtkomst till webb servern. Det ser ut ungefär så här:
+     > https://(din VM-namn eller IP-adress): 9443/ZDTMC/index. html
      >
-     > Kom ihåg att webbåtkomsten använder port 9443. Använd detta för att logga in på webbservern. Användar-ID för ZD&T är **zdtadmin** och lösenordet är **lösenord**.
+     > Kom ihåg att din webb åtkomst använder port 9443. Använd detta för att logga in på webb servern. Användar-ID: t för ZD&T är **zdtadmin** och lösen ordet är ett **lösen**ord.
 
-    ![Välkomstskärmen för IBM zD&T Enterprise Edition](media/02-welcome.png)
+    ![Välkomst skärmen för IBM zD&T Enterprise Edition](media/02-welcome.png)
 
-3. Välj **Bildlagring**under **Konfigurera**på sidan **Snabbstart** .
+3. På sidan **Snabbstart** under **Konfigurera**väljer du **bild lagring**.
 
-     ![Snabbstartskärmen för IBM zD&T Enterprise Edition](media/03-quickstart.png)
+     ![IBM zD&T Enterprise Edition Snabbstart skärm](media/03-quickstart.png)
 
-4. Välj **SSH File Transfer Protocol**på sidan **Konfigurera bildlagring** .
+4. På sidan **Konfigurera avbildnings lagring** väljer du **SSH-File Transfer Protocol**.
 
-5. För **Värdnamn**skriver du **Localhost** och anger katalogsökvägen för var du laddade upp bilderna. Till exempel /home/MyUserID/ZDT/adcd/nov2017/volumes.
+5. För **värd namn**skriver du **localhost** och anger sökvägen till den plats där du laddade upp avbildningarna. Till exempel/home/MyUserID/ZDT/adcd/nov2017/volumes.
 
-6. Ange **användar-ID** och **lösenord** för den virtuella datorn. Använd inte ZD-&T-användar-ID och lösenord.
+6. Ange **användar-ID** och **lösen ord** för den virtuella datorn. Använd inte ZD&T. ex. användar-ID och lösen ord.
 
-7. Testa anslutningen för att kontrollera att du har åtkomst och välj sedan **Spara** för att spara konfigurationen.
+7. Testa anslutningen för att kontrol lera att du har åtkomst och välj sedan **Spara** för att spara konfigurationen.
 
-## <a name="configure-the-target-environments"></a>Konfigurera målmiljöer
+## <a name="configure-the-target-environments"></a>Konfigurera mål miljöerna
 
-Nästa steg är att konfigurera zD&T-målmiljön. Den här emulerade värdmiljön är där dina avbildningar körs.
+Nästa steg är att konfigurera zD&T-mål miljön. Den här emulerade värd miljön är den plats där dina avbildningar körs.
 
-1. Välj **Målmiljöer**under **Konfigurera**på sidan **Snabbstart** .
+1. På sidan **Snabbstart** under **Konfigurera**väljer du **mål miljöer**.
 
-2. På sidan **Konfigurera målmiljöer** väljer du **Lägg till mål**.
+2. På sidan **Konfigurera mål miljöer** väljer du **Lägg till mål**.
 
-3. Välj **Linux**. IBM stöder två typer av miljöer, Linux och Cloud(OpenStack), men den här demon körs på Linux.
+3. Välj **Linux**. IBM stöder två typer av miljöer, Linux och moln (OpenStack), men den här demon körs på Linux.
 
-4. Ange **localhost**för **värdnamn**på sidan **Lägg till målmiljö** . Håll **SSH-porten** inställd på **22**.
+4. På sidan **Lägg till mål miljö** anger du **localhost**som **värd namn**. Behåll **SSH-porten** inställd på **22**.
 
-5. Ange en etikett som **MyCICS** i **etikettrutan Målmiljö.**
+5. I rutan **mål miljö etikett** anger du en etikett som **MyCICS.**
 
-     ![Skärmen Lägg till målmiljö](media/04-add-target.png)
+     ![Fönstret Lägg till mål miljö](media/04-add-target.png)
 
 ## <a name="configure-adcd-and-deploy"></a>Konfigurera ADCD och distribuera
 
-När du har slutfört de föregående konfigurationsstegen måste du konfigurera zD&T för att använda paketen och målmiljön. Återigen använder du bildlagringsprocessen i zD&T, vilket gör att du kan montera och använda bilderna. Den kan använda SSH eller FTP.
+När du har slutfört de tidigare konfigurations stegen måste du konfigurera zD&T för att använda paketen och mål miljön. Återigen använder du avbildnings lagrings processen i zD&T, som gör att du kan montera och använda avbildningarna. Den kan använda SSH eller FTP.
 
-1. Välj **ADCD**under **Konfigurera**på sidan **Snabbstart** . En uppsättning instruktioner visas som talar om de steg som måste slutföras innan ett ADCD-paket kan monteras. Detta förklarar varför vi namngav målkatalogen som vi gjorde tidigare.
+1. På sidan **Snabbstart** under **Konfigurera**väljer du **ADCD**. En uppsättning instruktioner visas som anger vilka steg som måste utföras innan ett ADCD-paket kan monteras. Detta förklarar varför vi har namngett mål katalogen på det sätt som vi gjorde tidigare.
 
-2. Förutsatt att alla bilder laddades upp till rätt kataloger, klicka på **BILDEN från ADCD** länken visas i nedre högra (visas i steg 7 i följande skärmdump).
+2. Förutsatt att alla avbildningar har laddats upp till rätt kataloger, klickar du på **avbildningen från ADCD** -länken som visas längst ned till höger (visas i steg 7 i följande skärm bild).
 
-     ![IBM zD&T Enterprise Edition – Konfigurera ADCD-skärm](media/05-adcd.png)
+     ![IBM zD&T Enterprise Edition – konfigurera ADCD-skärmen](media/05-adcd.png)
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-När föregående konfigurationssteg är klart visas sidan **Skapa en avbildning med ADCD-komponenter.**
+När föregående konfigurations steg har slutförts visas sidan **skapa en avbildning med ADCD-komponenter** .
 
-1. Välj volymen (nov 2017 i det här fallet) om du vill visa de olika paket som finns i den volymen.
+1. Välj volymen (nov 2017 i det här fallet) om du vill visa de olika paket som finns på volymen.
 
-2. För den här demon väljer du **CICS (Customer Information Control System) - 5.3**.
+2. I den här demon väljer du **Customer information Control system (CICS)-5,3**.
 
-3. Skriv ett namn på bilden som **MyCICS Image**i rutan **Bildnamn** .
+3. I rutan **avbildnings namn** skriver du ett namn på bilden, till exempel **MyCICS-avbildning**.
 
-4. Välj knappen **Skapa bild** längst ned till höger.
+4. Välj knappen **Skapa avbildning** längst ned till höger.
 
-     ![IBM zD&T Enterprise Edition – Skapa en bild med adcd-komponenter](media/06-adcd.png)
+     ![IBM zD&T Enterprise Edition – skapa en avbildning med ADCD Components-skärmen](media/06-adcd.png)
 
-5. I fönstret som visas och berätta att avbildningen har distribuerats väljer du **Distribuera avbildningar**.
+5. I fönstret som visas och meddelar dig att avbildningen har distribuerats, väljer du **distribuera avbildningar**.
 
-6. På sidan **Distribuera en bild till en målmiljö** markerar du den bild som du skapade på föregående sida (**MyCICS Image**) och målmiljön som skapades tidigare (**MyCICS**).
+6. På sidan **distribuera en avbildning till en mål miljö** väljer du den avbildning som du skapade på föregående sida (**MyCICS-avbildning**) och mål miljön som skapades tidigare (**MyCICS**).
 
-7. På nästa skärm anger du dina autentiseringsuppgifter för den virtuella datorn (det vill än ztadmin-referensen).
+7. På nästa skärm anger du dina autentiseringsuppgifter för den virtuella datorn (det vill säga inte ztadmin-autentiseringsuppgiften).
 
-8. I fönstret Egenskaper anger du antalet **CP-processorer (Central processorer),** mängden **systemminne (GB)** och **distributionskatalogen** för den pågående avbildningen. Eftersom detta är en demo, hålla den liten.
+8. I rutan egenskaper anger du antalet **centrala processorer (CPS)**, mängden **system minne (GB)** och **distributions katalogen** för den pågående avbildningen. Eftersom det är en demonstration bör du hålla den liten.
 
-9. Kontrollera att rutan är markerad för **IPL-kommando automatiskt till z/OS efter distribution**.
+9. Kontrol lera att rutan är markerad för **att automatiskt utfärda IPL-kommandot till z/OS efter distribution**.
 
-     ![Skärmen Egenskaper](media/07-properties.png)
+     ![Egenskaps skärm](media/07-properties.png)
 
 10. Välj **Slutför**.
 
-11. Välj **Distribuera avbildning** från **sidan Distribuera en avbildning till en målmiljösida.**
+11. Välj **distribuera avbildning** från sidan **distribuera en avbildning till en mål miljö** .
 
-Din avbildning kan nu distribuera och är redo att monteras av en 3270 terminal emulator.
+Din avbildning kan nu distribueras och är redo att monteras av en 3270-termin Ale mula Tor.
 
 > [!NOTE]
-> Om du får ett felmeddelande om att du inte har tillräckligt med diskutrymme bör du tänka på att regionen kräver 151 Gb.
+> Om du får ett fel meddelande om att det inte finns tillräckligt med disk utrymme, Tänk på att regionen kräver 151 GB.
 
-Grattis! Du kör nu en IBM stordatormiljö på Azure.
+Grattis! Nu kör du en IBM stordator miljö på Azure.
 
 ## <a name="learn-more"></a>Läs mer
 
-- [Stordatormigration: myter och fakta](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/) (Felsökning)
-- [Avmystifiera stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Stordator-migrering: myths och fakta](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2-pureScale på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+- [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Konfigurera Concur för automatisk användaretablering med Azure Active Directory| Microsoft-dokument'
+title: 'Självstudie: Konfigurera Concur för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och Concur.
 services: active-directory
 documentationCenter: na
@@ -16,114 +16,114 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60280434"
 ---
-# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Concur för automatisk etablering av användare
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Concur för automatisk användar etablering
 
-Syftet med den här självstudien är att visa de steg du behöver för att utföra i Concur och Azure AD för att automatiskt etablera och avetableras användarkonton från Azure AD till Concur.
+Syftet med den här självstudien är att visa de steg du behöver utföra i Concur och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Concur.
 
 ## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active-katalogklient.
-*   En Samtidig enkel inloggning aktiverad prenumeration.
-*   Ett användarkonto i Concur med behörigheter för teamadministratör.
+*   En Azure Active Directory-klient.
+*   En aktive rad Concur-prenumeration med enkel inloggning.
+*   Ett användar konto i Concur med grupp administratörs behörighet.
 
 ## <a name="assigning-users-to-concur"></a>Tilldela användare till Concur
 
-Azure Active Directory använder ett koncept som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användarkonto synkroniseras endast användare och grupper som har "tilldelats" till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din Concur-app. När du har bestämt dig kan du tilldela dessa användare till din Concur-app genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till Concur-appen. När du har bestämt dig kan du tilldela dessa användare till Concur-appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-concur"></a>Viktiga tips för att tilldela användare till Concur
 
-*   Vi rekommenderar att en enda Azure AD-användare tilldelas Concur för att testa etableringskonfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+*   Vi rekommenderar att en enda Azure AD-användare tilldelas till Concur för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till Concur måste du välja en giltig användarroll. Rollen "Standardåtkomst" fungerar inte för etablering.
+*   När du tilldelar en användare till Concur måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering.
 
-## <a name="enable-user-provisioning"></a>Aktivera etablering av användare
+## <a name="enable-user-provisioning"></a>Aktivera användar etablering
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till Concurs API för etablering av användarkonton och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Concur baserat på användar- och grupptilldelning i Azure AD.
+Det här avsnittet vägleder dig genom att ansluta din Azure AD till Concur-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Concur baserat på användar-och grupp tilldelning i Azure AD.
 
 > [!Tip] 
-> Du kan också välja att aktivera SAML-baserade Single Sign-On for Concur, enligt instruktionerna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Concur enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-user-account-provisioning"></a>Så här konfigurerar du etablering av användarkonton:
+### <a name="to-configure-user-account-provisioning"></a>Konfigurera användar konto etablering:
 
-Syftet med det här avsnittet är att beskriva hur du aktiverar etablering av Active Directory-användarkonton till Concur.
+Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar etablering av Active Directory användar konton till Concur.
 
-Om du vill aktivera appar i utgiftstjänsten måste det finnas korrekt installation och användning av en webbtjänstadministratörsprofil. Lägg inte till WS-administratörsrollen i din befintliga administratörsprofil som du använder för administrationsfunktioner t&E.
+Om du vill aktivera appar i utgifts tjänsten måste det finnas en korrekt konfiguration och användning av en webb tjänst administratörs profil. Lägg inte till rollen som WS-administratör i din befintliga administratörs profil som du använder för T&E-postadministrations funktioner.
 
-Concur Consultants eller klientadministratören måste skapa en särskild webtjänstadministratörsprofil och klientadministratören måste använda den här profilen för administratörsfunktionerna i Webbtjänster (till exempel aktivera appar). Dessa profiler måste hållas åtskilda från klientadministratörens dagliga T&E-administratörsprofil (T&E-administratörsprofilen bör inte ha WSAdmin-rollen tilldelad).
+Concur-konsulter eller klient administratören måste skapa en distinkt profil för webb tjänst administratörer och klient administratören måste använda den här profilen för funktionerna för webb tjänst administratören (till exempel aktivera appar). De här profilerna måste hållas åtskilda från klient administratörens dagliga T&E admin-profil (T&E admin-profilen ska inte ha WSAdmin-rollen tilldelad).
 
-När du skapar profilen som ska användas för att aktivera appen anger du klientadministratörens namn i användarprofilfälten. Detta tilldelar ägarskapet till profilen. När en eller flera profiler har skapats måste klienten logga in med den här profilen för att klicka på knappen*Aktivera*för en partnerapp på Web Services-menyn.
+När du skapar profilen som ska användas för att aktivera appen anger du klient administratörens namn i användar profil fälten. Detta tilldelar ägarskapet till profilen. När en eller flera profiler har skapats måste klienten logga in med den här profilen för att klicka på knappen "*Aktivera*" för en partner app i menyn webb tjänster.
 
-Av följande skäl bör denna åtgärd inte göras med den profil de använder för normal T&E-administration.
+Av följande skäl bör den här åtgärden inte utföras med den profil som de använder för normal T&E-administration.
 
-* Klienten måste vara den som klickar på "*Ja*" i dialogfönstret som visas när en app har aktiverats. Det här klicket bekräftar att klienten är villig för partnerprogrammet att komma åt deras data, så att du eller partnern inte kan klicka på knappen Ja.
+* Klienten måste vara den som klickar på*Ja*i dialog fönstret som visas när en app har Aktiver ATS. Detta klickar på bekräftar att klienten är villig för partner programmet att komma åt sina data, så att du eller partnern inte kan klicka på Ja-knappen.
 
-* Om en klientadministratör som har aktiverat en app med hjälp av administratörsprofilen T&E lämnar företaget (vilket resulterar i att profilen inaktiveras) fungerar inte alla appar som är aktiverade med den profilen förrän appen är aktiverad med en annan aktiv WS-administratörsprofil. Det är därför du ska skapa distinkta WS Admin profiler.
+* Om en klient administratör som har aktiverat en app med hjälp av E-&E admin-profilen lämnar företaget (vilket leder till att profilen inaktive RAS) fungerar inte alla appar som är aktiverade med den profilen förrän appen aktive ras med en annan Active WS-administratörs profil. Det är därför du ska skapa distinkta profil profiler för WS.
 
-* Om en administratör lämnar företaget kan namnet som är kopplat till WS-administratörsprofilen ändras till ersättningsadministratören om så önskas utan att påverka den aktiverade appen eftersom profilen inte behöver inaktiveras.
+* Om en administratör lämnar företaget kan namnet som är kopplat till profilen för WS-admin ändras till ersättnings administratören om det behövs utan att den aktiverade appen påverkas, eftersom profilen inte behöver inaktive ras.
 
 **Konfigurera användaretablering genom att utföra följande steg:**
 
-1. Logga in på din **Concur-klient.**
+1. Logga in på **Concur** -klienten.
 
-2. Välj **Webbtjänster**på **menyn Administration** .
+2. Välj **webb tjänster**på menyn **Administration** .
    
-    ![Concur hyresgäst](./media/concur-provisioning-tutorial/IC721729.png "Concur hyresgäst")
+    ![Concur-klient](./media/concur-provisioning-tutorial/IC721729.png "Concur-klient")
 
-3. Välj **Aktivera partnerprogram**i fönstret **Webbtjänster** till vänster.
+3. På den vänstra sidan går du till fönstret **webb tjänster** och väljer **Aktivera partner program**.
    
-    ![Aktivera partnerprogram](./media/concur-provisioning-tutorial/ic721730.png "Aktivera partnerprogram")
+    ![Aktivera partner program](./media/concur-provisioning-tutorial/ic721730.png "Aktivera partner program")
 
-4. Välj **Azure Active Directory**i listan Aktivera **program** och klicka sedan på **Aktivera**.
+4. I listan **Aktivera program** väljer du **Azure Active Directory**och klickar sedan på **Aktivera**.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. Stäng dialogrutan **Bekräfta åtgärd** genom att klicka på **Ja.**
+5. Stäng dialog rutan **Bekräfta åtgärd** genom att klicka på **Ja** .
    
     ![Bekräfta åtgärd](./media/concur-provisioning-tutorial/ic721732.png "Bekräfta åtgärd")
 
-6. I [Azure-portalen](https://portal.azure.com)bläddrar du till **avsnittet Azure Active Directory > Enterprise Apps > Alla program.**
+6. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-7. Om du redan har konfigurerat Concur för enkel inloggning söker du efter din instans av Concur med hjälp av sökfältet. Annars väljer du **Lägg till** och söker efter **Concur** i programgalleriet. Välj Concur från sökresultaten och lägg till det i listan över program.
+7. Om du redan har konfigurerat Concur för enkel inloggning söker du efter din instans av Concur med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **Concur** i program galleriet. Välj Concur från Sök resultaten och Lägg till den i listan över program.
 
-8. Välj din förekomst av Concur och välj sedan fliken **Etablering.**
+8. Välj din instans av Concur och välj sedan fliken **etablering** .
 
-9. Ställ in **etableringsläget** på **Automatiskt**. 
+9. Ställ in **etablerings läget** på **automatiskt**. 
  
-    ![Etableringen](./media/concur-provisioning-tutorial/provisioning.png)
+    ![etablerings](./media/concur-provisioning-tutorial/provisioning.png)
 
-10. Ange **användarnamn** och **lösenord** för din Concur-administratör under avsnittet **Administratörsautentiseringsuppgifter.**
+10. Under avsnittet **admin-autentiseringsuppgifter** anger du **användar namn** och **lösen ord** för Concur-administratören.
 
-11. Klicka på Testa **anslutning** i Azure-portalen för att säkerställa att Azure AD kan ansluta till din Concur-app. Om anslutningen misslyckas kontrollerar du att ditt Samtidiga konto har behörigheten Teamadministratör.
+11. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din Concur-app. Om anslutningen Miss lyckas kontrollerar du att ditt Concur-konto har team administratörs behörighet.
 
-12. Ange e-postadressen till en person eller grupp som ska få etableringsfelmeddelanden i fältet **E-postmeddelande** och markera kryssrutan.
+12. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan.
 
 13. Klicka på **Spara.**
 
-14. Under avsnittet Mappningar väljer du **Synkronisera Azure Active Directory-användare att konsändra.**
+14. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till Concur.**
 
-15. I avsnittet **Attributmappningar** granskar du de användarattribut som synkroniseras från Azure AD till Concur. De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Concur för uppdateringsåtgärder. Välj knappen Spara om du vill utföra eventuella ändringar.
+15. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till Concur. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Concur för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
 
-16. Om du vill aktivera Azure AD-etableringstjänsten för Concur ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar**
+16. Om du vill aktivera Azure AD Provisioning-tjänsten för Concur ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
 17. Klicka på **Spara.**
 
-Nu kan du skapa ett testkonto. Vänta i upp till 20 minuter för att kontrollera att kontot har synkroniserats till Concur.
+Nu kan du skapa ett test konto. Vänta i upp till 20 minuter för att kontrol lera att kontot har synkroniserats med Concur.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](tutorial-list.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](concur-tutorial.md)
 

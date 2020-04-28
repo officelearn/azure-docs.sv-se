@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "64869030"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Kom igång med Java-klientens SDK för Azure Media Services  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här självstudien beskriver steg för steg hur du implementerar en enkel leveranstjänst för videoinnehåll med Azure Media Services med hjälp av Java-klientens SDK.
 
@@ -33,7 +33,7 @@ Den här självstudien beskriver steg för steg hur du implementerar en enkel le
 Följande krävs för att kunna genomföra kursen:
 
 * Ett Azure-konto. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Ett Media Services-konto. Om du vill skapa ett Media Services-konto läser du [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* Ett Media Services-konto. Information om hur du skapar ett Media Services konto finns i [så här skapar du ett Media Services konto](media-services-portal-create-account.md).
 * Den aktuella [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
 ## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Så här: Importerar du Azure Media Services Java-klient SDK-paketet
@@ -53,7 +53,7 @@ Om ditt byggverktyg till exempel är `gradle` så lägger du till följande bero
 ## <a name="how-to-use-azure-media-services-with-java"></a>Så här: Använder du Azure Media Services med Java
 
 >[!NOTE]
->När ditt Media Services-konto skapas läggs en **standardslutpunkt** för direktuppspelning till ditt konto i tillståndet **Stoppad.** Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
+>När ditt Media Services-konto skapas, läggs en **standard** slut punkt för direkt uppspelning till på ditt konto i **stoppat** tillstånd. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
 
 Följande kod visar hur du skapar en tillgång, överför en mediefil till tillgången, kör ett jobb med uppgiften att omvandla tillgången och skapar en positionerare för att strömma videon.
 

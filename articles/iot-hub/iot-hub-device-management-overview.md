@@ -1,6 +1,6 @@
 ---
-title: Översikt över enhetshantering med Azure IoT Hub | Microsoft-dokument
-description: Översikt över enhetshantering i Azure IoT Hu – livscykel för företagsenheter och enhetshanteringsmönster som omstart, fabriksåterställning, uppdatering av den inbyggda programvaran, konfiguration, enhetstvillingar, frågor, jobb.
+title: Översikt över enhets hantering med Azure IoT Hub | Microsoft Docs
+description: Översikt över enhets hantering i Azure IoT hu--Enterprise-enhetens livs cykel och enhets hanterings mönster som, omstart, fabriks återställning, uppdatering av inbyggd program vara, konfiguration, enhets uppstarter, frågor, jobb.
 author: bzurcher
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
 ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60400986"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Översikt över enhetshantering med IoT Hub
@@ -46,7 +46,7 @@ IoT medför en unik uppsättning utmaningar för enhetshantering, och en lösnin
 
 * **Stöd för många roller**: stöd för IoT-åtgärdernas unika arbetsflöden och processer är avgörande. Driftpersonalen måste arbeta harmoniskt med de givna begränsningarna för interna IT-avdelningar.  De måste också hitta hållbara sätt för att exponera information om enhetsåtgärder i realtid för chefer och andra företagsledarroller. 
 
-## <a name="device-lifecycle"></a>Enhetens livscykel
+## <a name="device-lifecycle"></a>Enhetslivscykel
 Det finns en uppsättning av allmänna enhetshanteringsfaser som är gemensamma för alla företags IoT-projekt. Livscykeln för enheter i Azure IoT består av fem faser:
 
 ![De fem Azure IoT-livscyklerna är: planera, etablera, konfigurera, övervaka, dra tillbaka](./media/iot-hub-device-management-overview/image5.png)
@@ -55,63 +55,63 @@ I var och en av dessa fem faser finns det flera enhetsoperatorskrav som måste u
 
 * **Planera**: Operatörer kan skapa ett schema med enhetens metadata. Schemat kan användas till att snabbt och korrekt skicka frågor till eller fokusera på en enhetsgrupp för massåtgärder. Du kan använda enhetstvillingen för att lagra dessa enhetsmetadata i form av taggar och egenskaper.
   
-    *Ytterligare läsning:* 
+    *Mer läsning*: 
     * [Kom igång med enhetstvillingar](iot-hub-node-node-twin-getstarted.md)
     * [Förstå enhetstvillingar](iot-hub-devguide-device-twins.md)
-    * [Så här använder du enhetstvillingegenskaper](tutorial-device-twins.md)
-    * [Metodtips för enhetskonfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
+    * [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
+    * [Metod tips för enhets konfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
 
 * **Etablera**: Etablera säkert nya enheter i IoT Hub där operatörerna kan se enhetens funktioner direkt.  Använd IoT Hub-identitetsregistret för att skapa flexibla enhetsidentiteter och autentiseringsuppgifter och utför åtgärden gruppvis med hjälp av ett jobb. Skapa enheter om du vill rapportera deras kapacitet och villkor via enhetens egenskaper i enhetstvillingen.
   
-    *Ytterligare läsning:* 
+    *Mer läsning*: 
     * [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
-    * [Masshantering av enhetsidentiteter](iot-hub-bulk-identity-mgmt.md)
-    * [Så här använder du enhetstvillingegenskaper](tutorial-device-twins.md)
-    * [Metodtips för enhetskonfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
+    * [Mass hantering av enhets identiteter](iot-hub-bulk-identity-mgmt.md)
+    * [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
+    * [Metod tips för enhets konfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
     * [Azure IoT Hub Device Provisioning-tjänst](https://azure.microsoft.com/documentation/services/iot-dps)
 
 * **Konfigurera**: underlätta massinläsning av konfigurationsändringar och uppdaterad enhetsprogramvara utan att förlora funktion eller säkerhet. Utför dessa åtgärder för enhetshantering gruppvis genom att använda önskade egenskaper eller med direkta metoder och sändningsjobb.
   
-    *Ytterligare läsning:*
-    * [Så här använder du enhetstvillingegenskaper](tutorial-device-twins.md)
+    *Mer läsning*:
+    * [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
     * [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md)
-    * [Metodtips för enhetskonfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
+    * [Metod tips för enhets konfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
 
 * **Övervaka**: Övervaka enhetssamlingens allmänna funktion samt statusen för pågående åtgärder så att operatörerna blir medvetna om problem som kräver åtgärder.  Använd enhetstvillingen för att tillåta att enheterna rapporterar driftsförhållanden och status för uppdateringsåtgärder i realtid. Skapa kraftfulla instrumentpanelsrapporter som lyfter fram de mest omedelbara problemen genom att använda enhetstvillingsfrågor.
   
-    *Ytterligare läsning:* 
-    * [Så här använder du enhetstvillingegenskaper](tutorial-device-twins.md)
-    * [IoT Hub-frågespråk för enhetstvillingar, jobb och meddelanderoutning](iot-hub-devguide-query-language.md)
+    *Mer läsning*: 
+    * [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
+    * [IoT Hub frågespråk för enhets dubbla, jobb och meddelanderoutning](iot-hub-devguide-query-language.md)
     * [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md)
-    * [Metodtips för enhetskonfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
+    * [Metod tips för enhets konfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
 
-* **Dra tillbaka**: Byt ut eller inaktivera enheter efter ett fel, uppgraderingscykel eller i slutet av tjänstens livstid.  Använd enhetstvillingen för att underhålla enhetsinformation om den fysiska enheten håller på att ersättas eller arkiveras om den har återkallats. Använd IoT Hub-identitetsregistret för att säkert återkalla enhetsidentiteter och autentiseringsuppgifter.
+* **Dra tillbaka**: Ersätt eller inaktivera enheter efter ett haveri, uppgraderings cykel eller i slutet av tjänstens livs längd.  Använd enhetstvillingen för att underhålla enhetsinformation om den fysiska enheten håller på att ersättas eller arkiveras om den har återkallats. Använd IoT Hub-identitetsregistret för att säkert återkalla enhetsidentiteter och autentiseringsuppgifter.
   
-    *Ytterligare läsning:* 
-    * [Så här använder du enhetstvillingegenskaper](tutorial-device-twins.md)
+    *Mer läsning*: 
+    * [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
     * [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
 
 ## <a name="device-management-patterns"></a>Enhetshanteringsmönster
 
 IoT Hub använder följande uppsättning enhetshanteringsmönster. [Självstudiekursen om enhetshantering](iot-hub-node-node-device-management-get-started.md) beskriver i mer detalj hur du utökar dessa mönster så att de passar just ditt scenario och hur du designar nya mönster utifrån dessa basmallar.
 
-* **Omstart**: Backend-appen informerar enheten via en direkt metod som den har initierat en omstart.  Enheten använder de rapporterade egenskaperna för att uppdatera enhetens status för omstart.
+* **Starta om**: backend-appen informerar enheten via en direkt metod om att en omstart har påbörjats.  Enheten använder de rapporterade egenskaperna för att uppdatera enhetens status för omstart.
   
     ![Bild över omstartsmönster för enhetshantering](./media/iot-hub-device-management-overview/reboot-pattern.png)
 
-* **Fabriksåterställning:** Backend-appen informerar enheten med en direkt metod om att den har initierat en fabriksåterställning. Enheten använder de rapporterade egenskaperna för att uppdatera enhetens status för fabriksåterställning.
+* **Fabriks återställning**: backend-appen informerar enheten via en direkt metod om att en fabriks återställning har påbörjats. Enheten använder de rapporterade egenskaperna för att uppdatera enhetens status för fabriksåterställning.
   
     ![Bilder över fabriksåterställningsmönster för enhetshantering](./media/iot-hub-device-management-overview/facreset-pattern.png)
 
-* **Konfiguration**: Backend-appen använder önskade egenskaper för att konfigurera programvara som körs på enheten. Enheten använder de rapporterade egenskaperna för att uppdatera enhetens konfigurationsstatus.
+* **Konfiguration**: backend-appen använder önskade egenskaper för att konfigurera program vara som körs på enheten. Enheten använder de rapporterade egenskaperna för att uppdatera enhetens konfigurationsstatus.
   
     ![Bild över konfigurationsmönster för enhetshantering](./media/iot-hub-device-management-overview/configuration-pattern.png)
 
-* Uppdatering av den **inbyggda programvaran:** Backend-appen använder en automatisk enhetshanteringskonfiguration för att välja vilka enheter som ska ta emot uppdateringen, för att tala om för enheterna var uppdateringen ska hittas och för att övervaka uppdateringsprocessen. Enheten initierar en flerstegsprocess för att hämta, verifiera och tillämpa den inbyggda programvaran och startar sedan om enheten innan den återansluter till IoT Hub-tjänsten. Enheten använder de rapporterade egenskaperna under hela flerstegsprocessen för att uppdatera enhetens förlopp och status.
+* **Uppdatering av inbyggd program vara**: backend-appen använder en automatisk enhets hanterings konfiguration för att välja vilka enheter som ska ta emot uppdateringen, för att berätta för enheterna var uppdateringen finns och övervaka uppdaterings processen. Enheten initierar en process i flera steg för att ladda ned, verifiera och tillämpa avbildningen av den inbyggda program varan och sedan starta om enheten innan du återansluter till IoT Hubs tjänsten. Enheten använder de rapporterade egenskaperna under hela flerstegsprocessen för att uppdatera enhetens förlopp och status.
   
     ![Bild över mönster för uppdatering av inbyggd programvara för enhetshantering](media/iot-hub-device-management-overview/fwupdate-pattern.png)
 
-* **Rapporteringsstatus och status**: Lösningens back end kör enhetstvillingfrågor, över en uppsättning enheter, för att rapportera om status och förlopp för åtgärder som körs på enheterna.
+* **Rapportera förlopp och status**: lösningens Server del kör enheten med dubbla frågor, över en uppsättning enheter, för att rapportera om status och förlopp för åtgärder som körs på enheterna.
   
     ![Bild över mönster för uppdatering av rapporteringsprocess och status](./media/iot-hub-device-management-overview/report-progress-pattern.png)
 

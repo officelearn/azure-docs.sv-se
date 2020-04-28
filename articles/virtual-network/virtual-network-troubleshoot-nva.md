@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem med virtuella nätverksinstallationer i Azure | Microsoft-dokument
-description: Lär dig hur du felsöker problem med den virtuella nätverksinstallationen i Azure.
+title: Fel sökning av problem med virtuella nätverks installationer i Azure | Microsoft Docs
+description: Lär dig hur du felsöker problem med den virtuella nätverks enheten i Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,64 +15,64 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71056838"
 ---
-# <a name="network-virtual-appliance-issues-in-azure"></a>Problem med virtuella nätverksinstallationer i Azure
+# <a name="network-virtual-appliance-issues-in-azure"></a>Problem med virtuella nätverks installationer i Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan uppleva problem med vm- eller VPN-anslutning och fel när du använder en tredje part Network Virtual Appliance (NVA) i Microsoft Azure. Den här artikeln innehåller grundläggande steg som hjälper dig att validera grundläggande Azure-plattformskrav för NVA-konfigurationer.
+Det kan uppstå problem med virtuella datorer eller VPN-anslutningar och fel vid användning av en virtuell nätverks installation (NVA) från tredje part i Microsoft Azure. Den här artikeln innehåller grundläggande steg som hjälper dig att verifiera grundläggande krav på Azure-plattformen för NVA-konfigurationer.
 
-Teknisk support för nva:er från tredje part och deras integrering med Azure-plattformen tillhandahålls av NVA-leverantören.
+Teknisk support för NVA från tredje part och deras integrering med Azure-plattformen tillhandahålls av NVA-leverantören.
 
 > [!NOTE]
-> Om du har ett anslutnings- eller routningsproblem som involverar en NVA bör du [kontakta leverantören av NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) direkt.
+> Om du har en anslutning eller ett problem med routning som omfattar en NVA bör du [kontakta leverantören av NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) direkt.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="checklist-for-troubleshooting-with-nva-vendor"></a>Checklista för felsökning med NVA-leverantör
+## <a name="checklist-for-troubleshooting-with-nva-vendor"></a>Check lista för fel sökning med NVA-leverantör
 
-- Programuppdateringar för PROGRAMVARA FÖR NVA
-- Inställningar och funktioner för tjänstkonto
-- Användardefinierade vägar (UDRs) på virtuella nätverksundernät som dirigerar trafik till NVA
-- UDRs på virtuella nätverk undernät som dirigerar trafik från NVA
-- Routningstabeller och regler inom NVA (till exempel från NIC1 till NIC2)
-- Spåra NVA-nätverkskort för att verifiera mottagande och sändning av nätverkstrafik
-- När du använder en standard-SKU och offentliga IPs måste det finnas en NSG skapad och en explicit regel för att tillåta att trafiken dirigeras till NVA.
+- Program uppdateringar för NVA VM-programvara
+- Konfiguration och funktioner för tjänst konto
+- Användardefinierade vägar (UDR) i undernät för virtuella nätverk som dirigerar trafik till NVA
+- UDR i undernät för virtuella nätverk som dirigerar trafik från NVA
+- Vägvals tabeller och regler inom NVA (till exempel från NIC1 till NIC2)
+- Spårning på NVA nätverkskort för att verifiera att ta emot och skicka nätverks trafik
+- När du använder en standard-SKU och offentliga IP-adresser måste du skapa en NSG och en explicit regel för att tillåta att trafiken dirigeras till NVA.
 
-## <a name="basic-troubleshooting-steps"></a>Grundläggande felsökningssteg
+## <a name="basic-troubleshooting-steps"></a>Grundläggande fel söknings steg
 
-- Kontrollera den grundläggande konfigurationen
-- Kontrollera NVA-prestanda
-- Avancerad felsökning av nätverk
+- Kontrol lera den grundläggande konfigurationen
+- Kontrol lera NVA-prestanda
+- Avancerad nätverks fel sökning
 
-## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Kontrollera minimikraven för konfiguration för NVA:er på Azure
+## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Kontrol lera minimi kraven för konfiguration för NVA på Azure
 
-Varje NVA har grundläggande konfigurationskrav för att fungera korrekt på Azure. I följande avsnitt beskrivs stegen för att verifiera dessa grundläggande konfigurationer. Kontakta leverantören [av NVA om](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)du vill ha mer information.
+Varje NVA har grundläggande konfigurations krav för att fungera korrekt på Azure. Följande avsnitt innehåller anvisningar för att kontrol lera de grundläggande konfigurationerna. [Kontakta leverantören av NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)om du vill ha mer information.
 
-**Kontrollera om IP-vidarebefordran är aktiverad på NVA**
+**Kontrol lera om IP-vidarebefordring är aktiverat på NVA**
 
 Använda Azure-portalen
 
-1. Leta reda på NVA-resursen i [Azure-portalen](https://portal.azure.com), välj Nätverk och välj sedan nätverksgränssnittet.
-2. Välj IP-konfiguration på sidan Nätverksgränssnitt.
-3. Kontrollera att IP-vidarebefordran är aktiverad.
+1. Leta upp resursen NVA i [Azure Portal](https://portal.azure.com), Välj nätverk och välj sedan nätverks gränssnittet.
+2. På sidan nätverks gränssnitt väljer du IP-konfiguration.
+3. Kontrol lera att IP-vidarebefordring är aktiverat.
 
 Använd PowerShell
 
 1. Öppna PowerShell och logga sedan in på ditt Azure-konto.
-2. Kör följande kommando (ersätt de parenteserade värdena med din information):
+2. Kör följande kommando (ersätt värdena för hakparenteser med din information):
 
    ```powershell
    Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
    ```
 
-3. Kontrollera egenskapen **EnableIPForwarding.**
-4. Om IP-vidarebefordran inte är aktiverad kör du följande kommandon för att aktivera den:
+3. Kontrol lera egenskapen **EnableIPForwarding** .
+4. Om IP-vidarebefordring inte är aktive rad kör du följande kommandon för att aktivera det:
 
    ```powershell
    $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
@@ -83,23 +83,23 @@ Använd PowerShell
    NetworkSecurityGroup : null
    ```
 
-**Sök efter NSG när du använder Standard SKU Pubilc IP** När du använder en standard-SKU och offentliga IPs måste det finnas en NSG skapad och en explicit regel för att tillåta trafik till NVA.
+**Sök efter NSG när du använder standard-SKU Pubilc-IP** När du använder en standard-SKU och offentliga IP-adresser måste en NSG skapas och en explicit regel för att tillåta trafik till NVA.
 
-**Kontrollera om trafiken kan dirigeras till NVA**
+**Kontrol lera om trafiken kan dirigeras till NVA**
 
-1. Öppna **Network Watcher**på [Azure Portal](https://portal.azure.com)och välj **Nästa hopp**.
-2. Ange en virtuell dator som är konfigurerad för att omdirigera trafiken till NVA och en mål-IP-adress där nästa hopp ska visas. 
-3. Om NVA inte visas som **nästa hopp**kontrollerar och uppdaterar du Azure-vägtabellerna.
+1. Öppna **Network Watcher**på [Azure Portal](https://portal.azure.com), Välj **nästa hopp**.
+2. Ange en virtuell dator som är konfigurerad för att omdirigera trafiken till NVA och en mål-IP-adress för att visa nästa hopp. 
+3. Om NVA inte visas som **nästa hopp**, kontrollerar du och uppdaterar Azure Route-tabellerna.
 
-**Kontrollera om trafiken kan nå NVA**
+**Kontrol lera om trafiken kan komma åt NVA**
 
-1. Öppna **Network Watcher**i [Azure Portal](https://portal.azure.com)och välj sedan **IP-flödesverifiering**. 
-2. Ange den virtuella datorn och IP-adressen för NVA och kontrollera sedan om trafiken blockeras av någon nätverkssäkerhetsgrupper (NSG).
-3. Om det finns en NSG-regel som blockerar trafiken, lokalisera NSG i **effektiva säkerhetsregler** och uppdatera den så att trafiken kan passera. Kör sedan **IP Flow Verify** igen och använd Connection **felsöka** för att testa TCP-kommunikation från virtuell dator till din interna eller externa IP-adress.
+1. I [Azure Portal](https://portal.azure.com)öppnar du **Network Watcher**och väljer sedan **kontrol lera IP-flöde**. 
+2. Ange den virtuella datorn och IP-adressen för NVA och kontrol lera sedan om trafiken blockeras av några nätverks säkerhets grupper (NSG).
+3. Om det finns en NSG-regel som blockerar trafiken, letar du upp NSG i **gällande säkerhets** regler och uppdaterar den sedan så att trafiken kan passera. Kör sedan **IP-flöde verifiera** igen och Använd **anslutnings fel sökning** för att testa TCP-kommunikation från virtuell dator till din interna eller externa IP-adress.
 
-**Kontrollera om NVA och virtuella datorer lyssnar efter förväntad trafik**
+**Kontrol lera om NVA och virtuella datorer lyssnar efter förväntad trafik**
 
-1. Anslut till NVA med RDP eller SSH och kör sedan följande kommando:
+1. Anslut till NVA med hjälp av RDP eller SSH och kör sedan följande kommando:
 
     För Windows:
 
@@ -108,38 +108,38 @@ Använd PowerShell
     För Linux:
 
         netstat -an | grep -i listen
-2. Om du inte ser TCP-porten som används av NVA-programvaran som visas i resultaten måste du konfigurera programmet på NVA och VM för att lyssna och svara på trafik som når dessa portar. [Kontakta NVA-leverantören för hjälp efter behov](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Om du inte ser TCP-porten som används av NVA-programvaran som visas i resultatet måste du konfigurera programmet på NVA och den virtuella datorn för att lyssna och reagera på trafik som når dessa portar. [Kontakta NVA-leverantören om du behöver hjälp](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
-## <a name="check-nva-performance"></a>Kontrollera NVA-prestanda
+## <a name="check-nva-performance"></a>Kontrol lera NVA-prestanda
 
-### <a name="validate-vm-cpu"></a>Validera VM-processor
+### <a name="validate-vm-cpu"></a>Verifiera VM-CPU
 
-Om CPU-användningen kommer nära 100 procent kan det uppstå problem som påverkar nätverkspaketdropparna. Din virtuella dator rapporterar genomsnittlig PROCESSOR för en viss tidsperiod i Azure-portalen. Under en CPU-topp undersöker du vilken process på gästdatorn som orsakar den höga processorn och mildrar den om möjligt. Du kan också behöva ändra storlek på den virtuella datorn till en större SKU-storlek eller, för skalningsuppsättning för virtuella datorer, öka antalet instanser eller ange automatisk skalning på CPU-användning. Om något av dessa problem finns [i NVA-leverantören för att få hjälp](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), efter behov.
+Om CPU-användningen går nära 100 procent kan det uppstå problem som påverkar nätverks paketets droppar. Din virtuella dator rapporterar Genomsnittlig CPU för ett särskilt tidsintervall i Azure Portal. Under en processor ökning bör du undersöka vilken process på den virtuella gäst datorn som orsakar den höga processorn och minimera den, om möjligt. Du kan också behöva ändra storlek på den virtuella datorn till en större SKU-storlek eller, om du använder skalnings uppsättning för virtuell dator, öka antalet instanser eller ange värdet Auto Scale för CPU-användning. För något av dessa problem kan [du kontakta NVA-leverantören om du behöver hjälp](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
-### <a name="validate-vm-network-statistics"></a>Validera vm-nätverksstatistik
+### <a name="validate-vm-network-statistics"></a>Verifiera statistik för virtuella dator nätverk
 
-Om vm-nätverket använder toppar eller visar perioder med hög användning kan du också behöva öka SKU-storleken på den virtuella datorn för att få högre dataflödesfunktioner. Du kan också distribuera om den virtuella datorn genom att aktivera accelererat nätverk. Om du vill kontrollera om NVA stöder funktionen Accelerated Networking [kontaktar du NVA-leverantören för hjälp](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)om det behövs.
+Om det virtuella dator nätverket använder toppar eller visar perioder med hög användning, kan du också behöva öka SKU-storleken på den virtuella datorn för att få högre genomflöde-funktioner. Du kan också distribuera om den virtuella datorn med accelererat nätverk aktiverat. Om du vill kontrol lera om NVA stöder accelererad nätverksfunktioner [kontaktar du NVA-leverantören om](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)du behöver hjälp.
 
-## <a name="advanced-network-administrator-troubleshooting"></a>Avancerad felsökning av nätverksadministratör
+## <a name="advanced-network-administrator-troubleshooting"></a>Avancerad nätverks administratör fel sökning
 
-### <a name="capture-network-trace"></a>Fånga nätverksspårning
-Samla in en samtidig nätverksspårning på källdatorns virtuella dator, NVA och måldatorn medan du kör **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** eller **Nmap**och stoppa sedan spårningen.
+### <a name="capture-network-trace"></a>Avbilda nätverks spårning
+Avbilda en samtidig nätverks spårning på den virtuella käll datorn, NVA och den virtuella mål datorn när du kör **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** eller **nmap**, och stoppa sedan spårningen.
 
-1. Om du vill fånga en samtidig nätverksspårning kör du följande kommando:
+1. Om du vill avbilda en samtidig nätverks spårning kör du följande kommando:
 
    **För Windows**
 
-   netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
+   Netsh trace start Capture = Yes tracefile = c:\ server_IP. etl scenario = NetConnection
 
    **För Linux**
 
-   sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
+   sudo tcpdump-S0-i eth0-X-w vmtrace. Cap
 
-2. Använd **PsPing** eller **Nmap** från källdatorn till `PsPing 10.0.0.4:80` måldatorn (till exempel: eller `Nmap -p 80 10.0.0.4`).
-3. Öppna nätverksspårningen från den virtuella måldatorn med hjälp av [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) eller tcpdump. Använd ett visningsfilter för IP-adressen för käll-VM som `IPv4.address==10.0.0.4 (Windows netmon)` du `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` körde **PsPing** eller **Nmap** från, till exempel eller (Linux).
+2. Använd **PsPing** eller **nmap** från den virtuella käll datorn till den virtuella mål datorn (till `PsPing 10.0.0.4:80` exempel `Nmap -p 80 10.0.0.4`: eller).
+3. Öppna Nätverks spårningen från den virtuella mål datorn med hjälp av [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) eller tcpdump. Använd ett visnings filter för IP-adressen för den virtuella käll datorn som du körde **PsPing** eller **nmap** från `IPv4.address==10.0.0.4 (Windows netmon)` , `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` till exempel eller (Linux).
 
 ### <a name="analyze-traces"></a>Analysera spår
 
-Om du inte ser paketen som är inkommande till den första vm-spårningen, är det troligt att en NSG- eller UDR-inkring eller nva-routningstabellerna är felaktiga.
+Om du inte ser inkommande paket till spårningen på den virtuella datorn på den virtuella datorn, finns det troligen ett NSG-eller UDR som stör eller NVA vägvals tabeller är felaktiga.
 
-Om du ser att paket, men inget svar, kommer in kan du behöva åtgärda problem med ett program på den virtuella datorn eller med brandväggen. Om något av dessa problem finns [i NVA-leverantören för att få hjälp efter behov](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Om du ser att paket, men inget svar, kommer in kan du behöva åtgärda problem med ett program på den virtuella datorn eller med brandväggen. För något av dessa problem kan [du kontakta NVA-leverantören om du behöver hjälp](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).

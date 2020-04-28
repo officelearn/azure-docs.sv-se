@@ -1,6 +1,6 @@
 ---
-title: Skapa en instrumentpanel i realtid med Azure Cosmos DB, Azure Analysis Services och Power BI
-description: Lär dig hur du skapar en instrumentpanel för levande väder i Power BI med Azure Cosmos DB och Azure Analysis Services.
+title: Skapa en instrument panel i real tid med hjälp av Azure Cosmos DB, Azure Analysis Services och Power BI
+description: Lär dig hur du skapar en Live väder instrument panel i Power BI att använda Azure Cosmos DB och Azure Analysis Services.
 author: bharathsreenivas
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,121 +8,121 @@ ms.date: 09/04/2019
 ms.author: bharathb
 ms.reviewer: sngun
 ms.openlocfilehash: d225a14edddcad58c08094dbc758d67df8f834e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70376598"
 ---
-# <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Skapa en instrumentpanel i realtid med Azure Cosmos DB och Power BI
+# <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Skapa en instrument panel i real tid med hjälp av Azure Cosmos DB och Power BI
 
-I den här artikeln beskrivs de steg som krävs för att skapa en instrumentpanel för levande väder i Power BI med Azure Cosmos DB och Azure Analysis Services. Power BI-instrumentpanelen visar diagram för att visa realtidsinformation om temperatur och nederbörd i en region.
+I den här artikeln beskrivs de steg som krävs för att skapa en Live väder instrument panel i Power BI att använda Azure Cosmos DB och Azure Analysis Services. Instrument panelen för Power BI visar diagram för att visa information i real tid om temperatur-och Rainfall i en region.
 
-## <a name="reporting-scenarios"></a>Rapporteringsscenarier
+## <a name="reporting-scenarios"></a>Rapporterings scenarier
 
-Det finns flera sätt att konfigurera rapporteringsinstrumentpaneler för data som lagras i Azure Cosmos DB. Beroende på kraven för inaktuella och datastorleken beskrivs i följande tabell rapporteringsinställningarna för varje scenario:
+Det finns flera sätt att ställa in rapporterings instrument paneler på data som lagras i Azure Cosmos DB. Beroende på föråldrade krav och storleken på data, beskriver följande tabell rapporterings konfigurationen för varje scenario:
 
 
 |Scenario |Installation |
 |---------|---------|
-|1. Generera ad hoc-rapporter (ingen uppdatering)    |  [Power BI Azure Cosmos DB-anslutning med importläge](powerbi-visualize.md)       |
-|2. Generera ad hoc-rapporter med periodisk uppdatering   |  [Power BI Azure Cosmos DB-anslutning med importläge (schemalagd periodisk uppdatering)](powerbi-visualize.md)       |
-|3. Rapportering om stora datamängder (< 10 GB)     |  Power BI Azure Cosmos DB-anslutning med inkrementell uppdatering       |
-|4. Rapportering i realtid på stora datamängder    |  Power BI Azure Analysis Services-anslutning med direktfråga + Azure Analysis Services (Azure Cosmos DB-anslutning)       |
-|5. Rapportering om livedata med aggregat     |  [Power BI Spark-anslutning med direktfråga + Azure Databricks + Cosmos DB Spark-anslutning.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)       |
-|6. Rapportering av livedata med aggregat på stora datamängder   |  Power BI Azure Analysis Services-anslutning med direktfråga + Azure Analysis Services + Azure Databricks + Cosmos DB Spark-anslutning.       |
+|1. genererar ad hoc-rapporter (ingen uppdatering)    |  [Power BI Azure Cosmos DB anslutning med import läge](powerbi-visualize.md)       |
+|2. genererar ad hoc-rapporter med periodisk uppdatering   |  [Power BI Azure Cosmos DB anslutning med import läge (schemalagd Periodisk uppdatering)](powerbi-visualize.md)       |
+|3. rapportering på stora data mängder (< 10 GB)     |  Power BI Azure Cosmos DB anslutning med stegvis uppdatering       |
+|4. rapportera real tid för stora data mängder    |  Power BI Azure Analysis Services-anslutning med direkt fråga + Azure Analysis Services (Azure Cosmos DB koppling)       |
+|5. rapportering om real tids data med agg regeringar     |  [Power BI Spark-anslutning med direkt fråga + Azure Databricks + Cosmos DB Spark-anslutning.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)       |
+|6. rapportering om real tids data med agg regeringar för stora data mängder   |  Power BI Azure Analysis Services Connector med direkt fråga + Azure Analysis Services + Azure Databricks + Cosmos DB Spark-anslutning.       |
 
-Scenarier 1 och 2 kan enkelt konfigureras med Azure Cosmos DB Power BI-anslutningsappen. I den här artikeln beskrivs inställningarna för scenarierna 3 och 4.
+Scenarier 1 och 2 kan enkelt konfigureras med hjälp av Azure Cosmos DB Power BI-anslutningen. I den här artikeln beskrivs inställningarna för scenarierna 3 och 4.
 
-### <a name="power-bi-with-incremental-refresh"></a>Power BI med inkrementell uppdatering
+### <a name="power-bi-with-incremental-refresh"></a>Power BI med stegvis uppdatering
 
-Power BI har ett läge där inkrementell uppdatering kan konfigureras. Det här läget eliminerar behovet av att skapa och hantera Azure Analysis Services-partitioner. Inkrementell uppdatering kan ställas in för att filtrera endast de senaste uppdateringarna i stora datauppsättningar. Det här läget fungerar dock bara med Power BI Premium-tjänst som har en datauppsättningsbegränsning på 10 GB.
+Power BI har ett läge där stegvis uppdatering kan konfigureras. Det här läget eliminerar behovet av att skapa och hantera Azure Analysis Services partitioner. Stegvis uppdatering kan ställas in så att endast de senaste uppdateringarna i stora data mängder filtreras. Det här läget fungerar dock bara med Power BI Premium tjänst som har en begränsning på 10 GB.
 
-### <a name="power-bi-azure-analysis-connector--azure-analysis-services"></a>Power BI Azure Analysis connector + Azure Analysis Services
+### <a name="power-bi-azure-analysis-connector--azure-analysis-services"></a>Power BI Azure Analysis Connector + Azure Analysis Services
 
-Azure Analysis Services tillhandahåller en fullständigt hanterad plattform som en tjänst som är värd för datamodeller i företagsklass i molnet. Massiva datauppsättningar kan läsas in från Azure Cosmos DB till Azure Analysis Services. För att undvika att fråga hela datauppsättningen hela tiden kan datauppsättningarna delas in i Azure Analysis Services-partitioner, som kan uppdateras oberoende av olika frekvenser.
+Azure Analysis Services tillhandahåller en fullständigt hanterad plattform som en tjänst som är värd för data modeller i företags klass i molnet. Enorma data uppsättningar kan läsas in från Azure Cosmos DB till Azure Analysis Services. För att undvika att fråga hela data uppsättningen hela tiden kan data uppsättningarna delas upp i Azure Analysis Services partitioner, vilka kan uppdateras oberoende av olika frekvenser.
 
-## <a name="power-bi-incremental-refresh"></a>Power BI-stegvis uppdatering
+## <a name="power-bi-incremental-refresh"></a>Power BI stegvis uppdatering
 
-### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingest väderdata i Azure Cosmos DB
+### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Mata in väder data i Azure Cosmos DB
 
-Konfigurera en inmatningspipeline för att läsa in [väderdata](https://catalog.data.gov/dataset/local-weather-archive) till Azure Cosmos DB. Du kan ställa in ett [ADF-jobb (Azure Data Factory)](../data-factory/connector-azure-cosmos-db.md) för att regelbundet läsa in de senaste väderdata i Azure Cosmos DB med hjälp av HTTP Source och Cosmos DB sink.
+Konfigurera en pipeline för inmatning för att läsa in [väder data](https://catalog.data.gov/dataset/local-weather-archive) till Azure Cosmos dB. Du kan konfigurera ett [Azure Data Factory (ADF)-](../data-factory/connector-azure-cosmos-db.md) jobb för att regelbundet läsa in de senaste väder uppgifterna i Azure Cosmos dB med http-källan och Cosmos DB mottagare.
 
 
-### <a name="connect-power-bi-to-azure-cosmos-db"></a>Ansluta Power BI till Azure Cosmos DB
+### <a name="connect-power-bi-to-azure-cosmos-db"></a>Anslut Power BI till Azure Cosmos DB
 
-1. **Anslut Azure Cosmos-kontot till Power BI** – Öppna Power BI Desktop och använd Azure Cosmos DB-anslutningsappen för att välja rätt databas och behållare.
+1. **Anslut Azure Cosmos-kontot till Power BI** – öppna Power BI Desktop och Använd Azure Cosmos DB Connector för att välja rätt databas och behållare.
 
    ![Azure Cosmos DB Power BI-anslutningsprogram](./media/create-real-time-weather-dashboard-powerbi/cosmosdb-powerbi-connector.png)
 
-1. **Konfigurera inkrementell uppdatering** – Följ stegen i [inkrementell uppdatering med Power BI-artikel](/power-bi/service-premium-incremental-refresh) för att konfigurera inkrementell uppdatering för datauppsättningen. Lägg till parametrarna **RangeStart** och **RangeEnd** enligt följande skärmbild:
+1. **Konfigurera stegvis uppdatering** – Följ stegen i [stegvis uppdatering med Power BI](/power-bi/service-premium-incremental-refresh) artikel för att konfigurera stegvis uppdatering för data uppsättningen. Lägg till parametrarna **Ranging** och **RangeEnd** enligt följande skärm bild:
 
-   ![Konfigurera intervallparametrar](./media/create-real-time-weather-dashboard-powerbi/configure-range-parameters.png)
+   ![Konfigurera intervall parametrar](./media/create-real-time-weather-dashboard-powerbi/configure-range-parameters.png)
 
-   Eftersom datauppsättningen har en datumkolumn i textform bör parametrarna **RangeStart** och **RangeEnd** omvandlas för att använda följande filter. I fönstret **Avancerad redigerare** ändrar du frågan lägga till följande text för att filtrera raderna baserat på parametrarna RangeStart och RangeEnd:
+   Eftersom data uppsättningen har en datum kolumn som är i text format, ska parametrarna **rang Est Art** och **RangeEnd** omvandlas till att använda följande filter. I fönstret **avancerad redigerare** ändrar du frågan Lägg till följande text för att filtrera raderna baserat på parametrarna rang Est art och RangeEnd:
 
    ```
    #"Filtered Rows" = Table.SelectRows(#"Expanded Document", each [Document.date] > DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd"))
    ```
    
-   Beroende på vilken kolumn och datatyp som finns i källdatauppsättningen kan du ändra fälten RangeStart och RangeEnd i enlighet med
+   Beroende på vilken kolumn och datatyp som finns i käll data uppsättningen kan du ändra fälten rang Est art och RangeEnd enligt detta
 
    
    |Egenskap  |Datatyp  |Filter  |
    |---------|---------|---------|
-   |_ts     |   Numerisk      |  [_ts] > Duration.TotalSeconds(RangeStart – #datetime(1970, 1, 0, 0, 0)) och [_ts] < Duration.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0, 0)))       |
-   |Datum (till exempel:- 2019-08-19)     |   String      | [Document.date]> DateTime.ToText(RangeStart,"yyyy-MM-dd") och [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
-   |Datum (till exempel:- 2019-08-11 12:00:00)   |  String       |  [Document.date]> DateTime.ToText(RangeStart", yyyy-mm-dd HH:mm:ss") och [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
+   |_ts     |   Numerisk      |  [_ts] > varaktighet. TotalSeconds (rang-The-#datetime (1970, 1,0) och [_ts] < duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 0, 0)))       |
+   |Datum (till exempel:-2019-08-19)     |   Sträng      | [Document. Date] > DateTime. ToText (rang, "åååå-MM-DD") och [Document. Date] < DateTime. ToText (RangeEnd, "åååå-MM-DD")        |
+   |Datum (till exempel:-2019-08-11 12:00:00)   |  Sträng       |  [Document. Date] > DateTime. ToText (rang, "åååå-mm-dd HH: mm: SS") och [Document. Date] < DateTime. ToText (RangeEnd, "åååå-mm-dd HH: mm: SS")       |
 
 
-1. **Definiera uppdateringsprincipen** - Definiera uppdateringsprincipen genom att navigera till fliken **Inkrementell uppdatering** på **snabbmenyn** för tabellen. Ange uppdateringsprincipen så att den uppdateras **varje dag** och lagra den senaste månadens data.
+1. **Definiera uppdaterings principen** – definiera uppdaterings principen genom att gå till fliken **stegvis uppdatering** på **snabb** menyn för tabellen. Ange att uppdaterings principen ska uppdateras **varje dag** och lagra senaste månads information.
 
-   ![Definiera uppdateringsprincip](./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png)
+   ![Definiera uppdaterings princip](./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png)
 
-   Ignorera varningen som säger att *M-frågan inte kan bekräftas vara vikt*. Azure Cosmos DB-kopplingen viker filterfrågor.
+   Ignorera varningen som säger att *M-frågan inte kan bekräftas vara viktad*. Azure Cosmos DB Connector viker filter frågor.
 
-1. **Ladda data och generera rapporterna** - Genom att använda de data som du har läst in tidigare, skapa diagram för att rapportera om temperatur och nederbörd.
+1. **Läs in data och generera rapporter** – genom att använda de data som du har läst in tidigare skapar du diagrammen för att rapportera om temperatur-och Rainfall.
 
-   ![Ladda data och generera rapport](./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png)
+   ![Läs in data och generera rapport](./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png)
 
-1. **Publicera rapporten till Power BI premium** - Eftersom inkrementell uppdatering är en premiumfunktion tillåter publiceringsdialogrutan endast val av en arbetsyta med Premium-kapacitet. Den första uppdateringen kan ta längre tid eftersom historiska data importeras. Efterföljande datauppdateringar går mycket snabbare eftersom de använder inkrementell uppdatering.
+1. **Publicera rapporten till Power BI Premium** – eftersom den stegvisa uppdateringen är en Premium-funktion kan du bara välja en arbets yta på Premium-kapacitet i dialog rutan publicera. Den första uppdateringen kan ta längre tid eftersom historiska data importeras. Efterföljande data uppdateringar är mycket snabbare eftersom de använder stegvis uppdatering.
 
 
-## <a name="power-bi-azure-analysis-connector--azure-analysis-services"></a>Power BI Azure Analysis connector + Azure Analysis Services 
+## <a name="power-bi-azure-analysis-connector--azure-analysis-services"></a>Power BI Azure Analysis Connector + Azure Analysis Services 
 
-### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingest väderdata i Azure Cosmos DB 
+### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Mata in väder data i Azure Cosmos DB 
 
-Konfigurera en inmatningspipeline för att läsa in [väderdata](https://catalog.data.gov/dataset/local-weather-archive) till Azure Cosmos DB. Du kan ställa in ett Azure Data Factory(ADF) jobb för att regelbundet läsa in de senaste väderdata i Azure Cosmos DB med hjälp av HTTP Source och Cosmos DB Sink.
+Konfigurera en pipeline för inmatning för att läsa in [väder data](https://catalog.data.gov/dataset/local-weather-archive) till Azure Cosmos dB. Du kan konfigurera ett Azure Data Factory (ADF)-jobb för att regelbundet läsa in de senaste väder uppgifterna i Azure Cosmos DB med HTTP-källan och Cosmos DB mottagare.
 
-### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Ansluta Azure Analysis Services till Azure Cosmos-konto
+### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Anslut Azure Analysis Services till Azure Cosmos-konto
 
-1. **Skapa ett nytt Azure Analysis Services-kluster** - [Skapa en instans av Azure Analysis-tjänster](../analysis-services/analysis-services-create-server.md) i samma region som Azure Cosmos-kontot och Databricks-klustret.
+1. **Skapa ett nytt Azure Analysis Services-kluster** - [skapa en instans av Azure Analysis Services](../analysis-services/analysis-services-create-server.md) i samma region som Azure Cosmos-kontot och Databricks-klustret.
 
-1. **Skapa ett nytt Analysis Services-tabellprojekt i Visual Studio** -  [Installera SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) och skapa ett analysis services-tabellprojekt i Visual Studio.
+1. **Skapa ett nytt Analysis Services tabell projekt i Visual Studio** -  [Installera SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) och skapa ett Analysis Services tabell projekt i Visual Studio.
 
    ![Skapa Azure Analysis Services-projekt](./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png)
 
-   Välj den **integrerade arbetsytan** och ange kompatibilitetsnivå till **SQL Server 2017 / Azure Analysis Services (1400)**
+   Välj den **integrerade arbets ytans** instans och Ange kompatibilitetsnivån till **SQL Server 2017/Azure Analysis Services (1400)**
 
-   ![Tabellmodelldesignern i Azure Analysis Services](./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png)
+   ![Azure Analysis Services tabell modells designer](./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png)
 
-1. **Lägg till Azure Cosmos DB-datakällan** - Navigera till **modeller**> **datakällor** > **Ny datakälla** och lägg till Azure Cosmos DB-datakällan enligt följande skärmbild:
+1. **Lägg till Azure Cosmos db data källa** – navigera till **modeller**> **data källor** > **ny data källa** och Lägg till Azure Cosmos db data källan som visas på följande skärm bild:
 
-   ![Lägg till Cosmos DB-datakälla](./media/create-real-time-weather-dashboard-powerbi/add-data-source.png)
+   ![Lägg till Cosmos DB data Källa](./media/create-real-time-weather-dashboard-powerbi/add-data-source.png)
 
-   Anslut till Azure Cosmos DB genom att ange **kontot URI,** **databasnamn**och **behållarnamnet**. Du kan nu se data från Azure Cosmos-behållaren importeras till Power BI.
+   Anslut till Azure Cosmos DB genom att ange **konto-URI**, **databas namn**och **behållar namn**. Nu kan du se data från Azure Cosmos-behållaren som importeras till Power BI.
 
-   ![Förhandsgranska Azure Cosmos DB-data](./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png)
+   ![Förhandsgranska Azure Cosmos DB data](./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png)
 
-1. **Konstruera Analysis Services-modellen** - Öppna frågeredigeraren, utför de åtgärder som krävs för att optimera den inlästa datauppsättningen:
+1. **Skapa Analysis Servicess modellen** – öppna Frågeredigeraren och utför de åtgärder som krävs för att optimera den inlästa data uppsättningen:
 
-   * Extrahera endast väderrelaterade kolumner (temperatur och nederbörd)
+   * Extrahera endast väder relaterade kolumner (temperatur och Rainfall)
 
-   * Extrahera månadsinformationen från tabellen. Dessa data är användbara när du skapar partitioner enligt beskrivningen i nästa avsnitt.
+   * Extrahera månads informationen från tabellen. Dessa data är användbara när du skapar partitioner enligt beskrivningen i nästa avsnitt.
 
-   * Konvertera temperaturkolumnerna till tal
+   * Omvandla temperatur kolumnerna till tal
 
-   Det resulterande M-uttrycket är följande:
+   Det resulterande M-uttrycket ser ut så här:
 
    ```
     let
@@ -138,36 +138,36 @@ Konfigurera en inmatningspipeline för att läsa in [väderdata](https://catalog
         #"Filtered Rows"
    ```
 
-   Ändra dessutom datatypen för temperaturkolumnerna till Decimal för att se till att dessa värden kan ritas i Power BI.
+   Ändra dessutom data typen för temperatur kolumnerna till decimal för att se till att dessa värden kan ritas i Power BI.
 
-1. **Skapa Azure Analysis-partitioner** - Skapa partitioner i Azure Analysis Services för att dela upp datauppsättningen i logiska partitioner som kan uppdateras oberoende av oberoende och vid olika frekvenser. I det här exemplet skapar du två partitioner som skulle dela upp datauppsättningen i den senaste månadens data och allt annat.
+1. **Skapa Azure Analysis-partitioner** – skapa partitioner i Azure Analysis Services för att dela upp data uppsättningen i logiska partitioner som kan uppdateras oberoende av varandra och med olika frekvenser. I det här exemplet skapar du två partitioner som delar upp data uppsättningen i den senaste månadens data och allt annat.
 
-   ![Skapa partitioner för analystjänster](./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png)
+   ![Skapa Analysis Services-partitioner](./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png)
 
    Skapa följande två partitioner i Azure Analysis Services:
 
    * **Senaste månaden** - `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
-   * **Historiska** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
+   * **Historik** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
 
-1. **Distribuera modellen till Azure Analysis Server** - Högerklicka på Azure Analysis Services-projektet och välj **Distribuera**. Lägg till servernamnet i **egenskapsfönstret Distributionsserver.**
+1. **Distribuera modellen till Azure Analysis Server** -högerklicka på Azure Analysis Services projektet och välj **distribuera**. Lägg till Server namnet i rutan **Egenskaper för distributions Server** .
 
-   ![Distribuera Azure Analysis Services-modellen](./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png)
+   ![Distribuera Azure Analysis Services modell](./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png)
 
-1. **Konfigurera partitionsuppdateringar och sammanslagningar** – Azure Analysis Services tillåter oberoende bearbetning av partitioner. Eftersom vi vill att den **senaste månaden** partitionen ska uppdateras kontinuerligt med de senaste uppgifterna, ställa in uppdateringsintervallet till 5 minuter. Det krävs inte för att uppdatera data i historisk partition. Dessutom måste du skriva lite kod för att konsolidera den senaste månadspartitionen till den historiska partitionen och skapa en ny senaste månadspartition.
+1. **Konfigurera partition uppdateringar och sammanfogningar** – Azure Analysis Services tillåter oberoende bearbetning av partitioner. Eftersom vi vill att den **senaste månads** partitionen ska uppdateras kontinuerligt med de senaste data ställer du in uppdaterings intervallet på 5 minuter. Det är inte nödvändigt att uppdatera data i historisk partition. Dessutom måste du skriva kod för att konsolidera den senaste month-partitionen till den historiska partitionen och skapa en ny senaste månads partition.
 
 
-## <a name="connect-power-bi-to-analysis-services"></a>Ansluta Power BI till Analystjänster
+## <a name="connect-power-bi-to-analysis-services"></a>Anslut Power BI till Analysis Services
 
-1. **Anslut till Azure Analysis Server med Azure Analysis Services-databasanslutningen** – Välj **liveläge** och anslut till Azure Analysis Services-instansen enligt följande skärmbild:
+1. **Anslut till Azure-Analysis Server med hjälp av Azure Analysis Services Database Connector** – Välj **Live-läge** och Anslut till Azure Analysis Services-instansen som visas på följande skärm bild:
 
    ![Hämta data från Azure Analysis Services](./media/create-real-time-weather-dashboard-powerbi/analysis-services-get-data.png)
 
-1. **Ladda data och generera rapporter** - Genom att använda de data som du har läst in tidigare, skapa diagram för att rapportera om temperatur och nederbörd. Eftersom du skapar en live-anslutning bör frågorna köras på data i Azure Analysis Services-modellen som du har distribuerat i föregående steg. Temperaturdiagrammen uppdateras inom fem minuter efter att de nya data har lästs in i Azure Cosmos DB.
+1. **Läs in data och generera rapporter** – genom att använda de data som du har läst in tidigare skapar du diagram för att rapportera om temperatur-och Rainfall. Eftersom du skapar en Live-anslutning ska frågorna köras på data i den Azure Analysis Services modell som du har distribuerat i föregående steg. Temperatur diagram kommer att uppdateras inom fem minuter efter att de nya data har lästs in i Azure Cosmos DB.
 
-   ![Läsa in data och generera rapporter](./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png)
+   ![Läs in data och generera rapporter](./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Power BI finns i [Komma igång med Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+* Mer information om Power BI finns i [Kom igång med Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 
 * [Anslut Qlik Sense till Azure Cosmos DB och visualisera dina data](visualize-qlik-sense.md)

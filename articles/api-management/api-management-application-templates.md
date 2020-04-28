@@ -1,6 +1,6 @@
 ---
-title: Programmallar i Azure API Management | Microsoft-dokument
-description: Lär dig hur du anpassar innehållet på programsidorna i utvecklarportalen i Azure API Management.
+title: Programmallar i Azure API Management | Microsoft Docs
+description: Lär dig hur du anpassar innehållet på program sidorna i Developer-portalen i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,32 +14,32 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73176906"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Programmallar i Azure API Management
-Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalsidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid-syntax](http://dotliquidmarkup.org/) och valfri redigerare, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en uppsättning lokaliserade [strängresurser,](api-management-template-resources.md#strings) [Glyph-resurser](api-management-template-resources.md#glyphs)och [sidkontroller,](api-management-page-controls.md)har du stor flexibilitet att konfigurera innehållet på sidorna som du tycker passar med hjälp av dessa mallar.  
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
   
- Med mallarna i det här avsnittet kan du anpassa innehållet på programsidorna i utvecklarportalen.  
+ Med mallarna i det här avsnittet kan du anpassa innehållet på program sidorna i Developer-portalen.  
   
--   [Programlista](#ProductList)  
+-   [Program lista](#ProductList)  
   
 -   [Program](#Application)  
   
 > [!NOTE]
->  Exempelmallar för exempel ingår i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna i utvecklarportalen genom att navigera till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [Så här anpassar du utvecklarportalen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)för API Management med hjälp av mallar .  
+>  Exempel på standardmallar finns i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna för Live i Developer-portalen genom att gå till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="application-list"></a><a name="ProductList"></a>Programlista  
- **Med programlistemallen** kan du anpassa brödtexten på programlistesidan i utvecklarportalen.  
+##  <a name="application-list"></a><a name="ProductList"></a>Program lista  
+ Med **program List** mal len kan du anpassa bröd texten på sidan program lista i Developer-portalen.  
   
- ![Utvecklarportalmallar för programlista](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Portalmallar för programlista för programlista")  
+ ![Sidan program lista utvecklare Portal-mallar](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM program List Page Developer Portal templates")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -74,19 +74,19 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Mallen `Product list` kan använda följande [sidkontroller](api-management-page-controls.md).  
+ `Product list` Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
--   [personkontroll](api-management-page-controls.md#paging-control)  
+-   [sid kontroll](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`Paging`|[Personsökningsenhet.](api-management-template-data-model-reference.md#Paging)|Växlingsinformationen för programinsamlingen.|  
-|`Applications`|Insamling [Application](api-management-template-data-model-reference.md#Application) av application-entiteter.|De program som är synliga för den aktuella användaren.|  
-|`CategoryName`|sträng|Kategorin ansökan.|  
+|`Paging`|[Växlings](api-management-template-data-model-reference.md#Paging) enhet.|Växlings informationen för program samlingen.|  
+|`Applications`|Samling av [Application](api-management-template-data-model-reference.md#Application) programentiteter.|De program som är synliga för den aktuella användaren.|  
+|`CategoryName`|sträng|Programmets kategori.|  
   
-### <a name="sample-template-data"></a>Exempel på malldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -137,10 +137,10 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 }  
 ```  
   
-##  <a name="application"></a><a name="Application"></a>Program  
- **Med programmallen** kan du anpassa programsidans brödtext i utvecklarportalen.  
+##  <a name="application"></a><a name="Application"></a>Applicering  
+ Med **program** mal len kan du anpassa bröd texten på program sidan i Developer-portalen.  
   
- ![Portalmallar för programsidas utvecklarportal](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Utvecklarportalmallar för APIM-programsida")  
+ ![Portal mallar för program sidans utvecklare](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM program Page Developer Portal templates")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -181,12 +181,12 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Mallen `Application` tillåter inte användning av [några sidkontroller](api-management-page-controls.md).  
+ `Application` Mallen tillåter inte användning av några [sid kontroller](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Datamodell  
- [Application](api-management-template-data-model-reference.md#Application) entitet.  
+ [Program](api-management-template-data-model-reference.md#Application) enhet.  
   
-### <a name="sample-template-data"></a>Exempel på malldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -224,4 +224,4 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du arbetar med mallar finns i [Så här anpassar du utvecklarportalen](api-management-developer-portal-templates.md)för API Management med hjälp av mallar .
+Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).

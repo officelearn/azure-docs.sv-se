@@ -1,7 +1,7 @@
 ---
-title: Arbetsflöde med signaturer för delad åtkomst
+title: Arbets flöde med signaturer för delad åtkomst
 titleSuffix: Microsoft Genomics
-description: Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten med hjälp av SAS (Shared Access Signatures) i stället för lagringskontonycklar.
+description: Den här artikeln visar hur du skickar ett arbets flöde till den Microsoft Genomics tjänsten med signaturer för delad åtkomst (SAS) i stället för lagrings konto nycklar.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72248586"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Skicka ett arbetsflöde till Microsoft Genomics med en SAS istället för en lagringskontonyckel 
 
-Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten med hjälp av en config.txt-fil som innehåller [SAS (Shared Access Signatures)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) i stället för lagringskontonycklar. Den här funktionen är användbar om det finns några säkerhetsproblemen med lagringskontonyckeln som är synliga i filen config.txt. 
+Den här artikeln visar hur du skickar ett arbets flöde till Microsoft Genomics tjänsten med hjälp av en config. txt-fil som innehåller [signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) i stället för lagrings konto nycklar. Den här funktionen är användbar om det finns några säkerhetsproblemen med lagringskontonyckeln som är synliga i filen config.txt. 
 
-I den här artikeln förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbetsflöde med hjälp av de medföljande exempeldata, är du redo att fortsätta med den här artikeln. 
+I den här artikeln förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbets flöde med hjälp av de tillhandahållna exempel data, är du redo att fortsätta med den här artikeln. 
 
 ## <a name="what-is-a-sas"></a>Vad är en SAS?
 En [signatur för delad åtkomst (Shared Access Signature, SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) ger delegerad åtkomst till resurser på ditt lagringskonto. Med en SAS kan du bevilja åtkomst till resurser i ditt lagringskonto utan att dela dina kontonycklar. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
@@ -53,10 +53,10 @@ Det finns två sätt att skapa ett SAS-token, antingen med Azure Storage Explore
 
 SAS för indatafilerna ska vara begränsad till den specifika indatafilen (bloben). Skapa en SAS-token genom att följa [anvisningarna](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). När du har skapat SAS tillhandahålls en fullständig URL med både frågesträngen och frågesträngen fristående som kan kopieras från nästa skärm.
 
- ![Genomikerna SAS-lagringsutforskare](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomikerna SAS-lagringsutforskare")
+ ![Genomiks-SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomiks-SAS Storage Explorer")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Konfigurera: Skapa en SAS programmässigt
+### <a name="set-up-create-a-sas-programmatically"></a>Konfigurera: skapa en SAS program mässigt
 
 Om du vill skapa en SAS med Azure Storage SDK läser du den befintliga dokumentationen på flera språk, som [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) och [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
@@ -66,7 +66,7 @@ Om du vill skapa en SAS utan SDK kan du skapa SAS-frågesträngen direkt, inklus
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Lägga till SAS till filen config.txt
 Om du vill köra ett arbetsflöde via tjänsten Microsoft Genomics med en SAS-frågesträng redigerar du filen config.txt för att ta bort nycklarna från config.txt-filen. Lägg sedan till SAS-frågesträngen (som börjar med ett `?`) till utdatacontainerns namn, som du ser. 
 
-![Genomik SAS config](./media/quickstart-input-sas/genomics-sas-config.png "Genomik SAS config")
+![Genomik SAS-konfiguration](./media/quickstart-input-sas/genomics-sas-config.png "Genomik SAS-konfiguration")
 
 Med Microsoft Genomics Python-klienten kan du skicka ditt arbetsflöde med följande kommando, och lägga till motsvarande SAS-frågesträng till varje sträng för varje inkommande blobnamn:
 
@@ -77,7 +77,7 @@ msgen submit -f [full path to your config file] -b1 [name of your first paired e
 ### <a name="if-adding-the-input-file-names-to-the-configtxt-file"></a>Om du lägger till indatafilnamnet till filen config.txt
 Namnen på de kopplade slutläsningsfilerna kan också läggas till direkt i filen config.txt, och token för SAS-fråga enligt nedan:
 
-![Genomik SAS config blobnames](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Genomik SAS config blobnames")
+![Genomik SAS-blobnamn](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Genomik SAS-blobnamn")
 
 I det här fallet kan du använda Microsoft Genomics Python-klienten för att skicka ditt arbetsflöde med följande kommando, vilket utesluter kommandona `-b1` och `-b2`:
 

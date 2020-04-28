@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67849253"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
@@ -31,7 +31,7 @@ Microsoft Azure tillhandahåller ett växande antal tjänster som du kan erbjuda
 Microsoft erbjuder API:er till CSP:er för att de ska kunna hantera kundprenumerationer på Azure, genom att tillåta att programmässig integrering sker med dina egna tjänsthanteringssystem. Hanteringsfunktioner som stöds finns [här](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure-resurshantering
-Avtalet med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunden hanterar skapandet av resurser i sin Microsoft Azure-prenumeration använder de en av två modeller: "*Connect-Through"* modell eller "*Direct-To*" modell. Dessa modeller beskrivs i detalj i följande avsnitt.  
+Avtalet med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunden hanterar skapandet av resurser i sin Microsoft Azure-prenumeration använder de en av två modeller: "*Anslut via*"-modellen eller "*direkt till"-* modellen. Dessa modeller beskrivs i detalj i följande avsnitt.  
 
 ### <a name="connect-through-model"></a>Anslut via-modellen
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  

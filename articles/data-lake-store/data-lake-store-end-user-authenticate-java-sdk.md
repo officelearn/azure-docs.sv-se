@@ -1,6 +1,6 @@
 ---
-title: 'Autentisering av slutanvändare: Java med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du uppnår slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory med Java
+title: 'Autentisering med slutanvändare: Java med Azure Data Lake Storage Gen1 som använder Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 att använda Azure Active Directory med Java
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8b558fca964f33d47d331e007329d1bae2626877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60878109"
 ---
-# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Slutanvändarens autentisering med Azure Data Lake Storage Gen1 med Java
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med Java
 > [!div class="op_single_selector"]
 > * [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Använda .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,12 +27,12 @@ ms.locfileid: "60878109"
 > 
 >   
 
-I den här artikeln får du lära dig mer om hur du använder Java SDK för att göra slutanvändarens autentisering med Azure Data Lake Storage Gen1. För tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Java SDK finns i [Autentisering från tjänst med Data Lake Storage Gen1 med Java](data-lake-store-service-to-service-authenticate-java.md).
+I den här artikeln får du lära dig hur du använder Java SDK för att utföra autentisering med slutanvändare med Azure Data Lake Storage Gen1. För tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Java SDK, se [tjänst-till-tjänst-autentisering med data Lake Storage gen1 med Java](data-lake-store-service-to-service-authenticate-java.md).
 
 ## <a name="prerequisites"></a>Krav
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett "native"-program i Azure Active Directory**. Du måste ha slutfört stegen i [Slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Skapa ett Azure Active Directory "internt"-program**. Du måste ha slutfört stegen i [slut användar autentisering med data Lake Storage gen1 med hjälp av Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). Den här självstudien använder Maven för bygg- och projektberoenden. Även om det är möjligt att skapa utan att använda ett build-system som Maven eller Gradle, gör de här systemen det mycket enklare att hantera beroenden.
 
@@ -41,7 +41,7 @@ I den här artikeln får du lära dig mer om hur du använder Java SDK för att 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 1. Skapa ett Maven-projekt med [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) från kommandoraden eller med hjälp av en IDE. Anvisningar för hur du skapar ett Java-projekt med IntelliJ finns [här](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Anvisningar för hur du skapar ett Java-projekt med Eclipse finns [här](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
-2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodavsnitt före taggen ** \</project>:**
+2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodfragment innan taggen ** \</Project>** :
    
         <dependencies>
           <dependency>
@@ -56,7 +56,7 @@ I den här artikeln får du lära dig mer om hur du använder Java SDK för att 
           </dependency>
         </dependencies>
    
-    Det första beroendet är att använda Data Lake`azure-data-lake-store-sdk`Storage Gen1 SDK ( ) från maven-databasen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. Data Lake Storage Gen1 SDK använder [slf4j](https://www.slf4j.org/) loggning fasad, som låter dig välja mellan ett antal populära loggning ramverk, som log4j, Java loggning, inloggning, etc., eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
+    Det första beroendet är att använda Data Lake Storage Gen1 SDK ()`azure-data-lake-store-sdk`från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [slf4j](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
 
 3. Lägg till följande importuttryck i programmet.
 
@@ -67,17 +67,17 @@ I den här artikeln får du lära dig mer om hur du använder Java SDK för att 
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
 
-4. Använd följande kodavsnitt i Java-programmet för att hämta token för det `DeviceCodeTokenProvider`Active Directory-inbyggda programmet som du skapade tidigare med . Ersätt **FILL-IN-HERE** med de faktiska värdena för det inbyggda Azure Active Directory-programmet.
+4. Använd följande kodfragment i ditt Java-program för att hämta token för det Active Directory inbyggda programmet som du skapade `DeviceCodeTokenProvider`tidigare med hjälp av. Ersätt **Fill – här** med de faktiska värdena för det Azure Active Directory inbyggda programmet.
 
         private static String nativeAppId = "FILL-IN-HERE";
             
         AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
 
-Data Lake Storage Gen1 SDK innehåller praktiska metoder som gör att du kan hantera de säkerhetstoken som behövs för att prata med Data Lake Storage Gen1-kontot. Dock tvingar inte SDK:n dig att använda enbart de här metoderna. Du kan använda valfria andra metoder för att hämta token, som att använda [Azure Active Directory SDK:n](https://github.com/AzureAD/azure-activedirectory-library-for-java) eller din egna anpassade kod.
+Data Lake Storage Gen1 SDK tillhandahåller praktiska metoder som låter dig hantera de säkerhetstoken som behövs för att kommunicera med Data Lake Storage Gen1-kontot. Dock tvingar inte SDK:n dig att använda enbart de här metoderna. Du kan använda valfria andra metoder för att hämta token, som att använda [Azure Active Directory SDK:n](https://github.com/AzureAD/azure-activedirectory-library-for-java) eller din egna anpassade kod.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln lärde du dig hur du använder slutanvändarens autentisering för att autentisera med Azure Data Lake Storage Gen1 med Java SDK. Du kan nu titta på följande artiklar som talar om hur du använder Java SDK för att arbeta med Azure Data Lake Storage Gen1.
+I den här artikeln har du lärt dig hur du använder autentisering med slutanvändare för att autentisera med Azure Data Lake Storage Gen1 med Java SDK. Nu kan du titta på följande artiklar som talar om hur du använder Java SDK för att arbeta med Azure Data Lake Storage Gen1.
 
-* [Dataåtgärder på DataSjölagring Gen1 med Java SDK](data-lake-store-get-started-java-sdk.md)
+* [Data åtgärder på Data Lake Storage Gen1 med Java SDK](data-lake-store-get-started-java-sdk.md)
 
 

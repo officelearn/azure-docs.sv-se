@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72801873"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metod och process för att börja använda Azure Data Catalog
@@ -54,7 +54,7 @@ Här följer några tips om hur du skapar en vision:
 
 Här följer en exempelvision i en implementeringsplan för Data Catalog för det fiktiva företaget Adventure Works.
 
-**Azure Data Catalog** ger Adventure Works Finance-teamet möjlighet att samarbeta om viktiga datakällor, så att varje gruppmedlem enkelt kan hitta och använda de data de behöver och dela sina kunskaper med teamet som helhet.
+**Azure Data Catalog** ger Adventure Worker ekonomi teamet möjlighet att samar beta på viktiga data källor, så att varje grupp medlem lätt kan hitta och använda de data som de behöver och de kan dela med sig av sina kunskaper med teamet som helhet.
 
 När du har en tydlig vision är det dags att hitta ett lämpligt pilotprojekt för Data Catalog. Det finns ofta flera olika användningsområden för Data Catalog, så nästa avsnitt innehåller några tips på hur du hittar lämpliga områden.
 
@@ -69,7 +69,7 @@ Här följer några tips på hur du identifierar användningsområden:
 * **Definiera teamets mål** – Hur uppnår teamet sina mål? Fokusera inte på Data Catalog ännu, eftersom du vill vara objektiv i det här skedet. Kom ihåg att det handlar om verksamhetsresultat, inte om tekniken.
 * **Definiera problem i verksamheten** – Vilka problem har teamet med att hitta och få information om datatillgångar? Till exempel finns kanske informationen om viktiga datakällor i Excel-arbetsböcker i en nätverksmapp, och teamet tillbringar mycket tid med att hitta arbetsböckerna.
 * **Förstå hur förändringskulturen ser ut i teamet** – Många problem i samband med förändring gäller motstånd mot förändring snarare än motstånd mot att använda ett nytt verktyg. Hur ett team reagerar på förändringar är viktigt när du identifierar användningsområden. Befintliga processer kanske finns ”för att vi alltid har gjort så” eller på grund av tanken ”varför ändra på något som fungerar”? Det är alltid lättast att implementera nya verktyg eller processer när de medarbetare som påverkas förstår värdet av förändringen liksom vikten av problemen som behöver lösas.
-* **Håll fokus i samband med datatillgångar** - När du diskuterar affärsproblem ett team står inför, måste du "skära igenom ogräs", och fokusera på vad som är relevant för att utnyttja företagets datatillgångar mer effektivt.
+* **Behåll fokus som är relaterad till data till gångar** – när du diskuterar affärs problem som ett team är på plats måste du "klippa igenom ogräs" och fokusera på vad som är relevant för att utnyttja företagets data till gångar mer effektivt.
 
 Här är några exempel på användningsområden för Data Catalog:
 
@@ -91,7 +91,7 @@ Pilotprojektet bör fasa in de verksamhetsmål som du vill nå med hjälp av Dat
 
 ### <a name="target-the-right-team"></a>Satsa på rätt team
 
-När du väljer pilotprojekt ska du satsa på ett team med intressanta scenarier som löser befintliga verksamhetsproblem. Exempel: En verksamhetsanalytiker skapar rapporter från en SQL Server-databas. Problemet är att de blev medvetna om datakällan först efter att ha talat med flera kollegor. Slutligen, efter att ha slösat tid på att försöka hitta vilka datakällor som ska användas, fick de reda på en Excel-arbetsbok, som innehåller en beskrivning av varje datakälla. Även om Excel-arbetsboken beskriver de tabeller som de behöver, skulle de snabbt ha hittat dessa datakällor om de registrerades och kommenterades i **Azure Data Catalog**.
+När du väljer pilotprojekt ska du satsa på ett team med intressanta scenarier som löser befintliga verksamhetsproblem. Exempel: En verksamhetsanalytiker skapar rapporter från en SQL Server-databas. Problemet är att de har blivit medvetna om data källan endast efter att ha pratat med flera kollegor. Efter att du slösat upp tiden som försöker hitta vilka data källor som ska användas, har de hittat en Excel-arbetsbok som innehåller en beskrivning av varje data källa. Även om Excel-arbetsboken på ett bra sätt beskriver de tabeller som de behöver, skulle de snabbt kunna hitta dessa data källor om de registrerades och kommenterades i **Azure Data Catalog**.
 
 ### <a name="identify-data-heroes"></a>Identifiera datahjältar
 
@@ -101,7 +101,7 @@ Ditt första pilotprojekt bör innehålla några personer som skapar data och n�
 
 **Datakonsumenter** är personer med expertkunskaper i att lösa verksamhetsproblem med hjälp av data. Till exempel är använder verksamhetsanalytikern Nancy Adventure Works SQL-datakällor för att analysera data.
 
-Ett av de verksamhetsproblem som **Azure Data Catalog** löser är sammankoppling av**dataproducenter** och **datakonsumenter**. Katalogen fungerar som ett centrallager för information om företagets datakällor. David registrerar Adventure Works- och SQL Server-datakällor i Data Catalog. Använda crowdsourcing alla användare som upptäcker denna datakälla kan dela hennes åsikter om data, förutom att använda de data som de har upptäckt. Till exempel identifierar Nancy datakällor genom att söka i katalogen och delar med sig av sina specialkunskaper om dem.  Nu kan andra i organisationen dra nytta av kunskapen hon delat med sig av genom att söka i datakatalogen.
+Ett av de verksamhetsproblem som **Azure Data Catalog** löser är sammankoppling av**dataproducenter** och **datakonsumenter**. Katalogen fungerar som ett centrallager för information om företagets datakällor. David registrerar Adventure Works- och SQL Server-datakällor i Data Catalog. Genom att använda gemensamt skapade kan alla användare som identifierar den här data källan dela sitt yttrande om data, förutom att använda de data som de har identifierat. Till exempel identifierar Nancy datakällor genom att söka i katalogen och delar med sig av sina specialkunskaper om dem.  Nu kan andra i organisationen dra nytta av kunskapen hon delat med sig av genom att söka i datakatalogen.
 
 * Mer information om hur du registrerar datakällor finns i [Registrera datakällor](data-catalog-get-started.md).
 * Mer information om hur du identifierar datakällor finns i [Söka efter datakällor](data-catalog-get-started.md).
@@ -116,7 +116,7 @@ I nästa avsnitt beskrivs ett exempelprojekt från företaget Adventure Works.
 
 ### <a name="an-example-project"></a>Ett exempelprojekt
 
-I det här exemplet skapar verksamhetsanalytikern Nancy rapporter för sitt team med hjälp av data från en SQL Server-databas. Problemet är att de blev medvetna om datakällan först efter att ha talat med flera kollegor. De skulle snabbt ha hittat dessa datakällor om de registrerades och kommenterades på en central plats som **Azure Data Catalog**.
+I det här exemplet skapar verksamhetsanalytikern Nancy rapporter för sitt team med hjälp av data från en SQL Server-databas. Problemet är att de har blivit medvetna om data källan endast efter att ha pratat med flera kollegor. De har snabbt hittat dessa data källor om de registrerades och kommenterades på en central plats, till exempel **Azure Data Catalog**.
 
 För att visa hur lätt Nancy och hennes team kan hitta värdefulla datakällor kan du fylla katalogen med information (metadata) om datakällorna med hjälp av registreringsverktyget för datakällor. På så vis finns information om databasen tillgänglig för hela teamet och företaget, inte bara för några få personer. När datakällor väl är registrerade i Data Catalog kan Nancy och teamet enkelt hitta datakällorna som de använder. Resultatet är en mer omfattande och relevant datakatalog för teamet och företaget. När fler team börjar använda Data Catalog blir det lättare att hitta och använda verksamhetsdata. Det skapar i sin tur en mer datacentrerad kultur så att företaget får största möjliga nytta av sina data.
 

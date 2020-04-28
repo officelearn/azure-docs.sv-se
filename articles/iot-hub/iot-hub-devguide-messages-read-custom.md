@@ -1,6 +1,6 @@
 ---
-title: Förstå anpassade slutpunkter för Azure IoT Hub | Microsoft-dokument
-description: Utvecklarguide – med routningsfrågor för att dirigera meddelanden från enhet till moln till anpassade slutpunkter.
+title: Förstå anpassade slut punkter för Azure IoT Hub | Microsoft Docs
+description: Guide för utvecklare – använda vägvals frågor för att dirigera enhets-till-moln-meddelanden till anpassade slut punkter.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,53 +9,53 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61244352"
 ---
-# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använda meddelandevägar och anpassade slutpunkter för meddelanden från enhet till moln
+# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använda meddelande vägar och anpassade slut punkter för meddelanden från enhet till moln
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub [Message Routing](iot-hub-devguide-routing-query-syntax.md) gör det möjligt för användare att dirigera meddelanden från enhet till moln till tjänstinriktade slutpunkter. Routning ger också en frågefunktion för att filtrera data innan du dirigerar dem till slutpunkterna. Varje routningsfråga som du konfigurerar har följande egenskaper:
+IoT Hub [meddelanderoutning](iot-hub-devguide-routing-query-syntax.md) gör det möjligt för användare att dirigera meddelanden från enheten till molnet till service-riktade slut punkter. Routning tillhandahåller också en fråge funktion för att filtrera data innan de dirigeras till slut punkterna. Varje cirkulations fråga som du konfigurerar har följande egenskaper:
 
 | Egenskap      | Beskrivning |
 | ------------- | ----------- |
 | **Namn**      | Det unika namn som identifierar frågan. |
-| **Källkod**    | Ursprunget till den dataström som ska följas. Till exempel enhetstelemetri. |
-| **Villkor** | Frågeuttrycket för routningsfrågan som körs mot egenskaperna för meddelandeprogrammet, systemegenskaper, meddelandetext, enhetstvillingtaggar och enhetstvillingegenskaper för att avgöra om det är en matchning för slutpunkten. Mer information om hur du skapar en fråga finns i [syntaxen för meddelanderoutningsfrågefördirigering](iot-hub-devguide-routing-query-syntax.md) |
-| **Slutpunkt**  | Namnet på slutpunkten där IoT Hub skickar meddelanden som matchar frågan. Vi rekommenderar att du väljer en slutpunkt i samma region som din IoT-hubb. |
+| **Källa**    | Ursprung för den data ström som ska användas. Till exempel telemetri av enhet. |
+| **Villkor** | Frågeuttrycket för den cirkulations fråga som körs mot egenskaperna för meddelande programmet, system egenskaper, meddelande text, enhetens dubbla Taggar och enhetens dubbla egenskaper för att avgöra om det är en matchning för slut punkten. Mer information om hur du skapar en fråga finns i se [syntax för meddelanderoutning](iot-hub-devguide-routing-query-syntax.md) |
+| **Endpoint**  | Namnet på slut punkten där IoT Hub skickar meddelanden som matchar frågan. Vi rekommenderar att du väljer en slut punkt i samma region som IoT-hubben. |
 
-Ett enda meddelande kan matcha villkoret för flera routningsfrågor, i vilket fall IoT Hub levererar meddelandet till slutpunkten som är associerad med varje matchad fråga. IoT Hub deduplicerar också automatiskt meddelandeleverans, så om ett meddelande matchar flera frågor som har samma mål skrivs det bara en gång till det målet.
+Ett enskilt meddelande kan matcha villkoret på flera Dirigerings frågor, i vilket fall IoT Hub levererar meddelandet till slut punkten som är kopplad till varje matchad fråga. IoT Hub deduplicerar också meddelande leveransen automatiskt, så om ett meddelande matchar flera frågor som har samma mål, skrivs det bara en gång till det målet.
 
-## <a name="endpoints-and-routing"></a>Slutpunkter och routning
+## <a name="endpoints-and-routing"></a>Slut punkter och routning
 
-En IoT-hubb har en [inbyggd standardslutpunkt](iot-hub-devguide-messages-read-builtin.md). Du kan skapa anpassade slutpunkter för att dirigera meddelanden till genom att länka andra tjänster i din prenumeration till navet. IoT Hub stöder för närvarande Azure Storage-behållare, eventhubbar, servicebussköer och servicebussavsnitt som anpassade slutpunkter.
+En IoT Hub har en [inbyggd standard slut punkt](iot-hub-devguide-messages-read-builtin.md). Du kan skapa anpassade slut punkter för att dirigera meddelanden till genom att länka andra tjänster i din prenumeration till hubben. IoT Hub stöder för närvarande Azure Storage behållare, Event Hubs, Service Bus köer och Service Bus ämnen som anpassade slut punkter.
 
-När du använder routning och anpassade slutpunkter levereras meddelanden endast till den inbyggda slutpunkten om de inte matchar någon fråga. Om du vill leverera meddelanden till den inbyggda slutpunkten och till en anpassad slutpunkt lägger du till en väg som skickar meddelanden till slutpunkten för inbyggda **händelser.**
+När du använder Routning och anpassade slut punkter skickas meddelanden endast till den inbyggda slut punkten om de inte matchar någon fråga. Om du vill leverera meddelanden till den inbyggda slut punkten och till en anpassad slut punkt lägger du till en väg som skickar meddelanden till den inbyggda slut punkten för **händelser** .
 
 > [!NOTE]
-> * IoT Hub stöder endast att skriva data till Azure Storage-behållare som blobbar.
-> * Service Bus-köer och avsnitt med **Sessioner** eller **Dubblettidentifiering** aktiverade stöds inte som anpassade slutpunkter.
+> * IoT Hub stöder bara skrivning av data till Azure Storage behållare som blobbar.
+> * Service Bus köer och ämnen med **sessioner** eller **dubblettidentifiering** aktiverade stöds inte som anpassade slut punkter.
 
-Mer information om hur du skapar anpassade slutpunkter i IoT Hub finns i [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
+Mer information om hur du skapar anpassade slut punkter i IoT Hub finns [IoT Hub slut punkter](iot-hub-devguide-endpoints.md).
 
-Mer information om hur du läser från anpassade slutpunkter finns i:
+Mer information om att läsa från anpassade slut punkter finns i:
 
-* Läser från [Azure Storage-behållare](../storage/blobs/storage-blobs-introduction.md).
+* Läser från [Azure Storage behållare](../storage/blobs/storage-blobs-introduction.md).
 
-* Läser från [eventhubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* Läser från [Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* Läser från [servicebussköer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+* Läser från [Service Bus köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
-* Läsa från [Service Bus ämnen](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
+* Läser från [Service Bus ämnen](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om IoT Hub-slutpunkter finns i [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
+* Mer information om IoT Hub slut punkter finns i [IoT Hub slut punkter](iot-hub-devguide-endpoints.md).
 
-* Mer information om det frågespråk som du använder för att definiera routningsfrågor finns i [frågasyntax för fråga för meddelanderoutning](iot-hub-devguide-routing-query-syntax.md).
+* Mer information om frågespråket som du använder för att definiera routnings frågor finns i [query-syntax för meddelande cirkulation](iot-hub-devguide-routing-query-syntax.md).
 
-* [Process IoT Hub-meddelanden från enhet till moln med hjälp av](tutorial-routing.md) vägsjälvstudier visar hur du använder routningsfrågor och anpassade slutpunkter.
+* [Processen IoT Hub enhet-till-moln-meddelanden med hjälp av rutter](tutorial-routing.md) visar hur du använder routnings frågor och anpassade slut punkter.

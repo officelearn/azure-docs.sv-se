@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Förstå deklarativ etablering | Microsoft-dokument'
-description: Förklarar konfigurationsmodellen för deklarativ etablering i Azure AD Connect.
+title: 'Azure AD Connect: förstå deklarativ etablering | Microsoft Docs'
+description: Förklarar konfigurations modellen för deklarativ etablering i Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,151 +17,151 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60246370"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synkronisering av Azure AD Connect: Förstå deklarativ etablering
-I det här avsnittet beskrivs konfigurationsmodellen i Azure AD Connect. Modellen kallas Declarative Etablering och det gör att du enkelt kan göra en konfigurationsändring. Många saker som beskrivs i det här avsnittet är avancerade och krävs inte för de flesta kundscenarier.
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect synkronisering: förstå deklarativ etablering
+I det här avsnittet beskrivs konfigurations modellen i Azure AD Connect. Modellen kallas deklarativ etablering och gör att du enkelt kan göra en konfigurations ändring. Många saker som beskrivs i det här avsnittet är avancerade och krävs inte för de flesta kund scenarier.
 
 ## <a name="overview"></a>Översikt
-Deklarativ etablering bearbetar objekt som kommer in från en källa ansluten katalog och bestämmer hur objektet och attributen ska omvandlas från en källa till ett mål. Ett objekt bearbetas i en synkroniseringspipeline och pipelinen är densamma för inkommande och utgående regler. En inkommande regel är från ett kopplingsutrymme till metaversumet och en utgående regel är från metaversum till ett anslutningsutrymme.
+Deklarativ etablering bearbetar objekt som kommer från en källa ansluten katalog och avgör hur objektet och attributen ska omvandlas från en källa till ett mål. Ett objekt bearbetas i en synkroniseringsanslutning och pipelinen är samma för inkommande och utgående regler. En regel för inkommande trafik från ett anslutnings utrymme till metaversum och en utgående regel är från metaversum till ett anslutnings utrymme.
 
-![Synkronisera pipeline](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![Synkronisering av pipelines](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
-Rörledningen har flera olika moduler. Var och en ansvarar för ett koncept i objektsynkronisering.
+Pipelinen har flera olika moduler. Var och en är ansvarig för ett koncept i Object synchronization.
 
-![Synkronisera pipeline](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![Synkronisering av pipelines](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
-* Källa, Källobjektet
-* [Scope](#scope), Söker efter alla synkroniseringsregler som finns i omfånget
-* [Gå med](#join), Bestämmer förhållandet mellan kopplingsutrymme och metaversum
-* Transformera, beräknar hur attribut ska omvandlas och flöda
-* [Prioritet](#precedence), Löser attributbidrag i konflikt
-* Mål, Målobjektet
+* Källa, käll objekt
+* [Scope](#scope), hittar alla regler för synkronisering som ligger inom omfånget
+* [Anslut](#join), bestämmer relationen mellan kopplings utrymme och metaversum
+* Transform, beräknar hur attribut ska transformeras och flödas
+* [Prioritet](#precedence), löser motstridiga attribut bidrag
+* Mål, målobjektet
 
 ## <a name="scope"></a>Omfång
-Scopemodulen utvärderar ett objekt och bestämmer vilka regler som finns i omfånget och ska inkluderas i bearbetningen. Beroende på attributvärdena för objektet utvärderas olika synkroniseringsregler så att de är i omfånget. En inaktiverad användare utan Exchange-postlåda har till exempel andra regler än en aktiverad användare med en postlåda.  
+Omfångs modulen utvärderar ett objekt och fastställer reglerna i omfånget och ska inkluderas i bearbetningen. Beroende på attributets attributvärden utvärderas de olika reglerna för synkronisering enligt omfånget. Till exempel har en inaktive rad användare utan Exchange-postlåda olika regler än en aktive rad användare med en post låda.  
 ![Omfång](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
-Omfattningen definieras som grupper och satser. Satserna finns i en grupp. Ett logiskt OCH används mellan alla satser i en grupp. Till exempel (avdelning =IT OCH land = Danmark). Ett logiskt ELLER används mellan grupper.
+Omfånget definieras som grupper och satser. Satserna finns inuti en grupp. Ett logiskt och används mellan alla satser i en grupp. Till exempel (avdelning = IT och land = Danmark). Ett logiskt eller används mellan grupper.
 
 ![Omfång](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
-Omfattningen i denna bild ska läsas som (avdelning = IT OCH land = Danmark) ELLER (land=Sverige). Om antingen grupp 1 eller grupp 2 utvärderas till true, är regeln i omfång.
+Omfånget i den här bilden ska läsas som (avdelning = IT och land = Danmark) eller (land = Sverige). Om antingen grupp 1 eller grupp 2 utvärderas till sant, är regeln i omfånget.
 
-Scopemodulen stöder följande åtgärder.
+Scope-modulen stöder följande åtgärder.
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| LIKA, ANTECKNINGSKVALITET |En strängjämförelse som utvärderar om värdet är lika med värdet i attributet. För attribut med flera värden finns i ISIN och ISNOTIN. |
-| LESSTHAN, LESSTHAN_OR_EQUAL |En strängjämförelse som utvärderar om värdet är mindre än värdet i attributet. |
-| INNEHÅLLER, INTECONTAINS |En strängjämförelse som utvärderar om värdet kan hittas någonstans inuti värdet i attributet. |
-| BÖRJAR MED, BÖRJAR MED |En strängjämförelse som utvärderar om värdet finns i början av värdet i attributet. |
-| SLUTAR MED, INTE MED |En strängjämförelse som utvärderar om värdet finns i slutet av värdet i attributet. |
-| GREATERTHAN, GREATERTHAN_OR_EQUAL |En strängjämförelse som utvärderar om värdet är större än värdet i attributet. |
-| ISNULL, ISNOTNULL |Utvärderar om attributet saknas i objektet. Om attributet inte finns och därför null, är regeln i omfång. |
-| ISIN, ISNOTIN |Utvärderar om värdet finns i det definierade attributet. Den här åtgärden är den flervärderade variationen mellan EQUAL och NOTEQUAL. Attributet är tänkt att vara ett attribut med flera värden och om värdet finns i något av attributvärdena, är regeln i omfånget. |
-| ISBITSET, ISNOTBITSET |Utvärderar om en viss bit är inställd. Kan till exempel användas för att utvärdera bitarna i userAccountControl för att se om en användare är aktiverad eller inaktiverad. |
-| ISMEDLEM, ISNOTMEDLEM |Värdet ska innehålla en DN till en grupp i kopplingsutrymmet. Om objektet är medlem i den angivna gruppen är regeln i omfånget. |
+| LIKA MED, NOTEQUAL |En sträng som utvärderar om värdet är lika med värdet i attributet. För multi-valued-attribut, se ISIN och ISNOTIN. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |En sträng jämför som utvärderar om värdet är mindre än värdet i attributet. |
+| INNEHÅLLER, NOTCONTAINS |En sträng jämför som utvärderar om värdet kan hittas någonstans i värdet i attributet. |
+| STARTSWITH, NOTSTARTSWITH |En sträng jämför som utvärderar om värdet är i början av värdet i attributet. |
+| ENDSWITH, NOTENDSWITH |En sträng jämför som utvärderar om värdet är i slutet av värdet i attributet. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |En sträng jämför som utvärderar om värdet är större än värdet i attributet. |
+| ISNULL, ISNOTNULL |Utvärderar om attributet saknas från objektet. Om attributet inte finns och därför är null är regeln i omfånget. |
+| ISIN, ISNOTIN |Utvärderar om värdet finns i det definierade attributet. Den här åtgärden är den multi-värde variationen lika och NOTEQUAL. Attributet ska vara ett multi-värde-attribut och om värdet kan hittas i något av attributvärdena är regeln i omfånget. |
+| ISBITSET, ISNOTBITSET |Utvärderar om en viss bit har angetts. Kan till exempel användas för att utvärdera bitarna i userAccountControl för att se om en användare är aktive rad eller inaktive rad. |
+| ISMEMBEROF, ISNOTMEMBEROF |Värdet ska innehålla en DN till en grupp i anslutnings utrymmet. Om objektet är medlem i den angivna gruppen är regeln i omfånget. |
 
 ## <a name="join"></a>Slå ihop
-Kopplingsmodulen i synkroniseringspipelinen är ansvarig för att hitta relationen mellan objektet i källan och ett objekt i målet. På en inkommande regel skulle den här relationen vara ett objekt i ett kopplingsutrymme och hitta en relation till ett objekt i metaversumet.  
-![Gå mellan cs och mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
-Målet är att se om det finns ett objekt som redan finns i metaversumet, skapat av en annan koppling, som det ska associeras med. I en kontoresursskog ska till exempel användaren från kontoskogen anslutas till användaren från resursskogen.
+Join-modulen i den synkroniserade pipelinen ansvarar för att hitta relationen mellan objektet i källan och ett objekt i målet. I en inkommande regel skulle den här relationen vara ett objekt i ett anslutnings utrymme som söker efter en relation till ett objekt i metaversum.  
+![Koppling mellan CS och MV](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
+Målet är att se om det redan finns ett objekt i metaversum, vilket skapats av en annan koppling, det ska vara associerat med. I en konto-resurs-skog bör användaren från konto skogen kopplas till användaren från resurs skogen.
 
-Kopplingar används främst på inkommande regler för att koppla ihop kopplingsutrymmesobjekt till samma metaversumobjekt.
+Kopplingar används främst för regler för inkommande trafik för att ansluta till kopplings rummets objekt tillsammans till samma metaversum-objekt.
 
-Kopplingarna definieras som en eller flera grupper. I en grupp har du satser. Ett logiskt OCH används mellan alla satser i en grupp. Ett logiskt ELLER används mellan grupper. Grupperna bearbetas i ordning uppifrån och ned. När en grupp har hittat exakt en matchning med ett objekt i målet utvärderas inga andra kopplingsregler. Om noll eller fler än ett objekt hittas fortsätter bearbetningen till nästa regelgrupp. Därför bör reglerna skapas i den ordning som de mest explicita först och mer luddiga i slutet.  
-![Definition av koppling](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
-Kopplingarna i den här bilden bearbetas uppifrån och ned. Först synkpipelinen ser om det finns en matchning på employeeID. Om inte, ser den andra regeln om kontonamnet kan användas för att koppla ihop objekten. Om det inte heller är en matchning är den tredje och sista regeln en mer suddig matchning med hjälp av namnet på användaren.
+Kopplingarna definieras som en eller flera grupper. I en grupp har du satser. Ett logiskt och används mellan alla satser i en grupp. Ett logiskt eller används mellan grupper. Grupperna bearbetas i ordning från uppifrån och ned. När en grupp har hittat exakt en matchning med ett objekt i målet utvärderas inga andra kopplings regler. Om noll eller fler än ett objekt hittas fortsätter bearbetningen till nästa grupp av regler. Därför bör reglerna skapas i samma ordning som den allra allra första och mer fuzzy i slutet.  
+![Kopplings definition](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
+Kopplingarna i den här bilden bearbetas uppifrån och ned. Första sidan för synkronisering av synkronisering ser om det finns en matchning på Anställningsnr. Annars ser den andra regeln om konto namnet kan användas för att koppla ihop objekten. Om detta inte är en matchning, är den tredje och sista regeln en mer suddig matchning genom att använda namnet på användaren.
 
-Om alla kopplingsregler har utvärderats och det inte finns exakt en matchning används **länktypen** på sidan **Beskrivning.** Om det här alternativet är inställt **på Etablera**skapas ett nytt objekt i målet.  
-![Etablera eller gå med](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+Om alla kopplings regler har utvärderats och det inte finns exakt en matchning, används **länk typen** på sidan **Beskrivning** . Om det här alternativet är inställt på **etablera**, skapas ett nytt objekt i målet.  
+![Etablera eller Anslut](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
-Ett objekt ska bara ha en enda synkroniseringsregel med kopplingsregler i omfånget. Om det finns flera synkroniseringsregler där koppling definieras uppstår ett fel. Prioritet används inte för att lösa kopplingskonflikter. Ett objekt måste ha en kopplingsregel i omfånget för att attribut ska flöda med samma inkommande/utgående riktning. Om du behöver flöda attribut både inkommande och utgående till samma objekt, måste du ha både en inkommande och en utgående synkroniseringsregel med koppling.
+Ett objekt får bara ha en regel för att synkronisera med kopplings regler i omfånget. Om det finns flera regler för synkronisering där koppling har definierats, uppstår ett fel. Prioritet används inte för att lösa kopplings konflikter. Ett objekt måste ha en kopplings regel i omfånget för att attributen ska flöda med samma riktning för inkommande/utgående trafik. Om du behöver flöda attribut både inkommande och utgående till samma objekt måste du ha både en inkommande och en regel för utgående synkronisering med Join.
 
-Utgående koppling har ett speciellt beteende när den försöker etablera ett objekt till ett målkopplingsutrymme. DN-attributet används för att först försöka med en omvänd koppling. Om det redan finns ett objekt i målkopplingsutrymmet med samma DN sammanfogas objekten.
+Utgående koppling har ett särskilt beteende när den försöker etablera ett objekt till ett mål kopplings utrymme. Attributet DN används för att först försöka med en omvänd koppling. Om det redan finns ett objekt i mål kopplings utrymmet med samma DN, är objekten anslutna.
 
-Kopplingsmodulen utvärderas bara en gång när en ny synkroniseringsregel kommer in i omfånget. När ett objekt har gått samman är det inte att skilja även om kopplingsvillkoren inte längre är uppfyllda. Om du vill skilja mellan ett objekt måste synkroniseringsregeln som gick med objekten gå utanför omfånget.
+Join-modulen utvärderas bara en gång när en ny Synkroniseringsregel kommer att omfånget. När ett objekt har anslutits kopplas det inte från även om kopplings villkoren inte längre är uppfyllda. Om du vill koppla från ett objekt måste den Synkroniseringsregel som anslöt till objekten ingå i omfånget.
 
 ### <a name="metaverse-delete"></a>Ta bort metaversum
-Ett metaversumobjekt finns kvar så länge det finns en synkroniseringsregel i omfånget med **länktyp** inställd på **Etablera** eller **StickyJoin**. En StickyJoin används när en koppling inte tillåts etablera ett nytt objekt till metaversumet, men när den har gått samman måste den tas bort i källan innan metaversumobjektet tas bort.
+Ett metaversum-objekt finns kvar så länge det finns en Synkroniseringsregel i omfånget med **länk typen** inställd på **etablera** eller **StickyJoin**. En StickyJoin används när en koppling inte tillåts att etablera ett nytt objekt till metaversum, men när den har anslutits måste den tas bort i källan innan metaversum-objektet tas bort.
 
-När ett metaversumobjekt tas bort markeras alla objekt som är associerade med en utgående synkroniseringsregel som markerats för **etablering** för en borttagning.
+När ett metaversum-objekt tas bort markeras alla objekt som är kopplade till en regel för utgående synkronisering som är **markerade för att** ta bort.
 
 ## <a name="transformations"></a>Transformationer
-Omvandlingarna används för att definiera hur attribut ska flöda från källan till målet. Flödena kan ha en av följande **flödestyper:** Direct, Constant eller Expression. Ett direkt flöde, flöden ett attributvärde som är utan ytterligare omvandlingar. Ett konstant värde anger det angivna värdet. Ett uttryck använder det deklarativa etableringsuttrycksspråket för att uttrycka hur omvandlingen ska vara. Detaljerna för uttrycksspråket finns i avsnittet om förståelse av [deklarativa etablerande uttrycksspråk.](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+Transformeringarna används för att definiera hur attribut ska flöda från källan till målet. Flödena kan ha en av följande **flödes typer**: direkt, konstant eller uttryck. Ett direkt flöde, flödar ett attributvärde som-är utan ytterligare transformeringar. Ett konstant värde anger det angivna värdet. Ett uttryck använder det deklarativ etablerings uttryckets språk för att uttrycka hur omvandlingen ska vara. Information om uttrycks språk finns i avsnittet förstå definitions [språk för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
-![Etablera eller gå med](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
+![Etablera eller Anslut](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
-Kryssrutan **Använd en gång** definierar att attributet endast ska anges när objektet skapas. Den här konfigurationen kan till exempel användas för att ange ett första lösenord för ett nytt användarobjekt.
+Kryss rutan **Använd en gång** definierar att attributet bara ska anges när objektet skapas från början. Den här konfigurationen kan till exempel användas för att ange ett start lösen ord för ett nytt användar objekt.
 
-### <a name="merging-attribute-values"></a>Slå samman attributvärden
-I attributflödena finns en inställning för att avgöra om attribut med flera värden ska slås samman från flera olika kopplingar. Standardvärdet är **Uppdatera**, vilket anger att synkroniseringsregeln med högst prioritet ska vinna.
+### <a name="merging-attribute-values"></a>Sammanfogar attributvärden
+I attributet flöden finns det en inställning för att avgöra om flervärdesattribut ska slås samman från flera olika anslutningar. Standardvärdet är **Update**, vilket anger att synkroniseringsregeln med högsta prioritet ska vinna.
 
-![Koppla typer](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![Sammanslagnings typer](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
-Det finns också **Merge** och **MergeCaseInsensitive**. Med de här alternativen kan du slå samman värden från olika källor. Den kan till exempel användas för att slå samman attributet member eller proxyAddresses från flera olika skogar. När du använder det här alternativet måste alla synkroniseringsregler i omfånget för ett objekt använda samma kopplingstyp. Du kan inte definiera **Uppdatera** från en kopplingskoppling och **koppla** från en annan. Om du försöker visas ett felmeddelande.
+Det finns också **sammanfognings** -och **MergeCaseInsensitive**. Med de här alternativen kan du sammanfoga värden från olika källor. Den kan till exempel användas för att sammanfoga medlems-eller proxyAddresses-attributet från flera olika skogar. När du använder det här alternativet måste alla synkroniserade regler i omfånget för ett objekt använda samma kopplings typ. Du kan inte definiera **uppdatering** från en koppling och **koppla** från en annan. Om du försöker igen visas ett fel meddelande.
 
-Skillnaden mellan **Merge** och **MergeCaseInsensitive** är hur du bearbetar dubblettattributvärden. Synkroniseringsmotorn ser till att dubblettvärden inte infogas i målattributet. Med **MergeCaseInsensitive**kommer dubblettvärden med endast en skillnad i fall inte att finnas. Du bör till exempel inteSMTP:bob@contoso.comsesmtp:bob@contoso.combåde " " och " " i målattributet. **Sammanfogning** tittar bara på exakta värden och flera värden där det bara finns en skillnad i fall kan förekomma.
+Skillnaden mellan **sammanfognings** -och **MergeCaseInsensitive** är hur man bearbetar duplicerade attributvärden. Synkroniseringsmotorn ser till att dubblettvärden inte infogas i målattributet. Med **MergeCaseInsensitive**kommer duplicerade värden med bara en skillnad i fallet inte att vara närvarande. Du bör till exempel inte se både "SMTP:bob@contoso.com" och "smtp:bob@contoso.com" i målattributet. **Sammanslagning** tittar bara på exakta värden och flera värden där det bara finns en skillnad i vad som kan förekomma.
 
-Alternativet **Ersätt** är detsamma som **Uppdatera**, men det används inte.
+Alternativet **Ersätt** är detsamma som vid **uppdatering**, men används inte.
 
-### <a name="control-the-attribute-flow-process"></a>Styra attributflödesprocessen
-När flera inkommande synkroniseringsregler är konfigurerade för att bidra till samma metaversumattribut används prioritet för att bestämma vinnaren. Synkroniseringsregeln med högst prioritet (lägsta numeriskt värde) kommer att bidra med värdet. Samma sak händer för utgående regler. Synkroniseringsregeln med högst prioritet vinner och bidrar värdet till den anslutna katalogen.
+### <a name="control-the-attribute-flow-process"></a>Styr processen för attribut flöde
+När flera regler för inkommande synkronisering har kon figurer ATS för att bidra till samma metaversum-attribut, används prioritet för att fastställa vinnare. Synkroniseringsregeln med högsta prioritet (lägst numeriskt värde) kommer att bidra till värdet. Samma sak inträffar för utgående regler. Synkroniseringsregeln med högst prioritet vinner och bidrar värdet till den anslutna katalogen.
 
-I vissa fall bör synkroniseringsregeln avgöra hur andra regler ska bete sig i stället för att bidra med ett värde. Det finns några speciella litteraler som används för detta fall.
+I vissa fall, i stället för att bidra med ett värde, bör synkroniseringsregeln avgöra hur andra regler ska bete sig. Det finns vissa särskilda litteraler som används för det här fallet.
 
-För inkommande synkroniseringsregler kan den litterala **NULL-värdet** användas för att ange att flödet inte har något värde att bidra med. En annan regel med lägre prioritet kan bidra med ett värde. Om ingen regel har bidragit med ett värde tas metaversumattributet bort. Om NULL är det slutliga värdet när alla synkroniseringsregler har bearbetats tas värdet bort i den anslutna katalogen om **NULL** är det slutliga värdet när alla synkroniseringsregler har bearbetats.
+För regler för inkommande synkronisering kan litteralen **Null** användas för att ange att flödet inte har något värde att bidra. En annan regel med lägre prioritet kan bidra med ett värde. Om ingen regel tillför ett värde tas attributet metaversum bort. För en utgående regel, om **Null** är det sista värdet efter att alla formateringsregler har bearbetats, tas värdet bort i den anslutna katalogen.
 
-Den bokstavliga **AuktoritäraNullen** liknar **NULL** men med skillnaden att inga lägre prioritetsregler kan bidra med ett värde.
+Litteralen **AuthoritativeNull** liknar **Null** men med skillnaden att inga regler för lägre prioritet kan bidra till ett värde.
 
-Ett attributflöde kan också använda **IgnoreThisFlow**. Det liknar NULL i den meningen att det visar att det inte finns något att bidra med. Skillnaden är att det inte tar bort ett redan befintligt värde i målet. Det är som om attributflödet aldrig har funnits där.
+Ett Attribute-flöde kan också använda **IgnoreThisFlow**. Det liknar NULL i den mening att det inte finns något att bidra. Skillnaden är att det inte tar bort ett redan befintligt värde i målet. Det är som om attributet Flow aldrig har varit där.
 
 Här är ett exempel:
 
-I *Ut till AD - User Exchange hybrid* följande flöde kan hittas:  
+I *ut till AD – användare Exchange hybrid* kan du hitta följande flöde:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-Det här uttrycket ska läsas som: om användarpostlådan finns i Azure AD och sedan flödar attributet från Azure AD till AD. Om inte, flöda inte något tillbaka till Active Directory. I det här fallet skulle det behålla det befintliga värdet i AD.
+Det här uttrycket ska läsas som: om användar post lådan finns i Azure AD, så flöda sedan attributet från Azure AD till AD. Om inte, kommer du inte att flöda något tillbaka till Active Directory. I det här fallet behåller den det befintliga värdet i AD.
 
 ### <a name="importedvalue"></a>ImportedValue
-Funktionen ImportedValue skiljer sig från alla andra funktioner, eftersom attributnamnet måste omges av citattecken i stället för hakparenteser:  
+Funktionen ImportedValue skiljer sig från alla andra funktioner eftersom attributnamnet måste omges av citat tecken i stället för hakparenteser:  
 `ImportedValue("proxyAddresses")`.
 
-Vanligtvis under synkroniseringen använder ett attribut det förväntade värdet, även om det inte har exporterats ännu eller om ett fel har tagits emot under exporten ("toppen av tornet"). En inkommande synkronisering förutsätter att ett attribut som ännu inte har nått en ansluten katalog så småningom når den. I vissa fall är det viktigt att bara synkronisera ett värde som har bekräftats av den anslutna katalogen ("hologram och delta importtorn").
+Normalt under synkroniseringen använder attributet det förväntade värdet, även om det inte har exporter ATS ännu eller om ett fel togs emot under exporten ("överst i torn"). En inkommande synkronisering förutsätter att ett attribut som ännu inte har nått en ansluten katalog når den. I vissa fall är det viktigt att bara synkronisera ett värde som har bekräftats av den anslutna katalogen ("hologram-och delta import torn").
 
-Ett exempel på den här funktionen finns i den färdiga synkroniseringsregeln *i från AD – Användare som är vanlig från Exchange*. I Hybrid Exchange ska mervärdet av Exchange online endast synkroniseras när det har bekräftats att värdet har exporterats:  
+Ett exempel på den här funktionen finns i den färdiga synkroniseringsregeln *i från AD – användare som är gemensam från Exchange*. I hybrid Exchange bör värdet som läggs till av Exchange Online bara synkroniseras när det har bekräftats att värdet har exporter ATS:  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## <a name="precedence"></a>Prioritet
-När flera synkroniseringsregler försöker bidra med samma attributvärde till målet används prioritetsvärdet för att bestämma vinnaren. Regeln med högst prioritet, lägsta numeriska värde, kommer att bidra med attributet i en konflikt.
+När flera regler för synkronisering försöker bidra till samma attributvärde till målet används prioritet svärdet för att fastställa vinnare. Regeln med högsta prioritet, lägsta numeriska värde, kommer att bidra till attributet i en konflikt.
 
-![Koppla typer](./media/concept-azure-ad-connect-sync-declarative-provisioning/precedence1.png)  
+![Sammanslagnings typer](./media/concept-azure-ad-connect-sync-declarative-provisioning/precedence1.png)  
 
-Den här ordningen kan användas för att definiera mer exakta attributflöden för en liten delmängd av objekt. Till exempel kontrollerar out-of-box-reglerna att attribut från ett aktiverat konto (**User AccountEnabled**) har företräde från andra konton.
+Den här ordningen kan användas för att definiera mer exakta attribut flöden för en liten delmängd av objekt. De färdiga reglerna är till exempel att se till att attribut från ett aktiverat konto (**User AccountEnabled**) har prioritet från andra konton.
 
-Prioritet kan definieras mellan kopplingar. Det gör att kopplingar med bättre data kan bidra med värden först.
+Prioriteten kan definieras mellan kopplingar. Det gör att kopplingar med bättre data kan bidra till värdena först.
 
-### <a name="multiple-objects-from-the-same-connector-space"></a>Flera objekt från samma kopplingsutrymme
-Om du har flera objekt i samma kopplingsutrymme sammanfogat till samma metaversumobjekt måste prioriteten justeras. Om flera objekt omfattas av samma synkroniseringsregel kan synkroniseringsmotorn inte bestämma prioriteten. Det är tvetydigt vilket källobjekt som ska bidra med värdet till metaversumet. Den här konfigurationen rapporteras som tvetydig även om attributen i källan har samma värde.  
-![Flera objekt kopplade till samma mv-objekt](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+### <a name="multiple-objects-from-the-same-connector-space"></a>Flera objekt från samma kopplings utrymme
+Om du har flera objekt i samma kopplings utrymme som är anslutna till samma metaversum-objekt, måste prioriteten justeras. Om det finns flera objekt i omfånget för samma Synkroniseringsregel kan inte Synkroniseringsmotorn avgöra prioriteten. Det är tvetydigt vilket källobjektet ska bidra till värdet för metaversum. Den här konfigurationen rapporteras som tvetydig även om attributen i källan har samma värde.  
+![Flera objekt som är kopplade till samma MV-objekt](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
-I det här fallet måste du ändra omfattningen av synkroniseringsreglerna så att källobjekten har olika synkroniseringsregler i omfånget. Det gör att du kan definiera olika prioritet.  
-![Flera objekt kopplade till samma mv-objekt](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  
+I det här scenariot måste du ändra omfånget för reglerna för synkronisering, så att käll objekten har olika regler för synkronisering i omfånget. Det gör att du kan definiera en annan prioritet.  
+![Flera objekt som är kopplade till samma MV-objekt](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om uttrycksspråket i [Förstå deklarativa etableringsuttryck](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
-* Se hur deklarativ etablering används direkt i [Förstå standardkonfigurationen](concept-azure-ad-connect-sync-default-configuration.md).
-* Se hur du gör en praktisk ändring med deklarativ etablering i [Så här gör du en ändring av standardkonfigurationen](how-to-connect-sync-change-the-configuration.md).
-* Fortsätt att läsa hur användare och kontakter arbetar tillsammans i [Förstå användare och kontakter](concept-azure-ad-connect-sync-user-and-contacts.md).
+* Läs mer om uttrycks språket i [förstå deklarativ etablerings uttryck](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+* Se hur deklarativ etablering används direkt i [att förstå standard konfigurationen](concept-azure-ad-connect-sync-default-configuration.md).
+* Se hur du gör en praktisk ändring med deklarativ etablering i [hur du ändrar standard konfigurationen](how-to-connect-sync-change-the-configuration.md).
+* Fortsätt att läsa hur användare och kontakter fungerar tillsammans i [förstå användare och kontakter](concept-azure-ad-connect-sync-user-and-contacts.md).
 
-**Avsnitt om översikt**
+**Översikts avsnitt**
 
-* [Synkronisering av Azure AD Connect: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 
 **Referensämnen**
 
-* [Synkronisering av Azure AD Connect: Funktionsreferens](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect Sync: Functions reference](reference-connect-sync-functions-reference.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Gateway & Azure Data Box Edge 1906-versionsanteckningar| Microsoft-dokument
+title: Azure Data Box Gateway & Azure Data Box Edge 1906 viktig information | Microsoft Docs
 description: Beskriver kritiska öppna problem och lösningar för Azure Data Box Gateway och Azure Data Box Edge som kör 1906-versionen.
 services: databox
 author: alkohli
@@ -9,34 +9,34 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 69c905176a5beb1c7d442cd5f1a69161cd520c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71099491"
 ---
-# <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Azure Data Box Edge och Azure Data Box Gateway 1906-versionsanteckningar
+# <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Viktig information om Azure Data Box Edge och Azure Data Box Gateway 1906
 
-Följande versionsfakturor identifierar de kritiska öppna problemen och de lösta problemen för 1906-versionen för Azure Data Box Edge och Azure Data Box Gateway.
+I följande viktig information identifieras kritiska öppna problem och de lösta problemen för 1906-versionen för Azure Data Box Edge och Azure Data Box Gateway.
 
-Viktig information uppdateras kontinuerligt och när kritiska problem som kräver en lösning upptäcks läggs de till. Innan du distribuerar databoxens edge/databoxgateway bör du noggrant granska informationen i viktig information.
+Viktig information uppdateras kontinuerligt och eftersom kritiska problem som kräver en lösning upptäcks, läggs de till. Innan du distribuerar Data Box Edge/Data Box Gateway bör du gå igenom informationen i viktig information.
 
-Den här versionen motsvarar programvaruversionerna:
+Den här versionen motsvarar program varu versionerna:
 
 - **Data Box Gateway 1906 (1.6.978.743)**
 - **Data Box Edge 1906 (1.6.978.743)**
 
 > [!NOTE]
-> Uppdatering 1906 kan endast tillämpas på Data Box Edge-enheter som kör allmän tillgänglighet (GA) eller 1905-versionen av programvaran.
+> Uppdatering 1906 kan endast tillämpas på Data Box Edge enheter som kör allmän tillgänglighet (GA) eller 1905-versionen av program varan.
 
 ## <a name="whats-new"></a>Nyheter
 
-- **Buggfix i arbetsflödet för hantering av återställningsnyckel** - I den tidigare versionen fanns det ett fel som var beroende på vilket återställningsnyckeln inte tillämpades. Det här felet är åtgärdat i den här versionen. Vi rekommenderar starkt att du installerar den här uppdateringen eftersom återställningsnyckeln gör att du kan återställa data på enheten, i händelse av att enheten inte startar upp. Mer information finns i hur du [sparar återställningsnyckeln när du distribuerar Data Box Edge eller Data Box Gateway](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
-- **Fpga-loggningsförbättringar (Field Programmemable Gate Array)** - Från och med 1905 gjordes förbättringar av loggning och varning relaterade till FPGA. Detta fortsätter att vara en nödvändig uppdatering för Data Box Edge om du använder Edge-beräkningsfunktionen med FPGA. Mer information finns i hur du [omvandlar data med Edge-beräkning på din Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Fel korrigering i arbets flödet för återställnings nyckel hantering** – i den tidigare versionen uppstod ett fel på grund av att återställnings nyckeln inte användes. Den här buggen har åtgärd ATS i den här versionen. Vi rekommenderar starkt att du installerar den här uppdateringen eftersom återställnings nyckeln låter dig återställa data på enheten, i händelse av att enheten inte startar. Mer information finns i så här [sparar du återställnings nyckeln när du distribuerar data Box Edge eller data Box Gateway](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
+- **Förbättringar av FPGA-loggning (fält programmerbara grind mat ris)** – starta 1905 version, loggning och aviserings förbättringar relaterade till FPGA gjordes. Detta fortsätter att vara en nödvändig uppdatering för Data Box Edge om du använder Edge Compute-funktionen med FPGA. Mer information finns i så här [omvandlar du data med Edge Compute på din data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
 
-## <a name="known-issues-in-ga-release"></a>Kända problem i GA-utgåvan
+## <a name="known-issues-in-ga-release"></a>Kända problem i GA-versionen
 
-Inga nya problem är kända för den här versionen. Alla release noterade frågor har fört över från tidigare utgåvor. Om du vill se en lista över kända problem går du till [Kända problem i GA-versionen](data-box-gateway-release-notes.md#known-issues-in-ga-release).
+Inga nya problem har antecknats för den här versionen. Alla eventuella problem som har antecknats har överförts från tidigare versioner. Om du vill se en lista över kända problem går du till [kända problem i ga-versionen](data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
 
 ## <a name="next-steps"></a>Nästa steg

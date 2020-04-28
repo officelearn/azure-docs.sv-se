@@ -1,6 +1,6 @@
 ---
-title: Skuggattribut för Azure AD Connect-synkroniseringstjänst | Microsoft-dokument
-description: Beskriver hur skuggattribut fungerar i synkroniseringstjänsten Azure AD Connect.
+title: Azure AD Connect Shadow-attribut för synkroniseringstjänst | Microsoft Docs
+description: Beskriver hur skugg-attribut fungerar i Azure AD Connect Sync service.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,63 +17,63 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60384719"
 ---
-# <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Skugga attribut för Azure AD Connect-synkroniseringstjänst
-De flesta attribut representeras på samma sätt i Azure AD som i din lokala Active Directory. Men vissa attribut har viss speciell hantering och attributvärdet i Azure AD kan skilja sig från vad Azure AD Connect synkroniserar.
+# <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect Shadow-attribut för synkroniseringstjänst
+De flesta attributen visas på samma sätt i Azure AD som i din lokala Active Directory. Men vissa attribut har viss specifik hantering och attributvärdet i Azure AD kan skilja sig från vad som Azure AD Connect synkroniseras.
 
-## <a name="introducing-shadow-attributes"></a>Introduktion till skuggattribut
-Vissa attribut har två representationer i Azure AD. Både det lokala värdet och ett beräknat värde lagras. Dessa extra attribut kallas skuggattribut. De två vanligaste attributen där du ser det här beteendet är **userPrincipalName** och **proxyAddress**. Ändringen av attributvärden sker när det finns värden i dessa attribut som representerar icke-verifierade domäner. Men synkroniseringsmotorn i Connect läser värdet i skuggattributet så ur sitt perspektiv har attributet bekräftats av Azure AD.
+## <a name="introducing-shadow-attributes"></a>Introduktion till skugg egenskaper
+Vissa attribut har två representationer i Azure AD. Både det lokala värdet och ett beräknat värde lagras. Dessa extra attribut kallas skugg egenskaper. De två vanligaste attributen där du ser det här beteendet är **userPrincipalName** och **proxyAddress**. Värdena för ändring av attribut inträffar när det finns värden i dessa attribut som representerar icke-verifierade domäner. Men Synkroniseringsmotorn i Connect läser in värdet i attributet Shadow, så från dess perspektiv, attributet har bekräftats av Azure AD.
 
-Du kan inte se skuggattributen med Azure-portalen eller med PowerShell. Men att förstå konceptet hjälper dig att felsöka vissa scenarier där attributet har olika värden lokalt och i molnet.
+Du kan inte se Shadow-attributen med hjälp av Azure Portal eller med PowerShell. Men om du förstår konceptet kan du felsöka vissa scenarier där attributet har olika värden lokalt och i molnet.
 
-Om du vill bättre förstå beteendet kan du titta på det här exemplet från Fabrikam:  
+För att bättre förstå beteendet kan du titta på det här exemplet från Fabrikam:  
 ![Domäner](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
-De har flera UPN-suffix i sin lokala Active Directory, men de har bara verifierat en.
+De har flera UPN-suffix i sina lokala Active Directory, men de har bara verifierat ett.
 
 ### <a name="userprincipalname"></a>userPrincipalName
 En användare har följande attributvärden i en icke-verifierad domän:
 
 | Attribut | Värde |
 | --- | --- |
-| lokalt användarePrincipalNamn | lee.sperry@fabrikam.com |
-| Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD-användarePrincipalNamn | lee.sperry@fabrikam.onmicrosoft.com |
+| lokalt userPrincipalName | lee.sperry@fabrikam.com |
+| Azure AD-shadowUserPrincipalName | lee.sperry@fabrikam.com |
+| Azure AD userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
 
 Attributet userPrincipalName är det värde som visas när du använder PowerShell.
 
-Eftersom det verkliga lokala attributvärdet lagras i Azure AD, när du verifierar fabrikam.com-domänen, uppdaterar Azure AD attributet userPrincipalName med värdet från shadowUserPrincipalName. Du behöver inte synkronisera några ändringar från Azure AD Connect för att dessa värden ska uppdateras.
+Eftersom det verkliga värdet för det lokala attributvärdet lagras i Azure AD, uppdaterar Azure AD attributet userPrincipalName med värdet från shadowUserPrincipalName. Du behöver inte synkronisera några ändringar från Azure AD Connect för att dessa värden ska uppdateras.
 
 ### <a name="proxyaddresses"></a>proxyAddresses
-Samma process för att endast inkludera verifierade domäner förekommer också för proxyAddresses, men med ytterligare logik. Kontrollen efter verifierade domäner sker bara för postlådeanvändare. En e-postaktiverad användare eller kontakt representerar en användare i en annan Exchange-organisation och du kan lägga till alla värden i proxyAdresser till dessa objekt.
+Samma process för att bara inkludera verifierade domäner sker också för proxyAddresses, men med en viss ytterligare logik. Kontrollen av verifierade domäner sker bara för Mailbox-användare. En e-postaktiverad användare eller kontakt representerar en användare i en annan Exchange-organisation och du kan lägga till värden i proxyAddresses till dessa objekt.
 
-För en postlådeanvändare, antingen lokalt eller i Exchange Online, visas endast värden för verifierade domäner. Det kan se ut så här:
+För en Mailbox-användare, antingen lokalt eller i Exchange Online visas bara värden för verifierade domäner. Det kan se ut så här:
 
 | Attribut | Värde |
 | --- | --- |
-| lokala proxyAdresser | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
-| Exchange Online proxyAdresser | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
+| lokala proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
+| Exchange Online-proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-I det här fallet **smtp:abbie.spencer\@fabrikam.com** togs bort eftersom domänen inte har verifierats. Men Exchange la också **SIP:\@abbie.spencer fabrikamonline.com**. Fabrikam har inte använt Lync/Skype lokalt, men Azure AD och Exchange Online förbereder sig för det.
+I det här fallet har **SMTP: Abbie\@. Spencer-fabrikam.com** tagits bort eftersom domänen inte har verifierats. Men Exchange har även lagt till **SIP: Abbie\@. Spencer fabrikamonline.com**. Fabrikam har inte använt Lync/Skype lokalt, men Azure AD och Exchange Online Förbered dig för det.
 
-Den här logiken för proxyAddresses kallas **ProxyCalc**. ProxyCalc anropas vid varje ändring på en användare när:
+Den här logiken för proxyAddresses kallas **ProxyCalc**. ProxyCalc anropas med varje ändring av en användare när:
 
-- Användaren har tilldelats en serviceplan som innehåller Exchange Online även om användaren inte har licensierats för Exchange. Om användaren till exempel har tilldelats Office E3 SKU, men bara tilldelats SharePoint Online. Detta gäller även om postlådan fortfarande är lokalt.
+- Användaren har tilldelats en service plan som innehåller Exchange Online även om användaren inte har licens för Exchange. Till exempel om användaren har tilldelats Office E3 SKU, men bara tilldelats SharePoint Online. Detta gäller även om din post låda fortfarande finns lokalt.
 - Attributet msExchRecipientTypeDetails har ett värde.
-- Du kan ändra proxyAdresser eller userPrincipalName.
+- Du gör en ändring i proxyAddresses eller userPrincipalName.
 
-ProxyCalc kan ta lite tid att bearbeta en ändring på en användare och är inte synkron med Azure AD Connect-exportprocessen.
+ProxyCalc kan ta lite tid att bearbeta en ändring av en användare och är inte synkron med Azure AD Connect export processen.
 
 > [!NOTE]
-> ProxyCalc-logiken har några ytterligare beteenden för avancerade scenarier som inte dokumenteras i det här avsnittet. Det här avsnittet tillhandahålls för att du ska förstå beteendet och inte dokumentera all intern logik.
+> ProxyCalc Logic har vissa ytterligare beteenden för avancerade scenarier som inte dokumenterats i det här avsnittet. I det här avsnittet finns information om hur du kan förstå beteendet och inte dokumentera all intern logik.
 
 ### <a name="quarantined-attribute-values"></a>Attributvärden i karantän
-Skuggattribut används också när det finns dubblettattributvärden. Mer information finns i [dubblettattributets återhämtning](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
+Skugg-attribut används också när det finns duplicerade attributvärden. Mer information finns i [duplicerat attribut återhämtning](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="see-also"></a>Se även
-* [Synkronisering av Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Azure AD Connect synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

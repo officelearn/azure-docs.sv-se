@@ -1,8 +1,8 @@
 ---
-title: Översikt över affärskontinuitet
+title: Översikt över affärs kontinuitet
 titleSuffix: Microsoft Genomics
-description: I den här översikten beskrivs de funktioner som Microsoft Genomics tillhandahåller för affärskontinuitet och haveriberedskap.
-keywords: kontinuitet i verksamheten, katastrofåterställning
+description: Den här översikten beskriver de funktioner som Microsoft Genomics tillhandahåller för affärs kontinuitet och haveri beredskap.
+keywords: verksamhets kontinuitet, haveri beredskap
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -11,39 +11,39 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72249180"
 ---
-# <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Översikt över affärskontinuitet med Microsoft Genomics
-I den här översikten beskrivs de funktioner som Microsoft Genomics tillhandahåller för affärskontinuitet och haveriberedskap. Lär dig mer om alternativ för återställning från störande händelser, till exempel ett avbrott i Azure-regionen, som kan orsaka dataförlust. 
+# <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Översikt över affärs kontinuitet med Microsoft Genomics
+Den här översikten beskriver de funktioner som Microsoft Genomics tillhandahåller för affärs kontinuitet och haveri beredskap. Lär dig mer om alternativ för att återskapa från störande händelser, till exempel ett avbrott i Azure-regionen, som kan orsaka data förlust. 
 
 
-## <a name="microsoft-genomics-features-that-support-business-continuity"></a>Microsoft Genomics-funktioner som stöder affärskontinuitet 
-Även om det är sällsynt kan ett Azure-datacenter ha ett avbrott, vilket kan orsaka ett avbrott i verksamheten som kan pågå några minuter till några timmar. När ett avbrott inträffar misslyckas alla jobb som körs i datacentret och Microsoft Genomics-tjänsten skickar inte automatiskt jobb till en sekundär region. 
+## <a name="microsoft-genomics-features-that-support-business-continuity"></a>Microsoft Genomics funktioner som stöder affärs kontinuitet 
+Även om det är sällsynt kan ett Azure-datacenter ha ett avbrott, vilket kan orsaka ett affärs avbrott som kan uppstå några minuter till några timmar. När ett avbrott uppstår kommer inte alla jobb som körs i data centret att fungera, och tjänsten Microsoft Genomics skickar inte automatiskt om jobb till en sekundär region. 
 
-* Ett alternativ är att vänta på att datacentret är online igen när datacentrets avbrott är över. Om avbrottet är kort identifierar Microsoft Genomics-tjänsten automatiskt de misslyckade jobben och arbetsflödet startas om automatiskt.
+* Ett alternativ är att vänta tills data centret kommer tillbaka online när avbrott i data centret är över. Om avbrottet är kort identifierar Microsoft Genomics tjänsten automatiskt de misslyckade jobben och arbets flödet startas om automatiskt.
 
-* Ett annat alternativ är att proaktivt skicka arbetsflödet i en annan dataregion. Microsoft Genomics distribuerar instanser i flera [Azure-regioner](https://azure.microsoft.com/regions/services/)och varje regionspecifik instans är oberoende. Om en av Microsoft Genomics-instanserna drabbas av ett lokalt regionfel fortsätter andra regioner som kör instanser av Microsoft Genomics att bearbeta jobb. Denna överföring till en alternativ region är under användarens kontroll och tillgänglig när som helst.
+* Ett annat alternativ är att proaktivt Skicka arbets flödet i ett annat data område. Microsoft Genomics distribuerar instanser i flera [Azure-regioner](https://azure.microsoft.com/regions/services/)och varje landsspecifika instans är oberoende. Om någon av de Microsoft Genomics instanserna får ett lokalt regions problem fortsätter andra regioner som kör Microsoft Genomicss instanser att bearbeta jobb. Den här överföringen till en alternativ region kontrol leras av användaren och är tillgänglig när som helst.
 
 
-### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Manuellt redundans Microsoft Genomics-arbetsflöden till en annan region
-Om ett regionalt datacenter avbrott inträffar kan du välja att skicka in Microsoft Genomics-arbetsflöden i en sekundär region, baserat på din individuella datasuveränitet och krav på affärskontinuitet. Om du vill redundan Microsoft Genomics-arbetsflöden manuellt använder du en annan regionspecifik. Genomics-konto och skicka jobbet med lämpliga regionspecifika genomik- och lagringskontouppgifter.
+### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Redundansväxla Microsoft Genomics arbets flöden manuellt till en annan region
+Om ett regionalt Data Center avbrott inträffar kan du välja att skicka Microsoft Genomics arbets flöden i en sekundär region, baserat på dina individuella krav på data suveränitet och affärs kontinuitet. Om du vill redundansväxla Microsoft Genomics arbets flöden manuellt kan du använda en annan regions information. Genomiks konto och skicka jobbet med lämpliga landsspecifika enkäter och autentiseringsuppgifter för lagrings kontot.
 
-Specifikt måste du:
-* Skapa ett genomikkonto i den sekundära regionen med hjälp av Azure-portalen. 
-* Migrera indata till ett lagringskonto i den sekundära regionen och konfigurera en utdatamapp i den sekundära regionen.
-* Skicka arbetsflödet i den sekundära regionen.
+Mer specifikt behöver du:
+* Skapa ett genomik-konto i den sekundära regionen med hjälp av Azure Portal. 
+* Migrera indata till ett lagrings konto i den sekundära regionen och konfigurera en mapp för utdata i den sekundära regionen.
+* Skicka arbets flödet i den sekundära regionen.
 
-När den ursprungliga regionen återställs migrerar inte Microsoft Genomics-tjänsten data från den sekundära regionen tillbaka till den ursprungliga regionen. Du kan välja att flytta in- och utdatafilerna från den sekundära regionen tillbaka till den ursprungliga regionen.  Om du väljer att flytta deras data ligger detta utanför Genomics-tjänsten och alla avgifter relaterade till dataförflyttningen skulle vara ditt ansvar. 
+När den ursprungliga regionen återställs migrerar Microsoft Genomics tjänsten inte data från den sekundära regionen tillbaka till den ursprungliga regionen. Du kan välja att flytta indata-och utdatafiler från den sekundära regionen tillbaka till den ursprungliga regionen.  Om du väljer att flytta data är detta utanför Genomiks tjänsten och alla kostnader som rör data flytten är ditt ansvar. 
 
-### <a name="preparing-for-a-possible-region-specific-outage"></a>Förberedelser för ett eventuellt regionspecifikt avbrott
-Om du är orolig för snabbare återställning vid avbrott i ett datacenter finns det några steg du kan vidta för att minska den tid det tar för dig att manuellt skicka in dina Microsoft Genomics-arbetsflöden till en sekundär region:
+### <a name="preparing-for-a-possible-region-specific-outage"></a>Förbereda för ett eventuellt landsspecifika avbrott
+Om du är orolig över snabbare återställningar när det gäller ett avbrott i data centret, finns det några steg som du kan vidta för att minska den tid det tar att skicka in Microsoft Genomics arbets flöden manuellt till en sekundär region:
 
-* Identifiera en lämplig sekundär region och proaktivt skapa ett genomikkonto i den regionen
-* Duplicera dina data i den primära och sekundära regionen så att dina data omedelbart är tillgängliga i den sekundära regionen. Detta kan göras manuellt eller med hjälp av den [geo-redundanta lagringsfunktionen](https://docs.microsoft.com/azure/storage/common/storage-redundancy) som är tillgänglig i Azure-lagring. 
+* Identifiera en lämplig sekundär region och pro-aktivt skapa ett genomik-konto i den regionen
+* Duplicera dina data i den primära och den sekundära regionen så att dina data omedelbart är tillgängliga i den sekundära regionen. Detta kan göras manuellt eller med hjälp av den [geo-redundanta lagrings](https://docs.microsoft.com/azure/storage/common/storage-redundancy) funktionen som är tillgänglig i Azure Storage. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln fick du lära dig om dina alternativ för affärskontinuitet och haveriberedskap när du använder Microsoft Genomics-tjänsten. Mer information om affärskontinuitet och haveriberedskap i Azure i allmänhet finns i [Teknisk vägledning för Azure resiliency.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+I den här artikeln har du lärt dig om dina alternativ för verksamhets kontinuitet och haveri beredskap när du använder tjänsten Microsoft Genomics. Mer information om verksamhets kontinuitet och haveri beredskap i Azure i allmänhet finns i [teknisk vägledning för Azure-återhämtning.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 

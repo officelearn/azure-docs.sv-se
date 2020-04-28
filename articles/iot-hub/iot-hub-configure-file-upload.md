@@ -1,6 +1,6 @@
 ---
-title: Använd Azure-portalen för att konfigurera filöverföring | Microsoft-dokument
-description: Så här använder du Azure-portalen för att konfigurera IoT-hubben för att aktivera filöverföringar från anslutna enheter. Innehåller information om hur du konfigurerar azure-lagringskontot för målet.
+title: Använd Azure Portal för att konfigurera fil uppladdning | Microsoft Docs
+description: Använda Azure Portal för att konfigurera IoT Hub för att aktivera fil överföringar från anslutna enheter. Innehåller information om hur du konfigurerar målets Azure Storage-konto.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,48 +9,48 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60735053"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Konfigurera IoT Hub-filuppladdningar med Azure-portalen
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-## <a name="file-upload"></a>Ladda upp filer
+## <a name="file-upload"></a>Fil uppladdning
 
-Om du vill använda [filöverföringsfunktionen i IoT Hub](iot-hub-devguide-file-upload.md)måste du först associera ett Azure Storage-konto med din hubb. Välj **Filöverföring** om du vill visa en lista över filöverföringsegenskaper för IoT-hubben som ändras.
+Om du vill använda [fil uppladdnings funktionen i IoT Hub](iot-hub-devguide-file-upload.md)måste du först associera ett Azure Storage-konto med hubben. Välj **fil uppladdning** om du vill visa en lista över fil överförings egenskaper för IoT Hub som ändras.
 
-![Visa inställningar för uppladdning av IoT Hub-filer i portalen](./media/iot-hub-configure-file-upload/file-upload-settings.png)
+![Visa IoT Hub fil överförings inställningar i portalen](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-* **Lagringsbehållare**: Använd Azure-portalen för att välja en blob-behållare i ett Azure Storage-konto i din aktuella Azure-prenumeration för att associera med din IoT Hub. Om det behövs kan du skapa ett Azure Storage-konto på **bladet Lagringskonton** och blob-behållaren på **bladet Behållare.** IoT Hub genererar automatiskt SAS-urier med skrivbehörighet till den här blob-behållaren för enheter som ska användas när de laddar upp filer.
+* **Lagrings behållare**: Använd Azure Portal för att välja en BLOB-behållare i ett Azure Storage konto i din aktuella Azure-prenumeration som ska associeras med din IoT Hub. Om det behövs kan du skapa ett Azure Storage-konto på bladet **lagrings konton** och blob-behållaren på bladet **behållare** . IoT Hub skapar automatiskt SAS-URI: er med Skriv behörighet till den här BLOB-behållaren för enheter som ska användas när de laddar upp filer.
 
-   ![Visa lagringsbehållare för filöverföring i portalen](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
+   ![Visa lagrings behållare för fil uppladdning i portalen](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-* **Ta emot meddelanden för uppladdade filer**: Aktivera eller inaktivera meddelanden om filuppladdning via växlingsknappen.
+* **Ta emot meddelanden om överförda filer**: Aktivera eller inaktivera fil överförings aviseringar via växlingen.
 
-* **SAS TTL**: Den här inställningen är tid att leva på SAS-URI:er som returneras till enheten av IoT Hub. Ange till en timme som standard men kan anpassas till andra värden med hjälp av skjutreglaget.
+* **SAS-TTL**: den här inställningen är TTL-värdet för de SAS-URI: er som returnerades till enheten med IoT Hub. Ställ in på en timme som standard, men kan anpassas till andra värden med hjälp av skjutreglaget.
 
-* **Filmeddelandeinställningar standard TTL:** Tid till live för en filuppladdning meddelande innan den har löpt ut. Ange till en dag som standard men kan anpassas till andra värden med hjälp av skjutreglaget.
+* **Inställningar för fil meddelanden standard TTL: TTL-värde**för fil överföring innan det upphör att gälla. Ställ in på en dag som standard, men kan anpassas till andra värden med hjälp av skjutreglaget.
 
-* **Antal maximala leveransleveranser**för filmeddelanden : Antalet gånger IoT Hub försöker leverera ett meddelande om filöverföring. Ange till 10 som standard men kan anpassas till andra värden med hjälp av skjutreglaget.
+* **Maximalt antal leveranser för fil meddelanden**: antalet gånger som IoT Hub försöker leverera ett meddelande om fil överföring. Ange till 10 som standard, men kan anpassas till andra värden med skjutreglaget.
 
-   ![Konfigurera IoT Hub-filöverföring i portalen](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
+   ![Konfigurera IoT Hub fil uppladdning i portalen](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om filöverföringsfunktionerna för IoT Hub finns i [Ladda upp filer från en enhet](iot-hub-devguide-file-upload.md) i utvecklarhandboken för IoT Hub.
+Mer information om fil överförings funktionerna i IoT Hub finns i [överföra filer från en enhet](iot-hub-devguide-file-upload.md) i guiden för utvecklare av IoT Hub.
 
-Följ de här länkarna om du vill veta mer om hur du hanterar Azure IoT Hub:
+Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub-mått](iot-hub-metrics.md)
+* [IoT Hub mått](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
-Mer information om hur du utforskar funktionerna i IoT Hub finns i:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Utvecklarhandledning för IoT Hub](iot-hub-devguide.md)
+* [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
 * [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Säkra din IoT-lösning från grunden](../iot-fundamentals/iot-security-ground-up.md)
+* [Skydda din IoT-lösning från grunden](../iot-fundamentals/iot-security-ground-up.md)

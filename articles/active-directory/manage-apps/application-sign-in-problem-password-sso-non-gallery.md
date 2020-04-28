@@ -1,6 +1,6 @@
 ---
-title: Lösenordsbaserad enkel inloggning (SSO) i Åtkomstpanelen | Microsoft-dokument
-description: I artikeln beskrivs problemområden som ger vägledning för att felsöka problem relaterade till inloggning till Azure AD Gallery-program som konfigurerats för enkel inloggning med lösenord.
+title: Lösenordsbaserad enkel inloggning (SSO) i åtkomst panelen | Microsoft Docs
+description: Diskuterar problemområden som ger vägledning för fel sökning av problem som rör inloggning i Azure AD Gallery-program som kon figurer ATS för enkel inloggning med lösen ord.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,187 +17,187 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68381233"
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problem med att logga in på ett Azure AD Gallery-program som konfigurerats för enkel inloggning för lösenord
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problem med att logga in till ett Azure AD Gallery-program som kon figurer ATS för enkel inloggning med lösen ord
 
-Åtkomstpanelen är en webbaserad portal som gör det möjligt för en användare som har ett arbets- eller skolkonto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har gett dem åtkomst till. En användare som har Azure AD-versioner kan också använda funktioner för självbetjäningsgrupp och apphantering via åtkomstpanelen. Åtkomstpanelen är skild från Azure-portalen och kräver inte att användare har en Azure-prenumeration.
+Åtkomst panelen är en webbaserad portal som gör det möjligt för en användare som har ett arbets-eller skol konto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har beviljat åtkomst till. En användare som har Azure AD-versioner kan också använda funktioner för självbetjänings grupp och program hantering via åtkomst panelen. Åtkomst panelen är separat från Azure Portal och kräver inte att användare har en Azure-prenumeration.
 
-Om du vill använda lösenordsbaserad enkel inloggning (SSO) på åtkomstpanelen måste tillägget för åtkomstpanelen installeras i användarens webbläsare. Det här tillägget hämtas automatiskt när en användare väljer ett program som är konfigurerat för lösenordsbaserad SSO.
+Om du vill använda lösenordsbaserad enkel inloggning (SSO) i åtkomst panelen måste åtkomst panels tillägget vara installerat i användarens webbläsare. Det här tillägget hämtas automatiskt när en användare väljer ett program som har kon figurer ATS för lösenordsbaserad SSO.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Uppfyller webbläsarkraven för åtkomstpanelen
+## <a name="meeting-browser-requirements-for-the-access-panel"></a>Mötes webbläsarens krav på åtkomst panelen
 
-Åtkomstpanelen kräver en webbläsare som stöder JavaScript och har CSS aktiverat. Om du vill använda lösenordsbaserad enkel inloggning (SSO) på åtkomstpanelen måste tillägget för åtkomstpanelen installeras i användarens webbläsare. Det här tillägget hämtas automatiskt när en användare väljer ett program som är konfigurerat för lösenordsbaserad SSO.
+Åtkomst panelen kräver en webbläsare som stöder Java Script och har CSS aktiverat. Om du vill använda lösenordsbaserad enkel inloggning (SSO) i åtkomst panelen måste åtkomst panels tillägget vara installerat i användarens webbläsare. Det här tillägget hämtas automatiskt när en användare väljer ett program som har kon figurer ATS för lösenordsbaserad SSO.
 
-För lösenordsbaserad SSO kan slutanvändarens webbläsare vara:
+För lösenordsbaserad SSO kan användarens webbläsare vara:
 
 -   Internet Explorer 8, 9, 10, 11 – på Windows 7 eller senare
 
 -   Chrome – på Windows 7 eller senare och på MacOS X eller senare
 
--   Firefox 26.0 eller senare – på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare
+-   Firefox 26,0 eller senare –-på Windows XP SP2 eller senare och på Mac OS X 10,6 eller senare
 
 >[!NOTE]
->Det lösenordsbaserade SSO-tillägget blir tillgängligt för Microsoft Edge i Windows 10 när webbläsartillägg stöds för Microsoft Edge.
+>Det lösenordsbaserade SSO-tillägget blir tillgängligt för Microsoft Edge i Windows 10 när webb läsar tillägg stöds för Microsoft Edge.
 >
 >
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Så här installerar du webbläsartillägget för åtkomstpanelen
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Så här installerar du åtkomst panelens webb läsar tillägg
 
-Så här installerar du webbläsartillägget för åtkomstpanelen:
+Om du vill installera åtkomst panelens webb läsar tillägg följer du stegen nedan:
 
-1.  Öppna [åtkomstpanelen](https://myapps.microsoft.com) i en av webbläsarna som stöds och logga in som **användare** i din Azure AD.
+1.  Öppna [åtkomst panelen](https://myapps.microsoft.com) i någon av de webbläsare som stöds och logga in som en **användare** i Azure AD.
 
-2.  klicka på ett **lösenords-SSO-program** på åtkomstpanelen.
+2.  Klicka på ett **Password-SSO-program** på åtkomst panelen.
 
-3.  I prompten som ber om att installera programvaran väljer du **Installera nu**.
+3.  I uppmana att du uppmanas att installera program varan väljer du **Installera nu**.
 
-4.  Baserat på din webbläsare dirigeras du till nedladdningslänken. **Lägg till** tillägget i webbläsaren.
+4.  Baserat på din webbläsare dirigeras du till nedladdnings länken. **Lägg till** tillägget i webbläsaren.
 
-5.  Om webbläsaren frågar väljer du att **aktivera** eller **tillåt** tillägget.
+5.  Om webbläsaren frågar väljer du antingen **Aktivera** eller **Tillåt** tillägget.
 
-6.  Starta om webbläsarsessionen **när** den har installerats.
+6.  **Starta om** webbläsarsessionen när den har installerats.
 
-7.  Logga in på åtkomstpanelen och se om du kan **starta** dina lösenords-SSO-program
+7.  Logga in på åtkomst panelen och se om du kan **Starta** dina inloggnings program för lösen ord
 
-Du kan också ladda ner tillägget för Chrome och Firefox från de direkta länkarna nedan:
+Du kan också ladda ned tillägget för Chrome och Firefox från de direkta länkarna nedan:
 
--   [Tillägg till panelen Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Tillägg för Chrome Access panel](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Tillägg till Firefox-åtkomstpanelen](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Åtkomst panels tillägg för Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Konfigurera en grupprincip för Internet Explorer
+## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Konfigurera en grup princip för Internet Explorer
 
-Du kan ställa in en gruppprincip som gör att du kan fjärrinstallation av tillägget för åtkomstpanelen för Internet Explorer på användarnas datorer.
+Du kan konfigurera en grup princip som gör att du kan fjärrinstallera åtkomst panels tillägget för Internet Explorer på användarnas datorer.
 
-Förutsättningarna inkluderar:
+Kraven är:
 
--   Du har konfigurerat [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)och du har anslutit användarnas datorer till domänen.
+-   Du har konfigurerat [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)och du har anslutit användarnas datorer till din domän.
 
--   Du måste ha behörigheten "Redigera inställningar" för att kunna redigera grupprincipobjektet. Som standard har medlemmar i följande säkerhetsgrupper den här behörigheten: Domänadministratörer, företagsadministratörer och ägare av grupprincipskapare. [Läs mer](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Du måste ha behörigheten "Redigera inställningar" för att kunna redigera grupprincip-objektet (GPO). Som standard har medlemmar i följande säkerhets grupper den här behörigheten: domän administratörer, företags administratörer och grupprincip Skapare ägare. [Läs mer](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Följ självstudien [Så här distribuerar du tillägg till åtkomstpanelen för Internet Explorer med grupprincip](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) för steg för steg instruktioner om hur du konfigurerar grupprincipen och distribuerar den till användare.
+Följ självstudien så [här distribuerar du åtkomst panels tillägget för Internet Explorer med hjälp av Grupprincip](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) för steg-för-steg-instruktioner om hur du konfigurerar grup principen och distribuerar den till användare.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Felsöka åtkomstpanelen i Internet Explorer
+## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Felsöka åtkomst panelen i Internet Explorer
 
-Följ [guiden Felsöka tillägg till Åtkomstpanelen för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) för åtkomst till ett diagnostikverktyg och steg för steg instruktioner om hur du konfigurerar tillägget för IE.
+Följ [fel söknings tillägget åtkomst panel för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) för att få åtkomst till ett diagnostik-verktyg och stegvisa anvisningar om hur du konfigurerar tillägget för Internet Explorer.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Konfigurera lösenordsbaserad inloggning för ett program som inte är galleri
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du enkel inloggning för lösen ord för ett program som inte är ett galleri program
 
 Om du vill konfigurera ett program från Azure AD-galleriet måste du:
 
--   [Lägga till ett program som inte är galleri](#add-a-non-gallery-application)
+-   [Lägg till ett program som inte är ett galleri program](#add-a-non-gallery-application)
 
--   [Konfigurera programmet för enkel inloggning för lösenord](#configure-the-application-for-password-single-sign-on)
+-   [Konfigurera programmet för enkel inloggning med lösen ord](#configure-the-application-for-password-single-sign-on)
 
 -   [Tilldela användare till programmet](#assign-users-to-the-application)
 
-### <a name="add-a-non-gallery-application"></a>Lägga till ett program som inte är galleri
+### <a name="add-a-non-gallery-application"></a>Lägg till ett program som inte är ett galleri program
 
-Så här lägger du till ett program från Azure AD Gallery:
+Följ stegen nedan om du vill lägga till ett program i Azure AD-galleriet:
 
-1.  Öppna [Azure-portalen](https://portal.azure.com) och logga in som **global administratör** eller **medadministratör**
+1.  Öppna [Azure Portal](https://portal.azure.com) och logga in som **Global administratör** eller **medadministratör**
 
-2.  Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3.  Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4.  Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **Företagsprogram.**
+5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **företags program** .
 
-6.  Klicka på **Program för icke-galleri.**
+6.  Klicka på **program som inte är Galleri.**
 
-7.  Ange namnet på programmet i textrutan **Namn.** Välj **Lägg till.**
+7.  Ange namnet på ditt program i text rutan **namn** . Välj **Lägg till.**
 
-Efter en kort period kan du se programmets konfigurationsfönster.
+Efter en kort period kan du se programmets konfigurations fönster.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Konfigurera programmet för enkel inloggning för lösenord
+### <a name="configure-the-application-for-password-single-sign-on"></a>Konfigurera programmet för enkel inloggning med lösen ord
 
-Så här konfigurerar du enkel inloggning för ett program:
+Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör** eller **medadministratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
 6. Välj det program som du vill konfigurera enkel inloggning
 
-7. När programmet har läses in klickar du **på enkel inloggning** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-8. Välj läge **Lösenordsbaserad inloggning.**
+8. Välj läge för **lösenordsbaserad inloggning.**
 
-9. Ange **inloggnings-URL.** Det här är webbadressen där användarna anger sitt användarnamn och lösenord för att logga in på. Kontrollera att inloggningsfälten visas på webbadressen.
+9. Ange **inloggnings-URL: en**. Detta är URL: en där användarna anger sitt användar namn och lösen ord för att logga in på. Se till att inloggnings fälten är synliga i URL: en.
 
 10. Tilldela användare till programmet.
 
-11. Dessutom kan du också ange autentiseringsuppgifter för användaren genom att välja användarnas rader och klicka på **Uppdatera autentiseringsuppgifter** och ange användarnamn och lösenord för användarnas räkning. Annars uppmanas användarna att ange autentiseringsuppgifterna själva vid lanseringen.
+11. Dessutom kan du ange autentiseringsuppgifter för användarens räkning genom att markera användarens rader och klicka på **uppdatera autentiseringsuppgifter** och ange användar namn och lösen ord för användarnas räkning. Annars uppmanas användarna att ange sina autentiseringsuppgifter vid start.
 
 ### <a name="assign-users-to-the-application"></a>Tilldela användare till programmet
 
-Så här tilldelar du en eller flera användare ett program direkt:
+Om du vill tilldela en eller flera användare till ett program direkt följer du stegen nedan:
 
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
 
-   * Om du inte ser det program du vill visa här använder du **filterkontrollen** högst upp i **listan Alla program** och anger alternativet **Visa** till **Alla program.**
+   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
 
-6. Välj det program som du vill tilldela en användare till i listan.
+6. Välj det program som du vill tilldela en användare till från listan.
 
-7. När programmet har läses in klickar du på **Användare och grupper** från programmets navigeringsmeny till vänster.
+7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigerings meny.
 
-8. Klicka på knappen **Lägg** till högst upp i listan **Användare och grupper** för att öppna fönstret Lägg till **tilldelning.**
+8. Klicka på knappen **Lägg till** överst i listan **användare och grupper** för att öppna fönstret **Lägg till tilldelning** .
 
-9. Klicka på väljaren **Användare och grupper** i fönstret Lägg till **tilldelning.**
+9. Klicka på Välj **användare och grupper** i fönstret **Lägg till tilldelning** .
 
-10. Skriv in det **fullständiga namnet** eller **e-postadressen** till den användare som du är intresserad av att tilldela sökrutan Sök efter **namn eller e-postadress.**
+10. Skriv in det **fullständiga namnet** eller **e-postadressen** för den användare som du är intresse rad av att tilldela till sökrutan **Sök efter namn eller e-postadress** .
 
-11. Hovra över **användaren** i listan för att visa en **kryssruta**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp om du vill lägga till användaren i listan **Markerad.**
+11. Hovra över **användaren** i listan för att visa en **kryss ruta**. Klicka på kryss rutan bredvid användarens profil bild eller logo typ för att lägga till din användare i den **markerade** listan.
 
-12. **Valfritt:** Om du vill lägga till **fler än en användare**skriver du in ett annat fullständigt namn eller en annan **fullständig** **adress** i sökrutan Sök efter namn **eller e-postadress** och klickar på kryssrutan om du vill lägga till den här användaren i listan **Markerad.**
+12. **Valfritt:** Om du vill **lägga till fler än en användare**skriver du in ett annat **fullständigt namn** eller **e-postadress** i sökrutan **Sök efter namn eller e-postadress** och klickar sedan på kryss rutan för att lägga till användaren i den **markerade** listan.
 
-13. När du är klar med att välja användare klickar du på knappen **Välj** om du vill lägga till dem i listan över användare och grupper som ska tilldelas programmet.
+13. När du är färdig med att välja användare klickar du på knappen **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
-14. **Valfritt:** Klicka på **selectorn Välj roll** i fönstret Lägg till **tilldelning** om du vill välja en roll som du vill tilldela de användare som du har markerat.
+14. **Valfritt:** Klicka på **Välj roll** väljare i fönstret **Lägg till tilldelning** för att välja en roll som ska tilldelas de användare som du har valt.
 
-15. Klicka på knappen **Tilldela** om du vill tilldela programmet till de markerade användarna.
+15. Klicka på knappen **tilldela** för att tilldela programmet till de valda användarna.
 
-Efter en kort period kan de användare som du har valt starta dessa program på åtkomstpanelen.
+Efter en kort period kan de användare du har valt kunna starta dessa program på åtkomst panelen.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Om dessa felsökningssteg inte löser problemet
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Om de här fel söknings stegen inte löser problemet
 
-öppna en supportbiljett med följande information om sådan finns:
+öppna ett support ärende med följande information om den är tillgänglig:
 
--   Korrelationsfel-ID
+-   Korrelations fel-ID
 
 -   UPN (användarens e-postadress)
 
--   TenantID (Klient-ID)
+-   TenantID
 
 -   Typ av webbläsare
 
--   Tidszon och tid/tidsram under fel inträffar
+-   Tidszon och tid/tidsram vid fel inträffar
 
--   Spelman spår
+-   Fiddler-spår
 
 ## <a name="next-steps"></a>Nästa steg
-[Ge enkel inloggning till dina appar med Programproxy](application-proxy-configure-single-sign-on-with-kcd.md)
+[Tillhandahålla enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
 

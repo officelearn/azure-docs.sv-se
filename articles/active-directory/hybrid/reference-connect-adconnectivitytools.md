@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: ADConnectivityTools PowerShell-referens | Microsoft-dokument'
-description: Det här dokumentet innehåller referensinformation för ADConnectivityTools.psm1 PowerShell-modulen.
+title: 'Azure AD Connect: ADConnectivityTools PowerShell-referens | Microsoft Docs'
+description: Det här dokumentet innehåller referensinformation för PowerShell-modulen ADConnectivityTools. psm1.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,21 +11,21 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66473796"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell-referens
 
-Följande dokumentation innehåller referensinformation för ADConnectivityTools.psm1 PowerShell-modulen som ingår i Azure AD Connect.
+Följande dokumentation innehåller referensinformation för PowerShell-modulen ADConnectivityTools. psm1 som ingår i Azure AD Connect.
 
-## <a name="confirm-dnsconnectivity"></a>Bekräfta-DnsConnectivity
+## <a name="confirm-dnsconnectivity"></a>Bekräfta – DnsConnectivity
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Identifierar lokala Dns-problem.
+Identifierar lokala DNS-problem.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -35,8 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>BESKRIVNING
 
-Kör lokala Dns-anslutningstester.
-För att konfigurera Active Directory-kopplingen måste användaren ha både namnmatchning för den skog som de försöker ansluta till och i domänkontrollanterna som är associerade till den här skogen.
+Kör tester för lokal DNS-anslutning.
+För att kunna konfigurera Active Directory-anslutningen måste användaren ha både namnet resolutionthe för den skog som de försöker ansluta till samt i domän kontrol Lanterna som är kopplade till den här skogen.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -56,7 +56,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 
 #### <a name="-forest"></a>-Skog
 
-Anger namnet på den skog som ska testas mot.
+Anger namnet på den skog som testet ska testas mot.
 
 ```yml
 Type: String
@@ -70,9 +70,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-DCs
+#### <a name="-dcs"></a>– Domänkontrollanter
 
-Ange DC:er att testa mot.
+Ange domänkontrollanter att testa mot.
 
 ```yml
 Type: Array
@@ -88,8 +88,8 @@ Accept wildcard characters: False
 
 #### <a name="-returnresultaspsobject"></a>-ReturnResultAsPSObject
 
-Returnerar resultatet av denna diagnos i form av ett PSObject.
-Inte nödvändigt under manuell interaktion med det här verktyget.
+Returnerar resultatet av den här diagnostiken i form av en PSObject.
+Krävs inte vid manuell interaktion med det här verktyget.
 
 ```yml
 Type: SwitchParameter
@@ -106,13 +106,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-forestexists"></a>Bekräfta-ForestExister
+## <a name="confirm-forestexists"></a>Bekräfta – ForestExists
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Avgör om det finns en angiven skog.
+Anger om en angiven skog finns.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -122,7 +122,7 @@ Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
 
 ### <a name="description"></a>BESKRIVNING
 
-Frågar en DNS-server för IP-adresser som är associerade med en skog.
+Frågar en DNS-Server efter IP-adresserna som är associerade med en skog.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -136,7 +136,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 #### <a name="-forest"></a>-Skog
 
-Anger namnet på den skog som ska testas mot.
+Anger namnet på den skog som testet ska testas mot.
 
 ```yml
 Type: String
@@ -153,23 +153,23 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-functionallevel"></a>Bekräfta-funktionellnivå
+## <a name="confirm-functionallevel"></a>Bekräfta – FunctionalLevel
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Verifierar AD-skogens funktionalitetsnivå.
+Verifierar AD-skogens funktions nivå.
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="samaccount"></a>SamAccount (olikartade)
+#### <a name="samaccount"></a>SamAccount
 
 ```
 Confirm-FunctionalLevel -Forest <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-#### <a name="forestfqdn"></a>SkogFQDN
+#### <a name="forestfqdn"></a>ForestFQDN
 
 ```
 Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -177,8 +177,8 @@ Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCrede
 
 ### <a name="description"></a>BESKRIVNING
 
-Verifierar att AD-skogens funktionalitetsnivå är lika med eller mer än en viss MinAdForestVersion (WindowsServer2003).
-Konto (Domän\Användarnamn) och lösenord kan begäras.
+Kontrollerar att AD-skogens funktions nivå är lika med eller mer än en specifik MinAdForestVersion (WindowsServer2003).
+Konto (domän \ användar namn) och lösen ord kan begäras.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -204,8 +204,8 @@ Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCre
 
 #### <a name="-forest"></a>-Skog
 
-Målskogen.
-Standardvärdet är skogen för den användare som för närvarande är inloggad.
+Mål skog.
+Standardvärdet är den aktuella inloggade användarens skog.
 
 ```yml
 Type: String
@@ -219,9 +219,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-forestfqdn"></a>-ForestFQDN
+#### <a name="-forestfqdn"></a>– ForestFQDN
 
-Mål ForestFQDN-objekt.
+Target ForestFQDN-objekt.
 
 ```yml
 Type: Forest
@@ -237,7 +237,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn i stället för att begära anpassade autentiseringsuppgifter från användaren.
+Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn, i stället för att begära anpassade autentiseringsuppgifter från användaren.
 
 ```yml
 Type: SwitchParameter
@@ -254,13 +254,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-networkconnectivity"></a>Bekräfta-nätverksanslutning
+## <a name="confirm-networkconnectivity"></a>Bekräfta – NetworkConnectivity
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Identifierar problem med lokala nätverksanslutningar.
+Identifierar problem med lokal nätverks anslutning.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -270,9 +270,9 @@ Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObje
 
 ### <a name="description"></a>BESKRIVNING
 
-Kör lokala nätverksanslutningstester.
+Kör tester för lokal nätverks anslutning.
 
-För de lokala nätverkstesterna måste AAD Connect kunna kommunicera med de namngivna domänkontrollanterna på portarna 53 (DNS), 88 (Kerberos) och 389 (LDAP) De flesta organisationer som kör DNS på sina domänkontrollanter, vilket är anledningen till att det här testet för närvarande är integrerat.
+För de lokala nätverks testerna måste AAD Connect kunna kommunicera med de namngivna domän kontrol Lanterna på portarna 53 (DNS), 88 (Kerberos) och 389 (LDAP). de flesta organisationer kör DNS på sina domänkontrollanter, vilket är orsaken till att det här testet för närvarande är integrerat.
 Port 53 bör hoppas över om en annan DNS-server har angetts.
 
 ### <a name="examples"></a>EXEMPEL
@@ -291,9 +291,9 @@ Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbos
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-dcs"></a>-DCs
+#### <a name="-dcs"></a>– Domänkontrollanter
 
-Ange DC:er att testa mot.
+Ange domänkontrollanter att testa mot.
 
 ```yml
 Type: Array
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Om användaren inte använder DNS-tjänster som tillhandahålls av AD Site / Logon DC, då de kanske vill hoppa över kontroll port 53.
-Användaren måste fortfarande kunna lösa _.ldap._tcp. \<forestfqdn\> för att Active Directory Connector-konfigurationen ska lyckas.
+Om användaren inte använder DNS-tjänster som tillhandahålls av AD-platsen/inloggnings-DC, kanske de vill hoppa över att kontrol lera port 53.
+Användaren måste fortfarande kunna matcha _. LDAP. _tcp. \<forestFqdn\> för att konfigurationen av Active Directory Connector ska lyckas.
 
 ```yml
 Type: SwitchParameter
@@ -326,8 +326,8 @@ Accept wildcard characters: False
 
 #### <a name="-returnresultaspsobject"></a>-ReturnResultAsPSObject
 
-Returnerar resultatet av denna diagnos i form av ett PSObject.
-Inte nödvändigt under manuell interaktion med det här verktyget.
+Returnerar resultatet av den här diagnostiken i form av en PSObject.
+Krävs inte vid manuell interaktion med det här verktyget.
 
 ```yml
 Type: SwitchParameter
@@ -344,13 +344,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-targetsarereachable"></a>Bekräfta-målåterupptagbar
+## <a name="confirm-targetsarereachable"></a>Bekräfta – TargetsAreReachable
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Avgör om en angiven skog och dess associerade domänkontrollanter kan nås.
+Anger om en angiven skog och dess associerade domänkontrollanter kan kontaktas.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -360,7 +360,7 @@ Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters
 
 ### <a name="description"></a>BESKRIVNING
 
-Kör "ping"-tester (om en dator kan nå en måldator via nätverket och/eller internet)
+Kör ping-test (om en dator kan komma åt en måldator via nätverket och/eller Internet)
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -380,7 +380,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 #### <a name="-forest"></a>-Skog
 
-Anger namnet på den skog som ska testas mot.
+Anger namnet på den skog som testet ska testas mot.
 
 ```yml
 Type: String
@@ -394,9 +394,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-DCs
+#### <a name="-dcs"></a>– Domänkontrollanter
 
-Ange DC:er att testa mot.
+Ange domänkontrollanter att testa mot.
 
 ```yml
 Type: Array
@@ -413,23 +413,23 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-validdomains"></a>Bekräfta-giltigadomäner
+## <a name="confirm-validdomains"></a>Bekräfta – ValidDomains
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Verifiera att domänerna i den erhållna Skogen FQDN kan nås
+Verifiera att domänerna i den hämtade skogens FQDN kan kommas åt
 
 ### <a name="syntax"></a>SYNTAX
 
-#### <a name="samaccount"></a>SamAccount (olikartade)
+#### <a name="samaccount"></a>SamAccount
 
 ```
 Confirm-ValidDomains [-Forest <String>] [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-#### <a name="forestfqdn"></a>SkogFQDN
+#### <a name="forestfqdn"></a>ForestFQDN
 
 ```
 Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -437,8 +437,8 @@ Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredenti
 
 ### <a name="description"></a>BESKRIVNING
 
-Verifiera att alla domäner i den erhållna Skogen FQDN kan nås genom att försöka hämta DomainGuid och DomainDN.
-Konto (Domän\Användarnamn) och lösenord kan begäras.
+Kontrol lera att alla domäner i den hämtade skogens FQDN kan kommas åt genom att försöka hämta DomainGuid och DomainDN.
+Konto (domän \ användar namn) och lösen ord kan begäras.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -464,7 +464,7 @@ Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCreden
 
 #### <a name="-forest"></a>-Skog
 
-Målskogen.
+Mål skog.
 
 ```yml
 Type: String
@@ -478,9 +478,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-forestfqdn"></a>-ForestFQDN
+#### <a name="-forestfqdn"></a>– ForestFQDN
 
-Mål ForestFQDN-objekt.
+Target ForestFQDN-objekt.
 
 ```yml
 Type: Forest
@@ -496,7 +496,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn i stället för att begära anpassade autentiseringsuppgifter från användaren.
+Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn, i stället för att begära anpassade autentiseringsuppgifter från användaren.
 
 ```yml
 Type: SwitchParameter
@@ -513,13 +513,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-validenterpriseadmincredentials"></a>Bekräfta-ValidEnterpriseAdminCredentials
+## <a name="confirm-validenterpriseadmincredentials"></a>Bekräfta – ValidEnterpriseAdminCredentials
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Verifierar om en användare har autentiseringsuppgifter för Företagsadministratör.
+Kontrollerar om en användare har autentiseringsuppgifter för företags administratör.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -529,8 +529,8 @@ Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredential
 
 ### <a name="description"></a>BESKRIVNING
 
-Söker om den angivna användaren har Enterprise Admin-autentiseringsuppgifter.
-Konto (Domän\Användarnamn) och lösenord kan begäras.
+Söker om den angivna användaren har autentiseringsuppgifter för företags administratör.
+Konto (domän \ användar namn) och lösen ord kan begäras.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -550,7 +550,7 @@ Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn i stället för att begära anpassade autentiseringsuppgifter från användaren.
+Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn, i stället för att begära anpassade autentiseringsuppgifter från användaren.
 
 ```yml
 Type: SwitchParameter
@@ -567,13 +567,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="get-domainfqdndata"></a>Hämta-DomainFQDNData
+## <a name="get-domainfqdndata"></a>Get-DomainFQDNData
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Hämtar en DomainFQDN från en kombination av konto och lösenord.
+Hämtar en DomainFQDN från en kombination av konto och lösen ord.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -584,9 +584,9 @@ Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUs
 
 ### <a name="description"></a>BESKRIVNING
 
-Försöker hämta ett domainFQDN-objekt från angivna autentiseringsuppgifter.
-Om domänFQDN är giltigt returneras ett DomainFQDNName eller RootDomainName, beroende på användarens val.
-Konto (Domän\Användarnamn) och lösenord kan begäras.
+Försöker hämta ett domainFQDN-objekt av tillhandahållna autentiseringsuppgifter.
+Om domainFQDN är giltig returneras en DomainFQDNName eller RootDomainName, beroende på användarens val.
+Konto (domän \ användar namn) och lösen ord kan begäras.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -606,7 +606,7 @@ Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInU
 
 #### <a name="-domainfqdndatatype"></a>-DomainFQDNDataType
 
-Önskad typ av data som kommer att hämtas.
+Önskad typ av data som ska hämtas.
 För närvarande begränsad till "DomainFQDNName" eller "RootDomainName".
 
 ```yml
@@ -623,7 +623,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn i stället för att begära anpassade autentiseringsuppgifter från användaren.
+Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn, i stället för att begära anpassade autentiseringsuppgifter från användaren.
 
 ```yml
 Type: SwitchParameter
@@ -639,7 +639,7 @@ Accept wildcard characters: False
 
 #### <a name="-returnexceptiononerror"></a>-ReturnExceptionOnError
 
-Hjälpparameter som används av funktionen Start-NetworkConnectivityDiagnosisTools
+Tilläggs parameter som används av funktionen start-NetworkConnectivityDiagnosisTools
 
 ```yml
 Type: SwitchParameter
@@ -656,13 +656,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="get-forestfqdn"></a>Hämta SkogFQDN
+## <a name="get-forestfqdn"></a>Get-ForestFQDN
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Hämtar ett ForestFQDN från en konto- och lösenordskombination.
+Hämtar en ForestFQDN från en kombination av konto och lösen ord.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -672,8 +672,8 @@ Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<C
 
 ### <a name="description"></a>BESKRIVNING
 
-Försöker hämta en ForestFQDN från de angivna autentiseringsuppgifterna.
-Konto (Domän\Användarnamn) och lösenord kan begäras.
+Försöker erhålla en ForestFQDN av de tillhandahållna autentiseringsuppgifterna.
+Konto (domän \ användar namn) och lösen ord kan begäras.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -693,7 +693,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCreden
 
 #### <a name="-forest"></a>-Skog
 
-Målskogen. Standardvärdet är domänen för den inloggade användaren.
+Mål skog. Standardvärdet är domänen för den inloggade användaren.
 
 ```yml
 Type: String
@@ -709,7 +709,7 @@ Accept wildcard characters: False
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
-Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn i stället för att begära anpassade autentiseringsuppgifter från användaren.
+Funktionen använder autentiseringsuppgifterna för den användare som för närvarande är inloggad på datorn, i stället för att begära anpassade autentiseringsuppgifter från användaren.
 
 ```yml
 Type: SwitchParameter
@@ -726,13 +726,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="start-connectivityvalidation"></a>Start-anslutningValidation
+## <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Huvudfunktion.
+Main-funktion.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -743,7 +743,7 @@ Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <B
 
 ### <a name="description"></a>BESKRIVNING
 
-Kör alla tillgängliga mekanismer som verifierar ad-autentiseringsuppgifterna är giltiga.
+Kör alla tillgängliga mekanismer som verifierar att autentiseringsuppgifter för AD är giltiga.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -757,7 +757,7 @@ Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAcco
 
 #### <a name="-forest"></a>-Skog
 
-Målskogen.
+Mål skog.
 
 ```yml
 Type: String
@@ -773,9 +773,9 @@ Accept wildcard characters: False
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
 
-För anpassade installationer: Flagga som är $True om användaren valde "Skapa nytt AD-konto" i AD-skogskontofönstret i AADConnects guide.
+För anpassade installationer: flagga som är $True om användaren valde "Skapa nytt AD-konto" i fönstret AD-skogs konto i AADConnect-guiden.
 $False om användaren valde "Använd befintligt AD-konto".
-För Express-installationer: Värdet för denna variabel måste vara $True för Express-installationer.
+För Express-installationer: värdet för den här variabeln måste vara $True för Express-installationer.
 
 ```yml
 Type: Boolean
@@ -791,7 +791,7 @@ Accept wildcard characters: False
 
 #### <a name="-username"></a>-UserName
 
-Parameter som förfyller fältet Användarnamn när användarens autentiseringsuppgifter begärs.
+Parameter som fyller i fältet username när användarens autentiseringsuppgifter begärs.
 
 ```yml
 Type: String
@@ -808,13 +808,13 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## <a name="start-networkconnectivitydiagnosistools"></a>Start-NetworkConnectivityDiagnosisTools
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 
-Huvudfunktion för nätverksanslutningstester.
+Huvud funktion för test av nätverks anslutning.
 
 ### <a name="syntax"></a>SYNTAX
 
@@ -826,7 +826,7 @@ Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSC
 
 ### <a name="description"></a>BESKRIVNING
 
-Kör lokala nätverksanslutningstester.
+Kör tester för lokal nätverks anslutning.
 
 ### <a name="examples"></a>EXEMPEL
 
@@ -846,7 +846,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TES
 
 #### <a name="-forest"></a>-Skog
 
-Anger skogsnamn att testa mot.
+Anger namnet på den skog som ska testas.
 
 ```yml
 Type: String
@@ -862,8 +862,8 @@ Accept wildcard characters: False
 
 #### <a name="-credentials"></a>-Autentiseringsuppgifter
 
-Användarnamnet och lösenordet för den användare som kör testet.
-Det kräver samma nivå av behörigheter som krävs för att köra Azure AD Connect-guiden.
+Användar namnet och lösen ordet för den användare som kör testet.
+Den kräver samma behörighets nivå som krävs för att köra guiden Azure AD Connect.
 
 ```yml
 Type: PSCredential
@@ -879,7 +879,7 @@ Accept wildcard characters: False
 
 #### <a name="-logfilelocation"></a>-LogFileLocation
 
-Anger en plats för en loggfil som ska innehålla utdata för den här funktionen.
+Anger platsen för en loggfil som ska innehålla resultatet av den här funktionen.
 
 ```yml
 Type: String
@@ -893,9 +893,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-DCs
+#### <a name="-dcs"></a>– Domänkontrollanter
 
-Ange DC:er att testa mot.
+Ange domänkontrollanter att testa mot.
 
 ```yml
 Type: Array
@@ -911,7 +911,7 @@ Accept wildcard characters: False
 
 #### <a name="-displayinformativemessage"></a>-DisplayInformativeMessage
 
-Flagga som gör att ett meddelande kan visas om syftet med den här funktionen.
+Flagga som gör det möjligt att visa ett meddelande om syftet med den här funktionen.
 
 ```yml
 Type: SwitchParameter
@@ -927,8 +927,8 @@ Accept wildcard characters: False
 
 #### <a name="-returnresultaspsobject"></a>-ReturnResultAsPSObject
 
-Returnerar resultatet av denna diagnos i form av ett PSObject.
-Inte nödvändigt att ange under manuell interaktion med det här verktyget.
+Returnerar resultatet av den här diagnostiken i form av en PSObject.
+Det är inte nödvändigt att ange vid manuell interaktion med det här verktyget.
 
 ```yml
 Type: SwitchParameter
@@ -944,8 +944,8 @@ Accept wildcard characters: False
 
 #### <a name="-validcredentials"></a>-ValidCredentials
 
-Anger om autentiseringsuppgifterna som användaren har skrivit är giltiga.
-Inte nödvändigt att ange under manuell interaktion med det här verktyget.
+Anger om de autentiseringsuppgifter som användaren angav är giltiga.
+Det är inte nödvändigt att ange vid manuell interaktion med det här verktyget.
 
 ```yml
 Type: SwitchParameter
@@ -962,4 +962,4 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)( .
+Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).

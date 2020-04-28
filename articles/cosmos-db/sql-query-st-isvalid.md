@@ -1,6 +1,6 @@
 ---
-title: ST_ISVALID i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktion ST_ISVALID i Azure Cosmos DB.
+title: ST_ISVALID i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system-funktionen ST_ISVALID i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8fbddbe82ae13585b8259a66dffaeef8024baf5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349358"
 ---
 # <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
@@ -26,9 +26,9 @@ ST_ISVALID(<spatial_expr>)
 ## <a name="arguments"></a>Argument
   
 *spatial_expr*  
-   Är ett GeoJSON Point-, Polygon- eller LineString-uttryck.  
+   Är ett interjson-, polygon-eller lin Est ring-uttryck.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
   Returnerar ett booleskt uttryck.  
   
@@ -36,9 +36,9 @@ ST_ISVALID(<spatial_expr>)
   
   I följande exempel visas hur du kontrollerar om en punkt är giltig med ST_VALID.  
   
-  Den här punkten har till exempel ett latitudvärde som inte finns i det giltiga värdeintervallet [-90, 90], så frågan returnerar false.  
+  Till exempel har den här punkten ett latitud-värde som inte finns i det giltiga värde intervallet [-90, 90], så frågan returnerar false.  
   
-  För polygoner kräver GeoJSON-specifikationen att det senast angivna koordinatparet ska vara detsamma som det första för att skapa en sluten form. Punkter inom en polygon måste anges i moturs ordning. En polygon som anges i medurs ordning representerar inversen av regionen inom den.  
+  För polygoner kräver polyjson-specifikationen att det sista koordinat paret som anges ska vara detsamma som det första, för att skapa en sluten form. Punkter inom en polygon måste anges i en motsols ordning. En polygon som anges i medsols ordning representerar inversen för regionen i den.  
   
 ```sql
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b 
@@ -52,6 +52,6 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Rumsliga funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Spatiala funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

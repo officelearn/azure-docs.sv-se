@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect MV Designer | Microsoft Dokument"
-description: Förstå fliken Metaverse Designer i Synkroniseringstjänsthanteraren för Azure AD Connect.
+title: Azure AD Connect MV designer | Microsoft Docs
+description: Förstå metaversum Designer-fliken i Synchronization Service Manager för Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,19 +18,19 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d08454a0ad87adb97037517579f11ab976280425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60381373"
 ---
-# <a name="sync-service-manager-metaverse-designer"></a>Metaversitetsdesigner för synkroniseringstjänsthanteraren
+# <a name="sync-service-manager-metaverse-designer"></a>Synkronisera Service Manager metaversum designer
 
-![Synkronisera tjänsthanteraren](./media/how-to-connect-sync-service-manager-ui-mvdesigner/mvdesigner.png)
+![Synkronisera Service Manager](./media/how-to-connect-sync-service-manager-ui-mvdesigner/mvdesigner.png)
 
-För de flesta kunder finns det inget att konfigurera här.
+Det finns inget att konfigurera här för de flesta kunder.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om synkroniseringskonfigurationen för [Azure AD Connect.](how-to-connect-sync-whatis.md)
+Läs mer om [Azure AD Connect Sync](how-to-connect-sync-whatis.md) -konfigurationen.
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

@@ -1,6 +1,6 @@
 ---
-title: Skriv kontrollfunktioner i Azure Cosmos DB-frågespråk
-description: Lär dig mer om typkontroll av SQL-systemfunktioner i Azure Cosmos DB.
+title: Typ kontroll funktioner i Azure Cosmos DB frågespråk
+description: Lär dig mer om typ kontroll av SQL system-funktioner i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,21 +8,21 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: cac8be4c39737ca209653532d00375c8c9bee48e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349075"
 ---
-# <a name="type-checking-functions-azure-cosmos-db"></a>Typkontrollfunktioner (Azure Cosmos DB)
+# <a name="type-checking-functions-azure-cosmos-db"></a>Typ kontroll funktioner (Azure Cosmos DB)
 
-Med textkontrollfunktionerna kan du kontrollera typen av ett uttryck i en SQL-fråga. Du kan använda typkontrollfunktioner för att bestämma vilka typer av egenskaper som finns i objekt i farten, när de är variabla eller okända. 
+Med typ kontroll funktionerna kan du kontrol lera typen av uttryck i en SQL-fråga. Du kan använda typ kontroll funktioner för att avgöra vilka typer av egenskaper som finns i objekt i farten, när de är variabla eller okända. 
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
-Här är en tabell med inbyggda typkontrollfunktioner som stöds:
+Här är en tabell över inbyggda typ kontroll funktioner som stöds:
 
-Följande funktioner stöder typkontroll mot indatavärden och returnerar var och en ett booleskt värde.  
+Följande funktioner stöder typ kontroll mot indatavärden och varje returnera ett booleskt värde.  
   
 ||||  
 |-|-|-|  
@@ -33,7 +33,7 @@ Följande funktioner stöder typkontroll mot indatavärden och returnerar var oc
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
 - [Samlingar](sql-query-aggregates.md)

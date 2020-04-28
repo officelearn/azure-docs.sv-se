@@ -1,6 +1,6 @@
 ---
-title: Felsöka ett netvsc.sys-problem när du fjärransluter till en virtuell dator med Windows 10 eller Windows Server 2016 i Azure | Microsoft-dokument
-description: Lär dig hur du felsöker ett netsvc.sys-relaterat RDP-problem när du ansluter till en virtuell dator med Windows 10 eller Windows Server 2016 i Azure.
+title: Felsöka ett netvsc. sys-problem när du ansluter via fjärr anslutning till en virtuell Windows 10-eller Windows Server 2016-dator i Azure | Microsoft Docs
+description: Lär dig hur du felsöker ett netsvc. sys-relaterat RDP-problem när du ansluter till en virtuell Windows 10-eller Windows Server 2016-dator i Azure.
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,51 +13,51 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71057991"
 ---
-# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Det går inte att fjärransluta till en virtuell dator med Windows 10 eller Windows Server 2016 i Azure på grund av netvsc.sys
+# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Det går inte att fjärrans luta till en virtuell Windows 10-eller Windows Server 2016-dator i Azure på grund av netvsc. sys
 
-I den här artikeln beskrivs hur du felsöker ett problem där det inte finns någon nätverksanslutning när du ansluter till en virtuell dator med Windows 10 eller Windows Server 2016 Datacenter (VM) på en Hyper-V Server 2016-värd.
+Den här artikeln förklarar hur du felsöker ett problem där det inte finns någon nätverks anslutning när du ansluter till en virtuell dator med Windows 10 eller Windows Server 2016 Data Center (VM) på en Hyper-V Server 2016-värd.
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan inte ansluta till en virtuell azure Windows 10- eller Windows Server 2016-dator med hjälp av RDP (Remote Desktop Protocol). I [Boot diagnostics](boot-diagnostics.md)visar skärmen ett rött kors över nätverkskortet (NIC). Detta indikerar att den virtuella datorn inte har någon anslutning när operativsystemet är fullständigt inläst.
+Det går inte att ansluta till en virtuell Azure Windows 10-eller Windows Server 2016-dator med hjälp av Remote Desktop Protocol (RDP). I [startdiagnostik](boot-diagnostics.md)visar skärmen ett rött kors över nätverkskortet (NIC). Detta anger att den virtuella datorn inte har någon anslutning efter att operativ systemet har lästs in helt.
 
-Det här problemet uppstår vanligtvis i Windows [build 14393](https://support.microsoft.com/help/4093120/) och [build 15063](https://support.microsoft.com/help/4015583/). Om operativsystemets version är senare än dessa versioner gäller inte den här artikeln för ditt scenario. Om du vill kontrollera versionen av systemet öppnar du en CMD-session i [funktionen Serial Access Console](serial-console-windows.md)och kör sedan **Ver**.
+Det här problemet uppstår vanligt vis i Windows [version 14393](https://support.microsoft.com/help/4093120/) och [build 15063](https://support.microsoft.com/help/4015583/). Om versionen av operativ systemet är senare än de här versionerna gäller inte den här artikeln för ditt scenario. Om du vill kontrol lera systemets version öppnar du en CMD-session i [funktionen för seriell åtkomst konsol](serial-console-windows.md)och kör sedan **ver**.
 
 ## <a name="cause"></a>Orsak
 
-Det hÃ¤r problemet kan uppstÃ¥ om den installerade systemfilen netvsc.sys **10.0.14393.594** eller **10.0.15063.0**. Dessa versioner av netvsc.sys kan hindra systemet från att interagera med Azure-plattformen.
+Det här problemet kan inträffa om versionen av den installerade netvsc. sys-systemfilen är **10.0.14393.594** eller **10.0.15063.0**. Dessa versioner av netvsc. sys kan hindra systemet från att interagera med Azure-plattformen.
 
 
 ## <a name="solution"></a>Lösning
 
-Innan du följer dessa steg [ska du ta en ögonblicksbild av systemdisken](../windows/snapshot-copy-managed-disk.md) för den berörda virtuella datorn som en säkerhetskopia. Om du vill felsöka problemet använder du seriekonsolen eller [reparerar den virtuella datorn offline](#repair-the-vm-offline) genom att koppla systemdisken på den virtuella datorn till en återställnings-VM.
+Innan du följer dessa steg ska du [ta en ögonblicks bild av system disken](../windows/snapshot-copy-managed-disk.md) för den berörda virtuella datorn som en säkerhets kopia. Du kan felsöka det här problemet genom att använda serie konsolen eller [reparera den virtuella datorn offline](#repair-the-vm-offline) genom att koppla den virtuella datorns system disk till en virtuell dator för återställning.
 
 
-### <a name="use-the-serial-console"></a>Använda seriekonsolen
+### <a name="use-the-serial-console"></a>Använda serie konsolen
 
-Anslut till [seriekonsolen, öppna en PowerShell-instans](serial-console-windows.md)och följ sedan dessa steg.
+Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-windows.md)och följ sedan de här stegen.
 
 > [!NOTE]
-> Om seriekonsolen inte är aktiverad på den virtuella datorn går du till [avsnittet reparera den virtuella datorn offline.](#repair-the-vm-offline)
+> Om serie konsolen inte är aktive rad på den virtuella datorn går du till avsnittet [reparera den virtuella datorn offline](#repair-the-vm-offline) .
 
-1. Kör följande kommando i en PowerShell-instans för att hämta versionen av filen **(c:\windows\system32\drivers\netvsc.sys**):
+1. Kör följande kommando i en PowerShell-instans för att hämta versionen av filen (**c:\windows\system32\drivers\netvsc.sys**):
 
    ```
    (get-childitem "$env:systemroot\system32\drivers\netvsc.sys").VersionInfo.FileVersion
    ```
 
-2. Hämta lämplig uppdatering till en ny eller befintlig datadisk som är kopplad till en fungerande virtuell dator från samma region:
+2. Hämta lämplig uppdatering till en ny eller befintlig datadisk som är ansluten till en fungerande virtuell dator från samma region:
 
    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
-3. Koppla bort verktygsdisken från den fungerande virtuella datorn och anslut den sedan till den trasiga virtuella datorn.
+3. Koppla bort verktygs disken från den virtuella datorn och koppla den sedan till den brutna virtuella datorn.
 
 4. Kör följande kommando för att installera uppdateringen på den virtuella datorn:
 
@@ -69,21 +69,21 @@ Anslut till [seriekonsolen, öppna en PowerShell-instans](serial-console-windows
 
 ### <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline
 
-1. [Koppla systemdisken till en återställnings-VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anslut system disken till en virtuell återställnings dator](../windows/troubleshoot-recovery-disks-portal.md).
 
-2. Starta en anslutning till återställningsdatorn till återställningsdatorn.
+2. Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 
-3. Kontrollera att disken är flaggad som **online** i konsolen Diskhantering. Observera enhetsbeteckningen som har tilldelats den bifogade systemdisken.
+3. Kontrol lera att disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som är kopplad till den anslutna system disken.
 
-4. Skapa en kopia av mappen **\Windows\System32\config** om det behövs en återställning av ändringarna.
+4. Skapa en kopia av mappen **\Windows\System32\config** om en återställning av ändringarna är nödvändig.
 
-5. Starta Registereditorn (regedit.exe) på den virtuella räddningsdatorn).
+5. Starta Registereditorn (regedit. exe) på den rädda virtuella datorn.
 
-6. Markera **HKEY_LOCAL_MACHINE** och välj sedan > **Filinläsningsdata från** menyn. **File**
+6. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **fil** > **läsnings registrerings data** fil på menyn.
 
-7. Leta upp SYSTEM-filen i mappen **\Windows\System32\config.**
+7. Leta upp SYSTEM filen i mappen **\Windows\System32\config**
 
-8. Välj **Öppna,** skriv **BROKENSYSTEM** för namnet, expandera **HKEY_LOCAL_MACHINE** och leta sedan upp den ytterligare nyckeln med namnet **BROKENSYSTEM**.
+8. Välj **Öppna**, Skriv **BROKENSYSTEM** som namn, expandera den **HKEY_LOCAL_MACHINE** nyckeln och leta upp den ytterligare nyckel som heter **BROKENSYSTEM**.
 
 9. Gå till följande plats:
 
@@ -91,16 +91,16 @@ Anslut till [seriekonsolen, öppna en PowerShell-instans](serial-console-windows
    HKLM\BROKENSYSTEM\ControlSet001\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}
    ```
 
-10. I varje undernyckel (till exempel 0000) undersöker du det **DriverDesc-värde** som visas som **Microsoft HYPER-V-nätverkskort**.
+10. I varje under nyckel (till exempel 0000) undersöker du det **DriverDesc** -värde som visas som **Microsoft Hyper-V-nätverkskort**.
 
-11. I undernyckeln undersöker du **drivrutinsversionen** som är drivrutinsversionen av nätverkskortet för den virtuella datorn.
+11. I under nyckeln undersöker du **DriverVersion** -värdet som är driv rutins versionen av nätverkskortet för den virtuella datorn.
 
-12. Ladda ner lämplig uppdatering:
+12. Hämta lämplig uppdatering:
 
     - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
-13. Bifoga systemdisken som en datadisk på en räddnings-VM där du kan hämta uppdateringen.
+13. Anslut system disken som en datadisk på en räddnings dator där du kan hämta uppdateringen.
 
 14. Kör följande kommando för att installera uppdateringen på den virtuella datorn:
 
@@ -108,14 +108,14 @@ Anslut till [seriekonsolen, öppna en PowerShell-instans](serial-console-windows
     dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
     ```
 
-15. Kör följande kommando för att avmontera bikuporna:
+15. Kör följande kommando för att demontera Hive:
 
     ```
     reg unload HKLM\BROKENSYSTEM
     ```
 
-16. [Koppla från systemdisken och skapa den virtuella datorn igen](../windows/troubleshoot-recovery-disks-portal.md).
+16. [Koppla från system disken och skapa den virtuella datorn igen](../windows/troubleshoot-recovery-disks-portal.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande behöver hjälp [kontaktar du Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.
+Om du fortfarande behöver hjälp kan du [kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.

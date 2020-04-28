@@ -1,6 +1,6 @@
 ---
-title: Så här visas program på åtkomstpanelen | Microsoft-dokument
-description: Felsöka varför ett program visas på åtkomstpanelen
+title: Hur program visas på åtkomst panelen | Microsoft Docs
+description: Felsöka varför ett program visas på åtkomst panelen
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,131 +17,131 @@ ms.author: mimart
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa8ea75cc7fda05326c802c25a91d025b66b5ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65784419"
 ---
-# <a name="how-applications-appear-on-the-access-panel"></a>Så här visas program på åtkomstpanelen
+# <a name="how-applications-appear-on-the-access-panel"></a>Hur program visas på åtkomst panelen
 
-Åtkomstpanelen är en webbaserad portal som gör det möjligt för en användare med ett arbets- eller skolkonto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har gett dem åtkomst till. Dessa program konfigureras för användarens räkning i Azure AD-portalen. Administratören kan etablera programmet för användaren direkt eller till en grupp som en användare är en del av vilket resulterar i att programmet visas på användarens åtkomstpanel.
+Åtkomst panelen är en webbaserad portal som gör det möjligt för en användare med ett arbets-eller skol konto i Azure Active Directory (Azure AD) att visa och starta molnbaserade program som Azure AD-administratören har beviljat åtkomst till. Dessa program är konfigurerade för användarens räkning i Azure AD-portalen. Administratören kan etablera programmet till användaren direkt eller till en grupp som en användare är en del av i programmet som visas på användarens åtkomst panel.
 
-## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrollera först
+## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrol lera först
 
--   Om ett program har tagits bort från en användare eller grupp som användaren är medlem i försöker du logga in och ut igen på användarens åtkomstpanel efter några minuter för att se om programmet tas bort.
+-   Om ett program har tagits bort från en användare eller grupp som användaren är medlem i, försöker du logga in och ut igen i användarens åtkomst panel efter några minuter för att se om programmet har tagits bort.
 
--   Om en licens har tagits bort från en användare eller grupp kan det ta lång tid att användaren är medlem i den här, beroende på gruppens storlek och komplexitet för ändringar. Vänta på extra tid innan du loggar in på åtkomstpanelen.
+-   Om en licens har tagits bort från en användare eller grupp kan användaren ta lång tid, beroende på storleken och komplexiteten i gruppen för att ändringar ska göras. Tillåt extra tid innan du loggar in på åtkomst panelen.
 
-## <a name="problems-related-to-assigning-applications-to-users"></a>Problem med att tilldela program till användare
+## <a name="problems-related-to-assigning-applications-to-users"></a>Problem som rör tilldelning av program till användare
 
-En användare kan se ett program på sin åtkomstpanel eftersom de tidigare hade tilldelats det. Här följer några sätt att kontrollera:
+En användare kan se ett program på sin åtkomst panel eftersom de tidigare hade tilldelats dem. Följande är några sätt att kontrol lera:
 
--   [Kontrollera om en användare har tilldelats programmet](#check-if-a-user-is-assigned-to-the-application)
+-   [Kontrol lera om en användare är tilldelad till programmet](#check-if-a-user-is-assigned-to-the-application)
 
--   [Kontrollera om en användare har en licens som är relaterad till programmet](#check-if-a-user-is-under-a-license-related-to-the-application)
-
-
-### <a name="check-if-a-user-is-assigned-to-the-application"></a>Kontrollera om en användare har tilldelats programmet
-
-Så här kontrollerar du om en användare har tilldelats programmet:
-
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
-
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
-
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
-
-4. Klicka på **Företagsprogram** på menyn Azure Active Directory till vänster.
-
-5. Klicka på **Alla program om** du vill visa en lista över alla dina program.
-
-6. **Sök efter** namnet på programmet i fråga.
-
-7. klicka på **Användare och grupper**.
-
-8. Kontrollera om användaren har tilldelats programmet.
-
-   * Om du vill ta bort användaren från programmet **klickar du på raden** för användaren och väljer ta **bort**.
-
-### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Kontrollera om en användare har en licens som är relaterad till programmet
-
-Så här kontrollerar du en användares tilldelade licenser:
-
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
-
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
-
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
-
-4. klicka på **Användare och grupper** i navigeringsmenyn.
-
-5. klicka på **Alla användare**.
-
-6. **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
-
-7. Klicka på **Licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
-
-   * Om användaren har tilldelats en Office-licens gör detta att Office-program för första part kan visas på användarens åtkomstpanel.
-
-## <a name="problems-related-to-assigning-applications-to-groups"></a>Problem med att tilldela program till grupper
-
-En användare kan se ett program på åtkomstpanelen eftersom de ingår i en grupp som har tilldelats programmet. Här följer några sätt att kontrollera:
-
--   [Kontrollera en användares gruppmedlemskap](#check-a-users-group-memberships)
-
--   [Kontrollera om en användare är medlem i en grupp som tilldelats en licens](#check-if-a-user-is-a-member-of-a-group-assigned-to-a-license)
-
-### <a name="check-a-users-group-memberships"></a>Kontrollera en användares gruppmedlemskap
-
-Så här kontrollerar du en grupps medlemskap:
-
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
-
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
-
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
-
-4. klicka på **Användare och grupper** i navigeringsmenyn.
-
-5. klicka på **Alla användare**.
-
-6. **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
-
-7. klicka på **Grupper.**
-
-8. Kontrollera om användaren ingår i en grupp som har tilldelats programmet.
-
-   * Om du vill ta bort användaren från gruppen **klickar du på gruppens rad** och väljer ta bort.
-
-### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Kontrollera om en användare är medlem i en grupp som tilldelats en licens
-
-1. Öppna [**Azure-portalen**](https://portal.azure.com/) och logga in som **global administratör.**
-
-2. Öppna **Azure Active Directory-tillägget** genom att klicka på **Alla tjänster** högst upp på huvudnavigeringsmenyn.
-
-3. Skriv in **"Azure Active Directory"** i sökrutan för filtret och välj **Azure Active Directory-objektet.**
-
-4. klicka på **Användare och grupper** i navigeringsmenyn.
-
-5. klicka på **Alla användare**.
-
-6. **Sök efter** den användare du är intresserad av och **klicka på raden** för att välja.
-
-7. klicka på **Grupper.**
-
-8. klicka på raden för en viss grupp.
-
-9. Klicka på **Licenser** för att se vilka licenser gruppen har tilldelat den.
-
-   * Om gruppen har tilldelats en Office-licens kan det göra det möjligt för vissa Office-program från första part att visas på användarens åtkomstpanel.
+-   [Kontrol lera om en användare har en licens som är relaterad till programmet](#check-if-a-user-is-under-a-license-related-to-the-application)
 
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Om dessa felsökningssteg inte löser problemet
+### <a name="check-if-a-user-is-assigned-to-the-application"></a>Kontrol lera om en användare är tilldelad till programmet
 
-öppna en supportbiljett med följande information om sådan finns:
+Följ dessa steg om du vill kontrol lera om en användare är tilldelad till programmet:
 
--   Korrelationsfel-ID
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
+
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
+
+5. Klicka på **alla program** om du vill visa en lista över alla dina program.
+
+6. **Sök** efter namnet på programmet i fråga.
+
+7. Klicka på **användare och grupper**.
+
+8. Kontrol lera om användaren är tilldelad till programmet.
+
+   * Om du vill ta bort användaren från programmet **klickar du på raden** för användaren och väljer **ta bort**.
+
+### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Kontrol lera om en användare har en licens som är relaterad till programmet
+
+Följ dessa steg om du vill kontrol lera en användares tilldelade licenser:
+
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
+
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+4. Klicka på **användare och grupper** på navigerings menyn.
+
+5. Klicka på **alla användare**.
+
+6. **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
+
+7. Klicka på **licenser** för att se vilka licenser som användaren för närvarande har tilldelat.
+
+   * Om användaren är tilldelad till en Office-licens så gör detta att första partens Office-program visas på användarens åtkomst panel.
+
+## <a name="problems-related-to-assigning-applications-to-groups"></a>Problem som rör tilldelning av program till grupper
+
+En användare kan se ett program på sin åtkomst panel eftersom de ingår i en grupp som har tilldelats programmet. Följande är några sätt att kontrol lera:
+
+-   [Kontrol lera en användares grupp medlemskap](#check-a-users-group-memberships)
+
+-   [Kontrol lera om en användare är medlem i en grupp som har tilldelats en licens](#check-if-a-user-is-a-member-of-a-group-assigned-to-a-license)
+
+### <a name="check-a-users-group-memberships"></a>Kontrol lera en användares grupp medlemskap
+
+Följ dessa steg om du vill kontrol lera en grupps medlemskap:
+
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
+
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+4. Klicka på **användare och grupper** på navigerings menyn.
+
+5. Klicka på **alla användare**.
+
+6. **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
+
+7. Klicka på **grupper.**
+
+8. Kontrol lera om användaren är en del av en grupp som tilldelats programmet.
+
+   * Om du vill ta bort användaren från gruppen **klickar du på raden** i gruppen och väljer Ta bort.
+
+### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Kontrol lera om en användare är medlem i en grupp som har tilldelats en licens
+
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
+
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+
+3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+4. Klicka på **användare och grupper** på navigerings menyn.
+
+5. Klicka på **alla användare**.
+
+6. **Sök** efter den användare som du är intresse rad av och **Klicka på den rad** som du vill välja.
+
+7. Klicka på **grupper.**
+
+8. Klicka på raden för en speciell grupp.
+
+9. Klicka på **licenser** för att se vilka licenser gruppen har tilldelats till den.
+
+   * Om gruppen är tilldelad till en Office-licens kan detta medföra att vissa Office-program från första part visas på användarens åtkomst panel.
+
+
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Om de här fel söknings stegen inte löser problemet
+
+öppna ett support ärende med följande information om den är tillgänglig:
+
+-   Korrelations fel-ID
 
 -   UPN (användarens e-postadress)
 
@@ -149,9 +149,9 @@ Så här kontrollerar du en grupps medlemskap:
 
 -   Typ av webbläsare
 
--   Tidszon och tid/tidsram under fel inträffar
+-   Tidszon och tid/tidsram vid fel inträffar
 
--   Spelman spår
+-   Fiddler-spår
 
 ## <a name="next-steps"></a>Nästa steg
 [Hantera program med Azure Active Directory](what-is-application-management.md)

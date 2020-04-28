@@ -1,6 +1,6 @@
 ---
-title: Modul Twin - Azure Event Grid IoT Edge | Microsoft-dokument
-description: Konfiguration via Modul Twin.
+title: Modul, Azure Event Grid IoT Edge | Microsoft Docs
+description: Konfiguration via modul, dubbla.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,25 +10,25 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72992150"
 ---
-# <a name="module-twin-json-schema"></a>Modultvilling JSON-schema
+# <a name="module-twin-json-schema"></a>Modul, dubbla JSON-schema
 
-Event Grid på IoT Edge integreras med IoT Edge-ekosystemet och stöder att skapa ämnen och prenumerationer via Modul Twin. Det rapporterar också det aktuella läget för alla ämnen och händelseprenumerationer till de rapporterade egenskaperna på modultvillingen.
+Event Grid på IoT Edge integreras med IoT Edge eko systemet och har stöd för att skapa ämnen och prenumerationer via modulen "dubbla". Den rapporterar även det aktuella läget för alla ämnen och händelse prenumerationer till de rapporterade egenskaperna i modulen.
 
 > [!WARNING]
-> På grund av begränsningar i IoT Edge-ekosystemet har alla matriselement i följande json-exempel kodats som jsonsträngar. Se `EventSubscription.Filter.EventTypes` `EventSubscription.Filter.AdvancedFilters` och tangenter i följande exempel.
+> På grund av begränsningar i IoT Edge eko systemet har alla mat ris element i följande JSON-exempel kodats som JSON-strängar. Se `EventSubscription.Filter.EventTypes` och `EventSubscription.Filter.AdvancedFilters` nycklar i följande exempel.
 
-## <a name="desired-properties-json"></a>Önskade egenskaper JSON
+## <a name="desired-properties-json"></a>JSON för önskade egenskaper
 
-* Värdet för varje nyckel-värde-par i avsnittet ämnen har exakt samma `Topic.Properties` JSON-schema som används för på API när du skapar ämnen.
-* Värdet för varje nyckel-värde-par i avsnittet **EventSubscriptions** har exakt samma `EventSubscription.Properties` json-schema som används för på API:et när du skapar ämnen.
-* Om du vill ta bort `null` ett ämne anger du dess värde till i de önskade egenskaperna.
-* Det går inte att ta bort händelseprenumerationer via önskade egenskaper.
+* Värdet för varje nyckel/värde-par i avsnittet avsnitt har exakt samma JSON-schema som används för `Topic.Properties` i API: et när du skapar ämnen.
+* Värdet för varje nyckel/värde-par i avsnittet **EventSubscriptions** har exakt samma JSON-schema som används för `EventSubscription.Properties` i API: et när du skapar ämnen.
+* Om du vill ta bort ett ämne anger du `null` dess värde som i önskade egenskaper.
+* Det finns inte stöd för att ta bort händelse prenumerationer via önskade egenskaper.
 
 ```json
 {
@@ -81,11 +81,11 @@ Event Grid på IoT Edge integreras med IoT Edge-ekosystemet och stöder att skap
 
 ## <a name="reported-properties-json"></a>Rapporterade egenskaper JSON
 
-Avsnittet Rapporterade egenskaper i modultvillingen innehåller följande information:
+Avsnittet med rapporterade egenskaper i modul två innehåller följande information:
 
-* Den uppsättning ämnen och prenumerationer som finns i modulens butik
-* Eventuella fel som påträffas när önskade ämnen/händelseprenumerationer skapas
-* Alla uppstartsfel (t.ex. önskade egenskaper som JSON-tolkning misslyckades)
+* Den uppsättning ämnen och prenumerationer som finns i modulens Arkiv
+* Fel som påträffades när du skapade önskade ämnen/händelse prenumerationer
+* Eventuella start fel (till exempel önskade egenskaper JSON-parsning misslyckades)
 
 ```json
 {

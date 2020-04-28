@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomstkontrollposter i StorSimple | Microsoft-dokument
-description: Beskriver hur du använder åtkomstkontrollposter (ACL) för att avgöra vilka värdar som kan ansluta till en volym på StorSimple-enheten.
+title: Hantera åtkomst kontroll poster i StorSimple | Microsoft Docs
+description: 'Beskriver hur du använder åtkomst kontroll poster (ACR: er) för att avgöra vilka värdar som kan ansluta till en volym på StorSimple-enheten.'
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,119 +15,119 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "64693242"
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Använda Tjänsten StorSimple Manager för att hantera åtkomstkontrollposter
+# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Använd StorSimple Manager-tjänsten för att hantera åtkomst kontroll poster
 
 ## <a name="overview"></a>Översikt
-Med åtkomstkontrollposter (ACRs) kan du ange vilka värdar som kan ansluta till en volym på StorSimple-enheten. AKU:er är inställda på en viss volym och innehåller iSCSI Qualified Names (IQNs) för värdarna. När en värd försöker ansluta till en volym kontrollerar enheten ACR som är associerad med den volymen för IQN-namnet och om det finns en matchning upprättas anslutningen. Åtkomstkontrollposterna i **avsnittet Konfiguration** i tjänstbladet StorSimple Device Manager visar alla åtkomstkontrollposter med motsvarande IQN:er för värdarna.
+Med åtkomst kontroll poster (ACR: er) kan du ange vilka värdar som kan ansluta till en volym på StorSimple-enheten. ACR: er anges till en särskild volym och innehåller värdernas iSCSI-kvalificerade namn (IQNs). När en värd försöker ansluta till en volym kontrollerar enheten de ACR som är kopplade till den volymen för IQN-namnet och om det finns en matchning, upprättas anslutningen. Åtkomst kontroll posterna i **konfigurations** avsnittet i bladet StorSimple Enhetshanteraren service visar alla åtkomst kontroll poster med motsvarande IQNs för värdarna.
 
 I den här självstudien beskrivs följande vanliga ACR-relaterade uppgifter:
 
-* Lägga till en åtkomstkontrollpost
-* Redigera en åtkomstkontrollpost
-* Ta bort en åtkomstkontrollpost
+* Lägg till en åtkomst kontroll post
+* Redigera en åtkomst kontroll post
+* Ta bort en åtkomst kontroll post
 
 > [!IMPORTANT]
-> * När du tilldelar en ACR till en volym, se till att volymen inte samtidigt nås av mer än en icke-klustrade värd eftersom detta kan skada volymen.
-> * När du tar bort en ACR från en volym kontrollerar du att motsvarande värd inte kommer åt volymen eftersom borttagningen kan resultera i en läs-skriv-störning.
+> * När du tilldelar en ACR till en volym bör du ta hänsyn till att volymen inte samtidigt används av fler än en icke-klustrad värd eftersom det kan skada volymen.
+> * När du tar bort en ACR från en volym kontrollerar du att motsvarande värd inte har åtkomst till volymen eftersom borttagningen kan resultera i ett Skriv avbrott.
 
 ## <a name="get-the-iqn"></a>Hämta IQN
 
-Gör följande för att hämta IQN för en Windows-värd som kör Windows Server 2012.
+Utför följande steg för att hämta IQN för en Windows-värd som kör Windows Server 2012.
 
 [!INCLUDE [storsimple-get-iqn](../../includes/storsimple-get-iqn.md)]
 
 
-## <a name="add-an-access-control-record"></a>Lägga till en åtkomstkontrollpost
-Du kan använda avsnittet **Konfiguration** i tjänstbladet StorSimple Enhetshanteraren för att lägga till ACL:er. Vanligtvis associerar du en ACR med en volym.
+## <a name="add-an-access-control-record"></a>Lägg till en åtkomst kontroll post
+Du använder **konfigurations** avsnittet i bladet StorSimple Enhetshanteraren-tjänst för att lägga till ACR: er. Normalt associerar du en ACR med en volym.
 
 Utför följande steg för att lägga till en ACR.
 
-#### <a name="to-add-an-acr"></a>Så här lägger du till en ACR
+#### <a name="to-add-an-acr"></a>Lägga till en ACR
 
-1. Gå till tjänsten StorSimple Device Manager, dubbelklicka på tjänstnamnet och klicka sedan på **Åtkomstkontrollposter**i avsnittet **Konfiguration** .
-2. Klicka på + Lägg **till ACR**i bladet **För åtkomstkontrollposter** .
+1. Gå till StorSimple Enhetshanteraren-tjänsten, dubbelklicka på tjänstens namn och klicka sedan på **åtkomst kontroll poster**i avsnittet **konfiguration** .
+2. I bladet **åtkomst kontroll poster** klickar du på **+ Lägg till ACR**.
 
     ![Klicka på Lägg till ACR](./media/storsimple-8000-manage-acrs/createacr1.png)
 
-3. Gör följande i bladet **Lägg till ACR:**
+3. Utför följande steg på bladet **Lägg till ACR** :
 
-    1. Ange ett namn på acr.
+    1. Ange ett namn för din ACR.
     
-    2. Ange IQN-namnet på Windows Server-värden under **iSCSI Initiator Name (IQN)**.
+    2. Ange IQN-namnet för din Windows Server-värd under **iSCSI-initierarens namn (IQN)**.
 
-    3. Klicka på **Lägg till** om du vill skapa ACR.
+    3. Klicka på **Lägg till** för att skapa ACR.
 
         ![Klicka på Lägg till ACR](./media/storsimple-8000-manage-acrs/createacr2.png)
 
-4.  Den nyligen tillagda ACR visas i tabelllistan för akuskar.
+4.  De nyligen tillagda ACR visas i tabell listan över ACR: er.
 
     ![Klicka på Lägg till ACR](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
-## <a name="edit-an-access-control-record"></a>Redigera en åtkomstkontrollpost
-Du kan använda avsnittet **Konfiguration** i tjänstbladet StorSimple Enhetshanteraren för att redigera åtkomstkontrollistor.
+## <a name="edit-an-access-control-record"></a>Redigera en åtkomst kontroll post
+Du använder **konfigurations** avsnittet i bladet StorSimple Enhetshanteraren tjänst för att redigera ACR: er.
 
 > [!NOTE]
-> Vi rekommenderar att du bara ändrar de ACL:er som för närvarande inte används. Om du vill redigera en ACR som är associerad med en volym som används måste du först koppla från volymen.
+> Vi rekommenderar att du bara ändrar de ACR: er som för närvarande inte används. Om du vill redigera en ACR som är associerad med en volym som för närvarande används, måste du först koppla från volymen.
 
-Gör följande för att redigera en ACR.
+Utför följande steg för att redigera en ACR.
 
-#### <a name="to-edit-an-access-control-record"></a>Så här redigerar du en åtkomstkontrollpost
-1.  Gå till tjänsten StorSimple Device Manager, dubbelklicka på tjänstnamnet och klicka sedan på **Åtkomstkontrollposter**i avsnittet **Konfiguration** .
+#### <a name="to-edit-an-access-control-record"></a>Redigera en åtkomst kontroll post
+1.  Gå till StorSimple Enhetshanteraren-tjänsten, dubbelklicka på tjänstens namn och klicka sedan på **åtkomst kontroll poster**i avsnittet **konfiguration** .
 
-    ![Gå till åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/createacr1.png)
 
-2. Klicka på och välj den ACR som du vill ändra i tabelllistan för åtkomstkontrollposterna.
+2. I list rutan med åtkomst kontroll posterna klickar du på och väljer den ACR som du vill ändra.
 
-    ![Redigera åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/editacr1.png)
+    ![Redigera åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/editacr1.png)
 
-3. Ange ett annat IQN som motsvarar en annan värd i **bladet Redigera åtkomstkontroll.**
+3. I bladet **Redigera åtkomst kontroll post** anger du ett annat IQN som motsvarar en annan värd.
 
-    ![Redigera åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![Redigera åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/editacr2.png)
 
 4. Klicka på **Spara**. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. 
 
-    ![Redigera åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![Redigera åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/editacr3.png)
 
-5. Du meddelas när ACR uppdateras. Tabelllistan uppdateras också för att återspegla ändringen.
+5. Du får ett meddelande när ACR uppdateras. Tabell listan uppdateras också för att avspegla ändringen.
 
    
-## <a name="delete-an-access-control-record"></a>Ta bort en åtkomstkontrollpost
-Du kan använda avsnittet **Konfiguration** i tjänstbladet StorSimple Enhetshanteraren för att ta bort ACRs.
+## <a name="delete-an-access-control-record"></a>Ta bort en åtkomst kontroll post
+Du använder **konfigurations** avsnittet i bladet StorSimple Enhetshanteraren tjänst för att ta bort ACR: er.
 
 > [!NOTE]
-> Du kan bara ta bort de ACL:er som för närvarande inte används. Om du vill ta bort en ACR som är associerad med en volym som används måste du först koppla från volymen.
+> Du kan bara ta bort de ACR: er som för närvarande inte används. Om du vill ta bort en ACR som är associerad med en volym som för närvarande används, måste du först koppla från volymen.
 
-Utför följande steg för att ta bort en åtkomstkontrollpost.
+Utför följande steg för att ta bort en åtkomst kontroll post.
 
-#### <a name="to-delete-an-access-control-record"></a>Så här tar du bort en åtkomstkontrollpost
-1.  Gå till tjänsten StorSimple Device Manager, dubbelklicka på tjänstnamnet och klicka sedan på **Åtkomstkontrollposter**i avsnittet **Konfiguration** .
+#### <a name="to-delete-an-access-control-record"></a>Ta bort en åtkomst kontroll post
+1.  Gå till StorSimple Enhetshanteraren-tjänsten, dubbelklicka på tjänstens namn och klicka sedan på **åtkomst kontroll poster**i avsnittet **konfiguration** .
 
-    ![Gå till åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/createacr1.png)
 
-2. Klicka på och välj den ACR som du vill ta bort i tabelllistan för åtkomstkontrollposterna.
+2. Klicka och välj den ACR som du vill ta bort i tabell listan över åtkomst kontroll poster.
 
-    ![Gå till åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
-3. Högerklicka om du vill anropa snabbmenyn och välj **Ta bort**.
+3. Högerklicka för att anropa snabb menyn och välj **ta bort**.
 
-    ![Gå till åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
-4. När du uppmanas att bekräfta, granska informationen och klicka sedan på **Ta bort**.
+4. När du uppmanas att bekräfta kontrollerar du informationen och klickar sedan på **ta bort**.
 
-    ![Gå till åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
-5. Du meddelas när borttagningen är klar. Tabelllistan uppdateras för att återspegla borttagningen.
+5. Du får ett meddelande när borttagningen är klar. Tabell listan uppdateras för att återspegla borttagningen.
 
-    ![Gå till åtkomstkontrollposter](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![Gå till åtkomst kontroll poster](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om hur du [hanterar StorSimple-volymer](storsimple-8000-manage-volumes-u2.md).
-* Läs mer om [hur du använder StorSimple Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig mer om [att använda tjänsten StorSimple Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

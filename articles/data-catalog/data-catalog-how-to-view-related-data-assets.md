@@ -1,23 +1,23 @@
 ---
-title: Visa relaterade datatillgångar i Azure Data Catalog
-description: I den här artikeln beskrivs hur du visar relaterade datatillgångar för en vald datatillgång i Azure Data Catalog.
+title: Så här visar du relaterade data till gångar i Azure Data Catalog
+description: Den här artikeln förklarar hur du visar relaterade data till gångar för en vald data till gång i Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 212ba647e6eb44e800a589928620f56fba65107c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68737017"
 ---
-# <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Hur visar du relaterade datatillgångar i Azure Data Catalog?
-Med Azure Data Catalog kan du visa datatillgångar som är relaterade till en vald datatillgång och visa relationer mellan dem. 
+# <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Hur visar jag relaterade data till gångar i Azure Data Catalog?
+Med Azure Data Catalog kan du visa data till gångar som är relaterade till en vald data till gång och Visa relationer mellan dem. 
 
 ## <a name="supported-data-sources"></a>Datakällor som stöds 
-När du registrerar datatillgångar från följande datakällor registrerar Azure Data Catalog automatiskt metadata om kopplingsrelationer mellan de valda datatillgångarna. 
+När du registrerar data till gångar från följande data källor registrerar Azure Data Catalog automatiskt metadata om kopplings relationer mellan de valda data till gångarna. 
 
 - SQL Server
 - Azure SQL Database
@@ -25,26 +25,26 @@ När du registrerar datatillgångar från följande datakällor registrerar Azur
 - Oracle
 
 > [!NOTE]
-> För att datakatalogen ska kunna importera relation mellan två datatillgångar måste du registrera båda tillgångarna samtidigt. Om du hade lagt till en av dem separat lägger du till den igen och den andra datatillgången för att importera relationen mellan dem.
+> För att Data Catalog ska kunna importera relationen mellan två data till gångar måste du registrera båda till gångarna på samma gång. Om du har lagt till en av dem separat lägger du till den igen och den andra data till gången för att importera relationen mellan dem.
 
 ## <a name="view-related-data-assets"></a>Visa relaterade datatillgångar
-Om du vill visa datatillgångar som är relaterade till en markerad datauppsättning använder du fliken **Relationer** som visas i följande bild: 
+Om du vill visa data till gångar som är relaterade till en vald data uppsättning, använder du fliken **relationer** som du ser i följande bild: 
 
-![Azure Data Catalog - Visa relaterade datatillgångar](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
+![Azure Data Catalog-Visa relaterade data till gångar](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
-I det här exemplet finns det två relationer för den valda **productSubcategory-datatillgången:** 
+I det här exemplet finns det två relationer för den valda **ProductSubcategory** -data till gången: 
 
-- Kolumnen ProductSubcategoryID i tabellen Produkt har en sekundärnyckelrelation med kolumnen ProductSubcategoryID i den valda tabellen ProductSubcategory. 
-- Kolumnen ProductCategoryID i tabellen ProductSubCategory har en sekundärnyckelrelation med kolumnen ProductCategoryID i den valda productcategory-tabellen.
+- Kolumnen ProductSubcategoryID i produkt tabellen har en sekundär nyckel relation med ProductSubcategoryID-kolumnen i den valda ProductSubcategory-tabellen. 
+- Kolumnen ProductCategoryID i tabellen ProductSubCategory har en sekundär nyckel relation med ProductCategoryID-kolumnen för den valda ProductCategory-tabellen.
 
 > [!NOTE]
-> Lägg märke till pilens riktning i relationsträdsvyn.  
+> Observera pilens riktning i trädvyn relationer.  
 
-Om du vill se mer information, till exempel det fullständigt kvalificerade namnet på kolumnen, flyttar du musen över och du ser ett popup-fönster som liknar följande bild: 
+Om du vill se mer information, till exempel det fullständigt kvalificerade namnet på kolumnen, flyttar du musen och ser ett popup-fönster som liknar följande bild: 
 
-![Azure Data Catalog - Relation popup](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
+![Popup-fönster för Azure Data Catalog-relation](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
-Om du vill inkludera relationer mellan tillgångar som redan har registrerats registrerar du dessa tillgångar.
+Om du vill inkludera relationer mellan till gångar som redan har registrerats registrerar du dessa till gångar på nytt.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Hantera datatillgångar](data-catalog-how-to-manage.md)

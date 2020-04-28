@@ -1,6 +1,6 @@
 ---
 title: Ansluta en ny Windows 10-enhet med Azure AD under den första körningen | Microsoft Docs
-description: Hur användare kan konfigurera Azure AD Join under out of box-upplevelsen.
+description: Hur användarna kan konfigurera Azure AD Join under en box-upplevelse.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67482101"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Självstudie: Ansluta en ny Windows 10-enhet med Azure AD under den första körningen
@@ -39,7 +39,7 @@ I den här självstudien får du lära dig hur du ansluter en enhet till Azure A
 
 Om du vill ansluta en Windows 10-enhet måste enhetsregistreringstjänsten konfigureras så att du kan registrera enheter. Förutom att du måste ha behörighet att ansluta enheter i din Azure AD-klient måste du ha färre enheter registrerade än det angivna högsta antalet. Mer information finns i [Konfigurera enhetsinställningar](device-management-azure-portal.md#configure-device-settings).
 
-Om din klient är federerad måste dessutom din identitetsprovider stödja slutpunkter för WS-Fed- och WS-Trust-användarnamn/-lösenord. Detta kan vara version 1.3 eller 2005. Den här protokollsupporten krävs för att både ansluta enheten till Azure AD och logga in på enheten med ett lösenord.
+Om din klient är federerad måste dessutom din identitetsprovider stödja slutpunkter för WS-Fed- och WS-Trust-användarnamn/-lösenord. Detta kan vara version 1.3 eller 2005. Det här protokoll stödet krävs för att både ansluta enheten till Azure AD och logga in på enheten med ett lösen ord.
 
 ## <a name="joining-a-device"></a>Ansluta en enhet
 
@@ -59,7 +59,7 @@ Om din klient är federerad måste dessutom din identitetsprovider stödja slutp
 
     ![Inloggningsskärm](./media/azuread-joined-devices-frx/03.png)
 
-1. Enheten hittar en matchande klient i Azure AD. Om du är i en federerad domän omdirigeras du till din lokala STS-server (Secure Token Service), till exempel Active Directory Federation Services (AD FS).
+1. Enheten hittar en matchande klient organisation i Azure AD. Om du är i en federerad domän omdirigeras du till din lokala STS-server (Secure Token Service), till exempel Active Directory Federation Services (AD FS).
 1. Om du är en användare i en icke-federerad domän kan du ange dina autentiseringsuppgifter direkt på den Azure AD-värdbaserade sidan. 
 1. Du uppmanas att ange en utmaning för multifaktorautentisering. 
 1. Azure AD kontrollerar om det krävs en registrering för hantering av mobila enheter.

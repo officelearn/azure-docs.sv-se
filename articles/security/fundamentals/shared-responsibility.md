@@ -1,6 +1,6 @@
 ---
-title: Delat ansvar i molnet – Microsoft Azure
-description: Förstå modellen med delat ansvar och vilka säkerhetsuppgifter som hanteras av molnleverantören och vilka uppgifter som hanteras av dig.
+title: Delat ansvar i Cloud-Microsoft Azure
+description: Förstå den delade ansvars modellen och vilka säkerhets aktiviteter som hanteras av moln leverantören och vilka aktiviteter som hanteras av dig.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,38 +16,38 @@ ms.workload: na
 ms.date: 10/16/2019
 ms.author: terrylan
 ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72518374"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Delat ansvar i molnet
 
-När du överväger och utvärderar offentliga molntjänster är det viktigt att förstå modellen med delat ansvar och vilka säkerhetsuppgifter som hanteras av molnleverantören och vilka uppgifter som hanteras av dig. Arbetsbelastningsansvaret varierar beroende på om arbetsbelastningen finns på Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS) eller i ett lokalt datacenter
+När du bedömer och utvärderar offentliga moln tjänster är det viktigt att förstå den delade ansvars modellen och vilka säkerhets aktiviteter som hanteras av moln leverantören och vilka aktiviteter som hanteras av dig. Arbets Belastningens ansvar varierar beroende på om arbets belastningen finns på program vara som en tjänst (SaaS), plattform som en tjänst (PaaS), infrastruktur som en tjänst (IaaS) eller i ett lokalt Data Center
 
-## <a name="division-of-responsibility"></a>Ansvarsfördelning
-I ett lokalt datacenter äger du hela stacken. När du flyttar till molnet överförs vissa ansvarsområden till Microsoft. Följande diagram illustrerar ansvarsområdena mellan dig och Microsoft, beroende på vilken typ av distribution av din stack.
+## <a name="division-of-responsibility"></a>Ansvars Division
+I ett lokalt Data Center äger du hela stacken. När du flyttar till molnet kan du överföra vissa ansvars områden till Microsoft. I följande diagram illustreras ansvars områdena mellan dig och Microsoft, enligt vilken typ av stack du har.
 
-![Ansvarszoner](./media/shared-responsibility/shared-responsibility.png)
+![Ansvars zoner](./media/shared-responsibility/shared-responsibility.png)
 
-Du äger dina data och identiteter oavsett typen av molndistribution. Du är ansvarig för att skydda säkerheten för dina data och identiteter, lokala resurser och de molnkomponenter du styr (som varierar beroende på tjänsttyp).
+Du äger dina data och identiteter oavsett typen av molndistribution. Du ansvarar för att skydda säkerheten för dina data och identiteter, lokala resurser och de moln komponenter som du styr (beroende på tjänst typ).
 
-Oavsett typ av distribution behålls alltid följande ansvarsområden av dig:
+Oavsett typ av distribution behålls alltid följande ansvar:
 
 - Data
 - Slutpunkter
 - Konto
 - Åtkomsthantering
 
-## <a name="cloud-security-advantages"></a>Fördelar med molnsäkerhet
-Molnet erbjuder betydande fördelar för att lösa långvariga informationssäkerhetsutmaningar. I en lokal miljö har organisationer sannolikt ouppfyllda ansvarsområden och begränsade resurser tillgängliga för att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla lager.
+## <a name="cloud-security-advantages"></a>Fördelar med moln säkerhet
+Molnet erbjuder avsevärda fördelar för att lösa långa ständiga data säkerhets utmaningar. I en lokal miljö har organisationer troligen ouppfyllda ansvar och begränsade resurser som är tillgängliga för att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla nivåer.
 
-Följande diagram visar en traditionell metod där många säkerhetsansvar inte uppfylls på grund av begränsade resurser. I den molnaktiverade metoden kan du flytta dagliga säkerhetsansvar till din molnleverantör och omfördela dina resurser.
+Följande diagram visar en traditionell metod där många säkerhets ansvars områden ouppfyllda på grund av begränsade resurser. I den molnbaserade metoden kan du byta dag till dagens säkerhets ansvars områden för din moln leverantör och omallokera dina resurser.
 
-![Säkerhetsfördelar med molneran](./media/shared-responsibility/cloud-enabled-security.png)
+![Säkerhets fördelarna med moln era](./media/shared-responsibility/cloud-enabled-security.png)
 
-I den molnaktiverade metoden kan du också utnyttja molnbaserade säkerhetsfunktioner för mer effektivitet och använda molninformation för att förbättra din hotidentifiering och svarstid. Genom att flytta ansvar till molnleverantören kan organisationer få mer säkerhetstäckning, vilket gör att de kan omfördela säkerhetsresurser och budget till andra affärsprioriteringar.
+I den molnbaserade metoden kan du också utnyttja molnbaserade säkerhetsfunktioner för att öka effektiviteten och använda Cloud Intelligence för att förbättra din hot identifiering och svars tid. Genom att ändra ansvars områden till moln leverantören kan organisationer få mer säkerhets täckning, vilket gör att de kan allokera om säkerhets resurser och budget till andra affärs prioriteringar.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om ansvarsfördelningen mellan dig och Microsoft i en SaaS-, PaaS- och IaaS-distribution finns i [Delat ansvar för molnbaserad databehandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Mer information om ansvars fördelningen mellan dig och Microsoft i en SaaS-, PaaS-och IaaS-distribution finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).

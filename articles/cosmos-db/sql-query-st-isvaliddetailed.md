@@ -1,6 +1,6 @@
 ---
-title: ST_ISVALIDDETAILED i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktion ST_ISVALIDDETAILED i Azure Cosmos DB.
+title: ST_ISVALIDDETAILED i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system-funktionen ST_ISVALIDDETAILED i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9e640c223c2fef844b9b53e1f4afa3a5d398c8c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349349"
 ---
 # <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
@@ -26,15 +26,15 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 ## <a name="arguments"></a>Argument
   
 *spatial_expr*  
-   Är ett GeoJSON-punkt- eller polygonuttryck.  
+   Är ett uttryck för en interjson-punkt eller ett polygon.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
-  Returnerar ett JSON-värde som innehåller ett booleskt värde om det angivna GeoJSON-punkt- eller polygonuttrycket är giltigt, och om det är ogiltigt, dessutom orsaken som ett strängvärde.  
+  Returnerar ett JSON-värde som innehåller ett booleskt värde om det angivna värdet för ett interjson-eller polygon-uttryck är giltigt och om det är ogiltigt, och även orsaken som ett sträng värde.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel hur du kontrollerar `ST_ISVALIDDETAILED`giltigheten (med information) med .  
+  I följande exempel kontrol lera giltighet (med information) med hjälp `ST_ISVALIDDETAILED`av.  
   
 ```sql
 SELECT ST_ISVALIDDETAILED({   
@@ -56,6 +56,6 @@ SELECT ST_ISVALIDDETAILED({
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Rumsliga funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Spatiala funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

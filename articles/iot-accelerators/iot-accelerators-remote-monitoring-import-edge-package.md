@@ -1,6 +1,6 @@
 ---
-title: Import Edge-paket för fjärrövervakningslösning – Azure | Microsoft-dokument
-description: I den här artikeln beskrivs hur du importerar ett IoT Edge-paket till lösningsacceleratorn för fjärrövervakning
+title: Import Edge-paket för fjärr övervakning – Azure | Microsoft Docs
+description: I den här artikeln beskrivs hur du importerar ett IoT Edge-paket till lösningen för fjärr styrnings lösningar
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,47 +9,47 @@ services: iot-accelerators
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61443019"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importera ett IoT Edge-paket till acceleratorn för fjärrövervakningslösningen
 
-Ett distributionsmanifest definierar de moduler som ska distribueras till en IoT Edge-enhet. Den här artikeln förutsätter att en utvecklare i organisationen redan har skapat distributionsmanifest. Mer information om hur en utvecklare skapar ett manifest finns i någon av följande IoT Edge-instruktioner:
+Ett distributions manifest definierar de moduler som ska distribueras till en IoT Edge enhet. Den här artikeln förutsätter att en utvecklare i din organisation redan har skapat distributions manifestet. Information om hur en utvecklare skapar ett manifest finns i något av följande IoT Edge instruktions artiklar:
 
-- [Distribuera Azure IoT Edge-moduler från Azure-portalen](../iot-edge/how-to-deploy-modules-portal.md)
+- [Distribuera Azure IoT Edge moduler från Azure Portal](../iot-edge/how-to-deploy-modules-portal.md)
 - [Distribuera Azure IoT Edge-moduler med Azure CLI](../iot-edge/how-to-deploy-modules-cli.md)
-- [Distribuera Azure IoT Edge-moduler från Visual Studio-kod](../iot-edge/how-to-deploy-modules-vscode.md)
+- [Distribuera Azure IoT Edge moduler från Visual Studio Code](../iot-edge/how-to-deploy-modules-vscode.md)
 
-En utvecklare skapar och testar ett distributionsmanifest i en utvecklingsmiljö. När du är redo kan du importera manifestet till lösningsacceleratorn för fjärrövervakning.
+En utvecklare skapar och testar ett distributions manifest i en utvecklings miljö. När du är klar kan du importera manifestet till din lösnings Accelerator för fjärr styrning.
 
 ## <a name="export-a-manifest"></a>Exportera ett manifest
 
-Använd Azure-portalen för att exportera distributionsmanifestet från utvecklingsmiljön:
+Använd Azure Portal för att exportera distributions manifestet från utvecklings miljön:
 
-1. I Azure-portalen navigerar du till IoT-hubben som du använder för att utveckla och testa dina IoT Edge-enheter. Klicka på **IoT Edge** och sedan ![ **IoT Edge-distributioner:** IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
+1. I Azure Portal navigerar du till den IoT-hubb som du använder för att utveckla och testa dina IoT Edge enheter. Klicka på **IoT Edge** och **IoT Edge distributioner**: ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
 
-1. Klicka på distributionen som har den distributionskonfiguration som du vill använda. Sidan **Distributionsinformation** visar: ![Distributionsinformation för IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
+1. Klicka på den distribution som har den distributions konfiguration som du vill använda. Sidan **distributions information** visar: ![IoT Edge distributions information](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
 
-1. Klicka på **Hämta IoT Edge-manifest:** ![Hämta distributionsmanifest](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. Klicka på **Hämta IoT Edge manifest**: ![Ladda ned distributions manifest](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
-1. Spara JSON-filen som en lokal fil som heter **deploymentmanifest.json**.
+1. Spara JSON-filen som en lokal fil med namnet **deploymentmanifest. JSON**.
 
-Nu har du en fil som innehåller distributionsmanifestet. I nästa avsnitt importerar du manifestet som ett paket till lösningen för fjärrövervakning.
+Nu har du en fil som innehåller distributions manifestet. I nästa avsnitt importerar du det här manifestet som ett paket till den fjärranslutna övervaknings lösningen.
 
 ## <a name="import-a-package"></a>Importera ett paket
 
-Följ stegen nedan för att importera ett Edge-distributionsmanifest som ett paket till din lösning:
+Följ stegen nedan för att importera ett gräns distributions manifest som ett paket till din lösning:
 
-1. Navigera till sidan **Paket** i webbgränssnittet ![för fjärrövervakning: Paket](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
+1. Gå till sidan **paket** på sidan för webb gränssnitt för fjärrövervakning ![: Sidan paket](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
 
-1. Klicka på **+ Nytt paket**, välj **Kantmanifest** som pakettyp och klicka på **Bläddra** för att välja filen **deploymentmanifest.json** som du sparade i föregående avsnitt: ![Välj manifest](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
+1. Klicka **på + nytt paket**, **Välj Edge-manifest** som paket typ och klicka på **Bläddra** för att välja den **deploymentmanifest. JSON** -fil som du sparade i ![föregående avsnitt: Välj manifest](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
 
-1. Klicka på **Ladda upp** om du ![vill lägga till paketet i lösningen för fjärrövervakning: Laddat paket](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
+1. Klicka på **överför** för att lägga till paketet i din lösning för ![fjärrövervakning: överfört paket](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
 
-Du har nu laddat upp ett IoT Edge-distributionsmanifest som ett paket. På sidan **Distributioner** kan du distribuera det här paketet till dina anslutna IoT Edge-enheter.
+Du har nu laddat upp ett IoT Edge distributions manifest som ett paket. På sidan **distributioner** kan du distribuera det här paketet till dina anslutna IoT Edge enheter.
 
 ## <a name="next-steps"></a>Nästa steg
 

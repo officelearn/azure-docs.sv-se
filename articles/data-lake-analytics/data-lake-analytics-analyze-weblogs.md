@@ -1,6 +1,6 @@
 ---
 title: Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics
-description: Lär dig hur du analyserar webbplatsloggar med Azure Data Lake Analytics för att köra U-SQL-funktioner och frågor.
+description: Lär dig hur du analyserar webbplats loggar med Azure Data Lake Analytics för att köra U-SQL-funktioner och-frågor.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,56 +10,56 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 04c6d4c74a82ccfbcbb0faecb0dca5ec495f6663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71672885"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics
-Lär dig hur du analyserar webbplatsloggar med Data Lake Analytics, särskilt när du vet vilka referenter som stötte på fel när de försökte besöka webbplatsen.
+Lär dig hur du analyserar webbplats loggar med Data Lake Analytics, särskilt för att ta reda på vilka referenter som påträffades i fel när de försökte besöka webbplatsen.
 
 ## <a name="prerequisites"></a>Krav
-* **Visual Studio 2015 eller Visual Studio 2013**.
+* **Visual studio 2015 eller Visual studio 2013**.
 * **[Data Lake-verktyg för Visual Studio](https://aka.ms/adltoolsvs)**.
 
-    När DataSjöverktyg för Visual Studio har installerats visas ett **DataSjöobjekt** på **Verktyg-menyn** i Visual Studio:
+    När Data Lake verktyg för Visual Studio har installerats visas ett **data Lake** objekt på **verktyg** -menyn i Visual Studio:
 
-    ![U-SQL Visual Studio-menyn](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
-* **Grundläggande kunskaper i Data Lake Analytics och Data Lake Tools för Visual Studio**. För att komma igång, se:
+    ![Visual Studio-menyn i U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+* **Grundläggande kunskaper om data Lake Analytics och data Lake verktyg för Visual Studio**. För att komma igång, se:
 
-  * [Utveckla U-SQL-skript med hjälp av DataSjöverktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* **Ett Data Lake Analytics-konto.**  Se [Skapa ett Azure Data Lake Analytics-konto](data-lake-analytics-get-started-portal.md).
-* **Installera exempeldata.** Öppna ditt DataSjöanalyskonto i Azure Portal och klicka på **Exempelskript** på den vänstra menyn och klicka sedan på **Kopiera exempeldata**. 
+  * [Utveckla U-SQL-skript med hjälp av data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+* **Ett Data Lake Analytics-konto.**  Se [skapa ett Azure Data Lake Analytics-konto](data-lake-analytics-get-started-portal.md).
+* **Installera exempel data.** I Azure Portal öppnar du Data Lake Analytics konto och klickar på **exempel skript** på den vänstra menyn och sedan på **Kopiera exempel data**. 
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
-Innan du kan skapa och testa u-SQL-skript måste du först ansluta till Azure.
+Innan du kan bygga och testa alla U-SQL-skript måste du först ansluta till Azure.
 
 **Så här ansluter du till Data Lake Analytics**
 
 1. Öppna Visual Studio.
-2. Klicka på **Alternativ och inställningar för Datasjö**> .
-3. Klicka på **Logga in**eller **Ändra användare** om någon har loggat in och följ instruktionerna.
-4. Stäng dialogrutan Alternativ och inställningar genom att klicka på **OK.**
+2. Klicka på **Data Lake > alternativ och inställningar**.
+3. Klicka på **Logga in**, eller **ändra användare** om någon har loggat in, och följ anvisningarna.
+4. Klicka på **OK** för att stänga dialog rutan alternativ och inställningar.
 
-**Så här bläddrar du bland dina DataSjöanalyskonton**
+**Bläddra bland Data Lake Analytics-konton**
 
-1. Öppna **Server Explorer** från Visual Studio genom att trycka på **CTRL+ALT+S**.
-2. Gå till **Server Explorer**, expandera **Azure** och expandera sedan **Data Lake Analytics**. En lista över dina Data Lake Analytics-konton visas om det finns några. Du kan inte skapa Data Lake Analytics-konton från studion. Information om hur du skapar ett konto finns [i Komma igång med Azure Data Lake Analytics med Azure Portal](data-lake-analytics-get-started-portal.md) eller Komma igång med Azure Data Lake Analytics med Azure [PowerShell](data-lake-analytics-get-started-powershell.md).
+1. Öppna **Server Explorer** från Visual Studio genom att trycka på **CTRL + ALT + S**.
+2. Gå till **Server Explorer**, expandera **Azure** och expandera sedan **Data Lake Analytics**. En lista över dina Data Lake Analytics-konton visas om det finns några. Du kan inte skapa Data Lake Analytics konton från Studio. Information om hur du skapar ett konto finns i [komma igång med Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md) eller [kom igång med Azure Data Lake Analytics med Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## <a name="develop-u-sql-application"></a>Utveckla U-SQL-program
-Ett U-SQL-program är oftast ett U-SQL-skript. Mer information om U-SQL finns i [Komma igång med U-SQL](data-lake-analytics-u-sql-get-started.md).
+Ett U-SQL-program är oftast ett U-SQL-skript. Mer information om U-SQL finns i [Kom igång med u-SQL](data-lake-analytics-u-sql-get-started.md).
 
-Du kan lägga till ytterligare användardefinierade operatorer i programmet.  Mer information finns i [Utveckla U-SQL-användardefinierade operatorer för Data Lake Analytics-jobb](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+Du kan lägga till ytterligare användardefinierade operatorer i programmet.  Mer information finns i [utveckla U-SQL-användardefinierade operatorer för data Lake Analytics jobb](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 **Skapa och skicka ett Data Lake Analytics-jobb**
 
-1. Klicka på **> nytt > Project**.
+1. Klicka på **filen > nytt > projekt**.
 2. Välj typen U-SQL-projekt.
 
     ![nytt U-SQL Visual Studio-projekt](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Klicka på **OK**. Visual Studio skapar en lösning med en Script.usql-fil.
-4. Ange följande skript i filen Script.usql:
+4. Ange följande skript i filen script. usql:
 
         // Create a database for easy reuse, so you don't need to read from a file every time.
         CREATE DATABASE IF NOT EXISTS SampleDBTutorials;
@@ -138,7 +138,7 @@ Du kan lägga till ytterligare användardefinierade operatorer i programmet.  Me
                 cs_referer,
                 sc_status;
 
-    Information om hur du förstår U-SQL finns [i Komma igång med U-SQL-språket DataSjö Analytics](data-lake-analytics-u-sql-get-started.md).    
+    Information om hur du använder U-SQL finns i [Kom igång med data Lake Analytics U-SQL-språk](data-lake-analytics-u-sql-get-started.md).    
 5. Lägg till ett nytt U-SQL-skript i projektet och ange följande:
 
         // Query the referrers that ran into errors
@@ -150,27 +150,27 @@ Du kan lägga till ytterligare användardefinierade operatorer i programmet.  Me
         OUTPUT @content
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
-6. Växla tillbaka till det första U-SQL-skriptet och bredvid **skicka-knappen** anger du ditt Analytics-konto.
-7. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skapa skript**. Kontrollera resultaten i utdatafönstret.
+6. Växla tillbaka till det första U-SQL-skriptet och ange ditt analys konto bredvid knappen **Skicka** .
+7. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skapa skript**. Verifiera resultatet i fönstret utdata.
 8. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skicka skript**.
-9. Kontrollera **att Analytics-kontot** är det där du vill köra jobbet och klicka sedan på **Skicka**. Resultat för skicka och jobblänk är tillgängliga i resultatfönstret för Data Lake-verktyg för Visual Studio när överföringen är klar.
-10. Vänta tills jobbet har slutförts.  Om jobbet misslyckades saknas troligen källfilen.  Se avsnittet Förutsättning i den här självstudien. Ytterligare felsökningsinformation finns i [Övervaka och felsöka Azure Data Lake Analytics-jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+9. Kontrol lera att **Analytics-kontot** är det som du vill köra jobbet på och klicka sedan på **Skicka**. Resultat för skicka och jobblänk är tillgängliga i resultatfönstret för Data Lake-verktyg för Visual Studio när överföringen är klar.
+10. Vänta tills jobbet har slutförts.  Om jobbet misslyckades är det troligt vis käll filen som saknas.  Se avsnittet krav i den här självstudien. Mer felsöknings information finns i [övervaka och felsöka Azure Data Lake Analytics-jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
-    När jobbet är klart visas följande skärm:
+    När jobbet har slutförts visas följande skärm:
 
-    ![datasjöanalys analyserar webbloggar webbplatsloggar](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
-11. Nu upprepa steg 7- 10 för **Script1.usql**.
+    ![Data Lake Analytics analysera blogg TVF webbplats loggar](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
+11. Upprepa nu steg 7-10 för **Script1. usql**.
 
 **Visa jobbutdata**
 
 1. Från **Server Explorer**, expandera **Azure**, expandera **Data Lake Analytics**, expandera Data Lake Analytics-kontot, expandera **Lagringskonton**, högerklicka på standardkontot för lagring av Data Lake och klicka sedan på **Explorer**.
-2. Dubbelklicka på **Exempel** för att öppna mappen och dubbelklicka sedan på **Utdata**.
-3. Dubbelklicka på **Misslyckat Svar.log**.
-4. Du kan också dubbelklicka på utdatafilen i diagrammet på jobbet för att navigera direkt till utdata.
+2. Dubbelklicka på **exempel** för att öppna mappen och dubbelklicka sedan på **utdata**.
+3. Dubbelklicka på **UnsuccessfulResponses. log**.
+4. Du kan också dubbelklicka på utdatafilen i diagramvyn för jobbet för att navigera direkt till utdata.
 
 ## <a name="see-also"></a>Se även
 Om du vill komma igång med Data Lake Analytics med hjälp av olika verktyg, se:
 
-* [Komma igång med DataSjöanalys med Azure Portal](data-lake-analytics-get-started-portal.md)
+* [Kom igång med Data Lake Analytics med Azure Portal](data-lake-analytics-get-started-portal.md)
 * [Kom igång med Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Kom igång med Data Lake Analytics med hjälp av NET SDK](data-lake-analytics-get-started-net-sdk.md)

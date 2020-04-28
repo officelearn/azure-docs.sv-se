@@ -1,6 +1,6 @@
 ---
-title: Hybrididentitetsdesign – hanteringsuppgifter Azure | Microsoft-dokument
-description: Med kontrollen Villkorlig åtkomst kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och får åtkomst till programmet.
+title: Design av hybrid identitet – hanterings uppgifter Azure | Microsoft Docs
+description: Med villkorlig åtkomst kontroll kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och beviljas åtkomst till programmet.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,57 +18,57 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109388"
 ---
-# <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för hybrididentitetslivscykeln
-Identitet är en av grunderna för din strategi för företagsmobilitet och tillgång till program. Oavsett om du loggar in på din mobila enhet eller SaaS-app är din identitet nyckeln till att få tillgång till allt. På högsta nivå omfattar en identitetshanteringslösning enande och synkronisering mellan dina identitetsregister, vilket inkluderar automatisering och centralisering av processen för att etablera resurser. Identitetslösningen ska vara en centraliserad identitet i lokala och moln och även använda någon form av identitetsfederation för att upprätthålla centraliserad autentisering och säkert dela och samarbeta med externa användare och företag. Resurserna sträcker sig från operativsystem och program till personer i eller anslutna till en organisation. Organisationsstrukturen kan ändras för att tillgodose etableringsprinciper och procedurer.
+# <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid identitets livs cykel
+Identiteten är en av grunderna i din Enterprise Mobility-och program åtkomst strategi. Oavsett om du loggar in på din mobila enhet eller SaaS-app, är din identitet nyckeln för att få åtkomst till allt. På sin högsta nivå omfattar en identitets hanterings lösning att förena och synkronisera dina identitets lager, vilket omfattar automatisering och centralisera processen för etablering av resurser. Identitets lösningen bör vara en centraliserad identitet i både lokalt och i molnet och kan också använda någon form av identitets Federation för att upprätthålla centraliserad autentisering och dela och samar beta med externa användare och företag på ett säkert sätt. Resurs intervall från operativ system och program till personer i, eller som är kopplade till, en organisation. Organisations strukturen kan ändras för att hantera etablerings principer och procedurer.
 
-Det är också viktigt att ha en identitetslösning som är inriktad på att ge användarna möjlighet genom att ge dem självbetjäningsupplevelser för att hålla dem produktiva. Din identitetslösning är mer robust om den aktiverar enkel inloggning för användare på alla resurser de behöver åtkomst. Administratörer på alla nivåer kan använda standardiserade procedurer för att hantera användarautentiseringsuppgifter. Vissa administrationsnivåer kan minskas eller elimineras, beroende på bredden av etableringshanteringslösningen. Dessutom kan du på ett säkert sätt distribuera administrationsfunktioner, manuellt eller automatiskt, mellan olika organisationer. En domänadministratör kan till exempel bara betjäna personer och resurser i den domänen. Den här användaren kan utföra administrativa uppgifter och etableringsuppgifter, men har inte behörighet att utföra konfigurationsuppgifter, till exempel skapa arbetsflöden.
+Det är också viktigt att ha en identitets lösning som är avsedd att hjälpa dina användare genom att tillhandahålla självbetjänings upplevelser för att hålla dem produktiva. Din identitets lösning är mer robust om den möjliggör enkel inloggning för användare över alla resurser som de behöver åtkomst till. Administratörer på alla nivåer kan använda standardiserade procedurer för att hantera användarautentiseringsuppgifter. Vissa administrations nivåer kan minskas eller elimineras, beroende på bredden för etablerings hanterings lösningen. Dessutom kan du på ett säkert sätt distribuera administrations funktioner manuellt eller automatiskt mellan olika organisationer. En domän administratör kan till exempel endast hantera personer och resurser i domänen. Den här användaren kan utföra administrativa och etablerings uppgifter, men har inte behörighet att utföra konfigurations åtgärder, till exempel skapa arbets flöden.
 
-## <a name="determine-hybrid-identity-management-tasks"></a>Ta reda på hybrididentitetshanteringsuppgifter
-Om du distribuerar administrativa uppgifter i organisationen förbättras administrationens noggrannhet och effektivitet och balansen i arbetsbelastningen för en organisation förbättras. Följande är de pivoter som definierar ett robust identitetshanteringssystem.
+## <a name="determine-hybrid-identity-management-tasks"></a>Fastställa uppgifter för Hybrid identitets hantering
+Genom att distribuera administrativa uppgifter i din organisation förbättras precisionen och effektiviteten i administrationen och det går snabbare att balansera arbets belastningen i en organisation. Följande är de pivoteror som definierar ett robust identitets hanterings system.
 
- ![identitetshantering överväganden](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![överväganden för identitets hantering](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
-Om du vill definiera hybrididentitetshanteringsuppgifter måste du förstå några grundläggande egenskaper hos organisationen som ska anta hybrididentitet. Det är viktigt att förstå de aktuella databaserna som används för identitetskällor. Genom att känna till dessa kärnelement, kommer du att ha grundläggande krav och baserat på att du kommer att behöva ställa mer detaljerade frågor som leder dig till en bättre design beslut för din identitet lösning.  
+Om du vill definiera uppgifter för Hybrid identitets hantering måste du förstå några viktiga egenskaper hos den organisation som ska anta hybrid identitet. Det är viktigt att förstå de aktuella databaser som används för identitets källor. Genom att känna till de grundläggande elementen får du grundläggande krav och bygger på att du behöver ställa mer detaljerade frågor som leder dig till ett bättre design beslut för din identitets lösning.  
 
-När du definierar dessa krav, se till att åtminstone följande frågor besvaras
+När du definierar dessa krav bör du se till att minst följande frågor besvaras
 
-* Etableringsalternativ: 
+* Etablerings alternativ: 
   
-  * Stöder hybrididentitetslösningen ett robust system för hantering och etablering av kontoåtkomst?
-  * Hur hanteras användare, grupper och lösenord?
-  * Är identitetslivscykelhanteringen responsiv? 
-    * Hur lång tid tar det att avbryta kontots kontoavstängning?
-* Licenshantering: 
+  * Stöder hybrid identitets lösningen en robust konto åtkomst hantering och ett etablerings system?
+  * Hur ska användare, grupper och lösen ord hanteras?
+  * Svarar livs cykeln för identitets hantering? 
+    * Hur lång tid tar det för kontot att skjuta upp lösen ords uppdateringar?
+* Licens hantering: 
   
-  * Hanterar hybrididentitetslösningen licenshantering?
-    * Om ja, vilka funktioner finns tillgängliga?
-  * Hanterar lösningen gruppbaserad licenshantering? 
+  * Hanterar hybrid identitets lösningen licens hantering?
+    * Om ja, vilka funktioner är tillgängliga?
+  * Hanterar lösningen hantering av gruppbaserad licens? 
   
-    * Om ja, är det möjligt att tilldela en säkerhetsgrupp till den? 
-    * Om ja, kommer molnkatalogen automatiskt tilldela licenser till alla medlemmar i gruppen? 
-    * Vad händer om en användare senare läggs till, eller tas bort från gruppen, tilldelas eller tas bort automatiskt? 
-* Integrering med andra tredjepartsidentitetsleverantörer:
-  * Kan den här hybridlösningen integreras med identitetsleverantörer från tredje part för att implementera enkel inloggning?
-  * Är det möjligt att förena alla olika identitetsleverantörer i ett sammanhållet identitetssystem?
-  * Om ja, hur och vilka är de och vilka funktioner finns tillgängliga?
+    * Om ja, är det möjligt att tilldela en säkerhets grupp till den? 
+    * Om ja, kommer moln katalogen automatiskt tilldela licenser till alla medlemmar i gruppen? 
+    * Vad händer om en användare senare läggs till i eller tas bort från gruppen, kommer en licens automatiskt att tilldelas eller tas bort efter behov? 
+* Integrering med andra tredjeparts identitets leverantörer:
+  * Kan denna hybrid lösning integreras med identitets leverantörer från tredje part för att implementera enkel inloggning?
+  * Är det möjligt att förena alla olika identitets leverantörer i ett sammanhängande identitets system?
+  * Om ja, hur och vilka funktioner är tillgängliga?
 
 ## <a name="synchronization-management"></a>Hantering av synkronisering
-Ett av målen för en identitetshanterare, att kunna ta med alla identitetsleverantörer och hålla dem synkroniserade. Du behåller data synkroniserade baserat på en auktoritär huvudidentitetsprovider. I ett hybrididentitetsscenario, med en synkroniserad hanteringsmodell, hanterar du alla användar- och enhetsidentiteter i en lokal server och synkroniserar kontona och eventuellt lösenord till molnet. Användaren anger samma lösenord lokalt som de gör i molnet, och vid inloggning verifieras lösenordet av identitetslösningen. Den här modellen använder ett katalogsynkroniseringsverktyg.
+Ett av målen för en identitets hanterare, för att kunna ta alla identitets leverantörer och synkronisera dem. Du behåller synkroniserade data baserat på en auktoritativ huvud identitets leverantör. I ett hybrid identitets scenario, med en synkroniserad hanterings modell, hanterar du alla användar-och enhets identiteter på en lokal server och synkroniserar kontona och eventuellt lösen ord till molnet. Användaren anger samma lösen ord lokalt som i molnet, och vid inloggningen verifieras lösen ordet av identitets lösningen. Den här modellen använder ett verktyg för katalog synkronisering.
 
-![katalogsynkronisering](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) För att korrekt utforma synkroniseringen av hybrididentitetslösningen, se till att följande frågor besvaras:
-*    Vilka är synkroniseringslösningarna tillgängliga för hybrididentitetslösningen?
-*    Vilka är de enda inloggningsfunktionerna tillgängliga?
-*    Vilka är alternativen för identitetsfederation mellan B2B och B2C?
+![Katalog synkronisering](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) för korrekt design synkroniseringen av din hybrid identitets lösning kontrol lera att följande frågor besvaras:
+*    Vilka är Sync-lösningarna tillgängliga för Hybrid identitets lösningen?
+*    Vilka är funktionerna för enkel inloggning tillgänglig?
+*    Vilka är alternativen för identitets federation mellan B2B och B2C?
 
 ## <a name="next-steps"></a>Nästa steg
-[Ta reda på strategi för antagande av hybrididentitetshantering](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+[Fastställ strategi för införande av hybrid identitets hantering](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
 ## <a name="see-also"></a>Se även
-[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
 

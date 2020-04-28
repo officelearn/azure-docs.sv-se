@@ -1,6 +1,6 @@
 ---
-title: HSM fysisk säkerhet - Azure Dedikerad HSM | Microsoft-dokument
-description: Information om Azure Dedicated HSM-enheters fysiska säkerhet i datacenter
+title: HSM fysisk säkerhet – Azure Dedicated HSM | Microsoft Docs
+description: Information om Azure Dedicated HSM-enheters fysiska säkerhet i Data Center
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,50 +13,50 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881027"
 ---
-# <a name="azure-dedicated-hsm-physical-security"></a>Azure Dedikerad HSM fysisk säkerhet
+# <a name="azure-dedicated-hsm-physical-security"></a>Fysisk säkerhet för Azure Dedicated HSM
 
-Azure Dedicated HSM hjälper dig att uppfylla avancerade säkerhetskrav för nyckellagring. Den hanteras enligt stränga säkerhetsrutiner under hela livscykeln för att möta kundernas behov.
+Azure Dedicated HSM hjälper dig att uppfylla avancerade säkerhets krav för nyckel lagring. Den hanteras enligt strikta säkerhets metoder i hela livs cykeln för att möta kundernas behov.
 
-## <a name="security-through-procurement"></a>Säkerhet genom upphandling
+## <a name="security-through-procurement"></a>Säkerhet genom inköp
 
-Microsoft följer en säker upphandlingsprocess. Vi hanterar kedjan av vårdnad och se till att den specifika enheten beställt och levereras är den enhet som anländer till våra datacenter. Enheterna är i manipulering-händelse plast ryggar. De lagras i ett säkert lagringsutrymme tills de tas i drift i datagalleriet i datacentret.  Racken som innehåller HSM-enheterna anses vara hög påverkan på verksamheten(HBI). Enheterna är låsta och under videoövervakning hela tiden fram och bak.
+Microsoft följer en säker upphandlings process. Vi hanterar en kedja av vårdnaden och ser till att den enhet som beställs och levereras är enheten som kommer till våra data Center. Enheterna är i skydd mot manipulering av händelser. De lagras i ett säkert lagrings utrymme tills de har beställts i data galleriet i data centret.  Racken som innehåller HSM-enheterna betraktas som hög inverkan på företaget (HBI). Enheterna är låsta och under video övervakningen alltid fram och tillbaka.
 
-## <a name="security-through-deployment"></a>Säkerhet genom distribution
+## <a name="security-through-deployment"></a>Säkerhet via distribution
 
-HSM installeras i rack tillsammans med tillhörande nätverkskomponenter. En gång installerat måste de konfigureras innan de görs tillgängliga som en del av Azure Dedicated HSM-tjänsten. Den här konfigurationsaktiviteten utförs av Microsoft-anställda som har genomgått en bakgrundskontroll. "Just In Time" (JIT) administration används för att begränsa tillgången till endast rätt anställda och för endast den tid som tillgång behövs. De procedurer och system som används säkerställer också att all aktivitet som är relaterad till HSM-enheterna loggas.
+HSM: er installeras i rack tillsammans med tillhör ande nätverks komponenter. När de har installerats måste de konfigureras innan de görs tillgängliga som en del av Azure Dedicated HSM-tjänsten. Den här konfigurations aktiviteten utförs av Microsoft-anställda som har genomgått en bakgrunds kontroll. JIT-administration (just in Time) används för att begränsa åtkomsten till endast de anställda och endast för den tid som åtkomst krävs. De procedurer och system som används ser också till att all aktivitet som är relaterad till HSM-enheterna loggas.
 
-## <a name="security-in-operations"></a>Säkerhet i verksamheten
+## <a name="security-in-operations"></a>Säkerhet i åtgärder
 
-HSM är maskinvaruapparater (den faktiska HSM är ett PCI-kort i apparaten) så det är möjligt att problem på komponentnivå kan uppstå. Potentiella problem inkluderar men är inte begränsade till fläkt- och strömförsörjningsfel. Den här typen av händelse kräver underhåll eller break/fix-aktiviteter för att ersätta alla utbytbara komponenter.
+HSM: er är maskin varu installationer (den faktiska HSM är ett PCI-kort i installationen), så det är möjligt att problem med komponent nivån kan uppstå. Potentiella problem är, men är inte begränsade till fläkt-och ström källor. Den här typen av händelse kräver underhålls-eller åtgärds-/åtgärds aktiviteter för att ersätta eventuella växlings bara komponenter.
 
-### <a name="component-replacement"></a>Byte av komponent
+### <a name="component-replacement"></a>Komponent utbyte
 
-När en enhet har etablerats och under kundhantering är strömförsörjningen för drift under drift är den enda komponenter som skulle ersättas. Den här komponenten ligger utanför säkerhetsgränsen och orsakar inte en sabotagehändelse. Ett biljettsystem används för att ge en Microsoft-tekniker behörighet att komma åt baksidan av HBI-racket. När biljetten behandlas utfärdas en tillfällig fysisk nyckel. Den här nyckeln ger teknikern åtkomst till enheten och gör det möjligt för dem att byta den berörda komponenten. All annan åtkomst (det vill manipuleringshändelse som orsakar) skulle göras när en enhet inte allokeras till en kund, vilket minimerar säkerhets- och tillgänglighetsrisken.  
+När en enhet har tillhandahållits och under kund hantering är den utbytbara strömförsörjningen den enda komponenten som skulle ersättas. Den här komponenten ligger utanför säkerhets gränserna och orsakar ingen manipulering. Ett biljett system används för att ge en Microsoft-tekniker åtkomst till bak sidan av HBI-racket. När biljetten bearbetas utfärdas en tillfällig fysisk nyckel. Den här nyckeln ger teknikern åtkomst till enheten och gör det möjligt för dem att byta ut den berörda komponenten. All annan åtkomst (det vill säga manipulering av manipulering) görs när en enhet inte allokeras till en kund, vilket minimerar säkerhets-och tillgänglighets risken.  
 
-### <a name="device-replacement"></a>Byte av enhet
+### <a name="device-replacement"></a>Enhets ersättning
 
-I händelse av totalt enhetsfel följs en process som liknar den som användes vid komponentfel. Om en kund inte kan nollställa enheten, eller om enheten är i ett okänt tillstånd, kommer datalagerenheterna att tas bort och placeras i en papperskorgen i rack. Enheter som placeras i papperskorgen kommer att förstöras på ett kontrollerat och säkert sätt. Inga datalagerenheter från ett HBI-rack kommer att lämna ett Microsoft-datacenter.
+I händelse av totalt enhets haveri följs en process som liknar den som användes vid komponent haveri. Om en kund inte kan zeroize enheten, eller om enheten är i ett okänt tillstånd, tas data som bär ande enheter bort och placeras i en beställnings plats för destruktion. Enheter som placeras på lager platsen kommer att förstöras på ett kontrollerat och säkert sätt. Inga data som bär enheter från ett HBI-rack lämnar ett Microsoft-datacenter.
 
-### <a name="other-rack-access-activities"></a>Andra rackåtkomstaktiviteter
+### <a name="other-rack-access-activities"></a>Andra rack åtkomst aktiviteter
 
-Om en Microsoft-tekniker måste komma åt det rack som används av HSM-enheter (t.ex. underhåll av nätverksenheter) används standardsäkerhetsprocedurer för att få åtkomst till det HBI-säkra rack. All åtkomst kommer att ske under videoövervakning. HSM-enheterna valideras till [FIPS 140-2 Nivå 3](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf) så all obehörig åtkomst till HSM-enheterna kommer att signaleras till kunden och data nollställs.
+Om en Microsoft-tekniker måste komma åt racket som används av HSM-enheter (t. ex. nätverks enhets underhåll) kommer standard säkerhets procedurer att användas för att få åtkomst till HBI Secure rack. All åtkomst kommer under video övervakning. HSM-enheterna verifieras till [FIPS 140-2 nivå 3](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf) , så all obehörig åtkomst till HSM-enheterna kommer att signaleras till kunden och data kommer att nollställas.
 
-## <a name="logical-level-security-considerations"></a>Säkerhetsöverväganden på logisk nivå
+## <a name="logical-level-security-considerations"></a>Säkerhets överväganden för logiska nivåer
 
-HSM:er etableras i ett virtuellt nätverk som skapats av kunden. Det här är en kunds privata IUP-adressutrymme.  Den här konfigurationen ger en värdefull logisk isolering på nätverksnivå och säkerställer åtkomst endast av kunden. Detta innebär att alla logiska säkerhetskontroller är kundens ansvar.
+HSM: er är etablerade i ett virtuellt nätverk som har skapats av kunden. Det här är kundens privata IUP-adressutrymme.  Den här konfigurationen ger en värdefull isolering på logiskt nätverk och garanterar endast åtkomst av kunden. Det innebär att alla säkerhets kontroller på logisk nivå är kundens ansvar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi rekommenderar att alla viktiga begrepp för tjänsten, till exempel hög tillgänglighet och säkerhet och support, förstås väl före etablering av enheter, programdesign eller distribution.
+Vi rekommenderar att alla viktiga begrepp för tjänsten, till exempel hög tillgänglighet och säkerhet och support, till exempel är bra förstå före enhets etablering, program design eller distribution.
 
 * [Hög tillgänglighet](high-availability.md)
 * [Nätverk](networking.md)
 * [Support](supportability.md)
 * [Övervakning](monitoring.md)
-* [Distributionsarkitektur](deployment-architecture.md)
+* [Distributions arkitektur](deployment-architecture.md)

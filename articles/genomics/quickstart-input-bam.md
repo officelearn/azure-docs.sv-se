@@ -1,7 +1,7 @@
 ---
-title: Skicka ett arbetsflöde med BAM-filindata
+title: Skicka ett arbets flöde med hjälp av BAM-fildata
 titleSuffix: Microsoft Genomics
-description: Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är en enda BAM-fil.
+description: Den här artikeln visar hur du skickar ett arbets flöde till Microsoft Genomics tjänsten om indatafilen är en enskild BAM-fil.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72249168"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Skicka ett arbetsflöde med en BAM-fil som indata
 
-Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är en enda BAM-fil. I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbetsflöde med hjälp av de medföljande exempeldata, är du redo att fortsätta med den här artikeln. 
+Den här artikeln visar hur du skickar ett arbets flöde till Microsoft Genomics tjänsten om indatafilen är en enskild BAM-fil. I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbets flöde med hjälp av de tillhandahållna exempel data, är du redo att fortsätta med den här artikeln. 
 
 ## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Förberedelse: Överför BAM-filen till Azure Storage
 Vi antar att du har en enskild BAM-fil, *reads.bam*, och du har laddat upp den till ditt lagringskonto *myaccount* i Azure som **https://<span></span>myaccount.BLOB.Core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**. Du har API-URL och din åtkomstnyckel. Du vill ha utdata i **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.

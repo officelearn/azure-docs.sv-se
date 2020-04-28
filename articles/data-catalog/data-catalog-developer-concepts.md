@@ -1,163 +1,163 @@
 ---
-title: Utvecklarkoncept för Azure Data Catalog
-description: Introduktion till de viktigaste begreppen i Azure Data Catalog konceptuell modell, som exponeras via Catalog REST API.
+title: Azure Data Catalog utveckla koncept
+description: Introduktion till viktiga begrepp i Azure Data Catalog konceptuell modell, som visas i katalogen REST API.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68976834"
 ---
-# <a name="azure-data-catalog-developer-concepts"></a>Utvecklarkoncept för Azure Data Catalog
-Microsoft **Azure Data Catalog** är en fullständigt hanterad molntjänst som tillhandahåller funktioner för identifiering av datakällor och för crowdsourcing datakällametadata. Utvecklare kan använda tjänsten via rest-API:erna. Att förstå de begrepp som implementeras i tjänsten är viktigt för utvecklare att framgångsrikt integrera med **Azure Data Catalog**.
+# <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog utveckla koncept
+Microsoft **Azure Data Catalog** är en helt hanterad moln tjänst som tillhandahåller funktioner för identifiering av data källor och gemensamt skapade metadata för data källan. Utvecklare kan använda tjänsten via dess REST-API: er. Att förstå begreppen som implementeras i tjänsten är viktigt för att utvecklare ska kunna integrera med **Azure Data Catalog**.
 
 ## <a name="key-concepts"></a>Viktiga begrepp
-Konceptuell modell för **Azure Data Catalog** baseras på fyra nyckelbegrepp: **Katalogen,** **Användare,** **Tillgångar** **och Anteckningar**.
+Den **Azure Data Catalog** konceptuella modellen baseras på fyra viktiga begrepp: **katalog**, **användare**, **till gångar**och **anteckningar**.
 
-![Konceptuell modellillustration för Azure Data Catalog](./media/data-catalog-developer-concepts/concept2.png)
+![Bild av Azure Data Catalog konceptuella modell](./media/data-catalog-developer-concepts/concept2.png)
 
-*Bild 1 - Förenklad konceptuell modell för Azure Data Catalog*
+*Bild 1 – Azure Data Catalog förenklad konceptuell modell*
 
 ### <a name="catalog"></a>Katalog
-En **katalog** är behållaren på den översta nivån för alla metadata som en organisation lagrar. Det finns en **katalog** tillåts per Azure-konto. Kataloger är kopplade till en Azure-prenumeration, men endast en **katalog** kan skapas för ett visst Azure-konto, även om ett konto kan ha flera prenumerationer.
+En **katalog** är behållaren på den översta nivån för alla metadata som organisationen lagrar. En **katalog** tillåts per Azure-konto. Kataloger är kopplade till en Azure-prenumeration, men det går bara att skapa en **katalog** för ett angivet Azure-konto, även om ett konto kan ha flera prenumerationer.
 
-En katalog innehåller **användare** och **tillgångar**.
+En katalog innehåller **användare** och **till gångar**.
 
 ### <a name="users"></a>Användare
-Användare är säkerhetsobjekt som har behörighet att utföra åtgärder (sök i katalogen, lägga till, redigera eller ta bort objekt osv.) i katalogen.
+Användare är säkerhets objekt som har behörighet att utföra åtgärder (söka i katalogen, lägga till, redigera eller ta bort objekt osv.) i katalogen.
 
-Det finns flera olika roller som en användare kan ha. Information om roller finns i avsnittet Roller och Auktorisering.
+Det finns flera olika roller som en användare kan ha. Information om roller finns i avsnittet roller och auktorisering.
 
-Enskilda användare och säkerhetsgrupper kan läggas till.
+Enskilda användare och säkerhets grupper kan läggas till.
 
-Azure Data Catalog använder Azure Active Directory för identitets- och åtkomsthantering. Varje kataloganvändare måste vara medlem i Active Directory för kontot.
+Azure Data Catalog använder Azure Active Directory för identitets-och åtkomst hantering. Varje katalog användare måste vara medlem i Active Directory för kontot.
 
 ### <a name="assets"></a>Tillgångar
-En **katalog** innehåller datatillgångar. **Tillgångar** är den detaljenhet som hanteras av katalogen.
+En **katalog** innehåller data till gångar. **Till gångar** är den enhets kornig het som hanteras av katalogen.
 
-En tillgångs granularitet varierar beroende på datakälla. För SQL Server eller Oracle Database kan en tillgång vara en tabell eller en vy. För SQL Server Analysis Services kan en tillgång vara ett mått, en dimension eller en KPI (Key Performance Indicator). För SQL Server Reporting Services är en tillgång en rapport.
+En till gångs granularitet varierar beroende på data källan. För SQL Server eller Oracle Database kan en till gång vara en tabell eller en vy. För SQL Server Analysis Services kan en till gång vara ett mått, en dimension eller en KPI (Key Performance Indicator). För SQL Server Reporting Services är en till gång en rapport.
 
-En **tillgång** är det du lägger till eller tar bort från en katalog. Det är den enhet av resultat du får tillbaka från **Sök**.
+En **till gång** är att lägga till eller ta bort från en katalog. Det är den resultat enhet som du kommer tillbaka från **sökningen**.
 
-En **tillgång** består av namn, plats och typ och anteckningar som beskriver den ytterligare.
+En **till gång** skapas från dess namn, plats, typ och anteckningar som beskriver den ytterligare.
 
 ### <a name="annotations"></a>Anteckningar
-Anteckningar är objekt som representerar metadata om tillgångar.
+Anteckningar är objekt som representerar metadata om till gångar.
 
-Exempel på anteckningar är beskrivning, taggar, schema, dokumentation, etc. En fullständig lista över tillgångstyper och anteckningstyper finns i avsnittet Tillgångsobjektmodell.
+Exempel på kommentarer är beskrivning, taggar, schema, dokumentation osv. En fullständig lista över till gångs typer och antecknings typer finns i avsnittet till gångs objekt modell.
 
-## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Crowdsourcing anteckningar och användarperspektiv (mångfald av åsikter)
-En viktig aspekt av Azure Data Catalog är hur den stöder crowdsourcing av metadata i systemet. I motsats till en wiki-metod – där det bara finns en åsikt och den sista författaren vinner – tillåter Azure Data Catalog-modellen flera åsikter att leva sida vid sida i systemet.
+## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Gemensamt skapade-kommentarer och användar perspektiv (uppfattning om yttrandet)
+En viktig aspekt av Azure Data Catalog är hur den stöder gemensamt skapade för metadata i systemet. I stället för en wiki-metod – där det bara finns ett yttrande och den senaste skrivaren vinner – Azure Data Catalogs modellen gör att flera åsikter kan leva sida vid sida i systemet.
 
-Detta tillvägagångssätt återspeglar den verkliga världen av företagsdata där olika användare kan ha olika perspektiv på en viss tillgång:
+Den här metoden återspeglar den verkliga världen för företags data där olika användare kan ha olika perspektiv på en specifik till gång:
 
-* En databasadministratör kan tillhandahålla information om servicenivåavtal eller det tillgängliga bearbetningsfönstret för mass-ETL-åtgärder
-* En dataansvarig kan tillhandahålla information om de affärsprocesser som tillgången tillämpar, eller de klassificeringar som företaget har tillämpat på den
-* En ekonomianalytiker kan ge information om hur data används under rapporteringsuppgifter i slutet av perioden
+* En databas administratör kan ge information om service nivå avtal eller fönstret tillgänglig bearbetning för Mass ETL-åtgärder
+* En data ledning kan ge information om de affärs processer som till gången gäller, eller de klassificeringar som företaget har tillämpat på den
+* En finansiell analytiker kan ge information om hur data används under rapporteringen av rapportens slut punkt
 
-För att stödja det här exemplet kan varje användare – DBA, dataansvarig och analytikern – lägga till en beskrivning i en enda tabell som har registrerats i katalogen. Alla beskrivningar underhålls i systemet och i Azure Data Catalog-portalen visas alla beskrivningar.
+För att stödja det här exemplet kan varje användare – DBA, data ledning och analytiker – lägga till en beskrivning i en enskild tabell som har registrerats i katalogen. Alla beskrivningar finns kvar i systemet och i Azure Data Catalog portalen visas alla beskrivningar.
 
-Det här mönstret används på de flesta objekt i objektmodellen, så objekttyper i JSON-nyttolasten är ofta matriser för egenskaper där du kan förvänta dig en singleton.
+Det här mönstret används för de flesta objekt i objekt modellen, så objekt typer i JSON-nyttolasten är ofta matriser för egenskaper där du kan förväntar sig en singleton.
 
-Under tillgångsroten finns till exempel en matris med beskrivningsobjekt. Matrisegenskapen heter "beskrivningar". Ett beskrivningsobjekt har en egenskap - beskrivning. Mönstret är att varje användare som skriver beskrivning får ett beskrivningsobjekt som skapats för det värde som tillhandahålls av användaren.
+Till exempel är till gångs roten en matris med beskrivnings objekt. Mat ris egenskapen heter "beskrivningar". Ett beskrivnings objekt har en egenskaps beskrivning. Mönstret är att varje användare som har typen Beskrivning hämtar ett beskrivnings objekt som skapats för det värde som anges av användaren.
 
-Användarupplevelsen kan sedan välja hur kombinationen ska visas. Det finns tre olika mönster för visning.
+UX-modulen kan sedan välja hur kombinationen ska visas. Det finns tre olika mönster att visa.
 
-* Det enklaste mönstret är "Visa alla". I det här mönstret visas alla objekt i en listvy. Azure Data Catalog portal UX använder det här mönstret för beskrivning.
-* Ett annat mönster är "Merge". I det här mönstret slås alla värden från de olika användarna samman, med dubblett borttagen. Exempel på det här mönstret i Azure Data Catalog portal UX är taggar och experter egenskaper.
-* Ett tredje mönster är "sista författaren vinner". I det här mönstret visas bara det senaste värdet som skrivs in. friendlyName är ett exempel på det här mönstret.
+* Det enklaste mönstret är "Visa alla". I det här mönstret visas alla objekt i en listvy. I Azure Data Catalog portalens UX används det här mönstret för beskrivning.
+* Ett annat mönster är "merge". I det här mönstret slås alla värden från de olika användarna samman, och dubbletter tas bort. Exempel på det här mönstret i Azure Data Catalog portalens UX är Taggar och experters egenskaper.
+* Ett tredje mönster är "sista skrivaren vinner". I det här mönstret visas bara det senaste värdet som anges i. friendlyName är ett exempel på det här mönstret.
 
-## <a name="asset-object-model"></a>Tillgångsobjektmodell
-Som introducerades i avsnittet Nyckelbegrepp innehåller **objektmodellen Azure Data Catalog** objekt, som kan vara tillgångar eller anteckningar. Artiklar har egenskaper som kan vara valfria eller obligatoriska. Vissa egenskaper gäller för alla artiklar. Vissa egenskaper gäller för alla tillgångar. Vissa egenskaper gäller endast för specifika tillgångstyper.
+## <a name="asset-object-model"></a>Till gångs objekt modell
+Som vi introducerat i avsnittet viktiga begrepp innehåller **Azure Data Catalog** objekt modellen objekt, som kan vara till gångar eller kommentarer. Objekt har egenskaper som kan vara valfria eller obligatoriska. Vissa egenskaper gäller för alla objekt. Vissa egenskaper gäller för alla till gångar. Vissa egenskaper gäller endast för vissa till gångs typer.
 
 ### <a name="system-properties"></a>Systemegenskaper
-<table><tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentar</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>Senast objektet ändrades. Det här fältet genereras av servern när ett objekt infogas och varje gång ett objekt uppdateras. Värdet för den här egenskapen ignoreras vid indata från publiceringsåtgärder.</td></tr><tr><td>id</td><td>Uri</td><td>Absolut url för objektet (skrivskyddad). Det är den unika adresserbara URI för objektet.  Värdet för den här egenskapen ignoreras vid indata från publiceringsåtgärder.</td></tr><tr><td>typ</td><td>String</td><td>Typen av tillgång (skrivskyddad).</td></tr><tr><td>Etag</td><td>String</td><td>En sträng som motsvarar den version av artikeln som kan användas för optimistisk samtidighetskontroll när du utför åtgärder som uppdaterar objekt i katalogen. "*" kan användas för att matcha valfritt värde.</td></tr></table>
+<table><tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>Den senaste gången objektet ändrades. Det här fältet genereras av servern när ett objekt infogas och varje gång ett objekt uppdateras. Värdet för den här egenskapen ignoreras vid inläsning av publicerings åtgärder.</td></tr><tr><td>id</td><td>Uri</td><td>Absolut URL för objektet (skrivskyddat). Det är den unika adresser bara URI: n för objektet.  Värdet för den här egenskapen ignoreras vid inläsning av publicerings åtgärder.</td></tr><tr><td>typ</td><td>Sträng</td><td>Typ av till gång (skrivskyddad).</td></tr><tr><td>etag</td><td>Sträng</td><td>En sträng som motsvarar den version av objektet som kan användas för optimistisk concurrency-kontroll när du utför åtgärder som uppdaterar objekt i katalogen. "*" kan användas för att matcha vilket värde som helst.</td></tr></table>
 
 ### <a name="common-properties"></a>Gemensamma egenskaper
-Dessa egenskaper gäller för alla rottillgångstyper och alla anteckningstyper.
+Dessa egenskaper gäller för alla typer av rot till gångar och alla antecknings typer.
 
 <table>
-<tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentar</b></td></tr>
-<tr><td>frånSourceSystem</td><td>Boolean</td><td>Anger om objektets data härleds från ett källsystem (som Sql Server Database, Oracle Database) eller som skapas av en användare.</td></tr>
+<tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr>
+<tr><td>fromSourceSystem</td><td>Boolesk</td><td>Anger om objektets data härleds från ett käll system (t. ex. SQL Server-databas, Oracle Database) eller har skapats av en användare.</td></tr>
 </table>
 
-### <a name="common-root-properties"></a>Vanliga rotegenskaper
+### <a name="common-root-properties"></a>Gemensamma rot egenskaper
 <p>
-Dessa egenskaper gäller för alla rottillgångstyper.
+Dessa egenskaper gäller för alla typer av rot till gångar.
 
-<table><tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentar</b></td></tr><tr><td>namn</td><td>String</td><td>Ett namn som härleds från information om datakällans plats</td></tr><tr><td>Dsl</td><td>DataKällaPlats</td><td>Beskriver datakällan unikt och är en av identifierarna för tillgången. (Se avsnittet med dubbel identitet).  DSL:s struktur varierar beroende på protokoll och källtyp.</td></tr><tr><td>Datasource</td><td>DataSourceInfo</td><td>Mer information om vilken typ av tillgång.</td></tr><tr><td>senastregistreradAv</td><td>SäkerhetPrincipal</td><td>Beskriver den användare som senast registrerade tillgången.  Innehåller både det unika id:t för användaren (upn) och ett visningsnamn (efternamn och förnamn).</td></tr><tr><td>containerId (containerId)</td><td>String</td><td>Id för behållartillgången för datakällan. Den här egenskapen stöds inte för typen Container.</td></tr></table>
+<table><tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr><tr><td>namn</td><td>Sträng</td><td>Ett namn som härletts från data källans plats information</td></tr><tr><td>via</td><td>DataSourceLocation</td><td>Beskriver unikt data källan och är en av identifierarna för till gången. (Se avsnittet dubbla identiteter).  DSL-strukturen varierar beroende på protokoll och typ av källa.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Mer information om typen av till gång.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Beskriver den användare som senast registrerade den här till gången.  Innehåller både det unika ID: t för användaren (UPN) och visnings namn (lastName och firstName).</td></tr><tr><td>Hålla</td><td>Sträng</td><td>ID för behållar till gången för data källan. Den här egenskapen stöds inte för behållar typen.</td></tr></table>
 
-### <a name="common-non-singleton-annotation-properties"></a>Vanliga icke-enstaka anteckningsegenskaper
-Dessa egenskaper gäller för alla icke-singleton-anteckningstyper (anteckningar, som tillät att vara flera per tillgång).
+### <a name="common-non-singleton-annotation-properties"></a>Vanliga egenskaper för icke-singleton-anteckning
+Dessa egenskaper gäller för alla typer av icke-singleton-anteckningar (kommentarer som kan vara flera per till gång).
 
 <table>
-<tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentar</b></td></tr>
-<tr><td>key</td><td>String</td><td>En användarspecificerad nyckel som unikt identifierar anteckningen i den aktuella samlingen. Nyckellängden får inte överstiga 256 tecken.</td></tr>
+<tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr>
+<tr><td>key</td><td>Sträng</td><td>En användardefinierad nyckel som unikt identifierar anteckningen i den aktuella samlingen. Nyckel längden får inte överskrida 256 tecken.</td></tr>
 </table>
 
-### <a name="root-asset-types"></a>Rottillgångstyper
-Rottillgångstyper är de typer som representerar de olika typer av datatillgångar som kan registreras i katalogen. För varje rottyp finns det en vy som beskriver tillgång och anteckningar som ingår i vyn. Visningsnamnet ska användas i motsvarande url-segment för {view_name} när en tillgång publiceras med REST API.
+### <a name="root-asset-types"></a>Rot till gångs typer
+Rot till gångs typer är de typer som representerar de olika typerna av data till gångar som kan registreras i katalogen. Det finns en vy för varje rottyp, som beskriver till gångar och anteckningar som ingår i vyn. Vyns namn ska användas i motsvarande {view_name} URL-segment när du publicerar en till gång med REST API.
 
-<table><tr><td><b>Tillgångstyp (visa namn)</b></td><td><b>Ytterligare egenskaper</b></td><td><b>Datatyp</b></td><td><b>Tillåtna anteckningar</b></td><td><b>Kommentar</b></td></tr><tr><td>Tabell ("tabeller")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Schema<p>ColumnDescription<p>ColumnTag (Kolumn)<p> Expert<p>Förhandsversion<p>TillträdeInstruktion<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Dokumentation<p></td><td>En tabell representerar alla tabelldata.  Till exempel: SQL Table, SQL View, Analysis Services Tabell, Analysis Services flerdimensionell dimension, Oracle Tabell, etc.   </td></tr><tr><td>Åtgärd ("åtgärder")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>TillträdeInstruktion<p>Dokumentation<p></td><td>Den här typen representerar ett Analysis Services-mått.</td></tr><tr><td></td><td>Åtgärd</td><td>Kolumn</td><td></td><td>Metadata som beskriver måttet</td></tr><tr><td></td><td>ärBeräknad </td><td>Boolean</td><td></td><td>Anger om måttet är beräknat eller inte.</td></tr><tr><td></td><td>measureGroup (mätGroup)</td><td>String</td><td></td><td>Fysisk behållare för åtgärd</td></tr><td>KPI ("kpi:er")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>TillträdeInstruktion<p>Dokumentation</td><td></td></tr><tr><td></td><td>measureGroup (mätGroup)</td><td>String</td><td></td><td>Fysisk behållare för åtgärd</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Ett MDX-numeriskt uttryck eller en beräkning som returnerar KPI:ns målvärde.</td></tr><tr><td></td><td>värdeUttryck</td><td>String</td><td></td><td>Ett MDX-numeriskt uttryck som returnerar KPI:ns faktiska värde.</td></tr><tr><td></td><td>statusUttryck</td><td>String</td><td></td><td>Ett MDX-uttryck som representerar KPI:ns tillstånd vid en angiven tidpunkt.</td></tr><tr><td></td><td>trendUttryck</td><td>String</td><td></td><td>Ett MDX-uttryck som utvärderar KPI:ns värde över tid. Trenden kan vara valfritt tidsbaserat kriterium som är användbart i ett visst affärssammanhang.</td>
-<tr><td>Rapport ("rapporter")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>TillträdeInstruktion<p>Dokumentation<p></td><td>Den här typen representerar en SQL Server Reporting Services-rapport </td></tr><tr><td></td><td>tillgångarSkaperadDat</td><td>String</td><td></td><td></td></tr><tr><td></td><td>tillgångarSkapetAv</td><td>String</td><td></td><td></td></tr><tr><td></td><td>tillgångModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>tillgångModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Behållare ("behållare")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>TillträdeInstruktion<p>Dokumentation<p></td><td>Den här typen representerar en behållare med andra resurser, till exempel en SQL-databas, en Azure Blobs-behållare eller en Analysis Services-modell.</td></tr></table>
+<table><tr><td><b>Till gångs typ (visnings namn)</b></td><td><b>Ytterligare egenskaper</b></td><td><b>Datatyp</b></td><td><b>Tillåtna anteckningar</b></td><td><b>Kommentarer</b></td></tr><tr><td>Tabell ("tabeller")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Förhandsversion<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Dokumentation<p></td><td>En tabell representerar alla tabell data.  Exempel: SQL-tabell, SQL-vy, Analysis Services tabell tabell, Analysis Services flerdimensionell dimension, Oracle-tabell osv.   </td></tr><tr><td>Mått ("mått")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>AccessInstruction<p>Dokumentation<p></td><td>Den här typen representerar ett Analysis Services mått.</td></tr><tr><td></td><td>åtgärder</td><td>Kolumn</td><td></td><td>Metadata som beskriver måttet</td></tr><tr><td></td><td>isCalculated </td><td>Boolesk</td><td></td><td>Anger om måttet beräknas eller inte.</td></tr><tr><td></td><td>measureGroup</td><td>Sträng</td><td></td><td>Fysisk container för mått</td></tr><td>KPI ("KPI: er")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>AccessInstruction<p>Dokumentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Sträng</td><td></td><td>Fysisk container för mått</td></tr><tr><td></td><td>goalExpression</td><td>Sträng</td><td></td><td>Ett numeriskt MDX-uttryck eller en beräkning som returnerar KPI-värdets målvärde.</td></tr><tr><td></td><td>valueExpression</td><td>Sträng</td><td></td><td>Ett numeriskt MDX-uttryck som returnerar KPI-indikatorns faktiska värde.</td></tr><tr><td></td><td>statusExpression</td><td>Sträng</td><td></td><td>Ett MDX-uttryck som representerar status för KPI vid en angiven tidpunkt.</td></tr><tr><td></td><td>trendExpression</td><td>Sträng</td><td></td><td>Ett MDX-uttryck som utvärderar KPI-värdet över tid. Trenden kan vara ett tidsbaserat kriterium som är användbart i en speciell affärs kontext.</td>
+<tr><td>Rapport ("rapporter")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>AccessInstruction<p>Dokumentation<p></td><td>Den här typen representerar en SQL Server Reporting Services rapport </td></tr><tr><td></td><td>assetCreatedDate</td><td>Sträng</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Sträng</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Sträng</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Sträng</td><td></td><td></td></tr><tr><td>Container ("behållare")</td><td></td><td></td><td>Beskrivning<p>FriendlyName<p>Tagga<p>Expert<p>AccessInstruction<p>Dokumentation<p></td><td>Den här typen representerar en behållare för andra till gångar, till exempel en SQL-databas, en Azure-blobs-behållare eller en Analysis Services modell.</td></tr></table>
 
-### <a name="annotation-types"></a>Anteckningstyper
-Anteckningstyper representerar typer av metadata som kan tilldelas andra typer i katalogen.
+### <a name="annotation-types"></a>Antecknings typer
+Antecknings typer representerar typer av metadata som kan tilldelas andra typer i katalogen.
 
 <table>
-<tr><td><b>Anteckningstyp (kapslad vynamn)</b></td><td><b>Ytterligare egenskaper</b></td><td><b>Datatyp</b></td><td><b>Kommentar</b></td></tr>
+<tr><td><b>Antecknings typ (namn på kapslad vy)</b></td><td><b>Ytterligare egenskaper</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr>
 
-<tr><td>Beskrivning ("beskrivningar")</td><td></td><td></td><td>Den här egenskapen innehåller en beskrivning för en tillgång. Varje användare av systemet kan lägga till sin egen beskrivning.  Endast den användaren kan redigera beskrivningsobjektet.  (Administratörer och tillgångsägare kan ta bort beskrivningsobjektet men inte redigera det). Systemet upprätthåller användarnas beskrivningar separat.  Det finns alltså en rad beskrivningar på varje tillgång (en för varje användare som har bidragit med sin kunskap om tillgången, förutom eventuellt en som innehåller information som härrör från datakällan).</td></tr>
-<tr><td></td><td>description</td><td>sträng</td><td>En kort beskrivning (2-3 rader) av tillgången</td></tr>
+<tr><td>Beskrivning ("beskrivningar")</td><td></td><td></td><td>Den här egenskapen innehåller en beskrivning av en till gång. Varje användare av systemet kan lägga till en egen beskrivning.  Endast den användaren kan redigera Description-objektet.  (Administratörer och till gångs ägare kan ta bort Description-objektet men inte redigera det). Systemet bibehåller användarnas beskrivningar separat.  Det finns därför en matris med beskrivningar för varje till gång (en för varje användare som har bidragit med sina kunskaper om till gången, förutom en som innehåller information som härletts från data källan).</td></tr>
+<tr><td></td><td>description</td><td>sträng</td><td>En kort beskrivning (2-3 rader) av till gången</td></tr>
 
-<tr><td>Tagg ("taggar")</td><td></td><td></td><td>Den här egenskapen definierar en tagg för en tillgång. Varje användare av systemet kan lägga till flera taggar för en tillgång.  Endast den användare som skapade Taggobjekt kan redigera dem.  (Administratörer och tillgångsägare kan ta bort taggobjektet men inte redigera det). Systemet underhåller användarnas taggar separat.  Det finns alltså en matris med taggobjekt på varje tillgång.</td></tr>
-<tr><td></td><td>tagg</td><td>sträng</td><td>En tagg som beskriver tillgången.</td></tr>
+<tr><td>Tagg ("Taggar")</td><td></td><td></td><td>Den här egenskapen definierar en tagg för en till gång. Varje användare av systemet kan lägga till flera taggar för en till gång.  Endast den användare som skapade tagga objekt kan redigera dem.  (Administratörer och till gångs ägare kan ta bort taggnamnet men inte redigera det). Systemet bibehåller användarnas Taggar separat.  Det finns därför en matris med att tagga objekt på varje till gång.</td></tr>
+<tr><td></td><td>tagg</td><td>sträng</td><td>En tagg som beskriver till gången.</td></tr>
 
-<tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>Den här egenskapen innehåller ett eget namn för en tillgång. FriendlyName är en singleton-anteckning – endast ett FriendlyName kan läggas till i en tillgång.  Endast den användare som skapade FriendlyName-objektet kan redigera det. (Administratörer och tillgångsägare kan ta bort FriendlyName-objektet men inte redigera det). Systemet underhåller användarnas egna namn separat.</td></tr>
-<tr><td></td><td>friendlyName (eget namn)</td><td>sträng</td><td>Ett eget namn på tillgången.</td></tr>
+<tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>Den här egenskapen innehåller ett eget namn för en till gång. FriendlyName är en singleton-anteckning – det går bara att lägga till ett FriendlyName i en till gång.  Endast användaren som skapade FriendlyName-objektet kan redigera det. (Administratörer och till gångs ägare kan ta bort FriendlyName-objektet men inte redigera det). Systemet underhåller användarnas egna namn separat.</td></tr>
+<tr><td></td><td>friendlyName</td><td>sträng</td><td>Ett eget namn på till gången.</td></tr>
 
-<tr><td>Schema ("schema")</td><td></td><td></td><td>Schemat beskriver datastrukturen.  Den listar attribut (kolumn, attribut, fält, etc.) namn, typer samt andra metadata.  Den här informationen härleds från datakällan.  Schema är en singleton-anteckning - endast ett schema kan läggas till för en tillgång.</td></tr>
-<tr><td></td><td>kolumner</td><td>Kolumn[]</td><td>En matris med kolumnobjekt. De beskriver kolumnen med information som härleds från datakällan.</td></tr>
+<tr><td>Schema ("schema")</td><td></td><td></td><td>Schemat beskriver data strukturen.  Den listar attributet (kolumn-, attribut-, fält-osv)-namn, typer och andra metadata.  Den här informationen är allt härledd från data källan.  Schemat är en singleton-anteckning – det går bara att lägga till ett schema för en till gång.</td></tr>
+<tr><td></td><td>kolumner</td><td>Kolumn []</td><td>En matris med kolumn objekt. De beskriver kolumnen med information som härletts från data källan.</td></tr>
 
-<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Den här egenskapen innehåller en beskrivning av en kolumn.  Varje användare av systemet kan lägga till sina egna beskrivningar för flera kolumner (högst en per kolumn). Endast den användare som skapade ColumnDescription-objekt kan redigera dem.  (Administratörer och tillgångsägare kan ta bort ColumnDescription-objektet men inte redigera det). Systemet underhåller dessa användares kolumnbeskrivningar separat.  Det finns alltså en matris med ColumnDescription-objekt på varje tillgång (en per kolumn för varje användare som har bidragit med sin kunskap om kolumnen utöver eventuellt en som innehåller information som härletts från datakällan).  ColumnDescription är löst bunden till schemat så att det kan bli osynkroniserat. ColumnDescription kan beskriva en kolumn som inte längre finns i schemat.  Det är upp till författaren att hålla beskrivning och schema synkroniserat.  Datakällan kan också ha beskrivningsinformation för kolumner och de är ytterligare ColumnDescription-objekt som skulle skapas när verktyget körs.</td></tr>
-<tr><td></td><td>columnName</td><td>String</td><td>Namnet på den kolumn som den här beskrivningen refererar till.</td></tr>
-<tr><td></td><td>description</td><td>String</td><td>en kort beskrivning (2-3 rader) i kolumnen.</td></tr>
+<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Den här egenskapen innehåller en beskrivning av en kolumn.  Varje användare av systemet kan lägga till egna beskrivningar för flera kolumner (högst ett per kolumn). Endast den användare som skapade ColumnDescription-objekt kan redigera dem.  (Administratörer och till gångs ägare kan ta bort ColumnDescription-objektet men inte redigera det). Systemet underhåller dessa användares kolumn beskrivningar separat.  Därför finns det en matris med ColumnDescription-objekt på varje till gång (en per kolumn för varje användare som har bidragit till deras kännedom om kolumnen, förutom en som innehåller information som härletts från data källan).  ColumnDescription binds löst till schemat så att det kan bli osynkroniserade. ColumnDescription kan beskriva en kolumn som inte längre finns i schemat.  Det är upp till skrivaren att behålla beskrivningen och schemat synkroniserat.  Data källan kan också ha kolumn beskrivnings information och de är ytterligare ColumnDescription-objekt som skulle skapas när verktyget körs.</td></tr>
+<tr><td></td><td>columnName</td><td>Sträng</td><td>Namnet på kolumnen som beskrivningen refererar till.</td></tr>
+<tr><td></td><td>description</td><td>Sträng</td><td>en kort beskrivning (2-3 rader) i kolumnen.</td></tr>
 
-<tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Den här egenskapen innehåller en tagg för en kolumn. Varje användare av systemet kan lägga till flera taggar för en viss kolumn och kan lägga till taggar för flera kolumner. Endast den användare som skapade ColumnTag-objekt kan redigera dem. (Administratörer och tillgångsägare kan ta bort ColumnTag-objektet men inte redigera det). Systemet underhåller dessa användares kolumntaggar separat.  Det finns alltså en matris med ColumnTag-objekt på varje tillgång.  ColumnTag är löst bunden till schemat så att den kan komma ur synk. ColumnTag kan beskriva en kolumn som inte längre finns i schemat.  Det är upp till författaren att hålla kolumntaggen och schemat synkroniserat.</td></tr>
-<tr><td></td><td>columnName</td><td>String</td><td>Namnet på den kolumn som den här taggen refererar till.</td></tr>
-<tr><td></td><td>tagg</td><td>String</td><td>En tagg som beskriver kolumnen.</td></tr>
+<tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Den här egenskapen innehåller en tagg för en kolumn. Varje användare av systemet kan lägga till flera taggar för en specifik kolumn och kan lägga till taggar för flera kolumner. Endast den användare som skapade ColumnTag-objekt kan redigera dem. (Administratörer och till gångs ägare kan ta bort ColumnTag-objektet men inte redigera det). Systemet underhåller dessa användares kolumn etiketter separat.  Därför finns det en matris med ColumnTag-objekt på varje till gång.  ColumnTag binds löst till schemat så att det kan bli osynkroniserade. ColumnTag kan beskriva en kolumn som inte längre finns i schemat.  Det är upp till skribenten att behålla kolumn tag gen och schemat synkroniserat.</td></tr>
+<tr><td></td><td>columnName</td><td>Sträng</td><td>Namnet på kolumnen som den här taggen refererar till.</td></tr>
+<tr><td></td><td>tagg</td><td>Sträng</td><td>En tagg som beskriver kolumnen.</td></tr>
 
-<tr><td>Expert ("experter")</td><td></td><td></td><td>Den här egenskapen innehåller en användare som betraktas som expert i datauppsättningen. Experternas åsikter (beskrivningar) bubbla till toppen av UX när notering beskrivningar. Varje användare kan ange sina egna experter. Endast den användaren kan redigera expertobjektet. (Administratörer och tillgångsägare kan ta bort expertobjekten men inte redigera dem).</td></tr>
-<tr><td></td><td>Expert</td><td>SäkerhetPrincipal</td><td></td></tr>
+<tr><td>Expert ("experter")</td><td></td><td></td><td>Den här egenskapen innehåller en användare som betraktas som en expert i data uppsättningen. Experternas åsikter (beskrivningar) bubblas längst upp i UXen när du registrerar beskrivningar. Varje användare kan ange sina egna experter. Endast den användaren kan redigera experter-objektet. (Administratörer och till gångs ägare kan ta bort expert objekt, men inte redigera det).</td></tr>
+<tr><td></td><td>man</td><td>SecurityPrincipal</td><td></td></tr>
 
-<tr><td>Förhandsgranska ("förhandsvisningar")</td><td></td><td></td><td>Förhandsgranskningen innehåller en ögonblicksbild av de 20 översta raderna med data för tillgången. Förhandsversion är bara meningsfullt för vissa typer av tillgångar (det är vettigt för Tabell men inte för Åtgärd).</td></tr>
-<tr><td></td><td>förhandsgranska</td><td>objekt[]</td><td>Matris med objekt som representerar en kolumn.  Varje objekt har en egenskapsmappning till en kolumn med ett värde för den kolumnen för raden.</td></tr>
+<tr><td>För hands version ("för hands versioner")</td><td></td><td></td><td>Förhands granskningen innehåller en ögonblicks bild av de 20 översta raderna med data för till gången. För hands versionen passar bara för vissa typer av till gångar (det är meningsfullt för tabellen men inte för mått).</td></tr>
+<tr><td></td><td>preview</td><td>objekt []</td><td>Matris med objekt som representerar en kolumn.  Varje-objekt har en egenskaps mappning till en kolumn med ett värde för den kolumnen för raden.</td></tr>
 
-<tr><td>TillträdeInstruktion ("accessInstructions")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Mimetype</td><td>sträng</td><td>Innehållets mimtyp.</td></tr>
-<tr><td></td><td>innehåll</td><td>sträng</td><td>Instruktionerna för hur du får tillgång till den här datatillgången. Innehållet kan vara en webbadress, en e-postadress eller en uppsättning instruktioner.</td></tr>
+<tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>mimeType</td><td>sträng</td><td>MIME-typen för innehållet.</td></tr>
+<tr><td></td><td>innehåll</td><td>sträng</td><td>Instruktioner för hur du får åtkomst till den här data till gången. Innehållet kan vara en URL, en e-postadress eller en uppsättning instruktioner.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>numberOfRows</td></td><td>int</td><td>Antalet rader i datauppsättningen</td></tr>
-<tr><td></td><td>size</td><td>long</td><td>Storleken i byte för datauppsättningen.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>sträng</td><td>Senaste gången schemat ändrades</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>sträng</td><td>Senaste gången datauppsättningen ändrades (data lades till, ändrades eller togs bort)</td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>Antalet rader i data uppsättningen</td></tr>
+<tr><td></td><td>size</td><td>long</td><td>Data uppsättningens storlek i byte.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>sträng</td><td>När schemat senast ändrades</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>sträng</td><td>Den senaste gången data uppsättningen ändrades (data lades till, ändrades eller togs bort)</td></tr>
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>kolumner</td></td><td>ColumnDataProfile[]</td><td>En matris med kolumndataprofiler.</td></tr>
+<tr><td></td><td>kolumner</td></td><td>ColumnDataProfile[]</td><td>En matris med kolumn data profiler.</td></tr>
 
 <tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName</td><td>String</td><td>Namnet på den kolumn som den här klassificeringen refererar till.</td></tr>
-<tr><td></td><td>klassificering</td><td>String</td><td>Klassificeringen av data i den här kolumnen.</td></tr>
+<tr><td></td><td>columnName</td><td>Sträng</td><td>Namnet på kolumnen som denna klassificering refererar till.</td></tr>
+<tr><td></td><td>klassificering</td><td>Sträng</td><td>Klassificeringen av data i den här kolumnen.</td></tr>
 
-<tr><td>Dokumentation ("dokumentation")</td><td></td><td></td><td>En viss tillgång kan bara ha en dokumentation kopplad till sig.</td></tr>
-<tr><td></td><td>Mimetype</td><td>sträng</td><td>Innehållets mimtyp.</td></tr>
-<tr><td></td><td>innehåll</td><td>sträng</td><td>Dokumentationen innehåll.</td></tr>
+<tr><td>Dokumentation ("dokumentation")</td><td></td><td></td><td>En specifik till gång kan bara ha en tillhör ande dokumentation.</td></tr>
+<tr><td></td><td>mimeType</td><td>sträng</td><td>MIME-typen för innehållet.</td></tr>
+<tr><td></td><td>innehåll</td><td>sträng</td><td>Dokumentations innehållet.</td></tr>
 
 </table>
 
@@ -165,123 +165,123 @@ Anteckningstyper representerar typer av metadata som kan tilldelas andra typer i
 Vanliga typer kan användas som typer för egenskaper, men är inte objekt.
 
 <table>
-<tr><td><b>Vanlig typ</b></td><td><b>Egenskaper</b></td><td><b>Datatyp</b></td><td><b>Kommentar</b></td></tr>
+<tr><td><b>Gemensam typ</b></td><td><b>Egenskaper</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType (sourceType)</td><td>sträng</td><td>Beskriver typen av datakälla.  Till exempel: SQL Server, Oracle Database, etc.  </td></tr>
-<tr><td></td><td>objectType (objekttyp)</td><td>sträng</td><td>Beskriver typen av objekt i datakällan. Till exempel: Tabell, Visa för SQL Server.</td></tr>
+<tr><td></td><td>sourceType</td><td>sträng</td><td>Beskriver typ av data källa.  Exempel: SQL Server, Oracle Database osv.  </td></tr>
+<tr><td></td><td>objectType</td><td>sträng</td><td>Beskriver typen av objekt i data källan. Exempel: tabell, vy för SQL Server.</td></tr>
 
-<tr><td>DataKällaPlats</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Protokollet</td><td>sträng</td><td>Krävs. Beskriver ett protokoll som används för att kommunicera med datakällan. Till exempel: "tds" för SQl Server, "oracle" för Oracle, etc. Se <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">referensspecifikation för datakälla - DSL-struktur</a> för listan över protokoll som stöds för närvarande.</td></tr>
-<tr><td></td><td>adress</td><td>Ordlistesträng,&lt;objekt&gt;</td><td>Krävs. Adress är en uppsättning data som är specifika för protokollet och som används för att identifiera den datakälla som refereras. Adressdata som omfattas av ett visst protokoll, vilket innebär att det är meningslöst utan att känna till protokollet.</td></tr>
-<tr><td></td><td>autentisering</td><td>sträng</td><td>Valfri. Autentiseringsschemat som används för att kommunicera med datakällan. Till exempel: fönster, oauth, etc.</td></tr>
-<tr><td></td><td>anslutningEgenskaper</td><td>Ordlistesträng,&lt;objekt&gt;</td><td>Valfri. Ytterligare information om hur du ansluter till en datakälla.</td></tr>
+<tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>protokollhanterare</td><td>sträng</td><td>Krävs. Beskriver ett protokoll som används för att kommunicera med data källan. Exempel: "TDS" för SQl Server, "Oracle" för Oracle osv. Se <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">referens specifikationen för data källor – DSL-strukturen</a> för listan över protokoll som stöds för närvarande.</td></tr>
+<tr><td></td><td>adress</td><td>Ord&lt;lista sträng, objekt&gt;</td><td>Krävs. Adress är en uppsättning data som är speciella för det protokoll som används för att identifiera data källan som refereras till. Adress data som omfattas av ett visst protokoll, vilket innebär att det är meningslöst utan att känna till protokollet.</td></tr>
+<tr><td></td><td>autentisering</td><td>sträng</td><td>Valfri. Autentiseringsschema som används för att kommunicera med data källan. Till exempel: Windows, OAuth, osv.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Ord&lt;lista sträng, objekt&gt;</td><td>Valfri. Ytterligare information om hur du ansluter till en data källa.</td></tr>
 
-<tr><td>SäkerhetPrincipal</td><td></td><td></td><td>Serverings-serverdan utför ingen validering av angivna egenskaper mot AAD under publiceringen.</td></tr>
-<tr><td></td><td>Upn</td><td>sträng</td><td>Unik e-postadress till användaren. Måste anges om objectId inte tillhandahålls eller i samband med egenskapen "lastRegisteredBy", annars valfritt.</td></tr>
-<tr><td></td><td>Objectid</td><td>GUID</td><td>AAD-identitet för användare eller säkerhetsgrupp. Valfri. Måste anges om upn inte tillhandahålls, annars valfritt.</td></tr>
-<tr><td></td><td>firstName</td><td>sträng</td><td>Förnamn på användaren (för visning). Valfri. Gäller endast i samband med egenskapen "lastRegisteredBy". Det går inte att ange när säkerhetsobjekt för "roller", "behörigheter" och "experter" anges.</td></tr>
-<tr><td></td><td>lastName</td><td>sträng</td><td>Efternamn på användaren (för visning). Valfri. Gäller endast i samband med egenskapen "lastRegisteredBy". Det går inte att ange när säkerhetsobjekt för "roller", "behörigheter" och "experter" anges.</td></tr>
+<tr><td>SecurityPrincipal</td><td></td><td></td><td>Server delen utför ingen validering av de angivna egenskaperna mot AAD under publiceringen.</td></tr>
+<tr><td></td><td>UPN</td><td>sträng</td><td>Unik e-postadress för användaren. Måste anges om objectId inte anges eller i kontexten för egenskapen lastRegisteredBy, annars valfritt.</td></tr>
+<tr><td></td><td>objectId</td><td>GUID</td><td>Användare eller säkerhets grupp AAD-identitet. Valfri. Måste anges om UPN inte anges, annars valfritt.</td></tr>
+<tr><td></td><td>firstName</td><td>sträng</td><td>Användarens förnamn (för visnings syfte). Valfri. Endast giltigt i kontexten för egenskapen "lastRegisteredBy". Kan inte anges vid tillhandahållande av säkerhets objekt för "roller", "behörigheter" och "experter".</td></tr>
+<tr><td></td><td>lastName</td><td>sträng</td><td>Användarens efter namn (för visnings syfte). Valfri. Endast giltigt i kontexten för egenskapen "lastRegisteredBy". Kan inte anges vid tillhandahållande av säkerhets objekt för "roller", "behörigheter" och "experter".</td></tr>
 
 <tr><td>Kolumn</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>namn</td><td>sträng</td><td>Namn på kolumnen eller attributet.</td></tr>
-<tr><td></td><td>typ</td><td>sträng</td><td>datatypen för kolumnen eller attributet. De tillåtna typerna beror på tillgångens datakällaTyp.  Endast en delmängd av typer stöds.</td></tr>
-<tr><td></td><td>Maxlength</td><td>int</td><td>Den maximala tillåtna längden för kolumnen eller attributet. Härleds från datakällan. Gäller endast vissa källtyper.</td></tr>
-<tr><td></td><td>Precision</td><td>byte</td><td>Precisionen för kolumnen eller attributet. Härleds från datakällan. Gäller endast vissa källtyper.</td></tr>
-<tr><td></td><td>ärNullable</td><td>Boolean</td><td>Om kolumnen tillåts ha ett null-värde eller inte. Härleds från datakällan. Gäller endast vissa källtyper.</td></tr>
-<tr><td></td><td>uttryck</td><td>sträng</td><td>Om värdet är en beräknad kolumn innehåller det här fältet uttrycket som uttrycker värdet. Härleds från datakällan. Gäller endast vissa källtyper.</td></tr>
+<tr><td></td><td>namn</td><td>sträng</td><td>Namnet på kolumnen eller attributet.</td></tr>
+<tr><td></td><td>typ</td><td>sträng</td><td>data typen för kolumnen eller attributet. De tillåtna typerna beror på data sourceType för till gången.  Endast en delmängd av typerna stöds.</td></tr>
+<tr><td></td><td>Max</td><td>int</td><td>Den maximala tillåtna längden för kolumnen eller attributet. Härlett från data källa. Gäller endast för vissa typer av ursprung.</td></tr>
+<tr><td></td><td>tillräcklig</td><td>stor</td><td>Precisionen för kolumnen eller attributet. Härlett från data källa. Gäller endast för vissa typer av ursprung.</td></tr>
+<tr><td></td><td>isNullable</td><td>Boolesk</td><td>Anger om kolumnen får ha ett null-värde eller inte. Härlett från data källa. Gäller endast för vissa typer av ursprung.</td></tr>
+<tr><td></td><td>uttryck</td><td>sträng</td><td>Om värdet är en beräknad kolumn innehåller det här fältet det uttryck som uttrycker värdet. Härlett från data källa. Gäller endast för vissa typer av ursprung.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName </td><td>sträng</td><td>Namnet på kolumnen</td></tr>
-<tr><td></td><td>typ </td><td>sträng</td><td>Typ av kolumn</td></tr>
-<tr><td></td><td>min </td><td>sträng</td><td>Minimivärdet i datauppsättningen</td></tr>
-<tr><td></td><td>Max </td><td>sträng</td><td>Det maximala värdet i datauppsättningen</td></tr>
-<tr><td></td><td>Avg </td><td>double</td><td>Medelvärdet i datauppsättningen</td></tr>
-<tr><td></td><td>Stdav </td><td>double</td><td>Standardavvikelsen för datauppsättningen</td></tr>
-<tr><td></td><td>nullCount (nullCount) </td><td>int</td><td>Antalet null-värden i datauppsättningen</td></tr>
-<tr><td></td><td>distinctCount (distinctCount)  </td><td>int</td><td>Antalet distinkta värden i datauppsättningen</td></tr>
+<tr><td></td><td>columnName </td><td>sträng</td><td>Kolumnens namn</td></tr>
+<tr><td></td><td>typ </td><td>sträng</td><td>Kolumnens typ</td></tr>
+<tr><td></td><td>min </td><td>sträng</td><td>Det minsta värdet i data uppsättningen</td></tr>
+<tr><td></td><td>bekräftat </td><td>sträng</td><td>Det maximala värdet i data uppsättningen</td></tr>
+<tr><td></td><td>Gmsn </td><td>double</td><td>Genomsnittligt värde i data uppsättningen</td></tr>
+<tr><td></td><td>StDev </td><td>double</td><td>Standard avvikelsen för data uppsättningen</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>Antalet null-värden i data uppsättningen</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>Antalet distinkta värden i data uppsättningen</td></tr>
 
 
 </table>
 
-## <a name="asset-identity"></a>Identitet för tillgångar
-Azure Data Catalog använder "protokoll" och identitetsegenskaper från egenskapspåsen "adress" för egenskapen DataSourceLocation "dsl" för att generera identiteten för tillgången, som används för att adressera tillgången i katalogen.
-Till exempel har "tds"-protokollet identitetsegenskaper "server", "databas", "schema" och "objekt". Kombinationerna av protokollet och identitetsegenskaperna används för att generera identiteten för SQL Server Table Asset.
-Azure Data Catalog innehåller flera inbyggda datakällprotokoll, som visas vid [referensspecifikation för datakälla - DSL-struktur](data-catalog-dsr.md).
-Uppsättningen protokoll som stöds kan utökas programmässigt (Se REST API-referens för datakatalog). Administratörer i katalogen kan registrera anpassade datakällprotokoll. I följande tabell beskrivs de egenskaper som behövs för att registrera ett anpassat protokoll.
+## <a name="asset-identity"></a>Till gångens identitet
+Azure Data Catalog använder "protokoll" och identitets egenskaper från egenskaps uppsättningen "Address" för DataSourceLocation "DSL" för att generera identiteten för till gången, som används för att adressera till gången i katalogen.
+Till exempel har "TDS"-protokollet identitets egenskaperna "Server", "Database", "schema" och "Object". Kombinationerna av protokollet och identitets egenskaperna används för att generera identiteten för den SQL Server tabellen till gång.
+Azure Data Catalog innehåller flera inbyggda data käll protokoll, som visas i [referens specifikationen för data källor – DSL-struktur](data-catalog-dsr.md).
+De protokoll som stöds kan utökas program mässigt (se Data Catalog REST API referens). Administratörer av katalogen kan registrera protokoll för anpassade data källor. I följande tabell beskrivs de egenskaper som krävs för att registrera ett anpassat protokoll.
 
-### <a name="custom-data-source-protocol-specification"></a>Specifikation av anpassat protokoll för datakälla
+### <a name="custom-data-source-protocol-specification"></a>Specifikation av anpassad data källa protokoll
 <table>
-<tr><td><b>Typ</b></td><td><b>Egenskaper</b></td><td><b>Datatyp</b></td><td><b>Kommentar</b></td></tr>
+<tr><td><b>Typ</b></td><td><b>Egenskaper</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr>
 
-<tr><td>DataKällaProtokol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>namnområde</td><td>sträng</td><td>Namnområdet för protokollet. Namnområdet måste vara mellan 1 och 255 tecken långt, innehålla en eller flera icke-tomma delar avgränsade med punkt (.). Varje del måste vara från 1 till 255 tecken lång, börja med en bokstav och innehåller endast bokstäver och siffror.</td></tr>
-<tr><td></td><td>namn</td><td>sträng</td><td>Namnet på protokollet. Namnet måste vara mellan 1 och 255 tecken långt, börja med en bokstav och bara innehålla bokstäver, siffror och strecktecknet (-).</td></tr>
-<tr><td></td><td>identitetEgenskaper</td><td>DataSourceProtocolIdentityProperty[]</td><td>Lista över identitetsegenskaper, måste innehålla minst en, men inte mer än 20 egenskaper. Till exempel: "server", "databas", "schema", "objekt" är identitetsegenskaper för "tds"-protokollet.</td></tr>
-<tr><td></td><td>identitetSET</td><td>DataSourceProtocolIdentitySet[]</td><td>Lista över identitetsuppsättningar. Definierar uppsättningar av identitetsegenskaper som representerar den giltiga tillgångens identitet. Måste innehålla minst en, men inte mer än 20 uppsättningar. Till exempel: {"server", "databas", "schema" och "objekt"} är en identitetsuppsättning för "tds"-protokollet, som definierar identiteten för Sql Server Table-tillgången.</td></tr>
+<tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>namnområde</td><td>sträng</td><td>Protokollets namnrymd. Namn området måste vara mellan 1 och 255 tecken långt, innehåller en eller flera icke-tomma delar, avgränsade med punkter (.). Varje del måste vara mellan 1 och 255 tecken långt, börja med en bokstav och endast innehålla bokstäver och siffror.</td></tr>
+<tr><td></td><td>namn</td><td>sträng</td><td>Namnet på protokollet. Namnet måste vara mellan 1 och 255 tecken långt, börja med en bokstav och får bara innehålla bokstäver, siffror och bindestreck (-).</td></tr>
+<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Lista över identitets egenskaper måste innehålla minst en, men inte fler än 20 egenskaper. Till exempel: "Server", "databas", "schema", "Object" är identitets egenskaper för "TDS"-protokollet.</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Lista över identitets uppsättningar. Definierar uppsättningar med identitets egenskaper, som representerar en giltig till gångs identitet. Måste innehålla minst en, men inte fler än 20 uppsättningar. Exempel: {"Server", "Database", "schema" och "Object"} är en identitets uppsättning för "TDS"-protokoll, som definierar identiteten för SQL Server-tabellen till gångar.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>namn</td><td>sträng</td><td>Namnet på egenskapen. Namnet måste vara mellan 1 och 100 tecken långt, börja med en bokstav och kan bara innehålla bokstäver och siffror.</td></tr>
-<tr><td></td><td>typ</td><td>sträng</td><td>Egenskapens typ. Värden som stöds: "bool", booleska", "byte", "guid", "int", "heltal", "long", "string", "url"</td></tr>
-<tr><td></td><td>ignoreCase (ignoreraFall)</td><td>bool</td><td>Anger om ärendet ska ignoreras när egenskapens värde ska användas. Kan endast anges för egenskaper med "strängtyp". Standardvärdet är falskt.</td></tr>
-<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool []</td><td>Anger om ärendet ska ignoreras för varje segment i url:ens sökväg. Kan endast anges för egenskaper med "url"-typ. Standardvärdet är [falskt].</td></tr>
+<tr><td></td><td>namn</td><td>sträng</td><td>Egenskapens namn. Namnet måste vara mellan 1 och 100 tecken långt, börja med en bokstav och får bara innehålla bokstäver och siffror.</td></tr>
+<tr><td></td><td>typ</td><td>sträng</td><td>Typ av egenskap. Värden som stöds: "bool", Boolean "," byte "," GUID "," int "," Integer "," Long "," String "," URL "</td></tr>
+<tr><td></td><td>ignoreCase</td><td>boolesk</td><td>Anger om Skift läget ska ignoreras när egenskapens värde används. Kan endast anges för egenskaper med typen String. Standardvärdet är false.</td></tr>
+<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool []</td><td>Anger om Skift läge ska ignoreras för varje segment i URL-sökvägen. Kan endast anges för egenskaper med "URL"-typ. Standardvärdet är [FALSE].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>namn</td><td>sträng</td><td>Namnet på identitetsuppsättningen.</td></tr>
-<tr><td></td><td>properties</td><td>sträng[]</td><td>Listan över identitetsegenskaper som ingår i den här identitetsuppsättningen. Den får inte innehålla dubbletter. Varje egenskap som refereras av identitetsuppsättning måste definieras i listan över "identityProperties" i protokollet.</td></tr>
+<tr><td></td><td>namn</td><td>sträng</td><td>Namnet på identitets uppsättningen.</td></tr>
+<tr><td></td><td>properties</td><td>sträng []</td><td>Listan över identitets egenskaper som ingår i den här identitets uppsättningen. Den får inte innehålla dubbletter. Varje egenskap som identitets uppsättningen refererar till måste definieras i listan över "identityProperties" för protokollet.</td></tr>
 
 </table>
 
 ## <a name="roles-and-authorization"></a>Roller och auktorisering
-Microsoft Azure Data Catalog tillhandahåller auktoriseringsfunktioner för CRUD-åtgärder på tillgångar och anteckningar.
+Microsoft Azure Data Catalog tillhandahåller auktoriseringsregler för CRUD-åtgärder på till gångar och anteckningar.
 
 ## <a name="key-concepts"></a>Viktiga begrepp
-Azure Data Catalog använder två auktoriseringsmekanismer:
+Azure Data Catalog använder två autentiseringsmetoder:
 
 * Rollbaserad auktorisering
-* Behörighetsbaserad auktorisering
+* Behörighets-baserad auktorisering
 
 ### <a name="roles"></a>Roller
-Det finns tre roller: **Administratör,** **Ägare**och **Deltagare**.  Varje roll har sin omfattning och sina rättigheter, som sammanfattas i följande tabell.
+Det finns tre roller: **administratör**, **ägare**och **deltagare**.  Varje roll har sitt omfång och rättigheter, som sammanfattas i följande tabell.
 
-<table><tr><td><b>Roll</b></td><td><b>Omfång</b></td><td><b>Rättigheter</b></td></tr><tr><td>Administratör</td><td>Katalog (alla tillgångar/anteckningar i katalogen)</td><td>Läs Ta bort ViewRoles
+<table><tr><td><b>Roll</b></td><td><b>Omfång</b></td><td><b>Behörigheter</b></td></tr><tr><td>Administratör</td><td>Katalog (alla till gångar/anteckningar i katalogen)</td><td>Läs ta bort ViewRoles
 
-Ändraownership ChangeVisibility ViewPermissions</td></tr><tr><td>Ägare</td><td>Varje tillgång (rotobjekt)</td><td>Läs Ta bort ViewRoles
+ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Ägare</td><td>Varje till gång (rot objekt)</td><td>Läs ta bort ViewRoles
 
-Ändraownership ChangeVisibility ViewPermissions</td></tr><tr><td>Deltagare</td><td>Varje enskild tillgång och anteckning</td><td>Läs uppdatera ta bort ViewRolles Obs: alla rättigheter återkallas om läsrättigheten för objektet återkallas från deltagaren</td></tr></table>
+ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Deltagare</td><td>Varje enskild till gång och anteckning</td><td>Läs uppdatering ta bort ViewRoles Obs! alla rättigheter återkallas om Läs behörigheten för objektet har återkallats från deltagaren</td></tr></table>
 
 > [!NOTE]
-> **Läs**, **Uppdatera**, **Ta bort**, **ViewRoles-rättigheter** gäller för alla artiklar (tillgång eller anteckningar) medan **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** endast är tillämpliga på rottillgången.
+> **Läsa**, **Uppdatera**, **ta bort**, **ViewRoles** rättigheter gäller för alla objekt (till gång eller anteckning) medan **TakeOwnerShip**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** bara kan användas för rot till gången.
 > 
-> **Borttagningsrätt** gäller för ett objekt och alla underobjekt eller ett enda objekt under det. Om du till exempel tar bort en tillgång tas även alla anteckningar för den tillgången bort.
+> **Ta bort** rättighet gäller för ett objekt och eventuella under objekt eller enstaka objekt under det. Om du till exempel tar bort en till gång raderas även eventuella anteckningar för den till gången.
 > 
 > 
 
 ### <a name="permissions"></a>Behörigheter
-Behörighet är som lista över åtkomstkontrollposter. Varje åtkomstkontrollpost tilldelar en säkerhetsobjektuppsättning med behörighet. Behörigheter kan bara anges på en tillgång (det vill än rotobjekt) och gälla för tillgången och eventuella underobjekt.
+Behörighet är en lista över åtkomst kontroll poster. Varje åtkomst kontroll post tilldelar en uppsättning rättigheter till ett säkerhets objekt. Behörigheter kan bara anges för en till gång (d.v.s. ett rot objekt) och tillämpas på till gången och eventuella under objekt.
 
-Under förhandsversionen av **Azure Data Catalog** stöds endast **läsrätt** i behörighetslistan för att aktivera scenario för att begränsa synligheten för en tillgång.
+Under **Azure Data Catalog** för hands versionen stöds endast **Läs** behörighet i behörighets listan för att aktivera scenariot för att begränsa synligheten för en till gång.
 
-Som standard har alla autentiserade användare **läsrätt** för alla objekt i katalogen om inte synligheten är begränsad till uppsättningen huvudnamn i behörigheterna.
+Som standard har alla autentiserade användare **Läs** behörighet för alla objekt i katalogen om inte synlighet är begränsad till en uppsättning huvud konton i behörigheterna.
 
-## <a name="rest-api"></a>REST API
-**POST-** och **POST-vyobjektbegäranden** kan användas för att styra roller och behörigheter: förutom artikelnyttolaster kan två systemegenskaper anges **roller** och **behörigheter**.
+## <a name="rest-api"></a>REST-API
+Begär Anden för att **lägga** till och **publicera** objekt kan användas för att kontrol lera roller och behörigheter: förutom objektets nytto last kan två system egenskaper anges **roller** och **behörigheter**.
 
 > [!NOTE]
-> **behörigheter** som endast gäller för ett rotobjekt.
+> **behörigheter** gäller endast för ett rot objekt.
 > 
-> **Ägarrollen** gäller endast för ett rotobjekt.
+> **Ägar** rollen gäller endast för ett rot objekt.
 > 
-> Som standard när ett objekt skapas i katalogen är **deltagaren** inställd på den autentiserade användaren. Om objektet ska uppdateras av alla bör &lt; **Deltagaren** anges till Alla&gt; särskilda säkerhetsobjekt i **rollegenskapen** när objektet först publiceras (se följande exempel). **Deltagaren** kan inte ändras och förblir densamma under ett objekts livstid (inte ens **administratör** eller **ägare** har rätt att ändra **deltagaren).** Det enda värde som stöds för &lt;den&gt;explicita inställningen för **deltagaren** är &lt;&gt;Alla: **Deltagare** kan bara vara en användare som har skapat ett objekt eller Alla .
+> Som standard när ett objekt skapas i katalogen har **deltagaren** angetts till den för tillfället autentiserade användaren. Om objektet ska kunna uppdateras av alla ska **deltagare** vara inställt på &lt;alla&gt; särskilda säkerhets objekt i egenskapen **roles** när objektet publiceras första gången (se följande exempel). **Deltagare** kan inte ändras och förblir på samma gång som ett objekts livs längd (till och med **administratören** eller **ägaren** har inte rätt att ändra **deltagare**). Det enda värde som stöds för den explicita inställningen **Contributor** för deltagare &lt;är&gt;alla: **deltagare** kan bara vara en användare som skapade ett objekt &lt;eller&gt;alla.
 > 
 > 
 
 ### <a name="examples"></a>Exempel
-**Ange Deltagare &lt;&gt; till Alla när du publicerar ett objekt.**
-Särskilda &lt;säkerhetsobjekt&gt; Alla har objectId "00000000-0000-0000-0000-00000000201".
-  **POST** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
+**Ange deltagare till &lt;alla&gt; när du publicerar ett objekt.**
+Särskilda säkerhets objekt &lt;alla&gt; har ObjectID "00000000-0000-0000-0000-000000000201".
+  **Publicera** https:\//API.azuredatacatalog.com/Catalogs/default/views/tables/?API-version=2016-03-30
 
 > [!NOTE]
-> Vissa HTTP-klientimplementeringar kan automatiskt återutfärda begäranden som svar på en 302 från servern, men vanligtvis ta bort auktoriseringshuvuden från begäran. Eftersom auktoriseringshuvudet krävs för att göra begäranden till Azure Data Catalog måste du se till att auktoriseringshuvudet fortfarande anges när en begäran omges till en omdirigeringsplats som anges av Azure Data Catalog. Följande exempelkod visar att den använder .NET HttpWebRequest-objektet.
+> Vissa HTTP-serverimplementeringar kan automatiskt återutfärda begär Anden som svar på en 302 från servern, men vanligt vis stripe-svarshuvuden från begäran. Eftersom Authorization-huvudet krävs för att göra begär anden till Azure Data Catalog, måste du se till att Authorization-huvudet fortfarande anges när du skickar en begäran till en omdirigerings plats som anges av Azure Data Catalog. Följande exempel kod visar hur du använder .NET HttpWebRequest-objektet.
 > 
 > 
 
@@ -301,7 +301,7 @@ Särskilda &lt;säkerhetsobjekt&gt; Alla har objectId "00000000-0000-0000-0000-0
     }
 ```
 
-  **Tilldela ägare och begränsa synligheten för ett befintligt rotobjekt:** **PUT** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Tilldela ägare och begränsa synligheten för ett befintligt rot objekt**: **Lägg** till\/https:/API.azuredatacatalog.com/Catalogs/default/views/tables/042297b0...1be45ecd462a?API-version=2016-03-30
 
 ```json
     {
@@ -348,5 +348,5 @@ Särskilda &lt;säkerhetsobjekt&gt; Alla har objectId "00000000-0000-0000-0000-0
 ```
 
 > [!NOTE]
-> I PUT krävs det inte att ange en artikel nyttolast i brödtexten: PUT kan användas för att uppdatera bara roller och /eller behörigheter.
+> I princip krävs det inte att du anger en objekt nytto Last i texten: med kan du använda för att uppdatera bara roller och/eller behörigheter.
 > 

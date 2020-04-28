@@ -1,6 +1,6 @@
 ---
-title: Övervaka din Azure Data Box Edge-enhet | Microsoft-dokument
-description: Beskriver hur du använder Azure-portalen och det lokala webbgränssnittet för att övervaka din Azure Data Box Edge.
+title: Övervaka Azure Data Box Edge-enheten | Microsoft Docs
+description: Beskriver hur du använder Azure Portal och det lokala webb gränssnittet för att övervaka din Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 188f5c6cfbb4650ad1ff767955d064f8e0c3cb70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60756752"
 ---
-# <a name="monitor-your-azure-data-box-edge"></a>Övervaka din Azure Data Box Edge
+# <a name="monitor-your-azure-data-box-edge"></a>Övervaka dina Azure Data Box Edge
 
-I den här artikeln beskrivs hur du övervakar din Azure Data Box Edge. Om du vill övervaka din enhet kan du använda Azure-portalen eller det lokala webbgränssnittet. Använd Azure-portalen för att visa enhetshändelser, konfigurera och hantera aviseringar och visa mått. Använd det lokala webbgränssnittet på din fysiska enhet för att visa maskinvarustatus för de olika enhetskomponenterna.
+I den här artikeln beskrivs hur du övervakar Azure Data Box Edge. Du kan övervaka din enhet genom att använda Azure Portal eller det lokala webb gränssnittet. Använd Azure Portal för att Visa enhets händelser, konfigurera och hantera aviseringar och visa mått. Använd det lokala webb gränssnittet på din fysiska enhet för att Visa maskin varu status för de olika enhets komponenterna.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Visa enhetshändelser och motsvarande aviseringar
-> * Visa maskinvarustatus för enhetskomponenter
-> * Visa kapacitet och transaktionsmått för din enhet
+> * Visa enhets händelser och motsvarande aviseringar
+> * Visa maskin varu status för enhets komponenter
+> * Visa kapacitets-och transaktions mått för din enhet
 > * Konfigurera och hantera aviseringar
 
-## <a name="view-device-events"></a>Visa enhetshändelser
+## <a name="view-device-events"></a>Visa enhets händelser
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
 
-## <a name="view-hardware-status"></a>Visa maskinvarustatus
+## <a name="view-hardware-status"></a>Visa maskin varu status
 
-Gör följande i det lokala webbgränssnittet för att visa maskinvarustatus för enhetskomponenterna.
+Utför följande steg i det lokala webb gränssnittet för att Visa maskin varu statusen för dina enhets komponenter.
 
-1. Anslut till enhetens lokala webbgränssnitt.
-2. Gå till **underhålls- > maskinvarustatus**. Du kan visa hälsotillståndet för de olika enhetskomponenterna.
+1. Anslut till det lokala webb gränssnittet på enheten.
+2. Gå till **underhålls > maskin varu status**. Du kan visa hälso tillståndet för de olika enhets komponenterna.
 
-    ![Visa maskinvarustatus](media/data-box-edge-monitor/view-hardware-status.png)
+    ![Visa maskin varu status](media/data-box-edge-monitor/view-hardware-status.png)
 
 ## <a name="view-metrics"></a>Visa mått
 

@@ -1,6 +1,6 @@
 ---
-title: GetCurrentTimestamp i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktionen GetCurrentTimestamp i Azure Cosmos DB.
+title: GetCurrentTimestamp i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system Function GetCurrentTimestamp i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b816c63da56025fe6e9cbaece2cde5dcd01585d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71351005"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
- Returnerar antalet millisekunder som har förflutit sedan 00:00:00 torsdagen den 1 januari 1970. 
+ Returnerar antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970. 
   
 ## <a name="syntax"></a>Syntax
   
@@ -23,25 +23,25 @@ ms.locfileid: "71351005"
 GetCurrentTimestamp ()  
 ```  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
-  Returnerar ett numeriskt värde, det aktuella antalet millisekunder som har förflutit sedan Unix-epoken, dvs.
+  Returnerar ett numeriskt värde, det aktuella antalet millisekunder som har förflutit sedan UNIX-epoken, dvs. antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970.
 
 ## <a name="remarks"></a>Anmärkningar
 
-  GetCurrentTimestamp() är en icke-deterministisk funktion.
+  GetCurrentTimestamp () är en icke-deterministisk funktion.
   
   Resultatet som returneras är UTC (Coordinated Universal Time).
 
 ## <a name="examples"></a>Exempel
   
-  I följande exempel visas hur du hämtar den aktuella tidsstämpeln med den inbyggda funktionen GetCurrentTimestamp().
+  I följande exempel visas hur du hämtar den aktuella tidsstämpeln med hjälp av den inbyggda funktionen GetCurrentTimestamp ().
   
 ```sql
 SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 ```  
   
- Här är ett exempel resultatuppsättning.
+ Här är ett exempel på en resultat uppsättning.
   
 ```json
 [{
@@ -51,6 +51,6 @@ SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Datum- och tidsfunktioner Azure Cosmos DB](sql-query-date-time-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Datum-och tids funktioner Azure Cosmos DB](sql-query-date-time-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

@@ -1,7 +1,7 @@
 ---
-title: Skicka ett arbetsflöde med flera indata
+title: Skicka ett arbets flöde med flera indata
 titleSuffix: Microsoft Genomics
-description: Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är flera FASTQ- eller BAM-filer från samma exempel.
+description: Den här artikeln visar hur du skickar ett arbets flöde till Microsoft Genomics tjänsten om indatafilen är flera FASTQ-eller BAM-filer från samma exempel.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -10,19 +10,19 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72248574"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Skicka ett arbetsflöde med flera indata från samma prov
 
-Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är flera FASTQ- eller BAM-filer **som kommer från samma exempel**. Om du exempelvis körde **samma prov** i flera banor i sekvensen, kunde resulterande utdata bli ett par med FASTQ-filer för varje bana. I stället för att sammanfoga FASTQ-filerna innan inpassning och identifiering av varianter, kan du direkt skicka alla dessa indata till `msgen`-klienten. Utdata från `msgen`-klienten kan vara en **enkel uppsättning** av filer, inklusive en .bam-, .bai- eller .vcf-fil. 
+Den här artikeln visar hur du skickar ett arbets flöde till Microsoft Genomics tjänsten om indatafilen är flera FASTQ-eller BAM-filer som **kommer från samma exempel**. Om du exempelvis körde **samma prov** i flera banor i sekvensen, kunde resulterande utdata bli ett par med FASTQ-filer för varje bana. I stället för att sammanfoga FASTQ-filerna innan inpassning och identifiering av varianter, kan du direkt skicka alla dessa indata till `msgen`-klienten. Utdata från `msgen`-klienten kan vara en **enkel uppsättning** av filer, inklusive en .bam-, .bai- eller .vcf-fil. 
 
 Kom ihåg att du **inte** kan skicka in blandade FASTQ- och BAM-filer. Dessutom kan du **inte** skicka flera FASTQ- eller BAM-filer från flera personer. 
 
-I den här artikeln förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbetsflöde med hjälp av de medföljande exempeldata, är du redo att fortsätta med den här artikeln. 
+I den här artikeln förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbets flöde med hjälp av de tillhandahållna exempel data, är du redo att fortsätta med den här artikeln. 
 
 
 ## <a name="multiple-bam-files"></a>Flera BAM-filer

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera webbproxy för StorSimple 8000-serien | Microsoft-dokument
-description: Lär dig hur du använder Windows PowerShell för StorSimple för att konfigurera webbproxyinställningar för Din StorSimple-enhet.
+title: Konfigurera webbproxy för StorSimple 8000-seriens enhet | Microsoft Docs
+description: Lär dig hur du använder Windows PowerShell för StorSimple för att konfigurera webbproxy-inställningar för din StorSimple-enhet.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,145 +15,145 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65204253"
 ---
-# <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera webbproxy för StorSimple-enheten
+# <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera webbproxy för din StorSimple-enhet
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien beskrivs hur du använder Windows PowerShell för StorSimple för att konfigurera och visa webbproxyinställningar för Din StorSimple-enhet. Webbproxyinställningarna används av StorSimple-enheten när du kommunicerar med molnet. En webbproxyserver används för att lägga till ytterligare ett lager av säkerhet, filtrera innehåll, cache för att underlätta bandbreddskrav eller till och med hjälp med analyser.
+I den här självstudien beskrivs hur du använder Windows PowerShell för StorSimple för att konfigurera och Visa inställningar för webbproxy för din StorSimple-enhet. Webbproxy-inställningarna används av StorSimple-enheten vid kommunikation med molnet. En webbproxyserver används för att lägga till ytterligare ett lager med säkerhet, filtrera innehåll, cache för att under lätta bandbredds kraven eller till och med analys.
 
-Vägledningen i den här självstudien gäller endast för fysiska enheter i StorSimple 8000-serien. Webbproxykonfiguration stöds inte på StorSimple Cloud Appliance (8010 och 8020).
+Vägledningen i den här självstudien gäller endast för fysiska enheter i StorSimple 8000-serien. Webbproxy-konfiguration stöds inte på StorSimple Cloud Appliance (8010 och 8020).
 
-Webbproxy är en _valfri_ konfiguration för Din StorSimple-enhet. Du kan bara konfigurera webbproxy via Windows PowerShell för StorSimple. Konfigurationen är en tvåstegsprocess enligt följande:
+Web Proxy är en _valfri_ konfiguration för din StorSimple-enhet. Du kan bara konfigurera webbproxy via Windows PowerShell för StorSimple. Konfigurationen är en två stegs process på följande sätt:
 
-1. Du konfigurerar först webbproxyinställningar via installationsguiden eller Windows PowerShell för StorSimple-cmdlets.
-2. Du aktiverar sedan de konfigurerade webbproxyinställningarna via Windows PowerShell för StorSimple-cmdlets.
+1. Du måste först konfigurera webbproxyinställningar via installations guiden eller Windows PowerShell för StorSimple-cmdletar.
+2. Sedan aktiverar du de konfigurerade webbproxy-inställningarna via Windows PowerShell för StorSimple-cmdletar.
 
-När webbproxykonfigurationen är klar kan du visa de konfigurerade webbproxyinställningarna i både Tjänsten Microsoft Azure StorSimple Device Manager och Windows PowerShell för StorSimple.
+När webbproxy-konfigurationen är klar kan du Visa de konfigurerade webbproxyinställningarna i både tjänsten Microsoft Azure StorSimple Enhetshanteraren och Windows PowerShell för StorSimple.
 
-Efter att ha läst den här guiden kommer du att kunna:
+När du har läst den här självstudien kommer du att kunna:
 
-* Konfigurera webbproxy med hjälp av installationsguiden och cmdlets.
-* Aktivera webbproxy med cmdlets.
-* Visa webbproxyinställningar i Azure-portalen.
-* Felsöka fel under webbproxykonfiguration.
+* Konfigurera webbproxy med hjälp av installations guiden och cmdletar.
+* Aktivera webbproxy med hjälp av-cmdletar.
+* Visa webbproxy-inställningar i Azure Portal.
+* Felsök fel under webbproxy-konfigurationen.
 
 
 ## <a name="configure-web-proxy-via-windows-powershell-for-storsimple"></a>Konfigurera webbproxy via Windows PowerShell för StorSimple
 
-Du använder något av följande för att konfigurera webbproxyinställningar:
+Du kan använda något av följande för att konfigurera inställningar för webbproxy:
 
-* Installationsguiden som hjälper dig att följa konfigurationsstegen.
-* Cmdlets i Windows PowerShell för StorSimple.
+* Installations guiden hjälper dig att följa konfigurations stegen.
+* Cmdletar i Windows PowerShell för StorSimple.
 
-Var och en av dessa metoder diskuteras i följande avsnitt.
+Var och en av dessa metoder beskrivs i följande avsnitt.
 
-## <a name="configure-web-proxy-via-the-setup-wizard"></a>Konfigurera webbproxy via installationsguiden
+## <a name="configure-web-proxy-via-the-setup-wizard"></a>Konfigurera webbproxy via installations guiden
 
-Använd installationsguiden för att guida dig igenom stegen för webbproxykonfiguration. Utför följande steg för att konfigurera webbproxy på enheten.
+Använd installations guiden för att vägleda dig genom stegen för webbproxy-konfiguration. Utför följande steg för att konfigurera webbproxy på enheten.
 
-#### <a name="to-configure-web-proxy-via-the-setup-wizard"></a>Så här konfigurerar du webbproxy via installationsguiden
+#### <a name="to-configure-web-proxy-via-the-setup-wizard"></a>Konfigurera webbproxy via installations guiden
 
-1. I menyn för seriell konsol väljer du alternativ 1, **Logga in med full åtkomst** och ange lösenordet för **enhetsadministratören**. Skriv följande kommando för att starta en installationsguidesession:
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst** och anger **enhetens administratörs lösen ord**. Skriv följande kommando för att starta en session med installations guiden:
    
     `Invoke-HcsSetupWizard`
-2. Om det är första gången du använder installationsguiden för enhetsregistrering måste du konfigurera alla nödvändiga nätverksinställningar tills du når webbproxykonfigurationen. Om enheten redan är registrerad godkänner du alla konfigurerade nätverksinställningar tills du når webbproxykonfigurationen. Skriv **Ja**när du uppmanas att konfigurera inställningar för webbproxy i installationsguiden .
-3. För **webbproxy-URL:en**anger du IP-adressen eller det fullständigt kvalificerade domännamnet (FQDN) för webbproxyservern och det TCP-portnummer som du vill att enheten ska använda när du kommunicerar med molnet. Använd följande format:
+2. Om det här är första gången du har använt installations guiden för enhets registrering måste du konfigurera alla nödvändiga nätverks inställningar tills du når webbproxy-konfigurationen. Om enheten redan har registrerats accepterar du alla konfigurerade nätverks inställningar tills du når webbproxy-konfigurationen. Skriv **Ja**i installations guiden när du uppmanas att konfigurera webbproxy-inställningar.
+3. För **Webbproxyserverns URL**anger du IP-adressen eller det fullständigt kvalificerade domän namnet (FQDN) för webbproxyservern och det TCP-portnummer som du vill att enheten ska använda vid kommunikation med molnet. Använd följande format:
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
-    Som standard anges TCP-portnummer 8080.
-4. Välj autentiseringstyp som **NTLM**, **Basic**eller **Ingen**. Basic är den minst säkra autentiseringen för proxyserverkonfigurationen. NT LAN Manager (NTLM) är ett mycket säkert och komplext autentiseringsprotokoll som använder ett trevägsmeddelandesystem (ibland fyra om ytterligare integritet krävs) för att autentisera en användare. Standardautentiseringen är NTLM. Mer information finns i [Grundläggande](https://hc.apache.org/httpclient-3.x/authentication.html) och [NTLM-autentisering](https://hc.apache.org/httpclient-3.x/authentication.html). 
+    TCP-portnummer 8080 anges som standard.
+4. Välj autentiseringstyp som **NTLM**, **Basic**eller **none**. Basic är den minst säkra autentiseringen för konfigurationen av proxyservern. NT LAN Manager (NTLM) är ett mycket säkert och komplext autentiseringsprotokoll som använder ett 3-vägs meddelande system (ibland fyra om ytterligare integritet krävs) för att autentisera en användare. Standardautentiseringen är NTLM. Mer information finns i [grundläggande](https://hc.apache.org/httpclient-3.x/authentication.html) och [NTLM-autentisering](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **I Tjänsten StorSimple Device Manager fungerar enhetsövervakningsdiagrammen inte när Basic- eller NTLM-autentisering är aktiverad i enhetens proxyserverkonfiguration. För att övervakningsdiagrammen ska fungera måste du se till att autentiseringen är inställd på NONE.**
+   > **I StorSimple Enhetshanteraren-tjänsten fungerar inte enhets övervaknings diagrammen när Basic-eller NTLM-autentisering är aktiverat i enhetens konfiguration för proxyservern. För att övervaknings diagrammen ska fungera måste autentiseringen vara inställd på ingen.**
   
-5. Om du har aktiverat autentiseringen anger du ett **användarnamn för webbproxy** och ett **webbproxylösenord**. Du måste också bekräfta lösenordet.
+5. Om du har aktiverat autentiseringen anger du ett **användar namn för webbproxy** och ett **webbproxy-lösenord**. Du måste också bekräfta lösen ordet.
    
-    ![Konfigurera webbproxy på StorSimple-enhet1](./media/storsimple-configure-web-proxy/IC751830.png)
+    ![Konfigurera webbproxy på StorSimple-Device1](./media/storsimple-configure-web-proxy/IC751830.png)
 
-Om du registrerar enheten för första gången fortsätter du med registreringen. Om enheten redan har registrerats avslutas guiden. De konfigurerade inställningarna sparas.
+Om du registrerar din enhet för första gången fortsätter du med registreringen. Om din enhet redan har registrerats avslutas guiden. De konfigurerade inställningarna sparas.
 
-Webbproxy är nu aktiverat. Du kan hoppa över steget [Aktivera webbproxy](#enable-web-proxy) och gå direkt till [Visa webbproxyinställningar i Azure-portalen](#view-web-proxy-settings-in-the-azure-portal).
+Web Proxy är nu aktiverat. Du kan hoppa över steget [Aktivera webbproxy](#enable-web-proxy) och gå direkt till [Visa webbproxyinställningar i Azure Portal](#view-web-proxy-settings-in-the-azure-portal).
 
-## <a name="configure-web-proxy-via-windows-powershell-for-storsimple-cmdlets"></a>Konfigurera webbproxy via Windows PowerShell för StorSimple-cmdlets
+## <a name="configure-web-proxy-via-windows-powershell-for-storsimple-cmdlets"></a>Konfigurera webbproxy via Windows PowerShell för StorSimple-cmdletar
 
-Ett alternativt sätt att konfigurera webbproxyinställningar är via Windows PowerShell för StorSimple-cmdlets. Utför följande steg för att konfigurera webbproxy.
+Ett annat sätt att konfigurera webbproxy-inställningar är via Windows PowerShell för StorSimple-cmdletar. Konfigurera webbproxy genom att utföra följande steg.
 
-#### <a name="to-configure-web-proxy-via-cmdlets"></a>Så här konfigurerar du webbproxy via cmdlets
-1. I den seriella konsolmenyn väljer du alternativ 1, **Logga in med full åtkomst**. Ange **lösenordet för enhetsadministratören**när du uppmanas att göra det. Standardlösenordet är `Password1`.
+#### <a name="to-configure-web-proxy-via-cmdlets"></a>Konfigurera webbproxy via-cmdletar
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1`.
 2. Skriv följande i kommandotolken:
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    
-    Ange och bekräfta lösenordet när du uppmanas att göra det.
+    Ange och bekräfta lösen ordet när du uppmanas till det.
    
-    ![Konfigurera webbproxy på StorSimple-enhet3](./media/storsimple-configure-web-proxy/IC751831.png)
+    ![Konfigurera webbproxy på StorSimple-Device3](./media/storsimple-configure-web-proxy/IC751831.png)
 
-Webbproxyn är nu konfigurerad och måste aktiveras.
+Webbproxyn har nu kon figurer ATS och måste aktive ras.
 
 ## <a name="enable-web-proxy"></a>Aktivera webbproxy
 
-Webbproxyn är inaktiverad som standard. När du har konfigurerat webbproxyinställningarna på StorSimple-enheten använder du Windows PowerShell för StorSimple för att aktivera webbproxyinställningarna.
+Web Proxy är inaktive rad som standard. När du har konfigurerat webbproxyinställningarna på din StorSimple-enhet använder du Windows PowerShell för StorSimple för att aktivera webbproxyinställningarna.
 
 > [!NOTE]
-> **Det här steget krävs inte om du använde installationsguiden för att konfigurera webbproxy. Webbproxy aktiveras automatiskt som standard efter en installationsguidesession.**
+> **Det här steget krävs inte om du använde installations guiden för att konfigurera webbproxy. Webbproxy aktive ras automatiskt som standard efter en installations guide-session.**
 
 
-Gör följande i Windows PowerShell för StorSimple för att aktivera webbproxy på enheten:
+Utför följande steg i Windows PowerShell för StorSimple för att aktivera webbproxy på enheten:
 
 #### <a name="to-enable-web-proxy"></a>Så här aktiverar du webbproxy
-1. I den seriella konsolmenyn väljer du alternativ 1, **Logga in med full åtkomst**. Ange **lösenordet för enhetsadministratören**när du uppmanas att göra det. Standardlösenordet är `Password1`.
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1`.
 2. Skriv följande i kommandotolken:
    
     `Enable-HcsWebProxy`
    
-    Du har nu aktiverat webbproxykonfigurationen på din StorSimple-enhet.
+    Du har nu aktiverat webbproxy-konfigurationen på din StorSimple-enhet.
    
-    ![Konfigurera webbproxy på StorSimple Device4](./media/storsimple-configure-web-proxy/IC751832.png)
+    ![Konfigurera webbproxy på StorSimple-Device4](./media/storsimple-configure-web-proxy/IC751832.png)
 
-## <a name="view-web-proxy-settings-in-the-azure-portal"></a>Visa webbproxyinställningar i Azure-portalen
+## <a name="view-web-proxy-settings-in-the-azure-portal"></a>Visa webbproxy-inställningar i Azure Portal
 
-Webbproxyinställningarna konfigureras via Windows PowerShell-gränssnittet och kan inte ändras inifrån portalen. Du kan dock visa dessa konfigurerade inställningar i portalen. Gör följande för att visa webbproxy.
+Webbproxy-inställningarna konfigureras via Windows PowerShell-gränssnittet och kan inte ändras från portalen. Du kan dock visa de här konfigurerade inställningarna i portalen. Utför följande steg för att Visa webbproxy.
 
-#### <a name="to-view-web-proxy-settings"></a>Så här visar du inställningar för webbproxy
-1. Navigera till **Tjänsten StorSimple Device Manager > Devices**. Markera och klicka på en enhet och gå sedan till **Enhetsinställningar > Nätverk**.
+#### <a name="to-view-web-proxy-settings"></a>Visa webbproxy-inställningar
+1. Gå till **StorSimple Enhetshanteraren tjänst > enheter**. Markera och klicka på en enhet och gå sedan till **enhets inställningar > nätverk**.
 
-    ![Klicka på Nätverk](./media/storsimple-8000-configure-web-proxy/view-web-proxy-1.png)
+    ![Klicka på nätverk](./media/storsimple-8000-configure-web-proxy/view-web-proxy-1.png)
 
-2. Klicka på panelen **Webbproxy** i bladet **Nätverksinställningar.**
+2. Klicka på panelen **webbproxy** i bladet **nätverks inställningar** .
 
     ![Klicka på webbproxy](./media/storsimple-8000-configure-web-proxy/view-web-proxy-2.png)
 
-3. Granska de konfigurerade webbproxyinställningarna på StorSimple-enheten i **webbproxybladet.**
+3. Granska de konfigurerade webbproxyinställningarna på din StorSimple-enhet på bladet **webbproxy** .
    
-    ![Visa inställningar för webbproxy](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
+    ![Visa webbproxy-inställningar](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
 
 
-## <a name="errors-during-web-proxy-configuration"></a>Fel under webbproxykonfiguration
+## <a name="errors-during-web-proxy-configuration"></a>Fel under webbproxy-konfiguration
 
-Om webbproxyinställningarna är felaktigt konfigurerade visas felmeddelanden för användaren i Windows PowerShell för StorSimple. I följande tabell beskrivs några av dessa felmeddelanden, de troliga orsakerna och rekommenderade åtgärder.
+Om webbproxy-inställningarna är felaktigt konfigurerade visas fel meddelanden för användaren i Windows PowerShell för StorSimple. I följande tabell förklaras några av de här fel meddelandena, deras sannolika orsaker och rekommenderade åtgärder.
 
-| Seriellt nej. | HRESULT-felkod | Möjlig grundorsak | Rekommenderad åtgärd |
+| Serie nummer | HRESULT-felkod | Möjlig rotor saken | Rekommenderad åtgärd |
 |:--- |:--- |:--- |:--- |
-| 1. |0x80070001 |Kommandot körs från den passiva styrenheten och det kan inte kommunicera med den aktiva styrenheten. |Kör kommandot på den aktiva styrenheten. Om du vill köra kommandot från den passiva styrenheten måste du åtgärda anslutningen från passiv till aktiv styrenhet. Du måste aktivera Microsoft Support om den här anslutningen är bruten. |
-| 2. |0x800710dd - Åtgärdsidentifieraren är ogiltig |Proxyinställningar stöds inte på StorSimple Cloud Appliance. |Proxyinställningar stöds inte på StorSimple Cloud Appliance. Dessa kan endast konfigureras på en storsimaple fysisk enhet. |
-| 3. |0x80070057 - Ogiltig parameter |En av parametrarna för proxyinställningarna är ogiltig. |URI:n är inte korrekt. Använd följande format:`http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
-| 4. |0x800706ba - RPC-server är inte tillgänglig |Grundorsaken är något av följande:</br></br>Klustret är inte uppe. </br></br>Datapath-tjänsten körs inte.</br></br>Kommandot körs från passiv styrenhet och det kan inte kommunicera med den aktiva styrenheten. |Aktivera Microsoft Support för att se till att klustret är igång och att datapath-tjänsten körs.</br></br>Kör kommandot från den aktiva styrenheten. Om du vill köra kommandot från den passiva styrenheten måste du se till att den passiva styrenheten kan kommunicera med den aktiva styrenheten. Du måste aktivera Microsoft Support om den här anslutningen är bruten. |
-| 5. |0x800706be - RPC-anropet misslyckades |Klustret är nere. |Engagera Microsoft Support för att se till att klustret är uppe. |
-| 6. |0x8007138f - Klusterresursen hittades inte |Det gick inte att hitta klusterresursen för plattformstjänst. Detta kan inträffa när installationen inte var korrekt. |Du kan behöva göra en fabriksåterställning på enheten. Du kan behöva skapa en plattformsresurs. Kontakta Microsoft-supporten om du vill ha hjälp. |
-| 7. |0x8007138c - Klusterresurs inte online |Plattforms- eller datapath-klusterresurser är inte online. |Kontakta Microsoft Support för att se till att datapath- och plattformstjänstresursen är online. |
+| 1. |0x80070001 |Kommandot körs från den passiva styrenheten och kan inte kommunicera med den aktiva styrenheten. |Kör kommandot på den aktiva kontroll enheten. Om du vill köra kommandot från den passiva styrenheten måste du åtgärda anslutningen från passiv till aktiv kontroll enhet. Du måste engagera Microsoft Support om den här anslutningen är bruten. |
+| 2. |0x800710dd-åtgärds-ID: n är inte giltig |Proxyinställningar stöds inte på StorSimple Cloud Appliance. |Proxyinställningar stöds inte på StorSimple Cloud Appliance. Dessa kan bara konfigureras på en fysisk StorSimple-enhet. |
+| 3. |0x80070057-ogiltig parameter |En av de parametrar som angavs för proxyinställningarna är inte giltig. |URI: n har inte angetts i rätt format. Använd följande format:`http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
+| 4. |0x800706ba – RPC-servern är inte tillgänglig |Rotor saken är något av följande:</br></br>Klustret är inte igång. </br></br>Datapath-tjänsten körs inte.</br></br>Kommandot körs från passiv styrenhet och kan inte kommunicera med den aktiva styrenheten. |Engagera Microsoft Support för att säkerställa att klustret är igång och att Datapath-tjänsten körs.</br></br>Kör kommandot från den aktiva kontroll enheten. Om du vill köra kommandot från den passiva styrenheten måste du se till att den passiva styrenheten kan kommunicera med den aktiva styrenheten. Du måste engagera Microsoft Support om den här anslutningen är bruten. |
+| 5. |0x800706be-RPC-anropet misslyckades |Klustret är nere. |Engagera Microsoft Support för att säkerställa att klustret är igång. |
+| 6. |0x8007138f-kluster resursen hittades inte |Det gick inte att hitta plattforms tjänstens kluster resurs. Detta kan inträffa när installationen inte var korrekt. |Du kan behöva göra en fabriks återställning på enheten. Du kan behöva skapa en plattforms resurs. Kontakta Microsoft-supporten om du vill ha hjälp. |
+| 7. |0x8007138c-kluster resurs inte online |Plattforms-eller Datapath kluster resurser är inte online. |Kontakta Microsoft Support för att se till att Datapath-och plattforms tjänst resursen är online. |
 
 > [!NOTE]
-> * Listan över felmeddelanden ovan är inte uttömmande.
-> * Fel relaterade till webbproxyinställningar visas inte i Azure-portalen i Tjänsten StorSimple Device Manager. Om det finns ett problem med webbproxy när konfigurationen är klar ändras enhetsstatusen till **Offline** i den klassiska portalen.|
+> * Listan över fel meddelanden är inte fullständig.
+> * Fel som rör webbproxyinställningar visas inte i Azure Portal i Enhetshanterarens tjänsten för StorSimple. Om det uppstår ett problem med webbproxy när konfigurationen har slutförts ändras enhetens status till **offline** i den klassiska portalen. |
 
 ## <a name="next-steps"></a>Efterföljande moment
-* Om du får problem när du distribuerar enheten eller konfigurerar webbproxyinställningar läser du [Felsöka distributionen av StorSimple-enheten](storsimple-troubleshoot-deployment.md).
-* Om du vill veta hur du använder Tjänsten StorSimple Device Manager går du till [Använd Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Om du får problem när du distribuerar enheten eller konfigurerar webbproxyinställningar, se [fel sökning av distribution av StorSimple-enheter](storsimple-troubleshoot-deployment.md).
+* Om du vill lära dig hur du använder StorSimple Enhetshanteraren-tjänsten går du till [använda StorSimple Enhetshanteraren-tjänsten för att administrera StorSimple-enheten](storsimple-8000-manager-service-administration.md).
 
